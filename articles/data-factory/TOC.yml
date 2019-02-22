@@ -73,6 +73,10 @@ items:
         href: tutorial-incremental-copy-change-tracking-feature-portal.md
       - name: Azure PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+    - name: 4 - Copiar novos ficheiros por data de última modificação
+      items:
+      - name: Ferramenta Copiar Dados
+        href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
   - name: Transformar dados na cloud
     items:
     - name: HDInsight Spark
@@ -570,9 +574,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 19193a4bcd00a0f4e96dc465d0130b3ec96a7ca2
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 00c43fe7dfe3ac84086ba67a9dcfcc82c4d8a67f
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408464"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593374"

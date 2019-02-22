@@ -49,6 +49,8 @@ items:
     href: rest-api-tutorial.md
   - name: Exportar ou eliminar dados da conta
     href: ./export-delete-data.md
+  - name: Mover o seu projeto de Versão de Avaliação Limitada para o Azure
+    href: ./move-your-project-to-azure.md
 - name: Referência
   items:
   - name: API de Formação de Visão Personalizada
@@ -85,9 +87,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Notas de Versão
     href: release-notes.md
-ms.openlocfilehash: 3bfe71ad288068189f0214b06153460dd20c0ba9
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 963500c7df4cd3de39f23ce9e620893089050125
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766134"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652200"

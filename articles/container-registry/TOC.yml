@@ -58,6 +58,8 @@ items:
       href: container-registry-repositories.md
     - name: Importar imagens de contentor
       href: container-registry-import-images.md
+    - name: Bloquear imagens de contentor
+      href: container-registry-image-lock.md
     - name: Eliminar imagens de contentor
       href: container-registry-delete.md
     - name: Fidedignidade do conteúdo (pré-visualização)
@@ -135,9 +137,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 2f622c23a3278f202fceb177459f8cf81d334f57
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bce8a055a537a1ac147e2779a891b0ae64b9a3c8
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870695"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652166"

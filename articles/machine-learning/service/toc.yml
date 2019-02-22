@@ -6,15 +6,9 @@ items:
   - name: O que é o serviço Azure Machine Learning?
     displayName: AML services overview
     href: overview-what-is-azure-ml.md
-  - name: Como funciona o serviço
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
-  - name: O que aconteceu ao Workbench?
+  - name: O que aconteceu ao Workbench
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
-  - name: Notas de versão
-    displayName: what's new issues bugs
-    href: azure-machine-learning-release-notes.md
   expanded: true
 - name: Inícios rápidos
   items:
@@ -46,6 +40,9 @@ items:
   href: samples-notebooks.md
 - name: Conceitos
   items:
+  - name: Como funciona o serviço
+    displayName: architecture concepts definitions
+    href: concept-azure-machine-learning-architecture.md
   - name: Aprendizagem automática automatizada
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -64,6 +61,8 @@ items:
       href: how-to-manage-workspace.md
     - name: Utilizar um modelo do Resource Manager
       href: how-to-create-workspace-template.md
+    - name: Gerir utilizadores e funções
+      href: how-to-assign-roles.md
   - name: Configurar o ambiente de desenvolvimento 
     items:
     - name: Configurar ambientes de desenvolvimento
@@ -97,7 +96,7 @@ items:
       href: how-to-train-ml-models.md
     - name: Utilizar o PyTorch
       href: how-to-train-pytorch.md
-    - name: Utilizar o TensorFlow
+    - name: Utilizar o TensorFlow e o Keras
       href: how-to-train-tensorflow.md
     - name: Otimizar hiperparâmetros
       displayName: parameter
@@ -172,6 +171,9 @@ items:
     href: https://aka.ms/aml-monitoring-sdk
 - name: Recursos
   items:
+  - name: Notas de versão
+    displayName: what's new issues bugs
+    href: azure-machine-learning-release-notes.md
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/roadmap/
   - name: Preços
@@ -185,9 +187,9 @@ items:
     href: support-for-aml-services.md
   - name: Comparar os nossos produtos de ML
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 041a4b0f3ebecdaedb041ceb25f426a6e1825292
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 5743da7a23f53fee32f1fe81ecc09212fccab7c5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338098"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650092"

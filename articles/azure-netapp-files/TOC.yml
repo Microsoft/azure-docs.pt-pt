@@ -9,18 +9,8 @@ items:
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Inícios rápidos
   items:
-  - name: Registar nos Azure NetApp Files
-    href: azure-netapp-files-register.md
-  - name: Criar uma conta NetApp
-    href: azure-netapp-files-create-netapp-account.md
-  - name: Configurar um conjunto de capacidade
-    href: azure-netapp-files-set-up-capacity-pool.md
-  - name: Delegar uma sub-rede para os Azure NetApp Files
-    href: azure-netapp-files-delegate-subnet.md
-  - name: Criar um volume para o Azure NetApp Files
-    href: azure-netapp-files-create-volumes.md
-  - name: Configurar a política de exportação para um volume (opcional)
-    href: azure-netapp-files-configure-export-policy.md
+  - name: Configurar o Azure NetApp Files e criar um volume
+    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Conceitos
   items:
   - name: Níveis de serviços do Azure NetApp Files
@@ -31,6 +21,18 @@ items:
     href: azure-netapp-files-metrics.md
 - name: Guias de procedimentos
   items:
+  - name: Registar nos Azure NetApp Files
+    href: azure-netapp-files-register.md
+  - name: Criar uma conta NetApp
+    href: azure-netapp-files-create-netapp-account.md
+  - name: Configurar um conjunto de capacidade
+    href: azure-netapp-files-set-up-capacity-pool.md
+  - name: Delegar uma sub-rede para os Azure NetApp Files
+    href: azure-netapp-files-delegate-subnet.md
+  - name: Criar um volume para o Azure NetApp Files
+    href: azure-netapp-files-create-volumes.md
+  - name: Configurar a política de exportação para um volume
+    href: azure-netapp-files-configure-export-policy.md
   - name: Gerir volumes
     href: azure-netapp-files-manage-volumes.md
   - name: Montar ou desmontar um volume para máquinas virtuais
@@ -49,9 +51,9 @@ items:
     href: https://docs.microsoft.com/rest/api/netapp/
   - name: Modelo do Resource Manager
     href: /azure/templates/microsoft.netapp/allversions
-ms.openlocfilehash: 3da297718a3369604feda971cd8c2499a2454b72
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 99091c5e5e9a991508c9eb915c8003de60404ae8
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430153"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587417"
