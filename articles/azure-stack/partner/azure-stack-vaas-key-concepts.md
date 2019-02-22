@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 01/07/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1f5c47dd3453c0c8f02f1b0a87e5f2fff123f8be
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dd2d8c0e277bca844160fc0017d350d5aa183679
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242812"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593170"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>Validação como um conceito de principais de serviço
 
@@ -46,7 +46,7 @@ Fluxos de trabalho são categorizados por tipo de cenário de teste. No serviço
 ![Mosaicos de fluxo de trabalho de VaaS](media/tile_all-workflows.png)
 
 > [!NOTE]
-> O **validação de solução** atualmente, o fluxo de trabalho suporta dois cenários: [Validar pacotes de OEM](azure-stack-vaas-validate-oem-package.md) e [validar atualizações de software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
+> O **validação do pacote** atualmente, o fluxo de trabalho suporta dois cenários: [Validar pacotes de OEM](azure-stack-vaas-validate-oem-package.md) e [validar atualizações de software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 Para obter mais informações sobre tipos de fluxo de trabalho, consulte [o que é a validação como um serviço para o Azure Stack?](azure-stack-vaas-overview.md).
 
@@ -56,8 +56,8 @@ Para obter mais informações sobre tipos de fluxo de trabalho, consulte [o que 
 2. Para criar um novo fluxo de trabalho, selecione no **iniciar** em qualquer mosaico. Para obter informações específicas para cada fluxo de trabalho, consulte os artigos seguintes:
     - Aprovação de teste: [Quickstart: Utilize a validação como um portal de serviço para agendar o seu primeiro teste](azure-stack-vaas-schedule-test-pass.md)
     - Validação de solução: [Validar uma nova solução do Azure Stack](azure-stack-vaas-validate-solution-new.md)
-    - Validação de solução: [Validar as atualizações de software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
-    - Validação de solução: [Validar pacotes do OEM](azure-stack-vaas-validate-oem-package.md)
+    - Validação do pacote (atualização mensal): [Validar as atualizações de software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md)
+    - Validação do pacote (assinatura de pacote): [Validar pacotes do OEM](azure-stack-vaas-validate-oem-package.md)
 
 3. Para gerir ou monitorizar um fluxo de trabalho existente, selecione no **gerir** no mosaico do fluxo de trabalho. Selecione o nome do fluxo de trabalho e utilize o **editar** botão para ver as propriedades ou altere os parâmetros comuns de teste.
 

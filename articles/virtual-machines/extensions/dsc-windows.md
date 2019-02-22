@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 26b083069380d7bf107cd3be54cb2e4786789e11
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407712"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593868"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão de DSC de PowerShell
 
@@ -33,11 +33,11 @@ A extensão de DSC de PowerShell para Windows é publicada e suportada pela Micr
 
 A extensão de DSC suporta o SO seguinte
 
-Windows Server 2016, Windows Server 2012R2, Windows Server 2012, o Windows Server 2008 R2 SP1, o cliente do Windows 7/8.1
+Windows Server 2019, Windows Server 2016, Windows Server 2012R2, Windows Server 2012, Windows Server 2008 R2 SP1, Windows Client 7/8.1/10
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 
-A extensão de DSC para o Windows requer que a máquina virtual de destino está ligada à internet. 
+A extensão de DSC para o Windows requer que a máquina virtual de destino é capaz de comunicar com o Azure e a localização do pacote de configuração (ficheiro. zip), se ele é armazenado num local fora do Azure. 
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -47,12 +47,12 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão do DS
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "Microsoft.Powershell.DSC",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-10-01",
   "location": "<location>",
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.73",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
         "wmfVersion": "latest",
@@ -100,14 +100,14 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão do DS
 
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2018-10-01 | date |
 | publicador | Microsoft.Powershell.DSC | cadeia |
 | tipo | DSC | cadeia |
-| typeHandlerVersion | 2.73 | int |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valores de propriedade de definições
 
-| Nome | Tipo de Dados | Descrição
+| Name | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
 | settings.wmfVersion | cadeia | Especifica a versão do Windows Management Framework que deve ser instalado na sua VM. Definir essa propriedade como 'mais recente' irá instalar a versão mais atualizada do WMF. Os valores possíveis apenas atuais para esta propriedade são "4.0", '5.0' e 'mais recente'. Estes valores possíveis são sujeitos a atualizações. O valor predefinido é "mais recente". |
 | settings.configuration.url | cadeia | Especifica a localização de URL para transferir o ficheiro de zip de configuração de DSC. Se o URL fornecido necessita de um token SAS para o acesso, terá de definir a propriedade de protectedSettings.configurationUrlSasToken como o valor do seu token SAS. Esta propriedade é necessária se settings.configuration.script e/ou settings.configuration.function são definidos.
@@ -121,7 +121,7 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão do DS
 
 ### <a name="protected-settings-property-values"></a>Valores das propriedades de definições protegidos
 
-| Nome | Tipo de Dados | Descrição
+| Name | Tipo de Dados | Descrição
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | cadeia | Define quaisquer parâmetros que pretende passar para a configuração de DSC. Esta propriedade será encriptada. |
 | protectedSettings.configurationUrlSasToken | cadeia | Especifica o token SAS para aceder ao URL definido pelo configuration.url. Esta propriedade será encriptada. |
@@ -130,26 +130,9 @@ O JSON seguinte mostra o esquema para a parte de definições da extensão do DS
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração pós-implementação. Um modelo do Resource Manager de exemplo que inclui o extensão de VM de agente do Log Analytics pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
-
-A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. 
-
-Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual. Quando coloca a extensão de JSON na raiz do modelo, o nome do recurso inclui uma referência à máquina virtual principal e o tipo reflete a configuração aninhada.  
-
-
-## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
-
-A CLI do Azure pode ser utilizada para implementar o agente de Log Analytics a extensão de VM para uma máquina virtual existente. Substitua a chave do Log Analytics e o ID do Log Analytics com os da sua área de trabalho do Log Analytics. 
-
-```azurecli
-az vm extension set \
-  --resource-group myResourceGroup \
-  --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
-  --publisher Microsoft.Powershell \
-  --version 2.73 --protected-settings '{}' \
-  --settings '{}'
-```
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager.
+Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração pós-implementação.
+Um modelo do Resource Manager de exemplo que inclui a extensão de DSC para o Windows pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-automation-configuration/nested/provisionServer.json#L91).
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e suporte
 

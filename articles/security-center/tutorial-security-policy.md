@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
-ms.openlocfilehash: c31510b0d5ca2afcd6a52cf4301e5e5eaae7da5b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 2/17/2019
+ms.author: monhaber
+ms.openlocfilehash: 7931caa985bc5dea98ca36bd15e0e634855ab2c5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343515"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650636"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -99,6 +99,20 @@ Pode editar a política de segurança predefinida para cada uma das suas subscri
 Para obter instruções sobre como editar uma política de segurança no Azure Policy, veja e [criar e gerir políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md).
 
 Pode editar as políticas de segurança através do portal do Azure Policy, por meio da REST API ou com o Windows PowerShell. O exemplo seguinte fornece as instruções para editar com a REST API.
+
+
+## <a name="disable-security-policies"></a>Desativar políticas de segurança
+Se a política de segurança predefinida está a gerar uma recomendação que não é relevante para o seu ambiente, pode impedi-lo ao desativar a definição de política que envia a recomendação. Isso é feito através do portal do Azure Policy (e não no portal do Centro de segurança), conforme explicado aqui.
+Para obter mais informações sobre as recomendações, veja [recomendações de segurança](security-center-recommendations.md). 
+1. Aceda à política do Azure e clique em **atribuições**.
+2. Na **ASC predefinido** linha, clique nas reticências e clique em **ver a definição**. O **definição de iniciativa** é aberta a página.
+   ![ver definição](./media/tutorial-security-policy/view-definition.png)
+3. Clique em **editar intitiative**. O **Editar definição de iniciativa** é aberta a página.
+   ![Editar iniciativa](./media/tutorial-security-policy/edit-initiative.png)
+4. Na **políticas e parâmetros** secção, a pesquisa para a política que invoca a recomendação de que pretende desativar e, na lista pendente, selecione **desativado**.
+   ![Desativar política](./media/tutorial-security-policy/disable-policy.png)
+1. Clique em **guardar** (localizado na parte inferior da página).
+
 
 ### <a name="configure-a-security-policy-using-the-rest-api"></a>Configurar uma política de segurança com a API REST
 

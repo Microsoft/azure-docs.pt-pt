@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 2b73deb18b518f257e1de6125ef6d4e35eb0e7b7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 6ce10cd9947acbb74807a5288fc1753e794e69c7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236283"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652302"
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
@@ -35,7 +35,7 @@ Registos de diagnóstico do Azure permitem-lhe exportar métricas de utilizaçã
 
 - Exporte dados para armazenamento de BLOBs, exportar para CSV e gerar gráficos no Excel.
 - Exportar dados para os Hubs de eventos e correlacionar com dados de outros serviços do Azure.
-- Exportar dados para o Log Analytics e ver dados no seu próprio espaço de trabalho do Log Analytics
+- Exportar dados para o Azure Monitor registos e ver os dados na sua própria área de trabalho do Log Analytics
 
 O diagrama seguinte mostra uma exibição de análise de núcleo CDN típica de dados.
 
@@ -85,15 +85,15 @@ Para utilizar uma conta de armazenamento para armazenar os registos, siga estes 
 
 5. Depois de terminar de realizar as suas definições de registo de diagnóstico, selecione **guardar**.
 
-### <a name="logging-with-log-analytics"></a>Registo com o Log Analytics
+### <a name="logging-with-azure-monitor"></a>Iniciar sessão com o Azure Monitor
 
-Para utilizar o Log Analytics para armazenar os registos, siga estes passos:
+Para utilizar o Azure Monitor para armazenar os registos, siga estes passos:
 
 1. Partir do **registos de diagnóstico** página, selecione **enviar para o Log Analytics**. 
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
-2. Selecione **configurar** para configurar o registo do Log Analytics. 
+2. Selecione **configurar** para configurar o registo do Azure Monitor. 
 
    O **áreas de trabalho do Log Analytics** é apresentada a página.
 
@@ -133,7 +133,7 @@ Para utilizar o Log Analytics para armazenar os registos, siga estes passos:
 
     ![Portal – registos de diagnóstico](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    A área de trabalho do Log Analytics está agora pronta para registos de dados. Para poder consumir esses dados, tem de utilizar um [solução de análise de registo](#consuming-diagnostics-logs-from-a-log-analytics-workspace), cobertas neste artigo.
+    A área de trabalho do Log Analytics está agora pronta para registos de dados. Para poder consumir esses dados, tem de utilizar um [registos do Azure Monitor solução](#consuming-diagnostics-logs-from-a-log-analytics-workspace), cobertas neste artigo.
 
 Para obter mais informações sobre a atrasos de dados de registo, consulte [atrasos de dados de registo](#log-data-delays).
 
@@ -211,9 +211,9 @@ Eis como pode usar a ferramenta:
 5.  O ficheiro CSV resultante mostra os dados de análise de uma hierarquia simples simple.
 
 ## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Consumir registos de diagnóstico a partir de uma área de trabalho do Log Analytics
-Log Analytics é um serviço do Azure que monitoriza a sua cloud e ambientes para manter a disponibilidade e desempenho no local. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens. 
+Monitor do Azure é um serviço do Azure que monitoriza a sua cloud e ambientes para manter a disponibilidade e desempenho no local. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens. 
 
-Para utilizar o Log Analytics, tem de [ativar o registo](#enable-logging-with-azure-storage) para a área de trabalho do Log Analytics do Azure, que é abordado anteriormente neste artigo.
+Para utilizar o Azure Monitor, terá [ativar o registo](#enable-logging-with-azure-storage) para a área de trabalho do Log Analytics do Azure, que é abordado anteriormente neste artigo.
 
 ### <a name="using-the-log-analytics-workspace"></a>Utilizar a área de trabalho do Log Analytics
 
@@ -227,9 +227,9 @@ Pode exibir os dados numa variedade de formas usando soluções de gestão. Pode
 
 Pode instalar soluções de gestão a partir do Azure marketplace, selecionando o **obter agora** link na parte inferior de cada solução.
 
-### <a name="add-a-log-analytics-cdn-management-solution"></a>Adicionar uma solução de gestão do Log Analytics da CDN
+### <a name="add-a-azure-monitor-cdn-management-solution"></a>Adicionar uma solução de gestão de CDN do Azure Monitor
 
-Siga estes passos para adicionar uma solução de gestão do Log Analytics:
+Siga estes passos para adicionar uma solução de gestão do Azure Monitor:
 
 1.   Inicie sessão no portal do Azure com a sua subscrição do Azure e aceda ao seu dashboard.
     ![Dashboard do Azure](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
@@ -443,7 +443,7 @@ Propriedades de exemplo:
 
 * [Registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Análise principal através do portal suplementar do CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Log Analytics do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Registos de Monitor do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [API de REST do Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 

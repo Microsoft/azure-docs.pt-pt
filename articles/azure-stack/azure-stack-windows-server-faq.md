@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b498283ee117935438c55e5162e92acdb0f5ebfe
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249685"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649905"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server na pilha do Azure Marketplace FAQ
 
@@ -38,7 +38,7 @@ Em seguida, se consultar quaisquer conjuntos de dimensionamento de Máquina Virt
 
 A Microsoft oferece duas versões de imagens do Windows Server através do Marketplace do Azure Stack:
 
-- **Pague à medida que usar**: Estas imagens de executam os medidores de Windows de preço integral. 
+- **Pague à medida que usar**: Estas imagens de executam os medidores de Windows de preço integral.
    Quem deve usar: Os clientes do Enterprise Agreement (EA) que utilizam o *modelo de faturação do consumo*; CSPs que não pretende utilizar o licenciamento de SPLA.
 - **Traga a sua própria licença (BYOL)**: Estas imagens de medidores básicas de execução.
    Quem deve usar: Clientes com EA com uma licença do Windows Server; CSPs que utilizam o licenciamento de SPLA.
@@ -74,23 +74,23 @@ Para ativar uma máquina virtual do Windows Server no Azure Stack, as seguintes 
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>Como eu posso verificar que a minha máquina virtual está ativada?
 
-Execute o seguinte comando numa linha de comandos elevada: 
+Execute o seguinte comando numa linha de comandos elevada:
 
 ```shell
 slmgr /dlv
-``` 
+```
 
 Se ele está corretamente ativado, verá isso claramente indicado e o nome de anfitrião apresentado no `slmgr` saída. Não dependem de marcas d'água na exibição à medida que eles não podem ser atualizados ou estão a mostrar a partir de outra máquina virtual por trás de seu.
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>A minha VM não está configurado para utilizar a AVMA, como posso arrumá-lo?
 
-Execute o seguinte comando numa linha de comandos elevada: 
+Execute o seguinte comando numa linha de comandos elevada:
 
 ```shell
-slmgr /ipk <AVMA key> 
+slmgr /ipk <AVMA key>
 ```
 
-Consulte o artigo [ativação automática de Máquina Virtual](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) para as chaves a utilizar para a sua imagem.
+Consulte a [ativação automática de Máquina Virtual](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) artigo para as chaves a utilizar para a sua imagem.
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>Posso criar meus próprio imagens do Windows Server, como posso fazer-se de que eles usam AVMA?
 

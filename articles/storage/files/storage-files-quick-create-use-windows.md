@@ -1,41 +1,45 @@
 ---
-title: Início rápido criar e utilizar uma partilha de ficheiros do Azure para Windows | Documentos da Microsoft
-description: Utilize este guia de introdução para criar e utilizar uma partilha de ficheiros do Azure para Windows.
+title: Início rápido do Azure - criar e utilizar uma partilha de ficheiros do Azure em VMs do Windows | Documentos da Microsoft
+description: Neste início rápido, configurar uma partilha de ficheiros do Azure no portal do Azure e ligá-la a uma máquina virtual do Windows. Ligar à partilha de ficheiros, carregar um ficheiro para a partilha de ficheiros. Em seguida, tirar um instantâneo de partilha de ficheiros, modificar o ficheiro na partilha de ficheiros e, restaurar um instantâneo anterior da partilha de ficheiros.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 141a8c9d63d3f0fd615ec0648b15c669f28f7118
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.author: rogarana
+ms.subservice: files
+ms.openlocfilehash: 12dea044dab2aafad1d7597214d159011b5ab536
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664000"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652472"
 ---
-# <a name="quickstart-create-and-use-an-azure-file-share-for-windows"></a>Início rápido: Criar e utilizar uma partilha de ficheiros do Azure para Windows
-O artigo demonstra os passos básicos para criar e utilizar uma partilha de ficheiros do Azure. Neste início rápido, a ênfase é em rapidamente como configurar uma partilha de ficheiros do Azure, pelo que pode experimentar o funcionamento do serviço. Se precisar de instruções mais detalhadas para criar e utilizar o Azure partilhas de ficheiros no seu próprio ambiente, consulte [utilizar uma partilha de ficheiros do Azure com o Windows](storage-how-to-use-files-windows.md).
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início rápido: Criar e gerir a partilha de ficheiros do Azure com as máquinas virtuais do Windows
+
+O artigo demonstra a partilham os passos básicos para criar e utilizar um serviço ficheiros do Azure. Neste início rápido, a ênfase está em configurar rapidamente uma partilha de ficheiros do Azure para que pode experimentar o funcionamento do serviço. Se precisar de instruções mais detalhadas para criar e utilizar o Azure partilhas de ficheiros no seu próprio ambiente, consulte [utilizar uma partilha de ficheiros do Azure com o Windows](storage-how-to-use-files-windows.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+
 Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Preparar o ambiente
-Antes de criar uma partilha de ficheiros do Azure, terá de configurar os seguintes itens para este início rápido:
+
+Neste início rápido, pode configurar os seguintes itens:
 
 - Uma conta de armazenamento do Azure e uma partilha de ficheiros do Azure
 - Um VM do Windows Server 2016 Datacenter
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Antes de pode trabalhar com uma partilha de ficheiros do Azure, tem de criar uma conta de armazenamento do Azure. Uma conta de armazenamento é um conjunto partilhado de armazenamento no qual pode implementar uma partilha de ficheiros do Azure ou outros recursos de armazenamento, como blobs ou filas. Uma conta de armazenamento pode conter um número ilimitado de partilhas. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
+Antes de pode trabalhar com uma partilha de ficheiros do Azure, tem de criar uma conta de armazenamento do Azure. Uma conta de armazenamento para fins gerais v2 proporciona acesso a todos os serviços de armazenamento do Azure: blobs, ficheiros, filas e tabelas. O início rápido cria uma conta de armazenamento para fins gerais v2, mas os passos para criar qualquer tipo de conta de armazenamento são semelhantes. Uma conta de armazenamento pode conter um número ilimitado de partilhas. Uma partilha pode armazenar um número ilimitado de ficheiros, até aos limites de capacidade da conta de armazenamento.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
+
 Depois, crie uma partilha de ficheiros.
 
 1. Quando a implementação da conta de armazenamento do Azure estiver concluída, selecione **Ir para recurso**.
@@ -58,6 +62,7 @@ Depois, crie uma partilha de ficheiros.
 Até agora, criou uma conta de armazenamento do Azure e uma partilha de ficheiros com um arquivo na mesma no Azure. Em seguida irá criar a VM do Azure com o Windows Server 2016 Datacenter para representar o servidor no local neste início rápido.
 
 ### <a name="deploy-a-vm"></a>Implementar uma VM
+
 1. Em seguida, expanda o menu no lado esquerdo do portal e escolha **Criar um recurso**, no canto superior esquerdo do portal do Azure.
 1. Na caixa de pesquisa acima da lista de recursos do **Azure Marketplace**, procure e selecione **Windows Server 2016 Datacenter** e escolha **Criar**.
 1. Na **Noções básicas** separador, em **detalhes do projeto**, selecione o grupo de recursos que criou para este início rápido.
@@ -112,6 +117,7 @@ Nesta fase, já criou uma máquina virtual nova e anexou um disco de dados. Agor
       ![O caminho UNC a partir do painel Ligar dos Ficheiros do Azure](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## <a name="create-a-share-snapshot"></a>Criar um instantâneo de partilha
+
 Agora que tenha mapeado a unidade, pode criar um instantâneo.
 
 1. No portal, navegue para a partilha de ficheiros e selecione **criar instantâneo**.
@@ -132,7 +138,7 @@ Agora que tenha mapeado a unidade, pode criar um instantâneo.
 
 ## <a name="restore-from-a-snapshot"></a>Restaurar a partir de um instantâneo
 
-1. No portal, selecione *qsTestFile* > selecione o **restaurar** botão.
+1. No painel de instantâneo de partilha de ficheiros, clique com botão direito a *qsTestFile*e selecione o **restaurar** botão.
 1. Selecione **substituir ficheiro original**.
 
    ![Download e botões de restauro](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -147,6 +153,7 @@ Agora que tenha mapeado a unidade, pode criar um instantâneo.
    ![Botão de eliminar](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## <a name="use-a-share-snapshot-in-windows"></a>Utilizar um instantâneo de partilha no Windows
+
 Assim como com instantâneos VSS no local, pode ver os instantâneos de partilha de ficheiros do Azure montada utilizando o separador de versões anteriores.
 
 1. No Explorador de ficheiros, localize a partilha montada.

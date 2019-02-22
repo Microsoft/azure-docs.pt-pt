@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d47c560515a13efa8346974e828f14f9a15f0e4a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c2bee4d35fe857d5ad3bf26dc1145b8721c85df4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731187"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594241"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para o serviço de aplicações do Azure
 
@@ -126,7 +126,7 @@ Em seguida, selecione as opções pretendidas para o seu domínio. Consulte a ta
 Clique em **termos legais** para rever os termos e os custos, em seguida, clique em **comprar**.
 
 > [!NOTE]
-> Domínios do serviço de aplicações utilizam DNS do Azure para alojar os domínios. Além da taxa de registo do domínio, aplicam-se custos de utilização de DNS do Azure. Para obter informações, consulte [preços de DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
+> Domínios do serviço de aplicações utilizam GoDaddy para o registo de domínio e o DNS do Azure para alojar os domínios. Além da taxa de registo do domínio, aplicam-se custos de utilização de DNS do Azure. Para obter informações, consulte [preços de DNS do Azure](https://azure.microsoft.com/pricing/details/dns/).
 >
 >
 

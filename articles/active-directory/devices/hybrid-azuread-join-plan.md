@@ -17,12 +17,12 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b7f7fa4889742989a61f8cc076224d46f8eac2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4d2e3ad4015df74ea3adb98eae4d98e30f2948ce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234107"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649191"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planear a sua implementação híbrida do Azure Active Directory
 
@@ -92,7 +92,7 @@ Como uma primeira etapa de planeamento, deve rever o seu ambiente e determinar s
 
 Se o seu ambiente consiste numa única floresta sincronizada dados de identidade para mais do que um inquilino do Azure AD, é possível utilizar uma associação do Azure AD híbrido.
 
-Se está contando com a ferramenta de preparação do sistema (Sysprep), certifique-se de que criar imagens de uma instalação do Windows que não tem sido configurada para associação do híbrida do Azure AD.
+Se está contando com a ferramenta de preparação do sistema (Sysprep), certifique-se de imagens criadas a partir de uma instalação do Windows 10 1803 ou anteriormente não foram configuradas para associação do híbrida do Azure AD.
 
 Se está contando com um instantâneo da Máquina Virtual (VM) para criar VMs adicionais, certifique-se de que utiliza um instantâneo VM que não tenha sido configurado para associação do híbrida do Azure AD.
 
@@ -116,6 +116,7 @@ Se o seu domínio do Windows 10 associados a um dispositivos já estão [do Azur
  - Qualquer estado existente do Azure AD registado seria sejam removido automaticamente depois do dispositivo está associado ao Azure AD híbrido. 
  - Pode impedir que o dispositivo associado ao domínio estejam do Azure AD registado ao adicionar esta chave de registo - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword:00000001
 
+Compatível com FIPS TPMs não são suportados para associação ao Azure AD híbrido. Se os seus dispositivos têm TPMs compatíveis com FIPS, deve desativá-las antes de continuar com a associação do Azure AD híbrido.
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Rever como controlar a associação do Azure AD híbrido dos seus dispositivos
 

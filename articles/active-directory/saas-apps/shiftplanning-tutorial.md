@@ -4,196 +4,207 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
-ms.service: active-directory
-ms.subservice: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/10/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 871fcd120ee1afa936723d63532c58b2cda34fb6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5873683b2bf29f1125e99172de0a4d3f7b488f38
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182209"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588641"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Integração do Active Directory do Azure com a humanidade
 
 Neste tutorial, saiba como integrar a humanidade com o Azure Active Directory (Azure AD).
-
 Integrar a humanidade no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD, quem tem acesso a humanidade
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para a humanidade (Single Sign-On) com as suas contas do Azure AD
-- Pode gerir as suas contas num local central – portal do Azure
+* Pode controlar no Azure AD, quem tem acesso a humanidade.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para a humanidade (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com humanidade, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um humanidade início de sessão único na subscrição ativado
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Humanidade logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando a humanidade da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta a humanidade **SP** iniciada SSO
 
 ## <a name="adding-humanity-from-the-gallery"></a>Adicionando a humanidade da Galeria
+
 Para configurar a integração de humanidade com o Azure AD, terá de adicionar humanidade a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar humanidade a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![Aplicações][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![Aplicações][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **humanidade**.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/shiftplanning-tutorial/tutorial_humanity_search.png)
+4. Na caixa de pesquisa, escreva **humanidade**, selecione **humanidade** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-1. No painel de resultados, selecione **humanidade**e, em seguida, clique em **Add** botão para adicionar a aplicação.
+     ![Humanidade na lista de resultados](common/search-new-app.png)
 
-    ![Criar um utilizador de teste do Azure AD](./media/shiftplanning-tutorial/tutorial_humanity_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com humanidade com base num utilizador de teste chamado "Eduarda Almeida."
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de equivalente na humanidade a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na humanidade deve ser estabelecido.
-
-Na humanidade, atribua o valor do **nome de utilizador** no Azure AD como o valor da **Username** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com humanidade com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na humanidade deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com humanidade, terá de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste de humanidade](#creating-a-humanity-test-user)**  - para ter um equivalente da Eduarda Almeida na humanidade que está ligada à representação de utilizador do Azure AD.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configurar a humanidade Single Sign-On](#configure-humanity-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste de humanidade](#create-humanity-test-user)**  - para ter um equivalente da Eduarda Almeida na humanidade que está ligada à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo de humanidade.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com humanidade, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com humanidade, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **humanidade** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **humanidade** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar o início de sessão único][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Configurar o início de sessão único](./media/shiftplanning-tutorial/tutorial_humanity_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **humanidade domínio e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Configurar o início de sessão único](./media/shiftplanning-tutorial/tutorial_humanity_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão: `https://company.humanity.com/includes/saml/`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://company.humanity.com/app/`
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
 
-    > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente de humanidade](https://www.humanity.com/support/) obter esses valores. 
- 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+    ![Domínio de humanidade e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-    ![Configurar o início de sessão único](./media/shiftplanning-tutorial/tutorial_humanity_certificate.png) 
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://company.humanity.com/includes/saml/`
 
-1. Clique em **guardar** botão.
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://company.humanity.com/app/`
 
-    ![Configurar o início de sessão único](./media/shiftplanning-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente de humanidade](https://www.humanity.com/support/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-1. Sobre o **humanidade configuração** secção, clique em **configurar humanidade** para abrir **configurar início de sessão** janela. Copiar o **SAML único início de sessão no URL do serviço e o URL de fim de sessão** partir o **secção de referência rápida.**
+4. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-    ![Configurar o início de sessão único](./media/shiftplanning-tutorial/tutorial_humanity_configure.png) 
+    ![O link de download de certificado](common/certificatebase64.png)
+
+6. Sobre o **configurar a humanidade** secção, copie os URLs apropriados de acordo com seus requisitos.
+
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+
+    a. URL de início de sessão
+
+    b. Azure Ad Identifier
+
+    c. URL de fim de sessão
+
+### <a name="configure-humanity-single-sign-on"></a>Configurar a humanidade início de sessão único
 
 1. Numa janela do browser web diferente, inicie sessão no seu **humanidade** site da empresa como administrador.
 
-1. No menu na parte superior, clique em **administrador**.
-   
-    ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
+2. No menu na parte superior, clique em **administrador**.
 
-1. Sob **integração**, clique em **Single Sign-On**.
-   
+    ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
+3. Sob **integração**, clique em **Single Sign-On**.
+
     ![Início de sessão único](./media/shiftplanning-tutorial/iC786620.png "início de sessão único")
 
-1. Na **Single Sign-On** secção, execute os seguintes passos:
-   
+4. Na **Single Sign-On** secção, execute os seguintes passos:
+
     ![Início de sessão único](./media/shiftplanning-tutorial/iC786905.png "início de sessão único")
-   
+
     a. Selecione **SAML ativada**.
 
     b. Selecione **Permitir início de sessão de palavra-passe**.
 
-    c. Colar o **SAML único início de sessão no URL do serviço** valor para o **URL de emissor de SAML** caixa de texto.
+    c. Na **URL de emissor de SAML** caixa de texto, colar a **URL de início de sessão** valor, que copiou do portal do Azure.
 
-    d. Colar o **URL de fim de sessão** valor para o **URL de fim de sessão remoto** caixa de texto.
-   
+    d. Na **URL de fim de sessão remoto** caixa de texto, colar a **URL de fim de sessão** valor, que copiou do portal do Azure.
+
     e. Abra o certificado com codificação base 64 no bloco de notas, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado X.509** caixa de texto.
 
-1. Clique em **guardar as definições de**.
+    f. Clique em **guardar as definições de**.
 
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-![Criar utilizador do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. Na **portal do Azure**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![Criar um utilizador de teste do Azure AD](./media/shiftplanning-tutorial/create_aaduser_01.png) 
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
-    
-    ![Criar um utilizador de teste do Azure AD](./media/shiftplanning-tutorial/create_aaduser_02.png) 
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
- 
-    ![Criar um utilizador de teste do Azure AD](./media/shiftplanning-tutorial/create_aaduser_03.png) 
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Sobre o **utilizador** caixa de diálogo página, execute os seguintes passos:
- 
-    ![Criar um utilizador de teste do Azure AD](./media/shiftplanning-tutorial/create_aaduser_04.png) 
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    Por exemplo, BrittaSimon@contoso.com
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
-
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
-
-    c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
- 
-### <a name="creating-a-humanity-test-user"></a>Criar um utilizador de teste de humanidade
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a humanidade.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **humanidade**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **humanidade**.
+
+    ![A ligação de humanidade na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-humanity-test-user"></a>Criar utilizador de teste de humanidade
 
 Para habilitar os utilizadores do Azure AD iniciar sessão na humanidade, tem de ser aprovisionados para a humanidade. No caso de humanidade, o aprovisionamento é uma tarefa manual.
 
@@ -201,82 +212,39 @@ Para habilitar os utilizadores do Azure AD iniciar sessão na humanidade, tem de
 
 1. Inicie sessão no seu **humanidade** site da empresa como administrador.
 
-1. Clique em **administrador**.
-   
+2. Clique em **administrador**.
+
     ![Admin](./media/shiftplanning-tutorial/iC786619.png "Admin")
 
-1. Clique em **equipe**.
-   
+3. Clique em **equipe**.
+
     ![Staff](./media/shiftplanning-tutorial/ic786623.png "Staff")
 
-1. Sob **ações**, clique em **funcionários adicionar**.
-   
+4. Sob **ações**, clique em **funcionários adicionar**.
+
     ![Adicionar os funcionários](./media/shiftplanning-tutorial/iC786624.png "adicionar os funcionários")
 
-1. Na **funcionários adicionar** secção, execute os seguintes passos:
-   
+5. Na **funcionários adicionar** secção, execute os seguintes passos:
+
     ![Guardar os funcionários](./media/shiftplanning-tutorial/iC786625.png "guardar os funcionários")
-   
+
     a. Tipo de **nome próprio**, **Apelido**, e **E-Mail** de uma conta do AAD válida que pretende aprovisionar em caixas de texto relacionadas.
 
     b. Clique em **guardar funcionários**.
 
->[!NOTE]
->Pode utilizar quaisquer outras humanidade utilizador conta criação ferramentas ou APIs fornecidas pela Humanidade para aprovisionar contas de utilizador do AAD.
+> [!NOTE]
+> Pode utilizar quaisquer outras humanidade utilizador conta criação ferramentas ou APIs fornecidas pela Humanidade para aprovisionar contas de utilizador do AAD.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso a humanidade.
-
-![Atribuir utilizador][200] 
-
-**Para atribuir a Eduarda Almeida a humanidade, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-1. Na lista de aplicações, selecione **humanidade**.
-
-    ![Configurar o início de sessão único](./media/shiftplanning-tutorial/tutorial_humanity_app.png) 
-
-1. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![Atribuir utilizador][202] 
-
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![Atribuir utilizador][203]
-
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="testing-single-sign-on"></a>Teste de início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico de humanidade no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo de humanidade.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Quando clica no mosaico de humanidade no painel de acesso, deve ser automaticamente conectado para a humanidade para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/shiftplanning-tutorial/tutorial_general_01.png
-[2]: ./media/shiftplanning-tutorial/tutorial_general_02.png
-[3]: ./media/shiftplanning-tutorial/tutorial_general_03.png
-[4]: ./media/shiftplanning-tutorial/tutorial_general_04.png
-
-[100]: ./media/shiftplanning-tutorial/tutorial_general_100.png
-
-[200]: ./media/shiftplanning-tutorial/tutorial_general_200.png
-[201]: ./media/shiftplanning-tutorial/tutorial_general_201.png
-[202]: ./media/shiftplanning-tutorial/tutorial_general_202.png
-[203]: ./media/shiftplanning-tutorial/tutorial_general_203.png
-
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 88e55573e88a45d7733e12c3bb8751763a0ef901
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113367"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650908"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure
 
@@ -199,6 +199,15 @@ No exemplo do domínio `contoso.com`, crie os registos A e TXT de acordo com a t
 | - | - | - |
 | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
+
+> [!NOTE]
+> Para adicionar um subdomínio (como `www.contoso.com`) através de um registo em vez de um recomendada [registo CNAME](#map-a-cname-record), a um registo e o registo TXT deverá ser semelhante a tabela a seguir em vez disso:
+>
+> | Tipo de registo | Anfitrião | Value |
+> | - | - | - |
+> | A | `www` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
+> | TXT | `www` | `<app_name>.azurewebsites.net` |
+>
 
 Quando os registos estiverem adicionados, a página de registos DNS terá um aspeto semelhante ao seguinte exemplo:
 

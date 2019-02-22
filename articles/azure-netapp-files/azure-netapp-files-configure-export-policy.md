@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 08de7e2ca8cd993a0931f5b16cb9d6c9a04e53dc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 115c6726ed150b9a76685bd5a558d547d215958f
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010961"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587740"
 ---
-# <a name="configure-export-policy-for-a-volume-optional"></a>Configurar a política de exportação para um volume (opcional)
+# <a name="configure-export-policy-for-a-volume"></a>Configurar a política de exportação para um volume
 
 Pode optar por configurar a política de exportação para controlo de acesso a um volume do Azure NetApp Files. 
 
@@ -52,7 +52,7 @@ Pode optar por configurar a política de exportação para controlo de acesso a 
     ![Política de exportação](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos Seguintes 
 * [Gerir volumes](azure-netapp-files-manage-volumes.md)
 * [Montar ou desmontar um volume para máquinas virtuais](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Gerir instantâneos](azure-netapp-files-manage-snapshots.md)

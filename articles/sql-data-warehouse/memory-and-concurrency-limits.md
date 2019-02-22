@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 802408f6ccd0a1cc0ed4f4d87d54a11760cd70fe
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: cc42a0289316116b843696c984f9fc3c2114eb6c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473447"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592898"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de memória e simultaneidade para o Azure SQL Data Warehouse
 Ver os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no Azure SQL Data Warehouse. Para obter mais informações e para aplicar estas capacidades ao seu plano de gestão da carga de trabalho, consulte [classes de recursos para a gestão da carga de trabalho](resource-classes-for-workload-management.md). 
@@ -78,7 +78,7 @@ Para garantir que cada consulta tem recursos suficientes para executar com efici
 
 A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simultaneidade para cada [classe de recursos estáticos](resource-classes-for-workload-management.md).  
 
-| Nível de Serviço | Consultas em simultâneo máximas | Ranhuras de simultaneidade disponíveis |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Nível de Serviço | Consultas em simultâneo máximas | Ranhuras de simultaneidade disponíveis | Ranhuras utilizadas pelo staticrc10 | Ranhuras utilizadas pelo staticrc20 | Ranhuras utilizadas pelo staticrc30 | Ranhuras utilizadas pelo staticrc40 | Ranhuras utilizadas pelo staticrc50 | Ranhuras utilizadas pelo staticrc60 | Ranhuras utilizadas pelo staticrc70 | Ranhuras utilizadas pelo staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -133,7 +133,7 @@ Classes estáticas
 
 A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simultaneidade para cada [classe de recursos estáticos](resource-classes-for-workload-management.md) nos **Gen1**.
 
-| Nível de serviço  | Consultas em simultâneo máximas | Ranhuras de simultaneidade máximo |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Nível de serviço  | Consultas em simultâneo máximas | Ranhuras de simultaneidade máximo | Ranhuras utilizadas pelo staticrc10 | Ranhuras utilizadas pelo staticrc20 | Ranhuras utilizadas pelo staticrc30 | Ranhuras utilizadas pelo staticrc40 | Ranhuras utilizadas pelo staticrc50 | Ranhuras utilizadas pelo staticrc60 | Ranhuras utilizadas pelo staticrc70 | Ranhuras utilizadas pelo staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Classes de dinâmica de recursos
 
 A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simultaneidade para cada [classe de recursos dinâmica](resource-classes-for-workload-management.md) nos **Gen1**.
 
-| Nível de serviço  | Consultas em simultâneo máximas | Ranhuras de simultaneidade disponíveis | smallrc | mediumrc | largerc | xlargerc |
+| Nível de serviço  | Consultas em simultâneo máximas | Ranhuras de simultaneidade disponíveis | Ranhuras utilizadas pelo smallrc | Ranhuras utilizadas pelo mediumrc | Ranhuras utilizadas pelo largerc | Ranhuras utilizadas pelo xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

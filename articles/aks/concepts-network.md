@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 6affa19c61ff4a824e390c42b7fd97554a30c9bb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7de97097e9678410537895c3bafc48d67809331e
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176242"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594173"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Azure Kubernetes Service (AKS)
 
@@ -102,7 +102,7 @@ Outra funcionalidade comum de entrada é a terminação de SSL/TLS. Em aplicativ
 
 ## <a name="network-security-groups"></a>Grupos de segurança de rede
 
-Um grupo de segurança de rede filtra o tráfego para as VMs, por exemplo, os nós do AKS. Criar serviços, como um LoadBalancer, a plataforma do Azure configura automaticamente quaisquer regras de grupo de segurança de rede que são necessários. Não configure manualmente as regras de grupo de segurança de rede para filtrar o tráfego para pods num cluster do AKS. Definir todas as portas necessárias e o encaminhamento como parte de seus manifestos de serviço do Kubernetes e deixe a plataforma do Azure para criar ou atualizar as regras adequadas. Também pode utilizar políticas de rede, tal como explicado na próxima seção, a aplicar automaticamente regras de filtragem de tráfego para os pods.
+Um grupo de segurança de rede filtra o tráfego para as VMs, por exemplo, os nós do AKS. Criar serviços, como um LoadBalancer, a plataforma do Azure configura automaticamente quaisquer regras de grupo de segurança de rede que são necessários. Não configure manualmente as regras de grupo de segurança de rede para filtrar o tráfego para pods num cluster do AKS. Definir todas as portas necessárias e o encaminhamento como parte de seus manifestos de serviço do Kubernetes e deixe a plataforma do Azure para criar ou atualizar as regras adequadas. Também pode utilizar políticas de rede, tal como explicado na próxima seção, para aplicar automaticamente regras de filtragem de tráfego para os pods.
 
 Grupo de segurança de rede existem regras de tráfego, como SSH por predefinição. Estas regras predefinidas destinam-se a resolução de problemas de acesso e gestão de clusters. A eliminar estas regras predefinidas pode causar problemas com a gestão de AKS e divide o objetivo de nível de serviço (SLO).
 

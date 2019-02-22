@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 02/15/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855b9db645721c63abae34422ae6461cea3daab2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5622c179b6eb767f4c608e8c36c2ba154aac0906
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189825"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594700"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -47,6 +47,9 @@ ms.locfileid: "56189825"
 - Palavra-passe de SSO, certifique-se que a aplicação suporta a autenticação de formulário para que os cofres de palavras de palavra-passe podem ser feito para fazer o trabalho de logon único conforme esperado.
 
 - Para pedidos de aprovisionamento de utilizadores automática, o aplicativo deve listado na galeria com recurso de início de logon único habilitado com o SAML 2.0/WS-Fed. Pode pedir para SSO e aprovisionamento em conjunto no portal, se ainda não estiver na lista de utilizadores.
+
+>[!NOTE]
+>Estamos executando com elevado número de pedidos de conector SCIM, pelo que podemos ter parado levando a novos pedidos no nosso portal. Aguarde seus pedidos até aviso prévio. Podemos desculpas para este atraso e incómodo que lhe possa ter causado.
 
 ## <a name="submit-the-request-in-the-portal"></a>Submeter o pedido no portal
 
@@ -108,6 +111,16 @@ Para atualizar ou remover uma aplicação existente na Galeria de aplicações d
     * Se pretender remover um aplicativo existente a partir da galeria do Azure AD, selecione **remover da lista de aplicações existente**.
     * Se tiver quaisquer problemas de acesso, entre em contato com o [equipa de integração do SSO do Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
+## <a name="listing-requests-by-customers"></a>A listagem de pedidos por parte dos clientes
+
+Os clientes podem enviar o pedido de listagem de uma aplicação ao clicar em **pedidos de aplicação por parte dos clientes** -> **submeter novo pedido**.
+
+![Mosaico de pedido de aplicações de cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Segue-se que o fluxo de cliente pedida aplicativos-
+
+![Fluxo de aplicações solicitadas pelos clientes](./media/howto-app-gallery-listing/customer-request.png)
+
 ## <a name="timelines"></a>Linhas cronológicas
 
 A linha cronológica para o processo de listagem, uma aplicação de WS-Fed na galeria ou SAML 2.0 é 7-10 dias úteis.
@@ -117,10 +130,6 @@ A linha cronológica para o processo de listagem, uma aplicação de WS-Fed na g
 A linha cronológica para o processo de uma aplicação de ligação OpenID na Galeria de listagem é 2 a 5 dias úteis.
 
    ![Linha cronológica de listagem aplicação de saml numa galeria de](./media/howto-app-gallery-listing/timeline2.png)
-
-A linha cronológica para o processo de listagem a aplicação na galeria, com suporte de aprovisionamento de utilizadores é 40 a 45 dias de negócios.
-
-   ![Linha cronológica de listagem aplicação de saml numa galeria de](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Escalonamento
 

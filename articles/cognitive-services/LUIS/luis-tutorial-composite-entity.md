@@ -1,5 +1,5 @@
 ---
-title: Entidade composta"
+title: Tutorial de entidade compostos
 titleSuffix: Azure Cognitive Services
 description: Adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2da007d0e97f55432282fbc52c38ef3f50a2e5f4
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883309"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593578"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Tutorial: Agrupar e extrair dados relacionados
 Neste tutorial, adicione uma entidade composta para reunir dados extraídos de vários tipos com uma única entidade contentora. Ao agrupar os dados, a aplicação cliente pode, facilmente, extrair dados relacionados em diferentes tipos de dados.
@@ -29,7 +29,7 @@ A entidade composta é uma boa opção para este tipo de dados, porque os dados:
 * Utilize uma variedade de tipos de entidade.
 * Têm de ser agrupadas e processadas pela aplicação cliente como uma unidade de informações.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -85,18 +85,19 @@ O LUIS oferece várias entidades pré-concebidas para extração de dados comuns
 
 1. Selecione **TransferEmployeeToDepartment** na lista de objetivos.
 
-1. Na primeira expressão, selecione a entidade de personName `John Jackson`, em seguida, selecione **iniciar encapsulamento entidade composta** na lista de menu de pop-up para a seguinte expressão:
+1. Na expressão `place John Jackson in engineering`, selecione a entidade de personName `John Jackson`, em seguida, selecione **encapsular na entidade composta** na lista de menu de pop-up para a expressão seguinte. 
 
-    `place John Jackson in engineering`
+    ![Captura de ecrã da seleção de composição de moldagem na lista pendente de caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Em seguida, selecione imediatamente a última entidade `engineering` na expressão. Uma barra de verde é desenhada sob as palavras selecionadas que indica uma entidade composta. No menu de pop-up, introduza o nome composto `TransferEmployeeInfo` , em seguida, selecione introduzir. 
 
-1. Na **o tipo de entidade que pretende criar?**, todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Done** (Concluído). 
+    ![Captura de ecrã da introdução composto nome na lista pendente de caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    Tenha em atenção que a entidade pré-criados, personName, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
+1. Na **o tipo de entidade que pretende criar?**, todos os campos necessários estão na lista: `personName` e `Department`. Selecione **Done** (Concluído). Tenha em atenção que a entidade pré-criados, personName, foi adicionada à entidade composta. Se poderia ter uma entidade pré-criados aparecem entre o início e a terminar em tokens de uma entidade composta, a entidade composta tem de conter essas entidades criados previamente. Se a entidades pré-concebidas não estão incluídas, a entidade composta não está prevista corretamente, mas é de cada elemento individual.
+
+    ![Captura de ecrã da introdução composto nome na lista pendente de caixa de diálogo](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Expressões com de exemplo de etiqueta com a entidade composta
-
 
 1. Em cada ocorrência de pronunciação de exemplo, selecione a entidade de mais à esquerda que deve estar na composição. Em seguida, selecione **encapsular na entidade composta**.
 

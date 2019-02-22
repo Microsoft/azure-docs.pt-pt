@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 0d5b345936f6c931f4210e6dc50f94544a52f571
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 40e034a563074e10a2dfbee36b6792a095022057
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700575"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649634"
 ---
-#  <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicação virtual de rede no Azure
+# <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicação virtual de rede no Azure
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Poderá notar VM ou problemas de conectividade VPN e de erros quando a utilizar uma aplicação de rede Virtual (NVA) no Microsoft Azure de terceiros. Este artigo fornece os passos básicos para o ajudar a validar requisitos básicos de plataforma do Azure para configurações de NVA.
 
-Suporte técnico para as NVAs de terceiros e sua integração com a plataforma do Azure é fornecido pelo fabricante do NVA. 
+Suporte técnico para as NVAs de terceiros e sua integração com a plataforma do Azure é fornecido pelo fabricante do NVA.
 
 > [!NOTE]
 > Se tiver uma conectividade ou o problema de encaminhamento que envolve uma NVA, deve [contacte o fornecedor da NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) diretamente.
@@ -40,7 +42,7 @@ Suporte técnico para as NVAs de terceiros e sua integração com a plataforma d
 - UDRs em sub-redes da rede virtual que direcionar o tráfego de NVA
 - Tabelas de roteamento e regras da NVA (por exemplo, a partir de NIC1 para NIC2)
 - Rastreio em NICs de NVA para verificar a receber e enviar o tráfego de rede
-- Quando utilizar um Standard SKU e IPs públicos, tem de existir um NSG criado e uma regra de explícita para permitir o tráfego encaminhado para a NVA.
+- Quando utilizar um Standard SKU e IPs públicos, deve haver um NSG criado e uma regra de explícita para permitir o tráfego encaminhado para a NVA.
 
 ## <a name="basic-troubleshooting-steps"></a>Passos de resolução de problemas básicos
 
@@ -56,29 +58,23 @@ Cada NVA tem requisitos de configuração básica para funcionar corretamente no
 
 Utilizar o portal do Azure
 
-1.  Localize o recurso NVA na [portal do Azure](https://portal.azure.com), selecione o sistema de rede e, em seguida, selecione a interface de rede.
-2.  Na página de interface de rede, selecione a configuração de IP.
-3.  Certifique-se de que o reencaminhamento de IP está ativado.
+1. Localize o recurso NVA na [portal do Azure](https://portal.azure.com), selecione o sistema de rede e, em seguida, selecione a interface de rede.
+2. Na página de interface de rede, selecione a configuração de IP.
+3. Certifique-se de que o reencaminhamento de IP está ativado.
 
 Utilizar o PowerShell
 
 1. Abra o PowerShell e, em seguida, inicie sessão na sua conta do Azure.
 2. Execute o seguinte comando (substitua os valores entre parênteses com as suas informações):
 
-        Get-AzureRmNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
 
 3. Verifique os **EnableIPForwarding** propriedade.
- 
 4. Se o reencaminhamento de IP não estiver ativado, execute os seguintes comandos para ativá-la:
 
-          $nic2 = Get-AzureRmNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
-          $nic2.EnableIPForwarding = 1
-          Set-AzureRmNetworkInterface -NetworkInterface $nic2
-          Execute: $nic2 #and check for an expected output:
-          EnableIPForwarding   : True
-          NetworkSecurityGroup : null
+   US $nic2 = Get-AzNetworkInterface - ResourceGroupName <ResourceGroupName> -nome <NicName> us $nic2. EnableIPForwarding = 1 conjunto AzNetworkInterface - NetworkInterface us $nic2 executar: $nic2 #and verificar um resultado esperado: EnableIPForwarding: True NetworkSecurityGroup : null
 
-**Verificar a existência de NSG ao utilizar o IP público de SKU Standard** ao utilizar um Standard SKU e IPs públicos, tem de existir um NSG criado e uma regra de explícita para permitir o tráfego para a NVA.
+**Verificar a existência de NSG ao utilizar o IP de Pubilc de SKU Standard** quando utilizar um Standard SKU e IPs públicos, tem de existir um NSG criado e uma regra de explícita para permitir o tráfego para a NVA.
 
 **Verifique se o tráfego pode ser encaminhado para a NVA**
 
@@ -88,13 +84,13 @@ Utilizar o PowerShell
 
 **Verifique se o tráfego pode chegar a NVA**
 
-1.  Na [portal do Azure](https://portal.azure.com), abra **observador de rede**e, em seguida, selecione **IP fluxo verificar**. 
-2.  Especifique a VM e o endereço IP da NVA e, em seguida, verifique se o tráfego é bloqueado por quaisquer grupos de segurança de rede (NSG).
-3.  Se houver uma regra NSG que bloqueia o tráfego, localize o NSG pela **segurança efetivas** regras e, em seguida, atualizá-la para permitir o tráfego para passar. Em seguida, execute **IP fluxo verificar** novamente e usar **resolver problemas de ligação** para testar as comunicações de TCP de VM para o seu endereço IP interno ou externo.
+1. Na [portal do Azure](https://portal.azure.com), abra **observador de rede**e, em seguida, selecione **IP fluxo verificar**. 
+2. Especifique a VM e o endereço IP da NVA e, em seguida, verifique se o tráfego é bloqueado por quaisquer grupos de segurança de rede (NSG).
+3. Se houver uma regra NSG que bloqueia o tráfego, localize o NSG pela **segurança efetivas** regras e, em seguida, atualizá-la para permitir o tráfego para passar. Em seguida, execute **IP fluxo verificar** novamente e usar **resolver problemas de ligação** para testar as comunicações de TCP de VM para o seu endereço IP interno ou externo.
 
 **Verifique se NVA e as VMs estão à escuta para o tráfego esperado**
 
-1.  Ligue-se para a NVA utilizando RDP ou SSH e, em seguida, execute o comando a seguir:
+1. Ligue-se para a NVA utilizando RDP ou SSH e, em seguida, execute o comando a seguir:
 
     Para Windows:
 
@@ -103,15 +99,15 @@ Utilizar o PowerShell
     Para Linux:
 
         netstat -an | grep -i listen
-2.  Se não vir a porta TCP utilizada pelo software NVA está listado nos resultados da tem de configurar a aplicação na NVA e VM para escutar e responder ao tráfego que atinge essas portas. [Contacte o fornecedor NVA para obter assistência, conforme necessário](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. Se não vir a porta TCP utilizada pelo software NVA está listado nos resultados da tem de configurar a aplicação na NVA e VM para escutar e responder ao tráfego que atinge essas portas. [Contacte o fornecedor NVA para obter assistência, conforme necessário](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
 
 ## <a name="check-nva-performance"></a>Verificar o desempenho da NVA
 
 ### <a name="validate-vm-cpu"></a>Validar a CPU da VM
 
-Se a utilização da CPU chega perto de 100 por cento, poderá ter problema que afetam as quedas de pacotes de rede. Os relatórios VM média da CPU para um intervalo de tempo específico no portal do Azure. Durante um pico de CPU, que processar no convidado que VM está a causar a CPU elevada de investigar e mitigá-lo, se possível. Também poderá ter de redimensionar a VM para um tamanho SKU superior ou, para o conjunto de dimensionamento de máquina virtual, aumentar a contagem de instâncias ou definir para se dimensionarem automaticamente na utilização da CPU. Para qualquer um desses problemas, [contacte o fornecedor da NVA para assistência](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), conforme necessário.
+Se a utilização da CPU chega perto de 100 por cento, podem ocorrer problemas que afetam as quedas de pacotes de rede. Os relatórios VM média da CPU para um intervalo de tempo específico no portal do Azure. Durante um pico de CPU, que processar no convidado que VM está a causar a CPU elevada de investigar e mitigá-lo, se possível. Também poderá ter de redimensionar a VM para um tamanho SKU superior ou, para o conjunto de dimensionamento de máquina virtual, aumentar a contagem de instâncias ou definir para se dimensionarem automaticamente na utilização da CPU. Para qualquer um desses problemas, [contacte o fornecedor da NVA para assistência](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), conforme necessário.
 
-### <a name="validate-vm-network-statistics"></a>Validar as estatísticas de rede VM 
+### <a name="validate-vm-network-statistics"></a>Validar as estatísticas de rede VM
 
 Se utilizar a rede VM picos ou mostra períodos de elevada utilização, que também poderá ter de aumentar o tamanho SKU de VM para obter capacidades de débito mais elevadas. Também pode Reimplementar a VM ao ter redes aceleradas ativada. Para verificar se a NVA suporta a funcionalidade de redes aceleradas, [contacte o fornecedor da NVA para assistência](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), conforme necessário.
 
@@ -122,16 +118,15 @@ Capturar um rastreio de rede simultâneo na VM de origem, a NVA e o VM de destin
 
 1. Para capturar um rastreio de rede simultâneas, execute o seguinte comando:
 
-    Para Windows:
+   **Para Windows**
 
-        netsh trace start capture=yes tracefile=c:\server_IP.etl scenario=netconnection
+   rastreio Netsh Iniciar captura = cenário do yes tracefile = netconnection
 
-    Para Linux:
+   **Para Linux**
 
-        sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
+   sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 
 2. Uso **PsPing** ou **Nmap** da VM de origem para a VM de destino (por exemplo: `PsPing 10.0.0.4:80` ou `Nmap -p 80 10.0.0.4`).
-
 3. Abra o rastreio de rede de VM de destino, utilizando [Monitor de rede](https://www.microsoft.com/download/details.aspx?id=4865) ou com tcpdump. Aplicar um filtro de apresentação para o IP da VM de origem tiver executado **PsPing** ou **Nmap** , como `IPv4.address==10.0.0.4 (Windows netmon)` ou `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Analisar rastreios
@@ -139,4 +134,3 @@ Capturar um rastreio de rede simultâneo na VM de origem, a NVA e o VM de destin
 Se não vir os pacotes para o rastreio da VM de back-end, é provável que um NSG ou UDR esteja a interferir ou as tabelas de roteamentos da NVA estão incorretas.
 
 Se vir que os pacotes estão a ser enviados, mas que não há resposta, poderá ter de resolver um problema da aplicação de VM ou de firewall. Para qualquer um desses problemas, [contacte o fornecedor NVA para obter assistência, conforme necessário](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
-

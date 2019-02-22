@@ -12,11 +12,11 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316299"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593969"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Sugestões de resolução de problemas para pesquisa cognitiva
 
@@ -104,7 +104,7 @@ Para [indexação paralela](search-howto-large-index.md), colocar os dados em v�
 Para obter mais informações, consulte [indexação de grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Consulte também
-+ [Início rápido: Criar um pipeline de pesquisa cognitiva no portal](cognitive-search-quickstart-blob.md)
++ [Quickstart: Criar um pipeline de pesquisa cognitiva no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Saiba as APIs REST de pesquisa cognitiva](cognitive-search-tutorial-blob.md)
 + [Especificação de credenciais de origem de dados](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexação de grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)

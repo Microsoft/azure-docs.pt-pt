@@ -14,14 +14,16 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: ade8329e6e42fae9f3232617488a6d4a69f8ef1f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 20639296767c45cb1e7ae854e6ad9494c34fc0ed
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437390"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650602"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Início rápido: Criar uma rede virtual com o PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Uma rede virtual permite que os recursos do Azure, como as máquinas virtuais (VMs), comuniquem em privado entre si e com a internet. Neste início rápido, vai aprender a criar uma rede virtual. Depois de criar uma rede virtual, vai implementar duas VMs na rede virtual. Em seguida, ligar às VMs a partir da internet e comunicar em privado através da rede virtual.
 
@@ -29,9 +31,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e usar o PowerShell localmente, este início rápido requer a utilização AzureRM módulo do PowerShell versão 5.4.1 ou posterior. Para localizar a versão instalada, execute `Get-Module -ListAvailable AzureRM`. Ver [módulo de instalar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) para instalação e informações de atualização.
+Se optar por instalar e utilizar o PowerShell localmente em vez disso, este início rápido requer a utilização do Azure PowerShell versão 1.0.0 do módulo ou posterior. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Ver [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps) para instalação e informações de atualização.
 
-Por fim, se estiver executando o PowerShell localmente, terá também de executar `Connect-AzureRmAccount`. Esse comando cria uma ligação com o Azure.
+Por fim, se estiver executando o PowerShell localmente, terá também de executar `Connect-AzAccount`. Esse comando cria uma ligação com o Azure.
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>Criar um grupo de recursos e uma rede virtual
 
@@ -39,18 +41,18 @@ Existem diversos passos que terá de percorrer para obter o seu grupo de recurso
 
 ### <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
-Antes de poder criar uma rede virtual, tem de criar um grupo de recursos para alojar a rede virtual. Crie um grupo de recursos com [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). Este exemplo cria um grupo de recursos chamado *myResourceGroup* no *eastus* localização:
+Antes de poder criar uma rede virtual, tem de criar um grupo de recursos para alojar a rede virtual. Criar um grupo de recursos com [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). Este exemplo cria um grupo de recursos chamado *myResourceGroup* no *eastus* localização:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 
-Crie uma rede virtual com [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork). Este exemplo cria uma rede de virtual predefinida com o nome *myVirtualNetwork* no *EastUS* localização:
+Criar uma rede virtual com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Este exemplo cria uma rede de virtual predefinida com o nome *myVirtualNetwork* no *EastUS* localização:
 
 ```azurepowershell-interactive
-$virtualNetwork = New-AzureRmVirtualNetwork `
+$virtualNetwork = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroup `
   -Location EastUS `
   -Name myVirtualNetwork `
@@ -59,10 +61,10 @@ $virtualNetwork = New-AzureRmVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
-Azure implementa recursos a uma sub-rede numa rede virtual, por isso terá de criar uma sub-rede. Criar uma configuração de sub-rede com o nome *predefinição* com [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
+Azure implementa recursos a uma sub-rede numa rede virtual, por isso terá de criar uma sub-rede. Criar uma configuração de sub-rede com o nome *predefinição* com [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig):
 
 ```azurepowershell-interactive
-$subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -Name default `
   -AddressPrefix 10.0.0.0/24 `
   -VirtualNetwork $virtualNetwork
@@ -70,10 +72,10 @@ $subnetConfig = Add-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Associar a sub-rede à rede virtual
 
-Pode escrever a configuração de sub-rede para a rede virtual com [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork). Este comando cria a sub-rede:
+Pode escrever a configuração de sub-rede para a rede virtual com [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork). Este comando cria a sub-rede:
 
 ```azurepowershell-interactive
-$virtualNetwork | Set-AzureRmVirtualNetwork
+$virtualNetwork | Set-AzVirtualNetwork
 ```
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
@@ -82,10 +84,10 @@ Crie duas VMs na rede virtual.
 
 ### <a name="create-the-first-vm"></a>Criar a primeira VM
 
-Criar a primeira VM com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Ao executar o comando seguinte, lhe forem pedidas credenciais. Introduza um nome de utilizador e palavra-passe para a VM:
+Criar a primeira VM com [New-AzVM](/powershell/module/az.compute/new-azvm). Ao executar o comando seguinte, lhe forem pedidas credenciais. Introduza um nome de utilizador e palavra-passe para a VM:
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Location "East US" `
     -VirtualNetworkName "myVirtualNetwork" `
@@ -101,7 +103,7 @@ Quando o Azure começa a criar a VM em segundo plano, obterá algo parecido com 
 ```powershell
 Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
 --     ----            -------------   -----         -----------     --------             -------
-1      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmVM
+1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
 ### <a name="create-the-second-vm"></a>Criar a segunda VM
@@ -109,7 +111,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 Crie a segunda VM com este comando:
 
 ```azurepowershell-interactive
-New-AzureRmVm `
+New-AzVm `
   -ResourceGroupName "myResourceGroup" `
   -VirtualNetworkName "myVirtualNetwork" `
   -SubnetName "default" `
@@ -123,10 +125,10 @@ Terá de criar outro utilizador e palavra-passe. Azure demora alguns minutos par
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
-Utilize [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para que o endereço IP público de uma VM seja devolvido. Este exemplo retorna o endereço IP público dos *myVm1* VM:
+Uso [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para devolver o endereço IP público de uma VM. Este exemplo retorna o endereço IP público dos *myVm1* VM:
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -Name myVm1 `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress
@@ -135,7 +137,7 @@ Get-AzureRmPublicIpAddress `
 Abra uma linha de comandos no seu computador local. Execute o comando `mstsc`. Substitua `<publicIpAddress>` com o endereço IP público devolvido do último passo:
 
 > [!NOTE]
-> Se esteve executando estes comandos a partir de uma linha de comandos do PowerShell no seu computador local e estão no AzureRM módulo do PowerShell versão 5.4.1 ou posterior, pode continuar nessa interface.
+> Se esteve executando estes comandos de uma linha de comandos do PowerShell no seu computador local e estiver a utilizar o PowerShell Az versão 1.0 ou posterior do módulo, pode continuar nessa interface.
 
 ```cmd
 mstsc /v:<publicIpAddress>
@@ -165,7 +167,7 @@ Um protocolo de ambiente de trabalho remoto (*. rdp*) transferências de ficheir
     ```powershell
     PS C:\Users\myVm1> ping myVm2
 
-    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudap
+    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
     Request timed out.
     Request timed out.
     Request timed out.
@@ -214,10 +216,10 @@ Um protocolo de ambiente de trabalho remoto (*. rdp*) transferências de ficheir
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando tiver terminado com a rede virtual e as VMs, utilize [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos de que tem:
+Quando tiver terminado com a rede virtual e as VMs, utilize [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos de que tem:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

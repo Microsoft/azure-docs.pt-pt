@@ -3,7 +3,7 @@ title: Perguntas mais frequentes (FAQ) do sobre o Centro de segurança do Azure 
 description: Encontre respostas para perguntas sobre o Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
-ms.author: rkarlin
-ms.openlocfilehash: 61dac6bea6878630c05339778c717f7818c1c662
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 02/19/2019
+ms.author: monhaber
+ms.openlocfilehash: 6696935cf23fa7286f23ae9b7d0e8a278e31403d
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106652"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652667"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -274,6 +274,9 @@ Centro de segurança do Azure automaticamente recolhe, analisa e funde dados de 
 * Software maligno avançado detetado com o relatório de erros do Windows
 * Ataques de força bruta contra máquinas virtuais
 * Alertas de segurança de soluções de segurança de parceiros integradas, como o anti-malware ou Firewalls de aplicações Web
+
+### <a name="why-did-secure-scores-values-change"></a>Por que proteger a alteração de valores de pontuações?
+A partir de Fevereiro de 2019, o Centro de segurança ajustado a pontuação de algumas recomendações, para se ajustar melhor aos seus gravidade. Como resultado esse ajuste, podem existir valores de pontuação de proteger as alterações no geral.  Para obter mais informações sobre a pontuação segura, consulte [proteger o cálculo de pontuação](security-center-secure-score.md).
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>O que é a diferença entre ameaças detetados e alertados pelo Microsoft Security Response Center em comparação com o Centro de segurança do Azure?
 O Microsoft Security Response Center (MSRC) executa a segurança selecione monitorização da rede do Azure e infraestrutura e recebe a reclamações de abuso e inteligência de ameaças de terceiros. Quando o MSRC fica sabendo que os dados do cliente foram acedidos por uma entidade não autorizada ou ilícita ou que utilização do cliente do Azure não estão em conformidade com os termos para utilizar aceitável, um Gestor de incidentes de segurança notifica o cliente. Normalmente, a notificação ocorre ao enviar um e-mail para os contactos de segurança especificados no Centro de segurança do Azure ou o proprietário da subscrição do Azure, se não for especificado um contacto de segurança.

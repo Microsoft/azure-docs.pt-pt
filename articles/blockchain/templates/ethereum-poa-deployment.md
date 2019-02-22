@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 3edd70d3012840bd66460219c32135666619a3bf
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 42e5fd713f6353a2a939236f34463e9ba4195e29
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313573"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650211"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum consortium de prova de autoridade
 
@@ -285,14 +285,14 @@ Uma implementação de exemplo é mostrada abaixo: ![ethereum definições](./me
 
 #### <a name="monitoring"></a>Monitorização
 
-O painel de monitorização permite-lhe configurar um recurso do Log Analytics para a sua rede. O agente de monitorização irá recolher e superfície métricas úteis e os registos da sua rede, fornecendo a capacidade de verificar rapidamente o estado de funcionamento de rede ou a depuração de problemas.
+O painel de monitorização permite-lhe configurar um recurso de registos do Azure Monitor para a sua rede. O agente de monitorização irá recolher e superfície métricas úteis e os registos da sua rede, fornecendo a capacidade de verificar rapidamente o estado de funcionamento de rede ou a depuração de problemas.
 
   Nome do parâmetro|Descrição|Valores permitidos|Valores predefinidos
   ---|---|---|---
 Monitorização|Opção para ativar a monitorização|Ativar ou desativar|Ativar
-Ligar ao existentes do Log Analytics|Crie uma nova instância do Log Analytics ou ingresse numa instância existente|Criar nova ou associar existente|Criar novo
-Monitorizar a localização (ligar ao existentes do Log Analytics = criar novos)|A região onde a nova instância do Log Analytics será implementada|Todas as regiões do Log Analytics|ND
-Id de área de trabalho de análise de registo existente (ligar ao existentes do Log Analytics = Junte-se existente)|ID da área de trabalho da instância existente do Log Analytics||ND
+Ligue-se aos registos existentes do Azure Monitor|Crie uma nova instância de registos do Azure Monitor ou ingresse numa instância existente|Criar nova ou associar existente|Criar novo
+Monitorizar a localização (ligar ao registos existentes do Azure Monitor = criar novos)|A região onde o novo Azure Monitor regista a instância será implementada|Regiões de registos de todos os Azure Monitor|ND
+Id de área de trabalho de análise de registo existente (Connect existente do Azure Monitor registos = Junte-se existente)|Instância de registos de ID de área de trabalho do Monitor do Azure existente||ND
 Chave primária do existente Log Analytics (ligar ao existentes do Log Analytics = Junte-se existente)|A chave primária utilizada para ligar para a instância existente do Log Analytics||ND
 
 
@@ -425,7 +425,7 @@ Selecionando **estatísticas de rede** irá direcioná-lo para ver as estatísti
 
 ![estatísticas de rede](./media/ethereum-poa-deployment/network-stats.png)
 
-#### <a name="sample-log-analytics-queries"></a>Exemplos de consultas do Log Analytics
+#### <a name="sample-kusto-queries"></a>Exemplos de consultas de Kusto
 
 Por trás estes dashboards é um conjunto de registos não processados queryable. Pode utilizar estes registos não processados para personalizar os dashboards, investigar falhas ou programa de configuração de alertas de limiar. Veja a seguir, encontrará um conjunto de consultas de exemplo que pode ser executado na ferramenta de pesquisa de registos:
 

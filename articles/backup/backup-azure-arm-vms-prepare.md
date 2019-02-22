@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: e782afb971f95a654119d9817edeef02642bee9e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: effb00a4ebde857e06e34e5f83ca01fc5d74017b
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447570"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594190"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer cópias de segurança de VMs do Azure num cofre dos serviços de recuperação
 
@@ -63,7 +63,7 @@ A extensão de cópia de segurança em execução na VM tem de ter acesso de sa�
 - Sem acesso de rede de saída explícita é necessário para VM do Azure para comunicar com o serviço de cópia de segurança do Azure.
 - No entanto, determinadas mais antigas máquinas de virtuais pode sentir alguns problemas e falhar com o erro **ExtensionSnapshotFailedNoNetwork** quando tentam se conectar. Neste caso, utilize uma das seguintes opções para que a extensão de cópia de segurança pode comunicar com endereços IP públicos do Azure para o tráfego de cópia de segurança.
 
-   **Opção** | **ação** ** | **Vantagens** | **Desvantagens**
+   **Opção** | **Ação** | **Vantagens** | **Desvantagens**
    --- | --- | --- | ---
    **Configurar regras NSG** | Permitir a [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  Pode adicionar uma regra que permite o acesso para o serviço de cópia de segurança do Azure com um [etiqueta de serviço](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), em vez de individualmente, permitindo e gerir cada intervalo de endereços. [Saiba mais](../virtual-network/security-overview.md#service-tags) sobre as etiquetas de serviço. | Sem custos adicionais. Simples de gerenciar com etiquetas de serviço
    **Implementar um proxy** | Implemente um servidor de proxy HTTP para o encaminhamento de tráfego. | Fornece acesso a todo do Azure e não apenas armazenamento. É permitido um controle granular sobre os URLs de armazenamento.<br/><br/> Único ponto de acesso à internet para VMs.<br/><br/> Custos adicionais para o proxy.<br/><br/> 

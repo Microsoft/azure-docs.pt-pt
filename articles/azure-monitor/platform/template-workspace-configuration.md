@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: 46be596cbd2641b9ecd3206f44a6e7de7beed255
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d6933d5fd72a3a6c945d3afc3fdd3512be5b28d1
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417515"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591606"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir o Log Analytics, utilizando modelos Azure Resource Manager
 Pode usar [modelos Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho do Log Analytics. Exemplos de tarefas que pode realizar com modelos incluem:
@@ -42,7 +42,7 @@ A tabela seguinte lista a versão de API para os recursos utilizados neste exemp
 | Recurso | Tipo de recurso | Versão de API |
 |:---|:---|:---|:---|
 | Área de trabalho   | áreas de trabalho    | 2017-03-15-pré-visualização |
-| Pesquisa      | savedSearches | 2017-03-15-pré-visualização |
+| Pesquisa      | savedSearches | 2015-03-20 |
 | Origem de dados | origens de dados   | 2015-11-01-pré-visualização |
 | Solução    | soluções     | 2015-11-01-pré-visualização |
 
@@ -101,7 +101,7 @@ Os seguintes parâmetros de definir um valor predefinido:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -218,7 +218,7 @@ O exemplo de modelo a seguir ilustra como:
   },
   "resources": [
     {
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -230,7 +230,7 @@ O exemplo de modelo a seguir ilustra como:
       },
       "resources": [
         {
-          "apiVersion": "2017-03-15-preview",
+          "apiVersion": "2015-03-20",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -379,7 +379,7 @@ O exemplo de modelo a seguir ilustra como:
           }
         },
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2015-03-20",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [

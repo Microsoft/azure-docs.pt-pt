@@ -13,23 +13,23 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 66c462dee3a2940a7a090101ffb9cec7e4ff1e7c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 431c31b39103e5ef21cb83b388167cab57e0c129
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981296"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649089"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Tutorial: criar e testar uma subscrição
 
-Este tutorial mostra-lhe como criar uma subscrição que contém uma oferta e, em seguida, testá-lo. Para o teste, inicie sessão no portal de utilizador do Azure Stack como um administrador da nuvem, subscreva a oferta e, em seguida, crie uma máquina virtual.
+Este tutorial mostra como criar uma subscrição que contém uma oferta e, em seguida, testá-lo. Para o teste, inicie sessão no portal de utilizador do Azure Stack como um administrador da nuvem, subscreva a oferta e, em seguida, crie uma máquina virtual.
 
 > [!TIP]
-> Para obter mais uma mais avançada experiência de avaliação, pode [criar uma subscrição para um usuário específico](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) e, em seguida, inicie sessão como utilizador no portal de utilizador. 
+> Para obter mais uma mais avançada experiência de avaliação, pode [criar uma subscrição para um usuário específico](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) e, em seguida, inicie sessão como utilizador no portal de utilizador.
 
 Este tutorial mostra como subscrever uma oferta do Azure Stack.
 
@@ -60,10 +60,10 @@ Para subscrever uma oferta como um usuário, inicie sessão portal de utilizador
 
 ## <a name="test-the-offer"></a>Testar a oferta
 
-Enquanto tiver sessão iniciada portal de utilizador, pode testar a oferta ao aprovisionar uma máquina virtual utilizando os novos recursos de subscrição. 
+Enquanto tiver sessão iniciada portal de utilizador, pode testar a oferta ao aprovisionar uma máquina virtual utilizando os novos recursos de subscrição.
 
 > [!NOTE]
-> Este teste requer que primeiro foi adicionada uma VM do Windows Server 2016 Datacenter para o mercado do Azure Stack. 
+> Este teste requer que primeiro foi adicionada uma VM do Windows Server 2016 Datacenter para o mercado do Azure Stack.
 
 1. Inicie sessão no portal de utilizador.
 
@@ -84,7 +84,6 @@ Enquanto tiver sessão iniciada portal de utilizador, pode testar a oferta ao ap
 > [!NOTE]
 > A implementação da máquina virtual demora alguns minutos a concluir.
 
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 O que aprendeu neste tutorial:
@@ -92,7 +91,6 @@ O que aprendeu neste tutorial:
 > [!div class="checklist"]
 > * Subscrever uma oferta 
 > * Testar a oferta
-
 
 > [!div class="nextstepaction"]
 > [Criar uma VM a partir de um modelo de Comunidade](azure-stack-create-vm-template.md)

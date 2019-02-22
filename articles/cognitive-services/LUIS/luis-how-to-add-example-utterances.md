@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 3f08e2b2fab03ed7f2cccfe251e125033d55b30a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 16bff038b21658d29f3ab5a4b135af7f8a9e640c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860631"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593935"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
 
@@ -35,21 +35,17 @@ Determinados tipos de entidade, como entidades previamente concebidas e entidade
 No procedimento seguinte, criar e etiquetar uma entidade personalizada na seguinte expressão na página de intenção:
 
 ```text
-Does John Smith work in Seattle?
+Are there any SQL server jobs?
 ```
 
-1. Selecione `Seattle` na expressão que identifique-la como uma entidade.
+1. Selecione `SQL server` na expressão que identifique-la como uma entidade. Na caixa de lista pendente de entidade que aparece, pode selecionar uma entidade existente ou adicionar uma nova entidade. Para adicionar uma nova entidade, escreva o nome `Job` na caixa de texto e, em seguida, selecione **criar nova entidade**.
 
-    [![Captura de ecrã da seleção de texto na expressão para a entidade simple](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
+    ![Captura de ecrã da introdução do nome da entidade](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > Quando selecionar as palavras a marca como entidades:
     > * Para uma única palavra, basta selecioná-lo. 
     > * Para um conjunto de duas ou mais palavras, selecione no início e, em seguida, no final do conjunto.
-
-1. Na caixa de lista pendente de entidade que aparece, pode selecionar uma entidade existente ou adicionar uma nova entidade. Para adicionar uma nova entidade, digite seu nome na caixa de texto e, em seguida, selecione **criar nova entidade**. 
-
-    ![Captura de ecrã da introdução do nome da entidade](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
 1. Na **o tipo de entidade que pretende criar?** caixa pop-up, verifique o nome da entidade e selecione o **simples** tipo de entidade e, em seguida, selecione **feito**.
 
@@ -57,14 +53,11 @@ Does John Smith work in Seattle?
 
 ## <a name="add-a-list-entity"></a>Adicionar uma entidade de lista
 
-Lista de entidades representam um conjunto fixo, fechado (corresponde a texto exato) de palavras relacionadas no seu sistema. 
+Lista de entidades representam um conjunto de correspondências de texto exato de palavras relacionadas no seu sistema. 
 
 Para obter lista de departamento da empresa, pode ter normalizados valores: `Accounting` e `Human Resources`. Cada nome normalizado tem sinónimos. Para um departamento, estes sinónimos podem incluir qualquer acrônimos de departamento, números ou gíria. Não precisa saber todos os valores quando criar a entidade. Pode adicionar mais depois de rever as expressões de utilizador real com sinónimos.
 
-1. Na lista de expressão de exemplo, para uma expressão específica, selecione a palavra ou expressão que pretende na lista de novo. Em seguida, introduza o nome da lista na caixa de texto superior, em seguida, selecione **criar nova entidade**.   
-
-    ![Captura de ecrã da introdução do nome da entidade de lista](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
-
+1. Numa expressão de exemplo sobre o **intenções** , selecione a palavra ou expressão que pretende na lista de novo. Quando for apresentada a lista pendente de entidade, introduza o nome para a nova entidade de lista na caixa de texto superior, em seguida, selecione **criar nova entidade**.   
 
 1. Na **o tipo de entidade que pretende criar?** caixa pop-up, o nome da entidade e selecione **lista** como o tipo. Adicionar sinónimos deste item de lista, em seguida, selecione **feito**. 
 
@@ -76,21 +69,15 @@ Para obter lista de departamento da empresa, pode ter normalizados valores: `Acc
 
 Entidades compostas criadas a partir de existente **entidades** numa entidade principal. 
 
-Supondo que a expressão, `Does John Smith work in Seattle?`, uma expressão composta pode retornar informações da entidade do nome do funcionário e a localização num objeto único elemento principal. 
+A expressão, partindo do princípio `Does John Smith work in Seattle?`, uma expressão composta pode devolver informações da entidade do nome do funcionário `John Smith`e a localização `Seattle` numa entidade composta. As entidades subordinadas tem de existir na aplicação e ser marcado como na expressão de exemplo antes de criar a entidade composta.
 
-O nome do funcionário, John Smith, é um pré-criados [personName](luis-reference-prebuilt-person.md) entidade. A localização, Seattle, é uma entidade personalizada. Assim que essas duas entidades são criadas e marcadas de uma expressão de exemplo, essas entidades podem ser encapsuladas numa entidade composta. 
+1. Para concluir as entidades subordinadas para uma entidade composta, selecione o **primeiro** rotulado como entidade (mais à esquerda) na expressão para a entidade composta. É apresentada uma lista de baixo mostrar as opções para esta seleção.
 
-1. Para concluir as entidades individuais numa composição, selecione o **primeiro** rotulado como entidade (mais à esquerda) na expressão para a entidade composta. É apresentada uma lista de lista pendente que mostra as opções para esta seleção.
+1. Selecione **encapsular na entidade composta** na lista pendente. 
 
-1. Selecione **encapsular entidade composta** na lista pendente. 
-
-    ![Captura de ecrã do selecione "Wrap na entidade composta"](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
-
-1. Selecione a última palavra da entidade composta (mais à direita). Observe que uma linha verde segue a entidade composta.
+1. Selecione a última palavra da entidade composta (mais à direita). Observe que uma linha verde segue a entidade composta. Este é o indicador visual para uma entidade composto e deve ser em todas as palavras na entidade composta da entidade filho mais à esquerda para a entidade de filho na extrema direita.
 
 1. Introduza o nome da entidade composta na lista pendente.
-
-    ![Captura de ecrã de introduzir o nome da entidade compostos na lista pendente](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Quando encapsula as entidades corretamente, uma linha verde está sob a frase inteira.
 
@@ -110,15 +97,11 @@ Na expressão `Move John Smith from Seattle to Cairo`, Seattle é a localizaçã
 
 1. Na página de intenção, na expressão, selecione `Seattle`, em seguida, introduza o nome da entidade `Location`e, em seguida, selecione Enter no teclado.
 
-    ![Caixa de diálogo de captura de ecrã de criar hierárquica entidade etiquetagem](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
-
 1. Na **o tipo de entidade que pretende criar?** caixa pop-up, selecione _hierárquica_ para **tipo de entidade**, em seguida, adicione `Origin` e `Destination` como filhos, e, em seguida, selecione **feito**.
 
     ![Página de detalhes de captura de ecrã de objetivos, com a entidade de ToLocation realçada](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
 1. A palavra a expressão foi identificada com a entidade de hierárquica do principal. Terá de atribuir a palavra a entidade subordinada. Voltar para a expressão na página de detalhes de intenção. Selecione o word, em seguida, na lista pendente, escolha o nome da entidade que criou e siga o menu à direita para escolher a entidade de filho correta.
-
-    ![Página de detalhes de captura de ecrã de objetivos, onde tem de atribuir a palavra para a entidade subordinada](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Os nomes de entidades de subordinado tem de ser exclusivos em todas as entidades numa única aplicação. Duas entidades hierárquicas diferentes não podem conter entidades subordinadas com o mesmo nome. 
@@ -135,7 +118,7 @@ Selecione as palavras que são sublinhadas em vermelho na expressão.
 
 Apresenta a caixa de entidade a **estado de entidade** com uma marca de exclamação vermelha se existe uma discrepância de predição. Para ver o estado de entidade com informações sobre a diferença entre entidades com nome e previstas, selecione **estado de entidade** , em seguida, selecione o item para a direita.
 
-![Captura de ecrã da seleção correta item a corrigir discrepância de predição](./media/luis-how-to-add-example-utterances/entity-status.png)
+![Seleção de estado de captura de ecrã da entidade](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 A linha de vermelho pode aparecer em qualquer um dos seguintes horas:
 
@@ -153,6 +136,9 @@ As seguintes soluções de ajudar a resolver as discrepâncias de predição de 
 |Corretamente etiquetado texto|entidade azul, realce o sublinhado em vermelho|Previsão incorreta|Forneça mais expressões com a entidade etiquetada corretamente numa variedade de locais e utilizações. As expressões atuais são não é suficiente para ensinar LUIS que se trata a entidade é ou aparecem as entidades semelhantes no mesmo contexto. Entidade semelhante deve ser combinada numa única entidade então LUIS não é confuso. Outra solução é adicionar uma lista de frase para aumentar a significância das palavras. |
 |Incorretamente etiquetado texto|entidade azul, realce o sublinhado em vermelho|Previsão correta| Forneça mais expressões com a entidade etiquetada corretamente numa variedade de locais e utilizações. 
 
+> [!Note]
+> Quando é de uma caixa vermelha à volta a intenção etiquetada na linha da expressão de exemplo, um [erro de previsão de intenção](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) ocorreu. Tem de corrigi-lo. 
+
 ## <a name="other-actions"></a>Outras ações
 
 Pode executar ações em expressões de exemplo como um grupo selecionado ou como um item individual. Grupos de expressões de exemplo selecionado alterar o menu contextual acima da lista. Itens únicas podem utilizar o menu contextual acima da lista e o botão de reticências contextual individual no final de cada linha da expressão. 
@@ -162,8 +148,6 @@ Pode executar ações em expressões de exemplo como um grupo selecionado ou com
 Pode remover as etiquetas de entidade aprendidas de máquina de uma expressão na página de intenção. Se a entidade não ficou a saber de máquina, não pode ser removido de uma expressão. Se precisar de remover a expressão a uma entidade não aprendidas máquina, terá de eliminar a entidade de todo o aplicativo. 
 
 Para remover uma etiqueta de entidade aprendidas de máquina de uma expressão, selecione a entidade a expressão. Em seguida, selecione **remover etiqueta** na caixa de lista pendente de entidade é apresentada.
-
-![Página de detalhes de captura de ecrã de objetivos, com remover etiqueta realçada](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
 ### <a name="add-prebuilt-entity-label"></a>Adicionar etiqueta de entidade predefinidos
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d98a5ab13c2aecd3b3cef590526031f5bdee594
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: a8e20d617da12aea857308f4020fbd0cfe711430
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268317"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651316"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho SAP com zonas de disponibilidade do Azure
 [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) é um dos recursos de alta disponibilidade fornecidos pelo Azure. Utilizar zonas de disponibilidade melhora a disponibilidade geral de cargas de trabalho SAP no Azure. Esta funcionalidade já está disponível em alguns [regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/). No futuro, ele estará disponível em mais regiões.
@@ -123,7 +123,7 @@ Se não conseguir encontrar um intervalo aceitável entre a latência de rede de
 
 O layout básico da arquitetura é semelhante a isto:
 
-![Implementação de zona ativo/passivo](./media/sap-ha-availability-zones/active_active_zones_deployment.png)
+![Implementação de zona ativo/passivo](./media/sap-ha-availability-zones/active_passive_zones_deployment.png)
 
 As seguintes considerações aplicam-se para esta configuração:
 

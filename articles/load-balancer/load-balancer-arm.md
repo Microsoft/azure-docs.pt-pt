@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 596ac871067886ee3124c0f21beb35cb3b8fe1ae
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235042"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593816"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Utilizar o suporte do Azure Resource Manager com o Balanceador de carga do Azure
 
@@ -30,9 +30,9 @@ Com o Resource Manager, o Balanceador de carga do Azure contém os seguintes rec
 
 * Configuração de IP Front-end – um balanceador de carga pode incluir um ou mais front-end endereços IP, também conhecidos como um IPs virtuais (VIPs). Estes endereços IP servem como entrada para o tráfego.
 * Conjunto de endereços de back-end – estes são os endereços IP associados com a máquina virtual Interface de rede cartão (NIC) para que a carga é distribuída.
-* Regras de balanceamento de carga – uma propriedade de regra mapeia um IP de front-end especificado e a combinação de portas para um conjunto de endereços IP de back-end e a combinação de portas. Um balanceador de carga individual pode ter várias regras de balanceamento de carga. Cada regra é uma combinação de um IP de front-end e porta e IP de back-end e porta associados a VMs.
+* Regras de balanceamento de carga – uma propriedade de regra mapeia um IP de front-end especificado e a combinação de portas para um conjunto de endereços IP de back-end e a combinação de portas. Um balanceador de carga individual pode ter várias regras de balanceamento de carga. Cada regra é uma combinação de um IP de front-end e porta e back-end IP e porta associados a VMs.
 * Sondas – sondas permitem controlar o estado de funcionamento de instâncias de VM. Se uma sonda de estado de funcionamento falhar, a instância VM será automaticamente retirada da rotação.
-* Regras NAT de entrada – regras NAT definindo o tráfego de entrada que flui através do IP de front-end e distribuídos para o IP de back-end.
+* Regras NAT de entrada – NAT definindo o tráfego de entrada que flui através do IP de front-end de regras e distribuído para o IP de back-end.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
@@ -58,7 +58,7 @@ Exemplos de modelos:
 
 Começar a utilizar com os cmdlets, ferramentas de linha de comandos e as APIs REST do Azure Resource Manager
 
-* [Cmdlets de rede do Azure](https://docs.microsoft.com/powershell/module/azurerm.network#networking) pode ser utilizado para criar um balanceador de carga.
+* [Cmdlets de rede do Azure](https://docs.microsoft.com/powershell/module/az.network#networking) pode ser utilizado para criar um balanceador de carga.
 * [Como criar um balanceador de carga com o Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [Utilizar a CLI do Azure com a gestão de recursos do Azure](../xplat-cli-azure-resource-manager.md)
 * [REST APIs do Balanceador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx)

@@ -15,12 +15,12 @@ ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ac4366a2e90ea239c650e611b7c4e8dddf5d5106
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243645"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649667"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Criar e publicar itens do Marketplace
 
@@ -131,19 +131,19 @@ ms.locfileid: "55243645"
 
 | Name | Necessário | Type | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| Name |X |Cadeia |[A-Za-z0-9]+ | |
-| Publicador |X |Cadeia |[A-Za-z0-9]+ | |
-| Versão |X |Cadeia |[SemVer v2](https://semver.org/) | |
+| Name |X |String |[A-Za-z0-9]+ | |
+| Publicador |X |String |[A-Za-z0-9]+ | |
+| Versão |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadados
 
 | Name | Necessário | Type | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| Nome a Apresentar |X |Cadeia |Recomendação de 80 carateres |O portal pode não apresentar o nome do item corretamente se for mais de 80 carateres. |
-| PublisherDisplayName |X |Cadeia |Recomendação de 30 carateres |O portal pode não apresentar o nome do publicador corretamente se ele tiver mais de 30 carateres. |
-| PublisherLegalName |X |Cadeia |Máximo de 256 carateres | |
-| Resumo |X |Cadeia |60 e 100 carateres | |
-| LongSummary |X |Cadeia |140 para 256 carateres |Não ainda aplicável no Azure Stack. |
+| Nome a Apresentar |X |String |Recomendação de 80 carateres |O portal pode não apresentar o nome do item corretamente se for mais de 80 carateres. |
+| PublisherDisplayName |X |String |Recomendação de 30 carateres |O portal pode não apresentar o nome do publicador corretamente se ele tiver mais de 30 carateres. |
+| PublisherLegalName |X |String |Máximo de 256 carateres | |
+| Resumo |X |String |60 e 100 carateres | |
+| LongSummary |X |String |140 para 256 carateres |Não ainda aplicável no Azure Stack. |
 | Descrição |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 a 5.000 caracteres | |
 
 ### <a name="images"></a>Imagens
@@ -168,7 +168,7 @@ Cada item do Marketplace pode incluir várias ligações para conteúdo adiciona
 
 | Name | Necessário | Type | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| Nome a Apresentar |X |Cadeia |Máximo de 64 carateres | |
+| Nome a Apresentar |X |String |Máximo de 64 carateres | |
 | URI |X |URI | | |
 
 ### <a name="additional-properties"></a>Propriedades adicionais
@@ -177,8 +177,8 @@ Além dos metadados anterior, os autores de Marketplace podem fornecer dados de 
 
 | Name | Necessário | Type | Restrições | Descrição |
 | --- | --- | --- | --- | --- |
-| Nome a Apresentar |X |Cadeia |Máximo de 25 caracteres | |
-| Value |X |Cadeia |Máximo de 30 carateres | |
+| Nome a Apresentar |X |String |Máximo de 25 caracteres | |
+| Value |X |String |Máximo de 30 carateres | |
 
 ### <a name="html-sanitization"></a>Limpeza de HTML
 
@@ -192,8 +192,8 @@ Para qualquer campo que permite que o HTML, são permitidos os seguintes element
 
 ### <a name="create-blade"></a>Criar painel
 
-![Criar painel](media/azure-stack-marketplace-item-ui-reference/image1.png)
+![Criar painel](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>Painel de detalhes de item do Marketplace
 
-![Painel de detalhes de item do Marketplace](media/azure-stack-marketplace-item-ui-reference/image3.png)
+![Painel de detalhes de item do Marketplace](media/azure-stack-create-and-publish-marketplace-item/image3.png)

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 62fde78cce05e62489931868da3d21c8b2e16928
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: ebf8066139df93aefe1cfa21f2dc80ab57ca84bb
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430357"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652455"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -53,11 +53,13 @@ Antes de registar o Azure Stack com o Azure, tem de ter:
 
 - O nome de utilizador e palavra-passe para uma conta que seja o proprietário da subscrição.
 
-- A conta de utilizador tem de ter acesso à subscrição do Azure e ter permissões para criar aplicações de identidades e de principais de serviço no diretório associado a essa subscrição. Recomendamos que registe o Azure Stack com o Azure utilizando a administração de menor privilégio ao [criar uma conta de serviço para utilizar para o registo](azure-stack-registration-role.md) em vez de utilizar credenciais de administrador global.
+- A conta de utilizador tem de ter acesso à subscrição do Azure e ter permissões para criar aplicações de identidades e de principais de serviço no diretório associado a essa subscrição. Recomendamos que registe o Azure Stack com o Azure usando a administração de privilégio mínimo. Para obter mais informações sobre como criar uma definição de função personalizada que limite o acesso à sua subscrição para o registo, consulte [criar uma função de registo para o Azure Stack](azure-stack-registration-role.md).
 
 - Registado o fornecedor de recursos do Azure Stack (consulte a secção de registar o fornecedor de recursos do Azure Stack seguinte para obter detalhes).
 
 Após o registo, a permissão de administrador global do Azure Active Directory não é necessário. No entanto, algumas operações podem exigir a credencial de administrador global. Por exemplo, um script de instalador de fornecedor de recursos ou um novo recurso que requerem uma permissão para ser concedida. Pode temporariamente permissões de administrador global da conta de restabelecimento ou utilizar uma conta de administrador global separado que é proprietária dos *predefinido da subscrição do fornecedor*.
+
+O utilizador que regista o Azure Stack é o proprietário do serviço principal no Azure Active Directory. Apenas o utilizador que registou o Azure Stack pode modificar o registo do Azure Stack. Se um utilizador não administrador que não é um proprietário ao principal de serviço de registo tentar registar ou volte a registar o Azure Stack, que se possam deparar uma resposta 403. Uma resposta 403 indica que o utilizador tem permissões insuficientes para concluir a operação.
 
 Se não tiver uma subscrição do Azure que cumpra estes requisitos, pode [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/free/?b=17.06). Registar o Azure Stack, incorre em sem custos na sua subscrição do Azure.
 
@@ -479,6 +481,13 @@ Get-AzsRegistrationToken gera um token de registo a partir os parâmetros de ent
 | UsageReportingEnabled | Verdadeiro/Falso | O Azure Stack relatórios de métrica de utilização por predefinição. Operadores com utilizações de capacidade ou suporte a um ambiente desligado tem de desativar os relatórios de utilização. Valores permitidos para este parâmetro são: VERDADEIRO, FALSO. |
 | AgreementNumber | String |  |
 
+## <a name="registration-failures"></a>Falhas de registo
+
+Poderá ver um dos erros abaixo ao tentar o registo do seu Azure Stack:
+1. Não foi possível obter as informações de hardware obrigatório para $hostName. . Verifique o anfitrião físico e conectividade em seguida, tente executar novamente o registo.
+2. Não é possível ligar ao $hostName para obter informações de hardware –. Verifique o anfitrião físico e conectividade em seguida, tente executar novamente o registo.
+
+Causa: Normalmente, é porque estamos a tentar obter os detalhes de hardware, como o UUID, Bios e CPU dos anfitriões para tentar a ativação e não foi possível devido à incapacidade de ligar ao anfitrião físico.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

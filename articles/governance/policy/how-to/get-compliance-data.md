@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 40d0250101e4653cd5ab2a3610473d9c577d8998
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 41c44d1f4054d93c770f80496c8d7a0bddf5eb13
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114115"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650348"
 ---
 # <a name="getting-compliance-data"></a>Obter dados de conformidade
 
@@ -430,7 +430,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
 
-Se tiver um [área de trabalho do Log Analytics](../../../log-analytics/log-analytics-overview.md) com o `AzureActivity` solução associada à sua subscrição, também pode ver os resultados de não conformidade do ciclo de avaliação através de consultas simples do Explorador de dados do Azure e o `AzureActivity` tabela. Com detalhes nos registos do Azure Monitor, os alertas podem ser configurados para ver a de não conformidade.
+Se tiver um [área de trabalho do Log Analytics](../../../log-analytics/log-analytics-overview.md) com `AzureActivity` da [solução Log Analytics da atividade](../../../azure-monitor/platform/collect-activity-logs.md) vinculado à sua subscrição, pode também ver resultados de não conformidade da utilização de ciclo de avaliação consultas de Kusto simples e o `AzureActivity` tabela. Com detalhes nos registos do Azure Monitor, os alertas podem ser configurados para ver a de não conformidade.
 
 ![Conformidade com a política através de registos do Azure Monitor](../media/getting-compliance-data/compliance-loganalytics.png)
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 10dc7a2c7e4de44979ec72b1d292c69866e1faae
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6b78027191d72c10b20c9d09a92c82be4a9e3e05
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326413"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650806"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter os Azure managed armazenamento de discos de standard para premium e vice-versa
 
@@ -134,17 +134,20 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 az vm start --ids $vmId 
 ```
 
-## <a name="convert-using-the-azure-portal"></a>Converter utilizando o portal do Azure
+## <a name="convert-managed-disks-between-standard-and-premium-in-azure-portal"></a>Converter os discos geridos entre o standard e premium no portal do Azure
 
-Também pode converter discos não geridos para managed disks através do portal do Azure.
+Pode converter os discos geridos entre o standard e premium no portal do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione a VM a partir da lista de VMs no portal.
+2. Selecione a VM a partir da lista de **máquinas virtuais** no portal.
+3. Se a VM não estiver parada, clique em **parar** na parte superior do painel de descrição geral da VM e aguarde que a VM parar.
 3. No painel da VM, selecione **discos** no menu.
-4. Na parte superior a **discos** painel, selecione **para migrar para managed disks**.
-5. Se a sua VM está num conjunto de disponibilidade, haverá um aviso sobre o **migrar para discos geridos** painel que tem de converter o primeiro conjunto de disponibilidade. O aviso deve ter uma ligação, pode clicar para converter o conjunto de disponibilidade. Depois do conjunto de disponibilidade é convertido, ou se a VM não está num conjunto de disponibilidade, clique em **migrar** para iniciar o processo de migrar os seus discos para discos geridos. 
+4. Selecione o disco que pretende converter.
+5. Selecione **configuração** no menu.
+6. Alterações a **tipo de conta** partir **Standard HDD** para **Premium SSD**e vice-versa.
+7. Clique em **guardar** e feche o painel de disco.
 
-A VM será parada e reiniciada após a conclusão da migração.
+A atualização do tipo de disco está em vigor instantânea. Pode reiniciar a VM após a conversão.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

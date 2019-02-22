@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: f0b2e1afdc42d8aaa0ab8d3af76f51fb6ded24e0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bacfb5fed4d72a7be2239ba97a68f15766b3ff59
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857771"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650450"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de base de dados de conhecimento no QnA Maker
 A ferramenta QnA Maker Aprende melhor num ciclo iterativo de alterações no modelo, exemplos de expressão, publicação e a recolha de dados das consultas de ponto final. 
@@ -27,9 +27,15 @@ A ferramenta QnA Maker Aprende melhor num ciclo iterativo de alterações no mod
 O ponto de extremidade do QnA Maker base de dados de conhecimento (KB) fornece uma melhor correspondência resposta a uma consulta de utilizador com base no conteúdo do KB. Criar uma base de dados de conhecimento é uma ação única para configurar um repositório de conteúdo de perguntas, respostas e metadados associados. Uma base de dados de conhecimento pode ser criada ao rastreamento de conteúdo já existente, como páginas de perguntas frequentes, manuais de produto ou estruturados pares de perguntas E-A. Saiba como [criar uma base de dados de conhecimento](../How-To/create-knowledge-base.md).
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Teste e a atualizar a base de dados de conhecimento
-A base de dados de conhecimento está pronta para teste depois que ele é preenchido com conteúdo, forma editorial ou por meio de extração automática. Teste pode ser feito através da **teste** painel ao introduzir consultas comuns de usuário e verificar que a resposta retornada está conforme esperado e com a pontuação de confiança suficiente. Pode adicionar perguntas alternativas para retificar pontuações de confiança baixa. Também pode adicionar novas respostas quando uma consulta não devolve "nenhuma correspondência localizada no artigo do BDC" predefinido de resposta. Esse loop estreito de atualização de teste continua até estar satisfeito com os resultados. Saiba como [testar a sua base de dados de conhecimento](../How-To/test-knowledge-base.md).
 
-Para grandes KBs, pode ser automatizado o teste por meio de generateAnswer APIs. 
+A base de dados de conhecimento está pronta para teste depois que ele é preenchido com conteúdo, forma editorial ou por meio de extração automática. É possível fazer testes interativa no portal do QnA Maker através da **teste** painel ao introduzir consultas comuns de usuário e verificar que as respostas devolvidas com a resposta correta e a pontuação de confiança suficiente. 
+
+* **Para corrigir as pontuações de confiança baixa**: adicionar perguntas alternativas. 
+* **Quando uma consulta devolve incorretamente o [predefinido resposta](confidence-score.md#change-default-answer)**: adicionar novas respostas à pergunta correta. 
+
+Esse loop estreito de atualização de teste continua até estar satisfeito com os resultados. Saiba como [testar a sua base de dados de conhecimento](../How-To/test-knowledge-base.md).
+
+Para grandes KBs, utilize testes automatizados com o [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) e o `isTest=true` parâmetro de cadeia de caracteres de consulta que consultas a `test` base de dados de conhecimento, em vez da base de dados de conhecimento publicada. 
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
 Depois de concluída a base de dados de conhecimento de teste, pode publicá-lo. Publicar pushes a versão mais recente da base de dados de conhecimento testada para uma pesquisa do Azure dedicado de índice que representa a **publicados** base de dados de conhecimento. Também cria um ponto final que pode ser chamado na sua aplicação ou chatbot.

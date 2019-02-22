@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: df0f1570b4f876cbfb542a5571c8bec7e80e6895
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cadcd369f9cadf0fc7eb8728f83e8d6345ed2574
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857730"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587774"
 ---
 # <a name="what-is-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
 
@@ -34,14 +34,6 @@ A tradução de voz, com tecnologia da API de Texto do Microsoft Translator, tam
 
 O Microsoft Translator suporta vários idiomas para a tradução, transliteração, deteção de idioma e dicionários. Veja o [suporte de idiomas](language-support.md) para obter uma lista completa ou aceda à lista de forma programática com a [API REST](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
-## <a name="language-customization"></a>Personalização de idioma
-
-Pode ser utilizada uma extensão do principal serviço do Microsoft Translator, o Tradutor Personalizado, em conjunto com a API de Texto do Translator para ajudar a personalizar o sistema de tradução neural e melhorar a tradução para a sua terminologia e estilo específicos.
-
-Com o Tradutor Personalizado, pode criar sistemas de tradução que suportam a terminologia utilizada na sua própria empresa ou setor. O sistema de tradução personalizada será, em seguida, integrado facilmente nas suas aplicações existentes, fluxos de trabalho e sites nos vários tipos de dispositivos, através da API Texto do Microsoft Translator normal, com o parâmetro de categoria.
-
-Saiba mais sobre a [personalização de idiomas](customization.md)
-
 ## <a name="microsoft-translator-neural-machine-translation"></a>Tradução Automática Neural do Microsoft Translator
 
 A Tradução Automática Neural (NMT) é o novo padrão para traduções automáticas com tecnologia de IA de alta qualidade. Ela substitui a tecnologia de Tradução Automática de Estatísticas (SMT) legada que atingiu um patamar de qualidade em meados de 2010.
@@ -51,6 +43,14 @@ A NMT oferece melhores traduções que a SMT, não apenas do ponto de vista da q
 Os modelos da NMT são o núcleo da API e não estão visíveis para os utilizadores finais. A única diferença notável é a melhoria da qualidade da tradução, especialmente em idiomas como chinês, japonês e árabe.
 
 Saiba mais sobre [como funciona a NMT](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
+
+## <a name="language-customization"></a>Personalização de idioma
+
+Pode ser utilizada uma extensão do principal serviço do Microsoft Translator, o Tradutor Personalizado, em conjunto com a API de Texto do Translator para ajudar a personalizar o sistema de tradução neural e melhorar a tradução para a sua terminologia e estilo específicos.
+
+Com o Tradutor Personalizado, pode criar sistemas de tradução que suportam a terminologia utilizada na sua própria empresa ou setor. O sistema de tradução personalizada será, em seguida, integrado facilmente nas suas aplicações existentes, fluxos de trabalho e sites nos vários tipos de dispositivos, através da API Texto do Microsoft Translator normal, com o parâmetro de categoria.
+
+Saiba mais sobre a [personalização de idiomas](customization.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

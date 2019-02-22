@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 183194d172b9ac11d4f1c5cb1324f7a09f4a157b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 4f999df23b5c08125b107f15091d90d85a045908
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756313"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586295"
 ---
 # <a name="show-directions-from-a-to-b"></a>Mostrar as direções de A para B
 
@@ -33,7 +33,7 @@ A linha no segundo bloco de código cria uma instância de um serviço de client
 
 A terceira cria e adiciona uma [origem de dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) objeto ao mapa.
 
- Uma linha é uma [funcionalidade](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de LineString. Uma [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) composições linha objetos encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como linhas no mapa. O quarto bloco de código cria e adicionar uma camada de linhas ao mapa. Ver as propriedades de uma camada de linha em [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.deprecated.linestringlayeroptions?view=azure-iot-typescript-latest).
+ Uma linha é uma [funcionalidade](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) de LineString. Uma [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) composições linha objetos encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como linhas no mapa. O quarto bloco de código cria e adicionar uma camada de linhas ao mapa. Ver as propriedades de uma camada de linha em [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
 Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa ou ícones de texto para processar dados com base no ponto encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa. O quinto bloco de código cria e adicionar uma camada de símbolo ao mapa.
 
@@ -41,7 +41,7 @@ O sexto bloco de código cria o início e de fim [pontos](https://docs.microsoft
 
 O sétimo bloco de código define os limites do mapa usando o mapa [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) propriedade.
 
-O último bloco de código consulta o serviço de encaminhamento de mapas do Azure, que faz parte do [módulo do serviço](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). O [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) método é usado para obter uma rota entre os pontos inicial e final. A resposta, em seguida, é analisada para utilizar o formato GeoJSON a [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest) método. Ela então processa a resposta como uma rota no mapa. Para obter mais informações sobre como adicionar uma linha para o mapa, consulte [adicionar uma linha no mapa](./map-add-shape.md#addALine).
+O último bloco de código consulta o serviço de encaminhamento de mapas do Azure, que faz parte do [módulo do serviço](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). O [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) método é usado para obter uma rota entre os pontos inicial e final. A resposta, em seguida, é analisada para utilizar o formato GeoJSON a [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest) método. Ela então processa a resposta como uma rota no mapa. Para obter mais informações sobre como adicionar uma linha para o mapa, consulte [adicionar uma linha no mapa](./map-add-shape.md#addALine).
 
 A consulta de rota, a origem de dados, símbolo e camadas de linha e os limites de câmera são criados e definidos dentro do mapa [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantir que os resultados são apresentados depois do mapa é totalmente carregado.
 

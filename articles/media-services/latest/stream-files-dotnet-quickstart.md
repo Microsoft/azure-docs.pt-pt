@@ -11,14 +11,14 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: d50bb6ca67d7d09525013b65d0635e8e16b4cb4e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2556942119fdd4f58f6bd47bc88160dd2e13753d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417283"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585565"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Início rápido: Transmitir ficheiros de vídeo - .NET
 

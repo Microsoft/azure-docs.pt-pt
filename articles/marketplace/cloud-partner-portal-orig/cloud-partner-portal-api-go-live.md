@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7d643f0c7885e64636a107d22ce332b1ba9371c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810275"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594683"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -33,8 +33,8 @@ Esta API é iniciado o processo do envio de uma aplicação para produção. Est
 
 |  **Nome**      |   **Descrição**                                                           | **Tipo de dados** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificador de publicador para a oferta recuperar, por exemplo `contoso`       |  Cadeia       |
-| offerId        | Identificador da oferta para recuperar da oferta                                   |  Cadeia       |
+| publisherId    | Identificador de publicador para a oferta recuperar, por exemplo `contoso`       |  String       |
+| offerId        | Identificador da oferta para recuperar da oferta                                   |  String       |
 | versão de API    | Versão mais recente da API                                                   |  Date         |
 |  |  |  |
 
@@ -67,7 +67,7 @@ Esta API é iniciado o processo do envio de uma aplicação para produção. Est
 
 ### <a name="response-status-codes"></a>Códigos de estado de resposta
 
-| **Código** |  * * Descrição * *                                                                        |
+| **Código** |  **Descrição**                                                                        |
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` -O pedido foi aceite a com êxito. A resposta contém uma localização para controlar o estado da operação. |
 |  400     | `Bad/Malformed request` -Informações de erro adicionais são encontradas no corpo da resposta. |

@@ -10,12 +10,12 @@ author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 73ab816c7043c7fb0f572677c6ceeb722653dec1
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456559"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650775"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Voltar a preparar e implementar um serviço web clássico do Studio
 
@@ -60,7 +60,7 @@ Para obter o URL correto de aplicar um PATCH por meio de programação, siga est
 1. Executar o [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) código de exemplo.
 1. A partir da saída de AddEndpoint, localize a *HelpLocation* valor e copie o URL.
 
-   ![HelpLocation na saída do exemplo addEndpoint.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
+   ![HelpLocation na saída do exemplo addEndpoint.](./media/retrain-classic/addEndpoint-output.png)
 1. Cole o URL num browser para navegar para uma página que fornece ligações de ajuda para o serviço web.
 1. Clique nas **recursos de atualização** link para abrir a página de ajuda do patch.
 
@@ -81,7 +81,7 @@ Siga estes passos para obter o URL de aplicar PATCHES corretos com o portal web:
 
 A página de ajuda de PATCH contém o URL de aplicar o PATCH de mensagens em fila tem de utilizar e fornece o código de exemplo, que pode usar para chamá-lo.
 
-![URL de patch.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
+![URL de patch.](./media/retrain-classic/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>Atualizar o ponto final
 

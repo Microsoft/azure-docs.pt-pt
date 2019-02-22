@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/8/2019
+ms.date: 2/20/2019
 ms.author: moderakh
-ms.openlocfilehash: 1a86ceefdc5c3b60dc4bca5a1ac659534653aa66
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a090f40bcbc0dab1f685c02308243aff8fbac9fd
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416280"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588471"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -43,6 +43,11 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 | **Mínimo de runtime suportada**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* Corrigir alguns erros no modo direto.
+* A melhoria do registo no modo direto.
+* Gestão de ligação melhorada.
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 * Conectividade de modo direto está agora geralmente Available(GA). Para obter um exemplo que utiliza a conectividade de modo direto, veja [java do azure-cosmos DB](https://github.com/Azure/azure-cosmosdb-java) repositório do GitHub.
@@ -135,6 +140,7 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |20 de Fevereiro de 2019|--- |
 | [2.4.0](#2.4.0) |8 de Fevereiro de 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 de Fevereiro de 2019|--- |
 | [2.3.1](#2.3.1) |15 de Janeiro de 2019|--- |

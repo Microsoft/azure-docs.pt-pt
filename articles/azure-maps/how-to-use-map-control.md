@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 877393de20788b0aa1c76084b121a82f12715cd3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 1d8d78ceb9cdb5e5dd205306eac00c8ca89e8d4a
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118076"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587944"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utilizar o controlo de mapas do Azure Maps
 
@@ -68,7 +68,7 @@ Para incorporar um mapa numa página da web, usando a biblioteca de Javascript d
     </body>
     ```
 
-5. Para inicializar o controlo do mapa, definir uma nova seção no corpo do html e criar um script. Utilize a sua própria chave de conta do Azure Maps ou as credenciais do Azure Active Directory (AAD) para autenticar com o mapa [opções de autenticação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.authenticationoptions). Se precisar de criar uma conta ou encontrar a sua chave, consulte [como gerir a sua conta do Azure Maps e as chaves](how-to-manage-account-keys.md). O **linguagem** opção especifica o idioma a ser utilizada para etiquetas de mapa e controlos. Para obter mais informações sobre idiomas suportados, consulte [idiomas suportados](supported-languages.md). Se utilizar uma chave de subscrição para a autenticação.
+5. Para inicializar o controlo do mapa, definir uma nova seção no corpo do html e criar um script. Utilize a sua própria chave de conta do Azure Maps ou as credenciais do Azure Active Directory (AAD) para autenticar com o mapa [opções de autenticação](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se precisar de criar uma conta ou encontrar a sua chave, consulte [como gerir a sua conta do Azure Maps e as chaves](how-to-manage-account-keys.md). O **linguagem** opção especifica o idioma a ser utilizada para etiquetas de mapa e controlos. Para obter mais informações sobre idiomas suportados, consulte [idiomas suportados](supported-languages.md). Se utilizar uma chave de subscrição para a autenticação.
 
     ```html
     <script type='text/javascript'>

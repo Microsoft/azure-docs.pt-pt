@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e2115ad1a88c819e0ee1da34d9d332a0b013b96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cb2329a2a67e2e54084d2289cb8cb1a18663b329
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174355"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593680"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de v2.0 - fluxo de código de autorização de OAuth 2.0
 
@@ -319,6 +319,6 @@ Uma resposta com êxito de token terá o seguinte aspeto:
 | `error_codes` |Uma lista de códigos de erro do STS específicas que podem ajudar no diagnóstico. |
 | `timestamp` | A hora em que ocorreu o erro. |
 | `trace_id` | Um identificador exclusivo para o pedido que pode ajudar no diagnóstico. |
-| c`orrelation_id` | Um identificador exclusivo para o pedido que pode ajudar no diagnóstico em componentes. |
+| `correlation_id` | Um identificador exclusivo para o pedido que pode ajudar no diagnóstico em componentes. |
 
 Para obter uma descrição dos códigos de erro e a ação de cliente recomendado, consulte [códigos de erro para erros de ponto final do token](#error-codes-for-token-endpoint-errors).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 3b09af19bd25ea3c64375869cd7db7f2b65923f6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a7dd8cd349703fc9009695e570b66c3a3e626d15
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423772"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593187"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -661,10 +661,10 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
     
 ## <a name="next-steps"></a>Passos Seguintes
-Avance para o tutorial seguinte para saber como transformar dados através de um cluster do Spark no Azure:
+Avance para o tutorial seguinte para saber como copiar ficheiros de novos e alterados apenas com base na respetiva LastModifiedDate:
 
 > [!div class="nextstepaction"]
->[Transformar dados com um cluster do Spark na cloud](tutorial-transform-data-spark-powershell.md)
+>[Copiar novos ficheiros ao lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 

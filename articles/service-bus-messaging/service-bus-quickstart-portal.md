@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 69c9a6d2d059ffbac5fe3e0ddb103eaec51123c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5e8eb6239de73b0095a912ad6baca7c090872755
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264025"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585445"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: Utilizar o portal do Azure para criar uma fila do Service Bus
 O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial que fornece mensagens seguras e fiabilidade absoluta. Um cenário típico do Service Bus, normalmente, envolve desacoplamento de duas ou mais aplicações, serviços ou processos entre si e transferência de alterações de estado ou de dados. Tais cenários poderão envolver agendamento de várias tarefas de lote noutras aplicações ou serviços ou acionamento de cumprimento de pedidos. Por exemplo, uma empresa de revenda poderá enviar os dados do seu ponto de venda para um escritório ou centro de distribuição regional para atualização de reabastecimento e de inventário. Neste cenário, a aplicação cliente envia e recebe mensagens numa fila do Service Bus.  
@@ -33,46 +33,9 @@ Para concluir este tutorial, confirme que tem instalada:
 - [Visual Studio 2017 Atualização 3 (versão 15.3, 26730.01)](https://www.visualstudio.com/vs) ou posterior.
 - [SDK NET Core](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.
 
-## <a name="log-on-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Primeiro, entre no [Portal do Azure][Azure portal] e inicie sessão com a sua subscrição do Azure. O primeiro passo é criar um espaço de nomes de Service Bus do tipo **Mensagens**.
-
-## <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
-
-Um espaço de nomes de mensagens do Service Bus fornece um contentor de âmbito exclusivo, referenciado pela [nome de domínio completamente qualificado][], no qual cria uma ou mais filas, tópicos e subscrições. O exemplo seguinte cria um espaço de nomes de mensagens do Service Bus num [ grupo de recursos](/azure/azure-resource-manager/resource-group-portal) novo ou existente:
-
-1. No painel de navegação à esquerda do portal, clique em **+ Criar um recurso** e, em seguida, clique em **Enterprise Integration** e em **Service Bus**.
-2. Na caixa de diálogo **Criar espaço de nomes**, introduza um nome de espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
-3. Após se confirmar que o espaço de nomes está disponível, selecione o escalão de preço (Standard ou Premium).
-4. No campo **Subscrição**, selecione a subscrição do Azure em que pretende criar o espaço de nomes.
-5. No campo **Grupo de recursos**, selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.      
-6. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
-7. Clique em **Criar**. O sistema cria o espaço de nomes e ativa-o. Poderá ter de aguardar alguns minutos enquanto o sistema aprovisiona recursos para a sua conta.
-
-![espaço de nomes](./media/service-bus-quickstart-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gestão
-
-A criação de um espaço de nomes gera automaticamente uma regra inicial de Assinatura de Acesso Partilhado (SAS) com um par de chaves primárias e secundárias associado que cada uma concede controlo total sobre todos os aspetos do espaço de nomes. Para copiar a regra inicial, siga estes passos: 
-
-1.  Clique em **Todos os recursos** e clique no nome do espaço de nomes criado recentemente.
-2. Na janela de espaço de nomes, clique em **Políticas de acesso partilhado**.
-3. No ecrã **Políticas de acesso partilhado**, clique em **RootManageSharedAccessKey**.
-4. Na **política: RootManageSharedAccessKey** janela, clique nas **cópia** junto a **cadeia de ligação primária**para copiar a cadeia de ligação para a área de transferência para utilização posterior. Cole este valor no Bloco de Notas ou noutra localização temporária. 
-
-    ![connection-string][connection-string]
-5. Repita o passo anterior, copie e cole o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.
-
-## <a name="create-a-queue"></a>Criar uma fila
-
-Para criar uma fila do Service Bus, especifique o espaço de nomes abaixo da fila onde pretende criá-lo. O exemplo seguinte mostra como criar uma fila no portal:
-
-1. No painel de navegação à esquerda do portal, clique em **Service Bus** (se não vir **Service Bus**, clique em **Mais serviços**).
-2. Clique no espaço de nomes no qual gostaria de criar a fila.
-3. Na janela do espaço de nomes, clique em **Filas** e, em seguida, na janela **Filas**, clique em **+ Fila**.
-4. Introduza o **Nome** da fila e deixe os outros valores com as respetivas predefinições.
-5. Na parte inferior da janela, clique em **Criar**.
-6. Anote o nome da fila.
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
@@ -82,28 +45,22 @@ Para executar o código, faça o seguinte:
 
 1. Clone o [repositório do GitHub do Service Bus](https://github.com/Azure/azure-service-bus/) ao emitir o comando seguinte:
 
-   ```shell
+   ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-
 3. Navegue para a pasta `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart` de exemplo.
-
 4. Copie o nome da fila e a cadeia de ligação que obteve na secção [Obter credenciais de gestão](#obtain-the-management-credentials).
-
 5.  Na linha de comandos, escreva o seguinte comando:
 
-   ```shell
-   dotnet build
-   ```
-
+    ```
+    dotnet build
+    ```
 6.  Navegue para a pasta `bin\Debug\netcoreapp2.0`.
-
 7.  Escreva o seguinte comando para executar o programa. Não se esqueça de substituir `myConnectionString` pelo valor obtido anteriormente e `myQueueName` pelo nome da fila que criou:
 
-   ```shell
-   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
-   ``` 
-
+    ```shell
+    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+    ``` 
 8. Observe as 10 mensagens que estão a ser enviadas para a fila e subsequentemente recebidas da fila:
 
    ![saída do programa](./media/service-bus-quickstart-portal/dotnet.png)
@@ -254,8 +211,7 @@ Neste artigo, criou um espaço de nomes do Service Bus e outros recursos necess�
 
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[nome de domínio completamente qualificado]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
-[connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png

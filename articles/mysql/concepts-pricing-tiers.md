@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: ff5890dcaf642d51c53b054e986689290be773ca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d84e3f834bd598bbd2cf84dfc46f6cd5507f6d8b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699249"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587128"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -42,6 +42,9 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 
 > [!IMPORTANT]
 > A partir de 12 de Dezembro de 2018, os novos clientes serão não conseguir aprovisionar servidores de geração 4 de computação no sul do Brasil, Canadá Central, leste do Canadá, Ásia Oriental, E.U.A. Leste 2, Índia Central, Índia Ocidental, oeste do Japão, e.u.a. Centro-Norte, E.U.A. oeste. Geração de computação 4 servidores serão migrados para a geração 5 a partir de 1 de Fevereiro de 2019 nestas regiões de computação foi criado anteriormente.
+>
+> [!IMPORTANT]
+> A partir de 15 de Fevereiro de 2019, novos clientes serão não conseguir aprovisionar servidores de geração 4 de computação no E.U.A. Central, E.U.A. leste, leste do Japão, Norte da Europa, Centro-Sul, Sudeste asiático, Europa Ocidental. Geração de computação 4 servidores serão migrados para a geração 5 a partir de 1 de Abril de 2019 nestas regiões de computação foi criado anteriormente.
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|

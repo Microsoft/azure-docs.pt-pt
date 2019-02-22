@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 460edc7f092764cce3584c81371db4801fbd69bc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240020"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593239"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Configurar recursos para a validação como um serviço
 
@@ -92,7 +92,7 @@ Como administrador do Azure AD, dar, por exemplo, as permissões necessárias em
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 
-Durante a execução de teste, VaaS produz os registos de diagnóstico para uma conta de armazenamento do Azure. Além dos registos de teste, a conta de armazenamento pode também ser utilizadas para os pacotes de extensão de carregamento OEM para o fluxo de trabalho de validação de solução.
+Durante a execução de teste, VaaS produz os registos de diagnóstico para uma conta de armazenamento do Azure. Além dos registos de teste, a conta de armazenamento pode também ser utilizadas para os pacotes de extensão de carregamento do OEM para o fluxo de trabalho de validação do pacote.
 
 A conta de armazenamento do Azure está alojada na cloud pública do Azure, não no seu ambiente do Azure Stack.
 

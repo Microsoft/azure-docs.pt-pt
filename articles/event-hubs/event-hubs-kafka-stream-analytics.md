@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 7612e9d6444b61210da5d642530d99423220c0a4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 753c5312987cc541456b2f7415bb7dc9d4770d05
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076845"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593357"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Processar a Apache Kafka para eventos dos Hubs de Eventos através do Stream Analytics 
 Este artigo mostra como transmitir dados para os Hubs de eventos habilitados no Kafka e processá-lo com o Azure Stream Analytics. Ele explica os passos seguintes: 
@@ -133,7 +133,7 @@ A consulta da tarefa do Stream Analytics passa através dos dados sem realizar q
 
 ### <a name="configure-job-input"></a>Configurar a entrada da tarefa
 
-1. Na mensagem de notificação, selecione * * Ir para recurso * * para ver os **tarefa do Stream Analytics** página. 
+1. Na mensagem de notificação, selecione **Ir para recurso** para ver a **tarefa do Stream Analytics** página. 
 2. Selecione **entradas** no **TOPOLOGIA da tarefa** secção no menu da esquerda.
 3. Selecione **Adicionar entrada de fluxo**e, em seguida, selecione **Hub de eventos**. 
 

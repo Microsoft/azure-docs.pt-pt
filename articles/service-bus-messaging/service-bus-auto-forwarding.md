@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8b51a4b8690d2184223bf33c7e863287de431d62
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853158"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593391"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadeamento de entidades do Service Bus com autoforwarding
 
-O Service Bus *autoforwarding* funcionalidade permite-lhe uma fila ou subscrição para outra fila ou tópico que faz parte do mesmo espaço de nomes da cadeia. Quando autoforwarding está ativada, o Service Bus é automaticamente remove as mensagens que são colocadas na primeira fila ou subscrição (origem) e coloca-as no segundo fila ou tópico (destino). Ainda é possível enviar uma mensagem para a entidade de destino diretamente. Além disso, não é possível encadear uma subfila, por exemplo, uma fila de mensagens não entregues, para outra fila ou tópico.
+O Service Bus *autoforwarding* funcionalidade permite-lhe uma fila ou subscrição para outra fila ou tópico que faz parte do mesmo espaço de nomes da cadeia. Quando autoforwarding está ativada, o Service Bus é automaticamente remove as mensagens que são colocadas na primeira fila ou subscrição (origem) e coloca-as no segundo fila ou tópico (destino). Ainda é possível enviar uma mensagem para a entidade de destino diretamente.
 
 ## <a name="using-autoforwarding"></a>Usando autoforwarding
 

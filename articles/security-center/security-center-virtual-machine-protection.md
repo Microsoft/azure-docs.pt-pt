@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: monhaber
-ms.openlocfilehash: 8dcaa9b98292e66d81daf3d115159b0c0c1124af
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0b548acc92ab1efedab963e9bd3318e8525ffee4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106735"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649565"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -159,6 +159,24 @@ Existem três tipos de ícones representados nesta lista:
  -  Selecione uma avaliação com êxito da lista para obter uma descrição da avaliação, uma lista de recursos de mau e bom estado de funcionamento e uma lista de recursos não verificados. Há uma guia para os recursos de mau estado de funcionamento, mas essa lista está sempre vazia, uma vez que a avaliação passado.
 
     ![Atualização do serviço de aplicações](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
+
+## <a name="virtual-machine-scale-sets"></a>Conjuntos de dimensionamento de máquinas virtuais
+Centro de segurança Deteta automaticamente se têm as conjuntos de escalas e recomenda que instale o Microsoft Monitoring Agent nestes conjuntos de dimensionamento. 
+
+Para instalar o Microsoft Monitoring Agent: 
+
+1. Selecione a recomendação **instalar o agente de monitorização no conjunto de dimensionamento de máquina virtual**. Obter uma lista de conjuntos de dimensionamento não monitorizado.
+2. Selecione um conjunto de dimensionamento de mau estado de funcionamento. Siga as instruções para instalar o agente de monitorização através de uma área de trabalho preenchida existente ou crie um novo. Certifique-se de definir a área de trabalho [escalão de preço](security-center-pricing.md) se não estiver definido.
+
+ ![Instalar MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
+
+Se pretender definir conjuntos de dimensionamento de novo para instalar automaticamente o Microsoft Monitoring Agent:
+1. Aceda à política do Azure e clique em **definições**.
+2. Pesquisa para a política **agente de implementar o Log Analytics para conjuntos de dimensionamento de VM do Windows** e clique no mesmo.
+3. Clique em **Atribuir**.
+4. Definir o **âmbito** e **área de trabalho do Log Analytics** e clique em **atribuir**.
+
+Se pretender definir existente todos os conjuntos de dimensionamento para instalar o Microsoft Monitoring Agent, no Azure Policy, aceda a **remediação** e aplicar a política existente para conjuntos de dimensionamento existente.
 
 
 ## <a name="compute-and-app-recommendations"></a>Recomendações de computação e de aplicação

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: aschhab
-ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1cdd0a3bd7e0d647e2f67d4c92b5a2167d5d21ad
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849962"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585224"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Como utilizar os tópicos do Service Bus e as subscrições com Java
 
@@ -46,46 +46,9 @@ Em contraste com filas do Service Bus, em que cada mensagem é processada por um
 
 Tópicos do Service Bus e as subscrições permitem-lhe dimensionar para processar um grande número de mensagens num grande número de utilizadores e aplicações.
 
-## <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Um espaço de nomes de mensagens do Service Bus fornece um contentor de âmbito exclusivo, referenciado pela [nome de domínio completamente qualificado](https://wikipedia.org/wiki/Fully_qualified_domain_name), no qual cria uma ou mais filas, tópicos e subscrições. O exemplo seguinte cria um espaço de nomes de mensagens do Service Bus num [ grupo de recursos](/azure/azure-resource-manager/resource-group-portal) novo ou existente:
-
-1. No painel de navegação à esquerda do portal, clique em **+ Criar um recurso** e, em seguida, clique em **Enterprise Integration** e em **Service Bus**.
-2. Na caixa de diálogo **Criar espaço de nomes**, introduza um nome de espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
-3. Após se confirmar que o espaço de nomes está disponível, selecione o escalão de preço (Standard ou Premium).
-4. No campo **Subscrição**, selecione a subscrição do Azure em que pretende criar o espaço de nomes.
-5. Na **grupo de recursos** campo, escolha um grupo de recursos existente no qual reside o espaço de nomes ou criar um novo.      
-6. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
-7. Clique em **Criar**. O sistema cria o espaço de nomes e ativa-o. Poderá ter de aguardar alguns minutos enquanto o sistema aprovisiona recursos para a sua conta.
-
-  ![espaço de nomes](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gestão
-
-A criação de um espaço de nomes gera automaticamente uma regra inicial de Assinatura de Acesso Partilhado (SAS) com um par de chaves primárias e secundárias associado que cada uma concede controlo total sobre todos os aspetos do espaço de nomes. Para copiar a regra inicial, siga estes passos:
-
-1. Clique em **Todos os recursos** e clique no nome do espaço de nomes criado recentemente.
-2. Na janela de espaço de nomes, clique em **Políticas de acesso partilhado**.
-3. No ecrã **Políticas de acesso partilhado**, clique em **RootManageSharedAccessKey**.
-4. Na **política: RootManageSharedAccessKey** janela, clique nas **cópia** junto a **cadeia de ligação primária**para copiar a cadeia de ligação para a área de transferência para utilização posterior. Cole este valor no Bloco de Notas ou noutra localização temporária.
-
-    ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
-5. Repita o passo anterior, copie e cole o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.
-
-## <a name="create-a-topic"></a>Criar um tópico 
-Para criar um tópico do Service Bus, especifique o espaço de nomes abaixo da fila onde pretende criá-lo. O exemplo seguinte mostra como criar um tópico no portal:
-
-1. No painel de navegação à esquerda do portal, clique em **Service Bus** (se não vir **Service Bus**, clique em **Todos os serviços**).
-2. Clique no espaço de nomes no qual gostaria de criar o tópico.
-3. Na janela do espaço de nomes, clique em **Tópicos** e na janela **Tópicos**, clique em **+ Tópicos**.
-4. Introduza **BasicTopic** do tópico **nome**e deixe os outros valores com as respetivas predefinições.
-5. Na parte inferior da janela, clique em **Criar**.
-
-
-## <a name="create-subscriptions-for-the-topic"></a>Criar subscrições para o tópico
-1. Selecione o **tópico** que criou.
-2. Clique em **+ subscrição**, introduza o nome da subscrição **Subscription1**e deixe todos os outros valores com as respetivas predefinições.
-3. Repita o anterior passo duas vezes mais, criar subscrições com o nome **Subscription2** e **Subscription3**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar a sua aplicação para utilizar o Service Bus

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 02/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d57e3d647acfe9400d7b575f5635e2ab5254352
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 185dfbcee7ab352a73e4a998cbd0d8c36cb92ff5
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162225"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588046"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -229,6 +229,6 @@ Se sua organização estiver federada para SSO com o Azure AD e vai estar a util
 
 [Ativar a multi-factor Authentication para a sua organização](howto-mfa-getstarted.md)
 
-[Ativar o registo convergido para a reposição de palavra-passe self-service do Azure multi-factor Authentication e o Azure AD](concept-registration-mfa-sspr-converged.md)
+[Ativar o registo combinado no seu inquilino](howto-registration-mfa-sspr-combined.md)
 
 [Documentação de configuração de método de autenticação de utilizador final](https://aka.ms/securityinfoguide)

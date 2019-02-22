@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 12/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c0694a3839ae6b843abd1ddc8b67d1f3e3322e0e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6126bacf50d47029c29772b35f6dc1d552d47029
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246046"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592643"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>O que é a validação como um serviço para o Azure Stack?
 
@@ -43,19 +43,19 @@ Para obter mais informações, consulte [validar uma nova solução do Azure Sta
 
 ## <a name="validate-changes-to-the-azure-stack-software"></a>Validar as alterações ao software do Azure Stack
 
-Parceiros de utilização a **validação de solução** fluxo de trabalho para verificar que a sua solução funciona com as atualizações de software mais recentes do Azure Stack. O fluxo de trabalho de validação de solução tem de ser executado num ambiente de hardware recomendadas pela Microsoft onde os patches e atualizações (P & U) foi utilizado para aplicar a atualização. Recomenda-se também executar o fluxo de trabalho na compilação de linha de base.
+Parceiros de utilização a **validação do pacote** fluxo de trabalho para verificar que a sua solução funciona com as atualizações de software mais recentes do Azure Stack. O fluxo de trabalho de validação do pacote deve ser executado num ambiente de hardware recomendadas pela Microsoft onde os patches e atualizações (P & U) foi utilizado para aplicar a atualização. Recomenda-se também executar o fluxo de trabalho na compilação de linha de base.
 
 Para obter mais informações, consulte [validar as atualizações de software da Microsoft](azure-stack-vaas-validate-microsoft-updates.md).
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>Obter solução assinada digitalmente pacotes de parceiro
 
-Além de validação de atualizações do Azure Stack, parceiros utilização a **validação de solução** fluxo de trabalho para validar as atualizações para pacotes de personalização OEM, que incluem drivers de parceiros específicos do Azure Stack, firmware e outro software utilizado durante a implementação do software do Azure Stack. Implemente o pacote que está a validar a versão atual do software do Azure Stack com, pelo menos, a solução de tamanho mínimo de mensagens em fila que será suportada. O pacote foi submetido para o VaaS antes de executar testes. Se os testes forem bem sucedidas, notificar [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) que o pacote foi concluída de teste e deve ser digitalmente assinadas com a assinatura digital do Azure Stack. A Microsoft assina o pacote e notifica o parceiro do Azure Stack que o pacote está disponível para download no portal do VaaS.
+Além de validação de atualizações do Azure Stack, parceiros utilização a **validação do pacote** fluxo de trabalho para validar as atualizações para pacotes de personalização OEM, que incluem drivers de parceiros específicos do Azure Stack, firmware e outro software utilizado durante a implementação do software do Azure Stack. Implemente o pacote que está a validar a versão atual do software do Azure Stack com, pelo menos, a solução de tamanho mínimo de mensagens em fila que será suportada. O pacote foi submetido para o VaaS antes de executar testes. Se os testes forem bem sucedidas, notificar [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) que o pacote foi concluída de teste e deve ser digitalmente assinadas com a assinatura digital do Azure Stack. A Microsoft assina o pacote e notifica o parceiro do Azure Stack que o pacote está disponível para download no portal do VaaS.
 
 Para obter mais informações, consulte [pacotes de validar OEM](azure-stack-vaas-validate-oem-package.md).
 
 ## <a name="preview-vaas-test-collateral"></a>Acessórios de teste de VaaS de pré-visualização
 
-Microsoft regularmente disponibiliza novas funcionalidades no Azure Stack. Como parte do processo de desenvolvimento para o fornecimento desses recursos no mercado, novo acessórios de teste é disponibilizado no **aprovação de teste** fluxo de trabalho. O fluxo de trabalho de aprovação de teste inclui acessórios de teste dos outros fluxos de trabalho para permitir a execução de teste não oficial. Não utilize o fluxo de trabalho de aprovação de teste para enviar resultados para aprovação. Utilize a validação de solução e fluxos de trabalho de validação de solução para obter aprovação oficial para a sua solução.
+Microsoft regularmente disponibiliza novas funcionalidades no Azure Stack. Como parte do processo de desenvolvimento para o fornecimento desses recursos no mercado, novo acessórios de teste é disponibilizado no **aprovação de teste** fluxo de trabalho. O fluxo de trabalho de aprovação de teste inclui acessórios de teste dos outros fluxos de trabalho para permitir a execução de teste não oficial. Não utilize o fluxo de trabalho de aprovação de teste para enviar resultados para aprovação. Utilize os fluxos de trabalho de validação de solução e a validação do pacote para obter aprovação oficial para a sua solução.
 
 Para obter mais informações, consulte [início rápido: Utilize a validação como um portal de serviço para agendar o seu primeiro teste](azure-stack-vaas-schedule-test-pass.md).
 

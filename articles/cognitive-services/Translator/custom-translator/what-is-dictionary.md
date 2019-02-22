@@ -9,18 +9,18 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 87ea4edd9bb548701d6bcf63dd542ed6e35d9f7f
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212414"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585558"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 
 Um dicionário é um par alinhado de documentos que especifica uma lista de expressões ou frases e respetivas traduções correspondentes. Utilize um dicionário no seu treinamento, quando quiser Microsoft Translator para traduzir sempre quaisquer instâncias da expressão de origem ou frase, através da tradução que forneceu no dicionário. Às vezes são chamados de dicionários glossários ou bases de termo. Pode considerar o dicionário como uma de força bruta "copiar e substituir" para os termos da lista.
 
-Dicionários só funcionam em projetos em pares de idiomas que têm um sistema de tradução automática neuronal (NMT) do Microsoft totalmente suportado por trás delas. Consulte http://www.aka.ms/translatorlanguages para obter uma lista completa das linguagens.
+Dicionários só funcionam em projetos em pares de idiomas que têm um sistema de tradução automática neuronal (NMT) do Microsoft totalmente suportado por trás delas. [Veja a lista completa das linguagens](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
 ## <a name="phrase-dictionary"></a>Dicionário da frase 
 Quando inclui um dicionário de frase no seu modelo de formação, qualquer palavra ou frase listado é traduzido de forma que especificou. O restante da sentença é traduzido como de costume. Pode usar um dicionário de frase para especificar as frases que não devem ser traduzidos, fornecendo a mesma frase sem tradução no ficheiro de origem e de destino no dicionário.

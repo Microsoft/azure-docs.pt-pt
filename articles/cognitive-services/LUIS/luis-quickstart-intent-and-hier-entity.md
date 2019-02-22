@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: dea623684454d4b14a370251df10599eb03bbb34
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 14d1b5b7113e8a4bd71aa89a246fa375adb03a14
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856925"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594003"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados contextualmente relacionados de uma expressão
 
 Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, uma origem e destino locais para uma transferência de uma cidade para outro. Ambas as partes de dados podem ser necessárias e se relacionam entre si.  
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
 > * Criar nova aplicação
@@ -91,7 +91,7 @@ Se estiver presente apenas um elemento subordinado (origem ou destino) de uma en
 
 1. Na expressão `move John W. Smith leaving Seattle headed to Dallas`, selecione a palavra `Seattle`. É apresentado um menu pendente com uma caixa de texto na parte superior. Introduza o nome da entidade `Location` na caixa de texto e selecione **Create new entity** (Criar nova entidade) no menu pendente. 
 
-    [![Captura de ecrã da criação de nova entidade na página intenção](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "captura de ecrã da criação de nova entidade na página de intenção")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
+    [![Captura de ecrã da criação de nova entidade na página intenção](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "captura de ecrã da criação de nova entidade na página de intenção")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. Na janela de pop-up, selecione o tipo de entidade **Hierarchical** (Hierárquica) com `Origin` e `Destination` como as entidades subordinadas. Selecione **Done** (Concluído).
 
@@ -99,7 +99,7 @@ Se estiver presente apenas um elemento subordinado (origem ou destino) de uma en
 
 1. O identificador para `Seattle` está assinalado como `Location` porque o LUIS não sabe se o termo corresponde à origem ou ao destino, ou a nenhum dos dois. Selecione `Seattle`, em seguida, selecione **localização**, em seguida, siga o menu à direita e selecione `Origin`.
 
-    [![Captura de ecrã da caixa de diálogo pop-up de etiquetagem de entidade para alterar o filho de entidade de localizações](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "captura de ecrã da caixa de diálogo pop-up de etiquetagem de entidade para alterar o filho de entidade de localizações")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
+    [![Captura de ecrã da caixa de diálogo pop-up de etiquetagem de entidade para alterar o filho de entidade de localizações](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png "captura de ecrã da caixa de diálogo pop-up de etiquetagem de entidade para alterar o filho de entidade de localizações")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-2.png#lightbox)
 
 1. As outras localizações em todas as outras expressões da etiqueta. Quando todos os locais são marcados, as expressões começam para se parecer com um padrão. 
 

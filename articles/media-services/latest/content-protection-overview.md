@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: bce28a2498793b7a1edb8aa0437a7d7c75a45ae9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 02c786209c81e755b05cc3875778f98faf8a1ae1
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911953"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650942"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -33,23 +33,36 @@ A imagem seguinte ilustra o fluxo de trabalho de proteção de conteúdo de serv
 
 Este artigo explica os conceitos e terminologia relevante para compreender a proteção de conteúdo com os Media Services. O artigo também tem o [FAQ](#faq) secção e fornece ligações para artigos que mostram como proteger o conteúdo. 
 
-## <a name="main-components-of-the-content-protection-system"></a>Componentes principais do sistema de proteção de conteúdo
+## <a name="main-components-of-a-content-protection-system"></a>Componentes principais de um sistema de proteção de conteúdo
 
 Para concluir com êxito o design do sistema/aplicativo "proteção de conteúdo", precisa compreender plenamente o âmbito do esforço. A lista seguinte fornece uma visão geral de três partes, que terá de implementar. 
 
 1. Código de serviços de multimédia do Azure
   
-  * Configure modelos de licença do PlayReady, Widevine e/ou FairPlay. Os modelos permitem-lhe configurar direitos e permissões para cada um os DRMs utilizados.
-  * Defina a autorização de entrega de licença, especificando a lógica de verificação de autorização com base em declarações em JWT.
-  * Configure a encriptação de DRM ao especificar chaves de conteúdo e transmissão em fluxo protocolos que devem ser utilizados.
+  O [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) exemplo mostra-lhe como implementar o sistema de multi-DRM com serviços de multimédia v3 e também utilizar o serviço de entrega de licença/chave de serviços de multimédia. Pode encriptar cada elemento com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Veja [Protocolos de transmissão em fluxo e tipos de encriptação](#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.
+  
+  O exemplo mostra como:
 
-  > [!NOTE]
-  > Pode encriptar cada elemento com vários tipos de encriptação (AES-128, PlayReady, Widevine, FairPlay). Veja [Protocolos de transmissão em fluxo e tipos de encriptação](#streaming-protocols-and-encryption-types), para ver o que faz sentido combinar.
-  
-  Os artigos seguintes mostram os passos para encriptar os conteúdos com AES e/ou DRM: 
-  
-  * [Proteger com encriptação AES](protect-with-aes128.md)
-  * [Proteger com o DRM](protect-with-drm.md)
+  1. Criar e configurar ContentKeyPolicies.
+
+    * Defina a autorização de entrega de licença, especificando a lógica de verificação de autorização com base em declarações em JWT.
+    * Configure a encriptação de DRM ao especificar a chave de conteúdo.
+    * Configurar [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), e [FairPlay](fairplay-license-overview.md) licenças. Os modelos permitem-lhe configurar direitos e permissões para cada um os DRMs utilizados.
+
+        ```
+        ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+        ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+        ```
+  2. Crie um StreamingLocator que está configurado para transmitir um recurso de encriptados. 
+
+    Por exemplo, pode definir StreamingLocator.StreamingPolicyName para a política de "Predefined_MultiDrmCencStreaming". Esta política indica que pretende que sejam geradas e definidas no localizador duas chaves de conteúdo (envelope e CENC). Por conseguinte, são aplicadas as encriptação de envelope, do PlayReady e do Widevine (a chave é entregue ao cliente para reprodução, com base nas licenças DRM configuradas). Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
+  3. Crie um token de teste.
+
+    O **GetTokenAsync** método mostra como criar um teste de token.
+  4. Crie o URL de transmissão em fluxo.
+
+    O **GetDASHStreamingUrlAsync** método mostra como criar o URL de transmissão em fluxo. Neste caso, os fluxos de URL a **DASH** conteúdo.
 
 2. Jogador com AES ou DRM cliente. Uma aplicação de leitor de vídeo com base num player SDK (nativo ou baseada no browser) tem de cumprir os seguintes requisitos:
   * O SDK player suporta os clientes DRM necessários
@@ -128,71 +141,11 @@ Com uma conteúdo chave política de token restrito, a chave de conteúdo é env
 
 Ao configurar a política de token restrito, tem de especificar a chave de verificação primária, emissor e parâmetros de público-alvo. A chave de verificação primária contém a chave de que o token foi assinado com. O emissor é o serviço de token seguro que emite o token. O público-alvo, às vezes chamado de âmbito, descreve a intenção do token ou o recurso o token de acesso a autoriza. O serviço de entrega de chave de serviços de multimédia valida que estes valores no token correspondem aos valores no modelo.
 
-## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>Perguntas mais frequentes
-
-### <a name="question"></a>Pergunta
-
-Como implementar o sistema de (PlayReady, Widevine e FairPlay) do multi-DRM usando serviços de multimédia do Azure (AMS) v3 e também o serviço de entrega de licença/chave de AMS utilizar?
-
-### <a name="answer"></a>Resposta
-
-Para o cenário de ponto-a-ponto, consulte a [seguinte o exemplo de código](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
-
-O exemplo mostra como:
-
-1. Criar e configurar ContentKeyPolicies.
-
-  O exemplo contém funções que configuram [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), e [FairPlay](fairplay-license-overview.md) licenças.
-
-    ```
-    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
-    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
-    ```
-
-2. Crie um StreamingLocator que está configurado para transmitir um recurso de encriptados. 
-
-  Por exemplo, pode definir StreamingLocator.StreamingPolicyName para a política de "Predefined_MultiDrmCencStreaming". Esta política indica que pretende que sejam geradas e definidas no localizador duas chaves de conteúdo (envelope e CENC). Por conseguinte, são aplicadas as encriptação de envelope, do PlayReady e do Widevine (a chave é entregue ao cliente para reprodução, com base nas licenças DRM configuradas). Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming".
-
-3. Crie um token de teste.
-
-  O **GetTokenAsync** método mostra como criar um teste de token.
-  
-4. Crie o URL de transmissão em fluxo.
-
-  O **GetDASHStreamingUrlAsync** método mostra como criar o URL de transmissão em fluxo. Neste caso, os fluxos de URL a **DASH** conteúdo.
-
-### <a name="question"></a>Pergunta
-
-Como e onde obter JWT token antes de o utilizar para a licença de pedido ou a chave?
-
-### <a name="answer"></a>Resposta
-
-1. Para a produção, tem de ter um Secure Token serviços (STS) (serviço web) que emite o token JWT mediante um pedido HTTPS. Para teste, poderia usar o código mostrado na **GetTokenAsync** método definido na [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
-2. Leitor terá de fazer um pedido, após um utilizador é autenticado, para o STS para esse token e atribua-a como o valor do token. Pode utilizar o [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/).
-
-* Para obter um exemplo de execução do STS, com a chave simétrica e assimétrica, consulte [ http://aka.ms/jwt ](https://aka.ms/jwt). 
-* Para obter um exemplo de um player com base no leitor de multimédia do Azure com esse token JWT, consulte [ http://aka.ms/amtest ](https://aka.ms/amtest) (expandir a ligação de "player_settings" para ver a entrada de token).
-
-### <a name="question"></a>Pergunta
-
-Como autorizar pedidos para transmitir vídeos em fluxo com encriptação AES?
-
-### <a name="answer"></a>Resposta
-
-A abordagem correta é tirar partido do STS (serviço Token seguro):
-
-STS, dependendo do perfil de usuário, adicione afirmações diferentes (por exemplo, "Premium User", "Utilizador básico", "Utilizador de avaliação gratuita"). Com afirmações diferentes num JWT, o utilizador pode ver o conteúdo diferente. Obviamente, para conteúdo diferente/recurso, o ContentKeyPolicyRestriction terá o RequiredClaims correspondente.
-
-Utilize APIs de serviços de suporte de dados do Azure para configurar/chave de licença de entrega e a criptografia de seus ativos (conforme mostrado na [este exemplo](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs).
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-Veja os artigos seguintes:
-
-  * [Proteger com encriptação AES](protect-with-aes128.md)
-  * [Proteger com o DRM](protect-with-drm.md)
-
-Informações adicionais podem ser encontradas no [crie o sistema de proteção de conteúdo de múltipla drm com controlo de acesso](design-multi-drm-system-with-access-control.md)
+* [Proteger com encriptação AES](protect-with-aes128.md)
+* [Proteger com o DRM](protect-with-drm.md)
+* [Crie o sistema de proteção de conteúdo de múltipla drm com controlo de acesso](design-multi-drm-system-with-access-control.md)
+* [Perguntas mais frequentes](frequently-asked-questions.md)
 
 

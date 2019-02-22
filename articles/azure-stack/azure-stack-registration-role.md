@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: 80caa470675a78a9c2e3d4c055333719f54fe64a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/13/2019
+ms.openlocfilehash: 4858e33023ff0f94bb9fb879b01846184df2491e
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247889"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652149"
 ---
 # <a name="create-a-registration-role-for-azure-stack"></a>Criar uma função de registo para o Azure Stack
 
@@ -33,7 +33,7 @@ Para cenários em que não pretende conceder permissões de proprietário na sub
 
 Ao registar o Azure Stack, a conta de registo requer as seguintes permissões do Azure Active Directory e permissões de subscrição do Azure:
 
-* **Permissões de registo de aplicação no seu inquilino do Azure Active Directory:** Os administradores têm permissões de registo de aplicação. A permissão para usuários é uma definição global para todos os utilizadores no inquilino. Para ver ou alterar o consulte definição [criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+* **Permissões de registo de aplicação no seu inquilino do Azure Active Directory:** Os administradores têm permissões de registo de aplicação. A permissão para usuários é uma definição global para todos os utilizadores no inquilino. Para ver ou alterar a definição, consulte [criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
     O *utilizadores podem registar aplicações* definição tem de ser definida como **Sim** para a ativação de uma conta de utilizador para registar o Azure Stack. Se a definição dos registos da aplicação estiver definido como **não**, não é possível utilizar uma conta de utilizador e tem de utilizar uma conta de administrador global para registar o Azure Stack.
 

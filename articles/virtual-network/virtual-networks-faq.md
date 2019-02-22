@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 7d8047e569d3506f9ebb798b4f8c31ff94204fa4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 98b2c0bc27336e9ee5fe9aaf6332d9854e9af4de
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694062"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650296"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -221,7 +221,7 @@ Sim. Pode utilizar as APIs REST para VNets na [do Azure Resource Manager](/rest/
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe suporte de ferramentas para VNets?
 Sim. Saiba mais sobre como utilizar:
 - Portal do Azure para implementar VNets através da [do Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) e [clássico](virtual-networks-create-vnet-classic-pportal.md) modelos de implementação.
-- PowerShell para gerenciar VNets implementadas através da [Resource Manager](/powershell/module/azurerm.network) e [clássico](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) modelos de implementação.
+- PowerShell para gerenciar VNets implementadas através da [Resource Manager](/powershell/module/az.network) e [clássico](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) modelos de implementação.
 - A interface de linha de comandos do Azure (CLI) para implementar e gerir VNets implementadas através da [Resource Manager](/cli/azure/network/vnet) e [clássico](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) modelos de implementação.  
 
 ## <a name="vnet-peering"></a>VNet peering

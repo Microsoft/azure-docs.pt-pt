@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 3c5f087ed44c252737e7f45fde12a4b509637499
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7f38ef5076472954672cb721874891539802e7f1
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892886"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593272"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Deteção de dados de base de dados SQL do Azure e classificação
 
@@ -144,7 +144,7 @@ Também pode utilizar as APIs REST para gerir programaticamente classificações
 - [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) -elimina a etiqueta de sensibilidade de uma determinada coluna
 - [Obter](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -obtém a etiqueta de sensibilidade de uma determinada coluna
 - [Lista por base de dados atual](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) -obtém as etiquetas de sensibilidade atual de um determinado banco de dados
-- [Recomendado pela base de dados de lista](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -obtém as etiquetas de sensibilidade atual de um determinado banco de dados
+- [Recomendado pela base de dados de lista](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -obtém as etiquetas de sensibilidade recomendada de um determinado banco de dados
 
 ## <a id="subheading-5"></a>Passos seguintes
 

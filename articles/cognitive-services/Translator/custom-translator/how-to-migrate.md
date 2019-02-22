@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: b8347a8c34cf5a0585e9bb6c247102207a70015a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 11cf66d9335315048fd505b3cd9e4c73b244e95a
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225623"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586278"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar os projetos de área de trabalho de Hub e ao Translator personalizado
 
@@ -125,7 +125,7 @@ Se quiser que mais detalhadas que o relatório de migração sobre os seus proje
 ## <a name="implementation-notes"></a>Notas de implementação
 * Migrando um projeto do Hub para o Translator personalizado não terá qualquer impacto no seu treinamentos de Hub ou projetos. Não eliminamos projetos ou documentos do Hub durante uma migração e não anular a implementação modelos.
 * Apenas são permitidos para migrar uma vez por projeto. Se precisar repetir uma migração num projeto, entre em contato conosco.
-* Atualmente, o tradutor personalizado suporta 36 idiomas traduzir de e para inglês e estamos a trabalhar arduamente para adicionar outros idiomas. Hub não necessita de modelos de linha de base e, portanto, oferece suporte a várias linguagens de milhares. É possível migrar um par de idioma não suportado, no entanto, estamos apenas irá executar a migração de documentos e as definições do projeto. Não será capazes de preparar o modelo de novo. Além disso, estes documentos e projetos serão apresentados como Inativos para indicar que não pode ser utilizados neste momento. Se é adicionado suporte para estes projetos e/ou documentos, ficam trainable e Active Directory.
+* Personalizado Translator suporta pares de idiomas NMT de e para inglês. [Ver a lista completa de langauges suportados](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). Hub não necessita de modelos de linha de base e, portanto, oferece suporte a várias linguagens de milhares. É possível migrar um par de idioma não suportado, no entanto, estamos apenas irá executar a migração de documentos e as definições do projeto. Não será capazes de preparar o modelo de novo. Além disso, estes documentos e projetos serão apresentados como Inativos para indicar que não pode ser utilizados neste momento. Se é adicionado suporte para estes projetos e/ou documentos, ficam trainable e Active Directory.
 * Tradutor personalizado não suporta atualmente os dados de treinamento monolíngüe. Como pares de idioma não suportado, pode migrar monolíngües documentos, mas eles mostram como Inativos até que os dados monolíngües são suportados.
 * Tradutor personalizado requer 10 frases paralela de k para treinar. Hub da Microsoft poderia dar formação num conjunto menor de dados. Se um treinamento é migrado que não cumpre este requisito, ele não será preparado.
 

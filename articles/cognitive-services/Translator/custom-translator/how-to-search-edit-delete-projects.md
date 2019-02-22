@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 922f64f3e9588b3bfcfeedf7602df781c8ee6172
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f91ac8e8a6a71f2a5eb5c686aa5bc5b83be36545
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226609"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586615"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e eliminar projetos
 
@@ -39,7 +39,7 @@ A ferramenta de filtro permite-lhe procurar projetos condições de filtro difer
 
 ## <a name="edit-a-project"></a>Editar um projeto
 
-Tradutor personalizado fornece a capacidade de editar o nome e a descrição de um projeto. Outros metadados de projeto como categoria, de origem, de idioma de destino não estão disponíveis para edição. Passos abaixo descrevem como editar um projeto.
+Tradutor personalizado dá-lhe a capacidade de editar o nome e descrição de um projeto. Outros metadados de projeto, como a categoria, o idioma de origem e o idioma de destino não estão disponíveis para editar. Os passos abaixo descrevem como editar um projeto.
 
 1.  Clique no ícone de lápis, que é apresentado quando paira o rato sobre um projeto.
 

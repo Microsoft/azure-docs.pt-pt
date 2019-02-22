@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: jdial
-ms.openlocfilehash: 3daea64d9c9c94b334a57b81c47dd298f7ae4d78
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: cf856a680601edd950cd0a5fddbc1241782478e2
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658068"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648902"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Interfaces de rede para adicionar ou remover interfaces de rede de máquinas virtuais
 
@@ -30,11 +30,13 @@ Se precisa para adicionar, alterar ou remover endereços IP para uma interface d
 
 ## <a name="before-you-begin"></a>Antes de começar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Conclua as seguintes tarefas antes de concluir os passos em qualquer secção deste artigo:
 
 - Se ainda não tiver uma conta do Azure, inscreva-se para uma [conta de avaliação gratuita](https://azure.microsoft.com/free).
 - Se utilizar o portal, abra https://portal.azure.come inicie sessão com a sua conta do Azure.
-- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão do módulo 5.2.0 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+- Se utilizar comandos do PowerShell para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/powershell), ou ao executar o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 - Se utilizar comandos de interface de linha de comandos (CLI) do Azure para concluir tarefas neste artigo, a executar os comandos do [Azure Cloud Shell](https://shell.azure.com/bash), ou ao executar a CLI do seu computador. Este tutorial requer a versão 2.0.26 CLI do Azure ou posterior. Execute `az --version` para localizar a versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Se estiver a executar a CLI do Azure localmente, terá também de executar `az login` para criar uma ligação com o Azure.
 
 ## <a name="add-existing-network-interfaces-to-a-new-vm"></a>Adicionar interfaces de rede existente para uma nova VM
@@ -48,29 +50,30 @@ Antes de criar a VM, criar uma interface de rede, utilizando os passos em [criar
 |Ferramenta|Comando|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzVM](/powershell/module/az.compute/new-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>Adicionar uma interface de rede a uma VM existente
 
 1. Inicie sessão no Portal do Azure.
 2. Na caixa de pesquisa na parte superior do portal, escreva o nome da VM à qual pretende adicionar a interface de rede ou navegue para a VM selecionando **todos os serviços**e, em seguida **máquinas virtuais**. Depois de encontrar a VM, selecione-o. A VM tem de suportar o número de interfaces de rede que pretende adicionar. Para obter informações sobre cada tamanho de VM do interfaces de rede quantos suporta, consulte [tamanhos de máquinas de virtuais do Linux no Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [máquinas de virtuais de tamanhos para Windows no Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-3. Selecione **descrição geral**, em **definições**. Selecione **parar**e, em seguida, aguarde até a **estado** da VM é alterado para **parada (desalocada)**. 
+3. Selecione **descrição geral**, em **definições**. Selecione **parar**e, em seguida, aguarde até a **estado** da VM é alterado para **parada (desalocada)**.
 4. Selecione **Networking**, em **definições**.
-5. Selecione **interface de rede Attach**. Na lista de interfaces de rede que não estão atualmente anexadas à outra VM, selecione aquela que pretende anexar. 
+5. Selecione **interface de rede Attach**. Na lista de interfaces de rede que não estão atualmente anexadas à outra VM, selecione aquela que pretende anexar.
 
-    >[!NOTE]
-    A interface de rede que selecionar não pode ter accelerated networking ativado, não pode ter um endereço de IPv6 atribuído a ele e têm de existir na mesma rede virtual como aquela que contém a interface de rede atualmente ligada à VM. 
+   >[!NOTE]
+   >A interface de rede que selecionar não pode ter accelerated networking ativado, não pode ter um endereço de IPv6 atribuído a ele e têm de existir na mesma rede virtual como aquela que contém a interface de rede atualmente ligada à VM.
 
-    Se não tiver uma interface de rede existente, tem primeiro de criar uma. Para tal, selecione **interface de rede de criar**. Para saber mais sobre como criar uma interface de rede, veja [criar uma interface de rede](virtual-network-network-interface.md#create-a-network-interface). Para saber mais sobre as restrições adicionais ao adicionar interfaces de rede para máquinas virtuais, veja [restrições](#constraints).
+   Se não tiver uma interface de rede existente, tem primeiro de criar uma. Para tal, selecione **interface de rede de criar**. Para saber mais sobre como criar uma interface de rede, veja [criar uma interface de rede](virtual-network-network-interface.md#create-a-network-interface). Para saber mais sobre as restrições adicionais ao adicionar interfaces de rede para máquinas virtuais, veja [restrições](#constraints).
 
 6. Selecione **OK**.
 7. Selecione **descrição geral**, em **definições**e, em seguida **iniciar** para iniciar a máquina virtual.
 8. Configure o sistema de operacional VM para utilizar várias interfaces de rede corretamente. Saiba como configurar [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) ou [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) para várias interfaces de rede.
 
+### <a name="commands"></a>Comandos
 |Ferramenta|Comando|
 |---|---|
-|CLI|[Adicionar AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [detalhadas passos](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Adicionar-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [detalhadas passos](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|CLI|[Adicionar AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_add) (referência) ou [detalhadas passos](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
+|PowerShell|[Adicionar-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [detalhadas passos](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="view-network-interfaces-for-a-vm"></a>Ver interfaces de rede para uma VM
 
@@ -85,27 +88,27 @@ Pode ver as interfaces de rede atualmente anexadas a uma VM para saber mais sobr
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_show)|
+|PowerShell|[Get-AzVM](/powershell/module/az.compute/get-azvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-a-network-interface-from-a-vm"></a>Remover uma interface de rede de uma VM
 
 1. Inicie sessão no Portal do Azure.
 2. Na caixa de pesquisa na parte superior do portal, procure o nome da VM que pretende remover (desligar) a interface de rede da ou navegue para a VM selecionando **todos os serviços**e, em seguida **máquinas virtuais**. Depois de encontrar a VM, selecione-o.
-3. Selecione **descrição geral**, em **definições**e, em seguida **parar**. Aguarde até que o **Status** da VM é alterado para **parada (desalocada)**. 
+3. Selecione **descrição geral**, em **definições**e, em seguida **parar**. Aguarde até que o **Status** da VM é alterado para **parada (desalocada)**.
 4. Selecione **Networking**, em **definições**.
-5. Selecione **interface de rede de anulação de exposições**. Na lista de interfaces de rede atualmente anexadas à máquina virtual, selecione a interface de rede que pretende desligar. 
+5. Selecione **interface de rede de anulação de exposições**. Na lista de interfaces de rede atualmente anexadas à máquina virtual, selecione a interface de rede que pretende desligar.
 
-    >[!NOTE]
-    Se apenas uma interface de rede estiver listada, não pode desligá-lo, uma vez que uma máquina virtual sempre tem de ter, pelo menos, uma interface de rede ligada ao mesmo.
+   >[!NOTE]
+   >Se apenas uma interface de rede estiver listada, não pode desligá-lo, uma vez que uma máquina virtual sempre tem de ter, pelo menos, uma interface de rede ligada ao mesmo.
 6. Selecione **OK**.
 
 ### <a name="commands"></a>Comandos
 
 |Ferramenta|Comando|
 |---|---|
-|CLI|[remover AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [detalhadas passos](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [detalhadas passos](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|CLI|[remover AZ vm nic](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_vm_nic_remove) (referência) ou [detalhadas passos](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
+|PowerShell|[Remove-AzVMNetworkInterface](/powershell/module/az.compute/remove-azvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (referência) ou [detalhadas passos](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="constraints"></a>Restrições
 
@@ -123,14 +126,10 @@ Pode ver as interfaces de rede atualmente anexadas a uma VM para saber mais sobr
 - Tal como acontece com o IPv6, é possível anexar uma interface de rede com redes aceleradas ativada para uma VM depois de o criar. Além disso, para tirar partido do funcionamento em rede acelerado, também tem de concluir os passos no sistema de operativo VM. Saiba mais sobre o funcionamento em rede acelerado e outras restrições quando utilizá-lo, para [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux](create-vm-accelerated-networking-cli.md) máquinas virtuais.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para criar uma VM com várias interfaces de rede ou endereços IP, leia os artigos seguintes:
-
-### <a name="commands"></a>Comandos
+Para criar uma VM com várias interfaces de rede ou endereços IP, veja os artigos seguintes:
 
 |Tarefa|Ferramenta|
 |---|---|
 |Criar uma VM com vários NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Criar uma VM de NIC único com vários endereços de IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Criar uma VM de NIC único com um endereço IPv6 privado (por trás de um balanceador de carga do Azure)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [modelo Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-
-

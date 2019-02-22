@@ -8,15 +8,15 @@ manager: pchoudh
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 757ef07c1268cbf159ce98dfb8ba1980616e4a3a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: f144262f43396ac5d4f37939d35fca2645acc4bd
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245139"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650177"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de utilizador é comparada com uma base de dados de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado. 
@@ -72,9 +72,9 @@ Se tiver uma base de dados de conhecimento em regiões diferentes, cada região 
 
 
 ## <a name="no-match-found"></a>Nenhuma correspondência localizada
-Quando for encontrada nenhuma correspondência de boa pelo classificador, é devolvida a classificação de confiança de 0,0 ou "None" e a resposta padrão não é "Nenhuma boa correspondência encontrada no artigo do BDC". Pode substituir esta resposta predefinida no código de aplicação ou bot chamar o ponto final. Como alternativa, também pode definir a resposta de substituição no Azure, e isso muda a predefinição para todas as bases de dados de conhecimento implementado num determinado serviço QnA Maker.
+Quando for encontrada nenhuma correspondência de boa pelo classificador, é devolvida a classificação de confiança de 0,0 ou "None" e a resposta padrão não é "Nenhuma boa correspondência encontrada no artigo do BDC". Pode substituir esta [predefinido resposta](#change-default-answer) no código de aplicação ou bot chamar o ponto final. Como alternativa, também pode definir a resposta de substituição no Azure, e isso muda a predefinição para todas as bases de dados de conhecimento implementado num determinado serviço QnA Maker.
 
-### <a name="change-default-answer"></a>Resposta de padrão de alteração
+## <a name="change-default-answer"></a>Resposta de padrão de alteração
 
 1. Vá para o [portal do Azure](https://portal.azure.com) e navegue para o grupo de recursos que representa o serviço QnA Maker que criou.
 
@@ -94,5 +94,4 @@ Quando for encontrada nenhuma correspondência de boa pelo classificador, é dev
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"]
 > [Origens de dados suportadas](./data-sources-supported.md)
-## <a name="see-also"></a>Consulte também 
-[Descrição geral do Criador de FAQ](../Overview/overview.md)
+

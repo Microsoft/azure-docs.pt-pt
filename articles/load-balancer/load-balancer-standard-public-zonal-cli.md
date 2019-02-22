@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 18e5e9ff299cb645e2b5b47d327ee93e27da82df
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fabec317370f5a45b16ac3e6dd3422eceb9621c3
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700038"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592797"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Criar um balanceador de carga Standard com o front-end zonal com a CLI do Azure
 
@@ -51,7 +51,7 @@ az group create \
 ## <a name="create-a-zonal-public-ip-standard"></a>Criar uma zona pública IP padrão
 Para aceder à sua aplicação na Internet, precisa de um endereço IP público para o balanceador de carga. Um endereço IP público que é criado numa zona específica sempre existe apenas essa zona. Não é possível alterar o fuso de um endereço IP público.
 
-Crie um endereço IP público com [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). O exemplo seguinte cria um endereço IP público zonal com o nome *myPublicIP* no *myResourceGroupLoadBalancer* grupo de recursos na zona 1.
+Criar um endereço IP público com [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). O exemplo seguinte cria um endereço IP público zonal com o nome *myPublicIP* no *myResourceGroupLoadBalancer* grupo de recursos na zona 1.
 
 ```azurecli-interactive
 az network public-ip create \

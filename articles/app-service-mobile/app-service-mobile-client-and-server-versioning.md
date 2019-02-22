@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: dfdabed95d89e02b5a4b23ba23949cd0aaf838f3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 56c5e0582afe55dcd63aa056817898d3d4942419
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959400"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594071"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Versão do cliente e servidor em aplicações móveis e os serviços móveis
 A versão mais recente do serviços móveis do Azure é o **Mobile Apps** recurso do App Service do Azure.
@@ -80,7 +80,7 @@ Nota: os serviços móveis SDKs do cliente *isso não é possível* enviar um va
 ### <a name="mobile-services-server-sdks"></a>Mobile *serviços* SDKs do servidor
 | Plataforma de servidor | Versão | Cabeçalho de versão aceite |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |* * Nenhum cabeçalho de versão * * |
+| .NET |[WindowsAzure.MobileServices.Backend.* Version 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nenhum cabeçalho de versão** |
 | Node.js |(brevemente) |**Nenhum cabeçalho de versão** |
 
 <!-- TODO: add Node npm version -->

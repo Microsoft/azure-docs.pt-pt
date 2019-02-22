@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 11/16/2018
 ms.author: amsriva
-ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 014353bafa31b1c4e924cba8335dbd30a48c2d11
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454264"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651435"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall de aplicações Web (WAF)
 
@@ -130,6 +130,16 @@ A WAF do Gateway de Aplicação pode ser configurada para ser executada nos dois
 
 * **Modo de deteção** -se configurado para ser executado no modo de deteção, os monitores de WAF do Gateway de aplicação e logs de alertas de ameaça todos os para um ficheiro de registo. Os Diagnósticos de registo do Gateway de Aplicação devem ser ativados através da secção **Diagnósticos**. Também deverá certificar de que o registo WAF está selecionado e ativado. Quando é executada no modo de deteção, a firewall de aplicações Web não bloqueia pedidos de entrada.
 * **Modo de prevenção** – Se configurar o Gateway de Aplicação para ser executado no modo de prevenção, este bloqueia ativamente intrusões e ataques detetados pelas respetivas regras. O atacante recebe uma exceção de acesso não autorizado 403 e a ligação é terminada. O modo de prevenção continua a registar os ataques nos registos WAF.
+
+### <a name="anomaly-scoring-mode"></a>Modo de classificação de anomalias 
+ 
+OWASP tem dois modos para decidir se a bloquear o tráfego ou não. Existe um modo tradicional e um modo de anomalias de classificação. No modo de tradicional, qualquer regra de correspondência de tráfego é considerada independentemente se outras regras corresponder à demasiado. Embora seja mais fácil de entender, a falta de informações sobre o número de regras são acionadas por uma solicitação específica é uma das limitações neste modo. Por conseguinte, o modo de classificação de anomalias foi introduzido, que se tornou o padrão com OWASP 3.x. 
+
+No modo de classificação de anomalias, o fato de que as regras descritos na secção anterior ao tráfego não imediatamente significa que o tráfego será bloqueado, partindo do princípio de que a firewall está no modo de prevenção. Regras com uma determinada gravidade (crítico, erro, aviso e tenha em atenção) e, dependendo do que gravidade eles irão aumentar um valor numérico para o pedido de chamada a classificação de anomalia. Por exemplo, uma regra de aviso correspondente irá contribuir com um valor de 3, mas uma regra fundamental correspondente irá contribuir com um valor de 5. 
+
+Existe um limite para a classificação de anomalia sob a qual o tráfego não é cancelado, esse limite está definido para 5. Isso significa que, uma única regra crítica correspondente é suficiente para que o Azure WAF bloqueia um pedido no modo de prevenção (uma vez que a regra crítica aumenta a classificação de anomalia por 5, de acordo com o parágrafo anterior). No entanto, a correspondência de uma regra com um nível de aviso será apenas aumento da anomalia pontuação por 3. Uma vez que o 3 é ainda menor do que o limiar de 5, nenhum tráfego será bloqueado, mesmo que o WAF está no modo de prevenção. 
+
+Tenha em atenção que a mensagem registado quando um tráfego de correspondências de regras WAF incluirá o action_s de campo como "Bloqueado", mas que não significa necessariamente que o tráfego, na verdade, foi bloqueado. Uma classificação de anomalia de 5 ou superior é necessária para realmente bloquear o tráfego.  
 
 ### <a name="application-gateway-waf-reports"></a>Monitorização da WAF
 

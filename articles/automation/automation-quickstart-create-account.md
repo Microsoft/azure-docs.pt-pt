@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: d15b3859d5eccbd58d7f5b7902be84c94ec16b73
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5fd29c47f87dc65d67961224d1e2c103871d4b06
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429247"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592456"
 ---
 # <a name="create-an-azure-automation-account"></a>Crie uma conta de Automatização do Azure
 
@@ -39,7 +39,7 @@ Inicie sessão no Azure a https://portal.azure.com
     > [!NOTE]
     > Para obter uma lista de localizações nas quais pode implementar uma Conta de Automatização, veja [Produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
 
-1. Quando a implementação estiver concluída, clique em ** **Todos os Serviços**, selecione **Contas de Automatização** e selecione a Conta de Automatização que criou.
+1. Quando a implementação é concluída, clique em **todos os serviços**, selecione **contas de automatização** e selecione a conta de automatização que criou.
 
     ![Descrição geral da conta de Automatização](./media/automation-quickstart-create-account/automation-account-overview.png)
 

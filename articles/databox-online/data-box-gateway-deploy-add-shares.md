@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/04/2019
+ms.date: 02/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ceff87cd3075d517ee1c0027e19dbf423e44f5c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108760"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592660"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferir dados com o Gateway de caixa de dados do Azure (pré-visualização)
 
@@ -133,6 +133,7 @@ Execute estes passos no seu cliente Linux ligado ao Data Box Edge.
 > Os seguintes avisos aplicam-se à versão de pré-visualização:
 > - Depois de um ficheiro ser criado nas partilhas, mudar o nome do ficheiro não é suportado. 
 > - A eliminação de um ficheiro de uma partilha não elimina a entrada na conta de armazenamento.
+> - Se utilizar `rsync` para copiar dados, em seguida, `rsync -a` opção não é suportada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

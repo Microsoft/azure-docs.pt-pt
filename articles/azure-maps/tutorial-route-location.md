@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7fb382c6c57972484eff80c0d7355319a1f9178a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7b5b82e80ab4998f7cd106f469bf7ac8e271285d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893556"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588369"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ir para um ponto de interesse com o Azure Maps
 
@@ -202,7 +202,7 @@ Esta secção mostra como utilizar a API do serviço de trajetos do Maps para en
         endPoint.geometry.coordinates[0];
     ```
 
-3. Para obter o trajeto, adicione o seguinte bloco de código ao script. Este consulta o serviço de encaminhamento do Azure Maps através do método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) e, em seguida, analisa a resposta em formato GeoJSON com o [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Em seguida, adiciona a linha de rota na resposta à origem de dados, que compõe automaticamente no mapa.
+3. Para obter o trajeto, adicione o seguinte bloco de código ao script. Este consulta o serviço de encaminhamento do Azure Maps através do método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) e, em seguida, analisa a resposta em formato GeoJSON com o [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest). Em seguida, adiciona a linha de rota na resposta à origem de dados, que compõe automaticamente no mapa.
 
     ```JavaScript
     //Execute the car route query then add the route to the map once a response is received.

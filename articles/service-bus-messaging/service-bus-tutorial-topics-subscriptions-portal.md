@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c04b9b04a14e5cba205db5e0fa86094ef098bc7b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001639"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585878"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar inventário com o portal do Azure e tópicos/subscrições
 
@@ -45,49 +45,11 @@ Para concluir este tutorial, confirme que tem instalada:
 
 Cada [subscrição de um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos são totalmente compatíveis no que diz respeito a protocolo e semântica com as filas do Service Bus. Os tópicos do Service Bus suportam uma vasta gama de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam propriedades de mensagem. Sempre que uma regra tem correspondência, é criada uma mensagem. Para saber mais sobre regras, filtros e ações, clique nesta [hiperligação](topic-filters.md).
 
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-Primeiro, entre no [Portal do Azure][Azure portal] e inicie sessão com a sua subscrição do Azure. O primeiro passo é criar um espaço de nomes de Service Bus do tipo **Mensagens**.
+[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
-## <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
 
-Um espaço de nomes de mensagens do Service Bus fornece um contentor de âmbito exclusivo, referenciado pela [nome de domínio completamente qualificado][], no qual cria uma ou mais filas, tópicos e subscrições. O exemplo seguinte cria um espaço de nomes de mensagens do Service Bus num [ grupo de recursos](/azure/azure-resource-manager/resource-group-portal) novo ou existente:
-
-1. No painel de navegação à esquerda do portal, clique em **+ Criar um recurso** e, em seguida, clique em **Enterprise Integration** e em **Service Bus**.
-2. Na caixa de diálogo **Criar espaço de nomes**, introduza um nome de espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
-3. Após se confirmar que o espaço de nomes está disponível, selecione o escalão de preço (Standard ou Premium).
-4. No campo **Subscrição**, selecione a subscrição do Azure em que pretende criar o espaço de nomes.
-5. No campo **Grupo de recursos**, selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.      
-6. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
-7. Clique em **Criar**. O sistema cria o espaço de nomes e ativa-o. Poderá ter de aguardar alguns minutos enquanto o sistema aprovisiona recursos para a sua conta.
-
-  ![espaço de nomes](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gestão
-
-A criação de um espaço de nomes gera automaticamente uma regra inicial de Assinatura de Acesso Partilhado (SAS) com um par de chaves primárias e secundárias associado que cada uma concede controlo total sobre todos os aspetos do espaço de nomes. Para copiar a regra inicial, siga estes passos:
-
-1. Clique em **Todos os recursos** e clique no nome do espaço de nomes criado recentemente.
-2. Na janela de espaço de nomes, clique em **Políticas de acesso partilhado**.
-3. No ecrã **Políticas de acesso partilhado**, clique em **RootManageSharedAccessKey**.
-4. Na **política: RootManageSharedAccessKey** janela, clique nas **cópia** junto a **cadeia de ligação primária**para copiar a cadeia de ligação para a área de transferência para utilização posterior. Cole este valor no Bloco de Notas ou noutra localização temporária.
-
-    ![connection-string][connection-string]
-5. Repita o passo anterior, copie e cole o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.
-
-## <a name="create-a-topic-and-subscriptions"></a>Criar um tópico e subscrições
-
-Para criar um tópico do Service Bus, especifique o espaço de nomes abaixo da fila onde pretende criá-lo. O exemplo seguinte mostra como criar um tópico no portal:
-
-1. No painel de navegação à esquerda do portal, clique em **Service Bus** (se não vir **Service Bus**, clique em **Todos os serviços**).
-2. Clique no espaço de nomes no qual gostaria de criar o tópico.
-3. Na janela do espaço de nomes, clique em **Tópicos** e na janela **Tópicos**, clique em **+ Tópicos**.
-4. Introduza o **Nome** do tópico e deixe os outros valores com as respetivas predefinições.
-5. Na parte inferior da janela, clique em **Criar**.
-6. Tome nota do nome do tópico.
-7. Selecione o tópico que acabou de criar.
-8. Clique em **+ Subscrição**, introduza o nome da subscrição **S1**e deixe todos os outros valores com as respetivas predefinições.
-9. Repita o passo anterior mais duas vezes, criando as subscrições **S2** e **S3**.
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Criar regras de filtro nas subscrições
 
@@ -451,7 +413,7 @@ Avance para o próximo tutorial para saber mais sobre a utilização de capacida
 > [Atualizar inventário com o PowerShell e tópicos/subscrições](service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[nome de domínio completamente qualificado]: https://wikipedia.org/wiki/Fully_qualified_domain_name
+[fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
 [connection-string]: ./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png

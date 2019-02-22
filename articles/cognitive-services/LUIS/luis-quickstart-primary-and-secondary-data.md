@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 9da2f8fa345ad3447d7c3344772458c451cf427e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 78c9eaaf1dad0ae596bad13ac40a9df2dc4d2f3c
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867244"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594734"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes de entidade simple e uma lista de frase
 
@@ -24,7 +24,7 @@ Neste tutorial, irá extrair dados de aprendizagem automática do nome do cargo 
 
 A entidade simples deteta um único conceito de dados contido em palavras ou expressões.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -233,7 +233,9 @@ Abra o [tarefas-frase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
     [![Captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "captura de ecrã de criar a caixa de diálogo do novo frase lista pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Se pretender adicionar mais palavras à lista de expressões, reveja os **Valores Relacionados** e adicione os que são relevantes. 
+    Se pretender mais palavras adicionadas à lista de frase, selecione **Recommand** , em seguida, reveja as novas **valores relacionados** e adicione todos os que são relevantes. 
+
+    Certifique-se de manter os **estes valores são intercambiáveis** verificado uma vez que estes valores devem todos ser tratados como sinónimos para as tarefas. Saiba mais sobre intercambiáveis e noninterchangeable [frase conceitos de lista](luis-concept-feature.md#how-to-use-phrase-lists).
 
 1. Selecione **Save** (Guardar) para ativar a lista de expressões.
 

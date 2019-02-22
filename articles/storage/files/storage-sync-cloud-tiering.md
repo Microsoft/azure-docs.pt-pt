@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
 ms.subservice: files
-ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: fe363bd6d16d7beea1c8f1e6ec17710975a80924
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470456"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652565"
 ---
 # <a name="cloud-tiering-overview"></a>Descrição geral de camadas da cloud
 Na cloud em camadas são uma funcionalidade opcional do Azure File Sync em que frequentemente ficheiros acedidos são colocadas em cache localmente no servidor, enquanto todos os outros ficheiros são dispostos em camadas para ficheiros do Azure com base nas definições de política. Quando um ficheiro é em camadas, o filtro de sistema de ficheiros do Azure File Sync (StorageSync.sys) substitui o ficheiro localmente com um ponteiro, ou um ponto de reanálise. O ponto de reanálise representa um URL para o ficheiro nos ficheiros do Azure. Um ficheiro em camadas tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que aplicativos de terceiros com segurança podem identificar os ficheiros em camadas.
@@ -21,9 +21,12 @@ Na cloud em camadas são uma funcionalidade opcional do Azure File Sync em que f
 Quando um utilizador abre um ficheiro em camadas, o Azure File Sync solicitar forma totalmente integrada os dados de arquivo de ficheiros do Azure sem que o utilizador necessidade de saber que o arquivo é realmente armazenado no Azure. 
  
  > [!Important]  
-    > Importante: Na cloud em camadas não é suportada para pontos de extremidade nos volumes de sistema do Windows server e apenas superiores a 64 KiB de tamanho de ficheiros podem ser colocado em camadas para ficheiros do Azure.
+ > Na cloud em camadas não é suportada para pontos de extremidade nos volumes de sistema do Windows server e apenas superiores a 64 KiB de tamanho de ficheiros podem ser colocado em camadas para ficheiros do Azure.
     
 O Azure File Sync não suporta a disposição em camadas arquivos menores do que 64 KiB como a sobrecarga de desempenho de disposição em camadas e recupera um desses arquivos pequenos seria superam a economia de espaço.
+
+ > [!Important]  
+ > Recuperar ficheiros que tenham sido em camadas, a largura de banda de rede deve ser, pelo menos, 1 Mbps. Se a largura de banda de rede for inferior a 1 Mbps, arquivos podem não conseguir Lembre-se com um erro de tempo limite.
 
 ## <a name="cloud-tiering-faq"></a>FAQ de camadas da cloud
 

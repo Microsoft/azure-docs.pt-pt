@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: e6ab51d568c950ca7fd503150557df288d84174f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0d6813c11b5b9ed4aef666f5eb3dc75d8c9de770
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867737"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593427"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do utilizador de expressões
 
@@ -50,21 +50,14 @@ Uma expressão numa intenção, pode ter uma discrepância de predição de inte
 
 No painel de navegação superior, selecione **Train**. A discrepância de predição é agora já era.
 
+> [!Note]
+> Quando uma linha vermelha está sob uma palavra ou frase na expressão de exemplo, um [erro de previsão de entidade](luis-how-to-add-example-utterances.md#entity-status-predictions) ocorreu. Tem de corrigi-lo. 
+
 ## <a name="add-a-custom-entity"></a>Adicionar uma entidade personalizada
 
 Depois de uma expressão é adicionado a uma intenção, pode selecionar o texto da dentro da expressão para criar uma entidade personalizada. Uma entidade personalizada é uma forma de texto da etiqueta de extração, juntamente com a intenção correta. 
 
-1. Selecione o word, `Seattle`, em que a expressão. Colchetes são desenhados em todo o texto e é apresentado um menu de lista pendente. 
-
-    ![Página de detalhes de captura de ecrã de objetivos, a criar a entidade personalizada](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    Neste exemplo seleciona uma única palavra para marcar como uma entidade. Pode marcar funciona única e frases como entidades.
-
-1. Superior-caixa de texto do menu, introduza `Location`, em seguida, selecione **criar nova entidade**. 
-
-    ![Página de detalhes de captura de ecrã de objetivos, a criação de nome de entidade personalizada](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. Na **o tipo de entidade que pretende criar?** janela pop-up para a criação de entidade, validar que o **nome da entidade** é _localização_e o **tipo de entidade**  é _simples_. Selecione **Done** (Concluído).
+Ver [adicionar entidade a expressão](luis-how-to-add-example-utterances.md) para saber mais.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Erros de discrepância de predição de entidade 
 
@@ -80,7 +73,7 @@ Para obter informações, consulte [criados previamente entidade](luis-how-to-ad
 
 ## <a name="using-the-contextual-toolbar"></a>Usando a barra de ferramentas contextual
 
-Quando um ou mais expressões de exemplo é selecionado na lista, marcando a caixa à esquerda de uma expressão, a barra de ferramentas acima da lista de expressão permite-lhe executar as seguintes ações:
+Quando um ou mais expressões de exemplo estão selecionados na lista, marcando a caixa à esquerda de uma expressão, a barra de ferramentas acima da lista de expressão permite-lhe executar as seguintes ações:
 
 * Reatribuir intenção: mover utterance(s) em intenção diferente
 * Eliminar utterance(s)

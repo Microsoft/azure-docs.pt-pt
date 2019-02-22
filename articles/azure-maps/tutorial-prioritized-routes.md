@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5458c7e74728952df89380a3649c6ed60eb6ea9a
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0ec047f38596bed4d3f0bc5520dc9c7fc18b4c24
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749768"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585241"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Localizar trajetos para diferentes meios de deslocação com o Azure Maps
 
@@ -248,7 +248,7 @@ Esta secção mostra como utilizar a API de serviço de trajetos do Maps para en
         datasource.add(routeLine, 0);
     });
     ```
-    Este fragmento de código consulta o serviço de encaminhamento do Azure Maps através do método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) e, em seguida, analisa a resposta em formato GeoJSON com [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Em seguida, cria uma matriz de coordenadas para o trajeto devolvido e adiciona-a à origem de dados, mas também adiciona um índice de 0 para garantir que é composta antes de quaisquer outras linhas na origem de dados. Isto é feito porque o cálculo do trajeto de camião será, muitas vezes, mais lento do que o cálculo de um trajeto de carro e, se a linha do trajeto de camião for adicionada à origem de dados após o trajeto de carro, será composta acima dela. Duas propriedades são adicionadas à linha do trajeto de camião: uma cor do traço que corresponde a uma tonalidade de azul e uma largura do traço de 9 pixels. 
+    Este fragmento de código consulta o serviço de encaminhamento do Azure Maps através do método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) e, em seguida, analisa a resposta em formato GeoJSON com [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest). Em seguida, cria uma matriz de coordenadas para o trajeto devolvido e adiciona-a à origem de dados, mas também adiciona um índice de 0 para garantir que é composta antes de quaisquer outras linhas na origem de dados. Isto é feito porque o cálculo do trajeto de camião será, muitas vezes, mais lento do que o cálculo de um trajeto de carro e, se a linha do trajeto de camião for adicionada à origem de dados após o trajeto de carro, será composta acima dela. Duas propriedades são adicionadas à linha do trajeto de camião: uma cor do traço que corresponde a uma tonalidade de azul e uma largura do traço de 9 pixels. 
 
 4. Adicione o seguinte código JavaScript para pedir o trajeto para um carro e apresentar os resultados:
 
@@ -267,7 +267,7 @@ Esta secção mostra como utilizar a API de serviço de trajetos do Maps para en
         datasource.add(routeLine);
     });
     ```
-    Este fragmento de código utiliza a mesma consulta do trajeto do camião para um carro. Consulta o serviço de encaminhamento do Azure Maps através do método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest) e, em seguida, analisa a resposta em formato GeoJSON com o [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest). Em seguida, cria uma matriz de coordenadas para o trajeto devolvido e adiciona-a à origem de dados. Duas propriedades são adicionadas à linha do trajeto de carro: uma cor do traço que corresponde a uma tonalidade de roxo e uma largura do traço de 5 pixels. 
+    Este fragmento de código utiliza a mesma consulta do trajeto do camião para um carro. Consulta o serviço de encaminhamento do Azure Maps através do método [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) e, em seguida, analisa a resposta em formato GeoJSON com o [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routegeojson?view=azure-iot-typescript-latest). Em seguida, cria uma matriz de coordenadas para o trajeto devolvido e adiciona-a à origem de dados. Duas propriedades são adicionadas à linha do trajeto de carro: uma cor do traço que corresponde a uma tonalidade de roxo e uma largura do traço de 5 pixels. 
 
 5. Guarde o ficheiro **MapTruckRoute.html** e atualize o browser para ver o resultado. Para uma ligação com êxito às APIs do Maps, deverá ver um mapa semelhante ao seguinte.
 

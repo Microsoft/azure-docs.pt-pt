@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0ef11355d7a65bd2c9b7ddfb6c4db2ba02538062
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f18a1c90d3378831824542fabb884d36d12bddd4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270373"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652115"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -130,7 +130,7 @@ Dimensionamento automático permite que tenha a quantidade certa de recursos em 
 Muitas vezes, terá que o requisito para integrar o Azure Monitor com outros sistemas e para criar soluções personalizadas que utilizam os seus dados de monitorização. Outros serviços do Azure funcionam com o Azure Monitor para fornecer essa integração.
 
 ### <a name="event-hub"></a>Hub de Eventos
-[Os Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs) é um serviço de ingestão plataforma e o evento de transmissão em fluxo que pode transformar e armazenar dados em qualquer fornecedor de análise em tempo real ou adaptadores de criação de batches/armazenamento. Utilizar os Hubs de eventos para [transmitir dados de registo do Azure Monitor](platform/stream-monitoring-data-event-hubs.md) para SIEM e ferramentas de monitorização de parceiros.
+[Os Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs) é um serviço de ingestão plataforma e o evento de transmissão em fluxo que pode transformar e armazenar dados em qualquer fornecedor de análise em tempo real ou adaptadores de criação de batches/armazenamento. Utilizar os Hubs de eventos para [transmitir dados do Azure Monitor](platform/stream-monitoring-data-event-hubs.md) para SIEM e ferramentas de monitorização de parceiros.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

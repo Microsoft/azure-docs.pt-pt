@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1a25a9c3e0d099349286476f0ae3791efee1642f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 566faaef4e91237bd0a0f915ea39f4bd389120d8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452819"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593085"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor de cópia de segurança e restaurar o desempenho com capacidade de Azure cópia de segurança instantâneas restaurar
 
@@ -37,11 +37,11 @@ Atualmente, a tarefa de cópia de segurança consiste em duas fases:
 1.  Criar um instantâneo VM.
 2.  A transferência de um instantâneo VM para o Cofre dos serviços de recuperação do Azure.
 
-Um ponto de recuperação é considerado criado apenas depois de fases 1 e 2 são concluídas. Como parte desta atualização, é criado um ponto de recuperação assim que o instantâneo estiver concluído e que este ponto de recuperação do tipo de instantâneo pode ser utilizado para efetuar um restauro com o mesmo fluxo de restauro. Pode identificar este ponto de recuperação no portal do Azure ao utilizar "instantâneo" como o tipo de ponto de recuperação e, depois do instantâneo é transferido para o cofre, o tipo de ponto de recuperação é alterado para "instantâneo e cofre."
+Um ponto de recuperação é considerado criado apenas depois de fases 1 e 2 são concluídas. Como parte desta atualização, é criado um ponto de recuperação assim que o instantâneo estiver concluído e que este ponto de recuperação do tipo de instantâneo pode ser utilizado para efetuar um restauro com o mesmo fluxo de restauro. Pode identificar este ponto de recuperação no portal do Azure ao utilizar "instantâneo" como o tipo de ponto de recuperação e, depois do instantâneo é transferido para o cofre, o tipo de ponto de recuperação é alterado para "instantâneo e cofre".
 
 ![Tarefa de cópia de segurança no VM pilha de cópia de segurança do Resource Manager modelo de implementação, armazenamento e o Cofre](./media/backup-azure-vms/instant-rp-flow.png)
 
-Os instantâneos são retidos durante sete dias. Esta funcionalidade permite restauros da operação estes instantâneos lá por diminuir os tempos de restauro. Reduz o tempo necessário para transformar e copiar dados do cofre para a conta de armazenamento do usuário para cenários de disco não gerido enquanto para utilizadores de disco gerido, cria discos geridos fora os dados de cópia de segurança.
+Por predefinição, os instantâneos são retidos durante dois dias. Esta funcionalidade permite restauros da operação estes instantâneos lá por diminuir os tempos de restauro. Reduz o tempo necessário para transformar e copiar dados do cofre para a conta de armazenamento do usuário para cenários de disco não gerido enquanto para utilizadores de disco gerido, cria discos geridos fora os dados de serviços de recuperação.
 
 ## <a name="feature-considerations"></a>Considerações sobre funcionalidades
 

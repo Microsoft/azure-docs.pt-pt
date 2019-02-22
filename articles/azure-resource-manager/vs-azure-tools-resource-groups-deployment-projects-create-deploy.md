@@ -1,6 +1,6 @@
 ---
 title: Projetos do grupo de recursos do Azure do Visual Studio | Microsoft Docs
-description: Utilize o Visual Studio para criar um projeto do grupo de recursos do Azure e implemente os recursos para o Azure.
+description: Utilize o Visual Studio para criar um projeto do grupo de recursos do Azure e implementar os recursos no Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,22 +11,20 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0b00bff2b32ac9dd16d4d38ee35be006c0247bb8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493486"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649684"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
 Com o Visual Studio, pode criar um projeto que implementa a sua infraestrutura e o código para o Azure. Por exemplo, pode definir o anfitrião web, o Web site e a base de dados para a sua aplicação e implementar essa infraestrutura juntamente com o código. O Visual Studio fornece muitos modelos de introdução diferentes para cenários comuns de implementação. Neste artigo, implemente uma aplicação Web e uma Base de Dados SQL.  
 
 Este artigo mostra como utilizar o [Visual Studio 2017 com o desenvolvimento do Azure e as cargas de trabalho ASP.NET instaladas](/dotnet/azure/dotnet-tools). Se utilizar o Visual Studio 2015 Update 2 e o Microsoft Azure SDK para .NET 2.9 ou o Visual Studio 2013 com o Azure SDK 2.9, a experiência é basicamente a mesma.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Criar projeto do Grupo de Recursos do Azure
 
@@ -101,7 +99,7 @@ O parâmetro **storageType** é predefinido com tipos permitidos e um tipo prede
 }
 ```
 
-O Visual Studio também fornece intellisense para o ajudar a compreender que propriedades estão disponíveis ao editar o modelo. Por exemplo, para editar as propriedades para o seu plano do Serviço de Aplicações, navegue até ao recurso **HostingPlan** e adicione um valor para as **propriedades**. Repare que o intellisense mostra os valores disponíveis e fornece uma descrição desse valor.
+O Visual Studio também fornece intellisense para ajudar a compreender as propriedades que estão disponíveis quando editar o modelo. Por exemplo, para editar as propriedades para o seu plano do Serviço de Aplicações, navegue até ao recurso **HostingPlan** e adicione um valor para as **propriedades**. Repare que o intellisense mostra os valores disponíveis e fornece uma descrição desse valor.
 
 ![mostrar o intellisense](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-intellisense.png)
 
@@ -148,7 +146,9 @@ Agora, está pronto para implementar o projeto. Quando implementa um projeto do 
 5. Escolha o botão **Implementar** para implementar o projeto no Azure. É aberta uma consola do PowerShell fora da instância do Visual Studio. Introduza a palavra-passe de administrador do SQL Server na consola do PowerShell quando lhe for pedido. **A consola do PowerShell poderá estar oculta atrás de outros itens ou minimizada na barra de tarefas.** Procure esta consola e selecione-a para fornecer a palavra-passe.
    
    > [!NOTE]
-   > O Visual Studio poderá pedir-lhe que instale os cmdlets do Azure PowerShell. Precisa de cmdlets do Azure PowerShell para implementar grupos de recursos com êxito. Se lhe for solicitado, instale-os. Para obter mais informações, veja [nstall and configure Azure PowerShell (Instalar e configurar o Azure PowerShell)](/powershell/azure/install-az-ps).
+   > O Visual Studio poderá pedir-lhe que instale os cmdlets do Azure PowerShell. Se lhe for solicitado, instale-os. Terá dos módulos Azure PowerShell para implementar com êxito grupos de recursos. O script do PowerShell no projeto não funciona com o novo [módulo do Azure PowerShell Az](/powershell/azure/new-azureps-module-az). 
+   >
+   > Para obter mais informações, consulte [instalar e configurar os módulos do Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
    > 
    > 
 6. A implementação pode demorar alguns minutos. O estado da implementação é apresentado nas janelas **Saída**. Após concluir a implementação, a última mensagem indicará uma implementação bem sucedida com algo semelhante a:

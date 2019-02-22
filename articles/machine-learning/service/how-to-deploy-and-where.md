@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: c83342e5eb0e6c1f45daa54ea3c4f3c602ff7a39
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7d5bfba10fe68c4d29a66fe39a386aec975b978f
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878617"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651537"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -29,10 +29,11 @@ Pode implementar modelos para os seguintes destinos de computação:
 
 | Destino de computação | Tipo de implementação | Descrição |
 | ----- | ----- | ----- |
-| [Azure Container Instances (ACI)](#aci) | Serviço Web | Implementação rápida. Bom para desenvolvimento ou teste. |
-| [Serviço Kubernetes do Azure (AKS)](#aks) | Serviço Web | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
-| [Azure IoT Edge](#iotedge) | Módulo de IoT | Implemente modelos em dispositivos IoT. Inferência acontece no dispositivo. |
-| [Matriz de porta de campos programáveis (FPGA)](#fpga) | Serviço Web | Latência ultrabaixa para inferência em tempo real. |
+| [Serviço Kubernetes do Azure (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
+| [Computação do Azure ML](#amlcompute) | Inferência de tipos do batch | Execute a predição de batch de computação sem servidor. Suporta VMs de prioridade normal e baixa. |
+| [Azure Container Instances (ACI)](#aci) | Testes | Bom para desenvolvimento ou teste. **Não é adequado para cargas de trabalho de produção.** |
+| [Azure IoT Edge](#iotedge) | (Pré-visualização) Módulo de IoT | Implemente modelos em dispositivos IoT. Inferência acontece no dispositivo. |
+| [Matriz de porta de campos programáveis (FPGA)](#fpga) | (Pré-visualização) Serviço Web | Latência ultrabaixa para inferência em tempo real. |
 
 O processo de implantação de um modelo é semelhante para todos os destinos de computação:
 
@@ -225,7 +226,7 @@ Quando chegar à implementação, o processo é ligeiramente diferente consoante
 >
 > Os exemplos nesta documentam utilização `deploy_from_image`.
 
-### <a id="aci"></a> Implementar no Azure Container Instances
+### <a id="aci"></a> Implementar no Azure Container Instances (Dev/Test)
 
 Utilização do Azure Container Instances para implementar os seus modelos como um serviço da web se um ou mais das seguintes condições for verdadeiro:
 
@@ -246,7 +247,7 @@ Para implementar no Azure Container Instances, utilize os seguintes passos:
 
 Para obter mais informações, consulte a documentação de referência para o [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
-### <a id="aks"></a> Implementar no serviço Kubernetes do Azure
+### <a id="aks"></a> Implementar no serviço Kubernetes do Azure (produção)
 
 Para implementar o seu modelo como um serviço da web de produção de grande escala, utilize o Azure Kubernetes Service (AKS). Pode utilizar um cluster do AKS existente ou crie um novo com o SDK do Azure Machine Learning, a CLI ou o portal do Azure.
 
@@ -332,6 +333,13 @@ print(service.state)
 **Estimativa de tempo**: Aproximadamente 3 minutos.
 
 Para obter mais informações, consulte a documentação de referência para o [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) classes.
+
+### <a id="fpga"></a> Inferência de tipos com a computação do Azure ML
+
+Destinos de computação do Azure ML são criados e geridos pelo serviço Azure Machine Learning. Eles podem ser usados para predição de batch de Pipelines do Azure ML.
+
+Para obter instruções de inferência de tipos do batch com a computação do Azure ML, leia os [como executar o Batch previsões](how-to-run-batch-predictions.md) documento.
+
 
 ### <a id="fpga"></a> Implementar a matrizes de porta de campos programáveis (FPGA)
 

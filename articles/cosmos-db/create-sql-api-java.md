@@ -8,14 +8,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: sngun
-ms.openlocfilehash: 8fd99b1c68be08ca7c2f4b7cdeaaa8b5b64859e4
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0e80fbc96bf1241308c80d108e9f9580122b801b
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197425"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587723"
 ---
-# <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>Criar e gerir recursos de uma conta de API SQL do Azure Cosmos DB com uma aplicação de Java
+# <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Criar uma aplicação de Java utilizando a conta do Azure Cosmos DB SQL API
+
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)

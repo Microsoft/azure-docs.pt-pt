@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/14/2018
+ms.date: 02/21/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c1a9b526f08f330d62c30dd1d676e95460aee6c2
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: eb4b87a008b9e43de7e7a5f7895449303f1e44a6
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712352"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593986"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Utilizar a API REST do Azure Blockchain Workbench
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 Assim que um usuário decide de forma mais aprofundada iniciarem um contrato, o cliente de blockchain, em seguida, pode mostrar as ações de usuário disponíveis dadas o estado do contrato. Neste exemplo, o utilizador está a ver todas as ações disponíveis para um novo contrato inteligente que criou:
 
-* Modificar: permite que o utilizador modifique a descrição e o preço de um recurso.
-* Terminar: Permite ao utilizador terminar o contrato do ativo.
+* Modificar: Permite ao utilizador modificar a descrição e o preço de um ativo.
+* Termine: Permite ao utilizador terminar o contrato do ativo.
 
 Utilize a [API Contract Action GET](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 Em seguida, um utilizador pode decidir agir em relação à instância de contrato inteligente especificada. Neste caso, considere o cenário em que um utilizador gostaria de modificar a descrição e o preço de um recurso para a seguinte ação:
 
-* Descrição: "My updated car"
+* Descrição: "Meu carro atualizado"
 * Preço: 54321
 
 Utilize a [API Contract Action POST](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost):

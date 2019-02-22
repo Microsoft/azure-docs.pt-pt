@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6530e86f59124e324953e4ca082c247ebec3bc91
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098343"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650925"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modelo de solução de prova de trabalho consortium Ethereum
 
@@ -43,9 +43,9 @@ Um membro de consortium também tem um conjunto de nós de transação com balan
 
 Os nós de transação são com balanceamento de carga no conjunto de disponibilidade para manter uma elevada disponibilidade. O modelo suporta até cinco nós de transação aprovisionados com conjuntos de dimensionamento de máquina virtual.
 
-### <a name="log-analytics-details"></a>Detalhes do log analytics
+### <a name="azure-monitor-logs-details"></a>Monitor do Azure regista os detalhes
 
-Cada implementação também cria uma nova instância de análise de registo ou pode associar uma instância existente. O log analytics permite a monitorização de várias métricas de desempenho de cada máquina virtual que constitui a rede implementada.
+Cada implementação também cria uma nova instância de registos do Azure Monitor ou pode associar uma instância existente. Registos de Monitor do Azure permite a monitorização de várias métricas de desempenho de cada máquina virtual que constitui a rede implementada.
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 
@@ -96,7 +96,7 @@ Operations Management Suite (OMS) permite-lhe configurar um recurso OMS para a s
 
 Nome do Parâmetro|Descrição| Valores Permitidos|Valores predefinidos
 ---|---|---|---
-Ligar ao OMS existente|Crie uma nova instância do Log Analytics ou ingresse numa instância existente|Criar novo de junção existentes|Criar a nova localização do Log Analytics|A região onde o novo Log Analytics será implementado (estará visível se estiver *criar novo* está selecionado)
+Ligar ao OMS existente|Crie uma nova instância de registos do Azure Monitor ou ingresse numa instância existente|Criar novo de junção existentes|Criar novo local de registos do Azure Monitor|A região onde serão implementados novos registos de Azure Monitor (estará visível se estiver *criar novo* está selecionado)
 Id de área de trabalho do OMS existente|ID da área de trabalho da instância existente (estará visível se estiver *associar existente* está selecionado) escalão de serviço do OMS|Escolha o escalão de preço para a nova instância. Obter mais informações em https://azure.microsoft.com/pricing/details/log-analytics/ (estará visível se estiver *associar existente* está selecionado)|Autônomo gratuito por nó|Gratuito
 Chave primária de OMS existente|A chave primária utilizada para ligar à instância OMS existente (estará visível se estiver *associar existente* está selecionado)
 

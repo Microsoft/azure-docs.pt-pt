@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5618d9cc14819a15a0396b0dd4fcbf1d0319bbbf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269064"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651163"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Gestão de dispositivos do Azure Active Directory FAQ
 
@@ -86,6 +86,12 @@ Para versões de SO de Windows de nível inferior que estão associados a um dom
 -   Para versões de SO de Windows de nível inferior que estão associados a um domínio de diretório do Azure no local, o registo automático cria um novo registo de dispositivo com o mesmo nome de dispositivo para cada utilizador de domínio que inicia sessão no dispositivo. 
 
 -   Um computador associado do Azure AD, que foi apagado, reinstalado e reagregado com o mesmo nome exibido como outro registo com o mesmo nome de dispositivo.
+
+---
+
+**P: O registo de dispositivos Windows 10 no Azure AD suporta TPMs no modo FIPS?**
+
+**R:** Não, atualmente registo de dispositivos no Windows 10 para todos os Estados de dispositivo - associação ao Azure AD híbrido, associação do Azure AD e o Azure AD registado - não suporta TPMs no modo FIPS. Com êxito, Junte-se ou se registrar para o Azure AD, tem de ser desativado para os TPMs nesses dispositivos modo FIPS
 
 ---
 

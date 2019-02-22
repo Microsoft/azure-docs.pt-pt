@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8ae55028bbc44a9383be6723f9bc6d39787cca45
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 01aa3d45d3b168c67603861a0a947026d4f2e08c
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767308"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650891"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Pode fazer com os dados de saída, ainda mais análises de negócio e o armazenamento de dados dos seus dados.
@@ -56,7 +56,7 @@ Saída de Azure Data Lake Store do Stream Analytics não está atualmente dispon
 | Formato | Só é aplicável para a serialização do JSON. Separado por linhas Especifica que o resultado é formatado fazendo com que cada objeto JSON separado por uma nova linha. Matriz Especifica que o resultado é formatado como uma matriz de objetos JSON. Essa matriz só é fechada quando as paradas de tarefa ou o Stream Analytics tem movido para a próxima janela de tempo. Em geral, é preferível usar linha separados JSON, uma vez que ele não requer tratamento especial, enquanto o ficheiro de saída ainda está a ser escrito.|
 
 ### <a name="renew-data-lake-store-authorization"></a>Renovar a autorização do Data Lake Store
-Tem de autenticar a sua conta do Data Lake Store, se a palavra-passe tiver sido alterado, uma vez que a tarefa foi criada ou pela última vez autenticada. Se não autenticar, o seu trabalho não produz resultados de saída e mostra um erro que indica a necessidade de reautorização nos registos de operação. Atualmente, existe uma limitação em que o token de autenticação tem de ser atualizados manualmente todos os 90 dias para todas as tarefas com a saída do Data Lake Store.
+Tem de autenticar a sua conta do Data Lake Store, se a palavra-passe tiver sido alterado, uma vez que a tarefa foi criada ou pela última vez autenticada. Se não autenticar, o seu trabalho não produz resultados de saída e mostra um erro que indica a necessidade de reautorização nos registos de operação. Atualmente, existe uma limitação em que o token de autenticação tem de ser atualizados manualmente todos os 90 dias para todas as tarefas com a saída do Data Lake Store. No entanto, pode superar essa limitação ao [autenticação com o managed identidades (pré-visualização)](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls).
 
 Para renovar a autorização, **parar** seu trabalho > vá para a saída do Data Lake Store > Clique a **renovar a autorização** associar e, por um breve período a página será exibida indicando **redirecionar para autorização...** . A página fecha automaticamente e se tiver êxito, indica **autorização foi renovada com êxito**. Precisa, em seguida, clique em **salvar** na parte inferior da página e pode continuar, mediante a reiniciar a tarefa da **data/hora da última parado** para evitar a perda de dados.
 

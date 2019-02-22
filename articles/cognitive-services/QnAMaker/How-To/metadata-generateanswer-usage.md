@@ -8,20 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/21/2019
 ms.author: tulasim88
-ms.openlocfilehash: 1294b714c217178d53ed69cc886cd89f23620274
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9cb16842e0bc80a1fcbd066bea44c5b9701bb6d5
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859492"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651214"
 ---
-# <a name="using-metadata-and-the-generateanswer-api"></a>Usando a API de GenerateAnswer e metadados
+# <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API de GenerateAnswer e metadados
+
+Para obter a resposta prevista à pergunta de um utilizador, utilize a API de GenerateAnswer. Quando publica uma base de dados de conhecimento, esta informação para utilizar esta API é apresentada na página de publicação. Também pode configurar a API para filtrar com base em etiquetas de metadados de respostas e testar a base de dados de conhecimento a partir do ponto final com o parâmetro de cadeia de caracteres de consulta de teste.
 
 A ferramenta QnA Maker permite-lhe adicionar metadados, na forma de pares de chave e valor, a seus conjuntos de pergunta/resposta. Estas informações podem ser utilizadas para filtrar os resultados de consultas do utilizador e para armazenar informações adicionais que podem ser utilizadas no seguimento conversas. Para obter mais informações, consulte [base de dados de conhecimento](../Concepts/knowledge-base.md).
 
-## <a name="qna-entity"></a>Entidade de QnA
+<a name="qna-entity"></a>
+
+## <a name="storing-questions-and-answers-with-a-qna-entity"></a>Armazenamento de perguntas e respostas com uma entidade de QnA
 
 Em primeiro lugar é importante compreender como o QnA Maker armazena os dados de pergunta/resposta. A ilustração seguinte mostra uma entidade de QnA:
 
@@ -29,95 +33,124 @@ Em primeiro lugar é importante compreender como o QnA Maker armazena os dados d
 
 Cada entidade do QnA tem um ID exclusivo e persistente. O ID pode ser utilizado para disponibilizar as atualizações para uma entidade específica do QnA.
 
-## <a name="generateanswer-api"></a>GenerateAnswer API
+<a name="generateanswer-api"></a>
+
+## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obter previsões de resposta com a API de GenerateAnswer
 
 Utilize a API de GenerateAnswer na sua aplicação ou Bot para consultar a base de dados de conhecimento com uma pergunta de utilizador para obter a melhor correspondência dos conjuntos de pergunta/resposta.
 
-### <a name="generateanswer-endpoint"></a>Ponto final de GenerateAnswer
+<a name="generateanswer-endpoint"></a>
+
+## <a name="publish-to-get-generateanswer-endpoint"></a>Publicar para obter o ponto final de GenerateAnswer 
 
 Depois de publicar a sua base de dados de conhecimento, a partir do [portal do QnA Maker](https://www.qnamaker.ai), ou utilizando o [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), pode obter os detalhes do ponto final do GenerateAnswer.
 
 Para obter os detalhes do seu ponto final:
 1. Inicie sessão no [ https://www.qnamaker.ai ](https://www.qnamaker.ai).
-2. Na **meu bases de dados de conhecimento**, clique em **View Code** para sua base de dados de conhecimento.
-![meu bases de dados de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
-3. Obtenha os detalhes do seu ponto final de GenerateAnswer.
+1. Na **meu bases de dados de conhecimento**, clique em **View Code** para sua base de dados de conhecimento.
+    ![meu bases de dados de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+1. Obtenha os detalhes do seu ponto final de GenerateAnswer.
 
-![Detalhes do ponto final](../media/qnamaker-how-to-metadata-usage/view-code.png)
+    ![Detalhes do ponto final](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
 Também pode obter os detalhes do seu ponto final da **definições** separador da sua base de dados de conhecimento.
 
-### <a name="generateanswer-request"></a>Pedido de GenerateAnswer
+<a name="generateanswer-request"></a>
+
+## <a name="generateanswer-request-configuration"></a>Configuração de pedido de GenerateAnswer
 
 Chamar GenerateAnswer com um pedido HTTP POST. Para o código de exemplo que mostra como chamar GenerateAnswer, consulte a [inícios Rápidos](../quickstarts/csharp.md).
 
-- **URL do pedido**: ponto final do criador de https://{QnA} /knowledgebases/ {ID da base de dados de conhecimento} / generateAnswer
+O **URL do pedido** tem o seguinte formato: 
 
-- **Parâmetros do pedido**: 
-    - **ID da base de dados de conhecimento** (cadeia): O GUID de sua base de dados de conhecimento.
-    - **Ponto final do QnAMaker** (cadeia): O nome de anfitrião do ponto final implementado na sua subscrição do Azure.
-- **Cabeçalhos de pedido**
-    - **Content-Type** (string): O tipo de suporte do corpo enviado para a API.
-    - **Autorização** (cadeia): A chave de ponto final (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
-- **Corpo do pedido**
-    - **pergunta** (cadeia): Uma pergunta de utilizador para ser consultados em relação a sua base de dados de conhecimento.
-    - **parte superior** (opcional, número inteiro): O número de resultados classificados a incluir na saída. O valor predefinido é 1.
-    - **userId** (optional, string): Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.
-    - **strictFilters** (optional, string): Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados. Para obter mais informações, veja a seguir.
-    ```json
+```
+https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?isTest=true
+```
+
+|Propriedade de pedido HTTP|Name|Type|Objetivo|
+|--|--|--|--|
+|Parâmetro de rota de URL|ID da base de dados de conhecimento|cadeia|O GUID de sua base de dados de conhecimento.|
+|Parâmetro de rota de URL|Anfitrião de ponto final do QnAMaker|cadeia|O nome de anfitrião do ponto final implementado na sua subscrição do Azure. Está disponível na página definições depois de publicar a base de dados de conhecimento. |
+|Cabeçalho|Content-Type|cadeia|O tipo de suporte do corpo enviado para a API. Valor predefinido é: '|
+|Cabeçalho|Autorização|cadeia|A chave de ponto final (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Corpo da mensagem|Objeto JSON|JSON|A pergunta com as definições|
+|Parâmetro de cadeia de caracteres de consulta (opcional)|`isTest`|boolean|Se definido como true, devolve resultados de `testkb` índice de pesquisa, em vez de índice publicado.|
+
+O corpo JSON tem várias definições:
+
+|Propriedade de corpo JSON|Necessário|Type|Objetivo|
+|--|--|--|--|
+|`question`|obrigatório|cadeia|Uma pergunta do utilizador sejam enviados para a sua base de dados de conhecimento.|
+|`top`|opcional|inteiro|O número de resultados classificados a incluir na saída. O valor predefinido é 1.|
+|`userId`|opcional|cadeia|Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.|
+|`strictFilters`|opcional|cadeia|Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados.|
+
+Um exemplo de corpo JSON é semelhante a:
+
+```json
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "strictFilters": [
     {
-        "question": "qna maker and luis",
-        "top": 6,
-        "strictFilters": [
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
+}
+```
+
+<a name="generateanswer-response"></a>
+
+## <a name="generateanswer-response-properties"></a>Propriedades de resposta de GenerateAnswer
+
+Uma resposta com êxito retorna um status de 200 e uma resposta JSON. 
+
+|Propriedade de respostas (classificada por classificação)|Objetivo|
+|--|--|
+|pontuação|Uma pontuação de classificação, entre 0 e 100.|
+|Id|Um ID exclusivo atribuído para a resposta.|
+|Perguntas|As perguntas fornecidas pelo usuário.|
+|Resposta|A resposta à pergunta.|
+|source|O nome da origem do qual a resposta foi extraída ou guardada na base de dados de conhecimento.|
+|do IdP|Os metadados associados com a resposta.|
+|metadata.name|Nome de metadados. (string, comprimento máximo: 100, necessária)|
+|metadata.value: Valor de metadados. (string, comprimento máximo: 100, necessária)|
+
+
+```json
+{
+    "answers": [
         {
-            "name": "category",
-            "value": "api"
-        }],
-        "userId": "sd53lsY="
-    }
-    ```
+            "score": 28.54820341616869,
+            "Id": 20,
+            "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
+            "source": "Custom Editorial",
+            "questions": [
+                "How can I integrate LUIS with QnA Maker?"
+            ],
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "api"
+                }
+            ]
+        }
+    ]
+}
+```
 
-### <a name="generateanswer-response"></a>Resposta de GenerateAnswer
+<a name="metadata-example"></a>
 
-- **A resposta 200** -uma chamada bem-sucedida devolve o resultado da pergunta. A resposta contém os seguintes campos:
-    - **respostas** -uma lista de respostas para a consulta de utilizador, ordenados por ordem decrescente de classificação de pontuação.
-        - **pontuação**: Uma pontuação de classificação, entre 0 e 100.
-        - **perguntas**: As perguntas fornecidas pelo usuário.
-        - **answer**: A resposta à pergunta.
-        - **origem**: O nome da origem do qual a resposta foi extraída ou guardada na base de dados de conhecimento.
-        - **metadata**: Os metadados associados com a resposta.
-            - name: Nome de metadados. (string, comprimento máximo: 100, necessária)
-            - Valor: Valor de metadados. (string, comprimento máximo: 100, necessária)
-        - **Id**: Um ID exclusivo atribuído para a resposta.
-    ```json
-    {
-        "answers": [
-            {
-                "score": 28.54820341616869,
-                "Id": 20,
-                "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
-                "source": "Custom Editorial",
-                "questions": [
-                    "How can I integrate LUIS with QnA Maker?"
-                ],
-                "metadata": [
-                    {
-                        "name": "category",
-                        "value": "api"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
+## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Utilizando os metadados permite-lhe filtrar respostas por etiquetas de metadados personalizados
 
-## <a name="metadata-example"></a>Exemplo de metadados
-
-Considere o abaixo dados de FAQ. Adicione metadados a sua base de dados de conhecimento ao clicar no ícone de metadados.
+Adicionar metadados permite-lhe filtrar as respostas por estas etiquetas de metadados. Considere o abaixo dados de FAQ. Adicione metadados a sua base de dados de conhecimento ao clicar no ícone de metadados.
 
 ![adicionar metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
-### <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrar os resultados com strictFilters para marcas de metadados
+<a name="filter-results-with-strictfilters-for-metadata-tags"></a>
+
+## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrar os resultados com strictFilters para marcas de metadados
 
 Considere a pergunta do utilizador "Quando o feche esta hotel?" em que a intenção é implícito para o restaurante "Paraíso."
 
@@ -135,8 +168,11 @@ Uma vez que os resultados são necessários apenas para o restaurante "Paraíso"
 }
 ```
 
-### <a name="keep-context"></a>Manter o contexto
-A resposta para o GenerateAnswer contém as informações de metadados correspondente do conjunto correspondente de pergunta/resposta, da seguinte forma.
+<name="keep-context"></a>
+
+## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Utilize os resultados de perguntas e respostas para manter o contexto de conversação
+
+A resposta para o GenerateAnswer contém as informações de metadados correspondente do conjunto correspondente de pergunta/resposta. Estas informações podem ser utilizadas na sua aplicação de cliente para armazenar o contexto da conversa anterior para utilização posterior conversas. 
 
 ```json
 {
@@ -163,8 +199,6 @@ A resposta para o GenerateAnswer contém as informações de metadados correspon
     ]
 }
 ```
-
-Estas informações podem ser utilizadas para registar o contexto da conversa anterior para utilização posterior conversas. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

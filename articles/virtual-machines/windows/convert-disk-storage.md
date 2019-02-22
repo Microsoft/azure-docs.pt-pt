@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 18258bf8ac9d241fd8a01957d903b1db882c2d36
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 14b6559420fad22cfc2294817cbefd23a6c47a70
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326879"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650109"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Atualizar o tipo de armazenamento de um disco gerido
 
@@ -118,6 +118,21 @@ Update-AzDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
 
 Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 ```
+
+## <a name="convert-managed-disks-from-standard-to-premium-in-azure-portal"></a>Converter os discos geridos standard para premium no portal do Azure
+
+Pode converter um disco gerido de standard para premium no portal do Azure.
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Selecione a VM a partir da lista de **máquinas virtuais** no portal.
+3. Se a VM não estiver parada, clique em **parar** na parte superior do painel de descrição geral da VM e aguarde que a VM parar.
+3. No painel da VM, selecione **discos** no menu.
+4. Selecione o disco que pretende converter.
+5. Selecione **configuração** no menu.
+6. Alterar o **tipo de conta** partir **Standard HDD** para **Premium SSD**.
+7. Clique em **guardar** e feche o painel de disco.
+
+A atualização do tipo de disco está em vigor instantânea. Pode reiniciar a VM após a conversão.
 
 ## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd"></a>Converter um disco gerido standard HDD para standard SSD
 

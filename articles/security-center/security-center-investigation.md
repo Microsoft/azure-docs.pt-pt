@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7763807fdb5fcff7e93d54bf5a851cd4443427d3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8b2e42759ba2bffef28e1bf74e07bc149027ab7a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107196"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651775"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Investigar Incidentes e Alertas no Centro de Segurança do Azure (Pré-visualização)
 Este documento ajuda-o a utilizar a funcionalidade de investigação do Centro de Segurança do Azure para investigar alertas e incidentes de segurança.
@@ -29,8 +29,10 @@ A funcionalidade Investigação do Centro de Segurança permite-lhe triar, compr
 
 O objetivo é facilitar o processo de investigação ao ligar todas as entidades ([alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), utilizadores, computadores e incidentes) que estão envolvidos no incidente que está a investigar.  O Centro de Segurança fá-lo ao correlacionar os dados relevantes às entidades envolvidas e ao expor essa correlação através de um gráfico em direto que o ajuda a navegar pelos objetos e a visualizar as informações importantes.
 
+
 > [!NOTE]
-> [Alertas personalizados](security-center-custom-alert.md) não são suportados na funcionalidade de investigação do Centro de segurança.
+    > * [Alertas personalizados](security-center-custom-alert.md) não são suportados na funcionalidade de investigação do Centro de segurança.
+    > * Investigação só é suportada para os alertas com base nos dados recolhidos a partir de servidores do Windows.
 >
 >
 

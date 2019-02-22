@@ -12,16 +12,16 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 136a83c586b2f797269beff3cdd0afb9973cb7c8
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b5109c9c93947118397c383cab3df90c02016ce3
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340523"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652010"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
-Neste artigo, irá aprender a configurar um ambiente de desenvolvimento para trabalhar com o serviço Azure Machine Learning. Serviço de Machine Learning é independente de plataforma. 
+Neste artigo, irá aprender a configurar um ambiente de desenvolvimento para trabalhar com o serviço Azure Machine Learning. Serviço de Machine Learning é independente de plataforma.
 
 Os únicos requisitos para o seu ambiente de desenvolvimento são Python 3, Conda (para ambientes isolados) e um ficheiro de configuração que contém as informações da sua área de trabalho do Azure Machine Learning.
 
@@ -110,7 +110,7 @@ Para utilizar a DSVM como um ambiente de desenvolvimento, faça o seguinte:
             # create a Windows Server 2016 DSVM in your resource group
             # note you need to be at least a contributor to the resource group in order to execute this command successfully
             az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
-            ```    
+            ```
 
 2. O SDK do Azure Machine Learning já está instalado no DSVM. Para utilizar o ambiente de Conda que contém o SDK, utilize um dos seguintes comandos:
 
@@ -141,13 +141,12 @@ Para obter mais informações, consulte [máquinas de virtuais de ciência de da
 
 Quando estiver a utilizar um computador local (que também pode ser uma máquina virtual remota), criar um ambiente de Conda e instalar o SDK, fazendo o seguinte:
 
-1. Abra uma linha de comandos ou shell.
+1. Transfira e instale [Anaconda](https://www.anaconda.com/distribution/#download-section) (versão Python 3.7) se ainda não o tiver.
 
-1. Crie um ambiente de Conda com os seguintes comandos:
+1. Abra uma linha de Anaconda e criar um ambiente com os seguintes comandos:
 
     ```shell
-    # create a new Conda environment with Python 3.6, NumPy, and Cython
-    conda create -n myenv Python=3.6 cython numpy
+    conda create -n myenv python=3.6.5
 
     # activate the Conda environment
     conda activate myenv
@@ -156,12 +155,32 @@ Quando estiver a utilizar um computador local (que também pode ser uma máquina
     source activate myenv
     ```
 
-    Poderá demorar vários minutos para criar o ambiente, se o Python 3.6 e outros componentes têm de ser transferido.
+    Este exemplo cria um ambiente com o python 3.6.5, mas qualquer subversions específicos podem ser escolhidos. Não é possível garantir compatibilidade SDK com determinadas versões principais (3.5 + é recomendado), e é recomendado para experimentar um versão/subversion diferente no seu ambiente de Anaconda caso se depare com erros. Irá demorar alguns minutos a criar o ambiente, enquanto os componentes e os pacotes são transferidos.
 
-1. Instale o SDK do Azure Machine Learning com alguns extras de bloco de notas e o SDK de preparação de dados com o seguinte comando:
+1. Execute os seguintes comandos no seu ambiente novo para ativar kernels ipython específicos do ambiente. Isto irá garantir que o esperado de kernel e o pacote de importar o comportamento ao trabalhar com blocos de notas do Jupyter nos ambientes de Anaconda:
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    Em seguida, execute o seguinte comando para criar o kernel:
+
+    ```shell
+    ipython kernel install --user
+    ```
+
+1. Utilize os seguintes comandos para instalar pacotes:
+
+    Este comando instala base SDK do Azure Machine Learning com o bloco de notas e automl extras. O `automl` extra é uma instalação grande e pode ser removido dos colchetes, se não pretender executar experiências de automatizada de machine learning. O `automl` extra também inclui o SDK do Azure Machine Learning Data Prep por predefinição como uma dependência.
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
+    pip install azureml-sdk[notebooks,automl]
+    ```
+
+    Utilize este comando para instalar o SDK do Azure Machine Learning Data Prep por conta própria:
+
+    ```shell
+    pip install azureml-dataprep
     ```
 
    > [!NOTE]
@@ -169,47 +188,52 @@ Quando estiver a utilizar um computador local (que também pode ser uma máquina
    >
    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
-   Poderá demorar vários minutos para instalar o SDK.
+   Irá demorar alguns minutos para instalar o SDK.
 
-1. Instale pacotes para o experimentação da aprendizagem automática. Utilize o seguinte comando e substitua  *\<novo pacote >* com o pacote que pretende instalar:
+1. Instale outros pacotes para o experimentação da aprendizagem automática.
+
+    Utilizar qualquer um dos seguintes comandos e substitua  *\<novo pacote >* com o pacote que pretende instalar. Instalar pacotes através de `conda install` requer que o pacote faz parte dos canais atuais (novos canais podem ser adicionados na Anaconda Cloud).
 
     ```shell
     conda install <new package>
     ```
 
-1. Para verificar se o SDK é instalado, utilize o seguinte código de Python:
+    Em alternativa, pode instalar pacotes através de `pip`.
 
-    ```python
-    import azureml.core
-    azureml.core.VERSION
+    ```shell
+    pip install <new package>
     ```
 
 ### <a id="jupyter"></a>Blocos de notas do Jupyter
 
 Blocos de notas do Jupyter fazem parte do [Jupyter projeto](https://jupyter.org/). Eles fornecem uma experiência interativa de codificação onde criar documentos que misturam código em direto com texto narrativo e gráficos. Blocos de notas do Jupyter também são uma ótima maneira de compartilhar seus resultados com outras pessoas, uma vez que pode salvar a saída de suas seções de código no documento. Pode instalar o Jupyter Notebooks numa variedade de plataformas.
 
-O procedimento a [computador Local](#local) secção instala componentes opcionais para blocos de notas do Jupyter. Para ativar a esses componentes no seu ambiente de bloco de notas do Jupyter, faça o seguinte:
+O procedimento a [computador Local](#local) secção instala os componentes necessários para a execução de blocos de notas do Jupyter num ambiente de Anaconda. Para ativar a esses componentes no seu ambiente de bloco de notas do Jupyter, faça o seguinte:
 
-1. Abra uma linha de comandos ou shell.
-
-1. Para instalar um servidor de bloco de notas do Jupyter com reconhecimento de Conda, utilize o seguinte comando:
+1. Abra uma linha de Anaconda e ativar o seu ambiente.
 
     ```shell
-    # install Jupyter
-    conda install nb_conda
+    conda activate myenv
     ```
 
-1. Abra o bloco de notas do Jupyter com o seguinte comando:
+1. Inicie o servidor de bloco de notas do Jupyter com o seguinte comando:
 
     ```shell
     jupyter notebook
     ```
 
-1. Para verificar se o bloco de notas do Jupyter pode utilizar o SDK, abra um novo bloco de notas, selecione **myenv** como sua kernel e, em seguida, execute o seguinte comando numa célula de bloco de notas:
+1. Para verificar que o bloco de notas do Jupyter pode utilizar o SDK, crie uma **New** bloco de notas, selecione **Python 3** como sua kernel e, em seguida, execute o seguinte comando numa célula de bloco de notas:
 
     ```python
     import azureml.core
     azureml.core.VERSION
+    ```
+
+1. Se encontrar problemas de importação de módulos e receber um `ModuleNotFoundError`, certifique-se de que o kernel de Jupyter está ligado para o caminho correto para o seu ambiente, executando o seguinte código numa célula de bloco de notas.
+
+    ```python
+    import sys
+    sys.path
     ```
 
 1. Para configurar o bloco de notas do Jupyter para utilizar a sua área de trabalho do serviço do Azure Machine Learning, vá para o [criar um ficheiro de configuração da área de trabalho](#workspace) secção.
@@ -222,8 +246,8 @@ Para utilizar o Visual Studio Code para desenvolvimento, faça o seguinte:
 
 1. Para saber como utilizar o Visual Studio Code para o desenvolvimento de Python, veja [introdução ao Python no VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
 
-1. Para selecionar o ambiente de Conda, abra o VS Code e, em seguida, selecione Ctrl + Shift + P (Linux e Windows) ou comando + Shift + P (Mac).  
-    O __palete de comando__ abre. 
+1. Para selecionar o ambiente de Conda, abra o VS Code e, em seguida, selecione Ctrl + Shift + P (Linux e Windows) ou comando + Shift + P (Mac).
+    O __palete de comando__ abre.
 
 1. Introduza __Python: Selecione o interpretador__e, em seguida, selecione o ambiente de Conda.
 
@@ -256,32 +280,32 @@ Para preparar o seu cluster do Databricks e obter blocos de notas de exemplo:
     | Trabalhos | 2 ou superior |
 
     Utilize estas definições apenas se irá utilizar aprendizagem automática no Databricks:
-    
+
     |   Definição | Value |
     |----|---|
     | Tipos de VM de nós de trabalho | Com otimização de memória VM preferida |
     | Ativar o Dimensionamento Automático | Desmarque a opção |
-    
-    O número de nós de trabalho no seu cluster do Databricks determina o número máximo de iterações simultâneas nas definições de ML automatizada.  
+
+    O número de nós de trabalho no seu cluster do Databricks determina o número máximo de iterações simultâneas nas definições de ML automatizada.
 
     Irá demorar alguns minutos para criar o cluster. Aguarde até que o cluster está em execução antes de prosseguir.
 
-1. Instalar e anexe o pacote do SDK do Azure Machine Learning ao seu cluster.  
+1. Instalar e anexe o pacote do SDK do Azure Machine Learning ao seu cluster.
 
     * [Criar uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) com uma destas definições (_escolha apenas uma destas opções_):
-    
+
         * Para instalar o Azure Machine Learning SDK _sem_ automatizada de capacidade do machine learning:
             | Definição | Value |
             |----|---|
             |Origem | Carregar Python ovo ou PyPI
             |Nome de PyPi | azureml-sdk[databricks]
-    
+
         * Para instalar o Azure Machine Learning SDK _com_ automatizada de aprendizagem:
             | Definição | Value |
             |----|---|
             |Origem | Carregar Python ovo ou PyPI
             |Nome de PyPi | azureml-sdk[automl_databricks]
-    
+
     * Não selecione **anexar automaticamente a todos os clusters**
 
     * Selecione **Attach** junto ao seu nome de cluster
@@ -298,9 +322,9 @@ Para preparar o seu cluster do Databricks e obter blocos de notas de exemplo:
 
    Se este passo falhar, reinicie o cluster ao fazer o seguinte:
 
-   a. No painel esquerdo, selecione **Clusters**. 
-   
-   b. Na tabela, selecione o nome do cluster. 
+   a. No painel esquerdo, selecione **Clusters**.
+
+   b. Na tabela, selecione o nome do cluster.
 
    c. Sobre o **bibliotecas** separador, selecione **reiniciar**.
 

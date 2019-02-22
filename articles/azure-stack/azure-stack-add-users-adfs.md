@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/21/2019
 ms.author: patricka
 ms.reviewer: unknown
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7ecffacee03650adc709a055ba942ef182da5fb8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: 1b47739200c79317273ea0c788f21a7ee4a3b818
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239992"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648511"
 ---
 # <a name="add-azure-stack-users-in-ad-fs"></a>Adicionar utilizadores do Azure Stack no AD FS
 Pode utilizar o **Active Directory Users and Computers** snap-in para adicionar utilizadores adicionais a um ambiente do Azure Stack tirar partido do AD FS como respetivo fornecedor de identidade.
@@ -29,12 +29,13 @@ Pode utilizar o **Active Directory Users and Computers** snap-in para adicionar 
 > [!TIP]
 > Este exemplo utiliza o padrão azurestack ASDK active directory. 
 
-1.  Inicie sessão no computador com uma conta que fornecer acesso a ferramentas administrativas do Windows e abra uma consola de gestão do novo Microsoft (MMC).
-2.  Clique em **ficheiro > Adicionar ou remover snap-in**.
-3.  Selecione **utilizadores e computadores do Active Directory** > **Azurestack** > **utilizadores**.
-4.  Clique em **ação** > **nova** > **utilizador**.
-5.  No novo objeto – janela de utilizador, forneça e confirme uma palavra-passe
-6.  Clique em **seguinte** para finalizar os valores e clique em Concluir para criar o utilizador.
+1. Inicie sessão no computador com uma conta que fornecer acesso a ferramentas administrativas do Windows e abra uma consola de gestão do novo Microsoft (MMC).
+2. Selecione **ficheiro > Adicionar ou remover snap-in**.
+3. Selecione **utilizadores e computadores do Active Directory** > **Azurestack** > **utilizadores**.
+4. Selecione **ação** > **nova** > **utilizador**.
+5. Novo objeto – utilizador, fornecem detalhes de informações do utilizador. Selecione **Seguinte**.
+6. Forneça e confirme uma palavra-passe.
+7. Selecione **seguinte** para finalizar os valores. Selecione **concluir** para criar o utilizador.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

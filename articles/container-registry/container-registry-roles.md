@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 02/20/2019
 ms.author: danlep
-ms.openlocfilehash: a4b9b382755e73b6218432624c471346e9698752
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0148894bb013dc9f8cce595f14919f87d6292df8
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193395"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593629"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Permissões e funções de registo de contentor do Azure
 
 O serviço do Azure Container Registry suporta um conjunto de funções do Azure que fornecer diferentes níveis de permissões para um Azure container registry. Utilizar o Azure [controlo de acesso baseado em funções](../role-based-access-control/index.yml) (RBAC) para atribuir permissões específicas para os utilizadores ou principais que precisam para interagir com um registo de serviço.
 
-| / Permissões da função       | [Access Resource Manager](#access-resource-manager)| [Criar/eliminar registo](#create-and-delete-registry) | [Enviar imagem](#push-image) | [Imagem de extração](#pull-image) | [Alterar as políticas](#change-policies) |   [Imagens de início de sessão](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
-| Proprietário | X | X | X | X | X |  |  
-| Contribuinte | X | X | X | X | X |  |  
-| Leitor | X |  |  | X |  |  | 
-| AcrPush |  |  | X | X |  |  |  
-| AcrPull |  |  |  | X |  |  |  
-| AcrImageSigner |  |  |  |  |  | X |
+| / Permissões da função       | [Access Resource Manager](#access-resource-manager) | [Criar/eliminar registo](#create-and-delete-registry) | [Enviar imagem](#push-image) | [Imagem de extração](#pull-image) | [Eliminar dados de imagem](#delete-image-data) | [Alterar as políticas](#change-policies) |   [Imagens de início de sessão](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| Proprietário | X | X | X | X | X | X |  |  
+| Contribuinte | X | X | X |  X | X | X |  |  
+| Leitor | X |  |  | X |  |  |  |
+| AcrPush |  |  | X | X | X |  |  |  
+| AcrPull |  |  |  | X |  |  |  |  
+| AcrImageSigner |  |  |  |  |  |  | X |
 
 ## <a name="differentiate-users-and-services"></a>Diferenciar a utilizadores e serviços
 
@@ -58,6 +58,10 @@ A capacidade de `docker push` uma imagem, ou emitir via push outra [suportado ar
 ## <a name="pull-image"></a>Imagem de extração
 
 A capacidade de `docker pull` um não-colocados em quarentena de imagem ou extrair outra [suportado artefacto](container-registry-image-formats.md) como um gráfico do Helm, de um registo. Requer [autenticação](container-registry-authentication.md) com o registro usando a identidade autorizada.
+
+## <a name="delete-image-data"></a>Eliminar dados de imagem
+
+A capacidade de [eliminar imagens de contentor ou de repositórios](container-registry-delete.md).
 
 ## <a name="change-policies"></a>Alterar as políticas
 

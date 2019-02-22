@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 3043067f326f782c51be38382070ae0db0e90f4d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: afe8081032e0358e8e0653e9a2b6aad30ad496a9
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314158"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651231"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Visão do computador de serviços cognitivos do Azure SDK para Python
 
@@ -281,17 +281,16 @@ except HTTPFailure as e:
 
 Ao trabalhar com o [ComputerVisionAPI] [ ref_computervisionclient] cliente, que poderá encontrar falhas transitórias causadas por [limites de velocidade] [ computervision_request_units] imposta o serviço, ou outros problemas transitórios como falhas de rede. Para obter informações sobre como lidar com esses tipos de falhas, consulte [padrão de repetição] [ azure_pattern_retry] no guia de padrões de conceção de nuvem e o relacionados [padrão disjuntor automático] [azure_pattern_circuit_breaker].
 
-## <a name="next-steps"></a>Passos Seguintes
-
 ### <a name="more-sample-code"></a>Mais código de exemplo
 
 Vários exemplos de SDK de Python de visão do computador estão disponíveis no repositório do GitHub do SDK. Estes exemplos fornecem código de exemplo para cenários adicionais comumente encontrados durante o trabalho com a visão do computador:
 
 * [recognize_text][recognize-text]
 
-### <a name="additional-documentation"></a>Documentação adicional
+## <a name="next-steps"></a>Passos Seguintes
 
-Para mais extensa documentação sobre o serviço de visão do computador, consulte a [documentação do Azure de imagem digitalizada] [ computervision_docs] no docs.microsoft.com.
+> [!div class="nextstepaction"]
+> [Aplicação de conteúdo de marcas a imagens](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/

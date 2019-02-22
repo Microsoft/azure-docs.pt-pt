@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6307c57f32700c0c2dd2e5da15b98a2a54dbe9c4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 71d49edc3fa52cce5d128b94d42098150aa5f3a3
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339333"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585088"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Funções personalizadas para recursos do Azure
 
@@ -43,6 +43,7 @@ A seguir mostra uma função personalizada aparência tal como apresentado no fo
     "Microsoft.Compute/virtualMachines/start/action",
     "Microsoft.Compute/virtualMachines/restart/action",
     "Microsoft.Authorization/*/read",
+    "Microsoft.ResourceHealth/availabilityStatuses/read",
     "Microsoft.Resources/subscriptions/resourceGroups/read",
     "Microsoft.Insights/alertRules/*",
     "Microsoft.Insights/diagnosticSettings/*",
@@ -65,16 +66,20 @@ Quando cria uma função personalizada, ele aparece no portal do Azure com um í
 
 ## <a name="steps-to-create-a-custom-role"></a>Passos para criar uma função personalizada
 
+1. Decidir como pretende criar a função personalizada
+
+    Pode criar funções personalizadas usando [do Azure PowerShell](custom-roles-powershell.md), [CLI do Azure](custom-roles-cli.md), ou o [REST API](custom-roles-rest.md).
+
 1. Determinar as permissões que necessárias
 
     Quando cria uma função personalizada, precisa saber o recurso de operações de fornecedor que estão disponíveis para definir as suas permissões. Para ver a lista de operações, pode utilizar o [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [lista de operação de fornecedores de az](/cli/azure/provider/operation#az-provider-operation-list) comandos.
-    Para especificar as permissões para a sua função personalizada, adicione as operações para o `Actions` ou `NotActions` propriedades do [definição de função](role-definitions.md). Se tiver de operações de dados, adicioná-los para o `DataActions` ou `NotDataActions` propriedades.
+    Adicionará as operações para o `Actions` ou `NotActions` propriedades do [definição de função](role-definitions.md). Se tiver de operações de dados, irá adicioná-los para o `DataActions` ou `NotDataActions` propriedades.
 
-2. Criar a função personalizada
+1. Criar a função personalizada
 
-    Pode utilizar o Azure PowerShell ou a CLI do Azure para criar a função personalizada. Normalmente, começar com uma função incorporada existente e, em seguida, modificá-lo para as suas necessidades. Em seguida, utilizar o [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou [criação da definição de função de az](/cli/azure/role/definition#az-role-definition-create) comandos para criar a função personalizada. Para criar uma função personalizada, tem de ter o `Microsoft.Authorization/roleDefinitions/write` permissão em todos os `AssignableScopes`, tal como [proprietário](built-in-roles.md#owner) ou [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator).
+    Normalmente, começar com uma função incorporada existente e, em seguida, modificá-lo para as suas necessidades. Em seguida, utilizar o [New-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou [criação da definição de função de az](/cli/azure/role/definition#az-role-definition-create) comandos para criar a função personalizada. Para criar uma função personalizada, tem de ter o `Microsoft.Authorization/roleDefinitions/write` permissão em todos os `AssignableScopes`, tal como [proprietário](built-in-roles.md#owner) ou [administrador de acesso de utilizador](built-in-roles.md#user-access-administrator).
 
-3. Testar a função personalizada
+1. Testar a função personalizada
 
     Assim que tiver a função personalizada, precisa testá-lo para verificar se funciona conforme o esperado. Se precisar de fazer ajustes mais tarde, pode atualizar a função personalizada.
 

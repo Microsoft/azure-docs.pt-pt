@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: a3ec74d0b22bfafb4353eca400b389b07a58ba39
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8dbe282b919c988d5cb997a66914d81ce1981f88
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246359"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592422"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 Microsoft está ajudando a reduzir o custo ao nível da entrada de executar um armazém de dados capaz de processar exigentes consultas ao adicionar a camadas inferiores de computação para o Azure SQL Data Warehouse para Leia o anúncio completo sobre [inferior computação suporte de camada para Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). A nova oferta já está disponível nas regiões indicados na tabela abaixo. Regiões suportadas, armazéns de dados de geração 1 existentes podem ser atualizados para ger2 através de um:
@@ -29,8 +29,6 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 
 | **Região** | **Inferior Gen2 disponíveis** | **As atualizações automáticas de começar** |
 |:--- |:--- |:--- |
-| Austrália Central 1 |1 de Março de 2019 |15 de Junho de 2019 |
-| Austrália Central 2 |1 de Março de 2019 |15 de Junho de 2019 |
 | Leste da Austrália |Disponível |1 de Maio de 2019 |
 | Sudeste da Austrália |1 de Março de 2019 |15 de Junho de 2019 |
 | Sul do Brasil |\* |\* |

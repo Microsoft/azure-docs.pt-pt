@@ -2,7 +2,6 @@
 title: O que é
 titleSuffix: Azure Machine Learning Studio
 description: O Azure Machine Learning Studio é uma ferramenta de arrastar e largar para rapidamente criar modelos de uma biblioteca de prontos a utilizar de algoritmos e módulos.
-keywords: azure machine learning, azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 4f69de744be3a9926e1c5d3e674966e24c3020dc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: e454420c014460fbf44c01cb9f620d0f3273c602
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455658"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586023"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva nos seus dados. Machine Learning Studio publica modelos como serviços web que podem facilmente ser consumidos por aplicações personalizadas ou ferramentas de BI como o Excel.
@@ -78,7 +77,7 @@ Pode criar uma experimentação de raiz, ou pode utilizar uma experimentação d
 
 Para obter um exemplo de criação de uma experimentação simples, consulte o artigo [Criar uma experimentação simples no Azure Machine Learning Studio](create-experiment.md).
 
-Para instruções mais completas sobre a criação de uma solução de análise preditiva, consulte o artigo [Desenvolver uma solução preditiva com o Azure Machine Learning](tutorial-part1-credit-risk.md).
+Para obter instruções mais completas de criação de uma solução de Análise Preditiva, veja [desenvolver uma solução Preditiva com o Azure Machine Learning Studio](tutorial-part1-credit-risk.md).
 
 ### <a name="datasets"></a>Conjuntos de dados
 Um conjunto de dados que foi carregado no Machine Learning Studio para que possa ser utilizado no processo de modelação. Um número de conjuntos de dados de exemplo está incluído no Machine Learning Studio para experimentação e pode carregar mais conjuntos de dados conforme seja necessário. Seguem-se alguns exemplos de conjuntos de dados incluídos:
@@ -103,7 +102,7 @@ Um módulo é um algoritmo que pode utilizar nos seus dados. O Machine Learning 
 
 Um módulo pode ter um conjunto de parâmetros que pode utilizar para configurar algoritmos internos do módulo. Quando seleciona um módulo na tela, os parâmetros do módulo são apresentados no painel **Propriedades** à direita da tela. Pode modificar os parâmetros nesse painel para otimizar o seu modelo.
 
-Para obter ajuda na navegação pela da extensa biblioteca dos algoritmos do Machine Learning disponíveis, consulte o artigo [Como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md).
+Para obter ajuda na navegação da extensa biblioteca de algoritmos de machine learning disponíveis, consulte [como escolher algoritmos para o Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implementar um serviço web de análise preditiva
 Assim que o modelo de análise preditiva estiver pronto, pode implementá-lo como um serviço web a partir do Machine Learning Studio. Consulte o artigo [Implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md) para obter mais detalhes.
@@ -131,7 +130,7 @@ Os termos de machine learning podem ser confusos. Seguem-se as definições dos 
 Um modelo do Machine Learning é uma abstração da pergunta a que está a tentar responder ou o resultado que pretende prever. Os modelos são ensinados e avaliados a partir dos dados existentes.
 
 #### <a name="training-data"></a>Dados de preparação
-Quando preparar um modelo a partir de dados, pode utilizar um conjunto de dados conhecidos e fazer ajustes para o modelo com base nas características de dados para obter a resposta mais exata. No Azure Machine Learning, é criado um modelo a partir de um módulo de algoritmo que processa os dados de formação e os módulos funcionais, por exemplo, um módulo de pontuação.
+Quando preparar um modelo a partir de dados, pode utilizar um conjunto de dados conhecidos e fazer ajustes para o modelo com base nas características de dados para obter a resposta mais exata. No Azure Machine Learning Studio, é criado um modelo a partir de um módulo de algoritmo que processa dados de treinamento e módulos funcionais, por exemplo, um módulo de pontuação.
 
 Na aprendizagem supervisionada, se estiver a dar formação sobre um modelo de deteção de fraudes, utiliza um conjunto de transações que estão identificadas como fraudulentas ou válidas. Divide aleatoriamente o seu conjunto de dados e utiliza parte do mesmo para preparar o modelo e outra parte para testar ou avaliar o modelo.
 
@@ -143,7 +142,7 @@ Depois de ter um modelo de preparação, avalie o modelo utilizando os restantes
 * **Deteção de anomalias**: Um modelo que sinaliza eventos ou valores invulgares e ajuda-o a detetar problemas. Por exemplo, a deteção de fraudes de cartões de crédito procura compras invulgares.
 * **dados categóricos**: Dados que estão organizado por categorias e que podem ser divididos em grupos. Por exemplo, um conjunto de dados categórico para automóveis pode especificar o ano, a marca, o modelo e o preço.
 * **Classificação**: Um modelo para organizar os pontos de dados em categorias com base num conjunto de dados para a qual categoria agrupamentos são já conhecidos.
-* **"Feature Engineering"**: O processo de extração ou seleção das funcionalidades relacionadas com um conjunto de dados para melhorar o conjunto de dados e melhorar os resultados. Por exemplo, podem ser melhorados os dados das tarifas aéreas por dias da semana e feriados. Consulte o artigo [Seleção da funcionalidade e engenharia no Azure Machine Learning](../team-data-science-process/create-features.md).
+* **"Feature Engineering"**: O processo de extração ou seleção das funcionalidades relacionadas com um conjunto de dados para melhorar o conjunto de dados e melhorar os resultados. Por exemplo, podem ser melhorados os dados das tarifas aéreas por dias da semana e feriados. Ver [seleção da funcionalidade e engenharia no Azure Machine Learning Studio](../team-data-science-process/create-features.md).
 * **módulo**: Uma parte funcional num modelo de Machine Learning Studio, como o módulo de introdução de dados que lhe permite introduzir e editar pequenos conjuntos de dados. Um algoritmo também é um tipo de módulo no Machine Learning Studio.
 * **modelo**: Um modelo de aprendizagem supervisionado é o produto de uma experimentação do machine learning composta por dados de treinamento, um módulo de algoritmo e módulos funcionais, por exemplo, um módulo de modelo de pontuação.
 * **dados numéricos**: Dados que representam medidas (dados contínuos) ou contagem (dados discretos). Também referidos como *dados quantitativos*.

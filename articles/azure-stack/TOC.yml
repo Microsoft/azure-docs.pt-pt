@@ -284,8 +284,6 @@ items:
       href: azure-stack-app-service-capacity-planning.md
     - name: Antes de começar
       href: azure-stack-app-service-before-you-get-started.md
-    - name: Como redistribuir o serviço de aplicações do Azure no Azure Stack em domínios de falha
-      href: azure-stack-app-service-fault-domain-update.md
     - name: Implementar um fornecedor de recursos do Serviço de Aplicações
       href: azure-stack-app-service-deploy.md
     - name: Implementar o Serviço de Aplicações offline
@@ -397,9 +395,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Formação e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: abf319c83efc03ab7f55a42baede60322f2831ba
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 02a071cae4a02f909ccbf00678451696721310df
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308711"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593850"

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: cb7ccc665cdf9867232580fd8b687b344e43116d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446382"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587281"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar um nome de domínio personalizado 
 
@@ -42,9 +42,9 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Utilize o portal do Azure para definir um nome de domínio personalizado
 
 1. Navegue para a instância APIM no [portal do Azure](https://portal.azure.com/).
-2. Selecione **domínios personalizados e SSL**.
+1. Selecione **domínios personalizados e SSL**.
     
-    Existe um número de pontos de extremidade ao qual pode atribuir um nome de domínio personalizado. Atualmente, os pontos finais seguintes estão disponíveis: 
+    Há uma série de pontos de extremidade ao qual pode atribuir um nome de domínio personalizado. Atualmente, os pontos finais seguintes estão disponíveis: 
     + **Proxy** (a predefinição é: `<apim-service-name>.azure-api.net`), 
     + **Portal** (a predefinição é: `<apim-service-name>.portal.azure-api.net`),     
     + **Gerenciamento** (a predefinição é: `<apim-service-name>.management.azure-api.net`), 
@@ -52,12 +52,16 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 
     >[!NOTE]
     > Pode atualizar todos os pontos de extremidade ou alguns deles. Normalmente, os clientes atualizar **Proxy** (este URL é utilizado para chamar a API exposta por meio de gestão de API) e **Portal** (portal do programador URL). **Gerenciamento** e **SCM** pontos de extremidade são usados internamente por clientes APIM e, portanto, com menos frequência recebem um nome de domínio personalizado.
-3. Selecione o ponto final que pretende atualizar. 
-4. Na janela à direita, clique em **personalizado**.
 
-    + Na **nome de domínio personalizado**, especifique o nome que pretende utilizar. Por exemplo, `api.contoso.com`. <br/>Nomes de domínio de caráter universal (por exemplo, *. domínio. com) também são suportados.
-    + Na **certificado**, especifique um válido. Ficheiro PFX que pretende carregar. 
-    + Se o certificado tem uma palavra-passe, introduza-a na **palavra-passe** campo.
+1. Selecione o ponto final que pretende atualizar. 
+1. Na janela à direita, clique em **personalizado**.
+
+    + Na **nome de domínio personalizado**, especifique o nome que pretende utilizar. Por exemplo, `api.contoso.com`. Nomes de domínio de caráter universal (por exemplo, *. domínio. com) também são suportados.
+    + Na **certificado**, selecione um certificado do Key Vault. Também pode carregar um válido. PFX de ficheiros e fornecer sua **palavra-passe**, se o certificado está protegido com uma palavra-passe.
+
+    > [!TIP]
+    > Se utilizar o Azure Key Vault para gerir o certificado SSL de domínio personalizado, certifique-se do certificado é inserido no Key Vault [como uma *certificado*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), e não um *segredo*. Se o certificado é definido como autorotate, gestão de API selecionará automaticamente a versão mais recente.
+
 1. Clique em aplicar.
 
     >[!NOTE]

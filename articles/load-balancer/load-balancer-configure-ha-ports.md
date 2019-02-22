@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: d4464f6188efb479f21a23bf936a8222061d9987
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ec43b79109181457f8ef8e214e296969db5dcb26
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244142"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593408"
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Configurar portas elevada disponibilidade para um balanceador de carga interno
 
@@ -38,9 +38,9 @@ A ilustração mostra o exemplo de implementação descrito neste artigo, a segu
 
 ![Exemplo de implementação de portas de elevada disponibilidade](./media/load-balancer-configure-ha-ports/haports.png)
 
-
-
 ## <a name="configure-high-availability-ports"></a>Configurar portas elevada disponibilidade
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Para configurar portas elevada disponibilidade, configure um balanceador de carga interno com as NVAs no conjunto de back-end. Configure uma configuração de pesquisa do Estado de funcionamento de Balanceador de carga correspondente para detetar o estado de funcionamento da NVA e a regra de Balanceador de carga com portas de elevada disponibilidade. A configuração de relacionadas com o Balanceador de carga geral é descrita em [começar](load-balancer-get-started-ilb-arm-portal.md). Este artigo destaca a configuração de portas de elevada disponibilidade.
 
@@ -51,7 +51,6 @@ A configuração envolve, essencialmente, a porta de front-end e o valor de port
 Para configurar portas de elevada disponibilidade com o portal do Azure, selecione o **portas HA** caixa de verificação. Quando selecionada, a configuração de porta e protocolo relacionada é preenchida automaticamente. 
 
 ![Configuração de portas de elevada disponibilidade através do portal do Azure](./media/load-balancer-configure-ha-ports/haports-portal.png)
-
 
 ### <a name="configure-a-high-availability-ports-load-balancing-rule-via-the-resource-manager-template"></a>Configurar uma regra de balanceamento de carga para portas de alta disponibilidade por meio do modelo do Resource Manager
 
@@ -91,7 +90,7 @@ Pode configurar portas de elevada disponibilidade, utilizando a versão de API d
 Utilize o seguinte comando para criar a regra de Balanceador de carga de alta disponibilidade portas enquanto cria o Balanceador de carga interno com o PowerShell:
 
 ```powershell
-lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
+lbrule = New-AzLoadBalancerRuleConfig -Name "HAPortsRule" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol "All" -FrontendPort 0 -BackendPort 0
 ```
 
 ### <a name="configure-a-high-availability-ports-load-balancer-rule-with-azure-cli"></a>Configurar uma regra de Balanceador de carga de portas de elevada disponibilidade com a CLI do Azure

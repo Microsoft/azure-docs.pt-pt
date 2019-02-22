@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 1e270ce13865684f32623fd964d4a41642d95342
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 572cbeec9a259c6996f40696f115218720397227
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695592"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651145"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Criar uma infraestrutura completa de máquina virtual Linux no Azure com o Terraform
 
@@ -88,7 +88,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 ```
 
 
-## <a name="create-public-ip-address"></a>Criar endereço IP público
+## <a name="create-public-ip-address"></a>Criar um endereço IP público
 Para acessar recursos na Internet, criar e atribuir um endereço IP público à VM. A seção a seguir cria um endereço IP público com o nome *myPublicIP*:
 
 ```tf
@@ -96,7 +96,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "eastus"
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
-    public_ip_address_allocation = "dynamic"
+    allocation_method            = "dynamic"
 
     tags {
         environment = "Terraform Demo"
@@ -288,7 +288,7 @@ resource "azurerm_public_ip" "myterraformpublicip" {
     name                         = "myPublicIP"
     location                     = "eastus"
     resource_group_name          = "${azurerm_resource_group.myterraformgroup.name}"
-    public_ip_address_allocation = "dynamic"
+    allocation_method            = "dynamic"
 
     tags {
         environment = "Terraform Demo"

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 6a652b3fa834c2f29f5063f9ba72a3e3d4e75f58
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: cd0493d4fd126175acafce050394e65a47e9bda9
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512453"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650024"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Criar um peering de rede virtual - diferentes modelos de implementação e as subscrições
 
@@ -180,7 +180,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 
 Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a utilizar uma conta que tenha permissões para ambas as subscrições, pode utilizar a mesma conta para todos os passos, ignore os passos para o registo do Azure e remover as linhas do script que criar atribuições de funções de utilizador. Substitua UserA@azure.com e UserB@azure.com em todos os scripts seguintes com os nomes de utilizador estiver a utilizar para UserA e UserB. 
 
-1. Instalar a versão mais recente do PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) e [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) módulos. Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Instalar a versão mais recente do PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) e [Az](https://www.powershellgallery.com/packages/Az) módulos. Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie uma sessão do PowerShell.
 3. No PowerShell, inicie sessão na subscrição do User-b como UserB introduzindo o `Add-AzureAccount` comando. A conta, que inicie sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [permissões de peering de rede Virtual](virtual-network-manage-peering.md#permissions).
 4. Para criar uma rede virtual (clássico) com o PowerShell, tem de criar um novo ou modificar um arquivo de configuração de rede existente. Saiba como [exportar, atualizar e importar ficheiros de configuração de rede](virtual-networks-using-network-configuration-file.md). O ficheiro deve incluir o seguinte procedimento **VirtualNetworkSite** elemento para a rede virtual utilizado neste tutorial:
@@ -201,17 +201,17 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
     > [!WARNING]
     > Importar um ficheiro de configuração de rede alterada pode fazer com que as alterações às redes virtuais existentes (clássicas) na sua subscrição. Certifique-se de que só é adicionar a rede virtual anterior e que não alterar ou remover quaisquer redes virtuais existentes da sua subscrição. 
 
-5. Inicie sessão na subscrição do User-b como UserB para utilizar comandos do Gestor de recursos ao introduzir o `Connect-AzureRmAccount` comando.
-6. Atribuir permissões de utilizador para a rede virtual B. Copie o seguinte script para um editor de texto no seu PC e substitua `<SubscriptionB-id>` com o ID da subscrição B. Se não souber o Id de subscrição, introduza o `Get-AzureRmSubscription` comando para exibi-la. O valor para **Id** no resultado retornado é o ID da subscrição. Azure criou a rede virtual (clássico) que criou no passo 4 num grupo de recursos com o nome *sistema de rede padrão*. Para executar o script, copie o script modificado, cole-a no PowerShell e, em seguida, prima `Enter`.
+5. Inicie sessão na subscrição do User-b como UserB para utilizar comandos do Gestor de recursos ao introduzir o `Connect-AzAccount` comando.
+6. Atribuir permissões de utilizador para a rede virtual B. Copie o seguinte script para um editor de texto no seu PC e substitua `<SubscriptionB-id>` com o ID da subscrição B. Se não souber o Id de subscrição, introduza o `Get-AzSubscription` comando para exibi-la. O valor para **Id** no resultado retornado é o ID da subscrição. Azure criou a rede virtual (clássico) que criou no passo 4 num grupo de recursos com o nome *sistema de rede padrão*. Para executar o script, copie o script modificado, cole-a no PowerShell e, em seguida, prima `Enter`.
     
     ```powershell 
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserA@azure.com `
       -RoleDefinitionName "Classic Network Contributor" `
       -Scope /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
     ```
 
-7. Termine a sessão do Azure como UserB e inicie sessão na subscrição do User-como UserA, introduzindo o `Connect-AzureRmAccount` comando. A conta, que inicie sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [permissões de peering de rede Virtual](virtual-network-manage-peering.md#permissions).
+7. Termine a sessão do Azure como UserB e inicie sessão na subscrição do User-como UserA, introduzindo o `Connect-AzAccount` comando. A conta, que inicie sessão com tem de ter as permissões necessárias para criar um peering de rede virtual. Para obter uma lista de permissões, consulte [permissões de peering de rede Virtual](virtual-network-manage-peering.md#permissions).
 8. Criar a rede virtual (Resource Manager) ao copiar o script a seguir, colá-la no PowerShell e, em seguida, premindo `Enter`:
 
     ```powershell
@@ -220,22 +220,22 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
       $location='eastus'
 
     # Create a resource group.
-    New-AzureRmResourceGroup `
+    New-AzResourceGroup `
       -Name $rgName `
       -Location $location
 
     # Create virtual network A.
-    $vnetA = New-AzureRmVirtualNetwork `
+    $vnetA = New-AzVirtualNetwork `
       -ResourceGroupName $rgName `
       -Name 'myVnetA' `
       -AddressPrefix '10.0.0.0/16' `
       -Location $location
     ```
 
-9. Atribua permissões de utilizador b ao myVnetA. Copie o seguinte script para um editor de texto no seu PC e substitua `<SubscriptionA-Id>` com o ID da subscrição A. Se não souber o Id de subscrição, introduza o `Get-AzureRmSubscription` comando para exibi-la. O valor para **Id** no resultado retornado é o ID da subscrição. Cole a versão modificada do script do PowerShell e, em seguida, prima `Enter` para executá-lo.
+9. Atribua permissões de utilizador b ao myVnetA. Copie o seguinte script para um editor de texto no seu PC e substitua `<SubscriptionA-Id>` com o ID da subscrição A. Se não souber o Id de subscrição, introduza o `Get-AzSubscription` comando para exibi-la. O valor para **Id** no resultado retornado é o ID da subscrição. Cole a versão modificada do script do PowerShell e, em seguida, prima `Enter` para executá-lo.
 
     ```powershell
-    New-AzureRmRoleAssignment `
+    New-AzRoleAssignment `
       -SignInName UserB@azure.com `
       -RoleDefinitionName "Network Contributor" `
       -Scope /subscriptions/<SubscriptionA-Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/VirtualNetworks/myVnetA
@@ -244,7 +244,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 10. Copie o seguinte script para um editor de texto no seu PC e substitua `<SubscriptionB-id>` com o ID da subscrição B. Configurar o peering entre myVnetA para myVNetB, copie o script modificado, cole-a no PowerShell e, em seguida, prima `Enter`.
 
     ```powershell
-    Add-AzureRmVirtualNetworkPeering `
+    Add-AzVirtualNetworkPeering `
       -Name 'myVnetAToMyVnetB' `
       -VirtualNetwork $vnetA `
       -RemoteVirtualNetworkId /subscriptions/<SubscriptionB-id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
@@ -253,7 +253,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 11. Ver o estado do peering de myVnetA, copiar o script a seguir, colá-la na PowerShell e prima `Enter`.
 
     ```powershell
-    Get-AzureRmVirtualNetworkPeering `
+    Get-AzVirtualNetworkPeering `
       -ResourceGroupName $rgName `
       -VirtualNetworkName myVnetA `
       | Format-Table VirtualNetworkName, PeeringState
@@ -299,7 +299,7 @@ Quando tiver concluído este tutorial, pode querer eliminar os recursos que crio
 1. Na linha de comando do PowerShell, introduza o seguinte comando para eliminar a rede virtual (Resource Manager):
 
    ```powershell
-   Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
+   Remove-AzResourceGroup -Name myResourceGroupA -Force
    ```
 
 2. Para eliminar a rede virtual (clássico) com o PowerShell, tem de modificar um ficheiro de configuração de rede existente. Saiba como [exportar, atualizar e importar ficheiros de configuração de rede](virtual-networks-using-network-configuration-file.md). Remova o seguinte elemento de VirtualNetworkSite para a rede virtual utilizado neste tutorial:

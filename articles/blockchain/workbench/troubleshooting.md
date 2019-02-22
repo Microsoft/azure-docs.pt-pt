@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: df0e3e0b8d5ce8b0e35ac7a30df94b3c6a1c2f8b
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329740"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56648750"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>O Azure Blockchain Workbench, resolução de problemas
 
@@ -24,7 +24,7 @@ Um script do PowerShell está disponível para ajudá-lo em desenvolvedor depura
 * Rede de Blockchain, como Ethereum
 * Microsserviços de Blockchain Workbench
 * Application Insights
-* Monitorização (Log Analytics) do Azure
+* Monitorização do Azure (registos de Monitor do Azure)
 
 Pode utilizar as informações para determinar os passos seguintes e determinar a causa raiz dos problemas.
 
@@ -52,9 +52,9 @@ O script aceita os seguintes parâmetros:
 | ResourceGroupName | Nome do grupo de recursos do Azure onde tiver sido implementada Blockchain Workbench. | Sim |
 | OutputDirectory | Caminho para criar a saída. Ficheiro ZIP. Se não for especificado, por predefinição, o diretório atual. | Não |
 | LookbackHours | Número de horas para utilizar quando extrair telemetria. Valor predefinido é de 24 horas. O valor máximo é de 90 horas | Não |
-| OmsSubscriptionId | O ID de subscrição em que o Log Analytics é implementado. Apenas transmita este parâmetro se o Log Analytics para a rede de blockchain é implementado fora do grupo de recursos de Blockchain Workbench.| Não |
-| OmsResourceGroup |O grupo de recursos em que o Log Analytics é implementado. Apenas transmita este parâmetro se o Log Analytics para a rede de blockchain é implementado fora do grupo de recursos de Blockchain Workbench.| Não |
-| OmsWorkspaceName | O nome de área de trabalho do Log Analytics. Apenas transmitir este parâmetro se o Log Analytics para a rede de blockchain é implementado fora do grupo de recursos de Blockchain Workbench | Não |
+| OmsSubscriptionId | O ID de subscrição em que registos do Azure Monitor é implementado. Apenas transmita este parâmetro se os registos do Azure Monitor para a rede de blockchain é implementado fora do grupo de recursos de Blockchain Workbench.| Não |
+| OmsResourceGroup |O grupo de recursos em que registos do Azure Monitor é implementado. Apenas transmita este parâmetro se os registos do Azure Monitor para a rede de blockchain é implementado fora do grupo de recursos de Blockchain Workbench.| Não |
+| OmsWorkspaceName | O nome de área de trabalho do Log Analytics. Apenas transmitir este parâmetro se os registos do Azure Monitor para a rede de blockchain é implementado fora do grupo de recursos de Blockchain Workbench | Não |
 
 ## <a name="what-is-collected"></a>O que é recolhido?
 

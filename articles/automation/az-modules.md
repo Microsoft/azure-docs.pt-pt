@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e9240949c589717303fe00205c5374b5e3a6a791
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008259"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585067"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Suporte de módulo de AZ na automatização do Azure
 
@@ -31,7 +31,7 @@ Importar um `Az` módulo na conta de automatização automaticamente não import
 * Quando outro módulo consoante o módulo é importado para uma sessão do PowerShell
 
 > [!IMPORTANT]
-> É importante certificar-se de que os runbooks numa conta de automatização que quer importar apenas `Az` ou `AzureRM` módulos em sessões do PowerShell utilizadas por runbooks e não ambos. Se `Az` são importados antes `AzureRM` num runbook, o runbook será concluída, mas um [erro referenciar o método get_SerializationSettings](/troubleshoot/runbooks.md#get-serializationsettings) mostrará os fluxos de trabalho e cmdlets não tenha sido corretamente executado. Se importar `AzureRM` e, em seguida `Az` ainda runbook completo, mas verá um erro dos fluxos de trabalho, informando que ambos `Az` e `AzureRM` não pode ser importado na mesma sessão ou utilizado no mesmo runbook.
+> É importante certificar-se de que os runbooks numa conta de automatização que quer importar apenas `Az` ou `AzureRM` módulos em sessões do PowerShell utilizadas por runbooks e não ambos. Se `Az` são importados antes `AzureRM` num runbook, o runbook será concluída, mas um [erro referenciar o método get_SerializationSettings](troubleshoot/runbooks.md#get-serializationsettings) mostrará os fluxos de trabalho e cmdlets não tenha sido corretamente executado. Se importar `AzureRM` e, em seguida `Az` ainda runbook completo, mas verá um erro dos fluxos de trabalho, informando que ambos `Az` e `AzureRM` não pode ser importado na mesma sessão ou utilizado no mesmo runbook.
 
 ## <a name="migrating-to-az-modules"></a>Migrar para módulos de Az
 

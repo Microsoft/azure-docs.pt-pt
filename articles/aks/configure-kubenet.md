@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6d2b6ce2804fce35af9c184c4a7c72c0b332f6fb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 7975516e80576a9d79b35da816d049f47ebc7d3a
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701794"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650194"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilizar kubenet networking com seus próprios intervalos de endereços IP no Azure Kubernetes Service (AKS)
 
@@ -126,7 +126,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Agora, atribua o principal de serviço para o seu cluster do AKS *contribuinte* permissões na rede virtual com o [criação da atribuição de função de az] [ az-role-assignment-create] comando. Fornecer seu próprio */ <appId/>* conforme mostrado no resultado do comando anterior para criar o principal de serviço:
+Agora, atribua o principal de serviço para o seu cluster do AKS *contribuinte* permissões na rede virtual com o [criação da atribuição de função de az] [ az-role-assignment-create] comando. Fornecer seu próprio  *\<appId >* conforme mostrado no resultado do comando anterior para criar o principal de serviço:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -134,7 +134,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Criar um cluster do AKS na rede virtual
 
-Acabou de criar uma rede virtual e uma sub-rede e criou e receber permissões para um principal de serviço para usar esses recursos de rede. Agora, criar um cluster do AKS na sua rede virtual e sub-rede a utilizar o [criar az aks] [ az-aks-create] comando. Definir o seu principal de serviço */ <appId/>* e */ <password/>*, como mostra a saída do comando anterior para criar o principal de serviço.
+Acabou de criar uma rede virtual e uma sub-rede e criou e receber permissões para um principal de serviço para usar esses recursos de rede. Agora, criar um cluster do AKS na sua rede virtual e sub-rede a utilizar o [criar az aks] [ az-aks-create] comando. Definir o seu principal de serviço  *\<appId >* e  *\<palavra-passe >*, como mostra a saída do comando anterior para criar o principal de serviço.
 
 Os seguintes intervalos de endereços IP também são definidos como parte do cluster Criar processo:
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6f36000eb5a17e58d1450a064897dd9caef89bad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 424aa7038fecba7a11c1ccaa07053cf2e1606835
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859356"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651139"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 Lista completa dos limites entre a ferramenta QnA Maker.
@@ -71,6 +71,6 @@ Estes representam os limites para cada ação de atualização; ou seja, clicar 
 
 Saiba quando e como alterar os escalões de serviço:
 
-* [A ferramenta QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): quando é necessário ter mais perguntas e respostas na sua base de dados de conhecimento, para além do escalão atual, atualizar o serviço QnA Maker escalão de preço.
-* [Pesquisa](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - quando precisa de sua base de dados de conhecimento servir mais pedidos a partir da sua aplicação de cliente, atualizar o escalão de preço do serviço de aplicações.
-* [Serviço de aplicações](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): quando planeia ter muitas bases de dados de conhecimento, atualizar o serviço de Azure Search escalão de preço.
+* [A ferramenta QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Quando tem de ter mais arquivos de origem ou documentos maiores em sua base de dados de conhecimento, para além do escalão atual, atualize o serviço QnA Maker escalão de preço.
+* [Serviço de aplicações](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Quando a sua base de dados de conhecimento precisa ser usado mais pedidos a partir da sua aplicação de cliente, atualize o escalão de preço do serviço de aplicações.
+* [O Azure Search](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Quando planeia ter muitas bases de dados de conhecimento, atualize o serviço de Azure Search escalão de preço.

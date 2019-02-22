@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: b57dd40c8610953563a3d5b8861e144d775b4eb7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9a43a382c1f45f0bf0fb7e93322fcbeef58cb99d
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330516"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651180"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Voltar a preparar e implementar um modelo de machine learning
 
@@ -42,7 +42,7 @@ Utilize os seguintes passos para implementar um serviço da web reparametrizaç�
 
     Depois de executar a experimentação, o fluxo de trabalho resultante deve ser semelhante à imagem seguinte:
 
-    ![Fluxo de trabalho resultante](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
+    ![Fluxo de trabalho resultante](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
     Agora, implementar a experimentação de preparação como um serviço web reparametrização que produz um modelo preparado e resultados de avaliação do modelo.
 
@@ -68,7 +68,7 @@ Adicione o pacote de NuGet Microsoft.AspNet.WebApi.Client, conforme especificado
 
 A captura de ecrã a seguir mostra a **Consume** página no portal do Azure Machine Learning Web Services.
 
-![Consumir de página](media/retrain-existing-arm-web-service/machine-learning-retrain-models-consume-page.png)
+![Consumir de página](media/retrain-machine-learning/machine-learning-retrain-models-consume-page.png)
 
 ### <a name="update-the-apikey-declaration"></a>Atualizar a declaração de apikey
 
@@ -114,7 +114,7 @@ Quando especificar a localização de saída no Payload do pedido, a extensão d
 
 Eis um exemplo de saída reparametrização:
 
-![Saída de reparametrização](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE06.png)
+![Saída de reparametrização](media/retrain-machine-learning/machine-learning-retrain-models-programmatically-IMAGE06.png)
 
 ### <a name="evaluate-the-retraining-results"></a>Avaliar os resultados de reparametrização
 

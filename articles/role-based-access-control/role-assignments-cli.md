@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d7888fd52495f7d2a195b729fae6d0411cfbd64c
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341724"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587961"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gerir o acesso aos recursos do Azure através do RBAC e CLI do Azure
 
@@ -89,9 +89,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role"></a>Lista de ações de uma função
+## <a name="list-a-role-definition"></a>Listar uma definição de função
 
-Para listar as ações de uma definição de função, utilize [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list):
+Para listar uma definição de função, utilize [lista de definições de função de az](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -104,6 +104,7 @@ az role definition list --name "Contributor"
 ```
 
 ```Output
+[
   {
     "additionalProperties": {},
     "assignableScopes": [
@@ -134,7 +135,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-As listas de exemplo a seguir a *ações* e *notActions* do *contribuinte* função:
+### <a name="list-actions-of-a-role"></a>Lista de ações de uma função
+
+O exemplo seguinte lista apenas o *ações* e *notActions* do *contribuinte* função:
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -153,7 +156,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-O exemplo seguinte lista as ações do *contribuinte de Máquina Virtual* função:
+O exemplo seguinte lista apenas as ações do *contribuinte de Máquina Virtual* função:
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'

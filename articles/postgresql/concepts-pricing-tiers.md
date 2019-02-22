@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 8cc7d7d93f483289ab7faa3f5a7193fc218b57bc
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0df36f4c939ed9bd7bb6a134a356b37d699abc1d
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695032"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586348"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Base de dados do Azure para PostgreSQL escalões de preço
 
@@ -43,6 +43,9 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 
 > [!IMPORTANT]
 > A partir de 12 de Dezembro de 2018, os novos clientes serão não conseguir aprovisionar servidores de geração 4 de computação no sul do Brasil, Canadá Central, leste do Canadá, Ásia Oriental, E.U.A. Leste 2, Índia Central, Índia Ocidental, oeste do Japão, e.u.a. Centro-Norte, E.U.A. oeste. Geração de computação 4 servidores serão migrados para a geração 5 a partir de 1 de Fevereiro de 2019 nestas regiões de computação foi criado anteriormente.
+>
+> [!IMPORTANT]
+> A partir de 19 de Fevereiro de 2019 novos clientes serão não conseguir aprovisionar servidores de geração 4 de computação no E.U.A. Central, E.U.A. leste, leste do Japão, Norte da Europa, Centro-Sul, Sudeste asiático, Europa Ocidental. Geração de computação 4 servidores serão migrados para a geração 5 a partir de 1 de Abril de 2019 nestas regiões de computação foi criado anteriormente.
 
 | **Região do Azure** | **Geração 4** | **Geração 5** |
 |:---|:----------:|:--------------------:|

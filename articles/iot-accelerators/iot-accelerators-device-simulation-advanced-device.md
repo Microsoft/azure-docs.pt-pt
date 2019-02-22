@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 7e680e3cd8a3d7056141814c5e7d4539b72073b4
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: a97afe64992db6b48558561ba958b513c8416494
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50757237"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56592830"
 ---
 # <a name="create-an-advanced-device-model"></a>Criar um modelo de dispositivo avançados
 
@@ -26,11 +26,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para seguir os passos neste guia de procedimentos, terá uma instância implantada de simulação do dispositivo na sua subscrição do Azure.
 
-Se não tiver implementado a simulação do dispositivo, ainda, deverá concluir os [implementar e executar uma simulação de dispositivo do IoT no Azure](quickstart-device-simulation-deploy.md) início rápido.
+Se ainda não tiver implementado a Simulação de Dispositivos, deve concluir o início rápido [Implementar e executar uma simulação de dispositivo no Azure](quickstart-device-simulation-deploy.md).
 
-### <a name="open-device-simulation"></a>Simulação do dispositivo aberto
+### <a name="open-device-simulation"></a>Abrir a Simulação de Dispositivo
 
-Para executar a simulação do dispositivo no seu browser, primeiro navegue até [Aceleradores de soluções do Microsoft Azure IoT](https://www.azureiotsolutions.com).
+Para executar a Simulação de Dispositivos no browser, comece por navegar para [Microsoft Azure IoT Solution Accelerators](https://www.azureiotsolutions.com) (Aceleradores de Soluções do Microsoft Azure IoT).
 
 Poderá ser-lhe pedido para iniciar sessão com as credenciais da subscrição do Azure.
 
@@ -56,7 +56,7 @@ Tem um modelo de dispositivo típico:
 Cada ficheiro de definição do dispositivo contém detalhes de um modelo de dispositivo simulado, incluindo as seguintes informações:
 
 * Nome de modelo do dispositivo: cadeia de caracteres.
-* Protocolo: AMQP | MQTT | PROTOCOLO HTTP.
+* Protocolo: AMQP | MQTT | HTTP.
 * O estado inicial do dispositivo.
 * A frequência de atualizar o estado do dispositivo.
 * Qual arquivo JavaScript para utilizar para atualizar o estado do dispositivo.
@@ -164,7 +164,7 @@ Os campos apresentados no esquema podem ser dos seguintes tipos:
 * Texto
 * Booleano
 * Número inteiro
-* Valor de duplo
+* Double
 * DateTime
 
 ### <a name="supported-methods"></a>Métodos suportados
@@ -494,13 +494,13 @@ function main(context, state) {
 
 Para implementar o seu modelo de dispositivo avançados, que carregue os ficheiros de sua instância de simulação do dispositivo:
 
-Selecione **modelos de dispositivos** na barra de menus. O **modelos de dispositivos** página lista os modelos de dispositivo disponíveis nesta instância de simulação do dispositivo:
+Selecione **Device models** (Modelos de dispositivos), na barra de menus. O **modelos de dispositivos** página lista os modelos de dispositivo disponíveis nesta instância de simulação do dispositivo:
 
 ![Modelos de dispositivos](media/iot-accelerators-device-simulation-advanced-device/devicemodelnav.png)
 
-Clique em **+ adicionar modelos de dispositivos** no canto superior direito da página:
+Clique em **+ Add Device Models** (+ Adicionar Modelos de Dispositivos), no canto superior direito da página:
 
-![Adicionar o modelo do dispositivo](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
+![Adicionar modelo de dispositivo](media/iot-accelerators-device-simulation-advanced-device/devicemodels.png)
 
 Clique em **avançadas** para abrir o separador de modelo avançado de dispositivos:
 
@@ -516,4 +516,4 @@ Se os ficheiros passam na validação, clique em **guardar** e seu modelo de dis
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este guia de procedimentos, ficou a conhecer os arquivos de modelo de dispositivo usados na simulação de dispositivo e como criar um modelo de dispositivo avançado. Em seguida, pode querer explorar como [utilize o Time Series Insights para visualizar a telemetria enviada a partir do solution accelerator de simulação do dispositivo](about-iot-accelerators.md).
+Este guia de procedimentos, ficou a conhecer os arquivos de modelo de dispositivo usados na simulação de dispositivo e como criar um modelo de dispositivo avançado. Em seguida, pode querer explorar como [utilize o Time Series Insights para visualizar a telemetria enviada a partir do solution accelerator de simulação do dispositivo](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).
