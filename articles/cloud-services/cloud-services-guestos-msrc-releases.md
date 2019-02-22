@@ -11,17 +11,72 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 2/20/2019
 ms.author: raiye
-ms.openlocfilehash: 4c1b1b376493c77ae0f197d800ee0d00434b19c6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: b39a365e077f8c51b322f0849b373b500cb2d905
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752114"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594292"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
+
+## <a name="february-2019-guest-os"></a>SO de convidado de Fevereiro de 2019
+
+>[!NOTE]
+>O sistema operacional convidado de Fevereiro é implementado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO convidado Fevereiro. Esta lista está sujeita a alterações.
+
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4487038] | Flash | 3.70, 4.63, 5.28, 6.4 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4486564] | Segurança do Windows | 2.83 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4483483] | O .NET 3.5.1 segurança | 2.83 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4483474] | A .NET 4.5.2 segurança | 2.83 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4486993] | Segurança do Windows | 3.70 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4483481] | O .NET 3.5 segurança | 3.70 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4483473] | A .NET 4.5.2 segurança | 3.70 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4487028] | Segurança do Windows | 4.63 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4483484] | O .NET 3.5 segurança | 4.63 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4483472] | A .NET 4.5.2 segurança | 4.63 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4487026] | Segurança do Windows | 5.28 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4487044] | Segurança do Windows | 6.4 | 12 de Fevereiro de 2019 |
+| Rel 19-02 | [4483452] | O .NET 3.5, 4.7.2 segurança | 6.4 | 12 de Fevereiro de 2019 |
+| N/A | [4480970] | Rollup de Janeiro sem segurança | 2.83 | 8 de Janeiro de 2019 |
+| N/A | [4483483] | Rollup de Janeiro sem segurança .NET 3.5.1  | 2.83 | 8 de Janeiro de 2019 |
+| N/A | [4480059] | Rollup de Janeiro sem segurança .NET 4.5.2  | 2.83 | 8 de Janeiro de 2019 |
+| N/A | [4480975] | Rollup de Janeiro sem segurança | 3.70 | 8 de Janeiro de 2019 |
+| N/A | [4480061] | Rollup de Janeiro sem segurança .NET 3.5 | 3.70 | 8 de Janeiro de 2019 |
+| N/A | [4480058] | Rollup de Janeiro sem segurança .NET 4.5.2 | 3.70 | 8 de Janeiro de 2019 |
+| N/A | [4480963] | Rollup de Janeiro sem segurança | 4.63 | 8 de Janeiro de 2019 |
+| N/A | [4480064] | Rollup de Janeiro sem segurança .NET 3.5 | 4.63 | 8 de Janeiro de 2019 |
+| N/A | [4480057] | Rollup de Janeiro sem segurança .NET 4.5.2 | 4.63 | 8 de Janeiro de 2019 |
+
+[4486474]: http://support.microsoft.com/kb/4486474
+[4487038]: http://support.microsoft.com/kb/4487038
+[4486564]: http://support.microsoft.com/kb/4486564
+[4483483]: http://support.microsoft.com/kb/4483483
+[4483474]: http://support.microsoft.com/kb/4483474
+[4486993]: http://support.microsoft.com/kb/4486993
+[4483481]: http://support.microsoft.com/kb/4483481
+[4483473]: http://support.microsoft.com/kb/4483473
+[4487028]: http://support.microsoft.com/kb/4487028
+[4483484]: http://support.microsoft.com/kb/4483484
+[4483472]: http://support.microsoft.com/kb/4483472
+[4487026]: http://support.microsoft.com/kb/4487026
+[4487044]: http://support.microsoft.com/kb/4487044
+[4483452]: http://support.microsoft.com/kb/4483452
+[4480970]: http://support.microsoft.com/kb/4480970
+[4483483]: http://support.microsoft.com/kb/4483483
+[4480059]: http://support.microsoft.com/kb/4480059
+[4480975]: http://support.microsoft.com/kb/4480975
+[4480061]: http://support.microsoft.com/kb/4480061
+[4480058]: http://support.microsoft.com/kb/4480058
+[4480963]: http://support.microsoft.com/kb/4480963
+[4480064]: http://support.microsoft.com/kb/4480064
+[4480057]: http://support.microsoft.com/kb/4480057
 
 ## <a name="january-2019-guest-os"></a>SO de convidado de Janeiro de 2019
 
