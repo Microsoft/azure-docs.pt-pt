@@ -53,6 +53,7 @@ items:
       - name: Xamarin
         href: mobile-apps-with-xamarin.md
   - name: 2 - Migrar dados
+    displayName: import
     href: import-data.md
   - name: 3 - Consultar dados
     href: tutorial-query-sql-api.md
@@ -76,15 +77,16 @@ items:
     href: cli-samples.md
 - name: Conceitos
   items:
-  - name: Dados de documento do modelo
-    href: modeling-data.md
   - name: Distribuição global
     items:
     - name: Descrição geral
+      displayName: replication, replicate, geo distribution
       href: distribute-data-globally.md
     - name: Níveis de consistência
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: consistency-levels.md
     - name: Escolher o nível de consistência certo
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: consistency-levels-choosing.md
     - name: Níveis de consistência e APIs do Azure Cosmos DB
       href: consistency-levels-across-apis.md
@@ -93,8 +95,10 @@ items:
     - name: Elevada disponibilidade
       href: high-availability.md
     - name: Dimensionamento global de débito aprovisionado
+      displayName: request units, RUs, RU
       href: scaling-throughput.md
     - name: Tipos de conflito e políticas de resolução
+      displayName: last write wins, custom
       href: conflict-resolution-policies.md
     - name: Distribuição global - em segundo plano
       href: global-dist-under-the-hood.md
@@ -111,26 +115,36 @@ items:
   - name: Débito aprovisionado
     items:
     - name: Unidades de pedidos
+      displayName: RUs, RU
       href: request-units.md
     - name: Aprovisionar débito em contentores e bases de dados
+      displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
       href: set-throughput.md
   - name: Trabalhar com uma conta do Azure Cosmos
     href: account-overview.md
   - name: Contentores e itens
     items:
     - name: Trabalhar com bases de dados, contentores e itens
+      displayName: collection, document
       href: databases-containers-items.md
     - name: Referência da linguagem SQL
+      displayName: collection, document
       href: sql-api-query-reference.md
     - name: Exemplos de consultas SQL
+      displayName: collection, document, order by, where, top, value, aggregate, between, scalar, join, count, contains
       href: how-to-sql-query.md
+    - name: Dados de documento do modelo
+      displayName: document
+      href: modeling-data.md
     - name: Indexação
       items:
       - name: Descrição geral
         href: index-overview.md
       - name: Política de índice
+        displayName: consistent, none
         href: index-policy.md
       - name: Tipos de índice
+        displayName: hash, range, spatial
         href: index-types.md
       - name: Caminhos de índice
         href: index-paths.md
@@ -143,8 +157,10 @@ items:
       - name: Processador do feed de alterações
         href: change-feed-processor.md
       - name: Acionar Funções do Azure
+        displayName: change feed
         href: change-feed-functions.md
     - name: Time to live
+      displayName: delete, delete data, ttl
       href: time-to-live.md
     - name: Restrições de chave exclusiva
       href: unique-keys.md
@@ -165,6 +181,7 @@ items:
     - name: Compreender a sua fatura
       href: understand-your-bill.md
     - name: Otimizar o custo do débito aprovisionado
+      displayName: request units, RUs, RU
       href: optimize-cost-throughput.md
     - name: Otimizar o custo das consultas
       href: optimize-cost-queries.md
@@ -185,6 +202,7 @@ items:
     - name: Encriptação de dados
       href: database-encryption-at-rest.md
     - name: Proteger o acesso a dados
+      displayName: master key, resource token, users, roles
       href: secure-access-to-data.md
     - name: Firewall de IP
       href: firewall-support.md
@@ -241,6 +259,7 @@ items:
         - name: Aplicação em Node.js e React
           href: tutorial-develop-mongodb-react.md
       - name: 2 - Migrar dados
+        displayName: import
         href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 - Consultar dados
         href: tutorial-query-mongodb.md
@@ -257,6 +276,7 @@ items:
       - name: Ligar com o Mongoose
         href: mongodb-mongoose.md
       - name: Distribuir as leituras globalmente
+        displayName: read preference
         href: mongodb-readpreference.md
       - name: Time to live - MongoDB
         href: mongodb-time-to-live.md
@@ -266,6 +286,7 @@ items:
         href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
         maintainContext: true
   - name: API do Gremlin
+    displayName: graph, graph database
     items:
     - name: Introdução
       href: graph-introduction.md
@@ -323,6 +344,7 @@ items:
       - name: 3 - Consultar dados
         href: cassandra-api-query-data.md
       - name: 4 - Migrar dados
+        displayName: import
         href: cassandra-import-data.md
     - name: Guias de procedimentos
       items:
@@ -370,6 +392,7 @@ items:
       - name: 1 - Criar conta
         href: tutorial-develop-table-dotnet.md
       - name: 2 - Migrar dados
+        displayName: import
         href: table-import.md
       - name: 3 - Consultar dados
         href: tutorial-query-table.md
@@ -423,6 +446,7 @@ items:
     - name: Configurar multimestre
       href: how-to-multi-master.md
     - name: Gerir os níveis de consistência
+      displayName: session, consistency prefix, strong, eventual, bounded staleness
       href: how-to-manage-consistency.md
     - name: Implementar sincronização personalizada
       href: how-to-custom-synchronization.md
@@ -431,8 +455,10 @@ items:
   - name: Débito aprovisionado
     items:
     - name: Aprovisionar o débito num contentor
+      displayName: request units, RUs, RU, collection level
       href: how-to-provision-container-throughput.md
     - name: Aprovisionar o débito numa base de dados
+      displayName: request units, RUs, RU, shared throughput, database level
       href: how-to-provision-database-throughput.md
   - name: Trabalhar com contentores e itens
     items:
@@ -441,6 +467,7 @@ items:
     - name: Consultar um contentor
       href: how-to-query-container.md
     - name: Configurar TTL
+      displayName: delete, delete data, ttl
       href: how-to-time-to-live.md
     - name: Trabalhar com dados com o Explorador de Armazenamento do Azure
       href: storage-explorer.md
@@ -627,9 +654,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: f2f061aebd996f62f793ba515f574c8a3748b87f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: f1f36d86466f93c0acac30364ba648391fb03095
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429122"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652523"

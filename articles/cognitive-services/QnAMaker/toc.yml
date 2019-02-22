@@ -101,6 +101,7 @@ items:
   - name: Utilizar a base de dados de conhecimento
     items:
     - name: Utilizar metadados com a API GenerateAnswer
+      displayName: isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters
       href: How-To/metadata-generateanswer-usage.md
     - name: Com um bot
       href: Tutorials/integrate-qnamaker-luis.md
@@ -185,9 +186,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blogue
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: 390b11d11b8917ce767265f0b20126a4c9e86f71
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d2843221ae4aae151e423e96b6633b69fc7a706d
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267015"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56652506"

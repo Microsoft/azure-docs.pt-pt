@@ -239,7 +239,7 @@ items:
   - name: CLI do Azure
     href: https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest
   - name: Azure PowerShell
-    href: https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview
+    href: /powershell/module/az.search
   - name: .NET
     href: /dotnet/api/?term=microsoft.azure.search
   - name: .NET (Gestão)
@@ -307,9 +307,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 786dd21f4f8783dee3739beaa4c916793cfc7404
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e34081a7dfa2faec11dbdf18020b20a33b355568
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337860"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56593612"

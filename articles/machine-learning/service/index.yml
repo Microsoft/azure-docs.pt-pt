@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 372d3d88c0a160c1f294f07e58c5e11dbf5eac5e
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: b7765fc5506129cdf594ef3fd0424f8771de5ef4
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456610"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56651673"
 documentType: LandingData
 title: Documentação do Serviço Azure Machine Learning
 metadata:
@@ -26,7 +26,7 @@ abstract:
   aside:
     image:
       alt: 
-      height: 110
+      height: 130
       src: media/index/video.png
       width: 250
     title: Ver o vídeo (9:58)
