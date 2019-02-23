@@ -1,6 +1,6 @@
 ---
-title: Lista de verificação publicação para AppSource | Azure
-description: Lista de verificação publicação para AppSource.
+title: Lista de verificação de publicação para o AppSource | Azure
+description: Lista de verificação publicação para o AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,25 +14,25 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f8234424d5f684577833f34d89ac3da9d4d16fa
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 5521602331b50c70ab31e6ea2f5eec8f6a3911ad
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825207"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736537"
 ---
-# <a name="publishing-checklist-for-appsource"></a>Lista de verificação publicação para AppSource  
+# <a name="publishing-checklist-for-appsource"></a>Lista de verificação de publicação para o AppSource  
 Reveja os componentes necessários antes de iniciar o processo de publicação.  
 
-Os artefactos seguintes são necessários para publicar a sua aplicação AppSource.  
+Os artefactos seguintes são necessários para publicar a sua aplicação no AppSource.  
 
 ## <a name="checklist"></a>Lista de verificação  
 
-| Tipo de listagem | Tipo de oferta | Publicação de artefactos |   
+| Tipo de lista | Tipo de oferta | Publicação de artefacto |   
 |:--- |:--- |:--- |  
-| Lista | Consultar o serviço | <table> <tr><th>Detalhes storefront</th></tr> <tr><td>Nome de oferta (200 carateres)</td></tr> <tr><td>Descrição (2.000 carateres)</td></tr> <tr><td>ID do MPN</td></tr> <tr><td>Disponibilidade do país/região</td></tr> <tr><td>Indústrias aplicáveis, categorias e as palavras a procurar</td></tr> <tr><td>Capturas de ecrã (1280 x 720; máximo 5)</td></tr> <tr><td>Documentos de marketing (máximo 3)</td></tr> <tr><td>Levar destino</td></tr> <tr><td>Logótipos da empresa (48 x 48, 216 x 216)</td></tr> <tr><td>Competências</td></tr> <tr><td>Vídeo de descrição geral de produto (opcional)</td></tr> </table> |  
+| Lista | Serviço de consultoria | <table> <tr><th>Vitrine detalhes</th></tr> <tr><td>Nome da oferta (200 carateres)</td></tr> <tr><td>Descrição (2000 carateres)</td></tr> <tr><td>ID do MPN</td></tr> <tr><td>Disponibilidade de país/região</td></tr> <tr><td>Setores aplicável, categorias e palavras-chave de pesquisa</td></tr> <tr><td>Capturas de ecrã (1280 x 720; máximo 5)</td></tr> <tr><td>Documentos de marketing (máximo 3)</td></tr> <tr><td>Líder de destino</td></tr> <tr><td>Logótipos da empresa (48 x 48, 216 x 216)</td></tr> <tr><td>Competências</td></tr> <tr><td>Vídeo de descrição geral do produto (opcional)</td></tr> </table> |  
 
 ## <a name="next-steps"></a>Passos Seguintes
-*   Visite o [Azure Marketplace e AppSource publicador guia](./marketplace-publishers-guide.md) página.  
+*   Visite o [Azure Marketplace e guia de publicador do AppSource](./marketplace-publishers-guide.md) página.  
 
----  
+---

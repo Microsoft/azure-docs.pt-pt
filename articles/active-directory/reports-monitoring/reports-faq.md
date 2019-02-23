@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6b8587313a4e98bfefa6489d9698052d312a6d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c51f1d47a5412e77b7113fccfd2e9a54e1d2ff7f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194551"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730210"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Perguntas mais frequentes sobre em torno de relatórios do Azure Active Directory
 
@@ -33,13 +33,13 @@ Este artigo contém respostas para perguntas mais frequentes sobre o Azure Activ
 
 **R:** Procurar os [referência da API](https://developer.microsoft.com/graph/) para ver como é possível [usar as APIs para aceder aos relatórios de atividade](concept-reporting-api.md). Este ponto de extremidade tem dois relatórios (**auditoria** e **inícios de sessão**) que fornecem a todos os dados de obteve o antigo ponto de final de API. Este novo ponto de extremidade também tem um relatório de inícios de sessão com a licença do Azure AD Premium que pode utilizar para obter a utilização da aplicação, a utilização de dispositivos e informações de início de sessão de utilizador.
 
---- 
+---
 
 **P: Posso utilizar atualmente o https://graph.windows.net/&lt; nome do inquilino&gt;/reports/ ponto final de APIs para extrair os relatórios de segurança do Azure AD (tipos específicos de detecções, tais como a fuga de credenciais ou inícios de sessão de endereços IP anónimos) para nossos sistemas de relatórios por meio de programação. O que posso alternar para?**
 
 **R:** Pode utilizar o [eventos de risco do Identity Protection API](../identity-protection/graph-get-started.md) para deteções de segurança de acesso através do Microsoft Graph. Esse novo formato proporciona maior flexibilidade na forma como pode consultar os dados, com filtragem avançada, seleção de campo e muito mais e padroniza eventos de risco num tipo de integração mais fácil com SIEMs e outras ferramentas de recolha de dados. Uma vez que os dados estão num formato diferente, não é possível substituir uma nova consulta para as suas consultas antigas. No entanto, [a nova API utiliza o Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que é o padrão da Microsoft para essas APIs, como o Office 365 ou do Azure AD. Para que o trabalho necessário a estender seus investimentos atuais do MS Graph ou ajuda a começar sua transição para essa nova plataforma padrão.
 
---- 
+---
 
 **P: Como posso obter uma licença premium?**
 
@@ -79,7 +79,7 @@ Este artigo contém respostas para perguntas mais frequentes sobre o Azure Activ
 | Inícios de sessão               | N/A           | 30 dias             | 30 dias             |
 | Utilização MFA do Azure        | 30 dias       | 30 dias             | 30 dias             |
 
---- 
+---
 
 **P: Quanto tempo demora até que eu possa ver os dados de atividade depois de eu ter concluído a minha tarefa?**
 

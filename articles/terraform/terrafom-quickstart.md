@@ -7,16 +7,16 @@ ms.service: terraform
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 408e07e9b6214dbd223bd4ec7959b00ecc414f1e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b3d872008c95d94a8401e6f38665c3c88616a168
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869182"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736928"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Criar uma configuração do Terraform do Azure
 
-Neste exemplo, ganha experiência na criação de uma configuração de Terraform e implementar esta configuração para o Azure. Quando concluída, será tiver implementado uma instância do Azure Cosmos DB, um Azure Container Instances e um aplicativo que funcione entre esses dois recursos. Este documento parte do princípio de que todo o trabalho é concluído no Azure Cloud Shell, que tem as ferramentas do Terraform pré-instalado. Se gostaria de trabalhar com o exemplo no seu próprio sistema, Terraform pode ser instalado utilizando as instruções presentes [aqui](../virtual-machines/linux/terraform-install-configure.md).
+Neste exemplo, ganha experiência na criação de uma configuração de Terraform e implementar esta configuração para o Azure. Quando concluída, será tiver implementado uma instância do Azure Cosmos DB, uma instância de contentor do Azure e um aplicativo que funcione entre esses dois recursos. Este documento parte do princípio de que todo o trabalho é concluído no Azure Cloud Shell, que tem as ferramentas do Terraform pré-instalado. Se gostaria de trabalhar com o exemplo no seu próprio sistema, Terraform pode ser instalado utilizando as instruções presentes [aqui](../virtual-machines/linux/terraform-install-configure.md).
 
 ## <a name="create-first-configuration"></a>Criar a configuração do primeiro
 
@@ -30,7 +30,7 @@ code .
 
 Copie e cole a seguinte configuração de Terraform.
 
-Esta configuração modela um grupo de recursos do Azure, um número inteiro aleatório e uma instância do Azure Cosmos DB. O número inteiro aleatório é utilizado em nome de instâncias do Cosmos DB. Também estão configuradas várias definições de Cosmos DB. Para obter uma lista completa das configurações do Terraform do Cosmos DB, consulte a [referência do Terraform do Cosmos DB](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
+Esta configuração modela um grupo de recursos do Azure, um número inteiro aleatório e uma instância do Azure Cosmos DB. O número inteiro aleatório é utilizado no nome da instância do Cosmos DB. Também estão configuradas várias definições de Cosmos DB. Para obter uma lista completa das configurações do Terraform do Cosmos DB, consulte a [referência do Terraform do Cosmos DB](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html).
 
 Guarde o ficheiro como `main.tf` quando tiver terminado. Esta operação pode ser feita usando as reticências na parte superior direita do editor de código.
 
@@ -93,7 +93,7 @@ Atualize a configuração para incluir uma instância de contentor do Azure. O c
 
 Copie a seguinte configuração para o fim do `main.tf` ficheiro. Guarde o ficheiro quando terminar.
 
-Duas variáveis de ambiente são definidas, `COSMOS_DB_ENDPOINT` e `COSMOS_DB_MASTERKEY`. Estas variáveis de manter a localização e a chave para aceder à base de dados. Os valores para estas variáveis são obtidos a partir da instância de base de dados criada no último passo. Este processo é conhecido como a interpolação. Para saber mais sobre o Terraform interpolação, veja [sintaxe de interpolação](https://www.terraform.io/docs/configuration/interpolation.html).
+Duas variáveis de ambiente são definidas, `COSMOS_DB_ENDPOINT` e `COSMOS_DB_MASTERKEY`. Estas variáveis de manter a localização e a chave para aceder à base de dados. Os valores para estas variáveis são obtidos a partir da instância de base de dados criada no último passo. Este processo é conhecido como interpolação. Para saber mais sobre o Terraform interpolação, veja [sintaxe de interpolação](https://www.terraform.io/docs/configuration/interpolation.html).
 
 
 A configuração inclui também um bloco de saída, que retorna o nome de domínio completamente qualificado (FQDN) da instância do contentor.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: artek
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: f1f4cb036f4df226d651f8f4d0f5c7492f453a0a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 167c8b4dff2e6f392dd6608d20d8924d446f95aa
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269745"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729938"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilizar a CLI do HDFS com o Data Lake Storage Gen2
 
@@ -77,10 +77,6 @@ Para obter mais informações sobre a CLI do HDFS, consulte a [documentação of
 ## <a name="hdfs-cli-with-azure-databricks"></a>CLI de HDFS com o Azure Databricks
 
 O Databricks fornece uma CLI fácil de usar, criada sobre a API de REST do Databricks. O projeto de código-fonte aberto está hospedado no [GitHub](https://github.com/databricks/databricks-cli). Seguem-se os comandos comumente utilizados.
-
-### <a name="create-a-file-system"></a>Criar um sistema de ficheiros
-
-Coloque aqui a documentação de orientação.
 
 ### <a name="get-a-list-of-files-or-directories"></a>Obter uma lista de arquivos ou diretórios
 

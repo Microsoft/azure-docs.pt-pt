@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 86404f4eb2eb2de4243c6bb725f4292e7b560d18
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fd7308e7ecb6e086dffb4bae0cc99c57dd699861
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56272091"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729827"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Mapeamento de transformação de dinâmica de fluxo de dados de fábrica de dados do Azure
 

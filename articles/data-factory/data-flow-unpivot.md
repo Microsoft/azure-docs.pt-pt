@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 14326714fc8258e184024edb83666d3ed0c3eee7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f1eca7f76f45966ba43c15b3d8b92203c8199bfe
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271994"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732080"
 ---
 # <a name="azure-data-factory-mapping-data-flow-unpivot-transformation"></a>Transformação anular dinamização de fluxo de dados de mapeamento de fábrica de dados do Azure
 

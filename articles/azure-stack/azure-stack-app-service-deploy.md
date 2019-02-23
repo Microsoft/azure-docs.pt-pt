@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 60767c3c61b0d386e4ac9b0a93d16ad161c59949
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445939"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732777"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações para o Azure Stack
 
@@ -132,22 +132,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações][10]
 
-11. Introduza os detalhes do SQL Server para a instância de servidor utilizada para alojar as bases de dados do fornecedor de recursos do serviço de aplicações e, em seguida, selecione **seguinte**. O instalador valida as propriedades de ligação de SQL.
-
-    > [!NOTE]
-    > O instalador tentará testar a conectividade ao SQL Server antes de continuar. No entanto, se estiver a implementar uma rede virtual existente, o teste de ligação poderá falhar. É-lhe fornecido um aviso e uma linha de comandos para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
-    >
-    > Do serviço de aplicações do Azure no Azure 1.3 de pilha e posteriores, o instalador irá verificar que o SQL Server tem de contenção da base de dados ativada ao nível do servidor SQL.  Se não for, será solicitado com a seguinte exceção:
-    > ```sql
-    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
-    >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
-    >    GO
-    >    ***********************************************************
-    > ```
-    > Consulte a [notas de versão do serviço de aplicações do Azure no Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para obter mais detalhes.
+11. Introduza os detalhes do SQL Server para a instância de servidor utilizada para alojar as bases de dados do fornecedor de recursos do serviço de aplicações e, em seguida, selecione **seguinte**. O instalador valida as propriedades de ligação de SQL.<br><br>O instalador do serviço de aplicações tenta testar a conectividade ao SQL Server antes de continuar. Se estiver a implementar uma rede virtual existente, o teste de ligação poderá falhar. É-lhe fornecido um aviso e uma linha de comandos para continuar. Se as informações do SQL Server estão corretas, continue a implantação.
 
     ![Instalador do serviço de aplicações][11]
 

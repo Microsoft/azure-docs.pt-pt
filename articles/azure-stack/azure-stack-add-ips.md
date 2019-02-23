@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ed2205455c4d3c82554f3d552bacc059fffa68e7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cbfe4fcf30e9529f191f2a80de8ab83e7e0811f7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174661"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735903"
 ---
 # <a name="add-public-ip-addresses"></a>Adicionar endereços IP públicos
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*  
@@ -53,11 +53,6 @@ A primeira coisa que precisará fazer é obter o bloco de endereços que pretend
 8.   Introduza o bloco de endereços que pretende adicionar na notação CIDR.  Por exemplo: 192.168.203.0/24
 9.  Quando fornecer um intervalo CIDR válido no campo Endereço do intervalo (bloco CIDR) o endereço IP inicial, endereço IP final e campos de endereços IP disponíveis são preenchidos automaticamente.  Eles são só de leitura e gerados automaticamente, de modo que não é possível alterá-las sem modificar o valor no campo do intervalo de endereço.
 10. Depois de rever as informações sobre o painel e confirmar tudo parece corrigir, clique em Ok para confirmar a alteração e adicionar o intervalo de endereços para o Azure Stack.
-
-## <a name="update-the-acls-on-your-top-of-rack-switches"></a>Atualizar as ACLs no seus comutadores Top-of-Rack
-A última coisa que precisa fazer para poder ativar o intervalo IP recentemente adicionado trabalhar é atualizar o controle de listas de acesso (ACLs) nos seus comutadores Top of Rack (ToR).  As ACLs no ToR comutadores são bloqueados de forma que conectividade fora do Azure Stack para o intervalo IP adicionado recentemente não funcionarão até que o intervalo novo é adicionado às ACLs no comutador.  
-
-Terá de contactar o seu OEM e trabalhar com eles para atualizar as ACLs no comutadores ToR.  Eles têm as ferramentas necessárias para fazer isso de uma forma suportada.
 
 
 ## <a name="next-steps"></a>Passos Seguintes 

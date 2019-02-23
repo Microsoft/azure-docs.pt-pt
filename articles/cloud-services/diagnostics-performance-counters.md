@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/18
+ms.date: 02/02/2018
 ms.author: jeconnoc
-ms.openlocfilehash: c448d9fdf8580d20a002d768915b557fbcb942ed
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 7713b449d5e5291ce1dd6c9b814ebefd07bc53a9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332045"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737676"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Recolher contadores de desempenho para o seu serviço Cloud do Azure
 

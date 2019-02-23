@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 21175e74bd40d0d4aeaf1c0a1e677f1c8113e80a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446520"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738016"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de gestão de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, gestão de API do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para fazer a conexão. Gestão de API pode ser implementada em dois modos principais dentro de uma rede virtual:
@@ -67,11 +67,14 @@ Após a implementação com êxito, deverá ver o endereço IP virtual interno d
 > A consola de teste disponível no Portal do Azure não funcionará para **interno** VNET implementado o serviço, como o Url do Gateway não está registado no DNS público. Deve usar o Console de teste fornecido no **portal do programador**.
 
 ### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Ativar uma ligação de rede virtual utilizando cmdlets do PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Também pode ativar a conectividade de rede virtual utilizando cmdlets do PowerShell.
 
-* Criar um serviço de gestão de API numa rede virtual: Utilize o cmdlet [New-AzureRmApiManagement](/powershell/module/azurerm.apimanagement/new-azurermapimanagement) para criar um serviço de gestão de API do Azure numa rede virtual e configurá-lo para usar o tipo de rede virtual interna.
+* Crie um serviço de gestão de API numa rede virtual: Utilize o cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para criar um serviço de gestão de API do Azure numa rede virtual e configurá-lo para usar o tipo de rede virtual interna.
 
-* Implementar um serviço de gestão de API existente numa rede virtual: Utilize o cmdlet [AzureRmApiManagementDeployment atualização](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) para mover um serviço de gestão de API existente numa rede virtual e configurá-lo para utilizar o interno tipo de rede virtual.
+* Implemente um serviço de gestão de API existente numa rede virtual: Utilize o cmdlet [AzApiManagementDeployment atualização](/powershell/module/az.apimanagement/update-azapimanagementdeployment) para mover um serviço de gestão de API existente numa rede virtual e configurá-lo para usar o tipo de rede virtual interna.
 
 ## <a name="apim-dns-configuration"></a>Configuração de DNS
 Quando a gestão de API está no modo de rede virtual externa, o DNS é gerido pelo Azure. Para o modo de rede virtual interna, terá de gerir o seu próprio tipo de encaminhamento.
@@ -92,13 +95,13 @@ Quando cria um serviço de gestão de API, com o nome "contoso", por exemplo, os
 
 Para aceder a estes pontos finais de serviço de gestão de API, pode criar uma máquina virtual numa sub-rede ligada à rede virtual em que a gestão de API é implementada. Partindo do princípio de que o endereço IP virtual interno para o seu serviço é 10.0.0.5, pode mapear o ficheiro de anfitriões, % SystemDrive%\drivers\etc\hosts, da seguinte forma:
 
-   * 10.0.0.5 contoso. Azure-api.net
+   * 10.0.0.5     contoso.azure-api.net
 
    * 10.0.0.5     contoso.portal.azure-api.net
 
-   * 10.0.0.5 contoso.management.azure-api.net
+   * 10.0.0.5     contoso.management.azure-api.net
 
-   * 10.0.0.5 contoso.scm.azure-api.net
+   * 10.0.0.5     contoso.scm.azure-api.net
 
 Em seguida, pode acessar todos os pontos finais do serviço da máquina virtual que criou. Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar registos DNS de um e aceder a estes pontos finais de qualquer lugar na sua rede virtual. 
 

@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 28d1ed43ecdb1ff853e066567f331b8c302ce7aa
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103077"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730448"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
 
@@ -93,7 +93,7 @@ Eles não têm acesso a registos dos doentes.
 
 -   Âmbito: ResourceGroup
 
- ### <a name="data-scientist"></a>Cientista de dados
+### <a name="data-scientist"></a>Cientista de dados
 
 
 Cientista de dados opera o Azure Machine Learning Studio. Pode importar, exportar e gerir os dados e executar relatórios. Cientista de dados tem acesso aos dados dos pacientes, mas não tem privilégios administrativos.

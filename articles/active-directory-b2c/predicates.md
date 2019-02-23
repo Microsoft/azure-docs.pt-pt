@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9bd015076cdbd70768b1359fac0cfc893d871513
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55149599"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737030"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicados e PredicateValidations
 
@@ -350,7 +350,7 @@ O código a seguir mostra como os elementos são organizados quando o Azure AD B
 
 ![Processo de predicado](./media/predicates/predicates-pass.png)
 
- ## <a name="configure-a-date-range"></a>Configurar um intervalo de datas
+## <a name="configure-a-date-range"></a>Configurar um intervalo de datas
 
 Com o **predicados** e **PredicateValidations** elementos pode controlar os valores de data mínimo e máximo do **UserInputType** utilizando um `DateTimeDropdown`. Para tal, crie uma **predicado** com o `IsDateRange` método e forneça os parâmetros mínimos e máximos.
 

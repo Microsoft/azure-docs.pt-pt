@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075639"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731094"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Capacidades de transações comerciais do Azure Marketplace e considerações
 
@@ -186,9 +186,9 @@ Se o cliente compra com um contrato Enterprise:
 |Data de faturação | 15 de Outubro de 2018 |
 |Caução período (cartões de crédito apenas, 30 dias) | n/d |
 |Início do período de coleção | 15 de Outubro de 2018 |
-|Fim de período de coleção (no máximo, 90 dias) | 15 de Janeiro de 2018 |
+|Fim de período de coleção (no máximo, 90 dias) | 15 de Janeiro de 2019 |
 |Data de pagamento de cliente | 30 de Dezembro de 2018 |
-|Data de cálculo de dividendos (mensalmente no dia de 15) | 15 de Janeiro de 2018 |
+|Data de cálculo de dividendos (mensalmente no dia de 15) | 15 de Janeiro de 2019 |
 |Data de dividendos | 15 de Fevereiro de 2019 |
 
 **Créditos gratuitos e de alocação monetária** 
@@ -226,7 +226,7 @@ Os requisitos de transact para tipos de oferta diferente são abordados nesta se
 
 * Centro de desenvolvimento e uma conta Microsoft são necessários para o transact opção, independentemente da oferta de publicação do modelo de preços.
 * A conta do Dev Center possui todos os detalhes financeiros relevantes necessários para a Microsoft a cobrar as tarifas do cliente em nome do publicador e a pagar o publicador.
-* Embora possa utilizar a mesma organizacionais ou início de sessão os detalhes da Microsoft em ambas as contas, o Centro de desenvolvimento é uma conta separada da conta do Portal do publicador na Cloud. Para utilizar a opção de publicação do transact, o publicador tem de concluir o Centro de desenvolvimento conta processo de inscrição, além de inscrever-se no acesso ao Portal de parceiros da Cloud.
+* Embora possa utilizar a mesma organizacionais ou início de sessão os detalhes da Microsoft em ambas as contas, o Centro de desenvolvimento é uma conta separada da conta do Portal de parceiros da Cloud. Para utilizar a opção de publicação do transact, o publicador tem de concluir o Centro de desenvolvimento conta processo de inscrição, além de inscrever-se no acesso ao Portal de parceiros da Cloud.
 
 *Para obter mais informações sobre como configurar estas contas, consulte [se tornar um publicador de Marketplace da Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).*
 

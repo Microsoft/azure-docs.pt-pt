@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/23/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a7063b9177774c5207746283dc7cd25e3dd5793
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 73fd388ad8d35543138c06b413cd40d7052806a7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721891"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735649"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Enlaces do Serviço SignalR para as Funções do Azure
 
@@ -43,7 +43,7 @@ Antes de um cliente pode ligar ao serviço Azure SignalR, ele tem de obter o URL
 
 Veja o exemplo de idioma específico:
 
-* [2.x c#](#2x-c-input-example)
+* [2.x C#](#2x-c-input-example)
 * [2.x JavaScript](#2x-javascript-input-example)
 
 ### <a name="2x-c-input-example"></a>exemplo de entrada 2.x c#
@@ -64,7 +64,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 Se a função é acionada por um cliente autenticado, pode adicionar uma afirmação de ID de utilizador para o token gerada. Pode adicionar facilmente autenticação para uma aplicação de função com [autenticação do serviço de aplicações] (... /App-Service/Overview-Authentication-Authorization.MD).
 
-Autenticação do serviço de aplicações define os cabeçalhos HTTP com o nome `x-ms-client-principal-id` e `x-ms-client-principal-name` que contêm os ID de principal de cliente e o nome, o utilizador autenticado, respetivamente. Pode definir o `UserId` propriedade da ligação para o valor do cabeçalho usando um [expressão de ligação](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
+Autenticação do serviço de aplicações define os cabeçalhos HTTP com o nome `x-ms-client-principal-id` e `x-ms-client-principal-name` que contêm os ID de principal de cliente e o nome, o utilizador autenticado, respetivamente. Pode definir o `UserId` propriedade da ligação para o valor do cabeçalho usando um [expressão de ligação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
 
 ```cs
 [FunctionName("GetSignalRInfo")]
@@ -110,7 +110,7 @@ module.exports = function (context, req, connectionInfo) {
 
 Se a função é acionada por um cliente autenticado, pode adicionar uma afirmação de ID de utilizador para o token gerada. Pode adicionar facilmente autenticação para uma aplicação de função com [autenticação do serviço de aplicações] (... /App-Service/Overview-Authentication-Authorization.MD).
 
-Autenticação do serviço de aplicações define os cabeçalhos HTTP com o nome `x-ms-client-principal-id` e `x-ms-client-principal-name` que contêm os ID de principal de cliente e o nome, o utilizador autenticado, respetivamente. Pode definir o `userId` propriedade da ligação para o valor do cabeçalho usando um [expressão de ligação](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
+Autenticação do serviço de aplicações define os cabeçalhos HTTP com o nome `x-ms-client-principal-id` e `x-ms-client-principal-name` que contêm os ID de principal de cliente e o nome, o utilizador autenticado, respetivamente. Pode definir o `userId` propriedade da ligação para o valor do cabeçalho usando um [expressão de ligação](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` ou `{headers.x-ms-client-principal-name}`. 
 
 Function de exemplo:
 
@@ -142,7 +142,7 @@ Utilize o *SignalR* enlace para enviar mensagens de um ou mais utilizando o serv
 
 Veja o exemplo de idioma específico:
 
-* [2.x c#](#2x-c-output-example)
+* [2.x C#](#2x-c-output-example)
 * [2.x JavaScript](#2x-javascript-output-example)
 
 ### <a name="2x-c-output-example"></a>exemplo de saída 2.x c#
@@ -249,7 +249,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**direção**|| Tem de ser definido como `in`.|
 |**name**|| Nome da variável no código de função para o objeto de informações de ligação. |
 |**hubName**|**HubName**| Este valor tem de ser definido para o nome do hub do SignalR para que as informações de ligação são geradas.|
-|**userId**|**ID de utilizador**| Opcional: O valor do identificador de utilizador de afirmação definir o token de chave de acesso. |
+|**userId**|**UserId**| Opcional: O valor do identificador de utilizador de afirmação definir o token de chave de acesso. |
 |**connectionStringSetting**|**ConnectionStringSetting**| O nome da definição de aplicação que contém a cadeia de ligação de serviço SignalR (a predefinição é "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR

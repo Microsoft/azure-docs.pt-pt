@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2019
-ms.openlocfilehash: 5228e4986993f792dceb7324bb6ba9f836f29aea
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ed512c0f56d8da5cb8e47b20f2495054fdedf020
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213161"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741105"
 ---
 Este contentor tem as seguintes definições de configuração:
 

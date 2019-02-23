@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 10e790c2edb22b3c7926216535d76c50261589f3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 722159b82845eff08e0c302eafd503459941ebe7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260339"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734766"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão para serviços BizTalk do Azure
 
@@ -47,7 +47,8 @@ As notas de versão para os serviços BizTalk do Microsoft Azure contêm os prob
 * Para o contrato de lado de envio, agora é possível especificar conjuntos de delimitador diferentes para cada esquema. Esta configuração é especificada nas definições do protocolo de contrato do lado de envio. Para obter mais informações, consulte [Create X12 contrato nos BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [criar um contrato EDIFACT no BizTalk Services do Azure](https://msdn.microsoft.com/library/azure/dn606267.aspx). Duas novas entidades também são adicionadas à API de OM do TPM para a mesma finalidade. Ver [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) e [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Padrão construções XSD, incluindo tipos derivados, agora são suportadas. Ver [XSD de padrão de utilização construções em seus mapas](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [tipos derivados de utilização em cenários de mapeamento e exemplos](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
 * AS2 oferece suporte a novos algoritmos MIC para a assinatura da mensagem e novos algoritmos de criptografia. Ver [criar um contrato de AS2 nos serviços BizTalk do Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
-  ## <a name="know-issues"></a>Saiba que esses problemas
+
+## <a name="known-issues"></a>Problemas Conhecidos
 
 ### <a name="connectivity-issues-after-biztalk-services-portal-update"></a>Problemas de conectividade, após a atualização do Portal dos serviços BizTalk
   Se tiver o Portal de serviços do BizTalk abrir enquanto os serviços do BizTalk é atualizado para distribuir as alterações para o serviço, poderá enfrentar problemas de conectividade com o Portal de serviços do BizTalk.  

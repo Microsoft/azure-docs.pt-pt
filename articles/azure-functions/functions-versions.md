@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: cc19a2d7641b20a413bbc39efe0d1c5ede362e6d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885192"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734460"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>As funções runtime versões descrição geral do Azure
 
@@ -29,7 +29,7 @@ A versão 2.x do runtime é executado no .NET Core 2, que permite que seja execu
 
 Por comparação, o tempo de execução do versão 1.x só oferece suporte a desenvolvimento e hospedagem no portal do Azure ou em computadores Windows.
 
-## <a name="languages"></a>Linguagens
+## <a name="languages"></a>Languages
 
 A versão 2.x do runtime usa um novo modelo de extensibilidade do idioma. Na versão 2.x, todas as funções na aplicação de função têm de partilhar o mesmo idioma. O idioma das funções numa aplicação de funções é escolhido ao criar a aplicação.
 
@@ -37,7 +37,7 @@ Linguagens experimentais do Azure funções 1.x não serão atualizadas para usa
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-Para obter mais informações, consulte [idiomas suportados](supported-languages.md).
+Para obter mais informações, veja [Idiomas suportados](supported-languages.md).
 
 ## <a name="creating-1x-apps"></a>É executado na versão 1.x
 
@@ -49,7 +49,7 @@ Pode optar por migrar uma aplicação existente, escrita para utilizar o tempo d
 
 ### <a name="changes-in-triggers-and-bindings"></a>Alterações em acionadores e enlaces
 
-Versão 2.x precisa que instale as extensões para específicos acionadores e enlaces utilizados pelas funções na sua aplicação. A única exceção para esta acionadores HTTP e timer, que não necessitam de uma extensão.  Para obter mais informações, consulte [Registre-se e instalar as extensões de enlace](./functions-triggers-bindings.md#register-binding-extensions).
+Versão 2.x precisa que instale as extensões para específicos acionadores e enlaces utilizados pelas funções na sua aplicação. A única exceção para esta acionadores HTTP e timer, que não necessitam de uma extensão.  Para obter mais informações, consulte [Registre-se e instalar as extensões de enlace](./functions-bindings-expressions-patterns.md).
 
 Também há algumas alterações no `function.json` ou atributos da função entre versões. Por exemplo, o Hub de eventos `path` propriedade é agora `eventHubName`. Consulte a [tabela de associação existente](#bindings) para obter ligações para documentação para cada ligação.
 
@@ -73,7 +73,7 @@ Na versão 2.x, as seguintes alterações foram feitas:
 
 * Limitações de simultaneidade HTTP são implementadas por predefinição para as funções do plano de consumo, com uma predefinição de 100 pedidos em simultâneo por instância. Pode alterá-lo no [ `maxConcurrentRequests` ](functions-host-json.md#http) definição no ficheiro de Host. JSON.
 
-* Devido [limitações do .NET core](https://github.com/Azure/azure-functions-host/issues/3414), o suporte para funções de script (.fsx) F # foi removido. F # as funções compiladas (soubor) ainda são suportadas.
+* Devido [limitações do .NET core](https://github.com/Azure/azure-functions-host/issues/3414), o suporte para F# funções de script (.fsx) foi removido. Compilado F# funções (soubor) ainda são suportadas.
 
 * O formato de URL de webhooks de Acionador do Event Grid foi alterado para `https://{app}/runtime/webhooks/{triggerName}`.
 
@@ -121,7 +121,7 @@ A versão 2.x do runtime usa um novo [modelo de extensibilidade de ligação](ht
 
 * Um mais leve ambiente de execução, em que apenas as associações em utilização são conhecidas e carregadas pelo tempo de execução.
 
-Com exceção dos acionadores HTTP e timer, todos os enlaces tem de ser explicitamente adicionados ao projeto de aplicação de função ou registados no portal. Para obter mais informações, consulte [registar as extensões de vinculação](functions-triggers-bindings.md#register-binding-extensions).
+Com exceção dos acionadores HTTP e timer, todos os enlaces tem de ser explicitamente adicionados ao projeto de aplicação de função ou registados no portal. Para obter mais informações, consulte [registar as extensões de vinculação](./functions-bindings-expressions-patterns.md).
 
 A tabela seguinte mostra as ligações são suportadas em cada versão de runtime.
 

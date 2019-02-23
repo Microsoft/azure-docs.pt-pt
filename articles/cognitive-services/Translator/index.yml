@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: dd13a8178fd74f54ffa6fa5d9d8c23d214965dca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d6daf9805737294fb5bf0e9f4e48a3c7cfbb98e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866973"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731842"
 documentType: LandingData
 title: Documentação da Tradução de Texto
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/06/18
+  ms.date: 02/21/2019
   ms.author: v-jansko
 abstract:
   description: A Tradução de Texto é um serviço de tradução automática com base na cloud que pode utilizar para traduzir texto quase em tempo real através de uma simples chamada à API REST. A API utiliza uma tecnologia de tradução automática neural e oferece tecnologia de tradução automática estatística. O Custom Translator é uma extensão da API de Texto do Microsoft Translator, que lhe permite criar sistemas de tradução neural. O sistema de tradução personalizado pode ser utilizado para traduzir texto com a API de Texto do Microsoft Translator ou com os <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Serviços de Voz da Microsoft</a>. Para obter a lista de idiomas suportados de ambos os tipos de tradução automática, neural e estatística, veja o artigo <a href="languages.md">Idiomas suportados</a>.

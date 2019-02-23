@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 00468ca62e55823b4706fc52d9793f676aebd368
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312859"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733704"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Conceder acesso de aplicações para recursos do Azure Stack através da criação de principais de serviço
 
@@ -75,7 +75,7 @@ Quando iniciar sessão programaticamente, utilize o ID da sua aplicação e uma 
 
 2. Copie o **ID da Aplicação** e armazene-o no código da aplicação. As aplicações nas aplicações de exemplo utilizam **id de cliente** quando nos Referimos ao **ID de aplicação**.
 
-     ![ID da aplicação para a aplicação](./media/azure-stack-create-service-principal/image12.png)
+     ![ID da aplicação para a aplicação](./media/azure-stack-create-service-principals/image12.png)
 3. Para gerar uma chave de autenticação, selecione **Chaves**.
 
 4. Indique uma descrição e uma duração para a chave. Quando terminar, selecione **Guardar**.
@@ -83,7 +83,7 @@ Quando iniciar sessão programaticamente, utilize o ID da sua aplicação e uma 
 >[!IMPORTANT]
 Depois de guardar a chave, a chave **valor** é apresentado. Anote este valor, porque não é possível obter a chave mais tarde. Armazene o valor da chave num local onde a aplicação o possa obter.
 
-![Aviso de chave-valor para a chave guardada.](./media/azure-stack-create-service-principal/image15.png)
+![Aviso de chave-valor para a chave guardada.](./media/azure-stack-create-service-principals/image15.png)
 
 A etapa final é [atribuir uma função de seu aplicativo](azure-stack-create-service-principals.md).
 
@@ -110,7 +110,7 @@ Utilize os passos seguintes como guia para atribuir uma função a um principal 
 
 2. Selecione a subscrição para atribuir a aplicação. Neste exemplo, a subscrição é o Visual Studio Enterprise.
 
-     ![Selecione a subscrição do Visual Studio Enterprise para atribuição](./media/azure-stack-create-service-principal/image16.png)
+     ![Selecione a subscrição do Visual Studio Enterprise para atribuição](./media/azure-stack-create-service-principals/image16.png)
 
 3. Selecione **controlo de acesso (IAM)** para a subscrição.
 

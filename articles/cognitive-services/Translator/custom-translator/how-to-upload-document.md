@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: 83d6791740cd6aebb9da14b86e0d5272ab78f43a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217225"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737591"
 ---
 # <a name="upload-a-document"></a>Carregar um documento
 
@@ -37,7 +37,7 @@ Partir [Translator personalizado](https://portal.customtranslator.azure.ai) port
 
     a.  Tipo de documento:
 
-    -  Treinamento: Estes document(s) será utilizado para o conjunto de preparação.
+    -  Preparação: Estes document(s) será utilizado para o conjunto de preparação.
     -  Otimização: Estes document(s) será utilizado para o conjunto de ajuste.
     -  Teste: Estes document(s) será utilizado para o conjunto de teste.
     -  Dicionário da frase: Estes document(s) será utilizado para o dicionário de frase.

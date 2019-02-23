@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 7b85faf2e1803b40f3f2f0e49c5672b96e7961f5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0f96ee13e6020bc69508f8ced45741fe7dec396a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224356"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732884"
 ---
 # <a name="use-the-anomaly-finder-api-with-java"></a>Utilizar o Explorador de anomalias API com Java
 

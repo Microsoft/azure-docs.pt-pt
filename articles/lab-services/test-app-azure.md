@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: a58ebe14749add30deb229f1b7e30fbb6e9921d7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 9ca1c4a1ed1841f82bc386cff48315dd15ef91bb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814909"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730414"
 ---
 # <a name="test-your-app-in-azure"></a>Testar a aplicação no Azure 
 Este artigo fornece passos para testar a sua aplicação no Azure com o DevTest Labs. Comece por configurar uma partilha de ficheiros num laboratório e montá-la como uma unidade na sua máquina de desenvolvimento local e uma VM dentro de um laboratório. Em seguida, utilizar o Visual Studio 2017 para implementar a sua aplicação para a partilha de ficheiros, para que pode executar a aplicação na VM no laboratório.  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 1. [Criar uma subscrição do Azure](https://azure.microsoft.com/free/) se já não tiver uma e inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -56,7 +58,7 @@ Este artigo fornece passos para testar a sua aplicação no Azure com o DevTest 
 
     ![Selecione a VM de laboratório](media/test-app-in-azure/select-lab-vm.png)
 2. Selecione **Connect** na barra de ferramentas para ligar à VM. 
-3. [Instalar o Azure PowerShell](https://azure.microsoft.com/downloads/) utilizando o **instalar o Windows** ligação na **ferramentas da linha de comandos** secção. Para outras formas de instalar o Azure PowerShell, veja [este artigo](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 4. Siga as instruções de montagem a secção de partilha de ficheiros. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publique a sua aplicação a partir do Visual Studio

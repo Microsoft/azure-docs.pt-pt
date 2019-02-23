@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 62e9879f6bc75f042669ecb931ca7459d1317cc7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 6243905857f0450168541f556636d90bb4d855f7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56272090"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734953"
 ---
 # <a name="azure-data-factory-mapping-data-flow-surrogate-key-transformation"></a>Mapeamento de transformação chave de substituição do fluxo de dados de fábrica de dados do Azure
 

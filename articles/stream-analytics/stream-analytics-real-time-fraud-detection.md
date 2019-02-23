@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 6433d130da108ce7bd0b6f8b4093161043c32645
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558180"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733151"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Comece a utilizar o Azure Stream Analytics: Deteção de fraudes em tempo real
 
@@ -188,9 +188,9 @@ Agora que tem um fluxo de eventos de chamada, pode configurar uma tarefa do Stre
    |---------|---------|---------|
    |Alias de entrada  |  CallStream   |  Introduza um nome para identificar a entrada da tarefa.   |
    |Subscrição   |  \<A sua subscrição\> |  Selecione a subscrição do Azure com o Hub de eventos que criou.   |
-   |Espaço de nomes do hub de eventos  |  asa-,-ns-demo |  Introduza o nome do espaço de nomes do Hub de eventos.   |
-   |O nome do hub de eventos  | asa-,-frauddetection-demo | Selecione o nome do seu Hub de eventos.   |
-   |Nome da política do Hub de Eventos  | asa-política-gerir-demo | Selecione a política de acesso que criou anteriormente.   |
+   |Espaço de nomes do hub de eventos  |  asa-eh-ns-demo |  Introduza o nome do espaço de nomes do Hub de eventos.   |
+   |O nome do hub de eventos  | asa-eh-frauddetection-demo | Selecione o nome do seu Hub de eventos.   |
+   |Nome da política do Hub de Eventos  | asa-policy-manage-demo | Selecione a política de acesso que criou anteriormente.   |
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
@@ -355,10 +355,10 @@ Se tiver uma conta de armazenamento de BLOBs existentes, pode utilizá-lo. Para 
 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
-   |Alias de saída  |  CallStream FraudulentCalls   |  Introduza um nome para identificar a saída da tarefa.   |
+   |Alias de saída  |  CallStream-FraudulentCalls   |  Introduza um nome para identificar a saída da tarefa.   |
    |Subscrição   |  \<A sua subscrição\> |  Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição. |
    |Conta de armazenamento  |  asaehstorage |  Introduza o nome da conta de armazenamento que criou. |
-   |Contentor  | demonstração do fraudulentcalls asa | Selecione criar novo e introduza um nome de contentor. |
+   |Contentor  | asa-fraudulentcalls-demo | Selecione criar novo e introduza um nome de contentor. |
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     

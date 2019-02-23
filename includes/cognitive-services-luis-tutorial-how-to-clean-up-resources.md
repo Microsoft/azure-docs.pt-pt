@@ -10,11 +10,11 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 965ce56a422ce7960ff61c520efbd95b72d397f0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f89a2f6eb3d105d45df1bbbc4a0e8fffe4f7d9c5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480650"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741579"
 ---
 Quando já não precisar, elimine a aplicação LUIS. Para tal, selecione **As minhas aplicações** no menu do canto superior esquerdo. Selecione as reticências (***…***) à direita do nome da aplicação na lista de aplicações e selecione **Eliminar**. Na caixa de diálogo de pop-up **Delete app?** (Eliminar aplicação?), selecione **OK**. 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 10839354339d7d4f39a041a9b0f11f3afa3845ef
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4518f5a6bd232bce3cf973c21944ef3aa722d1f7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876472"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727150"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Início rápido: Utilize a API de texto do Translator para traduzir uma cadeia de caracteres com Python
 

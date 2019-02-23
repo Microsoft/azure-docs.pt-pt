@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: c670bf8228662929310c4462d324393827e6b354
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: bfcfcbd7efdf80f48b8ab40edb2a273943142d1e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213757"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734936"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>Utilizar o Explorador de anomalias API com Javascript
 

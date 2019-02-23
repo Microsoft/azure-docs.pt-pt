@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: 488b97074d74650ecf5602d25e2a90a1998e5585
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8f8bdb4d601e35cf489c1c4c1db3574fb8c8f18f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883879"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730790"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualize e analise os eventos a partir de seus espaços duplos Digital do Azure com o Time Series Insights
 
@@ -90,13 +90,13 @@ Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço
       - UdfCustom
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     - type: EventHub
       eventTypes:
       - DeviceMessage
       connectionString: Primary_connection_string_for_your_event_hub
       secondaryConnectionString: Secondary_connection_string_for_your_event_hub
-      path: Name_of_your_Event_Hubs_namespace
+      path: Name_of_your_Event_Hub
     ```
 
 1. Substitua os marcadores de posição `Primary_connection_string_for_your_event_hub` com o valor de **cadeia de ligação – chave primária** para o hub de eventos. Certifique-se de que o formato desta cadeia de ligação é o seguinte:
@@ -111,7 +111,7 @@ Pode utilizar o [os Hubs de eventos](../event-hubs/event-hubs-about.md) serviço
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. Substitua os marcadores de posição `Name_of_your_Event_Hubs_namespace` pelo nome do espaço de nomes do Hub de Eventos.
+1. Substitua os marcadores de posição `Name_of_your_Event_Hub` com o nome do seu Hub de eventos.
 
     > [!IMPORTANT]
     > Introduza todos os valores, sem aspas. Certificar-se de que existe caráter de espaço, pelo menos, uma após a vírgula no ficheiro YAML. Também pode validar o seu conteúdo do ficheiro YAML, utilizando qualquer validador YAML online, como [essa ferramenta](https://onlineyamltools.com/validate-yaml).

@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 08328b3c872ce9e8a25db6075b00e0cee2fdf4fd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 355fe134939b26c51d6e03368f782845628a6b96
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480298"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738901"
 ---
 A aplicação cliente tem de saber se uma expressão não é significativo ou adequado para a aplicação. O **None** intenção é adicionada a cada aplicação como parte do processo de criação para determinar se uma expressão não pode ser respondida pela aplicação de cliente.
 

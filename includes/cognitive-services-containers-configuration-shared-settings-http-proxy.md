@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2019
-ms.openlocfilehash: 98a6eb024e723e0225711adaccf385a2790e5bc8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 493810e85ef535005e75f4ac37fcb1920e5d8549
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302789"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740767"
 ---
 Se precisar de configurar um proxy HTTP para fazer pedidos de saída, utilize estes dois argumentos:
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: d9271b32f6254b032fab9e93aaf82ab39e7f1932
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 38ad921c7c4b2fef9d325c2e2c9eea25bd3c913b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876297"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734681"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Quais são os serviços cognitivos do Azure?
 
@@ -94,7 +94,7 @@ Está à procura de uma região, não suportamos ainda? Queremos saber ao preenc
 
  Os serviços cognitivos suporta uma vasta gama de linguagens culturais no nível de serviço. Pode encontrar a disponibilidade de idioma para cada API na [suportada a lista de idiomas](language-support.md).
 
- ## <a name="container-support"></a>Suporte de contentor
+## <a name="container-support"></a>Suporte de contentor
 
  Os serviços cognitivos fornece contentores para implementação na cloud do Azure ou no local. Saiba mais sobre [contentores de serviços cognitivos](cognitive-services-container-support.md).
 

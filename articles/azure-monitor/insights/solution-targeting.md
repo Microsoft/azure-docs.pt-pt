@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d1d2dd689cb389b6adfe1dd534e7c73e17f755f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4beb9811a57ecd0a1eada5b36bd65b67851d2564
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989190"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731978"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Filtragem de soluções de monitorização no Azure Monitor (pré-visualização)
 Quando adiciona uma solução de monitorização para a sua subscrição, será automaticamente implantado por predefinição para todos os agentes Windows e Linux ligados à sua área de trabalho do Log Analytics.  Poderá querer gerir os custos e limitar a quantidade de dados recolhidos para uma solução ao limitá-la para um determinado conjunto de agentes.  Este artigo descreve como utilizar **filtragem da solução** que é uma funcionalidade que lhe permite aplicar um âmbito às suas soluções.
@@ -35,7 +35,7 @@ Especificar os computadores que pretende incluir num âmbito através da criaç�
 Assim que tiver criado na sua área de trabalho, o grupo de computadores, em seguida, irá incluir numa configuração de âmbito que pode ser aplicada a uma ou mais soluções.
  
  
- ### <a name="2-create-a-scope-configuration"></a>2. Criar uma configuração de âmbito
+### <a name="2-create-a-scope-configuration"></a>2. Criar uma configuração de âmbito
  R **a configuração de âmbito** inclui um ou mais grupos de computadores e podem ser aplicadas a uma ou mais soluções. 
  
  Crie uma configuração de âmbito utilizando o seguinte processo.  
@@ -49,7 +49,7 @@ Assim que tiver criado na sua área de trabalho, o grupo de computadores, em seg
  6. Clique em **OK** para criar a configuração de âmbito. 
 
 
- ### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Aplica a configuração de âmbito a uma solução.
+### <a name="3-apply-the-scope-configuration-to-a-solution"></a>3. Aplica a configuração de âmbito a uma solução.
 Depois de ter uma configuração de âmbito, pode aplicá-la para uma ou mais soluções.  Tenha em atenção que, enquanto uma configuração de âmbito único pode ser utilizada com várias soluções, cada solução só pode utilizar uma configuração de âmbito.
 
 Aplica uma configuração de âmbito, com o processo seguinte.  

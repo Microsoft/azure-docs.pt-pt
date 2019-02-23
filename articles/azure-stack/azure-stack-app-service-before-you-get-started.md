@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 02/22/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 02/22/2019
+ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447451"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737489"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações no Azure Stack
 
@@ -307,6 +307,16 @@ Instância do SQL Server para o serviço de aplicações do Azure no Azure Stack
 > Um número de imagens de máquinas virtuais de IaaS do SQL está disponível através da funcionalidade de gestão do Marketplace. Certifique-se de que sempre transferir a versão mais recente da extensão de IaaS do SQL antes de implementar uma VM com um item do mercado. As imagens do SQL são as mesmas que as VMs de SQL que estão disponíveis no Azure. Para VMs de SQL criado a partir destas imagens, a extensão de IaaS e correspondente aprimoramentos portais oferecem funcionalidades como a aplicação de patches automática e capacidades de cópia de segurança.
 >
 Para qualquer uma das funções do SQL Server, pode utilizar uma instância predefinida ou numa instância nomeada. Se utilizar uma instância nomeada, certifique-se de que iniciar o serviço do SQL Server Browser e abrir a porta 1434 manualmente.
+
+O instalador do serviço de aplicações irá verificar para garantir que o SQL Server tem de contenção da base de dados ativada. Para ativar a contenção da base de dados no SQL Server que alojará as bases de dados do serviço de aplicações, execute estes comandos SQL:
+
+```sql
+sp_configure 'contained database authentication', 1;  
+GO  
+RECONFIGURE;  
+GO
+```
+
 
 >[!IMPORTANT]
 > Se optar por implementar o serviço de aplicações numa rede Virtual existente, o SQL Server devem ser implementado numa sub-rede separada do serviço de aplicações e o servidor de ficheiros.

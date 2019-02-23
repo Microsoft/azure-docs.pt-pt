@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 567f64b8b720588807caeb5e49bae15f14c5b0a7
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6bde6e74279fc16237c0c0436296e2d21c3a57c7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329801"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736622"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuração de fluxo de dados de mapeamento
 

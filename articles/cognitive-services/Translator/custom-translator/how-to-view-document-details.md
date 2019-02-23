@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: how to edit a model
-ms.openlocfilehash: e656c6dd7050851eb9885fe253ab29f4e3675216
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: ed872a00cd35fcef74ab0b578a86cdb6cd2ec8c7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219809"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727575"
 ---
 # <a name="view-document-details"></a>Ver detalhes do documento
 
@@ -22,7 +22,7 @@ A página de lista de documento mostra as primeiras 10 documento na sua área de
 
 Clique num documento individual para ver a página de detalhes do documento. A página de detalhes do documento apresenta a lista de frases extraídas do documento.
 
-- Por predefinição, a "origem" idioma é selecionado no campo de lista pendente, mas pode alternar para ver as frases no idioma de destino. 
+- Por predefinição, a "origem" idioma é selecionado no campo de lista pendente, mas pode alternar para ver as frases no idioma de destino.
 - 20 frases são apresentadas por página por predefinição. Pode usar o controle de paginação para navegar entre páginas.
 
 ![Detalhes do documento](media/how-to/how-to-view-document-details.png)

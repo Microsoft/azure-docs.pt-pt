@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 87ea4edd9bb548701d6bcf63dd542ed6e35d9f7f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.topic: conceptual
+ms.openlocfilehash: 2b7e709a06797323cc99bfd636ee26e9bfb8026d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585558"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731859"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 
@@ -22,7 +22,7 @@ Um dicionário é um par alinhado de documentos que especifica uma lista de expr
 
 Dicionários só funcionam em projetos em pares de idiomas que têm um sistema de tradução automática neuronal (NMT) do Microsoft totalmente suportado por trás delas. [Veja a lista completa das linguagens](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
-## <a name="phrase-dictionary"></a>Dicionário da frase 
+## <a name="phrase-dictionary"></a>Dicionário da frase
 Quando inclui um dicionário de frase no seu modelo de formação, qualquer palavra ou frase listado é traduzido de forma que especificou. O restante da sentença é traduzido como de costume. Pode usar um dicionário de frase para especificar as frases que não devem ser traduzidos, fornecendo a mesma frase sem tradução no ficheiro de origem e de destino no dicionário.
 
 ## <a name="sentence-dictionary"></a>Dicionário da sentença
@@ -36,9 +36,9 @@ Pode preparar um modelo a utilizar apenas os dados do dicionário. Para tal, sel
 
 ## <a name="recommendations"></a>Recomendações
 
-- Dicionários não são um substituto para um modelo preparado com dados de treinamento.  Dicionários, essencialmente, localizar e substituem palavras ou frases.  Permitir que o sistema Aprenda com seu material de treinamento em frases completas é, geralmente, uma opção melhor do que usando um dicionário. 
+- Dicionários não são um substituto para um modelo preparado com dados de treinamento.  Dicionários, essencialmente, localizar e substituem palavras ou frases.  Permitir que o sistema Aprenda com seu material de treinamento em frases completas é, geralmente, uma opção melhor do que usando um dicionário.
 - O dicionário de frase deve ser usado com moderação. Quando uma frase dentro de uma sentença é substituída, o contexto dentro daquela frase for perdido ou limitado para traduzir o resto da sentença. O resultado é que, ao mesmo tempo a frase ou word dentro da sentença, serão traduzidas, de acordo com o dicionário de frase, a qualidade geral de tradução da sentença, muitas vezes, será afetado.
-- O dicionário de frase funciona bem para substantivos compostos, como nomes de produtos ("Microsoft SQL Server"), nomes apropriados ("Cidade de Hamburgo") ou recursos do produto ("tabela dinâmica"). Ele não funciona igualmente bem para verbos ou os adjetivos porque estes são normalmente altamente inflected na origem ou no idioma de destino. Evite as entradas de dicionário de frase para qualquer coisa além de substantivos compostas. 
+- O dicionário de frase funciona bem para substantivos compostos, como nomes de produtos ("Microsoft SQL Server"), nomes apropriados ("Cidade de Hamburgo") ou recursos do produto ("tabela dinâmica"). Ele não funciona igualmente bem para verbos ou os adjetivos porque estes são normalmente altamente inflected na origem ou no idioma de destino. Evite as entradas de dicionário de frase para qualquer coisa além de substantivos compostas.
 - Ao usar um dicionário, capitalização e pontuação na suas traduções irão refletir a capitalização e pontuação fornecidos em seu arquivo de destino. Capitalização e pontuação são ignorados ao tentar identificar correspondências entre a sua frase de entrada e as frases de origem no seu arquivo de dicionário. Por exemplo, digamos que preparado um inglês para espanhol sistema que é utilizado um dicionário que especificado "Cidade de Hamburgo" no arquivo de origem e "Cidade de Hamburgo" no ficheiro de destino. Se solicitei a tradução de uma sentença que incluía a frase "Cidade de Hamburgo", em seguida, "Cidade de Hamburgo" corresponderia ao meu arquivo de dicionário para a entrada "Cidade de Hamburgo" e seriam mapeados para "Cidade de Hamburgo", na minha tradução final.
 - Se uma palavra aparece mais do que uma vez num arquivo de dicionário, o sistema utilizará sempre a última entrada fornecida. Seu dicionário não deve conter várias traduções da mesma palavra.
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 79cc27373c5b9e2985cecae0ae631653d5d4e078
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b49db19fe09e148cbd17e4cc5ed8a130ff22a424
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480381"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740838"
 ---
 > [!NOTE] 
 > O ficheiro de solução concluída (s) está disponíveis a partir da [ **Azure-amostras/cognitivos-services-qnamaker-nodejs** repositório do GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs).

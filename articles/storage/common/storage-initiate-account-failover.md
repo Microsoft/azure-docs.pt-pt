@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d1fb921f72af58eacde5f1ef35ee3aec80f767c8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.subservice: common
+ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994683"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668569"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar um failover de conta de armazenamento (pré-visualização)
 

@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/02/2019
-ms.openlocfilehash: d1416e7a6cad079be94b0a9b48d7c7c71a598cc2
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ffd17f7a641e1481aa4c88f8b2eb12ec11fa7d8b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53977357"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741218"
 ---
 Fluentd é um recoletor de dados de código-fonte aberto para o registo unificado. O `Fluentd` definições gerir ligação do contentor para um [Fluentd](https://www.fluentd.org) server. O contêiner inclui um provedor de log Fluentd, que permite que o contentor escrever os registos e, opcionalmente, dados de métrica para um servidor de Fluentd.
 

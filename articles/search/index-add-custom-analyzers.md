@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cb2f06bf2a05e2642eb688a48006d0df5fa4fc2c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 82b2910a1654461cade853b71e6d57a674bb849e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587825"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733202"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Adicionar os analisadores personalizados para um índice da Azure Search
 
@@ -189,7 +189,7 @@ Pode utilizar o **operação do analisador de teste** no [REST API](https://docs
   }
 ```
 
- ## <a name="update-custom-analyzers"></a>Atualize os analisadores personalizados
+## <a name="update-custom-analyzers"></a>Atualize os analisadores personalizados
 
 Depois de um analisador, um tokenizer, um filtro de token ou um filtro de char é definido, não pode ser modificado. Novos podem ser adicionados a um índice existente, apenas se o `allowIndexDowntime` sinalizador estiver definido como verdadeiro no pedido de atualização de índice:
 
@@ -205,7 +205,7 @@ Esta operação retira o seu índice offline para, pelo menos, alguns segundos, 
 
 As tabelas a seguir listam as propriedades de configuração para analisadores, tokenizers, filtros de token e char secção filtro de uma definição de índice. A estrutura de um analisador, tokenizer ou filtro no seu índice é composta por estes atributos. Para informações de atribuição de valor, consulte a [referência de propriedade](#PropertyReference).
 
- ### <a name="analyzers"></a>Analisadores
+### <a name="analyzers"></a>Analisadores
 
 Para analisadores, atributos de índice variam consoante o se estiver a utilizar analisadores predefinidos ou personalizados.
 
@@ -229,7 +229,7 @@ Para analisadores, atributos de índice variam consoante o se estiver a utilizar
 
 <a name="CharFilter"></a>
 
- ### <a name="char-filters"></a>Filtros de char
+### <a name="char-filters"></a>Filtros de char
 
  Um filtro de char é usado para preparar o texto de entrada antes de é processado pelo atomizador. Por exemplo, elas substituem certos caracteres ou símbolos. Pode ter vários filtros de char num analisador personalizado. Filtros de char são executados pela ordem em que estão listados.  
 
@@ -239,7 +239,7 @@ Para analisadores, atributos de índice variam consoante o se estiver a utilizar
 |Type|Tipo da lista de filtros de char suportadas de filtro de char. Ver **char_filter_type** coluna na [Char filtros](#CharFilter) tabela abaixo.|  
 |Opções|Tem de ser as opções válidas de uma determinada [Char filtros](#CharFilter) tipo.|  
 
- ### <a name="tokenizers"></a>Tokenizers
+### <a name="tokenizers"></a>Tokenizers
 
  Um atomizador divide texto contínuo numa seqüência de tokens, como quebrar uma frase em palavras.  
 
@@ -252,7 +252,7 @@ Um analisador personalizado pode utilizar um atomizador predefinido com opções
 |Type|Nome de atomizador na lista de tokenizers suportados. Ver **tokenizer_type** coluna na [Tokenizers](#Tokenizers) tabela abaixo.|  
 |Opções|Tem de ser as opções válidas de um tipo de determinado atomizador listados na [Tokenizers](#Tokenizers) tabela abaixo.|  
 
- ### <a name="token-filters"></a>Filtros de token
+### <a name="token-filters"></a>Filtros de token
 
  Um filtro de token é utilizado para filtrar ou modificar os tokens gerados por um atomizador. Por exemplo, pode especificar um filtro em minúsculas, que converte todos os carateres em minúsculas.   
 Pode ter vários filtros de token num analisador personalizado. Filtros de token são executados pela ordem em que estão listados.  

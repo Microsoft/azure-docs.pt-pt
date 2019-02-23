@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.openlocfilehash: bd4921cb959e3ea2e893c6837fb47792d3585ca9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f6ac9647a969816cada2e4c644c17b4618cf14e8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220132"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735582"
 ---
 # <a name="what-are-trainings-and-models"></a>Quais são os modelos e treinamentos?
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 47800ce467beb43c514e5e5474247d8c2029feff
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: d87fe608b92dd70cb2dee78c817e0055445b7c70
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188237"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732530"
 ---
 # <a name="automation-with-service-principals"></a>Automação com principais de serviço
 
@@ -45,7 +45,9 @@ AppID de principal de serviço e uma palavra-passe ou certificado pode ser utili
 
 ### <a name="powershell"></a>PowerShell
 
-Quando utilizar um principal de serviço para operações de gestão de recursos com o [azurerm. Analysisservices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) módulo, utilize `Login-AzureRmAccount` cmdlet. Quando utilizar um principal de serviço para operações de servidor com o [SQLServer](https://www.powershellgallery.com/packages/SqlServer) módulo, utilize `Add-AzureAnalysisServicesAccount` cmdlet. 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Quando utilizar um principal de serviço para operações de gestão de recursos com o [Az.AnalysisServices](/powershell/module/az.analysisservices) módulo, utilize `Connect-AzAccount` cmdlet. Quando utilizar um principal de serviço para operações de servidor com o [SQLServer](https://www.powershellgallery.com/packages/SqlServer) módulo, utilize `Add-AzAnalysisServicesAccount` cmdlet. 
 
 No exemplo seguinte, a appID e uma palavra-passe são utilizados para efetuar uma operação de atualização de base de dados do modelo:
 
@@ -60,7 +62,7 @@ $PWord = ConvertTo-SecureString -String $PlainPWord -AsPlainText -Force
 
 $Credential = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList $AppId, $PWord
 
-Add-AzureAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
+Add-AzAnalysisServicesAccount -Credential $Credential -ServicePrincipal -TenantId $TenantId -RolloutEnvironment "westcentralus.asazure.windows.net"
 
 Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserver" -TableName "MyTable" -Database "MyDb" -RefreshType "Full"
 ```

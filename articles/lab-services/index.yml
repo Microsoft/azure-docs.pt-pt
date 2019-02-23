@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fbe7b703df033a3feacfa20e17868885e459c7e7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6b15db6bc4e5d868080cb2949e34b62fd8033854
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311139"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726181"
 documentType: LandingData
 title: Documentação do Azure Lab Services e Azure DevTest Labs
 metadata:
@@ -57,6 +57,6 @@ sections:
     className: cardsD
     items:
     - title: Linha de Comandos
-      html: <p><a href="/cli/azure/lab">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
+      html: <p><a href="/cli/azure/lab">CLI do Azure</a></p><p><a href="/powershell/module/az.devtestlabs/#devtest_labs">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/dtl">API REST</a></p>

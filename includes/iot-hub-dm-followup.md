@@ -5,15 +5,15 @@ services: iot-hub
 ms.service: iot-hub
 author: dominicbetts
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 02/17/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 69fdc6cf678107ef64ea1fe7b819738fd4a4ff4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43096365"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56740845"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar e estender o dispositivo ações de gestão
 
@@ -27,10 +27,6 @@ Normalmente, pode configurar dispositivos para realizar ações ao mesmo tempo q
 
 Neste tutorial, utilizou um método direto para acionar a reinicialização remota num dispositivo. Utilizou as propriedades reportadas para reportar a última vez que o reinício do dispositivo e consultado o dispositivo duplo para detetar a última vez que o reinício do dispositivo a partir da cloud.
 
-Para continuar a introdução ao IoT Hub e padrões de gestão de dispositivos como remota sobre a atualização de firmware do ar, consulte:
+Para continuar a introdução ao IoT Hub e padrões de gestão de dispositivos como remota sobre a atualização de firmware do ar, veja [como fazer uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md)
 
-[Tutorial: Como fazer uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md)
-
-Para saber como expandir o seu IoT chama o método de solução e a agenda em vários dispositivos, veja a [agendar e transmitir tarefas](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md) tutorial.
-
-Para continuar a introdução ao IoT Hub, veja [introdução ao IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).
+Para saber como expandir o seu IoT chama o método de solução e a agenda em vários dispositivos, veja [agendar e transmitir tarefas](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ad41992b2ac0dfc98303601060ed299e75ddfc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a80ed6af005f04ec48729e918543b2de67810eba
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234293"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738594"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -255,6 +255,7 @@ ms.locfileid: "56234293"
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - o recurso não está configurado para aceitar tokens de dispositivo. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - o utilizador não está autorizado a registar dispositivos no Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - não é possível utilizar o id_token como `urn:ietf:params:oauth:grant-type:jwt-bearer` conceder.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - o administrador de inquilino tiver configurado uma política de segurança que impede este pedido. Verifique as políticas de segurança que estão definidas no nível do inquilino para determinar se o seu pedido cumpre os requisitos da política. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - a aplicação não foi encontrada no diretório/inquilino. Isto pode acontecer se a aplicação não foi instalada pelo administrador do inquilino ou permitida por qualquer utilizador no inquilino. Poderá ter configurado incorretamente o valor do identificador para a aplicação ou enviado o pedido de autenticação para o inquilino errado. |
 | AADSTS700020 | InteractionRequired - a concessão de acesso requer interação. |
 | AADSTS700022 | InvalidMultipleResourcesScope - o valor fornecido para o âmbito de parâmetro de entrada não é válido porque contém mais do que um recurso. |

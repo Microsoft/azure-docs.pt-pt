@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3bd2361547a8210ae287eabaa67b60e8ba1f26e3
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094948"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738152"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promover o seu negócio com a Microsoft  
 A Microsoft tem o objetivo para oferecer suporte a parceiros () e para simplificar a venda da sua aplicação ou oferta em lojas no marketplace. Por listagem no marketplace, acessar os programas e recursos no marketplace. 
@@ -40,4 +40,4 @@ Para promover a sua aplicação ou uma oferta, utilize a tabela seguinte para ob
 | Obter a competência Cloud Platform | Obter a competência ajuda-o destaque-se entre outros parceiros da Microsoft. Obter a competência também ajuda-o a demonstrar a experiência técnica e o sucesso dos clientes no mercado. Competência é um pré-requisito para muitos programas de parceria de chave, como a venda conjunta.<ul> <li>Para obter mais informações sobre a competência Cloud Platform, visite a competência Cloud Platform página localizada em [partner.microsoft.com/membership/cloud-platform-competency](https://partner.microsoft.com/membership/cloud-platform-competency).</li> </ul> |  
 | Tornar-se de venda conjunta pronto | O programa de venda conjunta pronto permite que colabore diretamente com vendedores da Microsoft e outros parceiros em oportunidades de clientes de destino e o planejamento de contas. Sua solução se torna visível aos vendedores da Microsoft no catálogo de solução do vendedor. Vendedores da Microsoft são recompensados de colaboração e a ganhar com.<ul> <li>Para obter mais informações sobre a preparação de venda conjunta, visite o negócio Your promover página localizada em [partner.microsoft.com/reach-customers/promote-your-business](https://partner.microsoft.com/reach-customers/promote-your-business).</li> </ul> |  
 
----  
+---

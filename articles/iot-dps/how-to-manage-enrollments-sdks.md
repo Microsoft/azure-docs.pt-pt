@@ -3,17 +3,17 @@ title: Gerir inscrições de dispositivos através de SDKs serviço de aprovisio
 description: Como gerir inscrições de dispositivos no IoT Hub serviço aprovisionamento de dispositivos com os SDKs de serviço
 author: yzhong94
 ms.author: yizhon
-ms.date: 04/04/18
+ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: 1c7fa798c2e767aa6a21b3c56da6f69b4d3a1406
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732360"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674757"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Como gerir inscrições de dispositivos com SDKs serviço de aprovisionamento do dispositivo do Azure
 R *inscrição de dispositivos* cria um registo de um único dispositivo ou um grupo de dispositivos que pode ser em algum momento registado com o serviço de aprovisionamento de dispositivos. O registo de inscrição contém a configuração inicial pretendida para o dispositivo como parte do que a inscrição, incluindo o hub IoT desejado (s). Este artigo mostra-lhe como gerir inscrições de dispositivos para o serviço de aprovisionamento programaticamente com os SDKs de serviço de aprovisionamento do Azure IoT.  Os SDKs estão disponíveis no GitHub no mesmo repositório como SDKs IoT do Azure.

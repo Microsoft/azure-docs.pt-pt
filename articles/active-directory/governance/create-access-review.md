@@ -1,6 +1,6 @@
 ---
-title: Criar uma revisão de acesso para membros de um grupo ou os utilizadores com acesso a uma aplicação com o Azure AD | Documentos da Microsoft
-description: Saiba como criar uma revisão de acesso para membros de um grupo ou os utilizadores com acesso a uma aplicação.
+title: Criar uma revisão de acesso de grupos ou aplicações nas revisões de acesso do Azure AD | Documentos da Microsoft
+description: Saiba como criar uma revisão de acesso de membros do grupo ou o acesso de aplicação nas revisões de acesso do Azure AD.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,29 +11,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/15/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1616230e3cad765246bcf03d59fb517c99d9b044
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6ca27e89ad67b0f0755a7dda50572f3dcd857189
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176922"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733934"
 ---
-# <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Criar uma revisão de acesso de membros do grupo ou o acesso de aplicação com o Azure AD
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos ou aplicações nas revisões de acesso do Azure AD
 
 Acesso a grupos e aplicações para os funcionários e convidados altera ao longo do tempo. Para reduzir o risco associado atribuições de acesso obsoletos, os administradores podem utilizar o Azure Active Directory (Azure AD) para criar as revisões de acesso para membros do grupo ou de acesso à aplicação. Se precisar de rever regularmente o acesso, também pode criar as revisões de acesso recorrentes. Para obter mais informações sobre estes cenários, consulte [gerir o acesso de utilizador](manage-user-access-with-access-reviews.md) e [gerir o acesso de convidado](manage-guest-access-with-access-reviews.md).
 
-Este artigo descreve como criar uma nova revisão de acesso para membros do grupo ou de acesso à aplicação.
+Este artigo descreve como criar um ou mais as revisões de acesso para membros do grupo ou de acesso à aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Revisões de acesso ativadas](access-reviews-overview.md)
-- Administrador global ou administrador de conta
+- Administrador global ou administrador de conta de utilizador
 
-## <a name="create-an-access-review"></a>Criar uma revisão de acesso
+## <a name="create-one-or-more-access-reviews"></a>Criar um ou mais as revisões de acesso
 
 1. Início de sessão no portal do Azure e abra o [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
@@ -58,6 +58,20 @@ Este artigo descreve como criar uma nova revisão de acesso para membros do grup
 1. Na **utilizadores** secção, especifique os utilizadores que a revisão de acesso aplica-se a. As revisões de acesso podem ser para os membros de um grupo ou para os utilizadores que foram atribuídos a uma aplicação. Pode ainda mais definir o âmbito de acesso apenas de revisão para rever os utilizadores convidados que são membros (ou atribuídos à aplicação), em vez de examinar todos os utilizadores que são membros ou que têm acesso à aplicação.
 
     ![Criar uma revisão de acesso - utilizadores](./media/create-access-review/users.png)
+
+1. Na **grupos** secção, selecione um ou mais grupos que gostaria de rever a associação de.
+
+    > [!NOTE]
+    > Selecionar mais de um grupo, irá criar várias revisões de acesso. Por exemplo, se selecionar grupos de cinco, irá criar cinco revisões de acesso separado.
+    
+    ![Criar uma revisão de acesso - grupo](./media/create-access-review/select-group.png)
+
+1. Na **aplicativos** secção (se tiver selecionado **atribuídos a uma aplicação** no passo 8), selecione as aplicações que pretende rever o acesso a.
+
+    > [!NOTE]
+    > Selecionar mais de uma aplicação, irá criar várias revisões de acesso. Por exemplo, a seleção de cinco aplicativos criará cinco revisões de acesso separado.
+    
+    ![Criar uma revisão de acesso - selecionar aplicação](./media/create-access-review/select-application.png)
 
 1. Na **revisores** secção, selecione um ou mais pessoas para rever todos os utilizadores no âmbito. Ou pode selecionar para que os membros, reveja o seu próprio acesso. Se o recurso é um grupo, é possível pedir os proprietários do grupo para rever. Também pode exigir que os revisores fornecem um motivo quando eles aprovar o acesso.
 
@@ -100,7 +114,7 @@ Este artigo descreve como criar uma nova revisão de acesso para membros do grup
 
 Depois de especificar as definições para uma revisão de acesso, clique em **iniciar**.
 
-Por predefinição, o Azure AD envia um e-mail para os revisores logo após a revisão é iniciado. Se optar por não ter o Azure AD para enviar o e-mail, certifique-se de que informe os revisores de que uma revisão de acesso está a aguardar a sua conclusão. Pode mostrar-lhes as instruções sobre como a [rever acesso](perform-access-review.md). Se sua revisão for para convidados rever o seu próprio acesso, mostrar-lhes as instruções sobre como a [rever o seu próprio acesso](perform-access-review.md).
+Por predefinição, o Azure AD envia um e-mail para os revisores logo após a revisão é iniciado. Se optar por não ter o Azure AD para enviar o e-mail, certifique-se de que informe os revisores de que uma revisão de acesso está a aguardar a sua conclusão. Pode mostrar-lhes as instruções sobre como a [rever o acesso a grupos ou aplicações](perform-access-review.md). Se sua revisão for para convidados rever o seu próprio acesso, mostrar-lhes as instruções sobre como a [rever acesso para si próprio para grupos ou aplicações](review-your-access.md).
 
 Se alguns dos revisores são convidados, convidados são notificados por e-mail apenas se eles já já aceitou o convite.
 
@@ -108,7 +122,7 @@ Se alguns dos revisores são convidados, convidados são notificados por e-mail 
 
 Pode monitorizar o progresso conforme os revisores de concluir as revisões no dashboard do Azure AD no **revisões de acesso** secção. Nenhum direito de acesso forem alterado no diretório até [a revisão é concluída](complete-access-review.md).
 
-Se se tratar de uma revisão de uso individual, em seguida, após o período de revisão de acesso ou o administrador para a revisão de acesso, siga os passos em [concluir uma revisão de acesso](complete-access-review.md) para ver e aplicar os resultados.  
+Se se tratar de uma revisão de uso individual, em seguida, após o período de revisão de acesso ou o administrador para a revisão de acesso, siga os passos em [concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md) para ver e aplicar os resultados.  
 
 Para gerir uma série de revisões de acesso, navegue para a revisão de acesso de **controles**, e será encontrar ocorrências futuras nas revisões de agendada e edite a data de fim ou adicionar/remover os revisores da mesma forma. 
 
@@ -120,5 +134,6 @@ Também pode criar as revisões de acesso através de APIs. O que fazer para ger
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Iniciar uma revisão de acesso com as revisões de acesso do Azure AD](perform-access-review.md)
-- [Concluir uma revisão de acesso de membros de um grupo ou o acesso dos utilizadores a uma aplicação no Azure AD](complete-access-review.md)
+- [Rever o acesso a grupos ou aplicações](perform-access-review.md)
+- [Rever acesso para si próprio para grupos ou aplicações](review-your-access.md)
+- [Concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md)

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 02/22/2010
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445888"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729649"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Serviço de aplicações no Azure Stack: Adicionar mais funções de infraestrutura ou de trabalho
 
@@ -37,11 +37,6 @@ Serviço de aplicações no Azure Stack, por predefinição, suporta escalões d
 Se não tiver a certeza de que foi implementado com o serviço de aplicações predefinido na instalação do Azure Stack, pode rever informações adicionais sobre o [serviço de aplicações no Descrição geral do Azure Stack](azure-stack-app-service-overview.md).
 
 Serviço de aplicações do Azure no Azure Stack implementa todas as funções com conjuntos de dimensionamento de Máquina Virtual e como tal tira partido das capacidades de dimensionamento desta carga de trabalho. Por conseguinte, todos os dimensionamento dos escalões de worker é feita por meio de administrador de serviço de aplicações.
-
-> [!IMPORTANT]
-> Atualmente não é possível dimensionar conjuntos de dimensionamento de máquinas virtuais no portal do conforme indicado nas notas de versão do Azure Stack, por conseguinte, utilize o exemplo do PowerShell para aumentar horizontalmente.
->
->
 
 ## <a name="add-additional-workers-with-powershell"></a>Adicionar trabalhos adicionais com o PowerShell
 
@@ -80,7 +75,7 @@ Serviço de aplicações do Azure no Azure Stack implementa todas as funções c
 
 3. Monitorizar o estado de novas instâncias de função na administração de serviço de aplicações, para verificar o estado de uma instância de função individuais clique no tipo de função na lista.
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Adicionar trabalhos adicionais diretamente no Admin de fornecedor de recursos de serviço de aplicações
+## <a name="add-additional-workers-using-the-administration-portal"></a>Adicionar trabalhos adicionais com o portal de administração
 
 1. Inicie sessão no portal de administração do Azure Stack como administrador de serviços.
 

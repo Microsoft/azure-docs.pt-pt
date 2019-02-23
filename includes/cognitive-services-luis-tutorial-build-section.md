@@ -10,11 +10,11 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 08/31/2018
 ms.author: diberry
-ms.openlocfilehash: 8ca5dd8785392ccc6771cced444d2e3e12e8348b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 3594ce0d789513b63877911deb28e00ffc10b3c4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55480319"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738917"
 ---
 Certifique-se de que a aplicação de Recursos Humanos está na secção **Criar** do LUIS. Pode alterar para esta secção ao selecionar **Criar** na barra de menus superior direita.
