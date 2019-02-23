@@ -1,6 +1,6 @@
 ---
-title: Gerir o acesso de convidado com o Azure AD as revisões de acesso | Documentos da Microsoft
-description: Gerir utilizadores convidados como membros de um grupo ou atribuídos a uma aplicação com as revisões de acesso do Azure Active Directory
+title: Gerir o acesso de convidado com revisões de acesso do Azure AD | Documentos da Microsoft
+description: Gerir utilizadores convidados como membros de um grupo ou atribuídos a uma aplicação com revisões de acesso do Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63acf3a91e7e121a807a44bed8506d05e71899d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4fd3fd396333c00f8f1983250b732e69531d5d1d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175188"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737558"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com o Azure AD as revisões de acesso
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com revisões de acesso do Azure AD
 
 
 Com o Azure Active Directory (Azure AD), pode facilmente ativar colaboração entre fronteiras organizacionais com o [funcionalidade do Azure AD B2B](../b2b/what-is-b2b.md). Os utilizadores convidados de outros inquilinos podem ser [convidados por administradores](../b2b/add-users-administrator.md) ou pelo [outros utilizadores](../b2b/what-is-b2b.md). Esta capacidade também se aplica a identidades sociais, como contas Microsoft.
@@ -61,11 +61,11 @@ Em seguida, pode decidir se perguntar a cada convidada para rever o seu próprio
 
 Pode utilizar as revisões de acesso para garantir que os utilizadores que foram convidados e adicionados a um grupo continuam a precisar de acesso. Pode facilmente pedir convidados para rever a sua própria associação nesse grupo.
 
-1. Para iniciar uma revisão de acesso para o grupo, selecione a revisão para incluir apenas membros de utilizador de convidado e que os membros da consulta propriamente ditas. Para obter mais informações, veja [Criar uma revisão de acesso](create-access-review.md).
+1. Para criar uma revisão de acesso para o grupo, selecione a revisão para incluir apenas membros de utilizador de convidado e que os membros da consulta propriamente ditas. Para obter mais informações, consulte [criar uma revisão de acesso de grupos ou aplicações](create-access-review.md).
 
-2. Pedir a cada convidada para rever a sua própria associação. Por predefinição, cada convidado que aceite um convite recebe uma mensagem de e-mail do Azure AD com uma ligação para a revisão de acesso. O Azure AD tem instruções para convidados sobre como [rever o respetivo acesso](perform-access-review.md).
+2. Pedir a cada convidada para rever a sua própria associação. Por predefinição, cada convidado que aceite um convite recebe uma mensagem de e-mail do Azure AD com uma ligação para a revisão de acesso. O Azure AD tem instruções para convidados sobre como [rever o acesso a grupos ou aplicações](perform-access-review.md).
 
-3. Depois de os revisores darem o respetivo parecer, pare a revisão de acesso e aplique as alterações. Para obter mais informações, veja [Concluir uma revisão de acesso](complete-access-review.md).
+3. Depois de os revisores darem o respetivo parecer, pare a revisão de acesso e aplique as alterações. Para obter mais informações, consulte [concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md).
 
 4. Além dos utilizadores que negado seus próprios precisa de acesso contínuo, também pode remover os utilizadores que não respondem. Os utilizadores a responder não potencialmente já não recebem o e-mail.
 
@@ -75,21 +75,21 @@ Pode utilizar as revisões de acesso para garantir que os utilizadores que foram
 
 Pode pedir um patrocinador, como o proprietário de um grupo, para rever a necessidade de um convidado de associação contínua num grupo.
 
-1. Para iniciar uma revisão de acesso para o grupo, selecione a revisão para incluir apenas membros de utilizador de convidado. Em seguida, especifique um ou mais revisores. Para obter mais informações, veja [Criar uma revisão de acesso](create-access-review.md).
+1. Para criar uma revisão de acesso para o grupo, selecione a revisão para incluir apenas membros de utilizador de convidado. Em seguida, especifique um ou mais revisores. Para obter mais informações, consulte [criar uma revisão de acesso de grupos ou aplicações](create-access-review.md).
 
-2. Peça aos revisores para darem o seu parecer. Por predefinição, cada um deles recebe um e-mail do Azure AD com uma ligação para o painel de acesso, onde [realizam a revisão de acesso](perform-access-review.md).
+2. Peça aos revisores para darem o seu parecer. Por predefinição, cada um deles recebe um e-mail do Azure AD com uma ligação para o painel de acesso, onde eles [rever o acesso a grupos ou aplicações](perform-access-review.md).
 
-3. Depois de os revisores darem o respetivo parecer, pare a revisão de acesso e aplique as alterações. Para obter mais informações, veja [Concluir uma revisão de acesso](complete-access-review.md).
+3. Depois de os revisores darem o respetivo parecer, pare a revisão de acesso e aplique as alterações. Para obter mais informações, consulte [concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md).
 
 ### <a name="ask-guests-to-review-their-own-access-to-an-application"></a>Pedir convidados para rever o seu próprio acesso a uma aplicação
 
 Pode utilizar as revisões de acesso para garantir que os utilizadores que foram convidados para um determinado aplicativo continuam a precisar de acesso. Pode facilmente pedir próprios convidados para rever os seus próprios precisam de acesso.
 
-1. Para iniciar uma revisão de acesso para a aplicação, selecione a revisão para incluir apenas os convidados e utilizadores rever o seu próprio acesso. Para obter mais informações, veja [Criar uma revisão de acesso](create-access-review.md).
+1. Para criar uma revisão de acesso para a aplicação, selecione a revisão para incluir apenas os convidados e utilizadores rever o seu próprio acesso. Para obter mais informações, consulte [criar uma revisão de acesso de grupos ou aplicações](create-access-review.md).
 
-2. Pedir a cada convidada para rever o seu próprio acesso à aplicação. Por predefinição, cada convidado que aceite um convite, receberá uma mensagem de e-mail do Azure AD. Que e-mail tem uma ligação para a revisão de acesso no painel de acesso da sua organização. O Azure AD tem instruções para convidados sobre como [rever o respetivo acesso](perform-access-review.md).
+2. Pedir a cada convidada para rever o seu próprio acesso à aplicação. Por predefinição, cada convidado que aceite um convite, receberá uma mensagem de e-mail do Azure AD. Que e-mail tem uma ligação para a revisão de acesso no painel de acesso da sua organização. O Azure AD tem instruções para convidados sobre como [rever o acesso a grupos ou aplicações](perform-access-review.md).
 
-3. Depois de os revisores darem o respetivo parecer, pare a revisão de acesso e aplique as alterações. Para obter mais informações, veja [Concluir uma revisão de acesso](complete-access-review.md).
+3. Depois de os revisores darem o respetivo parecer, pare a revisão de acesso e aplique as alterações. Para obter mais informações, consulte [concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md).
 
 4. Além dos utilizadores que negado seus próprios precisa de acesso contínuo, também pode remover utilizadores convidados que não respondem. Os utilizadores a responder não potencialmente já não recebem o e-mail. Também pode remover utilizadores convidados que não foram selecionados para participar, especialmente se eles não foram recentemente convidados. Os utilizadores não aceitam que o convite e, portanto, não tem acesso à aplicação. 
 
@@ -97,11 +97,11 @@ Pode utilizar as revisões de acesso para garantir que os utilizadores que foram
 
 Pode pedir um patrocinador, como o proprietário de uma aplicação, para rever a necessidade do convidado de acesso contínuo ao aplicativo.
 
-1. Para iniciar uma revisão de acesso para a aplicação, selecione a revisão para incluir "somente convidados". Em seguida, especifique um ou mais utilizadores como revisores. Para obter mais informações, veja [Criar uma revisão de acesso](create-access-review.md).
+1. Para criar uma revisão de acesso para a aplicação, selecione a revisão para incluir "somente convidados". Em seguida, especifique um ou mais utilizadores como revisores. Para obter mais informações, consulte [criar uma revisão de acesso de grupos ou aplicações](create-access-review.md).
 
-2. Peça aos revisores para darem o seu parecer. Por predefinição, cada um deles recebe um e-mail do Azure AD com uma ligação para o painel de acesso, onde [realizam a revisão de acesso](perform-access-review.md).
+2. Peça aos revisores para darem o seu parecer. Por predefinição, cada um deles recebe um e-mail do Azure AD com uma ligação para o painel de acesso, onde eles [rever o acesso a grupos ou aplicações](perform-access-review.md).
 
-3. Depois de os revisores darem o respetivo parecer, pare a revisão de acesso e aplique as alterações. Para obter mais informações, veja [Concluir uma revisão de acesso](complete-access-review.md).
+3. Depois de os revisores darem o respetivo parecer, pare a revisão de acesso e aplique as alterações. Para obter mais informações, consulte [concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md).
 
 ### <a name="ask-guests-to-review-their-need-for-access-in-general"></a>Pedir convidados para rever a sua necessidade de acesso, em geral
 
@@ -112,17 +112,17 @@ Em algumas organizações, convidados não podem estar atento a suas associaçõ
 
 1. Crie um grupo de segurança no Azure AD com convidados como membros, se ainda não existir um grupo adequado. Por exemplo, pode criar um grupo com uma adesão manter manualmente de convidados. Em alternativa, pode criar um grupo dinâmico com um nome como "Convidados de Contoso" para os utilizadores no inquilino Contoso com o valor do atributo UserType do convidado.  Para uma eficiência, certifique-se o grupo de convidados, predominantemente, - não selecionar um grupo com utilizadores de membro, como utilizadores membros não precisam de ser revisto.  Além disso, tenha em atenção que um utilizador convidado que é um membro do grupo pode ver os outros membros do grupo.
 
-2. Para iniciar uma revisão de acesso desse grupo, selecione os revisores de ser membros próprios. Para obter mais informações, veja [Criar uma revisão de acesso](create-access-review.md).
+2. Para criar uma revisão de acesso desse grupo, selecione os revisores de ser membros próprios. Para obter mais informações, consulte [criar uma revisão de acesso de grupos ou aplicações](create-access-review.md).
 
-3. Pedir a cada convidada para rever a sua própria associação. Por predefinição, cada convidado que aceite um convite recebe uma mensagem de e-mail do Azure AD com uma ligação para a revisão de acesso no painel de acesso da sua organização. O Azure AD tem instruções para convidados sobre como [rever o respetivo acesso](perform-access-review.md).  Desses convidados que não aceitam o convite serão apresentada nos resultados da revisão como "Não notificado".
+3. Pedir a cada convidada para rever a sua própria associação. Por predefinição, cada convidado que aceite um convite recebe uma mensagem de e-mail do Azure AD com uma ligação para a revisão de acesso no painel de acesso da sua organização. O Azure AD tem instruções para convidados sobre como [rever o acesso a grupos ou aplicações](perform-access-review.md).  Desses convidados que não aceitam o convite serão apresentada nos resultados da revisão como "Não notificado".
 
-4. Depois dos revisores dar parecer, pare a revisão de acesso. Para obter mais informações, veja [Concluir uma revisão de acesso](complete-access-review.md).
+4. Depois dos revisores dar parecer, pare a revisão de acesso. Para obter mais informações, consulte [concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md).
 
 5. Remova o acesso de convidado para os convidados que foram negados, não foi concluída a revisão ou anteriormente não aceitam o convite. Se algumas das convidadas são contactos que foram selecionados para participar da revisão ou anteriormente não aceitarem um convite, pode desativar as respetivas contas através do portal do Azure ou o PowerShell. Se o convidado já não precisa de acesso e não é um contato, pode remover seus objetos de utilizador do diretório ao utilizar o portal do Azure ou o PowerShell para eliminar o objeto de utilizador convidado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Criar uma revisão de acesso para os membros de um grupo ou o acesso a uma aplicação](create-access-review.md)
+[Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
 
 
 

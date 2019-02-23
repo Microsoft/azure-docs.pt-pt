@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: effb00a4ebde857e06e34e5f83ca01fc5d74017b
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e7bbb047a982ee4516372bf7a260688139c61923
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594190"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732726"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer cópias de segurança de VMs do Azure num cofre dos serviços de recuperação
 
@@ -243,7 +243,7 @@ Depois de ativar a cópia de segurança:
     -  No entanto, a VM é uma cópia de segurança, mesmo que ele é desativado e não é possível instalar a extensão. Isso é conhecido como *offline VM*. Neste caso, o ponto de recuperação será *consistente com a falha*.
     Tenha em atenção que o Azure Backup não suporta ajuste automático de relógio para alterações de economia de hora de Verão para cópias de segurança de VM do Azure. Modificar as políticas de cópia de segurança manualmente conforme necessário.
   
- ## <a name="run-the-initial-backup"></a>Executar a cópia de segurança inicial
+## <a name="run-the-initial-backup"></a>Executar a cópia de segurança inicial
 
 A cópia de segurança inicial será executado em conformidade com o agendamento, a menos que manualmente o executa imediatamente. Executá-la manualmente da seguinte forma:
 

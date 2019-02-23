@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/20189
+ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4bbd8b5c62859c146ddb0949010288be1c5ef054
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a4b7f669bcdc0602ef0d1e917c2c394006522980
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445104"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673976"
 ---
 # <a name="azure-powershell-samples-for-azure-notification-hubs"></a>Exemplos do Azure PowerShell para os Hubs de notificação do Azure
 

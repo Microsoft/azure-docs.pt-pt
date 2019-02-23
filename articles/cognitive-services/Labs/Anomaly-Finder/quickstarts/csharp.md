@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: fb3e749a341fcf6dcaac551374b8b9ad11bda815
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8288d5cf3ffbc6d1721a9c28c48ff89d93bf2c1b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213723"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736639"
 ---
 # <a name="use-the-anomaly-finder-api-with-c"></a>Utilizar o Explorador de anomalias API com c#
 

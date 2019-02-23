@@ -1,5 +1,5 @@
 ---
-title: Grupos dinâmicos e de colaboração do Azure Active Directory B2B | Documentos da Microsoft
+title: Grupos dinâmicos e de colaboração do B2B - Azure Active Directory | Documentos da Microsoft
 description: Mostra como utilizar os grupos dinâmicos do Azure AD com a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dd9c0c4d0f258b545a9d44f51336d377a613b5d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 066c3cc0a722ea96ff98aba613b493e2be77df0e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192239"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668481"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupos dinâmicos e de colaboração do Azure Active Directory B2B
 

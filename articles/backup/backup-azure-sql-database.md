@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 17ec7723044cec391ebe390bbcfba3aa6f2f29ca
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: dc92c806a67869e1cc894a8ee9f4d287b5b3b1f2
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446856"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670235"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure 
 
@@ -52,8 +52,7 @@ Esta pré-visualização pública tem várias limitações.
 - Operações de cópia de segurança e restauro de bases de dados de espelho FCI, instantâneos de base de dados e bases de dados não são suportadas.
 - Não não possível proteger bases de dados com grande número de ficheiros. O número máximo de ficheiros de suporte não é determinístico. Ela não só depende do número de ficheiros, mas também depende do comprimento do caminho dos ficheiros. 
 
-Consulte a [secção de FAQ](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) para obter mais detalhes sobre o suporte/não suportadas cenários.
-
+Revisão [perguntas mais frequentes sobre](faq-backup-sql-server.md) sobre como fazer backup de bancos de dados do SQL Server.
 ## <a name="scenario-support"></a>Suporte a cenários
 
 **Suporte** | **Detalhes**
@@ -197,7 +196,7 @@ Configure cópia de segurança da seguinte forma:
 
     - Selecione a política predefinida: **HourlyLogBackup**.
     - Escolha uma política de cópia de segurança existente criada anteriormente para SQL.
-    - [Definir uma nova política](backup-azure-sql-database.md#define-a-backup-policy) baseada no período de retenção e RPO.
+    - [Definir uma nova política](backup-azure-sql-database.md#configure-a-backup-policy) baseada no período de retenção e RPO.
     - Durante a pré-visualização, não é possível editar uma política de cópia de segurança existente.
     
 9. No **menu de cópia de segurança**, selecione **ativar cópia de segurança**.
@@ -326,7 +325,7 @@ Se precisa corrigir as permissões devido uma **UserErrorSQLNoSysadminMembership
 
     ![Mensagem de êxito da implementação](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-Em alternativa, pode ativar [proteção automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) no toda instância ou grupo de sempre disponibilidade ao selecionar o **ON** opção na lista pendente correspondente no **AUTOPROTECT**  coluna. O [proteção automática](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) funcionalidade não só permite a proteção em todos os bancos de dados existentes de uma vez, mas também automaticamente protege novas bases de dados que serão adicionados a essa instância ou o grupo de disponibilidade no futuro.  
+Em alternativa, pode ativar [proteção automática](backup-azure-sql-database.md#enable-auto-protection) no toda instância ou grupo de sempre disponibilidade ao selecionar o **ON** opção na lista pendente correspondente no **AUTOPROTECT**  coluna. O [proteção automática](backup-azure-sql-database.md#enable-auto-protection) funcionalidade não só permite a proteção em todos os bancos de dados existentes de uma vez, mas também automaticamente protege novas bases de dados que serão adicionados a essa instância ou o grupo de disponibilidade no futuro.  
 
    ![Ativar a proteção automática no grupo de disponibilidade Always On](./media/backup-azure-sql-database/enable-auto-protection.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Os elementos da mensagem de e-mail de convite de colaboração B2B - Azure Active Directory | Documentos da Microsoft
+title: Elementos da mensagem de e-mail de convite B2B - Azure Active Directory | Documentos da Microsoft
 description: Modelo do e-mail de convite de colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eaab50360269ac1231db2696ba095b6d8841f74
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d6570970af820c867be559d2e2cab369735f3137
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163007"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671578"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos da mensagem de e-mail de convite de colaboração B2B - Azure Active Directory
 

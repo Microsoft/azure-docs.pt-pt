@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3a2c79fd46b9c14f1bbb2794581746f6ff45cd6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a7a12cf677661c36a42df36a8fdc6b8f4a8ef75
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179625"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669895"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Como: Configurar a encriptação de tokens SAML do Azure AD (pré-visualização)
 

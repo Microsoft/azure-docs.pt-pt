@@ -1,5 +1,5 @@
 ---
-title: Permitir ou bloquear convites para utilizadores B2B de organizações específicas - Azure Active Directory | Documentos da Microsoft
+title: Permitir ou bloquear convites para organizações específicas - Azure Active Directory | Documentos da Microsoft
 description: Mostra como um administrador pode utilizar o portal do Azure ou o PowerShell para definir um acesso ou negar lista para permitir ou impedir que os utilizadores B2B determinados domínios.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1921def9f09df899a884aa402c5e0f4e9fc16824
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b766f44a7c72075f1f1ec33774e12f40ea1d5b88
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181325"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672088"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para utilizadores B2B de organizações específicos
 

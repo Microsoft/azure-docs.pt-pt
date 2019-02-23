@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.topic: conceptual
+ms.openlocfilehash: bbec2205fc6b29476cf531c071b5c2ac4c014bcb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227085"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732529"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
 
@@ -45,7 +45,7 @@ Se não tiver uma subscrição, siga os passos abaixo:
     ![Como adicionar a chave de subscrição](media/how-to/how-to-add-subscription-key.png)
 
 3. Na caixa de diálogo, introduza a chave para a sua subscrição do Microsoft translator, em seguida, clique no botão "Adicionar".
- 
+
     ![Como adicionar a chave de subscrição](media/how-to/how-to-add-subscription-key-dialog.png)
 4.  Depois de adicionar uma chave, pode modificar ou eliminar a chave em qualquer altura.
 
@@ -53,29 +53,29 @@ Se não tiver uma subscrição, siga os passos abaixo:
 
 ## <a name="manage-your-workspace"></a>Gerir a sua área de trabalho
 
-Uma área de trabalho é uma área de trabalho para compor e criação de seu sistema de tradução personalizadas. Uma área de trabalho pode conter vários projetos, modelos e documentos. 
+Uma área de trabalho é uma área de trabalho para compor e criação de seu sistema de tradução personalizadas. Uma área de trabalho pode conter vários projetos, modelos e documentos.
 
-Se uma parte diferente do seu trabalho tem de ser partilhados com pessoas diferentes, em seguida, criar várias áreas de trabalho poderá ser útil. 
+Se uma parte diferente do seu trabalho tem de ser partilhados com pessoas diferentes, em seguida, criar várias áreas de trabalho poderá ser útil.
 
 ## <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
 
 1.  Navegue para a página de "Definições" da área de trabalho.
 2.  Clique em "nova área de trabalho" botão na secção "Criar nova área de trabalho".
-    
+
     ![Criar nova área de trabalho](media/how-to/create-new-workspace.png)
 
 4.  Na caixa de diálogo, introduza o nome da área de trabalho nova.
 5.  Clique em "Criar".
-    
+
     ![Criar nova caixa de diálogo de área de trabalho](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>Compartilhe sua área de trabalho
 
-Tradutor personalizado pode partilhar sua área de trabalho com outras pessoas, se uma parte diferente do seu trabalho tem de ser partilhados com pessoas diferentes. 
+Tradutor personalizado pode partilhar sua área de trabalho com outras pessoas, se uma parte diferente do seu trabalho tem de ser partilhados com pessoas diferentes.
 
 1.  Navegue para a página de "Definições" da área de trabalho.
 2.  Clique no botão "Partilha" na secção "Definições de partilha".
-    
+
     ![Compartilhe a área de trabalho](media/how-to/share-workspace.png)
 
 3.  Na caixa de diálogo, introduza uma lista separada por vírgulas de endereços de e-mail que pretende que esta área de trabalho partilhada com. Certifique-se de partilha com o endereço de e-mail que a pessoa utiliza para iniciar sessão no Translator personalizado com. Em seguida, selecione o nível apropriado de permissões de partilha.
@@ -85,7 +85,7 @@ Tradutor personalizado pode partilhar sua área de trabalho com outras pessoas, 
 
 ## <a name="sharing-permissions"></a>Permissões de partilha
 
-1.  **Leitor de:** Um leitor na área de trabalho será capaz de ver todas as informações na área de trabalho. 
+1.  **Leitor de:** Um leitor na área de trabalho será capaz de ver todas as informações na área de trabalho.
 
 2.  **Editor:** Um editor na área de trabalho poderá adicionar documentos, formar modelos e eliminar documentos e projetos. Eles podem adicionar uma chave de subscrição, mas não é possível modificar que a área de trabalho é partilhada com, eliminar a área de trabalho ou altere o nome de área de trabalho.
 

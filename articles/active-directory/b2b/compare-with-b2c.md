@@ -1,5 +1,5 @@
 ---
-title: Comparar a colaboração B2B e o B2C no Azure Active Directory | Microsoft Docs
+title: Comparar colaboração B2B e B2C - Azure Active Directory | Documentos da Microsoft
 description: Qual é a diferença entre a colaboração B2B do Azure Active Directory e o Azure AD B2C?
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c37114f15ae7c3c7a0c1c923b3c81cfa1a1fe4d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba06952b4d01e06d7925f70ee4bc26407b48e130
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206791"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670596"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparar a colaboração B2B e o B2C no Azure Active Directory
 

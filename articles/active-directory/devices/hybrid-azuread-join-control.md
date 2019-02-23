@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6b1e1c103c37874365f7e8d0b893985c9a6469c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 66506a8abf130f27950fd958ba1a7c291e55a5a5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171082"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674264"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Controlar a associação híbrida do Azure AD dos seus dispositivos
 
@@ -82,7 +82,7 @@ Para definir o GPO:
 8.  Com o botão direito **registar computadores associados a domínios como dispositivos**e, em seguida, selecione **editar**.
 
     > [!NOTE] 
-    > Este modelo de política de grupo foi alterado de versões anteriores do console de gerenciamento de diretiva de grupo. Se estiver a utilizar uma versão anterior da consola, aceda a **configuração do computador** > **políticas** > **modelos administrativos**  >  **Componentes do Windows** > **associação à área de trabalho** > **automaticamente à área de trabalho associar computadores cliente**. 
+    > Este modelo de política de grupo foi alterado de versões anteriores do console de gerenciamento de diretiva de grupo. Se estiver a utilizar uma versão anterior da consola, aceda a **configuração do computador** > **políticas** > **modelos administrativos**  >  **Componentes do Windows** > **registo de dispositivos** > **associados a um domínio de Registre-se o computador como dispositivo**. 
 
 9.  Selecione uma das seguintes definições e, em seguida, selecione **aplicar**:
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 957a104b8fea7274763f16320cc094ede1f94567
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 96bb11dad34d6ebcfebe0956d2a08b954a37e843
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871847"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733049"
 ---
 # <a name="what-is-bing-entity-search-api"></a>O que é a API de pesquisa de entidades do Bing?
 

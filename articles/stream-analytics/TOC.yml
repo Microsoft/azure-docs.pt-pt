@@ -402,7 +402,7 @@ items:
 - name: Referência
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.streamanalytics
+    href: /powershell/module/az.streamanalytics
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.streamanalytics
   - name: REST
@@ -435,9 +435,9 @@ items:
     href: https://azure.microsoft.com/case-studies/?service=stream-analytics
   - name: Documento técnico - Processamento de eventos em tempo real
     href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: ee7eb6f1a92e5e3af603dab2e38eff5debaf3e9f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: cace0353c34b2c055ed5a15f1da6958c7428008b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300728"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736374"

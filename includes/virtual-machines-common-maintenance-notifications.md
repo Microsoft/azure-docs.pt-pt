@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 609389460ab18ba947130e64dbe7b599574816a5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 50a215175d7305834a64b7e0cfbc153431b10b7c
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53215916"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56739206"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>View VMS scheduled para manutenção no portal de VMs
 
@@ -31,13 +31,13 @@ Pode utilizar o portal do Azure e procurar por VMs agendadas para manutenção.
 
    **Manutenção**: Mostra o estado de manutenção para a VM. Seguem-se os valores possíveis:
       
-      | Valor | Descrição |
+      | Value | Descrição |
       |-------|-------------|
       | Começar agora | A VM está na janela de manutenção self-service que lhe permite iniciar a manutenção por conta própria. Veja abaixo saber como iniciar a manutenção na sua VM. | 
       | Agendadas | A VM está agendada para manutenção sem qualquer opção para iniciar a manutenção. Pode aprender da janela de manutenção selecionando a manutenção - janela agendada nesta vista ou ao clicar na VM. | 
       | Já está atualizado | A VM já está atualizada e é necessária nenhuma ação adicional neste momento. | 
       | Tente novamente mais tarde | Iniciou a manutenção sem sucesso. Será capaz de usar a opção de manutenção self-service num momento posterior. | 
-      | Repita agora | Pode tentar novamente uma manutenção Self-iniciada anteriormente sem êxito. | 
+      | Repetir agora | Pode tentar novamente uma manutenção Self-iniciada anteriormente sem êxito. | 
       | - | A VM não faz parte de uma onda de manutenção planeada. |
       
 

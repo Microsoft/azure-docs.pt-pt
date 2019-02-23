@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: 7f056ab79bbd2d2b66e40546a6df7677ffe75a21
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a5f32504fc7d8fe0faa17d469aec017d39a6b1ce
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649463"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737149"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com redes aceleradas
 
@@ -62,9 +62,13 @@ Um tamanho de VM suportado sem aceleração de rede ativada só pode ter a funci
 Não é possível implementar máquinas virtuais (clássico) com redes aceleradas.
 
 ## <a name="create-a-windows-vm-with-azure-accelerated-networking"></a>Criar um VM do Windows com redes aceleradas do Azure
+## <a name="portal-creation"></a>Criação do portal
+Embora este artigo fornece passos para criar uma máquina virtual com o funcionamento em rede acelerado com o Azure Powershell, também pode [criar uma máquina virtual com o funcionamento em rede acelerado com o portal do Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, no **criar uma máquina virtual** painel, escolha a **Networking** separador.  Neste separador, é uma opção para **Accelerated networking**.  Se tiver optado por um [sistema operativo suportado](#supported-operating-systems) e [tamanho da VM](#supported-vm-instances), esta opção será preenchida automaticamente como "On".  Caso contrário, irá preencher a opção "Desativado" para redes aceleradas e dar ao utilizador um motivo por que ele não é possível ativar.   
+* *Nota:* Apenas os sistemas operativos suportados, pode ser ativados através do portal.  Se estiver a utilizar uma imagem personalizada e sua imagem oferece suporte a redes aceleradas, crie a VM com a CLI ou Powershell. 
 
-Embora este artigo fornece passos para criar uma máquina virtual com o funcionamento em rede acelerado com o Azure PowerShell, também pode [criar uma máquina virtual com o funcionamento em rede acelerado com o portal do Azure](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Ao criar uma máquina virtual no portal, em **configurações**, selecione **ativado**, em **Accelerated networking**. A opção de ativar o funcionamento em rede acelerado não aparece no portal, a menos que selecionou um [sistema operativo suportado](#supported-operating-systems) e [tamanho da VM](#supported-vm-instances). Depois da máquina virtual é criada, terá de concluir as instruções em [confirmar que o controlador está instalado no sistema operativo](#confirm-the-driver-is-installed-in-the-operating-system).
+Depois da máquina virtual é criada, pode confirmar Accelerated Networking está ativada ao seguir as instruções no [confirmar que o funcionamento em rede acelerado é ativado](#confirm-that-accelerated-networking-is-enabled).
 
+## <a name="powershell-creation"></a>Criação de PowerShell
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

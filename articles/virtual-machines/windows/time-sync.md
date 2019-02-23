@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 09/017/2018
+ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: d03a4146137cec3ba6e32f9d843c8f915ce58954
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d7363c3d1cd3aaf6aae8cadbea232c909000f214
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885664"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669607"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronização de hora para VMs do Windows no Azure
 

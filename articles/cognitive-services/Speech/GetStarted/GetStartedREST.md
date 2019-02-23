@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 9ee0abdf722d3dc6d0d332f3894943bd3a03a877
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224059"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671919"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Início rápido: Utilizar a API de REST de reconhecimento de voz do Bing
 
@@ -32,7 +33,7 @@ A API de voz faz parte dos serviços cognitivos (anteriormente o projeto Oxford)
 > [!IMPORTANT]
 >* Obter uma chave de subscrição. Antes de poder aceder a API REST, tem de ter uma [chave de subscrição](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Utilize a sua chave de subscrição. Nos exemplos a seguir REST, substitua YOUR_SUBSCRIPTION_KEY sua própria chave de subscrição. 
+>* Utilize a sua chave de subscrição. Nos exemplos a seguir REST, substitua YOUR_SUBSCRIPTION_KEY sua própria chave de subscrição.
 >
 >* Consulte a [autenticação](../how-to/how-to-authentication.md) página para saber como obter uma chave de subscrição.
 

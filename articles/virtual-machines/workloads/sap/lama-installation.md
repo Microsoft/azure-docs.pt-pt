@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 17/07/2018
+ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 1f0f9c548d9b3c8a7df2d356bcb4c5f993285c28
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262590"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670431"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para o Azure
 
@@ -51,7 +51,7 @@ Este guia descreve como configurar o conector do Azure para SAP LaMa, criar máq
 
 As seguintes notas de SAP estão relacionadas para o tópico de LaMa de SAP no Azure:
 
-| Número de nota | Cargo |
+| Número de nota | Título |
 | --- | --- |
 | [2343511] |Conector do Microsoft Azure para a gestão de paisagem de SAP (LaMa) |
 | [2350235] |SAP paisagem gestão 3.0 - Enterprise edition |

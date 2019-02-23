@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 329125d39c0da403ff078182af2eee74bcd9c84d
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 60617261e14b77e9ef3a2968dc37159e961bb947
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56272025"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56735388"
 ---
 # <a name="azure-data-factory-mapping-data-flow-window-transformation"></a>Mapeamento de transformação de janela de fluxo de dados de fábrica de dados do Azure
 

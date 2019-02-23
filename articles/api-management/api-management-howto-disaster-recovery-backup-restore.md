@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 7da97b763c532a2189ef058cbb8ffb14c5b150f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 56d0b8ced4a0eed3c2bf215ed0e5fc77c343f7fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968378"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728646"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação após desastre com o serviço backup e restaurar na gestão de API do Azure
 
@@ -32,6 +32,8 @@ Este guia mostra como autenticar os pedidos do Azure Resource Manager. Ela tamb�
 > O processo para criar cópias de segurança e restaurar uma instância de serviço de gestão de API para recuperação após desastre também pode ser utilizado para replicar as instâncias do serviço de gestão de API para cenários como a transição.
 >
 > Cada cópia de segurança expira após 30 dias. Se tentar restaurar uma cópia de segurança após a expiração do período de expiração de 30 dias, o restauro falhará com uma `Cannot restore: backup expired` mensagem.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -207,7 +209,7 @@ Restauro é uma operação de longa execução que poderá demorar até 30 ou ma
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Operações de backup e restauração também podem ser realizadas com o PowerShell *Backup-AzureRmApiManagement* e *restauro-AzureRmApiManagement* comandos, respetivamente.
+> Operações de backup e restauração também podem ser realizadas com o PowerShell *AzApiManagement de cópia de segurança* e *restauro AzApiManagement* comandos, respetivamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -215,7 +217,7 @@ Confira os seguintes recursos para diferente orientações passo a passo do proc
 
 * [Replicar contas de gestão de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 * [Automatizando cópia de segurança de gestão de API e restauro com o Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
-* [Gestão de API do Azure: Cópia de segurança e restauro de configuração](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+* [Gestão de API do Azure: Efetuar e restaurar Configuration](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
   *a abordagem mais, Stuart não coincide com as diretrizes oficiais, mas é interessante.*
 
 [Backup an API Management service]: #step1

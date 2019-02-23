@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 163ec61dc534255470626468195dcab28b3e3250
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 11d6256fb63452b849a80abab181876d14b3b6a6
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221832"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674842"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Autenticar para a API de voz
 

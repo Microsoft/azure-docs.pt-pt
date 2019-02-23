@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7ae87763d280e129bab96c604f9118ecf088ea2f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 4d6838ecdbf1a33a4f3ee1562f26db7952fdfb83
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819863"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734239"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução do System Center Operations Manager verificação de integridade (pré-visualização)
 
@@ -40,7 +40,7 @@ Depois de adicionar a solução e uma avaliação é executada, resumo informaç
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalar e configurar a solução
 
-A solução é compatível com o sistema do Microsoft Operations Manager 2012 Service Pack (SP) 1 e 2012 R2.
+A solução é compatível com o Microsoft System Center 2012 Operations Manager Service Pack 1, o Microsoft System Center 2012 R2 Operations Manager, o Microsoft System Center 2016 Operations Manager, o Microsoft System Center 2016 Operations Manager e o Microsoft System 1807 do Center Operations Manager
 
 Utilize as seguintes informações para instalar e configurar a solução.
 
@@ -57,9 +57,9 @@ Utilize as seguintes informações para instalar e configurar a solução.
 1. [Definir a conta Run As para o Centro de operações de Gestor de estado de funcionamento da verificação do sistema](#operations-manager-run-as-accounts-for-log-analytics)  
 2. Configurar a regra de verificação do System Center Operations Manager estado de funcionamento
 
-## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Detalhes de recolha de dados de avaliação do System Center Operations Manager
+## <a name="system-center-operations-manager-health-check-data-collection-details"></a>Detalhes de recolha de dados verificação de estado de funcionamento do Center Operations Manager do sistema
 
-A avaliação do System Center Operations Manager recolhe dados das seguintes origens:
+A solução de verificação de estado de funcionamento Manager do System Center Operations recolhe dados das seguintes origens:
 
 * Registo
 * Windows Management Instrumentation (WMI)
@@ -97,7 +97,7 @@ Agora que foi criada a conta Run As, tem de servidores de gestão de destino no 
 2. Na **distribuição** separador, clique em **Add** para o **selecionado computadores** caixa e adicione o servidor de gestão para distribuir a conta a.  Clique em **OK** duas vezes para guardar as alterações.
 3. Sob **configuração de Run As**, clique em **perfis**.
 4. Procure o *perfil de avaliação do SCOM*.
-5. O nome de perfil deve ser: *Avaliação do Microsoft System Center Advisor SCOM perfil Run As*.
+5. O nome de perfil deve ser: *Verificação de estado de funcionamento do Microsoft System Center Operations Manager perfil Run As*.
 6. Com o botão direito e atualizar as respetivas propriedades e adicionar recentemente criado a conta Run as que criou anteriormente.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL para conceder permissões mais detalhadas para a conta Run As
@@ -152,13 +152,13 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ### <a name="configure-the-health-check-rule"></a>Configurar a regra de verificação de estado de funcionamento
 
-Pacote de gestão da solução de verificação de estado de funcionamento Manager do System Center Operations inclui uma regra com o nome *Microsoft System Center Advisor SCOM avaliação executar avaliação regra*. Esta regra é responsável por executar a verificação de estado de funcionamento. Para ativar a regra e configurar a frequência, utilize os procedimentos abaixo.
+Pacote de gestão da solução de verificação de estado de funcionamento Manager do System Center Operations inclui uma regra com o nome *Microsoft Center Operations Manager executar o estado de funcionamento verificar regra do sistema*. Esta regra é responsável por executar a verificação de estado de funcionamento. Para ativar a regra e configurar a frequência, utilize os procedimentos abaixo.
 
-Por predefinição, o Microsoft System Center Advisor SCOM avaliação executar avaliação regra está desativada. Para executar a verificação de estado de funcionamento, tem de ativar a regra num servidor de gestão. Utilize os seguintes passos.
+Por predefinição, o Microsoft System Center Operations Manager executar estado de funcionamento verificar regra está desativada. Para executar a verificação de estado de funcionamento, tem de ativar a regra num servidor de gestão. Utilize os seguintes passos.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Ativar a regra para um servidor de gestão específico
 
-1. Na **Authoring** área de trabalho da consola de operações do Operations Manager, procure a regra *Microsoft System Center Advisor SCOM avaliação executar avaliação regra* no **regras** painel.
+1. Na **Authoring** área de trabalho da consola de operações do Operations Manager, procure a regra *Microsoft Center Operations Manager executar o estado de funcionamento verificar regra do sistema* no **regras** painel.
 2. Nos resultados da pesquisa, selecione aquele que inclui o texto *tipo: Servidor de gestão*.
 3. A regra com o botão direito e, em seguida, clique em **substitui** > **para um objeto específico da classe: Servidor de gestão**.
 4.  Na lista de servidores de gestão disponíveis, selecione o servidor de gestão em que a regra deve ser executado.  Deve ser o mesmo servidor de gestão que configurou anteriormente para associar a conta Run As com.
@@ -170,7 +170,7 @@ Por predefinição, o Microsoft System Center Advisor SCOM avaliação executar 
 
 Por predefinição, a avaliação é configurada para executar cada 10.080 minutos (ou sete dias). É possível substituir o valor para um valor mínimo de 1440 minutos (ou um dia). O valor representa a lacuna de tempo mínimo necessária entre as execuções de avaliação sucessivas. Para o intervalo de substituição, utilize os passos abaixo.
 
-1. Na **Authoring** área de trabalho da consola do Operations Manager, procure a regra *Microsoft System Center Advisor SCOM avaliação executar avaliação regra* no **regras** secção.
+1. Na **Authoring** área de trabalho da consola do Operations Manager, procure a regra *Microsoft Center Operations Manager executar o estado de funcionamento verificar regra do sistema* no **regras** secção.
 2. Nos resultados da pesquisa, selecione aquele que inclui o texto *tipo: Servidor de gestão*.
 3. A regra com o botão direito e, em seguida, clique em **substituir a regra** > **para todos os objetos da classe: Servidor de gestão**.
 4. Alteração da **intervalo** valor do parâmetro para o valor de intervalo desejado. No exemplo abaixo, o valor é definido como 1.440 minutos (um dia).<br><br> ![parâmetro de intervalo](./media/scom-assessment/interval.png)<br>  
@@ -277,7 +277,7 @@ Se tiver recomendações que deseja ignorar, pode criar um arquivo de texto que 
 
 *Existe uma forma de configurar a frequência com que a verificação é executada?* Sim. Ver [configurar a frequência de execução](#configure-the-run-frequency).
 
-*Se for detetado o outro servidor depois adicionei a solução de avaliação do System Center Operations Manager, irá ser deu entrada?* Sim, após a deteção que seu check-in de ora em diante, por predefinição a cada sete dias.
+*Se for detetado o outro servidor depois adicionei a solução de verificação do System Center Operations Manager estado de funcionamento, será ele verificado?* Sim, após a deteção que seu check-in de ora em diante, por predefinição a cada sete dias.
 
 *O que é o nome do processo que faz a recolha de dados?* AdvisorAssessment.exe
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 55dc0fa31398bcc04d9793c8cffc9258dc29e4c7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244458"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670898"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configure um perímetro geográfico, utilizando o Azure Maps
 
@@ -165,7 +165,7 @@ Pode ver todas [suportado manipuladores de eventos](https://docs.microsoft.com/a
 
   ![criar aplicações lógicas](./media/tutorial-geofence/logic-app.png)
 
-2. Selecione um acionador de pedido HTTP e, em seguida, selecione "send e e-mail" como uma ação no conector do outlook
+2. Selecione um acionador de pedido HTTP e, em seguida, selecione "enviar e-mail" como uma ação no conector do outlook
   
   ![Esquema de aplicações lógicas](./media/tutorial-geofence/logic-app-schema.png)
 

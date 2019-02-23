@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Impor o multi-factor authentication para utilizadores convidados B2B do Azure AD'
+title: 'Tutorial: Autenticação multifator para B2B - Azure Active Directory | Documentos da Microsoft'
 description: Saiba como exigir a autenticação multifator (MFA) ao utilizar o Azure AD para colaboração B2B com organizações parceiras e utilizadores externos.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d25b6fa5101f8a19e30d68cb5ce58125b4e30f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 70f6718c13534e7f43b183400a1ccf25c3f8d1e1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178520"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669016"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor o multi-factor authentication para utilizadores convidados B2B
 

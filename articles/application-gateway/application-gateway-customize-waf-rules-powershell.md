@@ -1,32 +1,19 @@
 ---
-title: Personalizar regras de firewall de aplicações web no Gateway de aplicação do Azure - PowerShell | Documentos da Microsoft
+title: Personalizar regras de firewall de aplicações web no Gateway de aplicação do Azure - PowerShell
 description: Este artigo fornece informações sobre como personalizar regras de firewall de aplicações web no Gateway de aplicação com o PowerShell.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: dfcd82a17a399f213f5c4e32326a8995d26e8458
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1e1638d69915f16b9f30acc5b6a0265b25c2c561
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218274"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728884"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>Personalizar regras de firewall de aplicações web através do PowerShell
-
-> [!div class="op_single_selector"]
-> * [Portal do Azure](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [CLI do Azure](application-gateway-customize-waf-rules-cli.md)
 
 A firewall de aplicações do Gateway de aplicação Azure web (WAF) fornece proteção para aplicativos web. Estas proteções são fornecidas pelo Open Web Application Security Project (OWASP) Core regra definido (CRS). Algumas regras podem causar falsos positivos e bloquear o tráfego real. Por esse motivo, o Gateway de aplicação fornece a capacidade para personalizar regras e grupos de regras. Para obter mais informações sobre os grupos de regras específicas e as regras, consulte [lista de grupos de regras de CRS da firewall de aplicação de web e regras](application-gateway-crs-rulegroups-rules.md).
 
@@ -103,6 +90,19 @@ $disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -Rul
 Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
 Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
+
+## <a name="mandatory-rules"></a>Regras obrigatórias
+
+A lista seguinte contém as condições que fazem com que o WAF bloquear o pedido no modo de prevenção (no modo de deteção tenham sessão iniciada como exceções). Estes não podem ser configurados ou desativados:
+
+* Falha ao analisar o corpo do pedido resulta no pedido está a ser bloqueado, a menos que a inspeção de corpo está desativada (XML, JSON, dados de formulário)
+* Comprimento de dados do pedido de corpo (com nenhum arquivo) é maior do que o limite configurado
+* Corpo (inclusive arquivos) é maior do que o limite do pedido
+* Ocorreu um erro interno no mecanismo de WAF
+
+CRS 3.x específicas:
+
+* Limiar de pontuação excedida de anomalias de entrada
 
 ## <a name="next-steps"></a>Passos Seguintes
 

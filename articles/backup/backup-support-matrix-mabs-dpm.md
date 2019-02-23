@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 74b6d953939a569a3240c9d64134d143dc4f179e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 0544782763bebac42b4b68fda42cff80b18ff067
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430851"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670739"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-serversystem-center-dpm"></a>Matriz de suporte para cópia de segurança com o Microsoft Azure Backup Server/System Center DPM
 
@@ -75,7 +75,7 @@ O Azure Backup pode criar cópias de segurança MABS/o DPM for executado qualque
 --- | --- 
 **MABS numa VM do Azure** | Windows Server 2012 R2<br/><br/> O Centro de dados do Windows 2016<br/><br/> O Centro de dados do Windows de 2019<br/><br/> Recomendamos que comece com uma imagem do marketplace.<br/><br/> Mínimo A2 padrão com dois núcleos e 3,5 GB de RAM. 
 **DPM numa VM do Azure** | System Center 2012 R2 com Update 3 ou posterior.<br/><br/> Sistema de operativo do Windows conforme [exigidas pelo System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Recomendamos que comece com uma imagem do marketplace.<br/><br/> Mínimo A2 padrão com dois núcleos e 3,5 GB de RAM. 
-**MABS no local** | Suporte para sistemas de operativos de 64 bits:<br/><br/> -MABS v3 e posteriores: Windows Server 2019 (Standard, Datacenter, Essentials) <br/><br/> V2 do MABS e posteriores: Windows Server 2016 (Standard, Datacenter, Essentials)<br/><br/> Todas as versões do MABS: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>Todas as versões do MABS: Windows Storage Server 2012 R2/2012 (Standard/Workgroup)
+**MABS no local** | Suporte para sistemas de operativos de 64 bits:<br/><br/> E posteriores para o MABS v3: Windows Server 2019 (Standard, Datacenter, Essentials) <br/><br/> V2 do MABS e posteriores: Windows Server 2016 (Standard, Datacenter, Essentials)<br/><br/> Todas as versões do MABS: Windows Server 2012 R2/2012 (Standard, Datacenter, Foundation)<br/><br/>Todas as versões do MABS: Windows Storage Server 2012 R2/2012 (Standard/Workgroup)
 **DPM no local** | Físico servidor/Hyper-V VM: System Center 2012 SP1 ou posterior.<br/><br/> VM de VMware: System Center 2012 R2 com Update 5 ou posterior. 
 
 
@@ -106,7 +106,7 @@ Pode implementar MABS numa VM do Azure Stack para que possam gerir cópia de seg
 .NET framework em MABS | A VM do MABS precisa do .NET Framework 3.3 SP1 ou superior instalado no mesmo.
 **Domínio do MABS** | A VM do MABS tem de estar associada a um domínio. Um utilizador de domínio com privilégios de administrador tem de instalar MABS na VM.
 **Cópia de segurança de dados do Azure Stack VM** | Pode fazer backup de arquivos, pastas e aplicações.
-**Cópia de segurança suportada** | Estes sistemas operativos são suportados para VMs que pretende criar cópias de segurança:<br/><br/> -Windows Server via de atualizações Semianuais (Centro de dados/Enterprise/Standard)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
+**Cópia de segurança suportada** | Estes sistemas operativos são suportados para VMs que pretende criar cópias de segurança:<br/><br/> Windows Server via de atualizações Semianuais (Centro de dados/Enterprise/Standard)<br/><br/> Windows Server 2016/2012 R2/2012/2008 R2.
 **Suporte do SQL para as VMs do Azure Stack** | Cópia de segurança do SQL Server 2016/2014/2012 SP1.<br/><br/> Criar cópias de segurança e recuperar a base de dados.
 **Suporte para VMs do Azure Stack SharePoint** | SharePoint 2016/2013/2010.<br/><br/> Criar cópias de segurança e recupere o farm, base de dados, front-end, servidor web.
 **Requisitos de rede para VMs com cópia de segurança** | Todas as VMs na carga de trabalho do Azure Stack tem de ser a mesma VNet e pertencer à mesma subscrição.
@@ -220,4 +220,4 @@ A tabela seguinte resume o que pode ser uma cópia de segurança para o DPM de m
 - [Saiba mais](backup-architecture.md#architecture-back-up-to-dpmmabs) sobre a arquitetura do MABS.
 - [Revisão](backup-support-matrix-mars-agent.md) o que é suportado para o agente de MARS.
 - [Configurar](backup-azure-microsoft-azure-backup.md) um servidor do MABS.
-- [Configurar] (https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180
+- [Configurar o DPM](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-180)

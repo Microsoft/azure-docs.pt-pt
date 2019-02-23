@@ -12,18 +12,18 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: b5109c9c93947118397c383cab3df90c02016ce3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 61c380ee3427afdf40427ed82ed0fd5c4f1b49fd
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652010"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729020"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
 Neste artigo, irá aprender a configurar um ambiente de desenvolvimento para trabalhar com o serviço Azure Machine Learning. Serviço de Machine Learning é independente de plataforma.
 
-Os únicos requisitos para o seu ambiente de desenvolvimento são Python 3, Conda (para ambientes isolados) e um ficheiro de configuração que contém as informações da sua área de trabalho do Azure Machine Learning.
+Os únicos requisitos para o seu ambiente de desenvolvimento são Python 3, Anaconda (para ambientes isolados) e um ficheiro de configuração que contém as informações da sua área de trabalho do Azure Machine Learning.
 
 Este artigo enfoca os ambientes e ferramentas que se seguem:
 
@@ -139,20 +139,22 @@ Para obter mais informações, consulte [máquinas de virtuais de ciência de da
 
 ## <a id="local"></a>Computador local
 
-Quando estiver a utilizar um computador local (que também pode ser uma máquina virtual remota), criar um ambiente de Conda e instalar o SDK, fazendo o seguinte:
+Quando estiver a utilizar um computador local (que também pode ser uma máquina virtual remota), criar um ambiente de Anaconda e instale o SDK, fazendo o seguinte:
 
 1. Transfira e instale [Anaconda](https://www.anaconda.com/distribution/#download-section) (versão Python 3.7) se ainda não o tiver.
 
 1. Abra uma linha de Anaconda e criar um ambiente com os seguintes comandos:
 
+    Execute o seguinte comando para criar o ambiente.
+
     ```shell
     conda create -n myenv python=3.6.5
+    ```
 
-    # activate the Conda environment
+    Em seguida, ative o ambiente.
+
+    ```shell
     conda activate myenv
-
-    # On macOS run
-    source activate myenv
     ```
 
     Este exemplo cria um ambiente com o python 3.6.5, mas qualquer subversions específicos podem ser escolhidos. Não é possível garantir compatibilidade SDK com determinadas versões principais (3.5 + é recomendado), e é recomendado para experimentar um versão/subversion diferente no seu ambiente de Anaconda caso se depare com erros. Irá demorar alguns minutos a criar o ambiente, enquanto os componentes e os pacotes são transferidos.
@@ -188,7 +190,7 @@ Quando estiver a utilizar um computador local (que também pode ser uma máquina
    >
    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
-   Irá demorar alguns minutos para instalar o SDK.
+   Irá demorar alguns minutos para instalar o SDK. Consulte a [instalar guia](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) para obter mais informações sobre as opções de instalação.
 
 1. Instale outros pacotes para o experimentação da aprendizagem automática.
 
@@ -286,7 +288,7 @@ Para preparar o seu cluster do Databricks e obter blocos de notas de exemplo:
     | Tipos de VM de nós de trabalho | Com otimização de memória VM preferida |
     | Ativar o Dimensionamento Automático | Desmarque a opção |
 
-    O número de nós de trabalho no seu cluster do Databricks determina o número máximo de iterações simultâneas nas definições de ML automatizada.
+    O número de nós de trabalho no seu cluster do Databricks determina o número máximo de iterações simultâneas na configuração automatizada de aprendizagem.
 
     Irá demorar alguns minutos para criar o cluster. Aguarde até que o cluster está em execução antes de prosseguir.
 

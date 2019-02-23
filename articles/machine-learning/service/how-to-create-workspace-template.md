@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning service
 description: Saiba como utilizar um modelo Azure Resource Manager para criar uma área de trabalho de serviço do Azure Machine Learning nova.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: haining
 author: hning86
 ms.date: 02/11/2019
-ms.openlocfilehash: b9d05e8de01178fd8731e492d2aeefd28f3ef4cf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d91cb2a98c6861695ffdc231bd979abaf24b2c6e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105710"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669997"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Criar uma área de trabalho do serviço do Azure Machine Learning utilizando um modelo
 

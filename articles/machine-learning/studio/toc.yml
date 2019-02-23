@@ -8,6 +8,7 @@ items:
     href: what-is-ml-studio.md
   - name: Comparar os nossos produtos de ML
     href: ../service/overview-more-machine-learning.md
+    maintainContext: true
   expanded: true
 - name: Tutoriais
   items:
@@ -188,9 +189,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Redes neurais personalizadas (Net#)
     href: azure-ml-netsharp-reference-guide.md
-ms.openlocfilehash: 6649d1c39bdb0a66018feff73f9e9d2b39064155
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 17629adfc1d7e89b99a75dfdc8e6d84d0706688b
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430238"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669276"

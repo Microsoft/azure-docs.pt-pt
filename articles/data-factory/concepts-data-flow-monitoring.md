@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 1497e6b85d3f577064b7a90fb1bcf5cbeb4a1f40
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 90aa6261aebb9d1f7da89c101854bad8061dd6ff
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213605"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737863"
 ---
 # <a name="monitor-data-flows"></a>Fluxos de dados do monitor
 

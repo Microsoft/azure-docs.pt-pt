@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 12/06/2018
+ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cadcd369f9cadf0fc7eb8728f83e8d6345ed2574
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587774"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729224"
 ---
 # <a name="what-is-translator-text-api"></a>O que é a API de Texto do Microsoft Translator?
 
@@ -54,16 +54,6 @@ Saiba mais sobre a [personalização de idiomas](customization.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Leia sobre os [detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
-
 - [Inscrever-se](translator-text-how-to-signup.md) para obter uma chave de acesso.
-
-- O [Início Rápido](quickstarts/csharp.md) é uma descrição das chamadas à API REST escritas em C#. Aprenda a traduzir texto de um idioma para outro com pouco código.
-
-- A [documentação de referência de API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) oferece a documentação técnica para as APIs.
-
-## <a name="see-also"></a>Consulte também
-
-- [Página de Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/#pivot=products&panel=ai)
-- [Página de Produto dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)
-- [Informações sobre soluções e preços](https://www.microsoft.com/en-us/translator/default.aspx)
+- [Referência da API](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference) fornece a documentação técnica para as APIs.
+- [Detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)

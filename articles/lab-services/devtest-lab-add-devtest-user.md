@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834133"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727966"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar proprietários e utilizadores no Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -71,12 +71,15 @@ Os seguintes passos guiá-lo pelo processo de adição de um proprietário ou o 
 5. Sobre o **Konfigurace a zásady** página, selecione **controlo de acesso (IAM)** no menu à esquerda. 
 6. Selecione **adicionar atribuição de função** na barra de ferramentas para adicionar um utilizador a uma função.
 1. Na **adicionar permissões** janela, fazer as seguintes ações: 
-    1. Selecione uma função (por exemplo: utilizador de DevTest Labs). A secção [ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as várias ações que podem ser executadas pelos utilizadores nas funções de proprietário, o utilizador de DevTest e contribuinte.
+    1. Selecione uma função (por exemplo: Utilizador de DevTest Labs). A secção [ações que podem ser executadas em cada função](#actions-that-can-be-performed-in-each-role) lista as várias ações que podem ser executadas pelos utilizadores nas funções de proprietário, o utilizador de DevTest e contribuinte.
     2. Selecione o utilizador a ser adicionado à função. 
     3. Selecione **Guardar**. 
 11. Quando regressar para o **utilizadores** painel, o utilizador foi adicionado.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Adicionar um utilizador externo a um laboratório com o PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Além de adicionar os utilizadores no portal do Azure, pode adicionar um utilizador externo para seu laboratório usando um script do PowerShell. No exemplo a seguir, modificar os valores de parâmetros nos **valores mudem** comentário.
 Pode recuperar os `subscriptionId`, `labResourceGroup`, e `labName` valores a partir do painel de laboratório no portal do Azure.
 
@@ -96,18 +99,18 @@ Pode recuperar os `subscriptionId`, `labResourceGroup`, e `labName` valores a pa
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+    Select-AzSubscription -SubscriptionId $subscriptionId
 
     # Retrieve the user object
-    $adObject = Get-AzureRmADUser -SearchString $userDisplayName
+    $adObject = Get-AzADUser -SearchString $userDisplayName
 
     # Create the role assignment. 
     $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Adicionar um proprietário ou o utilizador ao nível da subscrição
 Permissões do Azure são propagadas dos âmbito principal para o âmbito subordinado no Azure. Por conseguinte, os proprietários de uma subscrição do Azure que contém os laboratórios são automaticamente os proprietários desses laboratórios. Também possuem as VMs e outros recursos criados por utilizadores do laboratório e o serviço de Azure DevTest Labs. 

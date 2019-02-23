@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 012/13/2019
+ms.date: 02/13/2019
 ms.author: jowargo
-ms.openlocfilehash: 6fc44e432b9614eb6270b6ef4862cc0240df8206
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 890577c013a96fc06acf3b05881649ad8202a083
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266939"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671646"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticação baseada em tokens (HTTP/2) para o APNS
 

@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 manager: jeconnoc
 ms.service: container-registry
-ms.topic: overview-article
+ms.topic: overview
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: a83cf6b37a28ec38165778faa7a9ecc266cce7bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d65267992876b3b3255a5eea22ff827522ddcdf1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858268"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674706"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Georreplicação no Azure Container Registry
 

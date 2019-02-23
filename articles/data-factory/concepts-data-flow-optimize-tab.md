@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 31aca6f4ccfe9991a1dcf2808815a4543e2c6fe6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 3802a8475d8a39a2f275dbc7fcf21ce69892a117
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326464"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728782"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>Separador de otimizar a transformação de fluxo de dados de mapeamento
 

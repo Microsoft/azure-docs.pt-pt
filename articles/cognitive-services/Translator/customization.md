@@ -7,15 +7,15 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3fcc8f0c2c0ed897b1c5296eea694cd56144498b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a195a8967ab68990c305097fdcc3476fb3491d4f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585853"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730074"
 ---
 # <a name="customize-your-text-translations"></a>Personalize as suas traduções de texto
 

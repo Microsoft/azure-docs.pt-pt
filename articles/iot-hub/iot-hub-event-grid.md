@@ -2,21 +2,22 @@
 title: O Hub IoT do Azure e o Event Grid | Documentos da Microsoft
 description: Utilize o Azure Event Grid para acionar processos com base nas ações que ocorrem no IoT Hub.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 14bdbb5d629cb5a3fccd6f874e30ded0648e0124
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: a2c49a6ba269321d1903565ace3ebaae3f3b917e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249473"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673858"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagir a eventos do IoT Hub com o Event Grid para realizar ações
 
-O IoT Hub do Azure integra-se com o Azure Event Grid para que possa enviar notificações de eventos para outros serviços e acionar processos downstream. Configure seus aplicativos de negócios para escutar eventos do IoT Hub para que possa reagir a eventos críticos de forma fiável, dimensionável e segura. Por exemplo, crie uma aplicação para realizar várias ações como atualizar uma base de dados, criar um pedido e fornecimento de uma notificação por e-mail sempre que é registado um novo dispositivo de IoT ao seu hub IoT. 
+O IoT Hub do Azure integra-se com o Azure Event Grid para que possa enviar notificações de eventos para outros serviços e acionar processos downstream. Configure seus aplicativos de negócios para escutar eventos do IoT Hub para que possa reagir a eventos críticos de forma fiável, dimensionável e segura. Por exemplo, crie uma aplicação que atualiza uma base de dados, cria um tíquete de trabalho e fornece uma notificação por e-mail sempre que é registado um novo dispositivo de IoT ao seu hub IoT. 
 
 [O Azure Event Grid](../event-grid/overview.md) é um serviço de encaminhamento de eventos totalmente gerido que utiliza um publicar-subscrever o modelo. Grelha de eventos possui suporte interno para serviços do Azure como [as funções do Azure](../azure-functions/functions-overview.md) e [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)e pode enviar alertas de eventos para serviços não pertencente ao Azure através de webhooks. Para obter uma lista completa dos manipuladores de eventos que suporta o Event Grid, veja [uma introdução ao Azure Event Grid](../event-grid/overview.md). 
 
@@ -118,7 +119,7 @@ O exemplo seguinte mostra o esquema de um dispositivo que criou o evento:
 }]
 ```
 
-Para obter uma descrição detalhada de cada propriedade, consulte [esquema de eventos do Azure Event Grid para o IoT Hub](../event-grid/event-schema-iot-hub.md)
+Para obter uma descrição detalhada de cada propriedade, veja [esquema de eventos do Azure Event Grid para o IoT Hub](../event-grid/event-schema-iot-hub.md).
 
 ## <a name="filter-events"></a>Filtrar eventos
 
@@ -131,15 +132,15 @@ devices/{deviceId}
 ```
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitações para dispositivo ligado e o dispositivo desligado eventos
 
-Para receber o dispositivo ligado e eventos de dispositivo desligado, tem de abrir a ligação de D2C ou C2D ligação para o seu dispositivo. Se o dispositivo estiver a utilizar o protocolo MQTT, o IoT Hub manterá C2D link abrir. Para AMQP pode abrir a ligação de C2D ao chamar o [receber API de Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
+Para receber o dispositivo ligado e eventos de dispositivo desligado, tem de abrir a ligação de D2C ou C2D ligação para o seu dispositivo. Se o dispositivo estiver a utilizar o protocolo MQTT, o IoT Hub manterá C2D link abrir. Para AMQP, é possível abrir a ligação de C2D ao chamar o [receber API de Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). 
 
-A ligação de D2C é aberta, se estiverem a enviar telemetria. Se a ligação do dispositivo é cintilação, ou seja, o dispositivo liga e desliga com frequência, não enviaremos cada única ligação de estado, mas irá publicar o estado de ligação que é snapshotted a cada minuto. Em caso de indisponibilidade do IoT Hub, vamos publicar o estado de ligação do dispositivo assim que a falha está acima. Se o dispositivo se desliga durante esse período de inatividade, o evento desconectado do dispositivo será publicado em 10 minutos.
+A ligação de D2C é aberta, se estiverem a enviar telemetria. Se a ligação do dispositivo é cintilação, que significa que o dispositivo liga e desliga com frequência, nós não enviará a cada Estado de ligação único, mas irá publicar o estado de ligação que é snapshotted a cada minuto. Em caso de indisponibilidade do IoT Hub, vamos publicar o estado de ligação do dispositivo assim que a falha está acima. Se o dispositivo se desliga durante esse período de inatividade, o evento desconectado do dispositivo será publicado em 10 minutos.
 
 ## <a name="tips-for-consuming-events"></a>Dicas para o consumo de eventos
 
 Aplicações que processam os eventos do IoT Hub devem seguir estas práticas sugeridas:
 
-* Várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, pelo que é importante não partem do princípio de que os eventos são de uma origem específica. Verifique sempre o tópico de mensagem para se certificar de que trata do hub IoT que esperava. 
+* Várias subscrições podem ser configuradas para encaminhar eventos para o mesmo manipulador de eventos, pelo que não parta do princípio que os eventos são de uma origem específica. Verifique sempre o tópico de mensagem para se certificar de que trata do hub IoT que esperava. 
 
 * Não parta do princípio que todos os eventos recebidos são os tipos que esperava. Verifique sempre o eventType antes de processar a mensagem.
 

@@ -12,18 +12,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 2/19/2019
 ms.author: douglasl
-ms.openlocfilehash: b672264e1cb3cd415532cf4bcfbbd268afffa70d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 77ee2a0649d5c815fb68a4a40106455839030695
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415942"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671527"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Runtime de integração Azure-SSIS
 
 Este artigo mostra-lhe como ativar a autenticação do Azure Active Directory (Azure AD) com a identidade gerida para o Azure Data Factory (ADF) e utilizá-lo em vez da autenticação de SQL para criar um IR Azure-SSIS Integration Runtime () que por sua vez criará o SSIS base de dados catálogo (SSISDB) na base de dados do Azure SQL server/gerida instância em seu nome.
 
-Para mais informações sobre a identidade gerida para o ADF, veja [identidade do serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+Para mais informações sobre a identidade gerida para o ADF, veja [identiy gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > Se já tiver criado um IR Azure-SSIS com a autenticação de SQL, não pode reconfigurar o runtime de integração para utilizar autenticação do Azure AD com o PowerShell neste momento, mas pode fazê-lo na aplicação de portal/ADF do Azure. 
@@ -57,7 +57,7 @@ Pode utilizar um grupo do Azure AD existente ou crie um novo com o Azure AD Powe
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Adicione a identidade gerida para o ADF ao grupo. Pode seguir o artigo [identidade do serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID de identidade de serviço principal (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não utilize ID de aplicação de identidade de serviço para esta finalidade).
+3.  Adicione a identidade gerida para o ADF ao grupo. Pode seguir o artigo [identiy gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID de identidade de serviço principal (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não utilize ID de aplicação de identidade de serviço para esta finalidade).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -167,7 +167,7 @@ Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://d
 
 4.  Com o botão direito no **mestre** da base de dados e selecione **nova consulta**.
 
-5.  Obter a identidade gerida para o ADF. Pode seguir o artigo [identidade do serviço do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID de aplicação de identidade de serviço principal (mas não utilizar o ID de identidade de serviço para esta finalidade).
+5.  Obter a identidade gerida para o ADF. Pode seguir o artigo [identiy gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID de aplicação de identidade de serviço principal (mas não utilizar o ID de identidade de serviço para esta finalidade).
 
 6.  Na janela de consulta, execute o seguinte script de T-SQL para converter a identidade gerida para o ADF para tipo binário:
 

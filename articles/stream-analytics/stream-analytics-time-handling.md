@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 4accff7410d17e76a000b7cef957b75c65a16960
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 91193cc328c02f5ba4f5eb18e0bf853f9d91313a
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008392"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732267"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Compreender a manipulação de tempo no Azure Stream Analytics
 
@@ -163,7 +163,7 @@ O Azure Stream Analytics utiliza o progresso de marca d'água como o acionador s
 
 Ao usar [agregados em janelas](stream-analytics-window-functions.md), o serviço produz apenas saídas no final do windows. Em alguns casos, os usuários podem querer ver agregações parciais geradas a partir do windows. Agregações parciais não são atualmente suportadas no Azure Stream Analytics.
 
-Em outras soluções de transmissão em fluxo, os eventos de saída podem ser materializados em vários pontos de Acionador, dependendo das circunstâncias externos. É possível em algumas soluções que os eventos de saída para alguns janela de tempo especificado gerado várias vezes. Como os valores de entrada estão refinados, os resultados de agregação tornam-se mais precisos. Eventos poderiam ser speculated na primeira e revisado ao longo do tempo. Por exemplo, quando um determinado dispositivo está offline a partir da rede, um valor previsto poderia ser usado por um sistema. Mais tarde em diante, o mesmo dispositivo fica online para a rede. Em seguida, os dados do evento real poderiam estar incluídos no fluxo de entrada. Os resultados da saída da janela de tempo de processamento produz um resultado mais preciso.
+Em outras soluções de transmissão em fluxo, os eventos de saída podem ser materializados em vários pontos de Acionador, dependendo das circunstâncias externos. É possível em algumas soluções que os eventos de saída para uma janela de tempo especificado foi possível gerar várias vezes. Como os valores de entrada estão refinados, os resultados de agregação tornam-se mais precisos. Eventos poderiam ser speculated na primeira e revisado ao longo do tempo. Por exemplo, quando um determinado dispositivo está offline a partir da rede, um valor previsto poderia ser usado por um sistema. Mais tarde em diante, o mesmo dispositivo fica online para a rede. Em seguida, os dados do evento real poderiam estar incluídos no fluxo de entrada. Os resultados da saída da janela de tempo de processamento produz um resultado mais preciso.
 
 ## <a name="illustrated-example-of-watermarks"></a>Exemplo ilustrado de marcas d'água
 

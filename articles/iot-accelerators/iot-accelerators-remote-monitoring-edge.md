@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 2f6e8b40907d02e62ede95a44fa10168f7590bd5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d28a88efc1a9f980d74737936bb960ba13573fa3
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606253"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675097"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detetar anomalias na periferia com o acelerador de solução de monitorização remota
 
@@ -55,12 +55,12 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Há duas etapas para adicionar um dispositivo IoT Edge para seu acelerador de solução de monitorização remota. Esta secção mostra-lhe como utilizar:
 
-* Adicionar um dispositivo IoT Edge no **dispositivos** página na monitorização remota da IU da web.
+* Adicionar um dispositivo IoT Edge no **Device Explorer** página na monitorização remota da IU da web.
 * Instale o runtime do IoT Edge numa máquina virtual (VM) do Linux.
 
 ### <a name="add-an-iot-edge-device-to-your-solution"></a>Adicionar um dispositivo IoT Edge à sua solução
 
-Para adicionar um dispositivo IoT Edge para o acelerador de solução de monitorização remota, navegue para o **dispositivos** página na IU da web e clique em **+ novo dispositivo**.
+Para adicionar um dispositivo IoT Edge para o acelerador de solução de monitorização remota, navegue para o **Device Explorer** página na IU da web e clique em **+ novo dispositivo**.
 
 Na **novo dispositivo** painel, escolha **dispositivo IoT Edge** e introduza **bomba de petróleo** como o ID de dispositivo. Pode deixar os valores predefinidos para as outras definições. Em seguida, clique em **Aplicar**:
 
@@ -68,39 +68,39 @@ Na **novo dispositivo** painel, escolha **dispositivo IoT Edge** e introduza **b
 
 Anote a cadeia de ligação do dispositivo, terá na secção seguinte deste tutorial.
 
-Quando registar um dispositivo com o hub IoT no acelerador de solução de monitorização remota, é apresentada no **dispositivos** página na IU da web:
+Quando registar um dispositivo com o hub IoT no acelerador de solução de monitorização remota, é apresentada no **Device Explorer** página na IU da web:
 
 [![Novo dispositivo IoT Edge](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 Para tornar mais fácil de gerir os dispositivos do IoT Edge na solução, crie um grupo de dispositivos e adicionar o dispositivo do IoT Edge:
 
-1. Selecione o **bomba de petróleo** dispositivo na lista de **dispositivos** página e, em seguida, clique em **tarefas**.
+1. Selecione o **bomba de petróleo** dispositivo na lista de **Device Explorer** página e, em seguida, clique em **tarefas**.
 
 1. Criar uma tarefa para adicionar o **IsEdge** marca o dispositivo com as seguintes definições:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ----- |
     | Tarefa     | Etiquetas  |
     | Nome da tarefa | AddEdgeTag |
     | Chave     | IsOilPump |
-    | Valor   | S     |
-    | Tipo    | Texto  |
+    | Value   | S     |
+    | Type    | Texto  |
 
     [![Adicionar etiqueta](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
 1. Clique em **aplicam-se**, em seguida, **fechar**.
 
-1. Sobre o **dispositivos** página, clique em **gerir grupos de dispositivos**.
+1. Sobre o **Device Explorer** página, clique em **gerir grupos de dispositivos**.
 
 1. Clique em **criar novo grupo de dispositivos**. Crie um novo grupo de dispositivos com as seguintes definições:
 
     | Definição | Valor |
     | ------- | ----- |
-    | Nome    | OilPumps |
+    | Name    | OilPumps |
     | Campo   | Tags.IsOilPump |
     | Operador | = Igual a |
-    | Valor    | S |
-    | Tipo     | Texto |
+    | Value    | S |
+    | Type     | Texto |
 
     [![Criar grupo de dispositivos](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
@@ -158,7 +158,7 @@ Definir a tarefa do Stream Analytics no portal do antes de empacotá-lo como um 
 
 1. No portal do Azure, crie uma **tarefa do Stream Analytics** no **IoTEdgeDevices** grupo de recursos. Utilizar valores de configuração a seguir:
 
-    | Opção | Valor |
+    | Opção | Value |
     | ------ | ----- |
     | Nome da tarefa | EdgeDeviceJob |
     | Subscrição | A sua subscrição do Azure |
@@ -273,11 +273,11 @@ Agora está pronto para implementar o pacote para o seu dispositivo.
 
 1. Na **nova implementação** painel, pode criar uma implementação com as seguintes definições:
 
-    | Opção | Valor |
+    | Opção | Value |
     | ------ | ----- |
-    | Nome   | OilPumpDevices |
+    | Name   | OilPumpDevices |
     | Tipo de pacote | Manifesto do Edge |
-    | Pacote | petróleo-bomba-device.json |
+    | Pacote | oil-pump-device.json |
     | Grupo de dispositivos | OilPumps |
     | Prioridade | 10 |
 
@@ -300,7 +300,7 @@ O **implementações** página mostra as métricas seguintes:
 
 Pode ver a telemetria de temperatura do seu dispositivo de bombeamento de petróleo em monitorização remota da IU da web:
 
-1. Navegue para o **dispositivos** página e selecione o seu dispositivo de bombeamento de petróleo.
+1. Navegue para o **Device Explorer** página e selecione o seu dispositivo de bombeamento de petróleo.
 1. Na **telemetria** secção a **detalhes do dispositivo** painel, clique em **temperatura**:
 
     [![Ver a telemetria](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)
@@ -312,7 +312,7 @@ Se pretender notificar operadores quando foi atingido o limiar, pode criar uma r
 1. Navegue para o **regras** página e clique em **+ nova regra**.
 1. Crie uma nova regra com as seguintes definições:
 
-    | Opção | Valor |
+    | Opção | Value |
     | ------ | ----- |
     | Nome da regra | Temperatura de bombeamento de petróleo |
     | Descrição | Temperatura de bombeamento de petróleo excedido 300 |
@@ -320,7 +320,7 @@ Se pretender notificar operadores quando foi atingido o limiar, pode criar uma r
     | Cálculo | Instantâneo |
     | Campo | temperatura |
     | Operador | > |
-    | Valor | 300 |
+    | Value | 300 |
     | Nível de gravidade | Informações |
 
     [![Criar regra](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)

@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a1bab75521730f7e80e5b86112bbb0aed129f88
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: a51593753cab8a6b07d99df46560808de5400047
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917879"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737931"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração de Gestor de recursos de cluster com a gestão de cluster do Service Fabric
 O Gestor de recursos de Cluster do Service Fabric não unidade atualizações nos recursos de infraestrutura do serviço, mas está envolvida. É a primeira maneira que o Gestor de recursos de Cluster ajuda com a gestão ao controlar o estado pretendido do cluster e os serviços no interior do mesmo. O Gestor de recursos de Cluster envia os relatórios de estado de funcionamento quando ele não é possível colocar o cluster para a configuração pretendida. Por exemplo, se existir capacidade insuficiente o Gestor de recursos de Cluster envia os avisos de estado de funcionamento e os erros que indicam o problema. Outra parte da integração tem a ver com como funcionam as atualizações. O Gestor de recursos de Cluster altera seu comportamento ligeiramente durante as atualizações.  
@@ -73,11 +73,11 @@ HealthEvents          :
 
 Eis o que esta mensagem de estado de funcionamento está dizendo é que:
 
-1. Todas as réplicas próprios estão em bom Estadas: cada um tem AggregatedHealthState: Ok
+1. Todas as réplicas próprios estão em bom Estadas: Cada um tem AggregatedHealthState: Ok
 2. A restrição de distribuição de domínio de atualização é atualmente a ser violada. Isso significa que um determinado domínio de atualização tem mais réplicas desta partição do que devia.
 3. Nó que contém a réplica que faz com que a violação. Neste caso é o nó com o nome "Node.8"
 4. Se uma atualização está a acontecer para esta partição ("atualmente atualizar--false")
-5. A política de distribuição para este serviço: "Remessa de--de política de distribuição". Isso é governado pelos `RequireDomainDistribution` [política de colocação](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Empacotamento" indica que neste caso DomainDistribution era _não_ necessário, pelo que Sabemos que a política de colocação não foi especificada para este serviço. 
+5. A política de distribuição para este serviço: "Política de distribuição, empacotar". Isso é governado pelos `RequireDomainDistribution` [política de colocação](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Empacotamento" indica que neste caso DomainDistribution era _não_ necessário, pelo que Sabemos que a política de colocação não foi especificada para este serviço. 
 6. Quando o relatório Ocorreu um - 8/10/2015 7 13:02 PM
 
 Informações sobre como este alertas de poderes que são acionados na produção para informá-lo, algo está errado e também é utilizado para detetar e parar atualizações mal-sucedidas. Neste caso, podemos desejar ver se conseguimos descobrir por que o Gestor de recursos tinha que empacotar as réplicas para o domínio de atualização. Normalmente, a empacotar é transitório porque os nós nos outros domínios de atualização foram-se para baixo, por exemplo.
@@ -92,12 +92,12 @@ Nestes casos, relatórios de estado de funcionamento do Cluster do Resource Mana
 ## <a name="constraint-types"></a>Tipos de restrição
 Vamos falar sobre cada um dos diferentes restrições nestes relatórios de estado de funcionamento. Poderá ver mensagens de estado de funcionamento relacionado com estas restrições quando não não possível colocar as réplicas.
 
-* **ReplicaExclusionStatic** e **ReplicaExclusionDynamic**: essas restrições indica que uma solução foi rejeitada porque dois objetos de serviço da mesma partição tinha que ser colocada no mesmo nó. Isso não é permitido porque, em seguida, falha desse nó excessivamente afetaria nessa partição. ReplicaExclusionStatic e ReplicaExclusionDynamic são quase a mesma regra e as diferenças não são muito importam. Se vir uma seqüência de eliminação de restrição contendo o ReplicaExclusionStatic ou ReplicaExclusionDynamic restrição, acha que o Gestor de recursos de Cluster que não existem são suficientes nós. Isso exige soluções restantes para utilizar estes posicionamentos inválidos que não são permitidos. Outras restrições na sequência normalmente nos irão dizer por que nós estão a ser eliminados em primeiro lugar.
+* **ReplicaExclusionStatic** e **ReplicaExclusionDynamic**: Essas restrições indica que uma solução foi rejeitada porque dois objetos de serviço da mesma partição tinha que ser colocada no mesmo nó. Isso não é permitido porque, em seguida, falha desse nó excessivamente afetaria nessa partição. ReplicaExclusionStatic e ReplicaExclusionDynamic são quase a mesma regra e as diferenças não são muito importam. Se vir uma seqüência de eliminação de restrição contendo o ReplicaExclusionStatic ou ReplicaExclusionDynamic restrição, acha que o Gestor de recursos de Cluster que não existem são suficientes nós. Isso exige soluções restantes para utilizar estes posicionamentos inválidos que não são permitidos. Outras restrições na sequência normalmente nos irão dizer por que nós estão a ser eliminados em primeiro lugar.
 * **PlacementConstraint**: Se vir esta mensagem, significa que alguns nós podemos eliminado porque não corresponde a restrições de posicionamento do serviço. Nós de rastreio horizontalmente as restrições de posicionamento atualmente configurada como parte desta mensagem. Isso é normal se tiver uma restrição de posicionamento definida. No entanto, se a restrição de posicionamento incorretamente está a causar muitos de nós ser eliminados é como deve observar.
-* **NodeCapacity**: esta restrição significa que o Gestor de recursos de Cluster não foi possível colocar as réplicas em nós indicado porque que as colocaria acima da capacidade.
-* **Afinidade**: esta restrição indica que não foi possível colocamos a réplica em nós afetados, uma vez que ele faria com que uma violação da restrição de afinidade. Obter mais informações sobre a afinidade são no [neste artigo](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-* **FaultDomain** e **UpgradeDomain**: esta restrição elimina nós se colocar a réplica em nós indicado causaria a empacotar num determinado índice de falhas ou domínio de atualização. Vários exemplos discutindo esta restrição são apresentados no tópico na [restrições de domínio de atualização e de falha e o comportamento resultante](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**: normalmente não os deveriam ver essa restrição remover nós da solução, uma vez que ele é executado como uma otimização por predefinição. A restrição de localização preferencial também está presente durante as atualizações. Durante a atualização é utilizado para mover serviços para onde estavam quando a atualização iniciada.
+* **NodeCapacity**: Esta restrição significa que o Gestor de recursos de Cluster não foi possível colocar as réplicas em nós indicado porque que as colocaria acima da capacidade.
+* **Afinidade**: Esta restrição indica que não foi possível colocamos a réplica em nós afetados, uma vez que ele faria com que uma violação da restrição de afinidade. Obter mais informações sobre a afinidade são no [neste artigo](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **FaultDomain** e **UpgradeDomain**: Esta restrição elimina nós se colocar a réplica em nós indicado causaria a empacotar num determinado índice de falhas ou domínio de atualização. Vários exemplos discutindo esta restrição são apresentados no tópico na [restrições de domínio de atualização e de falha e o comportamento resultante](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation**: Normalmente, não deve ver essa restrição remover nós da solução, uma vez que ele é executado como uma otimização por predefinição. A restrição de localização preferencial também está presente durante as atualizações. Durante a atualização é utilizado para mover serviços para onde estavam quando a atualização iniciada.
 
 ## <a name="blocklisting-nodes"></a>Nós Blocklisting
 Outra mensagem de estado de funcionamento os relatórios do Gestor de recursos do Cluster é quando nós estão blocklisted. Pode pensar blocklisting como uma restrição temporária que é aplicada automaticamente para. Nós obtém blocklisted ao se deparar com falhas repetidas ao iniciar instâncias desse tipo de serviço. Os nós são blocklisted numa base por--tipo de serviço. Um nó pode ser blocklisted para o tipo de um serviço e não em outro. 

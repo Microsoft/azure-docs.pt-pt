@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de colaboração do Azure Active Directory B2B | Documentos da Microsoft
+title: Resolução de problemas de colaboração do B2B - Azure Active Directory | Documentos da Microsoft
 description: Soluções para problemas comuns com a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f69bad355bf5644988416958c4b4f32ed66714d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f772c14f414e4e1c5401e3c85de7009355453c98
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186408"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668535"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração do Azure Active Directory B2B
 
@@ -37,7 +37,7 @@ Pode ativar esta funcionalidade, utilize a definição 'ShowPeoplePickerSuggesti
 
 Se for notificado de que não tem permissões para convidar utilizadores, certifique-se de que a sua conta de utilizador está autorizada a convidar utilizadores externos em definições do utilizador:
 
-![](media/troubleshoot/external-user-settings.png)
+![Definições de utilizadores externas](media/troubleshoot/external-user-settings.png)
 
 Se tiver modificado recentemente estas definições ou atribuída a função de utilizador que convida convidados para um utilizador, poderá haver um atraso de 60 de 15 minutos antes das alterações entrem em vigor.
 
@@ -49,7 +49,7 @@ Erros comuns incluem:
 
 Ao convidar utilizadores cuja organização está a utilizar o Azure Active Directory, mas em que não existe conta de utilizador específico (por exemplo, o utilizador não existe no Azure AD contoso.com). O administrador de contoso.com pode ter uma política de impedir que os usuários a ser criada. O utilizador tem de verificar com o seu administrador para determinar se são permitidos a utilizadores externos. Administrador do utilizador externo poderá ter de permitir que os utilizadores de verificado por E-Mail no respetivo domínio (consulte este [artigo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) permitir que os utilizadores verificado de E-Mail).
 
-![](media/troubleshoot/allow-email-verified-users.png)
+![Erro a indicar que este inquilino não permite e-mail verificado os utilizadores a adicionar](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>Utilizador externo não pode já existir num domínio federado
 

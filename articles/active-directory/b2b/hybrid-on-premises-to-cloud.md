@@ -1,5 +1,5 @@
 ---
-title: Conceder acesso de contas do parceiro gerido localmente a recursos na cloud, como utilizadores B2B do Azure AD | Documentos da Microsoft
+title: Sincronizar contas do parceiro local para a cloud como utilizadores B2B - Azure Active Directory | Documentos da Microsoft
 description: Dar localmente geridos parceiros externos, acesso a ambos os locais e recursos da nuvem com as mesmas credenciais com a colaboração B2B do Azure AD.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29f5deb8bd06d4001f1776765ea6824da9bd9802
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b28b9404ca45697f6afe43bb33eca78302122c87
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163789"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672224"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder acesso de contas de parceiros gerido localmente a recursos na cloud através da colaboração B2B do Azure AD
 

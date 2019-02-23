@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 2e318210d96822b13f65eadeef79798b1b4595d1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 626943143e8fa193f143e66d856d9b00e3589fb5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56325902"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732811"
 ---
 # <a name="mapping-data-flow-reference-node"></a>Nó de referência de fluxo de dados de mapeamento
 

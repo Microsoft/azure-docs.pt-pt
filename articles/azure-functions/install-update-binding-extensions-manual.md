@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: 77b863bc32442261e220b5dd3f11c0bd33b4fa7a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810287"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727116"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Instalar ou atualizar as extensões de enlace de funções do Azure no portal manualmente
 
-O tempo de execução das funções do Azure versão 2.x usa as extensões de enlace para implementar o código para acionadores e enlaces. Extensões de ligação são fornecidas nos pacotes de NuGet. Para registar uma extensão, essencialmente instalar um pacote. Ao desenvolver funções, a maneira que instale as extensões de ligação depende do ambiente de desenvolvimento. Para obter mais informações, consulte [registar as extensões de vinculação](functions-triggers-bindings.md#register-binding-extensions) no artigo de enlaces e acionadores.
+O tempo de execução das funções do Azure versão 2.x usa as extensões de enlace para implementar o código para acionadores e enlaces. Extensões de ligação são fornecidas nos pacotes de NuGet. Para registar uma extensão, essencialmente instalar um pacote. Ao desenvolver funções, a maneira que instale as extensões de ligação depende do ambiente de desenvolvimento. Para obter mais informações, consulte [registar as extensões de vinculação](./functions-bindings-register.md) no artigo de enlaces e acionadores.
 
 Por vezes, terá de instalar ou atualizar suas extensões de ligação no portal do Azure manualmente. Por exemplo, terá de atualizar um enlace registado numa versão mais recente. Também poderá ter de registar um enlace suportado que não pode ser instalado no **integrar** separador no portal.
 

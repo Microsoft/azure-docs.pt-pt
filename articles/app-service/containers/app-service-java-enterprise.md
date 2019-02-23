@@ -1,7 +1,7 @@
 ---
 title: Suporte da empresa de Java no Linux - serviço de aplicações do Azure | Documentos da Microsoft
 description: Guia do programador para implementar aplicações de Java Enterprise com Wildfly com o serviço de aplicações do Azure no Linux.
-keywords: serviço de aplicações do Azure, aplicação web, linux, oss, java, wildfly, enterprise
+keywords: azure app service, web app, linux, oss, java, wildfly, enterprise, java ee, jee, javaee
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6618e5317db1a7a4332a35b7ee9cd74934c8a787
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548481"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737897"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia de Java Enterprise para o serviço de aplicações no Linux
 
-Serviço de aplicações do Azure no Linux permite que os programadores de Java para criar, implementar e dimensionar aplicações de Java Enterprise (JEE) num serviço totalmente gerido baseado em Linux.  O ambiente de tempo de execução Java Enterprise subjacente é o código-fonte aberto [Wildfly](https://wildfly.org/) servidor de aplicações.
+Serviço de aplicações do Azure no Linux permite que os programadores de Java para criar, implementar e dimensionar aplicações Java empresariais (Java EE) num serviço totalmente gerido baseado em Linux.  O ambiente de tempo de execução Java Enterprise subjacente é o código-fonte aberto [Wildfly](https://wildfly.org/) servidor de aplicações.
 
 Este guia fornece os conceitos chave e instruções para desenvolvedores de Java empresariais usando-se no serviço de aplicações para Linux. Se nunca implementar aplicações Java com o serviço de aplicações do Azure para Linux, deverá concluir os [início rápido de Java](quickstart-java.md) primeiro. Perguntas sobre o serviço de aplicações para Linux que não sejam específicas para Java Enterprise são respondidas no [guia para programadores de Java](app-service-linux-java.md) e o [FAQ de Linux do serviço de aplicações](app-service-linux-faq.md).
 

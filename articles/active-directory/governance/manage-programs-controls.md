@@ -1,6 +1,6 @@
 ---
-title: Gerir programas e as revisões de acesso de controles para o Azure AD | Documentos da Microsoft
-description: Pode criar programas adicionais para cada governação, gestão de riscos e iniciativa de conformidade na sua organização para recolher e organizar as revisões de acesso do Azure Active Directory como controles.
+title: Gerir programas e controlos de revisões de acesso do Azure AD | Documentos da Microsoft
+description: Aprenda a criar programas adicionais para cada governação, gestão de riscos e iniciativa de conformidade na sua organização para recolher e organizar o Azure Active Directory revisões de acesso como controles.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78f4c978a04a7589e71ba39676e06ca5cc37f579
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0ea210c79833ad9e070253a9511cae539730a8d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170674"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731417"
 ---
-# <a name="manage-programs-and-their-controls"></a>Gerir programas e respetivos controlos 
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Gerir programas e controlos de revisões de acesso do Azure AD
 
 Azure Active Directory (Azure AD) inclui as revisões de acesso de membros do grupo e o acesso à aplicação. Estes exemplos de controles Certifique-se de supervisão para quem tem acesso a aplicações e associações a grupos da sua organização. As organizações podem utilizar estes controlos para abordar com eficiência seus governação, gestão de riscos e os requisitos de conformidade.
 
@@ -38,5 +38,5 @@ Se já não necessita de um programa e ele não tem quaisquer controles ligados 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar uma revisão de acesso para os membros de um grupo ou o acesso a uma aplicação](create-access-review.md)
-- [Recuperar os resultados de uma revisão de acesso](retrieve-access-review.md)
+- [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
+- [Obter resultados de revisão de acesso para grupos ou aplicações](retrieve-access-review.md)

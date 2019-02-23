@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e4f446ff67408ef390ba817de935c286c5b2a47e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346258"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727609"
 ---
 # <a name="introduction-to-application-groups"></a>Introdução aos grupos de aplicações
 Gestor de recursos de Cluster do Service Fabric gere, tipicamente, recursos do cluster ao propagar a carga (representado por meio [métricas](service-fabric-cluster-resource-manager-metrics.md)) uniformemente em todo o cluster. O Service Fabric gere a capacidade de nós no cluster e o cluster como um todo via [capacidade](service-fabric-cluster-resource-manager-cluster-description.md). Métricas e a capacidade funcionam muito bem para muitas cargas de trabalho, mas os padrões que utilizam diferentes instâncias da aplicação Service Fabric traga, às vezes, os requisitos adicionais. Por exemplo, talvez queira:
@@ -107,7 +107,7 @@ Reservar espaço no cluster para o aplicativo imediatamente acontece mesmo quand
 - o número de serviços dentro da instância de aplicação sempre que é alterado 
 - os serviços existem mas não estão a consumir os recursos 
 
-Reservar recursos para uma instância de aplicação requer a especificação de dois parâmetros adicionais: *MinimumNodes* e *NodeReservationCapacity*
+Reserva de recursos para uma instância de aplicação requer a especificação de dois parâmetros adicionais: *MinimumNodes* e *NodeReservationCapacity*
 
 - **MinimumNodes** -define o número mínimo de nós que a instância da aplicação deve ser executado em.  
 - **NodeReservationCapacity** -esta definição é por métrica para a aplicação. O valor é a quantidade dessa métrica reservada para o aplicativo em qualquer nó onde que executam os serviços nesse aplicativo.
@@ -126,7 +126,7 @@ No exemplo à direita, digamos que Application1 foi criado com as seguintes defi
 
 - MinimumNodes definida para dois
 - Métrica de um aplicativo definido com
-  - NodeReservationCapacity de 20
+  - NodeReservationCapacity of 20
 
 PowerShell
 
@@ -179,8 +179,8 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 A consulta de ApplicationLoad devolve as informações básicas sobre a capacidade da aplicação que foi especificada para a aplicação. Estas informações incluem as informações de nós de mínimo e máximo de nós e o número de que o aplicativo atualmente ocupa. Ele também inclui informações sobre cada métrica de carga do aplicativo, incluindo:
 
 * Nome da métrica: Nome da métrica.
-* Capacidade de reserva: A capacidade do Cluster que está reservada no cluster para esta aplicação.
-* Carga da aplicação: A carga Total de réplicas de subordinado desse aplicativo.
+* Capacidade de reserva: Capacidade do cluster que está reservada no cluster para esta aplicação.
+* Carga da aplicação: Carga total de réplicas de subordinado desse aplicativo.
 * Capacidade da aplicação: Máximo permitido de valor de carga da aplicação.
 
 ## <a name="removing-application-capacity"></a>Remover a capacidade da aplicação

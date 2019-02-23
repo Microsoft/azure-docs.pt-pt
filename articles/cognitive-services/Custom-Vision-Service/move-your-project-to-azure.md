@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 76207e83e31ba3919da80e4ecc99435e88c76c66
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b46ccd98145342fda58672b64b838ab92ba4f97b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56654590"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731927"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure-using-the-customvisionai-site"></a>Como mover o seu projeto de versão de avaliação limitada para o Azure com o site de CustomVision.ai
 

@@ -8,12 +8,12 @@ ms.author: viviali
 ms.date: 12/4/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 9c774a463264a3df859ac097dce4aa21df1c1dd8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163366"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730329"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Criar o IoT Central ponte de dispositivo e ligue-se noutras clouds de IoT ao IoT Central
 
@@ -26,7 +26,9 @@ A ponte de dispositivo do IoT Central é uma solução de código-fonte aberto n
 -   Aplicação de funções do Azure
 -   Conta de Armazenamento do Azure
 -   Plano de Consumo
--   O Azure Key Vault a aplicação de funções é a parte crítica da ponte de dispositivo. Ele recebe pedidos de HTTP POST de outras plataformas de IoT ou qualquer plataformas personalizadas através de uma integração de webhook simples. Fornecemos exemplos que mostram como ligar a nuvens Sigfox, nuvem de partículas e TTN. Pode expandir facilmente esta solução para ligar a sua cloud da IoT personalizada, se a sua plataforma pode enviar pedidos de HTTP POST para a aplicação de funções.
+-   Azure Key Vault
+
+A aplicação de funções é a parte crítica da ponte de dispositivo. Ele recebe pedidos de HTTP POST de outras plataformas de IoT ou qualquer plataformas personalizadas através de uma integração de webhook simples. Fornecemos exemplos que mostram como ligar a nuvens Sigfox, nuvem de partículas e TTN. Pode expandir facilmente esta solução para ligar a sua cloud da IoT personalizada, se a sua plataforma pode enviar pedidos de HTTP POST para a aplicação de funções.
 A aplicação de função transforma os dados num formato Aceito pelo centro de IoT e reencaminha-lo ao longo através de APIs de pontos de distribuição.
 
 ![Captura de ecrã das funções do Azure](media/howto-build-iotc-device-bridge/azfunctions.png)

@@ -4,7 +4,7 @@ description: Este artigo responde a perguntas sobre a integração de registos d
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
 ms.service: security
@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: f1b809e52cc532d13be85776f73aba4465fa2140
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fc94208ef01e52207b6efbf88223119cf58ddb7f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114931"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727167"
 ---
 # <a name="azure-log-integration-faq"></a>Integração de registos do Azure FAQ
 
@@ -32,6 +32,8 @@ Este artigo responde às perguntas mais frequentes (FAQ) sobre a integração de
 Integração de registos do Azure é um serviço de sistema operativo do Windows que pode utilizar para integrar registos não processados do seus recursos do Azure em seus sistemas no local segurança informações e eventos (SIEM) de gestão. Esta integração fornece um dashboard unificado para todos os seus ativos, no local ou na cloud. Pode, em seguida, Agregar, correlacionar, analisar e de alertas para eventos de segurança associados a seus aplicativos.
 
 O método preferido para a integração de registos do Azure é utilizando o conector do Azure Monitor do seu fornecedor SIEM e seguir estas [instruções](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). No entanto, se o seu fornecedor SIEM não fornecer um conector para o Azure Monitor, poderá conseguir utilizar a integração de registo do Azure como uma solução temporária (se a sua SIEM é suportado pelo Azure Log Integration) até que tal um conector esteja disponível.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="is-the-azure-log-integration-software-free"></a>O software de integração de registos do Azure é gratuito?
 
@@ -118,8 +120,8 @@ Para obter detalhes sobre como obter, modificar e definir a configuração de di
 
 O exemplo seguinte obtém a configuração de diagnósticos do Azure:
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -136,7 +138,7 @@ O exemplo seguinte modifica a configuração de diagnósticos do Azure. Nesta co
 O exemplo seguinte define a configuração de diagnósticos do Azure:
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 Depois de efetuar alterações, verifique a conta de armazenamento para garantir que os eventos corretos são recolhidos.
 

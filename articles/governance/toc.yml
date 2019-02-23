@@ -9,8 +9,9 @@ items:
 - name: Componentes e Serviços
   items:
   - name: Grupos de Gestão
-    href: management-groups/overview.md
     items:
+    - name: Descrição geral
+      href: management-groups/index.md
     - name: Criar
       href: management-groups/create.md
     - name: Gerir
@@ -53,9 +54,9 @@ items:
     href: https://www.youtube.com/watch?v=MhGbKjlmuRs
   - name: Canal do YouTube sobre Governação
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-ms.openlocfilehash: 73aa088f5b661766caab46f15b443e2a8331cf5f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1d6a62a682762060898d8599c5cee18929ef86e1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321697"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673909"

@@ -2,17 +2,18 @@
 title: Migrar do IoT Hub do Azure para as definições de diagnóstico | Documentos da Microsoft
 description: Como atualizar o IoT Hub do Azure para utilizar as definições de diagnóstico do Azure em vez de operações de monitorização para monitorizar o estado das operações no hub IoT em tempo real.
 author: kgremban
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 02/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 4a1517c1d5bb0f34c0f1b0ec81d074f8ec39aff5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d54b109cd5ef41665e595e7b878c077732536297
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546588"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674247"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrar o seu IoT Hub a partir de operações de monitorização para as definições de diagnóstico
 
@@ -28,7 +29,7 @@ Para atualizar o seu IoT Hub no portal do Azure, primeiro ative as definições 
 
 ### <a name="turn-off-operations-monitoring"></a>Desativar a monitorização de operações
 
-Depois de ter testado as novas definições de diagnóstico no seu fluxo de trabalho, pode desativar as funcionalidade de monitorização de operações. 
+Depois de testar as novas definições de diagnóstico no seu fluxo de trabalho, pode desativar as funcionalidade de monitorização de operações. 
 
 1. No menu do IoT Hub, selecione **monitorização de operações**.
 
@@ -40,7 +41,7 @@ Depois de ter testado as novas definições de diagnóstico no seu fluxo de trab
 
 Os esquemas para a monitorização de operações e as definições de diagnóstico são ligeiramente diferentes. É importante que Atualize as aplicações que utilizam atuais de monitorização de operações para mapear para o esquema usado pelas definições de diagnóstico. 
 
-Além disso, diagnósticos definições ofertas de controlo para cinco categorias de novo. Depois de Atualizar aplicativos para o esquema existente, adicione as novas categorias:
+Além disso, as definições de diagnóstico oferece cinco categorias de novo para o controlo. Depois de Atualizar aplicativos para o esquema existente, adicione as novas categorias:
 
 * Operações de cloud para o dispositivo duplo
 * Operações de gémeos de dispositivo para a cloud
@@ -56,4 +57,4 @@ Para monitorizar o dispositivo se ligar e desligar os eventos, é recomendável 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Monitorizar o estado de funcionamento do Hub IoT do Azure e diagnosticar problemas rapidamente](iot-hub-monitor-resource-health.md)
+[Monitorizar o estado de funcionamento do Hub IoT do Azure e diagnosticar problemas rapidamente](iot-hub-monitor-resource-health.md)

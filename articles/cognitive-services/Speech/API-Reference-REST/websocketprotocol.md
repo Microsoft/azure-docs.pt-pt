@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1d6c0a8ca04949216e6410ff81b15f79c7067522
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 35f1d75f28271cd7efc2911fe14de9ed6b525557
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217293"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671748"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocolo WebSocket de voz do Bing
 
@@ -131,13 +132,13 @@ Mensagens de WebSocket de texto tem de especificar um caminho de mensagem no cab
 
 ### <a name="binary-websocket-messages"></a>Mensagens de WebSocket binárias
 
-Mensagens de WebSocket binárias implica um payload de binário. O protocolo de serviço de voz, áudio é transmitido para e recebido do serviço através da utilização de mensagens binárias do WebSocket. Todas as outras mensagens são mensagens de WebSocket de texto. 
+Mensagens de WebSocket binárias implica um payload de binário. O protocolo de serviço de voz, áudio é transmitido para e recebido do serviço através da utilização de mensagens binárias do WebSocket. Todas as outras mensagens são mensagens de WebSocket de texto.
 
 Como as mensagens WebSocket de texto, binárias WebSocket mensagens consistem num cabeçalho e uma seção de corpo. Especificar os primeiros 2 bytes de mensagem de WebSocket binário, além [big-endian](https://en.wikipedia.org/wiki/Endianness) ordem, o tamanho de número inteiro de 16 bits da seção do cabeçalho. O tamanho de seção de cabeçalho mínima é 0 byte. O tamanho máximo é de 8.192 bytes. O texto nos cabeçalhos de mensagens binárias do WebSocket *tem* utilizar [US-ASCII](https://tools.ietf.org/html/rfc20) codificação.
 
 Cabeçalhos numa mensagem do WebSocket binário são codificados no mesmo formato como em mensagens de WebSocket de texto. O *: valor de nome* formato é separado por um par de nova linha do retorno de carro único. Mensagens de WebSocket binárias tem de especificar um caminho de mensagem no cabeçalho *caminho*. O valor deste cabeçalho tem de ser um dos tipos de mensagem de protocolo de voz definidos mais adiante neste documento.
 
-Texto e mensagens de WebSocket binárias são utilizadas no protocolo de serviço de voz. 
+Texto e mensagens de WebSocket binárias são utilizadas no protocolo de serviço de voz.
 
 ## <a name="client-originated-messages"></a>Mensagens originadas de cliente
 
@@ -187,7 +188,7 @@ Os clientes *tem* enviar um `speech.config` mensagem imediatamente depois de est
 Tal como acontece com todas as mensagens originadas de cliente no protocolo serviço de voz, o `speech.config` mensagem *tem* incluem uma *X Timestamp* cabeçalho que regista o tempo de relógio de cliente UTC quando a mensagem foi enviada para o serviço. O `speech.config` mensagem *não* exigir uma *X-RequestId* cabeçalho porque esta mensagem não está associada a um pedido de voz específico.
 
 #### <a name="message-payload"></a>Payload de mensagem
-O payload do `speech.config` mensagem é uma estrutura JSON que contém informações sobre a aplicação. O exemplo seguinte mostra essas informações. Informações de contexto do cliente e o dispositivo estão incluídas nos *contexto* elemento da estrutura JSON. 
+O payload do `speech.config` mensagem é uma estrutura JSON que contém informações sobre a aplicação. O exemplo seguinte mostra essas informações. Informações de contexto do cliente e o dispositivo estão incluídas nos *contexto* elemento da estrutura JSON.
 
 ```JSON
 {
@@ -527,7 +528,7 @@ A descrição do erro deve ter um máximo de 50 carateres e o ideal é que deve 
 | ServerUnavailable | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um HTTP `503 Server Unavailable` código de estado sobre a solicitação de atualização do WebSocket. |
 | ServerError | O cliente não foi possível ligar ao serviço, porque o serviço devolveu um `HTTP 500` código de estado de erro interno no pedido de atualização de WebSocket. |
 | Tempo Limite (excedido) | Pedido de ligação do cliente excedido o tempo limite sem uma resposta do serviço. O *final* campo contém a hora quando o cliente excedeu o tempo e parado a aguardar a ligação. |
-| ClientError | O cliente terminada a ligação devido a um erro interno de cliente. | 
+| ClientError | O cliente terminada a ligação devido a um erro interno de cliente. |
 
 ### <a name="metric-microphone"></a>Métrica `Microphone`
 
@@ -636,7 +637,7 @@ Se o serviço de voz detetar quaisquer violações de protocolo de um cliente, o
 
 #### <a name="incorrect-message-format"></a>Formato de mensagem incorreto
 
-Se um cliente envia um texto ou mensagem binária para o serviço que não está codificado no formato correto nessa especificação, o serviço fecha a conexão com um *dados de Payload inválido 1007* código de estado. 
+Se um cliente envia um texto ou mensagem binária para o serviço que não está codificado no formato correto nessa especificação, o serviço fecha a conexão com um *dados de Payload inválido 1007* código de estado.
 
 O serviço retorna este código de estado para uma variedade de motivos, conforme mostrado nos exemplos a seguir:
 

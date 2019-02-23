@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: ae3716654f40322205212ca02a99993326a1cf35
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073361"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727439"
 ---
 # <a name="support-for-the-marketplace"></a>Suporte para o Marketplace  
 Aqui está uma lista de opções de suporte para o Marketplace.  
@@ -42,7 +42,7 @@ Abra um pedido para com a Microsoft [suporte do publicador de marketplace](https
 |:--- |:--- |  
 | Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Ambiente do Slack para parceiros com problemas técnicos de suporte. Daí sobre 350 + parceiros trabalha atualmente neste ambiente. |  
 | Fóruns do MSDN: Marketplace localizado em [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Fórum do Microsoft Developer Network. |  
-| Estouro de pilha: Azure localizado em [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Pilha de ambiente de capacidade excedida para obter soluções e fazer perguntas sobre tudo relacionado à Azure Marketplace.<ul> <li>Estouro de pilha: O Azure Marketplace localizado em [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Estouro de pilha: O Azure Resource Manager, localizado em [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Estouro de pilha: Máquinas virtuais no Azure localizado em [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Estouro de pilha: Contentores no Azure localizado em [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
+| Stack Overflow: Azure localizado em [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Pilha de ambiente de capacidade excedida para obter soluções e fazer perguntas sobre tudo relacionado à Azure Marketplace.<ul> <li>Stack Overflow: O Azure Marketplace localizado em [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: O Azure Resource Manager, localizado em [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Máquinas virtuais no Azure localizado em [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Contentores no Azure localizado em [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 | Suporte para o AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Suporte de publicação para aplicações do Dynamics |
 
 ## <a name="marketing-resources"></a>Recursos de marketing  
@@ -57,4 +57,4 @@ Abra um pedido para com a Microsoft [suporte do publicador de marketplace](https
 ## <a name="next-steps"></a>Passos Seguintes
 Visite o [Azure Marketplace e guia de publicador do AppSource](./marketplace-publishers-guide.md) página.  
  
----  
+---

@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2d1818f42cb2bcb19f979f25962a6c9bdea10155
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053317"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728017"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Consumo de recursos de gerenciamento e a carga no Service Fabric com a métrica
 *Métricas* são os recursos que o cuidado de serviços sobre e que é fornecido por nós no cluster. Uma métrica é tudo o que pretende gerir para melhorar ou monitorizar o desempenho dos seus serviços. Por exemplo, poderá ver o consumo de memória para saber se o seu serviço está sobrecarregado. Outro uso é descobrir se o serviço foi possível mover a outro lugar em que a memória é que menos restrita para obter um melhor desempenho.
@@ -56,7 +56,7 @@ Algumas coisas a serem observadas:
 
 Bom!
 
-As métricas de predefinição funcionam muito bem como um começo. No entanto, as métricas de predefinição apenas incluirão até agora. Por exemplo: o que é a probabilidade de que a criação de partições de esquema escolheu resultados na utilização do perfeitamente até mesmo por todas as partições? O que é a chance de que a carga para um determinado serviço for constante ao longo do tempo, ou até mesmo da mesma em várias partições neste momento?
+As métricas de predefinição funcionam muito bem como um começo. No entanto, as métricas de predefinição apenas incluirão até agora. Por exemplo: O que é a probabilidade de que a criação de partições de esquema escolheu resultados na utilização do perfeitamente até mesmo por todas as partições? O que é a chance de que a carga para um determinado serviço for constante ao longo do tempo, ou até mesmo da mesma em várias partições neste momento?
 
 Pode executar com apenas as métricas de predefinição. No entanto, se o fizer, normalmente, significa que a utilização do cluster é inferior e mais desigual que gostaria. Isto acontece porque as métricas de predefinição não são adaptáveis e presumem tudo o que é equivalente. Por exemplo, um site primário que está ocupado e que não seja ambos contribuem com "1" para a métrica de PrimaryCount. Na pior das hipóteses, a utilização apenas as métricas de predefinição pode também resultar em nós overscheduled, resultando em problemas de desempenho. Se estiver interessado em obter o máximo proveito do seu cluster e evitando problemas de desempenho, precisa usar métricas personalizadas e relatórios de carga dinâmica.
 
@@ -67,7 +67,7 @@ Qualquer métrica tem algumas propriedades que descrevem ele: um nome, um peso e
 
 * Nome da métrica: O nome da métrica. O nome da métrica é um identificador exclusivo para a métrica dentro do cluster do ponto de vista do Resource Manager.
 * Peso: Peso métrica define quão importante que esta métrica é relativo as outras métricas para este serviço.
-* Padrão de carga: A carga de padrão é representada forma diferente, dependendo do serviço é com ou sem estado.
+* Padrão de carga: A carga de padrão é representada em forma diferente, dependendo do serviço é com ou sem estado.
   * Para serviços sem estado, cada uma tem uma única propriedade chamada DefaultLoad
   * Para serviços com estado definir:
     * PrimaryDefaultLoad: A quantidade de padrão desta métrica este serviço consome quando é um site primário
@@ -232,7 +232,7 @@ Existem algumas coisas que precisamos de explicar:
 ## <a name="metric-weights"></a>Pesos de métrica
 As mesmas métricas de controle em todos os diferentes serviços é importante. Essa visão global é o que permite que o Gestor de recursos de Cluster para monitorizar o consumo do cluster, equilibrar o consumo em todos os nós e certifique-se de que nós não passam pela capacidade. No entanto, os serviços podem ter diferentes exibições em relação a importância da mesma métrica. Além disso, num cluster com várias métricas e muitos dos serviços, soluções perfeitamente equilibradas podem não existir para todas as métricas. Como o Gestor de recursos de Cluster deve lidar com essas situações?
 
-Métrica pesos permitem que o Gestor de recursos de Cluster para decidir como equilibrar o cluster quando existe uma resposta perfeita. Métrica pesos também permitem que o Gestor de recursos de Cluster para balancear serviços específicos de forma diferente. As métricas podem ter quatro níveis diferentes de peso: Zero, baixa, média e alta. Uma métrica com uma ponderação igual a zero contribui nada ao considerar se as coisas são balanceadas ou não. No entanto, a sua carga ainda contribuem para a gestão de capacidade. As métricas com Zero peso ainda são úteis e são usadas com freqüência como parte do comportamento de serviço e monitorização do desempenho. [Este artigo](service-fabric-diagnostics-event-generation-infra.md) fornece mais informações sobre o uso de métricas para monitorização e diagnóstico dos seus serviços. 
+Métrica pesos permitem que o Gestor de recursos de Cluster para decidir como equilibrar o cluster quando existe uma resposta perfeita. Métrica pesos também permitem que o Gestor de recursos de Cluster para balancear serviços específicos de forma diferente. As métricas podem ter quatro níveis de peso diferente: Zero, baixa, média e alta. Uma métrica com uma ponderação igual a zero contribui nada ao considerar se as coisas são balanceadas ou não. No entanto, a sua carga ainda contribuem para a gestão de capacidade. As métricas com Zero peso ainda são úteis e são usadas com freqüência como parte do comportamento de serviço e monitorização do desempenho. [Este artigo](service-fabric-diagnostics-event-generation-infra.md) fornece mais informações sobre o uso de métricas para monitorização e diagnóstico dos seus serviços. 
 
 O impacto real de pesos de métrica diferentes do cluster é que o Gestor de recursos de Cluster gera soluções diferentes. Métrica pesos informam o Gestor de recursos de Cluster que determinadas métricas são mais importantes do que outras pessoas. Quando existe uma solução perfeita o Gestor de recursos do Cluster pode preferir soluções que equilibrar as métricas ponderadas superior melhor. Se achar que um serviço uma métrica em particular for importante, que ele pode localizar o uso dessa métrica desequilibrado. Isso permite que outro serviço para obter uma distribuição uniforme de alguns métrica que é importante ao mesmo.
 

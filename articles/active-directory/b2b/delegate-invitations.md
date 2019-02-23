@@ -1,5 +1,5 @@
 ---
-title: Delegar convites para colaboração do Azure Active Directory B2B | Documentos da Microsoft
+title: Delegar convites para colaboração B2B - Azure Active Directory | Documentos da Microsoft
 description: Propriedades de utilizador de colaboração do Azure Active Directory B2B são configuráveis
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28ac32a97f4c42040d538829e9870a43b508f50e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 18d40397f30b471699f42878a38c88efebcc6305
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164741"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674532"
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Delegar convites para colaboração do Azure Active Directory B2B
 

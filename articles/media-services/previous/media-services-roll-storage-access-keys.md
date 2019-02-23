@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: 419e7b1ae05f92b5b97f5317c0315a71958eff9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cdf644ab37d7f2e15cb35a3234786900a1a64ec1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005170"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733508"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar serviços de multimédia após sem interrupção de chaves de acesso de armazenamento 
 
 Quando cria uma nova conta de serviços de multimédia do Azure (AMS), é também solicitado para selecionar uma conta de armazenamento do Azure que é utilizada para armazenar o conteúdo de mídia. Pode adicionar mais contas de armazenamento à sua conta de Media Services. Este artigo mostra como Rodar chaves de armazenamento. Ela também mostra como adicionar contas de armazenamento para uma conta de suporte de dados. 
 
-Para executar as ações descritas neste artigo, deve estar usando [APIs do Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Para obter mais informações, consulte [como gerir recursos do Azure com o PowerShell e do Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Para executar as ações descritas neste artigo, deve estar usando [APIs do Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Para obter mais informações, consulte [como gerir recursos do Azure com o PowerShell e do Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Descrição geral
 
@@ -42,15 +44,15 @@ Serviços de multimédia depende de uma chave de armazenamento fornecida ao mesm
 ## <a name="steps-to-rotate-storage-keys"></a>Passos para rodar chaves de armazenamento 
  
  1. Alterar a chave primária de conta de armazenamento através do cmdlet do powershell ou [Azure](https://portal.azure.com/) portal.
- 2. Chamar o cmdlet Sync-AzureRmMediaServiceStorageKeys com parâmetros adequados para forçar a conta de multimédia para recolher chaves de conta de armazenamento
+ 2. Chamar o cmdlet Sync-AzMediaServiceStorageKeys com parâmetros adequados para forçar a conta de multimédia para recolher chaves de conta de armazenamento
  
     O exemplo seguinte mostra como sincronizar chaves para contas de armazenamento.
   
-         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
  3. Aguarde uma hora ou menos. Certifique-se de que os cenários de transmissão em fluxo estiver a trabalhar.
  4. Alterar a chave secundária da conta de armazenamento através do cmdlet do powershell ou o portal do Azure.
- 5. Chame sincronização AzureRmMediaServiceStorageKeys powershell com os parâmetros adequados para forçar a conta de multimédia para recolher chaves de conta de armazenamento nova. 
+ 5. Chame sincronização AzMediaServiceStorageKeys powershell com os parâmetros adequados para forçar a conta de multimédia para recolher chaves de conta de armazenamento nova. 
  6. Aguarde uma hora ou menos. Certifique-se de que os cenários de transmissão em fluxo estiver a trabalhar.
  
 ### <a name="a-powershell-cmdlet-example"></a>Um exemplo de cmdlet do powershell 
@@ -63,7 +65,7 @@ O exemplo seguinte demonstra como obter a conta de armazenamento e sincronizá-l
     $storageAccountName = "skystorage"
     $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-    Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+    Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Passos para adicionar contas de armazenamento à sua conta do AMS

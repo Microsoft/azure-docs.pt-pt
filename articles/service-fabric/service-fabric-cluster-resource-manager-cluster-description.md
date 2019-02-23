@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7be10f03d65e53b51c3916849dc12feb4de9c919
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834592"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737659"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrever um cluster do service fabric
 O Gestor de recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Gestor de recursos de Cluster utiliza estas informações para garantir a elevada disponibilidade dos serviços em execução no cluster. Ao impor estas regras importantes, ele também tenta otimizar o consumo de recursos dentro do cluster.
@@ -54,7 +54,7 @@ Durante o tempo de execução, o Gestor de recursos de Cluster do Service Fabric
 
 Gestor de recursos de Cluster do Service Fabric não importa quantas camadas existem na hierarquia de domínio de falha. No entanto, ele tenta Certifique-se de que a perda de qualquer um parte da hierarquia não tem impacto na serviços em execução no mesmo. 
 
-É melhor se existir o mesmo número de nós em cada nível de profundidade na hierarquia de domínio de falha. Se o "árvore" de domínios de falha está em falta no seu cluster, é mais difícil para o Gestor de recursos do Cluster para descobrir a melhor alocação dos serviços. Layouts de domínios de falha desequilibrados significam que a perda de algum impacto de domínios a disponibilidade dos serviços mais do que outros domínios. Como resultado, o Gestor de recursos do Cluster é interrompido entre dois objetivos: ele deseja usar as máquinas no domínio "pesado", ao disponibilizar serviços nos mesmos, e quer colocar os serviços em outros domínios para que a perda de um domínio não causa problemas. 
+É melhor se existir o mesmo número de nós em cada nível de profundidade na hierarquia de domínio de falha. Se o "árvore" de domínios de falha está em falta no seu cluster, é mais difícil para o Gestor de recursos do Cluster para descobrir a melhor alocação dos serviços. Layouts de domínios de falha desequilibrados significam que a perda de algum impacto de domínios a disponibilidade dos serviços mais do que outros domínios. Como resultado, o Gestor de recursos do Cluster é interrompido entre dois objetivos: Ele deseja usar as máquinas no domínio "pesado", ao disponibilizar serviços nos mesmos, e quer colocar os serviços em outros domínios para que a perda de um domínio não causa problemas. 
 
 O que o aspeto de domínios desequilibrados? O diagrama abaixo, vamos mostrar duas layouts de cluster diferente. No primeiro exemplo, os nós são distribuídos uniformemente por domínios de falha. No segundo exemplo, um domínio de falha tem muitos mais nós que os outros domínios de falha. 
 
@@ -97,7 +97,7 @@ O modelo mais comuns é a matriz de FD/UD, onde o FDs e UDs formam uma tabela e 
 
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restrições de domínio de atualização e de falha e o comportamento resultante
 ### <a name="default-approach"></a>*Abordagem de predefinição*
-Por predefinição, o Gestor de recursos do Cluster mantém Balanceados entre domínios de atualização e de falha de serviços. Isso é modelado como um [restrição](service-fabric-cluster-resource-manager-management-integration.md). Os Estados de restrição e atualizar o domínio de falha: "para uma partição de determinado serviço, nunca deve existir uma diferença maior que um no número de objetos do serviço (instâncias de serviço sem estado ou réplicas de serviço com estado) entre quaisquer dois domínios no mesmo nível da hierarquia". Digamos que esta restrição fornece uma garantia de "máximo diferença". A restrição de domínio de atualização e de falha impede que certos movimentos ou esquemas que violam a regra indicada acima. 
+Por predefinição, o Gestor de recursos do Cluster mantém Balanceados entre domínios de atualização e de falha de serviços. Isso é modelado como um [restrição](service-fabric-cluster-resource-manager-management-integration.md). Os Estados de restrição de falhas e de domínio de atualização: "Para uma partição de determinado serviço há nunca deve ser uma diferença maior que um no número de objetos do serviço (instâncias de serviço sem estado ou réplicas de serviço com estado) entre quaisquer dois domínios no mesmo nível da hierarquia de". Digamos que esta restrição fornece uma garantia de "máximo diferença". A restrição de domínio de atualização e de falha impede que certos movimentos ou esquemas que violam a regra indicada acima. 
 
 Vamos examinar um exemplo. Vamos supor que temos um cluster connosco seis, configurada com cinco domínios de falha e cinco domínios de atualização.
 
@@ -192,7 +192,7 @@ Uma vez que ambas as abordagens têm vantagens e desvantagens, introduzimos uma 
 > [!NOTE]
 >Este será o comportamento padrão a partir do Service Fabric versão 6.2. 
 >
-A abordagem adaptável usa a lógica de "máximo diferença" por predefinição e muda para a lógica de "quórum seguro" apenas quando necessário. O Gestor de recursos de Cluster detecta automaticamente qual estratégia é necessária examinar como é que o cluster e os serviços são configurados. Para um determinado serviço: *se o TargetReplicaSetSize for uniformemente divisível pelo número de domínios de falha e o número de domínios de atualização **e** o número de nós é menor ou igual a (número de domínios de falhas) * (a número de domínios de atualização), o Gestor de recursos de Cluster deve utilizar a lógica de "quórum com base" para esse serviço.* Lembre-se de que o Gestor de recursos do Cluster irá utilizar esta abordagem para serviços com e sem monitoração de estado, apesar de não ser relevante para serviços sem estado de perda de quórum.
+A abordagem adaptável usa a lógica de "máximo diferença" por predefinição e muda para a lógica de "quórum seguro" apenas quando necessário. O Gestor de recursos de Cluster detecta automaticamente qual estratégia é necessária examinar como é que o cluster e os serviços são configurados. Para um determinado serviço: *Se o TargetReplicaSetSize for uniformemente divisível pelo número de domínios de falha e o número de domínios de atualização **e** o número de nós é menor ou igual a (número de domínios de falhas) * (de acordo com o número de domínios de atualização), o Cluster Gestor de recursos deve utilizar a lógica de "quórum com base" para esse serviço.* Lembre-se de que o Gestor de recursos do Cluster irá utilizar esta abordagem para serviços com e sem monitoração de estado, apesar de não ser relevante para serviços sem estado de perda de quórum.
 
 Voltemos ao exemplo anterior e partem do princípio de que um cluster tem agora 8 nós (o cluster ainda está configurado com cinco domínios de falha e cinco domínios de atualização e TargetReplicaSetSize de um serviço hospedado em que permanece de cluster de cinco). 
 

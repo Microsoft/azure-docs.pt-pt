@@ -1,6 +1,6 @@
 ---
-title: Utilize o Azure AD as revisões de acesso para gerir utilizadores que foram excluídos da políticas de acesso condicional | Documentos da Microsoft
-description: Utilizar o Azure Active Directory, revisões de acesso (Azure AD) para gerir utilizadores que foram excluídos da políticas de acesso condicional
+title: Utilizar as revisões de acesso do Azure AD para gerir utilizadores excluídos da políticas de acesso condicional | Documentos da Microsoft
+description: Saiba como utilizar as revisões de acesso do Azure Active Directory (Azure AD) para gerir utilizadores que foram excluídos da políticas de acesso condicional
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82fdfe598e11415130950443fb0d3e27f5d9d01
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 75ff08111e96fd4b210dfeb09db521856f4f5e52
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168545"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727507"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-that-have-been-excluded-from-conditional-access-policies"></a>Utilize o Azure AD as revisões de acesso para gerir utilizadores que foram excluídos da políticas de acesso condicional
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utilize as revisões de acesso do Azure AD para gerir utilizadores excluídos da políticas de acesso condicional
 
 Num mundo ideal, todos os utilizadores seguir o acesso políticas para proteger o acesso aos recursos da sua organização. No entanto, às vezes, existem casos comerciais que exigem que crie exceções. Este artigo descreve alguns exemplos em que as exclusões poderão ser necessárias e como, como o administrador de TI, pode gerir esta tarefa, evitar supervisão de exceções da política e fornecer auditores prova que essas exceções são revistas regularmente a utilizar o Azure Revisões de acesso do Active Directory (Azure AD).
 
@@ -158,5 +158,5 @@ Como um administrador de TI, sabe que gerir grupos de exclusão para as suas pol
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar uma revisão de acesso de membros do grupo ou o acesso de aplicação com o Azure AD](create-access-review.md)
+- [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
 - [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)

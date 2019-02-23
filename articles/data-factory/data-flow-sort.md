@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 55cd303399d34eecd8f787e1e5af09c5d904fb44
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 7adc8c80ecca12364fb7f761092b1a5d9f528e19
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56272114"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729768"
 ---
 # <a name="azure-data-factory-data-sort-transformations"></a>Transformações de tipo de dados de fábrica de dados do Azure
 

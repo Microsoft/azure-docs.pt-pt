@@ -10,14 +10,15 @@ ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a76d3c3ed54b3b4d9d79cd778c75719dd12507d5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: b79ca4ed259b561fadc4b7fa644b5c136192bb7f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874027"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671731"
 ---
-# <a name="quickstart-translator-speech-api-with-nodejs"></a>Início rápido: Voz do Translator API com node. js 
+# <a name="quickstart-translator-speech-api-with-nodejs"></a>Início rápido: Voz do Translator API com node. js
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -106,7 +107,7 @@ https://stackoverflow.com/questions/44473868/node-js-fs-writefile-err-returns-nu
 }
 
 function send(connection, filename) {
-    
+
     var myReadableStreamBuffer = new streamBuffers.ReadableStreamBuffer({
         frequency: 100,
         chunkSize: 32000
@@ -135,12 +136,12 @@ function connect() {
     ws.on('connectFailed', function (error) {
         console.log('Connection error: ' + error.toString());
     });
-                            
+
     ws.on('connect', function (connection) {
         console.log('Connected.');
 
         connection.on('message', receive);
-        
+
         connection.on('close', function (reasonCode, description) {
             console.log('Connection closed: ' + reasonCode);
         });
@@ -148,7 +149,7 @@ function connect() {
         connection.on('error', function (error) {
             console.log('Connection error: ' + error.toString());
         });
-        
+
         send(connection, input_path);
     });
 
@@ -169,7 +170,7 @@ Um resultado com êxito é a criação de um ficheiro denominado "speak2.wav". O
 > [!div class="nextstepaction"]
 > [Tutorial da Tradução de Voz](../tutorial-translator-speech-csharp.md)
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte também
 
 [Descrição geral da Tradução de Voz](../overview.md)
 [Referência da API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

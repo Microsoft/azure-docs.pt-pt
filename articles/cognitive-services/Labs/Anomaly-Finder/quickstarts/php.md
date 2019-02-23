@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: e5262de518e6cdf5a131fa9a84a3aa8ce9ce9236
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f65f389d93a90df1bc16d2228586beead5f96a73
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213689"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728748"
 ---
 # <a name="use-the-anomaly-finder-api-with-php"></a>Utilizar o Explorador de anomalias API com PHP
 

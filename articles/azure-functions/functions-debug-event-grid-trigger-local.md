@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a3468d9a0d128bd51ae742189e60bb8e2af6c0e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098061"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736503"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Função do Azure Event Grid acionador Local depuração
 
@@ -62,7 +62,7 @@ Como o utilitário de configuração, a janela de comando deve ter um aspeto sem
 
 Copiar o **HTTPS** URL gerada quando *ngrok* é executado. Este valor é utilizado quando configurar o ponto de extremidade de eventos do event grid.
 
- ## <a name="add-a-storage-event"></a>Adicionar um evento de armazenamento
+## <a name="add-a-storage-event"></a>Adicionar um evento de armazenamento
 
 Abra o portal do Azure e navegue para uma conta de armazenamento e clique nas **eventos** opção.
 

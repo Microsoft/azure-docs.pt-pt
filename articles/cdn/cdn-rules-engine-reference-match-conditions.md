@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 44182d686548fa5b6363a87be0ce7851829e20ab
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3ebc4d94e0bbf24895be0aeba9fef1cc7aacd6b9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820561"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736717"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do motor de regras CDN do Azure 
 Este artigo apresenta uma lista de descrições detalhadas das condições de correspondência disponíveis para a rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
@@ -233,7 +233,7 @@ Informações da chave:
 
 </br>
 
---- 
+---
 ### <a name="country"></a>País
 Pode especificar um país por meio de seu código de país. 
 
@@ -388,7 +388,7 @@ Informações da chave:
 
 </br>
 
----  
+---
 ### <a name="request-header-literal"></a>Literal de cabeçalho do pedido
 O **correspondências**/**não corresponde ao** opção determina as condições sob as quais o pedido de cabeçalho Literal corresponde à condição é cumprida.
 - **Correspondências**: Requer o pedido para conter o cabeçalho especificado. O valor tem de corresponder ao que é definida nesta condição de correspondência.
@@ -409,7 +409,7 @@ Informações da chave:
 
 </br>
 
----  
+---
 ### <a name="request-header-regex"></a>Regex de cabeçalho do pedido
 O **correspondências**/**não corresponde ao** opção determina as condições sob as quais o Regex de cabeçalho do pedido corresponde à condição é cumprida.
 - **Correspondências**: Requer o pedido para conter o cabeçalho especificado. O valor tem de corresponder ao padrão que é definido no especificado [expressão regular](cdn-rules-engine-reference.md#regular-expressions).
@@ -468,7 +468,7 @@ Informações da chave:
 ### <a name="request-method"></a>Método de pedido
 A condição de correspondência do método de pedido é cumprida apenas quando os recursos são solicitados por meio do método de pedido seleccionado. Os métodos de pedido disponíveis são:
 - GET
-- HEAD 
+- CABEÇALHO 
 - POST 
 - OPÇÕES 
 - PUT 

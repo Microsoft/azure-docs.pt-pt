@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 33f79569a2478c7e234b04ba2dee4e9b8883abae
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895895"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737795"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -95,7 +95,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-A cadeia de caracteres `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [enlace expressão](functions-triggers-bindings.md#binding-expressions-and-patterns) que pode usar no código de função para acessar o nome de ficheiro do blob acionadora. Para obter mais informações, consulte [padrões de nome de Blob](#trigger---blob-name-patterns) mais adiante neste artigo.
+A cadeia de caracteres `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [enlace expressão](./functions-bindings-expressions-patterns.md) que pode usar no código de função para acessar o nome de ficheiro do blob acionadora. Para obter mais informações, consulte [padrões de nome de Blob](#trigger---blob-name-patterns) mais adiante neste artigo.
 
 Para obter mais informações sobre o `BlobTrigger` de atributos, consulte [acionador - atributos](#trigger---attributes).
 
@@ -120,7 +120,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-A cadeia de caracteres `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [enlace expressão](functions-triggers-bindings.md#binding-expressions-and-patterns) que pode usar no código de função para acessar o nome de ficheiro do blob acionadora. Para obter mais informações, consulte [padrões de nome de Blob](#trigger---blob-name-patterns) mais adiante neste artigo.
+A cadeia de caracteres `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [enlace expressão](./functions-bindings-expressions-patterns.md) que pode usar no código de função para acessar o nome de ficheiro do blob acionadora. Para obter mais informações, consulte [padrões de nome de Blob](#trigger---blob-name-patterns) mais adiante neste artigo.
 
 Para obter mais informações sobre *Function* propriedades do ficheiro, consulte a [configuração](#trigger---configuration) seção explica essas propriedades.
 
@@ -167,7 +167,7 @@ Aqui está o *Function* ficheiro:
 }
 ```
 
-A cadeia de caracteres `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [enlace expressão](functions-triggers-bindings.md#binding-expressions-and-patterns) que pode usar no código de função para acessar o nome de ficheiro do blob acionadora. Para obter mais informações, consulte [padrões de nome de Blob](#trigger---blob-name-patterns) mais adiante neste artigo.
+A cadeia de caracteres `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [enlace expressão](./functions-bindings-expressions-patterns.md) que pode usar no código de função para acessar o nome de ficheiro do blob acionadora. Para obter mais informações, consulte [padrões de nome de Blob](#trigger---blob-name-patterns) mais adiante neste artigo.
 
 Para obter mais informações sobre *Function* propriedades do ficheiro, consulte a [configuração](#trigger---configuration) seção explica essas propriedades.
 
@@ -202,7 +202,7 @@ Aqui está o *Function* ficheiro:
 }
 ```
 
-A cadeia de caracteres `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [enlace expressão](functions-triggers-bindings.md#binding-expressions-and-patterns) que pode usar no código de função para acessar o nome de ficheiro do blob acionadora. Para obter mais informações, consulte [padrões de nome de Blob](#trigger---blob-name-patterns) mais adiante neste artigo.
+A cadeia de caracteres `{name}` no caminho de Acionador de blob `samples-workitems/{name}` cria um [enlace expressão](./functions-bindings-expressions-patterns.md) que pode usar no código de função para acessar o nome de ficheiro do blob acionadora. Para obter mais informações, consulte [padrões de nome de Blob](#trigger---blob-name-patterns) mais adiante neste artigo.
 
 Para obter mais informações sobre *Function* propriedades do ficheiro, consulte a [configuração](#trigger---configuration) seção explica essas propriedades.
 
@@ -348,7 +348,7 @@ No JavaScript, acessar os dados de BLOBs de entrada usando `context.bindings.<na
 
 ## <a name="trigger---blob-name-patterns"></a>Acionador - padrões de nome de blob
 
-Pode especificar um padrão de nome de blob na `path` propriedade na *Function* ou no `BlobTrigger` construtor de atributo. O padrão de nome pode ser um [expressão de filtro ou enlace](functions-triggers-bindings.md#binding-expressions-and-patterns). As secções seguintes fornecem exemplos.
+Pode especificar um padrão de nome de blob na `path` propriedade na *Function* ou no `BlobTrigger` construtor de atributo. O padrão de nome pode ser um [expressão de filtro ou enlace](./functions-bindings-expressions-patterns.md). As secções seguintes fornecem exemplos.
 
 ### <a name="get-file-name-and-extension"></a>Obter o nome de ficheiro e extensão
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 3793c49da32845d559d73faa25c571d3f86e062f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 7b488b243c0520befb6b5470598f460b5a759fed
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56272042"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730041"
 ---
 # <a name="azure-data-factory-mapping-data-flow-aggregate-transformation"></a>Mapeamento de transformação de agregação de fluxo de dados de fábrica de dados do Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: a919d10bbb7def8f81e68d95c03d95309483df59
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c8cfa0174d3e3300bdc3cfbc68ca416d9b736300
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210391"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674910"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,13 +122,13 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, a predefinição é verdadeiro | Dinâmica |Se pretende ou não representação é necessária para aceder ao diagnóstico armazena em nome do aplicativo. |
 |AppEtwTraceDeletionAgeInDays |Int, a predefinição é 3 | Dinâmica |Número de dias após o qual podemos eliminar ficheiros ETL antigos, que contém os rastreios ETW de aplicações. |
 |ApplicationLogsFormatVersion |int, a predefinição é 0 | Dinâmica |Formato de registos de versão para a aplicação. Os valores suportados são 0 e 1. Versão 1 inclui mais campos do registo de eventos do ETW que versão 0. |
-|ClusterId |Cadeia | Dinâmica |O id exclusivo do cluster. Isso é gerado quando o cluster é criado. |
-|ConsumerInstances |Cadeia | Dinâmica |A lista de instâncias de consumidor do DCA. |
+|ClusterId |String | Dinâmica |O id exclusivo do cluster. Isso é gerado quando o cluster é criado. |
+|ConsumerInstances |String | Dinâmica |A lista de instâncias de consumidor do DCA. |
 |DiskFullSafetySpaceInMB |Int, o padrão é 1024 | Dinâmica |Espaço em disco restante em MB para proteger contra o uso por DCA. |
 |EnableCircularTraceSession |Bool, a predefinição é falso | Estático |Sinalizador indica se as sessões de rastreamento circular devem ser utilizados. |
 |Ativar telemetria |Bool, a predefinição é verdadeiro | Dinâmica |Isto vai ativar ou desativar a telemetria. |
 |MaxDiskQuotaInMB |Int, a predefinição é 65536 | Dinâmica |Quota de disco nos ficheiros de registo de MB para o Windows Fabric. |
-|ProducerInstances |Cadeia | Dinâmica |A lista de instâncias de produtor DCA. |
+|ProducerInstances |String | Dinâmica |A lista de instâncias de produtor DCA. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Parâmetro** | **Valores permitidos** |**Política de atualização**| **Documentação de orientação ou descrição breve** |
@@ -280,7 +280,8 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="healthmanager"></a>HealthManager
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-| EnableApplicationTypeHealthEvaluation |Bool, a predefinição é falso |Estático|Política de avaliação do Estado de funcionamento do cluster: Ativar por avaliação de estado de funcionamento do tipo de aplicação. |
+|EnableApplicationTypeHealthEvaluation |Bool, a predefinição é falso |Estático|Política de avaliação do Estado de funcionamento do cluster: Ativar por avaliação de estado de funcionamento do tipo de aplicação. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, predefinido é 500 |Dinâmica|O número máximo de estado de funcionamento relatórios que uma entidade pode ter antes de gerar preocupações sobre o estado de funcionamento do watchdog lógica de geração de relatórios. Cada entidade de estado de funcionamento deve para ter um número relativamente pequeno de relatórios de estado de funcionamento. Se a contagem do relatório está mais este número; poderão existir problemas com a implementação de watchdog. Uma entidade com muitos relatórios é sinalizada por meio de um relatório de estado de funcionamento de aviso quando a entidade é avaliada. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
@@ -451,7 +452,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 | **Parâmetro** | **Valores permitidos** | **Política de atualização** | **Documentação de orientação ou descrição breve** |
 | --- | --- | --- | --- |
-|Contadores |Cadeia | Dinâmica |Lista separada por vírgulas de contadores de desempenho a recolher. |
+|Contadores |String | Dinâmica |Lista separada por vírgulas de contadores de desempenho a recolher. |
 |IsEnabled |Bool, a predefinição é verdadeiro | Dinâmica |Sinalizador indica se a recolha do contador de desempenho no nó local está ativada. |
 |MaxCounterBinaryFileSizeInMB |int, a predefinição é 1 | Dinâmica |Tamanho máximo (em MB) de cada arquivo binário do contador de desempenho. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, a predefinição é 10 | Dinâmica |Intervalo máximo (em segundos) após o qual é criado um novo ficheiro binário de contador de desempenho. |
@@ -756,10 +757,10 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 | --- | --- | --- | --- |
 |ContainerNetworkName|cadeia de caracteres, a predefinição é ""| Estático |O nome de rede a utilizar quando configurar uma rede de contentor.|
 |ContainerNetworkSetup|bool, a predefinição é falso| Estático |Se configurar uma rede de contentor.|
-|FabricDataRoot |Cadeia | Não Permitido |Diretório de raiz de dados do Service Fabric. Predefinido para o Azure está d:\svcfab |
-|FabricLogRoot |Cadeia | Não Permitido |Diretório de raiz do registo de recursos de infraestrutura do serviço. Trata-se em que são colocados os registos de SF e rastreios. |
+|FabricDataRoot |String | Não Permitido |Diretório de raiz de dados do Service Fabric. Predefinido para o Azure está d:\svcfab |
+|FabricLogRoot |String | Não Permitido |Diretório de raiz do registo de recursos de infraestrutura do serviço. Trata-se em que são colocados os registos de SF e rastreios. |
 |NodesToBeRemoved|cadeia de caracteres, a predefinição é ""| Dinâmica |Os nós que devem ser removidos como parte da atualização de configuração. (Apenas para implementações de autónomo)|
-|ServiceRunAsAccountName |Cadeia | Não Permitido |O nome da conta sob a qual pretende executar o serviço de anfitrião de recursos de infraestrutura. |
+|ServiceRunAsAccountName |String | Não Permitido |O nome da conta sob a qual pretende executar o serviço de anfitrião de recursos de infraestrutura. |
 |SkipContainerNetworkResetOnReboot|bool, a predefinição é falso|NotAllowed|Se ignorar a repor rede de contentor na reinicialização.|
 |SkipFirewallConfiguration |Bool, a predefinição é falso | Não Permitido |Especifica se as definições da firewall tem de ser definido pelo sistema ou não. Isto aplica-se apenas se estiver a utilizar o firewall do windows. Se estiver a utilizar firewalls de terceiros, em seguida, tem de abrir as portas para o sistema e as aplicações para utilizar |
 

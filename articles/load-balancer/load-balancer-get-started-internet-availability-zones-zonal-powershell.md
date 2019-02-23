@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: c930b4b792345aea16dd2776148c0436d8807304
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: faffe5acb6ec33dcddee5c47679f29f64d2e61fb
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593765"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674315"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-powershell"></a>Criar um balanceador de carga Standard com o front-end zonal com o Azure PowerShell
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão na sua subscrição do Azure com o comando `Connect-AzAccount` e siga as instruções no ecrã.
 
-```powershell
+```azurepowershell-interactive
 Connect-AzAccount
 ```
 
@@ -44,14 +44,14 @@ Connect-AzAccount
 
 Crie um grupo de recursos com o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupZLB -Location westeurope
 ```
 
 ## <a name="create-a-public-ip-standard"></a>Criar um padrão de IP público 
 Crie um IP Standard público com o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 $publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'myPublicIPZonal' `
   -Location westeurope -AllocationMethod Static -Sku Standard -zone 1
 ```
@@ -60,7 +60,7 @@ $publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'm
 
 Crie uma configuração de IP de front-end com o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
 ```
 
@@ -68,7 +68,7 @@ $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $
 
 Crie um conjunto de endereços de back-end com o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ```
 
@@ -76,7 +76,7 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 
 Crie uma sonda de estado de funcionamento na porta 80 para o Balanceador de carga com o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
   -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
 ```
@@ -84,14 +84,14 @@ $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Por
 ## <a name="create-a-load-balancer-rule"></a>Crie uma regra de balanceador de carga
  Crie uma regra de Balanceador de carga com o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
    $rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
 ## <a name="create-a-load-balancer"></a>Criar um balanceador de carga
 Crie um balanceador de carga Standard com o seguinte comando:
 
-```powershell
+```azurepowershell-interactive
 $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `
   -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
   -Probe $probe -LoadBalancingRule $rule -Sku Standard

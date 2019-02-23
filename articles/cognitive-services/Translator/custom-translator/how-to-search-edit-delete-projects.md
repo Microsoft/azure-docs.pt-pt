@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: f91ac8e8a6a71f2a5eb5c686aa5bc5b83be36545
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.topic: conceptual
+ms.openlocfilehash: c6f97e3b88d1819be42dcf4dfc14e52b4117bfd8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586615"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726402"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e eliminar projetos
 

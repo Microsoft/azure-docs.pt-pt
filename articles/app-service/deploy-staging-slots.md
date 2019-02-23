@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17b1adae9b369df53d69949e8183cf31daf7e35f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181427"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674689"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
@@ -205,7 +205,9 @@ Ao usar [troca automática](#Auto-Swap), algumas aplicações podem exigir açõ
         </applicationInitialization>
     </system.webServer>
 
-Também pode personalizar o comportamento de aquecimento com um ou mais dos seguintes procedimentos [as definições da aplicação](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md):
+Para obter mais informações sobre como personalizar o `applicationInitialization` elemento, consulte [falhas de comutação da ranhura de implementação mais comuns e como corrigi-los](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+
+Também pode personalizar o comportamento de aquecimento com um ou mais dos seguintes procedimentos [as definições da aplicação](web-sites-configure.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para enviar um ping para aquecer seu site. Adicione esta definição de aplicação, especificando um caminho personalizado que começa com uma barra como o valor. Por exemplo, `/statuscheck`. O valor predefinido é `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione esta definição de aplicação com uma lista separada por vírgulas de códigos HTTP. Por exemplo: `200,202` . Se o código de estado devolvido não estiver na lista, as operações de aquecimento e troca são paradas. Por predefinição, todos os códigos de resposta são válidos.

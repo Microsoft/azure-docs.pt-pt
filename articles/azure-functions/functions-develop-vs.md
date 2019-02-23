@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b60861b4daced5e3d292feec54f8a54839a80b8f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098086"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728919"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -143,7 +143,7 @@ Tal como acontece com disparadores, os enlaces de entrada e saída são adiciona
 
 1. Certifique-se de que tem [configurado o projeto de desenvolvimento local](#configure-the-project-for-local-development).
 
-2. Adicione o pacote de extensão do NuGet adequado para o enlace específico. Para obter mais informações, consulte [Local desenvolvimento em c# com o Visual Studio](functions-triggers-bindings.md#local-csharp) no artigo Acionadores e enlaces. Os requisitos de pacote de NuGet específico de ligação se encontram no artigo de referência para o enlace. Por exemplo, localizar os requisitos do pacote para o acionador de Hubs de eventos no [artigo de referência de ligação de Hubs de eventos](functions-bindings-event-hubs.md).
+2. Adicione o pacote de extensão do NuGet adequado para o enlace específico. Para obter mais informações, consulte [Local desenvolvimento em c# com o Visual Studio](./functions-bindings-register.md#local-csharp) no artigo Acionadores e enlaces. Os requisitos de pacote de NuGet específico de ligação se encontram no artigo de referência para o enlace. Por exemplo, localizar os requisitos do pacote para o acionador de Hubs de eventos no [artigo de referência de ligação de Hubs de eventos](functions-bindings-event-hubs.md).
 
 3. Se existirem definições de aplicação que precisa da ligação, adicione-os para o **valores** coleção na [ficheiro de definição local](functions-run-local.md#local-settings-file). Estes valores são utilizados quando a função é executada localmente. Quando a função é executada na aplicação de função do Azure, o [as definições da aplicação de função](#function-app-settings) são utilizados.
 

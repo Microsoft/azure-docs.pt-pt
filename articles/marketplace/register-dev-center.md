@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 479278400aa056a7cebcefaa2eedee3d98bc9a15
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 549f37c1287373fe8bf4c10dc64e6e778b37be02
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815249"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730142"
 ---
 # <a name="register-in-dev-center"></a>Registe-se no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
@@ -82,7 +82,7 @@ Para ajudar a verificar o que não esteja conectado numa conta pessoal do browse
 
     *   Um exemplo de uma oferta comercial é uma oferta VM com o modelo de faturação de hora a hora.  
 
----  
+---
 
 ## <a name="get-help-with-dev-center-registration"></a>Obtenha ajuda com o registo do Centro de desenvolvimento  
 Se tiver problemas com o registo do Dev Center, em seguida, siga estes passos para submeter um pedido de suporte.  
@@ -125,7 +125,7 @@ As informações do banco e o imposto são necessárias para todas as ofertas co
 
 4.  Clique no botão seguinte. 
 
----   
+---
 
 ## <a name="add-tax-information"></a>Adicionar informações fiscais  
 1.  Inicie sessão no Centro de desenvolvimento usando sua ID. Microsoft  
@@ -195,4 +195,4 @@ Para acesso a suporte, visite o Windows a página de suporte programador, locali
 ## <a name="next-steps"></a>Passos Seguintes
 *   Visite o [Azure Marketplace e guia de publicador do AppSource](./marketplace-publishers-guide.md) página.  
  
----  
+---

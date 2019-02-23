@@ -4,14 +4,14 @@ description: Este artigo fornece uma descrição geral da firewall de aplicaçõ
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
-ms.openlocfilehash: 014353bafa31b1c4e924cba8335dbd30a48c2d11
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e53dde549034e8029fdb7f9c780a7880a1ca515d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651435"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733831"
 ---
 # <a name="web-application-firewall-waf"></a>Firewall de aplicações Web (WAF)
 
@@ -58,19 +58,8 @@ Seguem-se as principais vantagens proporcionadas pelo Gateway de Aplicação e p
 - Proteção contra anomalias de protocolo HTTP, como em falta alojar o agente do usuário e cabeçalhos de aceitação
 - Prevenção de contra bots, crawlers e scanners
 - Deteção de aplicação incorretas comuns (por exemplo, Apache, IIS etc.)
-
-### <a name="public-preview-features"></a>Funcionalidades de pré-visualização pública
-
-O atual WAF pré-visualização pública SKU inclui as seguintes funcionalidades:
-
-- **Limites de tamanho de pedido** -Firewall de aplicações Web permite aos usuários configurar limites de tamanho do pedido dentro inferiores e superiores.
-- **Listas de exclusão** -listas de exclusão de WAF permitir que os utilizadores omitir determinados atributos de pedido de uma avaliação de WAF. Um exemplo comum é o que Active Directory inserido tokens que são utilizados para autenticação ou campos de palavra-passe.
-
-Para obter mais informações sobre a pré-visualização pública do WAF, veja [Web limites de tamanho de pedido de firewall de aplicação e listas de exclusão (pré-visualização pública)](application-gateway-waf-configuration.md).
-
-
-
-
+- Limites de tamanho - de pedido Firewall de aplicações Web permite aos usuários configurar limites de tamanho do pedido dentro inferiores e superiores.
+- Listas de exclusão - listas de exclusão de WAF permitir que os utilizadores omitir determinados atributos de pedido de uma avaliação de WAF. Um exemplo comum é o que Active Directory inserido tokens que são utilizados para autenticação ou campos de palavra-passe.
 
 ### <a name="core-rule-sets"></a>Conjuntos de regras principais
 
@@ -87,7 +76,6 @@ A firewall de aplicação Web está pré-configurada com CRS 3.0, por predefini�
 - Deteção de aplicação incorretas comuns (por exemplo, Apache, IIS, etc.)
 
 Para obter uma lista mais detalhada das regras e das respetivas proteções, veja [conjuntos de regras de núcleo](#core-rule-sets).
-
 
 #### <a name="owasp30"></a>OWASP_3.0
 

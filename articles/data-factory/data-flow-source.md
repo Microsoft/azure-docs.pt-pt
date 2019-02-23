@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 38a01b4f81b76ba90a5fda4909d0e65e6307057e
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 93f47f5d82a41d61bec67c1c64f1491cd7618565
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408719"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733219"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformação de origem de fluxo de dados de mapeamento
 
@@ -98,6 +98,6 @@ Semelhante aos esquemas em conjuntos de dados, a projeção na origem define as 
 
 ![Padrão de formatos](media/data-flow/source2.png "predefinido formatos")
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Comece a criar a sua transformação de dados com [Derived Column](data-flow-derived-column.md) e [selecione](data-flow-select.md).

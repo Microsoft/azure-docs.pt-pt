@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e934c8bdc851f8c550e8b87a923215df3f95e389
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188499"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728264"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
@@ -58,7 +58,7 @@ O **definições do repositório** é apresentado o painel de configuração:
 
 O painel mostra o seguinte código de repositórios do Azure, as definições de repositório:
 
-| Definição | Descrição | Valor |
+| Definição | Descrição | Value |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo de repositório de código de repositórios do Azure.<br/>**Nota**: GitHub não é atualmente suportado. | Azure repositórios Git |
 | **Azure Active Directory** | Nome do seu inquilino do Azure AD. | <your tenant name> |
@@ -147,7 +147,7 @@ Depois de foram mescladas alterações para o ramo de colaboração (`master` é
 -   **Poupa parcial**. À medida que faz muitas alterações na sua fábrica, percebe que no modo em DIRETO de regular, não é possível guardar as alterações como rascunho, porque não está preparado, ou não deseja perder as alterações no caso de falha de seu computador. Com a integração de Git, pode continuar a guardar as alterações de forma incremental e publicar à fábrica de apenas quando estiver pronto. Git funciona como um local de teste para o seu trabalho, até ter testado as suas alterações para a sua satisfação.
 -   **Colaboração e controlo**. Se tiver vários membros da Equipe a participar no mesmo Factory, pode querer permitir que seus colegas de equipa colaborar entre si através de um processo de revisão de código. Também pode configurar a fábrica de forma que nem todas as contribuinte para a fábrica tem permissão para implementar a fábrica. Os membros da Equipe apenas poderão ter permissão para efetuar alterações através de Git, mas apenas determinadas pessoas da Equipe estão autorizadas a "Publicar" as alterações para a fábrica.
 -   **Mostrar diferenças**. No modo Git, obtém a um bom diff da carga que diz respeito a publicar para a fábrica. Este diff mostra todos os recursos/entidades que foi modificado/adicionada/eliminada desde a última vez publicados para a fábrica. Com base nesta diferença, pode prosseguir mais com publicação, ou voltar atrás e verificar as alterações e, em seguida, voltar mais tarde.
--   **Melhor CI/CD**. Se estiver a utilizar o modo de Git, pode configurar o seu pipeline de lançamento para acionar automaticamente como em breve, porque existem todas as alterações feitas na fábrica de desenvolvimento. Também obtém personalizar as propriedades na sua fábrica que estão disponíveis como parâmetros no modelo do Resource Manager. Pode ser útil manter apenas o conjunto de propriedades como parâmetros necessário, e tudo mais difícil codificado.
+-   **Better CI/CD**. Se estiver a utilizar o modo de Git, pode configurar o seu pipeline de lançamento para acionar automaticamente como em breve, porque existem todas as alterações feitas na fábrica de desenvolvimento. Também obtém personalizar as propriedades na sua fábrica que estão disponíveis como parâmetros no modelo do Resource Manager. Pode ser útil manter apenas o conjunto de propriedades como parâmetros necessário, e tudo mais difícil codificado.
 -   **Melhor desempenho**. Uma fábrica de média carrega 10 x vezes mais rapidamente no modo do Git que no modo em DIRETO regular, porque os recursos são transferidos através de Git.
 
 ### <a name="best-practices-for-git-integration"></a>Melhores práticas para a integração de Git
@@ -221,7 +221,7 @@ Na UX de fábrica de dados do Azure **tela de criação**, localize a fábrica 
 
 Pode configurar um repositório de GitHub Enterprise com uma fábrica de dados por meio de dois métodos.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuração 1 (repositório de Enterprise): Página Vamos começar
+#### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Método de configuração 1 (repositório de Enterprise): Página Vamos começar
 
 No Azure Data Factory, vá para o **Vamos começar** página. Selecione **configurar o repositório de código**:
 

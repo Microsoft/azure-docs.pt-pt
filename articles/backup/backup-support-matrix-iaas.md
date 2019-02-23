@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: b99d6285942bafe5467827c30b5ba2e42094fdf3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 2bd499c3afc423047dda9ff3ad657d110dab282a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430886"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673652"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e as VMs do Azure. Este artigo resume as definições de suporte e limitações ao fazer backup de máquinas virtuais do Azure (VMs) com o Azure Backup.
@@ -37,7 +37,7 @@ Eis como pode criar cópias de segurança e restaurar VMs do Azure com o serviç
 **Cópia de segurança direta de VMs do Azure (apenas Windows)** | Fazer cópias de segurança de ficheiros/pastas/volume do específico | Instalar o [agente dos serviços de recuperação do Azure (MARS) da Microsoft](backup-azure-file-folder-backup-faq.md).<br/><br/> Pode executar o agente de MARS juntamente com a extensão de cópia de segurança para o agente de VM do Azure criar cópias de segurança a VM ao nível do ficheiro/pasta. | Restaure ficheiros/pastas específicos.
 **Fazer cópias de segurança de VM do Azure para servidor de cópia de segurança** |  Fazer cópias de segurança de ficheiros/pastas/volumes; Estado/bare-metal arquivos do sistema; dados de aplicação para o System Center DPM ou o Microsoft Azure Backup Server (servidor MAB).<br/><br/> O DPM/MABS, em seguida, efetua cópias de segurança para o Cofre de cópia de segurança | Instale o agente de proteção do MABS/DPM na VM. O agente MARS está instalado no DPM/MABS.| Restaurar ficheiros/pastas/volumes; Estado/bare-metal arquivos do sistema; dados da aplicação. 
 
-Saiba mais sobre a cópia de segurança utilizando uma cópia de segurança server(backup-architecture.md#architecture-back-up-to-dpmmabs), e [suportar requisitos](backup-support-matrix-mabs-dpm.md).
+Saiba mais sobre a cópia de segurança [a utilizar um servidor de cópia de segurança](backup-architecture.md#architecture-back-up-to-dpmmabs), e [suportar requisitos](backup-support-matrix-mabs-dpm.md).
 
 
 ## <a name="supported-backup-actions"></a>Ações de cópia de segurança suportadas
@@ -189,7 +189,7 @@ VMs com endereços IP públicos    | Suportado.<br/><br/> Tem de associar um end
 Grupo de segurança de rede (NSG) na sub-rede/NIC. |   Suportado.
 Endereço IP reservado (estático) | Não suportado.<br/><br/> Não pode criar uma VM com um endereço IP reservado e nenhum ponto de extremidade definido.
 Endereço IP dinâmico |    Suportado.<br/><br/> Se a NIC na origem da VM utiliza endereçamento IP dinâmico, por predefinição o NIC à VM restaurada também compartilharão.
-Gestor de Tráfego | Suportadas<br/><br/>. Se a VM de cópia de segurança estiver no Gestor de tráfego, terá de adicionar manualmente a VM restaurada para o Gestor de tráfego mesmo. 
+Gestor de Tráfego | Suportadas<br/><br/> Se a VM de cópia de segurança estiver no Gestor de tráfego, terá de adicionar manualmente a VM restaurada para o Gestor de tráfego mesmo. 
 DNS do Azure | Suportado.
 DNS Personalizado |    Suportado.
 Conectividade de saída através do proxy de HTTP | Suportado.<br/><br/> Não é suportado um proxy autenticado. 

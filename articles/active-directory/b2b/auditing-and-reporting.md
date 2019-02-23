@@ -1,5 +1,5 @@
 ---
-title: Auditoria e relatórios um utilizador de colaboração do Azure Active Directory B2B | Documentos da Microsoft
+title: Auditoria e relatórios um utilizador de colaboração do B2B - Azure Active Directory | Documentos da Microsoft
 description: As propriedades do utilizador convidado são configuráveis em colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fc36128f8f998d78dd2cf9ef112fe5961bbef5b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dad4872f9bc32a1978de47a52cea23d6bb2742a1
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204615"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673618"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Auditoria e relatórios um utilizador de colaboração B2B
 Com os utilizadores convidados, tem capacidades semelhantes de auditoria com utilizadores membros. 

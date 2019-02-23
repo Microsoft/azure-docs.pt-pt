@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 36e0ca360cfbdfc77ce0a1768222f43f8864537c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 1645f09682ebb58b442626bf14f26fdb91f9456e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267274"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728289"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -70,7 +70,7 @@ Para começar a utilizar o serviço Azure Machine Learning, veja [próximos pass
 
 ## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>Como serviço Azure Machine Learning é diferente do Machine Learning Studio?
 
-O Azure Machine Learning Studio é uma área de trabalho visual de colaboração de arrastar e largar onde pode criar, testar e implementar soluções de machine learning sem a necessidade de escrever código. Ele usa algoritmos e módulos de manipulação de dados de aprendizagem automática de pré-criados e pré-configuradas. 
+[O Azure Machine Learning Studio](../studio/what-is-ml-studio.md) é uma colaboração, de arrastar e soltar visual área de trabalho onde pode criar, testar e implementar soluções de aprendizagem automática sem a necessidade de escrever código. Ele usa algoritmos e módulos de manipulação de dados de aprendizagem automática de pré-criados e pré-configuradas.
 
 Utilize o Machine Learning Studio quando quiser experimentar modelos de machine learning de forma rápida e fácil, e quando os algoritmos de machine learning incorporados forem suficientes para as suas soluções.
 

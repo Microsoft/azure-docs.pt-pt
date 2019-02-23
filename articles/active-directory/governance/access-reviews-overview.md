@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/19/2018
+ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338ae760aae90131a7353f990e1014aa714faa0f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 419a07ff6d423f363d6973da3df00fd4aa3f6278
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177908"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727269"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -88,23 +88,25 @@ Para ativar as revisões de acesso, siga estes passos.
 
 1. Clique em **todos os serviços** e encontrar o acesso a revisões de serviço.
 
-    ![Todos os serviços - as revisões de acesso](./media/access-reviews-overview/all-services-access-reviews.png)
-
 1. Clique em **as revisões de acesso**.
 
-    ![Carregar revisões de acesso](./media/access-reviews-overview/onboard-button.png)
+    ![Todos os serviços - as revisões de acesso](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. Na lista de navegação, clique em **carregar** para abrir o **carregar revisões de acesso** página.
 
+    ![Carregar revisões de acesso](./media/access-reviews-overview/onboard-button.png)
+
+1. Clique em **criar** ativar o acesso a revisões no diretório atual.
+
     ![Carregar revisões de acesso](./media/access-reviews-overview/onboard-access-reviews.png)
 
-1. Clique em **criar** ativar o acesso a revisões no diretório atual. Da próxima vez que inicia as revisões de acesso, as opções serão ativadas.
+    Da próxima vez que inicia o acesso a revisões, as opções de revisão de acesso serão ativadas.
 
     ![Revisões de acesso ativadas](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Criar uma revisão de acesso para os membros de um grupo ou o acesso a uma aplicação](create-access-review.md)
+- [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
 - [Criar uma revisão de acesso de utilizadores numa função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [Realizar uma revisão de acesso com as revisões de acesso do Azure AD](perform-access-review.md)
-- [Concluir uma revisão de acesso de membros de um grupo ou o acesso dos utilizadores a uma aplicação no Azure AD](complete-access-review.md)
+- [Rever o acesso a grupos ou aplicações](perform-access-review.md)
+- [Concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md)

@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: b5e6853653bab96cd11196ba03fbeadbdc6b337f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816218"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670439"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -198,7 +199,7 @@ O `detailed` formato tiver [valores múltipla](#n-best-values), para além `Reco
 
 ### <a name="n-best-values"></a>Valores de múltipla
 
-Serviços de escuta, se a máquina, ou humano podem nunca estar certos de que ter ouvido *exatamente* que foi dito. Um serviço de escuta pode atribuir um *probabilidade* apenas para uma interpretação específica de uma expressão. 
+Serviços de escuta, se a máquina, ou humano podem nunca estar certos de que ter ouvido *exatamente* que foi dito. Um serviço de escuta pode atribuir um *probabilidade* apenas para uma interpretação específica de uma expressão.
 
 Em condições normais, ao conversar com outras pessoas com quem interagem com frequência, as pessoas têm uma probabilidade elevada de reconhecer as palavras que foram faladas. Serviços de escuta de fala baseados em máquina se esforçar alcançar os níveis de precisão semelhantes e, sob as condições adequadas, [elas obtêm paridade com seres humanos](https://blogs.microsoft.com/next/2016/10/18/historic-achievement-microsoft-researchers-reach-human-parity-conversational-speech-recognition/#sm.001ykosqs14zte8qyxj2k9o28oz5v).
 
@@ -308,7 +309,7 @@ O serviço de voz de Microsoft reconhece todos os formulários de conversão de 
 
 | *Linguagem inapropriada* valor | Descrição |
 | - | - |
-| `masked` | Máscaras linguagem inapropriada por asteriscos. Este comportamento é a predefinição. | 
+| `masked` | Máscaras linguagem inapropriada por asteriscos. Este comportamento é a predefinição. |
 | `removed` | Remove a linguagem inapropriada de todos os resultados. |
 | `raw` | Reconhece e retorna a linguagem inapropriada em todos os resultados. |
 
@@ -322,7 +323,7 @@ Quando o *linguagem inapropriada* consulta parâmetro tem o valor *removido*, o 
 
 #### <a name="profanity-only-utterances"></a>Expressões com somente de linguagem inapropriada
 
-Um utilizador pode falar *apenas* linguagem inapropriada quando um aplicativo tiver configurado o serviço de remover a linguagem inapropriada. Para este cenário, se for o modo de reconhecimento *ditado* ou *conversação*, o serviço não devolveu um *speech.result*. Se o modo de reconhecimento for *interativo*, o serviço retorna uma *speech.result* com o código de estado *NoMatch*. 
+Um utilizador pode falar *apenas* linguagem inapropriada quando um aplicativo tiver configurado o serviço de remover a linguagem inapropriada. Para este cenário, se for o modo de reconhecimento *ditado* ou *conversação*, o serviço não devolveu um *speech.result*. Se o modo de reconhecimento for *interativo*, o serviço retorna uma *speech.result* com o código de estado *NoMatch*.
 
 ### <a name="profanity-value-raw"></a>Valor de linguagem inapropriada `Raw`
 

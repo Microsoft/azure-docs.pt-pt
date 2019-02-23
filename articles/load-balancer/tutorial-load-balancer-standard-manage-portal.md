@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/18
+ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: c22f69764447ffd4f8b67e9162fd8b45b40b175b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7caddde5c7695d0c572dc139b52cd0743e39d778
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230038"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672004"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Balanceamento de carga de tráfego da internet para VMs com o portal do Azure
 
@@ -49,8 +49,8 @@ Nesta secção, vai criar um balanceador de carga público que ajuda a fazer o b
     
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Nome                   | *myLoadBalancer*                                   |
-    | Tipo          | Público                                        |
+    | Name                   | *myLoadBalancer*                                   |
+    | Type          | Público                                        |
     | SKU           | Standard                          |
     | Endereço IP público | Selecione **Criar novo** e escreva *myPublicIP* na caixa de texto. O SKU Standard para o endereço IP Público é selecionado por predefinição. Em **Zona de disponibilidade**, selecione **Com Redundância entre Zonas**. |
     | Subscrição               | Selecione a sua subscrição.    |
@@ -68,7 +68,7 @@ Nesta secção, vai criar uma rede virtual, três máquinas virtuais para o conj
 1. No canto superior esquerdo do portal do Azure, selecione **Criar um recurso** > **Rede** > **Rede virtual** e introduza estes valores para a rede virtual:
     |Definição|Valor|
     |---|---|
-    |Nome|Introduza *myVNet*.|
+    |Name|Introduza *myVNet*.|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Utilizar existente** e, em seguida, selecione *myResourceGroupSLB*.|
     |Nome da sub-rede| Introduza *myBackendSubnet*.|

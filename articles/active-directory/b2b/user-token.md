@@ -1,5 +1,5 @@
 ---
-title: Compreender os tokens de utilizador em colaboração B2B do Azure AD | Documentos da Microsoft
+title: Compreender os tokens de utilizador em colaboração B2B - Azure Active Directory | Documentos da Microsoft
 description: Referência de token de utilizador para a colaboração do Azure Active Directory B2B
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d35d53cc75970f01f54a8d94b6111ed730a61c4b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a7acc305d7a1be935199371360d6e05aa14f1616
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217654"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675386"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Compreender os tokens de utilizador em colaboração B2B do Azure AD
 

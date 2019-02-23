@@ -1,5 +1,5 @@
 ---
-title: Mapeamento no Azure Active Directory de afirmações de utilizador de colaboração do B2B | Documentos da Microsoft
+title: Mapeamento de - de afirmações de utilizador de colaboração do B2B, Azure Active Directory | Documentos da Microsoft
 description: Personalize as afirmações de utilizador que são emitidas no token SAML para utilizadores B2B do Azure Active Directory (Azure AD).
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461476cea7b8551d5ae548ccd84a5333c21cf432
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 445d6c8b527b56f63a1156a39ac07393b4ffe115
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202600"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56668552"
 ---
 # <a name="b2b-collaboration-user-claims-mapping-in-azure-active-directory"></a>Mapeamento no Azure Active Directory de afirmações de utilizador de colaboração B2B
 

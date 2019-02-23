@@ -4,16 +4,16 @@ description: Aprenda a solucionar problemas com os recursos de automatização d
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/3/2018
+ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: abce40958f8d775e0a579a18cf8d1351740031ff
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475446"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671068"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Resolver problemas de erros com recursos partilhados
 
@@ -38,6 +38,24 @@ Para resolver este problema, tem de remover o módulo que fica preso no **import
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+### <a name="update-azure-modules-importing"></a>Cenário: Módulos AzureRM empacamos depois de tentar atualizá-los a importar
+
+#### <a name="issue"></a>Problema
+
+Uma faixa com a seguinte mensagem permanece na sua conta depois de tentar atualizar os módulos AzureRM:
+
+```
+Azure modules are being updated
+```
+
+#### <a name="cause"></a>Causa
+
+Existe um problema conhecido com a atualizar os módulos AzureRM numa conta de automatização que esteja num grupo de recursos com um nome numérico que começa com 0.
+
+#### <a name="resolution"></a>Resolução
+
+Para atualizar seus módulos do Azure na sua conta de automatização, tem de ser num grupo de recursos que tem um nome de alfanumérico. Grupos de recursos com nomes numérico, começando com 0 são não é possível atualizar os módulos AzureRM neste momento.
 
 ### <a name="module-fails-to-import"></a>Cenário: Ocorre uma falha do módulo importar ou cmdlets não pode ser executados depois de importar
 

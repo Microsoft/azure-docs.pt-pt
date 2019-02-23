@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 9b462ba594122b86580b9d136a844db070eea92d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d2c7211831658a18e65e04aa753607f4eb22dac8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217650"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673193"
 ---
 # <a name="what-is-bing-speech"></a>O que é de voz do Bing?
 

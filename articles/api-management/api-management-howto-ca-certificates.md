@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: apimpm
-ms.openlocfilehash: b05713fd8acb49b25dba04781c1049c9f05115fb
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 5161a35fd52b2f3d8374c76bdab60281e33dacf6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444699"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730652"
 ---
 # <a name="how-to-add-a-custom-ca-certificate-in-azure-api-management"></a>Como adicionar um certificado de AC personalizado na gestão de API do Azure
 
 Gestão de API do Azure permite a instalação de certificados de AC no computador dentro de raiz fidedigna e arquivos de certificados intermédios. Esta funcionalidade deve ser utilizada se os seus serviços necessitam de um certificado de AC personalizado.
 
 O artigo mostra como gerir certificados de AC de uma instância de serviço de gestão de API do Azure no portal do Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -51,7 +53,7 @@ Siga os passos abaixo para carregar um novo certificado de AC. Se ainda não cri
     ![Adicionar certificados de AC](media/api-management-howto-ca-certificates/03.png)  
 
 > [!NOTE]
-> Pode carregar um certificado de AC com o `New-AzureRmApiManagementSystemCertificate` comando do Powershell.
+> Pode carregar um certificado de AC com o `New-AzApiManagementSystemCertificate` comando do Powershell.
 
 ## <a name="step1a"> </a>Eliminar um certificado de cliente
 

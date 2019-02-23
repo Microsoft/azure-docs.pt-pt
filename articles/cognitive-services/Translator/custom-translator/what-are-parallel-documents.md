@@ -6,15 +6,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.topic: article
-ms.openlocfilehash: aaad6838b47b812833af8960d24e9e15c0067a15
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.topic: conceptual
+ms.openlocfilehash: fc3e545db0529739659c1019cbed6d434b586f8f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586006"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726963"
 ---
 # <a name="what-are-parallel-documents"></a>Quais são os documentos paralelos?
 

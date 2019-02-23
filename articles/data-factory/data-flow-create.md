@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: b706e229bed48c821d5ca772450df320fd7e0b7f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271989"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728238"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Criar fluxo de dados de fábrica de dados do Azure
 
@@ -34,7 +34,12 @@ Será solicitado para introduzir as suas informações de conta de armazenamento
 
 [Os dados usados para estes exemplos podem ser encontrados aqui](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Transferir os dados de exemplo e armazenar os ficheiros nas suas contas de armazenamento de Blobs do Azure, para que pode executar os exemplos.
 
+## <a name="create-new-data-flow"></a>Criar novo fluxo de dados
+
 O recurso de criar "sinal de adição" botão na IU do ADF para criar fluxos de dados de utilização
 
 ![Opções de fluxo de dados](media/data-flow/newresource.png "novo recurso")
 
+## <a name="next-steps"></a>Passos Seguintes
+
+Comece a criar a sua transformação de dados com um [transformação de origem](data-flow-source.md).

@@ -6,20 +6,20 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/09/2018
 ms.author: trinadhk
-ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e86595ceb940ebcfa702823e9c9b8ad3ef50bb45
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51704652"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674638"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utilizar o controlo de acesso baseado em funções para gerir pontos de recuperação de cópia de segurança do Azure
 O Controlo de Acesso Baseado em Funções (RBAC) do Azure permite uma gestão pormenorizada de acesso ao Azure. Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções.
 
 > [!IMPORTANT]
-> Funções fornecidas pelo Azure Backup estão limitadas a ações que podem ser executadas no portal do Azure ou cmdlets do PowerShell do cofre dos serviços de recuperação. Ações executadas no Azure cópia de segurança Centro de interface do Usuário do agente de cliente ou sistema da IU do Gestor de proteção de dados ou IU de servidor de cópia de segurança do Azure estão fora do controlo de uma destas funções.
+> Funções fornecidas pelo Azure Backup estão limitadas a ações que podem ser executadas no portal do Azure ou através da REST API ou cmdlets do PowerShell ou a CLI do cofre dos serviços de recuperação. Ações executadas no Azure cópia de segurança Centro de interface do Usuário do agente de cliente ou sistema da IU do Gestor de proteção de dados ou IU de servidor de cópia de segurança do Azure estão fora do controlo de uma destas funções.
 
 O Azure Backup fornece 3 funções incorporadas para controlar as operações de gestão de cópia de segurança. Obter mais informações sobre [Funções incorporadas do RBAC do Azure](../role-based-access-control/built-in-roles.md)
 
@@ -63,7 +63,7 @@ A tabela seguinte mostra as ações de gestão de cópia de segurança e corresp
 > Se especifica Contribuidor de VM com um âmbito de recursos VM e clique em cópia de segurança como parte das definições de VM, abrirá a tela "Ativar cópia de segurança", mesmo que a VM já foi efetuada como a chamada para verificar o estado cópia de segurança funciona apenas no nível de subscrição. Para evitar isto, ou aceda ao Cofre e abrir a vista de item de cópia de segurança da VM ou especificar a função de Contribuidor de VM ao nível da subscrição. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Controlo de acesso baseado em funções](../role-based-access-control/role-assignments-portal.md): começar a utilizar o RBAC no portal do Azure.
+* [Controlo de acesso baseado em funções](../role-based-access-control/role-assignments-portal.md): Comece com RBAC no portal do Azure.
 * Saiba como gerir o acesso com:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [CLI do Azure](../role-based-access-control/role-assignments-cli.md)

@@ -9,13 +9,13 @@ ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: B2C
-ms.openlocfilehash: 4522914f249413300ffa5bb1545d840711777bff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.subservice: B2C
+ms.openlocfilehash: cae9d51bbe1d67734e9c2163140ec3b969122bc2
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235925"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671493"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar uma web de aplicação de API com o seu inquilino do Azure Active Directory B2C
 

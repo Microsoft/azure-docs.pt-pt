@@ -11,17 +11,17 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: concepts
+ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 866aa808f4706fa3bce72495dc56f438d567ecb2
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1563b60ef26ac5e4d40f45095d0109dd9dd71570
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430795"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672581"
 ---
-# <a name="metrics-for-azure-netapp-files"></a>Métricas para os ficheiros do Azure NetApp
+# <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
 Os ficheiros do Azure NetApp fornece métricas sobre o armazenamento atribuído, utilização de armazenamento real, débito de volume, IOPS e latência. Ao analisar estas métricas, pode obter uma melhor compreensão sobre o desempenho de padrão e o volume de utilização das suas contas de NetApp.  
 

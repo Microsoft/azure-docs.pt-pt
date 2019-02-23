@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/02/2019
-ms.openlocfilehash: e2c8b4e74933df593dbc023dcb886dff80554a1a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 03ec8740a4cf36bf3d09dade8a24b155c09d1299
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53977395"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56741079"
 ---
 Definições para o contentor são hierárquicas e todos os contentores no computador anfitrião utilizarem uma hierarquia partilhada.
 

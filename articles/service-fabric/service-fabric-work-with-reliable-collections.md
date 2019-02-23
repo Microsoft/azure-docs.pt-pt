@@ -7,19 +7,19 @@ author: tylermsft
 manager: jeanpaul.connock
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/12/2019
+ms.date: 02/22/2019
 ms.author: twhitney
-ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9e542143810745712fb148e0b5ebe126cc8a93bf
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114829"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727885"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
 Recursos de infraestrutura do serviço oferece um modelo de programação com monitoração de estado disponível para os desenvolvedores do .NET através de coleções fiáveis. Especificamente, o Service Fabric fornece classes de fila do reliable e de dicionário fiável. Quando usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos examinar um uso típico de um objeto de dicionário fiável e ver o que está realmente fazendo.
@@ -207,8 +207,7 @@ Além disso, o código de serviço é atualizado um domínio de atualização de
 
 > [!WARNING]
 > Embora possa modificar o esquema de uma chave, certifique-se de que o código de hash de sua chave e algoritmos de é igual a são estáveis. Se alterar qualquer um desses algoritmos como funcionam, não será capaz de pesquisar novamente a chave no dicionário fiável.
->
->
+> Cadeias de caracteres do .NET pode ser utilizadas como uma chave, utilize a cadeia em si, como a chave –, mas não utilize o resultado da String.GetHashCode como a chave.
 
 Em alternativa, pode efetuar o que normalmente é referido como uma atualização de dois. Com uma atualização em duas fases, atualizar o serviço do V1 para o V2: V2 contém o código que sabe como lidar com a nova alteração de esquema, mas esse código não é executado. Quando o código de V2 lê dados V1, ele opera no mesmo e escreve dados V1. Em seguida, após a atualização estiver concluída em domínios de atualização de tudo, pode alguma forma Sinalizar para as instâncias de V2 em execução que a atualização foi concluída. (Uma forma de sinal é implementar uma atualização de configuração; este é o que torna isso uma atualização em duas fases.) Agora, as instâncias de V2 podem ler os dados de V1, convertê-lo aos dados da V2, operar no mesmo e escrevê-lo como dados da V2. Quando outras instâncias de ler os dados de V2, não precisa convertê-lo, eles apenas operam nele e escrever os dados da V2.
 

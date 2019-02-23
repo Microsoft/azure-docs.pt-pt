@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: e80ebcd6de7a793450a0503c99af151e96658ea9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876747"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728573"
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes de gestão de API do Azure
 Obtenha respostas para perguntas comuns, padrões e práticas recomendadas para a gestão de API do Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="contact-us"></a>Contacte-nos
 * [Como posso fazer a equipe de gestão de API do Microsoft Azure uma pergunta?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
@@ -89,9 +91,9 @@ Eis como pode adicionar um utilizador ao grupo de administradores:
 
 Agora, o colaborador adicionado recentemente pode utilizar o Azure PowerShell [cmdlets](https://docs.microsoft.com/powershell/azure/overview). Eis como iniciar sessão como administrador:
 
-1. Utilize o `Connect-AzureRmAccount` cmdlet para iniciar sessão.
-2. Definir o contexto para a subscrição que tem o serviço utilizando `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.
-3. Obter um URL de início de sessão único com `Get-AzureRmApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
+1. Utilize o `Connect-AzAccount` cmdlet para iniciar sessão.
+2. Definir o contexto para a subscrição que tem o serviço utilizando `Set-AzContext -SubscriptionID <subscriptionGUID>`.
+3. Obter um URL de início de sessão único com `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Utilize o URL para aceder ao portal de administração.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Por que é a política que eu quero adicionar indisponível no editor de políticas?
@@ -132,11 +134,11 @@ Sim. Consulte a [serviço de gestão de API do Azure](https://aka.ms/apimtemplat
 Sim. Isso pode ser feito através do PowerShell ou enviando diretamente para a API. Isto irá desativar a validação da cadeia de certificado e permite-lhe utilizar certificados autoassinados ou em privado assinado ao comunicar da gestão de API para os serviços de back-end.
 
 #### <a name="powershell-method"></a>Método do PowerShell ####
-Utilize o [ `New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (para o novo back-end) ou [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (para o back-end existente) cmdlets do PowerShell e defina o `-SkipCertificateChainValidation` parâmetro `True`. 
+Utilize o [ `New-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (para o novo back-end) ou [ `Set-AzApiManagementBackend` ](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (para o back-end existente) cmdlets do PowerShell e defina o `-SkipCertificateChainValidation` parâmetro `True`. 
 
 ```powershell
-$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
-New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 #### <a name="direct-api-update-method"></a>Método direto de atualização de API ####

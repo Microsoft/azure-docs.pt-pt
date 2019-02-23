@@ -10,18 +10,18 @@ Customer intent: I want to create a Standard Load balancer so that I can load ba
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: qucikstart
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: b2da2092c71d109081f05f3e4f12d7d11de37397
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 56fc3942b82d43273ea39f6075382bcb255fc0f7
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593952"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673824"
 ---
 # <a name="get-started"></a>Início rápido: Criar um balanceador de carga Standard com o Azure PowerShell
 
@@ -58,7 +58,7 @@ $publicIP = New-AzPublicIpAddress `
 
 ## <a name="create-standard-load-balancer"></a>Criar o Balanceador de Carga Standard
 
-Nesta secção, configure o IP de front-end e o conjunto de endereços de back-end do Balanceador de carga e, em seguida, criar o Balanceador de carga básico.
+Nesta secção, configure o IP de front-end e o conjunto de endereços de back-end do Balanceador de carga e, em seguida, criar o Balanceador de carga Standard.
 
 ### <a name="create-front-end-ip"></a>Criar endereço IP de front-end
 
@@ -133,7 +133,7 @@ $natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
 
 ### <a name="create-load-balancer"></a>Criar um balanceador de carga
 
-Criar o Balanceador de carga Standard com [novo AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo seguinte cria um básica Balanceador de carga público com o nome myLoadBalancer usando a configuração de IP Front-end, conjunto de back-end, a sonda de estado de funcionamento, regra de balanceamento de carga e regras NAT que criou nos passos anteriores:
+Criar o Balanceador de carga Standard com [novo AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo seguinte cria um Standard Balanceador de carga público com o nome myLoadBalancer usando a configuração de IP Front-end, conjunto de back-end, a sonda de estado de funcionamento, regra de balanceamento de carga e regras NAT que criou nos passos anteriores:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -347,7 +347,7 @@ Remove-AzResourceGroup -Name myResourceGroupLB
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia de introdução, criou o Balanceador de Carga Básico, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
+Neste guia de introdução, criou um Balanceador de Carga Standard, anexou VMs ao mesmo, configurou a regra de tráfego do balanceador de carga, a sonda de estado de funcionamento e, em seguida, testou o balanceador de carga. Para saber mais sobre o Balanceador de Carga do Azure, avance para os tutoriais do Balanceador de Carga do Azure.
 
 > [!div class="nextstepaction"]
 > [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-basic-internal-portal.md)

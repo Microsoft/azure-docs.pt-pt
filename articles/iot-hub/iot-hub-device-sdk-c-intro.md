@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7734a273f6e07290ec7124def5cb3b095f7f067b
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053913"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674255"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>O Azure IoT-device SDK para C
 
@@ -111,7 +111,7 @@ Este separador é onde gerir os dispositivos registados no IoT hub.
 
 1. Se escolher **copiar a cadeia de ligação para o dispositivo selecionado**, a cadeia de ligação do dispositivo é copiada para a área de transferência. Mantenha uma cópia da cadeia de ligação do dispositivo. Irá precisar dele quando executar os aplicativos de exemplo descritos nas seções a seguir.
 
-Quando tiver concluído os passos acima, está pronto para iniciar a execução de código. A maioria dos exemplos possuem uma constante na parte superior do ficheiro de origem principal que permite-lhe introduzir uma cadeia de ligação. Por exemplo, a linha correspondente a partir do **iothub\_cliente\_exemplo\_mqtt** aplicação é apresentado da seguinte forma.
+Quando tiver concluído os passos acima, está pronto para iniciar a execução de código. A maioria dos exemplos possuem uma constante na parte superior do ficheiro de origem principal que permite-lhe introduzir uma cadeia de ligação. Por exemplo, a linha correspondente a partir do **iothub_client\_exemplos\_iothub_convenience_sample** aplicação é apresentado da seguinte forma.
 
 ```c
 static const char* connectionString = "[device connection string]";
@@ -121,7 +121,7 @@ static const char* connectionString = "[device connection string]";
 
 Dentro os **iothub\_cliente** pasta no [azure-iot-sdk-c](https://github.com/azure/azure-iot-sdk-c) repositório, há um **exemplos** pasta que contém um aplicativo chamado **iothub\_cliente\_exemplo\_mqtt**.
 
-A versão do Windows dos **iothub\_cliente\_exemplo\_mqtt** aplicativo inclui a seguinte solução do Visual Studio:
+A versão do Windows dos **iothub_client\_amostras\_iothub_convenience_sample** aplicativo inclui a seguinte solução do Visual Studio:
 
   ![Explorador de soluções do Visual Studio](./media/iot-hub-device-sdk-c-intro/iothub-client-sample-mqtt.png)
 
@@ -137,7 +137,7 @@ Essa solução contém um único projeto. Existem quatro pacotes de NuGet instal
 
 Precisa sempre a **Microsoft.Azure.C.SharedUtility** quando estiver a trabalhar com o SDK do pacote. Este exemplo utiliza o protocolo MQTT, por isso deve incluir o **Microsoft.Azure.umqtt** e **Microsoft.Azure.IoTHub.MqttTransport** pacotes (existem pacotes equivalentes para AMQP e HTTPS). Uma vez que o exemplo utiliza a **o IoTHubClient** biblioteca, tem também de incluir o **Microsoft.Azure.IoTHub.IoTHubClient** pacote na sua solução.
 
-Pode encontrar a implementação da aplicação de exemplo no **iothub\_cliente\_exemplo\_mqtt.c** ficheiro de origem.
+Pode encontrar a implementação da aplicação de exemplo no **iothub_client\_amostras\_iothub_convenience_sample** ficheiro de origem.
 
 Os passos seguintes utilizam este aplicativo de exemplo para percorrer o que é necessário para utilizar o **o IoTHubClient** biblioteca.
 
@@ -351,7 +351,7 @@ Tal como acontece com o exemplo anterior, este inclui vários pacotes de NuGet:
 
 Viu que a maioria desses pacotes no exemplo anterior, mas **Microsoft.Azure.IoTHub.Serializer** há de novo. Este pacote é necessário quando utiliza a **serializador** biblioteca.
 
-Pode encontrar a implementação do exemplo de aplicativo no **simplesample\_mqtt.c** ficheiro.
+Pode encontrar a implementação do exemplo de aplicativo no ***iothub_client\_amostras\_iothub_convenience_sample** ficheiro.
 
 As secções seguintes guiá-lo pelas principais partes deste exemplo.
 
@@ -392,7 +392,7 @@ Por fim, chame o **CREATE\_modelo\_instância** função. **WeatherStation** é 
 
 ### <a name="define-the-model"></a>Definir o modelo
 
-Um modelo no **serializador** biblioteca define as mensagens que o dispositivo pode enviar para o IoT Hub e as mensagens, chamadas *ações* na linguagem de modelagem, que pode receber. Define um modelo utilizando um conjunto de macros de C, como mostra a **simplesample\_mqtt** aplicação de exemplo:
+Um modelo no **serializador** biblioteca define as mensagens que o dispositivo pode enviar para o IoT Hub e as mensagens, chamadas *ações* na linguagem de modelagem, que pode receber. Define um modelo utilizando um conjunto de macros de C, como mostra a **iothub_client\_amostras\_iothub_convenience_sample** aplicação de exemplo:
 
 ```c
 BEGIN_NAMESPACE(WeatherStation);

@@ -8,14 +8,14 @@ author: preetikr
 ms.author: preetikr
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 01/30/19
+ms.date: 01/30/2019
 tags: connectors
-ms.openlocfilehash: 647df9e73804c8f261b58d5ede7c4b030d448fed
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513520"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673689"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças, integrando operações de segurança com o Microsoft Graph Security e Azure Logic Apps
 

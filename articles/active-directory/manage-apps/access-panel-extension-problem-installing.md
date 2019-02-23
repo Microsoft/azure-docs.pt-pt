@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/4/18
+ms.date: 5/4/2018
 ms.author: celested
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b9668a68ed57273c6198dc2ecd34b9001811d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 216568ac43c8e1b04c91d9a8f611a0ceb2e430af
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209307"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674009"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão de browser do painel de acesso
 

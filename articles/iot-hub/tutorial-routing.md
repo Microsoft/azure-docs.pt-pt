@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 22678a44cda38b52982e977281d3310efde15831
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247287"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56728731"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o encaminhamento de mensagens com o IoT Hub
 
@@ -36,6 +36,8 @@ Neste tutorial, vai realizar as seguintes tarefas:
 > * ...na visualização do Power BI.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -171,7 +173,7 @@ As variáveis que têm de ser globalmente exclusivas têm `$(Get-Random)` concat
 
 ```azurepowershell-interactive
 # Log into Azure account.
-Login-AzureRMAccount
+Login-AzAccount
 
 # Set the values for the resource names that don't have to be globally unique.
 # The resources that have to have unique names are named in the script below
@@ -185,21 +187,21 @@ $iotDeviceName = "Contoso-Test-Device"
 
 # Create the resource group to be used 
 #   for all resources for this tutorial.
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # The IoT hub name must be globally unique, so add a random number to the end.
 $iotHubName = "ContosoTestHub$(Get-Random)"
 Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
-New-AzureRmIotHub -ResourceGroupName $resourceGroup `
+New-AzIotHub -ResourceGroupName $resourceGroup `
     -Name $iotHubName `
     -SkuName "S1" `
     -Location $location `
     -Units 1
 
 # Add a consumer group to the IoT hub for the 'events' endpoint.
-Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
+Add-AzIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
@@ -211,7 +213,7 @@ Write-Host "storage account name is " $storageAccountName
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
 #   to be used when creating a container.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
     -Name $storageAccountName `
     -Location $location `
     -SkuName Standard_LRS `
@@ -219,7 +221,7 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 $storageContext = $storageAccount.Context 
 
 # Create the container in the storage account.
-New-AzureStorageContainer -Name $containerName `
+New-AzStorageContainer -Name $containerName `
     -Context $storageContext
 
 # The Service Bus namespace must be globally unique,
@@ -228,7 +230,7 @@ $serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
 Write-Host "Service Bus namespace is " $serviceBusNamespace
 
 # Create the Service Bus namespace.
-New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
+New-AzServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
 
@@ -238,7 +240,7 @@ $serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
 Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
-New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
+New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
     -Namespace $serviceBusNamespace `
     -Name $serviceBusQueueName 
 
@@ -605,10 +607,10 @@ az group delete --name $resourceGroup
 ```
 ### <a name="clean-up-resources-using-powershell"></a>Limpar os recursos com o PowerShell
 
-Para remover o grupo de recursos, utilize o comando [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). $resourceGroup foi definido como **ContosoIoTRG1** anteriormente no início deste tutorial.
+Para remover o grupo de recursos, utilize o [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) comando. $resourceGroup foi definido como **ContosoIoTRG1** anteriormente no início deste tutorial.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

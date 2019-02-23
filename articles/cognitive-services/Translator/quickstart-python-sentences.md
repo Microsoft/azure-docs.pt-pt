@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 1fdee0d8c73c4cdd60bbe4a3520583588bfc385b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d6f9ac2d0b7aa2365d0391841e6d6fb0369a9693
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861107"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727048"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Início rápido: Utilize a API de texto do Translator para determinar o comprimento de sentença com Python
 

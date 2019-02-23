@@ -7,17 +7,17 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 1ab6fe13df111b5f56da1f368fc0dacf0a6206fc
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.date: 02/21/2019
+ms.openlocfilehash: e87f9b4905abec2c00ed238445b3e36e41cfa2f6
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408838"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674876"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados
 
-O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para utilizar o Azure Data Explorer, primeiro crie um *cluster* e crie uma ou mais *bases de dados* nesse cluster. Em seguida, *ingira* (carregue) os dados para uma base de dados, de modo a poder executar consultas neles. Neste início rápido, irá criar um cluster e uma base de dados. Nos artigos subsequentes, vamos mostrar-lhe como ingerir dados.
+O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. Para utilizar o Explorador de dados do Azure, primeiro cria um cluster e criar um ou mais bases de dados desse cluster. Em seguida, ingerir (carregar) dados numa base de dados para que pode executar consultas em relação a ele. Neste início rápido, irá criar um cluster e uma base de dados.
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -27,7 +27,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
-Crie um cluster do Azure Data Explorer num grupo de recursos do Azure, com um conjunto definido de recursos de computação e armazenamento.
+Crie um cluster do Explorador de dados do Azure com um conjunto definido de recursos de computação e armazenamento num grupo de recursos do Azure.
 
 1. Selecione o botão (+) **Criar um recurso**, no canto superior esquerdo do portal.
 
@@ -37,28 +37,22 @@ Crie um cluster do Azure Data Explorer num grupo de recursos do Azure, com um co
 
 1. No **Azure Data Explorer**, na parte inferior do ecrã, selecione **Criar**.
 
-1. Introduza um nome exclusivo para o cluster, selecione a subscrição e crie um grupo de recursos com o nome *test-resource-group*.
-
-    ![Criar grupo de recursos](media/create-cluster-database-portal/create-resource-group.png)
-
-1. Preencha o formulário com as seguintes informações.
+1. Preencha os detalhes de cluster básico com as seguintes informações.
 
    ![Criar formulário de cluster](media/create-cluster-database-portal/create-cluster-form.png)
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Nome do cluster | Um nome exclusivo de cluster | Escolha um nome exclusivo que identifique o seu cluster. Por exemplo, *mytestcluster*. O nome de domínio *[região].kusto.windows.net* é anexado ao nome de cluster que indicar. O nome pode conter apenas letras minúsculas e números. Tem de conter entre 3 e 22 carateres.
     | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o cluster.|
-    | Grupo de recursos | *test-resource-group* | Crie um novo grupo de recursos. |
+    | Grupo de recursos | *test-resource-group* | Utilizar um grupo de recursos existente ou criar um novo grupo de recursos. |
+    | Nome do cluster | Um nome exclusivo de cluster | Escolha um nome exclusivo que identifique o seu cluster. Por exemplo, *mydataexplorercluster*. O nome de domínio *[região].kusto.windows.net* é anexado ao nome de cluster que indicar. O nome pode conter apenas letras minúsculas e números. Tem de conter entre 3 e 22 carateres.
     | Localização | *E.U.A. Oeste* | Selecione *E.U.A. Oeste* para este início rápido. Para um sistema de produção, selecione a região que melhor se adequa às suas necessidades.
     | Especificações do dispositivo | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor se adequa às suas necessidades.
     | | |
 
-1. Selecione **Criar** para aprovisionar o cluster. Normalmente, o aprovisionamento demora cerca de dez minutos. Selecione **Notificações** na barra de ferramentas para monitorizar o processo de aprovisionamento.
+1. Selecione **rever + criar** para rever os detalhes do seu cluster, e **criar** para aprovisionar o cluster. Normalmente, o aprovisionamento demora cerca de 10 minutos.
 
-    ![Notificações](media/create-cluster-database-portal/notifications.png)
-
-1. Quando o processo estiver concluído, selecione **Notificações** e, em seguida, **Ir para recurso**.
+1. Quando a implementação estiver concluída, selecione **Ir para recurso**.
 
     ![Ir para recurso](media/create-cluster-database-portal/notification-resource.png)
 
@@ -68,7 +62,7 @@ Está agora pronto para o segundo passo do processo: a criação da base de dado
 
 1. No separador **Descrição Geral**, selecione **Criar base de dados**.
 
-    ![Passo dois: criar uma base de dados](media/create-cluster-database-portal/database-creation.png)
+    ![Passo 2: criar uma base de dados](media/create-cluster-database-portal/database-creation.png)
 
 1. Preencha o formulário com as seguintes informações.
 
@@ -78,26 +72,22 @@ Está agora pronto para o segundo passo do processo: a criação da base de dado
     |---|---|---|
     | Nome da base de dados | *TestDatabase* | O nome da base de dados tem de ser exclusivo dentro do cluster.
     | Período de retenção | *3650* | O intervalo de tempo (em dias) para o qual é garantido que os dados são mantidos disponíveis para consulta. O intervalo de tempo é medido desde o momento em que os dados são ingeridos.
-    | Período de colocação em cache | *31* | O tempo de span (em dias) para o qual a manter o frequentemente consultado dados disponíveis no armazenamento SSD ou RAM, em vez de no armazenamento de longo prazo.
+    | Período de colocação em cache | *31* | O tempo de span (em dias) para o qual pretende manter os dados consultados com frequência disponíveis no armazenamento SSD ou RAM, em vez de no armazenamento de longo prazo.
     | | | |
 
-1. Selecione **Guardar** para criar a base de dados. Normalmente, a criação demora menos de um minuto. Quando o processo estiver concluído, volta ao separador **Descrição Geral** do cluster.
+1. Selecione **criar** para criar a base de dados. Normalmente, a criação demora menos de um minuto. Quando o processo estiver concluído, volta ao separador **Descrição Geral** do cluster.
 
 ## <a name="run-basic-commands-in-the-database"></a>Executar comandos básicos na base de dados
 
 Agora que tem o cluster e a base de dados, pode executar consultas e comandos. Ainda não tem quaisquer dados na base de dados, mas pode ver como funcionam as ferramentas.
 
-1. No cluster, selecione **Consulta**.
-
-    ![Consulta de base de dados](media/create-cluster-database-portal/query-database.png)
-
-1. Cole o seguinte comando na janela de consulta: `.show databases`, em seguida, selecione **Executar**.
+1. No cluster, selecione **Consulta**. Cole o comando `.show databases` para a janela de consulta, em seguida, selecione **executar**.
 
     ![Mostrar comando de bases de dados](media/create-cluster-database-portal/show-databases.png)
 
     O conjunto de resultados mostra **TestDatabase**, a única base de dados no cluster.
 
-1. Cole o seguinte comando na janela de consulta: `.show tables`, em seguida, selecione esse comando na janela. Selecione **Executar**.
+1. Cole o comando `.show tables` para a janela de consulta e selecione **executar**.
 
     Este comando devolve um conjunto de resultados vazio porque ainda não tem quaisquer tabelas. Vai adicionar uma tabela no próximo artigo desta série.
 
@@ -111,21 +101,15 @@ Pode parar e reiniciar um cluster consoante as necessidades empresariais.
 
 1. Para reiniciar o cluster, na parte superior do separador **Descrição Geral**, selecione **Iniciar**.
 
-    Quando o cluster é reiniciado, demora cerca de dez minutos a ficar disponível (como quando foi originalmente aprovisionado). Demora mais tempo a carregar os dados para a cache frequente.  
+    Quando o cluster é reiniciado, demora cerca de 10 minutos para que fiquem disponíveis (como quando foi originalmente aprovisionado). Demora mais tempo a carregar os dados para a cache frequente.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se tenciona seguir os nossos inícios rápidos e tutoriais, mantenha os recursos que criou. Caso contrário, limpe **test-resource-group**, de modo a evitar incorrer em custos.
+Se planeja seguir outros inícios rápidos e tutoriais, mantenha os recursos que criou. Caso contrário, limpe o grupo de recursos, para evitar incorrer em custos.
 
-1. No portal do Azure, selecione **Grupos de recursos** à esquerda e, em seguida, selecione o grupo de recursos que criou.  
+1. No portal do Azure, selecione **grupos de recursos** na extrema esquerda e, em seguida, selecione o grupo de recursos que contém o cluster do Data Explorer.  
 
-    Se o menu à esquerda estiver fechado, selecione ![botão Expandir](media/create-cluster-database-portal/expand.png) para expandi-lo.
-
-   ![Selecionar grupo de recursos a eliminar](media/create-cluster-database-portal/delete-resources-select.png)
-
-1. Em **test-resource-group**, selecione **Eliminar grupo de recursos**.
-
-1. Na nova janela, escreva o nome do grupo de recursos a eliminar (*test-resource-group*) e, em seguida, selecione **Eliminar**.
+1. Selecione **eliminar grupo de recursos** para eliminar o grupo de recursos inteiro. Se utilizar um grupo de recursos existente, pode optar por eliminar apenas o cluster de Data Explorer.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

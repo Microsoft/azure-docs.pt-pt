@@ -1,6 +1,6 @@
 ---
-title: Concluir uma revisão de acesso de membros de um grupo ou o acesso dos utilizadores a uma aplicação com o Azure AD | Documentos da Microsoft
-description: Aprenda como concluir uma revisão de acesso para membros de um grupo ou os utilizadores com acesso a uma aplicação no Azure Active Directory.
+title: Concluir uma revisão de acesso de grupos ou aplicações nas revisões de acesso do Azure AD | Documentos da Microsoft
+description: Aprenda como concluir uma revisão de acesso de membros do grupo ou o acesso de aplicação nas revisões de acesso do Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2da3b7f8b7ed60344978fb255696980ec620fd2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192273"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729615"
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Concluir uma revisão de acesso de membros de um grupo ou o acesso dos utilizadores a uma aplicação no Azure AD
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Concluir uma revisão de acesso de grupos ou aplicações nas revisões de acesso do Azure AD
 
-Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão de acesso](create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação. Azure AD envia automaticamente os revisores, uma mensagem de e-mail que lhe pede para rever o acesso. Se um utilizador não recebeu uma mensagem de e-mail, pode enviar-lhes as instruções [rever o seu acesso](perform-access-review.md). (Tenha em atenção que os convidados que são atribuídos como revisores, mas não aceitou o convite não irão receber um e-mail de revisões de acesso, como o primeiro tem de ser aceite um convite, antes da revisão.) Depois do período de revisão de acesso ou se um administrador parar a revisão de acesso, siga os passos neste artigo para ver e aplicar os resultados.
+Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão de acesso](create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação. Azure AD envia automaticamente os revisores, uma mensagem de e-mail que lhe pede para rever o acesso. Se um utilizador não recebeu uma mensagem de e-mail, pode enviar-lhes as instruções [rever o acesso a grupos ou aplicações](perform-access-review.md). (Tenha em atenção que os convidados que são atribuídos como revisores, mas não aceitou o convite não irão receber um e-mail de revisões de acesso, como o primeiro tem de ser aceite um convite, antes da revisão.) Depois do período de revisão de acesso ou se um administrador parar a revisão de acesso, siga os passos neste artigo para ver e aplicar os resultados.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Ver uma revisão de acesso no portal do Azure
 
@@ -62,5 +62,5 @@ Se já não estiver interessado na revisão, pode eliminá-la. Selecione **elimi
 - [Gerir o acesso de utilizador com as revisões de acesso do Azure AD](manage-user-access-with-access-reviews.md)
 - [Gerir o acesso de convidado com as revisões de acesso do Azure AD](manage-guest-access-with-access-reviews.md)
 - [Gerir programas e controlos de revisões de acesso do Azure AD](manage-programs-controls.md)
-- [Criar uma revisão de acesso para os membros de um grupo ou o acesso a uma aplicação](create-access-review.md)
+- [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
 - [Criar uma revisão de acesso de utilizadores numa função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)

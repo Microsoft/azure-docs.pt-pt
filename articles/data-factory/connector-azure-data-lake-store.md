@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: d148b43750b4e57ff650f8e96bfda1fb5c57dd4b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: ac0a4bf6f332095bd75a6be83d7a1cd3d37c8e1c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657336"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674553"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de ou para a geração 1 de armazenamento do Azure Data Lake com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,15 +113,15 @@ São suportadas as seguintes propriedades:
 
 ### <a name="managed-identity"></a> Utilizar identidades geridas para a autenticação de recursos do Azure
 
-Uma fábrica de dados pode ser associada com um [identidade de recursos do Azure gerida](data-factory-service-identity.md), que representa esta fábrica de dados específicos. Pode utilizar diretamente esta identidade de serviço para a autenticação do Data Lake Store, semelhante à utilização da sua própria principal de serviço. Ele permite que esta fábrica designada para aceder e copiar dados de ou para o Data Lake Store.
+Uma fábrica de dados pode ser associada com um [identidade de recursos do Azure gerida](data-factory-service-identity.md), que representa esta fábrica de dados específicos. Pode utilizar diretamente esta identidade gerida para a autenticação do Data Lake Store, semelhante à utilização da sua própria principal de serviço. Ele permite que esta fábrica designada para aceder e copiar dados de ou para o Data Lake Store.
 
 Para utilizar identidades geridas para a autenticação de recursos do Azure:
 
-1. [Obter a identidade de serviço da fábrica de dados](data-factory-service-identity.md#retrieve-service-identity) ao copiar o valor do "serviço de ID da Identity Application" gerada juntamente com sua fábrica.
-2. Conceda o acesso de identidade de serviço para o Data Lake Store, da mesma forma que fizer para o principal de serviço, seguindo estas notas.
+1. [Obter as informações de identidade do data factory gerido](data-factory-service-identity.md#retrieve-managed-identity) ao copiar o valor do "serviço de ID da Identity Application" gerada juntamente com sua fábrica.
+2. Conceda o acesso de identidade gerida para o Data Lake Store, da mesma forma que fizer para o principal de serviço, seguindo estas notas.
 
 >[!IMPORTANT]
-> Certifique-se de que concede o data factory serviço identidade permissão adequada no Data Lake Store:
+> Certifique-se de que concede o data factory gerido identidade permissão adequada no Data Lake Store:
 >- **Como origem**: Na **o Data explorer** > **acesso**, conceder, pelo menos, **leitura + execução** permissão para listar e copie os ficheiros em pastas e subpastas. Em alternativa, pode conceder **leitura** permissão para copiar um ficheiro individual. Pode optar por adicionar ao **esta pasta e todos os filhos** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Não existe nenhum requisito no controle de conta de nível de acesso (IAM).
 >- **Como sink**: Na **o Data explorer** > **acesso**, conceder, pelo menos, **escrita + execução** permissão para criar itens subordinados numa pasta. Pode optar por adicionar ao **esta pasta e todos os filhos** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Se usar o runtime de integração do Azure para copiar (origem e sink são na cloud), no IAM, conceder, pelo menos, o **leitor** função para detetar a região para o Data Lake Store com o Data Factory. Se quiser evitar esta função IAM explicitamente [criar um runtime de integração do Azure](create-azure-integration-runtime.md#create-azure-ir) com a localização do Data Lake Store. Associá-las no serviço do Data Lake Store ligado como o exemplo seguinte.
 

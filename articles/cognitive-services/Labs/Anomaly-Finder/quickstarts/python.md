@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 3d4411153f2c5c342b1640865f05b6bf4c4b0f61
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: df894fee3328b2199b8f7436adabfd3db62f4004
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212618"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737132"
 ---
 # <a name="use-the-anomaly-finder-api-with-python"></a>Utilizar o Explorador de anomalias API com Python
 

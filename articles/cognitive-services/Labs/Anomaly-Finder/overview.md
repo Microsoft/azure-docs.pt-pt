@@ -8,12 +8,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: ad0af6137e2a127e2f9981c2707906514bf8c591
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 41d20cfd9821fbd2a34a66754e5c2da3d6439fd2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55215202"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726818"
 ---
 # <a name="what-is-anomaly-finder"></a>O que é o Explorador de Anomalias?
 

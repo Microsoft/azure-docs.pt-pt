@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 5a3d817f96770370615ff4ae953cb8655bd245c1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329052"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729360"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Desvios de esquema de fluxo de dados de mapeamento
 

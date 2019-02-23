@@ -6,15 +6,15 @@ author: jluk
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/30/18
+ms.date: 05/30/2018
 ms.author: juluk
 ms.custom: mvc
-ms.openlocfilehash: 4c8197e570c429893084fc1c2f8e4b36fd43a721
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 21e75beffbf592f25257b0dca7ba48b0ffe560a8
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425593"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669776"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Obter registos de contentor e eventos no Azure Container Instances
 

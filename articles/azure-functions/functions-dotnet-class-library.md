@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 661cdddb4682d003b0c1149819a096a2a3756090
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994540"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729003"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do Azure funções c# para programadores
 
@@ -50,7 +50,7 @@ Quando compila o projeto, uma estrutura de pastas que se assemelha ao seguinte �
  | - host.json
 ```
 
-Este diretório é o que é implementado para a aplicação de funções no Azure. As extensões de vinculação necessárias [versão 2.x](functions-versions.md) as funções de tempo de execução são [adicionada ao projeto como pacotes de NuGet](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
+Este diretório é o que é implementado para a aplicação de funções no Azure. As extensões de vinculação necessárias [versão 2.x](functions-versions.md) as funções de tempo de execução são [adicionada ao projeto como pacotes de NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
 > O processo de compilação cria um *Function* ficheiro para cada função. Isso *Function* ficheiro não deve ser editada diretamente. Não é possível alterar a configuração de ligação ou desativar a função ao editar este ficheiro. Para saber como desativar uma função, veja [como desativar funções](disable-function.md#functions-2x---c-class-libraries).
@@ -83,7 +83,7 @@ A assinatura do método pode conter parâmetros que não seja usado com o atribu
 * [Entrada e saída enlaces](functions-triggers-bindings.md) marcados como tal decorando-los com atributos.  
 * Uma `ILogger` ou `TraceWriter` ([versão 1.x só](functions-versions.md#creating-1x-apps)) parâmetro [registo](#logging).
 * R `CancellationToken` parâmetro [desligamento não](#cancellation-tokens).
-* [Expressões de enlace](functions-triggers-bindings.md#binding-expressions-and-patterns) acionam de parâmetros para obter metadados.
+* [Expressões de enlace](./functions-bindings-expressions-patterns.md) acionam de parâmetros para obter metadados.
 
 A ordem dos parâmetros na assinatura de função não é relevante. Por exemplo, pode colocar os parâmetros de Acionador antes ou depois de outras associações, e pode colocar o parâmetro de agente de log antes ou depois de parâmetros de Acionador ou enlace.
 
@@ -205,7 +205,7 @@ Cada vinculação tem seus próprios tipos com suporte; Por exemplo, um atributo
 
 ## <a name="binding-to-method-return-value"></a>Ligação para o valor de retorno do método
 
-Pode utilizar um valor de retorno do método para um enlace de saída, ao aplicar o atributo para o valor de retorno do método. Para obter exemplos, consulte [Acionadores e enlaces](functions-triggers-bindings.md#using-the-function-return-value). 
+Pode utilizar um valor de retorno do método para um enlace de saída, ao aplicar o atributo para o valor de retorno do método. Para obter exemplos, consulte [Acionadores e enlaces](./functions-bindings-return-value.md). 
 
 Utilize o valor de retorno apenas se uma execução de função efetuada com êxito sempre resulta num valor de retorno para passar para o enlace de saída. Caso contrário, utilize `ICollector` ou `IAsyncCollector`, conforme mostrado na secção seguinte.
 

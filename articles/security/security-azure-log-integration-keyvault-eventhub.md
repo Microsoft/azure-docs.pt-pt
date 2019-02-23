@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 21a1cd6d0326c834a05681ffe98555ea52858e6e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 22d4a18ad1c6e80baa6e798be399ab2cd4836fbc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106567"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56733412"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de integração de registos do Azure: Processar os eventos do Azure Key Vault através dos Hubs de eventos
 
@@ -50,31 +50,28 @@ Para obter mais informações sobre os serviços que menciona neste tutorial, ve
 
 ## <a name="initial-setup"></a>Configuração inicial
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Antes de concluir os passos neste artigo, precisa do seguinte:
 
-1. Uma subscrição do Azure e conta com direitos de administrador da subscrição. Se não tiver uma subscrição, pode criar uma [conta gratuita](https://azure.microsoft.com/free/).
+* Uma subscrição do Azure e conta com direitos de administrador da subscrição. Se não tiver uma subscrição, pode criar uma [conta gratuita](https://azure.microsoft.com/free/).
  
-1. Um sistema com acesso à internet que cumpra os requisitos para instalar o Azure Log Integration. O sistema pode estar num serviço em nuvem ou alojadas no local.
+* Um sistema com acesso à internet que cumpra os requisitos para instalar o Azure Log Integration. O sistema pode estar num serviço em nuvem ou alojadas no local.
 
-1. Integração de registos do Azure instalado. Para instalá-lo:
+* Integração de registos do Azure instalado. Para instalá-lo:
 
    a. Utilize o ambiente de trabalho remoto para ligar ao sistema mencionado no passo 2.   
    b. Copie o instalador de integração de registos do Azure para o sistema. c. Iniciar o instalador e aceite os termos de licença de Software da Microsoft.
 
-1. Se for fornecer informações de telemetria, deixe a caixa de verificação selecionada. Se preferir não enviar informações de utilização à Microsoft, desmarque a caixa de verificação.
+* Se for fornecer informações de telemetria, deixe a caixa de verificação selecionada. Se preferir não enviar informações de utilização à Microsoft, desmarque a caixa de verificação.
 
    Para obter mais informações sobre a integração de registos do Azure e como instalá-lo, consulte [integração de registos do Azure com o registo de diagnósticos do Azure e o reencaminhamento de eventos do Windows](security-azure-log-integration-get-started.md).
 
-1. A versão mais recente do PowerShell.
+* A versão mais recente do PowerShell.
 
    Se tiver instalado o Windows Server 2016, então tem, pelo menos, PowerShell 5.0. Se estiver a utilizar qualquer outra versão do Windows Server, poderá ter uma versão anterior do PowerShell instalado. Pode verificar a versão introduzindo ```get-host``` numa janela do PowerShell. Se não tiver PowerShell 5.0 instalado, pode [baixá-lo](https://www.microsoft.com/download/details.aspx?id=50395).
 
-   Depois de ter, pelo menos, PowerShell 5.0, pode avançar para instalar a versão mais recente:
-
-   a. Numa janela do PowerShell, introduza o ```Install-Module Azure``` comando. Conclua os passos de instalação.    
-   b. Introduza o ```Install-Module AzureRM``` comando. Conclua os passos de instalação.
-
-   Para obter mais informações, consulte [instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0).
+   Depois de ter, pelo menos, PowerShell 5.0, pode avançar para instalar a versão mais recente ao seguir as instruções em [instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 
 ## <a name="create-supporting-infrastructure-elements"></a>Criar elementos de infraestrutura com suporte
@@ -84,14 +81,13 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
 
    ![Lista de módulos carregados](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
-1. Introduza o `Connect-AzureRmAccount` comando. Na janela de início de sessão, introduza as informações de credencial para a subscrição que irá utilizar para este tutorial.
+1. Introduza o `Connect-AzAccount` comando. Na janela de início de sessão, introduza as informações de credencial para a subscrição que irá utilizar para este tutorial.
 
    >[!NOTE]
    >Se esta for a primeira vez que está a iniciar sessão no Azure desta máquina, verá uma mensagem sobre a permissão da Microsoft para recolher dados de utilização do PowerShell. Recomendamos que ative a recolha de dados como vai ser utilizada para melhorar o Azure PowerShell.
 
-1. Após a autenticação com êxito, tem sessão iniciada e ver as informações na seguinte captura de ecrã. Tome nota do ID de subscrição e o nome de subscrição, pois precisará-los para concluir os passos posteriores.
+1. Após a autenticação com êxito, tem sessão iniciada. Tome nota do ID de subscrição e o nome de subscrição, pois precisará-los para concluir os passos posteriores.
 
-   ![Janela do PowerShell](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Crie variáveis para armazenar os valores que serão utilizados posteriormente. Introduza cada uma das linhas do PowerShell seguintes. Poderá ter de ajustar os valores para corresponder ao seu ambiente.
     - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (O nome da sua subscrição pode ser diferente. Para ver isso como parte da saída do comando anterior.)
     - ```$location = 'West US'``` (Essa variável será usada para passar a localização onde os recursos devem ser criados. Pode alterar essa variável para ser de qualquer local de sua escolha.)
@@ -102,37 +98,37 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
     - ``` $eventHubNameSpaceName = $name``` (Este é o nome do espaço de nomes do hub de eventos.)
 1. Especifique a subscrição que trabalhar com:
     
-    ```Select-AzureRmSubscription -SubscriptionName $subscriptionName```
+    ```Select-AzSubscription -SubscriptionName $subscriptionName```
 1. Criar um grupo de recursos:
     
-    ```$rg = New-AzureRmResourceGroup -Name $rgname -Location $location```
+    ```$rg = New-AzResourceGroup -Name $rgname -Location $location```
     
    Se introduzir `$rg` neste momento, deverá ver um resultado semelhante a esta captura de ecrã:
 
    ![Saída depois de criar um grupo de recursos](./media/security-azure-log-integration-keyvault-eventhub/create-rg.png)
 1. Crie uma conta de armazenamento que será utilizada para controlar as informações de estado:
     
-    ```$storage = New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
+    ```$storage = New-AzStorageAccount -ResourceGroupName $rgname -Name $storagename -Location $location -SkuName Standard_LRS```
 1. Crie o espaço de nomes do hub de eventos. Isto é necessário para criar um hub de eventos.
     
-    ```$eventHubNameSpace = New-AzureRmEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
+    ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. Obtenha o ID da regra que será utilizado com o fornecedor de informações:
     
     ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
 1. Obter todas as localizações do Azure possíveis e adicione os nomes a uma variável que pode ser utilizada num passo posterior:
     
-    a. ```$locationObjects = Get-AzureRMLocation```    
+    a. ```$locationObjects = Get-AzLocation```    
     b. ```$locations = @('global') + $locationobjects.location```
     
-    Se introduzir `$locations` neste momento, ver os nomes de localização sem informações adicionais, devolvidas pelo Get-AzureRmLocation.
+    Se introduzir `$locations` neste momento, ver os nomes de localização sem informações adicionais, devolvidas pelo Get-AzLocation.
 1. Crie um perfil de registo do Azure Resource Manager: 
     
-    ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
+    ```Add-AzLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
     Para obter mais informações sobre o perfil de registo do Azure, consulte [descrição geral do registo de atividades do Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Poderá receber uma mensagem de erro quando tenta criar um perfil de registo. Em seguida, pode rever a documentação para Get-AzureRmLogProfile e Remove-AzureRmLogProfile. Se executar Get-AzureRmLogProfile, verá informações sobre o perfil de registo. Pode eliminar o perfil de registo existente ao introduzir o ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` comando.
+> Poderá receber uma mensagem de erro quando tenta criar um perfil de registo. Em seguida, pode rever a documentação para Get-AzLogProfile e Remove-AzLogProfile. Se executar Get-AzLogProfile, verá informações sobre o perfil de registo. Pode eliminar o perfil de registo existente ao introduzir o ```Remove-AzLogProfile -name 'Log Profile Name' ``` comando.
 >
 >![Erro de perfil do Gestor de recursos](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -140,11 +136,11 @@ Antes de concluir os passos neste artigo, precisa do seguinte:
 
 1. Crie o Cofre de chaves:
 
-   ```$kv = New-AzureRmKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
 
 1. Configure o registo para o Cofre de chaves:
 
-   ```Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
 
 ## <a name="generate-log-activity"></a>Gerar registos de atividade
 
@@ -152,16 +148,16 @@ Pedidos têm de ser enviados para o Key Vault para gerar atividade de registo. A
 
 1. Exiba as chaves de armazenamento atual:
     
-   ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
+   ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Gerar um novo **chave2**:
     
-   ```New-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname -KeyName key2```
+   ```New-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname -KeyName key2```
 1. Exibir as chaves novamente e ver que **chave2** mantém um valor diferente:
     
-   ```Get-AzureRmStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
+   ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Definir e ler um segredo para gerar entradas de registo adicionais:
     
-   a. ```Set-AzureKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzureKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Devolvido secreta](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -170,14 +166,14 @@ Pedidos têm de ser enviados para o Key Vault para gerar atividade de registo. A
 
 Agora que configurou todos os elementos necessários para que o Cofre de chaves de registo para um hub de eventos, terá de configurar a integração de registos do Azure:
 
-1. ```$storage = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $storagename```
-1. ```$eventHubKey = Get-AzureRmEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
-1. ```$storagekeys = Get-AzureRmStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
+1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
+1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
+1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
 1. ``` $storagekey = $storagekeys[0].Value```
 
 Execute o comando AzLog para cada hub de eventos:
 
-1. ```$eventhubs = Get-AzureRmEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
+1. ```$eventhubs = Get-AzEventHub -ResourceGroupName $rgname -NamespaceName $eventHubNamespaceName```
 1. ```$eventhubs.Name | %{Add-AzLogEventSource -Name $sub' - '$_ -StorageAccount $storage.StorageAccountName -StorageKey $storageKey -EventHubConnectionString $eventHubKey.PrimaryConnectionString -EventHubName $_}```
 
 Depois de um minuto, ou seja, executar os comandos de dois últimos, deverá ver ficheiros JSON que está a ser gerados. Pode confirmar que o diretório de monitorização **C:\users\AzLog\EventHubJson**.

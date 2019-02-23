@@ -1,5 +1,5 @@
 ---
-title: O que é a colaboração B2B do Azure Active Directory? | Microsoft Docs
+title: O que é a colaboração B2B do Azure Active Directory? -O azure Active Directory | Documentos da Microsoft
 description: A colaboração B2B do Azure Active Directory suporta o acesso do utilizador convidado para que possa partilhar recursos de forma segura e colaborar com parceiros externos.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f787faceeb9c517ada124411e8090d0b91bd433f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6fa36ab67957dcba7b5282e219706e442be9dc97
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182260"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674485"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: dd397259ebcd6afe34a47a6f853d826a845a1244
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 53d3300ea11a86c34909ba6ce0fd6c8c0c38b4b5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213617"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726946"
 ---
 # <a name="azure-data-factory-mapping-data-flow-concepts"></a>Conceitos de fluxo de dados de mapeamento de fábrica de dados do Azure
 

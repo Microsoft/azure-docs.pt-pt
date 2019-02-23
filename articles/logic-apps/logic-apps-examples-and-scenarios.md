@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/18
-ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/31/2018
+ms.openlocfilehash: 89e0294db3178cedd3b14aada0b505787b17c75e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230144"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671799"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Comuns cenários, exemplos, tutoriais e orientações passo a passo para o Azure Logic Apps
 
@@ -27,9 +27,9 @@ Para o ajudar a saber mais sobre os vários padrões e capacidades que [do Azure
 
 Todas as aplicações lógicas começa com uma [ *acionador*](../logic-apps/logic-apps-overview.md#logic-app-concepts)e apenas um acionador, que inicia o fluxo de trabalho de aplicação lógica e passa em todos os dados como parte do que acionador. Alguns conectores disponibilizam acionadores, que são fornecidos em destes tipos:
 
-* *Acionadores de consultas*: verifica regularmente o ponto final de serviço para novos dados. Quando existem novos dados, o acionador cria e executa uma nova instância de fluxo de trabalho com os dados como entrada.
+* *Acionadores de consultas*: Verifica regularmente o ponto final de serviço para novos dados. Quando existem novos dados, o acionador cria e executa uma nova instância de fluxo de trabalho com os dados como entrada.
 
-* *Acionadores push*: está à escuta de dados num ponto de extremidade de serviço e aguarda até que um evento específico acontece. Quando o evento ocorre, o acionador é acionado imediatamente, criação e execução de uma nova instância de fluxo de trabalho que utiliza todos os dados disponíveis como entrada.
+* *Acionadores push*: Está à escuta de dados num ponto de extremidade de serviço e aguarda até que um evento específico acontece. Quando o evento ocorre, o acionador é acionado imediatamente, criação e execução de uma nova instância de fluxo de trabalho que utiliza todos os dados disponíveis como entrada.
 
 Aqui estão alguns exemplos de Acionador popular:
 
@@ -70,7 +70,7 @@ O Logic apps inclui capacidades avançadas para o fluxo de controle avançado, c
 * [Repita os passos ou itens de processo em matrizes e coleções com loops](../logic-apps/logic-apps-control-flow-loops.md)
 * [Ações de grupo, juntamente com âmbitos](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Erro de autor e de processamento num fluxo de trabalho de exceções](../logic-apps/logic-apps-exception-handling.md)
-* [Caso de utilização: como uma empresa de cuidados de saúde utiliza para fluxos de trabalho da HL7 FHIR de manipulação de exceção de aplicação de lógica](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Utilize as maiúsculas e minúsculas: Como uma empresa de cuidados de saúde utiliza para fluxos de trabalho da HL7 FHIR de manipulação de exceção de aplicação de lógica](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Ativar monitorização, registo e alertas para o logic apps existentes](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Ativar o registo de diagnóstico e monitorização ao criar aplicações lógicas](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 
@@ -96,15 +96,15 @@ As aplicações lógicas oferecem também a integração com vários serviços, 
 
 * [Criar um dashboard em tempo real de redes sociais com sem servidor do Azure](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Chamar as funções do Azure a partir de aplicações lógicas](../logic-apps/logic-apps-azure-functions.md)
-* [Tutorial: Acionar aplicações lógicas com funções do Azure](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
-* [Tutorial: Monitorizar as alterações de máquina virtual com o Azure Event Grid e Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Tutorial: Acionador logic apps com as funções do Azure](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Tutorial: Monitorizar alterações de máquina virtual com o Azure Event Grid e Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [Tutorial: Criar uma função que se integra no Azure Logic Apps e os serviços cognitivos da Microsoft para analisar sentimentos de publicação do Twitter](../azure-functions/functions-twitter-email.md)
 * [Tutorial: A monitorização remota do IoT e notificações com o Azure Logic Apps, ligar o seu IoT hub e caixa de correio](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [Blog: Chamar pontos finais SOAP de aplicações lógicas](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+* [Blog: Chamar pontos finais SOAP a partir de aplicações lógicas](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Cenários ponto a ponto
 
-* [Documento técnico: Integração de gestão de casos de ponto a ponto com serviços do Azure, como o Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [Documento técnico: Integração da gestão de casos de ponto a ponto com serviços do Azure, como o Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="customer-stories"></a>Histórias dos clientes
 

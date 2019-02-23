@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 145c6ac01cce9a70f3753b54a46638bf9d9c23b4
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078019"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729751"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
 
@@ -92,7 +92,7 @@ Todas as ofertas têm de cumprir os [todos os requisitos de listagem](https://do
 | 6 | Suporte de solução e ajuda  | Suporte e ajuda não necessária  | | 
 | 7 | Política de privacidade e termos de utilização disponíveis  |  As políticas ou termos, não é necessários  | | 
 | 8 | Tipos de serviço | Certifique-se de que tipo de serviço corresponde ao título | |
-| 9 | Competências |<br>• Tem de ser, pelo menos, um dos seguintes procedimentos:<br>Desenvolvimento de aplicativos • <br>• Integração de aplicações <br>Gerenciamento de ciclo de vida de aplicativos • <br>• Plataforma de cloud <br>Análise de dados • <br>Centro de dados • <br>Plataforma de dados • <br>• DevOps |
+| 9 | Competências |<br>• Tem de ser, pelo menos, um dos seguintes procedimentos:<br>Desenvolvimento de aplicativos • <br>• Integração de aplicações <br>Gerenciamento de ciclo de vida de aplicativos • <br>• Plataforma de cloud <br>Análise de dados • <br>• Data Center <br>Plataforma de dados • <br>• DevOps |
 | 10 | Produtos | Tem de ser Azure | |
 | 11 | País/Região | Certifique-se de correspondências de país e região escolhidas moeda | |
 | 12 | Saiba Mais  | <br>• Ligações na parte inferior (sob a descrição, não as ligações do marketplace no lado esquerdo) leva para obter mais informações sobre a solução e estão publicamente disponíveis e mostrando corretamente. <br>• Ligações tem de ter um nome"amigável" e não ser que aparece como o nome do ficheiro de qualquer downloads | |
@@ -103,4 +103,4 @@ Todas as ofertas têm de cumprir os [todos os requisitos de listagem](https://do
 *   [Determinar o tipo de lista para a sua solução](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

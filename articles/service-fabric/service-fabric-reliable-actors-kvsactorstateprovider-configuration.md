@@ -7,19 +7,19 @@ author: sumukhs
 manager: timlt
 editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 81c09d61a5213319fa01ef5cc7070ffe385bbab1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 0b7c6a356812e4acd39b5164cce279b5a18eb3d5
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049515"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732760"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuração dos Reliable Actors – KVSActorStateProvider
 Pode modificar a configuração predefinida de KVSActorStateProvider alterando o arquivo Settings XML que é gerado na raiz do pacote do Microsoft Visual Studio sob a pasta de configuração para o ator especificado.
@@ -39,22 +39,22 @@ Por predefinição, uma seção de configuração de segurança vazio impede que
 > Em nós do Linux, certificados tem de ser formatada PEM. Para saber mais sobre localizar e configurar os certificados para Linux, veja [configurar certificados no Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
-### <a name="section-name"></a>Nome da seção
+### <a name="section-name"></a>Nome da secção
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
 ## <a name="replicator-configuration"></a>Configuração do replicador
 Configurações do replicador configurar o replicator, que é responsável por verificar o estado de fornecedor de estado do Ator altamente confiável.
 A configuração predefinida é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre as configurações adicionais que estão disponíveis para otimizar o replicator.
 
-### <a name="section-name"></a>Nome da seção
+### <a name="section-name"></a>Nome da secção
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unidade | Valor predefinido | Observações |
+| Name | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Segundos |0.015 |Período de tempo para o qual o replicator nas esperas secundários depois de receber uma operação antes de enviar de volta uma confirmação para o principal. Qualquer as confirmações para serem enviados para operações processadas dentro deste intervalo são enviadas como uma resposta. |
 | ReplicatorEndpoint |N/A |Sem predefinição - parâmetro necessário |Endereço IP e porta que o replicator primária/secundária irá utilizar para comunicar com outros replicators na réplica definidos. Isso deve fazer referência a um ponto de final de recurso TCP no manifesto do serviço. Consulte a [recursos do manifesto do serviço](service-fabric-service-manifest-resources.md) para ler mais sobre como definir os recursos de ponto final no manifesto do serviço. |
-| retryInterval |Segundos |5 |Período de tempo após o qual o replicator novamente transmite uma mensagem se não receber uma confirmação de uma operação. |
+| RetryInterval |Segundos |5 |Período de tempo após o qual o replicator novamente transmite uma mensagem se não receber uma confirmação de uma operação. |
 | MaxReplicationMessageSize |Bytes |50 MB |Tamanho máximo de dados de replicação que podem ser transmitidos numa única mensagem. |
 | MaxPrimaryReplicationQueueSize |Número de operações |1024 |Número máximo de operações na fila principal. Uma operação for liberada depois do replicador primário recebe uma confirmação de todos os replicators secundários. Este valor tem de ser superior a 64 e uma potência de 2. |
 | MaxSecondaryReplicationQueueSize |Número de operações |2048 |Número máximo de operações na fila secundária. Uma operação for liberada depois de fazer o seu estado de elevada disponibilidade através de persistência. Este valor tem de ser superior a 64 e uma potência de 2. |
@@ -63,11 +63,11 @@ A configuração predefinida é gerada pelo modelo do Visual Studio e deve ser s
 Configurações de Store são utilizadas para configurar o arquivo local, que é utilizado para manter o estado que está a ser replicado.
 A configuração predefinida é gerada pelo modelo do Visual Studio e deve ser suficiente. Esta seção fala sobre as configurações adicionais que estão disponíveis para otimizar o armazenamento local.
 
-### <a name="section-name"></a>Nome da seção
+### <a name="section-name"></a>Nome da secção
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Nomes de configuração
-| Nome | Unidade | Valor predefinido | Observações |
+| Name | Unidade | Valor predefinido | Observações |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Milissegundos |200 |Definir o máximo de intervalo para consolidações de arquivo local durável de criação de batches. |
 | MaxVerPages |Número de páginas |16384 |O número máximo de páginas de versão no local armazena a base de dados. Determina o número máximo de transações pendentes. |

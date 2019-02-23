@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 11/20/2018
+ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 81069fde39eb2650082051b5f8b55431d8b32916
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fce3a2f11aa168c669899d8ff7980a8288e10924
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884720"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731230"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Início rápido: Utilize a API de texto do Translator para traduzir usando uma cadeia de caracteresC#
 

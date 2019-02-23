@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f7d7b7f470f43d8a7a1cd94b4b1ce79503f0dfca
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 66410a0586fcdd10f7c350bd4bad5211be61a79a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301031"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669351"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentar aplicações web no tempo de execução com o Monitor de estado do Application Insights
 
@@ -27,7 +27,7 @@ Monitor de estado é utilizado para instrumentar uma aplicação .NET hospedada 
 
 - Se a aplicação é implementada para os serviços de aplicações do Azure, siga [estas instruções](azure-web-apps.md).
 - Se a aplicação é implementada numa VM do Azure, pode alternar na monitorização do Application Insights do painel de controlo do Azure.
-- (Existem artigos separados sobre instrumentação [aplicações web de Java EE em direto](java-live.md) e [serviços Cloud do Azure](../../azure-monitor/app/cloudservices.md).)
+- (Existem artigos separados sobre instrumentação [serviços Cloud do Azure](../../azure-monitor/app/cloudservices.md).)
 
 
 ![Gráficos de descrição geral de captura de ecrã do App Insights que contém informações sobre pedidos com falhas, tempo de resposta do servidor e pedidos de servidor](./media/monitor-performance-live-website-now/overview-graphs.png)

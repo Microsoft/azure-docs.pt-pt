@@ -7,19 +7,19 @@ author: suchiagicha
 manager: timlt
 editor: ''
 ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: d2f45b6f0db15773615710a4345e85ab09f7d559
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: e3d07401e60e64c2cbec4aa47a55c573ec4b2aaa
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700439"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729309"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurar as definições de FabricTransport dos Reliable Actors
 

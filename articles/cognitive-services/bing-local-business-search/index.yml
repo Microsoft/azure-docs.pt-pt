@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bc41114af84d34ec57b3294c90e5f46eff274388
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 888ed15344ff3709a7a84d5be7e863535bed1792
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697064"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734698"
 documentType: LandingData
 title: Documentação da API de Pesquisa de Comércio Local do Bing
 titleSuffix: Azure Cognitive Services
@@ -57,6 +57,6 @@ sections:
         <p><a href="local-search-reference.md">Referência da API REST</a></p>
     - title: PowerShell
       html: >
-        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+        <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
       html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI do Azure</a></p>

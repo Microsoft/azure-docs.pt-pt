@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: ellacroi
-ms.openlocfilehash: 65d7a0934570da49efd288b245a3b6c33852079a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: dba917da81b2060f3e3c136fe87d7225e858d879
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118331"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734987"
 ---
 # <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Preferenciais soluções no Azure Marketplace e AppSource
 

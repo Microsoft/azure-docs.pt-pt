@@ -1,6 +1,6 @@
 ---
-title: Obter resultados de revisão do acesso do Azure AD | Microsoft Docs
-description: Como obter os resultados de revisões de acesso do Azure Active Directory.
+title: Obter resultados de revisão de acesso para grupos ou aplicações nas revisões de acesso do Azure AD | Documentos da Microsoft
+description: Saiba como obter resultados de revisão de acesso para membros do grupo ou de acesso da aplicação nas revisões de acesso do Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dccacb82b34e7e257fcee9632045f12839b5425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f5a422f619c4ef63da59516ff2748683eb0f7f70
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210803"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56726694"
 ---
-# <a name="retrieve-access-review-results"></a>Obter resultados da revisão de acesso
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Obter resultados de revisão de acesso para grupos ou aplicações nas revisões de acesso do Azure AD
 
 Os administradores podem utilizar o Azure Active Directory (Azure AD) para [criar uma revisão de acesso](create-access-review.md) para membros do grupo ou os utilizadores atribuídos a uma aplicação.  Um utilizador que tenha a função de **Administrador Global**, **Administrador de Conta de Segurança**, **Administrador de Segurança** ou **Leitor de Segurança** também pode ler os resultados de uma revisão de acesso.  Para atribuir utilizadores a uma dessas funções, um Administrador com Função Privilegiada pode utilizar o Azure AD PIM para tornar um utilizador elegível para ativar a função ou um Administrador Global pode permanentemente [atribuir um utilizador à função](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -55,7 +55,7 @@ Por predefinição, um utilizador eliminado permanecerá eliminado no Azure AD p
 - [Gerir o acesso de utilizador com as revisões de acesso do Azure AD](manage-user-access-with-access-reviews.md)
 - [Gerir o acesso de convidado com as revisões de acesso do Azure AD](manage-guest-access-with-access-reviews.md)
 - [Gerir programas e controlos de revisões de acesso do Azure AD](manage-programs-controls.md)
-- [Criar uma revisão de acesso para os membros de um grupo ou o acesso a uma aplicação](create-access-review.md)
+- [Criar uma revisão de acesso de grupos ou aplicações](create-access-review.md)
 - [Criar uma revisão de acesso de utilizadores numa função administrativa do Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 

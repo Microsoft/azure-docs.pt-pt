@@ -9,13 +9,13 @@ ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: B2C
-ms.openlocfilehash: ee3323ec23b37318dbd80c85d6dd7515ce1ce06b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.subservice: B2C
+ms.openlocfilehash: 3f988e61c152be820e7e490e13908fb4ab54e6c5
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757675"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673397"
 ---
 # <a name="add-a-native-client-application-to-your-azure-active-directory-b2c-tenant"></a>Adicionar uma aplicação cliente nativa com o seu inquilino do Azure Active Directory B2C
 

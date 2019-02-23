@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: c8f434ce4fdf674444974474c430ecb108ffc022
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: f1a8646502a11f9c17023587302d7f2f7a4e4234
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586517"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673263"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -83,6 +83,7 @@ Recuperação de sites suporta a replicação de VMs do Azure com os sistemas op
 
 **Sistema operativo** | **Detalhes**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | Server Core, servidor com experiência de área de trabalho
 Windows Server 2012 R2 |
 Windows Server 2012 |

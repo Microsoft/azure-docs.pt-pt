@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874741"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675114"
 ---
 # <a name="translator-speech-api"></a>API de Voz do Microsoft Translator
 
@@ -90,7 +91,7 @@ Tenha em atenção que o tamanho total do ficheiro (bytes 4-7) e o tamanho de "d
 Depois de enviar o cabeçalho de WAV (RIFF), o cliente envia partes de dados de áudio. O cliente normalmente irão transmitir os segmentos de tamanho fixo que representa um período de tempo fixo (por exemplo, sequência de 100 MS de áudio cada vez).
 
 ### <a name="signal-the-end-of-the-utterance"></a>Sinal final a expressão
-A API de voz do Translator devolve a transcrição e a tradução do fluxo de áudio, à medida que está enviando o áudio. A transcrição final, a tradução final e o áudio traduzido serão retornados para apenas após o fim da expressão. Em alguns casos poderá querer forçar o final da expressão. Envie segundos 2,5 de silêncio, para forçar o final da expressão. 
+A API de voz do Translator devolve a transcrição e a tradução do fluxo de áudio, à medida que está enviando o áudio. A transcrição final, a tradução final e o áudio traduzido serão retornados para apenas após o fim da expressão. Em alguns casos poderá querer forçar o final da expressão. Envie segundos 2,5 de silêncio, para forçar o final da expressão.
 
 ### <a name="final-result"></a>Resultado final
 Um resultado de reconhecimento de voz final é gerado no final de uma expressão. Um resultado é transmitido a partir do serviço para o cliente usando uma mensagem do WebSocket do tipo texto. O conteúdo da mensagem é a serialização do JSON de um objeto com as seguintes propriedades:
@@ -112,7 +113,7 @@ Um resultado final de exemplo é o seguinte:
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -143,7 +144,7 @@ Um resultado final de exemplo é o seguinte:
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -193,46 +194,3 @@ Quando uma aplicação de cliente foi concluída a transmissão em fluxo de áud
 |401    |Não autorizado. Certifique-se de que as credenciais estão definidos, que são válidas e a sua subscrição do mercado de dados do Azure está em conformidade com um saldo de disponível.|||
 |500    |Ocorreu um erro. Se o erro persistir, relatá-lo com o identificador de rastreio de cliente (X-ClientTraceId) ou o identificador (X-RequestId) do pedido.|||
 |503    |Servidor temporariamente indisponível. Tente novamente o pedido. Se o erro persistir, relatá-lo com o identificador de rastreio de cliente (X-ClientTraceId) ou o identificador (X-RequestId) do pedido.|||
-
-    
-
-
-    
-
-
-
-
-
-    
-    
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-    
-
-            
-
-
-
-
-        
-
-
-
-
-
-
-
-
-

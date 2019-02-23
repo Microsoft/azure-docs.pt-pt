@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/19/2019
 ms.author: glenga
-ms.openlocfilehash: ab502c25a632977065e55d2eeafd684203636b14
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a2e07f9022d7404d037903fda627649918134cb7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109916"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732743"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
@@ -212,7 +212,7 @@ static void Main(string[] args)
 
 Enlaces de entrada proporcionam uma forma declarativa para que os dados do Azure ou serviços de terceiros disponíveis para o seu código. Enlaces de saída proporcionam uma forma para atualizar os dados. O [artigo de introdução de Get](webjobs-sdk-get-started.md) mostra um exemplo de cada.
 
-Pode utilizar um valor de retorno do método para um enlace de saída, ao aplicar o atributo para o valor de retorno do método. Veja o exemplo em funções do Azure [Acionadores e enlaces](../azure-functions/functions-triggers-bindings.md#using-the-function-return-value) artigo.
+Pode utilizar um valor de retorno do método para um enlace de saída, ao aplicar o atributo para o valor de retorno do método. Veja o exemplo em funções do Azure [Acionadores e enlaces](../azure-functions/functions-bindings-return-value.md) artigo.
 
 ## <a name="binding-types"></a>Tipos de enlace
 
@@ -445,13 +445,13 @@ public static void CreateThumbnail(
 }
 ```
 
-Para obter mais informações sobre expressões de associação, consulte [expressões e padrões de vinculação](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns) na documentação das funções do Azure.
+Para obter mais informações sobre expressões de associação, consulte [expressões e padrões de vinculação](../azure-functions/functions-bindings-expressions-patterns.md) na documentação das funções do Azure.
 
 ### <a name="custom-binding-expressions"></a>Expressões de associação personalizado
 
 Por vezes, pretende especificar um nome de fila, um nome de blob ou contentor ou nome de uma tabela no código, em vez de codificá-lo. Por exemplo, pode pretender especificar o nome da fila para o `QueueTrigger` atributo numa variável de ambiente ou ficheiro de configuração.
 
-Pode fazê-lo ao transmitir uma `NameResolver` objeto para o `JobHostConfiguration` objeto. Incluir espaços reservados no acionador ou parâmetros do construtor de atributo de ligação e seu `NameResolver` código fornece os valores reais para ser utilizado em vez dos marcadores de posição. Os marcadores de posição são identificados rodeando-os com sinais de sinal de percentagem (), conforme mostrado no exemplo a seguir:
+Pode fazê-lo ao transmitir uma `NameResolver` objeto para o `JobHostConfiguration` objeto. Incluir espaços reservados no acionador ou parâmetros do construtor de atributo de ligação e seu `NameResolver` código fornece os valores reais para ser utilizado em vez dos marcadores de posição. Os marcadores de posição são identificados rodeando-os com sinal de percentagem) sinais, conforme mostrado no exemplo a seguir:
 
 ```cs
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)

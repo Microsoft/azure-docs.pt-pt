@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: ff070adbda2a36261ca24eb0cc993ca22eada1c7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fcd3af6c000debb8da6200205a9aa2ae61feac58
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661246"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675420"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Credencial de Store no Azure Key Vault
 
@@ -26,14 +26,14 @@ Atualmente, todos os tipos de atividade, exceto a atividade personalizada suport
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esta funcionalidade baseia-se na identidade de serviço do data factory. Saiba como ele funciona da [identidade de serviço do Data factory](data-factory-service-identity.md) e certifique-se a fábrica de dados tem um associados.
+Esta funcionalidade baseia-se na identidade do geridos de fábrica de dados. Saiba como ele funciona da [identidade de fábrica de dados gerida](data-factory-service-identity.md) e certifique-se a fábrica de dados tem um associados.
 
 ## <a name="steps"></a>Passos
 
 Para fazer referência a uma credencial armazenada no Azure Key Vault, terá de:
 
-1. **Obter a identidade de serviço do data factory** ao copiar o valor de "Serviço de ID da IDENTITY APPLICATION" gerada juntamente com sua fábrica. Se usar o ADF criação da interface do Usuário, o ID de identidade de serviço será apresentado na janela de criação do serviço ligado do Azure Key Vault; Também pode recuperá-la no portal do Azure, consulte [obter a identidade de serviço do data factory](data-factory-service-identity.md#retrieve-service-identity).
-2. **Conceda ao serviço de identidade de acesso ao Cofre de chaves do Azure.** No seu Cofre de chaves -> acesso políticas -> Adicionar novo -> o ID para conceder esta aplicação de identidade do serviço de pesquisa **obter** permissão na lista pendente de permissões do segredo. Ele permite que esta fábrica designada aceder ao segredo no Cofre de chaves.
+1. **Obter dados fábrica gerenciada identidade** ao copiar o valor de "Serviço de ID da IDENTITY APPLICATION" gerada juntamente com sua fábrica. Se usar o ADF criação da interface do Usuário, o ID da aplicação de identidade gerida será apresentado na janela de criação do serviço ligado do Azure Key Vault; Também pode recuperá-la no portal do Azure, consulte [identidade gerida de fábrica de dados de recuperação](data-factory-service-identity.md#retrieve-managed-identity).
+2. **Conceda o acesso de identidade gerida ao Cofre de chaves do Azure.** No seu Cofre de chaves -> acesso políticas -> Adicionar novo -> pesquisa isso gerenciado ID da identity application para conceder **obter** permissão na lista pendente de permissões do segredo. Ele permite que esta fábrica designada aceder ao segredo no Cofre de chaves.
 3. **Crie um serviço ligado que aponta para o seu Cofre de chaves do Azure.** Consulte a [serviço ligado do Azure Key Vault](#azure-key-vault-linked-service).
 4. **Crie serviço ligado do arquivo de dados, dentro do qual referência a correspondente chave secreta do armazenados no cofre.** Consulte a [segredo de referência armazenado no Cofre de chaves](#reference-secret-stored-in-key-vault).
 

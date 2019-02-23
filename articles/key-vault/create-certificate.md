@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: 3258683b950b537dd106323fe95105289034f727
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f0f18347c5a297b0f15478c3a96a126c1036f8b1
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114863"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737421"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
 
@@ -94,6 +94,6 @@ Tenha em atenção que, quando uma ordem seja feita com o fornecedor de emissor,
 
  Autorização: Requer a permissão Criar/certificados.
 
- ## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Consultar Também
  - [Sobre chaves, segredos e certificados](about-keys-secrets-and-certificates.md)
  - [Monitorizar e gerir a criação do certificados](create-certificate-scenarios.md)

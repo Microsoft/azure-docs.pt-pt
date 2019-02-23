@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/20189
+ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 806f71526433d5817450dc80427fbc9f2381307b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9bd3142a8b72b042db82576f63549a3c722b8d33
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446617"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674229"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutorial: Notificações push para dispositivos Windows Phone específicos ao utilizar os Hubs de notificação do Azure
 

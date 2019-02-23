@@ -7,15 +7,15 @@ author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
 ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 1612c5ae6f6fd82386a4d4fba20f011621223a84
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 71f30c17c904da196154e2c43e25a7be0a2cdf33
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214114"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727218"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é uma área de trabalho do Translator personalizado?
 

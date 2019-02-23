@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7d63cc4e57ba3c1b962c893bf8c8bd03664dac6f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425616"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729259"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar o IoT Hub, carregamentos de ficheiros com o PowerShell
 
@@ -20,36 +20,38 @@ ms.locfileid: "54425616"
 
 Para utilizar o [funcionalidade de carregamento de ficheiros no IoT Hub](iot-hub-devguide-file-upload.md), primeiro tem de associar uma conta de armazenamento do Azure com o seu hub IoT. Pode utilizar uma conta de armazenamento existente ou crie um novo.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para concluir este tutorial, precisa do seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.
 
-* [Cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+* [Cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-* Um hub IoT do Azure. Se não tiver um hub IoT, pode utilizar o [cmdlet New-AzureRmIoTHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) para criar ou utilizar o portal para [criar um hub IoT](iot-hub-create-through-portal.md).
+* Um hub IoT do Azure. Se não tiver um hub IoT, pode utilizar o [cmdlet New-AzIoTHub](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) para criar ou utilizar o portal para [criar um hub IoT](iot-hub-create-through-portal.md).
 
-* Uma conta de armazenamento do Azure. Se não tiver uma conta de armazenamento do Azure, pode utilizar o [cmdlets do PowerShell do armazenamento do Azure](https://docs.microsoft.com/powershell/module/azurerm.storage/) para criar ou utilizar o portal para [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md)
+* Uma conta de armazenamento do Azure. Se não tiver uma conta de armazenamento do Azure, pode utilizar o [cmdlets do PowerShell do armazenamento do Azure](https://docs.microsoft.com/powershell/module/az.storage/) para criar ou utilizar o portal para [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md)
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Iniciar sessão e definir a sua conta do Azure
 
 Inicie sessão na sua conta do Azure e selecione a sua subscrição.
 
-1. Na linha de comandos do PowerShell, execute o **Connect-AzureRmAccount** cmdlet:
+1. Na linha de comandos do PowerShell, execute o **Connect-AzAccount** cmdlet:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 2. Se tiver várias subscrições do Azure, iniciar sessão no Azure dá-lhe acesso a todas as subscrições Azure associadas com as suas credenciais. Utilize o seguinte comando para listar as subscrições do Azure disponíveis que pode utilizar:
 
     ```powershell
-    Get-AzureRMSubscription
+    Get-AzSubscription
     ```
 
     Utilize o seguinte comando para selecionar a subscrição que pretende utilizar para executar os comandos para gerir o seu hub IoT. Pode utilizar o nome ou o ID da subscrição da saída do comando anterior:
 
     ```powershell
-    Select-AzureRMSubscription `
+    Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
@@ -60,7 +62,7 @@ Os passos seguintes partem do princípio de que criou a sua conta de armazenamen
 Para configurar os carregamentos de ficheiros a partir dos seus dispositivos, precisa da cadeia de ligação para uma conta de armazenamento do Azure. A conta de armazenamento tem de ser na mesma subscrição que o seu hub IoT. Também precisa do nome de um contentor de BLOBs na conta de armazenamento. Utilize o seguinte comando para obter as chaves de conta de armazenamento:
 
 ```powershell
-Get-AzureRmStorageAccountKey `
+Get-AzStorageAccountKey `
   -Name {your storage account name} `
   -ResourceGroupName {your storage account resource group}
 ```
@@ -72,19 +74,19 @@ Pode utilizar um contentor de BLOBs existentes para carregamentos de ficheiros o
 * Para listar os contentores de BLOBs existentes na sua conta de armazenamento, utilize os seguintes comandos:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    Get-AzureStorageContainer -Context $ctx
+    Get-AzStorageContainer -Context $ctx
     ```
 
 * Para criar um contentor de BLOBs na sua conta de armazenamento, utilize os seguintes comandos:
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name {your new container name} `
         -Permission Off `
         -Context $ctx
@@ -109,7 +111,7 @@ A configuração requer os seguintes valores:
 Utilize o seguinte cmdlet do PowerShell para configurar o ficheiro de carregar as definições no seu hub IoT:
 
 ```powershell
-Set-AzureRmIotHub `
+Set-AzIotHub `
     -ResourceGroupName "{your iot hub resource group}" `
     -Name "{your iot hub name}" `
     -FileUploadNotificationTtl "01:00:00" `
