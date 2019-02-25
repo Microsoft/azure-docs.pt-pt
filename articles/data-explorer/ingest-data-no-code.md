@@ -8,40 +8,41 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 145a56bee857debdbf028834a3ed378efd8671c8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: a678722666146fdf22e88680ab414b09d2a7ffaa
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447502"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749941"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingestão de dados no Explorador de dados do Azure sem uma linha de código
 
-Este tutorial irá ensiná-lo como ingestão de diagnóstico e dados de registo de atividade para um cluster do Explorador de dados do Azure sem uma linha de código. Este método de ingestão simples permite-lhe começar rapidamente a consultar o Explorador de dados do Azure para análise de dados.
+Este tutorial irá ensiná-lo ingerir dados de diagnóstico e registos de atividade para um cluster do Explorador de dados do Azure sem escrever código. Com este método de ingestão simples, pode começar rapidamente a consultar o Explorador de dados do Azure para análise de dados.
 
 Neste tutorial, ficará a saber como:
+
 > [!div class="checklist"]
 > * Crie tabelas e mapeamento de ingestão num banco de dados do Explorador de dados do Azure.
-> * Formate os dados ingeridos através de uma política de atualização.
-> * Criar uma [Hub de eventos](/azure/event-hubs/event-hubs-about) e ligá-lo ao Explorador de dados do Azure.
-> * Stream dados para um Hub de eventos a partir [registos de diagnóstico do Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) e [registos de atividades do Azure Monitor](/azure/azure-monitor/platform/activity-logs-overview).
+> * Formate os dados ingeridos com uma política de atualização.
+> * Criar uma [hub de eventos](/azure/event-hubs/event-hubs-about) e ligá-lo ao Explorador de dados do Azure.
+> * Stream dados para um hub de eventos a partir [registos de diagnóstico do Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) e [registos de atividades do Azure Monitor](/azure/azure-monitor/platform/activity-logs-overview).
 > * Consulte os dados ingeridos com o Explorador de dados do Azure.
 
 > [!NOTE]
-> Crie todos os recursos na mesma região do Azure localização /. Este é um requisito para os registos de diagnóstico do Azure Monitor.
+> Crie todos os recursos na mesma localização do Azure ou região. Este é um requisito para os registos de diagnóstico do Azure Monitor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * [Um cluster do Explorador de dados do Azure e a base de dados](create-cluster-database-portal.md). Neste tutorial, é o nome de base de dados *AzureMonitoring*.
 
-## <a name="azure-monitoring-data-provider---diagnostic-and-activity-logs"></a>Fornecedor de dados - diagnóstico de monitorização do Azure e os registos de atividades
+## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Fornecedor de dados do Azure Monitor: registos de atividade e diagnóstico
 
-Ver e compreender os dados fornecidos pelos registos de diagnóstico e atividade de monitorização do Azure. Iremos criar um pipeline de ingestão com base nesses esquemas de dados.
+Ver e compreender os dados fornecidos pelos registos de atividade e diagnóstico do Azure Monitor. Vamos criar um pipeline de ingestão com base nesses esquemas de dados.
 
 ### <a name="diagnostic-logs-example"></a>Exemplo de registos de diagnóstico
 
-Registos de diagnóstico do Azure são métricas emitidas por um serviço do Azure que fornece dados sobre a operação desse serviço. Os dados são agregados com grão de tempo de 1 minuto. Cada evento de registos de diagnóstico contém um registo. Segue-se um exemplo de um esquema de eventos de métrica do Explorador de dados do Azure, na duração de consulta:
+Registos de diagnóstico do Azure são métricas emitidas por um serviço do Azure que fornece dados sobre a operação desse serviço. Os dados são agregados com um grão de tempo de 1 minuto. Cada evento no registo de diagnóstico contém um registo. Eis um exemplo de um esquema de eventos de métrica do Explorador de dados do Azure na duração de consulta:
 
 ```json
 {
@@ -59,7 +60,7 @@ Registos de diagnóstico do Azure são métricas emitidas por um serviço do Azu
 
 ### <a name="activity-logs-example"></a>Exemplo de registos de atividade
 
-Registos de atividades do Azure são registos ao nível da subscrição que contém uma coleção de registos. Os registos de fornecem informações sobre as operações executadas nos recursos da sua subscrição. Ao contrário dos registos de diagnóstico, um evento de registos de atividade tem uma matriz de registos. Precisamos de dividir essa matriz de registos mais tarde no tutorial. Segue-se um exemplo de um evento de registo de atividade para a verificação de acesso:
+Registos de atividades do Azure estão os registos de nível de assinatura que contêm uma coleção de registos. Os registos de fornecem informações sobre as operações executadas nos recursos da sua subscrição. Ao contrário dos registos de diagnóstico, cada evento no registo de atividades com uma matriz de registos. Vamos precisar dividir essa matriz de registos mais tarde no tutorial. Eis um exemplo de um evento de registo de atividades para a verificação de acesso:
 
 ```json
 {
@@ -116,23 +117,23 @@ Registos de atividades do Azure são registos ao nível da subscrição que cont
 }
 ```
 
-## <a name="set-up-ingestion-pipeline-in-azure-data-explorer"></a>Configurar os pipelines de ingestão no Explorador de dados do Azure 
+## <a name="set-up-an-ingestion-pipeline-in-azure-data-explorer"></a>Configure um pipeline de ingestão no Explorador de dados do Azure
 
-A configuração de pipeline do Explorador de dados do Azure contém diversas etapas que incluem [ingestão de dados e criação de tabela](/azure/data-explorer/ingest-sample-data#ingest-data). Também pode manipular, mapear e atualizar os dados.
+Configurar um pipeline do Explorador de dados do Azure envolve várias etapas, como [ingestão de dados e criação de tabela](/azure/data-explorer/ingest-sample-data#ingest-data). Também pode manipular, mapear e atualizar os dados.
 
-### <a name="connect-to-azure-data-explorer-web-ui"></a>Ligar à IU de Web do Explorador de dados do Azure
+### <a name="connect-to-the-azure-data-explorer-web-ui"></a>Ligue-se para a Web do Explorador de dados do Azure da interface do Usuário
 
-1. No seu Explorador de dados do Azure *AzureMonitoring* base de dados, selecione **consulta**, que irá abrir a IU web do Explorador de dados do Azure.
+No seu Explorador de dados do Azure *AzureMonitoring* base de dados, selecione **consulta** para abrir a IU da Web do Azure Data Explorer.
 
-    ![Consulta](media/ingest-data-no-code/query-database.png)
+![Página de consulta](media/ingest-data-no-code/query-database.png)
 
-### <a name="create-target-tables"></a>Criar tabelas de destino
+### <a name="create-the-target-tables"></a>Criar as tabelas de destino
 
-Utilize a IU web do Explorador de dados do Azure para criar as tabelas de destino na base de dados do Explorador de dados do Azure.
+Utilize a IU da Web do Azure Data Explorer para criar as tabelas de destino na base de dados do Explorador de dados do Azure.
 
-#### <a name="diagnostic-logs-table"></a>Tabela de registos de diagnóstico
+#### <a name="the-diagnostic-logs-table"></a>A tabela de registos de diagnóstico
 
-1. Criar uma tabela *DiagnosticLogsRecords* no *AzureMonitoring* da base de dados que irá receber o registo de diagnóstico registos ao utilizar o `.create table` controlar o comando:
+1. Na *AzureMonitoring* bases de dados, criar uma tabela chamada *DiagnosticLogsRecords* para armazenar os registos de registo de diagnóstico. Utilize o seguinte `.create table` controlar o comando:
 
     ```kusto
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
@@ -140,19 +141,19 @@ Utilize a IU web do Explorador de dados do Azure para criar as tabelas de destin
 
 1. Selecione **executar** para criar a tabela.
 
-    ![Executar Consulta](media/ingest-data-no-code/run-query.png)
+    ![Executar consulta](media/ingest-data-no-code/run-query.png)
 
-#### <a name="activity-logs-tables"></a>Tabelas de registos de atividades
+#### <a name="the-activity-logs-tables"></a>Os registos de atividades tabelas
 
-Uma vez que a estrutura de registos de Atividades não estiver em tabela, precisará manipular os dados e expanda cada evento para um ou mais registos. Os dados não processados que irão ser ingeridos para uma tabela de nível intermediária *ActivityLogsRawRecords*. Nessa altura, os dados serão manipulados e expandidos. Os dados expandidos, em seguida, irão ser ingeridos para o *ActivityLogsRecords* através de uma política de atualização de tabela. Por conseguinte, terá de criar duas tabelas separadas para ingestão de registos de atividade.
+Uma vez que a estrutura dos registos de Atividades não estiver em tabela, precisará manipular os dados e expanda cada evento para um ou mais registos. Os dados não processados irão ser ingeridos a uma tabela intermediária chamada *ActivityLogsRawRecords*. Nessa altura, os dados serão manipulados e expandidos. Os dados expandidos, em seguida, irão ser ingeridos para o *ActivityLogsRecords* tabela utilizando uma política de atualização. Isso significa que terá de criar duas tabelas separadas para a ingestão de registos de atividades.
 
-1. Criar uma tabela *ActivityLogsRecords* no *AzureMonitoring* base de dados que irá receber os registros de log de atividade. Execute a seguinte consulta do Explorador de dados do Azure para criar a tabela:
+1. Criar uma tabela chamada *ActivityLogsRecords* no *AzureMonitoring* para receber os registros de log de atividade da base de dados. Para criar a tabela, execute a seguinte consulta do Explorador de dados do Azure:
 
     ```kusto
     .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
-1. Criar a tabela de dados intermediários *ActivityLogsRawRecords* no *AzureMonitoring* base de dados para manipulação de dados:
+1. Criar a tabela de dados intermediários, com o nome *ActivityLogsRawRecords* no *AzureMonitoring* base de dados para manipulação de dados:
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
@@ -166,25 +167,25 @@ Uma vez que a estrutura de registos de Atividades não estiver em tabela, precis
 
 ### <a name="create-table-mappings"></a>Criar mapeamentos de tabela
 
- O formato de dados é `json`, por isso, o mapeamento de dados é necessário. O `json` mapeamento mapeia cada caminho json para um nome de coluna de tabela.
+ Porque o formato de dados é `json`, é necessário o mapeamento de dados. O `json` mapeamento mapeia cada caminho json para um nome de coluna de tabela.
 
-#### <a name="diagnostic-logs-table-mapping"></a>Mapeamento de tabela de registos de diagnóstico
+#### <a name="table-mapping-for-diagnostic-logs"></a>Mapeamento de tabela para os registos de diagnóstico
 
-Utilize a seguinte consulta para mapear os dados para a tabela:
+Para mapear dados dos registos de diagnóstico para a tabela, utilize a seguinte consulta:
 
 ```kusto
 .create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
 ```
 
-#### <a name="activity-logs-table-mapping"></a>Mapeamento de tabelas de registos de atividade
+#### <a name="table-mapping-for-activity-logs"></a>Mapeamento de tabela para registos de atividades
 
-Utilize a seguinte consulta para mapear os dados para a tabela:
+Para mapear dados de registos de atividade para a tabela, utilize a seguinte consulta:
 
 ```kusto
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-update-policy"></a>Criar política de atualização
+### <a name="create-the-update-policy-for-activity-logs-data"></a>Crie a política de atualização para os dados dos registos de atividade
 
 1. Criar uma [função](/azure/kusto/management/functions) que expande a recolha de registos, para que cada valor na coleção recebe uma linha separada. Utilize o [ `mvexpand` ](/azure/kusto/query/mvexpandoperator) operador:
 
@@ -207,167 +208,173 @@ Utilize a seguinte consulta para mapear os dados para a tabela:
     }
     ```
 
-2. Adicionar uma [atualizar política](/azure/kusto/concepts/updatepolicy) para a tabela de destino. Irá automaticamente executar a consulta em quaisquer dados ingeridos recentemente na *ActivityLogsRawRecords* tabela de dados intermediários e seus resultados em de ingestão *ActivityLogsRecords* tabela:
+2. Adicionar a [atualizar política](/azure/kusto/concepts/updatepolicy) para a tabela de destino. Esta política irá automaticamente executar a consulta em quaisquer dados ingeridos recentemente na *ActivityLogsRawRecords* tabela de dados intermediários e ingerir os resultados para o *ActivityLogsRecords* tabela:
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
-## <a name="create-an-event-hub-namespace"></a>Criar um espaço de nomes do Hub de eventos
+## <a name="create-an-azure-event-hubs-namespace"></a>Criar um espaço de nomes de Hubs de eventos do Azure
 
-Registos de diagnóstico do Azure permitem exportar métricas para uma conta de armazenamento ou de um Hub de eventos. Neste tutorial, podemos encaminhar as métricas através de um Hub de eventos. Irá criar um espaço de nomes de Hubs de eventos e o Hub de eventos para os registos de diagnóstico nos passos seguintes. Monitorização do Azure irá criar o Hub de eventos *insights-operational-logs* para registos de atividades.
+Registos de diagnóstico do Azure permitem exportar métricas para uma conta de armazenamento ou para um hub de eventos. Neste tutorial, iremos irá encaminhar as métricas através de um hub de eventos. Irá criar um espaço de nomes de Hubs de eventos e um hub de eventos para os registos de diagnóstico nos passos seguintes. Monitor do Azure irá criar o hub de eventos *insights-operational-logs* para os registos de atividades.
 
-1. Crie um hub de eventos com um modelo Azure Resource Manager no portal do Azure. Utilize o botão seguinte para iniciar a implementação. Com o botão direito e selecione **abrir numa janela nova**, pelo que pode seguir o resto dos passos neste artigo. O **implementar no Azure** botão leva-o para o portal do Azure.
+1. Crie um hub de eventos com um modelo Azure Resource Manager no portal do Azure. Para seguir o resto dos passos neste artigo, clique com botão direito a **implementar no Azure** e, em seguida, selecione **abrir numa janela nova**. O **implementar no Azure** botão leva-o para o portal do Azure.
 
-    [![Implementar no Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Implementar no botão do Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-1. Crie um espaço de nomes do Hub de eventos e um Hub de eventos para os registos de diagnóstico.
+1. Crie um espaço de nomes de Hubs de eventos e um hub de eventos para os registos de diagnóstico.
 
-    ![Criação de Hub de Eventos](media/ingest-data-no-code/event-hub.png)
+    ![Criação do hub de eventos](media/ingest-data-no-code/event-hub.png)
 
-    Preencha o formulário com as seguintes informações. Utilize as predefinições para todas as definições não listadas na tabela seguinte.
+1. Preencha o formulário com as seguintes informações. Para as definições não listadas na tabela a seguir, utilize os valores predefinidos.
 
-    **Definição** | **Valor sugerido** | **Descrição do campo**
+    **Definição** | **Valor sugerido** | **Descrição**
     |---|---|---|
-    | Subscrição | A sua subscrição | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
-    | Grupo de recursos | *test-resource-group* | Crie um novo grupo de recursos. |
-    | Localização | Selecione a região que melhor atenda às suas necessidades. | Crie o espaço de nomes do hub de eventos na mesma localização que outros recursos.
-    | Nome do espaço de nomes | *AzureMonitoringData* | Escolha um nome exclusivo que identifique o seu espaço de nomes.
-    | Nome do hub de eventos | *DiagnosticLogsData* | O hub de eventos encontra-se no espaço de nomes, que fornece um contentor de âmbito exclusivo. |
-    | Nome do grupo de consumidores | *adxpipeline* | Crie um nome de grupo de consumidor. Permite o uso de vários aplicativos a cada um tem uma vista separada do fluxo de eventos. |
+    | **Subscrição** | *A sua subscrição* | Selecione a subscrição do Azure que quer utilizar para o hub de eventos.|
+    | **Grupo de recursos** | *test-resource-group* | Crie um novo grupo de recursos. |
+    | **Localização** | Selecione a região que melhor atenda às suas necessidades. | Crie o espaço de nomes de Hubs de eventos na mesma localização que outros recursos.
+    | **Namespace name** | *AzureMonitoringData* | Escolha um nome exclusivo que identifique o seu espaço de nomes.
+    | **Nome do hub de eventos** | *DiagnosticLogsData* | O hub de eventos encontra-se no espaço de nomes, que fornece um contentor de âmbito exclusivo. |
+    | **Nome do grupo de consumidores** | *adxpipeline* | Crie um nome de grupo de consumidor. Os grupos de consumidores permitem que cada aplicação de consumo tenha uma vista separada do fluxo de eventos. |
     | | |
 
-## <a name="connect-azure-monitoring-logs-to-event-hub"></a>Ligar os registos de monitorização do Azure para o Hub de eventos
+## <a name="connect-azure-monitor-logs-to-your-event-hub"></a>Ligar os registos do Azure Monitor ao seu hub de eventos
 
-### <a name="diagnostic-logs-connection-to-event-hub"></a>Ligação de registos de diagnóstico para o Hub de eventos
+Agora precisa de ligar os seus registos de diagnóstico e os registos de atividade para o hub de eventos.
 
-Selecione um recurso do qual pretende exportar as métricas. Existem vários tipos de recursos que permitem exportar registos de diagnóstico, incluindo o espaço de nomes de Hub de eventos, o Cofre de chaves, o IoT Hub e o cluster do Explorador de dados do Azure. Neste tutorial, utilizamos o cluster do Explorador de dados do Azure como o nosso recurso.
+### <a name="connect-diagnostic-logs-to-your-event-hub"></a>Ligar os registos de diagnóstico ao seu hub de eventos
+
+Selecione um recurso do qual pretende exportar as métricas. A exportação de registos de diagnóstico, incluindo o espaço de nomes de Hubs de eventos, Azure Key Vault, IoT Hub do Azure e clusters do Explorador de dados do Azure suportam de vários tipos de recursos. Neste tutorial, vamos utilizar um cluster do Explorador de dados do Azure como nosso recurso.
 
 1. Selecione o cluster de Kusto no portal do Azure.
+1. Selecione **das definições de diagnóstico**e, em seguida, selecione a **ativar diagnósticos** ligação. 
 
     ![Definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. Selecione **das definições de diagnóstico** no menu esquerdo.
-1. Clique em **ativar os diagnósticos** ligação. O **as definições de diagnóstico** é aberta a janela.
+1. O **as definições de diagnóstico** painel abre-se. Siga os passos seguintes:
+    1. Dê sua diagnóstico o nome de dados de registo *ADXExportedData*.
+    1. Sob **MÉTRICA**, selecione a **AllMetrics** caixa de verificação (opcional).
+    1. Selecione o **Stream para um hub de eventos** caixa de verificação.
+    1. Selecione **configurar**.
 
-    ![Janela de definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
+    ![Painel de definições de diagnóstico](media/ingest-data-no-code/diagnostic-settings-window.png)
 
-1. Na **as definições de diagnóstico** painel:
-    1. Nome do diagnóstico de dados de registo: *ADXExportedData*
-    1. Selecione **AllMetrics** caixa de verificação (opcional).
-    1. Selecione **Stream para um hub de eventos** caixa de verificação.
-    1. Clique em **configurar**
+1. Na **hub de eventos selecione** painel, configurar como exportar dados de registos de diagnóstico para o hub de eventos que criou:
+    1. Na **selecione o espaço de nomes de hub de eventos** , selecione *AzureMonitoringData*.
+    1. Na **nome do hub de eventos Select** , selecione *diagnosticlogsdata*.
+    1. Na **nome de política do hub de eventos Select** , selecione **RootManagerSharedAccessKey**.
+    1. Selecione **OK**.
 
-1. Na **hub de eventos selecione** painel Configurar a exportação para o hub de eventos que criou:
-    1. **Selecione o espaço de nomes de hub de eventos** *AzureMonitoringData* no menu pendente.
-    1. **Nome do hub de eventos selecione** *diagnosticlogsdata* no menu pendente.
-    1. **Nome de política do hub de eventos selecione** no menu pendente.
-    1. Clique em **OK**.
-
-1. Clique em **Guardar**. O espaço de nomes do hub de eventos, o nome e o nome da política aparecerá na janela.
+1. Selecione **Guardar**. O nome de espaço de nomes, nome e a política da hub de eventos será apresentada na janela.
 
     ![Guardar as definições de diagnóstico](media/ingest-data-no-code/save-diagnostic-settings.png)
 
-### <a name="activity-logs-connection-to-event-hub"></a>Ligação de registos de atividades para o Hub de eventos
+### <a name="connect-activity-logs-to-your-event-hub"></a>Ligar os registos de atividades ao seu hub de eventos
 
-1. No menu à esquerda do portal do Azure, selecione **registo de atividades**
-1. **Registo de atividades** é aberta a janela. **Clique em exportar para o Hub de eventos**
+1. No menu à esquerda do portal do Azure, selecione **registo de atividades**.
+1. O **registo de atividades** é aberta a janela. Selecione **exportar para o Hub de eventos**.
 
-    ![Registo de atividades](media/ingest-data-no-code/activity-log.png)
+    ![Janela de registo de atividade](media/ingest-data-no-code/activity-log.png)
 
-1. Na **exportar registo de atividades** janela:
+1. O **exportar registo de atividades** é aberta a janela:
  
-    ![Exportar registos de atividade](media/ingest-data-no-code/export-activity-log.png)
+    ![Janela de registo de atividade de exportação](media/ingest-data-no-code/export-activity-log.png)
 
-    1. Selecione a sua subscrição.
-    1. Na **regiões** menu pendente, escolha **Selecionar tudo**
-    1. Selecione **exportar para um hub de eventos** caixa de verificação.
-    1. Clique em **selecione um espaço de nomes do service bus** para abrir o **hub de eventos selecione** painel.
-    1. Na **hub de eventos Select** painel, selecione um dos menus de lista pendente: a sua subscrição, o espaço de nomes do evento *AzureMonitoringData*e o nome de política do hub de eventos padrão.
-    1. Clique em **OK**.
-    1. Clique em **guardar** no lado superior direito da janela. Um hub de eventos com o nome *insights-operational-logs* será criado.
+1. Na **exportar registo de atividades** janela, siga os passos seguintes:
+      1. Selecione a sua subscrição.
+      1. Na **regiões** lista, escolha **Selecionar tudo**.
+      1. Selecione o **exportar para um hub de eventos** caixa de verificação.
+      1. Escolher **selecione um espaço de nomes do service bus** para abrir o **hub de eventos selecione** painel.
+      1. Na **hub de eventos selecione** painel, selecione a sua subscrição.
+      1. Na **selecione o espaço de nomes de hub de eventos** , selecione *AzureMonitoringData*.
+      1. Na **nome de política do hub de eventos selecione** , selecione o nome de política do hub de eventos padrão.
+      1. Selecione **OK**.
+      1. No canto superior esquerdo da janela, selecione **guardar**.
+   Um hub de eventos com o nome *insights-operational-logs* será criado.
 
-### <a name="see-data-flowing-to-your-event-hubs"></a>Ver o fluxo de dados para os Hubs de eventos
+### <a name="see-data-flowing-to-your-event-hubs"></a>Ver o fluxo de dados para os hubs de eventos
 
-1. Aguarde alguns minutos até que a ligação é definida e exportação de registo de atividade para o hub de eventos é concluída. Aceda ao seu espaço de nomes do Hub de eventos para ver os hubs de eventos que criou.
+1. Aguarde alguns minutos até que a ligação é definida e a exportação de registo de atividades para o hub de eventos estiver concluída. Aceda ao seu espaço de nomes de Hubs de eventos para ver os hubs de eventos que criou.
 
     ![Hubs de eventos criados](media/ingest-data-no-code/event-hubs-created.png)
 
-1. Ver o fluxo de dados para o Hub de eventos:
+1. Ver o fluxo de dados para o hub de eventos:
 
-    ![Dados de Hubs de eventos](media/ingest-data-no-code/event-hubs-data.png)
+    ![Dados do hub de eventos](media/ingest-data-no-code/event-hubs-data.png)
 
-## <a name="connect-event-hub-to-azure-data-explorer"></a>Ligar o Hub de eventos ao Explorador de dados do Azure
+## <a name="connect-an-event-hub-to-azure-data-explorer"></a>Ligar um hub de eventos ao Explorador de dados do Azure
 
-### <a name="diagnostic-logs-data-connection"></a>Ligação de dados de registos de diagnóstico
+Agora precisa de criar as ligações de dados para os seus registos de diagnóstico e registos de atividades.
 
-1. No seu cluster do Azure Data Explorer *kustodocs*, selecione **bases de dados** no menu à esquerda.
-1. Na **bases de dados** janela, selecione o nome de base de dados *AzureMonitoring*
-1. No menu da esquerda, selecione **ingestão de dados**
-1. Na **ingestão de dados** janela, clique em **+ adicionar ligação de dados**
+### <a name="create-the-data-connection-for-diagnostic-logs"></a>Criar a ligação de dados para os registos de diagnóstico
+
+1. No seu cluster do Explorador de dados do Azure com o nome *kustodocs*, selecione **bases de dados** no menu à esquerda.
+1. Na **bases de dados** janela, selecione seu *AzureMonitoring* base de dados.
+1. No menu da esquerda, selecione **ingestão de dados**.
+1. Na **ingestão de dados** janela, clique em **+ adicionar ligação de dados**.
 1. Na **ligação de dados** janela, introduza as seguintes informações:
 
-    ![Ligação do Hub de Eventos](media/ingest-data-no-code/event-hub-data-connection.png)
+    ![Ligação de dados do hub de eventos](media/ingest-data-no-code/event-hub-data-connection.png)
 
     Origem de dados:
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Nome da ligação de dados | *DiagnosticsLogsConnection* | O nome da ligação que quer criar no Azure Data Explorer.|
-    | Espaço de nomes do hub de eventos | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
-    | Hub de eventos | *diagnosticlogsdata* | O hub de eventos que criou. |
-    | Grupo de consumidores | *adxpipeline* | O grupo de consumidores definido no hub de eventos que criou. |
+    | **Nome da ligação de dados** | *DiagnosticsLogsConnection* | O nome da ligação que quer criar no Azure Data Explorer.|
+    | **Espaço de nomes de hub de eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
+    | **Hub de eventos** | *diagnosticlogsdata* | O hub de eventos que criou. |
+    | **Grupo de consumidores** | *adxpipeline* | O grupo de consumidores definido no hub de eventos que criou. |
     | | |
 
     Tabela de destino:
 
-    Existem duas opções para o encaminhamento: *estático* e *dinâmico*. Para este tutorial, utilize o encaminhamento (predefinição), onde especifica o nome da tabela, o formato de ficheiro e o mapeamento estático. Por conseguinte, deixe **meus dados incluem informações de encaminhamento** não selecionada.
+    Existem duas opções para o encaminhamento: *estático* e *dinâmico*. Neste tutorial, vai utilizar encaminhamento (predefinição), onde especifica o nome da tabela, o formato de dados e o mapeamento estático. Deixe o campo **Os meus dados incluem informações de encaminhamento** não selecionado.
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Tabela | *DiagnosticLogsRecords* | A tabela criada na *AzureMonitoring* base de dados. |
-    | Formato de dados | *JSON* | Formato na tabela. |
-    | Mapeamento de colunas | *DiagnosticLogsRecordsMapping* | O mapeamento que criou no *AzureMonitoring* base de dados, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de *DiagnosticLogsRecords*.|
+    | **Tabela** | *DiagnosticLogsRecords* | A tabela que criou o *AzureMonitoring* base de dados. |
+    | **Formato de dados** | *JSON* | O formato utilizado na tabela. |
+    | **Mapeamento de colunas** | *DiagnosticLogsRecordsMapping* | O mapeamento que criou o *AzureMonitoring* base de dados, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna da *DiagnosticLogsRecords* tabela.|
     | | |
 
-1. Clique em **Criar**.  
+1. Selecione **Criar**.  
 
-### <a name="activity-logs-data-connection"></a>Ligação de dados de registos de atividade
+### <a name="create-the-data-connection-for-activity-logs"></a>Criar a ligação de dados para os registos de atividade
 
-Repita os passos a [ligação de dados de registos de diagnóstico](#diagnostic-logs-data-connection) secção para criar a atividade de registos de ligação de dados.
+Repita os passos a [criar a ligação de dados para os registos de diagnóstico](#diagnostic-logs-data-connection) secção para criar a ligação de dados para os seus registos de atividade.
 
-1. Inserir as seguintes definições na **ligação de dados** janela:
+1. Utilize as seguintes definições no **ligação de dados** janela:
 
     Origem de dados:
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Nome da ligação de dados | *ActivityLogsConnection* | O nome da ligação que quer criar no Azure Data Explorer.|
-    | Espaço de nomes do hub de eventos | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
-    | Hub de eventos | *insights-operational-logs* | O hub de eventos que criou. |
-    | Grupo de consumidores | *$Default* | Grupo de consumidores predefinido. Se for necessário, pode criar um grupo de consumidores diferentes. |
+    | **Nome da ligação de dados** | *ActivityLogsConnection* | O nome da ligação que quer criar no Azure Data Explorer.|
+    | **Espaço de nomes de hub de eventos** | *AzureMonitoringData* | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
+    | **Hub de eventos** | *insights-operational-logs* | O hub de eventos que criou. |
+    | **Grupo de consumidores** | *$Default* | Grupo de consumidores predefinido. Se for necessário, pode criar um grupo de consumidores diferentes. |
     | | |
 
     Tabela de destino:
 
-    Existem duas opções para o encaminhamento: *estático* e *dinâmico*. Para este tutorial, utilize o encaminhamento (predefinição), onde especifica o nome da tabela, o formato de ficheiro e o mapeamento estático. Por conseguinte, deixe **meus dados incluem informações de encaminhamento** não selecionada.
+    Existem duas opções para o encaminhamento: *estático* e *dinâmico*. Neste tutorial, vai utilizar encaminhamento (predefinição), onde especifica o nome da tabela, o formato de dados e o mapeamento estático. Deixe o campo **Os meus dados incluem informações de encaminhamento** não selecionado.
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Tabela | *ActivityLogsRawRecords* | A tabela criada na *AzureMonitoring* base de dados. |
-    | Formato de dados | *JSON* | Formato na tabela. |
-    | Mapeamento de colunas | *ActivityLogsRawRecordsMapping* | O mapeamento que criou no *AzureMonitoring* base de dados, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de *ActivityLogsRawRecords*.|
+    | **Tabela** | *ActivityLogsRawRecords* | A tabela que criou o *AzureMonitoring* base de dados. |
+    | **Formato de dados** | *JSON* | O formato utilizado na tabela. |
+    | **Mapeamento de colunas** | *ActivityLogsRawRecordsMapping* | O mapeamento que criou o *AzureMonitoring* base de dados, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna da *ActivityLogsRawRecords* tabela.|
     | | |
 
-1. Clique em **Criar**.  
+1. Selecione **Criar**.  
 
 ## <a name="query-the-new-tables"></a>Consultar as novas tabelas
 
-Tem um pipeline com o fluxo de dados. Ingestão por meio do cluster demora 5 minutos, por predefinição, assim, permita o fluxo de dados durante alguns minutos antes de começar a consulta.
+Agora que tem um pipeline com o fluxo de dados. Ingestão por meio do cluster demora 5 minutos por predefinição, por isso, permitem que os dados a fluir para alguns minutos antes de começar a consultar.
 
-### <a name="diagnostic-logs-table-query-example"></a>Exemplo de consulta de tabela de registos de diagnóstico
+### <a name="an-example-of-querying-the-diagnostic-logs-table"></a>Um exemplo de consultar a tabela de registos de diagnóstico
 
-A seguinte consulta analisa dados de duração de consulta de registos de registo de diagnóstico do Explorador de dados do Azure:
+A seguinte consulta analisa dados de duração de consulta de registos de registo de diagnóstico no Explorador de dados do Azure:
 
 ```kusto
 DiagnosticLogsRecords
@@ -383,9 +390,9 @@ Resultados de consulta:
 |   | 00:06.156 |
 | | |
 
-### <a name="activity-logs-table-query-example"></a>Exemplo de consulta de tabela de registos de atividade
+### <a name="an-example-of-querying-the-activity-logs-table"></a>Um exemplo de consultar a tabela de registos de atividade
 
-A seguinte consulta analisa dados de registos de registo de atividade do Explorador de dados do Azure:
+A seguinte consulta analisa dados de registos de registo de atividade no Explorador de dados do Azure:
 
 ```kusto
 ActivityLogsRecords
@@ -403,7 +410,7 @@ Resultados de consulta:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Aprenda a escrever muitos mais consultas nos dados extraído de Explorador de dados do Azure utilizando o seguinte artigo:
+Aprenda a escrever muitas consultas mais sobre os dados extraídos a partir do Explorador de dados do Azure utilizando o seguinte artigo:
 
 > [!div class="nextstepaction"]
-> [Escrever consultas para o Explorador de dados do Azure](write-queries.md)
+> [Escrever consultas do Azure Data Explorer](write-queries.md)

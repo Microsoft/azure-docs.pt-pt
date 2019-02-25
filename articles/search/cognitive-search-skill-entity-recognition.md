@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7a7fe9603716575c241ca78ebdc9b674888ca835
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4bdc17e444239652fa612078e89ec85e357c9316
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452212"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750519"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competências cognitivas de reconhecimento de entidades
 

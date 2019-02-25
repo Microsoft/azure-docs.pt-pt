@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 2af94deaedbafdfa638f5deb3150f1e7f711a238
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55093530"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750009"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
@@ -90,7 +90,11 @@ Se utilizar um computador de anfitrião do Windows Server, siga estes passos par
 
     **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *raiz* pasta na conta de armazenamento.
     
-     
+Se utilizar um cliente Linux, utilize o comando seguinte para montar a partilha SMB. O parâmetro de "vers=3.0,username" abaixo é a versão do SMB que suporte o anfitrião Linux. Plug-in a versão adequada no comando abaixo. Para versões do SMB que o Data Box suporta consulte [sistemas de ficheiros suportados por clientes Linux](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+
+    `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
+    
+
 
 ## <a name="copy-data-to-data-box"></a>Copiar dados para o Data Box
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: f18a1c90d3378831824542fabb884d36d12bddd4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 56542ef116656bff979e27dfc2ddd5e82056c452
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652115"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750145"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -40,7 +40,7 @@ Para muitos recursos do Azure, verá os dados recolhidos pelo direito de Monitor
 
 ![Métricas](media/overview/metrics.png)
 
-Dados de registo recolhidos pelo Monitor do Azure podem ser analisados com [consultas](log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através de [do log analytics](log-query/portals.md) no portal do Azure e, em seguida, em qualquer um analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [alerta regras](platform/alerts-overview.md).
+Dados de registo recolhidos pelo Monitor do Azure podem ser analisados com [consultas](log-query/log-query-overview.md) rapidamente obter, consolidar e analisar os dados recolhidos.  Pode criar e testar consultas através de [do Log Analytics](log-query/portals.md) no portal do Azure e, em seguida, em qualquer um analisar diretamente os dados através destas ferramentas ou guardar consultas para utilização com [visualizações](visualizations.md) ou [alerta regras](platform/alerts-overview.md).
 
 Monitor do Azure utiliza uma versão dos [linguagem de consulta de Kusto](/azure/kusto/query/) utilizado pelo Explorador de dados do Azure que é adequado para registo simples consulta, mas também inclui funcionalidades avançadas, como agregações, associações e análises inteligentes. Pode aprender rapidamente a linguagem de consulta através de [várias lições](log-query/get-started-queries.md).  É fornecida orientação específica para os utilizadores que já estejam familiarizados com [SQL](log-query/sql-cheatsheet.md) e [Splunk](log-query/splunk-cheatsheet.md).
 

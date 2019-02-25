@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e050122984c19e46f3782c8364331323b403caad
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 32604c06c6a4325f7ae6cb45930de902a1366480
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893848"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750332"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Perfil em direto serviços Cloud do Azure com o Application Insights
 
@@ -32,6 +32,8 @@ Application Insights Profiler é instalado com a extensão de diagnóstico do Az
 1. Certifique-se de que está a utilizar [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou posterior. É suficiente confirmar que o *ServiceConfiguration.\*.cscfg* arquivos têm uma `osFamily` valor "5" ou posterior.
 
 1. Adicione [serviços Cloud do Application Insights SDK para o Azure](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
+
+  >**Há um bug no Criador de perfil que é fornecido na versão mais recente do WAD para serviços Cloud.** Para usar o criador de perfil com um serviço em nuvem, ela oferece suporte apenas SDK de ia para a versão 2.7.2. Se estiver a utilizar uma versão mais recente do SDK do IA, terá de voltar atrás e 2.7.2 para usar o criador de perfil.
 
 1. Acompanhar pedidos com o Application Insights:
 

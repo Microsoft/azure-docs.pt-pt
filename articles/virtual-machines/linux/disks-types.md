@@ -1,6 +1,6 @@
 ---
-title: Selecione um tipo de disco para VMs de IaaS do Azure - discos geridos
-description: Saiba mais sobre os tipos de disco do Azure disponível para máquinas virtuais, incluindo discos ultra, premium SSDs, padrão SSDs e HDDs padrão.
+title: Selecione um tipo de disco para VMs do Linux IaaS do Azure - discos geridos
+description: Saiba mais sobre os tipos de disco do Azure disponível para máquinas virtuais do Linux, incluindo ultra SSDs, premium SSDs, padrão SSDs e HDDs padrão.
 services: virtual-machines-linux,storage
 author: roygara
 ms.author: rogarana
@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: cb5098821399a7515bd7303a37dc2bb8b911bd6c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 6cd3804d41f2ff98e2f97415a2ce62fc5a851ba0
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331331"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750110"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 357b22e4d4a6bf42ba165e49fc3cc01762268297
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: fc874ad04e65a3a80a4ceb76434b997e80019609
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756517"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750298"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL com a CLI do Azure
 
@@ -47,7 +47,7 @@ Para obter mais informações sobre como definir esses valores durante a criaç�
 O período de retenção de cópia de segurança de um servidor pode ser alterado da seguinte forma:
 
 ```azurecli-interactive
-az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention-days 10
+az postgres server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
 O exemplo anterior altera o período de retenção de cópia de segurança de mydemoserver para 10 dias.

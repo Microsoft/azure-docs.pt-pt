@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/04/2019
-ms.openlocfilehash: 12b0690c7653b03c8099253bee509a79a2ae2600
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/22/2019
+ms.openlocfilehash: cdd9f4eed30744f0eb65f8890eb1d7149f39736c
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561863"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750247"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinar o tamanho da sub-rede de VNet de instância gerida da base de dados SQL do Azure
 
@@ -27,10 +27,10 @@ O número de instâncias geridas que podem ser implementadas na sub-rede da VNet
 
 Quando cria uma instância gerida, o Azure aloca um número de máquinas virtuais, consoante o escalão selecionado durante o aprovisionamento. Uma vez que estas máquinas virtuais estão associadas a sua sub-rede, necessitam de endereços IP. Para garantir a elevada disponibilidade durante operações normais e de manutenção do serviço, o Azure pode alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários numa sub-rede é maior do que o número de instâncias geridas nessa sub-rede.
 
-Por design, uma instância gerida necessita de um mínimo de 16 endereços IP numa sub-rede e pode utilizar até 256 endereços IP. Como resultado, pode utilizar máscaras de sub-rede /28 para /24 quando definir os intervalos IP de sub-rede.
+Por design, uma instância gerida necessita de um mínimo de 16 endereços IP numa sub-rede e pode utilizar até 256 endereços IP. Como resultado, pode utilizar um máscaras de sub-rede entre /28 e /24 quando definir os intervalos IP de sub-rede. Um pouco de máscara de rede de/28 (14 anfitriões por rede) é um bom tamanho para um único para fins gerais ou implementação de crítico para a empresa. Um pouco de máscara de/27 (30 anfitriões por rede) é ideal para uma várias implementações de instância gerida na mesma VNet. Permite que a definição de máscara de bits de /26 (62 anfitriões) e /24 (254 anfitriões), ainda mais o dimensionamento a partir da VNet para dar suporte adicional de instâncias geridas.
 
 > [!IMPORTANT]
-> Tamanho de sub-rede com 16 endereços IP é o mínimo absoluto com potencial de limitado para a outra instância gerida de ampliação. Ao escolher sub-rede com o prefixo /27 ou abaixo é altamente recomendado.
+> Um tamanho de sub-rede com 16 endereços IP é o mínimo absoluto com potencial de limitado para a outra instância gerida de ampliação. Ao escolher sub-rede com o prefixo /27 ou abaixo é altamente recomendado.
 
 ## <a name="determine-subnet-size"></a>Determinar o tamanho da sub-rede
 

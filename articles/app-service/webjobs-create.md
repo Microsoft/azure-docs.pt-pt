@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ms.custom: seodec18
-ms.openlocfilehash: 43ec22836cb32c21953b9eb6871b9efe300cbf9e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0f2053e978b7c890f4e175515ed54f69694950c6
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001175"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749924"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com o WebJobs no serviço de aplicações do Azure
 
@@ -47,8 +47,7 @@ A tabela seguinte descreve as diferenças entre *contínua* e *acionada* WebJobs
 | É executado em todas as instâncias que a aplicação web é executado. Opcionalmente, pode restringir o WebJob para uma única instância. |É executado numa única instância para o Azure seleciona o balanceamento de carga.|
 | Suporta a depuração remota. | Não suporta a depuração remota.|
 
-> [!NOTE]
-> Uma aplicação web pode tempo limite após 20 minutos de inatividade. Apenas os pedidos para a aplicação web real redefiniria o temporizador. Visualizar a configuração da aplicação no portal do Azure ou para fazer pedidos para o site de ferramentas avançadas (https:// < app_name >. scm.azurewebsites.net) não Redefina o temporizador. Se a aplicação for executada contínua ou trabalhos Web agendados, ative **Always On** para garantir que os trabalhos Web executam de forma fiável. Esta funcionalidade só está disponível no básico, Standard e Premium [escalões de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## <a name="acceptablefiles"></a>Tipos de ficheiro suportados para scripts ou programas
 
@@ -181,10 +180,9 @@ Pode introduzir um [expressão CRON](../azure-functions/functions-bindings-timer
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> Quando implementar um WebJob do Visual Studio, marque sua `settings.job` propriedades como do ficheiro **copiar se for mais recente**.
+Para obter mais informações, consulte [agendamento um WebJob acionado](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 ## <a name="ViewJobHistory"></a> Ver o histórico de tarefas
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 02/13/2019
-ms.openlocfilehash: 59eb0b842392faa2adfcd99b028f1e283a7e8db7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.date: 02/23/2019
+ms.openlocfilehash: db91e67254e9927caba68a84b38a1ee94da8d3ab
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243834"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750128"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Escalões de serviço de base de dados SQL do Azure
 
@@ -42,7 +42,7 @@ Considere o seguinte:
 - Tamanho de armazenamento na instância gerida tem de ser especificado em múltiplos de 32 GB.
 - Pode escolher qualquer tamanho de base de dados entre 10 GB e o máximo suportado
   - Para o armazenamento nos escalões de serviço standard ou para fins gerais, aumentar ou diminuir o tamanho em incrementos de 10 GB
-  - Para o armazenamento em camadas de críticos de serviço premium ou buxiness, aumentar ou diminuir o tamanho em incrementos de 250 GB
+  - Para armazenamento no premium ou crítico para a empresa escalões de serviço, aumentar ou diminuir o tamanho em incrementos de 250 GB
 - No escalão de serviço para fins gerais, `tempdb` utiliza SSD anexado e este custo de armazenamento está incluído no preço vCore.
 - No escalão de serviço crítico para a empresa, `tempdb` partilhas o SSD anexado com os arquivos MDF e LDF e o custo de armazenamento de tempDB está incluído no preço vCore.
 

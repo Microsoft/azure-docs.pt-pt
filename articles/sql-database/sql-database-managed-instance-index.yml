@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 287e4d63ca60200340a88dd45d6b8912a62b74cd
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 92af534642f5e1d56209944a481e244b8cf6207a
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454703"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750103"
 documentType: LandingData
 title: Instância Gerida da Base de Dados SQL do Azure
 metadata:
@@ -82,6 +82,7 @@ sections:
     - html: (Pré-visualização) <a href="https://aka.ms/managed-instance-tde-byok">Traga as suas próprias chaves de encriptação</a> enquanto a migração no local bases de dados que já têm ativada a encriptação de dados transparente (TDE).
     - html: Instâncias geridas estão protegidas com <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall interno</a>.
     - html: (Pré-visualização) <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance/">Recrie remover bases de dados</a>.
+    - html: Nome de base de dados pode ser alterado usando sp_renamedb procedimento ou a instrução ALTER DATABASE.
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph

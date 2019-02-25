@@ -1,6 +1,6 @@
 ---
 title: Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor | Documentos da Microsoft
-description: Este artigo fornece um tutorial para utilizar o Monitor do Azure log analytics no portal do Azure para consultar e analisar dados de registo no Azure Monitor.
+description: Este artigo fornece um tutorial para utilizar o Monitor do Azure Log Analytics no portal do Azure para consultar e analisar dados de registo no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: dda7ef2e4e974ea053f030a3ebe71a16872612b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 718b12c8a66d66a75796f88ef31b5f0f62abbbc4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993729"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750961"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com dados e de JSON estruturas em consultas de registo do Azure Monitor
 
 > [!NOTE]
-> Deve efetuar [começar com o log analytics do Azure Monitor](get-started-portal.md) e [introdução às consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
+> Deve efetuar [introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [introdução às consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir esta lição.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

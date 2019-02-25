@@ -5,21 +5,22 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 02/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8d5dca65734640dc9e756f9130e6b362178781f2
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d4f75a7bc552a7764a46865bf300b8fc5ffb350e
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453526"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750791"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transição para um certificado de gateway de AC público para P2S
 
 O Gateway de VPN do Azure já não emite certificados autoassinados do nível do Azure com seus gateways para ligações P2S. Certificados emitidos agora são assinados por um certificado de autoridade (autoridade de certificação pública). No entanto, alguns dos gateways mais antigos podem ainda utilizar certificados autoassinados. Estes certificados autoassinados são quase respetivas datas de expiração e devem fazer a transição para certificados de AC públicos.
 
 >[!NOTE]
-> Utilizado para autenticação de cliente de P2S os certificados autoassinados não são afetados por esta alteração de certificado de nível do Azure. Pode continuar a emitir e utilizar certificados autoassinados como habitualmente.
+> * Utilizado para autenticação de cliente de P2S os certificados autoassinados não são afetados por esta alteração de certificado de nível do Azure. Pode continuar a emitir e utilizar certificados autoassinados como habitualmente.
+> * Aplicações Web não são afetadas por esta alteração.
 >
 
 Os certificados neste contexto são um certificado de nível de Azure adicional. Não são as cadeias de certificados que utiliza ao gerar seus próprios certificados de raiz autoassinados e certificados de cliente para autenticação. Esses certificados não são afetados e irão expirar nas datas gerado-los para fazer isso.

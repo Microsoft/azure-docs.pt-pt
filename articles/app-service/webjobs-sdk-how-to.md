@@ -4,45 +4,51 @@ description: Saiba mais sobre como escrever código para o SDK do WebJobs. Crie 
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: a2e07f9022d7404d037903fda627649918134cb7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ba9dbeb01be5a9869b69836b118651cff7f0c92d
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732743"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750553"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
-Este artigo fornece orientações sobre como escrever código para [o SDK de WebJobs do Azure](webjobs-sdk-get-started.md). A documentação aplica-se os dois versão 3.x e 2.x do SDK do WebJobs. Sempre que existirem diferenças de API, são fornecidos exemplos de ambos. A principal alteração introduzida pela versão 3.x é o uso do .NET Core em vez do .NET Framework.
+Este artigo fornece orientações sobre como trabalhar com o SDK de WebJobs do Azure. Para começar a utilizar com o WebJobs imediatamente, veja [introdução ao SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano](webjobs-sdk-get-started.md). 
 
->[!NOTE]
-> [As funções do Azure](../azure-functions/functions-overview.md) baseia-se sobre o SDK do WebJobs e este artigo liga para documentação de funções do Azure para alguns tópicos. Tenha em atenção as seguintes diferenças entre as funções e o SDK do WebJobs:
+## <a name="webjobs-sdk-versions"></a>Versões do SDK de WebJobs
+
+Seguem-se principais diferenças na versão 3.x do SDK do WebJobs em comparação com a versão 2.x:
+
+* Versão 3.x adiciona suporte para .NET Core.
+* Na versão 3.x, explicitamente tem de instalar a extensão de enlace de armazenamento necessária para o SDK do WebJobs. Na versão 2.x, o armazenamento enlaces foram incluídos no SDK.
+* Ferramentas para projetos de .NET Core (3.x) do Visual Studio é diferente de projetos do .NET Framework (2.x). Para obter mais informações, consulte [desenvolver e implementar o WebJobs com o Visual Studio - serviço de aplicações do Azure](webjobs-dotnet-deploy-vs.md).
+
+Quando possível, os exemplos são fornece para as versões 3.x e a versão 2.x.
+
+> [!NOTE]
+> [As funções do Azure](../azure-functions/functions-overview.md) baseia-se sobre o SDK do WebJobs e este artigo liga para documentação de funções do Azure para alguns tópicos. Seguem-se as diferenças entre as funções e o SDK do WebJobs:
 > * A versão das funções do Azure 2.x corresponde à versão do SDK de WebJobs 3.x e as funções do Azure 1.x corresponde ao SDK do WebJobs 2.x. Repositórios de código de origem, siga o SDK de WebJobs numeração.
 > * Código de exemplo para bibliotecas de classes do funções do Azure c# é como o SDK de WebJobs de código, exceto pelo fato não é necessário um `FunctionName` atributo num projeto do SDK do WebJobs.
 > * Alguns tipos de enlace só são suportados em funções, como HTTP, o webhook e o Event Grid (que é baseado em HTTP).
-> 
+>
 > Para obter mais informações, consulte [Compare os WebJobs SDK e as funções do Azure](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-Este artigo pressupõe que tenha lido e concluir as tarefas no [começar com o SDK de WebJobs](webjobs-sdk-get-started.md).
-
-## <a name="webjobs-host"></a>Anfitrião de WebJobs
+## <a name="webhobs-host"></a>Anfitrião de WebHobs
 
 O anfitrião é um contentor de tempo de execução para as funções.  Escuta acionadores e as chamadas de funções. Na versão 3.x, o host é uma implementação de `IHost`e na versão 2.x é usar o `JobHost` objeto. Criar uma instância de host no seu código e escrever código para personalizar seu comportamento.
 
 Esta é a principal diferença entre usar diretamente o SDK do WebJobs e usá-lo indiretamente através das funções do Azure. As funções do Azure, o serviço controla o anfitrião e não é possível personalizá-lo ao escrever código. As funções do Azure permite-lhe personalizar o comportamento de host através de definições no *Host. JSON* ficheiro. Essas definições são cadeias de caracteres, não código, que limita os tipos de personalizações que pode fazer.
 
-### <a name="host-connection-strings"></a>Cadeias de ligação do anfitrião 
+### <a name="host-connection-strings"></a>Cadeias de ligação do anfitrião
 
 O SDK do WebJobs procura cadeias de ligação de armazenamento do Azure e o Azure Service Bus no *Settings* ficheiro ao executar localmente ou num ambiente do WebJob quando executa no Azure. Por predefinição, com o nome de definição da cadeia de uma ligação de armazenamento `AzureWebJobsStorage` é necessária.  
 
@@ -151,7 +157,20 @@ As funções têm de ser métodos públicos e tem de ter um atributo de Acionado
 
 ### <a name="automatic-trigger"></a>Início automático
 
-Acionadores automática chamam uma função em resposta a um evento. Por exemplo, veja o acionador de fila no [artigo de introdução de Get](webjobs-sdk-get-started.md).
+Acionadores automática chamam uma função em resposta a um evento. Considere o seguinte exemplo de uma função acionada por uma mensagem adicionada ao armazenamento de filas do Azure que lê um blob de armazenamento do blogue do Azure:
+
+```cs
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    ILogger log)
+{
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+O `QueueTrigger` atributo indica o tempo de execução para chamar a função sempre que é apresentada uma mensagem de fila no `myqueue-items` fila. O `Blob` atributo indica o tempo de execução para utilizar a mensagem de fila para ler um blob no *itens de trabalho de exemplo* contentor. O conteúdo da mensagem de fila, passado para a função no `myQueueItem` parâmetro, é o nome do blob.
+
 
 ### <a name="manual-trigger"></a>Acionador manual
 
@@ -345,9 +364,78 @@ Alguns acionador e os enlaces permitem-lhe configurar seu comportamento. A forma
 * **Versão 3.x:** Configuração é definida quando o `Add<Binding>` método é chamado `ConfigureWebJobs`.
 * **Versão 2.x:** Defina propriedades num objeto de configuração que passa para o `JobHost`.
 
+Estas definições específicas do enlace são equivalentes às definições na [arquivo de projeto do Host. JSON](../azure-functions/functions-host-json.md) nas funções do Azure.
+
+Pode configurar as ligações seguintes:
+
+* [Acionador do Azure cosmos DB](#azure-cosmosdb-trigger-configuration-version-3x)
+* [Acionador de Hubs de eventos](#event-hubs-trigger-configuration-version-3x)
+* [Acionador do armazenamento de fila](#queue-trigger-configuration)
+* [Ligação do SendGrid](#sendgrid-binding-configuration-version-3x)
+* [Acionador do Service Bus](#service-bus-trigger-configuration-version-3x)
+
+### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Configuração de Acionador do Azure cosmos dB (versão 3.x)
+
+O exemplo seguinte mostra como configurar o acionador do Azure Cosmos DB:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddCosmosDB(a =>
+        {
+            a.ConnectionMode = ConnectionMode.Gateway;
+            a.Protocol = Protocol.Https;
+            a.LeaseOptions.LeasePrefix = "prefix1";
+
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Para obter mais detalhes, consulte a [artigo de associação do Azure cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings).
+
+### <a name="event-hubs-trigger-configuration-version-3x"></a>Os Hubs de eventos acionam configuração (versão 3.x)
+
+O exemplo seguinte mostra como configurar o acionador de Hubs de eventos:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddEventHubs(a =>
+        {
+            a.BatchCheckpointFrequency = 5;
+            a.EventProcessorOptions.MaxBatchSize = 256;
+            a.EventProcessorOptions.PrefetchCount = 512;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Para obter mais detalhes, consulte a [artigo de vinculação de Hubs de eventos](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings).
+
 ### <a name="queue-trigger-configuration"></a>Configuração do acionador de fila
 
-As definições que pode configurar para o acionador de fila de armazenamento são explicadas em funções do Azure [referência de Host. JSON](../azure-functions/functions-host-json.md#queues). Os exemplos seguintes mostram como configurá-los na sua configuração:
+Os exemplos seguintes mostram como configurar o acionador de fila de armazenamento:
 
 #### <a name="version-3x"></a>Versão 3.x
 
@@ -374,6 +462,8 @@ static void Main()
 }
 ```
 
+Para obter mais detalhes, consulte a [artigo de enlace de armazenamento de fila](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings).
+
 #### <a name="version-2x"></a>Versão 2.x
 
 ```cs
@@ -388,6 +478,64 @@ static void Main(string[] args)
     host.RunAndBlock();
 }
 ```
+
+Para obter mais detalhes, consulte a [Host. JSON v1.x referência](../azure-functions/functions-host-json-v1.md#queues).
+
+### <a name="sendgrid-binding-configuration-version-3x"></a>Configuração de ligação do SendGrid (versão 3.x)
+
+O exemplo seguinte mostra como configurar o SendGrid enlace de saída:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddSendGrid(a =>
+        {
+            a.FromAddress.Email = "samples@functions.com";
+            a.FromAddress.Name = "Azure Functions";
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Para obter mais detalhes, consulte a [artigo de ligação do SendGrid](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
+
+### <a name="service-bus-trigger-configuration-version-3x"></a>Configuração do acionador do Service Bus (versão 3.x)
+
+O exemplo seguinte mostra como configurar o acionador do Service Bus:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddServiceBus(sbOptions =>
+        {
+            sbOptions.MessageHandlerOptions.AutoComplete = true;
+            sbOptions.MessageHandlerOptions.MaxConcurrentCalls = 16;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+Para obter mais detalhes, consulte a [artigo de ligação do Service Bus](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
 
 ### <a name="configuration-for-other-bindings"></a>Configuração para outros enlaces
 

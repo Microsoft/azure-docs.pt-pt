@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d11fd669817a28e120540fc1db4230585e4575
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 35927b038ee8caa7e826c4edfb7803a2bc0177c8
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672141"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750689"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -42,14 +42,17 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Desenvolvedor de aplicativos](#application-developer)**: Os utilizadores nesta função podem criar registos de aplicações quando o "Os utilizadores podem registar aplicações" definição está definida como não. Esta função também permite que os membros dar consentimento em seu próprio benefício quando o "Os utilizadores podem dar consentimento a aplicações acedam aos dados da empresa em nome deles" definição está definida como não. Os membros desta função são adicionados como proprietários durante a criação de novos registos de aplicação ou aplicações da empresa.
 
-* **[Administrador de autenticação](#authentication-administrator)**: Os utilizadores com esta função podem definir ou repor as credenciais de palavra-passe. Os administradores de autenticação podem forçar os utilizadores para voltar a registar contra credenciais de palavra-passe existente (por exemplo, MFA, FIDO) e revogar "memorizar MFA no dispositivo", solicitar a MFA no próximo início de sessão de outros utilizadores que são não-administradores ou membros do seguintes funções:
+* **[Administrador de autenticação](#authentication-administrator)**: Os utilizadores com esta função podem definir ou repor as credenciais de palavra-passe. Os administradores de autenticação podem exigir que os utilizadores voltar a registar contra credenciais de palavra-passe existente (por exemplo, MFA ou FIDO) e revogar **Lembre-se a MFA no dispositivo**, rompts pwhich para a MFA no próximo início de sessão de utilizadores que são não-administradores ou membros de apenas as seguintes funções:
   * Administrador da Autenticação
   * Leitores de Diretório
   * Utilizador Que Convida Convidados
   * Leitor do Centro de Mensagens
   * Leitor de Relatórios
-  
+
+  A função de administrador de autenticação está atualmente em pré-visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
   <b>Importante</b>: Os utilizadores com esta função podem alterar as credenciais para as pessoas que podem ter acesso a informações confidenciais ou privadas ou críticos de configuração dentro e fora do Azure Active Directory. Alterar as credenciais de um utilizador pode significar que a capacidade de assumir a identidade e permissões do usuário. Por exemplo:
+
   * Registo de aplicação e aplicação empresarial proprietários, que podem gerir as credenciais de aplicações que possuem. Esses aplicativos podem ter privilegiado permissões no Azure AD e noutro local não é concedido a administradores de autenticação. Através deste caminho um administrador de autenticação pode ser capaz de assumir a identidade de um proprietário da aplicação e, em seguida, mais assumir a identidade de um aplicativo com privilégios ao atualizar as credenciais para a aplicação.
   * Proprietários de subscrições do Azure, que poderão ter acesso a informações confidenciais ou privadas ou críticos de configuração no Azure.
   * Grupo de segurança e de grupo do Office 365 proprietários, que podem gerir a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou críticos de configuração no Azure AD e em outros locais.

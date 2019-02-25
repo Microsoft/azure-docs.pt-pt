@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 8c760a7881894b688591230952e2a685880b8d08
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: f3c8fd3043f20ab34dda1f4e3762e3ebc4bb6ae1
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412170"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749890"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Competências cognitivas de extração de expressões chave
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 52a441d5d8f3f44b35253e02786a033da5439597
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d9c94f7bd1a10e5db084e4541081998dc3de2f05
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269861"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749715"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de registo do Azure Monitor
 
 
 > [!NOTE]
-> Deve efetuar [começar com o log analytics do Azure Monitor](get-started-portal.md) antes de concluir este tutorial.
+> Deve efetuar [introdução ao Log Analytics do Azure Monitor](get-started-portal.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

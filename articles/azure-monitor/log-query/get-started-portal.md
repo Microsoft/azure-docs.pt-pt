@@ -1,5 +1,5 @@
 ---
-title: Introdução ao log Analytics do Azure Monitor | Documentos da Microsoft
+title: Introdução ao Log Analytics do Azure Monitor | Documentos da Microsoft
 description: Este artigo fornece um tutorial para utilizar o Log Analytics no portal do Azure para escrever consultas.
 services: log-analytics
 author: bwren
@@ -8,18 +8,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
-ms.openlocfilehash: 2adb23b63c3a8be56dc55293c7bb06534d9305c4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: ec6f3884504c94b7669df21882aeb2a1eb9d7220
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242112"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750587"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Introdução ao log Analytics do Azure Monitor
+# <a name="get-started-with-azure-monitor-log-analytics"></a>Introdução ao Log Analytics do Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial irá aprender a utilizar o Monitor do Azure log analytics no portal do Azure para escrever consultas de registo do Azure Monitor. Ele irá ensiná-lo como para:
+Neste tutorial irá aprender como utilizar o Monitor do Azure Log Analytics no portal do Azure para escrever consultas de registo do Azure Monitor. Ele irá ensiná-lo como para:
 
 - Escrever consultas simples
 - Compreender o esquema dos seus dados
@@ -30,8 +30,8 @@ Neste tutorial irá aprender a utilizar o Monitor do Azure log analytics no port
 - Exportar e partilhar consultas
 
 
-## <a name="meet-log-analytics"></a>Conheça o log analytics
-O log analytics é uma ferramenta de web utilizada para criar e executar consultas de registo do Azure Monitor. Abri-lo selecionando **registos** no menu do Azure Monitor. Ele começa com uma nova consulta em branco.
+## <a name="meet-log-analytics"></a>Conheça o Log Analytics
+O log Analytics é uma ferramenta de web utilizada para criar e executar consultas de registo do Azure Monitor. Abri-lo selecionando **registos** no menu do Azure Monitor. Ele começa com uma nova consulta em branco.
 
 ![Página de boas-vindas](media/get-started-portal/homepage.png)
 
@@ -78,7 +78,7 @@ Comece por obter tudo _evento_ tabela.
 Event
 ```
 
-Automaticamente do log analytics âmbitos resultados por:
+O log Analytics examina automaticamente os resultados por:
 
 - Intervalo de tempo:  Por predefinição, consultas estão limitadas para as últimas 24 horas.
 - Número de resultados: Os resultados estão limitados ao máximo de 10 000 registos.
@@ -116,7 +116,7 @@ A tabela de resultados, muitas vezes, inclui muitas colunas. Pode achar que algu
 
 
 ## <a name="select-a-time-range"></a>Selecionar um intervalo de tempo
-Por predefinição, o log analytics aplica-se a _últimas 24 horas_ intervalo de tempo. Para utilizar um intervalo diferente, selecione outro valor através do Seletor de hora e clique em **executar**. Além dos valores predefinidos, pode utilizar o _intervalo de tempo personalizado_ opção de selecionar um intervalo de absoluto para sua consulta.
+Por predefinição, o Log Analytics aplica-se a _últimas 24 horas_ intervalo de tempo. Para utilizar um intervalo diferente, selecione outro valor através do Seletor de hora e clique em **executar**. Além dos valores predefinidos, pode utilizar o _intervalo de tempo personalizado_ opção de selecionar um intervalo de absoluto para sua consulta.
 
 ![Selecionador de hora](media/get-started-portal/time-picker.png)
 
@@ -178,7 +178,7 @@ O ícone do Explorador de consultas está na área superior direito. Lista todas
 ![Explorador de consultas](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>A exportação e partilha de ligação
-O log analytics suporta vários métodos de exportação:
+O log Analytics suporta vários métodos de exportação:
 
 - Excel: Guarde os resultados como um ficheiro CSV.
 - Power BI: Exporte os resultados para o power BI. Ver [dados de registo de importação do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md) para obter detalhes.

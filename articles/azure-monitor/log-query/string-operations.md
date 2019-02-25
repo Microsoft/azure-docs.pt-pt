@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4998084ed15e6ed455789689674e134c6cd9d0a8
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995412"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749771"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhar com cadeias de caracteres em consultas de registo do Azure Monitor
 
 
 > [!NOTE]
-> Deve efetuar [começar com o log analytics do Azure Monitor](get-started-portal.md) e [introdução às consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir este tutorial.
+> Deve efetuar [introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [introdução às consultas de registo do Azure Monitor](get-started-queries.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 

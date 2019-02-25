@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/20/2019
+ms.date: 02/22/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 6724a66f9a2b80f94f986db19d67b27884797e6f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 97123ec795353073b912bd83e0abb45e23549a75
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592371"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749805"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Comece a desenvolver com os serviços de multimédia v3 API usando ferramentas/SDKs
 
@@ -95,6 +95,7 @@ Explore os serviços de multimédia [.NET ref](https://aka.ms/ams-v3-dotnet-ref)
 - [Utilizar DRM dinâmico licença e de encriptação de serviço de entrega - .NET](protect-with-drm.md)
 - [Obter uma chave de assinatura da política existente - .NET](get-content-key-policy-dotnet-howto.md)
 - [Criar filtros com serviços de multimédia - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Advanced vídeo sob demanda exemplos de funções do Azure v2 com serviços de multimédia v3](http://aka.ms/ams3functions)
 
 ## <a name="java"></a>Java
 

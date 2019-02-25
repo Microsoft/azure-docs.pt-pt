@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 73d4bfc3aaeb86568e3f7a3555a664a8815e3280
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: b903d20136beb306d3f38fbebdb70562b3634d31
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586176"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749788"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar a métrica dados armazenados no Azure Monitor e de registo.
@@ -32,7 +32,7 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 ![Dashboard](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Vantagens
-- Integração profunda no Azure. Visualizações podem ser afixadas em dashboards de várias páginas do Azure, incluindo o Explorador de métricas, do log analytics e Application Insights.
+- Integração profunda no Azure. Visualizações podem ser afixadas em dashboards de várias páginas do Azure, incluindo o Explorador de métricas, do Log Analytics e Application Insights.
 - Oferece suporte a métricas e registos.
 - Combinar dados de várias origens, incluindo a saída de [Explorador de métricas](platform/metrics-charts.md), [consultas de registo](log-query/log-query-overview.md), e [mapeia](app/app-map.md) e disponibilidade no Application Insights.
 - Opção para dashboards pessoais ou partilhados. Integrado com o Azure [autenticação baseada em funções (RBAC)](../role-based-access-control/overview.md).

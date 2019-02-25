@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: b6a7fe2c12b2f1f5bcc0ba8cccd1a51ee39c4a6f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e5e80ac2229c3a2962702527dc3162229c25a5c5
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882095"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750876"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Resolução de problemas de ativação ou ao visualizar o Application Insights Profiler
 
@@ -123,6 +123,8 @@ Estes parâmetros elimine a pasta que é utilizada pelo Application Insights Pro
 Profiler é executado como um webjob contínuo na aplicação web. É possível abrir o recurso de aplicação web no [portal do Azure](https://portal.azure.com). Na **WebJobs** painel, verifique o estado dos **ApplicationInsightsProfiler**. Se não estiver em execução, abra **registos** para obter mais informações.
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Resolver problemas relacionados com o Profiler e o diagnóstico do Azure
+
+  >**Há um bug no Criador de perfil que é fornecido na versão mais recente do WAD para serviços Cloud.** Para usar o criador de perfil com um serviço em nuvem, ela oferece suporte apenas SDK de ia para a versão 2.7.2. Se estiver a utilizar uma versão mais recente do SDK do IA, terá de voltar atrás e 2.7.2 para usar o criador de perfil.
 
 Para ver se o Profiler está configurado corretamente ao diagnóstico do Azure, efetue as seguintes três coisas: 
 1. Em primeiro lugar, verifique se o conteúdo da configuração do diagnóstico do Azure que é implementado é os esperados. 

@@ -5,15 +5,15 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/22/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ce682263663c0547d9e35a4d29037fd125d8bc6c
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699181"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750655"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -352,6 +352,7 @@ Se ativar o **permitir confiável a serviços da Microsoft...**  exceção, os s
 |Azure Backup|Microsoft.Backup|Executar cópias de segurança e restauros de discos não geridos em máquinas de virtuais IAAS. (não necessário para discos geridos). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configure recuperação após desastre ao ativar a replicação para máquinas de virtuais de IaaS do Azure. Isto é necessário se estiver a utilizar a conta de armazenamento de cache de firewall ativada ou a conta de armazenamento de origem ou a conta de armazenamento de destino.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Instalação de Federação e de criação de imagem personalizada. [Saiba mais](/azure/devtest-lab/devtest-lab-overview).|
+|Azure Data Box|Microsoft.DataBox|Permite que a importação de dados para o Azure com o Data Box. [Saiba mais](/azure/databox/data-box-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Ativar a publicação de eventos de armazenamento de BLOBs e permitir que o Event Grid publicar em filas do armazenamento. Saiba mais sobre [eventos de armazenamento de BLOBs](/azure/event-grid/event-sources) e [publicação para filas](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Arquivar dados com a captura de Hubs de eventos. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview).|
 |Redes do Azure|Microsoft.Networking|Store e analisar registos de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview).|

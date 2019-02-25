@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: eb2a6692c0b00dc4419c601228453a8cfc44c02a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0f444a4ce41a700af4c55795bca95dbbf95003a4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156787"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750026"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Ligue um dispositivo de IoT DevKit ao acelerador de solução de monitorização remota
 
@@ -79,7 +79,7 @@ Para verificar se o aplicativo de exemplo que carregou para o dispositivo DevKit
 
 Quando a aplicação de exemplo é executado, o dispositivo de DevKit envia telemetria dos seus dados de sensores por Wi-Fi do solution accelerator. Para ver a telemetria:
 
-1. Aceda ao seu dashboard de solução e clique em **dispositivos**.
+1. Aceda ao seu dashboard de solução e clique em **Device Explorer**.
 
 1. Clique no nome do dispositivo do seu dispositivo DevKit. no separador da direita, pode ver a telemetria da DevKit em tempo real:
 
@@ -87,7 +87,7 @@ Quando a aplicação de exemplo é executado, o dispositivo de DevKit envia tele
 
 ### <a name="control-the-devkit-device"></a>Controlar o dispositivo DevKit
 
-O acelerador de solução de monitorização remota permite-lhe controlar remotamente o seu dispositivo. O código de exemplo implementa três métodos que pode ver na **método** secção ao selecionar o dispositivo na **dispositivos** página:
+O acelerador de solução de monitorização remota permite-lhe controlar remotamente o seu dispositivo. O código de exemplo implementa três métodos que pode ver na **método** secção ao selecionar o dispositivo na **Device Explorer** página:
 
 ![Métodos de IoT DevKit](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-methods.png)
 

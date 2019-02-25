@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 3d0c72f0178cddd668c0ac029c803ff339a1f6f4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 12056ebec0f0a23ed255532a8ba27b130ecb81d1
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311618"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750451"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Acionador do Event Grid para as funções do Azure
 
@@ -30,17 +30,17 @@ Se preferir, pode utilizar um acionador HTTP para processar eventos do Event Gri
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
-
-O acionador do Event Grid é fornecido na [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 1.x. Código-fonte para o pacote está no [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) repositório do GitHub.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## <a name="packages---functions-2x"></a>Pacotes - funções 2.x
 
 O acionador do Event Grid é fornecido na [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 2.x. Código-fonte para o pacote está no [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) repositório do GitHub.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
+
+## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
+
+O acionador do Event Grid é fornecido na [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) pacote NuGet, versão 1.x. Código-fonte para o pacote está no [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) repositório do GitHub.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="example"></a>Exemplo
 
@@ -53,31 +53,6 @@ Veja o exemplo de idioma específico para um acionador do Event Grid:
 * [Python](#python-example)
 
 Para obter um exemplo de Acionador HTTP, consulte [como utilizar o acionador HTTP](#use-an-http-trigger-as-an-event-grid-trigger) mais adiante neste artigo.
-
-### <a name="c-version-1x"></a>C#(Versão 1.x)
-
-O exemplo seguinte mostra um funções 1.x [função c#](functions-dotnet-class-library.md) que se vincula ao `JObject`:
-
-```cs
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-        }
-    }
-}
-```
 
 ### <a name="c-2x"></a>C# (2.x)
 
@@ -105,6 +80,31 @@ namespace Company.Function
 
 Para obter mais informações, consulte pacotes, [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
 
+### <a name="c-version-1x"></a>C#(Versão 1.x)
+
+O exemplo seguinte mostra um funções 1.x [função c#](functions-dotnet-class-library.md) que se vincula ao `JObject`:
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTriggerCSharp")]
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+        }
+    }
+}
+```
+
 ### <a name="c-script-example"></a>Exemplo de script do c#
 
 O exemplo seguinte mostra uma ligação de Acionador num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace.
@@ -124,22 +124,6 @@ Eis a vinculação de dados a *Function* ficheiro:
 }
 ```
 
-#### <a name="c-script-version-1x"></a>C#script (versão 1.x)
-
-Eis o código de script de 1.x c# das funções que liga `JObject`:
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### <a name="c-script-version-2x"></a>C#script (versão 2.x)
 
 Eis o código de script de 2.x c# das funções que liga `EventGridEvent`:
@@ -156,6 +140,22 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 ```
 
 Para obter mais informações, consulte pacotes, [atributos](#attributes), [configuração](#configuration), e [utilização](#usage).
+
+#### <a name="c-script-version-1x"></a>C#script (versão 1.x)
+
+Eis o código de script de 1.x c# das funções que liga `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### <a name="javascript-example"></a>Exemplo de JavaScript
 
@@ -528,11 +528,18 @@ Utilize uma ferramenta como [Postman](https://www.getpostman.com/) ou [curl](htt
 * Definir um `Content-Type: application/json` cabeçalho.
 * Definir um `aeg-event-type: Notification` cabeçalho.
 * Cole os dados de RequestBin no corpo do pedido.
-* Publicar o URL da sua função de Acionador do Event Grid, usando o seguinte padrão:
+* Publicar o URL da sua função de Acionador do Event Grid.
+  * Para 2.x, utilize o seguinte padrão:
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * Para utilização 1.x:
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 O `functionName` parâmetro tem de ser o nome especificado no `FunctionName` atributo.
 
@@ -591,19 +598,19 @@ O URL de ngrok não obtém um tratamento especial pelo Event Grid, para que a su
 
 Criar uma subscrição do Event Grid do tipo que pretende testar e atribua o ponto final de ngrok.
 
-Utilize este padrão de ponto final para as funções 1.x:
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 Utilize este padrão de ponto final para as funções 2.x:
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-O `functionName` parâmetro tem de ser o nome especificado no `FunctionName` atributo.
+Utilize este padrão de ponto final para as funções 1.x:
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+O `{FUNCTION_NAME}` parâmetro tem de ser o nome especificado no `FunctionName` atributo.
 
 Eis um exemplo com a CLI do Azure:
 

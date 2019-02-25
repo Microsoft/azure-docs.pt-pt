@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 4c428372868e3d3fac58bc851de8c59ad01d1d8f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 259a792acb4d2fb8f9695f0f5a856bdf5069f2cd
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269965"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749754"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analisar dados de registo no Azure Monitor
 
@@ -102,5 +102,5 @@ Embora [Application Insights](../app/app-insights-overview.md) armazena dados de
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Aprenda a usar [do log analytics para criar e editar as pesquisas de registos](../log-query/portals.md).
+- Aprenda a usar [pesquisas de registos do Log Analytics para criar e editar](../log-query/portals.md).
 - Veja uma [tutorial sobre como escrever consultas](../log-query/get-started-queries.md) usando a nova linguagem de consulta.
