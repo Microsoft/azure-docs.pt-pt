@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 484cdccef3198f45c08210c9d8fd41f66e6c867d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3e9d7191af3a870f60b40311be03e0ef9d9bf7ad
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828471"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56750213"
 ---
 # <a name="add-an-email-action"></a>Adicionar uma ação de e-mail
 
 E-mail ações ajudam a tornar-se de que nunca mais perca alertas. Pode adicionar uma ação de e-mail para uma regra existente, ou quando criar uma nova regra.
 
-[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+Para concluir os passos neste guia de procedimentos, terá uma instância implementada do solution accelerator monitorização remota na sua subscrição do Azure.
 
 Para criar ou modificar uma regra, tem de ser um [ **administrador**, ou tem as permissões corretas](iot-accelerators-remote-monitoring-rbac.md).
 
@@ -31,7 +31,7 @@ Siga estes passos para adicionar uma ação de e-mail para uma regra existente:
 
 1. Do **Dashboard**, navegue para o **regras** página:
 
-    ![Página de regras](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Página de regras](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Clique na caixa de verificação junto a regra existente para modificar e, em seguida, clique em **editar** na parte superior. Um editável **regra** painel é apresentada.
 
@@ -41,7 +41,7 @@ Siga estes passos para adicionar uma ação de e-mail para uma regra existente:
 
 1. Introduza um endereço de e-mail na caixa destinatário de e prima a **Enter** chave para cada endereço de e-mail adicionar:
 
-    ![Entrada de endereço](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Entrada de endereço](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Introduza um assunto do e-mail.
 
@@ -59,7 +59,7 @@ Siga estes passos para adicionar uma ação de e-mail quando criar uma nova regr
 
 1. Do **Dashboard**, navegue para o **regras** página:
 
-    ![Página de regras](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Página de regras](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Siga os passos a [crie uma seção de regra](iot-accelerators-remote-monitoring-automate.md#create-a-rule). A seguir os passos a [criar uma regra avançada](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) secção até ao ponto em que definir um **nível de gravidade**. Não clique **aplicar** ainda.
 
@@ -69,7 +69,7 @@ Siga estes passos para adicionar uma ação de e-mail quando criar uma nova regr
 
 1. Introduza um endereço de e-mail na caixa destinatário de e prima a **Enter** chave para cada endereço de e-mail adicionar:
 
-    ![Entrada de endereço](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Entrada de endereço](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Introduza um assunto do e-mail.
 
@@ -128,7 +128,7 @@ Os seguintes passos ajudá-lo a iniciar sessão e configurar as ações de e-mai
 
 1. Clique para iniciar sessão no Outlook. É levado para o portal do Azure:
 
-  ![Inicie sessão no Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+  ![Inicie sessão no Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Clique em **autorizar**. Lhe for pedido para iniciar sessão. A conta que utiliza para iniciar sessão deve ser que o endereço de e-mail a aplicação utiliza para enviar notificações por e-mail:
 
@@ -136,7 +136,7 @@ Os seguintes passos ajudá-lo a iniciar sessão e configurar as ações de e-mai
 
 1. Se configurou com êxito a notificação de e-mail, verá esta mensagem:
 
-  ![Início de sessão de Outlook concluída com êxito](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+  ![Início de sessão de Outlook concluída com êxito](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Personalizar a mensagem de e-mail HTML <a name="htmledit"></a>
 
@@ -168,7 +168,7 @@ Os passos seguintes mostram como editar o modelo de e-mail HTML. Por exemplo, po
 
 O acelerador de solução de monitorização remota utiliza o Outlook para enviar notificações por e-mail. Outlook limita o número de e-mails enviados para o [30 e-mails por 1 minuto](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Clientes de correio eletrónico a receber os e-mails também podem limitar o número de e-mails recebidos por minuto. Contacte o seu cliente de e-mail específico sobre limitações. Ao configurar notificação por e-mail para uma regra, a regra deve calcular valores médios ao longo de um período de, pelo menos, um minuto e não utilize valores instantâneas:
 
-![Cálculo de média](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
+![Cálculo de média](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

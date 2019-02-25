@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 2/20/2019
 ms.author: raiye
-ms.openlocfilehash: 76009115f855a840c81e79d0c864187c8410aa23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 063834af9b56e9959883c00bb58c70f0d333c455
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751519"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56588573"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Lançamentos de SO convidado do Azure e matriz de compatibilidade SDK
 Fornece a que com informações atualizadas sobre o SO convidado do Azure mais recentes versões para serviços em nuvem. Estas informações ajudam a planear o caminho de atualização antes de SO convidado está desabilitado. Se configurar as funções para utilizar *automática* conforme descrito em de atualizações de SO convidado [definições de atualização de SO de convidado do Azure][Azure Guest OS Update Settings], não é vital que leia esta página.
@@ -77,6 +77,15 @@ Lançou o SO de convidado de Julho.
 > [!NOTE]
 > O Windows Azure SDK para .NET - 3.0 pode ser baixado [aqui][Windows Azure SDK].
 >
+>Passos de instalação:
+>1. Desinstale as versões mais antigas do MicrosoftAzureAuthoringTools*.msi
+>2. Instalar o [Azure SDK para .NET - 3.0][Windows Azure SDK]
+>3. Reiniciar a máquina
+>4. Criar um novo projeto de serviço em nuvem e adicionar uma única função de trabalho
+>5. Altere a família de SO para 6 e criar um pacote
+>6. Implementar o pacote para o Azure com o portal do Azure ou o Visual Studio
+>
+
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
@@ -92,6 +101,7 @@ Lançou o SO de convidado de Julho.
 > [!NOTE]
 > A palavra-passe RDP para a família de SO 5 tem de ser um mínimo de 10 caracteres.
 >
+
 
 | Cadeia de configuração | Data da versão | Desativar data |
 | --- | --- | --- |
