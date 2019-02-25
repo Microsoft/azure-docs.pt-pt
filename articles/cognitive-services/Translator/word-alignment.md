@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/21/2019
 ms.author: v-jansko
 ms.custom: seodec18
-ms.openlocfilehash: ddb5e0f47a929e5b9bc47ab9e14e973f148dbe56
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bdb52e48b6a962c5b38e837f1e2bc0064539951e
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856296"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734596"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Como receber informações de alinhamento do word
 

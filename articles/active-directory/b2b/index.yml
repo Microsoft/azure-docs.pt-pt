@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5ec95e9f1f91c31620644d3bd66118ed89337228
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 15c1e8af5e6df658ea24ce357aeeee711eaf9279
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078565"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673499"
 documentType: LandingData
 title: Documentação do Azure Active Directory B2B
 metadata:
   document_id: 
-  title: Documentação do Azure Active Directory B2B - Tutoriais, inícios rápidos, conceitos, referências | Microsoft Docs
-  description: Saiba como utilizar o acesso do utilizador convidado B2B, para que possa partilhar recursos de forma segura e colaborar com parceiros externos.
+  title: Documentação do Azure Active Directory B2B| Microsoft Docs
+  description: Utilize os nossos tutoriais, inícios rápidos e guias de instruções para saber mais sobre como utilizar o acesso do utilizador convidado B2B para partilhar e colaborar com parceiros externos.
   services: active-directory
   ms.subservice: authentication
   author: msmimart
@@ -41,10 +41,12 @@ sections:
     style: icon48
     items:
     - image:
+        alt: 
         src: ./media/index/i_security-management.png
       text: Adicionar utilizadores convidados no portal do Azure
       href: b2b-quickstart-add-guest-users-portal.md
     - image:
+        alt: 
         src: ./media/index/i_security-management.png
       text: Adicionar um utilizador convidado com o PowerShell
       href: b2b-quickstart-invite-powershell.md

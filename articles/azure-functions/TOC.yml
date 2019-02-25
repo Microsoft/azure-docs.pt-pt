@@ -73,7 +73,19 @@ items:
   - name: Dimensionamento e alojamento
     href: functions-scale.md
   - name: Acionadores e enlaces
-    href: functions-triggers-bindings.md
+    items:
+    - name: Sobre acionadores e enlaces
+      href: functions-triggers-bindings.md
+    - name: Exemplo de enlace
+      href: functions-bindings-example.md
+    - name: Registar as extensões de enlace
+      href: functions-bindings-register.md
+    - name: Padrões de expressão de enlace
+      href: functions-bindings-expressions-patterns.md
+    - name: Utilizar valores de retorno de enlace
+      href: functions-bindings-return-value.md
+    - name: Lidar com erros de enlace
+      href: functions-bindings-errors.md
   - name: Linguagens
     items:
     - name: Linguagens suportadas
@@ -275,9 +287,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 88a0dc35c7a1d3836c21d237bc7a5b3c98555aec
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 5f2fee7c298b505977742fd105fe6227fa2c2946
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983581"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56734613"

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
 ms.openlocfilehash: e83ff9f3bf02a134919d497662744028e1b9acda
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
+ms.lasthandoff: 02/22/2019
 ms.locfileid: "56343022"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Políticas de segurança do Azure monitorizadas pelo centro de segurança do Azure

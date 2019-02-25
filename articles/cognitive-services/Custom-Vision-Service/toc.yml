@@ -25,6 +25,12 @@ items:
       href: java-tutorial.md
     - name: Deteção de objetos
       href: java-tutorial-od.md
+  - name: Utilizar o SDK Node.js
+    items:
+    - name: Classificação de imagens
+      href: node-tutorial.md
+    - name: Deteção de objetos
+      href: node-tutorial-object-detection.md
 - name: Tutoriais
   items:
   - name: Detetor de logótipo para dispositivos móveis
@@ -87,9 +93,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Notas de Versão
     href: release-notes.md
-ms.openlocfilehash: 963500c7df4cd3de39f23ce9e620893089050125
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 1a98bec35cf86f1d1edef33781cb053a8843b5c9
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652200"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749873"

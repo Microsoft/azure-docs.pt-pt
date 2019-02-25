@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8762449fbc9254bd3dc6548e74234e1f34c00355
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 086a425be743772b6419a9473ad497a310d94842
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770338"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671952"
 documentType: LandingData
 title: Documentação do Azure Database Migration Service
 metadata:
@@ -53,9 +53,11 @@ sections:
     - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS</a>
     - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">Migrar o SQL Server para a Instância Gerida da Base de Dados SQL do Azure offline com o DMS</a>
     - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Migrar o SQL Server para a Instância Gerida da Base de Dados Azure SQL online com o DMS</a>
+    - html: <a href="/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online">Migrar o SQL Server de RDS para a Instância Gerida da Base de Dados SQL do Azure online ou para a Base de Dados SQL do Azure com o DMS</a>
     - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS</a>
     - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS</a>
     - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db">Migrar o MongoDB para a API Mongo do Azure Cosmos DB offline com o DMS</a>
+    - html: <a href="/azure/dms/tutorial-mongodb-cosmos-db-online">Migrar o MongoDB para a API Mongo do Azure Cosmos DB online com o DMS</a>
 - title: Amostras
   items:
   - type: list

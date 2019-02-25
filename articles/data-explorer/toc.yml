@@ -85,6 +85,8 @@ items:
       href: kqlmagic.md
     - name: Visualizar dados no Grafana
       href: grafana.md
+    - name: Entrar em contacto com o ODBC
+      href: connect-odbc.md
   - name: Resolução de problemas
     items:
     - name: Criar um cluster
@@ -125,9 +127,9 @@ items:
     href: http://aka.ms/adecostestimator
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 81cb1615178ed984138986eb22aa2cb24cfc21b0
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 8f9d139b7773c45ff4554ab0f58663e1fad03af9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417164"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56730125"

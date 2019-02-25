@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: 7f1a1bd22ecd0b0a7ab64e639683ae316742c5f0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f2f11abcb3290e1d9459c26167706abc79c1b7fa
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563988"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56670337"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações push com Notification Hubs do Azure: Perguntas mais frequentes
 
@@ -209,8 +209,6 @@ Do Azure de Hubs de notificação de permite ver dados de telemetria na [portal 
 > [!NOTE]
 > Notificações com êxito significam simplesmente que as notificações push tem sido disponibilizadas para o PNS externo (por exemplo, o APNS da Apple) ou FCM para o Google. É da responsabilidade do PNS para entregar as notificações para dispositivos de destino. Normalmente, o PNS não expõe as métricas de entrega a terceiros.  
 
-Também fornecemos a capacidade de exportar os dados de telemetria por meio de programação (no escalão Standard). Para obter detalhes, consulte a [exemplo de métricas de Hubs de notificação].
-
 [Portal do Azure]: https://portal.azure.com
 [Preços dos Hubs de notificação]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
@@ -229,7 +227,6 @@ Também fornecemos a capacidade de exportar os dados de telemetria por meio de p
 [Tutorial de proteger o Push dos Hubs de notificação]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Hubs de notificação de resolução de problemas]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Métricas de Hubs de notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Exemplo de métricas de Hubs de notificação]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Exportação/importação de registos]: https://msdn.microsoft.com/library/dn790624.aspx
 [Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

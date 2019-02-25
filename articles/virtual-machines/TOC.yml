@@ -13,6 +13,8 @@ items:
     href: workloads/oracle/oracle-considerations.md
   - name: SAP
     href: workloads/sap/get-started.md
+  - name: Realojamento de mainframe
+    href: workloads/mainframe-rehosting/overview.md
 - name: Implementações clássicas
   items:
   - name: VMs do Linux com implementação clássica
@@ -21,15 +23,15 @@ items:
     href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
 - name: Recursos
   items:
-  - name: Desenvolva as suas capacidades com o Microsoft Learn
+  - name: Desenvolva as suas competências com o Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Calculadora de preços
     href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 25155f7bbb64ba8e18cc7a18265e29f936fe2479
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7f253c1ed2b4910e18acd65367cd8e0e10574c0d
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994484"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737761"

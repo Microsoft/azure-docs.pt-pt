@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 7fbf157152bd5c2c35c496b1fd8e707884d0f3da
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063665"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731468"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Inicialização VM do Azure está bloqueada nos Windows update
 
@@ -27,7 +27,7 @@ Este artigo ajuda a resolver o problema quando a Máquina Virtual (VM) está blo
 > [!NOTE] 
 > O Azure tem dois modelos de implementação diferentes para criar e trabalhar com recursos: [Resource Manager e clássica](../../azure-resource-manager/resource-manager-deployment-model.md). Este artigo explica como utilizar o modelo de implementação do Resource Manager. Recomendamos que utilize este modelo para novas implementações em vez de usar o modelo de implementação clássica.
 
- ## <a name="symptom"></a>Sintoma
+## <a name="symptom"></a>Sintoma
 
  Uma VM do Windows não iniciar. Quando dá entrada as capturas de ecrã do [diagnósticos de arranque](../troubleshooting/boot-diagnostics.md) janela, verá que o arranque fica preso no processo de atualização. Seguem-se exemplos de mensagens que possa receber:
 

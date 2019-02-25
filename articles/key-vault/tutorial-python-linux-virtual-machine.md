@@ -1,6 +1,6 @@
 ---
-title: Tutorial – utilizar o Azure Key Vault com uma máquina virtual do Azure em Python | Documentos da Microsoft
-description: Este tutorial, irá configurar uma aplicação Python ao ler um segredo a partir de um cofre de chaves
+title: Tutorial - utilizar uma máquina virtual Linux e uma aplicação Python para armazenar segredos no Azure Key Vault | Documentos da Microsoft
+description: Neste tutorial, saiba como configurar uma aplicação Python ao ler um segredo do Cofre de chaves do Azure.
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -12,98 +12,97 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 1e364003093d5e37a75830386cafe855b0bdcad2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b7077653ec959f99491cecd71573c091772448f4
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467406"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749635"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-virtual-machine-in-python"></a>Tutorial: Utilizar o Azure Key Vault com uma máquina virtual do Azure em Python
+# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Utilizar uma VM do Linux e uma aplicação de Python para armazenar segredos no Azure Key Vault
 
 O Azure Key Vault ajuda a proteger segredos, como as chaves de API e as cadeias de ligação necessárias para acessar seus aplicativos, serviços e recursos de TI de base de dados.
 
-Neste tutorial, siga os passos para obter uma aplicação web do Azure para ler as informações do Azure Key Vault através de identidades geridas para recursos do Azure. Saiba como:
+Neste tutorial, vai configurar uma aplicação web do Azure para ler as informações do Azure Key Vault através de identidades geridas para recursos do Azure. Saiba como:
 
 > [!div class="checklist"]
-> * Criar um cofre de chaves.
-> * Armazene um segredo no cofre de chaves.
-> * Crie uma máquina virtual do Azure.
-> * Ativar uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para a máquina virtual.
-> * Conceda as permissões necessárias para a aplicação de consola para ler dados a partir do Cofre de chaves.
-> * Obter um segredo do cofre de chaves.
+> * Criar um cofre de chaves
+> * Store um segredo no Cofre de chaves
+> * Criar uma Máquina Virtual do Linux
+> * Ativar uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para a máquina virtual
+> * Conceder as permissões necessárias para a aplicação de consola para ler dados a partir do Cofre de chaves
+> * Obter um segredo a partir do seu Cofre de chaves
 
-Antes de prosseguir, leia os [conceitos básicos sobre o Key Vault](key-vault-whatis.md#basic-concepts).
+Antes de prosseguir, certifique-se de que compreende os [conceitos básicos sobre o Key Vault](key-vault-whatis.md#basic-concepts).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para todas as plataformas, terá de:
 
-* Git ([transferir](https://git-scm.com/downloads)).
+* [Git](https://git-scm.com/downloads).
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-* [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versão 2.0.4 ou posterior. Está disponível para Windows, Mac e Linux.
+* [CLI do Azure versão 2.0.4 ou posterior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou o Azure Cloud Shell.
 
-### <a name="managed-service-identity-and-how-it-works"></a>Identidade de serviço gerida e como funciona
-Este tutorial faz uso de identidade de serviço gerida (MSI).
+[!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
-O Azure Key Vault pode armazenar credenciais em segurança, para que eles não estão no seu código. Para recuperá-los, tem de autenticar para o Key Vault. Para autenticar para o Key Vault, precisa de uma credencial. Isso é um problema de bootstrap clássico. Através do Azure e Azure Active Directory (Azure AD), o MSI fornece uma "identidade bootstrap" que torna mais simples de dar início ao processo.
+## <a name="understand-managed-service-identity"></a>Compreender a identidade do serviço gerido
 
-Quando ativar o MSI para um serviço do Azure como máquinas virtuais, o serviço de aplicações ou funções, o Azure cria um [principal de serviço](key-vault-whatis.md#basic-concepts) para a instância do serviço no Azure AD. Azure injeta as credenciais do principal de serviço para a instância do serviço. 
+O Azure Key Vault pode armazenar credenciais em segurança, para que eles não estão no seu código. Para recuperá-los, tem de autenticar para o Azure Key Vault. No entanto, para autenticar para o Key Vault, terá uma credencial. É um problema de bootstrap clássico. Através do Azure e Azure Active Directory (Azure AD), a identidade de serviço gerida (MSI) fornece uma identidade de arranque de configuração que torna mais simples de dar início ao processo.
+
+Quando ativar o MSI para um serviço do Azure como máquinas virtuais, o serviço de aplicações ou funções, o Azure cria um serviço principal para a instância do serviço no Azure AD. Ele injeta as credenciais do principal de serviço para a instância do serviço.
 
 ![MSI](media/MSI.png)
 
-Em seguida, o seu código chama um serviço de metadados local que está disponível no recurso do Azure para obter um token de acesso.
-O código utiliza o token de acesso que obtém a partir do ponto de final MSI local para autenticar a um serviço do Azure Key Vault. 
+Em seguida, o seu código chama um serviço de metadados locais disponível no recurso do Azure para obter um token de acesso. O código utiliza o token de acesso que obtém a partir do ponto de final MSI local para autenticar a um serviço do Azure Key Vault.
 
-## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Para iniciar sessão no Azure com a CLI do Azure, introduza:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
+Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-Selecione um nome do grupo de recursos e preencha o marcador de posição.
-O exemplo seguinte cria um grupo de recursos na localização E.U.A Oeste:
+Criar um grupo de recursos com o `az group create` comando na localização E.U.A. oeste com o código a seguir. Substitua `YourResourceGroupName` com um nome à sua escolha.
 
-```azurecli
+```azurecli-interactive
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-O grupo de recursos que acabou de criar é utilizado ao longo deste artigo.
+Utilize este grupo de recursos ao longo do tutorial.
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
-A seguir, vai criar um cofre de chaves no grupo de recursos criado no passo anterior. Forneça as seguintes informações:
+Em seguida, cria um cofre de chaves no grupo de recursos que criou no passo anterior. Forneça as seguintes informações:
 
 * Nome do Cofre de chaves: O nome tem de ser uma cadeia de caracteres de 3 a 24 carateres e tem de conter apenas 0-9, a-z, A-Z e hífenes (-).
 * Nome do grupo de recursos.
 * Localização: **Oeste dos E.U.A.**.
 
-```azurecli
+```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
+
 Nesta altura, a sua conta do Azure é a única autorizada a realizar quaisquer operações neste novo cofre.
 
 ## <a name="add-a-secret-to-the-key-vault"></a>Adicionar um segredo ao cofre de chaves
 
-Estamos a adicionar um segredo para ajudar a ilustrar a forma como isto funciona. Pode armazenar uma cadeia de ligação do SQL ou outras informações que precise de manter em segurança, mas mantenha disponível para a sua aplicação.
+Estamos a adicionar um segredo para ajudar a ilustrar a forma como isto funciona. Convém armazenar uma cadeia de ligação de SQL ou outras informações que tem de ser ambos mantidos seguros e disponíveis para a aplicação.
 
 Escreva os seguintes comandos para criar um segredo no cofre de chaves designado *AppSecret*. Este segredo irá armazenar o valor **MySecret**.
 
-```azurecli
+```azurecli-interactive
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
-## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+## <a name="create-a-linux-virtual-machine"></a>Criar uma Máquina Virtual do Linux
 
-Criar uma VM com o [az vm criar](/cli/azure/vm) comando.
+Criar uma VM com o `az vm create` comando.
 
-O seguinte exemplo cria uma VM com o nome *myVM* e adiciona uma conta de utilizador com o nome *azureuser*. O `--generate-ssh-keys` parâmetro automaticamente gera uma chave SSH e coloca-o na localização predefinida da chave (*~/.ssh*). Para utilizar um conjunto específico de chaves em vez disso, utilize a opção `--ssh-key-value`.
+O seguinte exemplo cria uma VM com o nome **myVM** e adiciona uma conta de utilizador com o nome **azureuser**. O `--generate-ssh-keys` parâmetro automaticamente gera uma chave SSH e coloca-o na localização predefinida da chave (**~/.ssh**). Para criar um conjunto específico de chaves em vez disso, utilize o `--ssh-key-value` opção.
 
 ```azurecli-interactive
 az vm create \
@@ -116,7 +115,7 @@ az vm create \
 
 São necessários alguns minutos para criar a VM e os recursos de suporte. O resultado de exemplo seguinte mostra que a criação de VM foi concluída com êxito:
 
-```
+```azurecli
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -129,71 +128,97 @@ São necessários alguns minutos para criar a VM e os recursos de suporte. O res
 }
 ```
 
-Tenha em atenção o seu `publicIpAddress` valor na saída da VM. Este endereço é utilizado para aceder à VM nos próximos passos.
+Tome nota do seu próprio `publicIpAddress` na saída da VM. Utilizará este endereço para aceder à VM em passos posteriores.
 
-## <a name="assign-an-identity-to-the-virtual-machine"></a>Atribuir uma identidade para a máquina virtual
-Neste passo, estamos criando uma identidade atribuída de sistema para a máquina virtual. Execute o seguinte comando na CLI do Azure:
+## <a name="assign-an-identity-to-the-vm"></a>Atribuir uma identidade para a VM
 
-```
+Crie uma identidade do sistema atribuídos à máquina virtual ao executar o seguinte comando:
+
+```azurecli-interactive
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Segue-se a saída do comando. Tenha em atenção o valor de **systemAssignedIdentity**. 
+Segue-se a saída do comando.
 
-```
+```azurecli
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
 }
 ```
 
-## <a name="give-the-virtual-machine-identity-permission-to-the-key-vault"></a>Conceder a permissão de identidade da máquina virtual para o Cofre de chaves
-Agora podemos dar a permissão de identidade para o Cofre de chaves. Execute o seguinte comando:
+Anote o `systemAssignedIdentity`. Utilize o passo seguinte.
 
-```
+## <a name="give-the-vm-identity-permission-to-key-vault"></a>Conceder a permissão de identidade VM para o Key Vault
+
+Agora pode dar permissão de Key Vault para a identidade que criou. Execute o seguinte comando:
+
+```azurecli-interactive
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="log-in-to-the-virtual-machine"></a>Inicie sessão na máquina virtual
+## <a name="log-in-to-the-vm"></a>Iniciar sessão VM
 
-Inicie sessão na máquina virtual ao seguir [deste tutorial](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+Inicie sessão na máquina virtual com um terminal.
 
-## <a name="create-and-run-the-sample-python-app"></a>Criar e executar a aplicação de Python de exemplo
-
-O ficheiro de exemplo seguinte é denominado *Sample.py*. Ele usa o [pedidos](https://pypi.org/project/requests/2.7.0/) biblioteca para fazer chamadas HTTP GET.
-
-## <a name="edit-samplepy"></a>Editar Sample.py
-Depois de criar Sample.py, abra o ficheiro e copie o seguinte código. O código é um processo de dois passos: 
-1. Obter um token a partir do ponto de final MSI local na VM. O ponto final, em seguida, obtém um token do Azure Active Directory.
-2. Transmitir o token para o Cofre de chaves e obter o seu segredo. 
-
-```
-    # importing the requests library 
-    import requests 
-
-    # Step 1: Fetch an access token from an MSI-enabled Azure resource      
-    # Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
-    MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
-    r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
-      
-    # Extracting data in JSON format 
-    # This request gets an access token from Azure Active Directory by using the local MSI endpoint
-    data = r.json() 
-    
-    # Step 2: Pass the access token received from the previous HTTP GET call to the key vault
-    KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
-    kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
-    
-    print(kvSecret.json()["value"])
+```terminal
+ssh azureuser@<PublicIpAddress>
 ```
 
-Ao executar o seguinte comando, deverá ver o valor secreto: 
+## <a name="install-python-library-on-the-vm"></a>Instalar a biblioteca de Python na VM
 
+Transferir e instalar o [pedidos](https://pypi.org/project/requests/2.7.0/) biblioteca de Python para fazer chamadas HTTP GET.
+
+## <a name="create-edit-and-run-the-sample-python-app"></a>Criar, editar e executar a aplicação de Python de exemplo
+
+Crie um ficheiro Python denominado **Sample.py**.
+
+Abra Sample.py e editá-lo para conter o seguinte código:
+
+```python
+# importing the requests library
+  import requests
+  
+# Step 1: Fetch an access token from an MSI-enabled Azure resource      
+  # Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
+  MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
+  r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
+
+# Extracting data in JSON format 
+  # This request gets an access token from Azure Active Directory by using the local MSI endpoint
+  data = r.json()
+
+# Step 2: Pass the access token received from the previous HTTP GET call to the key vault
+  KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
+  kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
+
+print(kvSecret.json()["value"])
 ```
+
+O código anterior executa um processo de dois passos:
+
+   1. Obtém um token a partir do ponto de final MSI local na VM. O ponto final, em seguida, obtém um token do Azure Active Directory.
+   1. Transmite o token para o Cofre de chaves e obtém seu segredo.
+
+Execute o seguinte comando. Deverá ver o valor secreto.
+
+```console
 python Sample.py
 ```
 
-O código anterior mostra como fazer operações com o Azure Key Vault numa máquina virtual do Windows. 
+Neste tutorial, aprendeu a utilizar o Azure Key Vault com uma aplicação de Python em execução numa máquina virtual Linux.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando já não precisar, elimine o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a VM e selecione **eliminar**.
+
+Eliminar o Cofre de chaves utilizando o `az keyvault delete` comando:
+
+```azurecli-interactive
+az keyvault delete --name
+                   [--resource-group]
+                   [--subscription]
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

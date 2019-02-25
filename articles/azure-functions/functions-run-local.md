@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: a16b9126bb2d5a5daa382417a413c8ceba0cea9a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b6b8db03c8aa5dd05dcc6f430fbaca5e4f1bf3bc
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649537"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729071"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -156,7 +156,7 @@ Na versão 2.x do runtime das funções do Azure, precisa registrar explicitamen
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
-Para obter mais informações, consulte [acionadores de funções do Azure e conceitos de enlaces](functions-triggers-bindings.md#register-binding-extensions).
+Para obter mais informações, consulte [acionadores de funções do Azure e conceitos de enlaces](./functions-bindings-expressions-patterns.md).
 
 ## <a name="local-settings-file"></a>Ficheiro de definições locais
 

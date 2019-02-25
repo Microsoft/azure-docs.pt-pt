@@ -1,5 +1,5 @@
 ---
-title: Os Hubs de notificação do Azure removido o diagnóstico de notificação
+title: Os Hubs de notificação do Azure - diagnosticar notificações removidas
 description: Saiba como diagnosticar problemas comuns com notificações ignoradas nos Hubs de notificação do Azure.
 services: notification-hubs
 documentationcenter: Mobile
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4419b68a0005ff6e0b5e46f22fba918699f3ba4f
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447722"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56672207"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>Diagnosticar notificações ignoradas nos Hubs de notificação
+# <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Os Hubs de notificação do Azure - diagnosticar notificações removidas
 
 Uma das perguntas mais comuns de clientes de Notification Hubs do Azure é como resolver problemas ao notificações que são enviadas a partir de um aplicativo não aparecem nos dispositivos cliente. Elas querem saber onde e por que as notificações foram removidas e como corrigir o problema. Este artigo identifica a razão pela qual as notificações podem desconectadas ou não ser recebidas por dispositivos. Saiba como analisar e determinar a causa raiz.
 
@@ -246,10 +246,7 @@ No portal, pode obter uma visão geral de toda a atividade do seu hub de notific
 
 * **Acesso programático**
 
-Para obter mais informações sobre o acesso programático, veja estes artigos:
-
-* [Acesso programático telemetria]  
-* [Acesso de telemetria através do exemplo APIs]
+Para obter mais informações sobre o acesso programático, consulte [acesso programático telemetria]
 
 > [!NOTE]
 > Várias funcionalidades relacionadas com a telemetria, como a exportação e importação de registos e acesso de telemetria através de APIs, estão disponíveis apenas no escalão de serviço Standard. Se tentar usar esses recursos do gratuito ou básico de camada de serviço, receber uma mensagem de exceção, se utilizar o SDK e um erro HTTP 403 (proibido) se usar os recursos diretamente a partir de REST APIs.
@@ -282,4 +279,3 @@ Para obter mais informações sobre o acesso programático, veja estes artigos:
 [Apresentamos o lançamento do Visual Studio 2013 Update 3 e o Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Acesso programático telemetria]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[Acesso de telemetria através do exemplo APIs]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel

@@ -1,0 +1,35 @@
+items:
+- name: Realojamento de mainframe
+  items:
+  - name: Descrição geral
+    items:
+    - name: Introdução
+      href: overview.md
+    - name: Cargas de trabalho
+      href: partner-workloads.md
+  - name: Micro Focus
+    items:
+    - name: Introdução
+      href: /microfocus/get-started.md
+    - name: Instalar o Micro Focus Enterprise Server
+      href: /microfocus/set-up-micro-focus-on-azure.md
+    - name: Demonstração
+      href: /microfocus/demo.md
+  - name: OpenFrame da TmaxSoft
+    href: https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/
+  - name: IBM
+    items:
+    - name: Introdução
+      href: /ibm/get-started.md
+    - name: Instalar o IBM zD&T
+      href: /ibm/install-ibm-z-environment.md
+    - name: Configurar ADCD no zD&T
+      href: /ibm/demo.md
+    - name: IBM Db2 pureScale
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure
+ms.openlocfilehash: 846fd60edafb23d6d3a023331cb74ca7aebc3a2f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56739417"
