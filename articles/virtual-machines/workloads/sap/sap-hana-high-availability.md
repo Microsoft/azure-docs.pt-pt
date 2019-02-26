@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: aca5b1613a6500b3aeca1a7074cabdce50023510
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 0f5de24d42ccc930a4746251b9f466f241c3508e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789505"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806713"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no SUSE Linux Enterprise Server
 
@@ -45,7 +45,7 @@ ms.locfileid: "53789505"
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
 [template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
 
 Para o desenvolvimento no local, pode utilizar qualquer um dos HANA System Replication ou utilizar o armazenamento partilhado para estabelecer a elevada disponibilidade para SAP HANA.
 Nas máquinas virtuais do Azure (VMs), HANA System Replication no Azure está atualmente que a única função de elevada disponibilidade de suporte. SAP HANA replicação consiste num nó primário e pelo menos um nó secundário. As alterações dos dados no nó principal são replicadas para o nó secundário de forma síncrona ou assíncrona.
@@ -88,7 +88,7 @@ Utiliza a configuração do SAP HANA System Replication endereços um nome de an
 
 * Configuração de front-end: Endereço IP 10.0.0.13 para hn1-db
 * Configuração de back-end: Ligado a interfaces de rede primário de todas as máquinas virtuais que devem fazer parte do HANA System Replication
-* Porta de pesquisa: Porta 62503
+* Porta de pesquisa: Port 62503
 * Regras de balanceamento de carga: 30313 TCP, 30315 TCP, 30317 TCP
 
 ## <a name="deploy-for-linux"></a>Implementar para Linux
@@ -201,9 +201,9 @@ Siga os passos em [Pacemaker no SUSE Linux Enterprise Server no Azure a configur
 ## <a name="install-sap-hana"></a>Instalar o SAP HANA
 
 Os passos nesta secção, utilize os prefixos seguintes:
-- **[A]** : A etapa se aplica a todos os nós.
-- **[1]** : A etapa se aplica ao nó 1 apenas.
-- **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+- **[A]**: A etapa se aplica a todos os nós.
+- **[1]**: A etapa se aplica ao nó 1 apenas.
+- **[2]**: A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[A]**  Configurar o layout de disco: **Gestor de volumes lógicos (LVM)**.
 
@@ -316,8 +316,8 @@ Os passos nesta secção, utilize os prefixos seguintes:
 Para instalar o SAP HANA System Replication, siga o capítulo 4 o [Guia do cenário de otimização de desempenho do SAP HANA SR](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
 
 1. **[A]**  Executar o **hdblcm** programa a partir do DVD do HANA. Introduza os seguintes valores na linha de comandos:
-   * Escolha a instalação: Introduza **1**.
-   * Selecione os componentes adicionais para a instalação: Introduza **1**.
+   * Escolha a instalação: Enter **1**.
+   * Selecione os componentes adicionais para a instalação: Enter **1**.
    * Introduza o caminho de instalação [/ hana/partilhado]: Selecione introduzir.
    * Introduza o nome de anfitrião Local [.]: Selecione introduzir.
    * Deseja adicionar anfitriões adicionais no sistema? (y/n) [n]: Selecione introduzir.
@@ -353,9 +353,9 @@ Para instalar o SAP HANA System Replication, siga o capítulo 4 o [Guia do cená
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]** : A etapa se aplica a todos os nós.
-* **[1]** : A etapa se aplica ao nó 1 apenas.
-* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[A]**: A etapa se aplica a todos os nós.
+* **[1]**: A etapa se aplica ao nó 1 apenas.
+* **[2]**: A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[1]**  Criar a base de dados do inquilino.
 
@@ -398,9 +398,9 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]** : A etapa se aplica a todos os nós.
-* **[1]** : A etapa se aplica ao nó 1 apenas.
-* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[A]**: A etapa se aplica a todos os nós.
+* **[1]**: A etapa se aplica ao nó 1 apenas.
+* **[2]**: A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[1]**  Criar usuários necessários.
 

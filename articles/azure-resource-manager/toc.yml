@@ -105,22 +105,14 @@ items:
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Implementar modelos
     items:
-    - name: Implementar com o portal do Azure
+    - name: Implementar - portal
       href: resource-group-template-deploy-portal.md
-    - name: Implementar com a CLI do Azure
+    - name: Implementar - CLI
       href: resource-group-template-deploy-cli.md
-    - name: Implementar com o Azure PowerShell
+    - name: Implementar - PowerShell
       href: resource-group-template-deploy.md
     - name: Implementar com a API REST
       href: resource-group-template-deploy-rest.md
-    - name: Exportar modelos
-      items:
-      - name: Utilizar o portal
-        href: resource-manager-export-template.md
-      - name: Utilizar a CLI do Azure
-        href: resource-manager-export-template-cli.md
-      - name: Utilizar o Azure PowerShell
-        href: resource-manager-export-template-powershell.md
     - name: Proteger os modelos com o token de SAS
       items:
       - name: Utilizar a CLI do Azure
@@ -134,12 +126,28 @@ items:
       maintainContext: true
   - name: Gerir recursos
     items:
-    - name: Gerir com o portal do Azure
-      href: resource-group-portal.md
-    - name: Gerir com o Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: Gerir com a CLI do Azure
-      href: cli-azure-resource-manager.md
+    - name: Gerir grupos de recursos
+      items:
+      - name: Gerir grupos de recursos - portal
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-portal.md
+      - name: Gerir grupos de recursos - CLI
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-cli.md
+      - name: Gerir grupos de recursos - PowerShell
+        displayName: create,list,open,delete,deploy,move,lock,tag,export
+        href: manage-resource-groups-powershell.md
+    - name: Gerir recursos
+      items:
+      - name: Gerir recursos - portal
+        displayName: open,delete,deploy,move,lock,tag,monitor
+        href: manage-resources-portal.md
+      - name: Gerir recursos - CLI
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-cli.md
+      - name: Gerir recursos - PowerShell
+        displayName: open,delete,deploy,move,lock,tag
+        href: manage-resources-powershell.md
     - name: Mover recursos
       href: resource-group-move-resources.md
     - name: Organizar recursos com etiquetas
@@ -251,9 +259,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 44ba1f922400b9e61d9c40f849b8cb923ef75ddf
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1483d34859135d7b50bada6c74c90d09abc2df23
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301949"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820540"

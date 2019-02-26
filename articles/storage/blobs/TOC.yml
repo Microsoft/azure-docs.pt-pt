@@ -293,7 +293,7 @@ items:
       items:
       - name: Autenticar com o Azure AD
         items:
-        - name: Gerir direitos de acesso com RBAC
+        - name: Gerir os direitos de acesso no portal do Azure com RBAC
           href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Autenticar a partir de uma aplicação
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -613,9 +613,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: Vídeos
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: 6264c175c38c767e4e81ce70042c0d0c4ce2d89b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: d9e38d2ea09057e6156f0506b74e78b0f23bdba3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963221"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56824084"

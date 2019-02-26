@@ -97,9 +97,11 @@ items:
       href: howto-administer.md
     - name: Preparar e carregar imagem
       href: howto-prepare-images.md
-    - name: Gerir o IoT Central a partir do Portal de Gestão do Azure
+    - name: Gerir a partir do portal do Azure
       href: howto-manage-iot-central-from-portal.md
-    - name: Gerir o IoT Central a partir do Azure PowerShell
+    - name: Gerir a partir da CLI do Azure
+      href: howto-manage-iot-central-from-cli.md
+    - name: Gerir a partir do Azure PowerShell
       href: howto-manage-iot-central-from-powershell.md
     - name: Criar e gerir uma aplicação como CSP
       href: howto-create-and-manage-applications-as-CSP.md
@@ -141,9 +143,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Browsers suportados
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 3952573268a93bd33f54ec0c533dd15e2ce19ef3
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 95702f9255bfe02aec5c5770d06021aa3b28148c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657574"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806883"

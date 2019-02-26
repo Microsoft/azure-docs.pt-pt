@@ -131,7 +131,7 @@ items:
       href: deploy-container-networking.md
     - name: Máquinas virtuais
       items:
-      - name: Criar uma VM com um endereço IP público estático
+      - name: Criar VM - endereço IP público estático
         items:
         - name: Portal do Azure
           href: virtual-network-deploy-static-pip-arm-portal.md
@@ -139,6 +139,8 @@ items:
           href: virtual-network-deploy-static-pip-arm-ps.md
         - name: CLI do Azure
           href: virtual-network-deploy-static-pip-arm-cli.md
+      - name: Adicionar endereço IP público à VM existente
+        href: associate-public-ip-address-vm.md
       - name: Criar VM - endereço IP privado estático
         items:
         - name: Portal do Azure
@@ -364,9 +366,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
     href: virtual-networks-faq.md
-ms.openlocfilehash: 42aca03869443ea240fb86279509b7345cd9549a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1b795c794e40c8933e1f4e24ac0f52598e8206d7
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228717"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805346"

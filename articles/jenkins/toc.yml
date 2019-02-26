@@ -30,6 +30,8 @@ items:
     maintainContext: true
   - name: Implementar para o AKS com o padrão azul/verde
     href: /azure/jenkins/jenkins-aks-blue-green-deployment
+  - name: Implementar para as Funções do Azure
+    href: ./jenkins-azure-functions-deploy.md
 - name: Procedimentos
   items:
   - name: Proteger o Jenkins no Azure
@@ -79,9 +81,9 @@ items:
   - name: Arquitetura do Jenkins
     href: /azure/architecture/reference-architectures/jenkins/
     maintainContext: true
-ms.openlocfilehash: df79159ea01d0268fdba198353cc0d36dafbdce6
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 4d6b7848d1eab5da3baa04f72add5f97256498b1
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853953"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819633"

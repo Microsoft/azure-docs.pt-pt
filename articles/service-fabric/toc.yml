@@ -666,7 +666,7 @@ items:
           href: service-fabric-cluster-security-roles.md
         - name: Aplicar o patch em nós de cluster (Windows)
           href: service-fabric-patch-orchestration-application.md
-    - name: Visualizar um cluster
+    - name: Visualizar com o Service Fabric Explorer
       href: service-fabric-visualizing-your-cluster.md
     - name: Ligar a um cluster seguro
       href: service-fabric-connect-to-secure-cluster.md
@@ -837,9 +837,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: c036435895366ebdb9b07de20cc8f85c39aab3ea
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 2478cb35cb0981848009febe382fddf3371887ce
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454638"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823387"

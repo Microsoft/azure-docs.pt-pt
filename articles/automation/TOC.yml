@@ -172,7 +172,7 @@ items:
     - name: Implementação contínua com o Chocolatey
       displayName: dsc, state configuration
       href: automation-dsc-cd-chocolatey.md
-    - name: Reencaminhar a comunicação de dados da Configuração de Estado para o Log Analytics
+    - name: Reencaminhar a comunicação de dados da Configuração de Estado para os registos do Azure Monitor
       displayName: DSC
       href: automation-dsc-diagnostics.md
   - name: Gerir recursos partilhados
@@ -210,7 +210,7 @@ items:
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
   - name: Monitorizar
     items:
-    - name: Reencaminhar dados de tarefa da Automatização do Azure para o Log Analytics
+    - name: Reencaminhar dados de tarefa da Automatização do Azure para os registos do Azure Monitor
       href: automation-manage-send-joblogs-log-analytics.md
   - name: Migrar
     items:
@@ -285,9 +285,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: e35c51bb1d82f2c5eda708ab8bce71c2bf5b69b7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 01c80ffb961cf868d02b067402b7a168801ce88f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417028"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819195"

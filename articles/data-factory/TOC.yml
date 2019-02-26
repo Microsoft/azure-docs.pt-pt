@@ -332,7 +332,7 @@ items:
       href: connector-xero.md
     - name: Zoho
       href: connector-zoho.md
-  - name: Copiar dados
+  - name: Mover dados
     items:
     - name: Copiar dados através da Atividade de Cópia
       href: copy-activity-overview.md
@@ -398,6 +398,8 @@ items:
       href: control-flow-append-variable-activity.md
     - name: Atividade da Função do Azure
       href: control-flow-azure-function-activity.md
+    - name: Executar a atividade do Fluxo de Dados
+      href: control-flow-execute-data-flow-activity.md
     - name: Executar a Atividade do Pipeline
       href: control-flow-execute-pipeline-activity.md
     - name: Filtrar Atividade
@@ -574,9 +576,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 418ec3c9936ae804ab0791720c6607c69fa91cbe
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 077f25adefed6cea2e71d5447149184d3b13a845
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672344"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807274"
