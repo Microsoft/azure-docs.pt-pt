@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ab5ec4e61649f7c9a705759a69d335260bfdc75
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c296ed4011b874eb9b5635735d46b3f63a79a2be
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750825"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807563"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações de fornecedor de recursos do Azure Resource Manager
 
@@ -681,30 +681,30 @@ As operações de fornecedor de recursos estão sempre a evoluir. Para obter as 
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo de Acção | Operação | Descrição |
 > | --- | --- | --- |
-> | Ação | Microsoft.Cache/checknameavailability/action | Verifica se um nome está disponível para utilização com uma nova Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/checknameavailability/action | Verifica se um nome está disponível para utilização com uma nova Cache de Redis |
 > | Ação | Microsoft.Cache/locations/operationresults/read | Obtém o resultado de uma operação de longa duração da qual o cabeçalho "Localização" foi devolvido anteriormente ao cliente |
 > | Ação | Microsoft.Cache/operations/read | Lista as operações que o fornecedor "Microsoft.Cache" suporta. |
-> | Ação | Microsoft.Cache/redis/delete | Eliminar todo o Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/delete | Eliminar a Cache de Redis completa |
 > | Ação | Microsoft.Cache/redis/export/action | Exportar dados Redis para os blobs de armazenamento com prefixo no formato especificado |
-> | Ação | Microsoft.Cache/redis/firewallRules/delete | Eliminar regras de firewall do IP de uma Cache do Azure para Redis |
-> | Ação | Microsoft.Cache/redis/firewallRules/read | Obter as regras de firewall do IP de uma Cache do Azure para Redis |
-> | Ação | Microsoft.Cache/redis/firewallRules/write | Editar as regras de firewall do IP de uma Cache do Azure para Redis |
+> | Ação | Microsoft.Cache/redis/firewallRules/delete | Eliminar as regras de firewall do IP da Cache de Redis |
+> | Ação | Microsoft.Cache/redis/firewallRules/read | Obter as regras de firewall do IP da Cache de Redis |
+> | Ação | Microsoft.Cache/redis/firewallRules/write | Editar regras de firewall do IP de uma Cache de Redis |
 > | Ação | Microsoft.Cache/redis/forceReboot/action | Forçar reinício de uma instância da cache, potencialmente com perda de dados. |
 > | Ação | Microsoft.Cache/redis/import/action | Importar dados de um formato especificado a partir de vários blobs para Redis |
-> | Ação | Microsoft.Cache/redis/linkedservers/delete | Eliminar servidor ligado de uma Cache do Azure para Redis |
-> | Ação | Microsoft.Cache/redis/linkedservers/read | Obter servidores ligados associados a uma Cache do Azure para Redis. |
-> | Ação | Microsoft.Cache/redis/linkedservers/write | Adicionar servidor ligado a uma Cache do Azure para Redis |
-> | Ação | Microsoft.Cache/redis/listKeys/action | Ver o valor de Cache do Azure para as chaves de acesso de Redis no portal de gestão |
+> | Ação | Microsoft.Cache/redis/linkedservers/delete | Eliminar Servidor Ligado de uma Cache de Redis |
+> | Ação | Microsoft.Cache/redis/linkedservers/read | Obter Servidores Ligados associados a uma cache de redis. |
+> | Ação | Microsoft.Cache/redis/linkedservers/write | Adicionar Servidor Ligado a uma Cache de Redis |
+> | Ação | Microsoft.Cache/redis/listKeys/action | Ver o valor das chaves de acesso da Cache de Redis no portal de gestão |
 > | Ação | Microsoft.Cache/redis/listUpgradeNotifications/read | Listar as Notificações de Atualização mais recentes para o inquilino da cache. |
-> | Ação | Microsoft.Cache/redis/metricDefinitions/read | Obtém as métricas disponíveis para uma Cache do Azure para Redis |
-> | Ação | Microsoft.Cache/redis/patchSchedules/delete | Eliminar a agenda de correção de um Cache do Azure para Redis |
-> | Ação | Microsoft.Cache/redis/patchSchedules/read | Obtém a agenda de correções de uma Cache do Azure para Redis |
-> | Ação | Microsoft.Cache/redis/patchSchedules/write | Modificar a agenda de correções de uma Cache do Azure para Redis |
-> | Ação | Microsoft.Cache/redis/read | Ver a Cache do Azure para as definições e configuração do Redis no portal de gestão |
-> | Ação | Microsoft.Cache/redis/regenerateKey/action | Altere o valor de Cache do Azure para as chaves de acesso de Redis no portal de gestão |
+> | Ação | Microsoft.Cache/redis/metricDefinitions/read | Obtem as métricas disponíveis para uma Cache de Redis |
+> | Ação | Microsoft.Cache/redis/patchSchedules/delete | Eliminar a agenda de correção da Cache de Redis |
+> | Ação | Microsoft.Cache/redis/patchSchedules/read | Obtém a agenda de correções de uma Cache de Redis |
+> | Ação | Microsoft.Cache/redis/patchSchedules/write | Modificar a agenda de correções de uma Cache de Redis |
+> | Ação | Microsoft.Cache/redis/read | Ver as definições e a configuração da Cache de Redis no portal de gestão |
+> | Ação | Microsoft.Cache/redis/regenerateKey/action | Alterar o valor das chaves de acesso da Cache de Redis no portal de gestão |
 > | Ação | Microsoft.Cache/redis/start/action | Iniciar uma instância de cache. |
 > | Ação | Microsoft.Cache/redis/stop/action | Parar uma instância de cache. |
-> | Ação | Microsoft.Cache/redis/write | Modificar a Cache do Azure para as definições e configuração no portal de gestão do Redis |
+> | Ação | Microsoft.Cache/redis/write | Modificar as definições e a configuração da Cache de Redis no portal de gestão |
 > | Ação | Microsoft.Cache/register/action | Regista o fornecedor de recursos "Microsoft.Cache" com uma subscrição |
 > | Ação | Microsoft.Cache/unregister/action | Anula o registo do fornecedor de recursos "Microsoft.Cache" com uma subscrição |
 
@@ -1600,17 +1600,21 @@ Atualize o nome de um grupo pessoa existente e userData. As propriedades mantenh
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Elimina os dispositivos de limite de caixa de dados |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Transferir Atualizações no dispositivo |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Obtém o recurso de outras informações sobre o |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/write | Cria ou atualiza o recurso de outras informações sobre o |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | ArmApiDesc_action_getExtendedInformation_dataBoxEdgeDevices |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Instalar Atualizações no dispositivo |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Apresenta uma lista ou obtém as tarefas |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Apresenta uma lista ou obtém as definições de rede do dispositivo |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Elimina os pedidos |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Apresenta uma lista ou obtém os pedidos |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Apresenta uma lista ou obtém os pedidos |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/write | Cria ou atualiza os pedidos |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Apresenta uma lista ou obtém os dispositivos de limite de caixa de dados |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Apresenta uma lista ou obtém os dispositivos de limite de caixa de dados |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/read | Apresenta uma lista ou obtém os dispositivos de limite de caixa de dados |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Elimina o ArmApiRes_roles |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Apresenta uma lista ou obtém o ArmApiRes_roles |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Apresenta uma lista ou obtém o ArmApiRes_roles |
-> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Cria ou atualiza o ArmApiRes_roles |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/delete | Elimina as funções |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Apresenta uma lista ou obtém as funções |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/read | Apresenta uma lista ou obtém as funções |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/roles/write | Cria ou atualiza as funções |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/scanForUpdates/action | Procurar atualizações |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/securitySettings/update/action | Atualizar definições de segurança |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Elimina as partilhas |
@@ -1622,6 +1626,10 @@ Atualize o nome de um grupo pessoa existente e userData. As propriedades mantenh
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Apresenta uma lista ou obtém as credenciais da conta de armazenamento |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Apresenta uma lista ou obtém as credenciais da conta de armazenamento |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/write | Cria ou atualiza as credenciais da conta de armazenamento |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/delete | Elimina os disparadores |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Apresenta uma lista ou obtém os disparadores |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/read | Apresenta uma lista ou obtém os disparadores |
+> | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/triggers/write | Cria ou atualiza os disparadores |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/updateSummary/read | Apresenta uma lista ou obtém a atualização do resumo |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/uploadCertificate/action | Carregar o certificado para o registo do dispositivo |
 > | Ação | Microsoft.DataBoxEdge/dataBoxEdgeDevices/users/delete | Elimina os utilizadores da partilha |
@@ -4766,6 +4774,8 @@ Atualize o nome de um grupo pessoa existente e userData. As propriedades mantenh
 > | Ação | Microsoft.Sql/managedInstances/databases/read | Obtém existente a base de dados gerida |
 > | Ação | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | Etiquetas de sensibilidade da lista de um determinado banco de dados |
 > | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Eliminar a etiqueta de sensibilidade de uma determinada coluna |
+> | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | Desativar as recomendações de sensibilidade sobre uma determinada coluna |
+> | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | Ativar as recomendações de sensibilidade sobre uma determinada coluna |
 > | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | Obter a etiqueta de sensibilidade de uma determinada coluna |
 > | Ação | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Criar ou atualizar a etiqueta de sensibilidade de uma determinada coluna |
 > | Ação | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Obter os detalhes da política de deteção de ameaças da base de dados configuradas numa determinada base de dados gerida |
@@ -4899,6 +4909,8 @@ Atualize o nome de um grupo pessoa existente e userData. As propriedades mantenh
 > | Ação | Microsoft.Sql/servers/databases/schemas/read | Obter a lista de esquemas das bases de dados |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Obter a lista de colunas de uma tabela |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | Eliminar a etiqueta de sensibilidade de uma determinada coluna |
+> | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | Desativar as recomendações de sensibilidade sobre uma determinada coluna |
+> | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | Ativar as recomendações de sensibilidade sobre uma determinada coluna |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | Obter a etiqueta de sensibilidade de uma determinada coluna |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | Criar ou atualizar a etiqueta de sensibilidade de uma determinada coluna |
 > | Ação | Microsoft.Sql/servers/databases/schemas/tables/read | Obter a lista de tabelas de uma base de dados |
@@ -5023,6 +5035,7 @@ Atualize o nome de um grupo pessoa existente e userData. As propriedades mantenh
 > | Ação | Microsoft.Sql/servers/vulnerabilityAssessments/write | Alterar a avaliação de vulnerabilidades para um determinado servidor |
 > | Ação | Microsoft.Sql/servers/write | Cria um servidor com os parâmetros especificados ou atualiza as propriedades ou etiquetas para o servidor especificado. |
 > | Ação | Microsoft.Sql/unregister/action | Anula o registo da subscrição para o fornecedor de recursos da base de dados do Microsoft SQL e permite a criação de bases de dados do Microsoft SQL. |
+> | Ação | Microsoft.Sql/virtualClusters/delete | Elimina um cluster virtual existente. |
 > | Ação | Microsoft.Sql/virtualClusters/read | Devolve a lista de clusters virtuais ou obtém as propriedades para o cluster virtual especificado. |
 > | Ação | Microsoft.Sql/virtualClusters/write | Atualiza as etiquetas de virtual cluster. |
 

@@ -3,8 +3,8 @@ title: Tutorial - atualizar um aplicativo de malha do Azure Service Fabric | Doc
 description: Saiba como atualizar uma aplicação do Service Fabric com o Visual Studio
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/29/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0f6ede488ae118f8df00febda3c53eabb73f2030
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 23809abd06d626eb87e5d5d15d265f1769b97b66
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890233"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806743"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutorial: Saiba como atualizar uma aplicação do Service Fabric com o Visual Studio
 
@@ -70,7 +70,7 @@ Iremos atualizar o `WebFrontEnd_cpu` parâmetro para atualizar os recursos de cp
 > Por predefinição, o ficheiro de parâmetro que é um elemento de rede do ficheiro profile.yaml será utilizado para indicar os valores para esse ficheiro profile.yaml.
 > Por exemplo, ambientes > nuvem > parameters.yaml fornece os valores de parâmetro para ambientes > nuvem > profile.yaml.
 >
-> Pode substituí-lo ao adicionar o seguinte ao ficheiro profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`
+> Pode substituí-lo ao adicionar o seguinte ao ficheiro profile.yaml:`parametersFilePath=”relative or full path to the parameters file”` Por exemplo, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` ou `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificar o modelo
 

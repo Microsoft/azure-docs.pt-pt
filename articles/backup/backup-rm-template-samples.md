@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 96d4a61a14d3b1fac1c31c485edf66742c763673
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: c0b023b6bdd01bc64eb5a6deb5fafa8e3c34c616
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497762"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819025"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modelos do Azure Resource Manager para o Azure Backup
 
@@ -31,6 +31,6 @@ A tabela seguinte inclui ligações para modelos do Azure Resource Manager para 
 | [Criar uma política de Cópia de Segurança Diária para VMs IaaS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | O modelo cria um cofre dos Serviços de Recuperação e uma política de cópia de segurança diária que será utilizada para fazer uma cópia de segurança de máquinas virtuais clássicas e do Resource Manager.|
 | [Implementar a VM do Windows Server com cópia de segurança ativada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | O modelo cria uma VM do Windows Server e um cofre dos Serviços de Recuperação com a política de cópia de segurança predefinida ativada.|
 |**Monitorizar tarefas de cópia de segurança** |  |
-| [Utilizar o Log Analytics para monitorizar o Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | O modelo implementa a Monitorização do Log Analytics para o Azure Backup, que lhe permite monitorizar as tarefas de cópia de segurança e restauro, os alertas de cópia de segurança e o armazenamento na Cloud utilizados nos seus cofres dos Serviços de Recuperação.|  
+| [Utilizar registos de Monitor do Azure com o Azure Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Modelo implementa logs de Monitor do Azure com o Azure Backup que lhe permite monitorizar a cópia de segurança e restaurar trabalhos, alertas de cópia de segurança e o armazenamento na Cloud utilizadas nos seus cofres de serviços de recuperação.|  
 |   |   |
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: fb8dedac8b795ec127d7b4a14728d73c9397a1dd
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716468"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807410"
 ---
 # <a name="configure-apps-in-azure-app-service"></a>Configurar aplicações no serviço de aplicações do Azure
 
@@ -163,13 +163,14 @@ Para ver os seus blocos de implementação, clique em **todas as definições** 
 ### <a name="monitoring"></a>Monitorização
 No modo básico ou Standard, pode testar a disponibilidade de pontos de extremidade HTTP ou HTTPS, de até três localizações geograficamente distribuídos. Um teste de monitorização falha se o código de resposta HTTP é um erro (4xx ou 5xx) ou a resposta demora mais de 30 segundos. Um ponto final é considerado disponível se os testes de monitorização com êxito a partir de todas as localizações especificadas. 
 
-Para obter mais informações, consulte [como: Monitorizar o estado do ponto final web].
+Para obter mais informações, consulte [How to: Monitorizar o estado do ponto final web].
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]
 * [Ativar HTTPS para uma aplicação no serviço de aplicações do Azure]
 * [Dimensionar uma aplicação no serviço de aplicações do Azure]
 * [Noções básicas de monitorização no App Service do Azure]
+* [Alterar as definições de applicationHost. config com applicationHost.xdt](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 
@@ -178,7 +179,7 @@ Para obter mais informações, consulte [como: Monitorizar o estado do ponto fin
 [Configurar um nome de domínio personalizado no Serviço de Aplicações do Azure]: ./app-service-web-tutorial-custom-domain.md
 [Implementar em ambientes de teste para o serviço de aplicações do Azure]: ./deploy-staging-slots.md
 [Ativar HTTPS para uma aplicação no serviço de aplicações do Azure]: ./app-service-web-tutorial-custom-ssl.md
-[Como: Monitorizar o estado do ponto final web]: https://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitorizar o estado do ponto final web]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Noções básicas de monitorização no App Service do Azure]: ./web-sites-monitor.md
 [modo de pipeline]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Dimensionar uma aplicação no serviço de aplicações do Azure]: ./web-sites-scale.md
