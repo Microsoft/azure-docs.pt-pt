@@ -13,23 +13,23 @@ ms.topic: article
 ms.date: 11/22/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a92440e97f47f0778eb73b81b239b45476d4e733
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d89197fad8354b0bae41ab67b9bb1dfac0a179eb
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551702"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820302"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implementação para o serviço de aplicações do Azure
 [Serviço de aplicações do Azure](https://go.microsoft.com/fwlink/?LinkId=529714) suporta dois tipos de credenciais para [implementação de Git local](deploy-local-git.md) e [implementação de FTP/S](deploy-ftp.md). Essas não são o mesmo que as suas credenciais do Azure Active Directory.
 
-* **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser utilizado para implementar no serviço de aplicações para qualquer aplicação, em qualquer subscrição, o que a conta do Azure tem permissão para aceder. É o conjunto predefinido que é apresentado no portal do GUI (como o **descrição geral** e **propriedades** da aplicação [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources)). Quando um utilizador é concedido acesso à aplicação através do controlo de acesso baseado em funções (RBAC) ou permissões coadmin, esse utilizador pode usar sua próprias credenciais de nível de usuário até que o acesso foi revogado. Não partilhe estas credenciais com outros utilizadores do Azure.
+* **Credenciais de nível de usuário**: um conjunto de credenciais para toda a conta do Azure. Ele pode ser utilizado para implementar no serviço de aplicações para qualquer aplicação, em qualquer subscrição, o que a conta do Azure tem permissão para aceder. É o conjunto predefinido que é apresentado no portal do GUI (como o **descrição geral** e **propriedades** da aplicação [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources)). Quando um utilizador é concedido acesso à aplicação através do controlo de acesso baseado em funções (RBAC) ou permissões coadmin, esse utilizador pode usar sua próprias credenciais de nível de usuário até que o acesso foi revogado. Não partilhe estas credenciais com outros utilizadores do Azure.
 
 * **Credenciais ao nível da aplicação**: um conjunto de credenciais para cada aplicação. Ele pode ser usado para implementar essa aplicação apenas. As credenciais para cada aplicação são geradas automaticamente durante a criação de aplicações. Não é possível configurar manualmente, mas podem ser repostas em qualquer altura. Para um utilizador ter acesso às credenciais ao nível da aplicação através de (RBAC), que o utilizador tem de ser Contribuidor ou superior na aplicação. Os leitores não são permitidos para publicar e não é possível aceder essas credenciais.
 
 ## <a name="userscope"></a>Definir e repor as credenciais de nível de usuário
 
-Pode configurar as suas credenciais de nível de usuário em qualquer aplicação [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources). Independentemente na aplicação que configurar estas credenciais, ele se aplica a todas as aplicações e para todas as subscrições na sua conta do Azure. 
+Pode configurar as suas credenciais de nível de usuário em qualquer aplicação [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources). Independentemente na aplicação que configurar estas credenciais, ele se aplica a todas as aplicações e para todas as subscrições na sua conta do Azure. 
 
 Para configurar as suas credenciais de nível de usuário:
 

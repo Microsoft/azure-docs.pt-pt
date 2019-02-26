@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f974d446337b8c962d60be9aab964c6d2ebb535b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438006"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821076"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Ver o conteúdo de um ficheiro que está a ser controlada com controlo de alterações
 
@@ -75,5 +75,5 @@ Visite o tutorial para saber mais sobre como utilizar a solução de controlo de
 > [!div class="nextstepaction"]
 > [Resolver problemas relacionados com alterações no seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Uso [pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver dados de controlo de alterações detalhadas.
+* Uso [pesquisas de registos nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver dados de controlo de alterações detalhadas.
 

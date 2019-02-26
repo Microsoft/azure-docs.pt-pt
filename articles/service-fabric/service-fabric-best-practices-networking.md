@@ -4,7 +4,7 @@ description: Melhores práticas para o gerenciamento de sistema de rede do Servi
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 2571c4a1e5a3ff6228cd6647c4367555d0add866
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212596"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804968"
 ---
 # <a name="networking"></a>Redes
 

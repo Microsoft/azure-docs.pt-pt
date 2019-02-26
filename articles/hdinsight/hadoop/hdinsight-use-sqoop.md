@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4e56d22dde5fca50d17c055be93db5b91deeb287
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652495"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819178"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -41,14 +41,14 @@ Cluster de HDInsight vem com alguns dados de exemplo. Utilize os seguintes dois 
   
   | Campo | Tipo de dados |
   | --- | --- |
-  | ID de cliente |cadeia |
-  | querytime |cadeia |
-  | mercado |cadeia |
-  | deviceplatform |cadeia |
-  | devicemake |cadeia |
-  | devicemodel |cadeia |
-  | state |cadeia |
-  | País |cadeia |
+  | ID de cliente |string |
+  | querytime |string |
+  | mercado |string |
+  | deviceplatform |string |
+  | devicemake |string |
+  | devicemodel |string |
+  | state |string |
+  | País |string |
   | querydwelltime |double |
   | SessionID |bigint |
   | sessionpagevieworder |bigint |
@@ -88,7 +88,7 @@ Se preferir utilizar o Azure PowerShell para criar o cluster e a base de dados S
      
         Os seguintes valores estão codificados na secção de variáveis:
         
-        |Nome|Valor|
+        |Name|Value|
         |----|-----|
         | Nome predefinido da conta de armazenamento | &lt;ClusterName > armazenar |
         | Nome de servidor de base de dados SQL do Azure | &lt;ClusterName>dbserver |
@@ -163,7 +163,7 @@ Agora que aprendeu a utilizar o Sqoop. Para saber mais, consulte:
 O exemplo do PowerShell executa as seguintes etapas:
 
 1. Ligar ao Azure.
-2. Criar um grupo de recursos do Azure. Para obter mais informações, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Criar um grupo de recursos do Azure. Para obter mais informações, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Crie um servidor de base de dados do Azure SQL, uma base de dados SQL do Azure e duas tabelas. 
    
     Se utilizar o SQL Server em vez disso, utilize as seguintes instruções para criar as tabelas:

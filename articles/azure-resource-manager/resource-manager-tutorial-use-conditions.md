@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 90431ea7649b38da6cbbd242b00c21278d8e8967
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 57e71261bad950b409da7a58b53712d84dc1b3df
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268894"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56815863"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Condição de utilização em modelos do Azure Resource Manager
 
@@ -150,11 +150,8 @@ New-AzResourceGroupDeployment `
     -dnsLabelPrefix $dnsLabelPrefix `
     -storageAccountName $storageAccountName `
     -newOrExisting $newOrExisting `
-    -TemplateFile azuredeploy.json
+    -TemplateFile "$HOME/azuredeploy.json"
 ```
-
-> [!NOTE]
-> Há um problema de e/s com o Azure PowerShell no Cloud shell do arquivo.  A mensagem de erro é *não é possível obter os parâmetros dinâmicos para o cmdlet. Não é possível localizar o caminho 'Azure:/azuredeploy.json' porque não existe.*  Uma solução temporária é não incluem o **- TemplateFile** mudar no `New-AzResourceGroupDeploy` comando. O comando irá solicitar-lhe para introduzir o nome de ficheiro.
 
 > [!NOTE]
 > A implementação falhar se **newOrExisting** for **New** (Novo), mas a conta de armazenamento com o nome de conta de armazenamento especificado já existe.

@@ -11,18 +11,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 429c7c266357b4808ab3ebbb7f346cf22d9f479c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 96b22a6e44142fef8d47dc228d5491c31c65478f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855403"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823064"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
-[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
+O runtime das funções do Azure suporta [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
 
-## <a name="programming-model"></a>Modelo de programação 
+## <a name="programming-model"></a>Modelo de programação
 
 Os conceitos de [acionadores e enlaces](functions-triggers-bindings.md) são fundamentais para as funções do Azure. Acionadores de iniciar a execução do seu código. Enlaces dão-lhe uma forma de passar dados para e devolver dados de uma função, sem ter de escrever o código de acesso de dados personalizados.
 

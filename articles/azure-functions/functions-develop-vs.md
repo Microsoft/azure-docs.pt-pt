@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: b60861b4daced5e3d292feec54f8a54839a80b8f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 58c7506b71ade8ff70519b895995153896006ade
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728919"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804678"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
@@ -220,8 +220,6 @@ Para ativar o Application Insights para a sua aplicação de função no Azure:
 Para obter mais informações, consulte [as funções do Azure de Monitor](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-Para obter mais informações sobre as ferramentas de funções do Azure, consulte a secção de perguntas comuns do [Visual Studio 2017 Tools para as funções do Azure](https://blogs.msdn.microsoft.com/webdev/2017/05/10/azure-function-tools-for-visual-studio-2017/) postagem de blog.
 
 Para saber mais sobre as ferramentas de núcleo de funções do Azure, veja [código e testar as funções do Azure localmente](functions-run-local.md).
 

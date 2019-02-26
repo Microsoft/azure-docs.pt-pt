@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6706da978195cff65a3454e6b2d71dfea3b414c4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 0b3128184942dbc750ea54bd7156c6e79b8bedea
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651418"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804846"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>O serviço importar/exportar do Azure: Perguntas mais frequentes 
 Seguem-se perguntas e respostas que possa ter quando utiliza o serviço importar/exportar do Azure para transferir dados para o armazenamento do Azure. As perguntas e respostas estão organizadas pelas seguintes categorias:
@@ -96,7 +96,7 @@ Tenha em atenção que o suporte de dados físicos que são de envio poderá ter
 ### <a name="are-there-any-special-requirements-for-delivering-my-disks-to-a-datacenter"></a>Existem requisitos especiais para o fornecimento de meus discos para um datacenter?
 
 Os requisitos dependem as restrições de datacenter do Azure específicas.
-- Há poucos sites de classe C (por exemplo, Frankfurt), que exigem um número de ID de entrada a ser escrito sobre parcel por motivos de segurança do datacenter da Microsoft. Antes do envio suas unidades ou os discos para o Centro de dados, entre em contato com operações do Azure data box (adbops@microsoft.com) para resolver este número. Sem este número, o pacote será rejeitado.
+- Há alguns sites, que exigem um número de ID de entrada a ser escrito sobre parcel por motivos de segurança do datacenter da Microsoft. Antes do envio suas unidades ou os discos para o Centro de dados, entre em contato com operações do Azure data box (adbops@microsoft.com) para resolver este número. Sem este número, o pacote será rejeitado.
 - Os datacenters na Índia requerem os detalhes pessoais do controlador, como o cartão de identificação de governo ou não de prova. (por exemplo, PAN, AADHAR, DL), nome, contato e o carro prato número para obter uma passagem de entrada de porta. Para evitar atrasos de entrega, informe a sua operadora sobre estes requisitos.
 
 

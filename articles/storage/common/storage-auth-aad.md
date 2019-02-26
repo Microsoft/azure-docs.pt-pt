@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/13/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1a9283ad688c63642df880a74cca9189c7c59042
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f57e793278af7eb03fe49fd657e45b0846db8b1c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456702"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817920"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Autenticar o acesso a blobs do Azure e filas com o Azure Active Directory (pré-visualização)
 
@@ -41,13 +41,34 @@ Tenha em atenção os seguintes pontos relativamente a pré-visualização:
     - [Node.js](https://www.npmjs.com/package/azure-storage)
     - [JavaScript](https://aka.ms/downloadazurestoragejs)
 
-## <a name="get-started-with-azure-ad-for-storage"></a>Introdução ao Azure AD para o armazenamento
+## <a name="overview-of-azure-ad-for-storage"></a>Descrição geral do Azure AD para o armazenamento
 
-É a primeira etapa no uso de integração do Azure AD com o armazenamento do Azure atribuir funções RBAC para dados de armazenamento para o seu principal de serviço (um utilizador, grupo ou principal de serviço de aplicação) ou identidades geridas para recursos do Azure. Funções RBAC abrangem comuns conjuntos de permissões para contentores e filas. Para saber mais sobre as funções do RBAC do armazenamento do Azure, veja [gerir direitos de acesso aos dados de armazenamento com o RBAC (pré-visualização)](storage-auth-aad-rbac.md).
+É a primeira etapa no uso de integração do Azure AD com o armazenamento do Azure atribuir funções RBAC para dados de armazenamento para o seu principal de serviço (um utilizador, grupo ou principal de serviço de aplicação) ou identidades geridas para recursos do Azure. Funções RBAC abrangem comuns conjuntos de permissões para contentores e filas. Para saber mais sobre a atribuição de funções RBAC do armazenamento do Azure, veja [gerir direitos de acesso aos dados de armazenamento com o RBAC (pré-visualização)](storage-auth-aad-rbac.md).
 
 Para utilizar o Azure AD para autorizar o acesso aos recursos de armazenamento nas suas aplicações, terá de solicitar um token de acesso de OAuth 2.0 a partir do código. Para saber como solicitar um token de acesso e utilizá-lo para autorizar os pedidos ao armazenamento do Azure, veja [autenticar com o Azure AD a partir de uma aplicação de armazenamento do Azure (pré-visualização)](storage-auth-aad-app.md). Se estiver a utilizar uma identidade gerida, veja [Authenticate acesso para blobs e filas com o Azure managed identidades para recursos do Azure (pré-visualização)](storage-auth-aad-msi.md).
 
 CLI do Azure e o PowerShell suportam agora iniciar sessão com uma identidade do Azure AD. Depois de iniciar sessão com uma identidade do Azure AD, a sessão é executado sob essa identidade. Para obter mais informações, consulte [utilizar uma identidade do Azure AD para aceder ao armazenamento do Azure com a CLI ou o PowerShell (pré-visualização)](storage-auth-aad-script.md).
+
+## <a name="rbac-roles-for-blobs-and-queues"></a>Funções do RBAC para blobs e filas
+
+Azure Active Directory (Azure AD) autoriza direitos de acesso a recursos protegidos por meio [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). O armazenamento do Azure define um conjunto de funções RBAC incorporadas que abrangem conjuntos comuns de permissões utilizados para aceder aos contentores ou filas. 
+
+Quando uma função RBAC é atribuída a um principal de segurança do Azure AD, o Azure concede acesso a esses recursos para aquela entidade de segurança. Acesso pode ser confinado ao nível da subscrição, o grupo de recursos, a conta de armazenamento, ou um contentor individual ou fila. Um principal de segurança do Azure AD pode ser um utilizador, um grupo, um principal de serviço de aplicações, ou uma [identidade de recursos do Azure gerida](../../active-directory/managed-identities-azure-resources/overview.md). 
+
+[!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
+
+### <a name="access-permissions-granted-by-rbac-roles"></a>Permissões de acesso concedidas por funções RBAC 
+
+A tabela seguinte resume os direitos de acesso concedidos por funções incorporadas, consoante o âmbito:
+
+|Âmbito|Proprietário de dados de blob|Contribuinte de dados de blob|Leitor de dados de blob|Contribuinte de dados de fila|Leitor de dados de fila|
+|---|---|---|---|---|---|
+|Nível de assinatura|Gestão de controlo a todos os contentores e blobs na subscrição de acesso de acesso de leitura/escrita e POSIX|Acesso de leitura/escrita a todos os contentores e blobs na subscrição| Acesso de leitura a todos os contentores e blobs na subscrição|Acesso de leitura/gravação para todas as filas na subscrição|Acesso de leitura para todas as filas na subscrição|
+|Ao nível do grupo de recursos|Gestão de controlo a todos os contentores e blobs, no grupo de recursos de acesso de acesso de leitura/escrita e POSIX|Acesso de leitura/escrita a todos os contentores e blobs, no grupo de recursos|Acesso de leitura a todos os contentores e blobs, no grupo de recursos|Acesso de leitura/gravação para todas as filas no grupo de recursos|Acesso de leitura para todas as filas no grupo de recursos|
+|Nível de conta de armazenamento|Gestão de controlo a todos os contentores e blobs na conta de armazenamento de acesso de acesso de leitura/escrita e POSIX|Acesso de leitura/escrita a todos os contentores e blobs na conta de armazenamento|Acesso de leitura a todos os contentores e blobs na conta de armazenamento|Acesso de leitura/gravação para todas as filas na conta de armazenamento|Acesso de leitura para todas as filas na conta de armazenamento|
+|Nível de contêiner/fila|Gestão de controlo para o contentor especificado e respetivos blobs de acesso POSIX e acesso de leitura/escrita.|Acesso de leitura/gravação para o contentor especificado e respetivos blobs|Acesso de leitura para o contentor especificado e respetivos blobs|Acesso de leitura/escrita para a fila especificada|Acesso de leitura para a fila especificada|
+
+Para obter detalhes sobre as permissões necessárias para chamar operações de armazenamento do Azure, consulte [permissões para chamar as operações REST](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

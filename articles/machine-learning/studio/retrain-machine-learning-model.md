@@ -5,17 +5,17 @@ description: Saiba como atualizar um serviço web para utilizar um recentemente 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 9a43a382c1f45f0bf0fb7e93322fcbeef58cb99d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d08ee9c72ec2b0341905f6600bd062f28b627d2a
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651180"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821214"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Voltar a preparar e implementar um modelo de machine learning
 

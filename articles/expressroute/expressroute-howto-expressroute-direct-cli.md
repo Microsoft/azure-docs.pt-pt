@@ -1,28 +1,23 @@
 ---
 title: Configurar o ExpressRoute Direct - CLI do Azure | Documentos da Microsoft
-description: Este artigo ajuda-o a configurar o ExpressRoute direta com a CLI do Azure (pré-visualização)
+description: Este artigo ajuda-o a configurar o ExpressRoute direta com a CLI do Azure
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 2/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 285b429f565f8a2c7f8c20756f076e631223b10f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e918a8624d637e44a4bb1122b58d5bd5dac67690
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076724"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816679"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>Configurar o ExpressRoute direta com a CLI do Azure (pré-visualização)
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurar o ExpressRoute direta com a CLI do Azure
 
 Pode utilizar o Azure ExpressRoute direto para ligar diretamente à rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. Para obter mais informações, consulte [sobre o ExpressRoute direto ligar](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> Direct do ExpressRoute está atualmente em pré-visualização.
->
-> A pré-visualização pública do ExpressRoute Direct é fornecida sem um contrato de nível de serviço. Não deve utilizar a pré-visualização de direta do ExpressRoute para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas, algumas funcionalidades poderão ter capacidades restringidas e algumas funcionalidades poderão não estar disponíveis em todas as localizações do Azure. Para obter detalhes, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Criar o recurso
 

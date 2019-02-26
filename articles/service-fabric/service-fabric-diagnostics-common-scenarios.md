@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/16/2018
+ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 700295c94428021445f6cbbd84175046d57b9147
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 559409ac73fb28df18c2ddeca7eb2bcd06a24835
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054950"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817665"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
@@ -111,7 +111,6 @@ Na vista do mesmo com todos os gráficos, verá alguns mosaicos para o desempenh
 
     * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
     * `Processor(_Total)\\% Processor Time`
-    * `Service Fabric Service(*)\\Average milliseconds per request`
 
     Guia de introdução, VotingData e VotingWeb são os nomes de processo utilizados, para que estes contadores de controlo teria o seguinte aspeto
 
@@ -128,7 +127,10 @@ Na vista do mesmo com todos os gráficos, verá alguns mosaicos para o desempenh
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Como controlar o desempenho da minha Reliable Services e Atores?
 
-Para controlar o desempenho dos Reliable Services ou Atores em seus aplicativos, deve adicionar os contadores de Ator do Service Fabric, o método de Ator, o serviço e o método de serviço também. Pode adicionar estes contadores de maneira semelhante como o cenário acima, eis exemplos de reliable service ator contadores de desempenho e para adicionar no Log Analytics:
+Para controlar o desempenho dos Reliable Services ou Atores em seus aplicativos, deve recolher os contadores de Ator do Service Fabric, o método de Ator, o serviço e o método de serviço também. Seguem-se exemplos de reliable service ator contadores de desempenho e para recolher
+
+>[!NOTE]
+>Contadores de desempenho do Service Fabric não podem ser recolhidas pelo agente do Log Analytics atualmente, mas podem ser coletados por [outras soluções de diagnóstico](service-fabric-diagnostics-partners.md)
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`

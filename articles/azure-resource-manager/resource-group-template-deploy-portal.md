@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: b8a6d58ad79b591548542d69e69b71ec61af79af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220130"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816911"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementar recursos com modelos do Resource Manager e do Portal do Azure
 
-Este artigo mostra como utilizar o [portal do Azure](https://portal.azure.com) com [do Azure Resource Manager](resource-group-overview.md) para implementar os recursos do Azure. Para saber mais sobre a gestão dos seus recursos, veja [recursos de gerir o Azure através do portal](resource-group-portal.md).
+Este artigo mostra como utilizar o [portal do Azure](https://portal.azure.com) com [do Azure Resource Manager](resource-group-overview.md) para implementar os recursos do Azure. Para saber mais sobre a gestão dos seus recursos, veja [recursos de gerir o Azure com o portal do Azure](manage-resources-portal.md).
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
@@ -89,7 +89,7 @@ Se quiser executar uma implementação, mas não utilizar qualquer um dos modelo
 
    ![Selecione criar](./media/resource-group-template-deploy-portal/show-template-option.png)
 
-1. Verá várias opções para criar um modelo. Selecione **criar seu próprio modelo no editor de**.
+1. Verá várias opções para criar um modelo. Selecione **Crie o seu próprio modelo no editor**.
 
    ![Opções de visualização](./media/resource-group-template-deploy-portal/see-options.png)
 
@@ -134,7 +134,7 @@ O portal permite-lhe guardar um modelo para sua conta do Azure e reimplementá-l
    ![Implementar o modelo guardado](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para ver os registos de auditoria, consulte [auditar operações com o Resource Manager](resource-group-audit.md).
-* Para resolver erros de implementação, consulte o artigo [ver as operações de implementação](resource-manager-deployment-operations.md).
-* Para obter um modelo a partir de uma implementação ou o grupo de recursos, veja [modelo de exportar o Azure Resource Manager a partir de recursos existentes](resource-manager-export-template.md).
-* Para implementação com segurança o seu serviço em várias regiões, consulte [Gestor de implementação do Azure](deployment-manager-overview.md).
+* Para ver os registos de auditoria, consulte [auditar operações com o Resource Manager](./resource-group-audit.md).
+* Para resolver erros de implementação, consulte o artigo [ver as operações de implementação](./resource-manager-deployment-operations.md).
+* Para exportar um modelo a partir de uma implementação ou o grupo de recursos, consulte [modelos Azure Resource Manager exportar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+* Para implementação com segurança o seu serviço em várias regiões, consulte [Gestor de implementação do Azure](./deployment-manager-overview.md).

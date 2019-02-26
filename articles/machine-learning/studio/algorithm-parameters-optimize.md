@@ -5,17 +5,17 @@ description: Explica como escolher o parâmetro ideal definido para um algoritmo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 870345148b55bc6026202fbd433d8575e421faba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 51fa59006b180663362044ba598d73c680291457
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456015"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822298"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Escolher parâmetros para otimizar os seus algoritmos no Azure Machine Learning Studio
 

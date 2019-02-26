@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac2d1c1fb59988c8b95fda6b92bb9ae0332fc0e0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 864e93dcd94fd36b0e34495e0ea27f22d8b0dd0c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427428"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817682"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -72,7 +72,7 @@ Quando a integração é concluída, a gestão de atualizações está ativada p
 
 Para saber como ativar a gestão de atualizações para computadores e máquinas de virtuais do Windows não Azure, veja [computadores Windows ligar ao serviço Log Analytics no Azure](../log-analytics/log-analytics-windows-agent.md).
 
-Para saber como ativar a gestão de atualizações para computadores e máquinas de virtuais de Linux não Azure, veja [ligar os computadores Linux ao Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+Para saber como ativar a gestão de atualizações para computadores e máquinas de virtuais de Linux não Azure, veja [ligar os computadores Linux para registos do Azure Monitor](../log-analytics/log-analytics-agent-linux.md).
 
 ## <a name="view-computers-attached-to-your-automation-account"></a>Ver computadores ligados à sua conta de automatização
 
@@ -113,7 +113,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
-Depois de um computador realiza uma análise de conformidade de atualização, o agente reencaminha as informações em massa para o Azure Log Analytics. Num computador Windows, a análise de conformidade é executada a cada 12 horas por predefinição.
+Depois de um computador realiza uma análise de conformidade de atualização, o agente reencaminha as informações em massa para os registos do Azure Monitor. Num computador Windows, a análise de conformidade é executada a cada 12 horas por predefinição.
 
 Além do agendamento da análise, a análise da compatibilidade de atualização é iniciada dentro de 15 minutos do MMA ser reiniciado, antes da instalação da atualização e após a instalação de atualização.
 
@@ -132,7 +132,7 @@ Na **nova implementação de atualização** painel, especifique as seguintes in
 - **Nome**: Introduza um nome exclusivo para identificar a implementação de atualização.
 - **Sistema operativo**: Selecione **Windows** ou **Linux**.
 - **Grupos de atualização (pré-visualização)**: Defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. Para saber mais, veja [Grupos Dinâmicos](automation-update-management.md#using-dynamic-groups)
-- **Computadores a atualizar**: Selecione uma pesquisa guardada, grupo importada, ou máquinas, para as máquinas que pretende atualizar. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md)
+- **Computadores a atualizar**: Selecione uma pesquisa guardada, grupo importada, ou máquinas, para as máquinas que pretende atualizar. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**. Pode ver o estado de funcionamento da máquina antes de agendar a implementação da atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos registos do Azure Monitor, consulte o artigo [grupos de computadores nos registos do Azure Monitor](../azure-monitor/platform/computer-groups.md)
 
   ![Novo painel de implementação de atualização](./media/manage-update-multi/update-select-computers.png)
 

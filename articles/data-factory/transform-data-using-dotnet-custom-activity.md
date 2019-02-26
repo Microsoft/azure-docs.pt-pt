@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 0236d9118389b4f8fb79453b425c70f09e94bbb8
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 408776b0b0053b2b2d45112568a2e28467123768
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213812"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805380"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-use-custom-activities.md)
 > * [Versão atual](transform-data-using-dotnet-custom-activity.md)
 
@@ -106,10 +106,13 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | resourceLinkedService | Serviço ligado do armazenamento do Azure para a conta de armazenamento onde está armazenado o aplicativo personalizado | Não&#42;       |
 | folderPath            | Caminho para a pasta da aplicação personalizada e todas as suas dependências<br/><br/>Se tiver dependências armazenadas em subpastas - ou seja, numa estrutura de hierarquia de pastas sob *folderPath* -a estrutura de pastas atualmente é aplanada quando os ficheiros são copiados para o Azure Batch. Ou seja, todos os ficheiros são copiados para uma única pasta com sem subpastas. Para contornar este comportamento, considere a comprimir os ficheiros, copiar o ficheiro comprimido e, em seguida, descomprimi-la com código personalizado no local desejado. | Não&#42;       |
 | referenceObjects      | Uma matriz de serviços ligados e conjuntos de dados existentes. Os serviços ligados e conjuntos de dados referenciada são transmitidos para o aplicativo personalizado no formato JSON para que seu código personalizado, pode referenciar recursos do Data Factory | Não       |
-| ExtendedProperties    | Propriedades definidas pelo utilizador, que podem ser transmitidas para o aplicativo personalizado no formato JSON, para que seu código personalizado, pode referenciar propriedades adicionais | Não       |
+| extendedProperties    | Propriedades definidas pelo utilizador, que podem ser transmitidas para o aplicativo personalizado no formato JSON, para que seu código personalizado, pode referenciar propriedades adicionais | Não       |
 
 &#42;As propriedades `resourceLinkedService` e `folderPath` tem de ser especificados, ou ambos ser omitido.
 
+> [!NOTE]
+> Se estiver passando serviços ligados como referenceObjects na atividade personalizada, é uma boa prática de segurança para passar um Azure Key Vault ativado um serviço ligado (uma vez que não contém qualquer cadeia de caracteres segura) e obter as credenciais com o nome do segredo diretamente a partir da chave Cofre do código. Pode encontrar um exemplo [aqui](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) que referências AKV ativado o serviço ligado, obtém as credenciais do Cofre de chaves e, em seguida, acede ao armazenamento no código.  
+ 
 ## <a name="custom-activity-permissions"></a>Permissões de atividade personalizada
 
 A atividade personalizada define a conta de utilizador automático do Azure Batch para *acesso não-administrador com âmbito de tarefa* (a especificação de auto-utilizador padrão). Não é possível alterar o nível de permissão da conta de utilizador automaticamente. Para obter mais informações, consulte [executar tarefas em contas de utilizador no Batch | Contas de utilizador automático](../batch/batch-user-accounts.md#auto-user-accounts).

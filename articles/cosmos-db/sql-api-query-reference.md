@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: de50c18fa8e2bebcb584fcd5763f0428637df484
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f326c8608f92cc974a9decad3b010888c358c667
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455794"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818532"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referência de linguagem SQL para o Azure Cosmos DB 
 
@@ -1847,8 +1847,10 @@ SELECT
 |[INDEX_OF](#bk_index_of)|[À ESQUERDA](#bk_left)|[LENGTH](#bk_length)|  
 |[INFERIOR](#bk_lower)|[LTRIM](#bk_ltrim)|[SUBSTITUIR](#bk_replace)|  
 |[REPLICAR](#bk_replicate)|[INVERTER](#bk_reverse)|[DIREITA](#bk_right)|  
-|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBCADEIA](#bk_substring)|  
-|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[SUPERIOR](#bk_upper)||| 
+|[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
+|[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
+|[StringToObject](#bk_stringtoobject)|[SUBCADEIA](#bk_substring)|[ToString](#bk_tostring)|
+|[TRIM](#bk_trim)|[SUPERIOR](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  Devolve uma cadeia que é o resultado da concatenação de dois ou mais valores de cadeia de caracteres.  
@@ -2327,7 +2329,225 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
 ```  
 [{"$1": false, "$2": true}]  
 ```  
+
+  ####  <a name="bk_stringtoarray"></a> StringToArray  
+ Devolve a expressão convertido numa matriz. Se a expressão não pode ser convertida, retornará indefinida.  
   
+ **Sintaxe**  
+  
+```  
+StringToArray(<expr>)  
+```  
+  
+ **Argumentos**  
+  
+-   `expr`  
+  
+     É qualquer expressão de matriz JSON válido. Tenha em atenção que os valores de cadeia de caracteres devem ser escritas com aspas duplas para ser válida. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)
+  
+ **Tipos de retorno**  
+  
+ Devolve uma expressão de matriz ou não definida.  
+  
+ **Exemplos**  
+  
+O exemplo seguinte mostra como StringToArray se comporta vários tipos diferentes. 
+  
+```  
+SELECT 
+StringToArray('[]'), 
+StringToArray("[1,2,3]"),
+StringToArray("[\"str\",2,3]"),
+IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
+IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
+StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
+StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
+StringToArray(false), 
+StringToArray(undefined),
+StringToArray(NaN), 
+StringToArray("[")
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
+```  
+
+####  <a name="bk_stringtoboolean"></a> StringToBoolean  
+ Devolve a expressão convertido para booleano. Se a expressão não pode ser convertida, retornará indefinida.  
+  
+ **Sintaxe**  
+  
+```  
+StringToBoolean(<expr>)  
+```  
+  
+ **Argumentos**  
+  
+-   `expr`  
+  
+     É qualquer expressão válida.  
+  
+ **Tipos de retorno**  
+  
+ Devolve uma expressão booleana ou não definida.  
+  
+ **Exemplos**  
+  
+O exemplo seguinte mostra como StringToBoolean se comporta vários tipos diferentes. 
+  
+```  
+SELECT 
+StringToBoolean("true"), 
+StringToBoolean("    false"),
+IS_BOOL(StringToBoolean("false")), 
+StringToBoolean("null"),
+StringToBoolean(undefined),
+StringToBoolean(NaN), 
+StringToBoolean(false), 
+StringToBoolean(true), 
+StringToBoolean("TRUE"),
+StringToBoolean("False")
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+[{"$1": true, "$2": false, "$3": true}]
+```  
+
+####  <a name="bk_stringtonull"></a> StringToNull  
+ Devolve a expressão traduzido como null. Se a expressão não pode ser convertida, retornará indefinida.  
+  
+ **Sintaxe**  
+  
+```  
+StringToNull(<expr>)  
+```  
+  
+ **Argumentos**  
+  
+-   `expr`  
+  
+     É qualquer expressão válida.  
+  
+ **Tipos de retorno**  
+  
+ Devolve uma expressão de nulo ou indefinido.  
+  
+ **Exemplos**  
+  
+O exemplo seguinte mostra como StringToNull se comporta vários tipos diferentes. 
+  
+```  
+SELECT 
+StringToNull("null"), 
+StringToNull("  null "),
+IS_NULL(StringToNull("null")), 
+StringToNull("true"), 
+StringToNull(false), 
+StringToNull(undefined),
+StringToNull(NaN), 
+StringToNull("NULL"),
+StringToNull("Null")
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+[{"$1": null, "$2": null, "$3": true}]
+```  
+
+####  <a name="bk_stringtonumber"></a> StringToNumber  
+ Devolve a expressão traduzida para um número. Se a expressão não pode ser convertida, retornará indefinida.  
+  
+ **Sintaxe**  
+  
+```  
+StringToNumber(<expr>)  
+```  
+  
+ **Argumentos**  
+  
+-   `expr`  
+  
+     É qualquer expressão de número de JSON válido. Números no JSON tem de ser um número inteiro ou um ponto flutuante. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)  
+  
+ **Tipos de retorno**  
+  
+ Devolve uma expressão de número ou não definida.  
+  
+ **Exemplos**  
+  
+O exemplo seguinte mostra como StringToNumber se comporta vários tipos diferentes. 
+  
+```  
+SELECT 
+StringToNumber("1.000000"), 
+StringToNumber("3.14"),
+IS_NUMBER(StringToNumber("   60   ")), 
+StringToNumber("0xF"),
+StringToNumber("-1.79769e+308"),
+IS_STRING(StringToNumber("2")),
+StringToNumber(undefined),
+StringToNumber("99     54"), 
+StringToNumber("false"), 
+StringToNumber(false),
+StringToNumber(" "),
+StringToNumber(NaN)
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+```  
+
+####  <a name="bk_stringtoobject"></a> StringToObject  
+ Devolve a expressão traduzida para um objeto. Se a expressão não pode ser convertida, retornará indefinida.  
+  
+ **Sintaxe**  
+  
+```  
+StringToObject(<expr>)  
+```  
+  
+ **Argumentos**  
+  
+-   `expr`  
+  
+     É qualquer expressão de objeto JSON válido. Tenha em atenção que os valores de cadeia de caracteres devem ser escritas com aspas duplas para ser válida. Para obter detalhes sobre o formato JSON, veja [json.org](https://json.org/)  
+  
+ **Tipos de retorno**  
+  
+ Devolve uma expressão de objeto ou não definida.  
+  
+ **Exemplos**  
+  
+O exemplo seguinte mostra como StringToObject se comporta vários tipos diferentes. 
+  
+```  
+SELECT 
+StringToObject("{}"), 
+StringToObject('{"a":[1,2,3]}'),
+StringToObject("{'a':[1,2,3]}"),
+StringToObject("{a:[1,2,3]}"),
+IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
+IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
+IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
+StringToObject(false), 
+StringToObject(undefined),
+StringToObject(NaN), 
+StringToObject("{")
+```  
+  
+ Aqui está o conjunto de resultados.  
+  
+```  
+[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+```  
+
 ####  <a name="bk_substring"></a> SUBCADEIA  
  Devolve a parte de uma expressão de cadeia de caracteres a partir da posição caractere especificado baseado em zero e continua ao comprimento especificado, ou ao fim da cadeia de caracteres.  
   

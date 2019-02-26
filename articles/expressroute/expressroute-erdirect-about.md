@@ -1,21 +1,21 @@
 ---
 title: Sobre o ExpressRoute Direct – Azure | Documentos da Microsoft
-description: Esta página fornece uma visão geral do ExpressRoute Direct (pré-visualização)
+description: Esta página fornece uma visão geral do ExpressRoute Direct
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 3124e98dd035080c2989849232b978c5d4a563ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 98c5dc7dc6d977525d889a4cd97492183d1aad22
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100742"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818158"
 ---
-# <a name="about-expressroute-direct-preview"></a>Sobre o ExpressRoute direcionar (pré-visualização)
+# <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
 ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. ExpressRoute Direct fornece conectividade de 100-Gbps dupla, que suporta a conetividade de ativo/ativo em escala.
 
@@ -25,14 +25,9 @@ Recursos-chave que ExpressRoute Direct fornece incluem, mas não estão limitado
 * Isolamento físico para setores que estejam reguladas e requerem conectividade dedicada e isolada, como: Banca, governamentais e varejo
 * Controlo granular de distribuição do circuito baseado na unidade de negócios
 
-> [!IMPORTANT]
-> Direct do ExpressRoute está atualmente em pré-visualização.
->
-> Esta Pré-visualização Pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+## <a name="onboard-to-expressroute-direct"></a>Carregar para o ExpressRoute Direct
 
-## <a name="enroll-in-the-preview"></a>Inscrever-se na Pré-visualização
-
-Antes de utilizar o ExpressRoute Direct, primeiro tem de inscrever a subscrição na pré-visualização. Para se inscrever, enviar um E-Mail para <ExpressRouteDirect@microsoft.com> com o seu ID de subscrição, incluindo os seguintes detalhes:
+Antes de utilizar o ExpressRoute Direct, primeiro tem de inscrever a sua subscrição. Para se inscrever, enviar um E-Mail para <ExpressRouteDirect@microsoft.com> com o seu ID de subscrição, incluindo os seguintes detalhes:
 
 * Cenários que pretende para realizar com **direta do ExpressRoute**
 * Preferências de localização - consulte [parceiros e localizações de peering](expressroute-locations-providers.md) para obter uma lista completa de todas as localizações
@@ -74,7 +69,7 @@ ExpressRoute Direct suporta QinQ e Dot1Q marcação de VLAN.
 
 ## <a name="sla"></a>SLA
 
-ExpressRoute Direct fornece o mesmo SLA de nível empresarial com ligações redundantes do ativo/ativo na rede Global da Microsoft. Infraestrutura de ExpressRoute é redundante e conectividade à rede Global da Microsoft é redundante e diversificado e dimensiona-se em conformidade com os requisitos dos clientes. Durante a pré-visualização, não haverá nenhum SLA e devem ser consideradas apenas para cargas de trabalho de não produção.
+ExpressRoute Direct fornece o mesmo SLA de nível empresarial com ligações redundantes do ativo/ativo na rede Global da Microsoft. Infraestrutura de ExpressRoute é redundante e conectividade à rede Global da Microsoft é redundante e diversificado e dimensiona-se em conformidade com os requisitos dos clientes. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

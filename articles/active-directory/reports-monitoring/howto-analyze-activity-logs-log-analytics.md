@@ -17,18 +17,20 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e565f5b9bcd9e3e79423c742b2c95c00abd97b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: aca7f0dbe0906ea0e1572f4580d8937ebf3eee64
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454763"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823263"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Azure AD de analisar os registos de atividades com os registos do Azure Monitor (pré-visualização)
 
 Depois de [integrar o Azure AD registos de atividades com os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), pode utilizar o poder do Azure Monitor registos para obter informações sobre o seu ambiente. Também pode instalar o [vistas de análise para a atividade do Azure AD de registo registos](howto-install-use-log-analytics-views.md) para obter acesso aos relatórios criados previamente em torno de auditoria e eventos de início de sessão no seu ambiente.
 
 Neste artigo, irá aprender a analisar o Azure registos de atividades do AD no seu espaço de trabalho do Log Analytics. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 

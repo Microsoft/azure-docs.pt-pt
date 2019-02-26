@@ -3,7 +3,7 @@ title: Governação de recursos do Service Fabric do Azure para contentores e se
 description: O Azure Service Fabric permite-lhe especificar os limites de recursos para serviços em execução no interior ou exteriores contentores.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: twhitney, subramar
-ms.openlocfilehash: 66f651f921773f638b4493be70319d5d80b122db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: aljo, subramar
+ms.openlocfilehash: 1a9d9e0b6a82bd4bb3312df5288c04d0e52af3a6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956845"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805677"
 ---
 # <a name="resource-governance"></a>Governação de recursos
 
@@ -32,9 +32,9 @@ Quando estiver a executar vários serviços no mesmo nó ou cluster, é possíve
 
 Governação de recursos é suportada nos recursos de infraestrutura do serviço de acordo com o [pacote de serviço](service-fabric-application-model.md). Os recursos que são atribuídos ao pacote de serviço podem ser mais divididos entre pacotes do código. Os limites de recursos que são especificados também significa que a reserva dos recursos. Service Fabric suporta a especificação de CPU e memória por pacote de serviço, com dois interna [métricas](service-fabric-cluster-resource-manager-metrics.md):
 
-* *CPU* (nome da métrica `servicefabric:/_CpuCores`): um núcleo de lógico que está disponível na máquina host. Todos os núcleos em todos os nós são ponderados o mesmo.
+* *CPU* (nome da métrica `servicefabric:/_CpuCores`): Um núcleo de lógico que está disponível na máquina host. Todos os núcleos em todos os nós são ponderados o mesmo.
 
-* *Memória* (nome da métrica `servicefabric:/_MemoryInMB`): memória é expressa em megabytes, e ele mapeia para a memória física disponível na máquina.
+* *Memória* (nome da métrica `servicefabric:/_MemoryInMB`): Memória é expressa em megabytes, e ele mapeia para a memória física disponível na máquina.
 
 Para essas duas medições [Resource Manager de Cluster](service-fabric-cluster-resource-manager-cluster-description.md) controla a capacidade total do cluster, a carga em cada nó do cluster e os restantes recursos no cluster. Essas duas métricas são equivalentes a qualquer utilizador ou métrica personalizada. Todas as funcionalidades existentes podem ser utilizadas com os mesmos:
 
@@ -56,9 +56,9 @@ Neste momento, a soma dos limites de é igual à capacidade do nó. Um processo 
 
 No entanto, existem duas situações em que outros processos podem disputar da CPU. Nestas situações, um processo e um contentor a partir do nosso exemplo poderão ocorrer o problema de vizinhos ruidosos:
 
-* *Combinar serviços governados e não sejam regidos e contentores*: se um utilizador cria um serviço sem qualquer governação de recursos especificada, o tempo de execução o vê como consumir sem recursos e pode colocá-lo no nó no nosso exemplo. Neste caso, este novo processo consome efetivamente alguns CPU às custas dos serviços que já estão em execução no nó. Existem dois solução para esse problema. Um não misturar governados e não sejam regidos serviços no mesmo cluster ou utilize [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que estes dois tipos de serviços não acabam no mesmo conjunto de nós.
+* *Combinar serviços governados e não sejam regidos e contentores*: Se um utilizador cria um serviço sem qualquer governação de recursos especificada, o tempo de execução o vê como consumir sem recursos e pode colocá-lo no nó no nosso exemplo. Neste caso, este novo processo consome efetivamente alguns CPU às custas dos serviços que já estão em execução no nó. Existem dois solução para esse problema. Um não misturar governados e não sejam regidos serviços no mesmo cluster ou utilize [restrições de posicionamento](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que estes dois tipos de serviços não acabam no mesmo conjunto de nós.
 
-* *Quando o outro processo é iniciado no nó, fora do Service Fabric (por exemplo, um serviço de sistema operacional)*: nesta situação, o processo de fora do Service Fabric também suporta para a CPU com os serviços existentes. A solução para esse problema é configurar as capacidades de nós corretamente a conta para a sobrecarga de SO, conforme mostrado na próxima seção.
+* *Quando o outro processo é iniciado no nó, fora do Service Fabric (por exemplo, um serviço de sistema operacional)*: Nesta situação, o processo de fora do Service Fabric também suporta para a CPU com os serviços existentes. A solução para esse problema é configurar as capacidades de nós corretamente a conta para a sobrecarga de SO, conforme mostrado na próxima seção.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Configuração do cluster para ativar a governação de recursos
 
@@ -194,8 +194,8 @@ Além da CPU e memória, é possível especificar outros limites de recursos par
 * *MemoryReservationInMB*: O limite não restritivo de governação de memória que é aplicado apenas quando a contenção de memória é detetada no nó.
 * *CpuPercent*: A percentagem de CPU que pode utilizar o contentor. Se os limites de CPU são especificados para o pacote de serviço, este parâmetro é efetivamente ignorado.
 * *MaximumIOps*: O IOPS máximo que pode utilizar um contentor (leitura e escrita).
-* *MaximumIOBytesps*: máximo e/s (bytes por segundo) que pode utilizar um contentor (leitura e escrita).
-* *BlockIOWeight*: O bloco de e/s de importância para em relação a outros contentores.
+* *MaximumIOBytesps*: O máximo e/s (bytes por segundo) que pode utilizar um contentor (leitura e escrita).
+* *BlockIOWeight*: O bloco de peso de e/s para em relação a outros contentores.
 
 Estes recursos podem ser combinados com a CPU e memória. Eis um exemplo de como especificar recursos adicionais para contentores:
 

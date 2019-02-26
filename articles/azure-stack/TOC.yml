@@ -165,6 +165,8 @@ items:
         href: azure-stack-manage-storage-accounts.md
       - name: Gerir a capacidade de armazenamento
         href: azure-stack-manage-storage-shares.md
+      - name: Gerir a infraestrutura de armazenamento
+        href: azure-stack-storage-infrastructure-overview.md
       - name: Gerir a capacidade de memória física
         href: azure-stack-manage-storage-physical-memory-capacity.md
       - name: Adicionar nós de unidade de escala
@@ -395,9 +397,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Formação e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 02a071cae4a02f909ccbf00678451696721310df
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 041362b8498cd44fb58f2951b039a2bf14354ee6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593850"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805210"

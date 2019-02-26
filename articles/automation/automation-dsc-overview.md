@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a63155e65460f9e2193c121bb49849940104eff1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: dd2ba0ec3427cd99da3321b50fb43f4c00f2d1a9
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649239"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822826"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Descrição geral da configuração de estado da automatização do Azure
 
@@ -37,9 +37,9 @@ No portal do Azure ou no PowerShell, pode gerir todos os seus DSC configuraçõe
 
 ![Captura de ecrã da página de automatização do Azure](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-log-analytics"></a>Importar dados de relatórios para o Log Analytics
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importar dados de relatórios sobre os registos do Azure Monitor
 
-Nós que são geridos com a configuração de estado de automatização do Azure enviam dados de estado de geração de relatórios detalhados para o servidor de solicitação incorporada. Pode configurar a configuração de estado de automatização do Azure para enviar estes dados para a área de trabalho do Log Analytics. Para saber como enviar dados de estado de configuração de estado para a área de trabalho do Log Analytics, veja [reencaminhar Azure Automation configuração de estado dados de relatórios para o Log Analytics](automation-dsc-diagnostics.md).
+Nós que são geridos com a configuração de estado de automatização do Azure enviam dados de estado de geração de relatórios detalhados para o servidor de solicitação incorporada. Pode configurar a configuração de estado de automatização do Azure para enviar estes dados para a área de trabalho do Log Analytics. Para saber como enviar dados de estado de configuração de estado para a área de trabalho do Log Analytics, veja [reencaminhar Azure Automation configuração de estado dados de relatórios para os registos do Azure Monitor](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572557"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825318"
 ---
 1. Inicie sessão no [Portal do Azure][Azure portal].
 2. No menu do lado esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Integração** > **Reencaminhamento**. Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito. 
 3. Em **Criar espaço de nomes**, introduza um nome de espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
 4. Na caixa **Subscrição**, selecione a subscrição do Azure em que pretende criar o espaço de nomes.
-5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/resource-group-portal.md), selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.  
+5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.  
 6. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
    
     ![Create namespace][create-namespace]
@@ -28,7 +28,7 @@ ms.locfileid: "51572557"
 3. Em **Políticas de acesso partilhado**, selecione **RootManageSharedAccessKey**.
    
     ![connection-info][connection-info]
-4. Em **Policy: RootManageSharedAccessKey**, selecione o botão **Copiar**, junto a **Cadeia de ligação — chave primária**. Esta ação copia a cadeia de ligação para a sua área de transferência, para que possa utilizá-la posteriormente. Cole este valor no Bloco de Notas ou noutra localização temporária.
+4. Em **política: RootManageSharedAccessKey**, selecione o **cópia** junto a **ligação cadeia de caracteres – chave primária**. Esta ação copia a cadeia de ligação para a sua área de transferência, para que possa utilizá-la posteriormente. Cole este valor no Bloco de Notas ou noutra localização temporária.
    
     ![connection-string][connection-string]
 

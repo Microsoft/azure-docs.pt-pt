@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 30a7eea751a9fbfa0ee95a7edb039a13860be7f8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 38a69327e5aaa758dc70ca950956d0bdc8001a4f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115475"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818090"
 ---
 # <a name="azure-network-security-overview"></a>Descrição geral da segurança de rede do Azure
 
@@ -178,7 +178,7 @@ Uma forma para realizar isso é utilizar um [VPN site a site](https://www.techop
 Saiba mais:
 
 * [Criar uma VNet do Resource Manager com uma ligação de VPN de site a site com o portal do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-* [Planear e conceber para o gateway de VPN](../vpn-gateway/vpn-gateway-plan-design.md)
+* [Acerca do Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Ligar a sua rede no local a uma rede virtual com um link WAN dedicado
 

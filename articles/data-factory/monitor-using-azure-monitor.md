@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: a4eea340fe57ab3c05e527a476d9153113eedba5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512378"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819399"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertas e monitorizar fábricas de dados através do Azure Monitor
 Aplicações na cloud são complexas com muitas partes móveis. A monitorização fornece dados para garantir que seu aplicativo mantém-se e em execução em bom estado. Também ajuda-o a protele potenciais problemas ou resolução de problemas anteriores são. Além disso, pode utilizar dados de monitorização para obter informações aprofundadas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho da aplicação ou a capacidade de manutenção, ou automatize ações que caso contrário, requer intervenção manual.
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Headers** (Cabeçalhos)
 * Substitua `{api-version}` por `2016-09-01`.
-* Substitua `{resource-id}` com o ID de recurso do recurso para o qual quiser para editar as definições de diagnóstico. Para obter mais informações [utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-portal.md).
+* Substitua `{resource-id}` com o ID de recurso do recurso para o qual quiser para editar as definições de diagnóstico. Para obter mais informações [utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 * Definir o `Content-Type` cabeçalho para `application/json`.
 * Defina o cabeçalho de autorização para um token web JSON que obtém do Azure Active Directory. Para obter mais informações, consulte [autenticar pedidos](../active-directory/develop/authentication-scenarios.md).
 

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e9c1b2513f769b065883dc98b649a68d565ccc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7d8259cdb61d2481805dd2e07c11b539e057215c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456491"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817070"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Integrar registos do Azure AD com os registos do Azure Monitor (pré-visualização)
 
@@ -37,6 +37,8 @@ O vídeo seguinte a partir de uma sessão Ignite demonstra as vantagens da utili
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 Neste artigo, saiba como integrar registos do Azure Active Directory (Azure AD) com o Azure Monitor.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>Relatórios suportados
 

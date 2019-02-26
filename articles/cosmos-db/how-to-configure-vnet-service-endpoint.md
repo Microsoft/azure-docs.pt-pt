@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4511ef81ccfa7008cd21a22b09459fb122d46327
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 03ec8858ee4b9323e6f7964ba02f8bb38f32d6a4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452945"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819008"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurar o acesso a partir de redes virtuais (VNet)
 
@@ -51,6 +51,9 @@ As secções seguintes descrevem como configurar um ponto de extremidade de serv
 > Para ativar pontos finais de serviço de rede virtual, tem as seguintes permissões de subscrição:
   * Subscrição com a rede virtual: Contribuinte de rede
   * Subscrição com a conta do Azure Cosmos DB: Contribuinte de conta do DocumentDB
+  * Se a sua rede virtual e a conta do Azure Cosmos DB estiverem em diferentes subscrições, certifique-se de que a subscrição que tem a rede virtual também tem `Microsoft.DocumentDB` fornecedor de recursos registado. Para registar um fornecedor de recursos, consulte [fornecedores de recursos do Azure e tipos de](../azure-resource-manager/resource-manager-supported-services.md) artigo. 
+
+Aqui estão as instruções para registar a subscrição no fornecedor de recursos.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurar um ponto de extremidade de serviço para uma nova rede virtual do Azure e uma sub-rede
 

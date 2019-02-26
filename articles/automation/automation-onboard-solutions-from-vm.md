@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 039e2d3c70493868ca2f79e89fc82d8970ec6865
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 894fc42954182171588d81e2f7f1e37141af9add
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032408"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821256"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário da máquina virtual do Azure
 
@@ -34,7 +34,7 @@ Selecione a área de trabalho do Log Analytics do Azure e a conta de automatiza�
 
 ![Integrar a solução de gestão de atualizações](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Vá para as outras soluções e, em seguida, selecione **ativar**. As listas de lista pendente de contas do Log Analytics e automatização estão desativadas porque estas soluções utilizam a mesma área de trabalho e a conta de automatização, como a solução anteriormente ativada.
+Vá para as outras soluções e, em seguida, selecione **ativar**. A área de trabalho do Log Analytics e listas de lista pendente de conta de automatização estão desativadas porque estas soluções utilizam a mesma área de trabalho e a conta de automatização, como a solução anteriormente ativada.
 
 > [!NOTE]
 > **Controlo de alterações** e **inventário** utilizar a mesma solução. Quando uma destas soluções está ativada, o outro também está ativado.
@@ -45,9 +45,9 @@ Cada solução utiliza uma configuração de âmbito na área de trabalho para o
 
 Se a área de trabalho selecionada ainda não tiver as soluções de gestão de atualizações ou controlo de alterações, são criadas as seguintes configurações de escopo:
 
-* **MicrosoftDefaultScopeConfig ChangeTracking**
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
 
-* **Atualizações de MicrosoftDefaultScopeConfig**
+* **MicrosoftDefaultScopeConfig-Updates**
 
 Se a área de trabalho selecionada já tem a solução, a solução não está implementada novamente e a configuração de âmbito não for adicionada.
 
@@ -59,7 +59,7 @@ Quando é adicionado um computador para a gestão de atualizações, controlo de
 
 Vá para a área de trabalho. Sob **gerais**, selecione **pesquisas guardadas**. As duas pesquisas guardadas, que são utilizadas por estas soluções são mostradas na tabela a seguir:
 
-|Nome     |Categoria  |Alias  |
+|Name     |Categoria  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |
@@ -76,7 +76,7 @@ As seguintes soluções são dependentes de uma área de trabalho do Log Analyti
 * [Monitorização de Alterações](automation-change-tracking.md)
 * [Iniciar/parar VMs fora do horário comercial](automation-solution-vm-management.md)
 
-Se decidir que já não pretende integrar a sua conta de automatização com o Log Analytics, pode desassociar a sua conta diretamente a partir do portal do Azure.  Antes de continuar, tem primeiro de remover as soluções mencionadas anteriormente, caso contrário, este processo será impedido de prosseguir. Reveja o artigo para a solução específica que importou para compreender os passos necessários para removê-lo.
+Se decidir que já não pretende integrar a sua conta de automatização com uma área de trabalho do Log Analytics, pode desassociar a sua conta diretamente a partir do portal do Azure.  Antes de continuar, tem primeiro de remover as soluções mencionadas anteriormente, caso contrário, este processo será impedido de prosseguir. Reveja o artigo para a solução específica que importou para compreender os passos necessários para removê-lo.
 
 Depois de remover estas soluções, pode executar os seguintes passos para desassociar a conta de automatização.
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: a678722666146fdf22e88680ab414b09d2a7ffaa
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 39c96608dd843577f41d2111e9e7c5517136ccae
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749941"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823574"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingestão de dados no Explorador de dados do Azure sem uma linha de código
 
@@ -34,7 +34,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* [Um cluster do Explorador de dados do Azure e a base de dados](create-cluster-database-portal.md). Neste tutorial, é o nome de base de dados *AzureMonitoring*.
+* [Um cluster do Explorador de dados do Azure e a base de dados](create-cluster-database-portal.md). Neste tutorial, é o nome de base de dados *TestDatabase*.
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Fornecedor de dados do Azure Monitor: registos de atividade e diagnóstico
 
@@ -123,7 +123,7 @@ Configurar um pipeline do Explorador de dados do Azure envolve várias etapas, c
 
 ### <a name="connect-to-the-azure-data-explorer-web-ui"></a>Ligue-se para a Web do Explorador de dados do Azure da interface do Usuário
 
-No seu Explorador de dados do Azure *AzureMonitoring* base de dados, selecione **consulta** para abrir a IU da Web do Azure Data Explorer.
+No seu Explorador de dados do Azure *TestDatabase* base de dados, selecione **consulta** para abrir a IU da Web do Azure Data Explorer.
 
 ![Página de consulta](media/ingest-data-no-code/query-database.png)
 
@@ -133,7 +133,7 @@ Utilize a IU da Web do Azure Data Explorer para criar as tabelas de destino na b
 
 #### <a name="the-diagnostic-logs-table"></a>A tabela de registos de diagnóstico
 
-1. Na *AzureMonitoring* bases de dados, criar uma tabela chamada *DiagnosticLogsRecords* para armazenar os registos de registo de diagnóstico. Utilize o seguinte `.create table` controlar o comando:
+1. Na *TestDatabase* bases de dados, criar uma tabela chamada *DiagnosticLogsRecords* para armazenar os registos de registo de diagnóstico. Utilize o seguinte `.create table` controlar o comando:
 
     ```kusto
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
@@ -147,13 +147,13 @@ Utilize a IU da Web do Azure Data Explorer para criar as tabelas de destino na b
 
 Uma vez que a estrutura dos registos de Atividades não estiver em tabela, precisará manipular os dados e expanda cada evento para um ou mais registos. Os dados não processados irão ser ingeridos a uma tabela intermediária chamada *ActivityLogsRawRecords*. Nessa altura, os dados serão manipulados e expandidos. Os dados expandidos, em seguida, irão ser ingeridos para o *ActivityLogsRecords* tabela utilizando uma política de atualização. Isso significa que terá de criar duas tabelas separadas para a ingestão de registos de atividades.
 
-1. Criar uma tabela chamada *ActivityLogsRecords* no *AzureMonitoring* para receber os registros de log de atividade da base de dados. Para criar a tabela, execute a seguinte consulta do Explorador de dados do Azure:
+1. Criar uma tabela chamada *ActivityLogsRecords* no *TestDatabase* para receber os registros de log de atividade da base de dados. Para criar a tabela, execute a seguinte consulta do Explorador de dados do Azure:
 
     ```kusto
     .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
-1. Criar a tabela de dados intermediários, com o nome *ActivityLogsRawRecords* no *AzureMonitoring* base de dados para manipulação de dados:
+1. Criar a tabela de dados intermediários, com o nome *ActivityLogsRawRecords* no *TestDatabase* base de dados para manipulação de dados:
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
@@ -265,9 +265,7 @@ Selecione um recurso do qual pretende exportar as métricas. A exportação de r
     1. Na **nome de política do hub de eventos Select** , selecione **RootManagerSharedAccessKey**.
     1. Selecione **OK**.
 
-1. Selecione **Guardar**. O nome de espaço de nomes, nome e a política da hub de eventos será apresentada na janela.
-
-    ![Guardar as definições de diagnóstico](media/ingest-data-no-code/save-diagnostic-settings.png)
+1. Selecione **Guardar**.
 
 ### <a name="connect-activity-logs-to-your-event-hub"></a>Ligar os registos de atividades ao seu hub de eventos
 
@@ -309,7 +307,7 @@ Agora precisa de criar as ligações de dados para os seus registos de diagnóst
 ### <a name="create-the-data-connection-for-diagnostic-logs"></a>Criar a ligação de dados para os registos de diagnóstico
 
 1. No seu cluster do Explorador de dados do Azure com o nome *kustodocs*, selecione **bases de dados** no menu à esquerda.
-1. Na **bases de dados** janela, selecione seu *AzureMonitoring* base de dados.
+1. Na **bases de dados** janela, selecione seu *TestDatabase* base de dados.
 1. No menu da esquerda, selecione **ingestão de dados**.
 1. Na **ingestão de dados** janela, clique em **+ adicionar ligação de dados**.
 1. Na **ligação de dados** janela, introduza as seguintes informações:
@@ -332,9 +330,9 @@ Agora precisa de criar as ligações de dados para os seus registos de diagnóst
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | **Tabela** | *DiagnosticLogsRecords* | A tabela que criou o *AzureMonitoring* base de dados. |
+    | **Tabela** | *DiagnosticLogsRecords* | A tabela que criou o *TestDatabase* base de dados. |
     | **Formato de dados** | *JSON* | O formato utilizado na tabela. |
-    | **Mapeamento de colunas** | *DiagnosticLogsRecordsMapping* | O mapeamento que criou o *AzureMonitoring* base de dados, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna da *DiagnosticLogsRecords* tabela.|
+    | **Mapeamento de colunas** | *DiagnosticLogsRecordsMapping* | O mapeamento que criou o *TestDatabase* base de dados, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna da *DiagnosticLogsRecords* tabela.|
     | | |
 
 1. Selecione **Criar**.  
@@ -361,9 +359,9 @@ Repita os passos a [criar a ligação de dados para os registos de diagnóstico]
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | **Tabela** | *ActivityLogsRawRecords* | A tabela que criou o *AzureMonitoring* base de dados. |
+    | **Tabela** | *ActivityLogsRawRecords* | A tabela que criou o *TestDatabase* base de dados. |
     | **Formato de dados** | *JSON* | O formato utilizado na tabela. |
-    | **Mapeamento de colunas** | *ActivityLogsRawRecordsMapping* | O mapeamento que criou o *AzureMonitoring* base de dados, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna da *ActivityLogsRawRecords* tabela.|
+    | **Mapeamento de colunas** | *ActivityLogsRawRecordsMapping* | O mapeamento que criou o *TestDatabase* base de dados, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna da *ActivityLogsRawRecords* tabela.|
     | | |
 
 1. Selecione **Criar**.  

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035623"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821666"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar o débito de VPN para uma rede virtual
 
@@ -49,7 +49,7 @@ O diagrama seguinte mostra a conectividade de lógica de uma rede no local a uma
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Calcular a entrada/saída esperada máxima
 
 1.  Determine requisitos de débito de linha de base da sua aplicação.
-2.  Determine os limites de débito do gateway de VPN do Azure. Para obter ajuda, consulte a secção "Débito agregado por tipo VPN e de SKU" [planear e conceber para o Gateway de VPN](vpn-gateway-plan-design.md).
+2.  Determine os limites de débito do gateway de VPN do Azure. Para obter ajuda, consulte a secção "SKUs de Gateway" [sobre o Gateway de VPN](vpn-gateway-about-vpngateways.md#gwsku).
 3.  Determinar os [orientações de débito de VM do Azure](../virtual-machines/virtual-machines-windows-sizes.md) para o tamanho da VM.
 4.  Determine a largura de banda do fornecedor de serviços de Internet (ISP).
 5.  Calcular o débito esperado - largura de banda, pelo menos, de VM, Gateway, ISP () * 0,8.
@@ -77,7 +77,7 @@ Baixe [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para o
 
 2. Em ambos os nós, ative uma exceção de firewall para a porta 5001.
 
-    **Windows:** execute o seguinte comando como administrador:
+    **Windows:** Execute o seguinte comando como administrador:
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +89,7 @@ Baixe [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para o
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Linux do Azure:** imagens do Linux do Azure têm firewalls permissivas. Se existir uma aplicação à escuta numa porta, o tráfego é permitido através de. Imagens personalizadas que são protegidas poderão ter de portas abertas explicitamente. Firewalls de camada de SO Linux comuns incluem `iptables`, `ufw`, ou `firewalld`.
+    **Azure Linux:**  Imagens de Linux do Azure têm firewalls permissivas. Se existir uma aplicação à escuta numa porta, o tráfego é permitido através de. Imagens personalizadas que são protegidas poderão ter de portas abertas explicitamente. Firewalls de camada de SO Linux comuns incluem `iptables`, `ufw`, ou `firewalld`.
 
 3. No nó do servidor, altere o diretório onde iperf3.exe é extraído. Em seguida, execute iPerf no modo de servidor e configurá-lo para escutar na porta 5001 como os seguintes comandos:
 

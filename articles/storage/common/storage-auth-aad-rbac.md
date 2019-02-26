@@ -1,86 +1,61 @@
 ---
-title: Utilizar o RBAC para gerir os direitos de acesso a contentores e filas (pré-visualização) - armazenamento do Azure | Documentos da Microsoft
-description: Utilize o controlo de acesso baseado em funções (RBAC) para atribuir funções para acesso aos dados de BLOBs e filas para os utilizadores, grupos, os principais de serviço de aplicações ou identidades de serviço geridas. O armazenamento do Azure suporta funções incorporadas e personalizadas para os direitos de acesso a contentores e filas.
+title: Utilizar o portal do Azure para gerir os direitos de acesso do Azure AD para contentores e filas com RBAC (pré-visualização) - armazenamento do Azure | Documentos da Microsoft
+description: Utilize o controlo de acesso baseado em funções (RBAC) do portal do Azure para atribuir acesso a contentores e filas para entidades de segurança. O armazenamento do Azure suporta funções do RBAC incorporadas e personalizadas para a autenticação através do Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6cecb2d5fde4fc651cf0ba971189ef62fa330c13
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 68511d62887cb0463fd8db01cb5c90cbc40ac4cd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241717"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818991"
 ---
-# <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Gerir os direitos de acesso para BLOBs do Azure e dados de fila com o RBAC (pré-visualização)
+# <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Conceder acesso a contentores do Azure e filas com RBAC no portal do Azure (pré-visualização)
 
-Azure Active Directory (Azure AD) autoriza direitos de acesso a recursos protegidos por meio [controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). O armazenamento do Azure define um conjunto de funções RBAC incorporadas que abrangem conjuntos comuns de permissões utilizados para aceder aos contentores ou filas. Quando uma função RBAC é atribuído a uma identidade do Azure AD, que é concedido acesso a esses recursos, identidade, de acordo com o âmbito especificado. Acesso pode ser confinado ao nível da subscrição, o grupo de recursos, a conta de armazenamento, ou um contentor individual ou fila. Pode atribuir direitos de acesso para recursos de armazenamento do Azure com o portal do Azure, ferramentas de linha de comandos do Azure e APIs de gestão do Azure. 
+Azure Active Directory (Azure AD) autoriza direitos de acesso a recursos protegidos por meio [controlo de acesso baseado em funções (RBAC)](../../role-based-access-control/overview.md). O armazenamento do Azure define um conjunto de funções RBAC incorporadas que abrangem conjuntos comuns de permissões utilizados para aceder aos contentores ou filas. 
 
-Uma identidade do Azure AD pode ser um utilizador, grupo ou principal de serviço de aplicações, ou pode ser uma identidade gerida para recursos do Azure. Uma entidade de segurança pode ser um utilizador, grupo ou principal de serviço de aplicações. R [identidade de recursos do Azure gerida](../../active-directory/managed-identities-azure-resources/overview.md) é uma identidade gerida automaticamente utilizada para autenticar a partir de aplicações em execução em máquinas virtuais do Azure, aplicações de funções, os conjuntos de dimensionamento de máquinas virtuais e outros. Para uma descrição geral de identidade no Azure AD, consulte [soluções de identidade do Azure compreender](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Quando uma função RBAC é atribuída a um principal de segurança do Azure AD, o Azure concede acesso a esses recursos para aquela entidade de segurança. Acesso pode ser confinado ao nível da subscrição, o grupo de recursos, a conta de armazenamento, ou um contentor individual ou fila. Um principal de segurança do Azure AD pode ser um utilizador, um grupo, um principal de serviço de aplicações, ou uma [identidade de recursos do Azure gerida](../../active-directory/managed-identities-azure-resources/overview.md).
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+Este artigo descreve como utilizar o portal do Azure para atribuir funções RBAC. O portal do Azure fornece uma interface simple para atribuir funções de RBAC e gerir o acesso aos seus recursos de armazenamento. Também pode atribuir funções RBAC para recursos de BLOBs e filas com ferramentas de linha de comandos do Azure ou as APIs de gestão de armazenamento do Azure. Para obter mais informações sobre as funções do RBAC para recursos de armazenamento, consulte [autenticar o acesso ao Azure os blobs e filas com o Azure Active Directory (pré-visualização)](storage-auth-aad.md). 
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Funções do RBAC para blobs e filas
 
-O armazenamento do Azure suporta funções do RBAC incorporadas e personalizadas. O armazenamento do Azure oferece essas funções RBAC incorporadas para utilização com o Azure AD:
+[!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-- [Proprietário de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Utilize para definir a propriedade e gerir o controlo de acesso POSIX para geração 2 de armazenamento do Azure Data Lake (pré-visualização). Para obter mais informações, consulte [controlo de acesso no Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control.md).
-- [Contribuinte de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview): Utilize para conceder permissões de leitura/escrita/eliminar recursos de armazenamento de Blobs.
-- [Leitor de dados de Blob de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview): Utilize para conceder permissões só de leitura para os recursos de armazenamento de Blobs.
-- [Contribuinte de dados de fila de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview): Utilize para conceder permissões de leitura/escrita/eliminar para as filas do Azure.
-- [Leitor de dados de fila de armazenamento (pré-visualização)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview): Utilize para conceder permissões só de leitura para as filas do Azure.
+## <a name="determine-resource-scope"></a>Determinar o escopo do recurso 
 
-Para obter mais informações sobre como as funções incorporadas são definidas para o armazenamento do Azure, consulte [compreender as definições de função](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
+Antes de atribuir uma função RBAC para uma entidade de segurança, determine o âmbito de acesso que deve ter esse principal de segurança. As práticas recomendadas ditam que sempre é melhor conceder apenas o âmbito mais estreita possível.
 
-Também pode definir funções personalizadas para utilização com contentores e filas. Para obter mais informações, consulte [criar funções personalizadas para controlo de acesso](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
+A lista seguinte descreve os níveis em que pode definir o âmbito acesso aos recursos de BLOBs e filas do Azure, começando com o âmbito mais estreita:
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+- **Um contentor individual.** Este âmbito, uma entidade de segurança tem acesso a todos os blobs no contentor, bem como as propriedades do contentor e metadados.
+- **Uma fila individual.** Este âmbito, uma entidade de segurança tem acesso a mensagens em fila, bem como propriedades de fila e metadados.
+- **A conta de armazenamento.** Este âmbito, uma entidade de segurança tem acesso a todos os contentores e respetivos blobs ou para todas as filas e suas mensagens.
+- **O grupo de recursos.** Este âmbito, uma entidade de segurança tem acesso a todos os contentores ou filas em todas as contas de armazenamento no grupo de recursos.
+- **A subscrição.** Este âmbito, uma entidade de segurança tem acesso a todos os contentores ou filas em todas as contas de armazenamento em todos os grupos de recursos na subscrição.
 
-## <a name="assign-a-role-to-a-security-principal"></a>Atribuir uma função a uma entidade de segurança
+Ao determinar o âmbito pretendido para uma atribuição de função, navegue para o recurso apropriado no portal do Azure. Apresentar o **controlo de acesso (IAM)** definições para o recurso e siga as instruções nas secções subsequentes para gerir atribuições de funções.
 
-Atribua uma função RBAC para uma identidade do Azure para conceder permissões para contentores ou filas na conta de armazenamento. Pode definir o âmbito de atribuição de função para a conta de armazenamento ou para um contentor específico ou a fila. A tabela seguinte resume os direitos de acesso concedidos por funções incorporadas, consoante o âmbito:
+## <a name="assign-rbac-roles-using-the-azure-portal"></a>Atribua funções RBAC com o portal do Azure
 
-|Âmbito|Proprietário de dados de blob|Contribuinte de dados de blob|Leitor de dados de blob|Contribuinte de dados de fila|Leitor de dados de fila|
-|---|---|---|---|---|---|
-|Nível de assinatura|Gestão de controlo a todos os contentores e blobs na subscrição de acesso de acesso de leitura/escrita e POSIX|Acesso de leitura/escrita a todos os contentores e blobs na subscrição| Acesso de leitura a todos os contentores e blobs na subscrição|Acesso de leitura/gravação para todas as filas na subscrição|Acesso de leitura para todas as filas na subscrição|
-|Ao nível do grupo de recursos|Gestão de controlo a todos os contentores e blobs, no grupo de recursos de acesso de acesso de leitura/escrita e POSIX|Acesso de leitura/escrita a todos os contentores e blobs, no grupo de recursos|Acesso de leitura a todos os contentores e blobs, no grupo de recursos|Acesso de leitura/gravação para todas as filas no grupo de recursos|Acesso de leitura para todas as filas no grupo de recursos|
-|Nível de conta de armazenamento|Gestão de controlo a todos os contentores e blobs na conta de armazenamento de acesso de acesso de leitura/escrita e POSIX|Acesso de leitura/escrita a todos os contentores e blobs na conta de armazenamento|Acesso de leitura a todos os contentores e blobs na conta de armazenamento|Acesso de leitura/gravação para todas as filas na conta de armazenamento|Acesso de leitura para todas as filas na conta de armazenamento|
-|Nível de contêiner/fila|Gestão de controlo para o contentor especificado e respetivos blobs de acesso POSIX e acesso de leitura/escrita.|Acesso de leitura/gravação para o contentor especificado e respetivos blobs|Acesso de leitura para o contentor especificado e respetivos blobs|Acesso de leitura/escrita para a fila especificada|Acesso de leitura para a fila especificada|
+Conceder acesso aos recursos de BLOBs e filas com credenciais do Azure AD envolve os seguintes passos: 
 
-> [!NOTE]
-> Como proprietário da conta de armazenamento do Azure, não é atribuídos automaticamente permissões para aceder aos dados. Tem explicitamente de atribuir-se uma função RBAC do armazenamento do Azure. Pode atribuí-la no nível da sua subscrição, grupo de recursos, conta de armazenamento, ou um contentor ou fila.
+1. Atribua a função RBAC de armazenamento do Azure adequada para conceder acesso a contentores ou filas. Para acesso de leitura, atribuir os **leitor de dados de BLOBs (pré-visualização)** ou **fila de leitor de dados (pré-visualização)** função. Para acesso de leitura, escrita e eliminar, atribuir os **contribuinte de dados de BLOBs (pré-visualização)** ou **contribuinte de dados de fila (pré-visualização)** função. Também pode atribuir uma função personalizada.
 
-Para obter detalhes sobre as permissões necessárias para chamar operações de armazenamento do Azure, consulte [permissões para chamar as operações REST](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).
+1. Atribuir o Azure Resource Manager [leitor](../../role-based-access-control/built-in-roles.md#reader) função aos utilizadores que precisam de aceder os contentores ou filas através do portal do Azure com as credenciais do Azure AD. 
 
-As secções seguintes mostram como atribuir uma função no âmbito para a conta de armazenamento ou um âmbito para um contentor individual.
+As secções seguintes descrevem cada uma dessas etapas mais detalhadamente.
 
-### <a name="assign-a-role-scoped-to-the-storage-account-in-the-azure-portal"></a>Atribuir uma função de âmbito para a conta de armazenamento no portal do Azure
+### <a name="assign-a-built-in-rbac-role"></a>Atribuir uma função RBAC incorporada
 
-Para atribuir uma função incorporada conceder acesso a todos os contentores ou filas na conta de armazenamento no portal do Azure:
+Antes de atribuir uma função a uma entidade de segurança, certifique-se de que considere o âmbito das permissões do que se está a conceder a. Reveja os [determinar o escopo do recurso](#determine-resource-scope) secção para decidir o âmbito adequado.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até à sua conta de armazenamento.
-1. Selecione a sua conta de armazenamento, em seguida, selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para a conta. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
-
-    ![Captura de ecrã que mostra as definições de controlo de acesso de armazenamento](media/storage-auth-aad-rbac/portal-access-control.png)
-
-1. Clique nas **adicionar atribuição de função** botão para adicionar uma nova função.
-1. Na **adicionar atribuição de função** janela, selecione a função para atribuir a uma identidade do Azure AD. Procure para localizar a identidade a quem pretende atribuir essa função. Por exemplo, a imagem seguinte mostra os **leitor de dados de Blob de armazenamento (pré-visualização)** função atribuída a um utilizador.
-
-    ![Captura de ecrã que mostra como atribuir uma função RBAC](media/storage-auth-aad-rbac/add-rbac-role.png)
-
-1. Clique em **Guardar**. A identidade a quem é atribuída a função aparece listada sob essa função. Por exemplo, a imagem seguinte mostra que o utilizador adicionado agora tem permissões de leitura a todos os dados de BLOBs na conta de armazenamento.
-
-    ![Captura de ecrã a mostrar lista de utilizadores atribuídos a uma função](media/storage-auth-aad-rbac/account-scoped-role.png)
-
-### <a name="assign-a-role-scoped-to-a-container-or-queue-in-the-azure-portal"></a>Atribuir uma função no âmbito de um contentor ou a fila no portal do Azure
-
-> [!IMPORTANT]
-> Não é possível fazê-lo se estiver a utilizar uma conta com o espaço de nomes hierárquico ainda ativado.
-
-Os passos para atribuir uma função incorporada de âmbito para um contentor ou a uma fila são semelhantes. O procedimento apresentado aqui atribui uma função no âmbito de um contentor, mas pode seguir os mesmos passos para atribuir uma função no âmbito de uma fila: 
+O procedimento apresentado aqui atribui uma função no âmbito de um contentor, mas pode seguir os mesmos passos para atribuir uma função no âmbito de uma fila: 
 
 1. Na [portal do Azure](https://portal.azure.com), navegue para a sua conta de armazenamento e exibir o **descrição geral** para a conta.
 1. Em serviços, selecione **Blobs**. 
@@ -88,11 +63,51 @@ Os passos para atribuir uma função incorporada de âmbito para um contentor ou
 1. Selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para o contentor. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
 
     ![Captura de ecrã que mostra definições de controlo de acesso de contentor](media/storage-auth-aad-rbac/portal-access-control-container.png)
+
 1. Clique nas **adicionar atribuição de função** botão para adicionar uma nova função.
-1. Na **adicionar atribuição de função** janela, selecione a função que pretende atribuir a uma identidade do Azure AD. Procure para localizar a identidade para o qual pretende atribuir essa função.
+1. Na **adicionar atribuição de função** janela, selecione a função de armazenamento do Azure que pretende atribuir. Procure para localizar a entidade de segurança para o qual pretende atribuir essa função.
+
+    ![Captura de ecrã que mostra como atribuir uma função RBAC](media/storage-auth-aad-rbac/add-rbac-role.png)
+
 1. Clique em **Guardar**. A identidade a quem é atribuída a função aparece listada sob essa função. Por exemplo, a imagem seguinte mostra que o utilizador adicionado agora tem permissões de leitura aos dados no contentor com o nome *exemplo-container*.
 
     ![Captura de ecrã a mostrar lista de utilizadores atribuídos a uma função](media/storage-auth-aad-rbac/container-scoped-role.png)
+
+Pode seguir passos semelhantes para atribuir uma função de âmbito para a conta de armazenamento, grupo de recursos ou subscrição.
+
+> [!NOTE]
+> Como proprietário da conta de armazenamento do Azure, não é atribuídos automaticamente permissões para aceder aos dados. Tem explicitamente de atribuir-se uma função RBAC do armazenamento do Azure. Pode atribuí-la no nível da sua subscrição, grupo de recursos, conta de armazenamento, ou um contentor ou fila.
+> 
+> Não é possível atribuir uma função no âmbito de um contentor ou uma fila se a sua conta de armazenamento tem um espaço de nomes hierárquico ativado.
+
+### <a name="assign-the-azure-resource-manager-reader-role"></a>Atribuir a função de leitor de Gestor de recursos do Azure
+
+Quando atribui uma função interna ou personalizada do armazenamento do Azure para uma entidade de segurança, está a conceder permissões para essa entidade de segurança para executar operações nos dados na sua conta de armazenamento. O incorporado **leitor de dados** as funções fornecem as permissões de leitura para os dados de um contentor ou uma fila, enquanto estiver incorporado no **contribuinte do Data** as funções fornecem ler, escrever e eliminar permissões para um contentor ou fila. As permissões estão no âmbito para o recurso especificado.  
+
+Por exemplo, se atribuir o **contribuinte de dados de Blob de armazenamento (pré-visualização)** função Mary no nível de um contentor com o nome de utilizador **exemplo-container**, em seguida, Mary concedido é de leitura, escrita e eliminação acesso a todos os blobs existentes nesse contentor.
+
+No entanto, se desejar ver um blob no portal do Azure, Mary, em seguida, o **contribuinte de dados de Blob de armazenamento (pré-visualização)** função por si só não irá fornecer permissões suficientes para navegar através do portal para o blob para vê-la. Mais permissões do Azure AD são necessárias para navegar através do portal e ver os outros recursos que estão visíveis.
+
+Se os utilizadores precisam para poder aceder a blobs no portal do Azure, em seguida, atribuir-lhes uma função RBAC adicional, o [leitor](../../role-based-access-control/built-in-roles.md#reader) função, para esses utilizadores. O **leitor** função é uma função do Azure Resource Manager que permite aos utilizadores ver recursos da conta de armazenamento, mas não modificá-los. Ele não fornece as permissões de leitura aos dados no armazenamento do Azure, mas apenas a recursos da conta de gestão.
+
+Siga estes passos para atribuir a **leitor** função. Neste caso, a atribuição tem um âmbito para o contentor:
+
+1. Na [portal do Azure](https://portal.azure.com), navegue para a sua conta de armazenamento e exibir o **descrição geral** para a conta.
+1. Em serviços, selecione **Blobs**. 
+1. Localizar o contentor para o qual pretende atribuir uma função e apresentar as definições do contentor. 
+1. Selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para o contentor. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
+1. Na **adicionar atribuição de função** janela, selecione a **leitor** função. 
+1. Partir do **atribuir acesso a** lista pendente, selecione **utilizador, grupo ou principal de serviço do Azure AD**.
+1. Procure para localizar a entidade de segurança para o qual pretende atribuir a função.
+1. Guarde a atribuição de função.
+
+## <a name="use-azure-ad-credentials-with-the-portal"></a>Utilizar credenciais do Azure AD com o portal
+
+Para aceder a blobs ou filas no portal do Azure com as suas credenciais do Azure AD, utilize as ligações de pré-visualização, mostradas na imagem seguinte:
+
+![Aceder a blobs ou filas com credenciais do Azure AD no portal](media/storage-auth-aad-rbac/access-data-azure-ad.png)
+
+Se aceder a dados de BLOBs ou filas com as ligações de produção, em vez das ligações de pré-visualização, portal do Azure utiliza a chave da conta para autorizar o acesso, em vez de utilizar o Azure AD.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

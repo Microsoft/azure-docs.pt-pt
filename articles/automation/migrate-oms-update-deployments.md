@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c846460d8791c15022b10ecf4517ba01699a64cd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9a897cdb10506939232f667250dfb0dbaf196bc0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439039"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822230"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implementações de atualização do OMS para o Azure
 
@@ -33,7 +33,7 @@ A partir da sua área de trabalho do OMS, clique em **aberto no Azure**. Navega 
 
 No portal do Azure, clique em **conta de automatização**
 
-![Log Analytics](media/migrate-oms-update-deployments/log-analytics.png)
+![Registos de Monitor do Azure](media/migrate-oms-update-deployments/log-analytics.png)
 
 Na sua conta de automatização, clique em **gestão de atualizações** para abrir a gestão de atualizações.
 
@@ -59,9 +59,9 @@ Para as máquinas atualizar, selecione a pesquisa guardada utilizada pela implem
 
 | Propriedade | Descrição |
 | --- | --- |
-|Nome |O nome exclusivo para identificar a implementação de atualizações. |
+|Name |O nome exclusivo para identificar a implementação de atualizações. |
 |Sistema Operativo| Selecione **Linux** ou **Windows**.|
-|Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte o artigo [Grupos de computadores no Log Analytics](../azure-monitor/platform/computer-groups.md) |
+|Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos registos do Azure Monitor, consulte o artigo [grupos de computadores nos registos do Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa. CentOS não suporta esta prontos a utilizar.|
 |Atualizações a excluir|Introduza as atualizações a excluir. Para Windows, introduza o artigo KB sem o **KB** prefixo. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
 |Definições da agenda|Selecione a hora de começar e, em seguida, selecione **uma vez** ou **periódico** da periodicidade.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou mais de seis horas. |

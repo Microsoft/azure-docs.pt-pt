@@ -1,5 +1,5 @@
 ---
-title: 'Python: Conta operações de gestão no Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
+title: 'Python: Conta de gestão de operações em Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
 description: Saiba como utilizar o Python SDK para trabalhar com operações de gestão de conta de geração 1 de armazenamento do Azure Data Lake.
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0cc5b101e1afb6ea648963188887cf43b65a5afa
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 06c341da73ad8df96d5c97e1cb9da4b7fd5c804e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124954"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820659"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de gestão de conta na geração 1 de armazenamento do Azure Data Lake com o Python
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Saiba como utilizar o SDK de Python para a geração 1 de armazenamento do Azure
 
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Um grupo de recursos do Azure**. Para obter instruções, veja [Criar um grupo de recursos do Azure](../azure-resource-manager/resource-group-portal.md).
+* **Um grupo de recursos do Azure**. Para obter instruções, veja [Criar um grupo de recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
 ## <a name="install-the-modules"></a>Instalar os módulos
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Guarde as alterações a mysample.py.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Nesta secção, vamos falar sobre as diferentes formas de autenticar com o Azure AD. As opções disponíveis são:
 

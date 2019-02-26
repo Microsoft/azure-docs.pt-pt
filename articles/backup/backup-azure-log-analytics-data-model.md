@@ -1,6 +1,6 @@
 ---
-title: Modelo de dados do Log Analytics para o Azure Backup
-description: Este artigo fala sobre detalhes de modelo de dados do Log Analytics para dados de cópia de segurança do Azure.
+title: Modelo de dados do Monitor registos do Azure para o Azure Backup
+description: Este fala de artigo sobre o Azure Monitor regista os detalhes do modelo de dados para dados de cópia de segurança do Azure.
 services: backup
 author: adigan
 manager: shivamg
@@ -8,15 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.openlocfilehash: 5921ca696076a16e39252a6cb3bfae98854b5a85
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: b17e7548a19543add6274243d64ede3b61544c52
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299577"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819570"
 ---
-# <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de dados do log Analytics para dados de cópia de segurança do Azure
-Utilize o modelo de dados do Log Analytics para criar relatórios. Com o modelo de dados, pode criar consultas personalizadas e dashboards ou personalizar os dados de cópia de segurança do Azure, no entanto, o que quiser.
+# <a name="azure-monitor-logs-data-model-for-azure-backup-data"></a>O Azure Monitor faz o modelo de dados para dados de cópia de segurança do Azure
+Utilize o modelo de dados de registos do Azure Monitor para criar relatórios. Com o modelo de dados, pode criar consultas personalizadas e dashboards ou personalizar os dados de cópia de segurança do Azure, no entanto, o que quiser.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="using-azure-backup-data-model"></a>Usando o modelo de dados de cópia de segurança do Azure
 Pode utilizar os seguintes campos fornecidos como parte do modelo de dados para criar elementos visuais, consultas personalizadas e dashboards de acordo com os seus requisitos.
@@ -37,7 +39,7 @@ Esta tabela fornece detalhes sobre os campos de alertas relacionados.
 | State_s |Texto |Estado atual do objeto alerta, por exemplo, Active Directory, eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para a execução de FileFolder de cópia de segurança, por exemplo, IaaSVM, para que este alerta pertence a |
 | OperationName |Texto |Nome da operação atual, por exemplo, alerta |
-| Categoria |Texto |Categoria de dados de diagnóstico enviados por push para o Log Analytics. Sempre AzureBackupReport |
+| Categoria |Texto |Categoria de dados de diagnóstico enviados por push para os registos do Azure Monitor. Sempre AzureBackupReport |
 | Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
 | ProtectedServerUniqueId_s |Texto |Identificador exclusivo do servidor protegido associado ao alerta |
 | VaultUniqueId_s |Texto |Identificador exclusivo do cofre protegido associado ao alerta |
@@ -65,7 +67,7 @@ Esta tabela fornece detalhes sobre os campos relacionados com o item de cópia d
 | State_s |Texto |Estado do objeto de item de cópia de segurança, por exemplo, Active Directory, eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para a execução de FileFolder de cópia de segurança, por exemplo, IaaSVM, para que este item de cópia de segurança pertence a |
 | OperationName |Texto |Nome da operação, por exemplo, BackupItem |
-| Categoria |Texto |Categoria de dados de diagnóstico enviados por push para o Log Analytics. Sempre AzureBackupReport |
+| Categoria |Texto |Categoria de dados de diagnóstico enviados por push para os registos do Azure Monitor. Sempre AzureBackupReport |
 | Recurso |Texto |Recursos para que os dados são recolhidos, por exemplo, nome do cofre dos serviços de recuperação |
 | SourceSystem |Texto |Sistema de origem de dados atuais - Azure |
 | ResourceId |Texto |Id de recurso para os dados recolhidos, por exemplo, recuperação cofre dos serviços de id de recurso |
@@ -85,7 +87,7 @@ Esta tabela fornece detalhes sobre as associações de item de cópia de seguran
 | State_s |Texto |Estado atual do objeto de associação item de cópia de segurança, por exemplo, Active Directory, eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto |Este campo representa o nome da operação atual - BackupItemAssociation |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Log Analytics, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
 | PolicyUniqueId_g |Texto |Identificador exclusivo para a política associada ao item de cópia de segurança |
 | ProtectedServerUniqueId_s |Texto |Identificador exclusivo do servidor protegido associado ao item de cópia de segurança |
@@ -108,7 +110,7 @@ Esta tabela fornece detalhes sobre os campos relacionados com tarefas.
 | State_s |Texto |Estado atual do objeto tarefa, por exemplo, Active Directory, eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto |Este campo representa o nome da operação atual - tarefa |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Log Analytics, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
 | ProtectedServerUniqueId_s |Texto |Identificador exclusivo do servidor protegido associados a tarefa |
 | VaultUniqueId_s |Texto |Identificador exclusivo do cofre protegido |
@@ -137,7 +139,7 @@ Esta tabela fornece detalhes sobre os campos relacionados com a política.
 | State_s |Texto |Estado atual do objeto de política, por exemplo, Active Directory, eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto |Este campo representa o nome da operação atual - política |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Log Analytics, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
 | PolicyUniqueId_g |Texto |Id exclusivo para identificar a política |
 | PolicyName_s |Texto |Nome da política definida |
@@ -177,7 +179,7 @@ Esta tabela fornece detalhes sobre associações de política com várias entida
 | State_s |Texto |Estado atual do objeto de política, por exemplo, Active Directory, eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto |Este campo representa o nome da operação atual - PolicyAssociation |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Log Analytics, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
 | PolicyUniqueId_g |Texto |Id exclusivo para identificar a política |
 | VaultUniqueId_s |Texto |Id exclusivo do cofre ao qual esta política pertence a |
@@ -199,7 +201,7 @@ Esta tabela fornece detalhes sobre os campos relacionados a servidores protegido
 | State_s |Texto |Estado atual do objeto de servidor protegido, por exemplo, Active Directory, eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto |Este campo representa o nome da operação atual - ProtectedServer |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Log Analytics, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
 | ProtectedServerUniqueId_s |Texto |Id exclusivo do servidor protegido |
 | RegisteredContainerId_s |Texto |O ID de contentor registado para cópia de segurança |
@@ -223,7 +225,7 @@ Esta tabela fornece detalhes sobre as associações de servidor protegido com ou
 | State_s |Texto |Estado atual do objeto de associação servidor protegido, por exemplo, Active Directory, eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto |Este campo representa o nome da operação atual - ProtectedServerAssociation |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Log Analytics, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
 | ProtectedServerUniqueId_s |Texto |Id exclusivo do servidor protegido |
 | VaultUniqueId_s |Texto |Id exclusivo do cofre ao qual este servidor protegido pertence a |
@@ -246,7 +248,7 @@ Esta tabela fornece detalhes sobre os campos relacionados com o armazenamento.
 | State_s |Texto |Estado atual do objeto de armazenamento, por exemplo, Active Directory, eliminado |
 | BackupManagementType_s |Texto |Tipo de fornecedor para o servidor fazendo a tarefa de cópia de segurança, por exemplo, IaaSVM, FileFolder |
 | OperationName |Texto |Este campo representa o nome da operação atual - armazenamento |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Log Analytics, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
 | ProtectedServerUniqueId_s |Texto |Id exclusivo do servidor protegido para o qual armazenamento é calculado |
 | VaultUniqueId_s |Texto |Id exclusivo do cofre para o armazenamento é calculado |
@@ -266,7 +268,7 @@ Esta tabela fornece detalhes sobre os campos relacionados com o cofre.
 | SchemaVersion_s |Texto |Este campo indica a versão atual do esquema, é **V1** |
 | State_s |Texto |Estado atual do objeto do cofre, por exemplo, Active Directory, eliminado |
 | OperationName |Texto |Este campo representa o nome da operação atual - Cofre |
-| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Log Analytics, é AzureBackupReport |
+| Categoria |Texto |Este campo representa a categoria de dados de diagnóstico enviadas para o Azure Monitor registos, é AzureBackupReport |
 | Recurso |Texto |Este é o recurso para os quais dados são recolhidos, que mostra o nome do cofre dos serviços de recuperação |
 | VaultUniqueId_s |Texto |Id exclusivo do Cofre |
 | VaultName_s |Texto |Nome do Cofre |
@@ -280,4 +282,4 @@ Esta tabela fornece detalhes sobre os campos relacionados com o cofre.
 | ResourceType |Texto |Tipo de recurso para o qual os dados são recolhidos. Por exemplo, os cofres |
 
 ## <a name="next-steps"></a>Passos Seguintes
-Após analisar o modelo de dados para a criação de relatórios do Azure Backup, pode começar [criar o dashboard](../azure-monitor/learn/tutorial-logs-dashboards.md) no Log Analytics.
+Após analisar o modelo de dados para a criação de relatórios do Azure Backup, pode começar [criar o dashboard](../azure-monitor/learn/tutorial-logs-dashboards.md) nos registos do Azure Monitor.

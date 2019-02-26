@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ce4391e8fb2047320c4d84ac18ce0b1f8c8eaad
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 486044656b1c288b1658d10a162e1f9fa071172a
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745023"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817121"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -347,7 +347,7 @@ Criar a segunda **Volume2**. Execute este script do PowerShell:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Figura 5: Múltiplos SID SOFS é o mesmo que o nome de anfitrião SAP GLOBAL 2][sap-ha-guide-figure-8016]
+![Figura 5: Segundo Volume2 no Gestor de clusters de ativação pós-falha][sap-ha-guide-figure-8016]
 
 _**Figura 5:** Segundo Volume2 no Gestor de clusters de ativação pós-falha_
 

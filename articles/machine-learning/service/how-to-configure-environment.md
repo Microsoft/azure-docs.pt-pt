@@ -8,16 +8,15 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 61c380ee3427afdf40427ed82ed0fd5c4f1b49fd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2eb47bede14b139d011d8a74b5196a94a93a62c7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729020"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817104"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -267,76 +266,69 @@ Para utilizar o Visual Studio Code para desenvolvimento, faça o seguinte:
 <a name="aml-databricks"></a>
 
 ## <a name="azure-databricks"></a>Azure Databricks
+O Azure Databricks é um ambiente baseado em Apache Spark na cloud do Azure. Ele fornece um ambiente de bloco de notas com base em colaboração com o cluster de computação com base da CPU ou de GPU.
 
-Pode utilizar uma versão personalizada do Azure Machine Learning SDK para o Azure Databricks para aprendizagem automática personalizada do ponto-a-ponto. Ou pode preparar o seu modelo dentro do Databricks e implantá-lo usando [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code).
+Como o Azure Databricks funciona com o serviço Azure Machine Learning:
++ Pode preparar um modelo com o Spark MLlib e implementar o modelo para o ACI/AKS a partir do Azure Databricks. 
++ Também pode utilizar [automatizada aprendizagem](concept-automated-ml.md) recursos num SDK de ML especiais do Azure com o Azure Databricks.
++ Pode utilizar o Azure Databricks como um destino de computação de um [pipeline do Azure Machine Learning](concept-ml-pipelines.md). 
 
-Para preparar o seu cluster do Databricks e obter blocos de notas de exemplo:
+### <a name="set-up-your-databricks-cluster"></a>Configurar o seu cluster do Databricks
 
-1. Criar uma [cluster do Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) com as seguintes definições:
+Criar uma [cluster do Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Algumas definições aplicam-se apenas se instalar o SDK para aprendizagem automatizada no Databricks.
+**Irá demorar alguns minutos para criar o cluster.**
 
-    | Definição | Value |
-    |----|---|
-    | Nome do cluster | yourclustername |
-    | Runtime do Databricks | Qualquer tempo de execução não ML (ML não 4.x, 5.x) |
-    | Versão de Python | 3 |
-    | Trabalhos | 2 ou superior |
+Utilize estas definições:
 
-    Utilize estas definições apenas se irá utilizar aprendizagem automática no Databricks:
+| Definição |Aplica-se a| Value |
+|----|---|---|
+| Nome do cluster |sempre| yourclustername |
+| Runtime do Databricks |sempre| Qualquer tempo de execução não ML (ML não 4.x, 5.x) |
+| Versão de Python |sempre| 3 |
+| Trabalhos |sempre| 2 ou superior |
+| Tipos de VM de nós de trabalho <br>(determina o número máximo de iterações simultâneas) |ML automatizada<br>apenas| Com otimização de memória VM preferida |
+| Ativar o Dimensionamento Automático |ML automatizada<br>apenas| Desmarque a opção |
 
-    |   Definição | Value |
-    |----|---|
-    | Tipos de VM de nós de trabalho | Com otimização de memória VM preferida |
-    | Ativar o Dimensionamento Automático | Desmarque a opção |
+Aguarde até que o cluster está em execução antes de prosseguir.
 
-    O número de nós de trabalho no seu cluster do Databricks determina o número máximo de iterações simultâneas na configuração automatizada de aprendizagem.
+### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Instalar o SDK correto para uma biblioteca do Databricks
+Quando o cluster estiver em execução, [criar uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) para anexar o pacote do SDK do Azure Machine Learning adequado ao seu cluster. 
 
-    Irá demorar alguns minutos para criar o cluster. Aguarde até que o cluster está em execução antes de prosseguir.
+1. Escolher **apenas uma** opção (outra instalação do SDK não são suportadas)
 
-1. Instalar e anexe o pacote do SDK do Azure Machine Learning ao seu cluster.
+   |SDK&nbsp;pacote&nbsp;extras|Origem|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |----|---|---|
+   |Para o Databricks| Carregar Python ovo ou PyPI | azureml-sdk[databricks]|
+   |Para o Databricks - com-<br> funcionalidades de ML automatizadas| Carregar Python ovo ou PyPI | azureml-sdk[automl_databricks]|
 
-    * [Criar uma biblioteca](https://docs.databricks.com/user-guide/libraries.html#create-a-library) com uma destas definições (_escolha apenas uma destas opções_):
+   * Não existem outros extras SDK podem ser instalados. Escolha apenas uma das opções anteriores [databricks] ou [automl_databricks].
+   * Não selecione **anexar automaticamente a todos os clusters**.
+   * Selecione **Attach** junto ao seu nome de cluster.
 
-        * Para instalar o Azure Machine Learning SDK _sem_ automatizada de capacidade do machine learning:
-            | Definição | Value |
-            |----|---|
-            |Origem | Carregar Python ovo ou PyPI
-            |Nome de PyPi | azureml-sdk[databricks]
+1. Monitor de erros até que o estado é alterado para **ligado**, que pode demorar vários minutos.  Se falhar neste passo, verifique o seguinte: 
 
-        * Para instalar o Azure Machine Learning SDK _com_ automatizada de aprendizagem:
-            | Definição | Value |
-            |----|---|
-            |Origem | Carregar Python ovo ou PyPI
-            |Nome de PyPi | azureml-sdk[automl_databricks]
+   Tente reiniciar o seu cluster por:
+   1. No painel esquerdo, selecione **Clusters**.
+   1. Na tabela, selecione o nome do cluster.
+   1. Sobre o **bibliotecas** separador, selecione **reiniciar**.
+      
+   Considere também:
+   + Alguns pacotes e, por exemplo, `psutil`, pode causar conflitos de Databricks durante a instalação. Para evitar esses erros, instalar pacotes pela versão de lib congelando, tais como `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + Em alternativa, se tiver uma versão antiga do SDK, desmarcá-la a partir de bibliotecas de instalados do cluster e mover para o lixo. Instalar a nova versão do SDK e reinicie o cluster. Se houver um problema depois disso, desligar e voltar a anexar o cluster.
 
-    * Não selecione **anexar automaticamente a todos os clusters**
+Se a instalação foi concluída com êxito, a biblioteca importada deverá ser semelhante um dos seguintes:
+   
+SDK para o Databricks **_sem_** automatizada aprendizagem ![Azure Machine Learning SDK para o Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-    * Selecione **Attach** junto ao seu nome de cluster
+SDK para o Databricks **WITH** automatizada aprendizagem ![automatizada de SDK com aprendizagem instalada no Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
-    * Certifique-se de que não existirem erros até que o estado é alterado para **ligado**. Pode demorar alguns minutos.
+### <a name="start-exploring"></a>Começar a explorar
 
-    Se tiver uma versão antiga do SDK, desmarcá-la a partir de bibliotecas de instalados do cluster e mover para o lixo. Instalar a nova versão do SDK e reinicie o cluster. Se houver um problema depois disso, desligar e voltar a anexar o cluster.
-
-    Quando tiver terminado, a biblioteca está ligada, conforme mostrado nas imagens seguintes. Lembre-se de que esses [problemas comuns do Databricks](resource-known-issues.md#databricks).
-
-    * Se tiver instalado o Azure Machine Learning SDK _sem_ automatizada aprendizagem ![SDK sem automatizada aprendizagem instalada no Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
-
-    * Se tiver instalado o Azure Machine Learning SDK _com_ automatizada aprendizagem ![automatizada de SDK com aprendizagem instalada no Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
-
-   Se este passo falhar, reinicie o cluster ao fazer o seguinte:
-
-   a. No painel esquerdo, selecione **Clusters**.
-
-   b. Na tabela, selecione o nome do cluster.
-
-   c. Sobre o **bibliotecas** separador, selecione **reiniciar**.
-
-1. Transfira o [ficheiro de arquivo do bloco de notas do Azure Databricks/Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc).
-
-   >[!Warning]
-   > Muitos blocos de notas de exemplo estão disponíveis para utilização com o serviço Azure Machine Learning. Apenas [estes blocos de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) profissional com o Azure Databricks.
-
-1.  [Importar o ficheiro de arquivo](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) para o seu Databricks do cluster e comece a explorar, tal como descrito no [blocos de notas do Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) página.
-
+Experimente:
++ Transfira o [ficheiro de arquivo do bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/Databricks_AMLSDK_1-4_6.dbc) do SDK do Azure Databricks/Azure Machine Learning e [importar o ficheiro de arquivo](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) no seu cluster do Databricks.  
+  Embora muitos blocos de notas de exemplo estão disponíveis, **apenas [estes blocos de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) profissional com o Azure Databricks.**
+  
++ Saiba como [criar um pipeline com o Databricks como a computação de treinamento](how-to-create-your-first-pipeline.md).
 
 ## <a id="workspace"></a>Criar um ficheiro de configuração da área de trabalho
 

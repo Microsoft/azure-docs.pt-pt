@@ -1,6 +1,6 @@
 ---
 title: Iniciar/parar VMs durante a solução de horário comercial
-description: Esta solução de gestão de VMS inicia e para as suas máquinas de virtuais do Azure Resource Manager com base numa agenda e monitoriza proativamente a partir do Log Analytics.
+description: Esta solução de gestão de VMS inicia e para as suas máquinas de virtuais do Azure Resource Manager com base numa agenda e monitoriza proativamente a partir de registos do Azure Monitor.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6e083c4a7595bb70e77bca860c756abc2eaa18e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3fcab4c7456295d8f7414232bc90bc5ab352e43a
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979654"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817886"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
-A iniciar/parar VMs fora do horário comercial solução inicia e interrompe as máquinas virtuais do Azure em agendas definidas pelo utilizador, fornece informações através do Azure Log Analytics e envia e-mails opcionais ao utilizar [grupos de ação](../azure-monitor/platform/action-groups.md). Ele oferece suporte do Azure Resource Manager e as VMs clássicas na maioria dos cenários.
+A iniciar/parar VMs fora do horário comercial solução inicia e interrompe as máquinas virtuais do Azure em agendas definidas pelo utilizador, fornece informações através de registos do Azure Monitor e envia e-mails opcionais ao utilizar [grupos de ação](../azure-monitor/platform/action-groups.md). Ele oferece suporte do Azure Resource Manager e as VMs clássicas na maioria dos cenários.
 
 Esta solução fornece uma opção de automatização descentralizada de baixo custo para os utilizadores que queiram otimizar seus custos VM. Com esta solução, pode:
 
@@ -35,6 +35,8 @@ Seguem-se limitações para a solução atual:
 > Se estiver a utilizar a solução para as VMs clássicas, em seguida, todas as suas VMs serão processadas sequencialmente por serviço cloud. Máquinas virtuais ainda são processadas em paralelo em serviços cloud diferentes.
 >
 > Subscrições do fornecedor de soluções Cloud (Azure CSP) do Azure suportam apenas o modelo Azure Resource Manager, serviços de não - Azure Resource Manager não estão disponíveis no programa. Quando executa a solução iniciar/parar poderá receber erros porque esta tem cmdlets para gerir recursos clássicos. Para saber mais sobre o CSP, veja [serviços disponíveis em subscrições de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Se utilizar uma subscrição do CSP, deve modificar a [ **External_EnableClassicVMs** ](#variables) variável à **False** após a implementação.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,7 +65,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
    - Selecione um **subscrição** para ligar ao escolher na lista pendente, se a predefinição selecionada não é apropriada.
    - Para **grupo de recursos**, pode criar um novo grupo de recursos ou selecione um existente.
    - Selecione uma **Localização**. Atualmente, as únicas localizações disponíveis são **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **E.U.A. Leste**, **Leste do Japão**, **Sudeste asiático**, **sul do Reino Unido**, **Europa Ocidental**, e **E.U.A. oeste 2**.
-   - Selecione um **Escalão de preço**. Escolha o **por GB (autónomo)** opção. Atualizou o log Analytics [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e o escalão por GB é a única opção.
+   - Selecione um **Escalão de preço**. Escolha o **por GB (autónomo)** opção. Registos de Monitor do Azure foi atualizado [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e o escalão por GB é a única opção.
 
 5. Depois de fornecer as informações necessárias sobre o **área de trabalho do Log Analytics** página, clique em **criar**. Pode acompanhar o progresso em **notificações** no menu, que retorna ao **Adicionar solução** página quando tiver terminado.
 6. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, pode criar uma nova conta de automatização a ser associado ele ou selecione uma conta de automatização existente que já não está ligada a uma área de trabalho do Log Analytics. Selecione uma conta de automatização existente ou clique em **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
@@ -174,7 +176,7 @@ Agora que tem uma agenda para a parar VMs com base na utilização da CPU, tem d
 
 ## <a name="solution-components"></a>Componentes da solução
 
-Esta solução inclui pré-configurada runbooks, agendas e integração com o Log Analytics, para que pode adaptar o arranque e encerramento das suas máquinas virtuais de acordo com as necessidades da sua empresa.
+Esta solução inclui pré-configurada runbooks, agendas e integração com os registos do Azure Monitor, pelo que pode personalizar o arranque e encerramento das suas máquinas virtuais de acordo com as necessidades da sua empresa.
 
 ### <a name="runbooks"></a>Runbooks
 
@@ -209,7 +211,7 @@ A tabela seguinte lista as variáveis criadas na sua conta de automatização. S
 |External_AutoStop_TimeAggregationOperator | O operador de agregação da hora, que é aplicado para o tamanho da janela selecionados para avaliar a condição. Os valores aceitáveis são **médio**, **mínimo**, **máxima**, **Total**, e **última**.|
 |External_AutoStop_TimeWindow | O tamanho da janela durante o qual o Azure analisa as métricas selecionadas para acionar um alerta. Este parâmetro aceita entradas no formato de intervalo de tempo. Valores possíveis são de 5 minutos a seis horas.|
 |External_EnableClassicVMs| Especifica se as VMs clássicas são visadas pela solução. O valor predefinido é True. Isso deve ser definido como falso para subscrições de CSP.|
-|External_ExcludeVMNames | Introduza nomes de VMS a serem excluídos, separando os nomes com uma vírgula, sem espaços. Isso está limitado a 140 VMs. Se adicionar mais de 140 VMs são adicionadas as VMs devem ser excluídos pode ser iniciado ou encerramento inadvertidamente|
+|External_ExcludeVMNames | Introduza nomes de VMS a serem excluídos, separando os nomes com uma vírgula, sem espaços. Isso está limitado a 140 VMs. Se adicionar mais de 140 VMs a esta lista separada por vírgulas, as VMs que estão definidas para ser excluído poderão ser iniciadas ou interrompidas inadvertidamente.|
 |External_Start_ResourceGroupNames | Especifica um ou mais grupos de recursos, a separação de valores com uma vírgula, direcionada para ações de início.|
 |External_Stop_ResourceGroupNames | Especifica um ou mais grupos de recursos, a separação de valores com uma vírgula, direcionada para ações de paragem.|
 |Internal_AutomationAccountName | Especifica o nome da conta de automatização.|
@@ -233,7 +235,7 @@ Não deve ativar todas as agendas, porque isso pode criar ações de agenda sobr
 |StopVM sequenciada | 1:00 (UTC), toda sexta-feira | Executa o runbook Sequenced_Parent com um parâmetro de _parar_ toda sexta-feira num momento especificado. Sequencialmente (ascendente) interrompe todas as VMs com uma etiqueta de **SequenceStop** definido por variáveis apropriadas. Para obter mais informações sobre os valores de etiqueta e variáveis de recurso, consulte a secção de Runbooks. Ativar o agendamento de relacionados **Sequenced-StartVM**.|
 |Sequenced-StartVM | 1:21 horas (UTC), sempre de segunda a | Executa o runbook Sequenced_Parent com um parâmetro de _iniciar_ sempre de segunda num momento especificado. Sequencialmente (descendente) inicia todas as VMs com uma etiqueta de **SequenceStart** definido por variáveis apropriadas. Para obter mais informações sobre os valores de etiqueta e variáveis de recurso, consulte a secção de Runbooks. Ativar o agendamento de relacionados **Sequenced StopVM**.|
 
-## <a name="log-analytics-records"></a>Registos do Log Analytics
+## <a name="azure-monitor-logs-records"></a>Registos de registos de Monitor do Azure
 
 A automatização cria dois tipos de registos na área de trabalho do Log Analytics: registos de tarefas e fluxos de trabalho.
 
@@ -290,7 +292,7 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 ## <a name="viewing-the-solution"></a>Visualizar a solução
 
-Para acessar a solução, navegue até à sua conta de automatização, selecione **área de trabalho** sob **recursos relacionados**. Na página do Log Analytics, selecione **soluções** sob **geral**. Sobre o **soluções** , selecione a solução **Start-Stop-VM [workspace]** da lista.
+Para acessar a solução, navegue até à sua conta de automatização, selecione **área de trabalho** sob **recursos relacionados**. Na página de análise de registo, selecione **soluções** sob **geral**. Sobre o **soluções** , selecione a solução **Start-Stop-VM [workspace]** da lista.
 
 Selecionar a solução apresenta os **Start-Stop-VM [workspace]** página de solução. Aqui pode ver detalhes importantes, como o **StartStopVM** mosaico. Como na sua área de trabalho do Log Analytics, este mosaico apresenta uma contagem e uma representação gráfica dos trabalhos para a solução de runbook que foram iniciados e tiver concluído com êxito.
 
@@ -364,14 +366,14 @@ Para eliminar a solução, execute os seguintes passos:
 
 A conta de automatização e a área de trabalho do Log Analytics não são eliminados como parte deste processo. Se não pretender reter a área de trabalho do Log Analytics, terá de eliminar manualmente. Pode fazê-lo do portal do Azure:
 
-1. A partir do ecrã principal portal do Azure, selecione **do Log Analytics**.
-1. Sobre o **do Log Analytics** , selecione a área de trabalho.
+1. A partir do ecrã principal portal do Azure, selecione **áreas de trabalho do Log Analytics**.
+1. Sobre o **áreas de trabalho do Log Analytics** , selecione a área de trabalho.
 1. Selecione **eliminar** no menu na página de definições de área de trabalho.
 
 Se não pretender reter os componentes de conta de automatização do Azure, pode eliminar manualmente cada um. Para obter a lista de runbooks, variáveis e agendas criadas pela solução, consulte a [componentes da solução](#solution-components).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para saber mais sobre como construir consultas de pesquisa diferentes e rever os registos da tarefa de automatização com o Log Analytics, consulte [pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md).
+- Para saber mais sobre como construir consultas de pesquisa diferentes e rever os registos da tarefa de automatização com os registos do Azure Monitor, consulte [pesquisas de registos nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 - Para saber mais sobre a execução de runbooks, como monitorizar tarefas de runbooks e outros detalhes técnicos, veja [Acompanhar uma tarefa de runbook](automation-runbook-execution.md).
-- Para saber mais sobre o Log Analytics e origens de recolha de dados, veja [dados de armazenamento do Azure recolha na descrição geral do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).
+- Para saber mais sobre os registos do Azure Monitor e origens de recolha de dados, veja [descrição geral de registos de dados do armazenamento do Azure a recolher no Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md).

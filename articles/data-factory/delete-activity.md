@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
-ms.openlocfilehash: 407bb2e39e92390576da9c23868f5af9c444bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 02/25/2019
+ms.openlocfilehash: fab5d69239c420c394645cef632d119848d0f4c4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341544"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818838"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Eliminar a atividade de Azure Data Factory
 
@@ -37,21 +37,20 @@ Seguem-se algumas recomendações para usar a atividade de eliminação:
 
 -   Certifique-se de que não está a eliminar ficheiros que estão sendo gravados em simultâneo. 
 
--   Se pretender eliminar ficheiros ou pasta a partir de um sistema no local, certificar-se de que está a utilizar um runtime de integração autoalojado com uma versão superior 3.13.
+-   Se pretender eliminar ficheiros ou pasta a partir de um sistema no local, certifique-se de que está a utilizar um runtime de integração autoalojado com uma versão superior a 3.14.
 
 ## <a name="supported-data-stores"></a>Armazena os dados suportados
 
-### <a name="azure-data-stores"></a>Arquivos de dados do Azure
-
 -   [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md)
 -   [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md)
--   [Armazenamento do Azure Data Lake Ger2 (Pré-visualização)](connector-azure-data-lake-storage.md)
+-   [Geração 2 Lake armazenamento de dados do Azure](connector-azure-data-lake-storage.md)
 
 ### <a name="file-system-data-stores"></a>Arquivos de dados do sistema de ficheiros
 
 -   [Sistema de Ficheiros](connector-file-system.md)
 -   [FTP](connector-ftp.md)
--   [HDFS](connector-hdfs.md)
+-   [SFTP](connector-sftp.md)
+-   [Amazon S3](connector-amazon-simple-storage-service.md)
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -61,7 +60,7 @@ Seguem-se algumas recomendações para usar a atividade de eliminação:
     "type": "Delete",
     "typeProperties": {
         "dataset": {
-            "referenceName": "<dataset name to be deleted>",
+            "referenceName": "<dataset name>",
             "type": "DatasetReference"
         },
         "recursive": true/false,
@@ -87,7 +86,7 @@ Seguem-se algumas recomendações para usar a atividade de eliminação:
 | maxConcurrentConnections | O número de ligações ao se conectar ao armazenamento de armazenamento em simultâneo para eliminar a pasta ou nos ficheiros.   |  Não. A predefinição é `1`. |
 | EnableLogging | Indica se é preciso registe os nomes de pasta ou ficheiro tem sido eliminados. Se for VERDADEIRO, terá de fornecer ainda mais uma conta de armazenamento para guardar o ficheiro de registo, para que pode controlar os comportamentos da atividade de eliminação ao ler o ficheiro de registo. | Não |
 | logStorageSettings | Apenas aplicável quando enablelogging = true.<br/><br/>Um grupo de propriedades de armazenamento que pode ser especificado em que pretende guardar o ficheiro de registo que contém os nomes de ficheiro ou pasta que tenham sido excluídos até a atividade de eliminação. | Não |
-| linkedServiceName | Apenas aplicável quando enablelogging = true.<br/><br/>Serviço ligado do [armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [do Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) para armazenar o ficheiro de registo que contém os nomes de ficheiro ou pasta que tenham sido excluídos até a atividade de eliminação. | Não |
+| linkedServiceName | Apenas aplicável quando enablelogging = true.<br/><br/>Serviço ligado do [armazenamento do Azure](connector-azure-blob-storage.md#linked-service-properties), [Gen1 de armazenamento do Azure Data Lake](connector-azure-data-lake-store.md#linked-service-properties), ou [Gen2 de armazenamento do Azure Data Lake](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar o ficheiro de registo que contém a pasta ou nomes de ficheiro tenha sido excluído até a atividade de eliminação. | Não |
 | caminho | Apenas aplicável quando enablelogging = true.<br/><br/>O caminho para guardar o ficheiro de registo na sua conta de armazenamento. Se não fornecer um caminho, o serviço cria um contentor para. | Não |
 
 ## <a name="monitoring"></a>Monitorização
@@ -100,13 +99,15 @@ Existem dois locais onde pode ver e monitorizar os resultados da atividade de el
 
 ```json
 { 
-  "isWildcardUsed": false, 
-  "wildcard": null,
-  "type": "AzureBlobStorage",
+  "datasetName": "AmazonS3",
+  "type": "AmazonS3Object",
+  "prefix": "test",
+  "bucketName": "adf",
   "recursive": true,
-  "maxConcurrentConnections": 10,
-  "filesDeleted": 1,
-  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07/5c698705-a6e2-40bf-911e-e0a927de3f07.json",
+  "isWildcardUsed": false,
+  "maxConcurrentConnections": 2,  
+  "filesDeleted": 4,
+  "logPath": "https://sample.blob.core.windows.net/mycontainer/5c698705-a6e2-40bf-911e-e0a927de3f07",
   "effectiveIntegrationRuntime": "MyAzureIR (West Central US)",
   "executionDuration": 650
 }
@@ -114,22 +115,12 @@ Existem dois locais onde pode ver e monitorizar os resultados da atividade de el
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Ficheiro de registo de exemplo da atividade de eliminação
 
-```json
-{
-  "customerInput": {
-    "type": "AzureBlob",
-    "fileName": "",
-    "folderPath": "folder/filename_to_be_deleted",
-    "recursive": false,
-    "enableFileFilter": false
-  },
-  "deletedFileList": [
-    "folder/filename_to_be_deleted"
-  ],
-  "deletedFolderList": null,
-  "error":"the reason why files are failed to be deleted"
-}
-```
+| Name | Categoria | Estado | Erro |
+|:--- |:--- |:--- |:--- |
+| test1/yyy.json | Ficheiro | Eliminada |  |
+| test2/hello789.txt | Ficheiro | Eliminada |  |
+| test2/test3/hello000.txt | Ficheiro | Eliminada |  |
+| test2/test3/zzz.json | Ficheiro | Eliminada |  |
 
 ## <a name="examples-of-using-the-delete-activity"></a>Exemplos de como utilizar a atividade de eliminação
 
@@ -332,7 +323,7 @@ Pode criar um pipeline para limpar os arquivos antigos ou expirados ao tirar par
 
 ### <a name="move-files-by-chaining-the-copy-activity-and-the-delete-activity"></a>Mover ficheiros por meio do encadeamento a atividade de cópia e a atividade de eliminação
 
-Pode mover um ficheiro ao utilizar uma atividade de cópia para copiar um ficheiro e, em seguida, um a atividade de eliminação para eliminar um ficheiro num pipeline.  Quando deseja mover vários ficheiros, pode utilizar a atividade GetMetadata + a atividade de filtro + a atividade Foreach + a atividade de cópia + eliminar a atividade, como no exemplo a seguir:
+Pode mover um ficheiro com uma atividade de cópia para copiar um ficheiro e, em seguida, uma atividade de eliminação para eliminar um ficheiro num pipeline.  Quando deseja mover vários ficheiros, pode utilizar a atividade GetMetadata + a atividade de filtro + a atividade Foreach + a atividade de cópia + eliminar a atividade, como no exemplo a seguir:
 
 > [!NOTE]
 > Se pretender mover toda a pasta definindo um conjunto de dados que contém apenas um caminho de pasta e, em seguida, utilizar uma atividade de cópia e uma atividade Delete para fazer referência ao mesmo conjunto de dados que representa uma pasta, precisa ter muito cuidado. É porque tem para se certificar de que não haverá novos ficheiros que estão a chegar para a pasta entre a operação de cópia e a eliminar a operação.  Se existirem novos ficheiros que estão a chegar na pasta neste momento, quando sua atividade de cópia acabou de concluir a tarefa de cópia, a atividade de eliminação não foi stared, mas, é possível que a atividade de eliminação irá eliminar este novo ficheiro que são recebido que não foi copiado para o destinati no ainda ao eliminar a pasta inteira. 
@@ -575,9 +566,6 @@ Conjunto de dados para o destino dos dados utilizado pela atividade de cópia.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre a copiar ficheiros no Azure Data Factory.
-
--   [Atividade de cópia numa fábrica de dados do Azure](copy-activity-overview.md)
+Saiba mais sobre como mover ficheiros no Azure Data Factory.
 
 -   [Ferramenta copiar dados no Azure Data Factory](copy-data-tool.md)
-- 

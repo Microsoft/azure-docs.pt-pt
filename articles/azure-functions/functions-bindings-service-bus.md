@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: ac71a88d6c2cbd3a7159ac7382872ea28e079bed
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d88fbb3b5ece819270ca9c6b1060df31ba43854d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728153"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821478"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Enlaces do Service Bus do Azure para as funções do Azure
 
@@ -48,8 +48,8 @@ Veja o exemplo de idioma específico:
 * [C#](#trigger---c-example)
 * [Script do c# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Acionador - exemplo do c#
 
@@ -146,6 +146,39 @@ let Run(myQueueItem: string, log: ILogger) =
     log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
+### <a name="trigger---java-example"></a>Acionador - exemplo de Java
+
+A seguinte função de Java utiliza a `@ServiceBusQueueTrigger` anotação do [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime) para descrever a configuração para um acionador de fila do Service Bus. A função captura a mensagem colocada na fila e adiciona-o para os registos.
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
+As funções do Java também podem ser acionadas quando uma mensagem é adicionada a um tópico do Service Bus. O exemplo seguinte utiliza o `@ServiceBusTopicTrigger` anotação para descrever a configuração do acionador.
+
+```java
+@FunctionName("sbtopicprocessor")
+    public void run(
+        @ServiceBusTopicTrigger(
+            name = "message",
+            topicName = "mytopicname",
+            subscriptionName = "mysubscription",
+            connection = "ServiceBusConnection"
+        ) String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info(message);
+    }
+ ```
+
 ### <a name="trigger---javascript-example"></a>Acionador - exemplo de JavaScript
 
 O exemplo seguinte mostra um acionador de barramento de serviço de enlace num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função lê [metadados de mensagem](#trigger---message-metadata) e regista uma mensagem de fila do Service Bus. 
@@ -178,41 +211,6 @@ module.exports = function(context, myQueueItem) {
     context.done();
 };
 ```
-
-### <a name="trigger---java-example"></a>Acionador - exemplo de Java
-
-O exemplo seguinte mostra um acionador de barramento de serviço de enlace num *Function* ficheiro e uma [função Java](functions-reference-java.md) que utiliza o enlace. A função é acionada por uma mensagem colocada numa fila do Service Bus e a função regista a mensagem de fila.
-
-Eis a vinculação de dados a *Function* ficheiro:
-
-```json
-{
-"bindings": [
-    {
-    "queueName": "myqueuename",
-    "connection": "MyServiceBusConnection",
-    "name": "msg",
-    "type": "ServiceBusQueueTrigger",
-    "direction": "in"
-    }
-],
-"disabled": false
-}
-```
-
-Eis o código Java:
-
-```java
-@FunctionName("sbprocessor")
- public void serviceBusProcess(
-    @ServiceBusQueueTrigger(name = "msg",
-                             queueName = "myqueuename",
-                             connection = "myconnvarname") String message,
-   final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
 ## <a name="trigger---attributes"></a>Acionador - atributos
 
@@ -354,8 +352,8 @@ Veja o exemplo de idioma específico:
 * [C#](#output---c-example)
 * [Script do c# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
+* [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
-* Java
 
 ### <a name="output---c-example"></a>Saída - exemplo do c#
 
@@ -459,6 +457,41 @@ let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
+### <a name="output---java-example"></a>Saída - exemplo de Java
+
+O exemplo seguinte mostra uma função de Java que envia uma mensagem numa fila do Service Bus `myqueue` quando acionada por um pedido HTTP.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+ ```
+
+ Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@QueueOutput` anotação nos parâmetros de função, seria escrito cujo valor a uma fila do Service Bus.  O tipo de parâmetro deve ser `OutputBinding<T>`, em que T é qualquer tipo de Java nativo de um POJO.
+
+As funções do Java também podem escrever para um tópico do Service Bus. O exemplo seguinte utiliza o `@ServiceBusTopicOutput` anotação para descrever a configuração para o enlace de saída. 
+
+```java
+@FunctionName("sbtopicsend")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @ServiceBusTopicOutput(name = "message", topicName = "mytopicname", subscriptionName = "mysubscription", connection = "ServiceBusConnection") OutputBinding<String> message,
+            final ExecutionContext context) {
+        
+        String name = request.getBody().orElse("Azure Functions");
+
+        message.setValue(name);
+        return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
+        
+    }
+```
+
 ### <a name="output---javascript-example"></a>Saída - exemplo de JavaScript
 
 O exemplo seguinte mostra uma saída de barramento de serviço de enlace num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função utiliza um acionador de temporizador para enviar uma mensagem de fila a cada 15 segundos.
@@ -510,25 +543,6 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
-
-
-### <a name="output---java-example"></a>Saída - exemplo de Java
-
-O exemplo seguinte mostra uma função de Java que envia uma mensagem numa fila do Service Bus `myqueue` quando acionada por um pedido HTTP.
-
-```java
-@FunctionName("httpToServiceBusQueue")
-@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
-public String pushToQueue(
-  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-  final String message,
-  @HttpOutput(name = "response") final OutputBinding<T> result ) {
-      result.setValue(message + " has been sent.");
-      return message;
- }
- ```
-
- Na [biblioteca de tempo de execução de funções do Java](/java/api/overview/azure/functions/runtime), utilize o `@QueueOutput` anotação nos parâmetros de função, seria escrito cujo valor a uma fila do Service Bus.  O tipo de parâmetro deve ser `OutputBinding<T>`, em que T é qualquer tipo de Java nativo de um POJO.
 
 ## <a name="output---attributes"></a>Saída - atributos
 

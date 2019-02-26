@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: 8b1a4bbb100fc4db1323f530808a8d01bd8f30ce
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: f1d64170c3f9622169dd1218e4c63652c9f94b9b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582444"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820676"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implementar a aplicação no serviço de aplicações do Azure com FTP/S
 
@@ -30,7 +30,7 @@ O ponto de extremidade FTP/S para a sua aplicação já está ativo. Nenhuma con
 
 ## <a name="open-ftp-dashboard"></a>Abrir dashboard FTP
 
-Na [portal do Azure](https://portal.azure.com), abra a sua aplicação [página de recursos](../azure-resource-manager/resource-group-portal.md#manage-resources).
+Na [portal do Azure](https://portal.azure.com), abra a sua aplicação [página de recursos](../azure-resource-manager/manage-resources-portal.md#manage-resources).
 
 Para abrir o dashboard FTP, clique em **Deployment Center** > **FTP** > **Dashboard**.
 

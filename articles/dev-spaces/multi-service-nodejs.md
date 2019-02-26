@@ -10,12 +10,12 @@ ms.date: 11/21/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: f3dbe8c62cb1fcc0585b5abccc51a620ea713543
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 8d305e051bd6708977926e3a4de47c15a784c7b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666385"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818821"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desenvolvimento múltiplos serviço com os espaços de desenvolvimento do Azure
 
@@ -76,7 +76,7 @@ O exemplo de código anterior reencaminha o cabeçalho `azds-route-as` do pedido
 Talvez tenha notado que, embora *webfrontend* não contém qualquer código especial para imprimir a chamada HTTP faz ao *mywebapi*, pode ver as mensagens na janela de saída de rastreios de HTTP:
 ```
 // The request from your browser
-webfrontend.<id>.<region>.aksapp.io --hyh-> webfrontend:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io --hyh-> webfrontend:
    GET /api?_=1544485357627 HTTP/1.1
 
 // *webfrontend* reaching out to *mywebapi*
@@ -89,7 +89,7 @@ webfrontend <-1b1-- mywebapi:
    Hello from mywebapi
 
 // Response from *webfrontend* to your browser
-webfrontend.<id>.<region>.aksapp.io <-hyh-- webfrontend:
+default.webfrontend.856bb3af715744c6810b.eus.azds.io <-hyh-- webfrontend:
    HTTP/1.1 200 OK
    Hello from webfrontend and Hello from mywebapi
 ```

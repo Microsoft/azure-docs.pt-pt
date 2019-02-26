@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 474360bfa874298b35b1e7c754545ff576013d50
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 10d39f42db5c6e3bd0dcf8a0e8c62287be96d089
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734749"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823353"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Criar um hub IoT com o modelo Azure Resource Manager (PowerShell)
 
@@ -164,7 +164,7 @@ Para explorar ainda mais os recursos do IoT Hub, veja:
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
-[lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[lnk-powershell-arm]: ../azure-resource-manager/manage-resources-powershell.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md

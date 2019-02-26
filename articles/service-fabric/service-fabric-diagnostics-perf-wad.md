@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: a6941e28bdfd922a68ff484c57031326a9aa5c0b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 12ea25b9f1b9f13c153348c285ee6641a69909f0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452637"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823183"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitorização de desempenho com a extensão de diagnóstico do Windows Azure
 
@@ -198,7 +198,7 @@ Eis um exemplo de uma configuração com o contador para o *Total de tempo do pr
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Após a conclusão da atualização a implementar (demora entre 15 a 45 minutos consoante seja a primeira implementação e o tamanho do seu grupo de recursos), WAD deve ser recolher os contadores de desempenho e enviá-los para a tabela com o nome WADPerformanceCountersTable na conta de armazenamento associada com o seu cluster. Consulte os contadores de desempenho no Application Insights ao [adicionando o Sink de ia para o modelo do Resource Manager](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
+5. Após a conclusão da atualização a implementar (demora entre 15 a 45 minutos consoante seja a primeira implementação e o tamanho do seu grupo de recursos), WAD deve ser recolher os contadores de desempenho e enviá-los para a tabela com o nome WADPerformanceCountersTable na conta de armazenamento associada com o seu cluster. Consulte os contadores de desempenho no Application Insights ao [adicionando o Sink de ia para o modelo do Resource Manager](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Recolha mais contadores de desempenho para o seu cluster. Ver [métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md) para obter uma lista dos contadores que deve recolher.

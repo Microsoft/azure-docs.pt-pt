@@ -4,7 +4,7 @@ description: Melhores práticas para o planejamento e dimensionar aplicações e
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c3b97ee7181d6475b7271d5ae4bcea0f6c9ff2b3
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446822"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805227"
 ---
 # <a name="capacity-planning-and-scaling"></a>Planejamento de capacidade e dimensionamento
 

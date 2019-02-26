@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a494e403b8afa1424640ac2e24d0f832b3de02dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d64ab85ee2b289878d4468703e8e4d51982a7304
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210616"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820965"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de vértice
 
@@ -217,8 +217,8 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado no Portal do vértice. Portal de vértice suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existe no Portal de vértice, é criado um novo após a autenticação.
 
-> [!NOTE]
-> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte do Portal de vértice](mailto:support@apexanalytix.com).
+> [!NOTE]
+> Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte do Portal de vértice](mailto:support@apexanalytix.com).
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

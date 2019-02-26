@@ -3,7 +3,7 @@ title: Controladores de Volume (pré-visualização) de ficheiros do Azure de re
 description: O Service Fabric suporta ficheiros do Azure a utilizar para volumes de cópia de segurança do seu contentor. Isso está atualmente em pré-visualização.
 services: service-fabric
 documentationcenter: other
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: f2636720f6f1faeffb9a63052efdf009668d806f
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.author: aljo, subramar
+ms.openlocfilehash: 5d44904d6210dbc9520ae735605699b197f38bef
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752080"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804135"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de Volume de ficheiros do Azure do serviço Fabric (pré-visualização)
 O plug-in de volume de ficheiros do Azure é um [Plug-in de volume do Docker](https://docs.docker.com/engine/extend/plugins_volume/) que fornece [ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) com base em volumes para contentores do Docker. Este plug-in de volume do Docker é empacotado como uma aplicação do Service Fabric que pode ser implementada em clusters do Service Fabric. Seu objetivo é fornecer a ficheiros do Azure com base em volumes para outras aplicações de contentor do Service Fabric que são implementadas para o cluster.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 89cd8e85c9902bb1caeedd80240811f59ebec409
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f9db156562692107a5603e15340f01ecf9f9d52c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187441"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823421"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação de eventos e coleções com o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -61,6 +61,8 @@ Agora que está a agregar eventos no armazenamento do Azure, [configurar o Log A
 
 >[!NOTE]
 >Atualmente, não existe nenhuma forma de filtrar ou prepará os eventos que são enviados para as tabelas. Se não implemente um processo para remover os eventos da tabela, a tabela continuará a crescer (o limite predefinido é 50 GB). Instruções sobre como alterar desta funcionalidade são [mais abaixo neste artigo](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota). Além disso, há um exemplo de um serviço de tratamento de dados em execução [exemplo de Watchdog](https://github.com/Azure-Samples/service-fabric-watchdog-service), e é recomendado que escreve um para si, a menos que exista um bom motivo para que possa armazenar os registos para além de um período de tempo do dia 30 ou 90.
+
+
 
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Implementar a extensão de diagnóstico através do Gestor de recursos do Azure
 
@@ -292,7 +294,49 @@ Se estiver a utilizar um coletor do Application Insights, conforme descrito na s
 
 ## <a name="send-logs-to-application-insights"></a>Enviar registos ao Application Insights
 
-Enviar dados de monitorização e diagnóstico para o Application Insights (IA) pode ser feito como parte da configuração WAD. Se optar por utilizar a ia para análise de eventos e visualização, leia [como configurar um coletor de IA](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) como parte da sua "WadCfg".
+### <a name="configuring-application-insights-with-wad"></a>Configuração do Application Insights com WAD
+
+>[!NOTE]
+>Isto só é aplicável a clusters do Windows neste momento.
+
+Existem duas formas principais de enviar dados a partir de WAD para o Azure Application Insights, que é feito pela adição de um coletor do Application Insights à configuração do WAD, através do portal do Azure ou através de um modelo Azure Resource Manager.
+
+#### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Adicionar uma chave de instrumentação do Application Insights ao criar um cluster no portal do Azure
+
+![Adicionar um AIKey](media/service-fabric-diagnostics-event-analysis-appinsights/azure-enable-diagnostics.png)
+
+Ao criar um cluster, se o diagnóstico está ativado "Ativado", mostra um campo opcional para introduzir uma chave de instrumentação do Application Insights. Se colar a chave do Application Insights aqui, o sink do Application Insights é configurado automaticamente para no modelo do Resource Manager que é utilizado para implementar o seu cluster.
+
+#### <a name="add-the-application-insights-sink-to-the-resource-manager-template"></a>Adicionar o Sink do Application Insights para o modelo do Resource Manager
+
+O "WadCfg" do modelo do Resource Manager, adicione um "Sink", incluindo as seguintes duas alterações:
+
+1. Adicionar a configuração de sink diretamente após a declaração do `DiagnosticMonitorConfiguration` concluída:
+
+    ```json
+    "SinksConfig": {
+        "Sink": [
+            {
+                "name": "applicationInsights",
+                "ApplicationInsights": "***ADD INSTRUMENTATION KEY HERE***"
+            }
+        ]
+    }
+
+    ```
+
+2. Incluir o coletor no `DiagnosticMonitorConfiguration` adicionando a seguinte linha no `DiagnosticMonitorConfiguration` da `WadCfg` (logo antes o `EtwProviders` são declarados):
+
+    ```json
+    "sinks": "applicationInsights"
+    ```
+
+Em ambos os fragmentos de código anteriores, o nome "Application Insights" foi utilizado para descrever o sink. Não é um requisito e, desde que o nome do coletor está incluído no "sinks", pode definir o nome em qualquer cadeia de caracteres.
+
+Atualmente, os registos do cluster aparecem como **rastreios** no Visualizador de log do Application Insights. Uma vez que a maioria dos rastreios a chegar da plataforma é de nível de "Informativo", pode também considere alterar a configuração de sink para enviar apenas os registos do tipo "Aviso" ou "Erro". Isso pode ser feito pela adição de "Canais" para o seu coletor, como demonstrado na [este artigo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+
+>[!NOTE]
+>Se utilizar uma chave incorreta do Application Insights no portal ou no modelo do Resource Manager, terá de alterar manualmente a chave e atualizar o cluster / reimplantá-la.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 0ac6dd63d125f436f3f3f8c1174cdcce27ac2161
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f41c14f664df8db809ad4c29c57d37c1124a0ff3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237659"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818549"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Como monitorizar a Cache do Azure para Redis
 A Cache do Azure para utilizações de Redis [do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para fornecer várias opções para a monitorização de instâncias de cache. Pode ver métricas, afixar gráficos de métricas ao Startboard, personalizar o intervalo de data e hora dos gráficos de monitorização, adicionar e remover as métricas de gráficos e definir alertas quando forem cumpridas determinadas condições. Essas ferramentas permitem-lhe monitorizar o estado de funcionamento da Cache do Azure para instâncias de Redis e ajudarão a gerenciar seus aplicativos de colocação em cache.
@@ -75,7 +75,7 @@ Para configurar uma conta de armazenamento para as suas métricas de cache:
 ![Diagnóstico de redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->Além de arquivamento de suas métricas de cache para o armazenamento, pode também [transmiti-los para um hub de eventos ou enviá-los para o Log Analytics](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
+>Além de arquivamento de suas métricas de cache para o armazenamento, pode também [transmiti-los para um hub de eventos ou enviá-los para registos do Azure Monitor](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
 >
 >
 

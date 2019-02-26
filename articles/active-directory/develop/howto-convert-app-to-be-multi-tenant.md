@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 766eb7864a6bce296daafc86179e2deed77f8e02
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 44feaecd42a8c3ce0ac0c712aa27b2480fd2a486
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163127"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806934"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Iniciar sessão a qualquer utilizador do Azure Active Directory utilizando o padrão de aplicação multi-inquilino
 
@@ -39,7 +39,7 @@ Existem quatro passos simples para converter a sua aplicação numa aplicação 
 1. [Atualizar o registo de aplicação para ser o multi-inquilino](#update-registration-to-be-multi-tenant)
 2. [Atualizar o seu código para enviar pedidos para o /common ponto final](#update-your-code-to-send-requests-to-common)
 3. [Atualizar seu código para lidar com vários valores de emissor](#update-your-code-to-handle-multiple-issuer-values)
-4. Compreender o consentimento de utilizador e administrador e efetuar alterações de código adequado
+4. [Compreender o consentimento de utilizador e administrador e efetuar alterações de código adequado](#understand-user-and-admin-consent)
 
 Vamos examinar cada etapa detalhadamente. Também pode ir diretamente para [esta lista de exemplos de multi-inquilinos][AAD-Samples-MT].
 

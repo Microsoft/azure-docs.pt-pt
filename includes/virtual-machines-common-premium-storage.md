@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 9f0dbc549600ef2b931ee99a36c60cae57cc7a67
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: cd29fb968bd73e09c2e3b60e62a478b4e577146d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331388"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805491"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de elevado desempenho e os discos geridos para VMs
 
@@ -67,7 +67,7 @@ Aqui estão alguns dos recursos do armazenamento Premium:
     - [CLI do Azure para o armazenamento do Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
     - [Azure API de REST do fornecedor de recursos de armazenamento](https://docs.microsoft.com/rest/api/storagerp) (para implementações do Azure Resource Manager) ou uma das bibliotecas de cliente do fornecedor de recursos do armazenamento do Azure
 
-    Para saber mais sobre os limites de conta de armazenamento premium, veja as metas de escalabilidade e desempenho de armazenamento Premium.
+    Para saber mais sobre os limites de conta de armazenamento premium, veja [metas de escalabilidade e desempenho](#scalability-and-performance-targets).
 
 * **Armazenamento localmente redundante Premium**
 
@@ -158,7 +158,7 @@ Tamanhos marcados com um asterisco estão atualmente em pré-visualização.
 | Débito por disco | 25 MB por segundo | 50 MB por segundo | 100 MB por segundo | 125 MB por segundo | 150 MB por segundo | 200 MB por segundo | 250 MB por segundo | 250 MB por segundo | 480 MB por segundo | 750 MB por segundo | 750 MB por segundo |
 
 > [!NOTE]
-> Certifique-se de largura de banda suficiente está disponível na sua VM para o tráfego de disco de unidade, conforme descrito em [VMs suportadas de armazenamento Premium](). Caso contrário, o débito de disco e IOPS é restrito para reduzir os valores. Débito máximo e IOPS baseiam-se sobre os limites VM, não aos limites de disco descritos na tabela anterior.  
+> Certifique-se de largura de banda suficiente está disponível na sua VM para o tráfego de disco de unidade, conforme descrito em [VMs suportadas de](#supported-vms). Caso contrário, o débito de disco e IOPS é restrito para reduzir os valores. Débito máximo e IOPS baseiam-se sobre os limites VM, não aos limites de disco descritos na tabela anterior.  
 > Azure foi concebido a plataforma de armazenamento Premium para ser paralelo em grande escala. Criação do seu aplicativo para ser com múltiplos threads irá ajudar a alcançar o destino de elevado desempenho oferecido sobre os tamanhos de disco maior.
 
 Seguem-se alguns aspetos importantes a saber sobre metas de escalabilidade e desempenho do armazenamento Premium:
@@ -292,7 +292,7 @@ Quando utilizar o armazenamento Premium, aplicam-se as seguintes considerações
 
 * **Tamanho de disco e BLOBs de armazenamento do Premium**
 
-    A faturação de um blob ou um disco de armazenamento premium depende do tamanho aprovisionado do disco ou do blob. Azure mapeia o tamanho aprovisionado (arredondado) para a opção de disco de armazenamento premium mais próxima. Para obter detalhes, consulte a tabela [metas de escalabilidade e desempenho do armazenamento Premium](). Cada disco mapeia para um tamanho de disco de aprovisionamento suportados e é cobrado em conformidade. Para qualquer disco aprovisionado a faturação é contabilizada à hora, utilizando o preço mensal para a oferta de armazenamento Premium. Por exemplo, se aprovisionar um disco P10 e eliminado depois de 20 horas, é-lhe cobrada para a oferta de P10 Rateado para 20 horas. Isto é, independentemente da quantidade de dados reais, escritos no disco ou o IOPS e débito utilizado.
+    A faturação de um blob ou um disco de armazenamento premium depende do tamanho aprovisionado do disco ou do blob. Azure mapeia o tamanho aprovisionado (arredondado) para a opção de disco de armazenamento premium mais próxima. Para obter detalhes, consulte a tabela [metas de escalabilidade e desempenho](#scalability-and-performance-targets). Cada disco mapeia para um tamanho de disco de aprovisionamento suportados e é cobrado em conformidade. Para qualquer disco aprovisionado a faturação é contabilizada à hora, utilizando o preço mensal para a oferta de armazenamento Premium. Por exemplo, se aprovisionar um disco P10 e eliminado depois de 20 horas, é-lhe cobrada para a oferta de P10 Rateado para 20 horas. Isto é, independentemente da quantidade de dados reais, escritos no disco ou o IOPS e débito utilizado.
 
 * **Instantâneos de discos não geridos Premium**
 

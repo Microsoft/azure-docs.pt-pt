@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 8fb1b5e06e694368cf80029fe5ce2dcf0749cc62
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512215"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818379"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatize a recursos no seu datacenter ou na cloud com o trabalho de Runbook híbrida
 
@@ -97,9 +97,11 @@ Para remover um grupo, tem primeiro de remover a função de trabalho de Runbook
 
 ### <a name="hybrid-worker-role"></a>Função de trabalho híbrida
 
-Para o trabalho de Runbook híbrida ligar e registar com o Log Analytics, tem de ter acesso para o número de porta e os URLs descritos nesta secção. Este acesso é na parte superior para o [portas e URLs necessários para o Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) para ligar ao Log Analytics.
+Para o Runbook Worker híbrido ligar e registar com os registos do Azure Monitor, tem de ter acesso para o número de porta e os URLs descritos nesta secção. Este acesso é na parte superior para o [portas e URLs necessários para o Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md) para ligar aos registos do Azure Monitor.
 
-Se utilizar um servidor proxy para comunicação entre o agente e o serviço Log Analytics, certifique-se de que os recursos adequados estão acessíveis. Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway do Log Analytics como um proxy, certifique-se de que está configurado para funções de trabalho híbridas. Para obter instruções sobre como fazer isso, consulte [configurar o gateway do Log Analytics para funções de trabalho de híbrida de automatização](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Se utilizar um servidor proxy para comunicação entre o agente e o serviço do Azure Monitor, certifique-se de que os recursos adequados estão acessíveis. Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway do Log Analytics como um proxy, certifique-se de que está configurado para funções de trabalho híbridas. Para obter instruções sobre como fazer isso, consulte [configurar o gateway do Log Analytics para funções de trabalho de híbrida de automatização](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
 Os seguintes URLs e portas são necessárias para a função de trabalho de Runbook híbrida comunicar com a automatização:
 

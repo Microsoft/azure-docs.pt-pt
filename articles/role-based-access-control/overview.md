@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2d8f3ffb4f7d90b053c8a285d62007f5655d9adb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: eb8791a4031eeeeeccddda024514af208ff66251
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338636"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806581"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o controlo de acesso baseado em funções (RBAC) para recursos do Azure?
 
@@ -108,7 +108,7 @@ O que acontece se tiver várias atribuições de funções sobrepostos? RBAC é 
 
 ## <a name="deny-assignments"></a>Atribuições de negação
 
-Anteriormente, o RBAC era um modelo apenas de permissão sem negação, mas agora suporta atribuições de negação de forma limitada. Semelhante a uma atribuição de função, um *negar atribuição* anexa um conjunto de ações de negação para um utilizador, grupo, principal de serviço ou uma identidade gerida num determinado âmbito para efeitos de negar o acesso. Uma atribuição de função define um conjunto de ações que são *permitido*, enquanto uma atribuição de negar define um conjunto de ações que são *não permitida*. Por outras palavras, as atribuições de negação impedem os utilizadores de executarem ações especificadas, mesmo que uma atribuição de função lhes conceda acesso. As atribuições de negação têm precedência sobre as atribuições de funções. Atualmente, as atribuições de negação são **só de leitura** e só podem ser definidas pelo Azure. Para obter mais informações, consulte [compreender negar atribuições para recursos do Azure](deny-assignments.md) e [vista negar atribuições para recursos do Azure no portal do Azure](deny-assignments-portal.md).
+Anteriormente, o RBAC era um modelo apenas de permissão sem negação, mas agora suporta atribuições de negação de forma limitada. Semelhante a uma atribuição de função, um *negar atribuição* anexa um conjunto de ações de negação para um utilizador, grupo, principal de serviço ou uma identidade gerida num determinado âmbito para efeitos de negar o acesso. Uma atribuição de função define um conjunto de ações que são *permitido*, enquanto uma atribuição de negar define um conjunto de ações que são *não permitida*. Por outras palavras, as atribuições de negação impedem os utilizadores de executarem ações especificadas, mesmo que uma atribuição de função lhes conceda acesso. As atribuições de negação têm precedência sobre as atribuições de funções. Atualmente, negar atribuições são **só de leitura** e só pode ser definida pela Microsoft. Para obter mais informações, consulte [compreender negar atribuições para recursos do Azure](deny-assignments.md) e [vista negar atribuições para recursos do Azure no portal do Azure](deny-assignments-portal.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>De que forma o RBAC determina se um utilizador tem acesso a um recurso
 

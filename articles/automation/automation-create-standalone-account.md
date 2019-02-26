@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1590a02503a12be870dab14a1ccffdd3cf64a282
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 197d7529a52b400cd078ead79bbb6db5f5849ee6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426612"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821375"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
-Este artigo mostra-lhe como criar uma conta de automatização do Azure no portal do Azure. Pode utilizar a conta de automatização de portal para avaliar e saiba mais sobre a automatização sem utilizar soluções de gestão adicionais ou integração com o Azure Log Analytics. Pode adicionar essas soluções de gestão ou integrar com o Log Analytics para monitorização avançada de tarefas de runbook em qualquer momento no futuro.
+Este artigo mostra-lhe como criar uma conta de automatização do Azure no portal do Azure. Pode utilizar a conta de automatização de portal para avaliar e saiba mais sobre a automatização sem utilizar soluções de gestão adicionais ou integração com os registos do Azure Monitor. Pode adicionar essas soluções de gestão ou integrar com os registos do Azure Monitor para monitorização avançada de tarefas de runbook em qualquer momento no futuro.
 
 Com uma conta de automatização, pode autenticar runbooks ao gerir recursos no Azure Resource Manager ou o modelo de implementação clássica. Uma Conta de Automatização pode gerir os recursos entre todas as regiões e subscrições para um determinado inquilino.
 

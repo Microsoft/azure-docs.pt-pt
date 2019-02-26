@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 0f38902a166de8d623106849a124b8e2e5cceb5c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ac9bb6969e7771e1570670c83c88ddc892dc759e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674803"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823591"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiar dados de ou para a geração 2 de armazenamento do Azure Data Lake com o Azure Data Factory
 
@@ -98,10 +98,16 @@ Para utilizar autenticação do principal de serviço, siga estes passos:
     - Chave da aplicação
     - ID do inquilino
 
-2. Conceda a service principal permissão adequada no armazenamento do Azure.
+2. Conceda a permissão de adequada principal do serviço.
 
-    - **Como origem**, acesso para controlar (IAM), pelo menos a conceder **leitor de dados de Blob de armazenamento** função.
-    - **Como sink**, acesso para controlar (IAM), pelo menos a conceder **contribuinte de dados de Blob de armazenamento** função.
+    - **Como origem**, no Explorador de armazenamento, conceder, pelo menos, **leitura + execução** permissão para listar e copie os ficheiros em pastas e subpastas ou conceder **leitura** permissão para copiar um ficheiro individual. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, **leitor de dados de Blob de armazenamento** função.
+    - **Como sink**, no Explorador de armazenamento, conceder, pelo menos, **escrita + execução** permissão para criar itens subordinados numa pasta. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, **contribuinte de dados de Blob de armazenamento** função.
+
+>[!NOTE]
+>A lista de pastas a partir da raiz, precisa definir a permissão do principal de serviço, sendo concedido ao **no nível de raiz com permissão de "Executar"** ou permissão de IAM. Isso é verdade, quando utiliza o:
+>- **Ferramenta copiar dados** para o pipeline de cópia de autor.
+>- **IU do Data Factory** para testar a ligação e navegar pastas durante a criação. 
+>Se tiver a preocupação de concessão de permissão no nível raiz, pode ignorar manualmente a ligação de teste e o caminho de entrada durante a criação. Atividade de cópia continuarão a funcionar, desde que o principal de serviço é concedido com a permissão adequada nos arquivos sejam copiados.
 
 Estas propriedades são suportadas no serviço ligado:
 
@@ -146,10 +152,16 @@ Para utilizar identidades geridas para a autenticação de recursos do Azure, si
 
 1. [Obter informações de identidade do data factory gerido](data-factory-service-identity.md#retrieve-managed-identity) ao copiar o valor de "Serviço de ID da IDENTITY APPLICATION" gerada juntamente com sua fábrica.
 
-2. Conceda a permissão adequada de identidade gerida no armazenamento do Azure. 
+2. Conceda a permissão adequada de identidade gerida. 
 
-    - **Como origem**, acesso para controlar (IAM), pelo menos a conceder **leitor de dados de Blob de armazenamento** função.
-    - **Como sink**, acesso para controlar (IAM), pelo menos a conceder **contribuinte de dados de Blob de armazenamento** função.
+    - **Como origem**, no Explorador de armazenamento, conceder, pelo menos, **leitura + execução** permissão para listar e copie os ficheiros em pastas e subpastas ou conceder **leitura** permissão para copiar um ficheiro individual. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, **leitor de dados de Blob de armazenamento** função.
+    - **Como sink**, no Explorador de armazenamento, conceder, pelo menos, **escrita + execução** permissão para criar itens subordinados numa pasta. Em alternativa, no controlo de acesso (IAM), conceder, pelo menos, **contribuinte de dados de Blob de armazenamento** função.
+
+>[!NOTE]
+>A lista de pastas a partir da raiz, precisa definir a permissão de a identidade gerida sendo concedido ao **no nível de raiz com permissão de "Executar"** ou permissão de IAM. Isso é verdade, quando utiliza o:
+>- **Ferramenta copiar dados** para o pipeline de cópia de autor.
+>- **IU do Data Factory** para testar a ligação e navegar pastas durante a criação. 
+>Se tiver a preocupação de concessão de permissão no nível raiz, pode ignorar manualmente a ligação de teste e o caminho de entrada durante a criação. Atividade de cópia continuarão a funcionar, desde que a identidade gerida é concedida com a permissão adequada nos arquivos sejam copiados.
 
 Estas propriedades são suportadas no serviço ligado:
 

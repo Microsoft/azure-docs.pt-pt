@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0d67571024c9ace3618f7ae6172122ac48b57faa
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c020d3c7513efda93d7ac5d3bdd79f21f8bc77dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106731"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818482"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário
 
@@ -28,7 +28,7 @@ Inicie sessão no Azure a https://portal.azure.com
 
 Navegue até à sua conta de automatização e selecione **inventário** ou **controlo de alterações** sob **CONFIGURATION MANAGEMENT**.
 
-Escolha a área de trabalho do Log analytics e a conta de automatização e clique em **ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
+Escolha a área de trabalho do Log Analytics e a conta de automatização e clique em **ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
 
 ![Carregar soluções de inventário](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
@@ -56,7 +56,7 @@ Quando a notificação de inclusão da solução de controlo de alterações e i
 
 A solução de Gestão de Atualizações permite gerir atualizações e correções para as VMs do Azure. Pode avaliar o estado das atualizações disponíveis, agendar a instalação de atualizações necessárias e rever os resultados de implementação para verificar se as atualizações foram aplicadas com êxito à VM. Esta ação ativada a solução para a sua VM.
 
-Selecione **gestão de atualizações** sob **gestão de ATUALIZAÇÕES**. A área de trabalho do Log Analytics selecionada é a mesma área de trabalho utilizado no passo anterior. Clique em **Ativar** para integrar a solução de Gestão de atualizações. A solução demora até 15 minutos a ativar.
+Selecione **gestão de atualizações** sob **gestão de ATUALIZAÇÕES**. A área de trabalho do Log Analytics selecionada é a mesma área de trabalho utilizada no passo anterior. Clique em **Ativar** para integrar a solução de Gestão de atualizações. A solução demora até 15 minutos a ativar.
 
 ![Carregar atualização solução](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
@@ -129,7 +129,7 @@ As seguintes soluções são dependentes de uma área de trabalho do Log Analyti
 * [Monitorização de Alterações](automation-change-tracking.md)
 * [Iniciar/parar VMs fora do horário comercial](automation-solution-vm-management.md)
 
-Se decidir que já não pretende integrar a sua conta de automatização com o Log Analytics, pode desassociar a sua conta diretamente a partir do portal do Azure.  Antes de continuar, tem primeiro de remover as soluções mencionadas anteriormente, caso contrário, este processo será impedido de prosseguir. Reveja o artigo para a solução específica, que importar para compreender os passos necessários para removê-lo.
+Se decidir que já não pretende integrar a sua conta de automatização com uma área de trabalho do Log Analytics, pode desassociar a sua conta diretamente a partir do portal do Azure.  Antes de continuar, tem primeiro de remover as soluções mencionadas anteriormente, caso contrário, este processo será impedido de prosseguir. Reveja o artigo para a solução específica, que importar para compreender os passos necessários para removê-lo.
 
 Depois de remover estas soluções, pode concluir os passos seguintes para desassociar a conta de automatização.
 

@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: ac0a4bf6f332095bd75a6be83d7a1cd3d37c8e1c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 87811cd44b04b55537da166722dd1903d97e7ef5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674553"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821033"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiar dados de ou para a geração 1 de armazenamento do Azure Data Lake com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -76,6 +76,7 @@ Para utilizar autenticação do principal de serviço, registe-se uma entidade d
 >A lista de pastas a partir da raiz, tem de definir a permissão do principal de serviço, sendo concedido ao **no nível de raiz com permissão de "Executar"**. Isso é verdade, quando utiliza o:
 >- **Ferramenta copiar dados** para o pipeline de cópia de autor.
 >- **IU do Data Factory** para testar a ligação e navegar pastas durante a criação.
+>Se tiver a preocupação de concessão de permissão no nível raiz, pode ignorar manualmente a ligação de teste e o caminho de entrada durante a criação. Atividade de cópia continuarão a funcionar, desde que o principal de serviço é concedido com a permissão adequada nos arquivos sejam copiados.
 
 São suportadas as seguintes propriedades:
 
@@ -126,9 +127,10 @@ Para utilizar identidades geridas para a autenticação de recursos do Azure:
 >- **Como sink**: Na **o Data explorer** > **acesso**, conceder, pelo menos, **escrita + execução** permissão para criar itens subordinados numa pasta. Pode optar por adicionar ao **esta pasta e todos os filhos** para recursiva e adicionar como **uma permissão de acesso e uma entrada de permissão predefinida**. Se usar o runtime de integração do Azure para copiar (origem e sink são na cloud), no IAM, conceder, pelo menos, o **leitor** função para detetar a região para o Data Lake Store com o Data Factory. Se quiser evitar esta função IAM explicitamente [criar um runtime de integração do Azure](create-azure-integration-runtime.md#create-azure-ir) com a localização do Data Lake Store. Associá-las no serviço do Data Lake Store ligado como o exemplo seguinte.
 
 >[!NOTE]
->A lista de pastas a partir da raiz, tem de definir a permissão do principal de serviço, sendo concedido ao **no nível de raiz com permissão de "Executar"**. Isso é verdade, quando utiliza o:
+>A lista de pastas a partir da raiz, tem de definir a permissão de a identidade gerida sendo concedido ao **no nível de raiz com permissão de "Executar"**. Isso é verdade, quando utiliza o:
 >- **Ferramenta copiar dados** para o pipeline de cópia de autor.
 >- **IU do Data Factory** para testar a ligação e navegar pastas durante a criação.
+>Se tiver a preocupação de concessão de permissão no nível raiz, pode ignorar manualmente a ligação de teste e o caminho de entrada durante a criação. Atividade de cópia continuarão a funcionar, desde que a identidade gerida é concedida com a permissão adequada nos arquivos sejam copiados.
 
 No Azure Data Factory, não terá de especificar quaisquer propriedades além das informações gerais do Data Lake Store no serviço ligado.
 

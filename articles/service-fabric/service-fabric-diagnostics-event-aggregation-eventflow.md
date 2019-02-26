@@ -3,7 +3,7 @@ title: Agregação de eventos de recursos de infraestrutura de serviço do Azure
 description: Saiba mais sobre a agregação e a recolha de eventos com o EventFlow para monitorização e diagnóstico de clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
-ms.openlocfilehash: 829d1ffd1ef75d18f0d87a127c43666703e8a756
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 31d06c6329a8348a73533a42b73ce435c573c034
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497371"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823880"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação de eventos e coleções com o EventFlow
 

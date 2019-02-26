@@ -275,6 +275,8 @@ items:
     items:
     - name: Política
       href: /powershell/module/az.resources/#policies
+    - name: Informações da Política
+      href: /powershell/module/az.policyinsights#policy_insights
     - name: Configuração de Convidado (pré-visualização)
       href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
   - name: API REST
@@ -327,9 +329,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: 840c9577da2ee29d77dc9ec36a7266f1469ce5ff
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 293c97d66181de817e62e9735520ff4b4d40aff1
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734892"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805176"

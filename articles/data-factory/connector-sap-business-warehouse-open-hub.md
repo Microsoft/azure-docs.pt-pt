@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 02/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: fe0783891bd5f571c06551e19c154d6f22768e84
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299542"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821546"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse através de Hub aberto com o Azure Data Factory
 
@@ -27,7 +27,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 
 [Serviço de Hub aberto do SAP BW](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) é uma maneira eficiente para extrair dados do SAP BW. O diagrama seguinte mostra um dos fluxos típicos, os clientes têm no seu sistema SAP, os fluxos de dados de caso do SAP ECC -> PSA -> DSO -> cubo.
 
-SAP BW aberto Hub destino (OHD) define o destino ao qual os dados do SAP são passados. Todos os objetos suportados pelo SAP dados de transferência de processo (DTP) podem ser usados como origens de dados de hub aberto, por exemplo, DSO, consulta do InfoCube, MultiProvider, origem de dados, etc. Tipo de destino de Hub aberto - onde estão armazenados os dados retransmitidos - pode ser tabelas de base de dados (locais ou remotas) e ficheiros simples. Este suporte de conector de Hub aberto do SAP BW copiar dados de tabela local OHD BW. No caso de estiver a utilizar outros tipos, pode ligar diretamente ao sistema de base de dados ou ficheiro através de outros conectores.
+SAP BW aberto Hub destino (OHD) define o destino ao qual os dados do SAP são passados. Todos os objetos suportados pelo SAP dados de transferência de processo (DTP) podem ser usados como origens de dados de hub aberto, por exemplo, DSO, consulta do InfoCube, origem de dados, etc. Tipo de destino de Hub aberto - onde estão armazenados os dados retransmitidos - pode ser tabelas de base de dados (locais ou remotas) e ficheiros simples. Este suporte de conector de Hub aberto do SAP BW copiar dados de tabela local OHD BW. No caso de estiver a utilizar outros tipos, pode ligar diretamente ao sistema de base de dados ou ficheiro através de outros conectores.
 
 ![Hub do SAP BW aberto](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
@@ -37,7 +37,7 @@ Pode copiar dados do SAP Business Warehouse através do Hub de abrir qualquer ar
 
 Especificamente, este conector SAP Business Warehouse aberto Hub suporta:
 
-- SAP Business Warehouse **versão 7.30 ou superior (numa recente SAP suporte pacote pilha lançada após o ano de 2015)**.
+- SAP Business Warehouse **versão 7.01 ou superior (numa recente SAP suporte pacote pilha lançada após o ano de 2015)**.
 - Cópia de dados por meio da tabela de local de destino de Hub aberto que, por baixo, pode ser DSO, consulta do InfoCube, MultiProvider, origem de dados, etc.
 - Cópia de dados usando a autenticação básica.
 - A ligar ao servidor de aplicações.

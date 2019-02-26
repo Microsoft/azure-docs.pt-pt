@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: bf9e83a1dfed0aac7f48cd47dc12bf56c7cb1b64
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 47d2e051cf3eeebbfaea95cfc16f5077559e6847
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481707"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807138"
 ---
 # <a name="about-azure-devtest-labs"></a>Sobre o Azure DevTest Labs
 ## <a name="overview"></a>Descrição geral
@@ -44,6 +44,7 @@ Capturar e compartilhar modelos de ambiente e artefactos dentro da sua equipa ou
 
 ## <a name="integrates-with-your-existing-toolchain"></a>Integra-se na nossa coleção de ferramentas existente
 Tirar partido dos plug-ins criados previamente ou a nossa API para aprovisionar ambientes de Dev/Test diretamente a partir de sua ferramenta preferida de integração contínua (CI), ambiente de desenvolvimento (IDE) integrado ou automatizada de pipeline de lançamento. Também pode utilizar a nossa ferramenta de linha de comandos abrangente.
+
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

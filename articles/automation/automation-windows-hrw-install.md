@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d9f1b99407f5c94581a3108c785292e9928cbb4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 500d22993830534027c7ba9b372b6880cb608510
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432330"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822741"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Windows
 
@@ -61,7 +61,7 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
    * *WorkspaceName* (opcional): O nome de área de trabalho do Log Analytics. Se não tiver uma área de trabalho do Log Analytics, o script cria e configura uma.
 
      > [!NOTE]
-     > Atualmente, são as regiões de automatização apenas suportadas para a integração com o Log Analytics **Sudeste da Austrália**, **E.U.A. Leste 2**, **Sudeste asiático**, e  **Europa Ocidental**. Se a sua conta de automatização não estiver em uma dessas regiões, o script cria uma área de trabalho do Log Analytics, mas avisa-o de que ele não é possível vinculá-las em conjunto.
+     > Atualmente, são as regiões de automatização apenas suportadas para a integração com os registos do Azure Monitor **Sudeste da Austrália**, **E.U.A. Leste 2**, **Sudeste asiático**e **Europa Ocidental**. Se a sua conta de automatização não estiver em uma dessas regiões, o script cria uma área de trabalho do Log Analytics, mas avisa-o de que ele não é possível vinculá-las em conjunto.
 
 2. No seu computador, abra **Windows PowerShell** partir do **iniciar** ecrã no modo de administrador.
 3. A partir da shell de linha de comandos do PowerShell, navegue até à pasta que contém o script que transferiu. Alterar os valores para os parâmetros *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, e *- WorkspaceName*. Em seguida, execute o script.
@@ -83,27 +83,29 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
 
 Execute os primeiros dois passos uma vez para o seu ambiente de automatização e, em seguida, repita os passos restantes para cada computador de trabalho.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 #### <a name="1-create-a-log-analytics-workspace"></a>1. Criar uma área de trabalho do Log Analytics
 
 Se ainda não tiver uma área de trabalho do Log Analytics, crie uma utilizando as instruções em [gerir a sua área de trabalho](../azure-monitor/platform/manage-access.md). Pode utilizar uma área de trabalho existente se já tiver um.
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Adicionar a solução de automatização à área de trabalho do Log Analytics
 
-As soluções acrescentam funcionalidades ao Log Analytics. A solução de automatização adiciona funcionalidade para a automatização do Azure, incluindo suporte para o Runbook Worker híbrido. Quando adiciona a solução para a área de trabalho, envia automaticamente componentes de trabalho para o computador de agente que pretende instalar no próximo passo.
+As soluções acrescentam funcionalidades aos registos do Azure Monitor. A solução de automatização adiciona funcionalidade para a automatização do Azure, incluindo suporte para o Runbook Worker híbrido. Quando adiciona a solução para a área de trabalho, envia automaticamente componentes de trabalho para o computador de agente que pretende instalar no próximo passo.
 
 Para adicionar o **automatização** solução para a área de trabalho do Log Analytics, siga as instruções em [para adicionar uma solução utilizando a Galeria de soluções](../log-analytics/log-analytics-add-solutions.md).
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Instalar o Microsoft Monitoring Agent
 
-O Microsoft Monitoring Agent liga-se os computadores para o Log Analytics. Quando instalar o agente no seu computador no local e ligá-la à sua área de trabalho, transfere automaticamente os componentes que são necessários para o Runbook Worker híbrido.
+O Microsoft Monitoring Agent liga-se os computadores para os registos do Azure Monitor. Quando instalar o agente no seu computador no local e ligá-la à sua área de trabalho, transfere automaticamente os componentes que são necessários para o Runbook Worker híbrido.
 
-Para instalar o agente no computador no local, siga as instruções em [computadores Windows ligar ao Log Analytics](../log-analytics/log-analytics-windows-agent.md). Pode repetir este processo para vários computadores adicionar múltiplos workers para o seu ambiente.
+Para instalar o agente no computador no local, siga as instruções em [computadores Windows ligar aos registos do Azure Monitor](../log-analytics/log-analytics-windows-agent.md). Pode repetir este processo para vários computadores adicionar múltiplos workers para o seu ambiente.
 
-Quando o agente foi ligado com êxito para o Log Analytics, é apresentada no **origens ligadas** separador da análise de registos **definições** página. Pode verificar que o agente transferiu corretamente a solução de automatização quando tem uma pasta denominada **AzureAutomationFiles** em C:\Program Files\Microsoft Monitoring Agent\Agent. Para confirmar a versão da função de trabalho de Runbook híbrida, pode procurar em C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ e tenha em atenção a \\ *versão* subpasta.
+Quando o agente foi ligado com êxito para os registos do Azure Monitor, é apresentada no **origens ligadas** separador da análise de registos **definições** página. Pode verificar que o agente transferiu corretamente a solução de automatização quando tem uma pasta denominada **AzureAutomationFiles** em C:\Program Files\Microsoft Monitoring Agent\Agent. Para confirmar a versão da função de trabalho de Runbook híbrida, pode procurar em C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ e tenha em atenção a \\ *versão* subpasta.
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Instalar o ambiente de runbook e ligar a automatização do Azure
 
-Quando adiciona um agente para o Log Analytics, a solução de automatização envia por push para baixo a **HybridRegistration** módulo do PowerShell, que contém o **Add-HybridRunbookWorker** cmdlet. Utilize este cmdlet para instalar o ambiente de runbook no computador e registá-lo a automatização do Azure.
+Quando adiciona um agente para registos do Azure Monitor, a solução de automatização envia por push para baixo a **HybridRegistration** módulo do PowerShell, que contém o **Add-HybridRunbookWorker** cmdlet. Utilize este cmdlet para instalar o ambiente de runbook no computador e registá-lo a automatização do Azure.
 
 Abra uma sessão do PowerShell no modo de administrador e execute os seguintes comandos para importar o módulo:
 

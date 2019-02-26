@@ -14,19 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: a6ab19207b2c98064f99914e16cdde85133bfd96
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451362"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821769"
 ---
-<a name="azure-resource-manager-test-drive"></a>Versão de teste de Gestor de recursos do Azure
-=================================
+# <a name="azure-resource-manager-test-drive"></a>Versão de teste de Gestor de recursos do Azure
 
 Este artigo é para os publicadores que têm a oferta no Azure Marketplace ou que estão no AppSource, porém pretendem criar a unidade de teste com apenas os recursos do Azure.
 
-Um modelo Azure Resource Manager (Azure Resource Manager) é um contentor codificado de recursos do Azure que crie para representam melhor sua solução. Se não estiver familiarizado com que um modelo do Resource Manager é, ler sobre [Noções básicas sobre modelos ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) e [criação de modelos ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para se certificar de que já sabe como criar e testar seus próprios modelos.
+Um modelo Azure Resource Manager (Resource Manager) é um contentor codificado de recursos do Azure que crie para representam melhor sua solução. Se não estiver familiarizado com que um modelo do Resource Manager é, ler sobre [Noções básicas sobre modelos do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) e [criar modelos do Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) para se certificar de que já sabe como criar e testar seus próprios modelos.
 
 O que faz o Test Drive é que ele usa o modelo do Resource Manager fornecidos e faz com que uma implementação de todos os recursos necessários a partir desse modelo do Resource Manager num grupo de recursos.
 
@@ -36,8 +35,7 @@ Se optar por criar uma unidade de teste do Azure Resource Manager, os requisitos
 - Configure todos os metadados necessários e as definições para ativar sua versão de teste.
 - Voltar a publicar a oferta com Test-Drive ativado.
 
-<a name="how-to-build-an-azure-resource-manager-test-drive"></a>Como criar uma unidade de teste do Azure Resource Manager
-------------------------------
+## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Como criar uma unidade de teste do Azure Resource Manager
 
 É a parte mais importante sobre a criação de uma unidade de teste do Azure Resource Manager definir qual ou quais cenários de seus clientes para experimentar. É que um produto de firewall e quiser bem como lidar com ataques de injeção de script de demonstração? São a que um produto de armazenamento e pretender demonstrar como rápido e fácil de sua solução compacta arquivos?
 
@@ -47,8 +45,7 @@ Para continuar com nosso exemplo de firewall, a arquitetura pode ser que precisa
 
 Depois de ter criado o pacote desejado de recursos, agora vem a escrita e a construção do modelo de teste da unidade do Resource Manager.
 
-<a name="writing-test-drive-resource-manager-templates"></a>Escrever o teste de unidade modelos do Resource Manager
---------------------------------
+## <a name="writing-test-drive-resource-manager-templates"></a>Escrever o teste de unidade modelos do Resource Manager
 
 Versão de teste é executado a implementações num modo totalmente automatizado e por isso, modelos de Test-Drive tem algumas restrições descritas abaixo.
 
@@ -62,24 +59,26 @@ No entanto, versão de teste funciona num modo totalmente automático, sem inter
 
 Pode utilizar qualquer nome válido para os parâmetros, a versão de teste reconhece a categoria de parâmetro com o valor de tipo de metadados. **Tem de especificar tipo de metadados para cada parâmetro de modelo**, caso contrário, o modelo não será aprovado na validação:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username"
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username"
     }
+  },
+  ...
+}
+```
 
 Também é importante ter em conta que **todos os parâmetros são opcionais**, por isso, se não\'t quiser utilizar algumas, não é\'precise.
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipos de metadados de parâmetros aceites
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor de exemplo    |
-|---|---|---|---|---|
-| **BaseUri**     | cadeia          | URI do seu pacote de implementação de base| [https://\<\..\>.blob.core.windows.net/\<\..\>](#) |
+|---|---|---|---|
+| **BaseUri**     | cadeia          | URI do seu pacote de implementação de base| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **username**    | cadeia          | Novo nome de utilizador aleatório.| admin68876      |
 | **password**    | cadeia segura    | Nova palavra-passe aleatória | LP! ACS\^2kh     |
 | **Id de sessão**   | cadeia          | Sessão de versão de teste exclusiva ID (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -88,40 +87,46 @@ Também é importante ter em conta que **todos os parâmetros são opcionais**, 
 
 Test-Drive inicializa este parâmetro com um **Uri de Base** do seu pacote de implementação, pelo que pode utilizar este parâmetro para construir o Uri de qualquer arquivo contido em seu pacote.
 
-    "parameters": {
-      ...
-      "baseuri": {
-        "type": "string",
-        "metadata": {
-          "type": "baseuri",
-          "description": "Base Uri of the deployment package."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "baseuri": {
+    "type": "string",
+    "metadata": {
+      "type": "baseuri",
+      "description": "Base Uri of the deployment package."
     }
+  },
+  ...
+}
+```
 
 Dentro de seu modelo, pode utilizar este parâmetro para construir um Uri de qualquer ficheiro a partir do seu pacote de implementação da versão de teste. O exemplo abaixo mostra como construir um Uri do modelo ligado:
 
-    "templateLink": {
-      "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
-      "contentVersion": "1.0.0.0"
-    }
+```json
+"templateLink": {
+  "uri": "[concat(parameters('baseuri'),'templates/solution.json')]",
+  "contentVersion": "1.0.0.0"
+}
+```
 
 #### <a name="username"></a>o nome de utilizador
 
 Test-Drive inicializa este parâmetro com um novo nome de usuário aleatório:
 
-    "parameters": {
-      ...
-      "username": {
-        "type": "string",
-        "metadata": {
-          "type": "username",
-          "description": "Solution admin name."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "username": {
+    "type": "string",
+    "metadata": {
+      "type": "username",
+      "description": "Solution admin name."
     }
+  },
+  ...
+}
+```
 
 Valor de exemplo:
 
@@ -133,17 +138,19 @@ Pode utilizar nomes de utilizador aleatório ou constante para a sua solução.
 
 Test-Drive inicializa este parâmetro com uma nova palavra-passe aleatória:
 
-    "parameters": {
-      ...
-      "password": {
-        "type": "securestring",
-        "metadata": {
-          "type": "password",
-          "description": "Solution admin password."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "password": {
+    "type": "securestring",
+    "metadata": {
+      "type": "password",
+      "description": "Solution admin password."
     }
+  },
+  ...
+}
+```
 
 Valor de exemplo:
 
@@ -155,17 +162,19 @@ Pode utilizar palavras-passe aleatórias ou constante para a sua solução.
 
 Test-Drive inicializar este parâmetro com um GUID exclusivo que representa a ID de sessão de teste de unidade:
 
-    "parameters": {
-      ...
-      "sessionid": {
-        "type": "string",
-        "metadata": {
-          "type": "sessionid",
-          "description": "Unique Test Drive session id."
-        }
-      },
-      ...
+```json
+"parameters": {
+  ...
+  "sessionid": {
+    "type": "string",
+    "metadata": {
+      "type": "sessionid",
+      "description": "Unique Test Drive session id."
     }
+  },
+  ...
+}
+```
 
 Valor de exemplo:
 
@@ -179,12 +188,14 @@ Alguns recursos do Azure, como contas de armazenamento ou nomes DNS, exige nomes
 
 Isso significa que sempre que o Test Drive implanta o modelo do Resource Manager, ele cria um **novo grupo de recursos com um nome exclusivo** para todos os seus\' recursos. Portanto, é necessário para utilizar o [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) função concatenada com seus nomes de variáveis no grupo de recursos IDs para gerar valores exclusivos aleatórios:
 
-      "variables": {
-      ...
-      "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
-      "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "domainNameLabel": "[concat('contosovm',uniquestring(resourceGroup().id))]",
+  "storageAccountName": "[concat('contosodisk',uniquestring(resourceGroup().id))]",
+  ...
+}
+```
 
 Certifique-se de que concatenar as cadeias de caracteres de parâmetro/variável (\'contosovm\') com uma saída de cadeia de caracteres exclusivo (\'resourceGroup () Direi\'), porque Isto garante a exclusividade e a confiabilidade de cada variável.
 
@@ -198,41 +209,45 @@ Pode torná-lo Test-Drive disponíveis em diferentes regiões do Azure. A idéia
 
 Quando a versão de teste cria uma instância do laboratório, cria sempre um grupo de recursos em escolher a região, por um utilizador e, em seguida, executa seu modelo de implementação neste contexto de grupo. Então, o modelo deve escolher a localização de implementação do grupo de recursos:
 
-    "variables": {
-      ...
-      "location": "[resourceGroup().location]",
-      ...
-    }
+```json
+"variables": {
+  ...
+  "location": "[resourceGroup().location]",
+  ...
+}
+```
 
 E, em seguida, utilizar esta localização para todos os recursos de uma instância específica de laboratório:
 
-    "resources": [
-      {
-        "type": "Microsoft.Storage/storageAccounts",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/publicIPAddresses",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/virtualNetworks",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Network/networkInterfaces",
-        "location": "[variables('location')]",
-        ...
-      },
-      {
-        "type": "Microsoft.Compute/virtualMachines",
-        "location": "[variables('location')]",
-        ...
-      }
-    ]
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/publicIPAddresses",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/virtualNetworks",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Network/networkInterfaces",
+    "location": "[variables('location')]",
+    ...
+  },
+  {
+    "type": "Microsoft.Compute/virtualMachines",
+    "location": "[variables('location')]",
+    ...
+  }
+]
+```
 
 Tem de certificar-se de que a sua subscrição tem permissões para implementar todos os recursos que pretende implementar em cada uma das regiões do que se está a selecionar. Além disso, terá de certificar-se de que suas imagens de máquina virtual estão disponíveis em todas as regiões vai ativar, caso contrário, o modelo de implementação não irá funcionar para algumas regiões.
 
@@ -246,20 +261,22 @@ Não há qualquer restrições relacionadas com a saídas do modelo. Lembre-se c
 
 Exemplo:
 
-    "outputs": {
-      "Host Name": {
-        "type": "string",
-        "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
-      },
-      "User Name": {
-        "type": "string",
-        "value": "[parameters('adminName')]"
-      },
-      "Password": {
-        "type": "string",
-        "value": "[parameters('adminPassword')]"
-      }
-    }
+```json
+"outputs": {
+  "Host Name": {
+    "type": "string",
+    "value": "[reference(variables('pubIpId')).dnsSettings.fqdn]"
+  },
+  "User Name": {
+    "type": "string",
+    "value": "[parameters('adminName')]"
+  },
+  "Password": {
+    "type": "string",
+    "value": "[parameters('adminPassword')]"
+  }
+}
+```
 
 ### <a name="subscription-limits"></a>Limites de subscrição
 
@@ -277,20 +294,18 @@ Durante a certificação de publicação, o Test-Drive unzips seu pacote de impl
 
 | Package                       | Contentor de BLOBs de unidade de teste         |
 |---|---|
-Template de principal                | [https://\<\..... \>.blob.core.windows.net/\<\..... \>/main-template.json](#)  |
- Templates/Solution.JSON           | [https://\<\..... \>.blob.core.windows.net/\<\..... \>/templates/solution.json](#) |
-| scripts/warmup.ps1                | [https://\<\..... \>.blob.core.windows.net/\<\..... \>/scripts/warmup.ps1](#)  |
+| Template de principal                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
+| Templates/Solution.JSON           | https:\//\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json |
+| scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
 
 
 Chamamos um Uri de Uri de Base para o contentor de Blobs. Cada revisão do seu laboratório tem seu próprio contentor de BLOBs e, portanto, cada revisão do seu laboratório tem seu próprio Uri de Base. Versão de teste pode passar um Uri de Base do seu pacote de implementação descompactado no seu modelo através de parâmetros do modelo.
 
-<a name="transforming-template-examples-for-test-drive"></a>Transformar os exemplos de modelo para a versão de teste
----------------------------------------------
+## <a name="transforming-template-examples-for-test-drive"></a>Transformar os exemplos de modelo para a versão de teste
 
 O processo de transformar uma arquitetura de recursos num teste de unidade modelo do Resource Manager pode ser assustador. Para ajudar a facilitar esse processo, iremos\'ve feita exemplos sobre como fazer o melhor [transformar aqui os modelos de implementação atual](./transforming-examples-for-test-drive.md).
 
-<a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
----------------------------
+## <a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
 
 Agora que tem a sua versão de teste criada, esta secção descreve cada um dos campos necessários para a publicação com êxito a sua versão de teste.
 
@@ -394,8 +409,7 @@ Tendo em conta que estiver a utilizar a aplicação para implementar para a subs
 
 ![Mostra as chaves para a aplicação do Azure AD](./media/azure-resource-manager-test-drive/subdetails8.png)
 
-<a name="next-steps"></a>Passos Seguintes
-----------
+## <a name="next-steps"></a>Passos Seguintes
 
 Agora que tem todos os campos de Test-Drive preenchidos, passar por e **voltar a publicar** sua oferta. Assim que a sua versão de teste passou a certificação, deve passar um extensivamente testar a experiência do cliente no **pré-visualização** da sua oferta. Iniciar uma versão de teste na interface de Usuário e, em seguida, abra a sua subscrição do Azure no portal do Azure e certifique-se de que as versões de teste estão a ser totalmente implementados corretamente.
 

@@ -3,8 +3,8 @@ title: Tutorial – Depurar uma aplicação Web do Azure Service Fabric Mesh em 
 description: Neste tutorial, vai depurar uma aplicação do Azure Service Fabric Mesh em execução no seu cluster local.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/31/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: bef86b189064a82b6605e8b99a374b1ee92682e2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787635"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805125"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutorial: Depurar uma aplicação de malha de recursos de infraestrutura do serviço de mensagens em fila em execução no cluster de desenvolvimento local
 

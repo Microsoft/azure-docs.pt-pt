@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: ad8a01ecccd7af15686c449b17cd5f014450b015
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 87b6dcb007eaea140b9655c248fdfb356cbc9b5f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734441"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817325"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -279,4 +279,4 @@ Para operações de REST API, consulte [referência de API de REST de faturaçã
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Nem todos os tipos de recursos suportam etiquetas. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, veja [marca o suporte para recursos do Azure](tag-support.md).
-* Para uma introdução ao utilizar o portal, consulte [no portal do Azure para gerir os recursos do Azure](resource-group-portal.md).  
+* Para uma introdução ao utilizar o portal, consulte [no portal do Azure para gerir os recursos do Azure](manage-resource-groups-portal.md).  

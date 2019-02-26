@@ -12,12 +12,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 7a77b8a1a2205465956d8c30a3fee6aec5e8428b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: af0a4a719f964e400119be313842f385b410406c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663796"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817427"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipa com o Azure Dev Spaces
 
@@ -125,9 +125,9 @@ Segue-se um diagrama que o ajudará a compreender como funcionam os diferentes e
 Esta capacidade incorporada do Azure Dev Spaces permite-lhe testar o código ponto a ponto num ambiente partilhado sem que cada programador tenha de recriar a pilha completa de serviços no respetivo espaço. Este tipo de encaminhamento requer que os cabeçalhos de propagação sejam reencaminhados no código da aplicação, conforme ilustrado no passo anterior deste guia.
 
 ### <a name="test-code-running-in-the-devscott-space"></a>Testar o código em execução no _dev/scott_ espaço
-Para testar a nova versão do *mywebapi* em conjunto com *webfrontend*, abra o browser para o URL do ponto de acesso público para *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eastus.aksapp.io)e aceda à página About. Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
+Para testar a nova versão do *mywebapi* em conjunto com *webfrontend*, abra o browser para o URL do ponto de acesso público para *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eus.azds.io)e aceda à página About. Deverá ver a mensagem original "Hello from webfrontend and Hello from mywebapi" (Olá de webfrontend e Olá de mywebapi).
 
-Em seguida, adicione o elemento "scott.s." ao URL de modo a mostrar algo semelhante a http://scott.s.dev.webfrontend.123456abcdef.eastus.aksapp.io e atualize o browser. O ponto de interrupção definido no seu *mywebapi* projeto deve ser atingido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isto acontece porque o caminho para os seus códigos atualizados no *mywebapi* está em execução no _dev/scott_ espaço.
+Em seguida, adicione o elemento "scott.s." ao URL de modo a mostrar algo semelhante a http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualize o browser. O ponto de interrupção definido no seu *mywebapi* projeto deve ser atingido. Clique em F5 para continuar. No browser, deverá ver a nova mensagem "Hello from webfrontend and mywebapi now says something new." (Olá de webfrontend e mywebapi agora indica algo de novo). Isto acontece porque o caminho para os seus códigos atualizados no *mywebapi* está em execução no _dev/scott_ espaço.
 
 Depois de ter uma _dev_ espaço que contém sempre suas alterações mais recentes e supondo que a aplicação foi concebido para tirar partido do DevSpace baseados no espaço Encaminhamento conforme descrito nesta secção do tutorial, Espero que ele se torna mais fácil ver como os espaços de desenvolvimento muito pode ajudar no teste de novos recursos dentro do contexto do aplicativo maior. Em vez de precisar implantar _todos os_ serviços no seu espaço privado, pode criar um espaço privado que deriva de _dev_e "apenas up" os serviços que está realmente a trabalhar. A infraestrutura de encaminhamento de espaços de desenvolvimento irá processar o resto utilizando os serviços fora do seu espaço de privada pois pode encontrar, ao utilizar a predefinição para a versão mais recente em execução no _dev_ espaço. E ainda assim, melhor _vários_ os programadores podem ativamente desenvolver serviços diferentes ao mesmo tempo no seu próprio espaço sem interromper entre si.
 

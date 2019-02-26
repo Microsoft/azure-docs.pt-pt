@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 00b96b5bfa88a6c1c31d3415027ce1d4eda11e6b
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c53b9f13c365a5ace227f792f5b0c80ae8fac6ff
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339095"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807359"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Funções de administrador de subscrição clássica, funções RBAC do Azure e funções de administrador do Azure AD
 
@@ -48,11 +48,15 @@ Administrador de Conta, Administrador de Serviços e Coadministrador são as tr�
 | Administrador de Serviços | 1 por subscrição do Azure | <ul><li>Gerir os serviços no [portal do Azure](https://portal.azure.com)</li><li>Atribuir utilizadores à função Coadministrador</li></ul> | Por predefinição, para uma nova subscrição, o Administrador de Conta também é o Administrador de Serviços.<br>O Administrador de Serviços tem o acesso equivalente de um utilizador com a função Proprietário atribuída no âmbito da subscrição.<br>O Administrador de Serviços tem acesso total ao portal do Azure. |
 | Coadministrador | 200 por subscrição | <ul><li>Tem os mesmos privilégios de acesso do Administrador de Serviços, mas não pode alterar a associação de subscrições a diretórios do Azure</li><li>Atribuir utilizadores à função Coadministrador, mas não pode alterar o Administrador de Serviços</li></ul> | O Coadministrador tem o acesso equivalente de um utilizador com a função Proprietário atribuída no âmbito da subscrição. |
 
-No portal do Azure, pode ver quem está atribuído às funções Administrador de Conta e Administrador de Serviços ao visualizar as propriedades da sua subscrição.
+No portal do Azure, pode gerir os coadministradores ou ver o administrador de serviços utilizando a **administradores clássico** separador.
 
-![Administrador de Conta e Administrador de Serviços no portal do Azure](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
+![Administradores de subscrição clássica do Azure no portal do Azure](./media/rbac-and-directory-admin-roles/classic-administrators.png)
 
-Para obter informações sobre como adicionar ou alterar administradores de subscrição clássica, veja [Adicionar ou alterar administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md) na documentação de Faturação do Azure.
+No portal do Azure, pode ver ou alterar o administrador de serviço ou ver o administrador de conta no painel de propriedades da sua subscrição.
+
+![Administrador de Conta e Administrador de Serviços no portal do Azure](./media/rbac-and-directory-admin-roles/account-admin.png)
+
+Para obter mais informações, consulte [os administradores de subscrição clássica do Azure](classic-administrators.md).
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Conta e subscrições do Azure
 
@@ -81,9 +85,11 @@ No portal do Azure, as atribuições de funções através do RBAC aparecem no p
 
 ![Painel de controlo de acesso (IAM) no portal do Azure](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
-Quando clicar na opção **Funções**, verá a lista de funções incorporadas e personalizadas.
+Quando clica no **funções** guia, verá a lista de funções incorporadas e personalizadas.
 
 ![Funções incorporadas no portal do Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
+
+Para obter mais informações, consulte [gerir o acesso aos recursos do Azure através do RBAC e o portal do Azure](role-assignments-portal.md).
 
 ## <a name="azure-ad-administrator-roles"></a>Funções de administrador do Azure AD
 
@@ -95,9 +101,7 @@ As funções Administrador do AD Azure são utilizadas para gerir os recursos do
 | [Administrador de Utilizadores](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>Criar e gerir todos os aspetos de utilizadores e grupos</li><li>Gerir pedidos de suporte</li><li>Monitorizar o estado de funcionamento do serviço</li><li>Alterar palavras-passe para utilizadores, administradores de suporte técnico e outros Administradores de Utilizadores</li></ul> |  |
 | [Administrador de Faturação](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Efetuar compras</li><li>Gerir subscrições</li><li>Gerir pedidos de suporte</li><li>Monitoriza o estado de funcionamento do serviço</li></ul> |  |
 
-Para obter uma lista de todas as funções de administrador do Azure AD, consulte [permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-
-No portal do Azure, pode ver a lista de funções de administrador do Azure AD no painel **Funções e administradores**.
+No portal do Azure, pode ver a lista de funções de administrador do Azure AD no painel **Funções e administradores**. Para obter uma lista de todas as funções de administrador do Azure AD, consulte [permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ![Funções de administrador do Azure AD no portal do Azure](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
 
@@ -124,4 +128,4 @@ Várias funções de administrador do Azure AD expandem-se ao Azure AD e ao Micr
 
 - [O que é o controlo de acesso baseado em funções (RBAC) para recursos do Azure?](overview.md)
 - [Permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
-- [Adicionar ou alterar administradores de subscrição do Azure](../billing/billing-add-change-azure-subscription-administrator.md)
+- [Administradores de subscrição clássica do Azure](classic-administrators.md)

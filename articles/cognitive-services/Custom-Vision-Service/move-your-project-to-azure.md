@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: b46ccd98145342fda58672b64b838ab92ba4f97b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a9f49af54f391b159f8b3d626fffc36635f5e51f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731927"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821315"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure-using-the-customvisionai-site"></a>Como mover o seu projeto de versão de avaliação limitada para o Azure com o site de CustomVision.ai
 
@@ -64,7 +64,7 @@ Vários projetos podem ser associados a um recurso único. Mais detalhes sobre [
     ![Janela de migração do projeto.](./media/move-your-project-to-azure/Project_Migration_Window.jpg)
 
 
-## <a name="move-your-limited-trial-project-to-an-azure-resource-in-another-directory"></a>Mover o seu projeto de versão de avaliação limitada para um recurso do Azure noutro diretório 
+## <a name="move-project-to-another-azure-directory"></a>Mover o projeto para outro diretório do Azure 
 
 > [!NOTE]
 > No portal do Azure tanto CustomVision.ai, pode selecionar o seu diretório no menu pendente de utilizador no canto superior direito da tela.   
@@ -92,4 +92,6 @@ Vários projetos podem ser associados a um recurso único. Mais detalhes sobre [
 
 5. Lembre-se de que seu projeto está agora num diretório diferente. Para encontrar seu projeto, terá de mudar para o mesmo diretório no portal web de visão personalizada que pertença a seu projeto. No portal do Azure e o [Web site de visão personalizada](https://customvision.ai), pode selecionar o seu diretório no menu de conta de baixo no canto superior direito da tela. 
 
+## <a name="next-steps"></a>Passos Seguintes
 
+O projeto agora foi movido para um recurso do Azure. Terá de atualizar as chaves de formação e predição em qualquer aplicativo que escreveu.

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: b0f437ab42de89358af5901349100bc32aa7c2d6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 298279fd67b312b6a7ab3a9939444c344407127f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872599"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806900"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Executar o modelo TensorFlow em Python
 
@@ -111,8 +111,10 @@ augmented_image = resize_to_256_square(max_square_image)
 ### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Recortar o centro para o tamanho de entrada específico para o modelo
 
 ```Python
-# The compact models have a network size of 227x227, the model requires this size.
-network_input_size = 227
+# Get the input size of the model
+with tf.Session() as sess:
+    input_tensor_shape = sess.graph.get_tensor_by_name('Placeholder:0').shape.as_list()
+network_input_size = input_tensor_shape[1]
 
 # Crop the center for the specified network_input_Size
 augmented_image = crop_center(augmented_image, network_input_size, network_input_size)

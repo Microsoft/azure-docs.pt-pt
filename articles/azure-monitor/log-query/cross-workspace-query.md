@@ -13,18 +13,25 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: ccc9a74c4e238ebfcab0fc05a3bf825000917843
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3c8c45d217a2ce03597ae5d472d977e3f0a195f7
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998954"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806339"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Executar consultas de registo entre recursos no Azure Monitor  
 
 Anteriormente com o Azure Monitor, conseguia apenas analisar os dados a partir de área de trabalho atual e limitada a capacidade de consulta em várias áreas de trabalho definidas na sua subscrição.  Além disso, pode pesquisar apenas os itens de telemetria recolhidos a partir da sua aplicação baseada na web com o Application Insights diretamente no Application Insights ou a partir do Visual Studio.  Isso também tornou um desafio para nativamente analisar operacional e os dados das aplicações em conjunto.   
 
-Agora, pode consultar não apenas em várias áreas de trabalho do Log Analytics, mas também dados a partir de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isso fornece uma vista de todo o sistema dos seus dados.  Só pode realizar estes tipos de consultas [do Log Analytics](portals.md). O número de recursos (áreas de trabalho do Log Analytics e Application Insights aplicação) que podem ser incluídos numa única consulta está limitado a 100. 
+Agora, pode consultar não apenas em várias áreas de trabalho do Log Analytics, mas também dados a partir de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isso fornece uma vista de todo o sistema dos seus dados.  Só pode realizar estes tipos de consultas [do Log Analytics](portals.md).
+
+## <a name="cross-resource-query-limits"></a>Limites de consulta entre recursos 
+
+* O número de recursos do Application Insights que podem ser incluídos numa única consulta está limitado a 100.
+* Entre recursos consulta não é suportada no estruturador de vistas. Pode criar uma consulta do Log Analytics e afixá-la ao dashboard do Azure e [visualizar uma pesquisa de registos](../../azure-monitor/learn/tutorial-logs-dashboards.md#visualize-a-log-search). 
+* [Entre recursos consulta](../log-query/cross-workspace-query.md) no registo de alertas é suportado no novo [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Por predefinição, o Azure Monitor utiliza o [herdados API de alerta do Log Analytics](../platform/api-alerts.md) para a criação de novo log de regras de alerta no portal do Azure, a menos que alternar do [API herdada de alertas de registo](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Após a mudança, a nova API se tornará o padrão de novas regras de alerta no portal do Azure e permite-lhe criar regras de alertas do log de consulta de entre recursos. Pode criar [entre recursos consulta](../log-query/cross-workspace-query.md) regras de alerta de registo sem fazer o comutador, utilizando o [modelo ARM para scheduledQueryRules API](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) –, mas esta regra de alerta é gerenciável no entanto [ scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) e não no portal do Azure.
+
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em áreas de trabalho do Log Analytics e o Application insights
 Para fazer referência a outra área de trabalho na sua consulta, utilize o [ *área de trabalho* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) identificador e para uma aplicação do Application Insights, utilize o [ *aplicação* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)identificador.  

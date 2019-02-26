@@ -2,28 +2,23 @@
 title: 'Configure o alcance Global do ExpressRoute: CLI do Azure | Documentos da Microsoft'
 description: Este artigo ajuda-o a ligar os circuitos do ExpressRoute em conjunto para garantir uma privada, de rede entre as redes no local e ativar o alcance Global.
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
-ms.author: cherylmc
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: be10489d731b9e01d148ce1ac7892cb6de956662
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659325"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817699"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli-preview"></a>Configurar o alcance Global do ExpressRoute com a CLI do Azure (pré-visualização)
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurar o alcance Global do ExpressRoute com a CLI do Azure
 
 Este artigo ajuda-o a configurar o alcance Global do Azure ExpressRoute com a CLI do Azure. Para obter mais informações, veja [Alcance Global do ExpressRoute](expressroute-global-reach.md).
  
-## <a name="before-you-begin"></a>Antes de começar
-
-> [!IMPORTANT]
-> Esta pré-visualização pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
-
 Antes de iniciar a configuração, conclua os seguintes requisitos:
 
 * Instale a versão mais recente da CLI do Azure. Veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).

@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 8d2d171235a23d3e41fda6172efe29b3bb358f0e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359872"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804183"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento de funções do Azure e alojamento
 
-As funções do Azure é executado em dois modos diferentes: Plano de consumo e plano de serviço de aplicações do Azure. O plano de consumo aloca automaticamente a potência de computação quando o código é executado. A aplicação é aumentada horizontalmente, quando necessário para processar a carga e reduzida verticalmente quando o código não está em execução. Não é preciso pagar para as VMs inativas ou com antecedência a capacidade de reserva.
+As Funções do Azure são executadas em dois modos diferentes: Plano de consumo e plano de serviço de aplicações do Azure. O plano de consumo aloca automaticamente a potência de computação quando o código é executado. A aplicação é aumentada horizontalmente, quando necessário para processar a carga e reduzida verticalmente quando o código não está em execução. Não é preciso pagar para as VMs inativas ou com antecedência a capacidade de reserva.
 
 > [!NOTE]  
 > Plano de consumo para Linux está [agora em pré-visualização pública](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/).
@@ -70,11 +70,11 @@ Uma VM dissocia o custo do número de execuções, tempo de execução e a memó
 
 Com um plano do serviço de aplicações, manualmente pode aumentar horizontalmente ao adicionar mais instâncias VM ou, pode ativar o dimensionamento automático. Para obter mais informações, consulte [dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Também pode aumentar verticalmente ao escolher um plano de serviço de aplicações diferente. Para obter mais informações, consulte [aumentar verticalmente uma aplicação no Azure](../app-service/web-sites-scale.md). 
 
-Ao executar as funções JavaScript num plano do serviço de aplicações, deve escolher um plano que tem menos de vCPUs. Para obter mais informações, consulte a [escolha planos de serviço de aplicações de núcleo único](functions-reference-node.md#considerations-for-javascript-functions).  
+Ao executar as funções JavaScript num plano do serviço de aplicações, deve escolher um plano que tem menos de vCPUs. Para obter mais informações, consulte [escolha planos de serviço de aplicações de núcleo único](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>Sempre Ativo
+
+###<a name="always-on"></a> Always On
 
 Se executar num plano do serviço de aplicações, deve ativar os **sempre no** definição para que a aplicação function app é executada corretamente. Num plano do serviço de aplicações, o runtime das funções fica inativo após alguns minutos de inatividade, para que os acionadores HTTP só serão "despertar" as suas funções. Sempre está disponível apenas num plano do serviço de aplicações. No plano de consumo, a plataforma ativa aplicações function App automaticamente.
 
@@ -122,9 +122,9 @@ A unidade de escala é a aplicação de funções. Quando a aplicação de funç
 
 ### <a name="understanding-scaling-behaviors"></a>Comportamentos de dimensionamento de compreensão
 
-Dimensionamento pode variar em vários fatores e o dimensionamento de forma diferente, consoante o acionador e o idioma selecionado. No entanto, existem alguns aspectos de dimensionamento que existe no sistema hoje:
+Dimensionamento pode variar em vários fatores e o dimensionamento de forma diferente, consoante o acionador e o idioma selecionado. No entanto, há alguns aspetos do dimensionamento que existem atualmente no sistema:
 
-* Apenas uma aplicação de função única se aumentar verticalmente para um máximo de 200 instâncias. Uma única instância pode processar mais do que uma mensagem ou pedido de cada vez, então não é um conjunto de limite no número de execuções simultâneas.
+* Uma aplicação de funções individual só é aumentada verticalmente para um máximo de 200 instâncias. Uma única instância pode processar mais do que uma mensagem ou pedido de cada vez, então não é um conjunto de limite no número de execuções simultâneas.
 * Novas instâncias só serão alocadas no máximo uma vez a cada 10 segundos.
 
 Acionadores diferentes também podem ter diferentes limites de dimensionamento, bem como documentado abaixo:

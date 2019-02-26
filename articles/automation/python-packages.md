@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: de0998dffeac54db5311bbcde1c9499488b23556
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 28ddecb20944893b23b54775e22f19644f0afbf0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434977"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816509"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerir pacotes de Python 2 na automatização do Azure
 
@@ -34,9 +34,38 @@ Assim que tiver sido importado um pacote, estão listadas no **pacotes de Python
 
 ![Lista de pacotes](media/python-packages/package-list.png)
 
+## <a name="import-packages-with-dependencies"></a>Importar pacotes de dependências
+
+A automatização do Azure não resolve as dependências de pacotes python durante o processo de importação. Existem duas formas de importar um pacote com todas as respetivas dependências. Apenas um dos seguintes passos tem de ser utilizadas para importar os pacotes para sua conta de automatização.
+
+### <a name="manually-download"></a>Transferir manualmente
+
+No Windows de 64 bits do computador com [python2.7](https://www.python.org/download/releases/2.7/) e [pip](https://pip.pypa.io/stable/installing/) instalado, execute o seguinte comando para transferir um pacote e todas as suas dependências:
+
+```
+C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
+```
+
+Assim que os pacotes são transferidos, pode importá-los para sua conta de automatização.
+
+### <a name="runbook"></a>Runbook
+
+Importe o runbook de python [pacotes de Python 2 da importação de pypi na conta de automatização do Azure](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) partir da galeria na sua conta de automatização. Certifique-se de que estão definidas para as definições de execução **Azure** e iniciar o runbook com os parâmetros. O runbook necessitar de uma conta Run As para a conta de automatização trabalhar. Para cada parâmetro, certifique-se de que inicie-o com o comutador como mostra a lista e a imagem seguinte:
+
+* -s \<subscriptionId\>
+* -g \<resourceGroup\>
+* -a \<automationAccount\>
+* -m \<modulePackage\>
+
+![Lista de pacotes](media/python-packages/import-python-runbook.png)
+
+O runbook permite-lhe especificar o que o pacote para transferir, por exemplo, `Azure` (o quarto parâmetro) irá transferir todos os módulos do Azure e todas as suas dependências, de que está prestes a 105.
+
+Depois de concluída ao runbook pode verificar o **pacotes de Python 2** página sob **recursos partilhados** na conta de automatização para verificar se foram importada corretamente.
+
 ## <a name="use-a-package-in-a-runbook"></a>Utilizar um pacote num runbook
 
-Assim que tiver importado um pacote, pode usá-lo agora num runbook. O exemplo seguinte utiliza a [ pacote de utilitário de automatização do Azure](https://github.com/azureautomation/azure_automation_utility). Este pacote torna mais fácil de utilizar o Python com a automatização do Azure. Utilizar o pacote, siga as instruções no repositório do GitHub e adicioná-lo para o runbook utilizando `from azure_automation_utility import get_automation_runas_credential` por exemplo, para importar a função para a conta RunAs a obter.
+Depois de importar um pacote, pode usá-lo agora num runbook. O exemplo seguinte utiliza a [ pacote de utilitário de automatização do Azure](https://github.com/azureautomation/azure_automation_utility). Este pacote torna mais fácil de utilizar o Python com a automatização do Azure. Utilizar o pacote, siga as instruções no repositório do GitHub e adicioná-lo para o runbook utilizando `from azure_automation_utility import get_automation_runas_credential` por exemplo, para importar a função para a conta RunAs a obter.
 
 ```python
 import azure.mgmt.resource

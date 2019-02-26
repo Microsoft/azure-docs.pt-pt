@@ -3,7 +3,7 @@ title: Monitorizar e diagnosticar contentores do Windows no Service Fabric no Az
 description: Neste tutorial, vai configurar o Log Analytics para monitorizar e realizar diagnósticos de contentores do Windows no Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2018
-ms.author: twhitney, dekapur
+ms.author: aljo, dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9249c0bb559328c878d784b54af5117b785daffe
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: f6aa0dcfa4a4f9e2780c8fb886523da347eeaa31
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300630"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806458"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutorial: Monitorizar contentores do Windows no Service Fabric com o Log Analytics
 
@@ -225,7 +225,7 @@ Desta forma, é encaminhado para a área de trabalho do Log Analytics, onde pode
 
 **Atualize** a Solução de Monitorização de Contadores passados alguns minutos e, depois, deverá começar a receber dados de *Desempenho do Computador*. Isto ajuda a compreender de que forma é que os seus recursos estão a ser atualizados. Também pode utilizar estas métricas para tomar decisões adequadas relativamente ao dimensionamento do seu cluster ou para confirmar se um cluster está a balancear a sua carga conforme esperado.
 
-*Nota: certifique-se de que os seus filtros de hora estão definidos corretamente para poder consumir estas métricas.*
+*Nota: Certifique-se de que filtros de hora estão definidos corretamente para poder consumir estas métricas.*
 
 ![Contadores de desempenho 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
 

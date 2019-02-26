@@ -1,28 +1,23 @@
 ---
 title: Configurar o ExpressRoute Direct – Azure | Documentos da Microsoft
-description: Esta página ajuda-o a configurar o ExpressRoute Direct (pré-visualização).
+description: Esta página ajuda-o a configurar o ExpressRoute Direct.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 05eb75c77cef5b975d0122714bb0ec9fba1d09a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9157466f0768b052f55f6d225e72ae7a036f8b9c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463979"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822177"
 ---
-# <a name="how-to-configure-expressroute-direct-preview"></a>Como configurar o ExpressRoute Direct (pré-visualização)
+# <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
 ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global da Microsoft em localizações de peering estrategicamente distribuídas em todo o mundo. Para obter mais informações, consulte [sobre o ExpressRoute direto ligar](expressroute-erdirect-about.md).
-
-> [!IMPORTANT]
-> Direct do ExpressRoute está atualmente em pré-visualização.
->
-> Esta Pré-visualização Pública é disponibilizada sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
 ## <a name="resources"></a>Criar o recurso
 

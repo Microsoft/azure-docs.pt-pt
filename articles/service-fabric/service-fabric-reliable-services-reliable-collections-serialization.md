@@ -3,7 +3,7 @@ title: Serialização de objeto de coleção fiável no Azure Service Fabric | D
 description: Serialização de objeto do Azure Service Fabric Reliable Collections
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
-ms.author: twhitney
-ms.openlocfilehash: 52e4b22a0c4acebe99ab5b9d94eeb66e917a231a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: aljo
+ms.openlocfilehash: b02952cf82707966cb0f3b3473b2020e14e48931
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192027"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805854"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serialização de objeto de coleção fiável no Azure Service Fabric
 Coleções fiáveis replicam e manter seus itens para se certificar de que eles são duráveis em falhas de máquina e falhas de energia.
@@ -34,18 +34,18 @@ Reliable State Manager inclui serializador incorporado para alguns tipos comuns,
 Serializadores internos são mais eficientes, uma vez que já estão habituados não é possível alterar os tipos e não terão de incluir informações sobre o tipo como seu nome de tipo.
 
 Reliable State Manager tem serializador incorporado para os seguintes tipos: 
-- GUID
-- Bool
+- Guid
+- booleano
 - byte
-- SByte
+- sbyte
 - byte[]
 - char
-- cadeia
+- string
 - decimal
 - double
 - float
 - int
-- UInt
+- uint
 - longa
 - ulong
 - curto

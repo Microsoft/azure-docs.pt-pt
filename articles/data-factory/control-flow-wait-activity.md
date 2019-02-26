@@ -3,23 +3,23 @@ title: Aguardar atividade no Azure Data Factory | Documentos da Microsoft
 description: A atividade de espera coloca em pausa a execução do pipeline para o período de tempo especificado.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: shlo
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/12/2018
 ms.author: shlo
-ms.openlocfilehash: 731df55a11f4671670a65dac8a83927d81da454c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66d79bc1597cd8f3c7e01eb8227eb7c91ba04d1d
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015802"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807818"
 ---
-# <a name="wait-activity-in-azure-data-factory"></a>Aguardar atividade no Azure Data Factory
+# <a name="execute-wait-activity-in-azure-data-factory"></a>Executar a atividade de espera no Azure Data Factory
 Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de tempo especificado antes de continuar a execução das atividades subsequentes. 
 
 ## <a name="syntax"></a>Sintaxe
@@ -39,8 +39,8 @@ Quando utiliza uma atividade Aguardar num pipeline, este aguarda o período de t
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome do `Wait` atividade. | Cadeia | Sim
-tipo | Tem de ser definido como **aguarde**. | Cadeia | Sim
+nome | Nome do `Wait` atividade. | String | Sim
+tipo | Tem de ser definido como **aguarde**. | String | Sim
 waitTimeInSeconds | O número de segundos que o pipeline aguarda antes de continuar com o processamento. | Número inteiro | Sim
 
 ## <a name="example"></a>Exemplo

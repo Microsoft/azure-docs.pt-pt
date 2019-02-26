@@ -8,18 +8,18 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/20/2019
-ms.openlocfilehash: 63d32aa3c8e64cc8ccfab4c97c48cef021c1781a
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.date: 02/24/2019
+ms.openlocfilehash: eb082d5194cb6948668c4944208ec11fab987206
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750350"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806530"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure do Azure Logic Apps com um ambiente de serviço de integração (ISE)
 
 > [!NOTE]
-> Esta capacidade está em *pré-visualização privada*. Para aderir à pré-visualização privada, [criar o pedido de aqui](https://aka.ms/iseprivatepreview).
+> Esta capacidade está em *pré-visualização pública*. 
 
 Para cenários em que o logic apps e as contas de integração precisam de acesso a uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md), criar um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Um ISE é um ambiente isolado e privado que utiliza armazenamento dedicado e outros recursos mantidos separados do serviço de aplicações lógicas "global" ou público. Essa separação também reduz a qualquer impacto que outros inquilinos do Azure podem ter sobre o desempenho das suas aplicações. O ISE encontra-se *injetado* para a sua rede virtual do Azure, que, em seguida, implementa o serviço de aplicações lógicas na sua rede virtual. Quando cria uma conta de integração ou da aplicação lógica, selecione esta ISE como a respetiva localização. Sua conta de integração ou da aplicação lógica, em seguida, pode aceder diretamente a recursos, como máquinas virtuais (VMs), servidores, sistemas e serviços, na sua rede virtual.
 

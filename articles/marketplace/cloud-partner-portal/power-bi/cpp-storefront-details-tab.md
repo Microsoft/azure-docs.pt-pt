@@ -14,121 +14,120 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ffc0d8e9e41cf4d202b4040ce3f09e7180101c8b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666808"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806815"
 ---
-# <a name="power-bi-apps-storefront-details-tab"></a>Separador de detalhes de loja de aplicações de BI de energia
+# <a name="power-bi-app-storefront-details-tab"></a>Separador de detalhes de loja de aplicações do Power BI
 
-Utilize o **detalhes de loja** separador da **nova oferta** página para fornecer informações de marketing, vendas e legais para os seus clientes potenciais. Este separador também especifica como gerir as oportunidades potenciais geradas a partir do marketplace. Esta forma longa é dividida em seis seções: **Detalhes da oferta**, **detalhes da lista**, **artefactos de Marketing**, **legais**, **suporte ao cliente**e **Numa gestão**.  Um anexado asterisco (*) na etiqueta de campo indica que é necessário.
+Na **nova oferta** página, utilize o **Vitrine detalhes** separador para fornecer informações de marketing, vendas e legais para os seus clientes potenciais. Neste separador pode também de configurar a gestão de oportunidades potenciais que gera o Azure Marketplace. Esta forma longa é dividida em seis seções: **Detalhes da oferta**, **detalhes da lista**, **artefactos de Marketing**, **legais**, **suporte ao cliente**e **Numa gestão**.  Um asterisco (*) no final de uma etiqueta de campo significa que o campo é obrigatório.
 
 
 ## <a name="offer-details-section"></a>Secção de detalhes da oferta
 
-Nesta secção, é possível inserir as informações gerais sobre a sua origem de aplicação oferece.
+Na **detalhes sobre ofertas** , digite as informações gerais sobre a oferta do AppSource.
 
 ![Secção de detalhes de oferta da guia detalhes de loja](./media/offer-details-section.png)
 
-A tabela seguinte descreve o nome e a finalidade desses campos.
+Para concluir os campos nesta secção, utilize a tabela seguinte:
 
 |   Campo               |   Descrição                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Resumo da oferta**     | Breve finalidade da aplicação. Comprimento máximo de 100 carateres.                             |
-| **Descrição da oferta** | Descrição da aplicação. Comprimento máximo de 3000 carateres, oferece suporte a formatação de HTML simples. |
+| **Resumo da oferta**     | Uma breve finalidade da aplicação, com até 100 carateres.                             |
+| **Descrição da oferta** | Uma descrição da aplicação, com até 3.000 carateres. Este campo suporta a formatação de HTML simples. |
 |                       |                                                                                         |
 
 
 ## <a name="listing-details-section"></a>Secção de detalhes de listagem
 
-Esta segunda secção fornece o contexto adicional para a sua aplicação: termos de pesquisa que setores é normalmente utilizado em qual categoria que melhor se aplica ao mesmo, produtos compatíveis e associada.
+O **detalhes de listagem** secção reúne informações sobre o contexto da sua aplicação: setores em que é normalmente utilizado, a categoria de aplicação, produtos compatíveis e termos de pesquisa associados.
 
 ![Secção de detalhes de listagem da guia detalhes de loja](./media/listing-details-section.png)
 
- A tabela seguinte descreve o nome e a finalidade desses campos.
+Para concluir os campos nesta secção, utilize a tabela seguinte:
  
 |   Campo                                  |   Descrição                                                        |
 | --------------                           | ---------------------                                                |
-| **Setores**                           | Selecione o setor melhor alinhado à sua aplicação. Se o aplicativo se relaciona para vários setores, pode deixar esta opção em branco.      |
-| **Categorias**                           | Selecione as categorias que são relevantes para a sua aplicação. Selecione um máximo de 3.     |
-| **Ligação de ajuda para a sua aplicação**               | URL para uma página com a ajuda online para a sua aplicação           |
-| **Produtos a que sua aplicação funciona com (máx. 3)** | Liste os produtos específicos que a sua aplicação funciona com. Pode listar o máximo de 3 produtos. Para listar um produto, clique no sinal de adição (junto ao novo) e será criado um novo campo de texto em aberto para que insira o nome de um produto que a sua aplicação funciona com.      |
-| **Palavras a procurar (máx. 3)**              | AppSource permite que o cliente para procurar as palavras-chave com base no. Pode inserir o conjunto de palavras-chave para os quais seu aplicativo será mostrado aos clientes. Por exemplo, se a aplicação é "A minha aplicação Emailing" mensagens de E-Mail, de correspondência, aplicativo de email pode ser algumas palavras-chave. Escolha palavras que os usuários provavelmente usarão a pesquisa para a sua aplicação na caixa de pesquisa do AppSource. |
+| **Setores**                           | Selecione o setor em que a aplicação mais adequado. Se o aplicativo se relaciona para vários setores, deixe este campo em branco.      |
+| **Categorias**                           | Selecione até três categorias que se relacionam com a sua aplicação.     |
+| **Ligação de ajuda para a sua aplicação**               | Forneça um URL para uma página que oferece ajuda online para a sua aplicação.           |
+| **Produtos a que sua aplicação funciona com (máx. 3)** | Selecione o **New** sinal de adição para criar um campo de texto. No campo, introduza o nome de um produto que a sua aplicação funciona com. Liste até três produtos.       |
+| **Palavras a procurar (máx. 3)**              | Introduza até três palavras-chave que os usuários provavelmente usarão a pesquisa para a sua aplicação no AppSource. Por exemplo, se o aplicativo é chamado "A minha aplicação Emailing", as palavras-chave podem ser **e-mails**, **correspondência**, e **aplicação de correio**. |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Secção de artefactos de marketing
 
-Esta secção terceiro permite carregar de imagem corporativa e materiais de marketing.  Ele é dividido em quatro subsecções: **Logótipos**, **vídeos**, **documentos**, e **capturas de ecrã**. Logótipos e capturas de ecrã são artefactos de marketing necessários; No entanto, todos são altamente recomendáveis para melhor apelo do cliente.
+Na **artefactos Marketing** seção imagem corporativa do carregamento de marketing e materiais para apresentar no AppSource.  Esta secção é dividida em quatro subsecções: **Logótipos**, **vídeos**, **documentos**, e **capturas de ecrã**. Logótipos e capturas de ecrã são o único necessário artefactos de marketing. Mas, para melhor apelo do cliente, recomendamos que adicione vídeos e documentos também.
 
 ![Secção de artefactos de marketing da guia detalhes de loja](./media/marketing-artifacts-section.png)
 
+Para concluir os campos nesta secção, utilize a tabela seguinte:
  
 |    Campo                             |    Descrição                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logótipos*                              |                                                                   |
-| **Logótipo da oferta (formato png, 48 x 48)**   | Exibido no AppSource na descrição geral da aplicação ou resultados das aplicações, ao concluir uma pesquisa. Apenas png formato, com uma resolução de 48px\*48px é suportada.  |
-| **Logótipo da oferta (formato png, 216 x 216)** | Exibido no AppSource, na página de detalhes da sua aplicação.  Apenas png formato, com uma resolução de 216px\*216px é suportada.  |
+| **Logótipo da oferta (formato png, 48 x 48)**   | Carregue um logótipo a apresentar na descrição geral da aplicação ou nos resultados de pesquisa da aplicação. AppSource suporta apenas, formato PNG, com uma resolução de 48 x 48 px.  |
+| **Logótipo da oferta (formato png, 216 x 216)** | Carregue um logótipo a apresentar na página de detalhes da sua aplicação.  AppSource suporta apenas, formato PNG, com uma resolução de 216 x 216 px.  |
 | *Vídeos*                             |                                                                   |
-| **Nome**                             | Nome ou o nome da aplicação                                          |
-| **URL**                              | URL de vídeo alojado no YouTube ou Vimeo                              |
-| **Miniatura**                        | Imagem em miniatura da aplicação.  Apenas formato png com uma resolução de 1280px\*720px é suportada.   |
-| *Documentos*                          | É opcional, mas máximo de três documentos. Docs que carregar aqui vão aparecer no AppSource, em "Saiba mais".  |
-| **Nome**                             | Nome ou o título do documento de suporte                              |
-| **Ficheiro**                             | Carregar documento tem de estar no formato pdf                             |
-| *Capturas de ecrã*                        | É opcional, mas máximo de cinco capturas de ecrã.                        |
-| **Nome**                             | Nome ou o título da captura de ecrã                                       |
-| **Imagem**                            | Imagem de captura de ecrã de carregamento, devem ter o formato png com resolução de 1280px\*720px  | 
+| **Nome**                             | Introduza o nome ou o título da sua aplicação.                                          |
+| **URL**                              | Introduza o URL de um vídeo alojado no YouTube ou Vimeo.                              |
+| **Miniatura**                        | Adicione uma imagem em miniatura da aplicação.  AppSource suporta apenas, formato PNG, com uma resolução de 1280 x 720 px.   |
+| *Documentos*                          | Adicione até três documentos para apresentar no AppSource, no **Saiba mais** cabeçalho.  |
+| **Nome**                             | Introduza o nome ou o título de um documento de suporte.                              |
+| **Ficheiro**                             | Carregue um ficheiro PDF.                             |
+| *Capturas de ecrã*                        | Adicione até cinco capturas de ecrã.                        |
+| **Nome**                             | Introduza um nome ou o título de uma captura de ecrã.                                       |
+| **Imagem**                            | Carregar uma captura de ecrã do PNG. Sua resolução tem de ser px de 1280 x 720.  | 
 |   |   |
 
+Logótipos carregar para [Cloud Partner Portal](https://cloudpartner.azure.com) deve *não*:
 
-### <a name="logo-guidelines"></a>Diretrizes para logótipos
-
-Todos os logótipos carregado para o [Cloud Partner Portal](https://cloudpartner.azure.com) deve seguir as diretrizes:
-
-- Não utilize um plano de fundo de gradação no seu logótipo.
-- Evite colocar texto — incluindo a sua empresa ou o nome da marca — no logótipo. O aspeto e funcionalidade do seu logótipo deve ser "simples" e deve evitar gradientes.
-- Não stretch o logótipo.
-
+- Utilize um gradiente. O aspeto e funcionalidade do seu logótipo deve ser simples.
+- Inclua o nome da empresa, o nome da marca ou outros tipos de texto. 
+- Dar uma olhada Stretch.
 
 ## <a name="legal-section"></a>Secção legal
 
-Esta secção quarta permite-lhe fornecer os dois documentos legais necessários para cada oferta: Política de privacidade e termos de utilização.
+Na **legais** secção, fornecer os dois documentos legais necessários para cada oferta: a política de privacidade e os termos de utilização.
 
 ![Secção legal da guia detalhes de loja](./media/legal-section.png)
 
+Para concluir os campos nesta secção, utilize a tabela seguinte:
+
 |   Campo                |   Descrição                           |
 |------------------------|--------------------------------------   |
-| **URL de política de privacidade** | URL para a política de privacidade postado       |
-| **Termos de utilização**       | Política como texto sem formatação ou simple HTML     |
+| **URL de política de privacidade** | URL para a sua política de privacidade postado       |
+| **Termos de utilização**       | Sua política de uso, formatados como texto sem formatação ou simple HTML     |
 |  |  |
 
 
 ## <a name="customer-support-section"></a>Secção de suporte de cliente
 
-Forneça o **URL de suporte** para a sua página de suporte do cliente online.  É melhor se esta página de suporte online fornece aos clientes com várias opções de contactos, como o telefone, e-mail e ao vivo via chat. 
+Na **suporte ao cliente** secção, forneça o **URL de suporte** para a sua página de suporte do cliente online.  Esta página deve fornecer várias opções de contactos, como o telefone, e-mail e ao vivo via chat. 
 
 
 ## <a name="lead-management-section"></a>Levar a secção sobre gestão
 
-A última seção permite-lhe recolher clientes oportunidades potenciais geradas a partir de suas ofertas do AppSource. Ele oferece as seguintes opções de armazenamento (a partir de uma lista pendente) para obter estas informações de oportunidades potenciais.
+Na **levar gestão** secção, configurar o sistema para coletar as oportunidades potenciais que geram suas ofertas do AppSource. Para escolher as opções de armazenamento para as oportunidades potenciais, utilize a tabela seguinte:
 
 |    Campo               |   Líder de destino                               |
 |------------------------|--------------------------------------            |
-|  **Nenhum**              | Oportunidades potenciais não são recolhidos (predefinição).  |
-| **BLOBs do Azure (preterido)** | Uma [BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview), especificado por um nome de contentor e uma cadeia de ligação.  Esta opção foi preterida; utilizar **tabelas do Azure** em vez disso.  |
-| **Tabela do Azure**        | Uma [tabelas do Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview), especificado por uma cadeia de ligação  |
-| **Dynamics CRM Online** | R [do Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) instância, especificada pelas credenciais de uma URL e autenticação |
-| **Ponto Final de HTTPS**     | O ponto final HTTPS especificado como um payload JSON   |
-| **Marketo**            | R [Marketo](https://www.marketo.com/) instância, especificada pelo ID do servidor, o ID de munchkin e o ID de formulário   |
-| **Salesforce**         | R [Salesforce](https://www.salesforce.com/) base de dados, especificada por um identificador de objeto |
+|  **Nenhum**              | Recolha não oportunidades potenciais. Esta é a opção predefinida.  |
+| **BLOBs do Azure (preterido)** | Especifique [armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) utilizando um nome de contentor e uma cadeia de ligação.  Esta opção foi preterida. Uso **tabelas do Azure** em vez disso.  |
+| **Tabela do Azure**        | Especifique [armazenamento de tabelas do Azure](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) através de uma cadeia de ligação.  |
+| **Dynamics CRM Online** | Especifique [Dynamics 365](https://dynamics.microsoft.com/) com credenciais de autenticação e de URL. |
+| **Ponto final de HTTPS**     | Especifique o ponto final HTTPS com um payload JSON.   |
+| **Marketo**            | Especifique um [Marketo](https://www.marketo.com/) instância ao utilizar um servidor de ID, o ID de munchkin e o ID do formulário.   |
+| **Salesforce**         | Especifique [Salesforce](https://www.salesforce.com/) utilizando um identificador de objeto. |
 |  |  |
 
-Depois de publicar a sua oferta, a ligação da oportunidade potencial é validada e um líder de teste é enviado automaticamente para o destino especificado. Informações de provocar deverão ser geridas continuamente e estas definições devem ser imediatamente atualizadas para refletir a sua arquitetura de gestão atual do cliente.
+Depois de publicar a sua oferta, a ligação da oportunidade potencial é validada e um líder de teste é enviado automaticamente para o destino especificado. Continuamente gerir informações de oportunidades potenciais e, imediatamente, Atualize as definições para refletir a sua arquitetura de gestão atual do cliente.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Nos próximos [contactos](./cpp-contacts-tab.md) guia, irá fornecer recursos de suporte técnico e de utilizador para a sua oferta.
+Sobre o [contactos](./cpp-contacts-tab.md) separador, forneça técnicas e de utilizador recursos de suporte para a sua oferta.

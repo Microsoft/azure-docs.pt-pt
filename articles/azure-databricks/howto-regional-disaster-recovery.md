@@ -8,22 +8,16 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a42d2c75913b2c9fdfa0d2b7c3ec2742525a4c97
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748328"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806101"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Recuperação após desastre regional para clusters do Azure Databricks
 
 Este artigo descreve uma arquitetura de recuperação após desastre útil para clusters do Azure Databricks e os passos para realizar esse design.
-
-## <a name="azure-databricks-overview"></a>Descrição geral do Azure Databricks
-
-O Azure Databricks é um serviço de análise baseada no Apache Spark rápida, fácil e de colaboração. Para um pipeline de grandes volumes de dados, os dados (não processados ou estruturados) é ingeridos no Azure através do Azure Data Factory em lotes ou transmitidos em tempo quase real com o Kafka, o Hub de eventos ou o IoT Hub. Este francesas de dados num data lake longo prazo persistentes armazenamento, no armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake. Como parte do seu fluxo de trabalho de análise, utilizar o Azure Databricks para ler os dados de várias origens de dados, tal como [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md), [o armazenamento do Azure Data Lake](../data-lake-store/index.md), [do Azure Cosmos DB](../cosmos-db/index.yml) , ou [do Azure SQL Data Warehouse](../sql-data-warehouse/index.md) e transformá-lo em ideias inovadoras com o Spark.
-
-![Pipeline de Databricks](media/howto-regional-disaster-recovery/databricks-pipeline.png)
 
 ## <a name="azure-databricks-architecture"></a>Arquitetura do Azure Databricks
 
@@ -37,7 +31,7 @@ Uma das vantagens dessa arquitetura é que os utilizadores podem ligar do Azure 
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Como criar uma topologia de recuperação de desastre regional
 
-Conforme notar na descrição de arquitetura anterior, há uma série de componentes utilizados para um pipeline de grandes volumes de dados com o Azure Databricks: armazenamento do Azure, base de dados do Azure e outras origens de dados. O Azure Databricks é o *computação* para grandes volumes de dados do pipeline. É *efémeras* por natureza, que significa que, enquanto continua disponíveis no armazenamento do Azure, os seus dados estão a *computação* (cluster do Azure Databricks) pode ser terminada, para que não precisa de pagar por computação quando não precisa dela. O *computação* (Azure Databricks) e origens de armazenamento tem de estar na mesma região, para que as tarefas não experienciar latência elevada.  
+Como notar na descrição de arquitetura anterior, isso significa que existem vários componentes utilizados para um pipeline de grandes volumes de dados com o Azure Databricks:  O armazenamento do Azure, base de dados do Azure e outras origens de dados. O Azure Databricks é o *computação* para grandes volumes de dados do pipeline. É *efémeras* por natureza, que significa que, enquanto continua disponíveis no armazenamento do Azure, os seus dados estão a *computação* (cluster do Azure Databricks) pode ser terminada, para que não precisa de pagar por computação quando não precisa dela. O *computação* (Azure Databricks) e origens de armazenamento tem de estar na mesma região, para que as tarefas não experienciar latência elevada.  
 
 Para criar seu próprio topologia de recuperação de desastre regional, siga estes requisitos:
 

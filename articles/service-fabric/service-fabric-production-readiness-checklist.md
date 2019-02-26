@@ -4,7 +4,7 @@ description: Prepare-se a aplicação de Service Fabric e a produção de cluste
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
-ms.author: aljo-microsoft
-ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.author: aljo
+ms.openlocfilehash: 963587415e1060997b4f90e822c6c57a05610544
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206974"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807172"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção
 

@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9341eefdbe1eaa8e27394fd4b10f50b1a48bd4c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 65894ccd9514bce1d429b336f8bd5e6674048e65
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247328"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820268"
 ---
 # <a name="what-is-azure-stack"></a>O que é o Azure Stack?
 
@@ -33,15 +33,15 @@ O Azure Stack é oferecida na duas opções de implementação para satisfazer a
 
 ## <a name="azure-stack-development-kit"></a>Development Kit do Azure Stack
 
-O [Development Kit do Azure Stack (ASDK)](./asdk/asdk-what-is.md) da Microsoft é uma implementação de nó único do Azure Stack, que pode utilizar para avaliar e saber mais sobre o Azure Stack.  Também pode utilizar o ASDK como um ambiente de programação para criar aplicações com as APIs e as ferramentas que sejam consistentes com o Azure.
+O [Development Kit do Azure Stack (ASDK)](./asdk/asdk-what-is.md) da Microsoft é uma implementação de nó único do Azure Stack, que pode utilizar para avaliar e saber mais sobre o Azure Stack.  Também pode utilizar o ASDK como um ambiente de programação para criar aplicações com as APIs e ferramentas que seja consistente com o Azure.
 
 >[!Note]
 >O ASDK não se destina a ser utilizado como um ambiente de produção.
 
 O ASDK tem as seguintes limitações:
 
-* O ASDK está associado um único fornecedor de identidade do Azure Active Directory (Azure AD) ou dos Serviços de Federação do Active Directory (AD FS). Pode criar vários utilizadores neste diretório e atribuir as subscrições a cada utilizador.
-* Por os componentes do Azure Stack estarem implementados num computador anfitrião, há recursos físicos limitados disponíveis para os recursos de inquilinos. Esta configuração não se destina à avaliação de dimensionamento ou de desempenho.
+* O ASDK está associado um único do Azure Active Directory (Azure AD) ou o fornecedor de identidade de serviços de Federação do Active Directory (AD FS). Pode criar vários utilizadores neste diretório e atribuir as subscrições a cada utilizador.
+* Como os componentes da pilha do Azure são implementados num computador anfitrião único, existem limitados de recursos físicos disponíveis para os recursos de inquilino. Esta configuração não se destina à escala ou de avaliação de desempenho.
 * Os cenários de rede estão limitados devido aos requisitos de implementação NIC e de único anfitrião.
 
 ## <a name="azure-stack-integrated-systems"></a>Sistemas integrados do Azure Stack

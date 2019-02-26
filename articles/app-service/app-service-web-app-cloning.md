@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 2a28409120bac13ea7d288c7fc41f7154c003388
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 53cde81ed5df97c4cb6d8360c9bb639b8bdabe20
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106261"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818141"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Aplicação de serviço de aplicações do Azure com o PowerShell de clonagem
 
@@ -136,5 +136,5 @@ Aqui estão as restrições de conhecidos de clonagem de aplicação:
 * [Fazer cópias de segurança de uma aplicação no App Service do Azure](manage-backup.md)
 * [Suporte do Azure Resource Manager para a pré-visualização do Gestor de tráfego do Azure](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introdução ao Ambiente do Serviço de Aplicações](environment/intro.md)
-* [Utilizar o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Utilizar o Azure PowerShell com o Azure Resource Manager](../azure-resource-manager/manage-resources-powershell.md)
 

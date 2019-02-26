@@ -1,6 +1,6 @@
 ---
-title: Criar WSFC, o serviço de escuta e configurar o ILB para um grupo de disponibilidade Always On numa VM do SQL Server com o modelo de início rápido do Azure
-description: Utilize modelos de início rápido do Azure para simplificar o processo de criação de grupos de disponibilidade para VMs do SQL Server no Azure utilizando um modelo para criar o cluster, Junte-se as VMs do SQL para o cluster, criar o serviço de escuta e configurar o ILB.
+title: Utilizar modelos de início rápido do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure
+description: Utilize modelos de início rápido do Azure para criar o cluster de ativação pós-falha do Windows, Junte-se a VMs do SQL Server para o cluster, criar o serviço de escuta e configurar o Balanceador de carga interno no Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/04/2018
+ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 093fa1414ec624f66bc7cb4559fa8c0535834c10
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 675933b46a228f636c4907e84d66263dde52f274
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981932"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823336"
 ---
-# <a name="create-wsfc-listener-and-configure-ilb-for-an-always-on-availability-group-on-a-sql-server-vm-with-azure-quickstart-template"></a>Criar WSFC, o serviço de escuta e configurar o ILB para um grupo de disponibilidade Always On numa VM do SQL Server com o modelo de início rápido do Azure
+# <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utilizar modelos de início rápido do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure
 Este artigo descreve como utilizar os modelos de início rápido do Azure para parcialmente automatizar a implementação de uma configuração de grupo Always On disponibilidade para máquinas virtuais SQL Server no Azure. Existem dois modelos de início rápido do Azure que são utilizados neste processo. 
 
    | Modelo | Descrição |
@@ -38,7 +38,7 @@ Outras partes da configuração do grupo de disponibilidade devem ser feitas man
 Para automatizar a configuração de um grupo de disponibilidade Always On na através de modelos de início rápido, já tem de ter os seguintes pré-requisitos: 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um grupo de recursos com um controlador de domínio. 
-- Um ou mais associado a um domínio [VMs no Azure em execução do SQL Server 2016 (ou superior) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) na mesma disponibilidade ou conjunto de zona de disponibilidade que tenham sido [registado com o fornecedor de recursos de VM do SQL Server](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
+- Um ou mais associado a um domínio [VMs no Azure em execução do SQL Server 2016 (ou superior) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) na mesma disponibilidade ou conjunto de zona de disponibilidade que tenham sido [registado com o fornecedor de recursos de VM do SQL Server](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>Passo 1 - criar o WSFC e Junte-se a VMs do SQL Server para o cluster utilizando o modelo de início rápido 
@@ -74,7 +74,7 @@ Depois das suas VMs do SQL Server foram registrados com o fornecedor de recursos
 
 
 ## <a name="step-2---manually-create-the-availability-group"></a>Passo 2 - criar manualmente o grupo de disponibilidade 
-Criar manualmente o grupo de disponibilidade, tal como faria normalmente, através de um [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+Criar manualmente o grupo de disponibilidade, tal como faria normalmente, através de um [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), ou [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
   >[!IMPORTANT]
   > Fazer **não** criar um serviço de escuta neste momento, porque é um processo automatizado pelos **101-sql-vm-aglistener-setup** modelo de início rápido no passo 4. 
@@ -104,7 +104,7 @@ O Always On (AG) serviço de escuta requer um balanceador de carga de Azure inte
 6. Selecione **Criar**. 
 
 
-  >[!NOTE]
+  >[!IMPORTANT]
   > O recurso de IP público para cada VM do SQL Server deve ter um SKU standard para ser compatível com o Balanceador de carga Standard. Para determinar o SKU de recurso de IP público da VM, navegue até à sua **grupo de recursos**, selecione seu **endereço IP público** recurso para o SQL Server VM pretendida e localize o valor sob **SKU**  das **descrição geral** painel. 
 
 ## <a name="step-4---create-the-ag-listener-and-configure-the-ilb-with-the-quickstart-template"></a>Passo 4 - criar o serviço de escuta de AG e configurar o ILB com o modelo de início rápido

@@ -2,18 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: service-fabric-mesh
-author: TylerMSFT
+author: dkkapur
 ms.service: service-fabric-mesh
 ms.topic: include
 ms.date: 05/24/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: include file
-ms.openlocfilehash: 9094cd0c497b5fb117f149ec8fd4ec7263f7d1a7
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: 1c76f84248b674c79ba41953be3358f5c52ead97
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072781"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807988"
 ---
 |     |
 | --- |

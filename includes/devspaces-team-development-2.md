@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 749120446619bf682d02be0f9290a6d47540c16a
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 7dddf7e48913aea9d84e0f8b66c2c9d29449ee6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55664400"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825661"
 ---
 ### <a name="run-the-service"></a>Executar o serviço
 
@@ -35,10 +35,10 @@ ms.locfileid: "55664400"
     Uri                                                                        Status
     -------------------------------------------------------------------------  ---------
     http://localhost:53831 => mywebapi.scott:80                                Tunneled
-    http://dev.s.dev.webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
+    http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
     ```
 
-1. Em vez de "dev.s." como o prefixo de URL, substitua com "scott.s." no seu browser. Observe que isso atualizado URL ainda resolve. Este URL é exclusivo para o _dev/scott_ espaço. O URL especial significa que os pedidos enviados para o URL"Scott" tentará primeiro rota para serviços no _dev/scott_ espaço, mas se isso falhar, irão reverter para serviços no _dev_ espaço.
+1. Utilize o URL com o *scott.s* prefixo para navegar para a sua aplicação. Observe que isso atualizado URL ainda resolve. Este URL é exclusivo para o _dev/scott_ espaço. O URL especial significa que os pedidos enviados para o URL"Scott" tentará primeiro rota para serviços no _dev/scott_ espaço, mas se isso falhar, irão reverter para serviços no _dev_ espaço.
 
 <!--
 TODO: replace 2 & 3 with below once bug#753164 and PR#158827 get pushed to production.
@@ -56,7 +56,7 @@ webfrontend               dev       Service  26m ago  Running
 Uri                                                                        Status
 -------------------------------------------------------------------------  ---------
 http://localhost:53831 => mywebapi.scott:80                                Tunneled
-http://scott.s.dev.webfrontend.6364744826e042319629.canadaeast.aksapp.io/  Available
+http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
 -->
 

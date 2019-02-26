@@ -3,8 +3,8 @@ title: Saiba mais sobre as versões do cluster do Azure Service Fabric | Documen
 description: Versões suportadas do cluster do Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: twhitney
-manager: jpconnock
+author: aljo-microsoft
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
-ms.author: TylerMSFT
-ms.openlocfilehash: 154869c3e6bcd44a71480a3cf7363537dddcebf9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.author: aljo
+ms.openlocfilehash: 9da51d40c4a94af9bdcf16b48302e8eb2b60eb2f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727686"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807716"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões suportadas do Service Fabric
 
@@ -42,6 +42,6 @@ Seguem-se a lista das versões de Service Fabric que são suportadas e respetiva
 | 5.7.* | 5.4.164.* |Menor ou igual a versão 2.7 |Dezembro 15,2017  |
 | 6.0.* | 5.6.205.* |Menor ou igual a versão 2.8 |Março de 30,2018     |
 | 6.1.* | 5.7.221.* |Menor ou igual a versão 3.0 |Julho 15,2018      |
-| 6.2. * | 6.0.232.* |Menor ou igual à versão 3.1 |Outubro 26,2018   |
-| 6.3. * | 6.1.480.* |Menor ou igual à versão 3.2 |Fevereiro 28,2019  |
-| 6.4. * | 6.2.301.* |Menor ou igual a versão 3.3 |Versão atual e por isso, sem data de fim |
+| 6.2.* | 6.0.232.* |Menor ou igual à versão 3.1 |Outubro 26,2018   |
+| 6.3.* | 6.1.480.* |Menor ou igual à versão 3.2 |Fevereiro 28,2019  |
+| 6.4.* | 6.2.301.* |Menor ou igual a versão 3.3 |Versão atual e por isso, sem data de fim |

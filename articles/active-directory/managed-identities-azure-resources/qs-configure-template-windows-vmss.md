@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fc32e9e306149052df37cc24bc54e2aad902c50
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 075672fb6d132258b04936aa20129fa6f8c82572
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199430"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819245"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades geridas para recursos do Azure numa escala de máquina virtual do Azure através de um modelo
 
@@ -50,7 +50,7 @@ Neste artigo, aprenderá a efetuar as seguintes identidades geridas para operaç
 Tal como acontece com o portal do Azure e criação de scripts, [do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) os modelos fornecem a capacidade de implementar recursos novos ou modificados definidos por um grupo de recursos do Azure. Várias opções estão disponíveis para edição de modelo e a implantação, local e baseado no portal, incluindo:
 
    - Utilizar um [modelo personalizado do Azure Marketplace](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template), que permite-lhe criar um modelo a partir do zero ou baseá-la num comum existente ou [modelo de início rápido](https://azure.microsoft.com/documentation/templates/).
-   - Derivar de um grupo de recursos existente ao exportar um modelo a partir de qualquer uma [implementação original](../../azure-resource-manager/resource-manager-export-template.md#view-template-from-deployment-history), ou a partir do [estado atual da implantação](../../azure-resource-manager/resource-manager-export-template.md#export-the-template-from-resource-group).
+   - Derivar de um grupo de recursos existente ao exportar um modelo a partir de qualquer uma [implementação original](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates), ou a partir do [estado atual da implantação](../../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
    - Com um local [editor de JSON (por exemplo, o VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)e, em seguida, carregar e implementar com o PowerShell ou a CLI.
    - Com o Visual Studio [projeto do grupo de recursos do Azure](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) para criar e implementar um modelo.  
 
@@ -63,7 +63,6 @@ Nesta secção, irá ativar e desativar a identidade gerida atribuído ao sistem
 ### <a name="enable-system-assigned-managed-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>Ativar atribuído de sistema de identidade gerido durante a criação a criação de um conjunto de dimensionamento de máquinas virtuais ou um conjunto de dimensionamento de máquina virtual existente
 
 1. Se iniciar sessão para o Azure localmente ou através do portal do Azure, utilize uma conta que está associada à subscrição do Azure que contém o conjunto de dimensionamento de máquina virtual.
-   
 2. Para ativar a identidade gerida atribuído de sistema, carregar o modelo para um editor, localize a `Microsoft.Compute/virtualMachinesScaleSets` recurso de interesse nos recursos secção e adicione o `identity` propriedade no mesmo nível, como o `"type": "Microsoft.Compute/virtualMachinesScaleSets"` propriedade. Utilize a seguinte sintaxe:
 
    ```JSON
@@ -167,7 +166,7 @@ Se tiver um conjunto de dimensionamento de máquina virtual que já não necessi
    }
    ```
 
-## <a name="user-assigned-managed-identity"></a>Atribuído ao utilizador a identidade gerida
+## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
 Nesta secção, atribua uma identidade gerida atribuído ao utilizador a um conjunto de dimensionamento com o modelo Azure Resource Manager.
 

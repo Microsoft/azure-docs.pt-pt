@@ -3,7 +3,7 @@ title: Agregação de eventos de recursos de infraestrutura de serviço do Azure
 description: Saiba mais sobre a agregação e a recolha de eventos usando LAD para monitorização e diagnóstico de clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
-ms.author: dekapur
-ms.openlocfilehash: c7eb98eb2dbff05e67b6a60c413932ba51fdfdf7
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: a41599194d6dd6230c80aa078375b798c3002adf
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573761"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56824016"
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Agregação de eventos e coleções com o diagnóstico do Linux do Azure
 > [!div class="op_single_selector"]

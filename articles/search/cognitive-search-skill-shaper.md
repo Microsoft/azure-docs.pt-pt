@@ -8,21 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410120"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807002"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidade de cognitiva Modelador
 
-O **Modelador** habilidade cria um tipo complexo para oferecer suporte a campos compostos (também conhecido como campos com várias partes). Um campo de tipo complexo tem várias partes, mas é tratado como um único item de um índice da Azure Search. Exemplos de campos consolidados útil em cenários de pesquisa incluem a combinação de um nome próprio e apelido num único campo, cidade e estado num único campo, ou o nome e data de nascimento num único campo para estabelecer a identidade exclusiva.
-
-O **Modelador** habilidade permite-lhe criar uma estrutura essencialmente, definir o nome dos membros dessa estrutura e atribuir valores a cada membro.
+O **Modelador** habilidade consolida várias entradas num tipo complexo que pode ser referenciado mais tarde no pipeline de melhoria. O **Modelador** habilidade permite-lhe criar uma estrutura essencialmente, definir o nome dos membros dessa estrutura e atribuir valores a cada membro. Exemplos de campos consolidados útil em cenários de pesquisa incluem a combinação de um nome próprio e apelido numa estrutura simples, cidade e estado numa estrutura simples, ou o nome e data de nascimento numa única estrutura para estabelecer a identidade exclusiva.
 
 Por padrão, essa técnica oferece suporte a objetos que estão um nível de profundidade. Para obter objetos mais complexos, pode encadear vários **Modelador** passos.
 
@@ -58,7 +56,7 @@ O exemplo a seguir fornece o membro nomes como entrada. A estrutura de saída (o
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ A definição de habilidades Modelador para este cenário poderá ter um aspeto 
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }

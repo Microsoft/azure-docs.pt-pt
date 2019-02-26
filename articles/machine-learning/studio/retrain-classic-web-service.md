@@ -5,17 +5,17 @@ description: Saiba como voltar a preparar um modelo e atualizar um serviço web 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 73ab816c7043c7fb0f572677c6ceeb722653dec1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650775"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822024"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Voltar a preparar e implementar um serviço web clássico do Studio
 
@@ -23,7 +23,7 @@ Reparametrizar modelos do machine learning é uma forma de garantir que permanec
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que já possui uma experimentação de reparametrização e uma experimentação preditiva. Estes passos são explicados em [voltar a preparar e implementar um modelo de aprendizagem automática.](retrain-models-programmatically.md) No entanto, em vez de implementar o modelo de aprendizagem automática como um novo serviço web, irá implementar sua experimentação preditiva como um serviço web clássico.
+Este artigo pressupõe que já possui uma experimentação de reparametrização e uma experimentação preditiva. Estes passos são explicados em [voltar a preparar e implementar um modelo de aprendizagem automática.](/azure/machine-learning/studio/retrain-machine-learning-model) No entanto, em vez de implementar o modelo de aprendizagem automática como um novo serviço web, irá implementar sua experimentação preditiva como um serviço web clássico.
      
 ## <a name="add-a-new-endpoint"></a>Adicionar um novo ponto final
 

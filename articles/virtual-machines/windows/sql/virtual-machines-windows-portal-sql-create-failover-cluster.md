@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 62b0f7adf0eb1dd3e3fd7493096c2261a1c1076d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 778984d4d34d3b63d92378781d377fee557c7148
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328557"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821922"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em máquinas virtuais do Azure
 
@@ -79,7 +79,7 @@ Uma diferença importante é que num cluster de ativação pós-falha de convida
 Além disso, deve ter uma compreensão geral das seguintes tecnologias:
 
 - [Solução hiperconvergida com espaços de armazenamento direto no Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
-- [Grupos de recursos do Azure](../../../azure-resource-manager/resource-group-portal.md)
+- [Grupos de recursos do Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > Neste momento, o [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md) não é suportada para a FCI do servidor SQL no Azure. Recomendamos que desinstale a extensão de VMs que participam do fci. Esta extensão oferece suporte a recursos, tais como cópia de segurança automatizada e a aplicação de patches e alguns recursos de portal para SQL. Estas funcionalidades não funcionarão para VMs de SQL após a desinstalação do agente.

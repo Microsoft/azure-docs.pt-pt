@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 41f1c6dc8904f167f34ea72aeb9b3866504b7087
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9352130eeeb68a87947450cb5616aa59e8e99ae9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341305"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807376"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutorial: Conceder um acesso de utilizador aos recursos do Azure utilizando o RBAC e o portal do Azure
 
@@ -38,9 +38,9 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-1. Na lista de navegação, selecione **Grupos de recursos**.
+1. Na lista de navegação, clique em **grupos de recursos**.
 
-1. Selecione **Adicionar** para abrir o painel **Grupo de recursos**.
+1. Clique em **Add** para abrir o **grupo de recursos** painel.
 
    ![Adicionar um novo grupo de recursos](./media/quickstart-assign-role-user-portal/resource-group.png)
 
@@ -48,9 +48,9 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 1. Selecione uma subscrição e uma localização.
 
-1. Selecione **Criar** para criar o grupo de recursos.
+1. Clique em **criar** para criar o grupo de recursos.
 
-1. Selecione **Atualizar** para atualizar a lista de grupos de recursos.
+1. Clique em **atualizar** para atualizar a lista de grupos de recursos.
 
    O novo grupo de recursos é apresentado na lista de grupos de recursos.
 
@@ -60,17 +60,19 @@ Inicie sessão no portal do Azure em http://portal.azure.com.
 
 No RBAC, para conceder acesso, crie uma atribuição de função.
 
-1. Na lista de **grupos de recursos**, escolha a nova **grupo de recursos de rbac** grupo de recursos.
+1. Na lista de **grupos de recursos**, clique no novo **grupo de recursos de rbac** grupo de recursos.
 
-1. Escolha **Controlo de acesso (IAM)**.
+1. Clique em **controlo de acesso (IAM)**.
 
-1. Escolha o **atribuições de funções** guia para ver a lista atual de atribuições de funções.
+1. Clique nas **atribuições de funções** guia para ver a lista atual de atribuições de funções.
 
    ![Painel Controlo de acesso (IAM) para grupo de recursos](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Escolher **adicionar atribuição de função** para abrir o painel de atribuição de função de adicionar.
+1. Clique em **Add** > **adicionar atribuição de função** para abrir o painel de atribuição de função de adicionar.
 
    Se não tiver permissões para atribuir funções, a opção de atribuição de função de adicionar será desativada.
+
+   ![Menu Adicionar](./media/role-assignments-portal/add-menu.png)
 
    ![Adicionar o painel de atribuição de função](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
@@ -78,7 +80,7 @@ No RBAC, para conceder acesso, crie uma atribuição de função.
 
 1. Na lista **Selecionar**, selecione-se a si mesmo ou outro utilizador.
 
-1. Escolha **Guardar** para criar a atribuição de função.
+1. Clique em **guardar** para criar a atribuição de função.
 
    Após alguns instantes, o utilizador tem atribuída a função de contribuinte de Máquina Virtual no âmbito do grupo de recursos do grupo de recursos de rbac.
 
@@ -90,25 +92,25 @@ No RBAC, para remover o acesso, remova uma atribuição de função.
 
 1. Na lista de atribuições de função, adicione uma marca de verificação junto ao utilizador com a função de contribuinte de Máquina Virtual.
 
-1. Escolha **Remover**.
+1. Clique em **remover**.
 
    ![Mensagem Remover atribuição de função](./media/quickstart-assign-role-user-portal/remove-role-assignment.png)
 
-1. Na mensagem para remover atribuição de função que é apresentada, escolha **Sim**.
+1. Na mensagem de atribuição de função remove que aparece, clique em **Sim**.
 
 ## <a name="clean-up"></a>Limpeza
 
-1. Na lista de navegação, selecione **Grupos de recursos**.
+1. Na lista de navegação, clique em **grupos de recursos**.
 
-1. Escolher **grupo de recursos de rbac** para abrir o grupo de recursos.
+1. Clique em **grupo de recursos de rbac** para abrir o grupo de recursos.
 
-1. Selecione **Eliminar grupo de recursos** para eliminar o grupo de recursos.
+1. Clique em **eliminar grupo de recursos** para eliminar o grupo de recursos.
 
    ![Eliminar grupo de recursos](./media/quickstart-assign-role-user-portal/delete-resource-group.png)
 
 1. Sobre o **tem a certeza de que pretende eliminar** painel, escreva o nome do grupo de recursos: **grupo de recursos de rbac**.
 
-1. Selecione **Eliminar** para eliminar o grupo de recursos.
+1. Clique em **eliminar** para eliminar o grupo de recursos.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

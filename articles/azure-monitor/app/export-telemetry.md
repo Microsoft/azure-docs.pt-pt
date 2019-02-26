@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: eda41870e86db206847f5ea81e23fa1b7612234c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076778"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817308"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Quer manter a sua telemetria por mais tempo do que o período de retenção padrão? Ou processá-los de alguma forma especializada? A exportação contínua é ideal para isso. Os eventos de que ver no portal do Application Insights podem ser exportados para o armazenamento no Microsoft Azure no formato JSON. A partir daí pode transferir os seus dados e escrever qualquer código que precisa para processá-lo.  
@@ -32,6 +32,16 @@ Antes de configurar a exportação contínua, existem algumas alternativas que t
 * Também pode acessar o programa de configuração [exportação contínua através do Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 
 Após a exportação contínua copia os seus dados para o armazenamento (em que ele pode manter-se para, desde que gosta), ela ainda está disponível no Application Insights para o habitual [período de retenção](../../azure-monitor/app/data-retention-privacy.md).
+
+## <a name="continuous-export-advanced-storage-configuration"></a>Configuração de armazenamento avançada de exportação contínua
+
+A exportação contínua **não suporta** as seguintes funcionalidades de armazenamento do Azure/configurações:
+
+* Usar [firewalls de armazenamento do VNET/Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) no conjuntion com o armazenamento de Blobs do Azure.
+
+* [Armazenamento imutável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) para o armazenamento de Blobs do Azure.
+
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
 
 ## <a name="setup"></a> Criar uma exportação contínua
 1. No recurso do Application Insights para a sua aplicação, abra a exportação contínua e selecione **adicionar**:

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: ca389814b35a666a48959a50de58a231df6728c5
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b6c63a868b7697522c708a4db483395a537a82cf
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981133"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823455"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Como Etiquetar uma máquina virtual do Windows no Azure
 Este artigo descreve as diferentes formas de etiquetar uma máquina virtual do Windows no Azure através do modelo de implementação do Resource Manager. As etiquetas são pares de chave/valor definido pelo utilizador que podem ser colocados diretamente num recurso ou grupo de recursos. Atualmente, o Azure suporta até 15 etiquetas por recurso e grupo de recursos. Etiquetas podem ser colocadas num recurso no momento da criação ou adicionadas a um recurso existente. Tenha em atenção que as etiquetas são suportadas para os recursos criados por meio de apenas o modelo de implementação do Resource Manager. Se quiser Etiquetar uma máquina virtual do Linux, veja [como Etiquetar uma máquina virtual Linux no Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -94,7 +94,7 @@ Para saber mais sobre marcação através do PowerShell, consulte a [Cmdlets de 
 * Para saber mais sobre marcação seus recursos do Azure, veja [descrição geral do Azure Resource Manager] [ Azure Resource Manager Overview] e [utilizando etiquetas para organizar os recursos do Azure] [ Using Tags to organize your Azure Resources].
 * Para ver como as etiquetas podem ajudar a gerir a utilização de recursos do Azure, consulte [entender a sua fatura do Azure] [ Understanding your Azure Bill] e [obter informações sobre o consumo de recursos do Microsoft Azure] [Gain insights into your Microsoft Azure resource consumption].
 
-[PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/powershell-azure-resource-manager.md
+[PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/manage-resources-powershell.md
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/
 [Azure Resource Manager Overview]: ../../azure-resource-manager/resource-group-overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/resource-group-using-tags.md

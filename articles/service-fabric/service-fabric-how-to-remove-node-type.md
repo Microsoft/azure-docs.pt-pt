@@ -4,7 +4,7 @@ description: Saiba como remover um tipo de nó de cluster do Service Fabric em e
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: JeanPaul.Connick
+manager: chakdan
 editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo
-ms.openlocfilehash: 63a18b6a24d922c48129df56045ec3e1d67bac53
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 2bde95b744ac136e8ba5c0517e0f749a6dce8a1e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300997"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805278"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>Remover um tipo de nó do Service Fabric
 Este artigo descreve como dimensionar um cluster do Azure Service Fabric através da remoção de um tipo de nó existente de um cluster. Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de nó. Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que utilizar para implementar e gerir uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó que está definido num cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Cada tipo de nó pode ser gerido separadamente. Depois de criar um cluster do Service Fabric, pode dimensionar um cluster horizontalmente ao remover um tipo de nó (conjunto de dimensionamento de máquina virtual) e todos nós do mesmo.  Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster.  Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.

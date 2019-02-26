@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 11/07/2018
+ms.date: 12/4/2018
 ms.custom: seodec18
-ms.openlocfilehash: a8ead1fedc8c21152b1ef095dbaebe605776b6e3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 917bac81923650405c37dfee500c9606dc7c54ca
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243873"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816611"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Criar machine learning pipelines com o serviço Azure Machine Learning
 

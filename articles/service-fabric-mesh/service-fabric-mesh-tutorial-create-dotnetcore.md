@@ -3,8 +3,8 @@ title: Tutorial – Criar, depurar, implementar e monitorizar uma aplicação pa
 description: Neste tutorial, vai criar uma aplicação do Azure Service Fabric Mesh com vários serviços, que consiste num site ASP.NET Core que comunica com um serviço Web de back-end, depurá-lo localmente e publicá-lo no Azure.
 services: service-fabric-mesh
 documentationcenter: .net
-author: TylerMSFT
-manager: jeconnoc
+author: dkkapur
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/18/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb68c7aacb4c62237fc4cd75ec430997b0145454
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 2053706aac2e6136e35e8574dcd19150fe3d3b6a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888754"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805431"
 ---
-# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Criar, depurar, implementar e atualizar uma aplicação para vários serviços do Service Fabric Mesh
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutorial: Criar, depurar, implementar e atualizar uma aplicação de malha de recursos de infraestrutura do serviço de mensagens em fila múltiplos serviço
 
 Este tutorial é a primeira parte de uma série. Ficará a saber como utilizar o Visual Studio para criar uma aplicação do Azure Service Fabric Mesh com um serviço de front-end Web ASP.NET e um serviço de back-end de API Web ASP.NET Core. Em seguida, vai depurar a aplicação no cluster de desenvolvimento local. Vai publicar a aplicação no Azure e, em seguida, fazer alterações na configuração e no código e atualizar a aplicação. Por fim, vai limpar os recursos do Azure não utilizados, para não lhe serem cobrados.
 

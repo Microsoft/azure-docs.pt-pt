@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: ddbd77cbc199e78e74324c87d49155f27d6edeea
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5a9ea460684383bd09e5a679f3140d3b8f083d4d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417096"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823625"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -89,13 +89,13 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Hubs IoT
 * Não é possível mover o Cofre de chaves - cofres de chave utilizada para encriptação de disco para grupos de recursos na mesma subscrição ou em várias subscrições.
 * Podem ser movidas balanceadores de carga - Balanceador de carga de SKU básico. Não é possível mover o Balanceador de carga de SKU Standard.
-* Log Analytics
 * Aplicações Lógicas
 * Machine Learning - Machine Learning Studio, serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de aprendizagem automática podem ser movidos entre subscrições.
 * Managed Disks – consulte [limitações de máquinas virtuais para restrições](#virtual-machines-limitations)
 * Identidade gerida - atribuído ao utilizador
 * Serviços de Multimédia
 * Monitor de - Certifique-se de que mover para a nova assinatura não excede [quotas da subscrição](../azure-subscription-service-limits.md#monitor-limits)
+* Registos de Monitor do Azure
 * Hubs de Notificação
 * Informações Operacionais
 * Gestão de Operações
@@ -145,7 +145,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Serviços de laboratório - mudança para o novo grupo de recursos na mesma subscrição está ativada, mas a movimentação entre subscrições não está ativada.
 * Aplicações Geridas
 * Microsoft Genomics
-* NetApp
+* Azure NetApp Files
 * SAP HANA no Azure
 * Segurança
 * Site Recovery
@@ -513,7 +513,7 @@ No corpo do pedido, especifique o grupo de recursos de destino e os recursos par
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre os cmdlets do PowerShell para gerir a sua subscrição, veja [utilizar o Azure PowerShell com o Resource Manager](powershell-azure-resource-manager.md).
-* Para saber mais sobre os comandos da CLI do Azure para gerir a sua subscrição, veja [com a CLI do Azure com o Resource Manager](xplat-cli-azure-resource-manager.md).
+* Para saber mais sobre os cmdlets do PowerShell para gerir os recursos, veja [utilizar o Azure PowerShell com o Resource Manager](manage-resources-powershell.md).
+* Para saber mais sobre os comandos da CLI do Azure para gerir os recursos, veja [com a CLI do Azure com o Resource Manager](manage-resources-cli.md).
 * Para saber mais sobre recursos de portal de gestão da subscrição, veja [utilizar o portal do Azure para gerir recursos](resource-group-portal.md).
 * Para saber mais sobre como aplicar uma organização lógica aos seus recursos, veja [utilizar etiquetas para organizar os recursos](resource-group-using-tags.md).

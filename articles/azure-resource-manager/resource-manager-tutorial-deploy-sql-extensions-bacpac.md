@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c0aa88704f699334cacf12ec24284e61fca7d2bc
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 6c146a99be369f92a72717ad1ec4b79bddafe28c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267602"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819331"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutorial: Importar ficheiros BACPAC do SQL com modelos Azure Resource Manager
 
@@ -150,11 +150,8 @@ New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `
-    -TemplateFile azuredeploy.json
+    -TemplateFile "$HOME/azuredeploy.json"
 ```
-
-> [!NOTE]
-> Há um problema de e/s com o Azure PowerShell no Cloud shell do arquivo.  A mensagem de erro é *"* não é possível obter os parâmetros dinâmicos para o cmdlet. Não é possível localizar o caminho 'Azure:/azuredeploy.json', porque faz não exist.* uma solução temporária é não incluem o **- TemplateFile** mudar no `New-AzResourceGroupDeploy` comando. O comando irá solicitar-lhe para introduzir o nome de ficheiro.
 
 Utilize uma palavra-passe gerada. Veja [Pré-requisitos](#prerequisites).
 

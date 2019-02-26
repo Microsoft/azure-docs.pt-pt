@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 11c8bf0b40920f6828ac8603c3c7ea7c954f08e7
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5eb5a24d6126e9609d1c653948c2db6b0a4feb55
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651010"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821939"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -71,7 +71,7 @@ Na caixa de pesquisa na parte superior do portal, introduza *grupos de seguranç
     *   [Controlo de acesso (IAM)](../role-based-access-control/overview.md)
     *   [Etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Bloqueios](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-    *   [Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
+    *   [Script de automação](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Comandos**
 

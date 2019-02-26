@@ -5,17 +5,17 @@ description: Uma máquina imprimível cábula do algoritmo de aprendizagem ajuda
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 77cd485b7ca7f9965a8baf9026b68060067d6ebe
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 8d0b123045ace223dbea6c8fa98980091cfe73e1
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453941"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819995"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning cábula do algoritmo para o Azure Machine Learning Studio
 

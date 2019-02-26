@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 283cf8d13260531a12fa6c860d1a4e7b6207d22e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fe259b6a0f45828e100de33f533e370323128eef
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674621"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821701"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como um fornecedor de identidade para utilizadores convidados B2B
 
@@ -99,8 +99,8 @@ Agora definirá o cliente de Google ID e segredo do cliente, tanto pelo introduz
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Para eliminar o Federação Google no portal do Azure AD: 
 1. Aceda ao [Portal do Azure](https://portal.azure.com). No painel esquerdo, selecione **Azure Active Directory**. 
 2. Selecione **relações organizacionais**.
-3. Selecione **fornecedores de identidade**e, em seguida, clique nas **Google** botão.
-4. Selecione **Google**e, em seguida, selecione **eliminar**. 
+3. Selecione **fornecedores de identidade**.
+4. Sobre o **Google** , selecione o menu de contexto (**...** ) e, em seguida, selecione **eliminar**. 
    
    ![Eliminar o fornecedor de identidade social](media/google-federation/google-social-identity-providers.png)
 

@@ -3,7 +3,7 @@ title: ReliableConcurrentQueue nos recursos de infraestrutura do serviço do Azu
 description: ReliableConcurrentQueue é uma fila de alto débito, que permite que enfileira paralela e retira.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: twhitney
-ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.author: aljo
+ms.openlocfilehash: d4d399258ac1bd83fe4cfb46344576ca74e66f1e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185040"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805142"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introdução ao ReliableConcurrentQueue nos recursos de infraestrutura do serviço do Azure
 Fila do Reliable Concurrent é uma fila assíncrona, transacional e replicada qual simultaneidade de alto de funcionalidades para colocar em fila e tirar da fila de operações. Ele foi projetado para fornecer alto débito e baixa latência ao simplificar a ordenação de FIFO strict fornecida pela [fila do Reliable](https://msdn.microsoft.com/library/azure/dn971527.aspx) e em vez disso, fornece uma ordem de melhor esforço.
@@ -30,7 +30,7 @@ Fila do Reliable Concurrent é uma fila assíncrona, transacional e replicada qu
 |--------------------------------|------------------------------------------------------------------|
 | void Enqueue(T item)           | Tarefa EnqueueAsync (tx ITransaction, T item)                       |
 | bool TryDequeue (o resultado de T)  | Tarefa < ConditionalValue < T >> TryDequeueAsync (ITransaction TX, e.u.a.)  |
-| Int count)                    | Contagem (longo)                                                     |
+| int Count()                    | long Count()                                                     |
 
 ## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Comparação com [fila fiável](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 

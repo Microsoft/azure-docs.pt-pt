@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 6fb8166893f0dada019ca633933833d17b95fee9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 368e1f6b9501c677eca1cf80d24a06c0a6533e86
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811465"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817359"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
@@ -91,7 +91,7 @@ Outras opções de destino para os registos de diagnóstico:
 
 * Stream eventos de registo de diagnóstico do Batch para uma [Hub de eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Os Hubs de eventos podem ingerir milhões de eventos por segundo, o que pode, em seguida, transformar e armazenar usando qualquer fornecedor de análises em tempo real. 
 
-* Enviar registos de diagnóstico [do Azure Log Analytics](../log-analytics/log-analytics-overview.md), onde pode analisá-los ou exportá-los para análise no Power BI ou no Excel.
+* Enviar registos de diagnóstico [registos do Azure Monitor](../log-analytics/log-analytics-overview.md), onde pode analisá-los ou exportá-los para análise no Power BI ou no Excel.
 
 > [!NOTE]
 > Pode implicar custos adicionais para armazenar ou processar os dados de registo de diagnóstico com serviços do Azure. 
@@ -101,7 +101,7 @@ Outras opções de destino para os registos de diagnóstico:
 
 1. No portal, clique em **todos os serviços** > **contas do Batch**e, em seguida, clique no nome da sua conta do Batch.
 2. Sob **monitorização**, clique em **registos de diagnóstico** > **ativar diagnósticos**.
-3. Na **das definições de diagnóstico**, introduza um nome para a definição e escolha um destino de registo (existente armazenamento de conta, Hub de eventos ou do Log Analytics). Selecione um ou ambos **ServiceLog** e **AllMetrics**.
+3. Na **das definições de diagnóstico**, introduza um nome para a definição e escolha um destino de registo (conta de armazenamento existente, Hub de eventos ou registos do Azure Monitor). Selecione um ou ambos **ServiceLog** e **AllMetrics**.
 
     Ao selecionar uma conta de armazenamento, se desejar, defina uma política de retenção. Se não especificar um número de dias de retenção, os dados são retidos durante o ciclo de vida da conta de armazenamento.
 

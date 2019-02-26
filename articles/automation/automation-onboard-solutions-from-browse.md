@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9a5e75b762c2ab0591212ce0bc3d7fac42132f8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 84b66605939abd0f676625a5959f4a31ef1774db
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116920"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818294"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Ativar a gestão de atualizações, controlo de alterações e soluções de inventário em várias VMs
 
@@ -51,7 +51,7 @@ Utilize os controlos de filtro para selecionar máquinas virtuais a partir de di
 
 ![Carregar solução de gestão de atualizações](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Reveja as opções para a área de trabalho do Log analytics e a conta de automatização. Uma área de trabalho existente e a conta de automatização estão selecionadas por predefinição. Se pretender utilizar uma área de trabalho do Log Analytics diferente e uma conta de automatização, clique em **personalizada** para selecioná-los a partir do **configuração personalizada** página. Ao escolher uma área de trabalho do Log Analytics, é feita uma verificação para determinar se ele está associado a uma conta de automatização. Se for encontrada uma conta de automatização ligada, verá o ecrã seguinte. Quando terminar, clique em **OK**.
+Reveja as opções para a área de trabalho do Log Analytics e a conta de automatização. Uma área de trabalho existente e a conta de automatização estão selecionadas por predefinição. Se pretender utilizar uma área de trabalho do Log Analytics diferente e uma conta de automatização, clique em **personalizada** para selecioná-los a partir do **configuração personalizada** página. Ao escolher uma área de trabalho do Log Analytics, é feita uma verificação para determinar se ele está associado a uma conta de automatização. Se for encontrada uma conta de automatização ligada, verá o ecrã seguinte. Quando terminar, clique em **OK**.
 
 ![Selecione a área de trabalho e conta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -89,7 +89,7 @@ As seguintes soluções são dependentes de uma área de trabalho do Log Analyti
 * [Monitorização de Alterações](automation-change-tracking.md)
 * [Iniciar/parar VMs fora do horário comercial](automation-solution-vm-management.md)
 
-Se decidir que já não pretende integrar a sua conta de automatização com o Log Analytics, pode desassociar a sua conta diretamente a partir do portal do Azure. Antes de continuar, tem primeiro de remover as soluções mencionadas anteriormente, caso contrário, este processo será impedido de prosseguir. Reveja o artigo para a solução específica que importou para compreender os passos necessários para removê-lo.
+Se decidir que já não pretende integrar a sua conta de automatização com uma área de trabalho do Log Analytics, pode desassociar a sua conta diretamente a partir do portal do Azure. Antes de continuar, tem primeiro de remover as soluções mencionadas anteriormente, caso contrário, este processo será impedido de prosseguir. Reveja o artigo para a solução específica que importou para compreender os passos necessários para removê-lo.
 
 Depois de remover estas soluções, pode executar os seguintes passos para desassociar a conta de automatização.
 

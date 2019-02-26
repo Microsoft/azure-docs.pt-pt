@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 02/25/2019
 ms.author: diberry
-ms.openlocfilehash: 6a4d20073275e3d858cecb73c2e95c97ea53a647
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 4215b008af21a3473a1d2dcef5f73a1b19133215
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311975"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821564"
 ---
 # <a name="configure-face-docker-containers"></a>Configurar os contentores do Docker de rostos
 
@@ -54,6 +54,49 @@ Esta definição pode ser encontrada no seguinte local:
 |Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | Cadeia | URI do ponto final de faturação<br><br>Exemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+
+<!-- specific to face only -->
+
+## <a name="cloudai-configuration-settings"></a>Definições de configuração de CloudAI
+
+As definições de configuração no `CloudAI` secção fornecer opções de contentor específicas exclusivas para o seu contentor. As seguintes definições e os objetos são suportados para o contentor de Face no `CloudAI` secção
+
+| Nome | Tipo de dados | Descrição |
+|------|-----------|-------------|
+| `Storage` | Object | O cenário de armazenamento utilizado pelo contentor de rostos. Para obter mais informações sobre cenários de armazenamento e as definições associadas para o `Storage` objeto, consulte [as definições de cenário de armazenamento](#storage-scenario-settings) |
+
+### <a name="storage-scenario-settings"></a>Definições de cenário de armazenamento
+
+O contentor de Face armazena BLOBs, cache, metadados e dados de fila, consoante o que está a ser armazenado. Por exemplo, os índices de treinamento e resultados de um grupo de pessoas grandes são armazenados como dados de Blobs. O contentor de Face fornece dois cenários de armazenamento diferente ao interagir com e armazenar esses tipos de dados:
+
+* Memória  
+  Todos os quatro tipos de dados são armazenados na memória. Eles não estão a ser distribuídos, nem são persistentes. Se o contentor de Face está parado ou removido, todos os dados no armazenamento para esse contentor for destruída.  
+  Este é o cenário de armazenamento padrão para o contentor de rostos.
+* Azure  
+  O contentor de rostos utiliza o armazenamento do Azure e o Azure Cosmos DB para distribuir estes quatro tipos de dados entre armazenamento persistente. Dados de BLOBs e filas são processados pelo armazenamento do Azure. Dados de metadados e o cache são processados pelo Azure Cosmos DB. Se o contentor de Face está parado ou removido, todos os dados no armazenamento para esse contentor permanece armazenado no armazenamento do Azure e o Azure Cosmos DB.  
+  Os recursos utilizados pelo cenário de armazenamento do Azure têm os seguintes requisitos adicionais
+  * O recurso de armazenamento do Azure tem de utilizar o tipo de conta StorageV2
+  * O recurso do Azure Cosmos DB tem de utilizar o Azure Cosmos DB API para MongoDB
+
+Os cenários de armazenamento e as definições de configuração associados são geridas pelos `Storage` objeto no `CloudAI` seção de configuração. As seguintes definições de configuração estão disponíveis no `Storage` objeto:
+
+| Nome | Tipo de dados | Descrição |
+|------|-----------|-------------|
+| `StorageScenario` | Cadeia | O cenário de armazenamento suportado pelo contentor. Os seguintes valores estão disponíveis<br/>`Memory` -Valor de predefinido. Contentor utiliza o armazenamento não persistentes, e distribuída e dentro da memória, para utilização temporária, de nó único. Se o contentor está parado ou removido, o armazenamento para esse contentor for destruído.<br/>`Azure` -Container utiliza recursos do Azure para o armazenamento. Se o contentor está parado ou removido, o armazenamento para esse contêiner é mantido.|
+| `ConnectionStringOfAzureStorage` | Cadeia | A cadeia de ligação para o recurso de armazenamento do Azure utilizado pelo contentor.<br/>Esta definição aplica-se apenas se `Azure` é especificado para o `StorageScenario` definição de configuração. |
+| `ConnectionStringOfCosmosMongo` | Cadeia | A cadeia de ligação do MongoDB para o recurso do Azure Cosmos DB utilizada pelo contentor.<br/>Esta definição aplica-se apenas se `Azure` é especificado para o `StorageScenario` definição de configuração. |
+
+Por exemplo, o seguinte comando Especifica o cenário de armazenamento do Azure e fornece as cadeias de ligação de exemplo para os recursos de armazenamento do Azure e o Cosmos DB utilizados para armazenar os dados para o contentor de rostos.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
+
+O cenário de armazenamento é processado separadamente da monta de entrada e saída monta. Pode especificar uma combinação desses recursos para um único contentor. Por exemplo, o comando seguinte define uma montagem de enlace de Docker para o `D:\Output` pasta na máquina host como a montagem de saída, em seguida, cria uma instância de um contentor a partir da imagem de contentor Face, guardar ficheiros de registo no formato JSON para a montagem de saída. O comando também especifica o cenário de armazenamento do Azure e fornece as cadeias de ligação de exemplo para os recursos de armazenamento do Azure e o Cosmos DB utilizados para armazenar os dados para o contentor de rostos.
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-face Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0 ApiKey=0123456789 Logging:Disk:Format=json CloudAI:Storage:StorageScenario=Azure CloudAI:Storage:ConnectionStringOfCosmosMongo="mongodb://samplecosmosdb:0123456789@samplecosmosdb.documents.azure.com:10255/?ssl=true&replicaSet=globaldb" CloudAI:Storage:ConnectionStringOfAzureStorage="DefaultEndpointsProtocol=https;AccountName=sampleazurestorage;AccountKey=0123456789;EndpointSuffix=core.windows.net"
+  ```
 
 ## <a name="eula-setting"></a>EULA definição
 

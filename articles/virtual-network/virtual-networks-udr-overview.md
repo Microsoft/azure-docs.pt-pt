@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.openlocfilehash: 86e4720f001f05534bc9af703f0f98d7ca5d95e4
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: a09d880a1a17e429692dcb8e542657f416de7b30
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268843"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823540"
 ---
 # <a name="virtual-network-traffic-routing"></a>Encaminhamento de tráfego da rede virtual
 
@@ -91,7 +91,7 @@ Ao criar uma rota definida pelo utilizador, pode especificar os tipos de próxim
 
     Pode definir uma rota que tem 0.0.0.0/0 como o prefixo de endereço e um tipo de próximo salto de aplicação virtual, permitindo que a aplicação inspecione o tráfego e determine se este deve ser encaminhado ou ignorado. Se quiser criar uma rota definida pelo utilizador que contenha o prefixo de endereço 0.0.0.0/0, leia [prefixo de endereço 0.0.0.0/0](#default-route) primeiro.
 
-- **Gateway de rede virtual**: Especifica quando pretende que o tráfego destinado a prefixos de endereço específico encaminhados para um gateway de rede virtual. O gateway de rede virtual tem de ser criado com o tipo **VPN**. Não é possível especificar um gateway de rede virtual criado como o tipo **ExpressRoute** numa rota definida pelo utilizador porque o com o ExpressRoute, tem de utilizar o BGP para rotas personalizadas. Pode definir uma rota que direciona o tráfego destinado ao prefixo de endereço 0.0.0.0/0 para um gateway de rede virtual [baseado numa rota](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). No local, poderá ter um dispositivo que inspeciona o tráfego e determina se este deve ser reencaminhado ou ignorado. Se quiser criar uma rota definida pelo utilizador para o prefixo de endereço 0.0.0.0/0, leia [prefixo de endereço 0.0.0.0/0](#default-route) primeiro. Em vez de configurar uma rota definida pelo utilizador para o prefixo de endereço 0.0.0.0/0, pode anunciar uma rota com o prefixo 0.0.0.0/0 através do BGP, se tiver [ativado o BGP num gateway de rede virtual VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Gateway de rede virtual**: Especifica quando pretende que o tráfego destinado a prefixos de endereço específico encaminhados para um gateway de rede virtual. O gateway de rede virtual tem de ser criado com o tipo **VPN**. Não é possível especificar um gateway de rede virtual criado como o tipo **ExpressRoute** numa rota definida pelo utilizador porque o com o ExpressRoute, tem de utilizar o BGP para rotas personalizadas. Pode definir uma rota que direciona o tráfego destinado ao prefixo de endereço 0.0.0.0/0 para um gateway de rede virtual [baseado numa rota](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). No local, poderá ter um dispositivo que inspeciona o tráfego e determina se este deve ser reencaminhado ou ignorado. Se quiser criar uma rota definida pelo utilizador para o prefixo de endereço 0.0.0.0/0, leia [prefixo de endereço 0.0.0.0/0](#default-route) primeiro. Em vez de configurar uma rota definida pelo utilizador para o prefixo de endereço 0.0.0.0/0, pode anunciar uma rota com o prefixo 0.0.0.0/0 através do BGP, se tiver [ativado o BGP num gateway de rede virtual VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **Nenhum**: Especifica quando deseja que a diminuir o tráfego para um prefixo de endereço, em vez de reencaminhar o tráfego para um destino. Se ainda não tiver configurado uma capacidade, o Azure poderá apresentar *Nenhum* em algumas das rotas do sistema opcionais. Por exemplo, se vir *Nenhum* apresentado como o **Endereço IP do próximo salto** com o **Tipo de próximo salto** de *Gateway de rede virtual* ou *Aplicação Virtual*, poderá dever-se ao facto de o dispositivo não estar em execução ou totalmente configurado. O Azure cria [rotas do sistema predefinidas](#default) para prefixos de endereço reservado com **Nenhum** como o tipo de próximo salto.
 - **Rede virtual**: Especifica quando pretende substituir o encaminhamento predefinido dentro de uma rede virtual. Veja [Exemplo de encaminhamento](#routing-example) para obter um exemplo de como pode ser útil criar uma rota com o tipo de salto **Rede virtual**.
 - **Internet**: Especifica quando quiser encaminhar explicitamente o tráfego destinado a um prefixo de endereço para a Internet ou se pretender que o tráfego destinado aos serviços do Azure com endereços IP públicos mantidas ao nível da rede principal do Azure.

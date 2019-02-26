@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 086ef9030451632ee4defa39a402e4d62c897f20
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342121"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816573"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não compatíveis com o Azure Policy
 
@@ -131,6 +131,8 @@ Para adicionar uma função a identidade gerida da atribuição, siga estes pass
 
 ## <a name="create-a-remediation-task"></a>Criar uma tarefa de remediação
 
+### <a name="create-a-remediation-task-through-portal"></a>Criar uma tarefa de atualização através do portal
+
 Durante a avaliação, a atribuição de política com **deployIfNotExists** efeito determina se existem recursos incompatíveis. Quando são encontrados recursos não compatíveis, os detalhes fornecidos no **remediação** página. Juntamente com a lista de políticas que tenham recursos em não conformidade é a opção para acionar uma **tarefas de remediação**. Esta opção é o que cria uma implementação a partir da **deployIfNotExists** modelo.
 
 Para criar uma **tarefas de remediação**, siga estes passos:
@@ -163,6 +165,32 @@ Para criar uma **tarefas de remediação**, siga estes passos:
    ![Remediar - menu de contexto de tarefa de recursos](../media/remediate-resources/resource-task-context-menu.png)
 
 Recursos implementados através de um **tarefas de remediação** são adicionados à **recursos implementados** separador na página de conformidade de política.
+
+### <a name="create-a-remediation-task-through-azure-cli"></a>Criar uma tarefa de atualização através da CLI do Azure
+
+Para criar uma **tarefas de remediação** com a CLI do Azure, utilize o `az policy remediation` comandos. Substitua `{subscriptionId}` pelo ID da subscrição e `{myAssignmentId}` com o seu **deployIfNotExists** ID de atribuição de política.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Para outros comandos de remediação e exemplos, consulte a [remediação de política de az](/cli/azure/policy/remediation) comandos.
+
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Criar uma tarefa de atualização através do PowerShell do Azure
+
+Para criar uma **tarefas de remediação** com o Azure PowerShell, utilize o `Start-AzPolicyRemediation` comandos. Substitua `{subscriptionId}` pelo ID da subscrição e `{myAssignmentId}` com o seu **deployIfNotExists** ID de atribuição de política.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Para outros cmdlets de remediação e exemplos, consulte a [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) módulo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

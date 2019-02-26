@@ -3,7 +3,7 @@ title: Início rápido - implementar uma aplicação web para o modo de malha do
 description: Este guia de introdução mostra-lhe como criar um Web site do ASP.NET Core e publicá-lo para o modo de malha do Azure Service Fabric com o Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
-author: tylermsft
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2018
-ms.author: twhitney
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 35ce19d796a9889d734bd5dde20a7c56485656f1
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888550"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804922"
 ---
-# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guia de Início Rápido: criar e implementar uma aplicação Web no Azure Service Fabric Mesh
+# <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Início rápido: Criar e implementar uma aplicação web no Azure Service Fabric Mesh
 
 O Azure Service Fabric Mesh é um serviço totalmente gerido que permite aos programadores implementar aplicações de microsserviços sem gerir máquinas virtuais, armazenamento ou redes.
 

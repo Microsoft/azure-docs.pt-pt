@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: 53d8df7e2366cfbf2f62e79fc99c8ef2f9b48ba1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: ea82bdca23d8b34898261eb60fd908d281451fd0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830246"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56825451"
 ---
 Esta secção descreve como criar um hub IoT com o [portal do Azure](https://portal.azure.com).
 
@@ -29,7 +29,7 @@ Esta secção descreve como criar um hub IoT com o [portal do Azure](https://por
 
    **Subscrição**: Selecione a subscrição a utilizar para o seu hub IoT.
 
-   **Grupo de recursos**: Pode criar um novo grupo de recursos ou utilize um já existente. Para criar um novo, clique em **criar novo** e preencha o nome que pretende utilizar. Para utilizar um grupo de recursos existente, clique em **utilizar existente** e selecione o grupo de recursos na lista pendente. Para obter mais informações, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../articles/azure-resource-manager/resource-group-portal.md).
+   **Grupo de recursos**: Pode criar um novo grupo de recursos ou utilize um já existente. Para criar um novo, clique em **criar novo** e preencha o nome que pretende utilizar. Para utilizar um grupo de recursos existente, clique em **utilizar existente** e selecione o grupo de recursos na lista pendente. Para obter mais informações, consulte [grupos de recursos de gerir o Azure Resource Manager](../articles/azure-resource-manager/manage-resource-groups-portal.md).
 
    **Região**: Esta é a região na qual pretende que o seu hub a ser localizado. Certifique-se de que seleciona uma região suportada (por exemplo, centro dos E.U.A. ou E.u.a. Central EUAP).
 

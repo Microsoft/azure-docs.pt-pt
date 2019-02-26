@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252052"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819365"
 ---
 # <a name="use-the-azure-stack-portal"></a>Utilizar o portal do Azure Stack
 
@@ -40,6 +40,10 @@ O operador do Azure Stack (um fornecedor de serviços ou um administrador na sua
 O dashboard contém um conjunto predefinido de mosaicos. Pode selecionar **editar dashboard** para modificar o dashboard predefinido ou selecione **novo dashboard** para criar um dashboard personalizado. Pode personalizar facilmente um dashboard ao adicionar ou remover mosaicos. Por exemplo, para adicionar um mosaico de computação, selecione **+ criar um recurso**. Com o botão direito **computação**e, em seguida, selecione **afixar ao dashboard**.
 
 ![Captura de ecrã do portal de utilizador do Azure Stack](media/azure-stack-use-portal/userportal.png)
+
+Para restaurar o dashboard para as definições originais:
+1.  Selecione **editar Dashboard**. 
+2.  Com o botão direito e selecione **repor para o estado predefinido**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Criar a subscrição e a procurar recursos disponíveis
 

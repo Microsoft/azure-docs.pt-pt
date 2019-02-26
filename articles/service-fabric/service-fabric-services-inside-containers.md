@@ -3,7 +3,7 @@ title: Crie contentores seus serviços do Azure Service Fabric no Windows
 description: Aprenda a colocar num contentor de seus serviços do Service Fabric Reliable Services e Reliable Actors no Windows.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: anmolah
 editor: roroutra
 ms.assetid: 0b41efb3-4063-4600-89f5-b077ea81fa3a
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: twhitney, anmola
-ms.openlocfilehash: 24ec0de77c796ad2abf8587b7542e53f745c532d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: aljo, anmola
+ms.openlocfilehash: f5e31c6cf08ab455b835231f54b564a3e4ed8dad
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298661"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806203"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Colocar num contentor do Service Fabric Reliable Services e Reliable Actors no Windows
 

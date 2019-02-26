@@ -3,7 +3,7 @@ title: Exemplo de implementação do Script da CLI do Service Fabric do Azure (s
 description: Implementar uma aplicação num cluster do Service Fabric do Azure com a CLI do Service Fabric do Azure
 services: service-fabric
 documentationcenter: ''
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 04/16/2018
-ms.author: twhitney
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: d3e619750c45ac2d8e0b942a304aadfa05301624
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: 1723bdd29bf85b11bf0a5d86d51cb813abd6e6b4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069510"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804098"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Implementar uma aplicação num cluster do Service Fabric
 
@@ -36,7 +36,7 @@ Se necessário, instale a [CLI do Service Fabric](../service-fabric-cli.md).
 
 Quando terminar, o script [remover](cli-remove-application.md) pode ser utilizado para remover a aplicação. O script remover elimina a instância de aplicação, anula o registo do tipo de aplicação e elimina o pacote de aplicações do arquivo de imagens.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações, veja a [documentação da CLI do Service Fabric](../service-fabric-cli.md).
 

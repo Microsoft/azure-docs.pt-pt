@@ -3,18 +3,18 @@ title: Otimizar o desempenho do Visual Studio para projetos de malha do Azure Se
 description: Otimizar o desempenho do Visual Studio para aplicações de Mesh de recursos de infraestrutura de serviço do Azure
 services: service-fabric-mesh
 keywords: otimizar o desempenho de depuração
-author: tylermsft
-ms.author: twhitney
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/29/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
-manager: jeconnoc
-ms.openlocfilehash: 72e900e6e48d18a721be7d2991428f81a81d1303
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+manager: chakdan
+ms.openlocfilehash: c7c9f9e72ae7ec2807c8fea08a8cc8d3e8a9e382
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893531"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804812"
 ---
 # <a name="optimize-visual-studio-performance-for-service-fabric-mesh-projects"></a>Otimizar o desempenho do Visual Studio para projetos de malha do Service Fabric
 

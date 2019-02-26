@@ -3,7 +3,7 @@ title: Comunicar e verificar o estado de funcionamento com o Azure Service Fabri
 description: Saiba como enviar relatórios de estado de funcionamento a partir do código de serviço e como verificar o estado de funcionamento do seu serviço com as ferramentas de monitorização de estado de funcionamento do Azure Service Fabric fornece.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: mfussell
 editor: ''
 ms.assetid: 7c712c22-d333-44bc-b837-d0b3603d9da8
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/2/2017
-ms.author: dekapur
-ms.openlocfilehash: d374886efb708797db1dd6352aa063a56aff4f44
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427313"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821683"
 ---
 # <a name="report-and-check-service-health"></a>Comunicar e verificar o estado de funcionamento dos serviços
 Quando os serviços de encontram problemas, sua capacidade de responder a e corrigir incidentes e interrupções depende da sua capacidade de detetar os problemas rapidamente. Se as reportar problemas e falhas para o Gestor de estado de funcionamento do Azure Service Fabric a partir do código de serviço, pode usar ferramentas que o Service Fabric fornece para verificar o estado de funcionamento de monitoramento de integridade padrão.
@@ -28,7 +28,7 @@ Existem três formas que pode comunicar o estado de funcionamento do serviço:
 
 * Uso [partição](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) ou [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) objetos.  
   Pode utilizar o `Partition` e `CodePackageActivationContext` objetos para reportar o estado de funcionamento dos elementos que fazem parte do contexto atual. Por exemplo, código que é executado como parte de uma réplica pode reportar o estado de funcionamento apenas nessa réplica, a partição que pertence a e a aplicação que é uma parte do.
-* Utilize `FabricClient`.   
+* Use `FabricClient`.   
   Pode usar `FabricClient` estado de funcionamento do relatório do código de serviço, se o cluster não estiver [seguro](service-fabric-cluster-security.md) ou se o serviço está em execução com privilégios de administrador. A maioria dos cenários do mundo real não utilizem clusters não seguros, ou fornecer privilégios de administrador. Com `FabricClient`, pode relatar estado de funcionamento em qualquer entidade que é uma parte do cluster. O ideal é que, no entanto, o código de serviço só deve enviar relatórios relacionados com o seu próprio Estado de funcionamento.
 * Utilize as APIs REST no cluster, aplicação, aplicação implementada, serviço, o pacote de serviço, partição, réplica ou níveis de nó. Isto pode ser utilizado para comunicar o estado de funcionamento de dentro de um contêiner.
 

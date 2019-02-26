@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d44bb4d3d0ff625d071c87fd39b3776915a6198f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 06206ececcb1a51da402c4232f19801793c1cd4a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675808"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807342"
 ---
 # <a name="how-application-gateway-works"></a>Como funciona o Gateway de aplicação
 
@@ -42,9 +42,9 @@ Assim que o servidor de back-end processa a solicitação e envia uma resposta H
 
 Pode utilizar o Gateway de aplicação como um balanceador de carga de aplicação interna ou um balanceador de carga da aplicação de acesso à Internet. Um Gateway de aplicação de acesso à Internet tem endereços IP públicos. O nome DNS de um Gateway de aplicação de acesso à Internet é resolvível publicamente para o respetivo endereço IP público. Por conseguinte, os Gateways de aplicação de acesso à Internet podem encaminhar pedidos de clientes através da Internet.
 
-Um Gateway de aplicação interna tem o endereço IP privado. O nome DNS de um Gateway de aplicação interna é resolvível publicamente para o respetivo endereço IP privado. Por conseguinte, balanceadores de carga interno só podem encaminhar pedidos de clientes com acesso à VNET para o Gateway de aplicação.
+Um Gateway de aplicação interna tem o endereço IP privado. O nome DNS de um Gateway de aplicação interna é internamente puder ser resolvido para o respetivo endereço IP privado. Por conseguinte, balanceadores de carga interno só podem encaminhar pedidos de clientes com acesso à VNET para o Gateway de aplicação.
 
-Tenha em atenção que os Gateways de aplicação de acesso à Internet e interno encaminhar pedidos para os servidores de back-end com endereços IP privados. Por conseguinte, os servidores de back-end não tem endereços IP públicos para receber pedidos de um interno ou de um Gateway de aplicação de acesso à Internet.
+Tenha em atenção que os Gateways de aplicação de acesso à Internet e interno encaminhar pedidos para os servidores de back-end com endereços IP privados. Se o seu recurso de conjunto de back-end que contém um endereço IP privado, configuração de NIC de VM ou um endereço resolvido internamente, e se o seu conjunto de back-end é um ponto final público, o Gateway de aplicação utiliza o IP público de front-end para alcançar o servidor. Se ainda não aprovisionou um endereço IP público de front-end, um é atribuído para a saída conectividade externa.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

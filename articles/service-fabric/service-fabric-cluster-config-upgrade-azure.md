@@ -14,19 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 621dc22ead8fbb6882c692851d39b658da043c55
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6ddd246057b178119d520bee3bbe58117fbae610
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894688"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820982"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Atualizar a configuração de um cluster no Azure 
 
 Este artigo descreve como personalizar as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager.
 
-> [!NOTE]
-> Nem todas as definições estão disponíveis no portal, e é um [melhor prática para personalizá-lo com um modelo Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Portal destina-se a Dev\Test de recursos de infraestrutura do serviço do cenário apenas.> 
+> [!NOTE]
+> Nem todas as definições estão disponíveis no portal, e é um [melhor prática para personalizá-lo com um modelo Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code); Portal destina-se a Dev\Test de recursos de infraestrutura do serviço do cenário apenas.
+> 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Personalize as configurações de cluster utilizando modelos do Resource Manager
 Clusters do Azure podem ser configurados através do modelo de Gestor de recursos de JSON. Para saber mais sobre as definições diferentes, veja [definições de configuração para clusters](service-fabric-cluster-fabric-settings.md). Por exemplo, os passos abaixo mostram como adicionar uma nova definição *MaxDiskQuotaInMB* para o *diagnóstico* secção com o Explorador de recursos do Azure.

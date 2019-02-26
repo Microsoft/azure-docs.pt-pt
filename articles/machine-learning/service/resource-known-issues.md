@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: b10e434aece0ac214a0fd397ea94cbeccca4e44a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3cf71de72a6005c59d76e2d88059a1ae16ec2970
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746495"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817478"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
 
@@ -51,17 +51,18 @@ Não será capaz de implementar os modelos no FPGAs até que tiver solicitado e 
 
 Problemas de Databricks e o Azure Machine Learning.
 
-1. Falhas de instalação de Machine Learning SDK do Azure no Databricks quando mais pacotes são instalados.
-
-   Alguns pacotes e, por exemplo, `psutil`, pode causar conflitos. Para evitar erros de instalação, instale pacotes pela versão de lib congelar. Este problema está relacionado com Databricks e não o Azure Machine Learning SDK do serviço - pode encarar os fatos com outras bibliotecas demasiado. Exemplo:
+### <a name="failure-when-installing-packages"></a>Falha ao instalar pacotes
+Falhas de instalação de Machine Learning SDK do Azure no Databricks quando mais pacotes são instalados. Alguns pacotes e, por exemplo, `psutil`, pode causar conflitos. Para evitar erros de instalação, instale pacotes pela versão de lib congelar. Este problema está relacionado com Databricks e não o Azure Machine Learning SDK do serviço - pode encarar os fatos com outras bibliotecas demasiado. Exemplo:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
-   Em alternativa, pode utilizar scripts de init se manter a enfrentar problemas de instalação com bibliotecas de Python. Essa abordagem não é uma abordagem oficialmente suportada. Pode consultar [este documento](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+Em alternativa, pode utilizar scripts de init se manter a enfrentar problemas de instalação com bibliotecas de Python. Essa abordagem não é uma abordagem oficialmente suportada. Pode consultar [este documento](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-2. Quando utilizar automatizada Machine Learning no Databricks, se pretender cancelar uma execução e inicie uma nova experiência de execução, reinicie o cluster do Azure Databricks.
+### <a name="cancel-an-automated-ml-run"></a>Cancelar uma execução de ML automatizada
+Quando usando automatizadas capacidades de machine learning no Databricks, se pretender cancelar uma execução e inicie uma nova experiência de execução, reinicie o cluster do Azure Databricks.
 
-3. Nas definições de ml automatizada, se tiver mais de 10 iterações, defina `show_output` para `False` quando submeter a execução.
+### <a name="10-iterations-for-automated-ml"></a>> 10 iterações para ML automatizada
+Nas definições de ml automatizada, se tiver mais de 10 iterações, defina `show_output` para `False` quando submeter a execução.
 
 
 ## <a name="azure-portal"></a>Portal do Azure

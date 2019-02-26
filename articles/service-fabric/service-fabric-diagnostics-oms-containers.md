@@ -3,7 +3,7 @@ title: Monitorizar contentores no Azure Service Fabric com o Log Analytics | Doc
 description: Utilize o Log Analytics para monitorizar contentores em execução em clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/1/2017
-ms.author: dekapur
-ms.openlocfilehash: d5fd55ec93ce07e30e4c6f123f9be8492581053c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 2123cf0eb575d632e871e23513128e67d5433c9d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972257"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820178"
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Contentores de monitor com o Log Analytics
  

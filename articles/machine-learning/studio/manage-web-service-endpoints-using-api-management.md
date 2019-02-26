@@ -5,24 +5,24 @@ description: Um guia que mostram como gerir os serviços de web do AzureML com a
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 915b972774fb418a454d8a3acd2a61f25af7a6aa
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: b15fddcace19abcd1cd08d059c497c1c209f74d0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488514"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823438"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerir os serviços de web do Azure Machine Learning Studio com a gestão de API
 ## <a name="overview"></a>Descrição geral
 Este guia mostra-lhe como começar a utilizar rapidamente a utilizar a gestão de API para gerir os seus serviços web do Azure Machine Learning Studio.
 
 ## <a name="what-is-azure-api-management"></a>O que é a API Management do Azure?
-Gestão de API do Azure é um serviço do Azure que lhe permite gerir os pontos finais de REST API com a definição de acesso de utilizador, a otimização do uso e a monitorização do dashboard. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre a gestão de API do Azure. Clique em [aqui](../../api-management/api-management-get-started.md) para um guia sobre como começar com a API Management do Azure. Esse outro guia, que baseia-se neste guia, abrange mais tópicos, incluindo configurações de notificação, escalão de preço, manipulação de resposta, autenticação de utilizador, a criação de produtos, as assinaturas de desenvolvedor e vistas de utilização.
+Gestão de API do Azure é um serviço do Azure que lhe permite gerir os pontos finais de REST API com a definição de acesso de utilizador, a otimização do uso e a monitorização do dashboard. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre a gestão de API do Azure. Clique em [aqui](/azure/api-management/import-and-publish) para um guia sobre como começar com a API Management do Azure. Esse outro guia, que baseia-se neste guia, abrange mais tópicos, incluindo configurações de notificação, escalão de preço, manipulação de resposta, autenticação de utilizador, a criação de produtos, as assinaturas de desenvolvedor e vistas de utilização.
 
 ## <a name="what-is-azureml"></a>O que é AzureML?
 AzureML é um serviço do Azure Machine learning, que permite-lhe facilmente criar, implementar e partilhar soluções de análise avançada. Clique em [aqui](https://azure.microsoft.com/services/machine-learning/) para obter detalhes sobre AzureML.

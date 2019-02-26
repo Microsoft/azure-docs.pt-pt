@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9166d5d552df4854a4d00c2211a273a06198877a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d7c923dd819f826d9d9aaf8d5b88355a9feb344f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567490"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823166"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
 
@@ -52,11 +52,11 @@ Um valor de parâmetro definido na definição de um plano gráfico é chamado u
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Definir parâmetros estáticos no portal
 
-1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
 
-1. Selecione **Definições do Esquema** na página à esquerda.
+1. Selecione **definições de esquema** partir da página à esquerda.
 
-1. Clique numa esquema existente e, em seguida, clique em **Editar esquema** ou clique em **+ criar esquema** e preencha as informações sobre o **Noções básicas** separador.
+1. Clique numa esquema existente e, em seguida, clique em **esquema de edição** ou clique em **+ criar esquema** e preencha as informações sobre o **Noções básicas** separador.
 
 1. Clique em **seguinte: Artefactos** ou clique nas **artefactos** separador.
 
@@ -169,11 +169,11 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Este parâme
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Definir parâmetros dinâmicos no portal
 
-1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
 
-1. Selecione **Definições do Esquema** na página à esquerda.
+1. Selecione **definições de esquema** partir da página à esquerda.
 
-1. Clique com o botão direito no plano de gráfico que pretende atribuir. Selecione **atribuir esquema** ou clique no esquema que pretende atribuir, em seguida, clique nas **atribuir esquema** botão.
+1. Clique com o botão direito no plano de gráfico que pretende atribuir. Selecione **esquema Assign** ou clique no esquema que pretende atribuir, em seguida, clique nas **esquema Assign** botão.
 
 1. Sobre o **atribuir esquema** página, encontre o **parâmetros de artefacto** secção. Cada artefato com, pelo menos, um **parâmetro dinâmico** apresenta o artefacto e as opções de configuração. Forneça os valores necessários para os parâmetros antes de atribuir o plano gráfico. No exemplo abaixo, _Name_ é um **parâmetro dinâmico** que tem de ser definido para concluir a atribuição do esquema.
 

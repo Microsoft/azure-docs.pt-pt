@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 657211378d7b38b88ccd40aa31a175058e1ad67c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e6d18222e15f62f12592362827b6dbc4a3d7dfbc
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015561"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820319"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Aprovisionar e implementar microsserviços de forma previsível no Azure
 Este tutorial mostra como aprovisionar e implementar um aplicativo composto [microsserviços](https://en.wikipedia.org/wiki/Microservices) na [App Service do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível, com modelos de grupo de recursos JSON e Script do PowerShell. 
@@ -39,9 +39,7 @@ O tutorial, irá implementar uma aplicação que inclui:
 Neste tutorial, irá utilizar as seguintes ferramentas. Uma vez que não é uma discussão abrangente sobre ferramentas, vou escolher o cenário de ponta a ponta e dar a uma breve introdução a cada um, e onde pode encontrar mais informações sobre ele. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modelos do Azure Resource Manager (JSON)
-Sempre que cria uma aplicação no App Service do Azure, por exemplo, o Azure Resource Manager utiliza um modelo JSON para criar o grupo de recursos inteiro com os recursos de componente. Um complexo modelo a partir da [do Azure Marketplace](/azure/marketplace) pode incluir a base de dados, contas de armazenamento, o plano do serviço de aplicações, a aplicação em si, regras de alerta, as definições de aplicações, definições de dimensionamento automático e muito mais, e todos os estes modelos estão disponíveis para si através do PowerShell. Para obter informações sobre como transferir e utilizar estes modelos, consulte [utilizar o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md).
-
-Para obter mais informações sobre os modelos do Azure Resource Manager, consulte [criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+Sempre que cria uma aplicação no App Service do Azure, por exemplo, o Azure Resource Manager utiliza um modelo JSON para criar o grupo de recursos inteiro com os recursos de componente. Um complexo modelo a partir da [do Azure Marketplace](/azure/marketplace) pode incluir a base de dados, contas de armazenamento, o plano do serviço de aplicações, a aplicação em si, regras de alerta, as definições de aplicações, definições de dimensionamento automático e muito mais, e todos os estes modelos estão disponíveis para si através do PowerShell. Para obter mais informações sobre os modelos do Azure Resource Manager, consulte [criação de modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 para Visual Studio
 O SDK mais recente contém aprimoramentos para o suporte de modelo do Resource Manager no editor de JSON. Pode usá-lo para rapidamente criar um modelo de grupo de recursos do zero ou abrir um modelo JSON existente (por exemplo, um modelo de galeria transferido) para modificação, preencha o ficheiro de parâmetros e até mesmo implementar o grupo de recursos diretamente a partir de um recurso do Azure Solução de grupo.
@@ -160,7 +158,7 @@ As cadeias de ligação também são definidas como um recurso aninhado.
 Na `properties` elemento para `config/connectionstrings`, cada cadeia de ligação também é definida como um par de valores de nomes, com o formato específico de `"<name>" : {"value": "…", "type": "…"}`. Para o `type` elemento, os valores possíveis são `MySql`, `SQLServer`, `SQLAzure`, e `Custom`.
 
 > [!TIP]
-> Para obter uma lista definitiva dos tipos de cadeia de ligação, execute o seguinte comando no Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.websites.Services.WebEntities.DatabaseType")
+> Para obter uma lista definitiva dos tipos de cadeia de ligação, execute o seguinte comando no Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
 > 
 > 
 
@@ -279,4 +277,4 @@ Para saber mais sobre a sintaxe JSON e propriedades para tipos de recursos imple
 * [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
 * [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
 * [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
-* [Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)
+* [Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

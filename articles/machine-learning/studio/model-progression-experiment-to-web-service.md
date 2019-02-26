@@ -5,17 +5,17 @@ description: Uma visão geral sobre a mecânica como sua progride de modelo do A
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: 776f33e3e550ad9a711a90732c6c4526e647aa89
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 808883fc96369538a26a06a7dadb5f0ecd6628d5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456797"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823404"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Como um modelo de Machine Learning Studio evolui de uma experimentação para um serviço Web operacionalizado
 O Azure Machine Learning Studio dispõe numa tela interativa que permite que desenvolver, executar, testar e iterar um ***experimentar*** que representa um modelo de Análise Preditiva. Há uma grande variedade de módulos disponíveis que pode:
@@ -95,7 +95,7 @@ Segue-se um exemplo: Suponha que sua experimentação preditiva devolve a linha 
 
 Se pretender manter o seu modelo de machine learning, mas gostaria de voltar a preparar com novos dados, tem duas opções:
 
-1. **Voltar a preparar o modelo, enquanto o serviço Web está em execução** -se de que pretende voltar a preparar seu modelo, enquanto o serviço Web preditivo está em execução, pode fazê-lo fazendo algumas modificações para a experimentação de preparação para o tornar um ***reparametrização Experimente***, em seguida, pode implementá-la como uma  ***web reparametrização* serviço**. Para obter instruções sobre como fazer isso, consulte [Retrain Machine Learning dos modelos](retrain-models-programmatically.md).
+1. **Voltar a preparar o modelo, enquanto o serviço Web está em execução** -se de que pretende voltar a preparar seu modelo, enquanto o serviço Web preditivo está em execução, pode fazê-lo fazendo algumas modificações para a experimentação de preparação para o tornar um ***reparametrização Experimente***, em seguida, pode implementá-la como uma  ***web reparametrização* serviço**. Para obter instruções sobre como fazer isso, consulte [Retrain Machine Learning dos modelos](/azure/machine-learning/studio/retrain-machine-learning-model).
 2. **Voltar para a experimentação de preparação original e utilizar dados de treinamento diferentes para desenvolver o seu modelo** – sua experimentação preditiva está ligada ao serviço da Web, mas a experimentação de preparação não está diretamente ligada dessa forma. Se modificar a experimentação de preparação original e clique em **no serviço Web**, irá criar um *novo* preditiva de experimentação que, quando implementado, irá criar um *novo* Web serviço. Apenas não atualiza o Web service original.
 
    Se precisar de modificar a experimentação de preparação, abra-o e clique em **guardar como** para fazer uma cópia. Isso deixar intacto a experimentação de preparação original, a experimentação preditiva e serviço Web. Agora, pode criar um novo serviço Web com as suas alterações. Depois de implementar o novo serviço Web, em seguida, pode decidir se pretende parar o serviço Web anterior ou manter a funcionar em conjunto com o novo.
@@ -109,7 +109,7 @@ Para obter mais detalhes sobre o processo de desenvolvimento e experimentação,
 
 * converter a experimentação - [como preparar o seu modelo para a implementação no Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md)
 * implementar o serviço Web - [implementar um serviço web do Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* reparametrização do modelo - [Retrain Machine Learning dos modelos](retrain-models-programmatically.md)
+* reparametrização do modelo - [Retrain Machine Learning dos modelos](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 Para obter exemplos de todo o processo, consulte:
 

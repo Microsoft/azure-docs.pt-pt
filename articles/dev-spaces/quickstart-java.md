@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: mmontwil
-ms.openlocfilehash: 24bb5a044db813e1ee3cf2c9ff3e36a9b9ff86d7
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: c8c85c9220574a3e18e5549e1607dafe1aec03ab
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657064"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818175"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Início rápido: Criar um espaço de desenvolvimento de Kubernetes com espaços de desenvolvimento do Azure (Java e o VS Code)
 
@@ -34,11 +34,11 @@ Neste guia, vai aprender a:
 - Uma subscrição do Azure. Se não tiver uma, poderá [criar uma conta gratuita](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - Versão 2.0.43 ou superior da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- Um cluster Kubernetes a executar o Kubernetes 1.10.3 ou posterior, na região EUA Leste, EUA Leste 2, EUA Central, EUA Oeste 2, Europa Ocidental, Sudeste Asiático, Canadá Central ou Leste do Canadá, com o **Encaminhamento de Aplicações de HTTP** ativado.
+- Um cluster do Kubernetes em execução no Kubernetes 1.10.3 ou posterior, na região EastUS, Eualeste2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral ou CanadaEast.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
+    az aks create -g MyResourceGroup -n myAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Configurar os Espaços de Programador do Azure

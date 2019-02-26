@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2ada0ccc1286677300c005da4fa0e92be94a3ca8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: edfc14e837c92cac5bab589e33069bb771a53cb7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314836"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818260"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma existente da atribuição do esquema
 
@@ -26,21 +26,21 @@ Quando lhe for atribuído um plano gráfico, a atribuição pode ser atualizada.
 
 ## <a name="updating-assignments"></a>A atualizar as atribuições
 
-1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
 
-1. Selecione **Esquemas Atribuídos** na página à esquerda.
+1. Selecione **atribuído a planos gráficos** partir da página à esquerda.
 
-1. Na lista de esquemas, left-click a atribuição do esquema. Em seguida, clique nas **a atribuição de atualizações** ou a atribuição do esquema com o botão direito e selecione **a atribuição de atualizações**.
+1. Na lista de esquemas, left-click a atribuição do esquema. Em seguida, clique no **atualizar atribuição** ou a atribuição do esquema com o botão direito e selecione **atualizar atribuição**.
 
-   ![Atribuição de atualizações](../media/update-existing-assignments/update-assignment.png)
+   ![Atualize a atribuição](../media/update-existing-assignments/update-assignment.png)
 
-1. O **atribuir esquema** página será carregada previamente preenchido com todos os valores da atribuição original. Pode alterar o **versão da definição do esquema**, o **atribuição de bloqueio** estado e qualquer um dos parâmetros dinâmicos que existem na definição do esquema. Clique em **atribuir** quando terminar de efetuar alterações.
+1. O **esquema de atribuir** página será carregada previamente preenchido com todos os valores da atribuição original. Pode alterar o **versão da definição do esquema**, o **atribuição de bloqueio** estado e qualquer um dos parâmetros dinâmicos que existem na definição do esquema. Clique em **atribuir** quando terminar de efetuar alterações.
 
 1. Na página de detalhes de atribuição atualizada, ver o estado de novo. Neste exemplo, adicionamos **bloqueio** para a atribuição.
 
    ![Atribuição atualizada - bloqueada](../media/update-existing-assignments/updated-assignment.png)
 
-1. Para explorar detalhes sobre outras **operações de atribuição** usando a menu pendente. A tabela da **recursos geridos** atualizações por operação de atribuição selecionado.
+1. Para explorar detalhes sobre outras **operações de atribuição** usando a menu pendente. A tabela da **recursos gerenciados** atualizações por operação de atribuição selecionado.
 
    ![Operações de atribuição](../media/update-existing-assignments/assignment-operations.png)
 

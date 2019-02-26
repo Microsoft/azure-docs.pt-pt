@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 343baedb77eb5c8a250e2ab967332dc0905f5112
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743690"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804654"
 ---
 # <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Início rápido: Ingerir os Blobs do Azure no Explorador de dados do Azure através da subscrição de notificações do Event Grid
 
@@ -58,7 +58,7 @@ Crie uma tabela no Explorador de dados do Azure, para que os Hubs de eventos ir�
 
 1. No portal do Azure, no seu cluster, selecione **Consulta**.
 
-    ![Ligação da aplicação de consulta](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Ligação da aplicação de consulta](media/ingest-data-event-grid/query-explorer-link.png)
 
 1. Copie o seguinte comando para a janela e selecione **executar** para criar a tabela (TestTable) que irá receber os dados ingeridos.
 
@@ -82,11 +82,11 @@ Agora liga para o Event Grid partir do Explorador de dados do Azure, para que os
 
 1. No cluster que criou, selecione **Bases de dados** e, em seguida, **TestDatabase**.
 
-    ![Selecionar a base de dados de teste](media/ingest-data-event-hub/select-test-database.png)
+    ![Selecionar a base de dados de teste](media/ingest-data-event-grid/select-test-database.png)
 
 1. Selecione **Ingestão de dados** e, em seguida, **Adicionar ligação de dados**.
 
-    ![Ingestão de dados](media/ingest-data-event-hub/data-ingestion-create.png)
+    ![Ingestão de dados](media/ingest-data-event-grid/data-ingestion-create.png)
 
 1. Selecione o tipo de ligação: **Armazenamento de BLOBs**.
 
@@ -185,9 +185,9 @@ Se não planeja usar sua grelha de eventos novamente, limpar **test-hub-rg**, pa
 
 1. No portal do Azure, selecione **Grupos de recursos** à esquerda e, em seguida, selecione o grupo de recursos que criou.  
 
-    Se o menu à esquerda estiver fechado, selecione ![botão Expandir](media/ingest-data-event-hub/expand.png) para expandi-lo.
+    Se o menu à esquerda estiver fechado, selecione ![botão Expandir](media/ingest-data-event-grid/expand.png) para expandi-lo.
 
-   ![Selecionar grupo de recursos a eliminar](media/ingest-data-event-hub/delete-resources-select.png)
+   ![Selecionar grupo de recursos a eliminar](media/ingest-data-event-grid/delete-resources-select.png)
 
 1. Em **test-resource-group**, selecione **Eliminar grupo de recursos**.
 

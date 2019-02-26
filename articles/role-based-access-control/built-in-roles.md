@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/16/2019
+ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 97f9c893487b486bd76031cb6321fe100321931d
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 106cda22f8f7c54441f438b61eb427446f36a69a
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750723"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807495"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 
@@ -82,8 +82,8 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 | [Utilizador de DevTest Labs](#devtest-labs-user) | Permite-lhe ligar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. |
 | [Contribuidor da zona DNS](#dns-zone-contributor) | Permite-lhe gerir zonas DNS e conjuntos de registos no DNS do Azure, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Contribuinte de conta do DocumentDB](#documentdb-account-contributor) | Pode gerir contas do Azure Cosmos DB. O Azure Cosmos DB anteriormente é conhecido como o DocumentDB. |
-| [Contribuinte de EventSubscription EventGrid](#eventgrid-eventsubscription-contributor) | Permite-lhe gerir operações de subscrição de eventos do EventGrid. |
-| [Leitor de EventSubscription EventGrid](#eventgrid-eventsubscription-reader) | Permite-lhe ler as subscrições de eventos do EventGrid. |
+| [Contribuinte de EventSubscription EventGrid (pré-visualização)](#eventgrid-eventsubscription-contributor-preview) | Permite-lhe gerir operações de subscrição de eventos do EventGrid. |
+| [Leitor de EventSubscription EventGrid (pré-visualização)](#eventgrid-eventsubscription-reader-preview) | Permite-lhe ler as subscrições de eventos do EventGrid. |
 | [Contribuinte de serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode Ler, Criar, Modificar e Eliminar operações relacionadas com os Serviços de Domínio necessárias para o Pacote de Segurança HDInsight Enterprise |
 | [Contribuinte de conta de sistemas inteligentes](#intelligent-systems-account-contributor) | Permite-lhe gerir contas de Sistemas Inteligentes, mas não aceder-lhes. |
 | [Contribuinte do Cofre de chaves](#key-vault-contributor) | Permite-lhe gerir cofres de chaves, mas não o acesso aos mesmos. |
@@ -104,7 +104,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 | [Contribuidor de Rede](#network-contributor) | Permite-lhe gerir redes, mas não aceder-lhes. |
 | [Contribuinte de conta APM do novo Relic](#new-relic-apm-account-contributor) | Permite-lhe gerir contas e aplicações do New Relic Application Performance Management, mas não aceder-lhes. |
 | [Leitor e acesso a dados](#reader-and-data-access) | Permite-lhe ver tudo, mas não lhe permitirá eliminar ou criar uma conta de armazenamento ou recurso contido. Também irá permitir acesso de leitura/gravação para todos os dados contidos numa conta de armazenamento através do acesso às chaves de conta de armazenamento. |
-| [Contribuinte de Cache de redis](#redis-cache-contributor) | Permite gerir a Cache do Azure para Redis, mas não aceder-lhes. |
+| [Contribuinte de Cache de redis](#redis-cache-contributor) | Permite-lhe gerir caches de Redis, mas não aceder-lhes. |
 | [Contribuinte de política de recurso (pré-visualização)](#resource-policy-contributor-preview) | (Pré-visualização) Os utilizadores substituídos de EA, com direitos para criar/modificar a política de recurso, criam pedidos de suporte e leem recursos/hierarquia. |
 | [Contribuinte de coleções de tarefa do Scheduler](#scheduler-job-collections-contributor) | Permite-lhe gerir coleções de tarefas do Scheduler, mas não aceder-lhes. |
 | [Contribuinte de serviços de pesquisa](#search-service-contributor) | Permite-lhe gerir serviços de Pesquisa, mas não aceder-lhes. |
@@ -1198,6 +1198,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Avalia a política de laboratório. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Obter a propriedade de uma máquina virtual existente |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Lista as agendas de iniciar/parar aplicável, se aplicável. |
+> | Microsoft.DevTestLab/labs/virtualMachines/getRdpFileContents/action | Obtém uma cadeia de caracteres que representa o conteúdo do ficheiro RDP para a máquina virtual |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Associa um conjunto de endereços de back-end de Balanceador de carga. Não. o alerta. |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Associa uma regra de nat de entrada do Balanceador de carga. Não. o alerta. |
 > | Microsoft.Network/networkInterfaces/*/read | Ler as propriedades de uma interface de rede (por exemplo, todos os balanceadores de carga que a interface de rede é uma parte do) |
@@ -1261,7 +1262,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **NotDataActions** |  |
 > | *Nenhum* |  |
 
-## <a name="eventgrid-eventsubscription-contributor"></a>Contribuinte de EventSubscription EventGrid
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>Contribuinte de EventSubscription EventGrid (Pré-visualização)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1284,7 +1285,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **NotDataActions** |  |
 > | *Nenhum* |  |
 
-## <a name="eventgrid-eventsubscription-reader"></a>Leitor de EventSubscription EventGrid
+## <a name="eventgrid-eventsubscription-reader-preview"></a>Leitor de EventSubscription EventGrid (Pré-visualização)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1502,6 +1503,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Ações** |  |
 > | * / leitura | Ler os recursos de todos os tipos, exceto segredos. |
 > | Microsoft.Solutions/applications/read | Obtém uma lista de aplicações. |
+> | Microsoft.Solutions/*/action |  |
 > | **NotActions** |  |
 > | *Nenhum* |  |
 > | **DataActions** |  |
@@ -1737,11 +1739,11 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite gerir a Cache do Azure para Redis, mas não aceder-lhes. |
+> | **Descrição** | Permite-lhe gerir caches de Redis, mas não aceder-lhes. |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de função |
-> | Microsoft.Cache/redis/* | Criar e gerir a Cache do Azure para Redis |
+> | Microsoft.Cache/redis/* | Criar e gerir as caches de Redis |
 > | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |

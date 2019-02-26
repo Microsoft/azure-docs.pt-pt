@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0b92d36287646038d9195f7ba39352d8ced9a3b6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: bdffcdee87c0c5c9c878948797ac7c6be566c7ea
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270271"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818855"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas de gerenciamento de atualizações
 
@@ -78,11 +78,11 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="nologs"></a>Cenário: Atualizar os dados de gestão não está a mostrar no Log Analytics para uma máquina
+### <a name="nologs"></a>Cenário: Atualizar os dados de gestão não está a mostrar registos do Azure Monitor para uma máquina
 
 #### <a name="issue"></a>Problema
 
-Tiver máquinas que mostram como **não avaliados** sob **conformidade**, mas ver dados de heartbeat no Log Analytics para o trabalho de Runbook híbrida, mas não a gestão de atualizações.
+Tiver máquinas que mostram como **não avaliados** sob **conformidade**, mas ver dados de heartbeat nos registos do Azure Monitor para o trabalho de Runbook híbrida, mas não a gestão de atualizações.
 
 #### <a name="cause"></a>Causa
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c1e596516136240b1d1d08b4e8386e9cf5ef48e5
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563716"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819127"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Compreender o ciclo de vida de um esquema do Azure
 
@@ -35,7 +35,7 @@ Para compreender totalmente um plano gráfico e as fases, iremos abranger um cic
 
 Quando criar um plano gráfico, adiciona artefactos, guarde a um grupo de gestão ou a subscrição e forneceu um nome exclusivo e uma versão exclusiva. O plano gráfico está agora num **rascunho** modo e ainda não é possível atribuir. Enquanto estiver no **rascunho** modo, este pode continuar a ser atualizada e foi alterado.
 
-A nunca publicadas esquema no **rascunho** modo apresenta um ícone diferente no **definições do esquema** página que as que tiverem sido **publicada**. O **versão mais recente** também é apresentado como **rascunho** para estes nunca publicado esquemas.
+A nunca publicadas esquema no **rascunho** modo apresenta um ícone diferente no **definições do esquema** página que as que tiverem sido **publicada**. O **versão mais recente** é apresentado como **rascunho** para estes nunca publicado esquemas.
 
 Criar e editar um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#create-a-blueprint) ou [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -68,9 +68,9 @@ Cada versão de um plano gráfico é um objeto exclusivo e podem ser individualm
 > [!NOTE]
 > Não é possível eliminar um plano gráfico com atribuições ativas. Elimine as atribuições de primeiro e, em seguida, elimine a versão que pretende remover.
 
-1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
 
-1. Selecione **definição de Blueprint** partir da página à esquerda e utilize o filtro de opções para localizar o plano gráfico que pretende eliminar uma versão do. Clique no mesmo para abrir a página de edição.
+1. Selecione **definições de esquema** partir da página à esquerda e utilize o filtro de opções para localizar o plano gráfico que pretende eliminar uma versão do. Clique no mesmo para abrir a página de edição.
 
 1. Clique nas **versões publicadas** separador e localize a versão que pretende eliminar.
 

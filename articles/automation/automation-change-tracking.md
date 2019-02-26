@@ -10,18 +10,18 @@ ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07fd8c41e7817e232513ed9a260c3722a1fdac11
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: e429d9577b938aea20318aa09a0247e00e4f66b6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429269"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819587"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar as alterações no seu ambiente com a solução de controlo de alterações
 
 Este artigo ajuda-o a utilizar a solução de controlo de alterações para o identificar facilmente as alterações no seu ambiente. A solução controla as alterações ao software do Windows e Linux, Windows e Linux ficheiros, chaves de registo do Windows, serviços do Windows e dos daemons do Linux. Identificar as alterações de configuração pode ajudá-lo a localizar problemas operacionais.
 
-Alterações ao software instalado, serviços do Windows, registro do Windows e arquivos e os daemons Linux nos servidores monitorizados são enviadas para o serviço do Log Analytics na cloud para processamento. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados. Ao utilizar as informações no dashboard do controlo de alterações, pode ver facilmente as alterações efetuadas na sua infraestrutura de servidor.
+Alterações ao software instalado, serviços do Windows, registro do Windows e arquivos e os daemons Linux nos servidores monitorizados são enviadas para o serviço do Azure Monitor na cloud para processamento. Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados. Ao utilizar as informações no dashboard do controlo de alterações, pode ver facilmente as alterações efetuadas na sua infraestrutura de servidor.
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas de operativos do Windows
 
@@ -261,7 +261,7 @@ Clicar numa alteração ou evento apresenta as informações detalhadas sobre es
 
 ## <a name="search-logs"></a>Pesquisar registos
 
-Além dos detalhes que são fornecidos no portal, pesquisas podem ser feitas com os registos. Com o **controlo de alterações** clique aberto, da página **do Log Analytics**, esta ação abre o **pesquisa de registos** página.
+Além dos detalhes que são fornecidos no portal, pesquisas podem ser feitas com os registos. Com o **controlo de alterações** clique aberto, da página **do Log Analytics**, esta ação abre o **registos** página.
 
 ### <a name="sample-queries"></a>Amostras de consultas
 
@@ -314,5 +314,5 @@ Visite o tutorial para saber mais sobre como utilizar a solução de controlo de
 > [!div class="nextstepaction"]
 > [Resolver problemas relacionados com alterações no seu ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Uso [pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md) para ver dados de controlo de alterações detalhadas.
+* Uso [pesquisas de registos nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md) para ver dados de controlo de alterações detalhadas.
 

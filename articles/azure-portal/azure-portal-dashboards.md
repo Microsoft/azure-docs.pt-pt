@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: kfollis
-ms.openlocfilehash: 4a2dee4ad90fb269268ec7d3e86def58f2444e3a
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884733"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818583"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar dashboards no portal do Azure
 Pode criar vários dashboards e partilhá-los com outras pessoas que têm acesso às suas subscrições do Azure.  Este artigo aborda as noções básicas de criação, edição, publicar e gerir o acesso aos dashboards.
@@ -93,6 +93,6 @@ Depois de seu dashboard é publicado, o **acesso + partilha** painel de controle
 ![Gerir controlo de acesso](./media/azure-portal-dashboards/manage-access.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para gerir os recursos, consulte [recursos de gerir o Azure através do portal](../azure-resource-manager/resource-group-portal.md).
+* Para gerir os recursos, consulte [recursos de gerir o Azure com o portal do Azure](../azure-resource-manager/manage-resources-portal.md).
 * Para implementar recursos, veja [implementar recursos com modelos do Resource Manager e o portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 

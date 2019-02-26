@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 11/08/2018
+ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79a2c0c98cdee0532856a90ec4a7b98dda09cdb7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: fa1076fb523c3634cf8e4f4832d36aa7ee715797
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247379"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816356"
 ---
 # <a name="collect-data-for-models-in-production"></a>Recolher dados para modelos em produção
 

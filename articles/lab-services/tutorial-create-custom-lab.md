@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 0530dbac88fcfbfb05ab29d1c5934a468f263034
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096641"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804967"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório com o Azure DevTest Labs
 Neste tutorial, vai criar um laboratório com o portal do Azure. O administrador do laboratório configura um laboratório numa organização, cria VMs no laboratório e configura as políticas. Os utilizadores do laboratório (por exemplo: o programador e os técnicos de teste) reivindicam as VMs no laboratório, ligam-se a elas e utilizam-nas. 
@@ -80,7 +80,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
 1. Uma vez criada a VM, será apresentada na lista de **Máquinas de virtuais reclamáveis**. 
 
     > [!NOTE] 
-    > Ao adicionar uma VM do Linux a um laboratório, pode ativar o acesso do SSH e do RDP à VM. Se não ativar o acesso ao criar a VM, pode adicionar manualmente regras no grupo de segurança de rede associado à VM para abrir portas para SSH e RDP.
+    > Sobre o **definições avançadas** página, pode configurar público, privado ou um endereço IP partilhado para a VM. Quando o **partilhados IP** é ativada, Azure DevTest Labs ativa automaticamente RDP para VMs do Windows e SSH para VMs do Linux. Se criar VMs com **IP público** endereços, RDP e SSH estão ativados sem quaisquer alterações de DevTest Labs.  
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Adicionar um utilizador à função de Utilizador do Laboratório
 

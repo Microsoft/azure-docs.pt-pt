@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 73ba80878615f04e1755a4d12014691c5ae2a077
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 5bb2db84a21efb9c8bffb345e05e17d99b866fe9
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453125"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56825833"
 ---
 ## <a name="view-device-telemetry"></a>Ver a telemetria do dispositivo
 
-Pode ver a telemetria enviada a partir do seu dispositivo **dispositivos** página na solução.
+Pode ver a telemetria enviada a partir do seu dispositivo **Device Explorer** página na solução.
 
-1. Selecione o dispositivo aprovisionado na lista de dispositivos no **dispositivos** página. Um painel apresenta informações sobre o seu dispositivo, incluindo um desenho de telemetria do dispositivo:
+1. Selecione o dispositivo aprovisionado na lista de dispositivos no **Device Explorer** página. Um painel apresenta informações sobre o seu dispositivo, incluindo um desenho de telemetria do dispositivo:
 
     ![Ver detalhes do dispositivo](media/iot-suite-visualize-connecting/devicesdetail.png)
 
@@ -33,11 +33,11 @@ Pode ver a telemetria enviada a partir do seu dispositivo **dispositivos** pági
 
 ## <a name="act-on-your-device"></a>Agir em seu dispositivo
 
-Para invocar métodos nos seus dispositivos, utilize o **dispositivos** página na solução de monitorização remota. Por exemplo, na solução de monitorização remota **Chiller** dispositivos implementam um **FirmwareUpdate** método.
+Para invocar métodos nos seus dispositivos, utilize o **Device Explorer** página na solução de monitorização remota. Por exemplo, na solução de monitorização remota **Chiller** dispositivos implementam um **FirmwareUpdate** método.
 
-1. Escolher **dispositivos** para navegar para o **dispositivos** página na solução.
+1. Escolher **dispositivos** para navegar para o **Device Explorer** página na solução.
 
-1. Selecione o dispositivo aprovisionado na lista de dispositivos no **dispositivos** página:
+1. Selecione o dispositivo aprovisionado na lista de dispositivos no **Device Explorer** página:
 
     ![Selecione o seu dispositivo real](media/iot-suite-visualize-connecting/devicesselect.png)
 
@@ -49,7 +49,7 @@ Para invocar métodos nos seus dispositivos, utilize o **dispositivos** página 
 
 1. Apresenta uma sequência de mensagens na consola de execução do seu código de dispositivo enquanto o dispositivo simulado lida com o método.
 
-1. Quando a atualização estiver concluída, a nova versão de firmware se apresenta na **dispositivos** página:
+1. Quando a atualização estiver concluída, a nova versão de firmware se apresenta na **Device Explorer** página:
 
     ![Atualização concluída](media/iot-suite-visualize-connecting/complete.png)
 

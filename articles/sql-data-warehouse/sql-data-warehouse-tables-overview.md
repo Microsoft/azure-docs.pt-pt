@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 290230237a68730a908c6fd0fb0df1d63035b93b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cb2261e92e90bef7cdd51b0ebf7a4ed34ca01624
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247345"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806238"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Criando tabelas no armazém de dados SQL do Azure
 
@@ -61,7 +61,7 @@ CREATE TABLE MyTable (col1 int, col2 int );
 ```
 
 ### <a name="temporary-table"></a>Tabela temporária
-Só existe uma tabela temporária para a duração da sessão. Pode usar uma tabela temporária para impedir que outras utilizações vejam resultados temporários e também para reduzir a necessidade de limpeza.  Uma vez que as tabelas temporárias também utilizam o armazenamento local, podem oferecer um desempenho mais rápido para algumas operações.  Para obter mais informações, consulte [tabelas temporárias](sql-data-warehouse-tables-temporary.md).
+Só existe uma tabela temporária para a duração da sessão. Pode usar uma tabela temporária para impedir que outros utilizadores vejam os resultados temporários e também para reduzir a necessidade de limpeza.  Uma vez que as tabelas temporárias também utilizam o armazenamento local, podem oferecer um desempenho mais rápido para algumas operações.  Para obter mais informações, consulte [tabelas temporárias](sql-data-warehouse-tables-temporary.md).
 
 ### <a name="external-table"></a>Tabela externa
 Uma tabela externa aponta para dados localizados no blob de armazenamento do Azure ou do Azure Data Lake Store. Quando utilizado em conjunto com a instrução CREATE TABLE AS SELECT, selecionar a partir de uma tabela externa importa os dados para o SQL Data Warehouse. Tabelas externas, portanto, são úteis para carregar dados. Para obter um tutorial de carregamento, veja [utilizar o PolyBase para carregar dados do armazenamento de Blobs do Azure](load-data-from-azure-blob-storage-using-polybase.md).
@@ -95,7 +95,7 @@ A categoria de tabela geralmente determina qual a opção para escolher para a d
 |:---------------|:--------------------|
 | Fatos           | Utilize a distribuição de hash com o índice columnstore em cluster. Melhora o desempenho quando duas tabelas de hash são associadas na mesma coluna de distribuição. |
 | Dimensão      | Utilize replicado para tabelas de menores. Se tabelas são demasiado grandes para armazenar em cada nó de computação, utilize distribuída por hash. |
-| Testes        | Utilize o round robin para a tabela de testes. A carga com CTAS é rápida. Quando os dados estiverem na tabela de teste, utilize INSERT... SELECIONE para mover os dados para tabelas de produção. |
+| Teste        | Utilize o round robin para a tabela de testes. A carga com CTAS é rápida. Quando os dados estiverem na tabela de teste, utilize INSERT... SELECIONE para mover os dados para tabelas de produção. |
 
 ## <a name="table-partitions"></a>Partições da tabela
 Uma tabela particionada armazena e executa operações em linhas da tabela, de acordo com os intervalos de dados. Por exemplo, uma tabela pode ser particionada por dia, mês ou ano. Pode melhorar o desempenho de consulta através de eliminação de partições, o que limita uma análise de consulta para dados dentro de uma partição. Também pode manter os dados por meio de alternância de partição. Uma vez que os dados no armazém de dados do SQL já tenham sido distribuídos, demasiadas partições podem abrandar o desempenho de consulta. Para obter mais informações, consulte [documentação de orientação de criação de partições](sql-data-warehouse-tables-partition.md).

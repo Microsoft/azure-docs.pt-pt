@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600311"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823863"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: Um dicionário de terminologia de cloud na plataforma do Azure
 
@@ -39,7 +39,7 @@ Outro nome para o [aplicação de serviço de aplicações](#app-service-app).
 ## <a name="app-service-app"></a>Aplicação do Serviço de Aplicações
 Os recursos de computação que [App Service do Azure](app-service/overview.md) fornece para alojar uma site ou aplicação web, web API, ou [back-end de aplicação móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicações de serviço de aplicações são também denominadas *dos serviços de aplicações*, *aplicações web*, *aplicações API*, e *aplicações móveis*.
 
-## <a name="availability-set"></a>Conjunto de disponibilidade
+## <a name="availability-set"></a>conjunto de disponibilidade
 Uma coleção de máquinas virtuais que são geridos em conjunto para fornecer redundância de aplicativos e a confiabilidade. A utilização de um conjunto de disponibilidade garante que, durante um evento de manutenção planeada ou, pelo menos uma máquina virtual está disponível.  
 Ver [gerir a disponibilidade das máquinas de virtuais do Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) e [gerir a disponibilidade das máquinas virtuais do Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -49,7 +49,7 @@ Uma de duas [modelos de implementação](resource-manager-deployment-model.md) u
 ## <a name="cli"></a>Interface de linha de comandos (CLI) do Azure
 Uma interface de linha de comandos que pode ser utilizada para gerir serviços do Azure a partir do Windows, macOS e Linux.  Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI. Consulte [da CLI do Azure](/cli/azure)
 
-## <a name="powershell"></a>O Azure PowerShell
+## <a name="powershell"></a>Azure PowerShell
 Uma interface de linha de comandos para gerir serviços do Azure através de uma linha de comandos a partir de Windows PCs. Alguns serviços ou funcionalidades de serviço podem ser geridas apenas através do PowerShell ou a CLI.
 Consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview)
 
@@ -60,7 +60,7 @@ Uma de duas [modelos de implementação](resource-manager-deployment-model.md) u
 A coleção de máquinas virtuais num conjunto de disponibilidade que possivelmente pode falhar ao mesmo tempo. Um exemplo é um grupo de máquinas num bastidor que partilham um comutador de rede e fonte de energia comum. No Azure, as máquinas virtuais num conjunto de disponibilidade automaticamente estão separadas através de vários domínios de falha.  
 Ver [gerir a disponibilidade das máquinas de virtuais do Windows](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [gerir a disponibilidade das máquinas virtuais do Linux](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
-## <a name="geo"></a>Geo
+## <a name="geo"></a>geo
 Um limite definido para residência de dados que normalmente contém duas ou mais regiões. Os limites podem estar dentro ou além das fronteiras nacionais e são influenciados por regulamento de imposto. Cada geo tem pelo menos uma região. Exemplos de áreas geográficas são Ásia-Pacífico e Japão. Também denominado *geografia*.  
 Consulte [regiões do Azure](best-practices-availability-paired-regions.md)
 
@@ -77,7 +77,7 @@ Consulte [navegar e selecionadas imagens de máquinas virtuais do Windows no Azu
 O número de recursos que podem ser criados ou o parâmetro de comparação de desempenho que pode ser alcançado. Limites são normalmente associadas a subscrições, serviços e ofertas.  
 Consulte [subscrição do Azure e limites do serviço, quotas e restrições](azure-subscription-service-limits.md)
 
-## <a name="load-balancer"></a>Balanceador de carga
+## <a name="load-balancer"></a>balanceador de carga
 Um recurso que distribui o tráfego de entrada entre computadores numa rede. No Azure, um balanceador de carga distribui o tráfego para as máquinas virtuais definidas num conjunto de Balanceador de carga. R [Balanceador de carga](load-balancer/load-balancer-overview.md) pode ser o acesso à internet ou pode ser interno.  
 
 ## <a name="mobile-app"></a>aplicação móvel
@@ -147,7 +147,7 @@ Um recurso que implementa a comportamentos ou recursos que o ajudam a outros pro
 Ver [sobre as funcionalidades (Windows) e extensões de máquinas virtuais](virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ou [sobre extensões da máquina virtual e os recursos (Linux)](virtual-machines/linux/extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="vnet"></a>Rede virtual
-Uma rede que fornece conectividade entre os recursos do Azure que se encontra isolada de outros inquilinos do Azure. Uma [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) permite-lhe estabelecer ligações entre redes virtuais e [entre uma rede virtual e uma rede no local](vpn-gateway/vpn-gateway-plan-design.md). Pode controlar totalmente os blocos de endereços IP, definições de DNS, as políticas de segurança e tabelas de rotas dentro de uma rede virtual.  
+Uma rede que fornece conectividade entre os recursos do Azure que se encontra isolada de outros inquilinos do Azure. Uma [Gateway de VPN do Azure](vpn-gateway/vpn-gateway-about-vpngateways.md) permite-lhe estabelecer ligações entre redes virtuais e entre uma rede virtual e uma rede no local. Pode controlar totalmente os blocos de endereços IP, definições de DNS, as políticas de segurança e tabelas de rotas dentro de uma rede virtual.  
 Consulte [descrição geral da rede Virtual](virtual-network/virtual-networks-overview.md)  
 
 ## <a name="web-app"></a>Aplicação Web

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/19/2019
+ms.date: 02/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: df4ae4b0c3f230947e0b9a5885070049f32a4b2f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: fb96d69604ce341cec2de029f9663f6b8d274876
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429867"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822383"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -39,7 +39,7 @@ Gestão de atualizações pode ser utilizado de forma nativa carregar máquinas 
 
 Assim que um CVE versão, demora 2 a 3 horas para o patch seja apresentado para computadores Linux para avaliação.  Para máquinas Windows, demora de 12 a 15 horas para o patch a aparecer para avaliação, após ele foi lançado.
 
-Depois de um computador realiza uma análise de conformidade de atualização, o agente reencaminha as informações em massa para o Azure Log Analytics. Num computador Windows, a análise de conformidade é executada a cada 12 horas por predefinição.
+Depois de um computador realiza uma análise de conformidade de atualização, o agente reencaminha as informações em massa para os registos do Azure Monitor. Num computador Windows, a análise de conformidade é executada a cada 12 horas por predefinição.
 
 Além do agendamento da análise, a análise da compatibilidade de atualização é iniciada dentro de 15 minutos do MMA ser reiniciado, antes da instalação da atualização e após a instalação de atualização.
 
@@ -58,7 +58,7 @@ As atualizações são instaladas por runbooks na Automatização do Azure. Não
 
 A data e hora especificada na implementação de atualização, os computadores de destino executar a implantação em paralelo. Antes da instalação, executar uma análise para verificar se as atualizações são ainda necessárias. Para computadores de cliente do WSUS, se as atualizações não aprovadas no WSUS, a implementação de atualização falha.
 
-Ter uma máquina registados para gestão de atualizações em mais do que um Log Analytics áreas de trabalho (multi-homing) não é suportada.
+Ter uma máquina registados para gestão de atualizações em mais do que uma áreas de trabalho do Log Analytics (multi-homing) não é suportada.
 
 ## <a name="clients"></a>Clientes
 
@@ -94,7 +94,7 @@ Agentes do Windows tem de ser configurados para comunicar com um servidor WSUS o
 
 Para o Linux, a máquina tem de ter acesso a um repositório de atualização. O repositório de atualização pode ser privado ou público. TLS 1.1 ou 1.2 de TLS é necessário para interagir com a gestão de atualizações. Um agente de Log Analytics para Linux está configurado para reportar a mais do que uma áreas de trabalho do Log Analytics não é suportado com esta solução.
 
-Para obter informações sobre como instalar o agente do Log Analytics para Linux e para transferir a versão mais recente, consulte [agente do Operations Management Suite para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o Log Analytics agente para Windows, consulte [Operations Management Suite agente para Windows](../log-analytics/log-analytics-windows-agent.md).
+Para obter informações sobre como instalar o agente do Log Analytics para Linux e para transferir a versão mais recente, consulte [agente do Log Analytics para Linux](https://github.com/microsoft/oms-agent-for-linux). Para obter informações sobre como instalar o Log Analytics agente para Windows, consulte [Microsoft Monitoring Agent para Windows](../log-analytics/log-analytics-windows-agent.md).
 
 ## <a name="permissions"></a>Permissões
 
@@ -120,10 +120,10 @@ Se o grupo de gestão do System Center Operations Manager estiver ligado a uma �
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Pacote de Gestão de Implementação de Atualização
 
-Para obter mais informações sobre como são atualizados os pacotes de gestão de solução, consulte [ligar o Operations Manager ao Log Analytics](../azure-monitor/platform/om-agents.md).
+Para obter mais informações sobre como são atualizados os pacotes de gestão de solução, consulte [registos de ligar o Operations Manager para o Azure Monitor](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
-> Para sistemas com o agente do Operations Manager, para poder ser completamente geridos pela gestão de atualizações, o agente tem de ser atualizado para o Microsoft Monitoring Agent. Para saber como atualizar o agente, veja [como atualizar um agente do Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
+> Para sistemas com o agente do Operations Manager, para poder ser completamente geridos pela gestão de atualizações, o agente tem de ser atualizado para o Microsoft Monitoring Agent. Para saber como atualizar o agente, veja [como atualizar um agente do Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). Para ambientes com o Operations Manager, é necessário que está a executar System Center Operations Manager 2012 R2 UR 14 ou posterior.
 
 ## <a name="onboard"></a>Ativar a gestão de atualizações
 
@@ -136,7 +136,7 @@ Para iniciar a aplicação de patches de sistemas, terá de ativar a solução d
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirme que as máquinas não Azure são carregadas
 
-Para confirmar que as máquinas ligadas diretamente estão a comunicar com o Log Analytics, após alguns minutos, pode executar um as pesquisas de registos seguinte.
+Para confirmar que as máquinas ligadas diretamente estão a comunicar com os registos do Azure Monitor, após alguns minutos, pode executar um as pesquisas de registos seguinte.
 
 #### <a name="linux"></a>Linux
 

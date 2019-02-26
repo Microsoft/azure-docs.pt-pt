@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 29b8e0953109238b724cc8df9f456706f71a041e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: ba1c60d45fb53be158d9e302748366ddf417f23e
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341628"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805482"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Lista de atribuições para recursos do Azure com a API REST de negação
 
-Atualmente, as atribuições de negação são **só de leitura** e só podem ser definidas pelo Azure. Apesar de não ser possível criar as suas próprias atribuições de negação, pode listar atribuições de negação, porque elas poderiam afetar as suas permissões em vigor. Este artigo descreve como negar que para listar atribuições com o RBAC e a API REST.
+Atualmente, negar atribuições são **só de leitura** e só pode ser definida pela Microsoft. Apesar de não ser possível criar as suas próprias atribuições de negação, pode listar atribuições de negação, porque elas poderiam afetar as suas permissões em vigor. Este artigo descreve como negar que para listar atribuições com o RBAC e a API REST.
 
 ## <a name="list-a-single-deny-assignment"></a>Lista de um único negar atribuição
 

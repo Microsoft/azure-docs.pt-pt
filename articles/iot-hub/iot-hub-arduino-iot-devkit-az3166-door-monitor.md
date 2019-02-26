@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 293c2325f57f04c3a77b0b2b8ec2ef30e8c912b8
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: d5c92e31850cdac5e05021fd231259b0d3b064d1
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156243"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822809"
 ---
 # <a name="door-monitor"></a>Monitor de porta          
 
@@ -66,7 +66,7 @@ Pode agora ver o formulário de inscrição do SendGrid.
 
 Preencha o formulário de inscrição:
 
-   * **Grupo de recursos**: Criar um grupo de recursos para alojar o serviço SendGrid ou utilize um já existente. Ver [utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-portal.md).
+   * **Grupo de recursos**: Criar um grupo de recursos para alojar o serviço SendGrid ou utilize um já existente. Ver [utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **Nome**: O nome para o seu serviço SendGrid. Escolha um nome exclusivo, que difere de outros serviços que pode ter.
 
@@ -106,7 +106,7 @@ O formulário de inscrição é apresentado.
 
 Preencha os campos do formulário de inscrição.
 
-   * **Grupo de recursos**: Criar um grupo de recursos para alojar o serviço SendGrid ou utilize um já existente. Ver [utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-portal.md).
+   * **Grupo de recursos**: Criar um grupo de recursos para alojar o serviço SendGrid ou utilize um já existente. Ver [utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 
    * **Nome do IOT Hub**: O nome do hub IoT. Escolha um nome exclusivo, que difere de outros serviços que pode ter.
 

@@ -1,6 +1,6 @@
 ---
-title: Reencaminhar dados de tarefa da Automatização do Azure para o Log Analytics
-description: Este artigo demonstra como enviar estado da tarefa e o runbook fluxos de trabalho para o Azure Log Analytics para fornecer informações adicionais e gestão.
+title: Reencaminhar dados de tarefa da automatização do Azure para registos do Azure Monitor
+description: Este artigo demonstra como enviar estado da tarefa e o runbook fluxos de trabalho para registos do Azure do Azure Monitor para fornecer informações adicionais e gestão.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 34a695daa077e882e911d3fb59f8a30e39c3a9d2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 10497d40dcf67fb18d40eba02ec9e95c45be097b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756636"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820863"
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para o Log Analytics
+# <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para registos do Azure Monitor
 
-Automatização pode enviar as runbook fluxos de estado e a tarefa de trabalho para a área de trabalho do Log Analytics. Este processo não envolve a ligação de área de trabalho e é completamente independente. Registos de trabalhos e fluxos de trabalho são visíveis no portal do Azure ou com o PowerShell, para tarefas individuais e Isto permite-lhe realizar investigações simples. Agora com o Log Analytics, pode:
+Automatização pode enviar as runbook fluxos de estado e a tarefa de trabalho para a área de trabalho do Log Analytics. Este processo não envolve a ligação de área de trabalho e é completamente independente. Registos de trabalhos e fluxos de trabalho são visíveis no portal do Azure ou com o PowerShell, para tarefas individuais e Isto permite-lhe realizar investigações simples. Agora com os registos do Azure Monitor, pode:
 
 * Obter informações sobre as suas tarefas de Automatização.
 * Acionador de um e-mail ou o alerta com base no seu estado de tarefa de runbook (por exemplo, falha ou suspenso).
@@ -26,12 +26,14 @@ Automatização pode enviar as runbook fluxos de estado e a tarefa de trabalho p
 * Correlacionar tarefas em contas de Automatização.
 * Visualizar o seu histórico de tarefas ao longo do tempo.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites-and-deployment-considerations"></a>Pré-requisitos e considerações de implementação
 
-Para começar a enviar os registos de automatização para o Log Analytics, tem de:
+Para começar a enviar os registos de automatização para registos do Azure Monitor, é necessário:
 
 * Versão de Novembro 2016 ou posterior do [do Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
-* Uma área de trabalho do Log Analytics. Para obter mais informações, consulte [introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md). 
+* Uma área de trabalho do Log Analytics. Para obter mais informações, consulte [começar a utilizar com os registos do Azure Monitor](../log-analytics/log-analytics-get-started.md). 
 * O ResourceId para a sua conta de automatização do Azure.
 
 Para localizar o ResourceId para a sua conta de automatização do Azure:
@@ -52,7 +54,7 @@ Se tiver mais do que um contas de automatização ou encontrar áreas de trabalh
 
 Se precisa localizar o *Name* da sua conta de automatização no portal do Azure, selecione a conta de automatização da **conta de automatização** painel e selecione **todas as definições** . A partir do painel **Todas as definições**, em **Definições da Conta** selecione **Propriedades**.  No painel **Propriedades**, pode ter em atenção estes valores.<br> ![Propriedades da conta de automatização](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
-## <a name="set-up-integration-with-log-analytics"></a>Configurar a integração com o Log Analytics
+## <a name="set-up-integration-with-azure-monitor-logs"></a>Configurar a integração com os registos do Azure Monitor
 
 1. No seu computador, inicie **Windows PowerShell** partir do **iniciar** ecrã.
 2. Execute o PowerShell seguinte e editar o valor para o `[your resource id]` e `[resource id of the log analytics workspace]` com os valores do passo anterior.
@@ -64,9 +66,9 @@ Se precisa localizar o *Name* da sua conta de automatização no portal do Azure
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-Depois de executar este script, pode demorar uma hora antes de começar a ver registos no Log Analytics de novas JobLogs ou JobStreams que estão sendo gravados.
+Depois de executar este script, pode demorar uma hora antes de começar a ver registos nos registos do Azure Monitor do novo JobLogs ou JobStreams que estão sendo gravados.
 
-Para ver os registos, execute a seguinte consulta na pesquisa de registos do Log Analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+Para ver os registos, execute a seguinte consulta na pesquisa de registos do log analytics: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>Verificar configuração
 
@@ -81,9 +83,9 @@ Na saída Certifique-se de que:
 * Sob *Logs*, o valor de *ativado* é *verdadeiro*.
 * O valor de *WorkspaceId* está definido como o ResourceId dos sua área de trabalho do Log Analytics.
 
-## <a name="log-analytics-records"></a>Registos do Log Analytics
+## <a name="azure-monitor-log-records"></a>Registros de logs de Monitor do Azure
 
-Diagnóstico da automatização do Azure cria dois tipos de registos no Log Analytics e é etiquetado como **AzureDiagnostics**. As consultas seguintes utilizam a linguagem de consulta atualizado para o Log Analytics. Para obter informações sobre consultas comuns entre o idioma de consulta legada e a nova linguagem de consulta do Log Analytics do Azure, visite [herdados para a nova folha de referência rápida de linguagem de consulta do Azure Log Analytics](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
+Cria dois tipos de registos no Azure Monitor registos de diagnóstico da automatização do Azure e é etiquetado como **AzureDiagnostics**. As consultas seguintes utilizam a linguagem de consulta atualizado nos registos do Azure Monitor. Para obter informações sobre consultas comuns entre o idioma de consulta legada e a nova linguagem de consulta de Kusto do Azure, visite [herdados para a nova folha de referência rápida de linguagem de consulta de Kusto do Azure](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### <a name="job-logs"></a>Registos da tarefa
 
@@ -98,7 +100,7 @@ Diagnóstico da automatização do Azure cria dois tipos de registos no Log Anal
 | Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs. |
 | OperationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho. |
 | Recurso | Nome da conta de automatização |
-| SourceSystem | Como o Log Analytics recolhidos os dados. Sempre *Azure* para obter um diagnóstico do Azure. |
+| SourceSystem | Como o Azure Monitor registos recolhidos os dados. Sempre *Azure* para obter um diagnóstico do Azure. |
 | ResultDescription |Descreve o estado do resultado do trabalho do runbook. Os valores possíveis são:<br>- Trabalho iniciado<br>- Trabalho falhado<br>- Trabalho Concluído |
 | CorrelationId |GUID que é o Id de Correlação do trabalho do runbook. |
 | ResourceId |Especifica o id de recurso de conta de automatização do Azure do runbook. |
@@ -121,7 +123,7 @@ Diagnóstico da automatização do Azure cria dois tipos de registos no Log Anal
 | Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams. |
 | OperationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho. |
 | Recurso | Nome da conta de automatização |
-| SourceSystem | Como o Log Analytics recolhidos os dados. Sempre *Azure* para obter um diagnóstico do Azure. |
+| SourceSystem | Como o Azure Monitor registos recolhidos os dados. Sempre *Azure* para obter um diagnóstico do Azure. |
 | ResultDescription |Inclui o fluxo de saída do runbook. |
 | CorrelationId |GUID que é o Id de Correlação do trabalho do runbook. |
 | ResourceId |Especifica o id de recurso de conta de automatização do Azure do runbook. |
@@ -130,9 +132,9 @@ Diagnóstico da automatização do Azure cria dois tipos de registos no Log Anal
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
 
-## <a name="viewing-automation-logs-in-log-analytics"></a>Automatização de visualizar registos no Log Analytics
+## <a name="viewing-automation-logs-in-azure-monitor-logs"></a>Visualizar registos de automatização nos registos do Azure Monitor
 
-Agora que iniciou a enviar os registos da tarefa de automatização para o Log Analytics, vejamos o que pode fazer com estes registos no Log Analytics.
+Agora que iniciou a enviar os registos da tarefa de automatização para registos do Azure Monitor, vejamos o que pode fazer com estes registos no interior de registos do Azure Monitor.
 
 Para ver os registos, execute a seguinte consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
@@ -141,7 +143,7 @@ Um dos principais clientes pede destina-se a capacidade de enviar um e-mail ou u
 
 Para criar uma regra de alerta, começa criando uma pesquisa de registos para os registos de tarefa de runbook que deve invocar o alerta. Clique nas **alerta** botão para criar e configurar a regra de alerta.
 
-1. Na página Descrição geral do Log Analytics, clique em **pesquisa de registos**.
+1. Na página de descrição geral de área de trabalho do Log Analytics, clique em **ver registos**.
 2. Crie uma consulta de pesquisa de registo para o alerta, escrevendo a seguinte pesquisa no campo de consulta: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  Também pode agrupar pelo RunbookName utilizando: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Se configurar os registos de mais do que uma subscrição ou conta de automatização à área de trabalho, pode agrupar os alertas por conta de automatização e subscrição. Nome da conta de automatização pode ser encontrado no campo de recurso na pesquisa de JobLogs.
@@ -150,7 +152,7 @@ Para criar uma regra de alerta, começa criando uma pesquisa de registos para os
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Encontrar todas as tarefas que foram concluídos com erros
 Para além de alertas sobre falhas, pode encontrar quando uma tarefa de runbook tem um erro de não terminação. Nestes casos PowerShell produz uma sequência de erro, mas os erros de não terminação não fazer com que o seu trabalho a suspender ou falhar.    
 
-1. Na área de trabalho do Log Analytics, clique em **pesquisa de registos**.
+1. Na área de trabalho do Log Analytics, clique em **registos**.
 2. No campo de consulta, escreva `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` e, em seguida, clique nas **pesquisa** botão.
 
 ### <a name="view-job-streams-for-a-job"></a>Fluxos de trabalho de vista de uma tarefa
@@ -176,15 +178,15 @@ Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="summary"></a>Resumo
 
-Ao enviar os dados de estado e o fluxo da tarefa de automatização para o Log Analytics, pode obter mais idéias sobre o estado das suas tarefas de automatização por:
+Ao enviar os dados de estado e o fluxo da tarefa de automatização para registos do Azure Monitor, pode obter mais idéias sobre o estado das suas tarefas de automatização por:
 + Configuração de alertas para notificá-lo quando existe um problema.
 + Utilizar vistas personalizadas e consultas de pesquisa para visualizar os resultados do runbook, estado da tarefa de runbook e outras associadas principais indicadores ou métricas.  
 
-O log Analytics fornece maior visibilidade operacional para as tarefas de automatização e pode ajudar a incidentes de endereço mais rápidos.  
+Registos de Monitor do Azure fornece maior visibilidade operacional para as tarefas de automatização e pode ajudar a incidentes de endereço mais rápidos.  
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre como construir consultas de pesquisa diferentes e rever os registos da tarefa de automatização com o Log Analytics, consulte [pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md).
+* Para saber mais sobre como construir consultas de pesquisa diferentes e rever os registos da tarefa de automatização com os registos do Azure Monitor, consulte [pesquisas de registos nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 * Para compreender como criar e recuperar mensagens de erro e de saída a partir de runbooks, veja [Runbook de saída e mensagens](automation-runbook-output-and-messages.md).
 * Para saber mais sobre a execução de runbooks, como monitorizar tarefas de runbooks e outros detalhes técnicos, veja [Acompanhar uma tarefa de runbook](automation-runbook-execution.md).
-* Para saber mais sobre o Log Analytics e origens de recolha de dados, veja [dados de armazenamento do Azure recolha na descrição geral do Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Para saber mais sobre os registos do Azure Monitor e origens de recolha de dados, veja [descrição geral de registos de dados do armazenamento do Azure a recolher no Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md).
 

@@ -62,6 +62,7 @@ items:
     - name: Empacotamento
       items:
       - name: Empacotamento dinâmico
+        displayName: packager
         href: dynamic-packaging-overview.md
       - name: Filtros
         href: filters-concept.md
@@ -241,9 +242,9 @@ items:
     href: frequently-asked-questions.md
   - name: Regiões e clouds do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: b73b6018a2627918ebf31a046422c09f80d900e2
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d8078f88c436b54e2f0b3a2edd1916684168af37
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652820"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807060"

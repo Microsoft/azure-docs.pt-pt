@@ -9,19 +9,19 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431219"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821358"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Resultado do Runbook e mensagens na automatização do Azure
 A maioria dos runbooks de automatização do Azure têm alguma forma de saída. Este resultado pode ser uma mensagem de erro para o utilizador ou um objeto complexo que pretende utilizar com outro runbook. Windows PowerShell fornece [vários fluxos](/powershell/module/microsoft.powershell.core/about/about_redirection) para enviar a saída de um script ou o fluxo de trabalho. A automatização do Azure funciona com cada um desses fluxos de forma diferente. Deve seguir as melhores práticas para saber como utilizar cada quando estiver a criar um runbook.
 
 A tabela seguinte fornece uma breve descrição de cada um dos fluxos e do respetivo comportamento no portal do Azure para runbooks publicados e quando [testar um runbook](automation-testing-runbook.md). Existem mais detalhes sobre cada fluxo são fornecidos nas secções posteriores.
 
-| Transmissão | Descrição | Publicado | Teste |
+| Transmitir em fluxo | Descrição | Publicado | Teste |
 |:--- |:--- |:--- |:--- |
 | Saída |Objetos destinados a ser consumidos por outros runbooks. |Escrito no histórico da tarefa. |Apresentado no painel de resultados do teste. |
 | Aviso |Mensagem de aviso para o utilizador. |Escrito no histórico da tarefa. |Apresentado no painel de resultados do teste. |
@@ -220,8 +220,8 @@ Pode ver na captura de ecrã anterior que, quando ativa a verboso registo e o ra
    
    ![Registo de criação gráfica e rastreamento de página](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-log-analytics"></a>Do Microsoft Azure Log Analytics
-Automatização pode enviar as runbook fluxos de estado e a tarefa de trabalho para a área de trabalho do Log Analytics. Com o Log Analytics, pode,
+### <a name="microsoft-azure-monitor-logs"></a>Registos do Microsoft Azure Monitor
+Automatização pode enviar as runbook fluxos de estado e a tarefa de trabalho para a área de trabalho do Log Analytics. Com os registos do Azure Monitor, pode,
 
 * Obtenha informações sobre as tarefas de automatização 
 * Acionar um e-mail ou o alerta com base no seu estado de tarefa de runbook (por exemplo, falha ou suspensas) 
@@ -229,7 +229,7 @@ Automatização pode enviar as runbook fluxos de estado e a tarefa de trabalho p
 * Obtenha uma correlação tarefas entre contas de automatização 
 * Visualizar o histórico de tarefas ao longo do tempo    
 
-Para obter mais informações sobre como configurar a integração com o Log Analytics para recolher, correlacionar e atuar sobre os dados da tarefa, consulte [reencaminhar o estado da tarefa e fluxos de trabalho de automatização para o Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Para obter mais informações sobre como configurar a integração com os registos do Azure Monitor para recolher, correlacionar e atuar sobre os dados da tarefa, consulte [reencaminhar o estado da tarefa e fluxos de trabalho de automatização para registos do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Para saber mais sobre a execução dos runbooks, como monitorizar trabalhos de runbooks e outros detalhes técnicos, veja [Track a runbook job (Acompanhar um trabalho de runbook)](automation-runbook-execution.md)

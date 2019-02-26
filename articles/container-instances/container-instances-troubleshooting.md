@@ -2,19 +2,19 @@
 title: Resolução de problemas de instâncias de contentor do Azure
 description: Saiba como resolver problemas com o Azure Container Instances
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/08/2019
-ms.author: seanmck
+ms.date: 02/15/2019
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 609d52f9f2c5dce1bbfd668e94db25aca3d52f69
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: bfa616fb16470a3543f8c981a0104f6bda24cf4d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119055"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823484"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -66,7 +66,7 @@ Se a imagem não pode ser obtida, eventos semelhantes ao seguinte são apresenta
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "pulling image \"microsoft/aci-hellowrld\"",
+    "message": "pulling image \"microsoft/aci-helloworld\"",
     "name": "Pulling",
     "type": "Normal"
   },
@@ -74,7 +74,7 @@ Se a imagem não pode ser obtida, eventos semelhantes ao seguinte são apresenta
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:19+00:00",
     "lastTimestamp": "2017-12-21T22:57:00+00:00",
-    "message": "Failed to pull image \"microsoft/aci-hellowrld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
+    "message": "Failed to pull image \"microsoft/aci-helloworld\": rpc error: code 2 desc Error: image t/aci-hellowrld:latest not found",
     "name": "Failed",
     "type": "Warning"
   },
@@ -82,7 +82,7 @@ Se a imagem não pode ser obtida, eventos semelhantes ao seguinte são apresenta
     "count": 3,
     "firstTimestamp": "2017-12-21T22:56:20+00:00",
     "lastTimestamp": "2017-12-21T22:57:16+00:00",
-    "message": "Back-off pulling image \"microsoft/aci-hellowrld\"",
+    "message": "Back-off pulling image \"microsoft/aci-helloworld\"",
     "name": "BackOff",
     "type": "Normal"
   }
@@ -93,7 +93,7 @@ Se a imagem não pode ser obtida, eventos semelhantes ao seguinte são apresenta
 
 Grupos de contentor predefinido para um [política de reinício](container-instances-restart-policy.md) dos **sempre**, por isso, os contentores no grupo de contentores sempre reiniciado depois de executarem até à conclusão. Poderá ter de alterar esta opção para **OnFailure** ou **Never** se pretende executar contentores com base em tarefas. Se especificar **OnFailure** e veja ainda contínua é reiniciado, pode haver um problema com a aplicação ou script foi executado no seu contentor.
 
-Quando executar a grupos de contentores sem processos de longa execução, que pode ver repetido sai e reinícios com imagens, tais como o Ubuntu ou Alpine. Pode ligar através do [EXEC](container-instances-exec.md) não irá funcionar conforme o contentor não tem nenhum processo mantê-lo ativo. Para resolver isto incluir um comando de início como o seguinte à sua implementação do grupo de contentor para manter o contentor em execução.
+Quando executar a grupos de contentores sem processos de longa execução, que pode ver repetido sai e reinícios com imagens, tais como o Ubuntu ou Alpine. Pode ligar através do [EXEC](container-instances-exec.md) não irá funcionar conforme o contentor não tem nenhum processo mantê-lo ativo. Para resolver este problema, inclua um comando de início como o seguinte à sua implementação do grupo de contentor para manter o contentor em execução.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -178,12 +178,12 @@ Outra forma de reduzir o impacto da solicitação de imagem no tempo de iniciali
 
 ### <a name="cached-windows-images"></a>Imagens do Windows em cache
 
-O Azure Container Instances utiliza um mecanismo de colocação em cache para ajudar a acelerar o tempo de inicialização contentor de imagens com base em determinadas imagens do Windows.
+O Azure Container Instances utiliza um mecanismo de colocação em cache para ajudar a acelerar o tempo de inicialização contentor de imagens com base nas imagens comuns do Windows e Linux. Para obter uma lista detalhada de em cache de imagens e etiquetas, utilize o [lista de imagens em cache] [ list-cached-images] API.
 
 Para garantir que o tempo de inicialização de contentor do Windows mais rápido, utilize um da **três mais recente** versões dos seguintes **duas imagens** como a imagem base:
 
-* [Windows Server 2016] [ docker-hub-windows-core] (apenas LTS)
-* [Servidor de Nano do Windows Server 2016][docker-hub-windows-nano]
+* [Windows Server Core 2016] [ docker-hub-windows-core] (LTSC apenas)
+* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contentores do Windows
 
@@ -207,10 +207,12 @@ Este erro indica que, devido a uma carga pesada na região em que está a tentar
 O Azure Container Instances não expõe o acesso direto para a infraestrutura subjacente que aloja a grupos de contentores. Isto inclui o acesso à API do Docker em execução no anfitrião do contentor e contentores com privilégios em execução. Se necessitar de interação de Docker, verifique os [documentação de referência do REST](https://aka.ms/aci/rest) para ver o que suporta da API ACI. Se houver algo em falta, submeta um pedido no [fóruns de comentários do ACI](https://aka.ms/aci/feedback).
 
 ## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IPs não estar acessível devido a portas não correspondentes
+
 O Azure Container Instances não suporta atualmente mapeamento de porta, como com a configuração de regular docker, no entanto, esta correção está nas previsões. Se encontrar IPs não estão acessíveis quando considerar que deve ser, certifique-se de que configurou a sua imagem de contentor para ouvir as mesmas portas expor no seu grupo de contentores com o `ports` propriedade.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba como [obter eventos e registos de contentor](container-instances-get-logs.md) para ajudar a depurar os contentores.
+
+Saiba como [obter registos de contentor e eventos](container-instances-get-logs.md) para ajudar a depurar os contentores.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
@@ -221,3 +223,4 @@ Saiba como [obter eventos e registos de contentor](container-instances-get-logs.
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
+[list-cached-images]: /rest/api/container-instances/listcachedimages

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8f57310cf4dbc2a27761fc44cfde6c8fd2791a2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cf82a80d0b812ab5540796c8e7758e6ff85952c5
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005544"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804795"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Como atualizar módulos do Azure PowerShell na automatização do Azure
 
@@ -84,6 +84,10 @@ Seguem-se algumas considerações para levar em conta ao utilizar este processo 
 > A automatização do Azure utiliza os módulos mais recentes na sua conta de automatização quando é executada uma nova tarefa agendada.  
 
 Se utilizar cmdlets destes módulos do PowerShell do Azure nos runbooks, quer para executar este processo de atualização de todos os meses, ou então, para se certificar de que tem os módulos mais recentes. A automatização do Azure utiliza o `AzureRunAsConnection` ligação para se autenticar ao atualizar os módulos. Se o principal de serviço expirou ou já não existe no nível da subscrição, a atualização de módulo irá falhar.
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+Existe um problema conhecido com a atualizar os módulos AzureRM numa conta de automatização que esteja num grupo de recursos com um nome numérico que começa com 0. Para atualizar seus módulos do Azure na sua conta de automatização, tem de ser num grupo de recursos que tem um nome de alfanumérico. Grupos de recursos com nomes numérico, começando com 0 são não é possível atualizar os módulos AzureRM neste momento.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

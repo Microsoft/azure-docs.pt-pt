@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.openlocfilehash: 5d9819d60e21c80b882db1d12b0318599fa54095
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.date: 02/2/2018
+ms.openlocfilehash: 7b724219750154c5ec1410af64175bc70f5cbd6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729749"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805820"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Início rápido: Ingerir dados de Hub de eventos no Explorador de dados do Azure
 
@@ -103,11 +103,7 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
 
     ![Selecionar a base de dados de teste](media/ingest-data-event-hub/select-test-database.png)
 
-1. Selecione **Ingestão de dados** e, em seguida, **Adicionar ligação de dados**.
-
-    ![Ingestão de dados](media/ingest-data-event-hub/data-ingestion-create.png)
-
-1. Preencha o formulário com as seguintes informações e, em seguida, selecione **Criar**.
+1. Selecione **ingestão de dados** e **adicionar ligação de dados**. Em seguida, preencha o formulário com as seguintes informações. Selecione **criar** quando tiver terminado.
 
     ![Ligação ao hub de eventos](media/ingest-data-event-hub/event-hub-connection.png)
 

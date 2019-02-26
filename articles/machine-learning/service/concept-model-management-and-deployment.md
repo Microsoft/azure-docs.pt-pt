@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: chris-lauren
 ms.author: clauren
-ms.date: 09/24/2018
+ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7f24e242168fc969d0f0d920dce0e6d9562a295
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 810456114e1ce11562ae2ba014feb0a9a706c15d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241851"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820404"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gerir, implementar e monitorizar os modelos de serviço do Azure Machine Learning
 

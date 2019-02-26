@@ -5,17 +5,17 @@ description: Como converter uma experimentação de preparação para uma experi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b77c21b75147a9bb5203effb20379dc208122d05
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327600"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819152"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Implementar um serviço web do Azure Machine Learning Studio
 
@@ -209,7 +209,7 @@ Uma vez que implantou esta experiência antes, é-lhe perguntado se pretende sub
 > [!NOTE]
 > Se tiver efetuado alterações de configuração no original web service, por exemplo, introduzir um novo nome a apresentar ou a descrição, terá de introduzir novamente esses valores.
 
-Uma opção para atualizar o seu serviço web é para voltar a preparar programaticamente o modelo. Para obter mais informações, consulte [Retrain Machine Learning Studio dos modelos](retrain-models-programmatically.md).
+Uma opção para atualizar o seu serviço web é para voltar a preparar programaticamente o modelo. Para obter mais informações, consulte [Retrain Machine Learning Studio dos modelos](/azure/machine-learning/studio/retrain-machine-learning-model).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

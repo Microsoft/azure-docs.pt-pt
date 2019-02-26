@@ -2,27 +2,21 @@
 title: 'Configure o alcance Global - ExpressRoute: Azure | Microsoft Docs'
 description: Este artigo ajuda-o a ligar os circuitos do ExpressRoute em conjunto para garantir uma privada, de rede entre as redes no local e ativar o alcance Global.
 services: expressroute
-author: mialdrid
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2018
-ms.author: mialdrid
+ms.date: 02/25/2019
+ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: aff283da27197b11ee496faecdd8b69571d3547e
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431683"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821341"
 ---
-# <a name="configure-expressroute-global-reach-preview"></a>Configurar o ExpressRoute alcance Global (pré-visualização)
+# <a name="configure-expressroute-global-reach"></a>Configurar o Alcance Global do ExpressRoute
 Este artigo ajuda-o a configurar o ExpressRoute alcance Global com o PowerShell. Para obter mais informações, consulte [alcance Global do ExpressRouteRoute](expressroute-global-reach.md).
- 
-## <a name="before-you-begin"></a>Antes de começar
-> [!IMPORTANT]
-> Esta pré-visualização pública é fornecida sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
-
 
 Antes de iniciar a configuração, confirme o seguinte:
 

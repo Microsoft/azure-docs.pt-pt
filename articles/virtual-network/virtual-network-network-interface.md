@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 0de886e69f595d30332bdda2a71ae24891fdac00
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 37e1a308d63d782c6ff18c10a5874842341eeec7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649497"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818107"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -89,7 +89,7 @@ Pode ver e alterar a maioria das definições para uma interface de rede depois 
    - **Propriedades:** Apresenta as definições de chave sobre a interface de rede, incluindo o seu endereço de MAC (em branco se a interface de rede não está anexada a uma máquina virtual) e a subscrição sai.
    - **Regras de segurança efetivas:**  Regras de segurança são listadas se a interface de rede está ligada a uma máquina virtual em execução e um NSG é associado à interface de rede, a sub-rede que está atribuída a ou ambos. Para saber mais sobre o que é apresentado, veja [ver as regras de segurança efetivas](#view-effective-security-rules). Para saber mais sobre NSGs, consulte [grupos de segurança de rede](security-overview.md).
    - **Rotas efetivas:** As rotas são apresentadas se a interface de rede está ligada a uma máquina virtual em execução. As rotas são uma combinação das rotas predefinidas do Azure e quaisquer rotas BGP que possam existir para a sub-rede que a interface de rede é atribuída a quaisquer rotas definidas pelo utilizador. Para saber mais sobre o que é apresentado, veja [ver as rotas efetivas](#view-effective-routes). Para saber mais sobre as rotas predefinidas do Azure e as rotas definidas pelo utilizador, veja [descrição geral do encaminhamento](virtual-networks-udr-overview.md).
-   - **Definições comuns do Azure Resource Manager:**  Para saber mais sobre configurações comuns do Azure Resource Manager, veja [registo de atividades](../azure-monitor/platform/activity-logs-overview.md), [controlo de acesso (IAM)](../role-based-access-control/overview.md), [etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bloqueia](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e o [ Script de automação](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
+   - **Definições comuns do Azure Resource Manager:**  Para saber mais sobre configurações comuns do Azure Resource Manager, veja [registo de atividades](../azure-monitor/platform/activity-logs-overview.md), [controlo de acesso (IAM)](../role-based-access-control/overview.md), [etiquetas](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bloqueia](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e o [ Script de automação](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 <a name="view-settings-commands"></a>**Comandos**
 

@@ -8,14 +8,16 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 04726249809656344c8f81164d5deed5af321e71
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 450b27d21cf4079bdef6fc20c3f2e83f4e47cbd2
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355762"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806585"
 ---
-# <a name="manage-iot-central-from-azure-powershell"></a>Gerir o Centro de IoT do Azure PowerShell
+# <a name="manage-iot-central-from-azure-powershell"></a>Gerir o IoT Central a partir do Azure PowerShell
+
+[!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
 Em vez de criar e gerir aplicações de IoT Central a partir do Centro de IoT [Gerenciador de aplicativos](https://aka.ms/iotcentral) página, pode usar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) para gerir as suas aplicações.
 
@@ -65,7 +67,7 @@ O script cria primeiro um grupo de recursos na região Leste região dos EUA par
 |------------------|------------|
 |ResourceGroupName |O grupo de recursos que contém a aplicação. Este grupo de recursos tem de existir na sua subscrição. |
 |Localização |Por predefinição, este cmdlet utiliza a localização do grupo de recursos. Atualmente, pode criar uma aplicação IoT Central no **E.U.A. Leste**, **E.U.A. oeste**, **Europa do Norte**, ou **Europa Ocidental** regiões. |
-|Nome              |O nome da aplicação no portal do Azure. |
+|Name              |O nome da aplicação no portal do Azure. |
 |Subdomínio         |O subdomínio no URL da aplicação. No exemplo, o URL da aplicação é https://mysubdomain.azureiotcentral.com. |
 |Sku               |Atualmente, o único valor é **S1** (escalão standard). Ver [preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modelo          | O modelo de aplicação a utilizar. Para obter mais informações, consulte a tabela seguinte: |

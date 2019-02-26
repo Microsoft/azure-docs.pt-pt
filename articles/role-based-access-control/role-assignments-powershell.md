@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6d74ee8ee144667df49ba4226d1db720969e19bd
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 7e7d92b2995d8d68b08b78ee02549fe5e713c4dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588488"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817172"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gerir o acesso aos recursos do Azure através do RBAC e o Azure PowerShell
 
@@ -330,4 +330,4 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 - [Tutorial: Conceder um acesso de grupo de recursos do Azure através do RBAC e o Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Tutorial: Criar uma função personalizada para recursos do Azure com o Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Gerir recursos com o Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)
+- [Gerir recursos com o Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)

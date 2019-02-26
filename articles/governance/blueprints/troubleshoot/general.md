@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: cebbc8b61a806663e7cb58e0bf7fbdd589f46cca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 0d49045eea5a65461b142262bae83b9b8e7f84c8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343311"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816594"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Resolver problemas de erros usando os esquemas do Azure
 
@@ -24,11 +24,11 @@ Poderão ocorrer erros quando criar ou a atribuição de esquemas. Este artigo d
 
 Muitos erros será o resultado da atribuição de um plano gráfico para um âmbito. Quando uma tarefa falha, o plano gráfico fornece detalhes sobre a falha na implementação. Estas informações indicam o problema para que pode ser corrigido e a seguinte implementação com êxito.
 
-1. Clique em **Todos os serviços** e procure e selecione **Política**, no painel do lado esquerdo. Na página **Política**, clique em **Esquemas**.
+1. Selecione **todos os serviços** no painel esquerdo. Procure e selecione **esquemas**.
 
-1. Selecione **esquemas atribuídos** partir da página à esquerda e utilize a caixa de pesquisa para filtrar a atribuição de esquema para encontrar a atribuição falhou. Também pode ordenar a tabela de atribuições pela **estado de aprovisionamento** coluna para ver as atribuições de falhas todas agrupados em conjunto.
+1. Selecione **atribuído a planos gráficos** partir da página à esquerda e utilize a caixa de pesquisa para filtrar a atribuição de esquema para encontrar a atribuição falhou. Também pode ordenar a tabela de atribuições pela **estado de aprovisionamento** coluna para ver as atribuições de falhas todas agrupados em conjunto.
 
-1. Esquerdo no esquema com o _falhada_ Estado ou o botão direito do mouse e selecione **ver detalhes de atribuição**.
+1. Esquerdo no esquema com o _falhada_ Estado ou o botão direito do mouse e selecione **ver os detalhes de atribuição**.
 
 1. É uma faixa vermelha aviso de que a atribuição falhou na parte superior da página de atribuição de esquema. Clique em qualquer lugar na faixa para obter mais detalhes.
 

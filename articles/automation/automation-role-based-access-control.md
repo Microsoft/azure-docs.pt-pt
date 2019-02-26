@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 963bc8f6602a33ed703344f5277bb427f11390bb
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424324"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823523"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controlo de acesso baseado em funções na Automatização do Azure
 
@@ -142,7 +142,7 @@ Contribuidor do Log Analytics pode ler todos os dados de monitorização e edita
 |Microsoft.Compute/virtualMachines/extensions/*|Criar e gerir extensões de máquina virtual clássica.|
 |Microsoft.Insights/alertRules/*|Regras de alerta de leitura/escrita/eliminar.|
 |Microsoft.Insights/diagnosticSettings/*|Definições de diagnóstico de leitura/escrita/eliminar.|
-|Microsoft.OperationalInsights/*|Gerir o Log Analytics.|
+|Microsoft.OperationalInsights/*|Gerir registos do Azure Monitor.|
 |Microsoft.OperationsManagement/*|Gerir soluções em áreas de trabalho.|
 |Microsoft.Resources/deployments/*|Criar e gerir implementações de grupo de recursos.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Criar e gerir implementações de grupo de recursos.|
@@ -156,8 +156,8 @@ Um leitor do Log Analytics pode ver e procurar todos os dados de monitorização
 |**Ações**  |**Descrição**  |
 |---------|---------|
 |* / leitura|Ler os recursos de todos os tipos, exceto segredos.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Gerir consultas no Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/search/action|Pesquise dados do Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Gerir consultas nos registos do Azure Monitor.|
+|Microsoft.OperationalInsights/workspaces/search/action|Procure dados de registo do Azure Monitor.|
 |Microsoft.Support/*|Criar e gerir pedidos de suporte.|
 |**Ações de não**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Não é possível ler as chaves de acesso partilhado.|

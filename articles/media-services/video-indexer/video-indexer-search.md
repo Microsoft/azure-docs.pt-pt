@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d2c2e87b3dade68dc311aa38743c11a60a69f68b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6c93c0228425b2ff020e5b4301e68eae5b1062a3
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004558"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807835"
 ---
 # <a name="find-exact-moments-within-videos"></a>Localizar momentos exatos nos vídeos
 
@@ -23,12 +23,14 @@ Este tópico mostra-lhe as opções de pesquisa que lhe permitem localizar momen
 1. Aceda ao site do [Video Indexer](https://www.videoindexer.ai/) e inicie sessão.
 2. Pesquise entre todos os vídeos na sua conta.
 
-    No exemplo a seguir, vamos pesquisados todos os vídeos criados por Channel 9 com Scott Hanselman.
+    No exemplo a seguir, vamos procurar todos os vídeos que falam sobre segurança e em que Satya aparece,
 
     ![Pesquisa](./media/video-indexer-search/video-indexer-search01.png)
 3. Pesquise as informações resumidas do vídeo.
 
-    Em seguida, pode procurar dentro de um vídeo ao clicar em **reproduzir** no vídeo. Em seguida, pode pesquisar no vídeo, selecionando o **pesquisa** separador. Por exemplo, estamos procurando todos os locais onde o texto "identity protection" é utilizado. 
+    Em seguida, pode procurar dentro de um vídeo ao clicar em **reproduzir** no vídeo. Em seguida, pode pesquisar no vídeo, selecionando o **pesquisa** separador. 
+
+    No exemplo a seguir, vamos procurar "seguro" dentro de vídeo selecionado.
 
     ![Pesquisa](./media/video-indexer-search/video-indexer-search02.png)
 

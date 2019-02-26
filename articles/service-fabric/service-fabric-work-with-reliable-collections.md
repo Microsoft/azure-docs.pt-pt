@@ -3,8 +3,8 @@ title: Trabalhar com as Reliable Collections | Documentos da Microsoft
 description: Aprenda as melhores práticas para trabalhar com as Reliable Collections.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
-manager: jeanpaul.connock
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/22/2019
-ms.author: twhitney
-ms.openlocfilehash: 9e542143810745712fb148e0b5ebe126cc8a93bf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: aljo
+ms.openlocfilehash: 38aef6e5ba65f67a1dd30ba2c18e180cd92624c6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727885"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805318"
 ---
 # <a name="working-with-reliable-collections"></a>Trabalhar com as Reliable Collections
 Recursos de infraestrutura do serviço oferece um modelo de programação com monitoração de estado disponível para os desenvolvedores do .NET através de coleções fiáveis. Especificamente, o Service Fabric fornece classes de fila do reliable e de dicionário fiável. Quando usar essas classes, seu estado é particionado (para escalabilidade), replicado (para disponibilidade) e transacionado dentro de uma partição (para semântica ACID). Vamos examinar um uso típico de um objeto de dicionário fiável e ver o que está realmente fazendo.

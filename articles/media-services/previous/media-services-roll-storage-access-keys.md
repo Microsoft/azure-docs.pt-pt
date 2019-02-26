@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: cdf644ab37d7f2e15cb35a3234786900a1a64ec1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a49ab9b045854c49785546ed17834169ec29f8b8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733508"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816828"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Atualizar serviços de multimédia após sem interrupção de chaves de acesso de armazenamento 
 
 Quando cria uma nova conta de serviços de multimédia do Azure (AMS), é também solicitado para selecionar uma conta de armazenamento do Azure que é utilizada para armazenar o conteúdo de mídia. Pode adicionar mais contas de armazenamento à sua conta de Media Services. Este artigo mostra como Rodar chaves de armazenamento. Ela também mostra como adicionar contas de armazenamento para uma conta de suporte de dados. 
 
-Para executar as ações descritas neste artigo, deve estar usando [APIs do Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Para obter mais informações, consulte [como gerir recursos do Azure com o PowerShell e do Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Para executar as ações descritas neste artigo, deve estar usando [APIs do Azure Resource Manager](/rest/api/media/operations/azure-media-services-rest-api-reference) e [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Para obter mais informações, consulte [como gerir recursos do Azure com o PowerShell e do Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

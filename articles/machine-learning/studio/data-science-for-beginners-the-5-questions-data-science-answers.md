@@ -5,17 +5,17 @@ description: Ciência de dados para principiantes é ensina conceitos básicos e
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 93af2e283a1dd1ec11541087b33b3303c13364cc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 4483fc82ad4bf935153c76922fbece84c6ca2ea8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491999"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816914"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciência de dados para principiantes 1 vídeo: O 5 questões de respostas de ciência de dados
 Obtenha uma introdução rápida à ciência dos dados do *ciência de dados para principiantes* em cinco vídeos curtos de um cientista de dados principais. Estes vídeos são básico, útil, mas se estiver interessado em fazer ciência de dados ou trabalhar com os cientistas de dados.
@@ -136,4 +136,4 @@ Isso é tudo - pode responder a ciência de dados de perguntas a 5.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Tente uma primeira experimentação de ciência de dados com o Machine Learning Studio](create-experiment.md)
-* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](what-is-machine-learning.md)
+* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

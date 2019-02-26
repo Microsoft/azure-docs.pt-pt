@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/23/2018
-ms.author: dekapur
-ms.openlocfilehash: e4537c789bfae0fb485e818bf68e87de27b88720
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.date: 2/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 51a334557ddfb57ceab318963e319fd046d3a703
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102057"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820047"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
 

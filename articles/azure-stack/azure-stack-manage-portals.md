@@ -6,23 +6,22 @@ documentationcenter: ''
 author: jeffgilb
 manager: femila
 editor: ''
-ms.assetid: 02c7ff03-874e-4951-b591-28166b7a7a79
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 02/25/2019
 ms.author: jeffgilb
-ms.reviewer: ''
-ms.lastreviewed: 01/07/2019
-ms.openlocfilehash: bda4edeb610fd786307a751afc5b397a2f597e54
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.reviewer: efemmano
+ms.lastreviewed: 02/25/2019
+ms.openlocfilehash: 8662cfde881a90ce8f7fc6cceaa576d3b971d9d6
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767474"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817937"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>Início rápido: utilizar o portal de administração do Azure Stack
 

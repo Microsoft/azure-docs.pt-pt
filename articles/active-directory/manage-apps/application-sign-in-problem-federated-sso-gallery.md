@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3cb2302a8a20a9a5f50b9d11de7ac786ad04853d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 7c5b61dbb3c6dde8dfcabdba015ee41e968cc5dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652268"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817087"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao iniciar sessão numa aplicação de galeria configurada para início de sessão único federado
 
@@ -160,7 +160,7 @@ Azure AD não suporta o pedido SAML enviado pela aplicação para início de ses
 
 O fornecedor do aplicativo deve validar que suportam a implementação de SAML do Azure AD para início de sessão único.
 
-## <a name="no-resource-in-requiredresourceaccess-list"></a>Nenhum recurso no requiredResourceAccess lista
+## <a name="misconfigured-application"></a>Aplicação configurado incorretamente
 
 *Error AADSTS650056: Aplicação configurado incorretamente. Isto pode dever-se a um dos seguintes motivos: O cliente não listou todas as permissões para Graph do AAD, as permissões pedidas no registo de aplicação do cliente. Em alternativa, o administrador não permitiu no inquilino. Em alternativa, verifique o identificador da aplicação no pedido para se certificar de que corresponde ao identificador de aplicação de cliente configurado. Entre em contato com seu administrador para corrigir a configuração ou consentir em nome de inquilino.* .
 
@@ -237,6 +237,33 @@ O Azure AD não foi possível identificar o pedido SAML dentro dos parâmetros d
 
 A aplicação tem de enviar o pedido SAML codificado em cabeçalho location através de HTTP redirecionar o enlace. Para obter mais informações sobre como implementá-la, leia a secção de redirecionamento de enlace HTTP na [documento de especificação de protocolo SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
+## <a name="azure-ad-is-sending-the-token-to-an-incorrect-endpoint"></a>O Azure AD está a enviar o token para um ponto de final incorreto
+
+**Causa possível**
+
+Durante o início de sessão único, se o pedido de início de sessão não contém um URL de resposta explícito (URL do serviço de consumidor de asserção), em seguida, do Azure AD irá selecionar qualquer uma das configurada confie URLs para essa aplicação. Mesmo que o aplicativo tem um URL de resposta explícito configurado, o utilizador pode ser redirecionado https://127.0.0.1:444. 
+
+Quando a aplicação foi adicionada como uma aplicação sem galeria, o Azure Active Directory criou este URL de resposta como um valor predefinido. Este comportamento foi alterado e o Azure Active Directory já não o adiciona por predefinição. 
+
+**Resolução**
+
+Elimine os URLs de resposta não utilizados configurados para a aplicação.
+
+1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **coadministrador**.
+
+2.  Abra o **extensão do Active Directory do Azure** ao selecionar **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+
+3.  Tipo **"Do Azure Active Directory"** na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+
+4.  Selecione **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+
+5.  Selecione **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+
+    Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicativos**.
+
+6.  Selecione a aplicação que pretende configurar para início de sessão único.
+
+7.  Depois do aplicativo é carregado, abra **configuração SAML do básico**. Na **URL de resposta (URL do serviço de consumidor de asserção)**, delete não utilizada ou URLs de resposta predefinida criada pelo sistema. Por exemplo, `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema ao personalizar as afirmações SAML enviadas para uma aplicação
 

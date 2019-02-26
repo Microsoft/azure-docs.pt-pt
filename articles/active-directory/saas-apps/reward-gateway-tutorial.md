@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a375b60acbb6636cdc651a41d65bc232b50946b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 85c2dcfb6ff1ba0bb122a0bf9aae5f01a4085f29
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198937"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Tutorial: Integração do Active Directory do Azure com o Gateway de recompensa
 
@@ -130,7 +130,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Para obter estes valores começar a configurar uma integração no Portal do Gestor de recompensa. Podem encontrar detalhes na https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Para obter estes valores começar a configurar uma integração no Portal do Gestor de recompensa. Podem encontrar detalhes na https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
  
 1. Sobre o **certificado de assinatura SAML** secção, clique em **XML de metadados** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
@@ -140,7 +140,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o início de sessão único](./media/reward-gateway-tutorial/tutorial_general_400.png)
 
-1. Para configurar o início de sessão único num **Gateway de recompensa** lado, a começar a configurar uma integração no Portal do Gestor de recompensa. Utilize os metadados baixado para obter o seu certificado de assinatura e carregar que durante a configuração. Podem encontrar detalhes na https://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
+1. Para configurar o início de sessão único num **Gateway de recompensa** lado, a começar a configurar uma integração no Portal do Gestor de recompensa. Utilize os metadados baixado para obter o seu certificado de assinatura e carregar que durante a configuração. Podem encontrar detalhes na https://success.rewardgateway.com/authentication-integrations/microsoft-azure-for-authentication
 
 > [!TIP]
 > Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)

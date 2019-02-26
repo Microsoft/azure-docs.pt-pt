@@ -10,16 +10,16 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 7371808db8d40948f501b051692172fd6a84e2ac
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d4dae65f3e88bbc210fea4bf9dbed391c1e9ba69
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270220"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822194"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelo do Resource Manager
 
@@ -187,12 +187,9 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json `
-    -TemplateParameterFile azuredeploy.parameters.json
+    -TemplateFile "$HOME/azuredeploy.json" `
+    -TemplateParameterFile "$HOME/azuredeploy.parameters.json"
 ```
-
-> [!NOTE]
-> Há um problema de e/s com o Azure PowerShell no Cloud shell do arquivo.  A mensagem de erro é *não é possível obter os parâmetros dinâmicos para o cmdlet. Não é possível localizar o caminho 'Azure:/azuredeploy.json' porque não existe.*  Uma solução temporária é não incluem o **- TemplateFile** e **TemplateParameterFile** muda no `New-AzResourceGroupDeploy` comando. O comando irá solicitar-lhe para introduzir o nome de ficheiro.
 
 Quando implementar o modelo, utilize o mesmo grupo de recursos como o Cofre de chaves. Facilita a limpeza dos recursos. Apenas tem de eliminar um grupo de recursos em vez de dois.
 

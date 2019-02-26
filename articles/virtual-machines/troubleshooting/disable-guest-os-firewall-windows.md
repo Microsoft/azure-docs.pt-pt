@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: b0cd20278287b41dd953c64044b705aa2dba7557
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a8856bd46f516aa3c64965648d4f23b9ba665b1b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319408"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820030"
 ---
-# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar o Firewall do SO na VM do Azure de convidado
+# <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
 
 Este artigo fornece uma referência para situações em que suspeitar de que a firewall do sistema operativo convidado está a filtrar o tráfego parcial ou completado para uma máquina virtual (VM). Isto pode acontecer se deliberadamente foram feitas alterações à firewall que causou a ligações de RDP efetuar a ativação.
 
@@ -33,7 +33,7 @@ O processo descrito neste artigo destina-se para ser utilizado como uma soluçã
 
 Se a VM está online e pode ser acessada em outra VM na mesma rede virtual, pode fazer essas atenuações utilizando a outra VM.
 
-#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Atenuação 1: Funcionalidade de extensão de Script personalizado ou executar comando
+#### <a name="mitigation-1-custom-script-extension-or-run-command-feature"></a>Atenuação 1: Recurso personalizado de extensão de Script ou comando executado
 
 Se tiver um agente do Azure em funcionamento, pode utilizar [extensão de Script personalizado](../extensions/custom-script-windows.md) ou o [executar comandos](../windows/run-command.md) funcionalidade (apenas para VMs do Resource Manager) para executar os seguintes scripts remotamente.
 
@@ -70,9 +70,9 @@ Se tiver um agente do Azure em funcionamento, pode utilizar [extensão de Script
     ```
 
 > [!Note]
-> Se a firewall está definida por meio de um objeto de política de grupo, este método pode não funcionar porque este comando altera apenas as entradas de registo local. Se uma política estiver em vigor, irá substituir esta alteração. 
+> Se a firewall está definida por meio de um objeto de política de grupo, este método pode não funcionar porque este comando altera apenas as entradas de registo local. Se uma política estiver em vigor, irá substituir esta alteração. 
 
-#### <a name="mitigation-3-pstools-commands"></a>Atenuação 3: Comandos de PSTools
+#### <a name="mitigation-3-pstools-commands"></a>Atenuação 3: Comandos do PSTools
 
 1.  A VM de resolução de problemas, transferi [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 7aebdace6b6200f400d0c642c8cbdc6d31544752
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 17eb51044aae7f1f1536e965eea1d1cdb0a1a42b
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733032"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817444"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Concluir os pré-requisitos para a criação de grupos de disponibilidade Always On em máquinas virtuais do Azure
 
@@ -464,7 +464,7 @@ Para adicionar funcionalidades de Clustering de ativação pós-falha, execute o
 Repita os passos em outras VM do SQL Server.
 
   >[!NOTE]
-  > Neste passo, juntamente com associação, na verdade, as VMs do SQL Server para o cluster de ativação pós-falha, agora pode ser automatizado com um modelo de início rápido do Azure. Para obter mais informações, consulte [criar WSFC, o serviço de escuta e configurar o ILB para um grupo de disponibilidade Always On numa VM do SQL Server com o modelo de início rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Neste passo, juntamente com associação, na verdade, as VMs do SQL Server para o cluster de ativação pós-falha, agora pode ser automatizado com [CLI de VM do SQL do Azure](virtual-machines-windows-sql-availability-group-cli.md) e [modelos de início rápido do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Configurar o firewall em cada VM do SQL Server

@@ -5,17 +5,17 @@ description: Utilize o PowerShell para criar e gerir o Azure Machine Learning St
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 01/25/2019
-ms.openlocfilehash: b6080e6e81b6cedce4d08cf20e082c87e5cecade
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d25c9a4a828a8b536a5b54ecb3894ff9e5818d85
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55489823"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819634"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Módulos do PowerShell para o Azure Machine Learning Studio
 

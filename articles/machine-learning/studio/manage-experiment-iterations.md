@@ -5,17 +5,17 @@ description: Como gerir iterações de experimentação no Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: e41a669e3dcd14952077cbd21e7387184546de80
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 6dfab8cb22bc2c411a87c217dcbade04c2a26221
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454310"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823761"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gerir iterações da experimentação no Azure Machine Learning Studio
 Desenvolver um modelo de Análise Preditiva é um processo iterativo - à medida que modifica as várias funções e parâmetros da sua experimentação, os seus resultados convergem até achar que tem um modelo preparado e eficaz. A chave para este processo está acompanhando as várias interações de suas configurações e parâmetros de experimentação.

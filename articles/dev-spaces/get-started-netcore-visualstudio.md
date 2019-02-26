@@ -12,12 +12,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: 08903bcb15c69e3bc9a2b5435785d4a1ee8edb5c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f345ff2e64670536771a639a7619c6e1d4d2d82d
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659053"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823948"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com .NET Core e o Visual Studio
 
@@ -52,13 +52,6 @@ Neste guia, vai aprender a:
 1. Escolha a definição pretendida para controlo de acesso baseado em funções (RBAC). Os espaços de desenvolvimento do Azure suportam clusters com RBAC ativado ou desativado.
 
     ![Definição de RBAC](media/common/k8s-RBAC.PNG)
-
-1. Certifique-se de que o Encaminhamento de Aplicações Http está ativado.
-
-   ![Ativar Encaminhamento de Aplicações Http](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-    > [!Note]
-    > Para habilitar o [Encaminhamento de Aplicações Http](/azure/aks/http-application-routing) num cluster existente, utilize o comando: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. Selecione **Rever + criar** e, em seguida, selecione **Criar** quando terminar.
 

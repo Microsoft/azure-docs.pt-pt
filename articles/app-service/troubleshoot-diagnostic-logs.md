@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: d7bcff89ba7f76980287f9aad3413a6ef3f41b4f
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904459"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807427"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Ativar registo de diagnósticos para aplicações no serviço de aplicações do Azure
 ## <a name="overview"></a>Descrição geral
@@ -34,7 +34,7 @@ Serviço de aplicações fornece funcionalidade de diagnóstico para informaçõ
 ### <a name="web-server-diagnostics"></a>Diagnóstico do servidor Web
 Pode ativar ou desativar os seguintes tipos de registos:
 
-* **Detalhadas de registo de erro** -erro informações detalhadas de códigos de estado HTTP que indicam uma falha (código de estado 400 ou superior). Pode conter informações que podem ajudar a determinar o motivo pelo qual o servidor devolveu o código de erro.
+* **Detalhadas de registo de erro** -informações detalhadas para qualquer solicitação que resulta num código de estado HTTP 400 ou superior. Pode conter informações que podem ajudar a determinar o motivo pelo qual o servidor devolveu o código de erro. Um arquivo HTML é gerado para cada erro (no *D:\LogFiles\DetailedErrors* por predefinição), e são mantidos até 50 erros (ficheiros). Quando o número de ficheiros HTML exceder 50, ficheiros de 26 mais antigos são automaticamente eliminados.
 * **Falha do rastreio de pedido** -informações detalhadas sobre pedidos com falhas, incluindo um rastreamento dos componentes do IIS, usado para processar o pedido e o tempo decorrido em cada componente. É útil se pretender melhorar o desempenho do site ou isolar um erro HTTP específico.
 * **O registo do servidor da Web** -informações sobre transações de HTTP utilizando o [formato de ficheiro de registo expandido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). É útil ao determinar geral métrica do site, tais como o número de pedidos processados ou o número de pedidos é de um endereço IP específico.
 

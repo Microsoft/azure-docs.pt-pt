@@ -3,7 +3,7 @@ title: O Azure Service Fabric Docker Compose pré-visualização de implementaç
 description: O Azure Service Fabric aceita o formato do Docker Compose para tornar mais fácil orquestrar contentores existentes através do Service Fabric. Este suporte está atualmente em pré-visualização.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
-ms.openlocfilehash: e4eb26ab91261d1888d3c756d611db1b31801e8f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.author: aljo, subramar
+ms.openlocfilehash: 6e03ada8c1a3aaa86ffcb11799dbe2b61852c987
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720241"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806679"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte de implementação do docker Compose no Azure Service Fabric (pré-visualização)
 
@@ -121,9 +121,9 @@ Esta pré-visualização suporta um subconjunto das opções de configuração d
 * Serviços > Implementar > réplicas
 * Serviços > Implementar > colocação > restrições
 * Serviços > Implementar > recursos > limites
-    * partilhas de CPUs
-    * -memória
-    * -memória-swap
+    * -cpu-shares
+    * -memory
+    * -memory-swap
 * Serviços > comandos
 * Serviços > ambiente
 * Serviços > portas

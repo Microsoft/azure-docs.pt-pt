@@ -3,7 +3,7 @@ title: Consulta para eventos de cluster com as APIs de EventStore em clusters do
 description: Saiba como utilizar as APIs de EventStore do recursos de infraestrutura do serviço do Azure para a consulta para eventos de plataforma
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/29/2018
-ms.author: dekapur
-ms.openlocfilehash: 556b3375a0f5d138255ba4c46b034894b1037da0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 02/25/2019
+ms.author: srrengar
+ms.openlocfilehash: 491f113a3f08293b5f978242d27714b576d85d6f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722331"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56818804"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Consultar APIs de EventStore para eventos de cluster
 
@@ -50,7 +50,7 @@ Cada entidade num cluster pode ser consultada para eventos. Também pode consult
 * Partições: `/EventsStore/Partitions/Events`
 * Partição: `/EventsStore/Partitions/<PartitionID>/$/Events`
 * Réplicas: `/EventsStore/Partitions/<PartitionID>/$/Replicas/Events`
-* Réplica: `/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
+* Replica: `/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
 
 >[!NOTE]
 >Ao fazer referência uma aplicação ou o nome do serviço, a consulta não precisa de incluir o "fabric: /" prefixo. Além disso, se a sua aplicação ou os nomes de serviço tem um "/" nos mesmos, mude para um "~" para manter o trabalho de consulta. Por exemplo, se seu aplicativo exibido como "fabric: / App1/FrontendApp", suas consultas específicas da aplicação devem ser estruturadas como `/EventsStore/Applications/App1~FrontendApp/$/Events`.

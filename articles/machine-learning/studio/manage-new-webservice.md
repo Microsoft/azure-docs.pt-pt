@@ -5,17 +5,17 @@ description: Pode gerenciar seu novo do Machine Learning e serviços Web clássi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 1bf9889f601795c1ba70abdd17f6e8c9a01785f1
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 2d62b5a140fc4614e26d40f153f5e13d4a3b70f4
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453873"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817155"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gerir um serviço web com o portal de serviços Web do Azure Machine Learning Studio
 Pode gerenciar seu novo do Machine Learning e serviços Web clássicos com o portal do Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web clássicos e serviços Web novos baseiam-se nos diferentes tecnologias subjacentes, tem funcionalidades de gestão ligeiramente diferente para cada uma delas.

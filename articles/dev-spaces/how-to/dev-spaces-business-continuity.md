@@ -11,12 +11,12 @@ ms.topic: article
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
 manager: jeconnoc
-ms.openlocfilehash: 877d49a49333d70ac7660900e49e7c588f52756c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b7eba0e63f68cd56f2bcc310c3bde65c36e933dd
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451568"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822468"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Recuperação de desastre e continuidade de negócio nos espaços de desenvolvimento do Azure
 
@@ -93,7 +93,7 @@ Repita estes passos para todos os outros projetos configurados para utilizar o c
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>Aceder a um serviço num cluster de cópia de segurança
 
-Se tiver configurado o seu serviço para utilizar um nome DNS público, em seguida, o serviço terá um URL diferente se executá-lo num cluster de cópia de segurança. Nomes DNS públicos são sempre no formato `<space name>.s.<service name>.<cluster GUID>.<region>.aksapp.io`. Se mudar para outro cluster, o GUID do cluster e, possivelmente, a região serão alterado.
+Se tiver configurado o seu serviço para utilizar um nome DNS público, em seguida, o serviço terá um URL diferente se executá-lo num cluster de cópia de segurança. Nomes DNS públicos são sempre no formato `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Se mudar para outro cluster, o GUID do cluster e, possivelmente, a região serão alterado.
 
 Espaços de desenvolvimento sempre mostra o URL correto para o serviço ao executar o `azds up`, ou na janela de saída no Visual Studio sob **do Azure Dev espaços**.
 
@@ -102,7 +102,7 @@ Também pode encontrar o URL ao executar o `azds list-uris` comando:
 $ azds list-uris
 Uri                                                     Status
 ------------------------------------------------------  ---------
-http://mywebapi.d05afe7e006a4fddb73c.eastus.aksapp.io/  Available
+http://default.mywebapi.d05afe7e006a4fddb73c.eus.azds.io/  Available
 ```
 
 Utilize este URL ao acessar o serviço.

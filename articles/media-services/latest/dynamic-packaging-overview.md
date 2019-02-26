@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: juliako
-ms.openlocfilehash: 02af95de3793f1d56204b17b0a3d91efbb285e55
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d3222b2a2c47d6c2db4ca890a2618e89891d9deb
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726419"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804829"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -26,9 +26,9 @@ Serviços de multimédia do Microsoft Azure podem ser utilizados para disponibil
 
 [Pontos finais de transmissão em fluxo](streaming-endpoint-concept.md) é o serviço de empacotamento dinâmico dos serviços de multimédia utilizadas para disponibilizar conteúdo multimédia para jogadores do cliente. Empacotamento dinâmico é uma funcionalidade que vem padrão em todos os de transmissão em fluxo pontos de extremidade (Standard ou Premium). Não existe nenhum extra custo associado esta funcionalidade em serviços de multimédia v3. Com o empacotamento dinâmico, tudo o que precisa é um elemento que contenha um conjunto de ficheiros MP4 de velocidade de transmissão adaptável com ficheiros de manifestos. Em seguida, com base no formato especificado no pedido de manifesto ou fragmento, receberá o fluxo no protocolo que escolheu. Como resultado, só tem de armazenar e pagar pelos ficheiros num único formato de armazenamento e os Media Services irão compilar e disponibilizar a resposta adequada com base nos pedidos de um cliente.
 
-Nos Media Services, o empacotamento dinâmico é utilizado se são transmissão em fluxo a pedido ou em direto.
+Nos serviços de multimédia, o empacotamento dinâmico é utilizado se são de transmissão em fluxo a pedido ou em direto.
 
-O diagrama seguinte mostra o fluxo de trabalho de empacotamento dinâmico.
+O diagrama seguinte mostra o streaming sob demanda com o fluxo de trabalho de empacotamento dinâmico.
 
 ![Codificação dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
@@ -39,7 +39,11 @@ Segue-se um comuns dos serviços de multimédia de transmissão em fluxo fluxo d
 1. Carregar um ficheiro de entrada (chamado de um ficheiro de mezanino). Por exemplo, H.264, MP4 ou WMV (para obter a lista dos formatos suportados, consulte [formatos suportados pelo Media Encoder Standard](media-encoder-standard-formats.md).
 2. Codificar o ficheiro de mezanino para os conjuntos H.264 MP4 de velocidade de transmissão adaptável.
 3. Publique o elemento que contém a conjunto MP4 de velocidade de transmissão adaptável.
-4. Crie os URLs que visam diferentes formatos (HLS, traço e transmissão em fluxo uniforme). O ponto final de transmissão em fluxo seria cuide-se de que serve o manifesto correto e os pedidos para todos esses formatos diferentes.
+4. Crie os URLs que visam diferentes formatos (HLS, traço e transmissão em fluxo uniforme). O ponto final de transmissão em fluxo seria cuide-se de que serve o manifesto correto e os pedidos para todos esses formatos diferentes. Por exemplo:
+
+ - HLS: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)`
+ - Traço: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)`
+ - Uniforme: `http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest`
  
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codecs de vídeo suportado pelo empacotamento dinâmico
 

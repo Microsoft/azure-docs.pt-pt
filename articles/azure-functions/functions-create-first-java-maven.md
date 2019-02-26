@@ -12,53 +12,30 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: dfbd8425048ddc5c96349bfd6a7462dcd32dc1d9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: a72d6b180db35f3e0f0e0527e8ae0f544a585b25
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727761"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822976"
 ---
-# <a name="create-your-first-function-with-java-and-maven-preview"></a>Crie a sua primeira função com o Java e o Maven (Pré-visualização)
+# <a name="create-your-first-function-with-java-and-maven"></a>Criar a primeira função com o Java e Maven
 
-> [!NOTE] 
-> O Java para as Funções do Azure encontra-se atualmente em pré-visualização.
-
-Este guia de introdução orienta ao longo da criação de um [sem servidor](https://azure.microsoft.com/solutions/serverless/) projeto de função com o Maven, testá-lo localmente e implementá-lo para o Azure. Quando tiver terminado, o código da função de Java está em execução na cloud e pode ser acionado de um pedido HTTP.
-
-![Aceder a uma função do Hello World, a partir da linha de comandos com cURL](media/functions-create-java-maven/hello-azure.png)
+Este artigo orienta-o através da utilização da ferramenta de linha de comandos do Maven para criar e publicar uma função de Java para as funções do Azure. Quando tiver terminado, o código de função é executado o [plano de consumo](functions-scale.md#consumption-plan) no Azure e pode ser acionada com um pedido HTTP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para desenvolver uma aplicação de funções com o Java, tem de ter o seguinte instalado:
 
--  [Java Development Kit](https://www.azul.com/downloads/zulu/), versão 8.
--  [Apache Maven](https://maven.apache.org), versão 3.0 ou superior.
--  [CLI do Azure](https://docs.microsoft.com/cli/azure)
+Para desenvolver as funções com Java, tem de ter o seguinte instalado:
 
-> [!IMPORTANT] 
+- [Java Development Kit](https://www.azul.com/downloads/zulu/), versão 8.
+- [Apache Maven](https://maven.apache.org), versão 3.0 ou superior.
+- [CLI do Azure](https://docs.microsoft.com/cli/azure)
+- [As ferramentas de núcleo das funções do Azure](functions-run-local.md#v2) (requer **.NET Core 2.x SDK**)
+
+> [!IMPORTANT]
 > A variável de ambiente do JAVA_HOME tem de ser definida para a localização de instalação do JDK para concluir este guia de introdução.
-
-## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
-
-As [Ferramentas de Núcleo das Funções do Azure 2.0](https://www.npmjs.com/package/azure-functions-core-tools) oferecem um ambiente de desenvolvimento local para escrever, executar e depurar Funções do Azure. 
-
-Para instalar, visite a secção [Instalar](https://github.com/azure/azure-functions-core-tools#installing) do projeto Ferramentas de Núcleo das Funções do Azure para localizar as instruções específicas para o seu sistema operativo.
-
-Pode também instalar manualmente com o [npm](https://www.npmjs.com/), incluído com o [Node.js](https://nodejs.org/), após instalar os seguintes requisitos:
-
--  [.NET Core](https://www.microsoft.com/net/core), versão mais recente.
--  [Node.js](https://nodejs.org/download/) versão 8.6 ou superior.
-
-Para avançar com uma instalação baseada em npm, consulte:
-
-```
-npm install -g azure-functions-core-tools
-```
-
-> [!NOTE]
-> Se tiver dificuldades em instalar as Ferramentas de Núcleo das Funções do Azure versão 2.0, veja [Versão 2.x do runtime](/azure/azure-functions/functions-run-local).
 
 ## <a name="generate-a-new-functions-project"></a>Gerar um novo projeto das Funções
 

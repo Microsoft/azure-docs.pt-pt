@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2576d8d65fb6a72d5d90de57297afe2ea601c0fa
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845406"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816827"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para utilizar nós virtuais no portal do Azure
 
@@ -19,6 +19,16 @@ Para implementar rapidamente as cargas de trabalho num cluster do Azure Kubernet
 
 > [!IMPORTANT]
 > Nós virtuais para o AKS estão atualmente nos **pré-visualização**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+
+## <a name="preview-limitations"></a>Limitações de pré-visualização
+
+Enquanto esta funcionalidade está em pré-visualização, as seguintes regiões são suportadas para implementações:
+
+* Leste da Austrália (australiaeast)
+* Este dos E.U.A. (eastus)
+* E.u.a. Centro-Oeste (EUA)
+* Europa Ocidental (westeurope)
+* E.U.A. oeste (westus)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

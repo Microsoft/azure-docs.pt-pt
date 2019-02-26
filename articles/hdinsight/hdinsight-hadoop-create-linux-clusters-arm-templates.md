@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d40d3b32f3af8e50079de0a5988584427ea6777c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b8264e4f69a7561865f5d14087bc81bc933a6c59
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819812"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821409"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Criar clusters do Apache Hadoop no HDInsight com modelos do Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -47,11 +47,7 @@ Para obter mais informações sobre modelos do Resource Manager, consulte os seg
 
 ## <a name="generate-templates"></a>Gerar modelos
 
-O Resource Manager permite-lhe exportar um modelo do Resource Manager a partir de recursos existentes na sua subscrição, utilizando ferramentas diferentes. Pode utilizar esse modelo gerado para saber mais sobre a sintaxe do modelo ou para automatizar a reimplementação da sua solução conforme necessário.
-
-- Portal do Azure: Ver [exportar um modelo Azure Resource Manager a partir de recursos existentes](../azure-resource-manager/resource-manager-export-template.md).
-- Azure PowerShell: Ver [modelos de exportar o Azure Resource Manager com o PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- CLI clássica do Azure: Ver [modelos de exportar o Azure Resource Manager com CLI clássica do Azure](../azure-resource-manager/resource-manager-export-template-cli.md).
+O Resource Manager permite-lhe exportar um modelo do Resource Manager a partir de recursos existentes na sua subscrição, utilizando ferramentas diferentes. Pode utilizar esse modelo gerado para saber mais sobre a sintaxe do modelo ou para automatizar a reimplementação da sua solução conforme necessário. Para obter mais informações, consulte [exportar modelos](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## <a name="deploy-using-the-portal"></a>Implementar com o portal
 

@@ -5,23 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/21/2019
+ms.date: 2/25/2019
 ms.author: victorh
-ms.openlocfilehash: 9ecc5d3779ac6632f4a5c05914cbb0e756c79e91
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1d03d896de947fcc938619c52a3690962a0d2d6c
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458008"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805625"
 ---
 # <a name="azure-firewall-service-tags"></a>Etiquetas de serviço de Firewall do Azure
 
 As etiquetas de serviço representam um grupo de prefixos de endereços IP, que ajudam a minimizar a complexidade da criação de regras de segurança. Não pode criar as suas próprias etiquetas de serviço nem especificar que endereços IP estão incluídos nas mesmas. A Microsoft gere os prefixos de endereços que as etiquetas abrangem e atualiza-as automaticamente à medida que os endereços são alterados.
 
 Etiquetas de serviço de Firewall do Azure podem ser utilizadas no campo de destino de regras de rede. Pode usá-los em vez de endereços IP específicos.
-
-> [!NOTE]
-> Etiquetas de serviço estão a ser adicionadas às regiões de forma incremental e estarão disponíveis em todas as regiões num futuro próximo.
 
 ## <a name="supported-service-tags"></a>Etiquetas de serviço de suporte
 

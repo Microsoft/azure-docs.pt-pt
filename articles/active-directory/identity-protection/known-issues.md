@@ -17,17 +17,17 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc08710909252c9bcade6177a105684128acc5bf
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: a1cc8a9305103a30fc0ea0fc40c23a522e136d80
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339028"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807189"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>FAQ e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory
 
 
-## <a name="dismiss-user-risk"></a>Dispensar o risco de utilizador
+## <a name="dismiss-user-risk-known-issues"></a>Dispensar o risco de utilizador problemas conhecidos
 
 **Dispensar o risco de utilizador** clássica Identity Protection define o ator no histórico de risco do utilizador no Identity Protection (atualizadas) para **do Azure AD**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339028"
 Existe um problema conhecido atual, fazendo com que latências no fluxo de exoneração do risco de utilizador. Se tiver uma "política de risco do utilizador", esta política irá deixar de aplicar-se aos utilizadores ignorados dentro de minutos de clicar em "Dispensar o risco de utilizador". No entanto, são conhecidos atrasos com a experiência do Usuário atualizando o "Estado de risco" de utilizadores ignorados. Como solução, atualize a página no nível do navegador para ver o utilizador mais recente "Estado de risco".
 
 
-## <a name="risky-users-report"></a>Relatório dos utilizadores de risco
+## <a name="risky-users-report-known-issues"></a>Problemas conhecidos de relatórios de utilizadores de risco
 
 Consulta a **nome de utilizador** campo diferenciam maiúsculas de minúsculas, ao mesmo tempo consultas no **nome** campo são agnóstico do caso.
 
@@ -45,14 +45,10 @@ Alternar **Mostrar datas como** oculta a **última ATUALIZAÇÃO do risco** colu
 
 **Dispensar todos os eventos** clássica Identity Protection define o estado dos eventos de risco para **fechado (resolvido)**.
 
-Se está tentando acessar o relatório de utilizadores de risco clicando **relatório de utilizadores de risco** dentro de um registo de início de sessão no relatório de inícios de sessão de risco, por vezes, pode mostrar **algo correu mal. Volte a tentar**. Para solucionar isso, clique em **aplicar** ou **repor** na parte superior da tela e os utilizadores de risco irão preencher os dados.
 
-
-## <a name="risky-sign-ins-report"></a>Relatório de inícios de sessão de risco
+## <a name="risky-sign-ins-report-known-issues"></a>Relatório de inícios de sessão arriscados problemas conhecidos
 
 **Resolver** num risco de evento define o estado como **utilizadores foram aprovados na MFA por política com base em riscos**.
-
-**Reposição** no **inícios de sessão arriscados** relatório não limpa o valor da **tipo de evento de risco**.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes

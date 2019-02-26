@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: a489d1a282c924ec1df658a0244745b225f7123e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 88eb7052c394d41c861ffc422738a4a650101ea7
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251270"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819314"
 ---
 # <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
 
@@ -41,7 +41,7 @@ Aprendizagem automática é o processo de mudança dos dados de treinamento com 
 
 1. Configurar o [destino de computação](how-to-set-up-training-targets.md) que serve para preparar o modelo.
 
-1. Configure a configuração de aprendizado de máquina automatizada. Esse item controla os parâmetros utilizados como o Azure Machine Learning é iterada em modelos diferentes, as definições de hiper-parâmetros, e que métricas para ver quando determinar o melhor modelo 
+1. Configure a configuração de aprendizado de máquina automatizada. Esse item controla os parâmetros utilizados como o Azure Machine Learning é iterada em modelos diferentes, as definições de hiper-parâmetros, e que métricas para ver quando determinar o melhor modelo
 
 1. Submeta um treinamento ser executado.
 
@@ -58,9 +58,13 @@ Uma armadilha comum da aprendizagem automática é uma incapacidade de ver o pro
 1. Reconhecimento de pipeline e todos os passos de aprendizagem automática envolvidos incluindo o pré-processamento de dados/featurization e valores de hiper-parâmetros.
 1. Compreender a relação entre a variáveis de entrada (também conhecido como "recursos") e a saída de modelo.  Saber a magnitude e a direção do impacto de cada funcionalidade no valor previsto ajuda a compreender melhor e a explicar o modelo. Isso é conhecido como importância de funcionalidade.
 
-Pode ativar a formação a pedido post de importância de recurso global para o pipeline da sua preferência ou ativá-la para todos os pipelines como parte de treinamento de ML automatizado.  Esta é uma funcionalidade de pré-visualização e Vamos continuar a investir em fornecendo informações mais detalhadas para o ajudar a compreender melhor os seus modelos de ML.  
+Pode ativar formação a pedido post de importância de recurso global para o pipeline da sua preferência ou ativá-la para todos os pipelines como parte de treinamento de aprendizado de máquina automatizada. Em setores altamente regulamentados, como cuidados de saúde e serviços bancários, isto é fundamental para estar em conformidade com normas e práticas recomendadas.  Seguem-se alguns cenários de mundo real para ilustrar:
 
-Siga este [bloco de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) fazer experiências com explicações de modelo no Azure Machine Learning.
+1. Uma empresa industrial com machine learning para prever falhas instrumento futuras, por isso, proativamente realizarem a atividade de manutenção. Sabe que um instrumento está prestes a falhar, o que é a causa mais provável vai ser, para que manutenção preventiva pode ser realizada rapidamente?
+1. Uma instituição financeira com o machine learning para aplicações de cartão de crédito ou de crédito de processo. Como sabe se o modelo está fazendo a coisa certa e se um cliente pede para obter mais detalhes sobre por que seu aplicativo foi rejeitado, como responde a eles?
+1. Um retalhista online ou um fornecedor de fabricantes independentes de software através de machine learning para prever o abandono de clientes. Quais são os contribuintes principais para o cliente de alterações e, como impedir que os clientes pleno funcionamento?
+
+Esta é uma funcionalidade de pré-visualização e Vamos continuar a investir em fornecendo informações mais detalhadas para o ajudar a compreender melhor os seus modelos de machine learning. Siga este [bloco de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) fazer experiências com explicações de modelo no Azure Machine Learning.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

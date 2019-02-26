@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e0aaddb841687718295e09e64b23d9cefa9246fd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 29ca8c4114d48fa0d3756930354660712b1b35b3
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436115"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820421"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Linux
 
@@ -62,7 +62,7 @@ Antes de continuar, tenha em atenção a área de trabalho do Log Analytics, lig
 
 1. Ativar a **função de trabalho de híbrida de automatização** solução no Azure através de um dos seguintes métodos:
 
-   * Adicionar a **função de trabalho de híbrida de automatização** solução à sua subscrição, utilizando o procedimento na [soluções de gestão de adicionar o Log Analytics para a área de trabalho](../log-analytics/log-analytics-add-solutions.md).
+   * Adicionar a **função de trabalho de híbrida de automatização** solução à sua subscrição, utilizando o procedimento na [Azure Monitor adicionar registos de soluções à sua área de trabalho](../log-analytics/log-analytics-add-solutions.md).
    * Execute o seguinte cmdlet:
 
         ```azurepowershell-interactive
@@ -87,7 +87,7 @@ Antes de continuar, tenha em atenção a área de trabalho do Log Analytics, lig
 
 ## <a name="turning-off-signature-validation"></a>Desativar validação da assinatura
 
-Por predefinição, os Runbook Workers do Linux híbridos necessitam de validação da assinatura. Se executar um runbook não assinado em relação a uma função de trabalho, verá um erro que diz "Falha na validação de assinatura." Para desativar a validação da assinatura, execute o seguinte comando. Substitua o segundo parâmetro com o ID de área de trabalho do Log Analytics.
+Por predefinição, os Runbook Workers do Linux híbridos necessitam de validação da assinatura. Se executar um runbook não assinado em relação a uma função de trabalho, verá um erro que diz "Falha na validação de assinatura." Para desativar a validação da assinatura, execute o seguinte comando. Substitua o segundo parâmetro com o ID de área de trabalho de análise do registo.
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>

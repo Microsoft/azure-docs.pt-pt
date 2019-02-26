@@ -9,20 +9,35 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 12/20/2018
+ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f02a44f41eba8cc4298b9fc730354799ca0aad0c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 899e33db242a34d09df6109c2e195bdff9c65262
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446771"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823608"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning.  Para obter uma descrição completa de cada SDK, visite os documentos de referência para:
 + O Azure Machine Learning [ **principal SDK para Python**](https://aka.ms/aml-sdk)
 + O Azure Machine Learning [ **SDK de preparação de dados**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-02-25"></a>2019-02-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1017"></a>Azure Machine Learning SDK for Python v1.0.17
+
++ **Novos recursos**
+
+  + O Azure Machine Learning SDK agora suporta uma [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) classe estimator para simplificar o processo de preparação e implementação de um modelo usando código personalizado do Chainer.
+
+### <a name="azure-portal"></a>Portal do Azure
++ **Novos recursos**
+    + Experiência de editor para relatórios de tabela nova arrastar e soltar. Os utilizadores podem arrastar uma coluna do poço para a área de tabela em que será apresentada uma pré-visualização da tabela. As colunas podem ser reorganizadas.
+    + Novo botão de execução para execuções submetido com ScriptRunConfig. Os utilizadores podem executar novamente existente ser executado num cluster de cálculo remoto de sua preferência.
+    + Novo Visualizador de arquivos de registos
+    + Links para experimentação é executada, computação, modelos, imagens e implantações do separador de atividades
 
 ## <a name="2019-02-11"></a>2019-02-11
 

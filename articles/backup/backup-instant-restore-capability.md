@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 566faaef4e91237bd0a0f915ea39f4bd389120d8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 63a0e5bd3db6251e361d9dd03acb538556e811ca
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593085"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56804997"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor de cópia de segurança e restaurar o desempenho com capacidade de Azure cópia de segurança instantâneas restaurar
 
@@ -49,6 +49,7 @@ Por predefinição, os instantâneos são retidos durante dois dias. Esta funcio
 * Instantâneos incrementais são armazenados como blobs de páginas. Todos os utilizadores com discos não geridos são cobrados para instantâneos armazenados na sua conta de armazenamento local. Uma vez que as coleções de ponto de restauro utilizadas pelas cópias de segurança de VM geridos utilizam instantâneos de blob ao nível do armazenamento subjacente, para discos geridos, verá os custos correspondentes aos preços de instantâneo de blob e são incrementais.
 * Para contas de armazenamento premium, os instantâneos tirados para contagem de pontos de recuperação imediata para o limite de 10 TB de espaço em atribuído.
 * Tem uma capacidade para configurar a retenção de instantâneo com base nas necessidades de restauro. Dependendo do requisito, pode definir o período de retenção do instantâneo para um mínimo de um dia no painel da política de cópia de segurança, conforme explicado abaixo. Isto pode ajudar a poupar no custo para a retenção de instantâneo se não efetuar restauros com frequência.
+* Esta é uma atualização direcional um, uma vez atualizada para o restauro imediato, não pode voltar atrás.
 
 
 >[!NOTE]
@@ -77,7 +78,7 @@ Em alternativa, pode aceder à **propriedades** página do cofre para obter o **
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Configurar a retenção de instantâneo com o portal do Azure
-Esta opção está atualmente disponível nos e.u.a. centro-oeste, Índia do Sul e leste da Austrália.
+Esta opção está atualmente disponível nas **e.u.a. Centro-Oeste**, **sul da Índia** e **leste da Austrália**.
 
 Para os usuários atualizados, no portal do Azure pode ver um campo adicionado no **política de cópia de segurança de VM** painel sob o **restaurar instantâneas** secção. Pode alterar o período de retenção de instantâneo do **política de cópia de segurança de VM** painel para todas as VMs associadas à política de cópia de segurança específica.
 

@@ -3,7 +3,7 @@ title: Exemplo de Script da CLI do Service Fabric - Listar aplicações num clus
 description: Exemplo de Script da CLI do Service Fabric - Listar as aplicações aprovisionadas num cluster do Service Fabric.
 services: service-fabric
 documentationcenter: ''
-author: TylerMSFT
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 04/13/2018
-ms.author: twhitney
+ms.author: aljo
 ms.custom: ''
-ms.openlocfilehash: bea88460ecaa093a0719d627e3608fd1d530727b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: 60cb5aaf93521a3e2f7c922949d112ad96a00180
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070203"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56805642"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>Listar as aplicações a executar num cluster do Service Fabric
 
@@ -32,7 +32,7 @@ Este script de exemplo liga-se a um cluster do Service Fabric e, em seguida, lis
 
 [!code-sh[main](../../../cli_scripts/service-fabric/list-application/list-application.sh "List provisioned applications from a cluster")]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Para mais informações, veja a [documentação da CLI do Service Fabric](../service-fabric-cli.md).
 

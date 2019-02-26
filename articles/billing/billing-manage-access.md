@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 516d8e9116bbdcd421897b5a5c2d9755e7e636c8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: cd137f8fb44b20c9a1b3a506ad2703fc780bae89
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903558"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806670"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Gerir o acesso a informações de faturação para o Azure
 
@@ -45,7 +45,7 @@ Essas funções têm acesso às informações de faturas no [portal do Azure](ht
 
 ### <a name="opt-in"></a> Permitir que os utilizadores a transferência de faturas
 
-Depois de atribuir funções adequadas aos membros da sua equipa, o administrador de conta tem de ativar avaliar a transferência de faturas no portal do Azure. Notas fiscais com mais de Dezembro de 2016 estão disponíveis apenas para o administrador de conta.
+Depois de atribuir funções adequadas para membros de sua equipe, o administrador de conta tem de ativar o acesso a transferência de faturas no portal do Azure. Notas fiscais com mais de Dezembro de 2016 estão disponíveis apenas para o administrador de conta.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Como administrador de conta, selecione a sua subscrição do [painel de subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) no portal do Azure.
