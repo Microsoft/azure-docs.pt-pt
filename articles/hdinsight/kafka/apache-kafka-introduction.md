@@ -1,6 +1,6 @@
 ---
 title: Introdução ao Apache Kafka no HDInsight - Azure
-description: 'Saiba mais sobre o Apache Kafka no HDInsight: o que é, o que faz e onde encontrar exemplos e obter informações sobre como começar.'
+description: 'Saiba mais sobre o Apache Kafka no HDInsight: O que é, o que faz e onde encontrar exemplos e obter informações de introdução.'
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 4d054542d600f2569170f40b8f6c053e005fc8af
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313967"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889193"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>O que é o Apache Kafka no HDInsight?
 
@@ -38,7 +38,7 @@ Seguem-se as características específicas do Kafka no HDInsight:
 
     Para obter mais informações, consulte [elevada disponibilidade com o Apache Kafka no HDInsight](apache-kafka-high-availability.md).
 
-* O Azure Log Analytics pode ser utilizado para monitorizar o Kafka no HDInsight. O Log Analytics apresenta informações ao nível de máquinas virtuais, como métricas de discos e NIC e métricas de JMX do Kafka.
+* Registos de Monitor do Azure podem ser utilizados para monitorizar o Kafka no HDInsight. Monitor do Azure regista as superfícies máquina virtual informações do nível, como o disco e métricas NIC e métricas de JMX do Kafka.
 
     Para obter mais informações, consulte [analisar registos para o Apache Kafka no HDInsight](apache-kafka-log-analytics-operations-management.md).
 
@@ -60,41 +60,41 @@ A replicação é utilizada para duplicar as partições nos nós, ao proteger c
 
 Seguem-se as tarefas comuns e os padrões que podem ser efetuados com o Kafka no HDInsight:
 
-* **Replicação de dados do Apache Kafka**: o Kafka fornece o utilitário MirrorMaker, que replica os dados entre clusters do Kafka.
+* **Replicação de dados do Apache Kafka**: O Kafka fornece o utilitário MirrorMaker, que replica os dados entre clusters do Kafka.
 
     Para obter informações sobre como utilizar o MirrorMaker, consulte [tópicos de replicar o Apache Kafka com o Apache Kafka no HDInsight](apache-kafka-mirroring.md).
 
-* **Padrão de mensagem de publicação-subscrição**: o Kafka fornece uma API de Produtor para publicar registos num tópico do Kafka. A API de Consumidor é utilizada ao subscrever um tópico.
+* **Padrão de mensagens de publicação-subscrição**: O Kafka fornece uma API de produtor para publicar registos num tópico do Kafka. A API de Consumidor é utilizada ao subscrever um tópico.
 
     Para obter mais informações, consulte [introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
-* **Processamento de fluxo**: o Kafka é muitas vezes utilizado com o Apache Storm ou Spark para processamento de fluxo em tempo real. O Kafka 0.10.0.0 (versão 3.5 e 3.6 do HDInsight) introduziu uma API de transmissão em fluxo que lhe permite criar soluções de transmissão em fluxo, sem precisar do Storm ou do Spark.
+* **Processamento de Stream**: Kafka é muitas vezes utilizado com o Apache Storm ou Spark para processamento de fluxo em tempo real. O Kafka 0.10.0.0 (versão 3.5 e 3.6 do HDInsight) introduziu uma API de transmissão em fluxo que lhe permite criar soluções de transmissão em fluxo, sem precisar do Storm ou do Spark.
 
     Para obter mais informações, consulte [introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
-* **Escala horizontal**: transmissões em fluxo de partições do Kafka nos nós no cluster do HDInsight. Os processos de consumidor podem estar associados a partições individuais para fornecer balanceamento de carga ao consumir registos.
+* **Dimensionamento horizontal**: Fluxos de partições do Kafka em nós do cluster do HDInsight. Os processos de consumidor podem estar associados a partições individuais para fornecer balanceamento de carga ao consumir registos.
 
     Para obter mais informações, consulte [introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
-* **Entrega por ordem**: em cada partição, os registos são armazenados na transmissão em fluxo pela ordem em que foram recebidos. Ao associar um processo de consumidor por partição, pode garantir que os registos são processados por ordem.
+* **Na entrega por ordem**: Em cada partição, os registos são armazenados no fluxo pela ordem em que foram recebidos. Ao associar um processo de consumidor por partição, pode garantir que os registos são processados por ordem.
 
     Para obter mais informações, consulte [introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
 ## <a name="use-cases"></a>Casos de utilização
 
-* **Mensagens**: uma vez que suporta o padrão de mensagem de publicação-subscrição, o Kafka é frequentemente utilizado como um mediador de mensagem.
+* **Mensagens**: Uma vez que suporta a funcionalidade Publicar-subscrever o padrão de mensagem, o Kafka é frequentemente utilizado como um mediador de mensagens.
 
-* **Controlo de atividades**: uma vez que o Kafka fornece os registos por ordem, pode ser utilizado para controlar e voltar a criar atividades. Por exemplo, ações do utilizador num site ou numa aplicação.
+* **Atividade de controlo**: Uma vez que o Kafka fornece o registo de registos por ordem, ele pode ser usado para controlar e voltar a criar atividades. Por exemplo, ações do utilizador num site ou numa aplicação.
 
-* **Agregação**: com o processamento de transmissão em fluxo, pode agregar informações a partir de várias transmissões em fluxo para combinar e centralizar as informações nos dados operacionais.
+* **Agregação**: Utilizar o processamento de fluxos, pode agregar informações a partir de várias transmissões em fluxo para combinar e centralizar as informações nos dados operacionais.
 
-* **Transformação**: com o processamento de transmissão em fluxo, pode combinar e enriquecer os dados a partir de vários tópicos de entrada em um ou mais tópicos de saída.
+* **Transformação**: Com o processamento de fluxos, pode combinar e enriquecer os dados de vários tópicos de entrada em uma de ou mais tópicos de saída.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Utilize as seguintes ligações para saber como utilizar o Apache Kafka no HDInsight:
 
-* [Início rápido: Criar o Apache Kafka no HDInsight](apache-kafka-get-started.md)
+* [Quickstart: Criar o Apache Kafka no HDInsight](apache-kafka-get-started.md)
 
 * [Tutorial: Utilizar o Apache Spark com o Apache Kafka no HDInsight](../hdinsight-apache-spark-with-kafka.md)
 

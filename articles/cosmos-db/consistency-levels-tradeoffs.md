@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 99b981e6b5c9bc56c10b0491474c0c8773291b7e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e727e1ad9a4d202a3798f516d1db7d88464999fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309205"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875961"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
 
@@ -48,7 +48,7 @@ A latência RTT exata é uma função de distância de velocidade de luz e a top
 
 Dentro de um ambiente de base de dados globalmente distribuída existe uma relação direta entre a durabilidade de dados e de nível de consistência na presença de uma interrupção de toda a região. Desenvolver o seu plano de continuidade do negócio, precisa entender o tempo máximo aceitável antes da aplicação recuperar totalmente após um evento problemático. O tempo necessário para uma aplicação recuperar totalmente é conhecido como o objetivo de tempo de recuperação (RTO). Também precisa entender o período máximo de atualizações de dados recentes, a aplicação pode tolerar perder ao recuperar após um evento problemático. O período de tempo de atualizações que poderá estar a perder é conhecido como o objetivo de ponto de recuperação (RPO).
 
-A tabela define a relação entre a relação entre a durabilidade de dados e o modelo de consistência na presença de indisponibilidade ampla de região. É importante observar que, num sistema distribuído, mesmo com consistência forte, é impossível ter uma base de dados distribuída com um RPO e RTO de zero devido a Teorema CAP. Para saber mais sobre por que, veja [níveis de consistência no Azure Cosmos DB](consistency-levels.md).
+A tabela define a relação entre a durabilidade de dados e o modelo de consistência na presença de indisponibilidade ampla de região. É importante observar que, num sistema distribuído, mesmo com consistência forte, é impossível ter uma base de dados distribuída com um RPO e RTO de zero devido a Teorema CAP. Para saber mais sobre por que, veja [níveis de consistência no Azure Cosmos DB](consistency-levels.md).
 
 |**Regiões**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|

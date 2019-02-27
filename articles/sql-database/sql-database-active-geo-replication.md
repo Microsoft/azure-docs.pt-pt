@@ -11,15 +11,15 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: b39967c071b21978324f205eb62d305011b65fb6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/26/2019
+ms.openlocfilehash: f6179c14c0a057a08203764316eeb43783cd7fc8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995070"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887748"
 ---
-# <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Criar legíveis bases de dados secundárias com georreplicação ativa
+# <a name="creating-and-using-active-geo-replication"></a>Criar e utilizar a georreplicação ativa
 
 Georreplicação ativa é a funcionalidade de base de dados do Azure SQL permite-lhe criar bases de dados secundárias legíveis de bases de dados individuais num servidor de base de dados SQL no Centro de dados de idêntica ou diferente (região).
 
@@ -110,7 +110,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Mantendo credenciais e as regras de firewall em sincronia**
 
-  Recomendamos que utilize [regras de firewall de base de dados](sql-database-firewall-configure.md) para georreplicado bases de dados para que estas regras podem ser replicadas com a base de dados para garantir que todas as bases de dados secundárias têm as mesmas regras de firewall como principal. Essa abordagem elimina a necessidade dos clientes manualmente configurar e manter regras de firewall nos servidores que alojam as bases de dados primárias e secundárias. Da mesma forma, usando [utilizadores de base de dados contidos](sql-database-manage-logins.md) para dados de acesso garante que as bases de dados primários e secundários têm sempre a mesma as credenciais de utilizador durante uma ativação pós-falha, não há nenhum interrupções devido a incompatibilidades com inícios de sessão e palavras-passe. Com a adição da [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerir o acesso de utilizador para bases de dados primárias e secundárias e eliminando a necessidade de gerenciamento de credenciais em bases de dados completamente.
+Recomendamos que utilize [regras de firewall de base de dados](sql-database-firewall-configure.md) para georreplicado bases de dados para que estas regras podem ser replicadas com a base de dados para garantir que todas as bases de dados secundárias têm as mesmas regras de firewall como principal. Essa abordagem elimina a necessidade dos clientes manualmente configurar e manter regras de firewall nos servidores que alojam as bases de dados primárias e secundárias. Da mesma forma, usando [utilizadores de base de dados contidos](sql-database-manage-logins.md) para dados de acesso garante que as bases de dados primários e secundários têm sempre a mesma as credenciais de utilizador durante uma ativação pós-falha, não há nenhum interrupções devido a incompatibilidades com inícios de sessão e palavras-passe. Com a adição da [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerir o acesso de utilizador para bases de dados primárias e secundárias e eliminando a necessidade de gerenciamento de credenciais em bases de dados completamente.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade uma base de dados primária
 
@@ -125,6 +125,16 @@ Devido a alta latência das redes de longa distância, a cópia contínua utiliz
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** impede que a perda de dados após a ativação pós-falha, mas não garante a sincronização completa para acesso de leitura. O atraso causado por um **sp_wait_for_database_copy_sync** chamada de procedimento pode ser significativa e depende do tamanho do registo de transação no momento da chamada.
+
+## <a name="monitoring-geo-replication-lag"></a>Monitorização de desfasamento de georreplicação
+
+Para monitorizar o atraso em relação ao RPO, utilize *replication_lag_sec* coluna da [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) na base de dados primária. Ele mostra o atraso em segundos, entre as transações consolidadas principal e persistido no secundário. Por exemplo, Se o valor da lentidão é de 1 segundo, isso significa que se o principal é afetado por uma falha neste momento e ativação pós-falha é intiated, um segundo da mais recente transtions não será guardado. 
+
+Para medir a latência relativamente a alterações na base de dados primária, que foram aplicadas no secundário, ou seja, disponível para ser lido a partir do secundário, comparar *last_commit* tempo na base de dados secundário com o mesmo valor principal base de dados.
+
+> [!NOTE]
+> Às vezes *replication_lag_sec* na base de dados principal tem um valor nulo, o que significa que o primário não conhece atualmente é a distância do secundário.   Esta situação ocorre normalmente depois do processo de ser reiniciado e deve ser uma condição transitória. Considere o aplicativo de alerta se o *replication_lag_sec* devolve NULL por um longo período de tempo. Indicará que a base de dados secundária não é possível comunicar com o principal devido a uma falha de conectividade permanente. Também existem condições que podem causar a diferença entre *last_commit* tempo secundário e na base de dados primária se torne grande. Por exemplo, Se uma consolidação é efetuada na primária após um longo período de nenhuma alteração, a diferença saltará até um valor grande antes de retornar rapidamente como 0. Considerá-lo uma condição de erro quando a diferença entre esses dois valores permanece grande durante muito tempo.
+
 
 ## <a name="programmatically-managing-active-geo-replication"></a>Gerir programaticamente os replicação geográfica activa
 

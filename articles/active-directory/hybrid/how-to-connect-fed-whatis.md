@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54aab6e9718b5a4a55cf2a3f9c472e9e02a53ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191083"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869552"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e a federação
 O Azure Active Directory (Azure AD) Connect permite que configura a Federação com locais serviços de Federação do Active Directory (AD FS) e o Azure AD. Com o Federação início de sessão, pode permitir aos utilizadores iniciar sessão para serviços do Azure baseada no AD com as palavras-passe no local – e, embora na rede da empresa, sem ter de introduzir as palavras-passe novamente. Ao utilizar a opção de federação com o AD FS, pode implementar uma nova instalação do AD FS ou pode especificar uma instalação existente num farm do Windows Server 2012 R2.
@@ -36,7 +36,7 @@ Este tópico é a página para obter informações sobre funcionalidades relacio
 | **Instalar o AD FS com o Azure AD Connect** | |
 | [Pré-requisitos](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Consulte os pré-requisitos para uma instalação do AD FS com êxito através do Azure AD Connect. |
 | [Configurar um farm do AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Instale um novo farm do AD FS utilizando o Azure AD Connect. |
-| [Federar com o Azure AD com o ID de início de sessão alternativo ](how-to-connect-fed-management.md#alternateid) | Configurar a Federação com o ID de início de sessão alternativo  |
+| [Federar com o Azure AD com o ID de início de sessão alternativo](how-to-connect-fed-management.md#alternateid) | Configurar a Federação com o ID de início de sessão alternativo  |
 | **Modificar a configuração do AD FS** | |
 | [Repare a confiança](how-to-connect-fed-management.md#repairthetrust) |Reparar a confiança atual no local do AD FS e o Office 365/Azure. |
 | [Adicionar um novo servidor do AD FS](how-to-connect-fed-management.md#addadfsserver) |Expanda um farm do AD FS com um servidor do AD FS adicional após a instalação inicial. |

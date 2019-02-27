@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d5ca9e602416e6e575be8b79942cd6dba2a2fd69
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104575"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889159"
 ---
 # <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo
 
@@ -33,13 +33,13 @@ Para pontos finais adicionais: `{EndpointName}-{AccountName}-{DatacenterAbbrevia
 
 ## <a name="types"></a>Tipos  
 
-Existem duas **StreamingEndpoint** tipos: **Standard** e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocar para o ponto final de transmissão em fluxo. 
+Existem duas **ponto final de transmissão em fluxo** tipos: **Standard** e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocar para o ponto final de transmissão em fluxo. 
 
 A tabela descreve os tipos:  
 
 |Type|Unidades de escala|Descrição|
 |--------|--------|--------|  
-|**Ponto final de transmissão em fluxo Standard** (recomendado)|0|O **padrão** tipo é a opção recomendada para praticamente todos os cenários de transmissão em fluxo e tamanhos de audiência. O **padrão** tipo dimensiona a largura de banda de saída automaticamente. <br/>Para clientes com extremamente exigentes requisitos dos serviços de multimédia oferece **Premium** transmissão em fluxo de pontos de extremidade, que podem ser utilizados para ampliar a capacidade para o maior público de internet. Se espera grandes públicos e visualizadores em simultâneo, contacte-nos amsstreaming@microsoft.com para obter orientações sobre a necessidade de mover para o **Premium** tipo. |
+|**Ponto final de transmissão em fluxo Standard** (recomendado)|0|O **padrão** tipo é a opção recomendada para praticamente todos os cenários de transmissão em fluxo e tamanhos de audiência. O **padrão** tipo dimensiona a largura de banda de saída automaticamente. <br/>Para clientes com extremamente exigentes requisitos de serviços de multimédia oferecem **Premium** transmissão em fluxo de pontos de extremidade, que podem ser utilizados para ampliar a capacidade para o maior público de internet. Se espera grandes públicos e visualizadores em simultâneo, contacte-nos amsstreaming@microsoft.com para obter orientações sobre a necessidade de mover para o **Premium** tipo. |
 |**Ponto final de transmissão em fluxo Premium**|>0|Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Mover para uma **Premium** tipo ao ajustar `scaleUnits`. `scaleUnits` Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o **Premium** tipo, cada unidade ativada fornece capacidade de largura de banda adicional à aplicação. |
 
 ## <a name="working-with-cdn"></a>Trabalhar com CDN
@@ -57,19 +57,58 @@ Terá também de considerar como adaptável funciona de transmissão em fluxo. C
  
 ## <a name="properties"></a>Propriedades 
 
-Esta secção fornece detalhes sobre algumas das propriedades do StreamingEndpoint. Para obter exemplos de como criar um novo ponto de final de transmissão em fluxo e as descrições de todas as propriedades, consulte [ponto final de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
+Esta secção fornece detalhes sobre algumas das propriedades de transmissão em fluxo do ponto de extremidade. Para obter exemplos de como criar um novo ponto de final de transmissão em fluxo e as descrições de todas as propriedades, consulte [ponto final de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints/create). 
 
-|Propriedade|Descrição|  
-|--------------|----------|
-|`accessControl`|Utilizado para configurar as seguintes definições de segurança para este ponto final de transmissão em fluxo: Chaves de autenticação de cabeçalho de assinatura de Akamai e endereços IP que estão autorizados a ligar a este ponto final.<br />Esta propriedade pode ser definida quando `cdnEnabled`"' está definido como false.|  
-|`cdnEnabled`|Indica se é ou não a integração da CDN do Azure para este ponto final de transmissão em fluxo ativado (desativado por predefinição.)<br /><br /> Se definir `cdnEnabled` como true, as seguintes configurações obterem desativadas: `customHostNames` e `accessControl`.<br /><br />Nem todos os centros de dados suportam a integração da CDN do Azure. Para verificar se é ou não o seu centro de dados tem a CDN do Azure disponível de integração, faça o seguinte:<br /><br /> -Tentar definir o `cdnEnabled` como true.<br /><br /> -Verifique o resultado retornado para um `HTTP Error Code 412` (PreconditionFailed) com uma mensagem de "Propriedade CdnEnabled de ponto final de transmissão em fluxo não pode ser definido como true, conforme a capacidade CDN não está disponível na região atual."<br /><br /> Se obtiver este erro, o Centro de dados não o suporta. Deve tentar outro centro de dados.|  
-|`cdnProfile`|Quando `cdnEnabled` está definido como true, também é possível passar `cdnProfile` valores. `cdnProfile` é o nome do perfil da CDN de onde será criado o ponto de ponto final CDN. Pode fornecer um cdnProfile existente ou utilizar um novo. Se o valor é NULL e `cdnEnabled` é true, o valor predefinido "AzureMediaStreamingPlatformCdnProfile" é utilizado. Se o fornecido `cdnProfile` já existir, é criado um ponto final sob a mesma. Se o perfil não existe, é criado um novo perfil automaticamente.|
-|`cdnProvider`|Quando a CDN estiver ativada, pode também passar `cdnProvider` valores. `cdnProvider` controla qual o fornecedor será utilizado. Atualmente, são suportados os três valores: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se não for fornecido nenhum valor e `cdnEnabled` for VERDADEIRO, "StandardVerizon" é utilizado (ou seja, o valor predefinido.)|
-|`crossSiteAccessPolicies`|Utilizado para especificar políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [especificação de ficheiro de política entre domínios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [fazendo um serviço disponível em domínio limites](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).|  
-|`customHostNames`|Utilizado para configurar um ponto final de transmissão em fluxo para aceitar o tráfego direcionado para um nome de anfitrião personalizado. Assim, para a configuração de gestão de tráfego mais fácil por meio de uma Global tráfego Manager (GTM) e também para nomes de domínio com marca a ser utilizado como o nome de ponto final de transmissão em fluxo.<br /><br /> A propriedade de nome de domínio tem de ser confirmada pelos serviços de multimédia do Azure. Serviços de multimédia do Azure verifica a propriedade de nome de domínio, exigindo que um `CName` registo que contém o ID de conta de Media Services do Azure como um componente ser adicionado ao domínio em utilização. Por exemplo, para "sports.contoso.com" ser utilizado como um nome de anfitrião personalizado para o ponto final de transmissão, um registo para `<accountId>.contoso.com` deve ser configurado para apontar para um dos nomes de anfitrião de verificação de serviços de multimédia. O nome de anfitrião de verificação é composta por verifydns. \<zona de dns de mediaservices >. A tabela seguinte contém as zonas DNS esperadas a ser utilizado no registo de verificar para diferentes regiões do Azure.<br /><br /> América do Norte, Europa, Singapura, Hong Kong, Japão:<br /><br /> -mediaservices.windows.net<br /><br /> -verifydns.mediaservices.windows.net<br /><br /> China:<br /><br /> - mediaservices.chinacloudapi.cn<br /><br /> - verifydns.mediaservices.chinacloudapi.cn<br /><br /> Por exemplo, um `CName` registo que mapeia "945a4c4e-28ea-45 cd-8ccb-a519f6b700ad.contoso.com" para "verifydns.mediaservices.windows.net" comprova que 945a4c4e-28ea-45cd-8ccb-a519f6b700ad o ID de serviços de multimédia do Azure tem a propriedade dos domínio contoso.com, que permite a qualquer nome em contoso.com para ser utilizado como um nome de anfitrião personalizado para um ponto final de transmissão em fluxo nessa conta.<br /><br /> Para encontrar o valor de ID de serviço de suporte de dados, vá para o [portal do Azure](https://portal.azure.com/) e selecione a sua conta de serviço de multimédia. O ID de serviço de suporte de dados é apresentado à direita da página do DASHBOARD.<br /><br /> **Aviso**: Se houver uma tentativa para definir um nome de anfitrião personalizado sem uma verificação adequada do `CName` registo, a resposta DNS falhará e, em seguida, ser colocados em cache durante algum tempo. Depois de um registo adequado estiver em vigor, poderá demorar algum tempo até que a resposta em cache é revalidar. Dependendo do fornecedor DNS para o domínio personalizado, pode demorar em qualquer lugar de alguns minutos para uma hora para revalide o registo.<br /><br /> Além da `CName` que mapeia `<accountId>.<parent domain>` para `verifydns.<mediaservices-dns-zone>`, tem de criar outro `CName` que mapeia o nome de anfitrião personalizado (por exemplo, `sports.contoso.com`) para o nome de anfitrião do seu StreamingEndpont de serviços de multimédia (por exemplo, `amstest.streaming.mediaservices.windows.net`).<br /><br /> **Nota**: Localizado no mesmo centro de dados, de pontos finais de transmissão em fluxo não é possível partilhar o mesmo nome de anfitrião personalizado.<br /> Esta propriedade é válida para Standard e premium, pontos finais de transmissão em fluxo e pode ser definida quando "cdnEnabled": Falso<br/><br/> Atualmente, o AMS não suporta SSL com domínios personalizados.  |  
-|`maxCacheAge`|Substitui o padrão max-age cache controle cabeçalho HTTP definido pelo ponto de final de transmissão em fluxo em fragmentos de suporte de dados e manifestos de sob demanda. O valor é definido em segundos.|
-|`resourceState`|Os valores para a propriedade incluem:<br /><br /> -Parado. O estado inicial de um ponto de final de transmissão em fluxo após a criação.<br /><br /> -A iniciar. O ponto final de transmissão em fluxo é fazer a transição para o estado de execução.<br /><br /> -Em execução. O ponto final de transmissão em fluxo é capaz de transmitir conteúdos para clientes.<br /><br /> -Dimensionamento. As unidades de escala estão a ser aumenta ou diminui.<br /><br /> -A parar. O ponto final de transmissão em fluxo é fazer a transição para o estado de paragem.<br/><br/> -A eliminar. O ponto final de transmissão em fluxo está a ser eliminado.|
-|`scaleUnits `|scaleUnits fornecer capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Se precisar de mover para uma **Premium** escreva, ajuste `scaleUnits`. |
+- `accessControl` -Utilizado para configurar as seguintes definições de segurança para este ponto final de transmissão em fluxo: Chaves de autenticação de cabeçalho de assinatura de Akamai e endereços IP que estão autorizados a ligar a este ponto final.<br />Esta propriedade pode ser definida quando `cdnEnabled` é definido como false.
+- `cdnEnabled` -Indica se é ou não a integração da CDN do Azure para este ponto final de transmissão em fluxo ativado (desativado por predefinição). Se definir `cdnEnabled` como true, as seguintes configurações obterem desativadas: `customHostNames` e `accessControl`.
+  
+    Nem todos os centros de dados suportam a integração da CDN do Azure. Para verificar se tem ou não seu centro de dados a integração da CDN do Azure disponível, faça o seguinte:
+ 
+   - Tente definir o `cdnEnabled` como true.
+   - Verificar o resultado retornado para um `HTTP Error Code 412` (PreconditionFailed) com uma mensagem de "Propriedade CdnEnabled de ponto final de transmissão em fluxo não pode ser definido como true, conforme a capacidade CDN não está disponível na região atual." 
+
+    Se obtiver este erro, o Centro de dados não o suporta. Deve tentar outro centro de dados.
+- `cdnProfile` -Quando `cdnEnabled` está definido como true, também é possível passar `cdnProfile` valores. `cdnProfile` é o nome do perfil da CDN de onde será criado o ponto de ponto final CDN. Pode fornecer um cdnProfile existente ou utilizar um novo. Se o valor é NULL e `cdnEnabled` é true, o valor predefinido "AzureMediaStreamingPlatformCdnProfile" é utilizado. Se o fornecido `cdnProfile` já existir, é criado um ponto final sob a mesma. Se o perfil não existir, é criado um novo perfil automaticamente.
+- `cdnProvider` -Quando a CDN estiver ativada, pode também passar `cdnProvider` valores. `cdnProvider` controla qual o fornecedor será utilizado. Atualmente, são suportados os três valores: "StandardVerizon", "PremiumVerizon" e "StandardAkamai". Se não for fornecido nenhum valor e `cdnEnabled` for VERDADEIRO, "StandardVerizon" é utilizado (ou seja, o valor predefinido).
+- `crossSiteAccessPolicies` -Utilizado para especificar políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [especificação de ficheiro de política entre domínios](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [fazendo um serviço disponível em domínio limites](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx).
+- `customHostNames` -Utilizado para configurar um ponto final de transmissão em fluxo para aceitar o tráfego direcionado para um nome de anfitrião personalizado.  Esta propriedade é válida para o Standard e os pontos finais de transmissão em fluxo Premium e pode ser definida quando `cdnEnabled`: FALSO.
+    
+    A propriedade de nome de domínio tem de ser confirmada pelos serviços de multimédia. Serviços de multimédia verifica a propriedade de nome de domínio, exigindo que um `CName` registo que contém o ID de conta de Media Services como um componente ser adicionado ao domínio em utilização. Por exemplo, para "sports.contoso.com" ser utilizado como um nome de anfitrião personalizado para o ponto final de transmissão, um registo para `<accountId>.contoso.com` deve ser configurado para apontar para um dos nomes de anfitrião de verificação de serviços de multimédia. O nome de anfitrião de verificação é composta por verifydns. \<zona de dns de mediaservices >. 
+
+    Seguem-se as zonas DNS esperadas a ser utilizado no registo de verificar para diferentes regiões do Azure.
+  
+    - América do Norte, Europa, Singapura, Hong Kong, Japão:
+      
+      - `media.azure.net`
+      - `verifydns.media.azure.net`
+      
+    - China:
+        
+      - `mediaservices.chinacloudapi.cn`
+      - `verifydns.mediaservices.chinacloudapi.cn`
+        
+    Por exemplo, um `CName` registo que mapeia "945a4c4e-28ea-45 cd-8ccb-a519f6b700ad.contoso.com" para "verifydns.media.azure.net" comprova que 945a4c4e-28ea-45cd-8ccb-a519f6b700ad o ID de serviços de suporte de dados tem a propriedade do domínio contoso.com, assim, permitir que qualquer nome em contoso.com para ser utilizado como um nome de anfitrião personalizado para um ponto final de transmissão em fluxo nessa conta. Para encontrar o valor de ID de serviço de suporte de dados, vá para o [portal do Azure](https://portal.azure.com/) e selecione a sua conta de serviço de multimédia. O **ID da conta** aparece no canto superior direito da página.
+        
+    Se houver uma tentativa para definir um nome de anfitrião personalizado sem uma verificação adequada do `CName` registo, a resposta DNS falhará e, em seguida, ser colocados em cache durante algum tempo. Depois de um registo adequado estiver em vigor, poderá demorar algum tempo até que a resposta em cache é revalidar. Dependendo do fornecedor DNS para o domínio personalizado, pode demorar em qualquer lugar de alguns minutos para uma hora para revalide o registo.
+        
+     Para além da `CName` que mapeia `<accountId>.<parent domain>` para `verifydns.<mediaservices-dns-zone>`, tem de criar outro `CName` que mapeia o nome de anfitrião personalizado (por exemplo, `sports.contoso.com`) para o nome de anfitrião do seu suporte de dados dos serviços de transmissão em fluxo do ponto de extremidade (por exemplo, `amstest-usea.streaming.media.azure.net`).
+ 
+    > [!NOTE]
+    > Localizado no mesmo centro de dados, de pontos finais de transmissão em fluxo não é possível partilhar o mesmo nome de anfitrião personalizado.
+
+    Atualmente, os serviços de multimédia não suporta SSL com domínios personalizados. 
+    
+- `maxCacheAge` -Substituições o cache HTTP de idade máxima de padrão controlar cabeçalho definido pelo ponto de final de transmissão em fluxo em fragmentos de suporte de dados e manifestos de sob demanda. O valor é definido em segundos.
+- `resourceState` -
+
+    - Parado – o estado inicial de um ponto final de transmissão em fluxo após a criação
+    - A iniciar - é fazer a transição para o estado de execução
+    - Em execução - é capaz de transmitir conteúdos para clientes
+    - Dimensionamento - dimensionamento unidades estão a ser aumenta ou diminui
+    - A parar - é fazer a transição para o estado de paragem
+    - A eliminar - está a ser eliminada
+    
+- `scaleUnits ` -Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Se precisar de mover para uma **Premium** escreva, ajuste `scaleUnits`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

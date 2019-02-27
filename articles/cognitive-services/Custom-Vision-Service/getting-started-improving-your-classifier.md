@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6e97001497ebdddebe9b5b726e0526a987b6c63c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310225"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873326"
 ---
 # <a name="how-to-improve-your-classifier"></a>Como melhorar o seu classificador
 
@@ -39,7 +39,7 @@ Para corrigir este problema, utilize as seguintes orientações no treinamento c
 
 ## <a name="data-quantity"></a>Quantidade de dados
 
-O número de imagens de formação é o fator mais importante. Podemos recomment usando pelo menos 50 imagens por etiqueta como um ponto de partida. Com menos imagens, há um risco mais alto de overfitting e, enquanto os seus números de desempenho podem sugerir boa qualidade, o seu modelo pode apresentar dificuldades com dados do mundo real. 
+O número de imagens de formação é o fator mais importante. Recomendamos que utilize, pelo menos, 50 imagens por etiqueta como ponto de partida. Com menos imagens, há um risco mais alto de overfitting e, enquanto os seus números de desempenho podem sugerir boa qualidade, o seu modelo pode apresentar dificuldades com dados do mundo real. 
 
 ## <a name="data-balance"></a>Saldo de dados
 

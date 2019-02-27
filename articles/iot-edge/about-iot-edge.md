@@ -7,24 +7,24 @@ ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
-ms.date: 06/12/2018
+ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 2d1e4ce719311a28fb4b2075864f8f411cd2713d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230565"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877458"
 ---
 # <a name="what-is-azure-iot-edge"></a>O que é o Hub IoT Edge
 
-O Azure IoT Edge move as análises e a lógica empresarial personalizada da cloud para os dispositivos, para que a sua organização se possa dedicar às informações relevantes e não à gestão de dados. Permita que a sua solução se dimensione verdadeiramente ao configurar o seu software IoT, implementá-lo nos dispositivos através de contentores padrão e monitorizá-lo a partir da cloud.
+O Azure IoT Edge move as análises e a lógica empresarial personalizada da cloud para os dispositivos, para que a sua organização se possa dedicar às informações relevantes e não à gestão de dados. Configurar o seu software de IoT, implementá-la em dispositivos através de contentores padrão e monitorizá-lo a partir da cloud.
 
 >[!NOTE]
 >O Azure IoT Edge está disponível no escalão gratuito e standard do Hub IoT. O escalão gratuito destina-se apenas a testes e avaliação. Para obter mais informações sobre os escalões básico e standard, veja [How to choose the right IoT Hub tier](../iot-hub/iot-hub-scaling.md) (Como escolher o escalão do Hub IoT certo).
 
-Nas soluções IoT, o valor empresarial é impulsionado pelas análises, mas nem todas as análises têm de estar na cloud. Se quiser que um dispositivo responda a emergências o mais depressa possível, pode realizar uma deteção de anomalias no próprio dispositivo. Da mesma forma, se pretender reduzir os custos de largura de banda e evitar terabytes de transferências de dados não processados, pode fazer a limpeza e a agregação de dados localmente. Depois, envie as informações para a cloud. 
+Nas soluções IoT, o valor empresarial é impulsionado pelas análises, mas nem todas as análises têm de estar na cloud. Se quiser que um dispositivo responda a emergências o mais depressa possível, pode realizar uma deteção de anomalias no próprio dispositivo. Da mesma forma, se pretender reduzir os custos de largura de banda e evitar terabytes de transferências de dados não processados, pode fazer a limpeza e a agregação de dados localmente. Em seguida, envie as informações para a cloud para análise. 
 
 O Azure IoT Edge é composto por três componentes:
 * Módulos do IoT Edge são contentores que executam serviços do Azure, serviços de terceiros ou seu próprio código. Módulos são implementados em dispositivos do IoT Edge e executados localmente nesses dispositivos. 
@@ -33,11 +33,11 @@ O Azure IoT Edge é composto por três componentes:
 
 ## <a name="iot-edge-modules"></a>Módulos do IoT Edge
 
-Os módulos do IoT Edge são unidades de execução, atualmente implementadas como contentores compatíveis do Docker, e que executam a sua lógica de negócio na periferia. Podem ser configurados vários módulos para comunicarem entre si, criando um pipeline para processamento de dados. Pode desenvolver módulos personalizados ou empacotar determinados serviços do Azure em módulos que disponibilizam informações offline e na periferia. 
+Módulos do IoT Edge são unidades de execução, implementados como contentores compatíveis do Docker, que executam a lógica de negócio na periferia. Podem ser configurados vários módulos para comunicarem entre si, criando um pipeline para processamento de dados. Pode desenvolver módulos personalizados ou empacotar determinados serviços do Azure em módulos que disponibilizam informações offline e na periferia. 
 
 ### <a name="artificial-intelligence-on-the-edge"></a>Inteligência Artificial na periferia
 
-O Azure IoT Edge permite-lhe implementar processamento de eventos complexo, machine learning, reconhecimento de imagens e outro elevado valor sem ter de escrevê-lo internamente. Serviços do Azure, como as funções do Azure, Azure Stream Analytics e o Azure Machine Learning, podem ser executado no local através do Azure IoT Edge, mas não está limitado aos serviços do Azure. Qualquer pessoa pode criar módulos de IA e disponibilizá-los para utilização por parte da comunidade. 
+O Azure IoT Edge permite-lhe implementar processamento de eventos complexo, machine learning, reconhecimento de imagens e outro elevado valor sem ter de escrevê-lo internamente. Serviços do Azure, como as funções do Azure, Azure Stream Analytics e o Azure Machine Learning, podem ser executado no local através do Azure IoT Edge, mas não está limitado aos serviços do Azure. Qualquer pessoa é capaz de criar módulos de IA e disponibilizá-los para a Comunidade para utilização no Azure Marketplace. 
 
 ### <a name="bring-your-own-code"></a>Traga o seu próprio código
 
@@ -55,7 +55,7 @@ O runtime do Azure IoT Edge permite lógica personalizada e da cloud nos disposi
 
 ![O runtime do IoT Edge envia informações e relatórios para o Hub IoT.](./media/about-iot-edge/runtime.png)
 
-Como utilizar um dispositivo Azure IoT Edge cabe a. O tempo de execução é frequentemente utilizado para implementar a ia nos gateways que agregam e processam dados de vários outros dispositivos no local, no entanto, este modelo de implementação é somente uma opção. Os dispositivos de folha também podem ser dispositivos Azure IoT Edge, independentemente de estarem ligados a um gateway ou diretamente à cloud.
+Como utilizar um dispositivo Azure IoT Edge cabe a. O tempo de execução é frequentemente utilizado para implementar a ia nos gateways que agregam e processam dados de outros dispositivos no local, no entanto, este modelo de implementação é somente uma opção. Os dispositivos de folha também podem ser dispositivos Azure IoT Edge, independentemente de estarem ligados a um gateway ou diretamente à cloud.
 
 O runtime do Azure IoT Edge é executado num vasto conjunto de dispositivos IoT, para que possa ser utilizado de muitas e diversas formas. Ele oferece suporte a sistemas operativos Linux e Windows e abstrai detalhes do hardware. Utilize um dispositivo mais pequeno do que um Raspberry Pi 3, se não estiver a processar o volume de dados ou utilizar um servidor industrializado para executar cargas de trabalho com muitos recursos.
 
@@ -74,5 +74,3 @@ O Azure IoT Edge integra-se facilmente com os aceleradores de soluções do Azur
 ## <a name="next-steps"></a>Passos Seguintes
 
 Experimente estes conceitos ao [implementar o IoT Edge num dispositivo simulado](quickstart.md).
-
- 

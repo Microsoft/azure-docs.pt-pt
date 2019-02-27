@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e96b87e46872bebe7563e08f0eb7a33b11015f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 101710b5a57faa37be77ff4b059fa0d494f4e617
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329853"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878069"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business um em máquinas virtuais do Azure
 Este documento fornece orientação para implementar o SAP Business One em máquinas de virtuais do Azure. A documentação não é um substituto para documentação de instalação do negócio, um para SAP. A documentação deve abranger as orientações básicas sobre o planeamento e implementação para a infraestrutura do Azure executar aplicações de Business One.
@@ -38,7 +38,7 @@ Para utilizar este guia, tem um conhecimento básico dos seguintes componentes d
 - [Máquinas virtuais do Azure no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
 - [Máquinas virtuais do Azure no Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Azure virtual de rede e a redes de gestão com o PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
-- [Redes do Azure e redes virtuais com a CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [Redes do Azure e redes virtuais com a CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Gerir discos do Azure com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Mesmo se estiver interessado em negócios um só, o documento [máquinas virtuais do Azure de planeamento e implementação para o SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) pode ser uma boa fonte de informações.

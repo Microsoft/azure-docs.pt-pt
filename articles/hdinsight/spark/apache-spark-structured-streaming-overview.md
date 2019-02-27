@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 8c37093b5369d2390942bc00c1531248bc4424c8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653633"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869093"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Descrição geral do Apache Spark transmissão em fluxo estruturada
 
@@ -24,7 +24,7 @@ Aplicações de transmissão em fluxo estruturadas serem executadas em clusters 
 
 A transmissão em fluxo estruturada cria uma consulta de execução longa durante o qual aplicar operações para os dados de entrada, como seleção, projeção, agregação, janelas e associar o pacote de dados de transmissão em fluxo com referência DataFrames. Em seguida, enviar os resultados para armazenamento de ficheiros (Blobs de armazenamento do Azure ou armazenamento do Data Lake) ou para qualquer arquivo de dados com o código personalizado (por exemplo, a base de dados SQL ou o Power BI). A transmissão em fluxo estruturada também fornece a saída para a consola de depuração localmente e para uma tabela em memória para que possa ver os dados gerados para depuração no HDInsight. 
 
-![Transmissão em fluxo estruturada de Stream processar com o HDInsight e o Spark ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Transmissão em fluxo estruturada de Stream processar com o HDInsight e o Spark](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
 > A transmissão estruturada do Spark é substituir o Spark Streaming (DStreams). Daqui em diante, transmissão em fluxo estruturada receberá aprimoramentos e manutenção, enquanto DStreams estará no modo de manutenção apenas. A transmissão em fluxo estruturada não está atualmente como recursos completos como DStreams para as origens e sinks que ele oferece suporte de imediato, portanto, avalie os requisitos para escolher o Spark apropriado a opção de processamento de fluxo. 
@@ -114,15 +114,15 @@ Enquanto a consulta está em execução, no SparkSession mesmo, pode executar um
 Essa consulta produz resultados semelhantes ao seguinte:
 
 
-| janela |  min(Temp) | AVG(Temp) | Max(Temp) |
+| janela |  min(temp) | avg(temp) | max(temp) |
 | --- | --- | --- | --- |
 |{u'start': ' 2016 do u-07-26T02:00:00.000Z', u'end "... |    95 |    95.231579 | 99 |
 |{u'start': ' 2016 do u-07-26T03:00:00.000Z', u'end "...  |95 |   96.023048 | 99 |
-|{u'start': ' 2016 do u-07-26T04:00:00.000Z', u'end "...  |95 |   96.797133 | 99 |
+|{u'start': u'2016-07-26T04:00:00.000Z', u'end'...  |95 |   96.797133 | 99 |
 |{u'start': ' 2016 do u-07-26T05:00:00.000Z', u'end "...  |95 |   96.984639 | 99 |
 |{u'start': ' 2016 do u-07-26T06:00:00.000Z', u'end "...  |95 |   97.014749 | 99 |
 |{u'start': ' 2016 do u-07-26T07:00:00.000Z', u'end "...  |95 |   96.980971 | 99 |
-|{u'start': ' 2016 do u-07-26T08:00:00.000Z', u'end "...  |95 |   96.965997 | 99 |  
+|{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
 Para obter detalhes sobre a API de Stream estruturada do Spark, juntamente com os dados de entrada origens, as operações e saída Coletores de ele suporta, consulte [Apache Spark Structured Streaming guia de programação](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 

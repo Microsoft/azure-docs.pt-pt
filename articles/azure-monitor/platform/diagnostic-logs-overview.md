@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: e9fcf36d6ece441c73e7d1224bd5918d2e74bf84
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 704c12bc2ea16fcad5672dde4181f63495fbe967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002008"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870844"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "56002008"
 * **Registos de inquilino** -estes registos provenientes de serviços de inquilinos existentes fora de uma subscrição do Azure, como registos do Azure Active Directory.
 * **Registos de recursos** -estes registos provenientes de serviços do Azure que implementar recursos dentro de uma subscrição do Azure, tais como grupos de segurança de rede ou contas de armazenamento.
 
-    ![Registos do diagnóstico de recursos vs outros tipos de registos ](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Registos do diagnóstico de recursos vs outros tipos de registos](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 O conteúdo estes registos varia consoante o tipo de serviço e de recursos do Azure. Por exemplo, contadores de regras do grupo de segurança de rede e de auditorias do Cofre de chaves são dois tipos de registos de diagnóstico.
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/08/2019
+ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fcab4c7456295d8f7414232bc90bc5ab352e43a
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 991a50828059d850627e1f8f3f34f65a55fdf3f6
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817886"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890237"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -41,6 +41,8 @@ Seguem-se limitações para a solução atual:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Os runbooks para esta solução funcionam com um [conta Run As do Azure](automation-create-runas-account.md). A conta Run As é o método de autenticação preferencial, porque utiliza a autenticação de certificado em vez de uma palavra-passe que pode expirar ou ser alteradas frequentemente.
+
+Recomenda-se para utilizar uma conta de automatização separada para a solução iniciar/parar VM. Isso ocorre porque versões do módulo do Azure são atualizadas com frequência e seus parâmetros podem ser alterados. A solução iniciar/parar VM não está atualizada sobre a cadência da mesma, para que ele poderá não funcionar com as versões mais recentes de cmdlets que utiliza. Recomenda-se de testar atualizações do módulo num teste de conta de automatização antes de importá-los na sua conta de automatização de produção.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 446c5393b654c7743371e4097517d16ba71da630
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270305"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867019"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos do Azure Resource Manager ligados
 
@@ -297,7 +297,7 @@ Uma vez que agora a conta de armazenamento está definida no modelo ligado, tem 
 1. Abra azuredeploy.json no Visual Studio Code, se não estiver aberto.
 2. Expanda a definição do recurso de máquina virtual e atualize **dependsOn**, conforme mostrado na captura de ecrã seguinte:
 
-    ![Dependência de configuração de modelos ligados do Azure Resource Manager ](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
+    ![Dependência de configuração de modelos ligados do Azure Resource Manager](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     *linkedTemplate* é o nome do recurso de implementações.  
 3. Atualizar **propriedades/diagnosticsProfile/bootDiagnostics/storageUri** conforme mostrado na captura de ecrã anterior.

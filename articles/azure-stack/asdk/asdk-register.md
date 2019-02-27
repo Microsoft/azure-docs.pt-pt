@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 23adf2903a50727d920e4a20b8a325313fa39e2a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d5463b495620e441ad5371b5859c9ab543e0e7c6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428012"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874669"
 ---
 # <a name="azure-stack-registration"></a>Registo do Azure Stack
 Pode registrar sua instalação do Azure Stack Development Kit (ASDK) com o Azure para transferir itens do marketplace do Azure e configurar relatórios de volta à Microsoft de dados de comércio. É necessário Registro para dar suporte a todas as funcionalidades do Azure Stack, incluindo a distribuição de mercado. Registro é necessário para que possa testar a funcionalidade importante do Azure Stack, como relatórios de utilização e distribuição de mercado. Depois de registar o Azure Stack, a utilização é comunicada ao Azure commerce. Pode vê-lo sob a subscrição utilizada para o registo. No entanto, os utilizadores ASDK para não são cobrados qualquer utilização que reportam.
@@ -214,7 +214,7 @@ Pode utilizar o **gestão da região** mosaico para verificar se o registo do Az
 
 2. A partir do Dashboard, selecione **gestão da região**.
 
-    [ ![Mosaico de gestão de região](media/asdk-register/admin1sm.png "mosaico de gestão da região") ](media/asdk-register/admin1.png#lightbox)
+    [![Mosaico de gestão de região](media/asdk-register/admin1sm.png "mosaico de gestão da região")](media/asdk-register/admin1.png#lightbox)
 
 3. Selecione **propriedades**. Este painel mostra o estado e os detalhes do seu ambiente. O estado pode ser **registada** ou **não registado**. Se registrado, ela também mostra o ID de subscrição do Azure que utilizou para registar o Azure Stack, juntamente com o grupo de recursos de registo e o nome.
 

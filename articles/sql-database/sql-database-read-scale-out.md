@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: cf32f3998e254e8f4a9c347980718dbc8d0b13c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 02/25/2019
+ms.openlocfilehash: 3a937af5fba2c534e291a51c33c50434ab166ee0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461649"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868770"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Utilizar réplicas só de leitura para carregar saldo consulta só de leitura cargas de trabalho (pré-visualização)
 
@@ -36,7 +36,7 @@ Depois de leitura horizontal é ativada para uma base de dados, ligar a esse ban
 Se o Escalamento de leitura está desabilitado ou defina a propriedade ReadScale numa camada de serviço não suportado, todas as ligações sejam direcionadas para a réplica de leitura / escrita, independentemente do `ApplicationIntent` propriedade.
 
 > [!NOTE]
-> Durante a pré-visualização, os Store de dados de consulta e o Extended Events não são suportados nas réplicas só de leitura.
+> Consulta dados Store e do Extended Events não são suportadas nas réplicas só de leitura.
 
 ## <a name="data-consistency"></a>Consistência dos dados
 
@@ -125,7 +125,7 @@ Para obter mais informações, consulte [bases de dados - criar ou atualizar](ht
 Se estiver a utilizar o Escalamento horizontal leitura carregar saldo só de leitura cargas de trabalho num banco de dados que está a georreplicação (por exemplo, como um membro de um grupo de ativação pós-falha), certifique-se de que leitura Escalamento horizontal está ativado no principal e os georreplicado bases de dados secundárias. Isto irá garantir o mesmo efeito de balanceamento de carga quando seu aplicativo se conecta à nova principal após a ativação pós-falha. Se estiver a ligar para o georreplicada secundária da base de dados com escala de leitura ativada, as sessões com `ApplicationIntent=ReadOnly` serão encaminhados para uma das réplicas da mesma forma, podemos encaminhar as ligações na base de dados primária.  As sessões sem `ApplicationIntent=ReadOnly` serão encaminhados para a réplica primária da secundária georreplicada, que também é só de leitura. Porque a base de dados secundária georreplicada tem um ponto de extremidade diferente da base de dados primária, historicamente para acessar o secundário é não era necessária para definir `ApplicationIntent=ReadOnly`. Para garantir a compatibilidade com versões anteriores, `sys.geo_replication_links` DMV mostra `secondary_allow_connections=2` (qualquer ligação de cliente é permitida).
 
 > [!NOTE]
-> Durante a pré-visualização, round robin ou qualquer outra carga equilibrada de encaminhamento entre as réplicas locais da base de dados secundária não é suportado.
+> Round robin ou qualquer outra com balanceamento de carga encaminhamento entre as réplicas locais da base de dados secundária não é suportada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

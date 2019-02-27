@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4d4acecbbb90fff7865902a3371d282f1d402374
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6f857e926343c4c3c26d746134bbb9d94754c12
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662895"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866016"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrar os utilizadores com identidades sociais
 Quando planeia migrar o seu fornecedor de identidade para o Azure AD B2C, também terá de migrar os utilizadores com identidades sociais. Este artigo explica como migrar as contas de identidades das redes sociais existentes, tais como: Contas do Facebook, LinkedIn, Microsoft e Google para o Azure AD B2C. Este artigo também se aplica a identidades federadas, no entanto, essas migrações são menos comuns.
@@ -139,7 +139,7 @@ O nome do emissor, ou o nome do fornecedor de identidade, está configurado na s
 1. Inicie sessão com uma das contas de redes sociais
 2. Do JWT token, copie o `sub` valor. O `sub` geralmente contém o ID de objeto do utilizador no Azure AD B2C. Ou a partir do portal do Azure, abra as propriedades de usuário e copie o ID de objeto.
 3. Abra [do Azure AD Graph](https://graphexplorer.azurewebsites.net)
-4. Inicie sessão com o administrador. N
+4. Inicie sessão com o administrador.
 5. Execute o seguinte pedido GET. Substitua o userObjectId com o ID de utilizador que copiou. **GET** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 6. Localize o `userIdentities` elemento dentro do retorno JSON do Azure AD B2C.
 7. [Opcional] Também queira decodificar o `issuerUserId` valor.

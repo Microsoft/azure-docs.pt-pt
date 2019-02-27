@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4e4c9ae764e1278251c01d41a0617ed2e88e439
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242319"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879618"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -60,7 +60,7 @@ Históricos de execução são agora denominados **experimentações**. Pode rec
 
 Dashboard de área de trabalho do portal é suportado nos browsers Microsoft Edge, Chrome e Firefox:
 
-[ ![Online portal](./media/overview-what-happened-to-workbench/image001.png)] (. / media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Online portal](./media/overview-what-happened-to-workbench/image001.png)] (. / media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Inicie seus modelos de treinamento e ao controlar os históricos de execução usando a nova CLI e SDK. Pode saber como com o [Tutorial: criar modelos com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -109,7 +109,7 @@ Com o SDK de Python de novo na versão mais recente, pode interagir com o servi�
 
 Nesta versão mais recente, a extensão de nome foi mudada para Azure Machine Learning para Visual Studio Code e foi expandida e melhorada para funcionar com os novos recursos anteriores.
 
-[ ![Do azure Machine Learning para Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (. / media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Do azure Machine Learning para Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (. / media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>E em relação aos pacotes de domínios?
 

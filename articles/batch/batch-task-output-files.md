@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 0aa0be7ae9658259b327014c5678777c963e6cb5
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 77d8504dba180cfb56807344e659d6b22231f931
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302821"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866645"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Manter os dados de tarefas para o armazenamento do Azure com a API de serviço do Batch
 
@@ -38,7 +38,7 @@ O Azure Batch fornece mais de uma forma de manter a saída de tarefa. Com a API 
 - Pretende manter a saída para um contentor de armazenamento do Azure com o nome em conformidade com o [padrão de convenções de ficheiros do Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> A API do serviço Batch suporta dados persistentes de tarefas em execução em conjuntos criados com a configuração do serviço cloud. Para obter informações sobre tarefas persistentes de saída de agrupamentos de executar a configuração de serviços cloud, consulte [manter os dados de trabalhos e tarefas para o armazenamento do Azure com a biblioteca convenções de ficheiros do Batch para .NET manter ](batch-task-output-file-conventions.md).
+> A API do serviço Batch suporta dados persistentes de tarefas em execução em conjuntos criados com a configuração do serviço cloud. Para obter informações sobre tarefas persistentes de saída de agrupamentos de executar a configuração de serviços cloud, consulte [manter os dados de trabalhos e tarefas para o armazenamento do Azure com a biblioteca convenções de ficheiros do Batch para .NET manter](batch-task-output-file-conventions.md).
 
 Se o seu cenário é diferente das listados acima, terá de considerar uma abordagem diferente. Por exemplo, a API de serviço do Batch não suporta atualmente transmissão em fluxo de saída para o armazenamento do Azure enquanto a tarefa está em execução. A saída do stream, considere utilizar a biblioteca convenções de ficheiros do Batch, disponível para .NET. Para outros idiomas, terá de implementar sua própria solução. Para obter mais informações sobre outras opções para manter o resultado da tarefa, consulte [manter a saída de trabalhos e tarefas para o armazenamento do Azure](batch-task-output.md).
 

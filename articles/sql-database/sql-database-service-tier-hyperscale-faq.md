@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: d94bc570f47d71a7e2b626041acd4bb6e84d0dc1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099787"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876012"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -73,7 +73,7 @@ A camada de serviços de Hiperescala foi criada primariamente para os clientes q
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Que regiões atualmente suportam grande escala
 
-Hiperescala está atualmente disponível para bases de dados individuais nas seguintes regiões:  US1 oeste, E.u.a. oeste2, US1 leste, E.U.A. Central, Europa Ocidental, Europa do Norte, oeste do Reino Unido, Sudeste asiático, leste do Japão, Coreia Central, Austrália Sudeste e leste da Austrália.
+Hiperescala está atualmente disponível para bases de dados individuais nas seguintes regiões:  US1 oeste, E.u.a. oeste2, US1 leste, E.U.A. Central, Europa Ocidental, Europa do Norte, Sudeste asiático, leste do Japão, Coreia Central, Austrália Sudeste e leste da Austrália.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>Pode criar várias bases de dados de grande dimensão por servidor de base de dados SQL
 

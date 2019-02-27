@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1a40399ab0e27be5ba9dd01f2647bd5b8ccf10e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1f2837121c84081c77176b18758dfe1a83d6a070
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202517"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876913"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Sincronização do Azure AD Connect: Referência das Funções
 No Azure AD Connect, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -59,7 +59,7 @@ As funções com os tipos **mvbin**, **mvstr**, e **mvref** funciona somente em 
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
 | [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
+[CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Conversão** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
@@ -989,7 +989,7 @@ Os padleft modelo função esquerda-pads uma cadeia de caracteres para um compri
 **Observações:**
 
 * Se o comprimento da cadeia de caracteres for menor que o comprimento, padCharacter repetidamente é acrescentada ao início (esquerda) de cadeia de caracteres até tem um comprimento igual ao comprimento.
-* PadCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
+* padCharacter pode ser um caractere de espaço, mas não pode ser um valor nulo.
 * Se o comprimento da cadeia de caracteres é igual ou superior ao comprimento, a cadeia de caracteres é retornada sem alterações.
 * Se a cadeia tem um comprimento maior que ou igual ao comprimento, é devolvida uma cadeia de caracteres idêntica à cadeia de caracteres.
 * Se o comprimento da cadeia de caracteres for menor que o comprimento, é devolvida uma nova cadeia de caracteres do comprimento desejado cadeia de caracteres que contêm preenchida com um padCharacter.

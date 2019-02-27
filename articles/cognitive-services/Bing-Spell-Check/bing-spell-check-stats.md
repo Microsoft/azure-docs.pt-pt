@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7e5dc9917c98fec9a0b081f7a41b555212af8c71
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51a621a09b7f093f0674ee852d7492275f995e93
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876900"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890169"
 ---
 # <a name="how-to-get-analytics-for-bing-spell-check-api"></a>Como obter a análise para a API de verificação ortográfica do Bing
 

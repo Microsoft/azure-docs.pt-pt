@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: cd50a957894c2c6c4944b0ba3768a00754abaa15
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eb7d5acdcfade47ca916dcfd58aa271a9b1298ac
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835093"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867165"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizar a instalação do serviço de mobilidade com o System Center Configuration Manager
 
@@ -24,7 +24,7 @@ Este artigo fornece um exemplo de como pode usar o System Center Configuration M
 
 Este artigo utiliza o System Center Configuration Manager 2012 R2 para demonstrar a atividade de implementação. Podemos pressupõe que está a utilizar versão **9.9.4510.1** ou superior do serviço de mobilidade.
 
-Em alternativa, pode automatizar a instalação do serviço de mobilidade com o [DSC de automatização do Azure ](vmware-azure-mobility-deploy-automation-dsc.md).
+Em alternativa, pode automatizar a instalação do serviço de mobilidade com o [DSC de automatização do Azure](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **Parameter name** (Nome do parâmetro) | **Valor** |
   |--|--|
-  | Nome | Instalar o serviço de mobilidade do Microsoft Azure (Windows) |
+  | Name | Instalar o serviço de mobilidade do Microsoft Azure (Windows) |
   | Linha de comandos | install.bat |
   | Programa pode ser executado | Se pretende ou não um utilizador tem sessão iniciada |
 
@@ -397,8 +397,8 @@ cd /tmp
 
     | **Parameter name** (Nome do parâmetro) | **Valor** |
   |--|--|
-  | Nome | Instalar o serviço de mobilidade do Microsoft Azure (Linux) |
-  | Linha de comandos | ./install_linux.SH |
+  | Name | Instalar o serviço de mobilidade do Microsoft Azure (Linux) |
+  | Linha de comandos | ./install_linux.sh |
   | Programa pode ser executado | Se pretende ou não um utilizador tem sessão iniciada |
 
   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)

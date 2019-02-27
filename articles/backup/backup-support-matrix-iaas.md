@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 2bd499c3afc423047dda9ff3ad657d110dab282a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f327b681b4e91e22d2d3c34e9e991b203c0330e4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673652"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883169"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e as VMs do Azure. Este artigo resume as definições de suporte e limitações ao fazer backup de máquinas virtuais do Azure (VMs) com o Azure Backup.
@@ -168,7 +168,7 @@ Cópia de segurança de VMs migradas para o Azure   | Suportado.<br/><br/> Para 
 --- | ---
 Discos de dados VM do Azure | Fazer uma cópia de segurança de uma VM com discos de dados ou inferior a 16.
 Tamanho do disco de dados | Disco individual pode ser até 4095 GB.<br/><br/> Se estiver a executar a versão mais recente da cópia de segurança de VM do Azure (conhecida como restaurar instantânea), tamanhos até 4TB de disco são suportadas. [Saiba mais](backup-instant-restore-capability.md).
-Tipo de armazenamento | Premium HDD, standard SSD, SSD Standard <br/><br/> Standard SSD é suportada se estiver a executar a versão mais recente da cópia de segurança de VM do Azure (conhecida como restaurar instantânea), standard SSD é suportada. [Saiba mais](backup-instant-restore-capability.md).
+Tipo de armazenamento | Premium HDD, standard SSD, SSD Standard <br/><br/> Standard SSD é suportada se estiver a executar a versão mais recente da cópia de segurança de VM do Azure (também conhecida como restaurar instantânea). [Saiba mais](backup-instant-restore-capability.md).
 Managed disks | Suportadas
 Discos encriptados | Suportado.<br/><br/> VMs do Azure ativadas com encriptação de disco do Azure (ADE) podem ser uma cópia de segurança (com ou sem a aplicação do Azure AD).<br/><br/> VMs encriptadas não não possível recuperar ao nível do ficheiro/pasta. Precisa recuperar toda a VM.<br/><br/> Pode ativar a encriptação em VMs que já estão protegidas pelo Azure Backup.
 Discos com acelerador de escrita ativados | Não suportado.<br/><br/> Se estiver a executar a versão mais recente da cópia de segurança de VM do Azure (conhecido como [restaurar instantâneas](backup-instant-restore-capability.md)), pode excluir discos com acelerador de escrita ativado a partir de cópia de segurança.

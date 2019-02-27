@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 0b3128184942dbc750ea54bd7156c6e79b8bedea
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ee2917c64843c8ab137e0122d63a328d6c19fedb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804846"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867580"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>O serviço importar/exportar do Azure: Perguntas mais frequentes 
 Seguem-se perguntas e respostas que possa ter quando utiliza o serviço importar/exportar do Azure para transferir dados para o armazenamento do Azure. As perguntas e respostas estão organizadas pelas seguintes categorias:
@@ -138,7 +138,7 @@ Não. A ferramenta de WAImportExport só é compatível com sistemas de operativ
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Qual é o Blob de blocos e o tamanho do Blob de página suportados pelo Azure importar/exportar máximo?
 
 Tamanho do Blob de blocos de Max é aproximadamente 4.768TB ou 5,000,000 MB.
-Tamanho do Blob de página máximo é 1TB.
+Tamanho do Blob de páginas máxima é de 8TB.
 
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Importar/exportar do Azure suporta a encriptação AES-256?

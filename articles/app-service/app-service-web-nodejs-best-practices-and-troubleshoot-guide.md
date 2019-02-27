@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: aad31e72682e15c49fb3d6dce64e7ef46525cb66
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6a22600f7d6653da64256d7ec63ba26f272b2184
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051857"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888275"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Melhores práticas e guia de resolução de problemas para aplicações de nó no Windows de serviço de aplicações do Azure
 
@@ -90,7 +90,7 @@ Além disso, para transmissão em fluxo de aplicativos, também tem de definir r
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-Lista de ficheiros que são assistiu para alterações separados por ponto e vírgula. Qualquer alteração num arquivo faz com que o aplicativo reciclar. Cada entrada é composta por um nome opcional do, bem como um nome de ficheiro requerido, que são relativos ao diretório onde está localizado o ponto de entrada do aplicativo principal. A parte do nome de ficheiro só são permitidos carateres universais. O valor predefinido é `*.js;web.config`
+Lista de ficheiros que são assistiu para alterações separados por ponto e vírgula. Qualquer alteração num arquivo faz com que o aplicativo reciclar. Cada entrada é composta por um nome opcional do, bem como um nome de ficheiro requerido, que são relativos ao diretório onde está localizado o ponto de entrada do aplicativo principal. A parte do nome de ficheiro só são permitidos carateres universais. O valor predefinido é `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
@@ -283,6 +283,6 @@ Siga estas ligações para saber mais sobre aplicações node. js no App Service
 * [Introdução às aplicações Web Node.js no Serviço de Aplicações do Azure](app-service-web-get-started-nodejs.md)
 * [Como depurar uma aplicação Web Node.js no Serviço de Aplicações do Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Utilizar Módulos do Node.js com aplicações do Azure](../nodejs-use-node-modules-azure-apps.md)
-* [Aplicações de Web do serviço de aplicações do Azure: NODE. js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Aplicações de Web do serviço de aplicações do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Centro de Programadores do Node.js](../nodejs-use-node-modules-azure-apps.md)
 * [Explorar a Consola de Depuração do Kudu Super Secreta](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

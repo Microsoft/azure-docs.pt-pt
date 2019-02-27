@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e9c1c35236ce6449a9c9bf06ba291f46db472
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5e749f68aba48ac258363a0a03e3474e1e28b064
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731528"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876777"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Resolver problemas de uma aplicação no serviço de aplicações do Azure com o Visual Studio
 ## <a name="overview"></a>Descrição geral
@@ -96,14 +96,14 @@ Com frequência a forma mais fácil de encontrar a causa do erro é permitir men
     Pode ver nós que lhe darão acesso aos ficheiros de conteúdo e arquivos de log do aplicativo.
 2. Expanda a **arquivos** nó e clique duas vezes o *Web. config* ficheiro.
 
-    ![Abra o Web. config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
+    ![Open Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfig.png)
 
     Visual Studio abre o ficheiro Web. config da aplicação remota e mostra [remoto] junto ao nome do ficheiro na barra de título.
 3. Adicione a seguinte linha para o `system.web` elemento:
 
     `<customErrors mode="Off"></customErrors>`
 
-    ![Editar o Web. config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
+    ![Edit Web.config](./media/web-sites-dotnet-troubleshoot-visual-studio/webconfigedit.png)
 4. Atualize o browser que está a mostrar a mensagem de erro inúteis e, agora obtém uma mensagem de erro detalhadas, como o exemplo seguinte:
 
     ![Mensagem de erro detalhada](./media/web-sites-dotnet-troubleshoot-visual-studio/detailederror.png)
@@ -685,7 +685,7 @@ Para obter mais informações sobre como analisar os registos do servidor web, c
 
 * [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Uma ferramenta para ver os dados nos registos de servidor web (*. log* ficheiros).
-* [Resolução de problemas de desempenho do IIS ou erros de aplicações com LogParser ](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [Resolução de problemas de desempenho do IIS ou erros de aplicações com LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Uma introdução à ferramenta Analisador de registos que pode usar para analisar registos do servidor web.
 * [Mensagens de blogue por Robert McMurray sobre a utilização do LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [O código de estado HTTP no IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)

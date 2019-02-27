@@ -1,6 +1,6 @@
 ---
-title: Um guia de referência para os mosaicos do estruturador de vistas no Log Analytics do Azure | Documentos da Microsoft
-description: Ao utilizar o estruturador de vistas no Log Analytics, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
+title: Um guia de referência para os mosaicos do estruturador de vistas no Azure Monitor | Documentos da Microsoft
+description: Ao utilizar o estruturador de vistas no Azure Monitor, pode criar vistas personalizadas que são apresentadas no portal do Azure e contêm uma variedade de visualizações nos dados na área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c380f0391c51628b0eb71723a0faf982a4399680
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817399"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887765"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guia de referência para mosaicos do estruturador de vistas no Log Analytics
-Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para mosaicos do estruturador de vistas no Azure Monitor
+Ao utilizar o estruturador de vistas no Azure Monitor, pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para os mosaicos que estão disponíveis nas suas vistas personalizadas.
 
 Para obter mais informações sobre o estruturador de vistas, consulte:
 
@@ -177,5 +177,5 @@ O **duas linhas cronológicas** mosaico apresenta os resultados de duas consulta
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para oferecer suporte as consultas em mosaicos.
+* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para oferecer suporte as consultas em mosaicos.
 * Adicione [partes de visualização](view-designer-parts.md) à sua vista personalizada.

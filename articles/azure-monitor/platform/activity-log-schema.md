@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888146"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868549"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
 O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./diagnostic-logs-schema.md) é fornecido no final do artigo.
@@ -119,10 +119,13 @@ Esta categoria contém o registo de todos os criar, operações de atualização
 | correlationId |Normalmente, um GUID no formato de cadeia de caracteres. Eventos que partilham uma correlationId pertencem à mesma ação de uber. |
 | descrição |Descrição de texto estático de um evento. |
 | eventDataId |Identificador exclusivo de um evento. |
+| eventName | Nome amigável do evento administrativo. |
+| categoria | Sempre "administrativo" |
 | httpRequest |BLOB que descreve o pedido de Http. Normalmente inclui o "clientRequestId", "clientIpAddress" e "método" (método HTTP. Por exemplo, colocar). |
 | nível |Nível do evento. Um dos seguintes valores: "Crítico", "Error", "Aviso" e "Informativo" |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado. |
 | resourceProviderName |Nome do fornecedor de recursos para o recurso afetado |
+| resourceType | O tipo de recurso que foi afetado por um evento administrativo. |
 | resourceId |ID de recurso do recurso afetado. |
 | operationId |Um GUID compartilhado entre os eventos que correspondem a uma única operação. |
 | operationName |Nome da operação. |

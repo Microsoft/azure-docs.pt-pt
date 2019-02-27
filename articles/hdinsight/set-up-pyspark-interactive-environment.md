@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 45ba049717f2b9874bbac8d6493e13c2afc4b8f2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: c5a8869b0619b7be506ead1b9d37053e9fa57bba
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910653"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880296"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para Visual Studio Code
 
@@ -71,4 +71,4 @@ Usamos **pip do python** comando para criar o ambiente virtual no seu caminho de
 * [Utilizar pacotes externos com blocos de notas do Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Instalar o Jupyter no computador e ligar a um cluster do Spark do HDInsight](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualize os dados do Apache Hive com o Microsoft Power BI no Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Utilizar Apache Zeppelin para executar consultas do Apache Hive no Azure HDInsight ](hdinsight-connect-hive-zeppelin.md)
+* [Utilizar Apache Zeppelin para executar consultas do Apache Hive no Azure HDInsight](hdinsight-connect-hive-zeppelin.md)

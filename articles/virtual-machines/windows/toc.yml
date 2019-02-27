@@ -94,6 +94,8 @@ items:
       href: acu.md
     - name: Pontuações de referência
       href: compute-benchmark-scores.md
+    - name: Quotas de vCPU
+      href: quotas.md
   - name: Manutenção e atualizações
     href: maintenance-and-updates.md
   - name: Armazenamento em disco
@@ -124,12 +126,8 @@ items:
     href: backup-recovery.md
   - name: Computação de alto desempenho
     href: high-performance-computing.md
-  - name: Considerações sobre implementação
-    items:
-    - name: Diretrizes de infraestruturas
-      href: infrastructure-example.md
-    - name: Quotas de vCPU
-      href: quotas.md
+  - name: Exemplo de infraestrutura
+    href: infrastructure-example.md
 - name: Guias de procedimentos
   items:
   - name: Criar VMs
@@ -461,9 +459,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: 1b6d748758ba201391c80f8bded8215ae4161fbc
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 909c367475f5c41f03f7a30bb68bfc365dde581b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430374"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889748"

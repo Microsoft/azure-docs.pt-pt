@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: a37cfb19ab63335f120383a20753bf2b8333bd96
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448930"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869416"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação após desastre para máquinas virtuais do Azure com o Azure PowerShell
 
@@ -591,4 +591,4 @@ Errors           : {}
 Após uma ativação pós-falha, quando estiver pronto para voltar para a região original, inicie a replicação inversa para o item protegido de replicação com o cmdlet Update-AzureRmRecoveryServicesAsrProtectionDirection.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Ver os [referência do PowerShell do Azure Site Recovery ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) para saber como executar outras tarefas como criação de planos de recuperação e teste de ativação pós-falha dos planos de recuperação através do PowerShell.
+Ver os [referência do PowerShell do Azure Site Recovery](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) para saber como executar outras tarefas como criação de planos de recuperação e teste de ativação pós-falha dos planos de recuperação através do PowerShell.

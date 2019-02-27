@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 32367559ba4ae6931804c1ea702dca6c2c5ee297
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993916"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870912"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de serviços de multimédia do Azure 
 
@@ -177,7 +177,7 @@ Por predefinição, pode ter até 2 pontos finais na sua conta de serviços de m
 É-lhe cobrada apenas quando o seu StreamingEndpoint está no estado de execução.
 
 ### <a name="asset-delivery-policy"></a>Política de entrega de elemento
-Uma das etapas do fluxo de trabalho de entrega de conteúdos de serviços de suporte de dados está a configurar [políticas de entrega para ativos ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que deseja ser transmitidos em fluxo. A política de entrega de elementos informa os serviços de multimédia que pretende para o seu elemento seja entregue: em qual protocolo de transmissão em fluxo deve seu elemento ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se pretende encriptar dinamicamente ou não o elemento e como (envelope ou encriptação comum).
+Uma das etapas do fluxo de trabalho de entrega de conteúdos de serviços de suporte de dados está a configurar [políticas de entrega para ativos](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)que deseja ser transmitidos em fluxo. A política de entrega de elementos informa os serviços de multimédia que pretende para o seu elemento seja entregue: em qual protocolo de transmissão em fluxo deve seu elemento ser dinamicamente empacotado (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), se pretende encriptar dinamicamente ou não o elemento e como (envelope ou encriptação comum).
 
 Se tiver um recurso de armazenamento encriptado, antes do seu elemento pode ser transmitido em fluxo, o servidor de transmissão em fluxo remove a encriptação de armazenamento e transmite os seus conteúdos através da política de entrega especificado. Por exemplo, para fornecer o seu elemento encriptado com a chave de encriptação Advanced Encryption Standard (AES), defina o tipo de política para DynamicEnvelopeEncryption. Para remover a encriptação de armazenamento e transmitir em fluxo o elemento transparente, defina o tipo de política para NoDynamicEncryption.
 

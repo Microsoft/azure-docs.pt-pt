@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: add284a3a001d5bc2e756f9ad4a2a3b9550b212c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242140"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887425"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemplo: Como detetar sentimento com análise de texto
 
@@ -39,7 +39,7 @@ A análise de sentimentos produz um resultado de qualidade superior quando são 
 
 Tem de ter documentos JSON neste formato: id, texto, idioma
 
-Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. Segue-se um exemplo de conteúdos que poderá enviar para a análise de sentimentos.
+Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. Segue-se um exemplo de conteúdos que poderá enviar para a análise de sentimentos.
 
 ```
     {

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 82b412d7fc9e54ca213fecde783a5e27f8ee93bc
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 6cc5d6a778f16b857d0596780a737df3358ac8c3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233563"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867359"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o .NET Core (C#) para consultar uma base de dados SQL do Azure
 
@@ -196,5 +196,5 @@ namespace sqltest
 
 - [Introdução ao .NET Core com Windows/Linux/macOS, utilizando a linha de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
 - Saiba como [ligar e consultar uma base de dados SQL do Azure com o .NET Framework e o Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
-- Saiba como [conceber a sua base de dados SQL do Azure primeiro com o SSMS](sql-database-design-first-database.md) ou [ criar uma base de dados SQL do Azure e estabelecer ligação com o C# e o ADO.NET](sql-database-design-first-database-csharp.md).
+- Saiba como [conceber a sua base de dados SQL do Azure primeiro com o SSMS](sql-database-design-first-database.md) ou [criar uma base de dados SQL do Azure e estabelecer ligação com o C# e o ADO.NET](sql-database-design-first-database-csharp.md).
 - Para obter mais informações sobre o .NET, veja a [Documentação .NET](https://docs.microsoft.com/dotnet/).

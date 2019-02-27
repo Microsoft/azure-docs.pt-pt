@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: c04b9b04a14e5cba205db5e0fa86094ef098bc7b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585878"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886439"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar inventário com o portal do Azure e tópicos/subscrições
 
@@ -65,9 +65,9 @@ Para executar o código, faça o seguinte:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navegue para a pasta de exemplo `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
+2. Navegue para a pasta `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters` de exemplo.
 
-3. Obtenha a cadeia de ligação que copiou para o Bloco de Notas na secção [Obter as credenciais de gestão](#obtain-the-management-credentials) deste tutorial. Também necessita do nome do tópico criado na secção anterior.
+3. Obter a cadeia de ligação que copiou para o bloco de notas na obter a secção de credenciais de gestão deste tutorial. Também necessita do nome do tópico criado na secção anterior.
 
 4. Na linha de comandos, escreva o seguinte comando:
 

@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: c42490b7d46df77bffd13fdda02884704fb13b67
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 685183f61c1574d8c533efad8a7e0c46b1e2d23c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210310"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870317"
 ---
 # <a name="back-up-azure-stack"></a>Criar cópias de segurança do Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Efetue uma cópia de segurança a pedido no Azure Stack. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para o Azure Stack ](azure-stack-powershell-install.md). Para iniciar sessão no Azure Stack, veja [com o portal de administrador no Azure Stack](azure-stack-manage-portals.md).
+Efetue uma cópia de segurança a pedido no Azure Stack. Para obter instruções sobre como configurar o ambiente do PowerShell, consulte [instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md). Para iniciar sessão no Azure Stack, veja [com o portal de administrador no Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Iniciar cópia de segurança do Azure Stack
 

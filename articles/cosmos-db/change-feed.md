@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 2224c798d0854aab2d3ec7fc2c03b51de58dbfc0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244441"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886728"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Alterar feed no Azure Cosmos DB - descrição geral
 
@@ -118,7 +118,7 @@ Feed de alterações está disponível para cada chave de partição lógica den
 
 * As alterações estão disponíveis em paralelo para todas as chaves de partição lógica de um contentor do Cosmos do Azure. Esta capacidade permite que as alterações dos contentores grandes para serem processados em paralelo por vários consumidores.
 
-* As aplicações podem solicitar transmissões de várias alterações no mesmo contentor em simultâneo. ChangeFeedOptions.StartTime pode ser utilizado para fornecer um ponto de partida inicial. Por exemplo, para encontrar o token de continuação correspondente a uma hora de relógio especificada. ContinuationToken, se for especificado, wins sobre os valores StartTime e StartFromBeginning. A precisão da ChangeFeedOptions.StartTime é ~ 5 segundos. 
+* As aplicações podem solicitar a vários feeds de mudança no mesmo contentor em simultâneo. ChangeFeedOptions.StartTime pode ser utilizado para fornecer um ponto de partida inicial. Por exemplo, para encontrar o token de continuação correspondente a uma hora de relógio especificada. ContinuationToken, se for especificado, wins sobre os valores StartTime e StartFromBeginning. A precisão da ChangeFeedOptions.StartTime é ~ 5 segundos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

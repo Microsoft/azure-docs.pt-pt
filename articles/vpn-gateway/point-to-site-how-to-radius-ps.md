@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0d31129a94d6e575ead01a62d22ae3ce8f2acf64
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0aea797458649af3f839b7b8ae9b5cea384fe3b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414922"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865149"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configure uma ligação de ponto a Site a uma VNet com a autenticação RADIUS: PowerShell
 
@@ -64,7 +64,7 @@ Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-### <a name="sign-in"></a>Iniciar sessão
+## <a name="signin"></a>Iniciar sessão
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -87,7 +87,7 @@ Pode utilizar os valores de exemplo para criar um ambiente de teste ou consultá
 * **Servidor DNS: Endereço IP** do servidor DNS que pretende utilizar para a resolução de nome para a sua VNet. (opcional)
 * **Nome do GW: Vnet1GW**
 * **Nome do IP público: VNet1GWPIP**
-* **VpnType: RouteBased** 
+* **VpnType: RouteBased**
 
 ## 1. <a name="vnet"></a>Criar o grupo de recursos, a VNet e o IP público de endereço
 

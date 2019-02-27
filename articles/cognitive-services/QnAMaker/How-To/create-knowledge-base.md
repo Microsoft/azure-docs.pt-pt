@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4ba744c3d8cc3a785c04bbbb1b476a857859e244
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1691bf9334d15ed7af211a929cf87ce433af895c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876883"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866407"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-portal"></a>Início rápido: Criar uma base de dados de conhecimento através do portal do QnA Maker
 
@@ -52,7 +52,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Adicione **Chit-bate-papo** para sua KB. Opte por adicionar o suporte para o bot, chit chat ao escolher entre uma as 3 personalidades. 
 
-    ![Adicionar chit-bate-papo para KB ](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
+    ![Adicionar chit-bate-papo para KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
 1. Selecione **criar a sua BDC**.
 

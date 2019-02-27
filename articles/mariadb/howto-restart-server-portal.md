@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.openlocfilehash: 4b530ed2ffd32e2433a744b05aaab2219bf2b15a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 185e605db366fb392758ad9870a3c15badc0f321
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896695"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874873"
 ---
 # <a name="restart-azure-database-for-mariadb-server-using-azure-portal"></a>Reinicie a base de dados do Azure para o servidor de MariaDB com o portal do Azure
 Este tópico descreve como pode reiniciar uma base de dados do Azure para MariaDB server. Terá de reiniciar o servidor por motivos de manutenção, o que faz com que uma interrupção curta como o servidor executa a operação.
@@ -36,15 +36,15 @@ Os seguintes passos reiniciar o servidor de MariaDB:
 
 3. Clique em **Sim** para confirmar o reinício do servidor.
 
-   ![Confirmar a base de dados do Azure para MariaDB - reinício ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Confirmar a base de dados do Azure para MariaDB - reinício](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. Observe que o estado do servidor é alterado para "Reiniciar".
 
-   ![Base de dados do Azure para MariaDB - estado de reinício ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Base de dados do Azure para MariaDB - estado de reinício](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Confirme o reinício do servidor é efetuada com êxito.
 
-   ![Base de dados do Azure para MariaDB - êxito de reinício ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Base de dados do Azure para MariaDB - êxito de reinício](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

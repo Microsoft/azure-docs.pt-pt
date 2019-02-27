@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1609d413604e172b9c718bd11768c495dfa8afe8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191432"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867104"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 
@@ -83,7 +83,7 @@ O processo de aprovisionamento do seu domínio gerido pode demorar até uma hora
 
 3. O **descrição geral** separador mostra que o domínio gerido está atualmente a ser aprovisionado. Não é possível configurar o domínio gerido até que esteja totalmente aprovisionado. Poderá demorar até uma hora para o seu domínio gerido ser totalmente aprovisionado.
 
-    ![Serviços de domínio - separador de descrição geral durante o estado de aprovisionamento ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Serviços de domínio - separador de descrição geral durante o estado de aprovisionamento](./media/getting-started/domain-services-provisioning-state-details.png)
 
 4. Quando o domínio gerido está totalmente aprovisionado, o **descrição geral** separador mostra o estado de domínio como **em execução**.
 

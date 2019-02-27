@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: diberry
-ms.openlocfilehash: f3376b8077302eb6bd9a96710f92d692b641cac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0723c3730ca0ae6325d828fbb5f41698cb807dd3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866785"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874890"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Apresenta uma lista de frase de utilização para o sinal de aumento de lista de palavras
 
@@ -44,7 +44,7 @@ LUIS permite até 10 listas de frase por aplicação.
 
 5. Clique em **estes valores são intercambiáveis** se os valores de lista de frase adicionados são alternativas que podem ser utilizadas alternadamente.
 
-    ![Frase de valores de proposta de lista - selecione a caixa de intercambiável ](./media/luis-add-features/interchangeable.png)
+    ![Frase de valores de proposta de lista - selecione a caixa de intercambiável](./media/luis-add-features/interchangeable.png)
 
 6. Clique em **Guardar**. A lista de frase "Cidades" é adicionada para o **frase listas** página.
 

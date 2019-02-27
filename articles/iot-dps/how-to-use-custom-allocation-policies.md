@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4c02df5684036aef078b0f79c70d3b66d60e013b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340062"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881520"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizado
 
@@ -528,8 +528,8 @@ A tabela seguinte mostra cenários esperados e os códigos de erro de resultados
 | O webhook devolve 200 OK com 'iotHubHostName' presente na resposta, mas definida como uma cadeia vazia nem nula | Estado do resultado: Com Falhas<br><br> Código do erro: CustomAllocationIotHubNotSpecified (400208) | SDK devolve PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | O webhook devolve 401 não autorizado | Estado do resultado: Com Falhas<br><br>Código do erro: CustomAllocationUnauthorizedAccess (400209) | SDK devolve PROV_DEVICE_RESULT_UNAUTHORIZED |
 | Uma inscrição Individual foi criada para desativar o dispositivo | Estado do resultado: Desativado | SDK devolve PROV_DEVICE_RESULT_DISABLED |
-| O webhook retorna o código de erro > = 429 | Orquestração dos pontos de distribuição tentará novamente várias vezes. A política de repetição é atualmente:<br><br>&nbsp;&nbsp;-Número de tentativas: 10<br>&nbsp;&nbsp;-Intervalo de inicial: 1s<br>&nbsp;&nbsp;-Incremento: 9S | SDK irá ignorar o erro e submeta outra mensagem de estado de get no tempo especificado |
-| O webhook devolve qualquer outro código de estado | Estado do resultado: Com Falhas<br><br>Código do erro: CustomAllocationFailed (400207) | SDK devolve PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| O webhook retorna o código de erro > = 429 | Orquestração dos pontos de distribuição tentará novamente várias vezes. A política de repetição é atualmente:<br><br>&nbsp;&nbsp;-Número de tentativas: 10<br>&nbsp;&nbsp;-Intervalo de inicial: 1s<br>&nbsp;&nbsp;-Incremento: 9s | SDK irá ignorar o erro e submeta outra mensagem de estado de get no tempo especificado |
+| O webhook devolve qualquer outro código de estado | Estado do resultado: Com Falhas<br><br>Código do erro: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -555,7 +555,7 @@ Para eliminar o grupo de recursos por nome:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais Reprovisioning, veja [conceitos de reprovisoning de dispositivos no Hub IoT](concepts-device-reprovision.md) 
-- Para saber mais desaprovisionamento, veja [como desaprovisionar os dispositivos que foram anteriormente aprovisionados ](how-to-unprovision-devices.md) 
+- Para saber mais desaprovisionamento, veja [como desaprovisionar os dispositivos que foram anteriormente aprovisionados](how-to-unprovision-devices.md) 
 
 
 

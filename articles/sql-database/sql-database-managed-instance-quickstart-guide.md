@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 857af7a10f6efb87133ba086dcb6897074c7f8ec
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 3bf0f62b0a8d909231ad747435ce363e6686fe80
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586426"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874754"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução ao Azure SQL Database instância gerida
 
@@ -25,10 +25,13 @@ O [instância gerida](sql-database-managed-instance-index.yml) opção de implem
 
 ## <a name="quickstart-overview"></a>Descrição geral do guia de introdução
 
-Os inícios Rápidos seguintes permitem-lhe rapidamente criar uma instância gerida, configurar uma máquina virtual ou do ponto de ligação de VPN de site para a aplicação de cliente e restaurar uma base de dados para a nova instância gerida com um `.bak` ficheiro:
+Os inícios Rápidos seguintes permitem-lhe rapidamente criar uma instância gerida, configurar uma máquina virtual ou do ponto de ligação de VPN de site para a aplicação de cliente e restaurar uma base de dados para a nova instância gerida com um `.bak` ficheiro.
+
+### <a name="configure-environment"></a>Configurar o ambiente
+Como primeiro passo, terá de criar a sua primeira instância gerida com o ambiente de rede onde será colocado e ativar a ligação do computador ou máquina virtual em que está a executar consultas para a instância gerida. Pode utilizar os seguintes guias:
 
 - [Criar uma instância gerida no portal do Azure](sql-database-managed-instance-get-started.md). No portal do Azure, configure os parâmetros necessários (nome de utilizador/palavra-passe, número de núcleos e a quantidade de armazenamento máximo) e criar automaticamente o ambiente de rede do Azure sem a necessidade de saber sobre o funcionamento em rede detalhes e requisitos de infraestrutura. Apenas Certifique-se de que tem um [tipo de subscrição](sql-database-managed-instance-resource-limits.md#supported-subscription-types) que atualmente tem permissão para criar uma instância gerida. Se tem sua própria rede que pretende utilizar ou se pretender personalizar a rede, consulte [configurar uma rede virtual existente para a instância gerida da base de dados do Azure SQL](sql-database-managed-instance-configure-vnet-subnet.md) ou [criar uma rede virtual para a base de dados do Azure SQL instância gerida](sql-database-managed-instance-create-vnet-subnet.md).
-- Uma instância gerida é criada na própria VNet com nenhum ponto final público. Para obter acesso de aplicação de cliente, pode criar uma VM na mesma VNet (sub-rede diferente) ou criar uma ligação de VPN ponto a site para a VNet a partir do computador cliente através de um dos seguintes inícios rápidos.
+- Uma instância gerida é criada na própria VNet com nenhum ponto final público. Para obter acesso de aplicação de cliente, pode **criar uma VM na mesma VNet (sub-rede diferente)** ou **criar uma ligação de VPN ponto a site para a VNet a partir do computador cliente** utilizando um dos seguintes Inícios rápidos:
 
   - Crie [Máquina Virtual do Azure na instância gerida VNet](sql-database-managed-instance-configure-vm.md) para conectividade de aplicativo de cliente, incluindo o SQL Server Management Studio.
   - Configurar [ligação de VPN ponto a site para a sua instância gerida](sql-database-managed-instance-configure-p2s.md) partir do computador cliente em que tiver o SQL Server Management Studio e outros aplicativos de conectividade do cliente. Este é outro das duas opções para a conectividade à sua instância gerida e a sua VNet.
@@ -36,9 +39,10 @@ Os inícios Rápidos seguintes permitem-lhe rapidamente criar uma instância ger
   > [!NOTE]
   > Também pode utilizar o expressroute ou de ligação site a site da rede local, mas essas abordagens estão fora do âmbito dos inícios Rápidos seguintes.
 
+### <a name="migrate-your-databases"></a>Migre bases de dados 
 Depois de criar uma instância gerida e configurar o acesso, pode começar a migrar as bases de dados do SQL Server no local ou VMs do Azure. Migração falha se tiver algumas funcionalidades não suportadas na base de dados origem que pretende migrar. Para evitar falhas e verificar a compatibilidade, pode instalar [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) que analisa as bases de dados no SQL Server e encontra qualquer problema que poderia bloquear a migração para uma instância gerida, por exemplo, a existência de [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou vários ficheiros de registo. Se resolver estes problemas, as bases de dados estão prontos para migrar para a instância gerida. [Base de dados de Assistente de experimentação](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) é outra ferramenta útil que pode gravar sua carga de trabalho no SQL Server e de repetição-lo numa instância gerida para que possa determinar estarão disponíveis para ser problemas de desempenho se migrar para uma instância gerida.
 
-Assim que tiver a certeza de que pode migrar a base de dados para uma instância gerida, pode utilizar os recursos nativos de restauro do SQL Server para restaurar uma base de dados para uma instância gerida de uma `.bak` ficheiro. Para um guia de introdução, consulte [restaurar a partir de cópia de segurança para uma instância gerida](sql-database-managed-instance-get-started-restore.md). Neste início rápido, restaurar a partir de um `.bak` ficheiros armazenados no armazenamento de Blobs do Azure com o `RESTORE` comando do Transact-SQL. 
+Assim que tiver a certeza de que pode migrar a base de dados para uma instância gerida, pode utilizar os recursos nativos de restauro do SQL Server para restaurar uma base de dados para uma instância gerida de uma `.bak` ficheiro. Pode utilizar este método para migrar bases de dados do SQL Server da base de dados motor instalado no local ou VM do Azure. Para um guia de introdução, consulte [restaurar a partir de cópia de segurança para uma instância gerida](sql-database-managed-instance-get-started-restore.md). Neste início rápido, restaurar a partir de um `.bak` ficheiros armazenados no armazenamento de Blobs do Azure com o `RESTORE` comando do Transact-SQL. 
 
 > [!TIP]
 > Para utilizar o `BACKUP` comando do Transact-SQL para criar uma cópia de segurança da base de dados no armazenamento de Blobs do Azure, consulte [cópia de segurança do SQL Server para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).

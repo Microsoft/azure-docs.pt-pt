@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 02/27/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41eeb4c45e4ef2f04a5e53fde081a2c46093d379
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b7ab4007a94efbc48bfea67c6b954c02de0b2ba
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186085"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887442"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Aplicação e objetos de principal de serviço no Azure Active Directory
 
@@ -102,6 +102,6 @@ Neste cenário de exemplo:
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
+[AAD-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
+[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com

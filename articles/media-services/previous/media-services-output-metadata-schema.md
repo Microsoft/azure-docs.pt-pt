@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: cdcdcff8a5c016cfd3074a950ad6060e55b8b0fe
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b2d1c71049ae72ad974d9ab9761d4668aeb17929
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312587"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889125"
 ---
 # <a name="output-metadata"></a>Metadados de saída
 ## <a name="overview"></a>Descrição geral
@@ -33,7 +33,7 @@ Este artigo aborda os elementos e tipos do esquema XML no qual os metadados de s
 
 Pode encontrar o código de esquema completo e o exemplo XML no final deste artigo.  
 
-## <a name="AssetFiles "></a> Elemento de raiz de AssetFiles
+## <a name="AssetFiles"></a> Elemento de raiz de AssetFiles
 Coleção de entradas de AssetFile para a tarefa de codificação.  
 
 ### <a name="child-elements"></a>Elementos subordinados
@@ -41,7 +41,7 @@ Coleção de entradas de AssetFile para a tarefa de codificação.
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Um elemento de AssetFile que faz parte da coleção AssetFiles. |
 
-## <a name="AssetFile "></a> Elemento de AssetFile
+## <a name="AssetFile"></a> Elemento de AssetFile
 Pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
@@ -58,7 +58,7 @@ Pode encontrar um exemplo XML [exemplo XML](#xml).
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico pode conter, no mesmo, vídeos de zero ou mais roteiros intercalados num formato de contêiner apropriado. Para obter mais informações, consulte VideoTracks elemento. |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico pode conter zero ou mais faixas de áudio intercaladas num formato de contêiner apropriado no mesmo. Isso é uma coleção de todas as essas faixas de áudio. Para obter mais informações, consulte AudioTracks elemento. |
 
-## <a name="Sources "></a> Elemento de origens
+## <a name="Sources"></a> Elemento de origens
 Coleção de ficheiros de suporte de dados de entrada/origem, que foi processada para produzir esta AssetFile.  
 
 Pode encontrar um exemplo XML [exemplo XML](#xml).  
@@ -68,7 +68,7 @@ Pode encontrar um exemplo XML [exemplo XML](#xml).
 | --- | --- |
 | **Origem**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Um ficheiro de origem de entrada/utilizado durante a geração deste recurso. Para obter mais informações, consulte o elemento de origem. |
 
-## <a name="Source "></a> Elemento de origem
+## <a name="Source"></a> Elemento de origem
 Um ficheiro de origem de entrada/utilizado durante a geração deste recurso.  
 
 Pode encontrar um exemplo XML [exemplo XML](#xml).  
@@ -78,7 +78,7 @@ Pode encontrar um exemplo XML [exemplo XML](#xml).
 | --- | --- | --- |
 | **Nome**<br/><br/> Necessário |**xs:string** |Nome de ficheiro de origem de entrada. |
 
-## <a name="VideoTracks "></a> Elemento de VideoTracks
+## <a name="VideoTracks"></a> Elemento de VideoTracks
 Cada AssetFile físico pode conter, no mesmo, vídeos de zero ou mais roteiros intercalados num formato de contêiner apropriado. O **VideoTracks** elemento representa uma coleção de todas as faixas de vídeo.  
 
 Pode encontrar um exemplo XML [exemplo XML](#xml).  
@@ -110,7 +110,7 @@ Pode encontrar um exemplo XML [exemplo XML](#xml).
 | **TargetBitrate**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |O direcionamento de média de velocidade de transmissão para este Roteiro de vídeo, como requerido por meio dos predefinida, na codificação de kilobits por segundo. |
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |GOP máx. velocidade média para este Roteiro de vídeo, no kilobits por segundo. |
 
-## <a name="AudioTracks "></a> Elemento de AudioTracks
+## <a name="AudioTracks"></a> Elemento de AudioTracks
 Cada AssetFile físico pode conter zero ou mais faixas de áudio intercaladas num formato de contêiner apropriado no mesmo. O **AudioTracks** elemento representa uma coleção de todas as essas faixas de áudio.  
 
 Pode encontrar um exemplo XML [exemplo XML](#xml).  
@@ -120,7 +120,7 @@ Pode encontrar um exemplo XML [exemplo XML](#xml).
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Uma faixa de áudio específica na AssetFile pai. Para obter mais informações, consulte o elemento de AudioTrack. |
 
-## <a name="AudioTrack "></a> Elemento de AudioTrack
+## <a name="AudioTrack"></a> Elemento de AudioTrack
 Uma faixa de áudio específica na AssetFile pai.  
 
 Pode encontrar um exemplo XML [exemplo XML](#xml).  
@@ -141,7 +141,7 @@ Pode encontrar um exemplo XML [exemplo XML](#xml).
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Parâmetros de medição de intensidade resultado. Para obter mais informações, consulte LoudnessMeteringResultParameters elemento. |
 
-## <a name="LoudnessMeteringResultParameters "></a> Elemento de LoudnessMeteringResultParameters
+## <a name="LoudnessMeteringResultParameters"></a> Elemento de LoudnessMeteringResultParameters
 Parâmetros de medição de intensidade resultado.  
 
 Pode encontrar um exemplo XML [exemplo XML](#xml).  

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2c32ef84c1016d0058ee07220729a291aff19b70
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991231"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868073"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Camada de serviços de Hiperescala (pré-visualização) para até 100 TB
 
@@ -145,7 +145,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-Camada de serviços de Hiperescala está atualmente em pré-visualização pública e disponível nas seguintes regiões do Azure: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Camada de serviços de Hiperescala está atualmente em pré-visualização pública e disponível nas seguintes regiões do Azure: E.U.A. leste, 1, E.U.A. Leste 2, E.u.a. oeste2, E.U.A. Central, Norte CentralU S, Europa Ocidental, Europa do Norte, leste da Austrália, Sudeste da Austrália, Sudeste asiático, leste do Japão e Coreia Central
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 

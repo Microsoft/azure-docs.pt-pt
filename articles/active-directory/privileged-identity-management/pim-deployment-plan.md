@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54fa8d09d930069191fb48e0ab015d436496b725
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fb675778d899d6f4cec22de8a1c81fdae76ba17e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166407"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879769"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar o Azure AD Privileged Identity Management (PIM)
 
@@ -120,7 +120,7 @@ A seção a seguir ajuda a identificar todos os participantes envolvidos no proj
 
 Como parte do processo de planejamento, primeiro tem de consentir e ativar PIM ao seguir nossos [começar a utilizar o documento PIM](pim-getting-started.md). Ativar PIM dá-lhe acesso a algumas funcionalidades que são projetadas especificamente para ajudar com a sua implementação.
 
-Se seu objetivo é implementar o PIM para recursos do Azure, deve seguir nossos [detetar recursos do Azure para gerir no documento PIM](pim-resource-roles-discover-resources.md). Apenas os proprietários de cada recurso, grupo de recursos e subscrição poderá descobri-las dentro do PIM. Se for um Administrador Global a tentar implementar o PIM para recursos do Azure, pode [elevar o acesso para gerir todas as subscrições do Azure ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) dar acesso a todos os recursos do Azure no diretório para a deteção. No entanto, aconselhamos que obtenha aprovação de cada um dos seus proprietários de subscrições antes de gerir os respetivos recursos com o PIM.
+Se seu objetivo é implementar o PIM para recursos do Azure, deve seguir nossos [detetar recursos do Azure para gerir no documento PIM](pim-resource-roles-discover-resources.md). Apenas os proprietários de cada recurso, grupo de recursos e subscrição poderá descobri-las dentro do PIM. Se for um Administrador Global a tentar implementar o PIM para recursos do Azure, pode [elevar o acesso para gerir todas as subscrições do Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) dar acesso a todos os recursos do Azure no diretório para a deteção. No entanto, aconselhamos que obtenha aprovação de cada um dos seus proprietários de subscrições antes de gerir os respetivos recursos com o PIM.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Impor o princípio do menor privilégio
 
@@ -161,7 +161,7 @@ As revisões de acesso contam com mensagens de e-mail para notificar os utilizad
 
 Para acessar recursos e subscrições do Azure, pode configurar um processo de revisão de acesso semelhante para rever as funções em cada subscrição ou ao recurso. O objetivo desse processo é minimizar as atribuições de proprietário e o administrador de acesso de utilizador anexadas a cada subscrição ou recurso, bem como para remover atribuições desnecessárias. No entanto, as organizações, muitas vezes, delegar tarefas para o proprietário de cada subscrição ou recurso porque têm uma melhor compreensão das funções específicas (funções especialmente personalizadas).
 
-Se for um administrador de TI com a função de Administrador Global a tentar implementar o PIM para recursos do Azure na sua organização, pode [elevar o acesso para gerir todas as subscrições do Azure ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) para obter acesso a cada subscrição. Em seguida, pode encontrar cada proprietário da subscrição e trabalhar com eles para remover atribuições desnecessárias e minimizar a atribuição de função de proprietário.
+Se for um administrador de TI com a função de Administrador Global a tentar implementar o PIM para recursos do Azure na sua organização, pode [elevar o acesso para gerir todas as subscrições do Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) para obter acesso a cada subscrição. Em seguida, pode encontrar cada proprietário da subscrição e trabalhar com eles para remover atribuições desnecessárias e minimizar a atribuição de função de proprietário.
 
 Os utilizadores com a função de proprietário para uma subscrição do Azure também podem utilizar [revisões para recursos do Azure de acesso](pim-resource-roles-start-access-review.md) auditar e remover atribuições de funções desnecessárias semelhantes ao processo descrito anteriormente para funções do Azure AD.
 

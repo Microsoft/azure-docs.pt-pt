@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 56ad75bc0bed77c2107a49ab339368ab2a63c1fe
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458096"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881265"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
@@ -409,7 +409,7 @@ Os seguintes procedimentos armazenados são no [base de dados de tarefas](sql-da
 |Procedimento armazenado  |Descrição  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     Adiciona uma nova tarefa.    |
-|[sp_update_job ](#spupdatejob)    |      Atualiza uma tarefa existente.   |
+|[sp_update_job](#spupdatejob)    |      Atualiza uma tarefa existente.   |
 |[sp_delete_job](#spdeletejob)     |      Elimina uma tarefa existente.   |
 |[sp_add_jobstep](#spaddjobstep)    |    Adiciona um passo a um trabalho.     |
 |[sp_update_jobstep](#spupdatejobstep)     |     Atualiza um passo de tarefa.    |
@@ -420,7 +420,7 @@ Os seguintes procedimentos armazenados são no [base de dados de tarefas](sql-da
 |[sp_delete_target_group](#spdeletetargetgroup)     |    Elimina um grupo de destino.     |
 |[sp_add_target_group_member](#spaddtargetgroupmember)     |    Adiciona uma base de dados ou grupo de bases de dados a um grupo de destino.     |
 |[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Remove um membro do grupo de destino de um grupo de destino.    |
-|[sp_purge_jobhistory ](#sppurgejobhistory)    |    Remove os registos do histórico para uma tarefa.     |
+|[sp_purge_jobhistory](#sppurgejobhistory)    |    Remove os registos do histórico para uma tarefa.     |
 
 
 
@@ -448,7 +448,7 @@ Adiciona uma nova tarefa.
 #### <a name="arguments"></a>Argumentos  
 
 [ **@job_name =** ] 'job_name'  
-O nome da tarefa. O nome tem de ser exclusivo e não pode conter o caráter de percentagem (%). job_name é nvarchar(128), com nenhuma predefinição.
+O nome da tarefa. O nome tem de ser exclusivo e não pode conter o sinal de percentagem) caráter. job_name é nvarchar(128), com nenhuma predefinição.
 
 [ **@description =** ] 'description'  
 A descrição da tarefa. a descrição é nvarchar(512), com uma predefinição de NULL. Se a descrição for omitida, é utilizada uma cadeia vazia.

@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da3b09998d163ffcc16bfcbbf9f516467dd3311d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 5bb52e0547ed9bc18d67370ffb9db35942212aab
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418634"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887595"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir runbooks na automatização do Azure
 
-Pode adicionar um runbook de automatização do Azure, qualquer um [criar uma nova](#creating-a-new-runbook) ou ao importar um runbook existente a partir de um ficheiro ou o [Galeria de Runbooks](automation-runbook-gallery.md). Este artigo fornece informações sobre como criar e importar runbooks a partir de um ficheiro.  Pode obter todos os detalhes do acesso a runbooks da Comunidade e os módulos no [galerias de módulos e Runbooks de automatização do Azure](automation-runbook-gallery.md).
+Pode adicionar um runbook de automatização do Azure, qualquer um [criar uma nova](#create-a-runbook) ou ao importar um runbook existente a partir de um ficheiro ou o [Galeria de Runbooks](automation-runbook-gallery.md). Este artigo fornece informações sobre como criar e importar runbooks a partir de um ficheiro.  Pode obter todos os detalhes do acesso a runbooks da Comunidade e os módulos no [galerias de módulos e Runbooks de automatização do Azure](automation-runbook-gallery.md).
 
 ## <a name="create-a-runbook"></a>Criar um runbook
 
@@ -65,7 +65,7 @@ Pode utilizar o procedimento seguinte para importar um ficheiro de script para a
 5. Se o **nome** campo está ativado, então tem a opção para alterá-lo.  O nome do runbook tem de começar com uma letra e pode ter letras, números, carateres de sublinhado e travessões.
 6. O [tipo de runbook](automation-runbook-types.md) é selecionado automaticamente, mas pode alterar o tipo depois de tomar as restrições aplicáveis em conta. 
 7. O runbook novo é apresentado na lista de runbooks da conta de automatização.
-8. Deve [publicar o runbook](#publishing-a-runbook) antes de pode executá-lo.
+8. Deve [publicar o runbook](#publish-a-runbook) antes de pode executá-lo.
 
 > [!NOTE]
 > Depois de importar um runbook gráfico ou um runbook de fluxo de trabalho de PowerShell gráfico, tem a opção para converter para o outro tipo, se quisesse. Não é possível converter para um runbook textual.
@@ -89,7 +89,7 @@ Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Testar um runbook
 
-Quando testa um runbook, o [versão de rascunho](#publishing-a-runbook) é executado e quaisquer ações que executar são concluídas. Nenhum histórico da tarefa é criado, mas a [saída](automation-runbook-output-and-messages.md#output-stream) e [aviso e erro](automation-runbook-output-and-messages.md#message-streams) fluxos são apresentados no teste de painel de saída. Mensagens para o [Stream verboso](automation-runbook-output-and-messages.md#message-streams) são apresentados no painel de resultados apenas se for o [$VerbosePreference variável](automation-runbook-output-and-messages.md#preference-variables) está definido para continuar.
+Quando testa um runbook, o [versão de rascunho](#publish-a-runbook) é executado e quaisquer ações que executar são concluídas. Nenhum histórico da tarefa é criado, mas a [saída](automation-runbook-output-and-messages.md#output-stream) e [aviso e erro](automation-runbook-output-and-messages.md#message-streams) fluxos são apresentados no teste de painel de saída. Mensagens para o [Stream verboso](automation-runbook-output-and-messages.md#message-streams) são apresentados no painel de resultados apenas se for o [$VerbosePreference variável](automation-runbook-output-and-messages.md#preference-variables) está definido para continuar.
 
 Mesmo que a versão de rascunho está em execução, o runbook é executado normalmente ainda e efetua quaisquer ações sobre recursos no ambiente. Por esse motivo, deve testar apenas runbooks em recursos de não produção.
 

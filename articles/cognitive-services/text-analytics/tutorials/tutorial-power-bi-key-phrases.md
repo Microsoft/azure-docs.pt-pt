@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 2439244edcc1b7026a2cc8a62a946188e279f15f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245835"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889482"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI com o serviço cognitivos de análise de texto
 
@@ -94,7 +94,7 @@ A [API de Expressões-Chave](//westus.dev.cognitive.microsoft.com/docs/services/
 | | |
 | - | - |
 | `id`  | Um identificador exclusivo para este documento dentro do pedido. A resposta também contém este campo. Desta forma, se processar mais do que um documento, poderá associar facilmente as expressões-chave extraídas ao documento do qual provêm. Neste tutorial, uma vez que está a processar apenas um documento por pedido, pode codificar o valor de `id` para ser o mesmo para cada pedido.|
-| `text`  | O texto que vai ser processado. O valor deste campo é proveniente da coluna `Merged` que criou na [secção anterior](#PreparingData), que contém o texto do assunto e o texto do comentário combinados. Para a API Key Phrases, estes dados não podem ter mais de 5000 carateres.|
+| `text`  | O texto que vai ser processado. O valor deste campo é proveniente da coluna `Merged` que criou na [secção anterior](#PreparingData), que contém o texto do assunto e o texto do comentário combinados. A API de expressões chave requer que estes dados não ter mais de aproximadamente 5,120 carateres.|
 | `language` | O código para o idioma natural em que o documento está escrito. Todas as mensagens nos dados de exemplo estão em inglês, pelo que pode codificar o valor `en` para este campo.|
 
 ## <a name="create-a-custom-function"></a>Criar uma função personalizada

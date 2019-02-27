@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429558"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888776"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas mais frequentes sobre na API de utilização do Azure Stack
 
@@ -407,6 +407,10 @@ Atualmente, pode consultar apenas pelo *tempo comunicado*.
 | Pedido 400/inválido |*SubscriptionIdMissingInRequest* |O ID de subscrição do chamador está em falta. |
 | Pedido 400/inválido |*InvalidAggregationGranularity* |Foi pedida uma granularidade de agregação inválida. Valores válidos são diariamente e por hora. |
 | 503 |*ServiceUnavailable* |Ocorreu um erro recuperável porque o serviço está ocupado ou a chamada está a ser limitada. |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>O que é a política de cobrar para VMs?
+
+As VMs em execução e paradas geram dados de utilização. Consistente com o Azure, Desalocação é necessária para interromper as emissões de dados de utilização. No caso em que o portal não está disponível, mas o fornecedor de recursos de computação ainda está em execução, a utilização será emitida.
 
 ## <a name="next-steps"></a>Próximos Passos
 [Cliente de faturação e estorno no Azure Stack](azure-stack-billing-and-chargeback.md)

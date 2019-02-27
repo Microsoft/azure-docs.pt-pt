@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 455090d9023b234742e0c42380536c95d7eb11a5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c17a74c81d9c9d2ac3f585ab17f0b7d2acc628f6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738662"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873929"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados contextualmente relacionados de uma expressão
 
@@ -74,7 +74,7 @@ A entidade hierárquica é uma boa opção para este tipo de dados, porque os do
     |Steve Standish de transferência de San Diego no sentido de Bellevue |
     |comparação de precisão Tanner Thompson da cidade de Kansas- and -shift para Chicago|
 
-    [ ![Captura de ecrã do LUIS com as novas expressões na intenção MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+    [![Captura de ecrã do LUIS com expressões com novo na intenção MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
 
 ## <a name="create-a-location-entity"></a>Criar uma entidade de localização
 O LUIS tem de compreender o que é uma localização ao etiquetar a origem e o destino nas expressões. Se precisar de ver a expressão na vista de tokens (não processados), selecione o botão de alternar na barra acima das expressões etiquetadas como **Vista de Entidades**. Depois de alternar o comutador, o controlo está etiquetado como **Vista de Tokens**.

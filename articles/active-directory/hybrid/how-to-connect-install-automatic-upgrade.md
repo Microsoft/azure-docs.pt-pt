@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2018
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6083237426e86220f8a3cb7fbe0cdfc30f44f8cc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b05f2dc1ed766ccb06b71c2977ceaf2b7cd823d3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208831"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869671"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Atualização automática
 Esta funcionalidade foi introduzida com compilação [1.1.105.0 (lançado em Fevereiro de 2016)](reference-connect-version-history.md#111050).  Esta funcionalidade foi atualizada na [criar 1.1.561](reference-connect-version-history.md#115610) e agora oferece suporte a cenários adicionais que foram anteriormente não suportados.
@@ -43,7 +43,7 @@ O estado atual da atualização automática pode ser visualizado com o cmdlet do
 | Suspenso |Definido pelo sistema apenas. O sistema está **atualmente, não é** elegíveis para receber atualizações automáticas. |
 | Desativado |A atualização automática está desativada. |
 
-Pode alternar entre **Enabled** e **desativada** com `Set-ADSyncAutoUpgrade`. Apenas o sistema deve definir o estado **suspenso**.
+Pode alternar entre **Enabled** e **desativada** com `Set-ADSyncAutoUpgrade`. Apenas o sistema deve definir o estado **suspenso**.  Antes de 1.1.750.0 o cmdlet Set-ADSyncAutoUpgrade bloquearia Autoupgrade se o estado de atualização automática foi definido como suspenso. Esta funcionalidade foi alterado, de modo que não bloqueie AutoUpgrade.
 
 A atualização automática está a utilizar o Azure AD Connect Health para a infraestrutura de atualização. Para a atualização automática trabalhar, certifique-se de abrir os URLs em seu servidor de proxy para **do Azure AD Connect Health** conforme documentado no [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 

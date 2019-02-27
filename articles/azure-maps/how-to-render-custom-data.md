@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9b3c0f7b1ff56cb269f6852be8fd2affeca8b8f1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddc051eb5f9638f7afec34db41c0e9d6e6d9d57d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56143800"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890067"
 ---
 # <a name="render-custom-data-on-raster-map"></a>Processar dados personalizados num mapa de varredura
 
@@ -154,7 +154,7 @@ As informações de localização do caminho e pins também podem ser obtidas at
 > [!Note]
 > Este exemplo requer conta do Azure Maps com S1 do escalão de preço.
 
-Pode modificar a aparência de um polígono com modificadores de estilo com o [parâmetro de caminho](https://docs.microsoft.com/rest-staging/api/maps/render/getmapimage#uri-parameters).
+Pode modificar a aparência de um polígono com modificadores de estilo com o [parâmetro de caminho](https://docs.microsoft.com/rest-staging/api/maps/render/getmapimage).
 
 1. Na aplicação do Postman, abra uma nova guia na mesma coleção que criou acima. Selecione o método GET HTTP na guia builder e introduza o seguinte URL para fazer um pedido GET para compor um polígono com cor e a opacidade:
     
@@ -173,7 +173,7 @@ A imagem de resposta deve ter um aspeto semelhante ao seguinte:
 > [!Note]
 > Este exemplo requer conta do Azure Maps com S1 do escalão de preço.
 
-Pode fazer tachinhas às e os rótulos maior ou menor usando o modificador de estilo de dimensionamento de "sc". Este é um valor maior que zero. Um valor de 1 é o dimensionamento padrão. Valores maiores que 1 fará com que os pins maiores e valores menores do que 1, fará com que mais pequenos. Para obter mais informações sobre estilo modificadores, consulte [parâmetros de caminho do serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Pode fazer tachinhas às e os rótulos maior ou menor usando o modificador de estilo de dimensionamento de "sc". Este é um valor maior que zero. Um valor de 1 é o dimensionamento padrão. Valores maiores que 1 fará com que os pins maiores e valores menores do que 1, fará com que mais pequenos. Para obter mais informações sobre estilo modificadores, consulte [parâmetros de caminho do serviço de imagem estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
 
 Siga os passos abaixo para compor um polígono com círculo push e de pins com etiquetas personalizadas:
 

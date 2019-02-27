@@ -16,12 +16,12 @@ ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69645c4aa9034b9a3459c7ee5fb0378c790a6e18
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f2539674668a9738d03e9af9c4fb88327cb1933
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178095"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865064"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>O Azure Active Directory totalmente integrada início de sessão único: Início rápido
 
@@ -120,7 +120,7 @@ Existem duas formas de modificar as definições de zona de Intranet dos utiliza
 
 1. Abra a ferramenta de Editor de gerenciamento de diretiva de grupo.
 2. Editar a política de grupo é aplicada a alguns ou todos os seus utilizadores. Este exemplo utiliza **política de domínio predefinida**.
-3. Navegue até **configuração do usuário** > **modelos administrativos** > **componentes do Windows**  >   **Internet Explorer** > **painel de controlo da Internet** > **página segurança**. Em seguida, selecione **Site para a lista de atribuições de zona**.
+3. Navegue até **configuração do usuário** > **política** > **modelos administrativos** > **Windows Componentes** > **Internet Explorer** > **painel de controlo da Internet** > **página segurança**. Em seguida, selecione **Site para a lista de atribuições de zona**.
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Ativar a política e, em seguida, introduza os seguintes valores na caixa de diálogo:
    - **Nome do valor**: O URL de AD do Azure onde os tíquetes Kerberos são reencaminhados.
@@ -140,7 +140,7 @@ Existem duas formas de modificar as definições de zona de Intranet dos utiliza
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso7.png)
 
-6. Navegue até **configuração do usuário** > **modelos administrativos** > **componentes do Windows**  >   **Internet Explorer** > **painel de controlo da Internet** > **página segurança** > **zona de Intranet**. Em seguida, selecione **permitir atualizações à barra de estado por meio de script**.
+6. Navegue até **configuração do usuário** > **modelos administrativos** **política** > * * > **Windows componentes**  >  **Do Internet Explorer** > **painel de controlo da Internet** > **página segurança**  >   **Zona da intranet**. Em seguida, selecione **permitir atualizações à barra de estado por meio de script**.
 
     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso11.png)
 

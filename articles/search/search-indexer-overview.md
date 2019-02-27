@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8dae593dea36944f8db037803c0dfac68cbac7c8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 754bd06e6033b49d24112cb20686e1c9b200d0d0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384909"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875485"
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores na Pesquisa do Azure
 
@@ -31,7 +31,7 @@ Pode executar os indexadores a pedido ou numa agenda de atualização de dados p
 
 Pode criar e gerir indexadores com estas abordagens:
 
-* [Portal > Assistente de Importação de Dados ](search-import-data-portal.md)
+* [Portal > Assistente de dados de importação](search-import-data-portal.md)
 * [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations)
 

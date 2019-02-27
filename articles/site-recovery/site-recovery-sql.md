@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e84c33b35ef7828cc16be4b532ab8406e0236ee3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847801"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876675"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação após desastre para SQL Server 
 
@@ -26,9 +26,9 @@ Antes de começar, certifique-se de que compreende capacidades de recuperação 
 
 Muitas cargas de trabalho utilizam o SQL Server como uma base e pode ser integrado com aplicações como o SharePoint, Dynamics e SAP, para implementar os serviços de dados.  SQL Server pode ser implementado de várias formas:
 
-* **SQL Server autónomo**: SQL Server e todos os bancos de dados estão alojados num único computador (físico ou virtual). Quando virtualizado, clustering de host é usado para alta disponibilidade local. Ao nível do convidado elevada disponibilidade não está implementada.
-* **Failover Clustering instâncias do SQL Server (sempre em FCI)**: dois ou mais nós executar o SQL Server instanciados com discos partilhados estão configurados num cluster de ativação pós-falha do Windows. Se um nó estiver desativado, o cluster pode failover do SQL Server para outra instância. Esta configuração é normalmente utilizada para implementar elevada disponibilidade num site primário. Esta implementação não protege contra falha ou indisponibilidade na camada de armazenamento partilhado. Um disco partilhado pode ser implementado através de iSCSI, canal de Fibra ou vhdx partilhado.
-* **SQL grupos de Disponibilidade AlwaysOn**: dois ou mais nós são configuradas no partilhado nada de cluster, com bancos de dados do SQL Server configurados num grupo de disponibilidade, com a replicação síncrona e failover automático.
+* **Servidor de SQL autónoma**: SQL Server e todos os bancos de dados estão alojados num único computador (físico ou virtual). Quando virtualizado, clustering de host é usado para alta disponibilidade local. Ao nível do convidado elevada disponibilidade não está implementada.
+* **SQL Server Clustering de ativação pós-falha instâncias (sempre em FCI)**: Dois ou mais nós executar o SQL Server instanciados com discos partilhados estão configurados num cluster de ativação pós-falha do Windows. Se um nó estiver desativado, o cluster pode failover do SQL Server para outra instância. Esta configuração é normalmente utilizada para implementar elevada disponibilidade num site primário. Esta implementação não protege contra falha ou indisponibilidade na camada de armazenamento partilhado. Um disco partilhado pode ser implementado através de iSCSI, canal de Fibra ou vhdx partilhado.
+* **SQL grupos de disponibilidade Always On**: Dois ou mais nós são configuradas no partilhado nada de cluster, com bancos de dados do SQL Server configurados num grupo de disponibilidade, com a replicação síncrona e failover automático.
 
  Este artigo utiliza as seguintes nativas SQL após desastre tecnologias de recuperação para recuperar bases de dados para um site remoto:
 
@@ -53,7 +53,7 @@ Estas versões do SQL Server são suportados para os cenários suportados:
 * SQL Server 2016 Enterprise e Standard
 * SQL Server 2014 Enterprise e Standard
 * SQL Server 2012 Enterprise e Standard
-* SQL Server 2008 R2 Enterprise e Standard
+* SQL Server 2008 R2 Enterprise and Standard
 
 ### <a name="supported-sql-server-integration"></a>Integração do SQL Server suportada
 
@@ -116,7 +116,7 @@ SQL Always On não suportar nativamente a ativação pós-falha de teste. Por co
 
 1. Antes de acionar a ativação pós-falha de teste do plano de recuperação, recupere a máquina virtual a partir da cópia de segurança criada no passo anterior.
 
-    ![Restaurar a partir de cópia de segurança do Azure ](./media/site-recovery-sql/restore-from-backup.png)
+    ![Restaurar a partir de cópia de segurança do Azure](./media/site-recovery-sql/restore-from-backup.png)
 
 1. [Forçar um quórum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) na máquina virtual restaurada a partir de cópia de segurança.
 
@@ -130,9 +130,9 @@ SQL Always On não suportar nativamente a ativação pós-falha de teste. Por co
 
 1. Crie um balanceador de carga com um que IP criado no conjunto IP de front-end correspondente a cada serviço de escuta do grupo de disponibilidade e com a máquina virtual do SQL adicionado no conjunto de back-end.
 
-     ![Criar Balanceador de carga – conjunto IP de front-end ](./media/site-recovery-sql/create-load-balancer1.png)
+     ![Criar Balanceador de carga – conjunto IP de front-end](./media/site-recovery-sql/create-load-balancer1.png)
 
-    ![Criar Balanceador de carga - conjunto de back-end ](./media/site-recovery-sql/create-load-balancer2.png)
+    ![Criar Balanceador de carga - conjunto de back-end](./media/site-recovery-sql/create-load-balancer2.png)
 
 1. Fazer uma ativação pós-falha de teste do plano de recuperação.
 
@@ -179,7 +179,7 @@ Para um cluster a executar o SQL Server Standard edition ou o SQL Server 2008 R2
 * Se a aplicação utilizar transações distribuídas Recomendamos que implemente [Site Recovery com replicação SAN](site-recovery-vmm-san.md) para um ambiente de Hyper-V, ou [VMware/servidor físico para o VMware](site-recovery-vmware-to-vmware.md) para um ambiente de VMware.
 * Para aplicativos de não DTC, use a abordagem acima para recuperar o cluster como um servidor autónomo, ao tirar partido de uma segurança elevada local espelho de DB.
 
-### <a name="on-premises-to-azure"></a>No local para o Azure
+### <a name="on-premises-to-azure"></a>Local para Azure
 
 Recuperação de sites não fornece convidado suporte de cluster, ao replicar para o Azure. SQL Server também não oferece uma solução de recuperação após desastre de baixo custo para a edição Standard. Neste cenário, recomendamos que protegerem o cluster do SQL Server no local para o SQL Server autónomo e recuperá-la no Azure.
 

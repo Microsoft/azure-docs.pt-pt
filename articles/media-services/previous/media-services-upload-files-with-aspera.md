@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: aeeacdd5a83ff41eeb900b142e09030b5642f4f8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 179be5df8013d4e79eca473036d1a09875cbcc61
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993831"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865914"
 ---
 # <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com o serviço Aspera Server On Demand no Azure 
 
@@ -130,7 +130,7 @@ Os seguintes recursos foram mencionados neste artigo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora pode [copiar blobs a partir de uma conta de armazenamento para uma conta de AMS ](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
+Agora, pode [copiar blobs a partir de uma conta de armazenamento para uma conta do AMS](media-services-copying-existing-blob.md#copy-blobs-from-a-storage-account-into-an-ams-account).
 
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

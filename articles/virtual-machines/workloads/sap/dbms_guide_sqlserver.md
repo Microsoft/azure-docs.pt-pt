@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58ae26a2daf2a65eaf56672c9e75147bd71e489a
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b89c02aa0d30ec1928be2110fe6470da4f28080c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330737"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889924"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementação de DBMS de máquinas virtuais do SQL Server do Azure para SAP NetWeaver
 
@@ -383,7 +383,7 @@ SQL Server 2014 e posterior de versões de abrir a possibilidade para armazenar 
 * São aplicáveis considerações listadas anteriormente sobre a distribuição de VHDs através de diferentes contas de armazenamento do Azure para que este método de implementações também. Significa que a contagem de operações de e/s contra os limites da conta de armazenamento do Azure.
 * Em vez de contabilidade em relação a quota de e/s de armazenamento da VM, o tráfego de blobs de armazenamento que representa os arquivos de dados e de registo de SQL Server, irá ser considerados na largura de banda de rede da VM do tipo VM específico. Largura de banda de rede e armazenamento de um determinado tipo VM, consulte o artigo [máquinas de virtuais de tamanhos para Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
 * Como resultado de envio de e/s de ficheiros através da quota de rede, são principalmente a stranding a quota de armazenamento e com que utilize apenas parcialmente a largura de banda geral da VM.
-* Os IOPS e e/s débito metas de desempenho que tenha de armazenamento Premium do Azure para os tamanhos de disco diferente não deixa de poder aplicar. Mesmo que os blobs que criou estão localizados no armazenamento Premium do Azure. Os destinos estão documentados o artigo [High-performance Premium Storage e os discos geridos para VMs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). Como resultado de colocar ficheiros de dados do SQL Server e os ficheiros de registo diretamente nos blobs armazenados no armazenamento Premium do Azure, as características de desempenho podem ser diferentes em comparação com VHDs no armazenamento Premium do Azure.
+* Os IOPS e e/s débito metas de desempenho que tenha de armazenamento Premium do Azure para os tamanhos de disco diferente não deixa de poder aplicar. Mesmo que os blobs que criou estão localizados no armazenamento Premium do Azure. Os destinos estão documentados o artigo [High-performance Premium Storage e os discos geridos para VMs](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage). Como resultado de colocar ficheiros de dados do SQL Server e os ficheiros de registo diretamente nos blobs armazenados no armazenamento Premium do Azure, as características de desempenho podem ser diferentes em comparação com VHDs no armazenamento Premium do Azure.
 * Baseada no anfitrião de colocação em cache como estando disponíveis para discos de armazenamento Premium do Azure não está disponível quando colocar ficheiros de dados do SQL Server diretamente nos blobs do Azure.
 * Em VMs de série M, acelerador de escrita do Azure não pode ser utilizado para suportar escritas submilissegundos contra o ficheiro de registo de transações do SQL Server. 
 

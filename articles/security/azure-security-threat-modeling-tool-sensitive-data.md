@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 93beef5702df9b4cf0a51a01fb286a3f023f9839
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892563"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876624"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados confidenciais | Atenuações 
 | Produtos/serviços | Artigo |
 | --------------- | ------- |
 | **Limite de fidedignidade de máquina** | <ul><li>[Certifique-se de que os binários são oculto se contiverem informações confidenciais](#binaries-info)</li><li>[Considere utilizar o sistema de ficheiros encriptados (EFS) é utilizado para proteger dados confidenciais de utilizadores específicos](#efs-user)</li><li>[Certifique-se de que os dados confidenciais armazenados pelo aplicativo no sistema de ficheiros estão encriptados](#filesystem)</li></ul> | 
 | **Aplicação Web** | <ul><li>[Certifique-se de que o conteúdo confidencial não está em cache no navegador](#cache-browser)</li><li>[Encriptar secções dos arquivos de configuração da aplicação Web que contêm dados confidenciais](#encrypt-data)</li><li>[Desativar explicitamente o atributo de autocompletar HTML em formulários confidenciais e de entradas](#autocomplete-input)</li><li>[Certifique-se de que os dados confidenciais apresentados no ecrã de utilizador está oculto](#data-mask)</li></ul> | 
-| **Base de Dados** | <ul><li>[Máscara de dados dinâmica de implementar para limitar os utilizadores de exposição não privilegiado de dados confidenciais](#dynamic-users)</li><li>[Certifique-se de que as senhas são armazenadas no formato de hash de Salt](#salted-hash)</li><li>[ Certifique-se de que os dados confidenciais nas colunas de base de dados são encriptados](#db-encrypted)</li><li>[Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada](#tde-enabled)</li><li>[Certifique-se de que as cópias de segurança da base de dados são encriptadas](#backup)</li></ul> | 
+| **Base de Dados** | <ul><li>[Máscara de dados dinâmica de implementar para limitar os utilizadores de exposição não privilegiado de dados confidenciais](#dynamic-users)</li><li>[Certifique-se de que as senhas são armazenadas no formato de hash de Salt](#salted-hash)</li><li>[Certifique-se de que os dados confidenciais nas colunas de base de dados são encriptados](#db-encrypted)</li><li>[Certifique-se de que a encriptação ao nível da base de dados (TDE) está ativada](#tde-enabled)</li><li>[Certifique-se de que as cópias de segurança da base de dados são encriptadas](#backup)</li></ul> | 
 | **API Web** | <ul><li>[Certifique-se de que os dados confidenciais relevantes para a Web API não são armazenados no armazenamento do navegador](#api-browser)</li></ul> | 
 | DB de documentos do Azure | <ul><li>[Encriptar dados confidenciais armazenados no Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Limite de fidedignidade da VM IaaS do Azure** | <ul><li>[Utilizar o Azure Disk Encryption para encriptar discos utilizados por máquinas virtuais](#disk-vm)</li></ul> | 
@@ -34,7 +34,7 @@ ms.locfileid: "55892563"
 | **Dynamics CRM** | <ul><li>[Execute a Modelagem de segurança e utilizar unidades de negócios ou várias onde for necessário](#modeling-teams)</li><li>[Minimizar o acesso para partilhar recursos em entidades críticas](#entities)</li><li>[Treinar os usuários sobre os riscos associados a funcionalidade de partilha do Dynamics CRM e boas práticas de segurança](#good-practices)</li><li>[Incluir uma regra de padrões de desenvolvimento proscribing que mostra os detalhes de configuração na gestão de exceções](#exception-mgmt)</li></ul> | 
 | **Armazenamento do Azure** | <ul><li>[Utilizar a encriptação do serviço de armazenamento do Azure (SSE) para dados Inativos (pré-visualização)](#sse-preview)</li><li>[Utilize a encriptação do lado do cliente para armazenar dados confidenciais no armazenamento do Azure](#client-storage)</li></ul> | 
 | **Cliente móvel** | <ul><li>[Encriptar sensível ou dados PII escritos para o armazenamento local de telemóveis](#pii-phones)</li><li>[Oculte binários gerados antes de distribuir aos utilizadores finais](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[ Definir clientCredentialType para o certificado ou do Windows](#cert)</li><li>[Modo de segurança do WCF não está ativado](#security)</li></ul> | 
+| **WCF** | <ul><li>[Definir clientCredentialType para o certificado ou do Windows](#cert)</li><li>[Modo de segurança do WCF não está ativado](#security)</li></ul> | 
 
 ## <a id="binaries-info"></a>Certifique-se de que os binários são oculto se contiverem informações confidenciais
 

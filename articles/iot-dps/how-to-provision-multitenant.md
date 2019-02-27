@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 43989ff9dac7cdad76117aaa6e3c862453b24813
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344096"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865115"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como aprovisionar para arquitetura "multitenancy" 
 
@@ -130,7 +130,7 @@ Para fazer a limpeza, estas VMs será adicionado ao mesmo grupo de recursos que 
 
 1. No Azure Cloud Shell, execute o seguinte comando para criar uma **E.U.A. Leste** região VM depois de efetuar as seguintes alterações de parâmetro no comando:
 
-    **-nome**: Introduza um nome exclusivo para o seu **E.U.A. Leste** dispositivo regional VM. 
+    **--name**: Introduza um nome exclusivo para o seu **E.U.A. Leste** dispositivo regional VM. 
 
     **nome de utilizador – administrador**: Utilize o seu próprio nome de utilizador de administrador.
 
@@ -151,7 +151,7 @@ Para fazer a limpeza, estas VMs será adicionado ao mesmo grupo de recursos que 
 
 1. No Azure Cloud Shell, execute o comando para criar uma **E.U.A. oeste** região VM depois de efetuar as seguintes alterações de parâmetro no comando:
 
-    **-nome**: Introduza um nome exclusivo para o seu **E.U.A. oeste** dispositivo regional VM. 
+    **--name**: Introduza um nome exclusivo para o seu **E.U.A. oeste** dispositivo regional VM. 
 
     **nome de utilizador – administrador**: Utilize o seu próprio nome de utilizador de administrador.
 
@@ -421,7 +421,7 @@ Para eliminar o grupo de recursos por nome:
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Para saber mais Reprovisioning, veja [conceitos de reprovisoning de dispositivos no Hub IoT](concepts-device-reprovision.md) 
-- Para saber mais desaprovisionamento, veja [como desaprovisionar os dispositivos que foram anteriormente aprovisionados ](how-to-unprovision-devices.md) 
+- Para saber mais desaprovisionamento, veja [como desaprovisionar os dispositivos que foram anteriormente aprovisionados](how-to-unprovision-devices.md) 
 
 
 

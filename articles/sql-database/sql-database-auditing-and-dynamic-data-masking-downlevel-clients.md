@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/14/2019
-ms.openlocfilehash: 76fe764d828a7fa6e4ebb015f98b9af485d5df5f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.date: 02/25/2019
+ms.openlocfilehash: 2c95ec4d88e55af0becc73719bcc6126501267db
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567096"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866832"
 ---
 # <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-table-auditing"></a>Suportam de clientes de nível inferior de base de dados do SQL - e ponto final de IP é alterado para auditoria de tabelas
 
@@ -28,6 +28,7 @@ ms.locfileid: "55567096"
 [Auditoria de base de dados](sql-database-auditing.md) funciona automaticamente com os clientes de SQL que suportem redirecionamento de TDS. Tenha em atenção que o redirecionamento não se aplica ao usar o método de auditoria de Blobs.
 
 ## <a id="subheading-1"></a>Suporte de clientes de nível inferior
+
 Qualquer cliente que implementa o TDS 7.4 também deve suportar o redirecionamento. As exceções a isso incluem JDBC 4.0 em que a funcionalidade de redirecionamento não é totalmente suportada e Tedious para node. js no qual o redirecionamento não foi implementado.
 
 Para "Clientes de nível inferior", ou seja, que suporte TDS versão 7.3 abaixo - o FQDN do servidor na conexão de cadeia de caracteres e deve ser modificada:
@@ -46,6 +47,7 @@ Uma lista parcial de "Clientes de nível inferior" inclui:
 **Comentário:** Modificação do FQDN do servidor acima pode ser útil também para aplicar uma política de auditoria do SQL Server ao nível de mensagens em fila sem a necessidade de um passo de configuração em cada base de dados (atenuação temporária).
 
 ## <a id="subheading-2"></a>Ponto final de IP é alterado ao ativar a auditoria
+
 Tenha em atenção que, quando ativar a auditoria de tabela, o ponto final do IP da base de dados será alterado. Se tiver definições de strict firewall, Atualize as definições de firewall em conformidade.
 
 O novo ponto de final IP de base de dados irá depender da região de base de dados:
@@ -78,5 +80,4 @@ O novo ponto de final IP de base de dados irá depender da região de base de da
 | EUA Centro-Oeste |52.161.29.186, 52.161.27.213 |
 | Canadá Central |13.88.248.106, 13.88.248.110 |
 | Leste do Canadá |40.86.227.82, 40.86.225.194 |
-| Norte do Reino Unido |13.87.101.18, 13.87.100.232 |
-| Sul do Reino Unido 2 |13.87.32.202, 13.87.32.226 |
+| Reino Unido Sul |13.87.32.202, 13.87.32.226 |

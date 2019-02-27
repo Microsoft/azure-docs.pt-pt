@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b2330d322c6939ba6d9581c125c512fcea9f924b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 135b684c67776da7d722074abe185b5ed2a860fa
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242758"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889414"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto (pré-visualização)
 
@@ -74,7 +74,7 @@ Tem de ter documentos JSON neste formato: id, texto, idioma
 
 Para idiomas atualmente suportados, consulte [esta lista](../text-analytics-supported-languages.md).
 
-Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. O exemplo seguinte é uma ilustração de conteúdo que pode enviar para o final de ligação de entidade.
+Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. O exemplo seguinte é uma ilustração de conteúdo que pode enviar para o final de ligação de entidade.
 
 ```
 {"documents": [{"id": "1",

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6c93c0228425b2ff020e5b4301e68eae5b1062a3
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807835"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872408"
 ---
 # <a name="find-exact-moments-within-videos"></a>Localizar momentos exatos nos vídeos
 
@@ -36,11 +36,13 @@ Este tópico mostra-lhe as opções de pesquisa que lhe permitem localizar momen
 
     Se clicar em um dos resultados, o jogador traz até para esse momento no vídeo. Pode obter a vista de leitor/informações e a sincronização em seu aplicativo. Para obter mais informações, consulte [widgets de incorporar o indexador de vídeos na sua aplicação](video-indexer-embed-widgets.md). 
 4. Pesquise a divisão detalhada do vídeo.
+    
+    Se quiser criar seu próprio clip com base no vídeo que encontrou, prima a **editar** botão. Esta página mostra-lhe vídeo juntamente com suas informações como filtros. Para obter mais informações, consulte [ver e editar informações do indexador de vídeo](video-indexer-view-edit.md). 
 
-    Se quiser criar seu próprio divisão com base no vídeo que encontrou, prima a **editar** botão. Esta página mostra a estrutura completa de um vídeo. Fazer uma pesquisa na divisão para mostrar apenas as linhas que está interessado. Para obter mais informações, consulte [ver e editar informações do indexador de vídeo](video-indexer-view-edit.md).
-
-    Neste exemplo, podemos pesquisado o texto "identity protection". Também Aplicamos filtros adicionais, conforme mostrado no ecrã abaixo.
-
+    Pode pesquisar no vídeo para mostrar apenas as linhas que está interessado e utiliza as informações de lado para filtrar as partes que pretende ver. Quando terminar, pode visualizar os seus clip e prima **publicar** para criar o novo clip que aparece na sua galeria.
+    
+    No exemplo a seguir, procuramos o texto "uma realidade mista,". Também Aplicamos filtros adicionais, conforme mostrado no ecrã abaixo.
+    
     ![Pesquisa](./media/video-indexer-search/video-indexer-search03.png)
 
 ## <a name="next-steps"></a>Passos Seguintes 

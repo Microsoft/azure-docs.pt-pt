@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0cffb4fdff4bddc33c6938e27425035c929808b7
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 5afd5020b060961d215b922c9e49466b73f2a69e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301932"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889890"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
@@ -129,6 +129,18 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   > [!IMPORTANT]
   > Instância gerida não suporta vários grupos de ativação pós-falha.
+  
+## <a name="permissions"></a>Permissões
+Permissões para um grupo de ativação pós-falha são geridas através do [controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md). O [contribuinte do SQL Server](../role-based-access-control/built-in-roles.md#sql-server-contributor) função tem todas as permissões necessárias para gerir grupos de ativação pós-falha. 
+
+### <a name="create-failover-group"></a>Criar grupo de ativação pós-falha
+Para criar um grupo de ativação pós-falha, precisa de acesso de escrita do RBAC para ambos os servidores primários e secundários e para todas as bases de dados no grupo de ativação pós-falha. Para uma instância gerida, precisa de acesso de escrita do RBAC para a primária e secundária gerido instância, mas as permissões nas bases de dados individuais não são relevantes, uma vez que bases de dados individuais de instância gerida não podem ser adicionados ou removidos de um grupo de ativação pós-falha. 
+
+### <a name="update-a-failover-group"></a>Atualizar um grupo de ativação pós-falha
+Para atualizar um grupo de ativação pós-falha, terá de RBAC acesso de escrita para o grupo de ativação pós-falha e todas as bases de dados no servidor primário atual ou a instância gerida.  
+
+### <a name="failover-a-failover-group"></a>Ativação pós-falha de um grupo de ativação pós-falha
+Para efetuar a ativação pós-falha de um grupo de ativação pós-falha, precisa de acesso de escrita do RBAC para o grupo de ativação pós-falha no novo servidor primário ou instância gerida. 
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Melhores práticas de utilização de grupos de ativação pós-falha com bases de dados individuais e conjuntos elásticos
 

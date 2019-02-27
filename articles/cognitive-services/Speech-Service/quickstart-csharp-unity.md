@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 8e31717f9fd232a7c256b65d044a97396af8f960
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448640"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878018"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para Unity (Beta)
 
@@ -74,7 +74,7 @@ Adicionamos uma interface de Usuário mínimo ao nosso cena, consiste num botão
 
 Quando tiver terminado, a interface do Usuário deve ter um aspeto semelhante a esta captura de ecrã:
 
-[ ![Captura de ecrã da interface do usuário de início rápido no Editor do Unity](media/sdk/qs-csharp-unity-02-ui-inline.png) ](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
+[![Captura de ecrã da interface do usuário de início rápido no Editor do Unity](media/sdk/qs-csharp-unity-02-ui-inline.png)](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
 
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
@@ -111,7 +111,7 @@ Quando tiver terminado, a interface do Usuário deve ter um aspeto semelhante a 
 
 * Depois da aplicação é iniciada, clique no botão e fala uma frase em inglês ou frase no microfone do seu computador. A sua voz é transmitida ao serviço de Voz e convertida para texto que é apresentado na janela.
 
-  [ ![Captura de ecrã do início rápido em execução na janela de jogo Unity](media/sdk/qs-csharp-unity-03-output-inline.png) ](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
+  [![Captura de ecrã do início rápido em execução na janela de jogo Unity](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 
 * Verifique os [janela de consola](https://docs.unity3d.com/Manual/Console.html) para mensagens de depuração.
 

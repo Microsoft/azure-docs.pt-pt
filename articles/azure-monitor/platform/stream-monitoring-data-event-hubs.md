@@ -1,6 +1,6 @@
 ---
 title: Azure Stream dados para os Hubs de eventos de monitorização
-description: Saiba como transmitir todos os seus dados de monitorização do Azure para um hub de eventos para obter os dados num parceiro SIEM ou a ferramenta de análise.
+description: Aprenda a transmitir seus dados de monitorização do Azure para um hub de eventos para obter os dados num parceiro SIEM ou a ferramenta de análise.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468238"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870691"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa
 
-O Azure Monitor proporciona um pipeline individual para obter acesso a todos os dados de monitorização do seu ambiente do Azure, permitindo-lhe configurar facilmente o parceiro SIEM e ferramentas para consumir dados de monitorização. Este artigo explica como configurar diferentes camadas de dados do seu ambiente do Azure, para serem enviados dos Hubs de eventos espaço de nomes ou event hub individual, onde podem ser coletado por uma ferramenta externa.
+Este artigo explica como configurar diferentes camadas de dados do seu ambiente do Azure, para serem enviados dos Hubs de eventos espaço de nomes ou event hub individual, onde podem ser coletado por uma ferramenta externa.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ No seu ambiente do Azure, existem vários "escalões" de dados de monitorizaçã
 - **Subscrição do Azure, os dados de monitorização:** Dados sobre a operação e a gestão de uma subscrição do Azure, bem como dados sobre o estado de funcionamento e a operação do Azure em si. O [registo de atividades](./../../azure-monitor/platform/activity-logs-overview.md) contém a subscrição a maioria dos dados, tais como incidentes de estado de funcionamento do serviço e do Azure Resource Manager auditorias de monitorização. Pode recolher estes dados a utilizar um perfil de registo.
 - **Dados de monitorização de um inquilino do Azure:** Dados sobre o funcionamento dos serviços do Azure ao nível do inquilino, como o Azure Active Directory. Auditorias do Azure Active Directory e inícios de sessão são exemplos de dados de monitorização de inquilino. Estes dados podem ser recolhidos com uma definição de diagnóstico do inquilino.
 
-Dados a partir de qualquer camada podem ser enviados para um hub de eventos, onde pode ser extraída para uma ferramenta de parceiro. As secções seguintes descrevem como configurar dados de cada camada para ser transmitido para um hub de eventos. Os passos partem do princípio de que já tem ativos nessa camada para serem monitorizados.
+Dados a partir de qualquer camada podem ser enviados para um hub de eventos, onde pode ser extraída para uma ferramenta de parceiro. Algumas origens podem ser configuradas para enviar dados diretamente para um hub de eventos, enquanto outro processo, como uma aplicação lógica pode ser necessária para recuperar os dados necessários. As secções seguintes descrevem como configurar dados de cada camada para ser transmitido para um hub de eventos. Os passos partem do princípio de que já tem ativos nessa camada para serem monitorizados.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Configurar um espaço de nomes de Hubs de eventos
 

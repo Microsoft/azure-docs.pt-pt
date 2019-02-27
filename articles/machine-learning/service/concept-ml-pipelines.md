@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/4/2018
 ms.custom: seodec18
-ms.openlocfilehash: 917bac81923650405c37dfee500c9606dc7c54ca
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d4bef53a21e6ab7b55c16e27083b818929fbd47c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816611"
+ms.locfileid: "56879259"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Criar machine learning pipelines com o serviço Azure Machine Learning
 
@@ -34,13 +34,23 @@ O diagrama seguinte mostra um pipeline de exemplo:
 
 ![Aprendizagem automática pipelines no serviço Azure Machine Learning](./media/concept-ml-pipelines/pipelines.png)
 
+### <a name="which-azure-pipeline-technology-should-i-use"></a>Tecnologia de pipeline do Azure que devo utilizar?
+
+A cloud do Azure fornece várias outras pipelines, cada um com uma finalidade diferente. A tabela seguinte lista os pipelines diferentes e o que são utilizados para:
+
+| Pipeline | O que faz | Canonical pipe |
+| ---- | ---- | ---- |
+| O Azure Machine Learning pipelines | Define reutilizável de machine learning fluxos de trabalho que podem ser utilizados como um modelo para o cenários da aprendizagem automática. | Dados -> modelo |
+| [Pipelines do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Atividades de controlo, transformação e movimento de dados de grupos necessários para executar uma tarefa.  | Data -> data |
+| [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/) | Integração contínua e entrega da sua aplicação para qualquer plataforma/qualquer cloud  | Código -> aplicação/serviço |
+
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Porquê criar pipelines com o Azure Machine Learning?
 
 Pode utilizar o [do Azure Machine Learning SDK para Python](#the-python-sdk-for-pipelines) para criar pipelines de ML, bem como para submeter e monitorizar as execuções de pipeline individuais.
 
 Com os pipelines, pode otimizar o seu fluxo de trabalho com simplicidade, velocidade, portabilidade e reutilização. Ao criar pipelines com o Azure Machine Learning, que se possa concentrar seus conhecimentos técnicos, aprendizagem automática, em vez de infraestrutura.
 
-Usar as etapas distintas torna possível voltar a executar apenas os passos que necessários, à medida que ajustar e testar o fluxo de trabalho. Um passo é uma unidade computacional no pipeline. Conforme mostrado no diagrama anterior, a tarefa de preparação de dados pode envolver muitos passos. Esses incluem, mas não estão limitados a, normalização, transformação, validação e featurization. Origens de dados e dados intermediários são reutilizados em pipeline, que poupa tempo e recursos de computação. 
+Usar as etapas distintas torna possível voltar a executar apenas os passos que necessários, à medida que ajustar e testar o fluxo de trabalho. Um passo é uma unidade computacional no pipeline. Conforme mostrado no diagrama anterior, a tarefa de preparação de dados pode envolver muitos passos. Estes passos incluem, mas não estão limitados a, normalização, transformação, validação e featurization. Origens de dados e dados intermediários são reutilizados em pipeline, que poupa tempo e recursos de computação. 
 
 Depois do pipeline foi concebido, há muitas vezes mais ajustar o loop de treinamento do pipeline. Quando voltar a executar um pipeline, a saltar execução para as etapas que precisam ser executados novamente, por exemplo, um script de treinamento atualizado e ignora o que não mudou. O paradigma do mesmo se aplica a inalterado scripts utilizados para a execução do passo. 
 

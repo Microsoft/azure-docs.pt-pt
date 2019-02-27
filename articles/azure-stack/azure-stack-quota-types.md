@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 88cbfc895d188162d0f242a5aceaab721a6c877f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239108"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877950"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de ficheiro no Azure Stack
 
@@ -74,7 +74,7 @@ Existem duas formas diferentes para ver uma quota existente:
 3.  No painel do que se abre, selecione **serviços e quotas**.
 4.  Selecione a quota de que pretende ver ao clicar no **nome** coluna.
 
-    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "ver quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "ver quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>Fornecedores de recursos
 
@@ -92,7 +92,7 @@ Existem duas formas diferentes de editar uma quota:
 2.  Selecione o plano para o qual quiser para editar uma quota, ao clicar no respetivo nome.
 3.  No painel do que se abre, selecione **serviços e quotas**.
 4.  Selecione a quota de que pretende editar clicando-lo na **nome** coluna.
-    [ ![Quotas](media/azure-stack-quota-types/quotas1sm.png "ver quotas") ](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Quotas](media/azure-stack-quota-types/quotas1sm.png "ver quotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5.  No painel do que se abre, selecione **editar na computação**, **editar na rede**, ou **editar no armazenamento**.
     ![Quotas](media/azure-stack-quota-types/quotas3.png "ver quotas")    

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dcab8d1cfd076e57a25ee3d36fadd86f158c53b8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478496"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880602"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server numa máquina virtual do Azure
 
@@ -50,7 +50,7 @@ Este tutorial parte do princípio de que tem:
 Se seus dados estão num arquivo simples (organizado num formato de linha/coluna), ele pode ser movido para a VM do SQL Server no Azure através dos seguintes métodos:
 
 1. [Utilitário de cópia em massa da linha de comandos (BCP)](#insert-tables-bcp)
-2. [Consulta SQL de inserção em massa ](#insert-tables-bulkquery)
+2. [Consulta SQL de inserção em massa](#insert-tables-bulkquery)
 3. [Utilitários gráficos de incorporado no SQL Server (importar/exportar, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Utilitário de cópia em massa da linha de comandos (BCP)

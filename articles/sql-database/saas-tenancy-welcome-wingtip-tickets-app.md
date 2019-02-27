@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b27877e25dd3bdd4711d1c036e2f203e1b8c0e7b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a21b9f45d70151c2a2c2ae8ac6328a3eeb609b29
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462147"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883339"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>A aplicação Wingtip Tickets SaaS
 
@@ -61,7 +61,7 @@ Veja a [tutoriais] [ docs-tutorials-for-wingtip-mt] e o código no GitHub [.../M
 #### <a name="tutorials-and-code"></a>Tutoriais e código
 
 - Aplicação autónoma e por inquilino:
-    - [Tutoriais para uma aplicação autónoma ] [ docs-tutorials-for-wingtip-sa].
+    - [Tutoriais para uma aplicação autónoma][docs-tutorials-for-wingtip-sa].
     - [Código de aplicação autónoma e, no GitHub][github-code-for-wingtip-sa].
 
 - Base de dados por inquilino:

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 9c5b2579a6ec3b38c3368be0bd21d6865bcb3209
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 012d77227e7c0283b565361dda32cb77e12fc62b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730245"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867274"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutorial: Obter dados bem formatados a partir da expressão
 Neste tutorial, crie uma aplicação para extrair dados formatados de forma consistente de uma expressão a utilizar o **expressão Regular** entidade.
@@ -82,7 +82,7 @@ Uma expressão regular é uma boa opção para este tipo de dados quando:
     |Autor de hrf-546234?|
     |Título de hrf-456234?|
 
-    [ ![Captura de ecrã da página Intenção com as novas expressões realçadas](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+    [![Página de captura de ecrã da intenção com expressões com novo realçado](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 

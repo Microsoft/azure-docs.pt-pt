@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d44dc7e7a7b3c63012518c3e854270555f469247
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652086"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873717"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Descrição geral do Apache Spark de transmissão em fluxo
 
@@ -34,7 +34,7 @@ Começar com um único evento, digamos que uma temperatura ler a partir de um te
 
 Cada RDD representa os eventos recolhidos ao longo de um período de tempo definido pelo utilizador chamado os *intervalo de lotes*. Como cada intervalo de lotes decorrido, é produzido um novo RDD que contém todos os dados a partir desse intervalo. O conjunto de RDDs são recolhidas para um DStream. Por exemplo, se o intervalo de lotes é longo de um segundo, o seu DStream emite um lote cada segundo RDD de um contentor que contém todos os dados ingeridos durante esse segundo. Ao processar o DStream, é apresentado o evento de temperatura de uma destas lotes. Uma aplicação de transmissão em fluxo do Spark processa os lotes que contêm os eventos e, por fim, age em dados armazenados em cada RDD.
 
-![Exemplo DStream com eventos de temperatura ](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+![Exemplo DStream com eventos de temperatura](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Estrutura de um aplicativo de transmissão em fluxo do Spark
 

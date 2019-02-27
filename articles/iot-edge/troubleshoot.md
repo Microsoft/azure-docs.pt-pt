@@ -4,17 +4,17 @@ description: Utilize este artigo para aprender competências de diagnóstico pad
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: cd9ff1a1a7730ae870ef4e80fbca2d934aa5c8e2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342668"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876369"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -101,15 +101,15 @@ No Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Verifique os registos de contentor para problemas
 
-Assim que o Daemon de segurança do IoT Edge está em execução, consulte os registos dos contentores para detetar problemas. Comece com os contentores implementados, em seguida, veja os contentores que compõem o runtime do IoT Edge: Agente do Edge e Hub do Edge. Os registos do Agente do Edge dispõem normalmente de informações sobre o ciclo de vida de cada contentor. Os registos do Hub do Edge dispõem de informações sobre mensagens e encaminhamento. 
+Assim que o Daemon de segurança do IoT Edge está em execução, consulte os registos dos contentores para detetar problemas. Comece com os contentores implementados, em seguida, veja os contentores que compõem o runtime do IoT Edge: edgeAgent e edgeHub. Os registos do agente do IoT Edge dispõem normalmente de informações sobre o ciclo de vida de cada contentor. Os registos de hub do IoT Edge dispõem de informações sobre mensagens e encaminhamento. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-edge-hub"></a>Ver as mensagens que passam pelo hub do Edge
+### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>Ver as mensagens que passam pelo hub do IoT Edge
 
-Pode ver as mensagens que passam pelo hub do Edge e recolher informações de registos verbosos dos contentores tempo de execução. Para ativar registos verbosos nestes contentores, defina `RuntimeLogLevel` no ficheiro de configuração de yaml. Para abrir o ficheiro:
+Pode ver as mensagens que passam pelo hub do IoT Edge e recolher informações de registos verbosos dos contentores tempo de execução. Para ativar registos verbosos nestes contentores, defina `RuntimeLogLevel` no ficheiro de configuração de yaml. Para abrir o ficheiro:
 
 No Linux:
 
@@ -137,13 +137,13 @@ Por predefinição, o `agent` elemento terá um aspeto semelhante ao seguinte ex
 
 Substitua `env: {}` com:
 
-> [!WARNING]
-> Ficheiros YAML não podem conter separadores como identation. Utilize espaços de 2 em vez disso.
-
    ```yaml
    env:
      RuntimeLogLevel: debug
    ```
+
+   > [!WARNING]
+   > Ficheiros YAML não podem conter separadores como identation. Utilize espaços de 2 em vez disso.
 
 Guarde o ficheiro e reinicie o Gestor de segurança de IoT Edge.
 
@@ -180,11 +180,11 @@ No Windows:
    Start-Service iotedge
    ```
 
-## <a name="edge-agent-stops-after-about-a-minute"></a>O Agente do Edge para após cerca de um minuto
+## <a name="iot-edge-agent-stops-after-about-a-minute"></a>Agente do IoT Edge para após cerca de um minuto
 
-O Agente do Edge é iniciado e executado com êxito durante cerca de um minuto e, em seguida, para. Os registos indicam que o agente do Edge tenta estabelecer ligação ao IoT Hub através de AMQP e, em seguida, tenta ligar através de AMQP sobre WebSocket. Quando ocorre uma falha, o Agente do Edge sai. 
+O módulo de edgeAgent é iniciado e executado com êxito durante cerca de um minuto, em seguida, interrompe. Os registos indicam que o agente do IoT Edge tenta estabelecer ligação ao IoT Hub através de AMQP e, em seguida, tenta ligar através de AMQP sobre WebSocket. Quando isso falhar, o agente do IoT Edge sai. 
 
-Registos do Agente do Edge de exemplo:
+Registos de edgeAgent de exemplo:
 
 ```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -194,16 +194,16 @@ Registos do Agente do Edge de exemplo:
 ```
 
 ### <a name="root-cause"></a>Causa raiz
-Uma configuração de rede na rede do anfitrião está a impedir que o Agente do Edge alcance a rede. O agente primeiro tenta ligar através de AMQP (porta 5671). Se a ligação falhar, tenta WebSockets (porta 443).
+Uma configuração de rede na rede do anfitrião está a impedir que o agente do IoT Edge alcance a rede. O agente primeiro tenta ligar através de AMQP (porta 5671). Se a ligação falhar, tenta WebSockets (porta 443).
 
 O runtime do IoT Edge configura uma rede para comunicar em cada um dos módulos. No Linux, esta rede é uma rede de ponte. No Windows, utiliza NAT. Este problema é mais comum nos dispositivos Windows com contentores do Windows que utilizam a rede NAT. 
 
 ### <a name="resolution"></a>Resolução
 Certifique-se de que existe uma rota para a Internet para os endereços IP atribuídos a esta rede de ponte/NAT. Por vezes, uma configuração de VPN no anfitrião sobrepõe-se à rede do IoT Edge. 
 
-## <a name="edge-hub-fails-to-start"></a>O Hub do Edge falha ao iniciar
+## <a name="iot-edge-hub-fails-to-start"></a>Falha ao iniciar o hub do IoT Edge
 
-O Hub do Edge falha ao iniciar e apresenta a seguinte mensagem nos registos: 
+A falha do módulo edgeHub para iniciar e apresenta a seguinte mensagem nos registos: 
 
 ```output
 One or more errors occurred. 
@@ -213,16 +213,16 @@ Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allo
 ```
 
 ### <a name="root-cause"></a>Causa raiz
-Outro processo no computador anfitrião vinculou a porta 443. O Hub do Edge mapeia as portas 5671 e 443 para utilizar em cenários de gateway. Este mapeamento de portas falha se outro processo já tiver vinculado esta porta. 
+Outro processo no computador anfitrião vinculou a porta 443. O hub IoT Edge mapeia as portas 5671 e 443 para utilizar em cenários de gateway. Este mapeamento de portas falha se outro processo já tiver vinculado esta porta. 
 
 ### <a name="resolution"></a>Resolução
 Encontre e pare o processo que está a utilizar a porta 443. Este processo é normalmente um servidor Web.
 
-## <a name="edge-agent-cant-access-a-modules-image-403"></a>O Agente do Edge não consegue aceder a uma imagem do módulo (403)
-A execução de um contentor falha e os registos do Agente mostram um erro 403. 
+## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>Agente do IoT Edge não é possível aceder uma imagem do módulo (403)
+Não for possível executar um contentor e os registos de edgeAgent mostram um erro 403. 
 
 ### <a name="root-cause"></a>Causa raiz
-O Agente do Edge não tem permissões para aceder à imagem de um módulo. 
+O agente do Iot Edge não tem permissões para aceder a uma imagem do módulo. 
 
 ### <a name="resolution"></a>Resolução
 Certifique-se de que as suas credenciais de registo estão especificados corretamente no seu manifesto de implantação
@@ -266,14 +266,14 @@ Quando vir este erro, pode resolvê-lo ao configurar o nome DNS da sua máquina 
 Pode encontrar problemas de estabilidade nos dispositivos restritos, como o Raspberry Pi, especialmente quando utilizado como um gateway. Os sintomas incluem exceções de memória no módulo de hub do edge insuficiente, não é possível ligar dispositivos downstream ou o dispositivo deixa de enviar mensagens de telemetria após algumas horas.
 
 ### <a name="root-cause"></a>Causa raiz
-O hub do edge, que faz parte do runtime do edge, é otimizado para desempenho, por padrão e tenta alocar grandes segmentos de memória. Esta otimização não é ideal para dispositivos periféricos restrita e pode causar problemas de estabilidade.
+O hub IoT Edge, o que faz parte do runtime do IoT Edge, é otimizado para desempenho, por padrão e tenta alocar grandes segmentos de memória. Esta otimização não é ideal para dispositivos periféricos restrita e pode causar problemas de estabilidade.
 
 ### <a name="resolution"></a>Resolução
-Para o hub do edge, defina uma variável de ambiente **OptimizeForPerformance** ao **falso**. Existem duas formas de fazer isso:
+Para o hub IoT Edge, definir uma variável de ambiente **OptimizeForPerformance** ao **falso**. Existem duas formas de fazer isso:
 
 Na interface de Usuário: 
 
-No portal de *detalhes do dispositivo*->*definir módulos*->*configurar definições de Runtime do Edge avançadas*, criar uma variável de ambiente chamado *OptimizeForPerformance* que está definido como *false* para o *Hub do Edge*.
+No portal, navegue para **detalhes do dispositivo** > **definir módulos** > **configurar definições de Runtime do Edge avançadas**. Criar uma variável de ambiente para o módulo de Hub do Edge chamado *OptimizeForPerformance* que está definido como *falso*.
 
 ![OptimizeForPerformance definido como falso](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -324,13 +324,13 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 O daemon de IoT Edge impõe a identificação de processo para ligar ao edgeHub por motivos de segurança de todos os módulos. Verifica que todas as mensagens sendo enviadas por um módulo é proveniente do ID de processo principal do módulo. Se uma mensagem está a ser enviada por um módulo de um ID de processo diferente do que inicialmente estabelecido, ele rejeitará a mensagem com uma mensagem de 404 erro.
 
 ### <a name="resolution"></a>Resolução
-Certifique-se de que o mesmo ID de processo é sempre usado pelo módulo do IoT Edge personalizado para enviar mensagens para o edgeHub. Por exemplo, certifique-se de que `ENTRYPOINT` em vez de `CMD` comando no seu ficheiro do Docker, uma vez que `CMD` levará a um processo de ID para o módulo e outro ID de processo para o comando de bash, ao passo que a executar o programa principal `ENTRYPOINT` levará a um id de processo único.
+Certifique-se de que o mesmo ID de processo é sempre usado pelo módulo do IoT Edge personalizado para enviar mensagens para o edgeHub. Por exemplo, certifique-se de que `ENTRYPOINT` em vez de `CMD` comando no seu ficheiro do Docker, uma vez que `CMD` levará a um processo de ID para o módulo e outro ID de processo para o comando de bash, ao passo que a executar o programa principal `ENTRYPOINT` levará a um ID de processo único.
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Regras de configuração de firewall e a porta para implementação do IoT Edge
-O Azure IoT Edge permite a comunicação entre um servidor de borda no local e na cloud Azure através de protocolos suportados do IoT Hub, veja [escolher um protocolo de comunicação](../iot-hub/iot-hub-devguide-protocols.md). Para maior segurança, os canais de comunicação entre o Azure IoT Edge e IoT Hub do Azure estão sempre configurados para serem saída. Esta configuração se baseia a [padrão de comunicação Auxiliado de serviços](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), que minimiza a superfície de ataque para uma entidade maliciosa explorar. Comunicação de entrada só é necessário para cenários específicos em que precisa enviar mensagens para o dispositivo Azure IoT Edge IoT Hub do Azure. Mensagens da cloud para dispositivo estão protegidas através de canais TLS seguras e podem ser ainda mais protegidas usando certificados X.509 e módulos de dispositivo TPM. O Gestor de segurança do Azure IoT Edge rege como essa comunicação pode ser estabelecida, consulte [Gestor de segurança do Microsoft Edge IoT](../iot-edge/iot-edge-security-manager.md).
+O Azure IoT Edge permite a comunicação de um servidor no local para a cloud do Azure através de protocolos suportados do IoT Hub, veja [escolher um protocolo de comunicação](../iot-hub/iot-hub-devguide-protocols.md). Para maior segurança, os canais de comunicação entre o Azure IoT Edge e IoT Hub do Azure estão sempre configurados para serem saída. Esta configuração se baseia a [padrão de comunicação Auxiliado de serviços](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), que minimiza a superfície de ataque para uma entidade maliciosa explorar. Comunicação de entrada só é necessário para cenários específicos em que precisa enviar mensagens para o dispositivo Azure IoT Edge IoT Hub do Azure. Mensagens da cloud para dispositivo estão protegidas através de canais TLS seguras e podem ser ainda mais protegidas usando certificados X.509 e módulos de dispositivo TPM. O Gestor de segurança do Azure IoT Edge rege como essa comunicação pode ser estabelecida, consulte [Gestor de segurança do Microsoft Edge IoT](../iot-edge/iot-edge-security-manager.md).
 
-Embora o IoT Edge fornece uma configuração avançada para proteger o runtime do Azure IoT Edge e implementar módulos, é ainda depende da configuração de máquina e da rede subjacente. Portanto, é imperativo assegurar a regras de rede e de firewall adequadas são configuradas para o Edge seguro para comunicação na nuvem. O seguinte pode ser usado como uma diretriz quando de regras de firewall de configuração para os servidores subjacentes onde está alojado o runtime do Azure IoT Edge:
+Embora o IoT Edge fornece uma configuração avançada para proteger o runtime do Azure IoT Edge e implementar módulos, é ainda depende da configuração de máquina e da rede subjacente. Por conseguinte, é imperativo para verificar se a rede adequada e regras de firewall estão configuradas para o edge seguro para a cloud de comunicação. A tabela seguinte pode ser usada como uma diretriz quando de regras de firewall de configuração para os servidores subjacentes onde está alojado o runtime do Azure IoT Edge:
 
 |Protocolo|Porta|entrada|Saída|Orientação|
 |--|--|--|--|--|

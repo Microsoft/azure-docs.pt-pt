@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8a660de0502a6ab215d3a23615f6a53813f1695e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4b6c4af37211ede2cb2153afdd071c219178f2ba
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649208"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882846"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Fazer uma cópia de segurança de VMs de VMware no servidor de cópia de segurança do Azure
 
@@ -72,7 +72,7 @@ Configure um canal seguro da seguinte forma:
 
 5. Na **certificados** pasta, clique com o botão direito no ficheiro de certificado de raiz > **mudar o nome**.
 
-    ![Mudar o nome do certificado de raiz ](./media/backup-azure-backup-server-vmware/rename-cert.png)
+    ![Mudar o nome do certificado de raiz](./media/backup-azure-backup-server-vmware/rename-cert.png)
 
 6. Alterar a extensão do certificado de raiz para. crt e confirme. O ícone de ficheiro é alterado para um que representa um certificado de raiz.
 
@@ -124,7 +124,7 @@ O servidor de cópia de segurança do Azure tem uma conta de utilizador com perm
 1. Inicie sessão para o vCenter Server (ou o anfitrião do ESXi se não estiver a utilizar o vCenter Server).
 2. Na **Navigator** painel, clique em **administração**.
 
-    ![Administração ](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
+    ![Administração](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
 3. Na **Administration** > **funções**, clique no ícone de função de adicionar (o símbolo +).
 

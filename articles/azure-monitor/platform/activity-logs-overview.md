@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 2fc09ccdf68605e444ed4b196162df6205557272
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 561982f7a7842ed717044c6709085bbd4621206e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002120"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868634"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
 O **registo de atividades do Azure** é um registo de subscrição que fornece informações sobre os eventos de nível de assinatura que ocorreram no Azure. Isto inclui uma variedade de dados de dados operacionais do Azure Resource Manager para as atualizações em eventos de estado de funcionamento do serviço. O registo de atividades era conhecido anteriormente como "Registos de auditoria" ou "Registos operacionais", desde os eventos de plano de controlo de relatórios de categoria administrativa para as suas subscrições. Utilizar o registo de atividades, pode determinar o "o quê, quem e quando" para quaisquer operações (PUT, POST, DELETE) efetuadas nos recursos na sua subscrição de escrita. Também é possível compreender o estado da operação e outras propriedades relevantes. O registo de Atividades não incluem operações de leitura (GET) nem operações para recursos que utilizar clássica / modelo de "RDFE".
 
-![Vs registos de atividade outros tipos de registos ](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
+![Vs registos de atividade outros tipos de registos](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 
 Figura 1: Vs registos de atividade outros tipos de registos
 

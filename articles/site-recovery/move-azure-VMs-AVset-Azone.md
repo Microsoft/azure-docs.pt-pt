@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 5597f3c017ccf2dbb58b7b6b046720c8f49803c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 77c38089a4f9c6518d9736df7f3020c66ad17b3b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312298"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877049"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover VMs do Azure para zonas de disponibilidade
 As zonas de disponibilidade no Azure protege as suas aplicações e dados de falhas de datacenter. Cada zonas de disponibilidade é constituído por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege as aplicações e dados de falhas de datacenter. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%. Zona de disponibilidade é suportada em determinadas regiões, como mencionado [aqui](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
@@ -70,7 +70,7 @@ Num cenário em que implementou as máquinas virtuais como instância única num
     - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Balanceadores de carga] (https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials
         
-     - [IP público ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+     - [IP público](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
    Para outros componentes de rede, consulte o funcionamento em rede [documentação.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
 

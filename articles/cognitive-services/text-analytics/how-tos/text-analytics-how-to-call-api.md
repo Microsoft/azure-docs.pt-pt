@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 52c5cb640bfb861fb2da52ee711fe3955a169bcf
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 6fedc1b9a6b88419dbcae41b5bb6f89bd8c5cbf7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244033"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886883"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de REST de análise de texto
 
@@ -43,7 +43,7 @@ Atualmente pode submeter os documentos mesmo para todas as operações de análi
 | Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
 |`id` |O tipo de dados é a cadeia de caracteres, mas na prática, IDs de documento tendem a ser números inteiros. | Necessário | O sistema utiliza os IDs de fornecer ao estruturar a saída. As classificações de sentimentos, expressões-chave e códigos de idioma são geradas para cada ID no pedido.|
-|`text` | Texto não estruturado bruto, até 5000 carateres. | Necessário | Para deteção de idioma, o texto pode ser expresso em qualquer idioma. Para a análise de sentimentos, extração de expressões-chave e identificação de entidade, o texto deve estar numa [idioma suportado](../text-analytics-supported-languages.md). |
+|`text` | Texto não estruturado bruto, até 5,120 carateres. | Necessário | Para deteção de idioma, o texto pode ser expresso em qualquer idioma. Para a análise de sentimentos, extração de expressões-chave e identificação de entidade, o texto deve estar numa [idioma suportado](../text-analytics-supported-languages.md). |
 |`language` | 2 carateres [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de código para um [idioma suportado](../text-analytics-supported-languages.md) | Varia | Necessário para a análise de sentimentos, extração de expressões-chave e ligação de entidades; opcional para a deteção de idioma. Não há nenhum erro se exclui-lo, mas a análise é enfraquecida sem ele. O código de idioma deve corresponder do `text` que fornecer. |
 
 Para obter mais informações sobre os limites, consulte [descrição geral da análise de texto > limites de dados](../overview.md#data-limits). 

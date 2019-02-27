@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: c1bbfbbdc2fd98ef3637ec021038a9f68cc8fb40
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b4877f7904523782f1555f53a7bcb440871cc698
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820625"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888326"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -96,7 +96,7 @@ Conclua as seguintes tarefas antes de concluir os passos em qualquer secção de
 
 **Comandos**
 
-- CLI do Azure: [show de vnet de rede de az](/cli/azure/network/vnet#az_network_vnet_show)
+- CLI do Azure: [show de vnet de rede de az](/cli/azure/network/vnet)
 - PowerShell: [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)
 
 ## <a name="add-or-remove-an-address-range"></a>Adicionar ou remover um intervalo de endereços
@@ -164,7 +164,7 @@ Pode eliminar uma rede virtual apenas se não houver nenhum recurso conectado a 
 
 **Comandos**
 
-- CLI do Azure: [eliminar vnet de rede do azure](/cli/azure/network/vnet#az_network_vnet_delete)
+- CLI do Azure: [eliminar vnet de rede do azure](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork)
 
 ## <a name="permissions"></a>Permissões

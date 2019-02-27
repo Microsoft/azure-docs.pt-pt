@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5614c061586c39e44f04f3542285e55e07f14d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5d48cbeb1714a4a3cd645fd65264aec0baf2c05
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172721"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871772"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Active Directory do Azure com Silverback
 
@@ -131,7 +131,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     b. Sobre o **definições do fornecedor de autenticação** página, execute os seguintes passos:
 
-    ![O administrador ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+    ![O administrador](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
     c.  Clique em **importação a partir do URL**.
     
@@ -195,7 +195,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Silverback, tem de ser
 
 3. Sobre o **básica** página, execute os seguintes passos:
 
-    ![O utilizador ](./media/silverback-tutorial/tutorial_silverback_user.png)
+    ![O utilizador](./media/silverback-tutorial/tutorial_silverback_user.png)
 
     a. Na **nome de utilizador** texto, introduza o nome de utilizador, como **Eduarda**.
 

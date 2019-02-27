@@ -1,31 +1,32 @@
 ---
-title: 'Início rápido: Verificação de ortografia do Bing API, PHP'
+title: 'Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e o PHP'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Verificação de Ortografia do Bing.
+description: Começar a utilizar a API de verificação de ortografia do Bing para verificar a ortografia e gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: abce882edb9b6c97ea3b8a91219f8e2887cfb78d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bb952a9169710a7ba8248293e1eab30c7a2da6c0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862314"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888938"
 ---
-# <a name="quickstart-for-bing-spell-check-api-with-php"></a>Início Rápido da API de Verificação de Ortografia do Bing com PHP 
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e o PHP
 
-Este artigo mostra-lhe como utilizar o [a API de verificação ortográfica do Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) com PHP. A API de Verificação de Ortografia do Bing devolve uma lista de palavras que não reconhece, juntamente com sugestões de substituição. Normalmente, teria de submeter o texto a esta API e, em seguida, teria de aplicar as substituições sugeridas no texto ou apresentá-las ao utilizador da sua aplicação para que este pudesse decidir se as substituições deveriam ser feitas. Este artigo mostra como enviar um pedido que contém o texto “Hollo, wrld!” As substituições sugeridas são “Hello” e “world”.
+Utilize este guia de introdução para efetuar a primeira chamada à API do REST Bing de verificação de ortográfica. Esta aplicação de Python simple envia um pedido para a API e devolve uma lista de correções sugeridas. Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
+* [PHP 5.6.x](http://php.net/downloads.php)
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **a API de Verificação de Ortografia do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#lang) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.  Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
+
 
 ## <a name="get-spell-check-results"></a>Obter resultados da Verificação de Ortografia
 
@@ -130,13 +131,10 @@ echo $json;
    ]
 }
 ```
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial da Verificação de Ortografia do Bing](../tutorials/spellcheck.md)
+> [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Consulte também
-
-- [Descrição geral da Verificação de Ortografia do Bing](../proof-text.md)
+- [O que é a API de verificação de ortografia do Bing?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

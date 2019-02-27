@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 66640bd60f6ba8c2f612a6bc9b88a07b13012997
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 02/25/2019
+ms.openlocfilehash: d7f1279dbe253a9bc18b9e99ac9dbdf2a7cf52a1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990039"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870606"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Início rápido: Criar uma base de dados na base de dados do SQL do Azure no portal do Azure
 
@@ -42,8 +42,8 @@ Para criar uma base de dados que contém os dados de exemplo do AdventureWorksLT
    - **Grupo de recursos**: Selecione **criar novo**, tipo *myResourceGroup*e selecione **OK**.
    - **Selecionar origem**: Lista pendente e selecione **Sample (AdventureWorksLT)**.
 
-    >[!IMPORTANT]
-    >Certifique-se de selecionar o **Sample (AdventureWorksLT)** dados, pelo que pode seguir facilmente este e outros guias de introdução do Azure SQL Database que usam esses dados.
+    > [!IMPORTANT]
+    > Certifique-se de selecionar o **Sample (AdventureWorksLT)** dados, pelo que pode seguir facilmente este e outros guias de introdução do Azure SQL Database que usam esses dados.
   
    ![Criar base de dados individual](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -56,18 +56,18 @@ Para criar uma base de dados que contém os dados de exemplo do AdventureWorksLT
    - **Confirmar palavra-passe**: Escreva novamente a palavra-passe.
    - **Localização**: Lista pendente e selecione qualquer localização válida.  
 
-   >[!IMPORTANT]
-   >Não se esqueça de registar o início de sessão de administrador de servidor e a palavra-passe, pelo que pode iniciar sessão para o servidor e bases de dados para esse e outros guias de introdução. Se se esquecer da sua palavra-passe ou o início de sessão, pode obter o nome de início de sessão ou redefinir a senha sobre o **do SQL server** página. Para abrir o **do SQL server** , selecione o nome do servidor na base de dados **descrição geral** página após a criação da base de dados.
+   > [!IMPORTANT]
+   > Não se esqueça de registar o início de sessão de administrador de servidor e a palavra-passe, pelo que pode iniciar sessão para o servidor e bases de dados para esse e outros guias de introdução. Se se esquecer da sua palavra-passe ou o início de sessão, pode obter o nome de início de sessão ou redefinir a senha sobre o **do SQL server** página. Para abrir o **do SQL server** , selecione o nome do servidor na base de dados **descrição geral** página após a criação da base de dados.
 
     ![Criar servidor](./media/sql-database-get-started-portal/create-database-server.png)
 
 6. Escolha **Selecionar**.
 7. Sobre o **base de dados SQL** formulário, selecione **escalão de preço**. Explore a quantidade de DTUs e de armazenamento disponível para cada camada de serviço.
 
-   >[!NOTE]
-   >Este início rápido utiliza a [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
-   >[!IMPORTANT]
-   >Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto: Norte do Reino Unido, oeste dos E.U.A., South2 do Reino Unido, leste da China, USDoDCentral, Alemanha Central, Sudoeste do USDoDEast, US Gov, E.U.A. centro-sul do Governo Central, Alemanha Nordeste, Norte da China e Gov E.U. a leste. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB. Para obter mais informações, consulte [limitações atuais do P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > [!NOTE]
+   > Este início rápido utiliza a [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md), mas o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) também está disponível.
+   > [!IMPORTANT]
+   > Mais de 1 TB de armazenamento no escalão Premium está atualmente disponível em todas as regiões, exceto: Leste da China, Norte da China, Alemanha Central, Nordeste da Alemanha, e.u.a. centro-oeste, US DoD regiões e Governo dos E.u. a centro. Noutras regiões, o armazenamento máximo no escalão Premium está limitado a 1 TB.  Para obter mais informações, consulte [limitações atuais do P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. Neste início rápido, selecione o **padrão** camada de serviço e, em seguida, utilize o controlo de deslize para selecionar **10 DTUs (S0)** e **1** GB de armazenamento.
 9. Selecione **Aplicar**.  

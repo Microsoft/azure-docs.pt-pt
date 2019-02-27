@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 21b7972b230f8a05de304eff38575db87d6af586
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: bb64e2b633957ca92636a03333be40aa275dfd25
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752240"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870249"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Início rápido: Criar uma aplicação iOS com o Azure âncoras espaciais, em Objective-C ou Swift
 
@@ -61,7 +61,7 @@ cd ./iOS/Objective-C/
 
 ***
 
-Executar `pod install` para instalar os CocoaPods para o projeto.
+Executar `pod install --repo-update` para instalar os CocoaPods para o projeto.
 
 Agora, abra o `.xcworkspace` no Xcode.
 

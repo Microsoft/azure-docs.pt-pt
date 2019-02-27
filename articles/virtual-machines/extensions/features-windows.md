@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4b737117880393e24fe6ea00223fb0f719be4e4
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 542fe0064de84e6266d2d0274809d7b2046b855c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980472"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874414"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões de máquina virtual e funcionalidades para Windows
 
@@ -366,7 +366,7 @@ Os passos de resolução de problemas seguintes aplicam-se a todas as extensões
 
 ### <a name="view-extension-status"></a>Ver o estado de extensão
 
-Depois de executar uma extensão de VM em relação a uma VM, utilize [Get-AzVM ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver o estado da extensão. *Substatuses [0]* mostra que o aprovisionamento de extensão foi concluída com êxito, que significa que ele bem-sucedida implementado na VM, mas a execução da extensão dentro da VM falhou, *Substatuses [1]*.
+Depois de executar uma extensão de VM em relação a uma VM, utilize [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver o estado da extensão. *Substatuses [0]* mostra que o aprovisionamento de extensão foi concluída com êxito, que significa que ele bem-sucedida implementado na VM, mas a execução da extensão dentro da VM falhou, *Substatuses [1]*.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

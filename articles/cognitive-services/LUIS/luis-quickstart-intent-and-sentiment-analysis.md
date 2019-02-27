@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 463ff73519232f56d41e9d70c20fcd8103806495
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1805d54e66187a97bf598734801f0d94895e7490
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729122"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880362"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Tutorial:  Obter o sentimento de expressão
 
@@ -90,7 +90,7 @@ Adicione uma nova intenção para capturar os comentários dos colaboradores mem
     |Mark Mathews rocked o argumento de vendas na Harvard|
     |Walter Williams fez um grande trabalho na apresentação em Stanford|
 
-    [ ![Captura de ecrã da aplicação LUIS com expressões de exemplo na intenção EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
+    [![Aplicação de captura de ecrã do LUIS com expressões de exemplo em intenção, EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar expressões de exemplo para a intenção None 
 

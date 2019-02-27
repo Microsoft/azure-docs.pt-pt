@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 8a067474fb172d4ff7a7fdf7eb6d24536bd2d017
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 1556a7d482a6644831589937b1847b1d63e72693
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443332"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56890985"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Que tipos de disco estão disponíveis no Azure?
 
@@ -99,7 +99,7 @@ Tamanhos marcados com asterisco estão atualmente em pré-visualização.
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | Tamanho do disco em GiB           | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
 | IOPs por disco       | Até 500              | Até 500              | Até 500              | Até 500 | Até 500              | Até 500              | Até 500             | Até 500              | Até 1.300              | Até 2000              | Até 2000              |
-| Débito por disco | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg| Até 300 MiB/seg |  Até 500 MiB/seg | Até 500 MiB/seg |
+| Débito por disco |  Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg| Até 300 MiB/seg |  Até 500 MiB/seg | Até 500 MiB/seg |
 
 ## <a name="standard-hdd"></a>HDD Standard
 

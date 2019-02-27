@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 58b97dd2df29a829b843d20c14cdb15644357653
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b4d8214608e8193172da078fc352c66145253ada
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053709"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878970"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurar um pipeline CI/CD com a tarefa de compilação do emulador do Azure Cosmos DB no DevOps do Azure
 
@@ -45,7 +45,7 @@ Agora que a extensão está instalada, inicie sessão na sua conta do Azure DevO
 
 2. Selecione a **origem** desejada, o **Projeto de equipa**, o **Repositório** e o **Ramo predefinido para compilações manuais e programadas**. Depois de escolher as opções exigidas, selecione **Continuar**
 
-   ![Selecione o projeto de equipa, o repositório e o ramo para o pipeline de compilação ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+   ![Selecione o projeto de equipa, o repositório e o ramo para o pipeline de compilação](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
 3. Por fim, selecione o modelo desejado para o pipeline de compilação. Neste tutorial, vamos selecionar o modelo **ASP.NET**. 
 

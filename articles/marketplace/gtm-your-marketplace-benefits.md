@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747531"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887255"
 ---
 # <a name="your-marketplace-benefits"></a>Os benefícios do Marketplace
 
@@ -63,9 +63,9 @@ Para aceder a esses benefícios, precisará para:
 1. Publicar uma oferta no Azure Marketplace ou no AppSource.
 2. Certifique-se de que introduziu um contacto marketing a **informações de contacto** parte da sua oferta. Deve ser um recurso de marketing dedicado, em vez de um alias de catch-all. (ou seja, evitar o uso de "suportam\@", "informações\@", "marketing\@", etc.)
 
-Com base no seu estado de solução, irá receber um e-mail com os recursos de ajuda autónoma, ou um convite para uma chamada de consultoria com um Gestor de envolvimento dedicado. Não é necessário fazer nada para iniciar a chamada — a equipa de integração do Marketplace irá contactá-lo com base nas informações que fornecer no [Cloud Partner Portal](https://cloudpartner.azure.com/).
+Com base no seu estado de solução, oferta, a lista, versão de avaliação ou Transact, receberá um email com recursos de ajuda autónoma, ou um convite para uma chamada de consultoria com um Gestor de envolvimento dedicado. Não é necessário fazer nada para iniciar a chamada — a equipa de integração do Marketplace irá contactá-lo com base nas informações que fornecer no [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-O âmbito das atividades disponíveis para expande-se à medida que cresce suas ofertas no marketplace. Todas as listagens recebem um nível base de recomendações de Otimização e à promoção.  Estas listas também são elegíveis para benefícios adicionais de marketing com base no estado de solução, escolhido marketplace e medalha de competência de parceiro da Microsoft. 
+O âmbito das atividades disponíveis para expande-se à medida que cresce suas ofertas no marketplace. Todas as listagens recebem um nível base de recomendações de Otimização e à promoção.  Estas listas também são elegíveis para benefícios adicionais de marketing com base no estado de solução (lista, versão de avaliação ou Transact), escolhido marketplace e medalha de competência de parceiro da Microsoft.
 
 A tabela a seguir resumem os requisitos de elegibilidade:
 

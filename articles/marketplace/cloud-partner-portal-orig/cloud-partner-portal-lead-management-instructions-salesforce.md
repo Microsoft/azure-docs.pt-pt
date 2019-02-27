@@ -1,5 +1,5 @@
 ---
-title: Salesforce | Documentos da Microsoft
+title: Salesforce | Microsoft Docs
 description: Configure a gestão de oportunidade potencial no Salesforce.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 54f9e19ae6cb9afba0de621c36352c3b1038b100
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 2f2a96e46b76ce41131b8e745075648bf0c68716
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810651"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867342"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurar a gestão de oportunidade potencial no Salesforce
 
@@ -38,4 +38,4 @@ Este artigo descreve como configurar o seu sistema do Salesforce para lidar com 
 5. No **criar um formulário da Web para líder**, selecione **gerar** ![gerar do Salesforce](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce4.png)
 
 6. Copie o OID no exemplo e guardá-lo. Irá colar o OID na **identificador de objeto** campo no Portal de parceiros de nuvem.
-![Salesforce get OID ](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)
+![Salesforce get OID](./media/cloud-partner-portal-lead-management-instructions-salesforce/salesforce5.png)

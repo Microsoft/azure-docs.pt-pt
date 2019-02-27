@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 02/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 0f4fd963ce3649c901a76f6677be059ba5be25af
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d6805b3d60e5e30d35acc12c5564498830ddd8fb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337566"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881737"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
 
@@ -76,7 +76,7 @@ Consulte a [obter a política de chave conteúda - .NET](get-content-key-policy-
 
 ## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a utilizar a v3?
 
-Para obter informações sobre como começar a desenvolver com a API de v3 de serviços de multimédia usando variuos ferramentas e SDKs, consulte [começar a desenvolver](developers-guide.md).
+Para obter informações sobre como começar a desenvolver com a API de v3 de serviços de multimédia com várias ferramentas e SDKs, consulte [começar a desenvolver](developers-guide.md).
 
 ## <a name="v3-content-map"></a>v3 content map
 
@@ -88,7 +88,7 @@ Os conteúdos de v3 de serviços de multimédia são organizados de acordo com a
 | Inícios rápidos | Mostre instruções de 1 dia fundamentais para os novos clientes experimentar rapidamente o serviços de multimédia.|
 | Tutoriais | Mostre baseados em cenários de procedimentos para algumas das tarefas principais de serviços de multimédia.|
 | Amostras | Ligações para exemplos de código. |
-| Conceitos | Conter uma explicação detalhada da funcionalidade de v3 de serviços de multimédia e diagramas. Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos antes de iniciar o desenvolvimento.<br/><br/>* Carregamento e o armazenamento de cloud<br/>* A codificação<br/>* Análise de multimédia<br/>* Empacotamento, entrega, proteção<br/>* Transmissão em direto<br/>* Monitorização contínua<br/>* Os clientes de Player<br/><br/>e muito mais. |
+| Conceitos | Conter uma explicação minuciosa dos conceitos de v3 de serviços de multimédia e funcionalidade. Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos antes de iniciar o desenvolvimento.<br/><br/>* Carregamento e o armazenamento de cloud<br/>* A codificação<br/>* Análise de multimédia<br/>* Empacotamento, entrega, proteção<br/>* Transmissão em direto<br/>* Monitorização contínua<br/>* Os clientes de Player<br/><br/>e muito mais. |
 | Guias de procedimentos | Demonstre como concluir uma tarefa.|
 
 ## <a name="next-steps"></a>Passos Seguintes

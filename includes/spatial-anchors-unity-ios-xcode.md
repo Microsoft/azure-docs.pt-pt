@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: 36d509bdcd1fda61cb85fae7fa38ed126697f888
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: b802c9dbd0cef65325cb03538b68b49c57b85bb3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752238"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56890940"
 ---
 Selecione **criar** para abrir uma caixa de diálogo. Em seguida, selecione uma pasta para exportar o projeto Xcode.
 
@@ -20,7 +20,7 @@ Quando a exportação for concluída, uma pasta será apresentada que contém o 
 Na pasta de projeto Xcode exportada, execute o seguinte comando para instalar os CocoaPods necessários para o projeto:
 
 ```bash
-pod install
+pod install --repo-update
 ```
 
 Agora pode abrir `Unity-iPhone.xcworkspace` para abrir o projeto no Xcode:

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 06f51f56de29d5e598ea74b39352d3c15bf7b375
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173407"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880636"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: Entender a configuração predefinida
 Este artigo explica as regras de configuração de out-of-box. Ele documenta as regras e como estas regras afetam a configuração. Ele também explica a configuração predefinida de sincronização do Azure AD Connect. O objetivo é que o leitor compreende como o modelo de configuração, com o nome aprovisionamento declarativo, está a funcionar num exemplo real. Este artigo pressupõe que já instalou e configurar a sincronização do Azure AD Connect utilizando o Assistente de instalação.
@@ -151,7 +151,7 @@ Uma regra de sincronização tem quatro seções de configuração: Descrição,
 #### <a name="description"></a>Descrição
 A primeira secção fornece informações básicas, como um nome e descrição.
 
-![Descrição do separador editor de regras em sincronia ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Descrição do separador editor de regras em sincronia](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 Encontrará também informações sobre qual sistema ligado esta regra está relacionada à, qual objeto de tipo no sistema ligado aplica-se a e o tipo de objeto do metaverso. O tipo de objeto do metaverso é sempre pessoa independentemente quando o tipo de objeto de origem for um utilizador, iNetOrgPerson ou contactar. O tipo de objeto do metaverso nunca deveria ser alterado para que ele é criado como um tipo genérico. O tipo de ligação pode ser definido para associação, StickyJoin ou aprovisionamento. Esta definição funciona em conjunto com a secção de regras de associação e é abordada mais tarde.
 
@@ -160,18 +160,18 @@ Também pode ver que esta regra de sincronização é utilizada para sincroniza�
 #### <a name="scoping-filter"></a>Filtro de âmbito
 A seção de filtro de âmbito é usada para configurar se deve aplicar uma regra de sincronização. Uma vez que o nome da regra de sincronização está a visualizar indica apenas devem ser aplicada para utilizadores ativados, o âmbito é configurado por isso, o atributo de AD **userAccountControl** não deve ter o bit 2 definidos. Quando o motor de sincronização encontra um utilizador no AD, ele se aplica esta sincronização regra quando **userAccountControl** está definido como o valor decimal 512 (utilizador normal ativado). Não é aplicável a regra quando o utilizador tem **userAccountControl** definido como 514 (utilizador normal desativado).
 
-![Separador de âmbito no editor de regra de sincronização ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Separador de âmbito no editor de regra de sincronização](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 O filtro de âmbito tem grupos e as cláusulas que podem ser aninhadas. Todas as cláusulas dentro de um grupo devem ser satisfeitas para uma regra de sincronização aplicar. Quando vários grupos são definidos, pelo menos um grupo deve ser satisfeito para a regra se aplique. Ou seja, ou é avaliada entre grupos e uma lógica e é avaliada dentro de um grupo. Um exemplo desta configuração pode ser encontrado na regra de sincronização de saída **expansão para AAD – associação de grupo**. Existem vários grupos de filtro de sincronização, por exemplo, um para grupos de segurança (`securityEnabled EQUAL True`) e outro para grupos de distribuição (`securityEnabled EQUAL False`).
 
-![Separador de âmbito no editor de regra de sincronização ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Separador de âmbito no editor de regra de sincronização](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
 Esta regra é utilizada para definir a quais grupos devem ser fornecidos para o Azure AD. Grupos de distribuição tem de ser ativado para ser sincronizados com o Azure AD de correio, mas nos grupos de segurança de uma mensagem de e-mail não é necessária.
 
 #### <a name="join-rules"></a>Regras de associação
 A terceira seção é utilizada para configurar a inter-relação entre objetos no espaço conector para objetos no metaverso. A regra que vimos anteriormente não tem qualquer configuração para regras de associação, então, em vez disso, vai examinar **do AD – associar utilizador**.
 
-![Junte-se a guia regras no editor de regra de sincronização ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Junte-se a guia regras no editor de regra de sincronização](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
 O conteúdo da regra de associação depende da opção correspondente selecionada no Assistente de instalação. Para uma regra de entrada, a avaliação começa com um objeto no espaço de conector de origem e cada grupo nas regras de associação é avaliado em sequência. Se um objeto de origem for avaliado de acordo com exatamente um objeto no metaverso com as regras de associação, os objetos estão associados. Se todas as regras foram avaliadas e não há nenhuma correspondência, em seguida, é utilizado o tipo de ligação na página de descrição. Se esta configuração é definida como **aprovisionar**, em seguida, é criado um novo objeto no destino, o metaverse. Para aprovisionar um novo objeto para o metaverso é também conhecido como **projeto** um objeto de metaverso.
 
@@ -184,7 +184,7 @@ Se examinar a imagem acima, pode ver que a regra está tentando ingressar **obje
 #### <a name="transformations"></a>Transformações
 A secção de transformação define todos os fluxos de atributos que se aplicam ao objeto de destino quando os objetos que estão associados e o filtro de âmbito é satisfeito. Voltando para o **do AD – utilizador AccountEnabled** regra de sincronização, encontrará as seguintes transformações:
 
-![Transformações de separador editor de regras em sincronia ](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Transformações de separador editor de regras em sincronia](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
 Colocar esta configuração no contexto, numa implantação de floresta de recursos de conta, espera-se para localizar uma conta ativada na floresta de conta e uma conta desabilitada na floresta de recursos com as definições do Exchange e Lync. A regra de sincronização está a visualizar contém os atributos necessários para início de sessão e esses atributos devem fluir da floresta onde existe uma conta ativada. Todos os fluxos de atributos são colocados juntos numa regra de sincronização.
 

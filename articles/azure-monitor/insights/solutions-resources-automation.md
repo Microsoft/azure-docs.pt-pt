@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a72df28fbaed89076976f567774bd5fdb15bc2f9
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c24d8bd382dc57a8a354b61252d7a5e16640436f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229494"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864652"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>A adição de recursos de automatização do Azure para uma solução de gestão (pré-visualização)
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.locfileid: "54229494"
 [Soluções de gestão]( solutions.md) geralmente inclui runbooks na automatização do Azure para automatizar processos, como recolher e processar dados de monitorização.  Para além dos runbooks, as contas de automatização inclui recursos como variáveis e agendas que suportam os runbooks utilizados na solução.  Este artigo descreve como incluir runbooks e os recursos relacionados numa solução.
 
 > [!NOTE]
-> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessárias ou comuns para soluções de gestão e descrito em [estrutura e compilação de uma solução de gestão no Azure ]( solutions-creating.md) 
+> Os exemplos neste artigo utilizam parâmetros e variáveis que são necessárias ou comuns para soluções de gestão e descrito em [estrutura e compilação de uma solução de gestão no Azure]( solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -281,7 +281,7 @@ Se definir o valor inicial para a variável, tem de ser configurado como o tipo 
 
 | Tipo de dados | Descrição | Exemplo | Resolve para |
 |:--|:--|:--|:--|
-| cadeia   | Coloque o valor entre aspas duplas.  | "\"Olá, mundo\"" | "Hello world" |
+| string   | Coloque o valor entre aspas duplas.  | "\"Olá, mundo\"" | "Hello world" |
 | numérico  | Valor numérico com aspas simples.| "64" | 64 |
 | boolean  | **TRUE** ou **false** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
 | datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma data específica.<br>Exemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |

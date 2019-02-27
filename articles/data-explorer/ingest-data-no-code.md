@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 2/5/2019
-ms.openlocfilehash: 39c96608dd843577f41d2111e9e7c5517136ccae
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823574"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889227"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingestão de dados no Explorador de dados do Azure sem uma linha de código
 
@@ -339,7 +339,7 @@ Agora precisa de criar as ligações de dados para os seus registos de diagnóst
 
 ### <a name="create-the-data-connection-for-activity-logs"></a>Criar a ligação de dados para os registos de atividade
 
-Repita os passos a [criar a ligação de dados para os registos de diagnóstico](#diagnostic-logs-data-connection) secção para criar a ligação de dados para os seus registos de atividade.
+Repita os passos no criar a ligação de dados para a secção de registos de diagnóstico para criar a ligação de dados para os seus registos de atividade.
 
 1. Utilize as seguintes definições no **ligação de dados** janela:
 

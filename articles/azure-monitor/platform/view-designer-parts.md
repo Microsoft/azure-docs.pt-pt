@@ -1,6 +1,6 @@
 ---
-title: Um guia de referência para as partes do estruturador de vistas no Log Analytics do Azure | Documentos da Microsoft
-description: Ao utilizar o estruturador de vistas no Log Analytics, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
+title: Um guia de referência para as partes do estruturador de vistas no Azure Monitor | Documentos da Microsoft
+description: Ao utilizar o estruturador de vistas no Azure Monitor, pode criar vistas personalizadas que são apresentadas no portal do Azure e contêm uma variedade de visualizações nos dados na área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 53323e70884e61b4643f7950a1a6333f08dbbb6f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193880"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889907"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guia de referência a partes de visualização do estruturador de vistas no Log Analytics
-Ao utilizar o estruturador de vistas no Log Analytics do Azure, pode criar vistas personalizadas no portal do Azure que apresentam uma variedade de visualizações de dados da sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência a partes de visualização do estruturador de vistas no Azure Monitor
+Ao utilizar o estruturador de vistas no Azure Monitor, pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo é um guia de referência para as definições para as partes de visualização que estão disponíveis em suas vistas personalizadas.
 
 Para obter mais informações sobre o estruturador de vistas, consulte:
 
@@ -33,9 +33,9 @@ Os tipos de mosaico do estruturador de vistas disponíveis são descritos na tab
 
 | Tipo de vista | Descrição |
 |:--- |:--- |
-| [Lista de consultas](#list-of-queries-part) |Apresenta uma lista de consultas de pesquisa de registo. Pode selecionar cada consulta para exibir os resultados. |
-| [Número e lista](#number-and-list-part) |O cabeçalho apresenta um único número, que mostra uma contagem de registos de uma consulta de pesquisa de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo. |
-| [Dois números e lista](#two-numbers-and-list-part) |O cabeçalho apresenta dois números que mostram as contagens dos registos de consultas de pesquisa de registo separado. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo. |
+| [Lista de consultas](#list-of-queries-part) |Apresenta uma lista de consultas de registo. Pode selecionar cada consulta para exibir os resultados. |
+| [Número e lista](#number-and-list-part) |O cabeçalho apresenta um único número, que mostra uma contagem de registos de uma consulta de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo. |
+| [Dois números e lista](#two-numbers-and-list-part) |O cabeçalho apresenta dois números que mostram as contagens dos registos de consultas de registo separado. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo. |
 | [Anel e lista](#donut-and-list-part) |O cabeçalho apresenta um único número que resume uma coluna de valor numa consulta de registo. Anel apresenta graficamente os resultados dos registos de três principais. |
 | [Duas linhas cronológicas e lista](#two-timelines-and-list-part) |O cabeçalho apresenta os resultados de duas consultas de registo ao longo do tempo, como gráficos de colunas, com uma nota de aviso que exibe um único número que resume uma coluna de valor numa consulta de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo. |
 | [Informações](#information-part) |O cabeçalho exibe texto estático e uma ligação opcional. A lista apresenta um ou mais itens com um título estático e o texto. |
@@ -46,14 +46,14 @@ Os tipos de mosaico do estruturador de vistas disponíveis são descritos na tab
 As secções seguintes descrevem os tipos de mosaico e as respetivas propriedades em detalhes.
 
 ## <a name="list-of-queries-part"></a>Lista de parte de consultas
-A lista de parte de consultas apresenta uma lista de consultas de pesquisa de registo. Pode selecionar cada consulta para exibir os resultados. A vista inclui uma única consulta, por predefinição e pode selecionar **+ consulta** adicionar consultas adicionais.
+A lista de parte de consultas apresenta uma lista de consultas de registo. Pode selecionar cada consulta para exibir os resultados. A vista inclui uma única consulta, por predefinição e pode selecionar **+ consulta** adicionar consultas adicionais.
 
 ![Lista de vista de consultas](media/view-designer-parts/view-list-queries.png)
 
 | Definição | Descrição |
 |:--- |:--- |
 | **Geral** | |
-| Cargo |O texto que é apresentado na parte superior da vista. |
+| Título |O texto que é apresentado na parte superior da vista. |
 | Novo Grupo |Selecione esta ligação para criar um novo grupo na exibição, começando a exibição atual. |
 | Filtros pré-selecionados |Uma lista delimitada por vírgulas de propriedades para incluir no painel de filtro à esquerda, quando seleciona uma consulta. |
 | Modo de composição |A vista inicial que é apresentada quando a consulta estiver selecionada. Pode selecionar todas as vistas disponíveis depois de abrir a consulta. |
@@ -62,7 +62,7 @@ A lista de parte de consultas apresenta uma lista de consultas de pesquisa de re
 | Nome amigável | O nome descritivo, que é apresentado. |
 
 ## <a name="number-and-list-part"></a>Parte do número e lista
-O cabeçalho apresenta um único número, que mostra uma contagem de registos de uma consulta de pesquisa de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo.
+O cabeçalho apresenta um único número, que mostra uma contagem de registos de uma consulta de registo. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo.
 
 ![Lista de vista de consultas](media/view-designer-parts/view-number-list.png)
 
@@ -85,13 +85,13 @@ O cabeçalho apresenta um único número, que mostra uma contagem de registos de
 | Separador de nome e valor |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [configurações comuns](#sparklines). |
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Name |O texto que é apresentado na parte superior da primeira coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Dois números e parte da lista
-O cabeçalho tem dois números que mostra uma contagem de registos de consultas de pesquisa de registo separado. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo.
+O cabeçalho tem dois números que mostra uma contagem de registos de consultas de registo separado. A lista apresenta os resultados de dez principais de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a alteração ao longo do tempo.
 
 ![Ver os dois números & lista](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -116,8 +116,8 @@ O cabeçalho tem dois números que mostra uma contagem de registos de consultas 
 | Separador de nome e valor |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [configurações comuns](#sparklines). |
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Name |O texto que é apresentado na parte superior da primeira coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -134,7 +134,7 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
 | Utilizar Ícone |Selecione esta ligação para ver o ícone. |
 | **Cabeçalho** | |
-| Cargo |O texto que é apresentado na parte superior do cabeçalho. |
+| Título |O texto que é apresentado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é apresentado sob o título na parte superior do cabeçalho. |
 | **Anel** | |
 | Consulta |A consulta seja executada para o anel. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. |
@@ -157,8 +157,8 @@ O cabeçalho apresenta um único número que resume uma coluna de valor numa con
 | Separador de nome e valor |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [configurações comuns](#sparklines). |
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Name |O texto que é apresentado na parte superior da primeira coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -189,8 +189,8 @@ O cabeçalho apresenta os resultados de duas consultas de registo ao longo do te
 | Operação |A operação a efetuar para o gráfico sparkline. Para obter mais informações, consulte [configurações comuns](#sparklines). |
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Name |O texto que é apresentado na parte superior da primeira coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -207,12 +207,12 @@ O cabeçalho exibe texto estático e uma ligação opcional. A lista apresenta u
 | Cor |A cor de fundo para o cabeçalho. |
 | **Cabeçalho** | |
 | Imagem |O ficheiro de imagem que é apresentado no cabeçalho. |
-| Etiqueta |O texto que é apresentado no cabeçalho. |
-| **Cabeçalho** |**> Ligação** |
-| Etiqueta |O texto da ligação. |
+| Label |O texto que é apresentado no cabeçalho. |
+| **Cabeçalho** |**> Link** |
+| Label |O texto da ligação. |
 | Url |O Url para a ligação. |
 | **Itens de informações** | |
-| Cargo |O texto que é apresentado para o título de cada item. |
+| Título |O texto que é apresentado para o título de cada item. |
 | Conteúdo |O texto que é apresentado para cada item. |
 
 ## <a name="line-chart-callout-and-list-part"></a>Gráfico de linhas, nota de aviso e parte da lista
@@ -228,7 +228,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
 | Utilizar Ícone |Selecione esta ligação para ver o ícone. |
 | **Cabeçalho** | |
-| Cargo |O texto que é apresentado na parte superior do cabeçalho. |
+| Título |O texto que é apresentado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é apresentado sob o título na parte superior do cabeçalho. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta seja executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não inclui a *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
@@ -250,8 +250,8 @@ O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta
 | Separador de nome e valor |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [configurações comuns](#sparklines). |
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Name |O texto que é apresentado na parte superior da primeira coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -268,7 +268,7 @@ O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
 | Utilizar Ícone |Selecione esta ligação para ver o ícone. |
 | **Cabeçalho** | |
-| Cargo |O texto que é apresentado na parte superior do cabeçalho. |
+| Título |O texto que é apresentado na parte superior do cabeçalho. |
 | Subtítulo |O texto que é apresentado sob o título na parte superior do cabeçalho. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta seja executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não inclui a *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
@@ -286,8 +286,8 @@ O cabeçalho apresenta um gráfico de linhas com várias séries de uma consulta
 | Separador de nome e valor |O delimitador de caráter a utilizar para analisar a propriedade de texto em vários valores. Para obter mais informações, consulte [configurações comuns](#sparklines). |
 | Navegação por clique | Ação efetuada quando clica num item na lista.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Nome |O texto que é apresentado na parte superior da primeira coluna. |
-| Valor |O texto que é apresentado na parte superior da segunda coluna. |
+| Name |O texto que é apresentado na parte superior da primeira coluna. |
+| Value |O texto que é apresentado na parte superior da segunda coluna. |
 | **Lista** |**> Limiares de** |
 | Ativar Limiares |Selecione esta ligação para ativar limiares. Para obter mais informações, consulte [configurações comuns](#thresholds). |
 
@@ -303,12 +303,12 @@ A pilha do gráfico de linhas apresenta três gráficos de linha separado, com v
 | Novo Grupo |Selecione esta ligação para criar um novo grupo na exibição, começando a exibição atual. |
 | Ícone |O ficheiro de imagem que é apresentado junto ao resultado no cabeçalho. |
 | **1 de gráfico<br>gráfico 2<br>3 do gráfico** |**> Cabeçalho** |
-| Cargo |O texto que é apresentado na parte superior do gráfico. |
+| Título |O texto que é apresentado na parte superior do gráfico. |
 | Subtítulo |O texto que é apresentado sob o título na parte superior do gráfico. |
 | **1 de gráfico<br>gráfico 2<br>3 do gráfico** |**Gráfico de linhas** |
 | Consulta |A consulta seja executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a *medida* palavra-chave para resumir os resultados. Se a consulta utiliza a *intervalo* palavra-chave, o eixo x do gráfico utiliza este intervalo de tempo. Se a consulta não inclui a *intervalo* palavra-chave, os intervalos de hora a hora do eixo x utiliza. |
 | Navegação por clique | Ação tomada quando clicar no cabeçalho.  Para obter mais informações, consulte [configurações comuns](#click-through-navigation). |
-| **Gráfico** |**> Eixo y** |
+| **Chart** |**> Eixo y** |
 | Utilizar Escala Logarítmica |Selecione esta ligação para utilizar escala logarítmica para o eixo y. |
 | Unidades |Especifique as unidades para os valores a serem retornados pela consulta. Estas informações são utilizadas para rótulos de gráficos de apresentação que indicam os tipos de valor e, opcionalmente, para converter os valores. O *unidade* tipo Especifica a categoria da unidade e define o disponíveis *unidade atual* tipo de valores. Se selecionar um valor na *converter*, os valores numéricos são convertidos da *unidade atual* escreva para o *converter* tipo. |
 | Etiqueta personalizada |O texto que é apresentado para o eixo y junto à etiqueta para o *unidade* tipo. Se nenhuma etiqueta for especificada, apenas os *unidade* tipo é apresentado. |
@@ -322,14 +322,14 @@ O separador de nome e o valor é o delimitador de caráter a utilizar para anali
 Por exemplo, considere uma propriedade chamada *localização* que incluídos como valores *41 de criação de Redmond* e *12 de criação de Bellevue*. Pode especificar um travessão (-) para o separador de nome e valor e *criação de cidade* para o nome. Essa abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *modulares*.
 
 ### <a name="click-through-navigation"></a>Navegação por clique
-Navegação por clique define que ação será direcionada quando clica num cabeçalho ou item de lista numa vista.  Optar por esta ação irá abrir uma consulta a [portal de pesquisa de registos](../../azure-monitor/log-query/portals.md) ou iniciar outra vista.
+Navegação por clique define que ação será direcionada quando clica num cabeçalho ou item de lista numa vista.  Optar por esta ação irá abrir uma consulta no [Log Analyticsl](../../azure-monitor/log-query/portals.md) ou iniciar outra vista.
 
 A tabela seguinte descreve as definições para a navegação por clique.
 
 | Definição           | Descrição |
 |:--|:--|
-| Pesquisa de registos (Automático) | Pesquisa de registos para ser executada quando seleciona um item de cabeçalho.  Esta é a pesquisa de registos mesmo que o item se baseia.
-| Pesquisa de Registos        | Pesquisa de registos para ser executada quando seleciona um item numa lista.  Escreva a consulta para o **consulta de navegação** caixa.   Uso *{item selecionado}* para incluir a sintaxe para o item que o utilizador selecionou.  Por exemplo, se a consulta tem uma coluna chamada *computador* e a consulta de navegação *{item selecionado}*, uma consulta como *computador = "MyComputer"* é executado quando seleciona um computador. Se estiver a consulta de navegação *tipo = evento {item selecionado}*, a consulta *tipo = evento computador = "MyComputer"* é executado. |
+| Pesquisa de registos (Automático) | Consulta de registo para ser executada quando seleciona um item de cabeçalho.  Esta é a mesma consulta de registo que o item se baseia.
+| Pesquisa de Registos        | Consulta de registo para ser executada quando seleciona um item numa lista.  Escreva a consulta para o **consulta de navegação** caixa.   Uso *{item selecionado}* para incluir a sintaxe para o item que o utilizador selecionou.  Por exemplo, se a consulta tem uma coluna chamada *computador* e a consulta de navegação *{item selecionado}*, uma consulta como *computador = "MyComputer"* é executado quando seleciona um computador. Se estiver a consulta de navegação *tipo = evento {item selecionado}*, a consulta *tipo = evento computador = "MyComputer"* é executado. |
 | Vista              | Vista para abrir quando seleciona um item de cabeçalho ou um item numa lista.  Selecione o nome de uma vista na sua área de trabalho do **nome da vista** caixa. |
 
 
@@ -356,9 +356,9 @@ A tabela seguinte descreve as definições de limiares:
 | Definição | Descrição |
 |:--- |:--- |
 | Ativar Limiares |Selecione esta ligação para apresentar um ícone cor à esquerda de cada valor. O ícone indica o estado de funcionamento do valor relativo ao limites especificados. |
-| Nome |O nome do valor de limiar. |
+| Name |O nome do valor de limiar. |
 | Limiar |O valor para o limiar. A cor de estado de funcionamento para cada item da lista é definida para a cor do valor de limiar mais elevado, que é excedido pelo valor do item. Se não existem valores de limiares forem ultrapassados, é utilizada uma cor predefinida. |
 | Cor |A cor que indica o valor de limiar. |
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) para suportar as consultas em partes de visualização.
+* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para suportar as consultas em partes de visualização.

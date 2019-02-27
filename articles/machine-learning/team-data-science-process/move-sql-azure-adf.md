@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6017aa5172efa72bb708004e2c4aee7f9ae4acad
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 85edaeab67c7b5164dabbc817429e2ab82f5ea11
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733914"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864673"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um servidor SQL no local para o SQL Azure com o Azure Data Factory
 
@@ -52,7 +52,7 @@ Este tutorial parte do princípio de que tem:
 
 * Uma **subscrição do Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma **conta de armazenamento do Azure**. Utilize uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). Depois de ter criado a conta de armazenamento, tem de obter a chave de conta utilizada para aceder ao armazenamento. Ver [gerir as chaves de acesso de armazenamento](../../storage/common/storage-account-manage.md#access-keys).
-* Acesso a uma **base de dados SQL do Azure**. Se tem de configurar uma SQL Database do Azure, o tópico [introdução ao Microsoft Azure SQL Database ](../../sql-database/sql-database-get-started.md) fornece informações sobre como aprovisionar uma nova instância de uma base de dados do SQL do Azure.
+* Acesso a uma **base de dados SQL do Azure**. Se tem de configurar uma SQL Database do Azure, o tópico [introdução ao Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) fornece informações sobre como aprovisionar uma nova instância de uma base de dados do SQL do Azure.
 * Instalou e configurou **do Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
 > [!NOTE]
@@ -99,7 +99,7 @@ As definições de acesso baseado em JSON nas tabelas utilizam os seguintes nome
 Três definições de tabela são necessários para este pipeline do ADF:
 
 1. [Tabela do SQL no local](#adf-table-onprem-sql)
-2. [Tabela de BLOBs ](#adf-table-blob-store)
+2. [Tabela de BLOBs](#adf-table-blob-store)
 3. [SQL Azure tabela](#adf-table-azure-sql)
 
 > [!NOTE]

@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 3981ae197515803821891402e525852901963f63
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902810"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871620"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o runtime do Azure IoT Edge no Windows
 
@@ -213,6 +213,34 @@ E lista de módulos com a executar:
 ```powershell
 iotedge list
 ```
+
+Depois de uma nova instalação, o único módulo deve vir em execução seja **edgeAgent**. Depois de [implementar módulos IoT Edge](how-to-deploy-modules-portal.md), irá ver outras pessoas. 
+
+## <a name="manage-module-containers"></a>Gerir contentores de módulo
+
+O serviço de IoT Edge requer um mecanismo de contentor em execução no seu dispositivo. Quando implementar um módulo de um dispositivo, o runtime do IoT Edge utiliza o motor de contentor para extrair a imagem de contentor a partir de um registo na cloud. O serviço de IoT Edge permite-lhe interagir com seus módulos e recupere os registos, mas, às vezes, pode querer usar o mecanismo de contentor para interagir com o próprio contêiner. 
+
+Para obter mais informações sobre os conceitos de módulo, consulte [módulos de compreender o Azure IoT Edge](iot-edge-modules.md). 
+
+Se estiver a executar contentores do Windows no seu dispositivo Windows IoT Edge, em seguida, a instalação do IoT Edge incluído o mecanismo de contentor Moby. Se estiver a desenvolver contentores do Linux no seu computador de desenvolvimento do Windows, provavelmente está usando o ambiente de trabalho do Docker. O mecanismo de Moby baseado nos mesmos padrões de Docker e foi concebido para ser executado em paralelo no mesmo computador como ambiente de trabalho do Docker. Por esse motivo, se desejar contêineres de destino geridos pelo motor Moby, terá de se destinam especificamente que o motor, em vez de Docker. 
+
+Por exemplo, para listar todas as imagens do Docker, utilize o seguinte comando:
+
+```powershell
+docker images
+```
+
+Para listar todas as imagens de Moby, modifique o mesmo comando com um ponteiro para o mecanismo de Moby: 
+
+```powershell
+docker -H npipe:////./pipe/iotedge_moby_engine images
+```
+
+O mecanismo de URI é listado no resultado do script de instalação, ou pode encontrá-lo na secção de definições de tempo de execução de contentor para o ficheiro de config.yaml. 
+
+![uri de moby_runtime no config.yaml](./media/how-to-install-iot-edge-windows/moby-runtime-uri.png)
+
+Para obter mais informações sobre os comandos que pode utilizar para interagir com contentores e imagens em execução no seu dispositivo, consulte [interfaces de linha de comandos do Docker](https://docs.docker.com/engine/reference/commandline/docker/).
 
 ## <a name="uninstall-iot-edge"></a>Desinstalar do IoT Edge
 

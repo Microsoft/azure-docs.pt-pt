@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.date: 02/25/2019
+ms.openlocfilehash: 3be2f804bc755b92896305a2ba2b38a45450aed3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809985"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871235"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -28,10 +28,12 @@ Este artigo explica a base de dados do Azure SQL e SQL Data Warehouse conectivid
 > Os clientes são aconselhados a criar novos servidores e o conjunto já existentes com o tipo de ligação explicitamente definida para redirecionamento (preferível) ou Proxy, dependendo da sua arquitetura de conectividade.
 >
 > Para impedir a conectividade através de um ponto de extremidade de serviço do usuário em ambientes existentes, como resultado desta alteração, podemos usar fazer de telemetria o seguinte:
+>
 > - Para servidores que detectamos que foram acedidos através de pontos finais de serviço antes da alteração, vamos mudar o tipo de ligação para `Proxy`.
 > - Para todos os outros servidores, podemos mudar a ligação irá mudar para o tipo `Redirect`.
 >
 > Os utilizadores do ponto final de serviço ainda poderão ser afetados nos seguintes cenários:
+>
 > - Aplicativo se conecta a um servidor existente com pouca frequência para que nossa telemetria não captura as informações sobre esses aplicativos
 > - Lógica de implementação automatizada cria um servidor de base de dados SQL, partindo do princípio de que é o comportamento predefinido para ligações de ponto final de serviço `Proxy`
 >
@@ -106,10 +108,7 @@ A tabela seguinte lista os IPs primário e secundário do gateway para todas as 
 | Europa do Norte | 191.235.193.75 | 40.113.93.91 |
 | EUA Centro-Sul | 23.98.162.75 | 13.66.62.124 |
 | Sudeste Asiático | 23.100.117.95 | 104.43.15.0 |
-| Norte do Reino Unido | 13.87.97.210 | |
-| Sul do Reino Unido 1 | 51.140.184.11 | |
-| Sul do Reino Unido 2 | 13.87.34.7 | |
-| Reino Unido Oeste | 51.141.8.11 | |
+| Reino Unido Sul | 51.140.184.11 | |
 | EUA Centro-Oeste | 13.78.145.25 | |
 | Europa Ocidental | 191.237.232.75 | 40.68.37.158 |
 | E.U.A. oeste 1 | 23.99.34.75 | 104.42.238.205 |

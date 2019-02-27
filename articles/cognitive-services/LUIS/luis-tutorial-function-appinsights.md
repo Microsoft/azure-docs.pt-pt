@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c9a772af79cba8b5bfb592eaf03efa37520d5e48
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 97e29ba166d652f053f754482b6da36a33ec5bb5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870610"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878184"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Adicionar o LUIS resultados para o Application Insights e as funções do Azure
 Este tutorial adiciona informações de solicitação e resposta de LUIS para [Application Insights](https://azure.microsoft.com/services/application-insights/) armazenamento de dados de telemetria. Depois de ter esses dados, pode consultá-lo com o idioma de Kusto ou o Power BI para analisar, Agregar, o relatório de em objetivos e entidades de expressão em tempo real. Isto ajuda a análise é determinar se deve utilizar para adicionar ou editar as intenções e entidades da sua aplicação LUIS.
@@ -51,11 +51,11 @@ Para capturar o LUIS solicitação e resposta, o bot de aplicação web tem o **
 
 1. No portal do Azure, no serviço de bot de aplicação web, selecione **crie** sob a **gestão de Bot** secção. 
 
-    ![No portal do Azure, no serviço de bot de aplicação web, selecione "Build" na seção "Gerenciamento do Bot". ](./media/luis-tutorial-appinsights/build.png)
+    ![No portal do Azure, no serviço de bot de aplicação web, selecione "Build" na seção "Gerenciamento do Bot".](./media/luis-tutorial-appinsights/build.png)
 
 2. Um novo separador do browser abre-se com o Editor de serviço de aplicações. Selecione o nome da aplicação na barra superior, em seguida, selecione **abra a consola Kudu**. 
 
-    ![Selecione o nome da aplicação na barra superior, em seguida, selecione "Abra a consola Kudu". ](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Selecione o nome da aplicação na barra superior, em seguida, selecione "Abra a consola Kudu".](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. Na consola, introduza o seguinte comando para instalar os pacotes de caráter de sublinhado e o Application Insights:
 

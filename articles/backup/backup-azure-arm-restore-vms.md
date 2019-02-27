@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: geg
-ms.openlocfilehash: b919adbaf665055ee19df9b9167984cc29388032
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 370428213414d1048478cb8413d45e2a39992e39
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428743"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887527"
 ---
 # <a name="restore-azure-vms"></a>Restaurar as VMs do Azure
 
@@ -76,7 +76,7 @@ Como um da [opções de restauro](#restore-options), pode criar rapidamente uma 
 Como um da [opções de restauro](#restore-options), é possível criar um disco a partir de um ponto de restauro. Em seguida, com o disco, pode efetuar um dos seguintes:
 
 - Utilize o modelo que é gerado durante a operação de restauro para personalizar as definições e acionar a implementação da VM. Editar as definições de modelo padrão e submeta o modelo de implementação da VM.
-- [Anexar discos restaurados](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal#option-2-attach-an-existing-disk) a uma VM existente.
+- [Anexar discos restaurados](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) a uma VM existente.
 - [Criar uma nova VM] (https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks dos discos restaurados com o PowerShell.
 
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 79a53c1b11a1bac0ea83afdd1333423aff4d6aa6
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428471"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56864307"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -78,7 +78,7 @@ Cópia de segurança do Azure pode fazer uma cópia de segurança de máquinas n
 As vantagens da cópia de segurança de máquinas e aplicações para o armazenamento do MABS/DPM e, em seguida, cópia de segurança de armazenamento do DPM/MABS para um cofre são os seguintes:
 
 - O backup em MABS/DPM fornece cópias de segurança com suporte para a aplicação otimizadas para aplicações comuns, como o SQL Server, Exchange e SharePoint, no adicionais para cópias de segurança do ficheiro/pasta/volume e backups de estado do computador (bare-metal, o estado do sistema).
-- Para mahines no local, não terá de instalar o agente de MARS em cada máquina que pretende criar cópias de segurança. Cada máquinas executa o agente de proteção do DPM/MABS e o agente de MARS é executado no MABS/DPM apenas.
+- Para máquinas no local, não terá de instalar o agente de MARS em cada máquina que pretende criar cópias de segurança. Cada máquinas executa o agente de proteção do DPM/MABS e o agente de MARS é executado no MABS/DPM apenas.
 - Tem mais flexibilidade e opções de agendamento granulares para a execução de cópias de segurança.
 - Pode gerir as cópias de segurança para várias máquinas que agrupa em grupos de proteção numa única consola. Isto é particularmente útil quando as aplicações são dispostos em camadas através de várias máquinas e pretende que o backup deles em conjunto.
 

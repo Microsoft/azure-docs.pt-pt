@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821512"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876947"
 ---
 # <a name="outbound-connections-classic"></a>Ligações de saída (clássicas)
 
@@ -41,7 +41,7 @@ O Azure fornece três métodos diferentes para alcançar as implementações cl�
 | --- | --- | --- | --- | --- | --- |
 | [1. VM com um endereço IP público de nível de instância](#ilpip) | SNAT, porta mascarando não utilizado | TCP, UDP, ICMP, ESP | O Azure utiliza o IP público atribuído a Máquina Virtual. A instância tem todas as portas efêmeras disponíveis. | Não | Sim |
 | [2. ponto final com balanceamento de carga o público](#publiclbendpoint) | SNAT com porta mascarando (PAT) para o ponto final público | TCP, UDP | Azure partilha o IP endereço público ponto final público com vários pontos de extremidade privados. O Azure utiliza portas efêmeras do ponto final público para PAT. | Sim | Sim |
-| [3. VM autónoma ](#defaultsnat) | SNAT com mascarando-porta (PAT) | TCP, UDP | Azure designa um endereço IP público para SNAT automaticamente, compartilha este endereço IP público com toda a implantação e utiliza as portas efêmeras do endereço IP do ponto final público para PAT. Este é um cenário de contingência para os cenários anteriores. Não o recomendamos se precisar de visibilidade e controlo. | Sim | Sim |
+| [3. VM autónoma](#defaultsnat) | SNAT com mascarando-porta (PAT) | TCP, UDP | Azure designa um endereço IP público para SNAT automaticamente, compartilha este endereço IP público com toda a implantação e utiliza as portas efêmeras do endereço IP do ponto final público para PAT. Este é um cenário de contingência para os cenários anteriores. Não o recomendamos se precisar de visibilidade e controlo. | Sim | Sim |
 
 Este é um subconjunto da funcionalidade de ligação de saída disponível para implementações do Resource Manager no Azure.  
 

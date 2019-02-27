@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 0797a8a2d5633a30dcb2099ea475e4daae026686
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854178"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874040"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>O ID de utilizador e de perfil para blocos de notas do Azure
 
@@ -46,7 +46,7 @@ R **configurar o ID de utilizador** comando também é apresentado junto ao nome
 
 Também pode alterar o seu ID de utilizador em qualquer altura na página de perfil.
 
-Um ID de utilizador deve ser composto por, pelo menos, quatro letras, números e hífenes. Não existem outros carateres são permitidos, e o ID de utilizador não pode começar ou terminar com um hífen ou utilizar vários hífens seguidos.
+Um ID de utilizador tem de ser composto entre 16 e quatro letras, números e hífenes. Não existem outros carateres são permitidos, e o ID de utilizador não pode começar ou terminar com um hífen ou utilizar vários hífens seguidos. Uma vez que os IDs de utilizador são exclusivos em todas as contas de blocos de notas do Azure, poderá ver a mensagem, "ID de utilizador já está em utilização". (Também é apresentada a mensagem se tentar usar uma marca comercial da Microsoft como um ID de utilizador.) Nestes casos, escolha um ID de utilizador diferente.
 
 > [!Important]
 > Alterar o seu ID invalida todos os URLs talvez tenha partilhado usando sua ID anterior. Pode alterar o seu ID de volta para o seu ID anterior para revalide as ligações. No entanto, é possível que outro utilizador solicitar um não for utilizado o ID de nesse meio tempo.

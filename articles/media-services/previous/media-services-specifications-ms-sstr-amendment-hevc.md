@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: johndeu;
-ms.openlocfilehash: e13995ccdc609951f908b4a1779eaefcfdc596bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b8437f224a83ac07d27aed03b5a9686f66949bc4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005221"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868260"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Modificação de protocolo (MS-SSTR) transmissão em fluxo uniforme para HEVC 
 
@@ -78,17 +78,17 @@ Os termos seguintes são específicos a este documento:
 
 >   [RFC-6381] IETF RFC-6381, "a"Codecs"e os parâmetros de"Perfis"para"registo"tipos de suportes de dados" <http://tools.ietf.org/html/rfc6381>
 
->   [MPEG4 RA] A autoridade de registo de MP4, "MP4REG", [http://www.mp4ra.org   ](https://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4 RA] A autoridade de registo de MP4, "MP4REG", [http://www.mp4ra.org](https://go.microsoft.com/fwlink/?LinkId=327787)
 
->   [RFC2119] Bradner, S., "palavras-chave para utilização nos RFCs para níveis de requisito de indica", 14 de BCP, RFC 2119, Março de 1997   [http://www.rfc-editor.org/rfc/rfc2119.txt   ](https://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "palavras-chave para utilização nos RFCs para níveis de requisito de indica", 14 de BCP, RFC 2119, Março de 1997   [http://www.rfc-editor.org/rfc/rfc2119.txt](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 referências informativas 
 
 >   [MS-GLOS] Microsoft Corporation, "*Glossário de mestre de protocolos do Windows*."
 
->   [RFC3548] Ed de Josefsson, S.,., "O Base16 Base32 e Base64 codificações de dados", RFC 3548, Julho de 2003, [http://www.ietf.org/rfc/rfc3548.txt   ](https://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Ed de Josefsson, S.,., "O Base16 Base32 e Base64 codificações de dados", RFC 3548, Julho de 2003, [http://www.ietf.org/rfc/rfc3548.txt](https://go.microsoft.com/fwlink/?LinkId=90432)
 
->   [RFC5234] Crocker, d, Ed. e Overell, P., "aumentados BNF especificações de sintaxe: ABNF", e padrão 68 RFC 5234, Janeiro de 2008   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, d, Ed. e Overell, P., "aumentados BNF especificações de sintaxe: ABNF", e padrão 68 RFC 5234, Janeiro de 2008   [http://www.rfc-editor.org/rfc/rfc5234.txt](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 Descrição geral de 
@@ -108,7 +108,7 @@ Os termos seguintes são específicos a este documento:
 >   O método seguinte deverá ser utilizado identificar fluxos com o formato de vídeo HEVC:
 
 >   * **Descritivos códigos personalizados para os formatos de mídia:** Esta capacidade é proporcionada pela **FourCC** campo, conforme especificado na secção *2.2.2.5*.
->   Implementadores podem garantir que as extensões não entram em conflito ao registar a códigos de extensão com o RA MPEG4, conforme especificado no [[ISO/IEC-14496-12] ](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   Implementadores podem garantir que as extensões não entram em conflito ao registar a códigos de extensão com o RA MPEG4, conforme especificado no [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## <a name="19-standards-assignments"></a>1,9 padrões de atribuições 
 

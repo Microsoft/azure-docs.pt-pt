@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4768c38b2e76bfa8cdff3187c32c03fdaaf57bbf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207658"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880357"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integração do Active Directory do Azure com dmarcian
 
@@ -143,15 +143,15 @@ Para configurar o Azure AD início de sessão único com dmarcian, execute os se
 
 2. Clique em **perfil** no canto superior direito canto e navegue até à **preferências**.
 
-    ![As preferências ](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
+    ![As preferências](./media/dmarcian-tutorial/tutorial_dmarcian_pref.png)
 
 3. Desloque para baixo e clique em **início de sessão único** secção, em seguida, clique em **configurar**.
 
-    ![A única ](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
+    ![A única](./media/dmarcian-tutorial/tutorial_dmarcian_sso.png)
 
 4. Sobre o **SAML Single Sign-On** página conjunto a **estado** como **ativado** e execute os seguintes passos:
 
-    ![A autenticação ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
+    ![A autenticação](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
     * Sob **adicionar dmarcian ao seu fornecedor de identidade** secção, clique em **cópia** para copiar o **URL do serviço de consumidor de asserção** para a sua instância e cole-a no  **URL de resposta** na caixa de texto **secção de configuração básica de SAML** no portal do Azure.
 
@@ -229,15 +229,15 @@ Para ativar a utilizadores do Azure AD iniciar sessão no dmarcian, tem de ser a
 
 2. Clique em **perfil** sobre o canto direito superior e navegue até à **Manage Users**.
 
-    ![O utilizador ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
+    ![O utilizador](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
 3. No lado direito da **utilizadores SSO** secção, clique em **adicionar novo utilizador**.
 
-    ![O adicionar utilizador ](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
+    ![O adicionar utilizador](./media/dmarcian-tutorial/tutorial_dmarcian_addnewuser.png)
 
 4. Sobre o **adicionar novo utilizador** pop-up, execute os seguintes passos:
 
-    ![O novo utilizador ](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
+    ![O novo utilizador](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
     a. Na **novo E-Mail do utilizador** caixa de texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
 
@@ -253,9 +253,9 @@ Quando clica no mosaico dmarcian no painel de acesso, deve ser automaticamente s
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,5 +1,5 @@
 ---
-title: Avançadas consultas no Azure Monitor do Azure | Documentos da Microsoft
+title: Avançadas consultas no Azure Monitor | Documentos da Microsoft
 description: Este artigo fornece um tutorial para utilizar o portal de análise para escrever consultas no Azure Monitor.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 0b516dc4fb1ca4736791abdea7f0903b6399fa6e
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 62dffffee411519cdcafe80a11404f9e273dd9dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749907"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880789"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Escrever avançadas consultas no Azure Monitor
 

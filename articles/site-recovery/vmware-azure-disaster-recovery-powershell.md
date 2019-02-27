@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 1b97ff461dc3a4f7dcba0a3dbfad71a25cb3f1e9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d73c0e3f62d30764cba8866d7e731c5ea67d3057
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840210"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878273"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Configurar a recuperação após desastre de VMs de VMware para o Azure com o PowerShell
 
@@ -345,7 +345,7 @@ Terá dos seguintes detalhes para proteger uma máquina virtual detetada:
 Agora replicar as seguintes máquinas virtuais com as definições especificadas nesta tabela
 
 
-|Máquina virtual  |Servidor de processos        |Conta de Armazenamento              |Conta de armazenamento de registo  |Política           |Conta para a instalação do serviço de mobilidade|Grupo de recursos de destino  | Rede virtual de destino  |Sub-rede de destino  |
+|Máquina virtual  |Process Server        |Conta de Armazenamento              |Conta de armazenamento de registo  |Política           |Conta para a instalação do serviço de mobilidade|Grupo de recursos de destino  | Rede virtual de destino  |Sub-rede de destino  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Sub-rede 1       |
 |CentOSVM1       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Sub-rede 1       |   
@@ -487,4 +487,4 @@ Neste passo, podemos fazer a ativação pós-falha da máquina virtual Win2K12VM
 2. Depois de efetuar a ativação pós-falha com êxito, podem consolidar a operação de ativação pós-falha e configurar a replicação inversa do Azure de volta para o site de VMware no local.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba como automatizar tarefas mais com o [referência do PowerShell do Azure Site Recovery ](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Saiba como automatizar tarefas mais com o [referência do PowerShell do Azure Site Recovery](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).

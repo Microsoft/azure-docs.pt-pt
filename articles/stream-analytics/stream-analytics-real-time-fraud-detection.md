@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6433d130da108ce7bd0b6f8b4093161043c32645
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5317eb83552b5ea15b2d709f61b456a7a508e9ba
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733151"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876182"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Comece a utilizar o Azure Stream Analytics: Deteção de fraudes em tempo real
 
@@ -68,7 +68,7 @@ Neste procedimento, primeiro tem de criar um espaço de nomes do hub de eventos 
 
 5. Clique em novo espaço de nomes e, no painel de espaço de nomes, clique em **Hub de eventos**.
 
-   ![O botão Adicionar Hub de eventos para a criação de um novo hub de eventos ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![O botão Adicionar Hub de eventos para a criação de um novo hub de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
 6. Nomeie o novo hub de eventos `asa-eh-frauddetection-demo`. Pode utilizar um nome diferente. Se o fizer, tome nota do mesmo, porque é necessário o nome mais tarde. Não precisa definir quaisquer outras opções para o hub de eventos neste momento.
 

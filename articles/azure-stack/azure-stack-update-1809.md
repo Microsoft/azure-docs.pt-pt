@@ -16,12 +16,12 @@ ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a4298a8bd78f178c56776e703e72ff99aac54207
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694385"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887916"
 ---
 # <a name="azure-stack-1809-update"></a>Atualização de 1809 de pilha do Azure
 
@@ -77,7 +77,7 @@ Esta atualização inclui os seguintes aprimoramentos para o Azure Stack:
 ### <a name="changes"></a>Alterações
 
 <!-- 2635202 - IS, ASDK -->
-- Serviço de cópia de segurança de infra-estrutura move-se do [rede de infraestrutura públicas](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network) para o [rede VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes terão garantir que o serviço tem acesso a localização de armazenamento de cópia de segurança da rede VIP pública.  
+- Serviço de cópia de segurança de infra-estrutura move-se do [rede de infraestrutura públicas](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) para o [rede VIP pública](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Os clientes terão garantir que o serviço tem acesso a localização de armazenamento de cópia de segurança da rede VIP pública.  
 
 > [!IMPORTANT]  
 > Se tiver uma firewall que não permite ligações a partir da rede VIP pública para o servidor de ficheiros, esta alteração fará com que as cópias de segurança de infra-estrutura efetuar a ativação com "Erro 53 o caminho de rede não foi encontrado". Esta é uma alteração de última hora que tenha não existe solução razoável. Com base nos comentários dos clientes, Microsoft irá reverter esta alteração numa correção. Consulte a [publicar a secção de passos de atualização](#post-update-steps) para obter mais informações sobre correções disponíveis para 1809. Assim que a correção está disponível, certifique-se para aplicá-la depois de atualizar para 1809 apenas se as políticas de rede não permitirem a rede VIP pública para aceder a recursos de infraestrutura. no 1811, esta alteração será aplicada a todos os sistemas. Se aplicar a correção no 1809, não é necessária nenhuma ação adicional.  

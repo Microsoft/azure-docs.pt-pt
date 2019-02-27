@@ -7,14 +7,14 @@ manager: shivamg
 keywords: recuperação ao nível do item; recuperação de ficheiros de cópia de segurança de VM do Azure; restaurar ficheiros a partir da VM do Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2018
-ms.author: pvrk
-ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 2/26/2019
+ms.author: pullabhk
+ms.openlocfilehash: 4bae9a09dad217b8d805a64372ed404eb7ada723
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488497"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874174"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros a partir de cópia de segurança da máquina virtual do Azure
 
@@ -73,11 +73,15 @@ Para restaurar ficheiros ou pastas do ponto de recuperação, vá para a máquin
         - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Para o Azure Alemanha)
     - porta de saída 3260
 
-    Para o Linux, o script requer componentes de 'open-iscsi' e "lshw" para ligar ao ponto de recuperação. Se os componentes não existirem no computador em que o script é executado, o script pede-lhe permissão para instalar os componentes. Forneça o consentimento para instalar os componentes necessários.
+> [!Note]
+> O nome de ficheiro de script transferido terá o "geo-nome" a ser preenchido no URL. Para, por exemplo: O nome do script transferido começa com \'VMname\'\_\'geoname\'_\'GUID\', como ContosoVM_wcus_12345678... O URL seria "https://pod01-rec2.wcus.backup.windowsazure.com"
+> 
 
-    O acesso ao download.microsoft.com é necessário para transferir componentes utilizados para criar um canal seguro entre a máquina em que o script é executado e os dados no ponto de recuperação.
-
-    Pode executar o script em qualquer máquina que tem o sistema de operativo mesmo (ou compatível) da VM de cópia de segurança. Consulte a [tabela de sistema operacional compatível](backup-azure-restore-files-from-vm.md#system-requirements) para sistemas operacionais compatíveis. Se a máquina virtual do Azure protegida utilizar espaços de armazenamento do Windows (para VMs do Windows Azure) ou matrizes LVM/RAID (para VMs do Linux), não é possível executar o executável ou script na mesma máquina virtual. Em vez disso, execute o ficheiro executável ou script em qualquer outra máquina com um sistema operativo compatível.
+   Para o Linux, o script requer componentes de 'open-iscsi' e "lshw" para ligar ao ponto de recuperação. Se os componentes não existirem no computador em que o script é executado, o script pede-lhe permissão para instalar os componentes. Forneça o consentimento para instalar os componentes necessários.
+   
+   O acesso ao download.microsoft.com é necessário para transferir componentes utilizados para criar um canal seguro entre a máquina em que o script é executado e os dados no ponto de recuperação.
+   
+   Pode executar o script em qualquer máquina que tem o sistema de operativo mesmo (ou compatível) da VM de cópia de segurança. Consulte a [tabela de sistema operacional compatível](backup-azure-restore-files-from-vm.md#system-requirements) para sistemas operacionais compatíveis. Se a máquina virtual do Azure protegida utilizar espaços de armazenamento do Windows (para VMs do Windows Azure) ou matrizes LVM/RAID (para VMs do Linux), não é possível executar o executável ou script na mesma máquina virtual. Em vez disso, execute o ficheiro executável ou script em qualquer outra máquina com um sistema operativo compatível.
 
 ### <a name="identifying-volumes"></a>Identificação de Volumes
 
@@ -199,6 +203,11 @@ No Linux, o sistema operativo do computador utilizado para restaurar os ficheiro
 | Oracle Linux | 6.4 e acima |
 | SLES | 12 e acima |
 | openSUSE | 42.2 e acima |
+
+> [!Note]
+> Descobrimos alguns problemas da execução do script de recuperação de ficheiros em máquinas com o sistema operacional do SLES 12 SP4. Investigar com a equipa SLES.
+> Atualmente, em execução o script de recuperação de ficheiros está a funcionar em máquinas com as versões do SLES 12 SP2 e o sistema operacional do SP3.
+>
 
 O script também requer o Python e o bash componentes para executar e ligar com segurança para o ponto de recuperação.
 

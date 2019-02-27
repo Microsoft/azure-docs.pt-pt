@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 1d092f03013d98106138f35734d960567121a5bf
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a35cba0ab7df80596ba1403765980809635c0249
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692787"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881860"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Extensões de máquina virtual do Azure e funcionalidades
 As extensões de máquina virtual do Azure (VM) são aplicativos pequenos que fornecem as tarefas de automatização e configuração de pós-implementação em VMs do Azure, pode utilizar imagens existentes e, em seguida, personalize-os como parte das suas implementações, saindo do a empresa de personalizado criação de imagem.
@@ -54,6 +54,6 @@ Extensões de instalar aplicações, como todas as aplicações existem alguns r
 ## <a name="next-steps"></a>Passos Seguintes
 * Para obter mais informações sobre como funcionam as extensões e o agente do Linux, consulte [extensões de VM do Azure e funcionalidades para Linux](features-linux.md).
 * Para obter mais informações sobre como funcionam o agente convidado do Windows e as extensões, consulte [extensões de VM do Azure e funcionalidades para o Windows](features-windows.md).  
-* Para instalar o agente convidado do Windows, consulte [descrição geral do agente de Máquina Virtual de Windows do Azure ](agent-windows.md).  
-* Para instalar o agente do Linux, veja [descrição geral do agente de Máquina Virtual de Linux do Azure ](agent-linux.md).  
+* Para instalar o agente convidado do Windows, consulte [descrição geral do agente de Máquina Virtual de Windows do Azure](agent-windows.md).  
+* Para instalar o agente do Linux, veja [descrição geral do agente de Máquina Virtual de Linux do Azure](agent-linux.md).  
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: mayg
-ms.openlocfilehash: 1fabbe3a9a486abc862bfb6c2671c60d11d8e8c7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 8906c477a5d40eb4240669a615dcc9974246ecc8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809935"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868838"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>O Azure ExpressRoute com o Azure Site Recovery
 
@@ -56,4 +56,4 @@ Pode replicar máquinas virtuais do Azure para qualquer região do Azure dentro 
 - Saiba mais sobre [circuitos do ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
 - Saiba mais sobre [domínios de encaminhamento do ExpressRoute](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Saiba mais sobre [localizações do ExpressRoute](../expressroute/expressroute-locations.md).
-- Saiba mais sobre a recuperação após desastre de [máquinas virtuais do Azure com o ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
+- Saiba mais sobre a recuperação após desastre de [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

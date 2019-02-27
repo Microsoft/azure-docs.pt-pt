@@ -6,19 +6,18 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 02/26/2019
 ms.author: dobett
-ms.openlocfilehash: 02ea4b94f8d1442360bebb36fdbba13d973f8555
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 81cdd53769cc33daaed70ba824a0a3bbf68f8134
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242420"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877236"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
-Por predefinição, as mensagens são roteadas para o ponto de final de serviço com acesso à incorporado (**mensagens/eventos**) que é compatível com [dos Hubs de eventos](https://azure.microsoft.com/documentation/services/event-hubs/
-). Este ponto final está apenas exposto a utilizar atualmente o [AMQP](https://www.amqp.org/) protocolo na porta 5671. Um IoT hub expõe as propriedades seguintes para que possa controlar compatível com o Event Hub mensagens ponto final incorporado **mensagens/eventos**.
+Por predefinição, as mensagens são roteadas para o ponto de final de serviço com acesso à incorporado (**mensagens/eventos**) que é compatível com [dos Hubs de eventos](https://azure.microsoft.com/documentation/services/event-hubs/). Este ponto final está apenas exposto a utilizar atualmente o [AMQP](https://www.amqp.org/) protocolo na porta 5671. Um IoT hub expõe as propriedades seguintes para que possa controlar compatível com o Event Hub mensagens ponto final incorporado **mensagens/eventos**.
 
 | Propriedade            | Descrição |
 | ------------------- | ----------- |
@@ -27,7 +26,7 @@ Por predefinição, as mensagens são roteadas para o ponto de final de serviço
 
 IoT Hub também permite-lhe gerir grupos de consumidores sobre o dispositivo para cloud incorporado recebem o ponto final.
 
-Se estiver a utilizar [roteamento de mensagens](iot-hub-devguide-messages-d2c.md) e o [rota contingência](iot-hub-devguide-messages-d2c.md#fallback-route) é ativada, todas as mensagens que não correspondam a uma consulta em qualquer rota são escritas para o ponto final incorporado. Se desativar esta rota de contingência, as mensagens que não correspondam a qualquer consulta são ignoradas.
+Se estiver a utilizar [roteamento de mensagens](iot-hub-devguide-messages-d2c.md) e o [rota contingência](iot-hub-devguide-messages-d2c.md#fallback-route) é ativada, todas as mensagens que não correspondem uma consulta em qualquer rota Ir para o ponto final incorporado. Se desativar esta rota de contingência, as mensagens que não correspondam a qualquer consulta são ignoradas.
 
 Pode modificar o período de retenção, por meio de programação utilizando o [fornecedor de recursos do IoT Hub REST APIs](/rest/api/iothub/iothubresource), ou com o [portal do Azure](https://portal.azure.com).
 
@@ -35,33 +34,45 @@ IoT Hub expõe os **mensagens/eventos** ponto final incorporado para os seus ser
 
 ## <a name="read-from-the-built-in-endpoint"></a>Ler a partir do ponto final incorporado
 
-Quando utiliza a [SDK do Service Bus para .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) ou o [Hubs de eventos - anfitrião do processador de eventos](..//event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md), pode utilizar quaisquer cadeias de ligação do IoT Hub com as permissões corretas. Em seguida, utilize **mensagens/eventos** como o nome do Hub de eventos.
+Algumas integrações de produtos e SDKs de Hubs de eventos estão cientes do IoT Hub e permitem-lhe utilizar a cadeia de ligação de serviço do IoT hub para ligar ao ponto final incorporado.
 
-Ao utilizar SDKs (ou integrações de produtos) que não estão cientes do IoT Hub, tem de obter um ponto de final compatível com o Event Hub e o nome compatível com o Event Hub:
+Quando utilizar Event Hubs SDKs ou integrações de produtos que não estão cientes do IoT Hub, tem um ponto de final compatível com o Event Hub e o nome compatível com o Event Hub. Pode obter estes valores no portal da seguinte forma:
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e navegue até ao seu hub IoT.
 
 2. Clique em **pontos finais incorporados**.
 
-3. O **eventos** secção contém os seguintes valores: **endpoint compatível com o Event Hub**, **nome compatível com o Event Hub**, **partições**, **Período de retenção**, e **grupos de consumidores**.
+3. O **eventos** secção contém os seguintes valores: **Partições**, **nome compatível com o Event Hub**, **endpoint compatível com o Event Hub**, **período de retenção**, e **degruposdeconsumidores**.
 
     ![Definições do dispositivo para a nuvem](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-O SDK do Hub IoT requer o nome de ponto final do IoT Hub, que é **mensagens/eventos** conforme mostrado na **pontos de extremidade**.
+No portal, o campo de ponto final compatível com o Event Hub contém uma cadeia de ligação dos Hubs de eventos completa semelhante a: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Se estiver a utilizar o SDK requer outros valores, em seguida, eles seria:
 
-Se o SDK que está a utilizar requer uma **Hostname** ou **espaço de nomes** valor, remova o esquema do **endpoint compatível com o Event Hub**. Por exemplo, se for de ponto final compatível com o Event Hub **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, o **nome do anfitrião** seria  **iothub-ns-myiothub-1234.servicebus.windows.net**. O **espaço de nomes** seria **iothub-ns-myiothub-1234**.
+| Name | Value |
+| ---- | ----- |
+| Ponto Final | sb://abcd1234namespace.servicebus.windows.net/ |
+| Nome de anfitrião | abcd1234namespace.servicebus.windows.net |
+| Espaço de nomes | abcd1234namespace |
 
 Em seguida, pode utilizar qualquer política de acesso partilhado que tenha as **ServiceConnect** permissões para ligar ao Hub de eventos especificado.
 
-Se precisar de criar uma cadeia de ligação do Hub de eventos com as informações anteriores, utilize o seguinte padrão:
+Os SDKs que pode utilizar para ligar ao ponto final compatível com o Event Hub incorporado que o IoT Hub expõe incluem:
 
-`Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}`
+| Idioma | SDK | Exemplo | Notas |
+| -------- | --- | ------ | ----- |
+| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Início rápido](quickstart-send-telemetry-dotnet.md) | Utiliza informações compatível com o Event Hubs |
+ Java | https://github.com/Azure/azure-event-hubs-java | [Início rápido](quickstart-send-telemetry-java.md) | Utiliza informações compatível com o Event Hubs |
+| Node.js | https://github.com/Azure/azure-event-hubs-node | [Início rápido](quickstart-send-telemetry-node.md) | Utiliza a cadeia de ligação do IoT Hub |
+| Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Utiliza a cadeia de ligação do IoT Hub |
 
-Os SDKs e integrações que pode utilizar com pontos finais de compatível com o Event Hub IoT Hub expõe inclui os itens na lista seguinte:
+Integrações de produtos que pode utilizar com o ponto final compatível com o Event Hub incorporado que o IoT Hub expõe incluem:
 
-* [Cliente de Java dos Hubs de eventos](https://github.com/Azure/azure-event-hubs-java).
+* [As funções do Azure](https://docs.microsoft.com/azure/azure-functions/). Ver [processamento de dados do IoT Hub com o Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Ver [Stream dados como entrada para o Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). Ver [adicionar uma origem de evento do hub IoT ao seu ambiente do Time Series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
 * [Spout do Apache Storm](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Pode ver o [spout origem](https://github.com/apache/storm/tree/master/external/storm-eventhubs) no GitHub.
 * [Integração do Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
+* [O Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

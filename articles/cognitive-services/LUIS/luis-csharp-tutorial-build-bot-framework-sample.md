@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: fc8283d85cf7d516edd78f20c9a47d806fbb827b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1fd472c452b476820414d51b8d13bce8a72dfb3d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328967"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874941"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot de LUIS em C# com o Bot Framework 3.x e bot de aplicação Web do Azure
 
@@ -130,7 +130,7 @@ Open **as configurações do aplicativo** e editar os **LuisAppId** campo para c
 ## <a name="build-the-bot"></a>Criar o bot
 No editor de código, faça duplo clique em `build.cmd` e selecione **executar consola**.
 
-![Criar bot de Web ](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
+![Criar bot de Web](./media/luis-tutorial-cscharp-web-bot/bot-service-build-run-from-console.png)
 
 A visualização de código é substituída por uma janela de terminal que mostra o progresso e os resultados da compilação.
 

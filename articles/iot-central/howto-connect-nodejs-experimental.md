@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cc659e1138690ffda7e21d25c37fb4dde095e6b9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7666af14f61ac04d82f73d439cda85063cfbc758
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817075"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880143"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -130,7 +130,7 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
     ```
 
     > [!NOTE]
-    > O Azure IoT Central transitou para utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub (DPS) para todas as ligações de dispositivo, siga estes instrustions para [obter a cadeia de ligação do dispositivo](concepts-connectivity-experimental.md#getting-device-connection-string) e continuar com o resto do tutorial. Para obter mais ajuda, também pode encontrar um conjunto detalhado de instruções em [preparar o código de cliente](tutorial-add-device-experimental.md#prepare-the-client-code) nos tutoriais > Adicionar um dispositivo.
+    > O Azure IoT Central transitou para utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub (DPS) para todas as ligações de dispositivo, siga estes instrustions para [obter a cadeia de ligação do dispositivo](concepts-connectivity-experimental.md#get-the-device-connection-string) e continuar com o resto do tutorial. Para obter mais ajuda, também pode encontrar um conjunto detalhado de instruções em [preparar o código de cliente](tutorial-add-device-experimental.md#prepare-the-client-code) nos tutoriais > Adicionar um dispositivo.
 
     Atualizar o marcador de posição `{your device connection string}` com a cadeia de ligação do dispositivo. Neste exemplo, vamos inicializar `targetTemperature` para zero, pode, opcionalmente, efetuar a leitura atual do dispositivo ou o valor do dispositivo duplo. 
 

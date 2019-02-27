@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2effd6c067a1378d9f774f282f6cea69a50596c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 806d060cd58322d745ea6ebdaa59eb85c6a35cbd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204445"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867155"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar de Federação para a sincronização de hash de palavra-passe do Azure Active Directory
 
@@ -319,7 +319,7 @@ Em primeiro lugar, altere o método de início de sessão:
    * **Totalmente integrado início de sessão único** está definido como **ativado**.
    * **Sincronização de palavra-passe** está definido como **ativado**.<br /> 
 
-   ![Captura de ecrã que mostra as definições na secção de início de sessão de utilizador ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Captura de ecrã que mostra as definições na secção de início de sessão de utilizador](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Avance para o [etapas de testes e seguintes](#testing-and-next-steps).
 
@@ -337,7 +337,7 @@ Utilize esta opção se não configurar inicialmente os domínios federados com 
 
    Antes de ativar a sincronização de hash de palavra-passe: ![Captura de ecrã que mostra a faça não configurar opção na página de início de sessão do utilizador](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   Depois de ativar a sincronização de hash de palavra-passe: ![Captura de ecrã que mostra as novas opções na página de início de sessão do utilizador ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   Depois de ativar a sincronização de hash de palavra-passe: ![Captura de ecrã que mostra as novas opções na página de início de sessão do utilizador](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > A partir do Azure AD Connect versão 1.1.880.0, o **totalmente integrada início de sessão único** caixa de verificação está selecionada por predefinição.

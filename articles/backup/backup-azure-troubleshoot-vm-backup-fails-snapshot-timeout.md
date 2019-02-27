@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: a73dab8a0df642e439e8519c404423c6689418f5
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: c62560d2f80375a725464607f38b9e8adf221d16
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236979"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875604"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -225,7 +225,7 @@ Concluir estes passos, faz com que a extensão de ser reinstalados durante a pr�
 3. Na **configurações** secção, selecione **bloqueios** para apresentar os bloqueios.
 4. Para remover o bloqueio, selecione as reticências e clique em **eliminar**.
 
-    ![Bloqueio de eliminação ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
+    ![Bloqueio de eliminação](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
 ### <a name="clean_up_restore_point_collection"></a> Limpar a coleção de ponto de restauro
 Depois de remover o bloqueio, os pontos de restauro têm ser limpos. Para limpar os pontos de restauro, siga qualquer um dos métodos:<br>
@@ -244,12 +244,12 @@ Para limpar manualmente o restauro pontos de coleção que não estão a ser des
 1. Inicie sessão no [portal do Azure](http://portal.azure.com/).
 2. Sobre o **Hub** menu, clique em **todos os recursos**, selecione o grupo de recursos com o seguinte formato AzureBackupRG_`<Geo>`_`<number>` onde está localizada a sua VM.
 
-    ![Bloqueio de eliminação ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+    ![Bloqueio de eliminação](./media/backup-azure-arm-vms-prepare/resource-group.png)
 
 3. Clique em grupo de recursos, o **descrição geral** é apresentado o painel.
 4. Selecione **mostrar tipos ocultos** opção para apresentar todos os recursos ocultos. Selecione as coleções do ponto de restauro com o seguinte formato AzureBackupRG_`<VMName>`_`<number>`.
 
-    ![Bloqueio de eliminação ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+    ![Bloqueio de eliminação](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
 
 5. Clique em **eliminar**, para limpar a coleção de ponto de restauro.
 6. Repita a operação de cópia de segurança novamente.

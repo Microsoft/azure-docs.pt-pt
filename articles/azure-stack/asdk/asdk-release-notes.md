@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 485d88a4765d7cedcb171a5b325fe5f366fff1f9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8268408137653e99863f7803300e6d843c1d9a47
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004780"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889312"
 ---
 # <a name="asdk-release-notes"></a>Notas de versão ASDK
 
@@ -29,6 +29,8 @@ Este artigo fornece informações sobre as alterações, correções e problemas
 Mantenha-se atualizado com o que há de novo no ASDK inscrevendo-se para o [ ![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
 
 ## <a name="build-11901095"></a>Compilação 1.1901.0.95
+
+Consulte a [informações de compilação importante nas notas de versão do Azure Stack](../azure-stack-update-1901.md#build-reference).
 
 ### <a name="changes"></a>Alterações
 

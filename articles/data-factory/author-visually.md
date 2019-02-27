@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: shlo
-ms.openlocfilehash: e934c8bdc851f8c550e8b87a923215df3f95e389
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c4e71f3c355f00bda3df6d43bc81743b391ea0dd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728264"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871966"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
@@ -31,7 +31,7 @@ Criação de Visual com o serviço Data Factory é diferente da criação de vis
 - O serviço Data Factory não inclui um repositório para armazenar as entidades JSON para as suas alterações.
 - O serviço Data Factory não está otimizado para colaboração ou controle de versão.
 
-![Configurar o serviço Data Factory ](media/author-visually/configure-data-factory.png)
+![Configurar o serviço Data Factory](media/author-visually/configure-data-factory.png)
 
 Ao utilizar a experiência do Usuário **tela de criação** para criar diretamente com o serviço Data Factory, apenas o **publicar tudo** modo está disponível. Quaisquer alterações que fizer são publicadas diretamente para o serviço Data Factory.
 

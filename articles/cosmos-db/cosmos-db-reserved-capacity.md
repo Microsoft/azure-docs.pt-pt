@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: bb2d57d3e119fd83d1a984fc31f29a5d93e957d1
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e7a5ed6274a0429726f0ed19c0765cfdc3378daa
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745950"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888530"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com capacidade de reserva no Azure Cosmos DB
 
@@ -68,6 +68,10 @@ O tamanho da reserva deve basear-se na quantidade total de débito que irão uti
 Depois de comprar uma reserva, ele é aplicado imediatamente a quaisquer recursos existentes do Azure Cosmos DB que corresponda aos termos da reserva. Se não tiver quaisquer recursos existentes do Azure Cosmos DB, a reserva aplicará ao implementar uma nova instância de Cosmos DB, que corresponde aos termos da reserva. Em ambos os casos, o período da reserva começa imediatamente após a compra ser efetuada com êxito. 
 
 Quando a reserva expirar, as instâncias do Azure Cosmos DB continuam a ser executado e são faturadas às tarifas pay as you go normais.
+
+## <a name="cancellation-and-exchanges"></a>Cancelamento e trocas
+
+Para ajudar a identificar a capacidade de reserva certo, consulte [compreender como o desconto de reserva é aplicado ao Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). No caso, terá de cancelar ou trocar uma reserva de Azure Cosmos DB, contacte a equipa do Azure Cosmos DB em `askCosmosDB@microsoft.com`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

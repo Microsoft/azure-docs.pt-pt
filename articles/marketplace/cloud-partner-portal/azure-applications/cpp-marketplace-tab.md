@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74b21a9dd8faa8eb35aa8a2ef738bd6303e4cdd7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1203f33458c83bbde7a263022b78563bad183143
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197232"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870742"
 ---
 # <a name="azure-application-marketplace-tab"></a>Separador do Marketplace de aplicações do Azure
 
@@ -35,7 +35,7 @@ A tabela seguinte descreve as definições a utilizar para a criação de uma lo
 
 |    **Campo**       |  **Descrição**  |
 |  ---------------   |  ---------------  |
-|        Cargo            |        Título da oferta. Será apresentado forma destacada no marketplace. O comprimento máximo é de 50 carateres.           |
+|        Título            |        Título da oferta. Será apresentado forma destacada no marketplace. O comprimento máximo é de 50 carateres.           |
 |         Resumo           |        Breve resumo da oferta. O comprimento máximo é 100 carateres.           |
 |         Resumo completo           |        Já resumo da oferta (embora ele poderia ser o mesmo que o resumo). O comprimento máximo é de 256 carateres.           |
 |       Descrição            |         Descrição da oferta. O comprimento máximo é 3000 carateres. Formatação de HTML simples é permitido, incluindo &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; e etiquetas de cabeçalho.           |
@@ -66,7 +66,7 @@ A tabela seguinte descreve os artefactos de marketing.
 
 Captura de ecrã seguinte mostra um exemplo de um resultado de pesquisa de mercado.
 
-![Resultado de pesquisa de oferta do Marketplace ](./media/azureapp-marketplace-example-browse.png)
+![Resultado de pesquisa de oferta do Marketplace](./media/azureapp-marketplace-example-browse.png)
 
 A imagem seguinte mostra como a oferta é exibida no Marketplace após um cliente clica no mosaico da oferta no resultado da pesquisa.
 

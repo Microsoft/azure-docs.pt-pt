@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4bc76f67b2d8908abe601aa1fcdfd1962678c548
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2704981b92725d24562b02c427a72dfc59ff2029
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865656"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870555"
 ---
 # <a name="quickstart-change-model-using-go"></a>Início rápido: Modelo de alteração com Go
 
@@ -45,7 +45,7 @@ Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha 
 
 3. Adicione a função de pedido HTTP genérica, que inclui passar a chave de criação no cabeçalho. 
 
-   [!code-go[Add HTTP request function which includes passing authoring key in header. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
+   [!code-go[Add HTTP request function which includes passing authoring key in header.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=12-36 "Add HTTP request function, which includes passing authoring key in header. ")]
 
 4. Adicionar expressões de exemplo do ficheiro JSON.
 
@@ -53,15 +53,15 @@ Neste início rápido, transmita expressões a um ponto final de LUIS e obtenha 
 
 5. Peça o treino. Utiliza uma função do programa auxiliar para definir o VERBO para a mesma rota que o estado do treino. 
 
-   [!code-go[Request training. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
+   [!code-go[Request training.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=77-86 "Request training. ")]
 
 6. Estado do treino do pedido. Utiliza uma função do programa auxiliar para definir o VERBO para a mesma rota que o treino do pedido. 
 
-   [!code-go[Request training status. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
+   [!code-go[Request training status.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=87-90 "Request training status. ")]
 
 7. Adicione a função principal para lidar com a análise da linha de comandos.
 
-   [!code-go[Add main function to handle command line parsing. ](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
+   [!code-go[Add main function to handle command line parsing.](~/samples-luis/documentation-samples/quickstarts/change-model/go/add-utterances.go?range=38-60 "Add main function to handle command-line parsing.")]
 
 ## <a name="add-an-utterance-from-the-command-line-train-and-get-status"></a>Adicionar uma expressão a partir da linha de comandos, treinar e obter o estado
 

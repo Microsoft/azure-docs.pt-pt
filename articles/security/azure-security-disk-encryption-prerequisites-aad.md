@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 76e25c04afbce215028699d54cb6022f0caeced5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: aa4c4beacd6f6755c1e5ce56f70dcf5a74166c80
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118246"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880245"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>O Azure Disk Encryption pré-requisitos (versão anterior)
 
@@ -232,7 +232,7 @@ Para executar os comandos seguintes, obter e utilizar o [módulo do Azure AD Pow
 
 ### <a name="bkmk_ADappCLI"></a> Configurar uma aplicação do Azure AD e o serviço principal com a CLI do Azure
 
-Pode gerenciar seus principais de serviço com a CLI do Azure com o [az ad sp](/cli/azure/ad/sp) comandos. Para obter mais informações, consulte [criar um Azure principal de serviço ](/cli/azure/create-an-azure-service-principal-azure-cli).
+Pode gerenciar seus principais de serviço com a CLI do Azure com o [az ad sp](/cli/azure/ad/sp) comandos. Para obter mais informações, consulte [criar um Azure principal de serviço](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 1. Se for necessário, [ligar à sua subscrição do Azure](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Crie um novo principal de serviço.
@@ -293,7 +293,7 @@ Uso [az keyvault conjunto-policy](/cli/azure/keyvault#az-keyvault-set-policy) pa
 
 ![O Azure Key Vault operações criptográficas - moldar chave](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
 
-![Definir as permissões do segredo do Cofre de chaves do Azure- ](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
+![Definir as permissões do segredo do Cofre de chaves do Azure-](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 ## <a name="bkmk_KVper"></a> Cofre de chaves de conjunto de políticas de acesso avançadas
 A plataforma do Azure precisa de aceder a chaves de encriptação ou segredos no Cofre de chaves para que fiquem disponíveis para a VM para o arranque e a desencriptação de volumes. Ativar a encriptação de disco no Cofre de chaves ou implementações irão falhar.  

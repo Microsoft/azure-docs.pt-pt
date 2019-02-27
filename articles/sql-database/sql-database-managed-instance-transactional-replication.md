@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3ad33968107aec551ea99e503797382c7fcea0c5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993814"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877092"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional com único, em pool e a instância de bases de dados na base de dados do Azure SQL
 
@@ -90,7 +90,7 @@ Em geral, o publicador e distribuidor tem de estar na cloud ou no local. São su
 
 ### <a name="publisher-with-local-distributor-on-a-managed-instance"></a>Publicador com o distribuidor local numa instância gerida
 
-![Instância única, como o publicador e distribuidor ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+![Instância única, como o publicador e distribuidor](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
 Editor e distribuidor estão configurados numa única instância gerida e distribuir as alterações para outros instância gerida, base de dados, bases de dados agrupadas ou SQL Server no local. Nesta configuração, o publicador/distribuidor a instância gerida não pode ser configurado com [grupos de ativação pós-falha georreplicação e automática](sql-database-auto-failover-group.md).
 

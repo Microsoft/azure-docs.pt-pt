@@ -4,17 +4,17 @@ description: Utilize o Azure IoT Edge para criar um dispositivo de gateway trans
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2017
+ms.date: 02/25/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 6e54d28d494a58966ea5312492dc79ced4c50a8d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e0aafc6e5a6926ad70aa5df335f45b841955cab9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092286"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877601"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Como um dispositivo IoT Edge pode ser utilizado como um gateway
 
@@ -54,4 +54,4 @@ Aqui está uma rápida e dicas que compara os primitivos de IoT Hub ao utilizar 
 Ao usar um padrão de gateway opaco (tradução do protocolo), todos os dispositivos que se conectam através desse gateway partilham a mesma fila de cloud para o dispositivo, que pode conter no máximo 50 mensagens. Ela segue o padrão gateway opaco deve ser utilizado apenas quando alguns dispositivos se ligarem através de cada gateway de campo e o tráfego de nuvem para o dispositivo é baixo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Saiba como configurar um dispositivo IoT Edge como um [gateway transparente](how-to-create-transparent-gateway-linux.md).
+Saiba como configurar um dispositivo IoT Edge como um [gateway transparente](how-to-create-transparent-gateway.md).

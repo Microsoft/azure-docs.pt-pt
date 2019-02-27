@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 02a6cbabaeb7d9c6f764eec5dd86226e37aa6c2b
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593527"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878086"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>O Azure Blockchain Workbench, integração de mensagens
 
@@ -678,7 +678,7 @@ Contém informações quando um aplicativo é carregado para a Bancada de trabal
 | ID | Identificador exclusivo para o fluxo de trabalho de aplicação dentro do Azure Blockchain Workbench |
 | nome | Nome do fluxo de trabalho de aplicação |
 | displayName | Nome de exibição do fluxo de trabalho de aplicação |
-| functions | Coleção de [funções para o fluxo de trabalho de aplicação ](#workflow-function-information)|
+| functions | Coleção de [funções para o fluxo de trabalho de aplicação](#workflow-function-information)|
 | Estados | Coleção de [Estados para o fluxo de trabalho de aplicação](#workflow-state-information) |
 | propriedades | Aplicação [informações de propriedades do fluxo de trabalho](#workflow-property-information) |
 

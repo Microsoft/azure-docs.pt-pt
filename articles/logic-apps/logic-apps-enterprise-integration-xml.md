@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.openlocfilehash: 5f804bf656b423d6dbe8f5c2ed73ba54d8361000
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a75ac9773072423c13eef85ecad29c632c13d024
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124540"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873258"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Mensagens XML e arquivos simples no Azure Logic Apps com o Enterprise Integration Pack
 
@@ -31,7 +31,7 @@ O Enterprise Integration Pack inclui:
 * [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - enriquecer uma mensagem e extrair as propriedades específicas da mensagem. Em seguida, pode utilizar as propriedades extraídas para encaminhar a mensagem para um destino ou um ponto de extremidade intermediário.
 
 ## <a name="try-it-out"></a>Experimentar
-[Implementar uma aplicação lógica totalmente operacional ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (exemplo do GitHub) ao utilizar os recursos XML no Azure Logic Apps.
+[Implementar uma aplicação lógica totalmente operacional](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (exemplo do GitHub) ao utilizar os recursos XML no Azure Logic Apps.
 
 ## <a name="learn-more"></a>Saiba mais
 [Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")

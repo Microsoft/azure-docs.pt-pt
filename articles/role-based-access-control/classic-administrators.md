@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3babcf0562a2f817f6ebd1fcc66df6d655d905bb
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807155"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889329"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássica do Azure
 
@@ -91,7 +91,7 @@ Existem duas formas de alterar o administrador de serviço. Pode alterar o **por
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Certifique-se de que o seu cenário é suportado, verificando a [limitações para alterar os administradores de serviços](#limits).
+1. Certifique-se de que o seu cenário é suportado, verificando as limitações para alterar os administradores de serviços.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como o administrador de conta.
 
@@ -109,7 +109,7 @@ Existem duas formas de alterar o administrador de serviço. Pode alterar o **por
 
 ### <a name="account-center"></a>Centro de contas
 
-1. Certifique-se de que o seu cenário é suportado, verificando a [limitações para alterar os administradores de serviços](#limits).
+1. Certifique-se de que o seu cenário é suportado, verificando as limitações para alterar os administradores de serviços.
 
 1. Inicie sessão no [Centro de contas](https://account.windowsazure.com/subscriptions) como o administrador de conta.
 

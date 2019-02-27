@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: bc3741be87238f1ac5f2146eb25919dd83711ce3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 313d26e354589611b36ed7c273858de2f919566f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819057"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889516"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
@@ -96,7 +96,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Em seguida, inicie sessão no portal. Adicionar a novo utilizador atribuído identidade gerida para o **contribuinte de dados de Blob de armazenamento (pré-visualização)** função na conta de armazenamento, conforme descrito no passo 3 sob [com o portal do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+Em seguida, inicie sessão no portal. Adicionar a novo utilizador atribuído identidade gerida para o **contribuinte de dados de Blob de armazenamento (pré-visualização)** função na conta de armazenamento, conforme descrito no passo 3 sob [com o portal do Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Depois de atribuir a função para a identidade gerida atribuído ao utilizador, implemente o modelo ao utilizar o seguinte trecho de código.
 

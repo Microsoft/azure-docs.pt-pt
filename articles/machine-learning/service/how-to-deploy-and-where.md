@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7d5bfba10fe68c4d29a66fe39a386aec975b978f
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 19d34e76c73c5ec2472d3eacddc01d6aebb6b9fb
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651537"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889108"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -30,7 +30,7 @@ Pode implementar modelos para os seguintes destinos de computação:
 | Destino de computação | Tipo de implementação | Descrição |
 | ----- | ----- | ----- |
 | [Serviço Kubernetes do Azure (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
-| [Computação do Azure ML](#amlcompute) | Inferência de tipos do batch | Execute a predição de batch de computação sem servidor. Suporta VMs de prioridade normal e baixa. |
+| Computação do Azure ML | Inferência de tipos do batch | Execute a predição de batch de computação sem servidor. Suporta VMs de prioridade normal e baixa. |
 | [Azure Container Instances (ACI)](#aci) | Testes | Bom para desenvolvimento ou teste. **Não é adequado para cargas de trabalho de produção.** |
 | [Azure IoT Edge](#iotedge) | (Pré-visualização) Módulo de IoT | Implemente modelos em dispositivos IoT. Inferência acontece no dispositivo. |
 | [Matriz de porta de campos programáveis (FPGA)](#fpga) | (Pré-visualização) Serviço Web | Latência ultrabaixa para inferência em tempo real. |

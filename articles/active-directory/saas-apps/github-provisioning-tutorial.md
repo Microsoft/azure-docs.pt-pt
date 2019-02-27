@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac25473ecce86c2721eda9ede01b6d299c4b727b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179336"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888020"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para o aprovisionamento automático de utilizadores
 
@@ -33,11 +33,11 @@ O objetivo deste tutorial é mostrar a os passos que necessários para executar 
 O cenário descrito neste tutorial parte do princípio de que já tem os seguintes itens:
 
 *   Um inquilino do Azure Active directory
-*   Um inquilino do GitHub com o [plano do Business Cloud](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) ou melhor ativado 
-*   Uma conta de utilizador no GitHub com permissões de administrador 
+*   Uma organização do GitHub criada no [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), que requer o [plano de faturação do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+*   Uma conta de utilizador no GitHub com permissões de administrador para a organização
 
 > [!NOTE]
-> O Azure AD aprovisionamento integração depende a [API do GitHub SCIM](https://developer.github.com/v3/scim/), que está disponível para as equipes do GitHub no plano de negócios ou melhor.
+> Conta com o Azure AD, integração de aprovisionamento a [API do GitHub SCIM](https://developer.github.com/v3/scim/), que está disponível para [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) os clientes que têm o [plano de faturação do GitHub Enterprise](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
 
 ## <a name="assigning-users-to-github"></a>Atribuir utilizadores a GitHub
 

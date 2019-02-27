@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000439"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890084"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - motivação e benefícios
 
@@ -54,7 +54,7 @@ O Azure HDInsight é uma distribuição de nuvem dos componentes do Hadoop do [
 
 - **Extensibilidade com ferramentas personalizadas ou aplicações de terceiros** -clusters do HDInsight podem ser estendidas com componentes instalados e também pode ser integrados com as outras soluções de macrodados utilizando [num único clique](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)  implementações a partir do mercado do Azure.
 
-- **Facilitar a gestão, administração e monitoramento** -Azure HDInsight integra-se [Log Analytics do Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para fornecer uma única interface com a qual pode monitorizar todos os clusters.
+- **Facilitar a gestão, administração e monitoramento** -Azure HDInsight integra-se [registos do Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para fornecer uma única interface com a qual pode monitorizar todos os clusters.
 
 - **Integração com outros serviços do Azure** -HDInsight pode ser facilmente integrado com outros serviços do Azure populares, como o seguinte:
 
@@ -90,25 +90,25 @@ Esta seção fornece questionários de modelo para o ajudar a reunir informaçõ
 
 | **Pergunta** | **Exemplo** | **Resposta** |
 |---|---|---|
-|**Tópico**: **ambiente**|||
+|**tópico**: **Environment**|||
 |Tipo de distribuição de cluster|Hortonworks, Cloudera, MapR| |
 |Versão de distribuição do cluster|HDP 2.6.5, CDH 5.7|
-|Grandes componentes do sistema ao meio ambiente de dados|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
+|Grandes componentes do sistema ao meio ambiente de dados|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Tipos de cluster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
 |Número de clusters|4|
 |Número de nós do mestre|2|
 |Número de nós de trabalho|100|
 |Número de nós de extremidade| 5|
 |Total de espaço em disco|100 TB|
-|Configuração do nó principal|m/y, cpu, disco, etc.|
-|Configuração de nós de dados|m/y, cpu, disco, etc.|
-|Configuração de nós de extremidade|m/y, cpu, disco, etc.|
+|Configuração do nó principal|m/y, cpu, disk, etc.|
+|Configuração de nós de dados|m/y, cpu, disk, etc.|
+|Configuração de nós de extremidade|m/y, cpu, disk, etc.|
 |Encriptação de HDFS?|Sim|
 |Elevada Disponibilidade|HA do HDFS, Metastore HA|
 |Recuperação após desastre / cópia de segurança|Cluster de cópia de segurança?|  
 |Sistemas que são dependentes do Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Integrações de terceiros|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**Tópico**: **segurança**|||
+|**tópico**: **Segurança**|||
 |Segurança de perímetro|Firewalls|
 |Cluster de autenticação e autorização|Active Directory, Ambari, Cloudera o Gestor de diretório, sem autenticação|
 |Controlo de acesso do HDFS|  Manual, ssh utilizadores|
@@ -123,7 +123,7 @@ Esta seção fornece questionários de modelo para o ajudar a reunir informaçõ
 
 |**Pergunta**|**Exemplo**|**Resposta**|
 |---|---|---|
-|**Tópico**: **cargas de trabalho e a frequência**|||
+|**tópico**: **Cargas de trabalho e a frequência**|||
 |Tarefas de MapReduce|10 tarefas – duas vezes por dia||
 |Tarefas do Hive|100 tarefas – cada hora||
 |Tarefas de lote do Spark|50 tarefas – a cada 15 minutos||
@@ -132,53 +132,53 @@ Esta seção fornece questionários de modelo para o ajudar a reunir informaçõ
 |Tarefas de formação do modelo de ML|2 tarefas, uma vez numa semana||
 |Linguagens de Programação|Python, Scala, Java||
 |Scripts|Shell, Python||
-|**Tópico**: **dados**|||
+|**tópico**: **Dados**|||
 |Origens de dados|Arquivos simples, Json, Kafka, RDBMS||
 |Orquestração de dados|Fluxos de trabalho do Oozie, ventilação||
 |Em pesquisas de memória|Apache Ignite, Redis||
 |Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
-|**Tópico**: **metadados**|||
-|Tipo de BD do Hive|MySQL, Postgres||
+|**tópico**: **Metadados**|||
+|Tipo de BD do Hive|Mysql, Postgres||
 |Não. de metastores do Hive|2||
 |Não. de tabelas do Hive|100||
 |Não. de políticas do Ranger|20||
 |Não. dos fluxos de trabalho do Oozie|100||
-|**Tópico**: **dimensionamento**|||
+|**tópico**: **Dimensionamento**|||
 |Volume de dados, incluindo a replicação|100 TB||
 |Volume de ingestão de diário|50 GB||
 |Taxa de crescimento de dados|10% por ano||
 |Taxa de crescimento de nós de cluster|5% por ano
-|**Tópico**: **utilização do Cluster**|||
+|**tópico**: **Utilização do cluster**|||
 |Média de CPU de % utilizada|60%||
 |Média % de memória utilizada|75%||
 |Espaço em disco utilizado|75%||
 |Média de rede de % utilizada|25%
-|**Tópico**: **equipe**|||
+|**tópico**: **Staff**|||
 |Não. de administradores|2||
 |Não. de desenvolvedores|10||
 |Não. dos utilizadores finais|100||
 |Competências|Hadoop, Spark||
 |Não. de recursos disponíveis para iniciativas de migração|2||
-|**Tópico**: **limitações**|||
+|**tópico**: **Limitações**|||
 |Limitações atuais|Latência é elevada||
 |Desafios atuais|Problema de simultaneidade||
 
 ### <a name="azure-requirements-questionnaire"></a>Questionário de requisitos do Azure
 
-|**Tópico**: **infraestrutura** |||
+|**tópico**: **Infraestrutura** |||
 |---|---|---|
 |**Pergunta**|**Exemplo**|**Resposta**|
-| Região preferencial|E.U.A Leste||
+| Região Preferencial|E.U.A Leste||
 |VNet preferido?|Sim||
 |HA / DR necessária?|Sim||
-|Integração com outros serviços em nuvem?|ADF, cosmos DB||
-|**Tópico**: **movimento de dados**  |||
+|Integração com outros serviços em nuvem?|ADF, CosmosDB||
+|**tópico**:   **Movimento de Dados**  |||
 |Preferência de carregamento inicial|DistCp, dados de caixa, ADF, WANDisco||
 |Diferenças de transferência de dados|DistCp, o AzCopy||
 |Transferência de dados incrementais em curso|DistCp, Sqoop||
-|**Tópico**: **monitorização e alertas** |||
+|**tópico**:   **Monitorização e alertas** |||
 |Utilizar a monitorização de terceiros de monitorização do Azure & alertas integrar o Vs|Utilizar o Azure, monitorização e alertas||
-|**Tópico**: **preferências de segurança** |||
+|**tópico**:   **Preferências de segurança** |||
 |Pipeline de dados particulares e protegidos?|Sim||
 |Cluster de associado de domínio (ESP)?|     Sim||
 |No local sincronização do AD para a Cloud?|     Sim||
@@ -191,7 +191,7 @@ Esta seção fornece questionários de modelo para o ajudar a reunir informaçõ
 |Auditoria necessário?|                  Sim||
 |Encriptação de dados Inativos?|          Sim||
 |Encriptação de dados em trânsito?|       Sim||
-|**Tópico**: **preferências de Rearquitetura** |||
+|**tópico**:   **Preferências de Rearquitetura** |||
 |Tipos de clusters específicos do cluster único vs|Tipos de clusters específicos||
 |Armazenamento remoto do Vs de armazenamento colocalizados?|Armazenamento remoto||
 |Tamanho de cluster mais pequeno que dados é armazenado remotamente?|Tamanho de cluster mais pequeno||

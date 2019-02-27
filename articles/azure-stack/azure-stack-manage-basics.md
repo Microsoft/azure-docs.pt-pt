@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba1e7d7f9226b3ca42d4117be33b9c236f0557b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164027"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867325"
 ---
 # <a name="azure-stack-administration-basics"></a>Noções básicas de administração do Azure Stack
 Há várias coisas que precisa saber se estiver familiarizado com a administração do Azure Stack. Este artigo fornece uma descrição geral da sua função como um operador do Azure Stack, e o que precisa dizer aos utilizadores para os mesmos para se tornar produtivos rapidamente.
@@ -119,7 +119,7 @@ As informações nestes artigos resume as diferenças entre um serviço no Azure
 
 Num ambiente do kit de desenvolvimento, se um utilizador não tem acesso de ambiente de trabalho remoto para o anfitrião do kit de desenvolvimento, eles tem de configurar uma ligação de rede privada virtual (VPN) antes de poderem aceder ao Azure Stack. Ver [ligar ao Azure Stack](azure-stack-connect-azure-stack.md). 
 
-Os utilizadores vão querer saber como [aceder ao portal de utilizador ](user/azure-stack-use-portal.md) ou como se pode ligar através do PowerShell. Num ambiente de sistemas integrados, o endereço de portal de utilizador varia por implementação. Terá de fornecer aos utilizadores com o URL correto.
+Os utilizadores vão querer saber como [aceder ao portal de utilizador](user/azure-stack-use-portal.md) ou como se pode ligar através do PowerShell. Num ambiente de sistemas integrados, o endereço de portal de utilizador varia por implementação. Terá de fornecer aos utilizadores com o URL correto.
 
 Se utilizar o PowerShell, os utilizadores podem ter que registar os fornecedores de recursos antes de poderem utilizar os serviços. (Um fornecedor de recursos gere um serviço. Por exemplo, o fornecedor de recursos de rede gere recursos, tais como redes virtuais, interfaces de rede e Balanceadores de carga.) Eles devem [instale](user/azure-stack-powershell-install.md) PowerShell, [transferir](user/azure-stack-powershell-download.md) módulos adicionais, e [configurar](user/azure-stack-powershell-configure-user.md) PowerShell (que inclui o registo do fornecedor de recursos).
 

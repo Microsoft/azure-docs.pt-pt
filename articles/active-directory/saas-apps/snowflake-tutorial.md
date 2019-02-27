@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7bc6b57122072c2fe0c063c1278cf11d97469b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0e86ede90a19d829e87b47d49fa4a12a17fe1d5c
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191322"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Tutorial: Integração do Active Directory do Azure com floco de neve
 
@@ -141,7 +141,7 @@ Para configurar o Azure AD início de sessão único com floco de neve, execute 
     > [!NOTE]
     > Isso é separado do contexto que selecionou no canto superior direito em seu nome de utilizador
     
-    ![O administrador de Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![O administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 10. Abra o **transferido o certificado de Base 64** no bloco de notas. Copie o valor entre "---BEGIN CERTIFICATE---" e "---END CERTIFICATE---" e colá-lo para os pontos de exclamação junto a **certificado** abaixo. Na **ssoUrl**, cole **URL de início de sessão** valor que copiou do portal do Azure. Selecione o **todas as consultas** e clique em **executar**.
 
@@ -219,11 +219,11 @@ Para ativar a utilizadores do Azure AD iniciar sessão no floco de neve, tem de 
 
 2. **Mudar de função** para **ACCOUNTADMIN**, ao clicar no **perfil** no canto superior direito da página.  
 
-    ![O administrador de Snowflake ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+    ![O administrador de Snowflake](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
 
 3. Criar o utilizador ao executar o abaixo a consulta SQL, garantir o "Nome de início de sessão" está definido como o nome de utilizador do Azure AD na planilha conforme mostrado abaixo.
 
-    ![O adminsql floco de neve ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+    ![O adminsql floco de neve](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
 
     ```
     use role accountadmin;
@@ -238,9 +238,9 @@ Quando clica no mosaico de Snowflake no painel de acesso, deve ser automaticamen
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

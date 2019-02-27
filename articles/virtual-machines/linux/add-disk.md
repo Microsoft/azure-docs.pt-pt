@@ -16,15 +16,16 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 1f545747b883ab70b597b4e598a86b192f89b027
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 453cb838792ff5e80b0dbbe8e90f96792f9c5484
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892781"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890135"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar.
+
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>Anexar um disco novo a uma VM
 
@@ -197,8 +198,10 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 > [!NOTE]
 > A remover um disco de dados mais tarde sem editar fstab pode fazer com que a VM falhe efetuar o arranque. A maioria das distribuições fornecem nenhuma a *nofail* e/ou *nobootwait* fstab opções. Estas opções que o sistema de arranque, mesmo se o disco não consegue montar no momento da inicialização. Para obter mais informações sobre estes parâmetros, consulte a documentação de sua distribuição.
-> 
+>
 > O *nofail* opção garante que a VM é iniciado, mesmo que o sistema de ficheiros está danificado ou o disco não existe no momento da inicialização. Sem esta opção, pode encontrar o comportamento, conforme descrito em [não é possível SSH à VM do Linux devido a erros FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+>
+> Consola de série de VM do Azure pode ser utilizada para acesso à consola para a VM, se modificar fstab resultou numa falha de inicialização. Estão disponíveis em mais detalhes a [documentação da consola de série](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte de cortar/UNMAP para Linux no Azure
 Alguns kernels de Linux suportam operações de cortar/UNMAP descartar blocos não utilizados no disco. Esta funcionalidade é útil principalmente no armazenamento standard para informar o Azure eliminado páginas já não são válido e podem ser descartados e pode economizar dinheiro, se cria arquivos grandes e, em seguida, eliminá-los.
@@ -211,14 +214,14 @@ Existem duas formas de ativar a limitação de suporte na sua VM do Linux. Como 
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
 * Em alguns casos, o `discard` opção pode ter implicações de desempenho. Em alternativa, pode executar o `fstrim` comando manualmente a partir da linha de comandos, ou adicione-o para seu crontab para executar regularmente:
-  
+
     **Ubuntu**
-  
+
     ```bash
     sudo apt-get install util-linux
     sudo fstrim /datadrive
     ```
-  
+
     **RHEL/CentOS**
 
     ```bash

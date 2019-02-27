@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 549ef0d073a740edf700c54d02a0d9ef247db0b7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245093"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886796"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Exemplo: Como detectar o idioma com análise de texto
 
@@ -29,7 +29,7 @@ Esta funcionalidade é útil para arquivos de conteúdo que recolhem texto arbit
 
 Tem de ter documentos JSON neste formato: id, texto.
 
-Cada documento tem de ter menos de 5000 carateres e pode ter até 1000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. Segue-se um exemplo de conteúdos que poderá enviar para a deteção do idioma.
+Tamanho do documento tem de ser em 5,120 carateres por documento, e pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo do pedido. Segue-se um exemplo de conteúdos que poderá enviar para a deteção do idioma.
 
    ```
     {

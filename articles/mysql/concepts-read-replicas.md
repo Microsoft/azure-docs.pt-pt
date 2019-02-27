@@ -5,23 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/30/2019
-ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.date: 02/26/2019
+ms.openlocfilehash: 6e33c7571dc735ce9984a0ce1b37275a6c4c7eca
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493053"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888477"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na base de dados do Azure para MySQL
 
-> [!IMPORTANT]
-> A funcionalidade de réplica de leitura está em pré-visualização pública.
-
 A funcionalidade de réplica de leitura permite-lhe replicar dados de uma base de dados do Azure para o servidor MySQL (principal) para até cinco só de leitura servidores (réplicas) na mesma região do Azure. Réplicas só de leitura assíncrona são atualizadas utilizando a tecnologia de replicação baseada em posição de ficheiro de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação de binlog, consulte a [descrição geral de replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Réplicas criadas na base de dados do Azure para o serviço MySQL são novos servidores que podem ser geridos da mesma forma como servidores de MySQL normal/autónomos. Para cada réplica de leitura, é-lhe faturada a computação aprovisionada em vCores e o armazenamento aprovisionado em GB/mês. 
-
+Réplicas criadas na base de dados do Azure para o serviço MySQL são novos servidores que podem ser geridos da mesma forma como servidores de MySQL normal/autónomos. Para cada réplica de leitura, é-lhe faturada a computação aprovisionada em vCores e o armazenamento aprovisionado em GB/mês.
 
 Para saber mais sobre os recursos de replicação do MySQL e problemas, consulte a [documentação de replicação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
@@ -39,7 +35,7 @@ Réplicas de leitura só estão atualmente disponíveis nos escalões de preços
 
 ### <a name="master-server-restart"></a>Reiniciar o servidor mestre
 
-Durante esta pré-visualização, ao criar uma réplica para um modelo que tenha não réplicas existentes, o mestre pela primeira vez será reiniciado para se preparar para a replicação. . Levar isso em consideração e executar estas operações durante um período de ponta.
+Quando cria uma réplica para um modelo que tenha não réplicas existentes, o mestre pela primeira vez será reiniciado para se preparar para a replicação. . Levar isso em consideração e executar estas operações durante um período de ponta.
 
 ### <a name="stopping-replication"></a>A parar a replicação
 

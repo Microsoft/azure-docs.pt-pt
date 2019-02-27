@@ -13,12 +13,12 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1285a9262221dbd8e46d07e384697ddea853f9fc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1851a6c27e89da71e75c59e025fee3800d0cd973
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163058"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876964"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Mapa de instalação do Azure AD Connect e do Azure AD Connect Health
 
@@ -46,7 +46,7 @@ Pode encontrar a transferência do Azure AD Connect no [Centro de Transferência
 |Instalar utilizando as definições rápidas | [Instalação rápida do Azure AD Connect](./how-to-connect-install-express.md)|
 |Instalar utilizando as definições personalizadas | [Instalação personalizada do Azure AD Connect](./how-to-connect-install-custom.md)|
 |Atualização do DirSync | [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
-|Após a instalação | [Verificar a instalação e atribuir licenças ](how-to-connect-post-installation.md)|
+|Após a instalação | [Verificar a instalação e atribuir licenças](how-to-connect-post-installation.md)|
 
 ### <a name="learn-more-about-install-azure-ad-connect"></a>Saber mais sobre como instalar o Azure AD Connect
 Terá também de se preparar para questões [operacionais](how-to-connect-sync-operations.md). Pode pretender ter um servidor de reserva a que possa efetuar a ativação pós-falha facilmente em caso de [desastre](how-to-connect-sync-operations.md#disaster-recovery). Se planear efetuar alterações frequentes na configuração, deverá planear um servidor no [modo de teste](how-to-connect-sync-operations.md#staging-mode).

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ce7a36f796716f48f6575b2391ac563eebf4530
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 7da813022527830a5ede62c9f4ce98645fe63d4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447825"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871610"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades do Data Warehouse (DWUs) e de computação (cDWUs) de unidades do Data Warehouse
 Recomendações sobre como escolher o número ideal de unidades do data warehouse (DWUs, cDWUs) para otimizar o preço e desempenho e como alterar o número de unidades. 
@@ -68,7 +68,7 @@ Cada escalão de desempenho utiliza uma unidade ligeiramente diferente de medida
 
 As DWUs e cDWUs suportam computação de dimensionamento ou reduzir verticalmente e colocar em pausa a computação quando não precisar de utilizar o armazém de dados. Essas operações são tudo sob demanda. Geração 2 utiliza um cache em disco local em nós de computação para melhorar o desempenho. Ao dimensionar ou colocar em pausa o sistema, o cache é invalidado e por isso, um período de cache warming é necessário antes do desempenho ideal é alcançado.  
 
-À medida que aumenta a unidades de armazém de dados, linearmente estão a aumentar a recursos de computação. Geração 2 fornece o melhor desempenho das consultas e escala mais elevada, mas tem um preço de entrada superior. Foi concebido para empresas que tem a necessidade constante de desempenho. Estes sistemas de tirar o máximo partido da cache. 
+À medida que aumenta a unidades de armazém de dados, linearmente estão a aumentar a recursos de computação. Geração 2 fornece o melhor desempenho das consultas e a escala mais elevada. Estes sistemas de tirar o máximo partido da cache.
 
 ### <a name="capacity-limits"></a>Limites de capacidade
 Cada SQL server (por exemplo, myserver.database.windows.net) tem um [unidades de transação de base de dados (DTU)](../sql-database/sql-database-what-is-a-dtu.md) quota que permite que um determinado número de unidades do data warehouse. Para obter mais informações, consulte a [limites de capacidade de gerenciamento de carga de trabalho](sql-data-warehouse-service-capacity-limits.md#workload-management).

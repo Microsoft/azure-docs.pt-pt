@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 4e6186310f63fde8648ded03a62b207b5f81a8e2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984805"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873632"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
 
@@ -316,7 +316,7 @@ Para atualizar as VMs existentes, tem de fazer uma "atualização manual" de cad
 - Também pode utilizar o idioma específico [SDKs do Azure](https://azure.microsoft.com/downloads/).
 
 >[!NOTE]
-> Só podem utilizar clusters do Service Fabric *automática* modo, mas a atualização é tratada diferentemente. Para obter mais informações, consulte [ as atualizações de aplicações do Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> Só podem utilizar clusters do Service Fabric *automática* modo, mas a atualização é tratada diferentemente. Para obter mais informações, consulte [as atualizações de aplicações do Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
 Existe um tipo de modificação de propriedades do conjunto de dimensionamento global que não segue a política de atualização. Alterações no conjunto de dimensionamento do perfil do SO (como o nome de utilizador administrador e a palavra-passe) só pode ser alterado na versão de API *2017-12-01* ou posterior. Estas alterações só se aplicam a VMs criadas após a alteração na escala de definir o modelo. Para transformar VMs existentes atualizadas, tem de fazer uma "recriação de imagem" de cada VM existente. Pode fazer esta recriação de imagem por meio de:
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19039a6a1337c2ddc7494805b18f564466d4f1f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 85e773d74231b0b0847dad41a071be499724e2d4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168736"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872935"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integração do Active Directory do Azure com o Visualizador de InstaVR
 
@@ -136,11 +136,11 @@ Para configurar o Azure AD início de sessão único com o Visualizador de Insta
 
 2. Clique em **ícone de utilizador** e selecione **conta**.
 
-    ![Configuração do Visualizador de InstaVR ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
+    ![Configuração do Visualizador de InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-account.png)
 
 3. Desloque para baixo para o **autenticação SAML** e execute os seguintes passos:
 
-    ![Configuração do Visualizador de InstaVR ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
+    ![Configuração do Visualizador de InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
     a. Na **URL de SSO** caixa de texto, colar a **URL de início de sessão** valor, que copiou do portal do Azure.
 
@@ -215,22 +215,22 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado no Visualizador de
 
 2. Selecione **pacote** do painel de navegação à esquerda e selecione **pacote de marca para a Web**.
 
-    ![Configuração do Visualizador de InstaVR ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
+    ![Configuração do Visualizador de InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing1.png)
 
 3. Selecione **Transferir**.
 
-    ![Configuração do Visualizador de InstaVR ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
+    ![Configuração do Visualizador de InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing2.png)
 
 4. Selecione **aberto página alojado** depois que ele será redirecionado para o Azure AD para início de sessão.
 
-    ![Configuração do Visualizador de InstaVR ](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
+    ![Configuração do Visualizador de InstaVR](media/instavr-viewer-tutorial/tutorial-instavr-viewer-testing3.png)
 
 5. Introduza as credenciais do Azure AD para iniciar sessão com êxito para o Azure AD através do SSO.
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,6 +1,6 @@
 ---
-title: Criar vistas para analisar dados no Log Analytics do Azure | Documentos da Microsoft
-description: Ao utilizar o estruturador de vistas no Log Analytics, pode criar vistas personalizadas que são apresentadas no portal do Azure e contêm uma variedade de visualizações de dados na área de trabalho do Log Analytics. Este artigo contém uma descrição geral do estruturador de vistas e apresenta os procedimentos para criação e edição de exibições personalizadas.
+title: Criar vistas para analisar dados de registo no Azure Monitor | Documentos da Microsoft
+description: Ao utilizar o estruturador de vistas no Azure Monitor, pode criar vistas personalizadas que são apresentadas no portal do Azure e contêm uma variedade de visualizações nos dados na área de trabalho do Log Analytics. Este artigo contém uma descrição geral do estruturador de vistas e apresenta os procedimentos para criação e edição de exibições personalizadas.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 1996befa78409e572798a9043f7e6ee3b6f647bc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192266"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887911"
 ---
-# <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar vistas personalizadas com o estruturador de vistas no Log Analytics
-Ao utilizar o estruturador de vistas no [do Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md), pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
+# <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar vistas personalizadas com o estruturador de vistas no Azure Monitor
+Ao utilizar o estruturador de vistas no Azure Monitor, pode criar diversas exibições personalizadas no portal do Azure pode ajudá-lo a visualizar os dados na sua área de trabalho do Log Analytics. Este artigo apresenta uma visão geral do estruturador de vistas e procedimentos para criação e edição de exibições personalizadas.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Para obter mais informações sobre o estruturador de vistas, consulte:
 
@@ -30,7 +32,7 @@ Para obter mais informações sobre o estruturador de vistas, consulte:
 
 
 ## <a name="concepts"></a>Conceitos
-Modos de exibição são apresentados no **descrição geral** página da sua área de trabalho do Log Analytics no portal do Azure. Os mosaicos em cada modo de exibição personalizado são apresentados por ordem alfabética e os mosaicos para as soluções são instalados a mesma área de trabalho.
+Modos de exibição são apresentados no Azure Monitor **descrição geral** página no portal do Azure. Abra a página do **do Azure Monitor** menu clicando **mais** sob o **Insights** secção. Os mosaicos em cada modo de exibição personalizado são apresentados por ordem alfabética e os mosaicos para as soluções de monitorização são instalados a mesma área de trabalho.
 
 ![Página de descrição geral](media/view-designer/overview-page.png)
 
@@ -38,9 +40,9 @@ As vistas que criar com o estruturador de vistas contêm os elementos que são d
 
 | Parte | Descrição |
 |:--- |:--- |
-| Mosaicos | São apresentadas na sua área de trabalho do Log Analytics **descrição geral** página. Cada mosaico mostra um resumo visual do modo de exibição personalizado, que ele representa. Cada tipo de mosaico fornece uma visualização diferente de seus registros. Selecionar um mosaico para apresentar uma vista personalizada. |
+| Mosaicos | São apresentados no seu Azure Monitor **descrição geral** página. Cada mosaico mostra um resumo visual do modo de exibição personalizado, que ele representa. Cada tipo de mosaico fornece uma visualização diferente de seus registros. Selecionar um mosaico para apresentar uma vista personalizada. |
 | Vista personalizada | Apresentado quando seleciona um mosaico. Cada vista contém um ou mais partes de visualização. |
-| Partes de visualização | Apresentar uma visualização de dados na área de trabalho do Log Analytics com base num ou vários [pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md). A maioria das partes incluem um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os principais resultados. Cada tipo de parte fornece uma visualização diferente dos registos na área de trabalho do Log Analytics. Selecionar elementos na parte para efetuar uma pesquisa de registos que fornece registos detalhados. |
+| Partes de visualização | Apresentar uma visualização de dados na área de trabalho do Log Analytics com base num ou vários [registar as consultas](../log-query/log-query-overview.md). A maioria das partes incluem um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os principais resultados. Cada tipo de parte fornece uma visualização diferente dos registos na área de trabalho do Log Analytics. Selecionar elementos na parte ao executar uma consulta de registo que fornece registos detalhados. |
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com uma vista existente
@@ -53,7 +55,7 @@ As opções são descritas na tabela a seguir:
 | Opção | Descrição |
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
-| Análise | Abre o [portal da análise avançada](../../azure-monitor/log-query/portals.md) para analisar dados com consultas de registo. |
+| Registos      | Abre o [do Log Analytics](../log-query/portals.md) para analisar dados com consultas de registo. |
 | Editar       | Abre a vista no estruturador de vista para editar o seu conteúdo e configuração.  |
 | Clone      | Cria uma nova vista e abre-a no estruturador de vistas. O nome do novo modo de exibição é o mesmo que o nome original, mas com *cópia* acrescentado. |
 | Intervalo de datas | Defina o filtro de intervalo de data e hora para os dados que estão incluídos na vista. Este intervalo de datas é aplicado antes de quaisquer intervalos de data definidos em consultas na vista.  |

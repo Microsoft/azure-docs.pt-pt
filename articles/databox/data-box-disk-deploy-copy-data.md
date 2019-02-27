@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 97c33a5dc2eb43644081579b5d1c0172ce953906
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449355"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868192"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o disco do Azure Data Box e certifique-se
 
@@ -178,20 +178,20 @@ Este procedimento opcional pode ser utilizado quando utilizar vários discos e d
 1. No seu computador Windows, certifique-se de que tem a ferramenta de Cópia Dividida do Data Box transferida e extraída numa pasta local. Esta ferramenta foi transferida quando transferiu o conjunto de ferramentas do Data Box Disk para Windows.
 2. Abra o Explorador de Ficheiros. Tome nota da unidade de origem de dados e das letras de unidade atribuídas ao Data Box Disk. 
 
-     ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+     ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-1.png)
  
 3. Identificar os dados de origem a copiar. Por exemplo, neste caso:
     - Foram identificados os dados de Blob de bloco seguintes.
 
-         ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Foram identificados os dados de Blob de página seguintes.
 
-         ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Aceda à pasta na qual o software é extraído. Localize o `SampleConfig.json` ficheiro nessa pasta. Este é um ficheiro só de leitura que pode modificar e guardar.
 
-   ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Modificar o `SampleConfig.json` ficheiro.
  
@@ -200,36 +200,36 @@ Este procedimento opcional pode ser utilizado quando utilizar vários discos e d
     - Introduza as letras de unidade correspondentes aos discos de destino. Os dados são obtidos a partir do caminho de origem e copiados para vários discos.
     - Indique um caminho para os ficheiros de registo. Por predefinição, é enviado para o diretório atual onde o `.exe` está localizado.
 
-     ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. Para validar o formato de arquivo, aceda a `JSONlint`. Guarde o ficheiro como `ConfigFile.json`. 
 
-     ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Abra uma janela de Linha de Comandos. 
 
-8. Execute o `DataBoxDiskSplitCopy.exe`. Tipo
+8. Execute o `DataBoxDiskSplitCopy.exe`. Type
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Carregue na tecla Enter para continuar a executar o script.
 
-    ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. Quando o conjunto de dados é dividido e copiado, o resumo da ferramenta de Cópia Dividida da sessão de cópia é apresentado. É apresentada abaixo uma saída de exemplo.
 
-    ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Certifique-se de que os dados são divididos por todos os discos de destino. 
  
-    ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-     ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Dividir os dados de cópia](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![divisão copiar dados](media/data-box-disk-deploy-copy-data/split-copy-11.png)
      
     Se examinar o conteúdo do `n:` unidade adicional, verá que são criadas duas subpastas correspondente para o blob de blocos e BLOBs de páginas formatar dados.
     
-     ![Dados de cópia dividida ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Dados de cópia dividida](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. Se a sessão de cópia falhar, em seguida, para recuperar e retomar, utilize o comando seguinte:
 

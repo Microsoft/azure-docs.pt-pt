@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 6d7cacf699df580b8a5c46b8bfc6d48e1a8daea1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 2c81369bc278a0995af04a38b0143eb0df8ba3a5
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821735"
+ms.locfileid: "56877372"
 ---
 # <a name="manage-and-configure-projects"></a>Gerir e configurar projetos
 
@@ -66,7 +66,9 @@ Para criar uma nova instância DSVM, siga as instruções [criar uma VM de ciên
 >
 > 1. Copie manualmente os arquivos de projeto para a VM.
 >
-> 2. Os ficheiros dentro de um bloco de notas de configuração de incorporação que execute primeiro antes do bloco de notas primário. O bloco de notas de configuração, crie uma célula de código para cada ficheiro em que a célula que contém o conteúdo do ficheiro. Em seguida, na parte superior de cada célula, insira o comando `%writefile <filename>`, onde `<filename>` é o nome do ficheiro para receber o conteúdo. Ao executar o bloco de notas, ele cria todos esses arquivos na VM. Por exemplo, veja a [setup.ipynb ficheiro na demonstração Microsoft animal de estimação detetor](https://github.com/microsoft/connect-petdetector) (GitHub).
+> 2. Os ficheiros dentro de um bloco de notas de configuração de incorporação que execute primeiro antes do bloco de notas primário. O bloco de notas de configuração, crie uma célula de código para cada ficheiro em que a célula que contém o conteúdo do ficheiro. Em seguida, na parte superior de cada célula, insira o comando `%%writefile <filename>`, onde `<filename>` é o nome do ficheiro para receber o conteúdo. Ao executar o bloco de notas, ele cria todos esses arquivos na VM. Por exemplo, veja a [setup.ipynb ficheiro na demonstração Microsoft animal de estimação detetor](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
+>
+>     ![Usando um % % writefile comando no início de uma célula de código](media/setup-notebook-writefile-command.png)
 
 ## <a name="edit-project-metadata"></a>Editar metadados do projeto
 
@@ -75,7 +77,7 @@ No dashboard do projeto, selecione **definições do projeto**, em seguida, sele
 | Definição | Descrição |
 | --- | --- |
 | Nome do projeto | Um nome amigável para o seu projeto que blocos de notas do Azure utiliza para fins de exibição. Por exemplo, "Hello World no Python". |
-| ID do Projeto | Um identificador personalizado que se tornará parte do URL que utilizar para partilhar um projeto (o formulário é `https://notebooks.azure.com/<user_id>/projects/<project_id>`). Este ID pode utilizar apenas letras, números e hífenes e está limitado a 30 carateres. Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto onde espaços são transformados hífenes, por exemplo, "Nome do meu projeto" transforma em "my--nome do projeto". |
+| ID do Projeto | Um identificador personalizado que se tornará parte do URL que utilizar para partilhar um projeto. Este ID pode utilizar apenas letras, números e hífenes, está limitado a 30 carateres e não pode ser um [reservado ID do projeto](create-clone-jupyter-notebooks.md#reserved-project-ids). Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto em que os espaços são transformados em hífenes, por exemplo, "meu-bloco de notas-project" (truncado se necessário, para ajustar o limite de comprimento). |
 | Projeto público | Se definido, permite que qualquer pessoa com a ligação para acessar o projeto. Ao criar um projeto privado, desmarque esta opção. |
 | Ocultar clones | Se definido, outros utilizadores não podem ver uma lista de clones que foram feitos para este projeto. Ocultar clones é útil para os projetos que são partilhados com muitas pessoas que não fazem parte da mesma organização, tal como quando utiliza um bloco de notas para ensinar uma classe. |
 

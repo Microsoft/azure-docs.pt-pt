@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 56542ef116656bff979e27dfc2ddd5e82056c452
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750145"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874907"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -132,12 +132,10 @@ Muitas vezes, terá que o requisito para integrar o Azure Monitor com outros sis
 ### <a name="event-hub"></a>Hub de Eventos
 [Os Hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs) é um serviço de ingestão plataforma e o evento de transmissão em fluxo que pode transformar e armazenar dados em qualquer fornecedor de análise em tempo real ou adaptadores de criação de batches/armazenamento. Utilizar os Hubs de eventos para [transmitir dados do Azure Monitor](platform/stream-monitoring-data-event-hubs.md) para SIEM e ferramentas de monitorização de parceiros.
 
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ### <a name="logic-apps"></a>Aplicações Lógicas
 [O Logic Apps](https://azure.microsoft.com/services/logic-apps) é um serviço que permite-lhe automatizar tarefas e processos empresariais com fluxos de trabalho que se integram com serviços e sistemas diferentes. Estão disponíveis atividades que de leitura e escrita de métricas e registos no Azure Monitor, que permite-lhe criar fluxos de trabalho de integração com uma variedade de outros sistemas.
 
-![Aplicação Lógica](platform/media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="api"></a>API
 Várias APIs estão disponíveis para ler e escrever métricas e registos de e para o Azure Monitor, além de aceder a alertas gerados pelo. Também pode configurar e obter alertas. Isso fornece essencialmente ilimitadas possibilidades para criar soluções personalizadas que se integram com o Azure Monitor.

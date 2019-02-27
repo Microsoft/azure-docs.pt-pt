@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 714bf5f915cb588a99552a8bbbc5ffa76aa16846
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 372df0bc6ea540b4b2c030ec71acc6889e7c7d19
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426136"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56874091"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na automatização do Azure
 
@@ -105,7 +105,7 @@ Adicionar uma **Get-AutomationCertificate** para um runbook gráfico clicando co
 
 A imagem seguinte mostra um exemplo do uso de um certificado num runbook gráfico. Este é o mesmo do exemplo anterior para adicionar um certificado para um serviço em nuvem a partir de um runbook textual.
 
-![Exemplo de criação de gráficos ](media/automation-certificates/graphical-runbook-add-certificate.png)
+![Exemplo de criação de gráficos](media/automation-certificates/graphical-runbook-add-certificate.png)
 
 ### <a name="python2-sample"></a>Exemplo do Python2
 O exemplo a seguir mostra como acessar certificados nos runbooks do Python2.

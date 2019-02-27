@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: análise de sentimentos na transmissão em fluxo de dados com o Azure Databricks'
+title: 'Tutorial: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks'
 description: Saiba como utilizar o Azure Databricks com os Hubs de Eventos e a API de Serviços Cognitivos para executar a análise de sentimentos na transmissão em fluxo de dados em quase tempo real.
 services: azure-databricks
 author: lenadroid
@@ -9,14 +9,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 449d721683bd59646506db57d78b9535aa7d614d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100192"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882625"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: análise de sentimentos na transmissão em fluxo de dados com o Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks
 
 Neste tutorial, irá aprender a executar a análise de sentimentos numa sequência de dados com o Azure Databricks em tempo real. Configure o sistema de ingestão de dados com os Hubs de Eventos do Azure. Consuma as mensagens de Hubs de Eventos para o Azure Databricks através do conector de Hubs de Eventos do Apache Spark. Por fim, pode utilizar as API de Serviço Cognitivo da Microsoft para executar a análise de sentimentos nos dados transmitidos em fluxo.
 
@@ -596,4 +596,4 @@ Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em 
 Avance para o próximo tutorial para saber mais sobre como efetuar tarefas de aprendizagem automática com o Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Aprendizagem Automática com o Azure Databricks](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)
+>[Machine Learning com o Azure Databricks](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)

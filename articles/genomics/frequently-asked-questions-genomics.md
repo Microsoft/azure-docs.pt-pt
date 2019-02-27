@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Genomics: Perguntas comuns-FAQ | Documentos da Microsoft'
+title: 'Microsoft Genomics: Perguntas mais comuns - FAQ | Documentos da Microsoft'
 titleSuffix: Azure
 description: Colocar respostas aos clientes de perguntas comuns sobre o Microsoft Genomics.
 services: genomics
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: df329d42022f4e56b3d6d4d26519acd42caa1ae4
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683905"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881826"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas comuns
 
@@ -91,12 +91,12 @@ Espaço em branco é ignorado.
  |Argumento da linha de comandos            | Linha do ficheiro de configuração |
  |:-------------                   |:-------------                 |
  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:key*              |      
+ |`-k/--access-key KEY`            | *access_key:KEY*              |      
  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Utilize os seguintes recursos para começar a utilizar o Microsoft Genomics:
-- Comece a utilizar ao executar o seu primeiro fluxo de trabalho através do serviço Microsoft Genomics. [Executar um fluxo de trabalho através do serviço Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
+- Comece a utilizar ao executar o seu primeiro fluxo de trabalho através do serviço Microsoft Genomics. [Executar um fluxo de trabalho através do serviço Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Submeter os seus dados para processamento pelo serviço Microsoft Genomics: [FASTQ emparelhado](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [múltiplos ficheiros FASTQ ou BAM](quickstart-input-multiple.md) 
 

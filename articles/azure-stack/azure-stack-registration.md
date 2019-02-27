@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fa85fa26594ef6e5df2d05bb3bcc34e5689c3be
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728408"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56877151"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -311,7 +311,7 @@ Pode utilizar o **gestão da região** mosaico para verificar se o registo do Az
 
 3. Selecione **propriedades**. Este painel mostra o estado e os detalhes do seu ambiente. O estado pode ser **registada** ou **não registado**.
 
-    [ ![Mosaico de gestão de região](media/azure-stack-registration/admin1sm.png "mosaico de gestão da região") ](media/azure-stack-registration/admin1.png#lightbox)
+    [![Mosaico de gestão de região](media/azure-stack-registration/admin1sm.png "mosaico de gestão da região")](media/azure-stack-registration/admin1.png#lightbox)
 
     Se registrado, as propriedades incluem:
     

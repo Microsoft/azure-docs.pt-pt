@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: f595fbb6571c3deaaa0644ba9d62f598181592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4daae4357a7a9577c48edc8643355d319b701944
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106316"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881571"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id"></a>Início rápido: Iniciar sessão e defina um ID de utilizador
+# <a name="quickstart-sign-in-and-set-a-user-id"></a>Início rápido: Iniciar sessão e definir um ID de utilizador
 
 Embora possa exibir sempre o blocos de notas do Azure sem iniciar sessão, tem de iniciar sessão executar blocos de notas, acessar projetos guardados e blocos de notas e partilhar os seus blocos de notas com outras pessoas.
 
@@ -52,6 +52,9 @@ Embora possa exibir sempre o blocos de notas do Azure sem iniciar sessão, tem d
 
     ![Vista inicial de uma página de perfil de blocos de notas do Azure](media/accounts/profile-page-new.png)
 
+> [!NOTE]
+> Se vir a mensagem, "ID de utilizador já está em utilização," tente outro ID. IDs de utilizador são exclusivos em todas as contas de blocos de notas do Azure e blocos de notas do Azure também se reserva determinados IDs de utilizador, tais como nomes de marca de Microsoft.
+
 ## <a name="sign-out"></a>Terminar sessão
 
 Para terminar sessão, selecione o seu nome de utilizador no canto superior direito da página, em seguida, selecione **terminar sessão**:
@@ -61,4 +64,4 @@ Para terminar sessão, selecione o seu nome de utilizador no canto superior dire
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Início rápido: Criar e partilhar um bloco de notas](quickstart-create-share-jupyter-notebook.md)
+> [Quickstart: Criar e partilhar um bloco de notas](quickstart-create-share-jupyter-notebook.md)

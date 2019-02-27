@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: cf45c97fccb89fe7175796322f0d3d7d114eea11
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8ae8ecab5363c9eff7fcadd65c76dd31ca6818e1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822973"
+ms.locfileid: "56877933"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos para o Azure Machine Learning Studio
 
@@ -129,7 +129,7 @@ Alguns algoritmos de aprendizagem assumem pressupostos específicos sobre a estr
 | **Classificação de Roc** | | | | | |
 | [Regressão logística](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [floresta de decisão](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [Uganda de decisão ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Requisitos de espaço de memória baixa |
+| [Uganda de decisão](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Requisitos de espaço de memória baixa |
 | [rede neural](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Personalização adicional é possível](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Ver as propriedades do método de classe dois selecionado |
 | **Regressão** | | | | | |

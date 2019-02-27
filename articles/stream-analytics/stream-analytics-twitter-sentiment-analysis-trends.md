@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c34b3fa1597866e4f722fccee84f83f4caab6bfb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231143"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876301"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimentos do Twitter em tempo real no Azure Stream Analytics
 
@@ -58,7 +58,7 @@ Neste procedimento, primeiro tem de criar um espaço de nomes do hub de eventos 
 
 5. Clique em novo espaço de nomes e, no painel do espaço de nomes, clique em  **+ &nbsp;Hub de eventos**. 
 
-    ![O botão Adicionar Hub de eventos para a criação de um novo hub de eventos ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![O botão Adicionar Hub de eventos para a criação de um novo hub de eventos](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Nomeie o novo hub de eventos `socialtwitter-eh`. Pode utilizar um nome diferente. Se o fizer, tome nota do mesmo, porque é necessário o nome mais tarde. Não precisa definir quaisquer outras opções para o hub de eventos.
 
@@ -278,7 +278,7 @@ A tabela seguinte lista os campos que fazem parte do JSON, dados de transmissão
 
 |Propriedade JSON | Definição|
 |--- | ---|
-|createdAt | A hora em que o tweet foi criado|
+|CreatedAt | A hora em que o tweet foi criado|
 |Tópico | O tópico que corresponda a palavra-chave especificada|
 |SentimentScore | A classificação de sentimento de Sentiment140|
 |Autor | O identificador do Twitter que enviou o tweet|

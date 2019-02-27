@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 164ec0898e2f7ad461ab63ce0fcaf47a87998797
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 47d06ce5a03fe51ba345f60e2feff958ed4a890b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997835"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871167"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Cópia de Segurança e Restauro para SQL Server em Máquinas Virtuais do Azure
 
@@ -56,23 +56,23 @@ Para restaurar uma base de dados, tem de localizar os ficheiros de cópia de seg
 
 Para obter mais informações sobre como configurar a cópia de segurança automatizada para VMs do SQL, consulte um dos seguintes artigos:
 
-- **SQL Server 2016/2017**: [automatizada v2 de cópia de segurança para máquinas virtuais do Azure ](virtual-machines-windows-sql-automated-backup-v2.md)
-- **SQL Server 2014**: [cópia de segurança automatizada para máquinas virtuais do SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+- **SQL Server 2016/2017**: [V2 de cópia de segurança automatizada para máquinas virtuais do Azure](virtual-machines-windows-sql-automated-backup-v2.md)
+- **SQL Server 2014**: [Cópia de segurança automatizada para máquinas virtuais do SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 
 ## <a id="azbackup"></a> Cópia de segurança do Azure para VMs do SQL (pré-visualização pública)
 
 [O Azure Backup](/azure/backup/) fornece uma capacidade de cópia de segurança de classe empresarial para o SQL Server em execução em VMs do Azure. Todas as cópias de segurança são armazenadas e gerenciadas num cofre dos serviços de recuperação. Existem diversas vantagens que fornece esta solução, especialmente para empresas:
 
-- **Cópia de segurança sem infraestrutura**: não é necessário gerir servidores de cópia de segurança ou localizações de armazenamento.
-- **Dimensionamento**: proteger o número de VMs de SQL e de milhares de bases de dados.
-- **Pay as you go**: esta capacidade é um serviço separado fornecido pelo Azure Backup, mas assim como acontece com todos os serviços do Azure, paga apenas aquilo que utiliza.
-- **Monitorização e gestão central**: administre todas as cópias de segurança, incluindo outras cargas de trabalho do Azure Backup oferece suporte, a partir de um dashboard único no Azure.
-- **Política controlado por cópia de segurança e retenção**: criar políticas de cópia de segurança padrão para cópias de segurança regulares. Estabeleça políticas de retenção para manter as cópias de segurança durante anos.
-- **Suporte para o SQL Always On**: detetar e proteger uma configuração de SQL Server Always On e irá cumprir a preferência de cópia de segurança do grupo de disponibilidade cópia de segurança.
-- **Objetivo de ponto de recuperação de 15 minutos (RPO)**: backups de log de transação de SQL de configurar cada 15 minutos.
-- **Ponto de restauro para um tempo**: utilizar o portal para recuperar bases de dados para um ponto específico no tempo sem ter de restaurar manualmente vários completas, diferenciais e backups de log.
-- **Alertas de e-mail para falhas consolidados**: Configurar consolidados notificações por e-mail para eventuais falhas.
-- **Controlo de acesso baseado em funções**: determinar quem pode gerir a cópia de segurança e restaurar as operações através do portal.
+- **Cópia de segurança sem infraestrutura**: Não é necessário que gerir servidores de cópia de segurança ou localizações de armazenamento.
+- **Dimensionamento**: Proteger o número de VMs de SQL e de milhares de bases de dados.
+- **Pay as you go**: Esta capacidade é um serviço separado fornecido pelo Azure Backup, mas como com todos os serviços do Azure, paga apenas aquilo que utiliza.
+- **Monitorização e gestão central**: Gerenciar centralmente todas as cópias de segurança, incluindo outras cargas de trabalho do Azure Backup oferece suporte, a partir de um dashboard único no Azure.
+- **Política controlado por cópia de segurança e retenção**: Crie políticas de cópia de segurança padrão para cópias de segurança regulares. Estabeleça políticas de retenção para manter as cópias de segurança durante anos.
+- **Suporte para SQL sempre em**: Detetar e proteger uma configuração de SQL Server Always On e irá cumprir a preferência de cópia de segurança do grupo de disponibilidade cópia de segurança.
+- **o objetivo de ponto de recuperação de 15 minutos (RPO)**: Configure os backups de log de transação de SQL cada 15 minutos.
+- **Ponto de restauro para um tempo**: Utilizar o portal para recuperar bases de dados para um ponto específico no tempo sem ter de restaurar manualmente vários diferenciais completo e backups de log.
+- **Alertas de e-mail para falhas consolidados**: Configure notificações de e-mail consolidada para eventuais falhas.
+- **Controlo de acesso baseado em funções**: Determine quem pode gerir a cópia de segurança e restaurar as operações através do portal.
 
 Para obter uma descrição geral de como isso funciona, juntamente com uma demonstração, veja o vídeo seguinte:
 
@@ -109,9 +109,9 @@ A partir do SQL Server 2012 SP1 CU2, pode criar cópias de segurança e restaura
 
 Para obter mais informações, consulte um dos seguintes artigos com base na sua versão do SQL Server:
 
-- **SQL Server 2016/2017**: [cópia de segurança do SQL Server para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
-- **SQL Server 2014**: [cópia de segurança do SQL Server 2014 para URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
-- **SQL Server 2012**: [cópia de segurança do SQL Server 2012 para URL](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
+- **SQL Server 2016/2017**: [Cópia de segurança do SQL Server para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+- **SQL Server 2014**: [Cópia de segurança do SQL Server 2014 para URL](https://msdn.microsoft.com/library/jj919148%28v=sql.120%29.aspx)
+- **SQL Server 2012**: [Cópia de segurança do SQL Server 2012 para URL](https://msdn.microsoft.com/library/jj919148%28v=sql.110%29.aspx)
 
 ### <a name="managed-backup"></a>Cópia de segurança gerida
 
@@ -150,6 +150,6 @@ A tabela seguinte resume as capacidades de cada opção de cópia de segurança 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Se estiver a planear a implementação do SQL Server na VM do Azure, pode encontrar orientações de aprovisionamento no Guia do seguinte: [como aprovisionar uma máquina virtual do Windows SQL Server no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
+Se estiver a planear a implementação do SQL Server na VM do Azure, pode encontrar orientações de aprovisionamento no Guia do seguinte: [Como aprovisionar uma máquina virtual do Windows SQL Server no portal do Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Embora a cópia de segurança e restauro podem ser utilizados para migrar os seus dados, existem caminhos de migração de dados potencialmente mais fácil para o SQL Server numa VM do Azure. Para uma discussão completa sobre as opções de migração e as recomendações, veja [migrar uma base de dados para o SQL Server numa VM do Azure](virtual-machines-windows-migrate-sql.md).

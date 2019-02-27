@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 32e705c5c338d9bd7c16514b2dc2ab081a9caf6a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 301dd9357bc1585d96eda216d7e47601e488665b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115560"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871804"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção de ameaças avançada do Azure
 
@@ -108,7 +108,7 @@ No centro do [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/l
 
 Recolher dados para o repositório de origens ligadas mediante a configuração de origens de dados e adicionar soluções à sua subscrição.
 
-![O dashboard do Log Analytics ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![O dashboard do Log Analytics](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Origens de dados e soluções criam tipos de registo separado com seu próprio conjunto de propriedades, mas pode ainda analisá-los em conjunto em consultas para o repositório. Pode utilizar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados que são recolhidos por várias origens.
 

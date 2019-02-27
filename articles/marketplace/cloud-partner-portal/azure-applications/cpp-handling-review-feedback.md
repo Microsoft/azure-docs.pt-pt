@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 98ab9b25c59af194a1a81c600c373b2180272e10
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: e5fe076cfe733b4fa0151570603c090af98de0e8
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106972"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882693"
 ---
 # <a name="handling-review-feedback"></a>Manipulação de comentários da revisão
 
@@ -58,14 +58,14 @@ Utilize o procedimento seguinte para rever problemas documentados no pedido pull
 
 1. No **revisão do Microsoft** secção **passos de publicação** de formulário, clique num link de PR para iniciar o seu browser e navegue para o **descrição geral** página (home) para este pedido Pull.  A imagem seguinte ilustra uma home page do exemplo problema crítico para a oferta de aplicação de exemplo de Contoso.  Esta página contém informações úteis de resumidas sobre os problemas de revisão encontrado na aplicação do Azure.  
 
-    [ ![Home page do pedido Pull](./media/pr-home-page-thumb.png) ](./media/pr-home-page.png)
+    [![Home page do pedido Pull](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Clique na imagem para expandir.*
     
 2. (Opcional) No lado direito da janela, na secção **políticas**, clique na mensagem de problema (neste exemplo: **Falha ao validar a política**) para investigar os detalhes de baixo nível do problema, incluindo os ficheiros de registo associados.  Normalmente, são apresentados erros na parte inferior dos ficheiros de registo.
 
 3. No menu do lado esquerdo da home page, selecione **ficheiros** para exibir os arquivos de lista que compõem os recursos técnicos para esta oferta.  Os revisores da Microsoft devem ter adicionado os comentários que descrevem os problemas críticos detetados.  No exemplo a seguir, os dois problemas tenham sido detetados. 
 
-    [ ![Home page do pedido Pull](./media/pr-files-page-thumb.png) ](./media/pr-files-page.png)
+    [![Home page do pedido Pull](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Clique na imagem para expandir.*
 
 4. Clique em cada nó de comentário na árvore à esquerda para navegar para o comentário no contexto do código ao redor.  Corrija o seu código-fonte no projeto de sua equipe para corrigir o problema descrito pelo comentário.

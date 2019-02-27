@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: d97171003507ea0d7412c0706f9deea02fe06c0d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 0a2027e3ae0fb40058b5bdbfd212687697877076
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418608"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875264"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Mensagens de dispositivo-para-cloud do Azure IoT com o rastreio distribuído (pré-visualização) de rastreio
 
@@ -214,7 +214,7 @@ Para alterar a percentagem de mensagens de rastreamento da cloud, tem de atualiz
 
     ![Modo de amostragem de atualização](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
-    ![Frequência de amostragem de atualização ](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
+    ![Frequência de amostragem de atualização](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
 ### <a name="bulk-update-for-multiple-devices"></a>Atualização em massa para vários dispositivos
 

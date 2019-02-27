@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bbede01844f20c0240b154fd319b818a43463131
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: efa8f4fc604440b8c1396aa654834ce83a41844e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823386"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875825"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -26,9 +26,9 @@ Este tutorial mostra como mover VMs do Azure para outra região com o Azure Site
 > * [Preparar as VMs de origem](#prepare-the-source-vms)
 > * [Preparar a região de destino](#prepare-the-target-region)
 > * [Copiar dados para a região de destino](#copy-data-to-the-target-region)
-> * [Testar a configuração ](#test-the-configuration)
-> * [Efetuar a mudança ](#perform-the-move-to-the-target-region-and-confirm)
-> * [Eliminar o recurso na região de origem ](#discard-the-resource-in-the-source-region)
+> * [Testar a configuração](#test-the-configuration)
+> * [Efetuar a mudança](#perform-the-move-to-the-target-region-and-confirm)
+> * [Eliminar o recurso na região de origem](#discard-the-resource-in-the-source-region)
 
 > [!IMPORTANT]
 > Este documento orienta-o para mover as VMs do Azure de uma região para outra, conforme é, se o requisito melhorar a disponibilidade da sua infraestrutura ao mover VMs para as zonas de disponibilidade, consulte o tutorial aqui.
@@ -73,7 +73,7 @@ Este tutorial mostra como mover VMs do Azure para outra região com o Azure Site
 
     - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [IP público ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [IP público](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
     Para outros componentes de rede, consulte o funcionamento em rede [documentação.](https://docs.microsoft.com/azure/#pivot=products&panel=network) 
 

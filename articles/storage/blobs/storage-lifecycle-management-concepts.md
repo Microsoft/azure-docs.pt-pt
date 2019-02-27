@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3013365f96fa6841e4db826f9010c6ea994eba2a
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211449"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879601"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerir o ciclo de vida (pré-visualização) de armazenamento de Blobs do Azure
 
@@ -187,7 +187,7 @@ Filtros de limitam as ações de regras a um subconjunto de blobs na conta de ar
 
 Durante a pré-visualização, os filtros válidos incluem:
 
-| Nome do filtro | Tipo de filtro | Notas | É necessário |
+| Nome do filtro | Tipo de filtro | Notas | É Obrigatório |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Uma matriz de valores de enum predefinidos. | A pré-visualização da versão suporta apenas a `blockBlob`. | Sim |
 | prefixMatch | Uma matriz de cadeias de caracteres para prefixos ser corresponder. Uma cadeia de caracteres de prefixo tem de começar com um nome de contentor. Por exemplo, se deseja correspondência com todos os blobs em "https://myaccount.blob.core.windows.net/container1/foo/..." para uma regra, é o prefixMatch `container1/foo`. | Se não definir prefixMatch, as regras são aplicadas a todos os blobs na conta. | Não |
@@ -337,4 +337,4 @@ A plataforma executa a política de ciclo de vida de uma vez por dia. Depois de 
 
 Saiba como recuperar dados após a eliminação acidental:
 
-- [Eliminação de forma recuperável para blobs de armazenamento do Azure ](../blobs/storage-blob-soft-delete.md)
+- [Eliminação de forma recuperável para blobs de armazenamento do Azure](../blobs/storage-blob-soft-delete.md)

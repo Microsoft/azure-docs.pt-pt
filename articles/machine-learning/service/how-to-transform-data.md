@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 730803a0d1dd71c5015ee07a52a766e86ac7f2f5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c2f11b08f5d8e9bb3be7acfa8ba62100bdc55d99
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736357"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889805"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
@@ -269,7 +269,7 @@ df = dataflow.to_pandas_dataframe()
 
 ## <a name="filtering"></a>Filtragem
 
-O SDK inclui os métodos [ `Dataflow.drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) e [ `Dataflow.filter()` ]((https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#filter-expression--azureml-dataprep-api-expressions-expression-----azureml-dataprep-api-dataflow-dataflow)) para permitem-lhe filtrar colunas ou linhas.
+O SDK inclui os métodos [ `Dataflow.drop_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) e [ `Dataflow.filter()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py) para permitem-lhe filtrar colunas ou linhas.
 
 ### <a name="initial-setup"></a>Configuração inicial
 

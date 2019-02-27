@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: a2d799a85932f8b7fdf1f6ae53dc50579c266311
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 52c0799dd2f3c22b1ae3553869aafe9a1fcffc7f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674531"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887935"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -71,7 +71,7 @@ Para obter instruções passo a passo para implementar o peering entre redes vir
 
 ### <a name="commands"></a>Comandos
 
-- **CLI do Azure**: [criar peering de vnet de rede de az](/cli/azure/network/vnet/peering#create)
+- **CLI do Azure**: [criar peering de vnet de rede de az](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Add-AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)
 
 ## <a name="view-or-change-peering-settings"></a>Ver ou alterar as definições de peering
@@ -88,7 +88,7 @@ Antes de alterar um peering, familiarize-se com os requisitos e restrições e [
 
 **Comandos**
 
-- **CLI do Azure**: [lista de peering de vnet de rede de az](/cli/azure/network/vnet/peering) para peerings de lista para uma rede virtual, [az network vnet show de peering](/cli/azure/network/vnet/peering#az_network_vnet_peering_show) para mostrar as definições para um peering específico, e [rede az atualização de peering de vnet](/cli/azure/network/vnet/peering#az_network_vnet_peering_update) para alterar as definições de peering. |
+- **CLI do Azure**: [lista de peering de vnet de rede de az](/cli/azure/network/vnet/peering) para peerings de lista para uma rede virtual, [az network vnet show de peering](/cli/azure/network/vnet/peering) para mostrar as definições para um peering específico, e [rede az atualização de peering de vnet](/cli/azure/network/vnet/peering) para alterar as definições de peering. |
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) para obter as definições de peering do modo de exibição e [conjunto AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) para alterar as definições.
 
 ## <a name="delete-a-peering"></a>Eliminar um peering
@@ -97,7 +97,7 @@ Antes de eliminar um peering, certifique-se a sua conta tem o [as permissões ne
 
 Quando um peering for eliminado, o tráfego de uma rede virtual já não fluxos para a rede virtual em modo de peering. Quando criado o peering entre redes virtuais implementadas através do Resource Manager, a cada rede virtual tem um peering para outra rede virtual. Embora a eliminar o peering de uma rede virtual desativa a comunicação entre as redes virtuais, não elimina o peering da rede virtual. É o estado do peering para o peering que existe na rede virtual **desligado**. Não é possível recriar o peering até voltar a criar o peering da primeira rede virtual e o estado do peering para ambas as alterações de redes virtuais *ligado*.
 
-Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, em vez de eliminar um peering, pode definir o **permitir o acesso de rede virtual** definição **desativado** em vez disso. Para saber como, leia o passo 6 do [criar um peering](#create-a-peering) seção deste artigo. Pode achar desabilitando e habilitando o acesso à rede mais fácil do que a eliminação e recriação de peerings.
+Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, em vez de eliminar um peering, pode definir o **permitir o acesso de rede virtual** definição **desativado** em vez disso. Para saber como, leia o passo 6 do criar uma peering seção deste artigo. Pode achar desabilitando e habilitando o acesso à rede mais fácil do que a eliminação e recriação de peerings.
 
 1. Na caixa de pesquisa na parte superior do portal, introduza *redes virtuais* na caixa de pesquisa. Quando **redes virtuais** aparecer nos resultados da pesquisa, selecione-o. Não selecione **redes virtuais (clássico)** se aparece na lista, como não é possível criar um peering de uma rede virtual implementada por meio do modelo de implementação clássica.
 2. Selecione a rede virtual na lista que pretende eliminar o peering.

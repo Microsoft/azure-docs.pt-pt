@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e209fe0486b72c14912fd0af1b29c878e4b4545
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 722fc5366d8f6863d19d09bd6e555fcc9a73d570
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340115"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868124"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o dia de trabalho para aprovisionamento automático de utilizadores
 
@@ -1064,7 +1064,7 @@ Esta secção abrange os seguintes aspectos de resolução de problemas:
 
 Quando é detetada uma nova contratação no Workday (Digamos, com o ID de funcionário *21023*), o Azure AD tentativas de serviço para criar uma nova conta de utilizador do AD para a função de trabalho e no processo de aprovisionamento cria 4 registros de log de auditoria, conforme descrito abaixo:
 
-  [ ![Registo de auditoria criar ops](media/workday-inbound-tutorial/wd_audit_logs_02.png) ](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
+  [![Registo de auditoria criar ops](media/workday-inbound-tutorial/wd_audit_logs_02.png)](media/workday-inbound-tutorial/wd_audit_logs_02.png#lightbox)
 
 Quando clica em qualquer um dos registros de log de auditoria, o **detalhes de atividade** abrirá a página. Eis o que o **detalhes de atividade** página é apresentada para cada tipo de registo do registo.
 
@@ -1132,7 +1132,7 @@ Quando clica em qualquer um dos registros de log de auditoria, o **detalhes de a
 
 O atributo de gestor é um atributo de referência no AD. O serviço de aprovisionamento não define o atributo de gestor como parte da operação de criação de utilizador. Em vez disso, o atributo de gestor está definido como parte de um *atualizar* operação depois de criar a conta de AD para o utilizador. Expandir o exemplo acima, vamos supor que uma nova contratação com o ID de funcionário "21451" é ativada no dia de trabalho e o Gestor da nova contratação (*21023*) já tem uma conta do AD. Neste cenário, procurar os registos de auditoria para o utilizador 21451 é apresentada 5 entradas.
 
-  [ ![Atualização do Gestor](media/workday-inbound-tutorial/wd_audit_logs_03.png) ](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
+  [![Atualização do Gestor](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
 Os primeiros 4 registos são como os que exploramos como parte do utilizador criar a operação. O registo 5th é a exportação associada com a atualização do atributo de gestor. O registro de log apresenta o resultado da operação atualizar do AD conta manager, que é executado usando o Gerenciador *objectGuid* atributo.
 

@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3fc8ae7eac8d54e332d43925ede6ad690ae1dde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3b8a06276bcaa989fa04f105ac7858c25ab4d0ef
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167835"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887510"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Cópia de segurança e recuperar credenciais de conta com a aplicação Microsoft Authenticator
 
@@ -84,7 +84,7 @@ Para contas Microsoft pessoais, pode provar a sua identidade ao introduzir a pal
     ![Aplicação Microsoft Authenticator, permitindo-lhe analisar o código QR](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Para mais informações sobre como obter um código QR, veja [começar com a aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) ou [definir informações de segurança para utilizar uma aplicação de autenticação](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), com base nos se o seu administrador tiver ativado a informações de segurança.
+    >Para mais informações sobre como obter um código QR, veja [começar com a aplicação Microsoft Authenticator](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) ou [definir informações de segurança para utilizar uma aplicação de autenticação](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app), com base nos se o seu administrador tiver ativado a informações de segurança.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Resolução de problemas de cópia de segurança e recuperação
 Há alguns motivos por que a cópia de segurança pode não estar disponível:

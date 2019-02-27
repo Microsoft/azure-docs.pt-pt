@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 1fb0f3f76b9363d5e467e91b90287d4b0c5cfc64
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735902"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872884"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutorial: Simular uma falha ao aceder ao armazenamento redundante com acesso de leitura
 
@@ -75,7 +75,7 @@ Quando tiver terminado, selecione **arquivo** e **guardar** para guardar as alte
 
 ### <a name="interrupting-the-application"></a>Interromper a aplicação
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[V7 .NET, Python e Java] (# separador/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Execute a aplicação no seu IDE ou o shell.
 
@@ -83,7 +83,7 @@ Assim que a aplicação começar a ler do ponto final primário, prima **qualque
 
 ![Aplicação de cenário](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Execute a aplicação no seu IDE ou o shell.
 
@@ -113,7 +113,7 @@ Anule os comentários as seguintes linhas, substitua `STORAGEACCOUNTNAME` com o 
          }
 ```
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[V7 .NET, Python e Java] (# separador/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Para retomar a aplicação, prima **qualquer tecla**.
 
@@ -123,7 +123,7 @@ Este padrão é o padrão de [Disjuntor Automático](https://docs.microsoft.com/
 
 ![Colar regra personalizada](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Agora que introduziu a falha, introduza **G** para testar a falha.
 
@@ -133,7 +133,7 @@ Ele informa-o que está a utilizar o pipeline secundário em oposição ao pipel
 
 ### <a name="simulate-primary-endpoint-restoration"></a>Simular o restauro do ponto final primário
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[V7 .NET, Python e Java] (# separador/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Com o conjunto de regras personalizadas do Fiddler definido no passo anterior, os pedidos para o ponto final primário falham.
 
@@ -153,7 +153,7 @@ Quando estiver concluído, prima **qualquer tecla** para retomar a aplicação. 
 
 ![Retomar aplicação](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Com o conjunto de regras personalizadas do Fiddler definido no passo anterior, os pedidos para o ponto final primário falham.
 
@@ -173,11 +173,11 @@ Pode criar uma rota estática inválida para todos os pedidos para o ponto final
 
 ### <a name="start-and-pause-the-application"></a>Iniciar e colocar em pausa a aplicação
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[V7 .NET, Python e Java] (# separador/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Execute a aplicação no seu IDE ou o shell. Assim que a aplicação começar a ler do ponto final primário, prima **qualquer tecla** da janela da consola para colocar a aplicação em pausa.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Uma vez que controla o exemplo, não terá de interrompê-lo para testar a falha.
 
@@ -210,13 +210,13 @@ Para adicionar uma rota estática para um anfitrião de destino, escreva o segui
 
 Substitua `<destination_ip>` pelo seu endereço IP da conta de armazenamento, e `<gateway_ip>` pelo seu endereço IP do anfitrião local.
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[V7 .NET, Python e Java] (# separador/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Para retomar a aplicação, prima **qualquer tecla**.
 
 Assim que a aplicação começar a ser novamente executada, os pedidos para o ponto final primário começam a falhar. A aplicação tenta restabelecer a ligação para o ponto final primário cinco vezes. Após o limiar de cinco tentativas falhadas, solicita a imagem do ponto final secundário só de leitura. Depois de a aplicação obter a imagem 20 vezes com êxito do ponto final secundário, a aplicação tenta ligar ao ponto final primário. Se o ponto final primário continuar inacessível, a aplicação retoma a leitura a partir do ponto final secundário. Este padrão é o padrão de [Disjuntor Automático](/azure/architecture/patterns/circuit-breaker) descrito no tutorial anterior.
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Agora que introduziu a falha, introduza **G** para testar a falha. Ele informa-o que está a utilizar o pipeline secundário em oposição ao pipeline principal.
 
@@ -236,14 +236,14 @@ Para eliminar a rota estática de um anfitrião de destino, a conta de armazenam
 
 `route delete <destination_ip>`
 
-# <a name="net-python-and-java-v7-tabdotnet-python-java-v7"></a>[V7 .NET, Python e Java] (# separador/dotnet-python-java-v7)
+# <a name="net-python-and-java-v7tabdotnet-python-java-v7"></a>[.NET, Python e Java v7](#tab/dotnet-python-java-v7)
 
 Prima **qualquer tecla** para retomar a aplicação. A aplicação continua a ler do ponto final primário até atingir 999 leituras.
 
 ![Retomar aplicação](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# <a name="java-v10-tabjava-v10"></a>[Java v10] (#tab/Java-v10)
+# <a name="java-v10tabjava-v10"></a>[Java v10](#tab/Java-v10)
 
 Introduza **G** para testar o download. A aplicação irá reportar que está agora a utilizar o pipeline principal novamente.
 

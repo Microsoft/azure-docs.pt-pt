@@ -15,12 +15,12 @@ ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a638d5cdfbd3af46335cfb8e4970306534fc1c3b
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: cbdf864c2c10d5eb1c0f9a903bd186370b96a72f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445989"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879643"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Descrição geral do Serviço de Aplicações no Azure Stack
 
@@ -53,7 +53,7 @@ Seu aplicativo pode ser composto por várias aplicações de serviço de aplica�
 - Implementar ambos (front-end e api) numa aplicação Web única
 - Implementar o código de front-end numa aplicação Web e o código de back-end numa aplicação API.
 
-   [ ![Descrição geral do serviço de aplicações com dados de monitorização](media/azure-stack-app-service-overview/image01.png "visão geral do serviço de aplicações com dados de monitorização") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![Descrição geral do serviço de aplicações com dados de monitorização](media/azure-stack-app-service-overview/image01.png "visão geral do serviço de aplicações com dados de monitorização")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## <a name="what-is-an-app-service-plan"></a>O que é um plano do Serviço de Aplicações?
 

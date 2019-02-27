@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.openlocfilehash: 5f9af39616e45983a7ec592f33c3f2ffd34ea34f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 02/26/2019
+ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233409"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888666"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real, enviados para os Hubs de eventos do Azure
 
@@ -324,6 +324,8 @@ Na tarefa do Stream Analytics, clique em **Iniciar**, **Agora** e **Iniciar**. A
 
     ![Captura de ecrã da especificação do título e subtítulo para o mosaico do dashboard.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-tile-details.png)
 
+    > [!IMPORTANT]
+    > Quando executar o aplicativo de exemplo e transmitir dados para o hub de eventos, o número neste mosaico forem alterados rapidamente (a cada segundo). É porque a consulta do Stream Analytics, na verdade, atualiza o valor **cada segundo**. Atualize a consulta para um minuto 3 em cascata janela para ver a soma nos últimos minutos. 
 11. Adicione outra visualização. Repita os primeiros passos novamente:
 
    * Clique em **Adicionar Mosaico**.

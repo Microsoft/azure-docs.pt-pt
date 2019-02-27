@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed94b7571acb0ced124644dafc59d805d5112e8a
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 10b74b85235cc47375f6289b52371bc588105ad9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268571"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890101"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Windows para aceder à Graph API do Azure AD
 
@@ -43,10 +43,14 @@ Este tutorial mostra como utilizar uma identidade gerida atribuída pelo sistema
 
 ## <a name="connect-to-azure-ad"></a>Ligar ao Azure AD
 
-Tem de ligar ao Azure AD para atribuir a VM a um grupo, bem como conceder à VM permissão para obter as respetivas associações a grupos.
+Tem de ligar ao Azure AD para atribuir a VM a um grupo, bem como conceder à VM permissão para obter as respetivas associações a grupos. Pode utilizar o cmdlet Connect-AzureAD diretamente ou com o parâmetro do TenantId no caso de ter vários inquilinos.
 
 ```powershell
 Connect-AzureAD
+```
+OU
+```powershell
+Connect-AzureAD -TenantId "Object Id of the tenant"
 ```
 
 ## <a name="add-your-vm-identity-to-a-group-in-azure-ad"></a>Adicionar a identidade da VM a um grupo no Azure AD
@@ -79,7 +83,13 @@ Vai precisar do Azure AD PowerShell para utilizar esta opção. Se não o tiver 
    ```powershell
    Connect-AzureAD
    ```
+   Para ligar a um específicos do Azure Active Directory, utilize o _TenantId_ parâmetro, da seguinte forma:
 
+   ```PowerShell
+   Connect-AzureAD -TenantId "Object Id of the tenant"
+   ```
+
+   
 2. Execute os seguintes comandos do PowerShell para atribuir a permissão de aplicação ``Directory.Read.All`` ao principal de serviço que representa a identidade da sua VM.
 
    ```powershell

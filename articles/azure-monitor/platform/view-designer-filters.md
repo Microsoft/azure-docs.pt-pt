@@ -1,6 +1,6 @@
 ---
-title: Filtros em modos de exibição do Log Analytics do Azure | Documentos da Microsoft
-description: Um filtro a uma vista do Log Analytics permite aos utilizadores filtrar os dados na vista pelo valor de uma determinada propriedade sem modificar o modo de exibição em si.  Este artigo descreve como utilizar um filtro e adicione uma para uma vista personalizada.
+title: Filtros em modos de exibição de Monitor do Azure | Documentos da Microsoft
+description: Um filtro numa vista de Azure Monitor permite aos utilizadores filtrar os dados na vista pelo valor de uma determinada propriedade sem modificar o modo de exibição em si.  Este artigo descreve como utilizar um filtro e adicione uma para uma vista personalizada.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 6a4ac2f26c01555ef54a4ee2248db7cd2818661e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189426"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888351"
 ---
-# <a name="filters-in-log-analytics-views"></a>Filtros em modos de exibição do Log Analytics
-R **filtro** num [ver do Log Analytics](view-designer.md) permite aos utilizadores filtrar os dados na vista pelo valor de uma determinada propriedade sem modificar a própria exibição.  Por exemplo, pode permitir que os utilizadores da sua vista para filtrar a vista de dados apenas a partir de um determinado computador ou um conjunto de computadores.  Pode criar vários filtros numa única vista para permitir que os utilizadores filtrar por várias propriedades.  Este artigo descreve como utilizar um filtro e adicione uma para uma vista personalizada.
+# <a name="filters-in-azure-monitor-views"></a>Filtros nas vistas do Azure Monitor
+A **filtro** num [vista de Azure Monitor](view-designer.md) permite aos utilizadores filtrar os dados na vista pelo valor de uma determinada propriedade sem modificar a própria exibição.  Por exemplo, pode permitir que os utilizadores da sua vista para filtrar a vista de dados apenas a partir de um determinado computador ou um conjunto de computadores.  Pode criar vários filtros numa única vista para permitir que os utilizadores filtrar por várias propriedades.  Este artigo descreve como utilizar um filtro e adicione uma para uma vista personalizada.
 
 ## <a name="using-a-filter"></a>Utilizar um filtro
-Clique no intervalo de tempo de dados na parte superior de uma vista para abrir o menu pendente para alterar o intervalo de tempo de dados para a vista.
+Clique no intervalo de tempo de data na parte superior de uma vista para abrir o menu pendente para alterar o intervalo de tempo de datas para o modo de exibição.
 
 ![Exemplo de filtro](media/view-designer-filters/filters-example-time.png)
 
@@ -46,8 +46,8 @@ A tabela seguinte descreve as definições para um filtro.
 
 | Definição | Descrição |
 |:---|:---|
-| Nome do Campo | Nome do campo utilizado para filtrar.  Isto deve corresponder ao campo de summarize **consulta para valores**. |
-| Consulta para valores | Consulta seja executada para preencher a lista pendente de filtro para o utilizador.  Isso tem de utilizar qualquer um [resumir](/azure/kusto/query/summarizeoperator) ou [distintos](/azure/kusto/query/distinctoperator) para fornecer valores exclusivos para um campo específico e ele corresponde do **nome do campo**.  Pode usar [ordenação](/azure/kusto/query/sortoperator) para ordenar os valores que são apresentados ao utilizador. |
+| Nome do Campo | Nome do campo utilizado para filtrar.  Este campo tem de corresponder ao campo de summarize **consulta para valores**. |
+| Consulta para valores | Consulta seja executada para preencher a lista pendente de filtro para o utilizador.  Esta consulta tem de utilizar qualquer um [resumir](/azure/kusto/query/summarizeoperator) ou [distintos](/azure/kusto/query/distinctoperator) para fornecer valores exclusivos para um campo específico e ele corresponde do **nome do campo**.  Pode usar [ordenação](/azure/kusto/query/sortoperator) para ordenar os valores que são apresentados ao utilizador. |
 | Etiqueta | Nome para o campo que é utilizado em consultas que suporta o filtro e também é apresentado ao utilizador. |
 
 ### <a name="examples"></a>Exemplos
@@ -57,9 +57,9 @@ A tabela seguinte inclui alguns exemplos de filtros comuns.
 | Nome do Campo | Consulta para valores | Etiqueta |
 |:--|:--|:--|
 | Computador   | Heartbeat &#124; computador distinto &#124; ordenar por computador asc | Computadores |
-| EventLevelName | Evento &#124; EventLevelName distinto | Gravidade |
-| SeverityLevel | Syslog &#124; SeverityLevel distinto | Gravidade |
-| SvcChangeType | ConfigurationChange &#124; svcChangeType distinto | ChangeType |
+| EventLevelName | Event &#124; distinct EventLevelName | Gravidade |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | Gravidade |
+| SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 
 ## <a name="modify-view-queries"></a>Modificar as consultas de vista
@@ -70,7 +70,7 @@ A sintaxe para usar um valor de filtro numa consulta é:
 
     where ${filter name}  
 
-Por exemplo, se a sua vista tem uma consulta os eventos de devolve e utiliza um filtro chamado computadores, poderia usar o seguinte.
+Por exemplo, se sua view tem uma consulta que retorna eventos e utiliza um filtro chamado _computadores_, poderia usar a seguinte consulta.
 
     Event | where ${Computers} | summarize count() by EventLevelName
 

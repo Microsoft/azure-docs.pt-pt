@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 04b6ad25c1ecd10a9480dcbf3e2b4f75e114a6f9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331326"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890942"
 ---
 *Aquecer a Cache*  
 O disco com o anfitrião só de leitura de colocação em cache são capaz de lhe dar mais elevada IOPS que o limite de disco. Para obter este máximo desempenho de leitura da cache do anfitrião, primeiro deve entender o cache do disco. Isto garante que a leitura do IOs que a ferramenta de benchmark irá orientar no volume de CacheReads, na verdade, acessa o cache e não o disco diretamente. O resultado de acertos na cache em ESP adicionais da cache única ativada disco.
@@ -102,7 +102,7 @@ Seguem-se capturas de ecrã do Iometer resultados do teste para cenários IOPS e
 
 ### <a name="fio"></a>FIO
 
-FIO é uma ferramenta popular para o armazenamento de benchmark em VMs do Linux. Ele tem a flexibilidade para selecionar diferentes tamanhos de e/s, seqüenciais ou leituras aleatórias e escreve. Ele gera threads de trabalho ou processos para efetuar as operações de e/s especificadas. Pode especificar o tipo de operações de e/s, que cada thread de trabalho tem de efetuar o uso de arquivos de tarefa. Criamos um ficheiro de tarefa por cenário ilustrado nos exemplos abaixo. Pode alterar as especificações nesses arquivos de tarefa para diferentes cargas de trabalho em execução no armazenamento Premium. Os exemplos, estamos a utilizar uma execução de VM de 14 de DS Standard **Ubuntu**. Usar a mesma configuração descrita no início do [benchmark secção](#Benchmarking) e disponibilize a cache antes de executar os testes de benchmark.
+FIO é uma ferramenta popular para o armazenamento de benchmark em VMs do Linux. Ele tem a flexibilidade para selecionar diferentes tamanhos de e/s, seqüenciais ou leituras aleatórias e escreve. Ele gera threads de trabalho ou processos para efetuar as operações de e/s especificadas. Pode especificar o tipo de operações de e/s, que cada thread de trabalho tem de efetuar o uso de arquivos de tarefa. Criamos um ficheiro de tarefa por cenário ilustrado nos exemplos abaixo. Pode alterar as especificações nesses arquivos de tarefa para diferentes cargas de trabalho em execução no armazenamento Premium. Os exemplos, estamos a utilizar uma execução de VM de 14 de DS Standard **Ubuntu**. Use a mesma configuração descrita no início da seção Benchmarking e disponibilize a cache antes de executar os testes de benchmark.
 
 Antes de começar, [transferir FIO](https://github.com/axboe/fio) e instalá-lo na sua máquina virtual.
 

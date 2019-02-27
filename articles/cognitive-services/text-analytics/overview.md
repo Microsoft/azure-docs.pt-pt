@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 0de4e0d750d8ae3061ed0b80d706dec545338a90
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 7623f98b9fd6c4bad8a41050e39b6e0e8650dccc
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242944"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889293"
 ---
 # <a name="what-is-text-analytics"></a>O que é a Análise de Texto?
 
@@ -64,11 +64,11 @@ Esta secção foi movida para um artigo separado para melhor deteção. Consulte
 
 ## <a name="data-limits"></a>Limites de dados
 
-Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é de 5000 carateres para cada documento; se precisar de analisar documentos maiores, poderá dividi-los em segmentos mais pequenos. Se necessitar de um limite maior, [contacte-nos](https://azure.microsoft.com/overview/sales-number/), para que possamos analisar os seus requisitos.
+Todos os pontos finais da API de Análise de Texto aceitam dados de texto não processados. O limite atual é 5,120 carateres para cada documento; Se precisar de analisar documentos maiores, poderá dividi-las em segmentos mais pequenos. Se necessitar de um limite maior, [contacte-nos](https://azure.microsoft.com/overview/sales-number/), para que possamos analisar os seus requisitos.
 
 | Limite | Value |
 |------------------------|---------------|
-| Tamanho máximo de um documento único | 5000 carateres como medido pelas [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Tamanho máximo de um documento único | 5,120 carateres como medido pelas [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Tamanho máximo do pedido completo | 1 MB |
 | Número máximo de documentos num pedido | 1000 documentos |
 
@@ -80,7 +80,7 @@ A API de Análise de Texto utiliza a codificação Unicode para representação 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Em primeiro lugar, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/text-analytics/). Pode colar uma entrada de texto (máximo de 5000 caracteres) para detetar o idioma (até 120), calcular uma pontuação de sentimento ou extrair expressões-chave. Não é necessário inscrever-se.
+Em primeiro lugar, experimente a [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/text-analytics/). Pode colar uma entrada de texto (máximo de carateres 5,120) para detetar o idioma (até 120), calcular uma pontuação de sentimento ou extrair expressões-chave. Não é necessário inscrever-se.
 
 Quando estiver pronto para chamar a API diretamente:
 

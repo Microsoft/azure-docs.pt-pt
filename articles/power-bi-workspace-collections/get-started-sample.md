@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: fdbbfaf4a4c3df90302b0b69e4964b7a073f2fa4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4a7da4a6e7b4b395063f7e4c9a3e97d610492ef6
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237965"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882676"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Introdução ao exemplo de coleções de área de trabalho do Power BI
 
@@ -28,7 +28,7 @@ Antes de continuarmos, pretende guardar os seguintes recursos: Eles ajudá-lo ao
 
 * [Aplicação de web de área de trabalho de exemplo](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Referência da API de coleções de área de trabalho do BI Power](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI SDK de .NET ](https://go.microsoft.com/fwlink/?LinkId=746472) (disponível por meio do NuGet)
+* [Power BI SDK de .NET](https://go.microsoft.com/fwlink/?LinkId=746472) (disponível por meio do NuGet)
 * [Exemplo de incorporação de relatório de JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]

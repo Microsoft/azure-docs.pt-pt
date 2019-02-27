@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 32c0ee4764c7c2b541428c63857286a45a09a634
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 040fac6cd4feb60b6635ba0868634f16dd9f146f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733140"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881736"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado de custo no Azure Cosmos DB
 
@@ -159,7 +159,7 @@ Os seguintes passos ajudá-lo a tornar as suas soluções altamente escalável e
 
 2. Um método para estimar a quantidade de débito reservado exigida pela sua aplicação é registrar o custo da unidade RU de pedido associado à execução de operações típicas em relação a um contentor do Cosmos do Azure ou da base de dados utilizado pela sua aplicação representativos e em seguida, estime o número de operações que prevê para executar a cada segundo. Certifique-se de que medir e incluem consultas típicas e também seu uso. Para saber como estimar os custos de RU de consultas através de programação ou através de ver portal [otimizar o custo de consultas](online-backup-and-restore.md). 
 
-3. Outra forma de obter operações e os custos no RUs é ao ativar o Log Analytics, que lhe dará a divisão de operação/duração e o custo de pedido. O Azure Cosmos DB fornece encargos de pedidos para cada operação, para que todos os custos de operação podem ser armazenados volta da resposta e, em seguida, utilizado para análise. 
+3. Outra forma de obter operações e os custos no RUs é, permitindo que os registos do Azure Monitor, que lhe dará a divisão de operação/duração e o custo de pedido. O Azure Cosmos DB fornece encargos de pedidos para cada operação, para que todos os custos de operação podem ser armazenados volta da resposta e, em seguida, utilizado para análise. 
 
 4. Pode dimensionar verticalmente o débito aprovisionado, precisa acomodar suas necessidades de carga de trabalho. 
 

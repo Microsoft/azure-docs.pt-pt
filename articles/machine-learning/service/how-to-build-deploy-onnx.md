@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 926cd354064d1dc8ae6c49c0fa93515d31167370
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a610c7c8189c22e8aa15e14a205b11b7f6c05b82
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819842"
+ms.locfileid: "56873105"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e do Azure Machine Learning: Criar e implementar modelos de IA interoperáveis
 
@@ -36,7 +36,7 @@ Também existe um ecossistema de ferramentas para a visualização e acelerando 
 
 [Podem ser implementados modelos ONNX](#deploy) na cloud com o Azure Machine Learning e o tempo de execução ONNX. Eles também podem ser implementados para dispositivos Windows 10 com [Windows ML](https://docs.microsoft.com/windows/ai/). Pode até mesmo ser implementados para outras plataformas usando conversores que estão disponíveis da Comunidade ONNX. 
 
-[ ![Diagrama de fluxo ONNX mostrando treinamento, conversores e implementação](media/concept-onnx/onnx.png) ] (. / media/concept-onnx/onnx.png#lightbox)
+[![Diagrama de fluxo ONNX mostrando treinamento, conversores e implementação](media/concept-onnx/onnx.png) ] (. / media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Obter modelos ONNX
 

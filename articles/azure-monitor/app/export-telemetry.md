@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: eda41870e86db206847f5ea81e23fa1b7612234c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b1f6024538c6807fd68a0d7b0b7ae2776938055b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817308"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888199"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Quer manter a sua telemetria por mais tempo do que o período de retenção padrão? Ou processá-los de alguma forma especializada? A exportação contínua é ideal para isso. Os eventos de que ver no portal do Application Insights podem ser exportados para o armazenamento no Microsoft Azure no formato JSON. A partir daí pode transferir os seus dados e escrever qualquer código que precisa para processá-lo.  
@@ -37,7 +37,7 @@ Após a exportação contínua copia os seus dados para o armazenamento (em que 
 
 A exportação contínua **não suporta** as seguintes funcionalidades de armazenamento do Azure/configurações:
 
-* Usar [firewalls de armazenamento do VNET/Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) no conjuntion com o armazenamento de Blobs do Azure.
+* Usar [firewalls de armazenamento do VNET/Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) em conjunto com o armazenamento de Blobs do Azure.
 
 * [Armazenamento imutável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) para o armazenamento de Blobs do Azure.
 
@@ -150,7 +150,7 @@ Em pequena escala, pode escrever algum código para extrair a distância de seus
 Para obter um exemplo de código maior, veja [usando uma função de trabalho][exportasa].
 
 ## <a name="delete"></a>Eliminar os dados antigos
-Tenha em atenção que é responsável por gerenciar sua capacidade de armazenamento e a eliminar os dados antigos, se necessário.
+É responsável por gerir a sua capacidade de armazenamento e a eliminar os dados antigos, se necessário.
 
 ## <a name="if-you-regenerate-your-storage-key"></a>Se voltar a gerar a chave de armazenamento...
 Se alterar a chave para o armazenamento, a exportação contínua deixarão de funcionar. Verá uma notificação na sua conta do Azure.
@@ -187,7 +187,7 @@ Nas escalas maiores, considere [HDInsight](https://azure.microsoft.com/services/
 * *O número de blobs que vejo no armazenamento?*
 
   * Para cada tipo de dados selecionados para exportar, um blob novo é criado a cada minuto (se os dados estão disponíveis).
-  * Além disso, para aplicativos com tráfego intenso, unidades adicionais de partição são alocadas. Neste caso cada unidade cria um blob a cada minuto.
+  * Além disso, para aplicativos com tráfego intenso, unidades adicionais de partição são alocadas. Neste caso, cada unidade cria um blob a cada minuto.
 * *Eu gerada novamente a chave para o meu armazenamento ou alterou o nome do contentor, e agora a exportação não funciona.*
 
     Editar a exportação e abrir o painel de destino de exportação. Deixe o mesmo armazenamento selecionado como antes e clique em OK para confirmar. Exportação será reiniciado. Se a alteração foi dentro de alguns nos últimos dias, não irá perder dados.

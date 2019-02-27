@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 0eeab5a2489bacde74b98e7d404789a00b64d02a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6e3c456b3ee92f30b3b152a39faf3f1fe483013f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992726"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876607"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recolher informações sobre a infraestrutura DNS com a solução de análise de DNS pré-visualização
 
@@ -142,7 +142,7 @@ As informações de ajudam-o a identificar o:
 
 **Dê um nome de pedidos de registo**. O mosaico superior mostra uma trendline de pedidos de atualização dinâmica de DNS com êxito ou falhados. O mosaico inferior apresenta uma lista de principais 10 clientes que estão a enviar solicitações de atualização de DNS falhou para os servidores DNS, classificados pelo número de falhas.
 
-![Painel de pedidos de registo de nome ](./media/dns-analytics/name-reg-req-blade.png)
+![Painel de pedidos de registo de nome](./media/dns-analytics/name-reg-req-blade.png)
 
 **Exemplo de consultas de análise DDI**. Contém uma lista das consultas de pesquisa mais comuns que obtêm dados de análise brutos diretamente.
 

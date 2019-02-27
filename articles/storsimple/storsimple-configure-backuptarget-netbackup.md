@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.openlocfilehash: 361ab36d3029dbc00e8d1e53ef9f9af42be3e1eb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 913df079b56e131a3120971b635c49c2c04b2b1e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255851"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871575"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de cópia de segurança com NetBackup
 
@@ -79,7 +79,7 @@ O StorSimple oferece estes benefícios:
 
 Embora o StorSimple apresenta dois cenários de implementação principal (destino de cópia de segurança primário e secundário destino de cópia de segurança), fundamentalmente, é um simples, dispositivo de armazenamento de blocos. StorSimple faz todas as a compressão e a eliminação de duplicados. Forma totalmente integrada envia e recupera dados entre a cloud e o aplicativo e sistema de ficheiros.
 
-Para obter mais informações sobre o StorSimple, consulte [série StorSimple 8000: solução de armazenamento na cloud híbrida](storsimple-overview.md). Além disso, pode rever o [as especificações da série StorSimple 8000 técnicas](storsimple-technical-specifications-and-compliance.md).
+Para obter mais informações sobre o StorSimple, consulte [série 8000 do StorSimple: Solução de armazenamento na cloud híbrida](storsimple-overview.md). Além disso, pode rever o [as especificações da série StorSimple 8000 técnicas](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
 > Usando um StorSimple dispositivo como um destino de cópia de segurança só é suportado para atualização 3 do StorSimple 8000 e versões posteriores.
@@ -183,7 +183,7 @@ Nesta secção, vamos demonstrar alguns exemplos de configuração. Os exemplos 
 
 | Tarefas de implementação do StorSimple  | Comentários adicionais |
 |---|---|
-| Implemente o dispositivo StorSimple no local. | Versões suportadas: atualizar versões 3 e posteriores. |
+| Implemente o dispositivo StorSimple no local. | Versões suportadas: A atualização 3 e versões posteriores. |
 | Ative o destino de cópia de segurança. | Utilize estes comandos para ativar ou desativar o modo de destino de cópia de segurança e ao obter o estado. Para obter mais informações, consulte [ligar remotamente ao dispositivo StorSimple](storsimple-remote-connect.md).</br> Para ativar o modo de cópia de segurança: `Set-HCSBackupApplianceMode -enable`. </br> Para desativar o modo de cópia de segurança: `Set-HCSBackupApplianceMode -disable`. </br> Para obter o estado atual de definições do modo de cópia de segurança: `Get-HCSBackupApplianceMode`. |
 | Crie um contentor de volume comuns para o volume que armazena os dados de cópia de segurança. Todos os dados num contentor do volume tem eliminação de duplicados. | Contentores de volumes do StorSimple definem domínios de eliminação de duplicados.  |
 | Crie volumes do StorSimple. | Crie volumes com tamanhos como próximo a utilização antecipada possível, porque o tamanho do volume afeta o tempo de duração do instantâneo de cloud. Para obter informações sobre como dimensionar um volume, leia sobre [políticas de retenção](#retention-policies).</br> </br> Utilize o StorSimple volumes em camadas e selecione o **utilizar este volume para menos dados de arquivo acedidos com frequência** caixa de verificação. </br> Não é suportada a utilizar apenas volumes afixados localmente. |
@@ -292,7 +292,7 @@ Com base nas suposições anteriores, crie um TiB de 26 volume para as cópias d
 
 A figura seguinte mostra o mapeamento de um volume normal para uma tarefa de cópia de segurança. Neste caso, todas as cópias de segurança semanais mapeiam para o disco completo de Sábado e as cópias de segurança incrementais mapeiam para discos de incrementais de segunda-feira a sexta-feira. Todos os backups e restaurações são de um StorSimple camadas volume.
 
-![Diagrama lógico de configuração de destino de cópia de segurança primário ](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
+![Diagrama lógico de configuração de destino de cópia de segurança primário](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
 ### <a name="storsimple-as-a-primary-backup-target-gfs-schedule-example"></a>StorSimple como um destino de cópia de segurança primário GFS agendar exemplo
 
@@ -403,7 +403,7 @@ A tabela seguinte mostra como configurar as cópias de segurança para executar 
 \* Capacidade total inclui 17 TiB de StorSimple discos e de 1 TiB de volume RAID local.
 
 
-### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Agenda de exemplo GFS: rotação GFS agenda semanal, mensal e anual
+### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Agenda de exemplo GFS: Rotação de GFS agenda semanal, mensal e anual
 
 | Week (Semana) | Completo | Incremental dia 1 | Incremental dia 2 | Incremental dia 3 | Dia incremental 4 | Dia incremental 5 |
 |---|---|---|---|---|---|---|
@@ -536,7 +536,7 @@ Após um desastre pode ser causado por uma variedade de fatores. A tabela seguin
 Os seguintes documentos foram referenciados neste artigo:
 
 - [Configuração do StorSimple multipath e/s](storsimple-configure-mpio-windows-server.md)
-- [Cenários de armazenamento: aprovisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [Cenários de armazenamento: Aprovisionamento dinâmico](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 - [Utilizar o GPT unidades](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 - [Configurar cópias de sombra para pastas partilhadas](https://technet.microsoft.com/library/cc771893.aspx)
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: d98834abaf925cdabd312869615a60f64049826d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c98328342eec7fa59a56fbcc70da8cdd7a8fabf1
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808658"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880891"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Resolver problemas de afinidade de sessão de Gateway de aplicação do Azure
 
@@ -75,7 +75,7 @@ Ativar a definição de afinidade baseada em cookies, quando acessa o Gateway de
 
 Para identificar este problema, siga as instruções:
 
-1. Tire o rastreio do "cliente" que está a ligar a aplicação por trás Gateway(We are using Fiddler in this example) o aplicativo de rastreio de um depurador da web.
+1. Tire um rastreio de depurador da web do "cliente" que está a ligar a aplicação por trás Gateway(We are using Fiddler in this example) o aplicativo.
     **Sugestão** se não sabe como utilizar o Fiddler, marque a opção "**quero coletar o tráfego de rede e analise-os com o depurador da web**" na parte inferior.
 
 2. Verifique e analisar os registos de sessão, para determinar se cookies fornecidos pelo cliente que os detalhes de ARRAffinity. Se não encontrar os detalhes de ARRAffinity, tais como "**ARRAffinity =** *ARRAffinityValue*" no conjunto de cookie, o que significa que o cliente não está respondendo com o cookie ARRA, que é fornecido pela Gateway de aplicação.

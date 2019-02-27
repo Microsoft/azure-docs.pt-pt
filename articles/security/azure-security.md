@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 28630a1d1b2ce212fe1054496814a9084f8cfc98
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 74bdcc831f19031162d004e1ba98c0cfc258ce4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116308"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879424"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -80,7 +80,7 @@ O [solução de segurança e auditoria](https://docs.microsoft.com/azure/operati
 Além disso, pode configurar a segurança e conformidade para [automaticamente executar ações específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando é detetado um evento específico.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-[O Azure Resource Manager ](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) permite-lhe trabalhar com os recursos na sua solução como um grupo. Pode implementar, atualizar ou eliminar todos os recursos da sua solução numa operação única e coordenada. Utilizar um [modelo Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para implementação e esse modelo podem funcionar para ambientes diferentes, tais como teste, transição e produção. O Resource Manager fornece funcionalidades de segurança, auditoria e etiquetagem para o ajudar a gerir os recursos após a implementação.
+[O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) permite-lhe trabalhar com os recursos na sua solução como um grupo. Pode implementar, atualizar ou eliminar todos os recursos da sua solução numa operação única e coordenada. Utilizar um [modelo Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) para implementação e esse modelo podem funcionar para ambientes diferentes, tais como teste, transição e produção. O Resource Manager fornece funcionalidades de segurança, auditoria e etiquetagem para o ajudar a gerir os recursos após a implementação.
 
 As implementações do Resource Manager de baseados em modelos do Azure ajudam a melhorar a segurança das soluções implementadas no Azure, porque a controlar as definições de segurança padrão e pode ser integrado ao padronizado implementações baseadas em modelos. Isso reduz o risco de erros de configuração de segurança que podem ocorrer durante as implementações manuais.
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 598af6bb945318f0a76ffe094dd5786abacccc3f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543534"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872901"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Criar e gerir a base de dados do Azure para as regras de firewall do MySQL com o portal do Azure
 Regras de firewall ao nível do servidor permitem que os administradores aceder a uma base de dados do Azure para o servidor MySQL a partir de um endereço IP especificado ou um intervalo de endereços IP. 
@@ -34,7 +34,7 @@ Regras de firewall ao nível do servidor permitem que os administradores aceder 
 
 4. Adicione intervalos de endereços adicional. Nas regras da firewall da base de dados do Azure para MySQL, pode especificar um único endereço IP ou um intervalo de endereços. Se pretende limitar a regra para um único endereço IP, escreva o mesmo endereço os campos de IP inicial e final. Abrir a firewall permite aos administradores, utilizadores e aplicações para aceder a qualquer base de dados no servidor do MySQL para o qual tenham credenciais válidas.
 
-   ![Portal do Azure – regras de firewall ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   ![Portal do Azure – regras de firewall](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. Clique em **guardar** na barra de ferramentas para guardar esta regra de firewall ao nível do servidor. Aguarde a confirmação de que a atualização para as regras de firewall é efetuada com êxito.
 

@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 899e33db242a34d09df6109c2e195bdff9c65262
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5bb2c7d9eed2ed33f3cd0c33bfc479d2e3627370
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823608"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889856"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -31,6 +31,10 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 + **Novos recursos**
 
   + O Azure Machine Learning SDK agora suporta uma [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) classe estimator para simplificar o processo de preparação e implementação de um modelo usando código personalizado do Chainer.
+  + O Azure Machine Learning Pipelines adicionado uma execução de Pipeline com base nas alterações de arquivo de dados de Acionador de capacidade. O pipeline [bloco de notas do agendamento](https://aka.ms/pl-schedule) é atualizado para demonstrar esta funcionalidade.
+  
++ **Melhorias e correções de erros**
+  + Foi adicionado o suporte do Azure Machine Learning Pipelines para definir a propriedade source_directory_data_store para um arquivo de dados desejado (por exemplo, o armazenamento de BLOBs) no [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) que são fornecidos para o [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Por predefinição passos utilizam o armazenamento de ficheiros do Azure como o arquivo de dados de backup que pode se deparar com problemas de limitação quando um grande número de passos é executado em simultâneo.
 
 ### <a name="azure-portal"></a>Portal do Azure
 + **Novos recursos**
@@ -38,6 +42,18 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
     + Novo botão de execução para execuções submetido com ScriptRunConfig. Os utilizadores podem executar novamente existente ser executado num cluster de cálculo remoto de sua preferência.
     + Novo Visualizador de arquivos de registos
     + Links para experimentação é executada, computação, modelos, imagens e implantações do separador de atividades
+
+### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>SDK v1.0.15 de preparação de dados do Azure Machine Learning
+
++ **Novos recursos**
+  + Agora suporta escrever fluxos a partir de um fluxo de dados de ficheiros de preparação de dados. Também fornece a capacidade de manipular os nomes de fluxo de arquivo para criar novos nomes de ficheiro.
+    + Guia de procedimentos: [Bloco de notas de trabalhar com fluxos de arquivos](https://aka.ms/aml-data-prep-file-stream-nb)
+ 
++ **Melhorias e correções de erros**
+  + Desempenho melhorado de t-Digest em grandes conjuntos de dados.
+  + Preparação de dados suporta agora a leitura de dados de um DataPath.
+  + Agora é uma codificação de acesso frequente funciona em colunas booliana e numéricas.
+  + Outras diversas correções de bugs.
 
 ## <a name="2019-02-11"></a>2019-02-11
 
@@ -100,7 +116,7 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>SDK v1.0.7 de preparação de dados do Azure Machine Learning
 
 + **Novos recursos**
-  + Melhorias do arquivo de dados (documentados em [arquivo de dados procedimentos-to-guia](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+  + Melhorias do arquivo de dados (documentados em [arquivo de dados procedimentos-to-guia](https://aka.ms/aml-data-prep-datastore-nb))
     + Foi adicionada a capacidade para ler e gravar a partilha de ficheiros do Azure e arquivos de dados do ADLS na vertical.
     + Ao usar arquivos de dados, preparação de dados suporta agora a utilizar a autenticação principal de serviço em vez da autenticação interativa.
     + Foi adicionado suporte para urls de wasb/wasbs.

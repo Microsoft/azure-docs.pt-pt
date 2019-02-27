@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753593"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871541"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Após desastre recuperação e o armazenamento de conta ativação pós-falha (pré-visualização) no armazenamento do Azure
 
@@ -152,7 +152,6 @@ Discos não geridos são armazenados como blobs de páginas no armazenamento do 
 4. Aguarde até que o **hora da última sincronização** foi atualizado e é posterior à hora em que eliminou a VM. Este passo é importante, porque se o ponto final secundário não foi totalmente atualizado com os ficheiros VHD quando ocorre a ativação pós-falha, em seguida, a VM poderá não funcionar corretamente na nova região primária.
 5. Inicie a ativação pós-falha de conta.
 6. Aguarde até que a ativação pós-falha de conta está concluída e a região secundária tornou-se a região primária nova.
-6. Criar uma conta de armazenamento na região primária nova e copie no disco não gerido.
 7. Criar uma VM na região primária nova e voltar a anexar o VHD.
 8. Inicie a VM nova.
 

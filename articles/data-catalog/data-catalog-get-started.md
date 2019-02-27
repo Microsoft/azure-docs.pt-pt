@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5513948a6611e93833c7e70fa4e5667b3901a9f3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238493"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880228"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introdução ao Catálogo de Dados do Azure
 O Catálogo de Dados do Azure é um serviço em nuvem totalmente gerido que funciona como um sistema de registo e um sistema de deteção de recursos de dados empresariais. Para obter uma descrição detalhada, veja [O que é o Catálogo de Dados do Azure](data-catalog-what-is-data-catalog.md).
@@ -82,7 +82,7 @@ Pode aprovisionar apenas um catálogo de dados por organização (domínio do Az
     ![Catálogo de Dados do Azure – ver o catálogo na lista](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 3. Clique no catálogo que criou. É apresentado o painel **Catálogo de Dados** no portal.
    
-   ![Catálogo de Dados do Azure – painel no portal ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+   ![Catálogo de Dados do Azure – painel no portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
 4. Pode ver as propriedades do catálogo de dados, bem como atualizá-las. Por exemplo, clique em **Escalão de preço** e altere a edição.
    
     ![Catálogo de Dados do Azure – escalão de preço](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
@@ -144,7 +144,7 @@ Neste exercício, vai utilizar a ferramenta de registo para registar recursos de
       ![Catálogo de Dados do Azure – objetos registados](media/data-catalog-get-started/data-catalog-registered-objects.png)
    9. Para ver os objetos da origem de dados registados, clique em **Ver Portal**. No portal do Catálogo de Dados do Azure, confirme que consegue ver as quatro tabelas e a base de dados na vista de grelha.
       
-      ![Objetos no portal do Catálogo de Dados do Azure ](media/data-catalog-get-started/data-catalog-view-portal.png)
+      ![Objetos no portal do Catálogo de Dados do Azure](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 Neste exercício, registou objetos da base de dados de exemplo Adventure Works, para que possam ser facilmente detetados pelos utilizadores da sua organização. No exercício seguinte, vai aprender a detetar recursos de dados registados.
 

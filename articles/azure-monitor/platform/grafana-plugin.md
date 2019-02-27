@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: fc963987b45751aab33035a83b2b477129e9a756
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: f592cfdba940b95a9935c6b68f3294233d9fbf15
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730905"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888496"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorizar os serviços do Azure no Grafana
 Agora pode monitorizar serviços do Azure e aplicações a partir [Grafana](https://grafana.com/) utilizando o [Plug-in de origem de dados do Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne dados de desempenho de aplicativo recolhidos pelo Monitor do Azure, incluindo vários registos e métricas. Em seguida, pode exibir esses dados no seu dashboard da Grafana.
@@ -26,7 +26,8 @@ Utilize os seguintes passos para configurar um servidor o Grafana e criar dashbo
 ## <a name="set-up-a-grafana-server"></a>Configurar um servidor o Grafana
 
 ### <a name="set-up-grafana-locally"></a>Configurar o Grafana localmente
-Para configurar um servidor o Grafana local, [transfira e instale o Grafana no seu ambiente local](https://grafana.com/grafana/download). Para utilizar a integração do plug-in Log Analytics, instale o Grafana versão 5.3 ou superior.
+Para configurar um servidor o Grafana local, [transfira e instale o Grafana no seu ambiente local](https://grafana.com/grafana/download). Para utilizar a integração do Azure Monitor o plug-in, instale o Grafana versão 5.3 ou superior.
+
 ### <a name="set-up-grafana-on-azure-through-the-azure-marketplace"></a>Configurar o Grafana no Azure através do Azure Marketplace
 1. Ir para o Azure Marketplace e escolha o Grafana por laboratórios da Grafana.
 
@@ -70,7 +71,7 @@ Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de da
     A API do Log Analytics requer o [função de leitor do Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), que inclui as permissões da função de leitor e adiciona a ela.
 
 4. Forneça os detalhes de ligação para as APIs que pretende utilizar. Pode ligar-se a todos ou alguns deles. 
-    * Se ligar ao Azure Monitor (para recolher métricas) e o Azure Log Analytics (para dados de log), pode reutilizar as mesmas credenciais, selecionando **mesmo detalhes como a API do Azure Monitor**.
+    * Se se conectar para métricas e registos no Azure Monitor, pode reutilizar as mesmas credenciais, selecionando **mesmo detalhes como a API do Azure Monitor**.
     * Ao configurar o plug-in, pode indicar que Cloud do Azure que pretende que o plug-in para o monitor (público, do Azure US Government, Azure Alemanha ou Azure China).
     * Se utilizar o Application Insights, também pode incluir o API do Application Insights e o ID de aplicação para recolher métricas do Application Insights com base. Para obter mais informações, consulte [obter a sua chave de API e o ID da aplicação](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
@@ -97,7 +98,7 @@ Depois de iniciado sessão com êxito, deverá ver que o plug-in da origem de da
 4. Selecione a origem de dados do Azure Monitor que configurou.
     * Azure Monitor a recolher métricas – selecione **do Azure Monitor** na lista pendente de serviço. Uma lista de seletores é exibida, onde pode selecionar os recursos e a métrica a monitorizar neste gráfico. Para recolher métricas de uma VM, utilize o espaço de nomes **Microsoft.Compute/VirtualMachines**. Assim que tiver selecionado as VMs e as métricas, pode começar a ver seus dados no dashboard.
     ![O Grafana gráfico config para o Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
-    * Azure Log Analytics a recolher dados – selecione **do Azure Log Analytics** na lista pendente de serviço. Selecione a área de trabalho que gostaria de consultar e definir o texto da consulta. Pode copiar, aqui, qualquer consulta do Log Analytics já tem ou crie um novo. À medida que escreve na sua consulta, o IntelliSense aparece e opções de preenchimento automático de sugerir. Selecione o tipo de visualização **série de tempo** **tabela**, e execute a consulta.
+    * Azure Monitor a recolher registos de dados – selecione **do Azure Log Analytics** na lista pendente de serviço. Selecione a área de trabalho que gostaria de consultar e definir o texto da consulta. Pode copiar, aqui, qualquer consulta de registo já tem ou crie um novo. À medida que escreve na sua consulta, o IntelliSense aparece e opções de preenchimento automático de sugerir. Selecione o tipo de visualização **série de tempo** **tabela**, e execute a consulta.
     
     > [!NOTE]
     >

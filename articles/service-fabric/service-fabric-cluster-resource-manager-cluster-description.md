@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7be10f03d65e53b51c3916849dc12feb4de9c919
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 1020e18894f4bb307ad14f780e76eab1df1314bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737659"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56875978"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrever um cluster do service fabric
 O Gestor de recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Gestor de recursos de Cluster utiliza estas informações para garantir a elevada disponibilidade dos serviços em execução no cluster. Ao impor estas regras importantes, ele também tenta otimizar o consumo de recursos dentro do cluster.
@@ -603,7 +603,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para obter informações sobre o fluxo de arquitetura e as informações no Gestor de recursos do Cluster, verifique [neste artigo ](service-fabric-cluster-resource-manager-architecture.md)
+* Para obter informações sobre o fluxo de arquitetura e as informações no Gestor de recursos do Cluster, verifique [neste artigo](service-fabric-cluster-resource-manager-architecture.md)
 * A definição de métricas de desfragmentação é uma forma de consolidar a carga em nós em vez de dispersão-lo. Para saber como configurar a desfragmentação, consulte [neste artigo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Começar do início e [obtenha uma introdução para o Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * Para obter informações sobre como o Gestor de recursos de Cluster gere e faz o balanceamento de carga no cluster, consulte o artigo no [balanceamento de carga](service-fabric-cluster-resource-manager-balancing.md)

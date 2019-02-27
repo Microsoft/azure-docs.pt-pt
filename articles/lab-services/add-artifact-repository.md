@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: e8a94fdae74c5a30ba75e9143b298c3372b886d7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a267b48e185e02c1b1217380429453799308bbe
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733015"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886782"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefactos para seu laboratório no DevTest Labs
 DevTest Labs permite-lhe especificar um artefacto a ser adicionados a uma VM no momento da criação da VM ou após a VM é criada. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar na VM. Artefactos são definidos num ficheiro JSON carregado de um repositório do GitHub ou o Git do VSTS. 
@@ -60,7 +60,7 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
    4. Selecione o **todos os âmbitos** opção.
    5. Selecione **criar Token**.
 9. O novo token é apresentado na **Tokens de acesso pessoal** lista. Selecione **cópia Token**e, em seguida, guarde o valor do token para utilizar mais tarde.
-10. Avance para o [ligar o seu laboratório para o repositório](#connect-your-lab-to-the-repository) secção.
+10. Avance para o Connect em seu laboratório para a secção de repositório.
 
 ## <a name="use-azure-portal"></a>Utilizar o portal do Azure
 Esta secção fornece passos para adicionar um repositório de artefactos a um laboratório no portal do Azure. 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3daa71c91d1e49a497a979b9b5b89df1fcb9418c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408328"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889686"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Utilizar arquivos de metadados externos no Azure HDInsight
 
@@ -68,7 +68,7 @@ Aqui estão alguns geral Hive do HDInsight metastore melhores práticas:
 - Se pretende vários clusters do HDInsight para aceder a dados separado, utilize uma base de dados separado para o metastore em cada cluster. Se partilhar um metastore em vários clusters do HDInsight, significa que os clusters utilizam os mesmos metadados e arquivos de dados de utilizador subjacentes.
 - Criar cópias de segurança seu metastore personalizado periodicamente. Base de dados SQL do Azure gera as cópias de segurança automaticamente, mas o período de tempo de retenção de cópia de segurança varia. Para obter mais informações, consulte [Saiba mais sobre cópias de segurança de base de dados SQL automáticas](../sql-database/sql-database-automated-backups.md).
 - Localize o metastore e o cluster do HDInsight na mesma região, para um desempenho mais elevado e custos de saída de rede mais baixos.
-- Monitorize o metastore para desempenho e disponibilidade usando ferramentas de monitorização de base de dados SQL do Azure, como o portal do Azure ou o Log Analytics do Azure.
+- Monitorize o metastore para desempenho e disponibilidade usando ferramentas de monitorização de base de dados SQL do Azure, como o portal do Azure ou os registos do Azure Monitor.
 - Quando uma versão nova e superior do Azure HDInsight é criada num banco de dados existente do metastore personalizado, o sistema atualiza o esquema de metastore, que é irreversível sem restaurar a base de dados de cópia de segurança.
 - Se partilhar um metastore em vários clusters, certifique-se de que todos os clusters são a mesma versão do HDInsight. Diferentes versões de Hive usam esquemas de banco de dados da metastore diferentes. Por exemplo, é possível partilhar um metastore em clusters com a versão 1.2 do Hive e Hive 2.1. 
 

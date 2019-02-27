@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b52e08485c5ce853f9c8eafaafd15f137aef10bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471152"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873458"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação após desastre para uma aplicação de SaaS de multi-inquilino com georreplicação de base de dados
 
@@ -241,7 +241,7 @@ Quando tiver concluído o processo de recuperação, a aplicação e todos os in
     * O _tenants2-dpt -&lt;usuário&gt;-recuperação_ do SQL server.  Este servidor é utilizado para aprovisionar novos inquilinos durante o período de inatividade.
     *   O serviço de aplicações com o nome, _eventos-wingtip-dpt -&lt;recoveryregion&gt;-&lt;utilizador & gt_; que é a instância de recuperação da aplicação de eventos. 
 
-    ![Recursos de recuperação do Azure ](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png)    
+    ![Recursos de recuperação do Azure](media/saas-dbpertenant-dr-geo-replication/resources-in-recovery-region.png) 
     
 4. Abra o _tenants2-dpt -&lt;usuário&gt;-recuperação_ do SQL server.  Observe que contém a base de dados _hawthornhall_ e o conjunto elástico, _Pool1_.  O _hawthornhall_ base de dados é configurada como uma base de dados elástica _Pool1_ conjunto elástico.
 

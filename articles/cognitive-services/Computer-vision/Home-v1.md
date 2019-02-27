@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 35002ccfc294b59a13e6826b4ca75a1ab6c68b62
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 812f957ffe2a3f24ead4ef0fe66a25c3cfd17995
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870304"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866917"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>O que é a Versão 1.0 da API de Imagem Digitalizada?
 
@@ -29,7 +29,7 @@ A API de Imagem Digitalizada baseada na cloud fornece aos programadores acesso a
 * Imagens de etiqueta com base no conteúdo.
 * Categorize imagens.
 * Identifica o tipo e a qualidade das imagens.
-* [Detetar rostos humanos e obter a devolução das respetivas coordenadas. ](#Faces)
+* [Detetar rostos humanos e retornar seus coordenadas.](#Faces)
 * Reconhece conteúdo específico do domínio.
 * Gere descrições do conteúdo.
 * Utilize o reconhecimento ótico de carateres para identificar o texto impresso encontrado nas imagens.

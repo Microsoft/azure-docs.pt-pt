@@ -186,6 +186,8 @@ items:
       href: /dotnet/api/microsoft.azure.servicebus
   - name: Java
     href: /java/api/overview/azure/servicebus
+  - name: Python
+    href: /python/api/overview/azure/servicebus?view=azure-python
   - name: Node.js
     href: /javascript/api/overview/azure/service-bus
   - name: Azure PowerShell
@@ -228,9 +230,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azureservicebus
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 00411282f2d455ded92f3a093b9c0a6d14e6076c
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 9c04ea06e20c1a4efe5dc677d09e4e1f6c896c79
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301439"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870776"

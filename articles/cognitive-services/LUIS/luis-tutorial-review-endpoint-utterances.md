@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: c4b14c62896609be32d0a97f2f373d62982204bf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732828"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878183"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões não sabe por rever as expressões de ponto final
 Neste tutorial, melhore as predições da aplicação ao validar ou corrigir as expressões recebidas através do ponto final de HTTPS que o LUIS não pode assegurar. Algumas expressões podem ter de ser validadas para a intenção e outras podem ter de ser validadas para a entidade. Deve rever as expressões de ponto final como parte regular de uma manutenção agendada do LUIS. 
@@ -68,11 +68,11 @@ Utilize os passos seguintes:
 
 1. Selecione **Rever expressões de ponto final** na navegação à esquerda. A lista está filtrada para a intenção **ApplyForJob**. 
 
-    [ ![Captura de ecrã do botão para Rever expressões de ponto final na navegação à esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
+    [![Botão de expressões de ponto final de captura de ecrã de revisão na navegação esquerda](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 1. Alterne a **Vista de entidades** para ver as entidades identificadas. 
     
-    [ ![Captura de ecrã de Rever expressões de ponto final com o botão para alternar a Vista de entidades realçado](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
+    [![Expressões com ponto final de captura de ecrã de revisão com entidades ver o botão de alternar realçado](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Expressão|Intenção correta|Entidades em falta|
     |:--|:--|:--|
@@ -82,15 +82,15 @@ Utilize os passos seguintes:
 
 1. Para a intenção `I'm looking for a job with Natual Language Processing`, selecione a intenção correta, **GetJobInformation** na coluna **Intenção alinhada**. 
 
-    [ ![Captura de ecrã de Rever expressões de ponto final que alinham a expressão à intenção](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+    [![Expressões com ponto final de captura de ecrã de revisão alinhando expressão em intenção](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
 1. Na mesma expressão, a entidade de `Natural Language Processing` é keyPhrase. Deve ser uma entidade **Tarefa** em vez disso. Selecione `Natural Language Processing` e, em seguida, selecione a entidade **Tarefa** na lista.
 
-    [ ![Captura de ecrã de Rever expressões de ponto final que identificam a entidade na expressão](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+    [![Expressões com ponto final de captura de ecrã de revisão entidade numa expressão de etiquetagem](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
 1. Na mesma linha, selecione a marca de verificação com um círculo à volta na coluna **Adicionar a intenção alinhada**. 
 
-    [ ![Captura de ecrã de finalização do alinhamento de expressão na intenção](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
+    [![Captura de ecrã de finalização alinhamento de expressão na intenção](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     Esta ação move a expressão de **Rever expressões de ponto final** para a intenção **GetJobInformation**. A expressão de ponto final é agora uma expressão de exemplo dessa intenção. 
 
@@ -98,7 +98,7 @@ Utilize os passos seguintes:
 
 1. Quando todas as expressões estiverem corretas, selecione a caixa de verificação em cada linha e, em seguida, selecione **Adicionar seleção** para alinhar as expressões corretamente. 
 
-    [ ![Captura de ecrã de finalização das restantes expressões com a intenção alinhada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
+    [![Captura de ecrã de finalização restantes expressões com alinhados intenção](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
 1. A lista já não deve ter essas expressões. Se surgirem mais expressões, continue a trabalhar na lista ao corrigir as intenções e ao identificar quaisquer entidades em falta, até que a lista esteja vazia. 
 

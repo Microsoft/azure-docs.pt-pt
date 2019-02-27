@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b80a2effb4cdfe45ad3f37785f7e97449d60f00c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bf831936f86de9e43170a87c03b61df9a4865b3d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340149"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878052"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas e ver os dados de conformidade através de programação
 
@@ -95,8 +95,8 @@ Antes de começar, certifique-se de que são cumpridos os seguintes pré-requisi
 
    Substitua _ContosoRG_ com o nome do seu grupo de recursos pretendido.
 
-   O **âmbito** parâmetro no `New-AzPolicyAssignment` também funciona com as subscrições e grupos de gestão. O parâmetro usa um caminho de recurso completo, que o **ResourceId** propriedade no `Get-AzResourceGroup` devolve. O padrão para **âmbito** para cada contentor é da seguinte forma.
-   Substitua `{rName}`, `{rgName}`, `{subId}`, e `{mgName}` com o nome do recurso, grupo de recursos nome, o ID de subscrição e o nome do grupo de gestão, respectivamente. `{rType}` teriam de ser substituídas com o **tipo de recurso** do recurso, tal como `Microsoft.Compute/virtualMachines` para uma VM.
+   O **âmbito** parâmetro no `New-AzPolicyAssignment` funciona com o grupo de gestão, subscrição, grupo de recursos ou um único recurso. O parâmetro usa um caminho de recurso completo, que o **ResourceId** propriedade no `Get-AzResourceGroup` devolve. O padrão para **âmbito** para cada contentor é da seguinte forma. Substitua `{rName}`, `{rgName}`, `{subId}`, e `{mgName}` com o nome do recurso, grupo de recursos nome, o ID de subscrição e o nome do grupo de gestão, respectivamente.
+   `{rType}` teriam de ser substituídas com o **tipo de recurso** do recurso, tal como `Microsoft.Compute/virtualMachines` para uma VM.
 
    - Recursos- `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos- `/subscriptions/{subId}/resourceGroups/{rgName}`

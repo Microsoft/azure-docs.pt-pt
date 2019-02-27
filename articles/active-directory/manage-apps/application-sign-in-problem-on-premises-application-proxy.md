@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5e198dff2dd3cd93455d5cca25428723bf1ce9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5ee322dd3ff6ccd68b09645fb46b1488b17819bb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171983"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871694"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas ao iniciar sessão a uma aplicação no local com o proxy de aplicações do Azure AD
 
@@ -56,7 +56,7 @@ Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais com
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Estou a ter um problema com o conector de agente de Proxy de aplicações
   Os documentos seguintes podem ajudá-lo a resolver alguns dos problemas mais comuns nesta categoria.
-  * [Estou a ter problemas ao instalar o Conector do Agente do Proxy de Aplicações](application-proxy-connector-installation-problem.md)
+  * [Estou a ter problemas de instalar o conector de agente de Proxy de aplicações](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 [How to provide secure remote access to on-premises applications](application-proxy.md) (Como fornecer acesso remoto seguro a aplicações no local)

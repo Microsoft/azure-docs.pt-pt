@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: da686e53f711877642a33806719a0d71050e721b
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: eef1b14f5f25c53877c0d364facfcf9817f508c2
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669385"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56885844"
 ---
 # <a name="manage-azure-vm-backups"></a>Gerir as cópias de segurança de VMs do Azure
 
@@ -58,7 +58,7 @@ Pode gerir cópias de segurança utilizando o dashboard e por desagregação par
 
 
 ## <a name="manage-backup-policies"></a>Gerir políticas de cópia de segurança
-1. Sobre o [dashboard de item do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **todas as definições** .
+1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), clique em **todas as definições** .
 
     ![Painel de política de cópia de segurança](./media/backup-azure-manage-vms/all-settings-button.png)
 2. Na **configurações**, clique em**política de cópia de segurança**e.
@@ -79,7 +79,7 @@ Pode demorar uma demanda cópia de segurança de uma VM, uma vez que é configur
 
 Para acionar uma cópia de segurança a pedido:
 
-1. Sobre o [dashboard de item do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **agora a cópia de segurança**.
+1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), clique em **agora a cópia de segurança**.
 
     ![Cópia de segurança agora botão](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -107,7 +107,7 @@ Tenha em atenção que:
 
 Para parar a proteção para uma máquina virtual:
 
-1. Sobre o [dashboard de item do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **parar cópia de segurança**.
+1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), clique em **parar cópia de segurança**.
 2. Escolha se pretende manter ou eliminar os dados de cópia de segurança e confirmar conforme necessário. Confirme conforme necessário e, opcionalmente, forneça um comentário. Se não tiver a certeza do nome do item, Paire o rato sobre o ponto de exclamação para ver o nome.
 
     ![Parar proteção](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -121,9 +121,9 @@ Se retidos dados de cópia de segurança quando a VM foi parada, pode retomar a 
 
 te
 
-1. Sobre o [dashboard de item do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **retomar cópia de segurança**.
+1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), clique em **retomar cópia de segurança**.
 
-2. Siga os passos em [gerir políticas de cópia de segurança](backup-azure-manage-vms.md#manage-backup-policies) para atribuir a política para a máquina virtual. Pode escolher uma política diferente que a política com a qual máquina virtual foi protegida inicialmente.
+2. Siga os passos em [gerir políticas de cópia de segurança](#manage-backup-policies) para atribuir a política para a máquina virtual. Pode escolher uma política diferente que a política com a qual máquina virtual foi protegida inicialmente.
 3. Depois da política de cópia de segurança é aplicada à máquina virtual, verá a seguinte mensagem.
 
     ![VM protegida com êxito](./media/backup-azure-manage-vms/success-message.png)
@@ -138,7 +138,7 @@ Pode eliminar os dados de cópia de segurança associados a uma VM durante a **p
 Este procedimento pressupõe que a tarefa de cópia de segurança para a VM foi parada ou desabilitada.
 
 
-1. Sobre o [dashboard de item do cofre](backup-azure-manage-vms.md#open-a-vault-item-dashboard), clique em **Eliminar cópia de segurança**.
+1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), clique em **Eliminar cópia de segurança**.
 
     ![Tipo de VM](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

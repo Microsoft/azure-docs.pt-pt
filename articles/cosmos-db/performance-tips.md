@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 67bdabe24e789dc4d1f2020a7a7853eafaa607c3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: fbb7ae2e741ab6f2c5045f412e18cd9ce1d5b812
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429371"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870929"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
@@ -47,7 +47,7 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
 
     |Modo de ligação  |Protocolo suportado  |SDKs suportados  |Porta de serviço/API  |
     |---------|---------|---------|---------|
-    |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
     |Direto    |    HTTPS     |  SDK de .net e Java    |   Portas dentro do intervalo de 10 000 20.000    |
     |Direto    |     TCP    |  .Net SDK    | Portas dentro do intervalo de 10 000 20.000 |
 

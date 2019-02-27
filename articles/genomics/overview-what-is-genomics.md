@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 4b4510a02c4212724f8a592c7318aecab3d06275
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ecd6dd9e8eb6d11161faf6ed3b51f06cf0d3f454
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733266"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868821"
 ---
 # <a name="what-is-microsoft-genomics"></a>O que é o Microsoft Genomics?
 Microsoft Genomics oferece uma implementação de cloud do Burrows-Wheeler Aligner (BWA) e o Kit de ferramentas de análise de Genome (GATK) para análise secundária. O serviço está certificada por ISO e em conformidade com os regulamentos HIPAA e oferece a previsibilidade de preços para as suas necessidades de sequenciação de genomas. Saiba como utilizar o serviço Microsoft Genomics e integrar com a nossa API ao ler os nossos inícios rápidos, tutoriais e documentação.
@@ -33,7 +33,7 @@ O serviço Microsoft Genomics é ISO 27001, ISO 27018 e ISO 9001 certificado e e
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que já leu uma introdução ao Microsoft Genomics, está pronto para:
-- Veja a página de preços para comparações de preços e calculadoras. [Preços](https://azure.microsoft.com/pricing/details/genomics/)
-- Comece a utilizar ao executar o seu primeiro fluxo de trabalho através do serviço Microsoft Genomics. [Executar um fluxo de trabalho através do serviço Microsoft Genomics ](quickstart-run-genomics-workflow-portal.md)
+- Consulte a página de preços para ver as comparações de preços e as calculadoras. [Preços](https://azure.microsoft.com/pricing/details/genomics/)
+- Comece a utilizar ao executar o seu primeiro fluxo de trabalho através do serviço Microsoft Genomics. [Executar um fluxo de trabalho através do serviço Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
 - Submeter os seus dados para processamento pelo serviço Microsoft Genomics: [FASTQ emparelhado](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [múltiplos ficheiros FASTQ ou BAM](quickstart-input-multiple.md) 
 

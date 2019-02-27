@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 87dcf18a2517561e3166726f8f1f1a70c2ec7713
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 9e893354fb8971826d6fa3eb6b565f660305da0a
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447808"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889652"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>O que está a acontecer ao Azure Batch AI?
 
@@ -282,7 +282,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Saiba mais sobre o registo de contas de armazenamento adicional ou obter uma referência a outro arquivo de dados registado no [documentação de serviço do Azure ML](../machine-learning/service/how-to-access-data.md#create-a-datastore).
+Saiba mais sobre o registo de contas de armazenamento adicional ou obter uma referência a outro arquivo de dados registado no [documentação de serviço do Azure ML](../machine-learning/service/how-to-access-data.md#access).
 
 
 #### <a name="downloading-and-uploading-data"></a>Baixando e carregando dados 

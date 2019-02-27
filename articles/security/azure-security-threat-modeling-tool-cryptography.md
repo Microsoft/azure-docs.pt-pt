@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 947740ed28deea9682d10eecf9a66dab7540669e
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54824631"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56880313"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Quadro de segurança: Criptografia | Atenuações 
 | Produtos/serviços | Artigo |
@@ -34,7 +34,7 @@ ms.locfileid: "54824631"
 
 ## <a id="cipher-length"></a>Utilizar apenas as codificações de bloco simétrica aprovados e comprimentos de chave
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -45,7 +45,7 @@ ms.locfileid: "54824631"
 
 ## <a id="vector-ciphers"></a>Uso aprovado modos de codificação de bloco e de vetores de inicialização para cifras simétricas
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -56,7 +56,7 @@ ms.locfileid: "54824631"
 
 ## <a id="padding"></a>Uso aprovado assimétricos algoritmos, comprimentos de chave e preenchimento
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -67,7 +67,7 @@ ms.locfileid: "54824631"
 
 ## <a id="numgen"></a>Uso aprovado geradores de números aleatórios
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -78,7 +78,7 @@ ms.locfileid: "54824631"
 
 ## <a id="stream-ciphers"></a>Não utilize cifras stream simétrica
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -89,7 +89,7 @@ ms.locfileid: "54824631"
 
 ## <a id="mac-hash"></a>Utilize algoritmos de hash MAC/HMAC/codificadas aprovados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -100,7 +100,7 @@ ms.locfileid: "54824631"
 
 ## <a id="hash-functions"></a>Utilizar apenas as funções de hash criptográficos aprovados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -111,7 +111,7 @@ ms.locfileid: "54824631"
 
 ## <a id="strong-db"></a>Utilize algoritmos de criptografia forte para encriptar os dados na base de dados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -122,7 +122,7 @@ ms.locfileid: "54824631"
 
 ## <a id="ssis-signed"></a>Pacotes do SSIS devem ser criptografados e assinados digitalmente
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -133,7 +133,7 @@ ms.locfileid: "54824631"
 
 ## <a id="securables-db"></a>Adicione a assinatura digital para capacidades de segurança de bases de dados fundamentais
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -144,7 +144,7 @@ ms.locfileid: "54824631"
 
 ## <a id="ekm-keys"></a>Utilizar o SQL server EKM para proteger chaves de encriptação
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -155,7 +155,7 @@ ms.locfileid: "54824631"
 
 ## <a id="keys-engine"></a>Utilizar a funcionalidade de AlwaysEncrypted se as chaves de encriptação não devem ser reveladas ao motor de base de dados
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -166,7 +166,7 @@ ms.locfileid: "54824631"
 
 ## <a id="keys-iot"></a>Store chaves criptográficas com segurança no dispositivo de IoT
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -189,7 +189,7 @@ Como pode ser visto, a chave primária do dispositivo não está presente no có
 
 ## <a id="random-hub"></a>Gerar uma chave simétrica aleatória de tamanho suficiente para a autenticação para o IoT Hub
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -200,7 +200,7 @@ Como pode ser visto, a chave primária do dispositivo não está presente no có
 
 ## <a id="pin-remote"></a>Certifique-se de que é uma política de gestão de dispositivos no local que requer uma utilização PIN e permite remoto limpar
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel do Dynamics CRM | 
 | **Fase do SDL**               | Implementação |  
@@ -211,7 +211,7 @@ Como pode ser visto, a chave primária do dispositivo não está presente no có
 
 ## <a id="bitlocker"></a>Certifique-se que uma política de gestão do dispositivo está num local que requer um bloqueio PIN/palavra-passe/automático e encripta todos os dados (por exemplo, o BitLocker)
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente do Dynamics CRM Outlook | 
 | **Fase do SDL**               | Compilação |  
@@ -222,18 +222,18 @@ Como pode ser visto, a chave primária do dispositivo não está presente no có
 
 ## <a id="rolled-server"></a>Certifique-se de que as chaves de assinatura são agregadas ao longo ao utilizar o servidor de identidades
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidades | 
 | **Fase do SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Servidor de identidades - chaves, criptografia e assinaturas ](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **Referências**              | [Servidor de identidades - chaves, criptografia e assinaturas](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Passos** | Certifique-se de que as chaves de assinatura são agregadas ao longo ao utilizar o servidor de identidades. A ligação na seção referências explica como isso deve ser planejado sem causar interrupções para aplicativos da entidade confiadora no servidor de identidades. |
 
 ## <a id="client-server"></a>Certifique-se de que o ID de cliente criptograficamente fortes, segredo do cliente são utilizadas no servidor de identidades
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidades | 
 | **Fase do SDL**               | Compilação |  

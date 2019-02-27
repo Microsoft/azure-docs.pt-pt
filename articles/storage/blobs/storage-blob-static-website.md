@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f42237c1bf5c4782f47254c253d1d40289b65099
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670555"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867746"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de Web site estático no armazenamento do Azure
 Contas de armazenamento GPv2 do Azure permitem-lhe servir conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente a partir de um contentor de armazenamento com o nome *$web*. Tirar partido de hospedagem no armazenamento do Azure permite utilizar arquiteturas sem servidor, incluindo [as funções do Azure](/azure/azure-functions/functions-overview) e outros serviços PaaS.
@@ -51,6 +51,7 @@ O nome de ficheiro predefinido selecionado é utilizado na raiz e todos os subdi
 
 Para tornar sua estático site ficheiros disponível através de HTTPS, consulte [utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md). Como parte deste processo, precisa *apontar o CDN para o ponto final web* em vez do ponto final do blob. Terá de aguardar alguns minutos até que seu conteúdo está visível à medida que a configuração de CDN não é executada imediatamente.
 
+Ao atualizar o seu Web site estático, certifique-se de que limpar o conteúdo em cache em servidores edge CDN ao remover o ponto final da CDN. Para obter mais informações, consulte [Remover um ponto final do Azure CDN](../../cdn/cdn-purge-endpoint.md).
 
 ## <a name="custom-domain-names"></a>Nomes de domínio personalizados
 

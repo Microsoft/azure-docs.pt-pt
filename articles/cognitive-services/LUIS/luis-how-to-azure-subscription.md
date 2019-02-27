@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd05e2dd5b55dd590af24f0757229bead041b6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7c9f3c72d94955286d05cf68dbe698a46df3cdf3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859118"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867036"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>A utilizar chaves de subscrição com a sua aplicação LUIS
 
@@ -65,7 +65,7 @@ Esta chave só deve ser utilizada para consultas de previsão de ponto final. N�
 
 1. Inicie sessão portal do LUIS, escolha uma aplicação para adicionar a nova chave para, em seguida, selecione **Manage** no menu superior direito, em seguida, selecione **chaves e os pontos finais**.
 
-    [ ![Página de chaves e os pontos finais](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
+    [![Página de chaves e os pontos finais](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
 
 1. Para adicionar o LUIS, selecione **atribuir recursos +**.
 

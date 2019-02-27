@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: a3b039b1ea492c44505c427ec171cf7a4a5fad01
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: 16f67f55b752e8602d43066cc1ce503ce9e5c1e2
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062440"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879208"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Criar uma Aplicação Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -70,9 +70,9 @@ Se tiver algum problema ao criar a solução, execute o gestor de pacotes NuGet 
 
 Note que todos os pacotes de suporte referenciados no projeto têm de ter a mesma versão. O [pacote NuGet de Aplicações Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tem dependência `Xamarin.Android.Support.CustomTabs` para a plataforma Android. Portanto, se o seu projeto utilizar os pacotes de suporte mais recentes, precisará de instalar diretamente este pacote com a versão necessária para evitar conflitos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Adicionar Sincronização Offline à sua aplicação](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Adicionar autenticação à aplicação ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Adicionar autenticação à aplicação](app-service-mobile-xamarin-android-get-started-users.md)
 * [Adicionar notificações push à aplicação Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md)
 * [Como utilizar o cliente gerido para Mobile Apps do Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 

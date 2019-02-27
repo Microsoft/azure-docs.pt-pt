@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: be0dd7147e3864befa90434ade86b4032cd45cc3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d451b53868dcd3253aba2a1c3118ddcc140445c3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013190"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882999"
 ---
-# <a name="security-frame-communication-security--mitigations"></a>Quadro de segurança: Segurança de comunicação | Atenuações 
+# <a name="security-frame-communication-security--mitigations"></a>Quadro de segurança: Segurança da comunicação | Atenuações 
 | Produtos/serviços | Artigo |
 | --------------- | ------- |
 | **Hub de eventos do Azure** | <ul><li>[Proteger a comunicação para um Hub de eventos com SSL/TLS](#comm-ssltls)</li></ul> |
@@ -32,15 +32,15 @@ ms.locfileid: "53013190"
 | **Base de Dados** | <ul><li>[Certifique-se o SQL server certificado de encriptação e validação da ligação](#sqlserver-validation)</li><li>[Forçar a comunicação encriptado para o SQL server](#encrypted-sqlserver)</li></ul> |
 | **Armazenamento do Azure** | <ul><li>[Certifique-se de que a comunicação para armazenamento do Azure é através de HTTPS](#comm-storage)</li><li>[Validar o MD5 hash depois de transferir o blob caso não é possível ativar o HTTPS](#md5-https)</li><li>[Utilizar o cliente compatível SMB 3.0 para garantir que a encriptação de dados em trânsito para partilhas de ficheiros do Azure](#smb-shares)</li></ul> |
 | **Cliente móvel** | <ul><li>[Implementar a afixação de certificado](#cert-pinning)</li></ul> |
-| **WCF** | <ul><li>[Ativar o HTTPS - proteger o canal de transporte](#https-transport)</li><li>[WCF: Segurança de mensagem de conjunto de nível de proteção para EncryptAndSign](#message-protection)</li><li>[WCF: Utilizar uma conta com privilégios mínimos para executar seu serviço do WCF](#least-account-wcf)</li></ul> |
+| **WCF** | <ul><li>[Ativar o HTTPS - proteger o canal de transporte](#https-transport)</li><li>[WCF: Definir o nível de proteção de segurança de mensagem para EncryptAndSign](#message-protection)</li><li>[WCF: Utilizar uma conta com privilégios mínimos para executar seu serviço do WCF](#least-account-wcf)</li></ul> |
 | **API Web** | <ul><li>[Forçar todo o tráfego para as APIs da Web através de ligação HTTPS](#webapi-https)</li></ul> |
-| **Cache de Redis do Azure** | <ul><li>[Certifique-se de que a comunicação para a Cache do Azure para o Redis é através de SSL](#redis-ssl)</li></ul> |
+| **Cache do Azure para Redis** | <ul><li>[Certifique-se de que a comunicação para a Cache do Azure para o Redis é através de SSL](#redis-ssl)</li></ul> |
 | **Gateway de campo de IoT** | <ul><li>[Proteger o dispositivo para a comunicação de Gateway de campo](#device-field)</li></ul> |
 | **Gateway de Cloud da IoT** | <ul><li>[Proteger o dispositivo para a comunicação de Gateway de nuvem utilizando o SSL/TLS](#device-cloud)</li></ul> |
 
 ## <a id="comm-ssltls"></a>Proteger a comunicação para um Hub de eventos com SSL/TLS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -51,7 +51,7 @@ ms.locfileid: "53013190"
 
 ## <a id="priv-aspnet"></a>Verifique os privilégios de conta de serviço e verificar que os serviços ou páginas ASP.NET personalizadas respeitam a segurança do CRM
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase do SDL**               | Compilação |  
@@ -62,18 +62,18 @@ ms.locfileid: "53013190"
 
 ## <a id="sqlserver-factory"></a>Utilizar o gateway de gestão de dados ao ligar no local do SQL Server à fábrica de dados do Azure
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure Data Factory | 
 | **Fase do SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Tipos de serviço ligado - do Azure e no local |
-| **Referências**              |[ Mover dados entre no local e o Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [o Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
+| **Referências**              |[Mover dados entre no local e o Azure Data Factory](https://azure.microsoft.com/documentation/articles/data-factory-move-data-between-onprem-and-cloud/#create-gateway), [o Data management gateway](https://azure.microsoft.com/documentation/articles/data-factory-data-management-gateway/) |
 | **Passos** | <p>A ferramenta de Gateway de gestão de dados (DMG) é necessária para ligar a origens de dados que estão protegidas por trás de um firewall ou de rede empresarial.</p><ol><li>Bloquear a máquina isola a ferramenta DMG e impede que os programas com funcionamento incorreto de prejudiciais ou monitorização na máquina de origem de dados. (Por exemplo as atualizações mais recentes tem de estar instaladas, portas de enable mínima necessária, provisionamento de contas de controlado auditoria ativada, encriptação de disco ativada etc.)</li><li>Chave de Gateway de dados deve ser girado em intervalos frequentes ou sempre que a palavra-passe da conta do serviço DMG renova</li><li>Transits de dados através do serviço de ligação tem de estar encriptados</li></ol> |
 
 ## <a id="identity-https"></a>Certifique-se de que todo o tráfego para o servidor de identidades é através de ligação HTTPS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidades | 
 | **Fase do SDL**               | Implementação |  
@@ -84,7 +84,7 @@ ms.locfileid: "53013190"
 
 ## <a id="x509-ssltls"></a>Certifique-se de X.509 certificados utilizados para autenticar as ligações SSL, TLS e DTLS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -95,7 +95,7 @@ ms.locfileid: "53013190"
 
 ## <a id="ssl-appservice"></a>Configurar certificado SSL para o domínio personalizado no App Service do Azure
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -106,7 +106,7 @@ ms.locfileid: "53013190"
 
 ## <a id="appservice-https"></a>Forçar todo o tráfego para o serviço de aplicações do Azure através de ligação HTTPS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -139,7 +139,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="http-hsts"></a>Ativar a segurança de transporte Strict do HTTP (HSTS)
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -150,7 +150,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="sqlserver-validation"></a>Certifique-se o SQL server certificado de encriptação e validação da ligação
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -161,7 +161,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="encrypted-sqlserver"></a>Forçar a comunicação encriptado para o SQL server
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Base de Dados | 
 | **Fase do SDL**               | Compilação |  
@@ -172,7 +172,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="comm-storage"></a>Certifique-se de que a comunicação para armazenamento do Azure é através de HTTPS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Implementação |  
@@ -183,7 +183,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="md5-https"></a>Validar o MD5 hash depois de transferir o blob caso não é possível ativar o HTTPS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
@@ -194,7 +194,7 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="smb-shares"></a>Utilizar o cliente compatível SMB 3.0 para garantir que a encriptação de dados em trânsito para partilhas de ficheiros do Azure
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cliente móvel | 
 | **Fase do SDL**               | Compilação |  
@@ -205,11 +205,11 @@ Esta regra funciona, retornando um código de estado HTTP de 301 (redirecionamen
 
 ## <a id="cert-pinning"></a>Implementar a afixação de certificado
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
 | **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | Genérico, Windows Phone |
+| **Tecnologias aplicáveis** | Generic, Windows Phone |
 | **Atributos**              | N/A  |
 | **Referências**              | [Certificado e da fixação de chave pública](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
 | **Passos** | <p>A afixação de certificado faz a defesa contra ataques Man-In-The-Middle (MITM). Afixar é o processo de associação de um anfitrião com seus esperado X509 certificado ou chave pública. Assim que um certificado ou chave pública é conhecida ou vista para um anfitrião, o certificado ou chave pública é associada ou "fixada" para o anfitrião. </p><p>Assim, quando um adversário tenta fazer de ataque MITM de SSL, durante o handshake SSL a chave do servidor do invasor será diferente da chave do certificado afixado e o pedido será eliminado, evitando assim o certificado de MITM fixação pode ser alcançado ao implementação do ServicePointManager `ServerCertificateValidationCallback` delegar.</p>|
@@ -282,28 +282,28 @@ namespace CertificatePinningExample
 
 ## <a id="https-transport"></a>Ativar o HTTPS - proteger o canal de transporte
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | NET Framework 3 |
 | **Atributos**              | N/A  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reforçamos Unido](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
-| **Passos** | A configuração da aplicação deve certificar-se de que o HTTPS é utilizado para todo o acesso a informações confidenciais.<ul><li>**EXPLICAÇÃO:** se um aplicativo lida com informações confidenciais e não utiliza encriptação de nível de mensagem, em seguida, apenas deve ter permissão para comunicar através de um canal de transporte encriptados.</li><li>**RECOMENDAÇÕES:** Certifique-se de que o transporte HTTP está desativado e ativar o transporte HTTPS em vez disso. Por exemplo, substitua a `<httpTransport/>` com `<httpsTransport/>` marca. Não confie numa configuração de rede (firewall) para garantir que a aplicação só pode ser acedida através de um canal seguro. Do ponto de vista filosófica, o aplicativo não deve depender da rede para sua segurança.</li></ul><p>Do ponto de vista prático, as pessoas responsáveis por proteger a rede não sempre controlar os requisitos de segurança do aplicativo à medida que evoluem.</p>|
+| **Passos** | A configuração da aplicação deve certificar-se de que o HTTPS é utilizado para todo o acesso a informações confidenciais.<ul><li>**EXPLICAÇÃO:** Se um aplicativo lida com informações confidenciais e não utiliza encriptação de nível de mensagem, em seguida, deve apenas ter permissão para comunicar através de um canal de transporte encriptados.</li><li>**RECOMENDAÇÕES:** Certifique-se de que o transporte HTTP está desativado e ativar o transporte HTTPS em vez disso. Por exemplo, substitua a `<httpTransport/>` com `<httpsTransport/>` marca. Não confie numa configuração de rede (firewall) para garantir que a aplicação só pode ser acedida através de um canal seguro. Do ponto de vista filosófica, o aplicativo não deve depender da rede para sua segurança.</li></ul><p>Do ponto de vista prático, as pessoas responsáveis por proteger a rede não sempre controlar os requisitos de segurança do aplicativo à medida que evoluem.</p>|
 
-## <a id="message-protection"></a>WCF: Segurança de mensagem de conjunto de nível de proteção para EncryptAndSign
+## <a id="message-protection"></a>WCF: Definir o nível de proteção de segurança de mensagem para EncryptAndSign
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | .NET framework 3 |
+| **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/A  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Passos** | <ul><li>**EXPLICAÇÃO:** quando a proteção ao nível está definido como "none" ele irá desativar a proteção de mensagem. Confidencialidade e integridade é obtida com o nível apropriado de definição.</li><li>**RECOMENDAÇÕES:**<ul><li>Quando `Mode=None` -desativa a proteção de mensagem</li><li>Quando `Mode=Sign` -sinais, mas não encripta a mensagem; deve ser utilizadas quando a integridade dos dados é importante</li><li>Quando `Mode=EncryptAndSign` -sinais e encripta a mensagem</li></ul></li></ul><p>Considere desativar a encriptação e assinatura só sua mensagem quando só precisa de validar a integridade das informações sem preocupações de confidencialidade. Isso poderá ser útil para operações ou contratos de serviço no qual tem de validar o remetente original, mas não os dados confidenciais são transmitidos. Ao reduzir o nível de proteção, cuidado-se de que a mensagem não contém qualquer informação identificativa (PII).</p>|
+| **Passos** | <ul><li>**EXPLICAÇÃO:** Quando proteção nível é definido como "none" ele irá desativar a proteção de mensagem. Confidencialidade e integridade é obtida com o nível apropriado de definição.</li><li>**RECOMENDAÇÕES:**<ul><li>Quando `Mode=None` -desativa a proteção de mensagem</li><li>Quando `Mode=Sign` -sinais, mas não encripta a mensagem; deve ser utilizadas quando a integridade dos dados é importante</li><li>Quando `Mode=EncryptAndSign` -sinais e encripta a mensagem</li></ul></li></ul><p>Considere desativar a encriptação e assinatura só sua mensagem quando só precisa de validar a integridade das informações sem preocupações de confidencialidade. Isso poderá ser útil para operações ou contratos de serviço no qual tem de validar o remetente original, mas não os dados confidenciais são transmitidos. Ao reduzir o nível de proteção, cuidado-se de que a mensagem não contém qualquer informação identificativa (PII).</p>|
 
 ### <a name="example"></a>Exemplo
-Configurar o serviço e a operação para apenas assinar a mensagem é mostrado nos exemplos a seguir. Exemplo de contrato de serviço de `ProtectionLevel.Sign`: segue-se um exemplo de uso ProtectionLevel.Sign ao nível do contrato de serviço: 
+Configurar o serviço e a operação para apenas assinar a mensagem é mostrado nos exemplos a seguir. Exemplo de contrato de serviço `ProtectionLevel.Sign`: Segue-se um exemplo de uso ProtectionLevel.Sign ao nível do contrato de serviço: 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
 public interface IService 
@@ -313,7 +313,7 @@ public interface IService
 ```
 
 ### <a name="example"></a>Exemplo
-Exemplo de contrato de operação de `ProtectionLevel.Sign` (para um controle Granular): O seguinte é um exemplo de uso `ProtectionLevel.Sign` no nível de OperationContract:
+Exemplo de contrato de operação de `ProtectionLevel.Sign` (para um controle Granular): Segue-se um exemplo de uso `ProtectionLevel.Sign` no nível de OperationContract:
 
 ```
 [OperationContract(ProtectionLevel=ProtectionLevel.Sign] 
@@ -322,18 +322,18 @@ string GetData(int value);
 
 ## <a id="least-account-wcf"></a>WCF: Utilizar uma conta com privilégios mínimos para executar seu serviço do WCF
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
-| **Tecnologias aplicáveis** | .NET framework 3 |
+| **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/A  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
-| **Passos** | <ul><li>**EXPLICAÇÃO:** não executam serviços do WCF administrador ou conta de alto privilégio. em caso de comprometimento de serviços irá resultar num alto impacto.</li><li>**RECOMENDAÇÕES:** utilizar uma conta com privilégios mínimos para hospedar seu serviço WCF, porque irá reduzir a superfície de ataque do seu aplicativo e reduzir o estrago em potencial se estão a ser atacado. Se a conta de serviço requer direitos de acesso adicionais nos recursos de infraestrutura, como o MSMQ, o registo de eventos, contadores de desempenho e o sistema de ficheiros, as permissões adequadas devem receber a estes recursos para que o serviço WCF pode ser executado com êxito.</li></ul><p>Se o seu serviço tem de aceder a recursos específicos em nome do chamador original, utilize a representação e delegação fluir a identidade do chamador para uma verificação de autorização de downstream. Num cenário de desenvolvimento, utilize a conta de serviço de rede local, o que é uma conta incorporada especial que tem privilégios limitados. Num cenário de produção, crie uma conta de serviço de domínio personalizado de com privilégios mínimos.</p>|
+| **Passos** | <ul><li>**EXPLICAÇÃO:** Não execute os serviços WCF administrador ou conta de alto privilégio. em caso de comprometimento de serviços irá resultar num alto impacto.</li><li>**RECOMENDAÇÕES:** Utilize uma conta com privilégios mínimos para hospedar seu serviço WCF, porque irá reduzir a superfície de ataque do seu aplicativo e reduzir o estrago em potencial se estão a ser atacado. Se a conta de serviço requer direitos de acesso adicionais nos recursos de infraestrutura, como o MSMQ, o registo de eventos, contadores de desempenho e o sistema de ficheiros, as permissões adequadas devem receber a estes recursos para que o serviço WCF pode ser executado com êxito.</li></ul><p>Se o seu serviço tem de aceder a recursos específicos em nome do chamador original, utilize a representação e delegação fluir a identidade do chamador para uma verificação de autorização de downstream. Num cenário de desenvolvimento, utilize a conta de serviço de rede local, o que é uma conta incorporada especial que tem privilégios limitados. Num cenário de produção, crie uma conta de serviço de domínio personalizado de com privilégios mínimos.</p>|
 
 ## <a id="webapi-https"></a>Forçar todo o tráfego para as APIs da Web através de ligação HTTPS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -374,7 +374,7 @@ public class ValuesController : ApiController
  
 ## <a id="redis-ssl"></a>Certifique-se de que a comunicação para a Cache do Azure para o Redis é através de SSL
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Cache do Azure para Redis | 
 | **Fase do SDL**               | Compilação |  
@@ -387,7 +387,7 @@ Tenha em atenção que o Redis é projetado para ser acessado por clientes fided
 
 ## <a id="device-field"></a>Proteger o dispositivo para a comunicação de Gateway de campo
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
 | **Fase do SDL**               | Compilação |  
@@ -398,7 +398,7 @@ Tenha em atenção que o Redis é projetado para ser acessado por clientes fided
 
 ## <a id="device-cloud"></a>Proteger o dispositivo para a comunicação de Gateway de nuvem utilizando o SSL/TLS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT | 
 | **Fase do SDL**               | Compilação |  

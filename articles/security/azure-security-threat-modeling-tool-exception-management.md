@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: ce748be7f11d440e656e4af5cdd3cee3bbc9e313
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 68bffaeef0451dae3a3b9707049dd2e44ad311fd
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302154"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56865880"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de segurança: Gestão de exceções | Atenuações 
 | Produtos/serviços | Artigo |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF - não inclua serviceDebug nó no ficheiro de configuração](#servicedebug)</li><li>[WCF - não inclua serviceMetadata nó no ficheiro de configuração](#servicemetadata)</li></ul> |
-| **API Web** | <ul><li>[Certifique-se de que a manipulação de exceção adequada é feita na ASP.NET Web API ](#exception)</li></ul> |
-| **Aplicação Web** | <ul><li>[Não expõem detalhes de segurança em mensagens de erro ](#messages)</li><li>[Implementar a página de processamento de erros de predefinição ](#default)</li><li>[Definir o método de implementação de revenda no IIS](#deployment)</li><li>[Exceções devem falhar com segurança](#fail)</li></ul> |
+| **API Web** | <ul><li>[Certifique-se de que a manipulação de exceção adequada é feita na ASP.NET Web API](#exception)</li></ul> |
+| **Aplicação Web** | <ul><li>[Não expõem detalhes de segurança em mensagens de erro](#messages)</li><li>[Implementar a página de processamento de erros de predefinição](#default)</li><li>[Definir o método de implementação de revenda no IIS](#deployment)</li><li>[Exceções devem falhar com segurança](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF - não inclua serviceDebug nó no ficheiro de configuração
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -54,7 +54,7 @@ Desative as informações de depuração no serviço. Pode fazê-lo ao remover o
 
 ## <a id="servicemetadata"></a>WCF - não inclua serviceMetadata nó no ficheiro de configuração
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase do SDL**               | Compilação |  
@@ -65,7 +65,7 @@ Desative as informações de depuração no serviço. Pode fazê-lo ao remover o
 
 ## <a id="exception"></a>Certifique-se de que a manipulação de exceção adequada é feita na ASP.NET Web API
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase do SDL**               | Compilação |  
@@ -183,7 +183,7 @@ Verifique os links na seção referências para obter mais detalhes sobre a mani
 
 ## <a id="messages"></a>Não expõem detalhes de segurança em mensagens de erro
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
@@ -194,18 +194,18 @@ Verifique os links na seção referências para obter mais detalhes sobre a mani
 
 ## <a id="default"></a>Implementar a página de processamento de erros de predefinição
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Editar caixa de diálogo de definições de páginas de erro do ASP.NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Passos** | <p>Quando ocorre uma falha de um aplicativo ASP.NET e faz com que um erro de servidor interno do HTTP/1.x 500, ou uma configuração de funcionalidades (como a filtragem de pedidos) impede que uma página que está a ser exibido, será gerada uma mensagem de erro. Os administradores podem escolher se é ou não o aplicativo exibirá uma mensagem amigável para o cliente, a mensagem de erro detalhada para o cliente ou a mensagem de erro detalhada para localhost apenas. O <customErrors> etiqueta na Web. config tem três modos:</p><ul><li>**Diante:** Especifica que os erros personalizados estão ativados. Se não for especificado nenhum atributo defaultRedirect, os utilizadores veem um erro genérico. Os erros personalizados são exibidos para os clientes remotos e para o anfitrião local</li><li>**Desativar:** Especifica que erros personalizados estão desativados. Os erros detalhados do ASP.NET são mostrados para os clientes remotos e para o anfitrião local</li><li>**RemoteOnly:** Especifica que erros personalizados são apresentados apenas para os clientes remotos e que os erros do ASP.NET são apresentados ao anfitrião local. Este é o valor predefinido</li></ul><p>Abra o `web.config` de ficheiros para a aplicação/site e certifique-se de que a etiqueta tem `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />` definido.</p>|
+| **Passos** | <p>Quando ocorre uma falha de um aplicativo ASP.NET e faz com que um erro de servidor interno do HTTP/1.x 500, ou uma configuração de funcionalidades (como a filtragem de pedidos) impede que uma página que está a ser exibido, será gerada uma mensagem de erro. Os administradores podem escolher se é ou não o aplicativo exibirá uma mensagem amigável para o cliente, a mensagem de erro detalhada para o cliente ou a mensagem de erro detalhada para localhost apenas. O <customErrors> etiqueta na Web. config tem três modos:</p><ul><li>**On:** Especifica que os erros personalizados estão ativados. Se não for especificado nenhum atributo defaultRedirect, os utilizadores veem um erro genérico. Os erros personalizados são exibidos para os clientes remotos e para o anfitrião local</li><li>**Off:** Especifica que os erros personalizados estão desativados. Os erros detalhados do ASP.NET são mostrados para os clientes remotos e para o anfitrião local</li><li>**RemoteOnly:** Especifica que erros personalizados são apresentados apenas para os clientes remotos e que os erros do ASP.NET são apresentados ao anfitrião local. Este é o valor predefinido</li></ul><p>Abra o `web.config` de ficheiros para a aplicação/site e certifique-se de que a etiqueta tem `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />` definido.</p>|
 
 ## <a id="deployment"></a>Definir o método de implementação de revenda no IIS
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Implementação |  
@@ -216,7 +216,7 @@ Verifique os links na seção referências para obter mais detalhes sobre a mani
 
 ## <a id="fail"></a>Exceções devem falhar com segurança
 
-| Cargo                   | Detalhes      |
+| Título                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
 | **Fase do SDL**               | Compilação |  
