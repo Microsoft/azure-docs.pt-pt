@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: c2151be1644cde0e737be7f026bdf63cef0b3686
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221968"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56879786"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurar a recuperação após desastre para uma aplicação com várias camadas do Dynamics AX   
 
@@ -92,7 +92,7 @@ Pode selecionar a VM nos itens replicados para configurar as definições de red
 
 * Se estiver a utilizar um IP estático, especifique o IP que pretende que a VM para tirar o **IP de destino** caixa de texto.
 
-    ![Definições de rede ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
+    ![Definições de rede](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. Criar um plano de recuperação

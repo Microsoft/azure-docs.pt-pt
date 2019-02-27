@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e1df3fd721461d2a7ca2dd9f4bdd9c783c55b35c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: a2959e6caefb09a22be4473f7da005c6f524aba0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594394"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878358"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
 
@@ -40,7 +40,7 @@ As suas aplicações e serviços podem emitir chamadas diretas de API REST ou ut
 | API | Referência da API | Transferência | Tutorial | Exemplos de código | Mais Informações |
 | --- | --- | --- | --- | --- | --- |
 | **REST do Batch** |[docs.microsoft.com][batch_rest] |N/A |- |- | [Versões Suportadas](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **.NET do Batch** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Notas de Versão](https://aka.ms/batch-net-dataplane-changelog) |
+| **.NET do Batch** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Tutorial](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Notas de Versão](https://aka.ms/batch-net-dataplane-changelog) |
 | **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[Tutorial](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [Leia-me](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[Tutorial](batch-nodejs-get-started.md) |- | [Leia-me](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[Leia-me][api_sample_java] | [Leia-me](https://github.com/Azure/azure-batch-sdk-for-java)|
@@ -52,7 +52,7 @@ As APIs do Azure Resource Manager para o Batch concedem acesso programático às
 | API | Referência da API | Transferência | Tutorial | Exemplos de código |
 | --- | --- | --- | --- | --- |
 | **REST de Gestão de Lotes** |[docs.microsoft.com][api_rest_mgmt] |N/A |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **Gestão de Batch .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [Tutorial](batch-management-dotnet.md) |[GitHub][api_sample_net] |
+| **Gestão de Batch .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Tutorial](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 | **Python de Gestão de Lotes** |[docs.microsoft.com][api_python_mgmt] |[PyPI][api_python_mgmt_pypi] |- |- |
 | **Node.js de Gestão de Lotes** |[docs.microsoft.com][api_nodejs_mgmt] |[npm][api_nodejs_mgmt_npm] |- |- | 
 | **Java de Gestão de Lotes** |- |[Maven][api_java_mgmt_jar] |- |- |

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: ronmat
 ms.manager: shaik
-ms.openlocfilehash: 8b2ca2d5d6418d68cab847df80fc437e468249ed
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 00de38aa7309179b92ff65f009f8aa780f60c284
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995653"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883696"
 ---
 # <a name="azure-storage-advanced-threat-protection"></a>Proteção avançada contra ameaças de armazenamento do Azure
 
@@ -59,21 +59,21 @@ Pode rever e gerir os alertas de segurança atual a partir do Centro de seguran�
 
 Os alertas são gerados pelas tentativas invulgares e potencialmente prejudiciais de aceder ou explorar as contas de armazenamento. Esses eventos podem disparar os seguintes alertas:
 
-* **Acesso a partir de uma localização invulgar**: este alerta é acionado quando ocorre uma alteração no padrão de acesso a uma conta de armazenamento. Por exemplo, quando alguém acedeu uma conta de armazenamento de uma localização geográfica invulgar. Em alguns casos, o alerta Deteta uma ação legítima (uma nova aplicação ou operação de manutenção do desenvolvedor). Em outros casos, o alerta Deteta uma ação maliciosa (ex-funcionário, atacante externo, etc.).
+* **Acesso a partir de uma localização invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso a uma conta de armazenamento. Por exemplo, quando alguém acedeu uma conta de armazenamento de uma localização geográfica invulgar. Em alguns casos, o alerta Deteta uma ação legítima (uma nova aplicação ou operação de manutenção do desenvolvedor). Em outros casos, o alerta Deteta uma ação maliciosa (ex-funcionário, atacante externo, etc.).
 
-* **Extração de dados incomuns**: este alerta é acionado quando ocorre uma alteração no padrão de extração de dados de uma conta de armazenamento. Por exemplo, se alguém acedeu uma quantidade invulgar de dados numa conta de armazenamento. Em alguns casos, o alerta Deteta uma ação legítima (atividade de manutenção). Em outros casos, o alerta Deteta uma ação maliciosa (filtragem/violação de dados, não autorizada de transferência de dados).
+* **Extração de dados incomuns**: Este alerta é acionado quando ocorre uma alteração no padrão de extração de dados de uma conta de armazenamento. Por exemplo, se alguém acedeu uma quantidade invulgar de dados numa conta de armazenamento. Em alguns casos, o alerta Deteta uma ação legítima (atividade de manutenção). Em outros casos, o alerta Deteta uma ação maliciosa (filtragem/violação de dados, não autorizada de transferência de dados).
 
-* **Acesso invulgar a anónimo:** este alerta é acionado quando ocorre uma alteração no padrão de acesso a uma conta de armazenamento. Por exemplo, suponha que alguém tenha acedido anonimamente a uma conta de armazenamento. Em alguns casos, o alerta Deteta um acesso legítimo com acesso de leitura público. Em outros casos, o alerta Deteta o acesso não autorizado que explore o acesso de leitura público para um contentor e respetivos blobs.
+* **Acesso invulgar a anónimo:** Este alerta é acionado quando ocorre uma alteração no padrão de acesso a uma conta de armazenamento. Por exemplo, suponha que alguém tenha acedido anonimamente a uma conta de armazenamento. Em alguns casos, o alerta Deteta um acesso legítimo com acesso de leitura público. Em outros casos, o alerta Deteta o acesso não autorizado que explore o acesso de leitura público para um contentor e respetivos blobs.
 
-* **Eliminar inesperado:** este alerta é acionado quando uma ou mais operações de eliminação inesperado ocorrem numa conta de armazenamento, com base na análise de histórico da conta de armazenamento. Por exemplo, suponha que alguém efetuar uma *DeleteBlob* operação usando uma nova aplicação e para um novo endereço IP. Em alguns casos, o alerta Deteta uma ação legítima (o administrador utilizado um browser diferente numa viagem de negócios). Em outros casos, o alerta Deteta uma ação maliciosa (um atacante a eliminação de dados). 
+* **Eliminar inesperado:** Este alerta é acionado quando uma ou mais operações de eliminação inesperado ocorrem numa conta de armazenamento, com base na análise de histórico da conta de armazenamento. Por exemplo, suponha que alguém efetuar uma *DeleteBlob* operação usando uma nova aplicação e para um novo endereço IP. Em alguns casos, o alerta Deteta uma ação legítima (o administrador utilizado um browser diferente numa viagem de negócios). Em outros casos, o alerta Deteta uma ação maliciosa (um atacante a eliminação de dados). 
  
-* **Alteração de permissão de acesso:** este alerta é acionado quando ocorre uma alteração inesperada de permissão de acesso a uma conta de armazenamento. Por exemplo, suponha que alguém altera a permissão de acesso de uma conta de armazenamento com uma nova aplicação e para um novo endereço IP. Em alguns casos, o alerta Deteta uma ação legítima (o administrador utilizado um browser diferente numa viagem de negócios). Em outros casos, o alerta Deteta uma ação maliciosa (por exemplo, um invasor aumentar os privilégios de uma conta que tenham obtido acesso ao). 
+* **Alteração de permissão de acesso:** Este alerta é acionado quando ocorre uma alteração inesperada de permissão de acesso a uma conta de armazenamento. Por exemplo, suponha que alguém altera a permissão de acesso de uma conta de armazenamento com uma nova aplicação e para um novo endereço IP. Em alguns casos, o alerta Deteta uma ação legítima (o administrador utilizado um browser diferente numa viagem de negócios). Em outros casos, o alerta Deteta uma ação maliciosa (por exemplo, um invasor aumentar os privilégios de uma conta que tenham obtido acesso ao). 
 
-* **Carregar o pacote de serviço Cloud do Azure:** este alerta é acionado quando existe um carregamento inesperado de um pacote de serviço Cloud do Azure (*cspkg* ficheiro) para uma conta de armazenamento. Por exemplo, suponha que um *cspkg* ficheiro foi carregado a partir de um novo endereço IP. Em alguns casos, o alerta Deteta uma ação legítima. Em outros casos, o alerta Deteta uma ação maliciosa (por exemplo, um serviço em nuvem pacote foi carregado na preparação de uma implantação de um serviço mal-intencionado).    
+* **Carregar o pacote de serviço Cloud do Azure:** Este alerta é acionado quando existe um carregamento inesperado de um pacote de serviço Cloud do Azure (*cspkg* ficheiro) para uma conta de armazenamento. Por exemplo, suponha que um *cspkg* ficheiro foi carregado a partir de um novo endereço IP. Em alguns casos, o alerta Deteta uma ação legítima. Em outros casos, o alerta Deteta uma ação maliciosa (por exemplo, um serviço em nuvem pacote foi carregado na preparação de uma implantação de um serviço mal-intencionado).    
    
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [registos nas contas de armazenamento do Azure ](/rest/api/storageservices/About-Storage-Analytics-Logging)
+* Saiba mais sobre [registos nas contas de armazenamento do Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
 
 * Saiba mais sobre [Centro de segurança do Azure](../../security-center/security-center-intro.md)

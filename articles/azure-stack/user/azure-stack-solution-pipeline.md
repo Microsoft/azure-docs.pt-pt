@@ -15,12 +15,12 @@ ms.date: 02/19/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: bfbafea13f49ada59dae88e0336f926a8ad89d36
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: deaf7defe5aca4f53df073b19e471a52bd7b8a5d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430255"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878749"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementar aplicações no Azure e no Azure Stack
 
@@ -335,7 +335,7 @@ Nesta parte do tutorial, irá:
 > [!Note]
  > O seu ambiente do Azure Stack tem as imagens corretas distribuídas para executar o Windows Server e SQL Server. Também tem de ter implementado o serviço de aplicações. Reveja a documentação do serviço de aplicações secção "Pré-requisitos" para os requisitos de operador do Azure Stack.
 
-Pode aplicar híbrida CI/CD de código do aplicativo e o código de infraestrutura. Uso [modelos do Azure Resource Manager, como web ](https://azure.microsoft.com/resources/templates/) código da aplicação dos serviços de DevOps do Azure para implementar em ambas as nuvens.
+Pode aplicar híbrida CI/CD de código do aplicativo e o código de infraestrutura. Uso [modelos do Azure Resource Manager, como web](https://azure.microsoft.com/resources/templates/) código da aplicação dos serviços de DevOps do Azure para implementar em ambas as nuvens.
 
 ### <a name="add-code-to-an-azure-devops-services-project"></a>Adicione o código para um projeto de serviços do Azure DevOps
 

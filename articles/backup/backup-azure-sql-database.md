@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: dc92c806a67869e1cc894a8ee9f4d287b5b3b1f2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670235"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887816"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure 
 
@@ -68,9 +68,9 @@ Revisão [perguntas mais frequentes sobre](faq-backup-sql-server.md) sobre como 
 Antes de fazer cópias de segurança da base de dados do SQL Server, verifique as seguintes condições:
 
 1. Identificar ou [criar](backup-azure-sql-database.md#create-a-recovery-services-vault) um cofre de serviços de recuperação na mesma região ou região do que a VM que aloja a instância do SQL Server. V
-2. [Verifique as permissões de VM](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) necessários para fazer backup de bancos de dados SQL.
+2. [Verifique as permissões de VM](#fix-sql-sysadmin-permissions) necessários para fazer backup de bancos de dados SQL.
 3. Certifique-se de que a VM tem [conectividade de rede](backup-azure-sql-database.md#establish-network-connectivity).
-4. Verifique se as bases de dados do SQL Server são nomeados de acordo com [diretrizes de nomenclatura](backup-azure-sql-database.md#sql-database-naming-guidelines-for-azure-backup) para cópia de segurança do Azure.
+4. Verifique se as bases de dados do SQL Server são nomeados de acordo com [diretrizes de nomenclatura](backup-azure-sql-database.md) para cópia de segurança do Azure.
 5. Certifique-se de que não tem quaisquer outras soluções de cópia de segurança ativadas para a base de dados. Desative todos os outros backups do SQL Server antes de configurar este cenário. Pode ativar a cópia de segurança do Azure para uma VM do Azure, juntamente com a cópia de segurança do Azure para uma base de dados do SQL Server em execução na VM sem quaisquer conflitos.
 
 

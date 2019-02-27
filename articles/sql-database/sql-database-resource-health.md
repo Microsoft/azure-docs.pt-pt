@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 02/26/2019
+ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039100"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889380"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Utilizar o Resource Health para resolver problemas de conectividade para a base de dados do Azure SQL
 
@@ -53,9 +53,9 @@ Estado **indisponível** significa que o estado de funcionamento do recurso dete
 
 ### <a name="unknown"></a>Desconhecidos
 
-O estado de funcionamento das **desconhecido** indica que o estado de funcionamento do recurso não recebe informações sobre este recurso para mais de 10 minutos. Embora este estado não é uma indicação definitiva do Estado do recurso, é um ponto de dados importantes no processo de resolução de problemas.
-Se o recurso está em execução conforme esperado, o estado do recurso mudará para disponível após alguns minutos.
-Se estiver a ter problemas com o recurso, o estado de funcionamento desconhecido pode sugerir que um evento na plataforma está a afetar o recurso.
+O estado de funcionamento das **desconhecido** indica que o estado de funcionamento do recurso não recebe informações sobre este recurso para mais de 10 minutos. Embora este estado não é uma indicação definitiva do Estado do recurso, é um ponto de dados importantes no processo de resolução de problemas. Se o recurso está em execução conforme esperado, o estado do recurso mudará para disponível após alguns minutos. Se estiver a ter problemas com o recurso, o estado de funcionamento desconhecido pode sugerir que um evento na plataforma está a afetar o recurso.
+
+![Desconhecidos](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Informações do histórico
 

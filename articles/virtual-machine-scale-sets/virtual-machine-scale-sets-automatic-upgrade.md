@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/25/2019
 ms.author: manayar
-ms.openlocfilehash: 757ff087b7bb12528779f0477aadb629ea94c73e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 55eb81fd969e18ea25dd4194a532747ef5b7d4ca
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566108"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871745"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas da imagem de SO do conjunto de dimensionamento de máquina virtual do Azure
 
@@ -65,6 +65,9 @@ Os SKUs seguintes são atualmente suportados (e mais são adicionadas periodicam
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>Requisitos para configurar a atualização automática de imagem do SO

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: b52bdd5948676c09c433cbda249248ce26ce8a48
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223787"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866033"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar o mapeamento da rede e endereçamento de IP para redes virtuais
 
@@ -32,7 +32,7 @@ Mapear as redes da seguinte forma:
 
 3. Na **adicionar mapeamento da rede**, selecione a origem e as localizações de destino. No nosso exemplo, a origem de VM está em execução na região Ásia Oriental e replica para a região do Sudeste asiático.
 
-    ![Selecione a origem e destino ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Selecione a origem e destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. Agora, crie um mapeamento de rede no diretório oposto. No nosso exemplo, a origem será agora Sudeste asiático e o destino será Ásia Oriental.
 
     ![Adicionar o painel de mapeamento de rede - Selecione as localizações de origem e destino para a rede de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)

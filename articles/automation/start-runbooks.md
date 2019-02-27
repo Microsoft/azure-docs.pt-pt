@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fd2feb8bbd54e7aefab357b0b2ba4209aa29e09
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418642"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886626"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Iniciar um runbook na automatização do Azure
 
@@ -22,7 +22,7 @@ A tabela seguinte ajuda-o a determinar o método para iniciar um runbook na auto
 
 | **Método** | **Características** |
 | --- | --- |
-| [Portal do Azure](#starting-a-runbook-with-the-azure-portal) |<li>Método mais simples com a interface de utilizador interativa.<br> <li>Formulário para fornecer valores de parâmetros simples.<br> <li>Controle facilmente o estado da tarefa.<br> <li>Acesso autenticado com o início de sessão do Azure no. |
+| [Portal do Azure](#start-a-runbook-with-the-azure-portal) |<li>Método mais simples com a interface de utilizador interativa.<br> <li>Formulário para fornecer valores de parâmetros simples.<br> <li>Controle facilmente o estado da tarefa.<br> <li>Acesso autenticado com o início de sessão do Azure no. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Chamar a partir da linha de comandos com cmdlets do Windows PowerShell.<br> <li>Pode ser incluído numa solução automatizada com vários passos.<br> <li>Pedido é autenticado com o certificado ou o utilizador OAuth principal / serviço principal.<br> <li>Forneça os valores de parâmetro simples e complexas.<br> <li>Controlar o estado da tarefa.<br> <li>Cliente necessário para suportar os cmdlets do PowerShell. |
 | [API de automatização do Azure](/rest/api/automation/) |<li>Método mais flexível, mas também mais complexa.<br> <li>Chamar a partir de qualquer código personalizado que possa fazer pedidos HTTP.<br> <li>Solicitação autenticada com o certificado ou o utilizador Oauth principal / serviço principal.<br> <li>Forneça os valores de parâmetro simples e complexas. *Se estiver a chamar um runbook de Python com a API, o payload JSON deve ser serializado.*<br> <li>Controlar o estado da tarefa. |
 | [Webhooks](automation-webhooks.md) |<li>Inicie o runbook a partir de único pedido HTTP.<br> <li>Autenticar com o token de segurança no URL.<br> <li>Cliente não pode substituir os valores de parâmetros especificados durante a criação do webhook. Runbook pode definir o único parâmetro que é preenchido com os detalhes de pedido HTTP.<br> <li>Sem capacidade de controlar o estado da tarefa por meio do URL do webhook. |

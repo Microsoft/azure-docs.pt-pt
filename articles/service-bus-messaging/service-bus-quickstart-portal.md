@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e8eb6239de73b0095a912ad6baca7c090872755
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: fa6d2b7d1fbd99e482cc013720c39b4b150f6742
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585445"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889550"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início rápido: Utilizar o portal do Azure para criar uma fila do Service Bus
 O Microsoft Azure Service Bus é um mediador de mensagens de integração empresarial que fornece mensagens seguras e fiabilidade absoluta. Um cenário típico do Service Bus, normalmente, envolve desacoplamento de duas ou mais aplicações, serviços ou processos entre si e transferência de alterações de estado ou de dados. Tais cenários poderão envolver agendamento de várias tarefas de lote noutras aplicações ou serviços ou acionamento de cumprimento de pedidos. Por exemplo, uma empresa de revenda poderá enviar os dados do seu ponto de venda para um escritório ou centro de distribuição regional para atualização de reabastecimento e de inventário. Neste cenário, a aplicação cliente envia e recebe mensagens numa fila do Service Bus.  
@@ -49,7 +49,7 @@ Para executar o código, faça o seguinte:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 3. Navegue para a pasta `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart` de exemplo.
-4. Copie o nome da fila e a cadeia de ligação que obteve na secção [Obter credenciais de gestão](#obtain-the-management-credentials).
+4. Copie a cadeia de ligação e a secção de credenciais de nome de fila que obteve a obter o gerenciamento.
 5.  Na linha de comandos, escreva o seguinte comando:
 
     ```

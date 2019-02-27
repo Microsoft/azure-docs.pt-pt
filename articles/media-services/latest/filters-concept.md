@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18e629571a45046e5cf54996cd38b425c999ee36
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737642"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889363"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definir filtros de conta e filtros de elemento  
 
@@ -38,9 +38,9 @@ A tabela seguinte mostra alguns exemplos de URLs com filtros:
 
 |Protocolo|Exemplo|
 |---|---|
-|HLS|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Para HLS v3, utilize: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Transmissão em Fluxo Uniforme|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Para HLS v3, utilize: `format=m3u8-aapl-v3`.|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Transmissão em Fluxo Uniforme|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="define-filters"></a>Definir filtros
 
@@ -71,7 +71,7 @@ Use essa propriedade com o **Asset filtros**. Não é recomendado para definir a
 |**forceEndTimestamp**|Aplica-se a transmissão em direto apenas.<br/>Indica se a propriedade endTimestamp tem de estar presente. Se for VERDADEIRO, endTimestamp tem de ser especificado ou é devolvido um código de pedido incorreto.<br/>Valores permitidos: false, true.|
 |**liveBackoffDuration**|Aplica-se a transmissão em direto apenas.<br/> Este valor define a mais recente em direto posição que um cliente pode procuram.<br/>Utilizar esta propriedade, pode atrasar a posição de reprodução em direto e criar uma memória intermédia do lado do servidor para jogadores.<br/>A unidade para esta propriedade é escala temporal (ver abaixo).<br/>O máximo em direto do término duração é de 300 segundos (3000000000).<br/>Por exemplo, um valor de 2000000000 significa que o conteúdo mais recente disponível é 20 segundos atrasados da borda real em direto.|
 |**presentationWindowDuration**|Aplica-se a transmissão em direto apenas.<br/>Utilize presentationWindowDuration para aplicar uma janela deslizante de fragmentos para incluir numa lista de reprodução.<br/>A unidade para esta propriedade é escala temporal (ver abaixo).<br/>Por exemplo, definir presentationWindowDuration = 1200000000 para aplicar uma janela deslizante de dois minutos. Suporte de dados em dois minutos de borda em direto serão incluídos na playlist. Se um fragmento faz a ponte do limite, o fragmento todo será incluído na playlist. Duração da janela de apresentação mínimo é de 60 segundos.|
-|**startTimestamp**|Aplica-se para vídeo a pedido (VoD) ou transmissão em direto.<br/>Este é um valor longo que representa um ponto de início absoluto da transmissão em fluxo. O valor é arredondado para o próximo início de GOP mais próximo. A unidade é a escala temporal, portanto, um startTimestamp de 150000000 seria para 15 segundos.<br/>Utilize startTimestamp e endTimestampp para cortar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 usando a escala temporal padrão irá gerar uma lista de reprodução que contém fragmentos from between 4 segundos e 10 segundos da apresentação VoD. Se um fragmento faz a ponte do limite, o fragmento todo será incluído no manifesto|
+|**startTimestamp**|Aplica-se para vídeo a pedido (VoD) ou transmissão em direto.<br/>Este é um valor longo que representa um ponto de início absoluto da transmissão em fluxo. O valor é arredondado para o próximo início de GOP mais próximo. A unidade é a escala temporal, portanto, um startTimestamp de 150000000 seria para 15 segundos.<br/>Utilize startTimestamp e endTimestampp para cortar os fragmentos que estarão na lista de reprodução (manifesto).<br/>Por exemplo, startTimestamp = 40000000 e endTimestamp = 100000000 usando a escala temporal padrão irá gerar uma lista de reprodução que contém fragmentos from between 4 segundos e 10 segundos da apresentação VoD. Se um fragmento faz a ponte do limite, o fragmento todo será incluído no manifesto.|
 |**timescale**|Aplica-se a todos os carimbos e durações num intervalo de tempo de apresentação, especificado como o número de incrementos num segundo.<br/>A predefinição é incrementos 10000000 - dez milhões num segundo, onde cada incremento seriam longos de 100 nanossegundos.<br/>Por exemplo, se quiser definir um startTimestamp em 30 segundos, usaria um valor de 300000000 ao utilizar a escala temporal padrão.|
 
 ### <a name="tracks"></a>roteiros
@@ -83,7 +83,7 @@ Condições de propriedade de controle de filtro descrevem os tipos de controlo,
 |Name|Descrição|
 |---|---|
 |**Velocidade de transmissão**|Utilize a velocidade de transmissão da faixa para filtragem.<br/><br/>O valor recomendado é um intervalo de velocidades de transmissão em bits por segundo. Por exemplo, "0-2427000".<br/><br/>Nota: Embora seja possível usar um valor de velocidade de transmissão específica, como 250000 (bits por segundo), essa abordagem não é recomendada, como as velocidades de transmissão exatas podem variar de um recurso para outro.|
-|**FourCC**|Utilize o valor de FourCC da faixa de filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado nas [RFC 6381](https://tools.ietf.org/html/rfc6381). Atualmente, são suportados os codecs seguintes: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", da "ec-3"<br/><br/>Para determinar os valores de FourCC roteiros num elemento [obter e examinar o arquivo de manifesto](#get-and-examine-manifest-files).|
+|**FourCC**|Utilize o valor de FourCC da faixa de filtragem.<br/><br/>O valor é o primeiro elemento do formato de codecs, conforme especificado nas [RFC 6381](https://tools.ietf.org/html/rfc6381). Atualmente, são suportados os codecs seguintes: <br/>Vídeo: "Avc1", "hev1", "hvc1"<br/>Para áudio: "Mp4a", da "ec-3"<br/><br/>Para determinar os valores de FourCC roteiros num elemento, obter e examinar o arquivo de manifesto.|
 |**Language** (Idioma)|Utilize a linguagem da faixa para filtragem.<br/><br/>O valor é a marca de um idioma que pretende incluir, como especificado no RFC 5646. Por exemplo, "pt".|
 |**Nome**|Utilize o nome da faixa para filtragem.|
 |**Tipo**|Utilize o tipo da faixa para filtragem.<br/><br/>São permitidos os seguintes valores: "vídeo", "áudio" ou "text".|

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 41c44d1f4054d93c770f80496c8d7a0bddf5eb13
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 44f0309d472a79526537f79feabcd9777b70bcc7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650348"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888783"
 ---
 # <a name="getting-compliance-data"></a>Obter dados de conformidade
 
@@ -142,25 +142,11 @@ Com o botão direito na linha do evento que pretende recolher mais detalhes sobr
 
 ![Registo de atividades de conformidade de política](../media/getting-compliance-data/compliance-activitylog.png)
 
-### <a name="change-history-preview"></a>Histórico de alterações (pré-visualização)
+### <a name="understand-non-compliance"></a>Compreender a não conformidade
 
-Como parte de um novo **pré-visualização pública**, nos últimos 14 dias do histórico de alterações estão disponíveis para um recurso de não conformidade. Histórico de alterações fornece detalhes sobre o quando foi detetada uma alteração e um _visual diff_ para cada alteração. Uma deteção de alteração é acionada quando são adicionadas, removidas ou alterar as propriedades do Gestor de recursos de um recurso de não conformidade.
+<a name="change-history-preview"></a>
 
-1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
-
-1. Sobre o **descrição geral** ou **conformidade** , selecione uma política que está _em não conformidade_.
-
-1. Sob o **conformidade do recurso** separador da **conformidade com a política** , selecione um recurso é _em não conformidade_.
-
-1. Selecione o **histórico de alterações (pré-visualização)** guia a **conformidade do recurso** página. Uma lista de detetou alterações, se qualquer exist, são apresentados.
-
-   ![Histórico de alterações de política - separador](../media/getting-compliance-data/change-history-tab.png)
-
-1. Selecione uma das alterações detetadas. O _visual diff_ para o recurso de conformidade é apresentado no **histórico de alterações** página.
-
-   ![Histórico de alterações de política - Visual Diff](../media/getting-compliance-data/change-history-visual-diff.png)
-
-O _visual diff_ aides na identificação de alterações a um recurso. Foram detetadas as alterações podem não estar relacionados com o que causou o recurso estar em não conformidade para a política selecionada.
+Quando um recurso é identificado como sendo **incompatíveis**, existem muitas razões possíveis. Para determinar o motivo é um recurso **incompatíveis** ou para encontrar a alteração responsável, veja [determinar a não conformidade](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Linha de comandos
 

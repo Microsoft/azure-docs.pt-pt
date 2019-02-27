@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 93f47f5d82a41d61bec67c1c64f1491cd7618565
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 80f0aa3158ce4f3eeafaeb5c7834dc820e8ba75b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733219"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886600"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformação de origem de fluxo de dados de mapeamento
 
@@ -53,7 +53,7 @@ Para tipos de ficheiro de origem que não estão com rigidez de tipos (ficheiros
 
 ![Transformação de origem](media/data-flow/source003.png "tipos de dados")
 
-Para origens de rigidez de tipos, pode modificar o 
+Para origens de rigidez de tipos, pode modificar os tipos de dados numa transformação selecione subsequente. 
 
 ### <a name="optimize"></a>Otimizar
 

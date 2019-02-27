@@ -8,24 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 02/26/2019
 ms.author: pafarley
-ms.openlocfilehash: afe8081032e0358e8e0653e9a2b6aad30ad496a9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d14b9c88b447583eedc8b50f4f9acf80ae4e3c75
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651231"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889635"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>Visão do computador de serviços cognitivos do Azure SDK para Python
 
-O serviço Imagem Digitalizada fornece aos programadores acesso a algoritmos avançados para processamento de imagens e devolução de informações. Algoritmos de visão do computador analisam o conteúdo de uma imagem de diversas formas, dependendo dos recursos visual que está interessado. Por exemplo, de imagem digitalizada pode determinar se uma imagem contém conteúdo adultos, encontrar todos os rostos numa imagem, obter código ou impressos texto. Este serviço funciona com formatos de imagem populares, como JPEG e PNG. 
+O serviço Imagem Digitalizada fornece aos programadores acesso a algoritmos avançados para processamento de imagens e devolução de informações. Algoritmos de visão do computador analisam o conteúdo de uma imagem de diversas formas, dependendo dos recursos visual que está interessado. 
 
-Pode usar a visão do computador na sua aplicação para:
+* [Analisar uma imagem](#analyze-an-image)
+* [Obter lista de domínio do requerente](#get-subject-domain-list)
+* [Analisar uma imagem por domínio](#analyze-an-image-by-domain)
+* [Obter a descrição de texto de uma imagem](#get-text-description-of-an-image)
+* [Obter texto manuscrito de imagem](#get-text-from-image)
+* [Gerar miniatura](#generate-thumbnail)
 
-- Analise imagens para informações detalhadas
-- Extrair texto de imagens
-- Gerar miniaturas
+Para obter mais informações sobre este serviço, consulte [o que é o de imagem digitalizada?] [computervision_docs].
 
 À procura de mais documentação?
 
@@ -34,11 +37,21 @@ Pode usar a visão do computador na sua aplicação para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Subscrição do Azure - [criar uma conta gratuita][azure_sub]
-* Azure [recursos de imagem digitalizada][computervision_resource]
 * [Python 3.6 +][python]
+* Livre [chave de imagem digitalizada] [ computervision_resource] e região associada. Vai precisar destes valores quando criar a instância dos [ComputerVisionAPI] [ ref_computervisionclient] objeto cliente. Utilize um dos seguintes métodos para obter esses valores. 
 
-Se precisar de uma conta de API de imagem digitalizada, pode criar uma com isso [CLI do Azure] [ azure_cli] comando:
+### <a name="if-you-dont-have-an-azure-subscription"></a>Se não tiver uma subscrição do Azure
+
+Criar uma chave gratuita válido durante sete dias com o **experimentar** experiência. Quando a chave é criada, copie o nome de chave e região. Vai precisar disto para [criar o cliente](#create-client).
+
+Tenha o seguinte depois da chave é criada:
+
+* Valor da chave: uma cadeia de 32 carateres com o formato de `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
+* Região principais: o subdomínio do URL do ponto final, https://**westcentralus**. api.cognitive.microsoft.com
+
+### <a name="if-you-have-an-azure-subscription"></a>Se tiver uma subscrição do Azure
+
+Se precisar de uma conta de API de imagem digitalizada, o método mais fácil para criar um na sua subscrição está a utilizar o seguinte procedimento [CLI do Azure] [ azure_cli] comando. Tem de escolher o nome de grupo de recursos, por exemplo, "meu-cogserv-grupo" e o nome de recurso visão do computador, por exemplo, "meu computador-visão-recursos". 
 
 ```Bash
 RES_REGION=westeurope 
@@ -54,18 +67,20 @@ az cognitiveservices account create \
     --yes
 ```
 
-## <a name="installation"></a>Instalação
+<!--
+## Installation
 
-Instalar o Azure SDK dos serviços cognitivos computador visão com [pip][pip], opcionalmente, num [ambiente virtual][venv].
+Install the Azure Cognitive Services Computer Vision SDK with [pip][pip], optionally within a [virtual environment][venv].
 
-### <a name="configure-a-virtual-environment-optional"></a>Configurar um ambiente virtual (opcional)
+### Configure a virtual environment (optional)
 
-Embora não seja necessário, pode manter seu sistema de base e ambientes do Azure SDK isolados uns dos outros, se utilizar um [ambiente virtual][virtualenv]. Execute os seguintes comandos para configurar e, em seguida, introduza um ambiente virtual com [venv][venv], tais como `cogsrv-vision-env`:
+Although not required, you can keep your base system and Azure SDK environments isolated from one another if you use a [virtual environment][virtualenv]. Execute the following commands to configure and then enter a virtual environment with [venv][venv], such as `cogsrv-vision-env`:
 
 ```Bash
 python3 -m venv cogsrv-vision-env
 source cogsrv-vision-env/bin/activate
 ```
+-->
 
 ### <a name="install-the-sdk"></a>Instalar o SDK
 
@@ -81,9 +96,20 @@ Depois de criar o recurso de imagem digitalizada, terá de seus **região**e um 
 
 Utilize estes valores quando criar a instância dos [ComputerVisionAPI] [ ref_computervisionclient] objeto cliente. 
 
-### <a name="get-credentials"></a>Obter credenciais
+<!--
 
-Utilize o [CLI do Azure] [ cloud_shell] fragmento abaixo para preencher as duas variáveis de ambiente com a conta de imagem digitalizada **região** e uma das suas **chaves**(também pode encontrar estes valores no [portal do Azure][azure_portal]). O trecho de código é formatado para o shell de Bash.
+For example, use the Bash terminal to set the environment variables:
+
+```Bash
+ACCOUNT_REGION=<resourcegroup-name>
+ACCT_NAME=<computervision-account-name>
+```
+
+### For Azure subscription usrs, get credentials for key and region
+
+If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+
+Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -101,44 +127,25 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
     --query key1 \
     --output tsv)
 ```
+-->
 
 ### <a name="create-client"></a>Criar cliente
 
-Depois de preencher os `ACCOUNT_REGION` e `ACCOUNT_KEY` variáveis de ambiente, pode criar o [ComputerVisionAPI] [ ref_computervisionclient] objeto cliente.
+Criar a [ComputerVisionAPI] [ ref_computervisionclient] objeto cliente. Altere os valores de região e a chave no exemplo de código a seguir para seus próprios valores.
 
 ```Python
 from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-import os
-region = os.environ['ACCOUNT_REGION']
-key = os.environ['ACCOUNT_KEY']
+region = "westcentralus"
+key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 credentials = CognitiveServicesCredentials(key)
 client = ComputerVisionAPI(region, credentials)
 ```
 
-## <a name="usage"></a>Utilização
-
-Assim que já inicializada uma [ComputerVisionAPI] [ ref_computervisionclient] objeto cliente, pode:
-
-* Analise uma imagem: Pode analisar uma imagem de determinadas funcionalidades como os rostos, cores, etiquetas.   
-* Gere miniaturas: Crie uma imagem JPEG personalizada para utilizar como uma miniatura da imagem original.
-* Obter a descrição de uma imagem: Obtenha uma descrição da imagem com base no seu domínio de assunto. 
-
-Para obter mais informações sobre este serviço, consulte [o que é o de imagem digitalizada?] [computervision_docs].
-
-## <a name="examples"></a>Exemplos
-
-As secções seguintes fornecem vários fragmentos de código que abrange algumas das tarefas mais comuns de imagem digitalizada, incluindo:
-
-* [Analisar uma imagem](#analyze-an-image)
-* [Obter lista de domínio do requerente](#get-subject-domain-list)
-* [Analisar uma imagem por domínio](#analyze-an-image-by-domain)
-* [Obter a descrição de texto de uma imagem](#get-text-description-of-an-image)
-* [Obter texto manuscrito de imagem](#get-text-from-image)
-* [Gerar miniatura](#generate-thumbnail)
+É necessário um [ComputerVisionAPI] [ ref_computervisionclient] objeto de cliente antes de utilizar qualquer uma das seguintes tarefas.
 
 ### <a name="analyze-an-image"></a>Analisar uma imagem
 
@@ -169,8 +176,13 @@ for x in models.models_property:
 Pode analisar uma imagem por domínio de assunto com [ `analyze_image_by_domain` ] [ ref_computervisionclient_analyze_image_by_domain]. Obter o [suportado de lista de domínios de sujeito](#get-subject-domain-list) para poder utilizar o nome de domínio correto.  
 
 ```Python
+# type of prediction
 domain = "landmarks"
-url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
+
+# Public domain image of Eiffel tower
+url = "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg"
+
+# English language response
 language = "en"
 
 analysis = client.analyze_image_by_domain(domain, url, language)
@@ -202,6 +214,10 @@ for caption in analysis.captions:
 Pode obter qualquer texto manuscrito ou impresso a partir de uma imagem. Isso requer duas chamadas para o SDK: [ `recognize_text` ] [ ref_computervisionclient_recognize_text] e [ `get_text_operation_result` ] [ ref_computervisionclient_get_text_operation_result]. A chamada para recognize_text é assíncrona. Nos resultados da chamada get_text_operation_result, precisa verificar se a primeira chamada foi concluída com [ `TextOperationStatusCodes` ] [ ref_computervision_model_textoperationstatuscodes] antes de extrair os dados de texto. Os resultados incluem o texto, bem como as coordenadas da caixa delimitadora para o texto. 
 
 ```Python
+# import models
+from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
+from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
 raw = True
@@ -231,10 +247,19 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 Pode gerar uma miniatura (JPG) de uma imagem com [ `generate_thumbnail` ] [ ref_computervisionclient_generate_thumbnail]. A miniatura não precisa de ter as mesmas proporções da imagem original. 
 
-Este exemplo utiliza a [Pillow] [ pypi_pillow] pacote para guardar localmente a nova imagem em miniatura.
+Instale **Pillow** para utilizar este exemplo:
+
+```bash
+pip install Pillow
+``` 
+
+Assim que Pillow estiver instalado, utilize o pacote no seguinte exemplo de código para gerar a imagem em miniatura.
 
 ```Python
+# Pillow package
 from PIL import Image
+
+# IO package to create local image
 import io
 
 width = 50

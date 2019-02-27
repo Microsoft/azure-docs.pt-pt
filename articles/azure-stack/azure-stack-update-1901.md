@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 02/27/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 77b3d8bd1d16e90e9929c41f0f28940694dc7906
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416518"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889839"
 ---
 # <a name="azure-stack-1901-update"></a>Atualização de 1901 de pilha do Azure
 
@@ -34,7 +34,14 @@ Este artigo descreve o conteúdo do pacote de atualização de 1901. A atualiza�
 
 ## <a name="build-reference"></a>Criar a referência
 
-É o número de compilação de atualização do Azure Stack 1901 **1.1901.0.95**.
+É o número de compilação de atualização do Azure Stack 1901 **1.1901.0.95** ou **1.1901.0.99** depois de 26 de Fevereiro de 2019. Consulte a nota do seguinte:
+
+> [!IMPORTANT]  
+> Microsoft detetou um problema que pode afetar os clientes que atualizar a partir do 1811 (1.1811.0.101) para 1901 e lançou um pacote de 1901 atualizado para resolver o problema: criar 1.1901.0.99, atualizados a partir do 1.1901.0.95. Não é necessário que os clientes que já tenham sido atualizados para 1.1901.0.95 qualquer ação adicional.
+>
+> Os clientes ligados que se encontram em 1811 automaticamente verá o novo pacote de 1901 (1.1901.0.99) disponível no portal do administrador e devem instalá-la quando estiver pronto. Os clientes desligados podem transferir e importar o novo pacote de 1901 usando o mesmo processo [descrito aqui](azure-stack-apply-updates.md).
+>
+> Os clientes com qualquer versão do 1901 não serão influenciados ao instalar o pacote completo ou a correção seguinte.
 
 ## <a name="hotfixes"></a>Correções
 
@@ -170,33 +177,6 @@ Para rever a referência para os módulos atualizados, consulte [referência de 
 
    Update-AzsHomeDirectoryTenant -AdminResourceManagerEndpoint $adminResourceManagerEndpoint `
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
-   ```
-
-- Atualmente, existem extensões no Azure Stack que implementar com êxito sem a necessidade de explicitamente transferir as extensões por meio de distribuição de mercado. As seguintes versões destas extensões estão a ser removidas. Operadores do Azure Stack tem agora distribua explicitamente a essas extensões do marketplace do Azure Stack:
-
-   | Type                     | Versão        |
-   |--------------------------|----------------|
-   | DSC                      | 2.19.0.0       |
-   | IaaSAntimalware          | 1.4.0.0        |
-   | BGInfo                   | 2.1            |
-   | VMAccessAgent            | 2.0            |
-   | CustomScriptExtension    | 1.8            |
-   | MicrosoftMonitoringAgent | 1.0.10900.0    |
-   | IaaSDiagnostics          | 1.10.1.1       |
-   | VMAccessForLinux         | 1.4.0.0        |
-   | CustomScriptForLinux     | 1.5.2.0        |
-   | DockerExtension          | 1.1.1606092330 |
-   | JsonADDomainExtension    | 1.3            |
-   | OSPatchingForLinux       | 2.3.0.1        |
-   | WebRole                  | 4.3000.14.0    |
-
-   Recomenda-se que, quando implementar extensões, utilizadores do Azure Stack definido `autoUpgradeMinorVersion` para **true**. Por exemplo:
-
-   ```json
-   "type": "Extension",
-           "publisher": "ExtensionPublisher",
-           "typeHandlerVersion": "1.2",
-           "autoUpgradeMinorVersion": "true"
    ```
 
 - Há uma consideração de novo para planeamento da capacidade do Azure Stack com precisão. Com a atualização de 1901, agora existe um limite no número total de máquinas virtuais que podem ser criados.  Este limite é de se destina a ser temporário para evitar instabilidade de solução. A origem do problema de estabilidade no número mais elevado de VMs que está a ser resolvida, mas ainda não foram identificada uma linha de tempo específica de remediação. Com a atualização de 1901, agora existe um limite de servidor de 60 VMs com um limite de solução total de 700 por.  Por exemplo, um limite de VM do Azure Stack 8 server seria 480 (8 * 60).  Para um servidor de 12 a 16 solução do Azure Stack, o limite seria 700. Este limite foi criado tendo a toda a computação considerações sobre a capacidade em mente, como a reserva de resiliência e a CPU virtual para física proporção que um operador gostaria de manter o carimbo. Para obter mais informações, veja a nova versão do Planeador de capacidade.  

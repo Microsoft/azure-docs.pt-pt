@@ -13,14 +13,14 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df5d42135c538ca3d0a63252805efb44cef7e8b0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190471"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56881809"
 ---
-# <a name="what-is-hybrid-identity"></a>O que é a identidade híbrida? 
+# <a name="what-is-hybrid-identity"></a>O que é a identidade híbrida?
 
 Hoje, as empresas e corporações estão se tornando cada vez mais uma mistura de locais e aplicações na cloud.  Os utilizadores necessitam de aceder a essas aplicações no local e na cloud. Este requisito se tornou um cenário um desafio. 
 
@@ -30,7 +30,7 @@ Para obter a identidade híbrida, um dos três métodos de autenticação pode s
 
 - **[Sincronização de hash de palavra-passe (PHS)](whatis-phs.md)**  
 - **[Autenticação pass-through (PTA)](how-to-connect-pta.md)**  
-- **[Federação](whatis-fed.md)** 
+- **[Federação (AD FS)](whatis-fed.md)** 
 
 Estes métodos de autenticação também fornecem [início de sessão único](how-to-connect-sso.md) capacidades.  Início de sessão único assina automaticamente os utilizadores em quando estão nos respetivos dispositivos da empresa, ligados à sua rede empresarial.
 
@@ -47,7 +47,7 @@ Seguem-se alguns cenários comuns de identidades híbridas e gestão de acessos 
 |Ative os meus utilizadores iniciar sessão e aceder aos serviços em nuvem com a palavra-passe no local.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
 |Implemente o início de sessão único utilizando as credenciais empresariais.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| ![Recomendado](./media/whatis-hybrid-identity/ic195031.png) |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|  
 |Certifique-se de que nenhum hashes de palavra-passe são armazenados na cloud.| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
-|Ative soluções de multi-factor authentication na cloud.| |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
+|Ative soluções com base na cloud a autenticação multifator.|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)|![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
 |Ative soluções de autenticação multifator no local.| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
 |Suporta a autenticação de smart card para os meus utilizadores. <sup>4</sup>| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 
 |Apresentar as notificações de expiração de palavra-passe no Portal do Office e no ambiente de trabalho do Windows 10.| | |![Recomendado](./media/whatis-hybrid-identity/ic195031.png)| 

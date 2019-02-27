@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: e79ffba90f0812d79bcb7ab808e2b6ba80e1c61b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 703bf7425962ddcb5e7566f99c461ca37d237b68
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756670"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868430"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de Hyper-V para replicação do Azure e de ativação pós-falha
 
@@ -30,7 +30,7 @@ Se ocorrerem problemas ao ativar a proteção para VMs de Hyper-V, verifique as 
 5. Na VM do convidado, certifique-se de que WMI está ativado e acessível.
   - [Saiba mais sobre](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/) teste básico de WMI.
   - [Resolver problemas de](https://aka.ms/WMiTshooting) WMI.
-  - [Resolver problemas de ](https://technet.microsoft.com/library/ff406382.aspx#H22) problemas com scripts do WMI e serviços.
+  - [Resolver problemas de](https://technet.microsoft.com/library/ff406382.aspx#H22) problemas com scripts do WMI e serviços.
 6. Na VM do convidado, certifique-se de que a versão mais recente do Integration Services está em execução.
     - [Verificar](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) que tem a versão mais recente.
     - [Manter](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) serviços de integração atualizado.

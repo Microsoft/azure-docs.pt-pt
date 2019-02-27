@@ -5,19 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/23/2019
-ms.openlocfilehash: c7622252cd5b375e8c580bfcf7a45806d219d828
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 02/26/2019
+ms.openlocfilehash: 52f192a179c02e63c394401cce82b51fbe96e92d
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900566"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887272"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar e gerir ler réplicas na base de dados do Azure para MySQL com o portal do Azure
-
-
-> [!IMPORTANT]
-> A funcionalidade de réplica de leitura está em pré-visualização pública.
 
 Neste artigo, aprenderá como criar e gerir réplicas de leitura na mesma região do Azure como o modelo na base de dados do Azure para o serviço de MySQL com o portal do Azure. A funcionalidade está atualmente em pré-visualização pública.
 
@@ -40,18 +36,18 @@ Um servidor de réplica de leitura pode ser criado através dos seguintes passos
 
 4. Selecione **Adicionar réplica**.
 
-   ![Base de dados do Azure para MySQL - replicação ](./media/howto-read-replica-portal/add-replica.png)
+   ![Base de dados do Azure para MySQL - replicação](./media/howto-read-replica-portal/add-replica.png)
 
 5. Introduza um nome para o servidor de réplica e clique em **OK** para confirmar a criação da réplica.
 
-   ![Base de dados do Azure para MySQL - criar réplica ](./media/howto-read-replica-portal/create-replica.png)
+   ![Base de dados do Azure para MySQL - criar réplica](./media/howto-read-replica-portal/create-replica.png)
 
 > [!NOTE]
 > Réplicas de leitura são criadas com a mesma configuração de servidor como o modelo. A configuração do servidor de réplica pode ser alterada depois de este ter sido criado. Recomenda-se que a configuração do servidor de réplica deve ser mantida em valores iguais ou maiores do que o principal para garantir que a réplica é capaz de acompanhar o mestre.
 
 Quando o servidor de réplica tiver sido criado, ele pode ser visualizado os **replicação** painel.
 
-   ![Base de dados do Azure para MySQL - réplicas de lista ](./media/howto-read-replica-portal/list-replica.png)
+   ![Base de dados do Azure para MySQL - réplicas de lista](./media/howto-read-replica-portal/list-replica.png)
 
 ## <a name="stop-replication-to-a-replica-server"></a>Parar a replicação para um servidor de réplica
 
@@ -66,15 +62,15 @@ Para parar a replicação entre um mestre e um servidor de réplica no portal do
 
 3. Selecione o servidor de réplica que pretende parar a replicação de.
 
-   ![Base de dados do Azure para MySQL - seleção de servidor de replicação Stop ](./media/howto-read-replica-portal/stop-replication-select.png)
+   ![Base de dados do Azure para MySQL - seleção de servidor de replicação Stop](./media/howto-read-replica-portal/stop-replication-select.png)
 
 4. Selecione **paragem da replicação**.
 
-   ![Base de dados do Azure para MySQL - paragem da replicação ](./media/howto-read-replica-portal/stop-replication.png)
+   ![Base de dados do Azure para MySQL - paragem da replicação](./media/howto-read-replica-portal/stop-replication.png)
 
 5. Confirme que pretende parar a replicação clicando **OK**.
 
-   ![Confirmar paragem da replicação de base de dados do Azure para MySQL- ](./media/howto-read-replica-portal/stop-replication-confirm.png)
+   ![Confirmar paragem da replicação de base de dados do Azure para MySQL-](./media/howto-read-replica-portal/stop-replication-confirm.png)
 
 ## <a name="delete-a-replica-server"></a>Eliminar um servidor de réplica
 
@@ -86,15 +82,15 @@ Para eliminar um servidor de réplica de leitura a partir do portal do Azure, ut
 
 3. Selecione o servidor de réplica que pretende eliminar.
 
-   ![Base de dados do Azure para MySQL - seleção de servidor de réplica Delete ](./media/howto-read-replica-portal/delete-replica-select.png)
+   ![Base de dados do Azure para MySQL - seleção de servidor de réplica Delete](./media/howto-read-replica-portal/delete-replica-select.png)
 
 4. Selecione **Eliminar réplica**
 
-   ![Base de dados do Azure para MySQL - Eliminar réplica ](./media/howto-read-replica-portal/delete-replica.png)
+   ![Base de dados do Azure para MySQL - Eliminar réplica](./media/howto-read-replica-portal/delete-replica.png)
 
 5. Escreva o nome da réplica e clique em **eliminar** para confirmar a eliminação da réplica.  
 
-   ![Confirmar a base de dados do Azure para MySQL - Eliminar réplica ](./media/howto-read-replica-portal/delete-replica-confirm.png)
+   ![Confirmar a base de dados do Azure para MySQL - Eliminar réplica](./media/howto-read-replica-portal/delete-replica-confirm.png)
 
 ## <a name="delete-a-master-server"></a>Eliminar um servidor principal
 
@@ -107,11 +103,11 @@ Para eliminar um servidor principal do portal do Azure, utilize os seguintes pas
 
 2. Partir do **descrição geral**, selecione **eliminar**.
 
-   ![Base de dados do Azure para MySQL - eliminar mestre ](./media/howto-read-replica-portal/delete-master-overview.png)
+   ![Base de dados do Azure para MySQL - eliminar mestre](./media/howto-read-replica-portal/delete-master-overview.png)
 
 3. Escreva o nome do servidor mestre e clique em **eliminar** para confirmar a eliminação do servidor mestre.  
 
-   ![Base de dados do Azure para MySQL - eliminar mestre ](./media/howto-read-replica-portal/delete-master-confirm.png)
+   ![Base de dados do Azure para MySQL - eliminar mestre](./media/howto-read-replica-portal/delete-master-confirm.png)
 
 ## <a name="monitor-replication"></a>Monitor de replicação
 
@@ -121,15 +117,15 @@ Para eliminar um servidor principal do portal do Azure, utilize os seguintes pas
 
 3. Selecione **desfasamento em segundos** na lista pendente de métricas disponíveis. 
 
-   ![Selecione o atraso de replicação ](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
+   ![Selecione o atraso de replicação](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 
 4. Selecione o intervalo de tempo que quer ver. A imagem abaixo seleciona um intervalo de tempo de 30 minutos.
 
-   ![Selecionar intervalo de tempo ](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
+   ![Selecionar intervalo de tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
 
 5. Ver o desfasamento de replicação para o intervalo de tempo selecionado. A imagem abaixo mostra os últimos 30 minutos.
 
-   ![Selecionar intervalo de tempo ](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   ![Selecionar intervalo de tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

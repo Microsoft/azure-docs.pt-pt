@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: d08ebc7c1e52022ec918020387264c464d1cd967
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307175"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883424"
 ---
 # <a name="create-a-xamarinios-app"></a>Criar uma aplicação Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -70,9 +70,9 @@ Siga os passos seguintes para configurar o projeto de servidor para utilizar o b
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 * [Adicionar Sincronização Offline à sua aplicação](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Adicionar autenticação à aplicação ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Adicionar autenticação à aplicação](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Adicionar notificações push à aplicação Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Como utilizar o cliente gerido para Mobile Apps do Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 

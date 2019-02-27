@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447876"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878460"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gestão do Application Insights Connector (preterido)
 
@@ -127,7 +127,7 @@ Ao clicar em qualquer lugar no **exceções** painel, verá uma visualização q
 
 Independentemente se clicar em algo um a **conector do Application Insights** dashboard, dentro da **pesquisa** página em si, qualquer consulta retornar dados do Application Insights mostram o aplicativo Ponto de vista de informações. Por exemplo, se estiver a visualizar dados do Application Insights, um **&#42;** consulta também mostra o separador de ponto de vista semelhante à imagem seguinte:
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 Componentes de perspetiva são atualizadas dependendo da consulta de pesquisa. Isso significa que pode filtrar os resultados ao utilizar qualquer campo de pesquisa que lhe dá a capacidade de ver os dados da:
 

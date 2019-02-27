@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1645f09682ebb58b442626bf14f26fdb91f9456e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fd6ecb6cb45aef399a137c9eac2c8c6f845b610b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728289"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872493"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -32,7 +32,7 @@ As previsões ou predições da aprendizagem automática podem tornar as aplica�
 
 O serviço do Azure Machine Learning fornece um ambiente com base na cloud, que pode utilizar para de preparação de dados, formar, testar, implementar, gerir e controlar os modelos de aprendizagem automática.
 
-[ ![Fluxo de trabalho do azure Machine Learning serviço](./media/overview-what-is-azure-ml/aml.png)] (. / media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Fluxo de trabalho do azure Machine Learning serviço](./media/overview-what-is-azure-ml/aml.png)] (. / media/overview-what-is-azure-ml/aml.png#lightbox)
 
 O serviço do Azure Machine Learning totalmente compatível com tecnologias de código aberto. Portanto, pode usar dezenas de milhares de pacotes de Python de código-fonte aberto com componentes de aprendizagem automática. Os exemplos são PyTorch, o TensorFlow e scikit-Saiba mais.
 Suporte para ferramentas avançadas torna mais fácil de forma interativa explorar e preparar dados e, em seguida, desenvolver e testar modelos. Os exemplos são [blocos de notas do Jupyter](http://jupyter.org) ou o [do Azure Machine Learning para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extensão.

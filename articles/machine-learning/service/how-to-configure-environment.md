@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2eb47bede14b139d011d8a74b5196a94a93a62c7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e055ddc49120d77047fa349b7e58c612eb724b41
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817104"
+ms.locfileid: "56881554"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -301,7 +301,9 @@ Quando o cluster estiver em execução, [criar uma biblioteca](https://docs.data
    |Para o Databricks| Carregar Python ovo ou PyPI | azureml-sdk[databricks]|
    |Para o Databricks - com-<br> funcionalidades de ML automatizadas| Carregar Python ovo ou PyPI | azureml-sdk[automl_databricks]|
 
-   * Não existem outros extras SDK podem ser instalados. Escolha apenas uma das opções anteriores [databricks] ou [automl_databricks].
+   > [!Warning]
+   > Não existem outros extras SDK podem ser instalados. Escolha apenas uma das opções anteriores [databricks] ou [automl_databricks].
+
    * Não selecione **anexar automaticamente a todos os clusters**.
    * Selecione **Attach** junto ao seu nome de cluster.
 
@@ -320,7 +322,7 @@ Se a instalação foi concluída com êxito, a biblioteca importada deverá ser 
    
 SDK para o Databricks **_sem_** automatizada aprendizagem ![Azure Machine Learning SDK para o Databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK para o Databricks **WITH** automatizada aprendizagem ![automatizada de SDK com aprendizagem instalada no Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
+SDK para o Databricks **WITH** automatizada aprendizagem ![automatizada de SDK com aprendizagem instalada no Databricks](./media/how-to-configure-environment/automlonadb.jpg)
 
 ### <a name="start-exploring"></a>Começar a explorar
 

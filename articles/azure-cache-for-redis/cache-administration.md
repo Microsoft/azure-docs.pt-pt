@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: d36f2851f9c4f30725c8f8057d61970b6560009e
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 81ef669b62c822e10d8bf5c45e58dd769c5dbeb9
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313216"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888394"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o Azure Cache de Redis
 Este tópico descreve como executar tarefas de administração, tal como [reinicialização](#reboot) e [agendar atualizações](#schedule-updates) para a sua Cache do Azure para instâncias de Redis.
@@ -72,7 +72,7 @@ Sim, se reiniciar o cache de todas as ligações de cliente são limpos. A reini
 > 
 
 ### <a name="will-i-lose-data-from-my-cache-if-i-do-a-reboot"></a>Irei perder dados da minha cache se fizer um reinício?
-Se reiniciar ambos os **mestre** e **subordinado** nós, todos os dados na cache (ou nessa partição horizontal se estiver a utilizar uma cache premium com clustering ativado) é perdido. Se tiver configurado [persistência de dados](cache-how-to-premium-persistence.md), mais recente cópia de segurança vai ser restaurada quando a cache fica online novamente, mas qualquer gravações de cache que ocorreram depois foi efetuada a cópia de segurança são perdidas.
+Se reiniciar ambos os **mestre** e **subordinado** nós, todos os dados na cache (ou nessa partição horizontal se estiver a utilizar uma cache premium com clustering ativado) podem ser perdidos, mas isso não é garantido qualquer um. Se tiver configurado [persistência de dados](cache-how-to-premium-persistence.md), mais recente cópia de segurança vai ser restaurada quando a cache fica online novamente, mas qualquer gravações de cache que ocorreram depois foi efetuada a cópia de segurança são perdidas.
 
 Se reiniciar apenas um de nós, os dados não são normalmente perdidos, mas ainda pode ser. Para o exemplo, se o nó principal é reiniciado e uma gravação de cache está em curso, os dados a partir da escrita de cache é perdido. Outro cenário perda de dados seria se reinicie um nó e o outro nó acontece descer devido a uma falha ao mesmo tempo. Para obter mais informações sobre as causas possíveis perda de dados, consulte [o que aconteceu aos meus dados no Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 

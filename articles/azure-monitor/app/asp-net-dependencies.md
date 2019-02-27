@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bcb00029acbe8c64e29addbc9291a694f1de98b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267722"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888088"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configure o Application Insights: Rastreamento de dependências
 R *dependência* é um componente externo que é chamado pela sua aplicação. Normalmente, é um serviço chamado através de HTTP, ou uma base de dados ou um sistema de ficheiros. [O Application Insights](../../azure-monitor/app/app-insights-overview.md) mede o tempo que o aplicativo aguardará dependências e a frequência com que uma chamada de dependência falha. Pode investigar chamadas específicas e estão relacionadas com pedidos e exceções.
@@ -50,7 +50,7 @@ Informações de dependência parciais são recolhidas automaticamente pelos [SD
 
 ## <a name="where-to-find-dependency-data"></a>Onde encontrar os dados de dependência
 * [Mapa da aplicação](#application-map) visualiza as dependências entre as suas aplicações e componentes vizinhos.
-* [Os painéis de desempenho, navegadores e falha](#performance-and-blades) Mostrar dados de dependência de servidor.
+* [Os painéis de desempenho, navegadores e falha](#performance-and-failure-blades) Mostrar dados de dependência de servidor.
 * [Painel browsers](#ajax-calls) mostra as chamadas AJAX de browsers dos seus utilizadores.
 * Clique em dos pedidos lentos ou com falhas para verificar as suas chamadas de dependência.
 * [Análise](#analytics) pode ser usado para consultar dados de dependência.

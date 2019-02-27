@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 02c786209c81e755b05cc3875778f98faf8a1ae1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e515f7c0587e8bbcba10bcd2d2a726c16401bfbd
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650942"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889784"
 ---
 # <a name="content-protection-overview"></a>Descrição geral da proteção de conteúdo
 
@@ -31,7 +31,7 @@ A imagem seguinte ilustra o fluxo de trabalho de proteção de conteúdo de serv
 
 &#42;*encriptação dinâmica suporta AES-128 "chave não encriptada", CBCS e CENC. Para obter detalhes, consulte a matriz de suporte [aqui](#streaming-protocols-and-encryption-types).*
 
-Este artigo explica os conceitos e terminologia relevante para compreender a proteção de conteúdo com os Media Services. O artigo também tem o [FAQ](#faq) secção e fornece ligações para artigos que mostram como proteger o conteúdo. 
+Este artigo explica os conceitos e terminologia relevante para compreender a proteção de conteúdo com os Media Services. O artigo também tem a secção de FAQ e fornece ligações para artigos que mostram como proteger o conteúdo. 
 
 ## <a name="main-components-of-a-content-protection-system"></a>Componentes principais de um sistema de proteção de conteúdo
 

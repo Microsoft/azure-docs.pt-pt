@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d364421794452f8ccf95a60ec86a161934c87528
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a29a00c34d4c60e6ba2b4fd6b0b413873301af5c
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167988"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888377"
 ---
 # <a name="what-is-azure-ad-connect"></a>O que é o Azure AD Connect?
 
@@ -57,7 +57,7 @@ Principais vantagens e as práticas recomendadas:
 
 |Principais vantagens|Melhores práticas|
 |-----|-----|
-|Segurança avançada|[Tendências de bloqueio de extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Relatório de inícios de sessão falhados](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[Em privacidade em conformidade](reference-connect-health-user-privacy.md)|
+|Segurança avançada|[Tendências de bloqueio de extranet](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Relatório de inícios de sessão falhados](how-to-connect-health-adfs-risky-ip.md)</br>[Em privacidade em conformidade](reference-connect-health-user-privacy.md)|
 |Receba alertas no [todos críticos problemas de sistema do AD FS](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Configuração e disponibilidade do servidor</br>[Desempenho e conectividade](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Manutenção regular|
 |Facilidade de implementação e gestão|[Instalação do agente rápida](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Atualização automática do agente para a versão mais recente</br>Dados disponíveis no portal em alguns minutos|
 Rich [métrica de utilização](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Utilização principal das aplicações</br>Localizações de rede e ligação TCP</br>Pedidos de token por servidor|

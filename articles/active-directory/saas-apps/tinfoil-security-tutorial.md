@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ed0912e8d4705b6cbefa9eb8f7a712a37d8b0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8d2001e221ef9c02ee2ab80b647a9bafe6490432
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183185"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882149"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Tutorial: Integração do Active Directory do Azure com o TINFOIL SECURITY
 
@@ -186,7 +186,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos** e clique em **todos os utilizadores**.
     
-    ![Utilizadores e grupos -> todos os utilizadores ](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
+    ![Utilizadores e grupos -> todos os utilizadores](./media/tinfoil-security-tutorial/create_aaduser_02.png) 
 
 1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior da caixa de diálogo.
  

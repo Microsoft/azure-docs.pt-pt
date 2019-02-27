@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: e7f8eef2c3422084846462e2f6159a8b8be7167f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: f615c4ca9ffc56daafcedd711f27672e0855e4fa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301830"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56883952"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -169,7 +169,7 @@ As subscrições também têm uma associação com um diretório. O diretório d
 
 As empresas dedicadas à segurança devem se concentrar em dar aos funcionários as exatas permissões necessárias. Demasiadas permissões podem expor uma conta para os atacantes. Permissões insuficientes significam que os funcionários não é possível obter a trabalhar com eficiência. [Do Azure com base em função de controlo de acesso (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ajuda a solucionar esse problema, oferecendo a gestão de acessos detalhada para o Azure.
 
-![Acesso a recursos protegidos ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
+![Acesso a recursos protegidos](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
 Ao utilizar o RBAC, pode segregar funções na sua equipa e conceder apenas a quantidade de acesso a utilizadores que precisam para desempenhar as suas funções. Em vez de dar todas as pessoas sem restrições permissões na sua subscrição do Azure ou recursos, pode permitir que apenas determinadas ações. Por exemplo, utilize o RBAC para permitir que um funcionário gerir máquinas virtuais numa subscrição, enquanto outro pode gerir bases de dados do SQL na mesma subscrição.
 

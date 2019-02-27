@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2fd6321dcdcb8102b38217eb377ae3c200d5d737
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a549a46912b0d60f878a18cae1e70a763afc0243
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818566"
+ms.locfileid: "56874703"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos
 
@@ -46,6 +46,7 @@ O serviço do Azure Machine Learning tem suporte variado em destinos de computa�
 |[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[O Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+|[Azure Batch](#azbatch)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 **Todos os computação destinos podem ser reutilizados para várias tarefas de formação**. Por exemplo, depois de anexar uma VM remota à área de trabalho, pode reutilizá-lo para várias tarefas.
 
@@ -240,6 +241,42 @@ O Azure HDInsight é uma plataforma popular para análise de macrodados. A plata
 
 Agora que já anexados a computação e configurado a sua execução, a próxima etapa é [submeter a execução de treinamento](#submit).
 
+
+### <a id="azbatch"></a>O Azure Batch 
+
+O Azure Batch é utilizado para executar aplicações de computação em larga escala paralela e de alto desempenho (HPC) de forma eficaz na cloud. AzureBatchStep pode ser utilizado num Pipeline do Azure Machine Learning para submeter tarefas para um conjunto do Azure Batch de máquinas.
+
+Para anexar o Azure Batch como um destino de computação, tem de utilizar o SDK do Azure Machine Learning e forneça as seguintes informações:
+
+-   **Nome de computação do Azure Batch**: Um nome amigável a ser utilizado para a computação dentro da área de trabalho
+-   **Nome da conta do Azure Batch**: O nome da conta do Azure Batch
+-   **Grupo de recursos**: O grupo de recursos que contém a conta do Azure Batch.
+
+O código a seguir demonstra como anexar Azure Batch como um destino de computação:
+
+```python
+from azureml.core.compute import ComputeTarget, BatchCompute
+from azureml.exceptions import ComputeTargetException
+
+batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+
+# Batch account details needed to attach as compute to workspace
+batch_account_name = "<batch_account_name>" # Name of the Batch account
+batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+
+try:
+    # check if the compute is already attached
+    batch_compute = BatchCompute(ws, batch_compute_name)
+except ComputeTargetException:
+    print('Attaching Batch compute...')
+    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    batch_compute.wait_for_completion()
+    print("Provisioning state:{}".format(batch_compute.provisioning_state))
+    print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
+
+print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
+```
 
 ## <a name="set-up-compute-in-the-azure-portal"></a>Configurar a computação no portal do Azure
 

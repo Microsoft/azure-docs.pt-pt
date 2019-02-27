@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 09/29/2017
 ms.author: aahi
-ms.openlocfilehash: 56be136aff3aa7fbe813fee500dcf2fe35ca0859
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3a951f793ec946fc66d6a14acacd548a5f990be3
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875401"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56872867"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>O que é a API de Pesquisa Personalizada do Bing?
 
@@ -29,7 +29,7 @@ A API de pesquisa personalizada do Bing permite-lhe criar experiências de pesqu
 |[Experiências de pesquisa de imagem personalizada](get-images-from-instance.md)     | Permita que os utilizadores a procurar imagens a partir de domínios e Web sites especificados na sua instância de pesquisa personalizada.        |        
 |[Experiências de pesquisa de vídeo personalizada](get-videos-from-instance.md)     | Permita que os utilizadores a procurar vídeos dos domínios e sites especificado na sua instância de pesquisa personalizada.        |    
 |[Partilhar a sua instância de pesquisa personalizada](share-your-custom-search.md)     | Em colaboração, editar e testar sua instância de pesquisa ao partilhá-lo com membros de sua equipe.        | 
-|[Configurar uma interface do Usuário para seus aplicativos e Web sites ](hosted-ui.md)     | Em colaboração, editar e testar sua instância de pesquisa ao partilhá-lo com membros de sua equipe.        | 
+|[Configurar uma interface do Usuário para seus aplicativos e Web sites](hosted-ui.md)     | Em colaboração, editar e testar sua instância de pesquisa ao partilhá-lo com membros de sua equipe.        | 
 ## <a name="workflow"></a>Fluxo de trabalho
 
 Pode criar uma instância de pesquisa personalizadas com o [portal de pesquisa personalizada do Bing](https://customsearch.ai). O portal permite-lhe criar uma instância de pesquisa personalizada que especifica a domínios, sites e páginas da Web que pretende que o Bing para pesquisar, juntamente com as quais pretende-lo para pesquisar. Também pode utilizar o portal para: pré-visualizar a experiência de pesquisa, ajustar as classificações de pesquisa que fornece a API e, opcionalmente, configure uma interface do usuário pesquisável a ser processado nos seus Web sites e aplicações.
