@@ -264,6 +264,9 @@ items:
   - name: Obter dados de conformidade
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
+  - name: Determinar as causas da não conformidade
+    displayName: reasons, comliance details
+    href: ./how-to/determine-non-compliance.md
   - name: Identificar recursos em não conformidade
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
@@ -329,9 +332,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: 293c97d66181de817e62e9735520ff4b4d40aff1
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: b90528e1c8f459ba90e626f1f6307acebd963511
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805176"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888513"

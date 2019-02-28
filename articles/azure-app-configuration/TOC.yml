@@ -1,0 +1,60 @@
+items:
+- name: Documentação da Configuração da Aplicação Azure
+  href: index.yml
+- name: Descrição geral
+  items:
+  - name: Sobre a Configuração da Aplicação Azure
+    href: overview.md
+- name: Inícios rápidos
+  items:
+  - name: Criar uma aplicação ASP.NET Core
+    href: quickstart-aspnet-core-app.md
+  - name: Criar uma aplicação .NET Core
+    href: quickstart-dotnet-core-app.md
+  - name: Criar uma aplicação .NET Framework
+    href: quickstart-dotnet-app.md
+  - name: Criar uma Função do Azure
+    href: quickstart-azure-function-csharp.md
+  - name: Criar uma aplicação Java Spring
+    href: quickstart-java-spring-app.md
+  expanded: true
+- name: Tutoriais
+  items:
+  - name: Ativar a configuração dinâmica no ASP.NET Core
+    href: enable-dynamic-configuration-aspnet-core.md
+  - name: Integrar na Identidade de Serviço Gerida do Azure
+    href: integrate-azure-managed-service-identity.md
+- name: Amostras
+  items:
+  - name: Exemplos de código
+    href: https://github.com/Azure/AppConfiguration/samples
+  - name: CLI do Azure
+    href: cli-samples.md
+- name: Conceitos
+  items:
+  - name: Arquivo de chave-valor
+    href: concept-key-value.md
+  - name: Instantâneo para um ponto anterior no tempo
+    href: concept-point-time-snapshot.md
+- name: Guias de procedimentos
+  items:
+  - name: Importar ou exportar dados de configuração
+    href: howto-import-export-data.md
+  - name: Integrar num pipeline CI/CD
+    href: howto-integrate-ci-cd-pipeline.md
+- name: Referência
+  items:
+  - name: Fornecedor de configuração do .NET Core
+    href: https://go.microsoft.com/fwlink/?linkid=2074664
+  - name: Criador de configuração do .NET Framework
+    href: https://go.microsoft.com/fwlink/?linkid=2074663
+  - name: Fornecedor de configuração do Java Spring
+    href: https://go.microsoft.com/fwlink/?linkid=2074659
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/azure-app-configuration
+ms.openlocfilehash: c35296a6923e464ca20a873de4165ea20c08278f
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56884139"

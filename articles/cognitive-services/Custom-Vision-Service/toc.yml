@@ -31,6 +31,12 @@ items:
       href: node-tutorial.md
     - name: Deteção de objetos
       href: node-tutorial-object-detection.md
+  - name: Utilizar o SDK do Go
+    items:
+    - name: Classificação de imagens
+      href: go-tutorial.md
+    - name: Deteção de objetos
+      href: go-tutorial-object-detection.md
 - name: Tutoriais
   items:
   - name: Detetor de logótipo para dispositivos móveis
@@ -93,9 +99,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Notas de Versão
     href: release-notes.md
-ms.openlocfilehash: 1a98bec35cf86f1d1edef33781cb053a8843b5c9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 6802ba56bba276e97bd624fd0da39a6146eb8238
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749873"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56866815"

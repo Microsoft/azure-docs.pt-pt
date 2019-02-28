@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Descrição geral
   items:
-  - name: Azure DB para MariaDB
+  - name: O que é o Azure Database for MariaDB?
     href: overview.md
 - name: Inícios rápidos
   items:
@@ -136,6 +136,8 @@ items:
       href: howto-restart-server-portal.md
 - name: Referência
   items:
+  - name: CLI do Azure
+    href: /cli/azure/mariadb
   - name: API REST
     href: /rest/api/mariadb
   - name: Modelo do Resource Manager
@@ -160,9 +162,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 4df6cff8267964899cbeede6f505f6a04e405dd5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: a8fadb5d0fdcc8f89c4dfe79b0c87a1cca704766
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895201"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886643"

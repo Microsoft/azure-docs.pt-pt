@@ -339,12 +339,12 @@ items:
     - name: Ligar o HDInsight com a sua rede local
       href: ../connect-on-premises-network.md
       maintainContext: true
-  - name: Monitorizar com o Log Analytics
+  - name: Monitorizar com os registos do Azure Monitor
     items:
-    - name: Utilizar o Log Analytics do Azure
+    - name: Utilizar os registos do Azure Monitor
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
       maintainContext: true
-    - name: Utilizar consultas com o Log Analytics
+    - name: Utilizar consultas com os registos do Azure Monitor
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
       maintainContext: true
     - name: Monitorizar o desempenho do cluster
@@ -395,9 +395,9 @@ items:
   - name: Ferramentas do Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 09faec7121aa502d6fbdf7fb4d956a00de49b2e5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 3a687530afde6f24d1e264b289b7aaebf290c68f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326659"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888258"

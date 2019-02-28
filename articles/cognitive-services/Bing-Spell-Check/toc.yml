@@ -4,45 +4,49 @@ items:
 - name: Descrição geral
   items:
   - name: O que é a API de Verificação Ortográfica do Bing?
-    href: proof-text.md
+    href: overview.md
   - name: Comparar as APIs de Pesquisa do Bing
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
-- name: Inícios Rápidos da API REST
+- name: Inícios rápidos
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
-  expanded: true
-- name: Inícios Rápidos do SDK
-  items:
-  - name: Início rápido de C# do SDK
-    href: sdk-quickstart-spell-check.md
-  - name: Descrição geral de exemplos de SDKs
-    href: sdk.md
+  - name: API REST
+    items:
+    - name: Utilizar C#
+      href: quickstarts/csharp.md
+    - name: Utilizar o Java
+      href: quickstarts/java.md
+    - name: Com Node.js
+      href: quickstarts/nodejs.md
+    - name: Utilizar o PHP
+      href: quickstarts/php.md
+    - name: Utilizar o Python
+      href: quickstarts/python.md
+    - name: Utilizar o Ruby
+      href: quickstarts/ruby.md
+    expanded: true
+  - name: SDK
+    items:
+    - name: Utilizar C#
+      href: sdk-quickstart-spell-check.md
 - name: Tutoriais
   items:
   - name: Criar uma aplicação Web de verificação ortográfica
     href: tutorials/spellcheck.md
-  - name: 'Código fonte: aplicação Web de verificação ortográfica'
-    href: tutorials/spellcheck-source.md
 - name: Guias de procedimentos
   items:
   - name: Atualizar da v5 para v7
     href: bing-spell-check-upgrade-guide-v5-to-v7.md
+- name: Conceitos
+  items:
+  - name: Enviar pedidos para a API de Verificação de Ortografia do Bing
+    href: concepts/sending-requests.md
+  - name: Utilizar a API de Verificação de Ortografia do Bing
+    href: concepts/using-spell-check.md
 - name: Amostras
   items:
   - name: Exemplos de código
-    href: sdk.md
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check
 - name: Referência
   items:
   - name: API de Verificação Ortográfica do Bing v7
@@ -68,8 +72,6 @@ items:
   items:
   - name: Análise da API de Verificação Ortográfica do Bing
     href: bing-spell-check-stats.md
-  - name: FAQ
-    href: bing-spell-check-resource-faq.md
   - name: Suporte de idioma e região
     href: language-support.md
   - name: Preços
@@ -84,9 +86,9 @@ items:
     href: https://azure.microsoft.com/services/cognitive-services/spell-check/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598195-bing-spell-check
-ms.openlocfilehash: a993da847ca775a18efba42a82045d450a1e9f59
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 132901c3bf159054519658893f1f05438852afcb
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512103"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890050"

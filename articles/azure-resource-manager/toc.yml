@@ -23,20 +23,24 @@ items:
   - name: Mover recursos
     href: resource-manager-tutorial-move-resources.md
   - name: Definir a ordem de implementação de recursos
+    displayName: dependent resources, dependency
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: Condições de utilização
     href: resource-manager-tutorial-use-conditions.md
   - name: Integrar Key Vault
+    displayName: secrets
     href: resource-manager-tutorial-use-key-vault.md
   - name: Criar modelos ligados
     href: resource-manager-tutorial-create-linked-templates.md
   - name: Implementar extensões de VM
+    displayName: virtual machine extensions
     href: resource-manager-tutorial-deploy-vm-extensions.md
   - name: Implementar extensões de SQL
     href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
   - name: Proteger artefactos
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Utilize as práticas recomendadas de implementação segura
+    displayName: azure deployment manager
     href: deployment-manager-tutorial.md
   - name: Resolver problemas da implementação de modelos
     href: resource-manager-tutorial-troubleshoot.md
@@ -97,6 +101,7 @@ items:
       href: resource-group-linked-templates.md
     - name: Gerir segredos
       href: resource-manager-keyvault-parameter.md
+      displayname: key vault
     - name: Criar múltiplas instâncias
       href: resource-group-create-multiple.md
     - name: Utilizar extensões de modelo
@@ -111,46 +116,47 @@ items:
       href: resource-group-template-deploy-cli.md
     - name: Implementar - PowerShell
       href: resource-group-template-deploy.md
-    - name: Implementar com a API REST
+    - name: Implementar - API REST
       href: resource-group-template-deploy-rest.md
     - name: Proteger os modelos com o token de SAS
       items:
       - name: Utilizar a CLI do Azure
         href: resource-manager-cli-sas-token.md
-      - name: Com o PowerShell
+      - name: Utilizar o Azure PowerShell
         href: resource-manager-powershell-sas-token.md
     - name: Implementar para vários grupos de recursos ou subscrições
       href: resource-manager-cross-resource-group-deployment.md
     - name: Integração contínua com os Serviços de DevOps do Azure
       href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
       maintainContext: true
-  - name: Gerir recursos
+  - name: Gerir
     items:
     - name: Gerir grupos de recursos
       items:
-      - name: Gerir grupos de recursos - portal
+      - name: Utilizar o portal do Azure
         displayName: create,list,open,delete,deploy,move,lock,tag,export
         href: manage-resource-groups-portal.md
-      - name: Gerir grupos de recursos - CLI
+      - name: Utilizar a CLI do Azure
         displayName: create,list,open,delete,deploy,move,lock,tag,export
         href: manage-resource-groups-cli.md
-      - name: Gerir grupos de recursos - PowerShell
+      - name: Utilizar o Azure PowerShell
         displayName: create,list,open,delete,deploy,move,lock,tag,export
         href: manage-resource-groups-powershell.md
     - name: Gerir recursos
       items:
-      - name: Gerir recursos - portal
+      - name: Utilizar o portal do Azure
         displayName: open,delete,deploy,move,lock,tag,monitor
         href: manage-resources-portal.md
-      - name: Gerir recursos - CLI
+      - name: Utilizar a CLI do Azure
         displayName: open,delete,deploy,move,lock,tag
         href: manage-resources-cli.md
-      - name: Gerir recursos - PowerShell
+      - name: Utilizar o Azure PowerShell
         displayName: open,delete,deploy,move,lock,tag
         href: manage-resources-powershell.md
     - name: Mover recursos
       href: resource-group-move-resources.md
-    - name: Organizar recursos com etiquetas
+    - name: Organizar recursos
+      displayName: tags
       href: resource-group-using-tags.md
     - name: Bloquear recursos
       href: resource-group-lock-resources.md
@@ -259,9 +265,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 1483d34859135d7b50bada6c74c90d09abc2df23
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 061f23dd0f25fccdbcfe459dc71f998319b06d58
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820540"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886694"

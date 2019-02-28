@@ -100,6 +100,8 @@ items:
         href: howto-mfa-nps-extension.md
       - name: Configuração avançada para a extensão NPS
         href: howto-mfa-nps-extension-advanced.md
+      - name: VPN do Azure e MFA do Azure
+        href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
       - name: Gateway de Ambiente de Trabalho Remoto
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
@@ -229,9 +231,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 99d21cd59b7281dbb6a34c2e3cdc9026c9955622
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 433e26c6375d2865936f52189a38213898255baa
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585989"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870028"
