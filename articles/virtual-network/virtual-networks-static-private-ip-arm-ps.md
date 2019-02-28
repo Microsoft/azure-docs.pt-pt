@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: ee990258be5ac6396754d5c42beb2ffd78ad7aca
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 536ca8895d130fd9273d556332830d020a485dc3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649236"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958299"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Criar uma máquina virtual com um endereço IP privado estático com o PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Pode criar uma máquina virtual (VM) com um endereço IP privado estático. Atribua um endereço IP privado estático, em vez de um endereço dinâmico, para garantir que o endereço nunca é alterado. Saiba mais sobre [endereços IP privados estáticos](virtual-network-ip-addresses-overview-arm.md#allocation-method). Para alterar um endereço IP privado atribuído a uma VM existente de dinâmico para estático, ou para trabalhar com endereços IP públicos, consulte [adicionar, alterar ou remover endereços IP](virtual-network-network-interface-addresses.md).
+Pode criar uma máquina virtual (VM) com um endereço IP privado estático. Atribua um endereço IP privado estático, em vez de um endereço dinâmico, se pretender selecionar qual o endereço de sub-rede é atribuído a uma VM. Saiba mais sobre [endereços IP privados estáticos](virtual-network-ip-addresses-overview-arm.md#allocation-method). Para alterar um endereço IP privado atribuído a uma VM existente de dinâmico para estático, ou para trabalhar com endereços IP públicos, consulte [adicionar, alterar ou remover endereços IP](virtual-network-network-interface-addresses.md).
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
@@ -110,5 +110,5 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e a atribuição de um [endereço IP privado estático](virtual-network-network-interface-addresses.md#add-ip-addresses) para uma máquina virtual do Azure
-- Saiba mais sobre a criação [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquinas virtuais
+- Saiba mais sobre [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e a atribuição de um [endereço IP privado estático](virtual-network-network-interface-addresses.md#add-ip-addresses) para uma máquina virtual do Azure.
+- Saiba mais sobre a criação [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquinas virtuais.

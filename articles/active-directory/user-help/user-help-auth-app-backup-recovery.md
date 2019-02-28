@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b8a06276bcaa989fa04f105ac7858c25ab4d0ef
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 1927e9b4aeec6f424c69632d8811c49c97d3aad1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887510"
+ms.locfileid: "56961555"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Cópia de segurança e recuperar credenciais de conta com a aplicação Microsoft Authenticator
 
@@ -28,7 +28,9 @@ ms.locfileid: "56887510"
 A aplicação Microsoft Authenticator faz uma cópia de segurança de credenciais da conta e as definições de aplicação relacionados, como a ordem das suas contas, para a cloud. Após a cópia de segurança, também pode utilizar a aplicação para recuperar as informações num novo dispositivo, evitando potencialmente obter bloqueado out ou ter de recriar as contas.
 
 >[!IMPORTANT]
-> Precisa de uma conta Microsoft pessoal e uma conta do iCloud para cada localização de armazenamento de cópia de segurança. Mas dentro desse local de armazenamento, pode criar cópias de segurança várias contas. Por exemplo, pode ter uma conta pessoal, uma conta da instituição de ensino e uma conta de terceiros, como o Facebook, Google e assim por diante.<br><br>Apenas as credenciais da conta pessoal e 3rd party são armazenadas, que inclui o nome de utilizador e o código de verificação de conta é necessária para provar a sua identidade. Não armazenamos quaisquer outras informações associadas com as suas contas, incluindo mensagens de correio eletrónico ou ficheiros. Também não associar nem partilhar as suas contas de qualquer forma, ou com qualquer outro produto ou serviço. E, finalmente, o administrador de TI não receberão qualquer informação sobre qualquer uma destas contas.
+> Precisa de uma conta Microsoft pessoal e uma conta do iCloud para cada localização de armazenamento de cópia de segurança. Mas dentro desse local de armazenamento, pode criar cópias de segurança várias contas. Por exemplo, pode ter uma conta pessoal, uma conta da instituição de ensino e uma conta de terceiros, como o Facebook, Google e assim por diante.
+
+> Apenas as credenciais da conta pessoal e 3rd party são armazenadas, que inclui o nome de utilizador e o código de verificação de conta é necessária para provar a sua identidade. Não armazenamos quaisquer outras informações associadas com as suas contas, incluindo mensagens de correio eletrónico ou ficheiros. Também não associar nem partilhar as suas contas de qualquer forma, ou com qualquer outro produto ou serviço. E, finalmente, o administrador de TI não receberão qualquer informação sobre qualquer uma destas contas.
 
 ## <a name="back-up-your-account-credentials"></a>Criar cópias de segurança as credenciais da conta
 Antes de pode criar cópias de segurança as suas credenciais, tem de ter ambos:
@@ -98,10 +100,12 @@ Há alguns motivos por que a cópia de segurança pode não estar disponível:
 -   **Contas existentes do Microsoft Authenticator.** Se já tiver configurado a contas na aplicação Microsoft Authenticator, a aplicação não será possível recuperar as suas contas de cópia de segurança. Recuperação impedindo que ajuda a garantir que os detalhes da sua conta não são substituídos com informações Desatualizadas. Nesta situação, tem de remover quaisquer informações de conta existente das contas existentes que configurar na sua aplicação de autenticador para poder recuperar a cópia de segurança.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Agora que ter uma cópia de segurança e recuperar as credenciais da conta para o seu dispositivo novo, pode continuar a utilizar a aplicação Microsoft Authenticator para verificar a sua identidade.
+Agora que ter uma cópia de segurança e recuperar as credenciais da conta para o seu dispositivo novo, pode continuar a utilizar a aplicação Microsoft Authenticator para verificar a sua identidade. Para obter mais informações, consulte [iniciar sessão nas suas contas com a aplicação Microsoft Authenticator](user-help-sign-in.md).
 
 ## <a name="related-topics"></a>Tópicos relacionados
-- [Introdução à aplicação Microsoft Authenticator](user-help-auth-app-download-install.md)  
+
+- [O que é a aplicação Microsoft Authenticator?](user-help-auth-app-overview.md)
+
 - [FAQ da aplicação Microsoft Authenticator](user-help-auth-app-faq.md)
 
 - [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

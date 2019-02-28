@@ -8,21 +8,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: b5d1908201de803ae065403600fc3478e604eedd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653718"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959107"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utilizar o Apache Spark MLlib para criar uma aplicação de machine learning e analisar um conjunto de dados
 
 Saiba como utilizar o Apache Spark [MLlib](https://spark.apache.org/mllib/) para criar uma aplicação de machine learning para fazer uma análise preditiva simple num conjunto de dados aberta. Da máquina incorporada do Spark bibliotecas de aprendizagem, este exemplo utiliza *classificação* por meio de regressão logística. 
-
-> [!TIP]  
-> Este exemplo também está disponível como um [bloco de notas do Jupyter](https://jupyter.org/) num cluster do Spark (Linux) que criar no HDInsight. A experiência de bloco de notas permite-lhe executar os fragmentos de Python do bloco de notas. Para seguir o tutorial a partir de um bloco de notas, crie um cluster do Spark e iniciar um bloco de notas do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Em seguida, execute o bloco de notas **Spark do Machine Learning - Análise Preditiva em dados de inspeção de comida usando MLlib.ipynb** sob a **Python** pasta.
 
 MLlib é uma biblioteca de Spark core que fornece muitos utilitários útil para tarefas de machine learning, incluindo utilitários que são adequados para:
 
@@ -49,7 +46,7 @@ Os passos abaixo, vai desenvolver um modelo para ver o que é necessário para a
 
 1. Crie um bloco de notas do Jupyter com o kernel de PySpark. Para obter as instruções, veja [Criar um bloco de notas do Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-2. Importe os tipos necessários para esta aplicação. Copie e cole o seguinte código numa célula vazia e, em seguida, prima **CAMISA + ENTER**.
+2. Importe os tipos necessários para esta aplicação. Copie e cole o seguinte código numa célula vazia e, em seguida, prima **SHIFT + ENTER**.
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ Vamos começar a perceber o que contém o conjunto de dados.
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     O `%%sql` seguido de mágica `-o countResultsdf` garante que o resultado da consulta persistem localmente no servidor do Jupyter (normalmente, o nó principal do cluster). A saída é persistente como uma [Pandas](https://pandas.pydata.org/) dataframe com o nome especificado **countResultsdf**. Para obter mais informações sobre o `%%sql` mágica e sobre outras magias disponíveis com o kernel do PySpark, consulte [Kernels disponíveis nos blocos de notas do Jupyter com clusters do Apache Spark HDInsight](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
@@ -200,14 +197,6 @@ Vamos começar a perceber o que contém o conjunto de dados.
     O resultado é:
 
     ![Resultado de Spark aplicação de machine learning - gráfico de pizza com cinco resultados de inspeções distintos](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "saída de resultado de aprendizagem de Spark")
-
-    Existem 5 resultados distintos que pode ter uma inspeção:
-
-    - Negócios não localizado
-    - Falha
-    - Passagem
-    - Passar com condições
-    - Fora do negócio
 
     Para prever um resultado de inspeção de comida, terá de desenvolver um modelo com base nas violações. Como a regressão logística é um método de classificação binária, faz sentido para agrupar os dados de resultado em duas categorias: **Falhar** e **passar**:
 
@@ -272,7 +261,7 @@ Pode usar o modelo que criou anteriormente ao *prever* o que os resultados de in
 1. Execute o seguinte código para criar um novo pacote de dados, **predictionsDf** que contém a predição gerada pelo modelo. O trecho de código também cria uma tabela temporária denominada **previsões** com base no pacote de dados.
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ Pode usar o modelo que criou anteriormente ao *prever* o que os resultados de in
     Deve ver um resultado como o seguinte:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ Pode usar o modelo que criou anteriormente ao *prever* o que os resultados de in
     O resultado é semelhante ao seguinte:
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -377,7 +358,7 @@ Agora pode construir uma visualização final para o ajudar a ponderar os result
     Neste gráfico, um resultado "positivo" refere-se para a inspeção de comida com falha, enquanto um resultado negativo refere-se para uma inspeção com êxito.
 
 ## <a name="shut-down-the-notebook"></a>Encerrar o bloco de notas
-Depois de terminar de executar a aplicação, deve encerrar o bloco de notas para libertar os recursos. Para o fazer, no menu **Ficheiro** do bloco de notas, clique em **Fechar e Parar**. Isso encerra e fecha o bloco de notas.
+Depois de terminar de executar a aplicação, deve encerrar o bloco de notas para libertar os recursos. Para tal, no menu **File** (Ficheiro) do bloco de notas, selecione **Close and Halt** (Fechar e Parar). Isso encerra e fecha o bloco de notas.
 
 ## <a name="seealso"></a>Ver também
 * [Descrição geral: Apache Spark no HDInsight do Azure](apache-spark-overview.md)

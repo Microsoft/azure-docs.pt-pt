@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 424aa7038fecba7a11c1ccaa07053cf2e1606835
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651139"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960059"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites e limites de base de dados de conhecimento do QnA Maker
 Lista completa dos limites entre a ferramenta QnA Maker.
@@ -52,7 +52,7 @@ Limites geral para o conteúdo na base de dados de conhecimento:
 * Comprimento do nome de ficheiro: 200
 * Formatos de ficheiro suportados: ". tsv", ". pdf", ". txt", ". docx", ". xlsx".
 * Número máximo de perguntas alternativos: 100
-* Número máximo de pares de perguntas respostas: Depende da [escalão do Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) escolhido 
+* Número máximo de pares de perguntas respostas: Depende da [escalão do Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) escolhido. Um par de perguntas e respostas é mapeado para um documento no índice da Azure Search. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Crie limites de chamada de base de dados de conhecimento:
 Estes representam os limites para cada criar ação de base de dados; ou seja, clicar *KB criar* ou chamar a API de CreateKnowledgeBase.

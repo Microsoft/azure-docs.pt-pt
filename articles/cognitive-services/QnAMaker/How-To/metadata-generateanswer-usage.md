@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
-ms.author: tulasim88
-ms.openlocfilehash: 9cb16842e0bc80a1fcbd066bea44c5b9701bb6d5
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: tulasim
+ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651214"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958053"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API de GenerateAnswer e metadados
 
@@ -69,10 +69,10 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 
 |Propriedade de pedido HTTP|Name|Type|Objetivo|
 |--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de conhecimento|cadeia|O GUID de sua base de dados de conhecimento.|
-|Parâmetro de rota de URL|Anfitrião de ponto final do QnAMaker|cadeia|O nome de anfitrião do ponto final implementado na sua subscrição do Azure. Está disponível na página definições depois de publicar a base de dados de conhecimento. |
-|Cabeçalho|Content-Type|cadeia|O tipo de suporte do corpo enviado para a API. Valor predefinido é: '|
-|Cabeçalho|Autorização|cadeia|A chave de ponto final (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parâmetro de rota de URL|ID da base de dados de conhecimento|string|O GUID de sua base de dados de conhecimento.|
+|Parâmetro de rota de URL|Anfitrião de ponto final do QnAMaker|string|O nome de anfitrião do ponto final implementado na sua subscrição do Azure. Está disponível na página definições depois de publicar a base de dados de conhecimento. |
+|Cabeçalho|Content-Type|string|O tipo de suporte do corpo enviado para a API. Valor predefinido é: '|
+|Cabeçalho|Autorização|string|A chave de ponto final (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo da mensagem|Objeto JSON|JSON|A pergunta com as definições|
 |Parâmetro de cadeia de caracteres de consulta (opcional)|`isTest`|boolean|Se definido como true, devolve resultados de `testkb` índice de pesquisa, em vez de índice publicado.|
 
@@ -80,10 +80,10 @@ O corpo JSON tem várias definições:
 
 |Propriedade de corpo JSON|Necessário|Type|Objetivo|
 |--|--|--|--|
-|`question`|obrigatório|cadeia|Uma pergunta do utilizador sejam enviados para a sua base de dados de conhecimento.|
+|`question`|obrigatório|string|Uma pergunta do utilizador sejam enviados para a sua base de dados de conhecimento.|
 |`top`|opcional|inteiro|O número de resultados classificados a incluir na saída. O valor predefinido é 1.|
-|`userId`|opcional|cadeia|Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.|
-|`strictFilters`|opcional|cadeia|Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados.|
+|`userId`|opcional|string|Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.|
+|`strictFilters`|opcional|string|Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados.|
 
 Um exemplo de corpo JSON é semelhante a:
 

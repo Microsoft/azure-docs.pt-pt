@@ -35,12 +35,12 @@ items:
   - name: CLI do Azure
     href: cli-samples.md
 - name: Conceitos
+  href: concepts-overview.md
   items:
   - name: Carregamento e armazenamento na cloud
     href: storage-account-concept.md
-    items:
-    - name: Elementos
-      href: assets-concept.md
+  - name: Elementos
+    href: assets-concept.md
   - name: Codificação
     items:
     - name: Descrição geral
@@ -66,13 +66,14 @@ items:
       - name: Empacotamento dinâmico
         displayName: packager
         href: dynamic-packaging-overview.md
-      - name: Filtros
-        href: filters-concept.md
       - name: Manifestos dinâmicos
         href: filters-dynamic-manifest-overview.md
+      - name: Filtros
+        href: filters-concept.md
     - name: Proteção de conteúdo
-      href: content-protection-overview.md
       items:
+      - name: Descrição geral
+        href: content-protection-overview.md
       - name: Sistema multi-DRM com controlo de acesso
         href: design-multi-drm-system-with-access-control.md
       - name: Licenças DRM
@@ -94,8 +95,9 @@ items:
     - name: Políticas de Chave de Conteúdo
       href: content-key-policy-concept.md
   - name: Transmissão em direto
-    href: live-streaming-overview.md
     items:
+    - name: Descrição geral
+      href: live-streaming-overview.md
     - name: Eventos em Direto e Saídas em Direto
       href: live-events-outputs-concept.md
     - name: Codificadores em direto recomendados
@@ -242,9 +244,9 @@ items:
     href: frequently-asked-questions.md
   - name: Regiões e clouds do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 05743bbc6bc448fbea5b084fd945d1e056bf16e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 726c49754b1e04be8a9f03cc754c067994b98565
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867784"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958420"

@@ -1,6 +1,6 @@
 ---
 title: Como registos de consulta do Azure Monitor para VMs (pré-visualização) | Documentos da Microsoft
-description: Monitor do Azure para a solução de VMs reencaminha as métricas e dados de registo para o Log Analytics e este artigo descreve os registos e incluem exemplos de consultas.
+description: O Monitor para a solução de VMs do Azure recolhe métricas e dados de registo para este artigo descreve os registos e inclui exemplos de consultas.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ab70febbb41b26fd824f9ae6ef0d00358c7530f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f33b87fa2c90eda7e4fa135e55565781e8491418
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864422"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983783"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Como consultar os registos do Azure Monitor para VMs (pré-visualização)
-O Monitor para VMs do Azure recolhe métricas de desempenho e a ligação, o computador e o processamento de dados de inventário e informações de estado de funcionamento e encaminhá-la para o arquivo de dados do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [pesquisa](../../azure-monitor/log-query/log-query-overview.md) no Log Analytics. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
+Monitor do Azure para VMs recolhe o desempenho e métricas de ligação, computador e processar dados de inventário e informações de estado de funcionamento e encaminhá-la para a área de trabalho do Log Analytics no Azure Monitor.  Estes dados estão disponíveis para [consulta](../../azure-monitor/log-query/log-query-overview.md) no Azure Monitor. Pode aplicar esses dados para cenários que incluem planos de migração, análise de capacidade, deteção e resolução de problemas de desempenho a pedido.
 
 ## <a name="map-records"></a>Registos de mapa
 Um registo é gerado por hora para cada computador exclusivo e o processo, além dos registos que são gerados quando um processo ou o computador inicia ou é integrado para o Azure Monitor para a funcionalidade de mapa de VMs. Estes registos têm as propriedades nas tabelas seguintes. Os campos e os valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso de máquina na API ServiceMap do Azure Resource Manager. Os campos e os valores nos eventos ServiceMapProcess_CL mapeiam os campos do recurso de processo na API ServiceMap do Azure Resource Manager. O campo de ResourceName_s corresponda o campo de nome do recurso de Gestor de recursos correspondente. 
@@ -34,7 +34,7 @@ Existem propriedades internamente geradas, pode usar para identificar processos 
 Uma vez que vários registos podem existir num processo especificado e o computador num intervalo de tempo especificado, as consultas podem devolver mais de um registo para o mesmo computador ou processo. Para incluir apenas o registo mais recente, adicione "| eliminação de duplicados ResourceId"para a consulta.
 
 ### <a name="connections"></a>Ligações
-Métricas de ligação são escritas para uma nova tabela no Log Analytics - VMConnection. Esta tabela fornece informações sobre as ligações para uma máquina (entrada e saída). Métricas de ligação também são expostas com APIs que fornecem os meios para obter uma métrica específica durante uma janela de tempo.  Ligações de TCP resultantes de "*aceitar*ing - num soquete de escuta são entrada, enquanto os criados por *ligar*, ing para um determinado IP e porta são saída. A direção de uma conexão é representada pela propriedade de direção, o que pode ser definida para o **entrada** ou **saída**. 
+Métricas de ligação são escritas nos registos do Azure Monitor - VMConnection, uma nova tabela. Esta tabela fornece informações sobre as ligações para uma máquina (entrada e saída). Métricas de ligação também são expostas com APIs que fornecem os meios para obter uma métrica específica durante uma janela de tempo.  Ligações de TCP resultantes de "*aceitar*ing - num soquete de escuta são entrada, enquanto os criados por *ligar*, ing para um determinado IP e porta são saída. A direção de uma conexão é representada pela propriedade de direção, o que pode ser definida para o **entrada** ou **saída**. 
 
 Registos nestas tabelas são gerados a partir de dados reportados pelo agente de dependência. Cada registo representa uma observação sobre um intervalo de tempo de um minuto. A propriedade TimeGenerated indica o início do intervalo de tempo. Cada registro contém informações para identificar a entidade respectiva, ou seja, ligação ou porta, bem como as métricas associadas com essa entidade. Atualmente, apenas as atividades de rede que ocorre usando TCP sobre IPv4 é comunicada.
 
@@ -255,5 +255,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Se estiver familiarizado com a criação de consultas do Log Analytics, consulte [como utilizar a página do Log Analytics](../../azure-monitor/log-query/get-started-portal.md) no portal do Azure para escrever consultas do Log Analytics.
+* Se estiver familiarizado com a criação de consultas de registo no Azure Monitor, rever [como utilizar o Log Analytics](../../azure-monitor/log-query/get-started-portal.md) no portal do Azure para escrever consultas de registo.
 * Saiba mais sobre [escrever consultas de pesquisa](../../azure-monitor/log-query/search-queries.md).

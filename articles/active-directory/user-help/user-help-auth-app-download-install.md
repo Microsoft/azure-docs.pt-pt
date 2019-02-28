@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e11092057af3a7a16c60e55837f31ac3004e42a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40be6f333bf259cc036bec9c0d9fc967dd33f2a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184844"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960042"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Transferir e instalar a aplicação Microsoft Authenticator
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
@@ -28,6 +28,9 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 - **Verificação de dois fatores.** O método de verificação padrão, onde um dos fatores é a palavra-passe. Depois que iniciar sessão com o seu nome de utilizador e palavra-passe, pode aprovar uma notificação ou introduza um código de verificação fornecido.
 
 - **Início de sessão no telefone.** Uma versão de verificação de dois fatores, que lhe permite início de sessão sem exigir uma palavra-passe, com o seu nome de utilizador e dispositivo móvel com a impressão digital, face ou o PIN.
+
+>[!Important]
+>Sua organização pode implicar a utilizar uma aplicação de autenticação para início de sessão e aceder aos seus dados organizacionais e documentos. Embora o seu nome de utilizador poderá ser apresentada na aplicação, a conta, na verdade, não está configurada para atuar como um método de verificação até concluir o processo de registo. Para obter mais informações, consulte [adicionar a sua conta escolar ou profissional](user-help-auth-app-overview.md).
 
 >[!NOTE]
 >Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.

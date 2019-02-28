@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 45d828b32984363f611828ca3ea33e5fa96a5017
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745848"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961895"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para utilizar a geração 1 de armazenamento do Azure Data Lake
 
@@ -140,7 +140,7 @@ Se Data Lake armazenamento geração 1 não está ativado o envio de log, Azure 
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Depois da propriedade é definida e os nós são reiniciados, diagnóstico de geração 1 de armazenamento do Data Lake é escrito nos registos do YARN em nós (/tmp/\<utilizador\>/yarn.log) e importante detalhes como erros ou (código de erro HTTP 429) a limitação pode ser monitorizado. Estas informações também podem ser monitorizadas no Log Analytics ou onde quer que os registos são fornecidos na [diagnóstico](data-lake-store-diagnostic-logs.md) painel da conta do Data Lake Storage Gen1. Recomenda-se para, pelo menos, tem de ativar o registo de cliente ou utilizar a opção com a geração 1 de armazenamento do Data Lake para visibilidade operacional e a depuração mais fácil de envio de registos.
+Depois da propriedade é definida e os nós são reiniciados, diagnóstico de geração 1 de armazenamento do Data Lake é escrito nos registos do YARN em nós (/tmp/\<utilizador\>/yarn.log) e importante detalhes como erros ou (código de erro HTTP 429) a limitação pode ser monitorizado. Estas informações também podem ser monitorizadas no Azure Monitor registos ou onde quer que os registos são fornecidos na [diagnóstico](data-lake-store-diagnostic-logs.md) painel da conta do Data Lake Storage Gen1. Recomenda-se para, pelo menos, tem de ativar o registo de cliente ou utilizar a opção com a geração 1 de armazenamento do Data Lake para visibilidade operacional e a depuração mais fácil de envio de registos.
 
 ### <a name="run-synthetic-transactions"></a>Executar transações sintéticas
 

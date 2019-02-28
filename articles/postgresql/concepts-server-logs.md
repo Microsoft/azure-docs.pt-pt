@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 0e2dc2af6b4c7ddf531458136e6bcabb49be3b8f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a7f4d10e3273fb2b4e17ff0a55c3a3ed6294833d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538810"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961283"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Registos do servidor na base de dados do Azure para PostgreSQL 
 Base de dados do Azure para PostgreSQL gera erro de consulta e registos. Registos de consulta e o erro podem ser utilizados para identificar, resolução de problemas e reparar erros de configuração e de desempenho inferior ao ideal. (O acesso aos logs de transação não está incluído.) 
@@ -28,7 +28,7 @@ Se ativou os registos, pode acessá-los da base de dados do Azure para PostgreSQ
 
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-Base de dados do Azure para PostgreSQL está integrado com os registos de diagnóstico do Azure Monitor. Assim que tiver ativado os registos no servidor PostgreSQL, pode optar por fazê-los emitidos para [do Log Analytics](../azure-monitor/log-query/log-query-overview.md), os Hubs de eventos ou o armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico, consulte a seção de procedimentos do [documentação de registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Base de dados do Azure para PostgreSQL está integrado com os registos de diagnóstico do Azure Monitor. Assim que tiver ativado os registos no servidor PostgreSQL, pode optar por fazê-los emitidos para [registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md), os Hubs de eventos ou o armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico, consulte a seção de procedimentos do [documentação de registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md). 
 
 
 A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final de saída que escolher, os campos incluídos e a ordem em que aparecem pode variar. 
@@ -38,7 +38,7 @@ A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final
 | TenantId | O ID de inquilino |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Carimbo de hora quando o registo foi registado em UTC |
-| Tipo | Tipo do registo. Sempre `AzureDiagnostics` |
+| Type | Tipo do registo. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID da subscrição que o servidor pertence a |
 | ResourceGroup | Nome do grupo de recursos do servidor pertence a |
 | ResourceProvider | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
@@ -47,11 +47,11 @@ A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final
 | Recurso | Nome do servidor |
 | Categoria | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| nível de erro | Exemplo de nível de registo: AVISO DE LOG, ERRO, |
+| errorLevel | Exemplo de nível de registo: LOG, ERROR, NOTICE |
 | Mensagem | Mensagem do registo principal | 
 | Domain | Versão do servidor, por exemplo: postgres 10 |
 | Detalhe | Mensagem do registo secundário (se aplicável) |
-| columnName | Nome da coluna (se aplicável) |
+| ColumnName | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
 | DatatypeName | Nome do tipo de dados (se aplicável) |
 | LogicalServerName | Nome do servidor | 

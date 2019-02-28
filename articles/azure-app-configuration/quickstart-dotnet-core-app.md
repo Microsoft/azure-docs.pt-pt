@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f8b072752a6cf538cb1a85d3b255af6201aa041e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cd4115aaeec15d14d48dcb71cbdc75212c6dc2db
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884808"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960683"
 ---
 # <a name="quickstart-create-an-net-core-app-with-app-configuration"></a>Início rápido: Criar um .NET Core de aplicação com a configuração de aplicações
 
@@ -74,15 +74,15 @@ Irá utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.mi
 
 1. Definir uma variável de ambiente com o nome **ConnectionString** e defini-lo para a chave de acesso ao seu arquivo de configuração de aplicação. Se estiver a utilizar o Prompt de comando do Windows, execute o seguinte comando e reinicie o Prompt de comando para permitir que a alteração tenha efeito:
 
-        setx ConnectionString "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>"
+        setx ConnectionString "connection-string-of-your-app-configuration-store"
 
     Se estiver a utilizar o Windows PowerShell, execute o seguinte comando:
 
-        $Env:ConnectionString = "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>"
+        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
     Se estiver a utilizar o macOS ou Linux, execute o seguinte comando:
 
-        export ConnectionString='Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>'
+        export ConnectionString='connection-string-of-your-app-configuration-store'
 
 2. Execute o seguinte comando para criar a aplicação de consola:
 

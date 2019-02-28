@@ -1,22 +1,22 @@
 ---
-title: Exemplos de Firewall Log Analytics do Azure
-description: Exemplos de Firewall Log Analytics do Azure
+title: Exemplos de análise do log de Firewall do Azure
+description: Exemplos de análise do log de Firewall do Azure
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2ea95a8e32e2162c31e95bc2e9dd5e60be07649f
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233400"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958070"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Exemplos de Firewall Log Analytics do Azure
+# <a name="azure-firewall-log-analytics-samples"></a>Exemplos de análise do log de Firewall do Azure
 
-Os exemplos seguintes do Log Analytics podem ser utilizados para analisar os registos de Firewall do Azure. O ficheiro de exemplo baseia-se no estruturador de vista do Log Analytics, o [estruturador de vista do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artigo tem mais informações sobre o conceito de estrutura da vista.
+Os exemplos de análise de registo seguinte podem ser utilizados para analisar os registos de Firewall do Azure. O ficheiro de exemplo baseia-se no estruturador de vista do Log Analytics, o [estruturador de vista do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) artigo tem mais informações sobre o conceito de estrutura da vista.
 
 ## <a name="log-analytics-view"></a>Vista do Log Analytics
 
@@ -151,4 +151,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais sobre o Firewall do Azure de monitorização e diagnóstico, veja [Tutorial: métricas e registos de Firewall do Azure Monitor](tutorial-diagnostics.md).
+Para saber mais sobre o Firewall do Azure de monitorização e diagnóstico, veja [Tutorial: Monitorizar métricas e registos de Firewall do Azure](tutorial-diagnostics.md).

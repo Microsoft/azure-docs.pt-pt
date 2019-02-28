@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01ac309d333b6e2456c53e0352067471514198c9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 5a06b7f66742ad7e97e4ae2ab57aabf15f21faf3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338821"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957743"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Ver registos de atividade para alterações RBAC para recursos do Azure
 
@@ -108,9 +108,9 @@ Este comando lista os registos de atividade para o fornecedor de recursos de aut
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
 
-[O Azure Log Analytics](../log-analytics/log-analytics-overview.md) é outra ferramenta que pode utilizar para recolher e analisar as alterações de RBAC para todos os seus recursos do Azure. Log Analytics tem as seguintes vantagens:
+[Registos de Monitor do Azure](../log-analytics/log-analytics-overview.md) é outra ferramenta que pode utilizar para recolher e analisar as alterações de RBAC para todos os seus recursos do Azure. Registos de Monitor do Azure tem as seguintes vantagens:
 
 - Escrever consultas complexas e lógica
 - Integrar com alertas, o Power BI e outras ferramentas

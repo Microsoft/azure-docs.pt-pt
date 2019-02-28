@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8dbe282b919c988d5cb997a66914d81ce1981f88
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d21731549c55f8e3fe90711838fcd21e6770eefe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592422"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960705"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 Microsoft está ajudando a reduzir o custo ao nível da entrada de executar um armazém de dados capaz de processar exigentes consultas ao adicionar a camadas inferiores de computação para o Azure SQL Data Warehouse para Leia o anúncio completo sobre [inferior computação suporte de camada para Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). A nova oferta já está disponível nas regiões indicados na tabela abaixo. Regiões suportadas, armazéns de dados de geração 1 existentes podem ser atualizados para ger2 através de um:
@@ -36,27 +36,29 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 | Leste do Canadá |\* |\* |
 | EUA Central |Disponível |1 de Maio de 2019 |
 | Leste da China |\* |\* |
-| Norte da China 1 |\* |\* |
+| Leste da China 2 |\* |\* |
+| China Norte |\* |\* |
+| Norte da China 2 |\* |\* |
 | Ásia Oriental |Disponível |1 de Maio de 2019 |
-| E.U.A. Leste 1 |Disponível |16 de Março de 2019 |
+| EUA Leste |Disponível |16 de Março de 2019 |
 | EUA Leste 2 |Disponível |16 de Março de 2019 |
 | França Central |1 de Março de 2019 |1 de Maio de 2019 |
 | Alemanha Central |\* |\* |
 | Índia Central |Disponível |1 de Maio de 2019 |
-| Índia do Sul 1 |1 de Março de 2019 |15 de Junho de 2019 |
+| Índia do Sul |1 de Março de 2019 |15 de Junho de 2019 |
 | Leste do Japão |Disponível |1 de Maio de 2019 |
 | Oeste do Japão |Disponível |15 de Junho de 2019 |
 | Coreia do Sul Central |1 de Março de 2019 |1 de Maio de 2019 |
-| Coreia do Sul 1 |1 de Março de 2019 |15 de Junho de 2019 |
+| Coreia do Sul |1 de Março de 2019 |15 de Junho de 2019 |
 | EUA Centro-Norte |1 de Março de 2019 |15 de Junho de 2019 |
 | Europa do Norte |Disponível |16 de Março de 2019 |
 | EUA Centro-Sul |Disponível |1 de Maio de 2019 |
 | Sudeste Asiático |Disponível |16 de Março de 2019 |
 | Reino Unido Sul |1 de Março de 2019 |1 de Maio de 2019 |
-| Oeste do Reino Unido 1 |1 de Março de 2019 |15 de Junho de 2019 |
+| Reino Unido Oeste |1 de Março de 2019 |15 de Junho de 2019 |
 | EUA Centro-Oeste |\* |\* |
 | Europa Ocidental |Disponível |16 de Março de 2019 |
-| E.U.A. oeste 1 |1 de Março de 2019 |15 de Junho de 2019 |
+| EUA Oeste |1 de Março de 2019 |15 de Junho de 2019 |
 | EUA Oeste 2 |Disponível |16 de Março de 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática

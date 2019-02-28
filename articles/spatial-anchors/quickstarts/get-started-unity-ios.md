@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 42fc4b6b1924b858f58d714cee8f1b9d2e7aba33
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: fa9f613bfbb3028715629f1d27b90531bd1dac3a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752260"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959685"
 ---
 # <a name="quickstart-create-an-ios-unity-app-with-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação do Unity iOS com as âncoras espaciais do Azure
 
@@ -61,6 +61,9 @@ Salve a cena selecionando **arquivo** -> **guardar**.
 [!INCLUDE [Configure Xcode](../../../includes/spatial-anchors-unity-ios-xcode.md)]
 
 Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
+
+> [!NOTE]
+> Ao executar a aplicação, se não vir a câmera como plano de fundo (para a instância em vez disso, verá um espaço em branco, azul ou outras texturas), em seguida, provavelmente terá de voltar a importar ativos no Unity. Pare a aplicação. No menu superior no Unity, escolha **elementos -> importe novamente todos os**. Em seguida, execute novamente a aplicação.
 
 No Xcode, pare a aplicação ao premir **parar**.
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: c936d7946398183f0b0aac025503bb172bc147af
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bdfeb41c7881bfbd577cdf1a9190617e09979a7f
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101013"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961028"
 ---
 # <a name="monitor-and-tune"></a>Monitorizar e otimizar
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para PostgreSQL fornece várias opções de monitorização para fornecer informações sobre o comportamento do seu servidor.
@@ -40,7 +40,7 @@ Estas métricas estão disponíveis para a base de dados do Azure para PostgreSQ
 |backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|A quantidade de armazenamento de cópia de segurança utilizado.|
 
 ## <a name="server-logs"></a>Registos do servidor
-Pode ativar o registo no seu servidor. Estes registos também estão disponíveis através de registos de diagnóstico do Azure no [do Log Analytics](../azure-monitor/log-query/log-query-overview.md), os Hubs de eventos e a conta de armazenamento. Para saber mais sobre o registo, visite o [registos do servidor](concepts-server-logs.md) página.
+Pode ativar o registo no seu servidor. Estes registos também estão disponíveis através de registos de diagnóstico do Azure no [registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md), os Hubs de eventos e a conta de armazenamento. Para saber mais sobre o registo, visite o [registos do servidor](concepts-server-logs.md) página.
 
 ## <a name="query-store"></a>Arquivo de Consultas
 [Consulta Store](concepts-query-store.md) é uma funcionalidade de pré-visualização pública que mantém o controle da consulta de desempenho ao longo do tempo incluindo estatísticas de tempo de execução de consulta e eventos de espera. A funcionalidade de informações de desempenho de tempo de execução de consulta numa base de dados do sistema com o nome de persistir **azure_sys** sob o esquema de query_store. Pode controlar a coleção e o armazenamento de dados por meio de vários botões de configuração.

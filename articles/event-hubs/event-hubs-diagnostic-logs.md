@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c32662b446df10649617570c63ce534071ed7d27
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c8f2dba8ff30ceae4085d96640623a01b6784b1e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540321"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957526"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnóstico para um hub de eventos do Azure
 
@@ -48,7 +48,7 @@ Os registos de diagnóstico estão desativados por predefinição. Para ativar o
 
     ![Alterar o estado dos registos de diagnóstico](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  Definir o destino de arquivo que pretende; Por exemplo, uma conta de armazenamento, um hub de eventos ou do Azure Log Analytics.
+5.  Definir o destino de arquivo que pretende; Por exemplo, uma conta de armazenamento, um hub de eventos ou do Azure Monitor registos.
 
 6.  Guarde as novas definições de diagnóstico.
 

@@ -6,25 +6,21 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 85a2810e8ab8de5ad2967aaf17f421d871368063
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314861"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958461"
 ---
 # <a name="indexing-external-data-for-queries-in-azure-search"></a>Indexação de dados externos para consultas no Azure Search
-> [!div class="op_single_selector"]
-> * [Descrição geral](search-what-is-data-import.md)
-> * [.NET](search-import-data-dotnet.md)
-> * [REST](search-import-data-rest-api.md)
-> 
-> 
 
 No Azure Search, as consultas são executadas nos seus conteúdos carregados para e guardou numa [índice de pesquisa](search-what-is-an-index.md). Este artigo examina as duas abordagens básicas para preencher um índice: *push* seus dados para o índice programaticamente, ou ponto de um [indexador de Azure Search](search-indexer-overview.md) numa origem de dados suportada para  *Extração* nos dados.
+
+Com qualquer uma das abordagens, o objetivo é *carregar dados* de uma origem de dados externos para um índice da Azure Search. O Azure Search permitirá que criar um índice vazio, mas até push ou extrair dados para ele, não é passível de consulta.
 
 ## <a name="pushing-data-to-an-index"></a>Enviar dados para um índice
 O modelo de envio, utilizado para enviar programaticamente os seus dados para o Azure Search, é a abordagem mais flexível. Em primeiro lugar, não tem restrições quanto ao tipo de origem de dados. Qualquer conjunto de dados composto por documentos JSON pode ser enviado para um índice do Azure Search, pressupondo que cada documento desse conjunto tem campos que sejam mapeados para os campos definidos no esquema de índice. Em segundo lugar, não tem restrições relativamente à frequência de execução. Pode enviar alterações para os índices tantas vezes quanto quiser. Para aplicações com requisitos de latência muito baixos (por exemplo, se quiser que as operações de pesquisa estejam sincronizadas com bases de dados de inventário dinâmicas), o modelo de envio é a única opção.

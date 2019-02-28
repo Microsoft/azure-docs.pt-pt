@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 1395c79b9c39d7376f39446eac6da8ee80b2ef18
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 97d1cf2817ebfbf2eb1a6ba5a4d20d457b6369c6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232673"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961742"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início rápido: Criar um Balanceador de Carga Standard para fazer o balanceamento de carga das VMs com o Portal do Azure
 
@@ -40,21 +40,20 @@ Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azu
 Nesta secção, vai criar um balanceador de carga público que ajuda a fazer o balanceamento de carga de máquinas virtuais. O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Quando cria um Balanceador de Carga Standard, também tem de criar um endereço IP Público Standard novo que seja configurado como o front-end (denominado *LoadBalancerFrontend* por predefinição) para o mesmo. 
 
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-2. Na página **Criar balanceador de carga**, introduza ou selecione as informações seguintes, aceite as predefinições das definições restantes e selecione **Criar**:
+2. Na **Noções básicas** separador da **criar Balanceador de carga** página, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **rever + criar**:
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
-    | Nome                   | *myLoadBalancer*                                   |
-    | Tipo          | Público                                        |
-    | SKU           | Standard                          |
-    | Endereço IP público | Selecione **Criar novo** e escreva *myPublicIP* na caixa de texto. O SKU Standard para o endereço IP Público é selecionado por predefinição. Em **Zona de disponibilidade**, selecione **Com Redundância entre Zonas**. |
-    | Subscrição               | Selecione a sua subscrição.    |
-    |Grupo de recursos | Selecione **Criar novo** e, em seguida, escreva *myResourceGroupSLB*.    |
-    | Localização           | Selecione **Europa Ocidental**.                          |
-    
-
-![Criar um balanceador de carga](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-
+    | Subscrição               | Selecione a sua subscrição.    |    
+    | Grupo de recursos         | Selecione **criar novo** e escreva *MyResourceGroupSLB* na caixa de texto.|
+    | Name                   | *myLoadBalancer*                                   |
+    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Type          | Selecione **público**.                                        |
+    | SKU           | Selecione **padrão**.                          |
+    | Endereço IP público | Selecione **Criar novo**. |
+    | Nome do endereço IP público              | Tipo *myPublicIP* na caixa de texto.   |
+    |Zona de disponibilidade| Selecione **redundância de zona**.    |
+3. Na **rever + criar** separador, clique em **criar**.   
 
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
@@ -84,7 +83,7 @@ Nesta secção, vai criar uma rede virtual, duas máquinas virtuais para o conju
         2. Na página **Criar grupo de segurança de rede**, para **Nome**, introduza *myNetworkSecurityGroup* e, em seguida, selecione **OK**.
 5. Clique em **Desativado** para desativar o diagnóstico de arranque.
 6. Clique em **OK**, reveja as definições na página de resumo e, em seguida, clique em **Criar**.
-7. Utilize os passos 1 a 6 e crie uma segunda VM, com o nome *VM2* com *myAvailibilityset* como o Conjunto de disponibilidade, *myVnet* como a rede virtual, *myBackendSubnet* como a sub-rede e \**myNetworkSecurityGroup* como o grupo de segurança de rede. 
+7. Utilizando os passos 1 a 6, crie uma segunda VM, com o nome *VM2* com *myVnet* como a rede virtual, *myBackendSubnet* e sua sub-rede, e * *myNetworkSecurityGroup* como respetivo grupo de segurança de rede. 
 
 ### <a name="create-nsg-rule"></a>Criar regra NSG
 

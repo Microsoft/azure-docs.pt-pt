@@ -1,5 +1,5 @@
 ---
-title: Solução de monitorização de VMware de mensagens em fila no Log Analytics | Documentos da Microsoft
+title: Solução de monitorização de VMware no Azure Monitor | Documentos da Microsoft
 description: Saiba mais sobre como a solução de monitorização de VMware pode ajudar a gerir os registos e monitorizar anfitriões ESXi.
 services: log-analytics
 documentationcenter: ''
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9f5bdc3686e35f09b461bd5c2df695218b48ede3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 92889708df2df06096ac74d6f270af990d02c07a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993372"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984259"
 ---
-# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solução de monitorização de VMware (pré-visualização) no Log Analytics
+# <a name="vmware-monitoring-preview-solution-in-azure-monitor"></a>Solução de monitorização de VMware (pré-visualização) no Azure Monitor
 
 ![Símbolo de VMware](./media/vmware/vmware-symbol.png)
 
 > [!NOTE]
 > A solução de monitorização de VMware foi preterida.  Os clientes que já tenham instalado a solução podem continuar a utilizá-lo, mas a monitorização de VMware não podem ser adicionado a novas áreas de trabalho.
 
-A solução de monitorização de VMware no Log Analytics é uma solução que ajuda a criar um registo centralizado e a abordagem de monitorização para os registos de VMware grandes. Este artigo descreve como pode resolver problemas, capturar e gerir anfitriões ESXi numa única localização através da solução. Com a solução, pode ver dados detalhados de todos os seus anfitriões ESXi numa única localização. Pode ver contagens dos melhores eventos, o estado e as tendências de hosts VM e ESXi fornecidos através de registos de anfitrião ESXi. Pode solucionar ao visualizar e pesquisar registos de anfitrião do ESXi centralizados. E, pode criar alertas com base em consultas de pesquisa de registo.
+A solução de monitorização de VMware no Azure Monitor é uma solução que ajuda a criar um registo centralizado e a abordagem de monitorização para os registos de VMware grandes. Este artigo descreve como pode resolver problemas, capturar e gerir anfitriões ESXi numa única localização através da solução. Com a solução, pode ver dados detalhados de todos os seus anfitriões ESXi numa única localização. Pode ver contagens dos melhores eventos, o estado e as tendências de hosts VM e ESXi fornecidos através de registos de anfitrião ESXi. Pode solucionar ao visualizar e pesquisar registos de anfitrião do ESXi centralizados. E, pode criar alertas com base em consultas de pesquisa de registo.
 
-A solução utiliza a funcionalidade de syslog nativo do anfitrião ESXi para enviar dados para um destino de VM, o que tem o agente do Log Analytics. No entanto, a solução não gravar arquivos no syslog dentro da VM de destino. O agente Log Analytics abre a porta 1514 e escutada por isto. Depois de receber os dados, o agente Log Analytics envia os dados para o Log Analytics.
+A solução utiliza a funcionalidade de syslog nativo do anfitrião ESXi para enviar dados para um destino de VM, o que tem o agente do Log Analytics. No entanto, a solução não gravar arquivos no syslog dentro da VM de destino. O agente Log Analytics abre a porta 1514 e escutada por isto. Depois de receber os dados, o agente Log Analytics envia os dados no Azure Monitor.
 
 ## <a name="install-and-configure-the-solution"></a>Instalar e configurar a solução
 Utilize as seguintes informações para instalar e configurar a solução.
@@ -71,7 +71,7 @@ Crie um sistema de operativo Linux VM receba todos os dados do syslog dos anfitr
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. No portal do Azure, executar uma pesquisa de registos para `VMware_CL`. Quando o Log Analytics recolhe os dados do syslog, mantém o formato do syslog. No portal, alguns campos específicos são capturados, tal como *Hostname* e *ProcessName*.  
+1. No portal do Azure, executar uma consulta de registo para `VMware_CL`. Quando o Monitor do Azure recolhe os dados do syslog, mantém o formato do syslog. No portal, alguns campos específicos são capturados, tal como *Hostname* e *ProcessName*.  
 
     ![tipo](./media/vmware/type.png)  
 
@@ -129,7 +129,7 @@ Na **VMware** vista do dashboard, os painéis são organizados por:
 
 Clique em qualquer painel para abrir o painel de pesquisa do Log Analytics que mostra informações detalhadas específico para o painel.
 
-A partir daqui, pode editar a consulta de pesquisa para modificá-lo para algo específico. Para obter detalhes sobre a criação de pesquisas de registos, consulte [encontrar os dados com pesquisas de registos no Log Analytics](../log-query/log-query-overview.md).
+A partir daqui, pode editar a consulta de registo para modificá-lo para algo específico. Para obter detalhes sobre a criação de consultas de registo, consulte [encontrar os dados com consultas de registo no Azure Monitor](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Encontrar eventos de anfitrião ESXi
 Um único anfitrião do ESXi gera vários registos, com base em seus processos. A solução de monitorização de VMware centraliza-los e resume as contagens de eventos. Esta vista centralizada ajuda a compreender qual anfitrião ESXi tem um grande volume de eventos e quais eventos com mais frequência ocorrem no seu ambiente.
@@ -151,14 +151,14 @@ Se quiser ver mais dados de criação do VM de anfitrião do ESXi, clique num no
 
 ![desagregar](./media/vmware/createvm.png)
 
-#### <a name="common-search-queries"></a>Consultas de pesquisa comuns
+#### <a name="common-log-queries"></a>Consultas de registo comuns
 A solução inclui outras consultas útil que podem ajudar a gerir os seus anfitriões ESXi, como o espaço de armazenamento de elevada, a latência de armazenamento e a falha de caminho.
 
 ![consultas de](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Guardar consultas
-A guardar consultas de pesquisa é uma funcionalidade padrão do Log Analytics e pode ajudar a manter todas as consultas que encontrar útil. Depois de criar uma consulta que ser úteis, guarde-o clicando a **Favoritos**. Uma consulta guardada permite-lhe facilmente reutilizá-lo mais tarde a partir da [meu painel](../learn/tutorial-logs-dashboards.md) página onde pode criar seus próprios dashboards personalizados.
+A guardar consultas de registo é uma funcionalidade padrão do Azure Monitor e pode ajudar a manter todas as consultas que encontrar útil. Depois de criar uma consulta que ser úteis, guarde-o clicando a **Favoritos**. Uma consulta guardada permite-lhe facilmente reutilizá-lo mais tarde a partir da [meu painel](../learn/tutorial-logs-dashboards.md) página onde pode criar seus próprios dashboards personalizados.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 

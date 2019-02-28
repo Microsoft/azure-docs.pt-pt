@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 456a094ed961b24e3db3944fe4ae2b9ff661d896
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c672d6ab04694a6d0b147b0e38c046abc527676a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190879"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959396"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para configurar definições de grupo
 Este artigo contém instruções para utilizar cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e atualizar os grupos. Este conteúdo aplica-se apenas a grupos do Office 365 (por vezes denominados grupos unificados). 
@@ -98,8 +98,7 @@ Seguem-se as configurações definidas no Group.Unified SettingsTemplate. A meno
 |  <ul><li>EnableGroupCreation<li>Escreva: Booleano<li>Predefinição: Verdadeiro |O sinalizador que indica se a criação do grupo do Office 365 é permitida no diretório por usuários não-administradores. Esta definição não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Escreva: String<li>Predefinição: "" |GUID do grupo de segurança para os quais os membros têm permissão para criar grupos do Office 365, mesmo quando EnableGroupCreation = = false. |
 |  <ul><li>UsageGuidelinesUrl<li>Escreva: String<li>Predefinição: "" |Uma ligação para as diretrizes de utilização do grupo. |
-|  <ul><li>ClassificationDescriptions<li>Escreva: String<li>Predefinição: "" | Uma lista delimitada por vírgulas de descrições de classificação. O valor de ClassificationDescriptions só é válido no seguinte formato:
-  $setting ["ClassificationDescriptions"] = "Classificação: descrição, classificação: Descrição", onde classificação corresponde a cadeias de caracteres no ClassificationList.|
+|  <ul><li>ClassificationDescriptions<li>Escreva: String<li>Predefinição: "" | Uma lista delimitada por vírgulas de descrições de classificação. O valor de ClassificationDescriptions só é válido no seguinte formato:<br>$setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"<br>onde classificação corresponde a cadeias de caracteres no ClassificationList.|
 |  <ul><li>DefaultClassification<li>Escreva: String<li>Predefinição: "" | A classificação que está a ser utilizado como a classificação predefinida para um grupo se foi especificado nenhum.|
 |  <ul><li>PrefixSuffixNamingRequirement<li>Escreva: String<li>Predefinição: "" | A cadeia de caracteres de um comprimento máximo de 64 carateres, que define a Convenção de nomenclatura configurada para grupos do Office 365. Para obter mais informações, consulte [impor uma política de nomes para grupos do Office 365](groups-naming-policy.md). |
 | <ul><li>CustomBlockedWordsList<li>Escreva: String<li>Predefinição: "" | Cadeia separada por vírgulas das expressões que os utilizadores não terão permissão para utilizar em nomes de grupo ou aliases. Para obter mais informações, consulte [impor uma política de nomes para grupos do Office 365](groups-naming-policy.md). |

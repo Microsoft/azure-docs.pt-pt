@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 309c69862d475a0ef76ab0a24ed804b363ba33c0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4d47192ea69047b0b12deffc41776a87c16ca6ab
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696810"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959753"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>O Gestor de tráfego perguntas mais frequentes (FAQ)
 
@@ -59,14 +59,7 @@ O método de desempenho encaminha o tráfego para o ponto de extremidade dispon�
 Conforme explicado [como funciona o Gestor de tráfego](../traffic-manager/traffic-manager-how-it-works.md), Gestor de tráfego funciona ao nível do DNS. Depois de concluída a pesquisa DNS, os clientes ligam ao ponto final da aplicação diretamente, não através do Gestor de tráfego. Por conseguinte, a ligação pode utilizar qualquer protocolo de aplicação. Se selecionar TCP como o monitorização, o Gestor de tráfego do protocolo monitorização de estado de funcionamento do ponto final pode ser feito sem utilizar quaisquer protocolos de aplicação. Se optar por ter o estado de funcionamento verificado com um protocolo de aplicação, o ponto final tem de ser capaz de responder a pedidos HTTP ou HTTPS obter.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Pode utilizar o Gestor de tráfego com um nome de domínio 'sem "www"'?
-
-Não. As normas DNS não permitem CNAMEs de modo a coexistir com outros registos DNS, o mesmo nome. O vértice (ou raiz) de uma zona DNS sempre contém dois registos DNS já existentes; a SOA e os registos NS autoritativos. Isso significa que não pode ser criado um registo CNAME no vértice da zona sem violar as normas DNS.
-
-O Gestor de tráfego necessita de um registo CNAME no DNS para mapear o nome DNS personalizado. Por exemplo, mapear `www.contoso.com` para o nome DNS de perfil do Gestor de tráfego `contoso.trafficmanager.net`. Além disso, o perfil do Gestor de tráfego retorna um segundo CNAME de DNS para indicar qual o cliente deve se conectar ao ponto de extremidade.
-
-Para contornar este problema, recomendamos que utilize um redirecionamento HTTP para direcionar o tráfego do nome de domínio sem "www" para um URL diferente, que, em seguida, pode utilizar o Gestor de tráfego. Por exemplo, o domínio sem "www", "contoso.com" pode redirecionar os utilizadores para o CNAME "www.contoso.com" que aponta para o nome DNS do Gestor de tráfego.
-
-Suporte completo para domínios sem "www" no Gestor de tráfego é rastreado no nosso registo de segurança do recurso. Pode registrar o suporte para este pedido de funcionalidade por [voto para o mesmo no nosso site de comentários da Comunidade](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
+Sim. Para saber como criar um registo de alias para seu vértice de nome de domínio fazer referência a um perfil do Gestor de tráfego do Azure, veja [configurar um registo de alias para oferecer suporte a nomes de domínio com o Gestor de tráfego do vértice](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>O Gestor de tráfego considerar o endereço de sub-rede do cliente quando o processamento de consultas DNS? 
 Sim, além do endereço IP de origem da consulta DNS que recebe (que é normalmente o endereço IP do resolvedor de DNS), ao realizar pesquisas para métodos de encaminhamento geográfico, desempenho e sub-rede, o Gestor de tráfego também considera o endereço de sub-rede do cliente se está incluído na consulta, o resolvedor que efetua o pedido em nome do utilizador final.  

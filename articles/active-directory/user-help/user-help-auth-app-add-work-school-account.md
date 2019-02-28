@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad6dda9e41f1ea87439ffc315f020d4e3566e0c6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453550"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960630"
 ---
 # <a name="add-your-work-or-school-account"></a>Adicionar a sua conta escolar ou profissional
 Se a sua organização utiliza a verificação de dois fatores, pode configurar a sua conta escolar ou profissional para utilizar a aplicação Microsoft Authenticator como um dos métodos de verificação.
@@ -30,7 +30,7 @@ Se a sua organização utiliza a verificação de dois fatores, pode configurar 
 1. No seu computador, vá para o [verificação adicional de segurança](https://aka.ms/mfasetup) página.
 
     >[!Note]
-    >Se não vir a **verificação adicional de segurança** página, é possível que o administrador tiver ativado a experiência de informações (pré-visualização) de segurança. Se for esse o caso, deve seguir as instruções a [definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md) secção. Se não for esse o caso, terá de contactar o suporte técnico da sua organização para obter assistência. Para obter mais informações sobre as informações de segurança, consulte [gerir as suas informações de segurança](security-info-manage-settings.md).
+    >Se não vir a **verificação adicional de segurança** página, é possível que o administrador tiver ativado a experiência de informações (pré-visualização) de segurança. Se for esse o caso, deve seguir as instruções a [definir informações de segurança para utilizar uma aplicação de autenticação](security-info-setup-auth-app.md) secção. Se não for esse o caso, terá de contactar o suporte técnico da sua organização para obter assistência. Para obter mais informações sobre as informações de segurança, consulte [descrição geral de informações (pré-visualização) de segurança](user-help-security-info-overview.md).
 
 2. A caixa de verificação junto a **aplicação de autenticador**e, em seguida, selecione **configurar**.
 

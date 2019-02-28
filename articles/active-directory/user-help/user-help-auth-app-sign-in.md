@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3974d1de2bd90049541dcc249f18346c9e48fd3d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 80fd458356cf5b375e0b3d922d9bdca3f3a30503
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456032"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961674"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Iniciar sessão nas suas contas com a aplicação Microsoft Authenticator
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
@@ -110,14 +110,17 @@ Para os passos necessários para iniciar sessão no seu trabalho ou escola ou su
 |**Como é iniciar sessão com o meu telefone mais segura do que escrever uma palavra-passe?**|Hoje em dia a maioria das pessoas sessão para web sites ou aplicações com um nome de utilizador e palavra-passe. Infelizmente, as palavras-passe podem ser perdidas, roubadas ou que adivinhado por hackers.<br><br>Depois de configurar a aplicação Microsoft Authenticator, ele cria uma chave no seu telefone para desbloquear a conta que está protegida por PIN ou biométrico bloqueio do seu telemóvel. Esta chave, em seguida, é utilizada para provar a sua identidade ao iniciar sessão.<br><br>**Importante**<br>Os dados só são utilizados para proteger a sua chave localmente. Nunca tem enviado para ou armazenadas na cloud.|
 |**Início de sessão no telefone substituir verificação em dois passos? Deve desativá-lo?**|Início de sessão no telefone é um tipo de verificação de dois passos em que os dois passos ambos os acontecem no dispositivo móvel. Deve manter dois passo passos ativada para o ajudar a fornecer segurança adicional para a sua conta.|
 |**Se eu manter a verificação de dois passos ativada para a minha conta, é necessário que aprovar dois notificações?**| Não. Iniciar sessão na sua conta da Microsoft através do telefone também é contabilizado como verificação de dois passos, portanto, não há nenhum segundo aprovação necessária.|
-|**E se eu perder o meu telefone ou não o tiver comigo? Como posso acessar minha conta?**| Sempre é possível selecionar a utilização de uma palavra-passe em vez disso, a ligação na página de início de sessão para mudar para utilizar a sua palavra-passe. No entanto, se usar a verificação de dois passos ainda terá de utilizar um segundo método para verificar a sua identidade.<br><br>**Importante**<br>Recomendamos vivamente que para se certificar de que tiver mais do que um, atualizado, o método de verificação associado à sua conta.<br><br>Pode gerenciar seus métodos de verificação para contas pessoais da sua [definições de segurança](https://account.live.com/proofs/manage) página. Para contas profissionais ou escolares, pode aceder à sua organização [verificação de segurança adicional](https://aka.ms/MFASetup) página ou o **manter a sua conta segura** página se o administrador tiver ativado a informações de segurança. Para obter mais informações sobre as informações de segurança, consulte [gerir as suas informações de segurança](security-info-manage-settings.md).<br><br>Se não for possível gerir os seus métodos de verificação, tem de contactar o seu administrador.|
+|**E se eu perder o meu telefone ou não o tiver comigo? Como posso acessar minha conta?**| Sempre é possível selecionar a utilização de uma palavra-passe em vez disso, a ligação na página de início de sessão para mudar para utilizar a sua palavra-passe. No entanto, se usar a verificação de dois passos ainda terá de utilizar um segundo método para verificar a sua identidade.<br><br>**Importante**<br>Recomendamos vivamente que para se certificar de que tiver mais do que um, atualizado, o método de verificação associado à sua conta.<br><br>Pode gerenciar seus métodos de verificação para contas pessoais da sua [definições de segurança](https://account.live.com/proofs/manage) página. Para contas profissionais ou escolares, pode aceder à sua organização [verificação de segurança adicional](https://aka.ms/MFASetup) página ou o **manter a sua conta segura** página se o administrador tiver ativado a informações de segurança. Para obter mais informações sobre as informações de segurança, consulte [descrição geral de informações (pré-visualização) de segurança](user-help-security-info-overview.md).<br><br>Se não for possível gerir os seus métodos de verificação, tem de contactar o seu administrador.|
 |**Como parar de utilizar esta funcionalidade e voltar atrás e utilizar a minha palavra-passe?**|Contas pessoais, selecione o **em alternativa, utilize uma palavra-passe** ligação durante o início de sessão. À sua escolha mais recente memorizada e disponibilizada por predefinição na próxima vez que iniciar sessão. Se alguma vez pretender voltar a utilizar o início de sessão no telefone, selecione o **em alternativa, utilize uma aplicação** ligação durante o início de sessão.<br><br>Para contas profissionais ou escolares, tem à sua página de verificação de segurança adicionais (como, por exemplo https://aka.ms/MFASetup) e remover a aplicação Microsoft Authenticator.|
 |**Por que não é possível utilizar mais de uma conta escolar ou profissional para início de sessão no telefone?**| Um telefone tem de estar registado para uma única conta escolar ou profissional. Se pretender ativar o início de sessão no telefone para uma conta escolar ou profissional de diferente, deve primeiro anular o registo o dispositivo antigo por meio da **definições** página.|
 |**Posso entrar no meu computador com o meu telefone?**| Para o seu computador, recomendamos que iniciar sessão utilizando Hello do Windows no Windows 10. Windows Hello permite-lhe utilizar face, a identificação digital ou o PIN para iniciar sessão.|
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+- Se estiver a ter dificuldades em seu código de verificação para a sua conta Microsoft pessoal, consulte a **resolução de problemas de código de verificação** secção a [as informações de segurança de conta Microsoft & verificação códigos de](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artigo.
+
 - Se tiver perguntas mais gerais sobre a aplicação, veja o [FAQs do Microsoft Authenticator](user-help-auth-app-faq.md)
 
 - Se pretender obter mais informações sobre a verificação de dois passos, veja [configurar a minha conta para verificação de dois passos](multi-factor-authentication-end-user-first-time.md)
 
-- Se pretender obter mais informações sobre as informações de segurança, veja [gerir as suas informações de segurança](security-info-manage-settings.md)
+- Se pretender obter mais informações sobre as informações de segurança, veja [descrição geral de informações (pré-visualização) de segurança](user-help-security-info-overview.md)

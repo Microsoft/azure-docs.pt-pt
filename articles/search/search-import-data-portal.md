@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/26/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ee1b2a40dbcbd53a758ac71f30401778ef07e872
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fcb1e4f32608a1c83b653984dfa066da38e7c451
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229762"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960766"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Assistente para importar dados para o Azure Search
 
@@ -77,7 +77,9 @@ O **importar dados** assistente cria um objeto de origem de dados persistente es
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Armazenamento de tabelas do Azure](search-howto-indexing-azure-tables.md) (não suportado para [pesquisa cognitiva](cognitive-search-concept-intro.md) pipelines)
 
-Um conjunto de dados bidimensional é uma entrada necessária. Só é possível importar a partir de uma única tabela, de uma vista de base de dados ou de uma estrutura de dados equivalente. Deve criar esta estrutura de dados antes de executar o assistente.
+Um conjunto de dados bidimensional é uma entrada necessária. Só é possível importar a partir de uma única tabela, de uma vista de base de dados ou de uma estrutura de dados equivalente. 
+
+Deve criar essa estrutura de dados antes de executar o assistente e tem de ter conteúdo. Não execute o **importar dados** assistente numa origem de dados vazia.
 
 |  Seleção | Descrição |
 | ---------- | ----------- |
@@ -85,7 +87,7 @@ Um conjunto de dados bidimensional é uma entrada necessária. Só é possível 
 | **Amostras**| O Azure Search aloja gratuito público SQL do Azure bases de dados que pode utilizar para saber mais sobre pedidos de importação e a consulta no Azure Search. Consulte [início rápido: Importar, indexar e consultar com ferramentas do portal](search-get-started-portal.md) para obter instruções. |
 | **Base de Dados SQL do Azure** |Podem ser especificados um nome do serviço, credenciais para um utilizador de base de dados com permissão de leitura e um nome de base de dados na página ou através de uma cadeia de ligação do ADO.NET. Escolha a opção de cadeia de ligação para ver ou personalizar propriedades. <br/><br/>A tabela ou vista que fornece o conjunto de linhas deve ser especificada na página. Esta opção é apresentada após a ligação ser bem sucedida, apresentando uma lista pendente para que possa fazer uma seleção. |
 | **SQL Server numa VM do Azure** |Especifique um nome completamente qualificado, o ID de utilizador e a palavra-passe e a base de dados como uma cadeia de ligação. Para utilizar esta origem de dados, deve ter instalado anteriormente um certificado no arquivo local que encripta a ligação. Para obter instruções, consulte [Ligação da VM do SQL para o Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>A tabela ou vista que fornece o conjunto de linhas deve ser especificada na página. Esta opção é apresentada após a ligação ser bem sucedida, apresentando uma lista pendente para que possa fazer uma seleção. |
-| **Azure Cosmos DB** |Os requisitos incluem a conta, a base de dados e a coleção. Todos os documentos na coleção serão incluídos no índice remissivo. Pode definir uma consulta para nivelamento ou filtrar o conjunto de linhas ou para detetar documentos alterados para as operações de atualização de dados subsequentes. |
+| **BD do Cosmos** |Os requisitos incluem a conta, a base de dados e a coleção. Todos os documentos na coleção serão incluídos no índice remissivo. Pode definir uma consulta para nivelamento ou filtrar o conjunto de linhas ou deixe a consulta em branco. Uma consulta não é necessária neste assistente.|
 | **Armazenamento de Blobs do Azure** |Os requisitos incluem a conta de armazenamento e um contentor. Opcionalmente, se os nomes de blob seguem uma convenção de nomenclatura virtual para fins de agrupamento, pode especificar a porção do diretório virtual do nome como uma pasta no contentor. Consulte [Armazenamento de Blobs de Indexação](search-howto-indexing-azure-blob-storage.md) para obter mais informações. |
 | **Table Storage do Azure** |Os requisitos incluem a conta de armazenamento e um nome de tabela. Opcionalmente, pode especificar uma consulta para obter um subconjunto de tabelas. Consulte [Armazenamento de Tabelas de Indexação](search-howto-indexing-azure-tables.md) para obter mais informações. |
 

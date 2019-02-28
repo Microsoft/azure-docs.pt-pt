@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 35ac69c4e61c370c72a7d503920e02ff7258ed60
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e7b1b3e3fba04276fc284fd71adabedc01185251
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56885320"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984820"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitorização em escala com o Azure Monitor
 
@@ -28,6 +28,9 @@ O [incorporadas de monitorização e alertas artigo](backup-azure-monitoring-bui
 
 ## <a name="using-log-analytics-workspace"></a>Utilizar a área de trabalho do Log Analytics
 
+> [!NOTE]
+> Estão a ser colocados dados a partir de backups de VM do Azure, o agente de MAB, System Center DPM (SC-DPM) para a área de trabalho do Log Analytics através das definições de diagnóstico. Suporte para cópias de segurança SQL em VMs do Azure, cópias de segurança de partilha de ficheiros do Azure, Microsoft Azure Backup Server (MABS) está disponível em breve.
+
 Podemos são tirar partido das capacidades de dois serviços do Azure - **das definições de diagnóstico** (para enviar dados de vários recursos do Azure Resource Manager para outro recurso) e **do Log Analytics** (LA - gerar alertas personalizados em que pode definir outros canais de notificação através de grupos de ação) para a monitorização em escala. Os seguintes detalhes de secções sobre como utilizá-la para monitorizar a cópia de segurança do Azure em escala.
 
 ### <a name="configuring-diagnostic-settings"></a>Configurar definições de diagnóstico
@@ -39,7 +42,7 @@ Um recurso do Azure Resource Manager, como o Cofre dos serviços de recuperaçã
 Pode selecionar uma área de trabalho LA a partir de outra subscrição como destino. *Ao selecionar a mesma área de trabalho de LA para vários cofres RS, pode monitorizar cofres em várias subscrições num único local.* Selecione 'AzureBackupReport' como o registo de canal todas as informações para a área de trabalho LA relacionadas com o Azure Backup.
 
 > [!IMPORTANT]
-> Depois de concluir a configuração, deve aguardar até 24 horas para push de dados inicial concluir. Posteriormente, todos os eventos são enviados por push sempre que eles são gerados (que podem traduzir para um atraso geral de 15 a 20 minutos). Para operações muito frequentes como cópias de segurança do registo de DB cargas de trabalho como SQL, que são em lotes e enviadas cada X mins
+> Depois de concluir a configuração, deve aguardar até 24 horas para push de dados inicial concluir. Depois disso, todos os eventos são enviados, conforme mencionado na [secção de frequência](#diagnostic-data-update-frequency).
 
 ### <a name="deploying-solution-to-log-analytics-workspace"></a>Implementar a solução à área de trabalho do Log Analytics
 

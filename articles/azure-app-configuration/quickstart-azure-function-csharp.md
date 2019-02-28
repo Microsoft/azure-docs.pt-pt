@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a6ed644334977f13107b12f955b1fbf015f731d1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5f28e213a5f824562df62a05b98f0f92f71bc591
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884888"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957441"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Início rápido: Criar uma função do Azure com configuração de aplicações
 
@@ -79,15 +79,15 @@ Para concluir este início rápido, instale [Visual Studio 2017](https://visuals
 
 1. Definir uma variável de ambiente com o nome **ConnectionString** e defini-lo para a chave de acesso ao seu arquivo de configuração de aplicação. Se estiver a utilizar o Prompt de comando do Windows, execute o seguinte comando e reinicie o Prompt de comando para permitir que a alteração tenha efeito:
 
-        setx ConnectionString "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>="
+        setx ConnectionString "connection-string-of-your-app-configuration-store"
 
     Se estiver a utilizar o Windows PowerShell, execute o seguinte comando:
 
-        $Env:ConnectionString = "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>="
+        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
     Se estiver a utilizar o macOS ou Linux, execute o seguinte comando:
 
-        export ConnectionString='Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>='
+        export ConnectionString='connection-string-of-your-app-configuration-store'
 
 2. Para testar a sua função, prima **F5**. Se lhe for solicitado, aceite o pedido do Visual Studio para transferir e instalar **núcleo de funções do Azure (CLI)** ferramentas. Também poderá ativar a exceção da firewall para que todas as ferramentas possam aceitar os pedidos de HTTP.
 

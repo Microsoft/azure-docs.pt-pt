@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: c2cc1b5829f3bb530c01e2bfc3538006bb8663cb
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.date: 02/27/2019
+ms.openlocfilehash: e429504cb6df2ba4f871fa0c9ca780ac5d906356
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339316"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958979"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -56,7 +56,7 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | Número máx. de bases de dados por instância | 100 | 100 |
 | Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
 | IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines)| 11 mil - 110 mil (1,375 por vCore) |
-|Taxa de transferência do registo | 22 MB/s por instância | 3 MB/s por vCore<br/>Número máximo de 48 MB/s |
+|Taxa de transferência do registo | 22 MB/s por instância | 3 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
 | Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/s por vCore |
 | Latência de e/s (aproximada) | 5-10 ms | 1-2 ms |
 | Tamanho máximo de tempDB | 192 - 1,920 GB (24 GB por vCore) | Sem restrições - limitadas pelo tamanho de armazenamento máximo da instância |

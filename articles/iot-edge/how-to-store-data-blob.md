@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9faed53540d449f8658655ff7285b38aa20bee6c
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ac40c4c974049f802da97846db5010652a420691
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901824"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961215"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store dados na periferia com o armazenamento de Blobs do Azure no IoT Edge (pré-visualização)
 
@@ -221,7 +221,7 @@ Editar o módulo criar opções para alterar o valor de HostPort:
 
 Quando se liga aos módulos de armazenamento de BLOBs adicionais, altere o ponto final para apontar para a porta do anfitrião atualizado. 
 
-### <a name="try-it-out"></a>Experimentar
+## <a name="try-it-out"></a>Experimentar
 
 A documentação do armazenamento de Blobs do Azure inclui guias de introdução que fornecem código de exemplo em várias linguagens. Pode executar estes exemplos para testar o armazenamento de Blobs do Azure no IoT Edge ao alterar o ponto final do blob para apontar para o módulo de armazenamento de Blobs.
 

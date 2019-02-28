@@ -1,6 +1,6 @@
 ---
-title: Solução de capacidade e desempenho no Azure Log Analytics | Documentos da Microsoft
-description: Utilize a solução de capacidade e desempenho do Log Analytics para o ajudar a compreender a capacidade dos seus servidores de Hyper-V.
+title: Solução de capacidade e desempenho no Azure Monitor | Documentos da Microsoft
+description: Utilize a solução de capacidade e desempenho no Monitor para o ajudar a compreender a capacidade dos seus servidores de Hyper-V.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 41508a1d99ed243d377cc72c0accc005c5ca737d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: db2bbd8c3c0e3d7d172ea2948a42f300c2875745
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189205"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983715"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planear a capacidade de máquina virtual de Hyper-V com a solução de capacidade e desempenho (pré-visualização)
 
@@ -27,7 +27,7 @@ ms.locfileid: "53189205"
 > [!NOTE]
 > A solução de capacidade e desempenho foi preterida.  Os clientes que já tenham instalado a solução podem continuar a utilizá-lo, mas a capacidade e desempenho não podem ser adicionados a novas áreas de trabalho.
 
-Pode utilizar a solução de capacidade e desempenho do Log Analytics para o ajudar a compreender a capacidade dos seus servidores de Hyper-V. A solução fornece informações sobre o seu ambiente de Hyper-V, mostrando-lhe a utilização geral (CPU, memória e disco) de anfitriões e as VMs em execução nesses anfitriões de Hyper-V. Métricas são recolhidas de CPU, memória e discos em todos os seus anfitriões e as VMs em execução nos mesmos.
+Pode utilizar a solução de capacidade e desempenho no Monitor para o ajudar a compreender a capacidade dos seus servidores de Hyper-V. A solução fornece informações sobre o seu ambiente de Hyper-V, mostrando-lhe a utilização geral (CPU, memória e disco) de anfitriões e as VMs em execução nesses anfitriões de Hyper-V. Métricas são recolhidas de CPU, memória e discos em todos os seus anfitriões e as VMs em execução nos mesmos.
 
 A solução:
 

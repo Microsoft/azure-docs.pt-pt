@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adbfb0e42bc7057313c7652402fce2b2ede47735
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 6f0a10a56aeecf9973ea12b022e0030fb4635fbf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592507"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984553"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Pré-visualização: Azure proteção de palavra-passe do AD no local - perguntas mais frequentes
 
@@ -26,10 +26,6 @@ ms.locfileid: "56592507"
 |     |
 
 ## <a name="general-questions"></a>Perguntas gerais
-
-**P: Quando é que a proteção de palavra-passe do Azure AD será contactado disponibilidade geral (GA)?**
-
-Disponibilidade geral está prevista para Q1 CY2019 (antes do final de Março de 2019). Obrigado a todos os que forneceu comentários sobre a funcionalidade de data – Agradecemos-lo!
 
 **P: Que orientação devem os utilizadores receber sobre como selecionar uma palavra-passe segura?**
 

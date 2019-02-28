@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: de339fbab3d360507a77708816b5fccdca80a7d1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 05af196d115376d744df1976c6a3d9fe9cab74e0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544758"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958905"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na base de dados do Azure para MySQL
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MySQL fornece várias métricas que lhe dar informações sobre o comportamento do seu servidor.
@@ -41,7 +41,7 @@ Estas métricas estão disponíveis para a base de dados do Azure para MySQL:
 |backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|A quantidade de armazenamento de cópia de segurança utilizado.|
 
 ## <a name="server-logs"></a>Registos do servidor
-Pode ativar o registo no seu servidor de consulta lenta. Estes registos também estão disponíveis através de registos de diagnóstico do Azure no Log Analytics do OMS, os Hubs de eventos e conta de armazenamento. Para saber mais sobre o registo, visite o [registos do servidor](concepts-server-logs.md) página.
+Pode ativar o registo no seu servidor de consulta lenta. Estes registos também estão disponíveis através de registos de diagnóstico do Azure em registos, os Hubs de eventos e conta de armazenamento do Azure Monitor. Para saber mais sobre o registo, visite o [registos do servidor](concepts-server-logs.md) página.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Ver [como posso configurar alertas](howto-alert-on-metric.md) para obter orientações sobre como criar um alerta na métrica.

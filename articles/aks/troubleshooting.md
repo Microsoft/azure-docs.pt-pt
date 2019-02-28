@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 8164e2db064523fe648ec9ef0c72754be846dff6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 53061d4d09ac2769e59269701467a22f292cd919
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327566"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959770"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -63,10 +63,30 @@ A maneira mais fácil acesso ao seu serviço fora do cluster é executar `kubect
 
 Se não vir o dashboard do Kubernetes, verifique se o `kube-proxy` pod está em execução `kube-system` espaço de nomes. Se não estiver num Estado de execução, elimine o pod e ele será reiniciado.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Eu não é possível obter os registos ao utilizar o kubectl registos ou não consigo ligar ao servidor de API. Estou a receber "erro do servidor: back-end de discagem de erro: marque o tcp..." O que devo fazer?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Eu não é possível obter os registos ao utilizar o kubectl registos ou não consigo ligar ao servidor de API. Estou a receber "erro do servidor: back-end de discagem de erro: marque o tcp...". O que devo fazer?
 
-Certifique-se de que o grupo de segurança de rede (NSG) padrão não é modificado e que a porta 22 está aberta para ligação ao servidor de API. Verifique se o `tunnelfront` pod está em execução `kube-system` espaço de nomes. Se não estiver, force a eliminação do pod e ele será reiniciado.
+Certifique-se de que o grupo de segurança de rede predefinido não é modificado e que a porta 22 está aberta para ligação ao servidor de API. Verifique se o `tunnelfront` pod está em execução *kube system* usando o espaço de nomes a `kubectl get pods --namespace kube-system` comando. Se não estiver, force a eliminação do pod e ele será reiniciado.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Eu estou tentando atualizar ou dimensionar e estou recebendo uma "mensagem: Erro não é permitido alterar a propriedade 'imageReference' ".  Como corrigir esse problema?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Eu estou tentando atualizar ou dimensionar e estou recebendo uma "mensagem: Erro não é permitido alterar a propriedade 'imageReference' ". Como corrigir esse problema?
 
 Poderá ser a obter este erro pois modificar as etiquetas em nós de agente dentro do cluster do AKS. Modificar e eliminar as etiquetas e outras propriedades de recursos no grupo de recursos MC_ * podem levar a resultados inesperados. Modificação de recursos sob o grupo MC_ * do AKS cluster divide o objetivo de nível de serviço (SLO).
+
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou a receber erros que meu cluster está no Estado com falhas e atualizar ou dimensionamento não funcionará até ser corrigido
+
+*Esse recurso de resolução de problemas é direcionado a partir de https://aka.ms/aks-cluster-failed*
+
+Este erro ocorre quando clusters entrar num Estado com falhas por vários motivos. Siga os passos abaixo para resolver o seu estado de falha de cluster antes de repetir a operação que falhou anteriormente:
+
+1. Até que o cluster é de `failed` Estado, `upgrade` e `scale` operações não ter êxito. Problemas de raiz comuns e resoluções incluem:
+    * Dimensionar com **quota insuficiente de computação (CRP)**. Para resolver, primeiro a dimensionar o seu cluster para um estado estável objetivo dentro da quota. Em seguida, siga estes [aumentam de passos para pedir uma quota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar aumentar verticalmente novamente os limites de quota inicial do além deste.
+    * Dimensionar um cluster com o advanced networking e **recursos de sub-rede insuficiente (redes)**. Para resolver, primeiro a dimensionar o seu cluster para um estado estável objetivo dentro da quota. Em seguida, siga [estas etapas para pedir uma quota de recursos aumentam](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar aumentar verticalmente novamente os limites de quota inicial do além deste.
+2. Uma vez resolvida a causa da falha de atualização, o cluster deve estar num Estado com êxito. Depois de verificar um Estado com êxito, repita a operação original.
+
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou a receber erros ao tentar fazer a atualização ou de escala que meu cluster de estado está a ser atualmente sendo atualizado ou falha na atualização
+
+*Esse recurso de resolução de problemas é direcionado a partir de https://aka.ms/aks-pending-upgrade*
+
+Operações de cluster estão limitadas quando ocorrem operações de atualização de Active Directory ou uma atualização foi tentada, mas, em seguida, falhou. Para diagnosticar o problema, execute `az aks show -g myResourceGroup -n myAKSCluster -o table` para obter o estado detalhado no seu cluster. Com base no resultado:
+
+* Se o cluster é atualizar de forma ativa, aguarde até concluir a operação. Se tiver êxito, tente a operação que falhou anteriormente novamente.
+* Se a falha na atualização do cluster, siga os passos descritos [acima](#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade-directed-from-httpsakamsaks-pending-upgrade)

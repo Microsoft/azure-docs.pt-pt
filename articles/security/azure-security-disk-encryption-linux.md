@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 2/5/2018
+ms.date: 02/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9ce8484151d59eef50efe1ad0598f736752eb03e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 19201512e107bcfc0d291d6496d5d1dcd35936ba
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746692"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961657"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Ativar a encriptação de disco do Azure para VMs Linux IaaS 
 
@@ -24,7 +24,7 @@ Efetuar uma [instantâneo](../virtual-machines/windows/snapshot-copy-managed-dis
 >[!WARNING]
 > - Se tiver utilizado anteriormente [do Azure Disk Encryption, com a aplicação do Azure AD](azure-security-disk-encryption-prerequisites-aad.md) para encriptar esta VM, terá de continuar a utilizar esta opção para encriptar a sua VM. Não é possível usar [do Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) nesta VM encriptada como isso não é um cenário suportado, significado mudar para fora da aplicação do AAD para encriptados esta VM não é suportada ainda.
  > - O Azure Disk Encryption tem o Cofre de chaves e as VMs para estar colocalizados na mesma região. Criar e utilizar um cofre de chaves que está na mesma região que a VM ser encriptada.
-> - Quando encriptar os volumes do SO Linux, a VM não estará disponível e será desabilitado SSH. Para verificar o progresso, o [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) ou [show de encriptação de vm](/cli/azure/vm/encryption#az-vm-encryption-show) comandos podem ser utilizados. Este processo é obrigado a demorar algumas horas para um volume de sistema operacional de 30GB, além de mais tempo para criptografar volumes de dados. Tempo de criptografia de volume de dados será proporcional ao tamanho e a quantidade dos volumes de dados, a menos que todas as opção de formato de criptografar é utilizada. 
+> - Quando encriptar os volumes do SO Linux, a VM deve ser considerada indisponível. É altamente recomendável para evitar inícios de sessão SSH, enquanto a encriptação está em curso para evitar problemas de bloqueio de quaisquer ficheiros abertos, que vão ter de ser acedidas durante o processo de criptografia. Para verificar o progresso, o [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) ou [show de encriptação de vm](/cli/azure/vm/encryption#az-vm-encryption-show) comandos podem ser utilizados. Este processo é obrigado a demorar algumas horas para um volume de sistema operacional de 30GB, além de mais tempo para criptografar volumes de dados. Tempo de criptografia de volume de dados será proporcional ao tamanho e a quantidade dos volumes de dados, a menos que todas as opção de formato de criptografar é utilizada. 
 > - A desativação da encriptação em VMs do Linux só é suportada em volumes de dados. Não é suportada em dados ou volumes de sistema operacional se o volume do sistema operacional tenha sido criptografado.  
 
 
@@ -71,9 +71,9 @@ A sintaxe para o valor do parâmetro de chave de encriptação de chave é o URI
      ```
 
 ### <a name="bkmk_RunningLinuxPSH"> </a> Ativar a encriptação numa VM do Linux em execução ou existente com o PowerShell
-Utilize o [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet para ativar a encriptação numa máquina virtual de IaaS em execução no Azure. 
+Utilize o [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.compute/set-azurermvmdiskencryptionextension) cmdlet para ativar a encriptação numa máquina virtual de IaaS em execução no Azure. Efetuar uma [instantâneo](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/ou fazer uma cópia de segurança da VM com [cópia de segurança do Azure](../backup/backup-azure-vms-encryption.md) antes dos discos são encriptados. O parâmetro - skipVmBackup já está especificado nos scripts do PowerShell para encriptar uma VM do Linux em execução.
 
--  **Encripte uma VM em execução:** O script a seguir inicializa as variáveis e executa o cmdlet Set-AzureRmVMDiskEncryptionExtension. O grupo de recursos, a VM e o Cofre de chaves, devem já foram criadas como pré-requisitos. Substitua MySecureRg MySecureVM e MySecureVault pelos seus valores. Terá de adicionar o parâmetro - VolumeType se de que está a encriptar discos de dados e não o disco do SO. 
+-  **Encripte uma VM em execução:** O script a seguir inicializa as variáveis e executa o cmdlet Set-AzureRmVMDiskEncryptionExtension. O grupo de recursos, a VM e o Cofre de chaves, devem já foram criadas como pré-requisitos. Substitua MySecureRg MySecureVM e MySecureVault pelos seus valores. Modifique o parâmetro - VolumeType para especificar que discos que está a encriptar.
 
      ```azurepowershell-interactive
       $rgName = 'MySecureRg';
@@ -82,8 +82,9 @@ Utilize o [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
       $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
+      $sequenceVersion = [Guid]::NewGuid();  
 
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType '[All|OS|Data]' -SequenceVersion $sequenceVersion -skipVmBackup;
     ```
 - **Encripte uma VM em execução usando KEK:** Terá de adicionar o parâmetro - VolumeType se de que está a encriptar discos de dados e não o disco do SO. 
 
@@ -96,8 +97,9 @@ Utilize o [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comp
      $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     $sequenceVersion = [Guid]::NewGuid();  
 
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType '[All|OS|Data]' -SequenceVersion $sequenceVersion -skipVmBackup;
      ```
 
     >[!NOTE]
@@ -373,35 +375,36 @@ Em contraste com a sintaxe do Powershell, a CLI não exigir que o utilizador for
      ```
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Ativar a encriptação num disco adicionado recentemente com o Azure PowerShell
- Quando utilizar o Powershell para encriptar um disco novo para Linux, uma nova versão de sequência tem de ser especificado. A versão de sequência tem de ser exclusivo. O script a seguir gera um GUID para a versão de sequência. 
+ Quando utilizar o Powershell para encriptar um disco novo para Linux, uma nova versão de sequência tem de ser especificado. A versão de sequência tem de ser exclusivo. O script a seguir gera um GUID para a versão de sequência. Efetuar uma [instantâneo](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/ou fazer uma cópia de segurança da VM com [cópia de segurança do Azure](../backup/backup-azure-vms-encryption.md) antes dos discos são encriptados. O parâmetro - skipVmBackup já está especificado nos scripts do PowerShell para encriptar um disco de dados adicionados recentemente.
  
 
 -  **Criptografe volumes de dados de uma VM em execução:** O script a seguir inicializa as variáveis e executa o cmdlet Set-AzureRmVMDiskEncryptionExtension. O grupo de recursos, a VM e o Cofre de chaves devem já foram criadas como pré-requisitos. Substitua MySecureRg MySecureVM e MySecureVault pelos seus valores. Os valores aceitáveis para o parâmetro - VolumeType são todos os dados e SO. Se a VM foi anteriormente encriptada com um tipo de volume de "SO" ou "Todos", em seguida, o parâmetro - VolumeType deve ser alterado para todos, para que o sistema operacional e o novo disco de dados que serão incluídos.
 
      ```azurepowershell-interactive
-      $sequenceVersion = [Guid]::NewGuid();
       $rgName = 'MySecureRg';
       $vmName = 'MySecureVM';
       $KeyVaultName = 'MySecureVault';
       $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
       $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
+      $sequenceVersion = [Guid]::NewGuid();
 
-      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion;
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion -skipVmBackup;
     ```
 - **Criptografe volumes de dados de uma VM em execução usando KEK:** Os valores aceitáveis para o parâmetro - VolumeType são todos os dados e SO. Se a VM foi anteriormente encriptada com um tipo de volume de "SO" ou "Todos", em seguida, o parâmetro - VolumeType deve ser alterado para todos, para que o sistema operacional e o novo disco de dados que serão incluídos.
 
      ```azurepowershell-interactive
-     $rgName = 'MySecureRg';
-     $vmName = 'MyExtraSecureVM';
-     $KeyVaultName = 'MySecureVault';
-     $keyEncryptionKeyName = 'MyKeyEncryptionKey';
-     $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
-     $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
-     $KeyVaultResourceId = $KeyVault.ResourceId;
-     $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+      $rgName = 'MySecureRg';
+      $vmName = 'MyExtraSecureVM';
+      $KeyVaultName = 'MySecureVault';
+      $keyEncryptionKeyName = 'MyKeyEncryptionKey';
+      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgname;
+      $diskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
+      $KeyVaultResourceId = $KeyVault.ResourceId;
+      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+      $sequenceVersion = [Guid]::NewGuid();
 
-     Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data';
+      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId -VolumeType 'data' –SequenceVersion $sequenceVersion -skipVmBackup;
 
      ```
 

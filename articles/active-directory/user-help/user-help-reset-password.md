@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 170b96810130d33935e54c85529129e7e0267fe9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208485"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957781"
 ---
 # <a name="reset-your-work-or-school-password"></a>Repor a palavra-passe profissional ou escolar
 
@@ -163,9 +163,6 @@ Aqui estão alguns casos de erro comuns e as respectivas soluções:
 |Depois de eu insiro o meu ID de utilizador, recebo um erro que indica "Não foi possível verificar a sua conta."|O processo de início de sessão não foi possível verificar as informações da sua conta.|Existem dois motivos que pode estar a ver esta mensagem.<br><br>1. O administrador ativado para a sua organização de reposição de palavra-passe, mas ainda não registada para utilizar o serviço. Para se registar na reposição de palavra-passe, consulte um dos seguintes artigos, com base no seu método de verificação: [Definir informações de segurança para utilizar uma aplicação de autenticação (pré-visualização)](security-info-setup-auth-app.md), [definir informações de segurança para utilizar uma chamada telefónica (pré-visualização)](security-info-setup-phone-number.md), [definir informações de segurança para utilizar mensagens de texto (pré-visualização)](security-info-setup-text-msg.md), [ Definir informações de segurança para utilizar o e-mail (pré-visualização)](security-info-setup-email.md), ou [definir informações de segurança para utilizar perguntas de segurança (pré-visualização)](security-info-setup-questions.md).<br><br>2. O administrador não tenha ativado para a sua organização de reposição de palavra-passe. Nesta situação, tem de selecionar "Contacte uma ligação de administrador" para enviar um e-mail para o seu administrador, pedindo para repor a palavra-passe.|
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-- Editar as informações de segurança para adicionar ou alterar seus métodos de verificação no [gerir as suas informações de segurança (pré-visualização)](security-info-manage-settings.md) artigo. 
-
 - Saiba mais sobre as informações de segurança do [descrição geral de informações (pré-visualização) de segurança](user-help-security-info-overview.md) artigo.
 
 - Saiba mais sobre a verificação de dois passos no [descrição geral de verificação de dois passos](user-help-two-step-verification-overview.md) artigo. 

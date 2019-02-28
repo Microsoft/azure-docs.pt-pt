@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 6495a4e4da9330cba562c7fd6530369c09d180da
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302068"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960223"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design da tabela de armazenamento do Azure: Desenvolvendo dimensionável e de tabelas de alto desempenho
 
@@ -213,7 +213,7 @@ A descrição de geral de serviço de tabelas do Azure de seção anterior descr
 * Em segundo lugar e o melhor é um ***intervalo de consulta*** que utiliza o **PartitionKey** e filtros numa ampla gama de **RowKey** valores a devolver mais do que uma entidade. O **PartitionKey** valor identifica uma partição específica e o **RowKey** valores identificam a um subconjunto de entidades nessa partição. Por exemplo: $filter = PartitionKey eq "De" vendas e da ge RowKey"e RowKey lt T'"  
 * Melhor terceiro é um ***analisar de partição*** que utiliza o **PartitionKey** e filtros em outra propriedade sem chave e que podem devolver mais do que uma entidade. O **PartitionKey** valor identifica uma partição específica e a propriedade de valores select para um subconjunto de entidades nessa partição. Por exemplo: $filter = PartitionKey eq "Vendas" e LastName eq "Santos"  
 * R ***Table Scan*** não inclui o **PartitionKey** e é ineficiente porque ele pesquisa todas as partições que compõem a sua tabela, por sua vez, para qualquer entidades correspondentes. A operação executará uma análise de tabela, independentemente de estar ou não utiliza o seu filtro de **RowKey**. Por exemplo: $filter = LastName eq "Silva"  
-* Consultas de armazenamento de tabela do Azure, que retornam várias entidades retorná-los a ordenados **PartitionKey** e **RowKey** ordem. Para evitar recorrer as entidades no cliente, escolha uma **RowKey** que define a ordem de classificação mais comuns. Resultados devolvidos pela API de tabela do Azure no Azure Cosmso DB não são ordenados pela chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no armazenamento do Azure Cosmos DB e tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Consultas de armazenamento de tabela do Azure, que retornam várias entidades retorná-los a ordenados **PartitionKey** e **RowKey** ordem. Para evitar recorrer as entidades no cliente, escolha uma **RowKey** que define a ordem de classificação mais comuns. Resultados devolvidos pela API de tabela do Azure no Azure Cosmos DB não são ordenados pela chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no armazenamento do Azure Cosmos DB e tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Usando um "**ou**" para especificar um filtro com base nos **RowKey** valores resulta numa análise de partição e não é tratado como uma consulta de intervalo. Portanto, deve evitar consultas que usam filtros, tais como: $filter = PartitionKey eq "Vendas" e (RowKey eq '121' ou RowKey eq "322")  
 
@@ -255,7 +255,7 @@ Muitos designs têm de cumprir os requisitos para ativar a pesquisa de entidades
 Resultados retornados pelo serviço de tabela são ordenados por ordem, com base em ascendente **PartitionKey** e, em seguida, por **RowKey**.
 
 > [!NOTE]
-> Resultados devolvidos pela API de tabela do Azure no Azure Cosmso DB não são ordenados pela chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no armazenamento do Azure Cosmos DB e tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Resultados devolvidos pela API de tabela do Azure no Azure DB não são ordenados pela chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no armazenamento do Azure Cosmos DB e tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Chaves na tabela de armazenamento do Azure são valores de cadeia de caracteres e para garantir que os valores numéricos são ordenados corretamente, deverá convertê-los num comprimento fixo e preenche-los com zeros. Por exemplo, se o valor de id de funcionário utilizar como a **RowKey** é um valor de número inteiro, deve converter a identificação do funcionário **123** para **00000123**. 
 
@@ -723,7 +723,7 @@ Os padrões e orientações que se seguem podem também ser relevantes ao implem
 Obter o *n* entidades mais recentemente adicionadas a uma partição ao utilizar um **RowKey** valor ordena inversa de data e a ordem de tempo.  
 
 > [!NOTE]
-> Resultados devolvidos pela API de tabela do Azure no Azure Cosmso DB não são ordenados pela chave de partição ou chave de linha. Portanto, esse padrão é adequado para armazenamento de tabelas do Azure e não o Azure Cosmos DB. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no Azure Cosmos DB e armazenamento de tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Resultados devolvidos pela API de tabela do Azure no Azure DB não são ordenados pela chave de partição ou chave de linha. Portanto, esse padrão é adequado para armazenamento de tabelas do Azure e não o Azure Cosmos DB. Para obter uma lista detalhada das diferenças de funcionalidade, consulte [diferenças entre a API de tabela no Azure Cosmos DB e armazenamento de tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contexto e problema
 Um requisito comum é conseguir obter as entidades recentemente criadas, por exemplo o mais recente dez afirmações enviadas por um funcionário de despesas. Suporte de consulta de tabela uma **$top** consultar operação para retornar o primeiro *n* entidades a partir de um conjunto: não existe nenhuma operação equivalente de consulta para devolver as último entidades n num conjunto.  

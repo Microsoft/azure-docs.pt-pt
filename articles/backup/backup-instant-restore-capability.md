@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: sogup
-ms.openlocfilehash: 63a0e5bd3db6251e361d9dd03acb538556e811ca
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 3f6d614d1487174a361d562212c08ec5b3aaf220
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804997"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960025"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor de cópia de segurança e restaurar o desempenho com capacidade de Azure cópia de segurança instantâneas restaurar
 
@@ -78,7 +78,7 @@ Em alternativa, pode aceder à **propriedades** página do cofre para obter o **
 
 
 ## <a name="configure-snapshot-retention-using-azure-portal"></a>Configurar a retenção de instantâneo com o portal do Azure
-Esta opção está atualmente disponível nas **e.u.a. Centro-Oeste**, **sul da Índia** e **leste da Austrália**.
+Esta opção está atualmente disponível nas **e.u.a. Centro-Oeste**, **sul da Índia**, **leste da Austrália**, e **Europa do Norte**.
 
 Para os usuários atualizados, no portal do Azure pode ver um campo adicionado no **política de cópia de segurança de VM** painel sob o **restaurar instantâneas** secção. Pode alterar o período de retenção de instantâneo do **política de cópia de segurança de VM** painel para todas as VMs associadas à política de cópia de segurança específica.
 

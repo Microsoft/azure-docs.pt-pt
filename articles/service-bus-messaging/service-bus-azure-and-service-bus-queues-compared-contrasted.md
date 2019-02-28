@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8c86ffaeb717914d9165ecb5b65f300ae7d903b2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852801"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959311"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas do Service Bus - comparação e contraste
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas disponibilizadas atualmente pelo Microsoft Azure: Filas de armazenamento e filas do Service Bus. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
@@ -83,7 +83,8 @@ Esta seção compara alguns dos recursos fundamentais colocação em fila fornec
 * Mensagens em filas de armazenamento são, normalmente, first-in-first-out, mas, às vezes, podem estar fora de ordem; Por exemplo, quando duração do tempo limite de visibilidade de uma mensagem expira (por exemplo, como resultado de uma aplicação de cliente falhar durante o processamento). Quando o tempo limite de visibilidade expira, a mensagem se torna visível novamente na fila para outra função de trabalho da fila-lo. Nesse ponto, a mensagem recentemente visível pode ser colocada na fila (para ser removidos da fila novamente) após uma mensagem que foi originalmente colocado em fila depois dela.
 * O padrão de FIFO garantido em filas do Service Bus requer o uso de sessões de mensagens. No caso de falha da aplicação ao processar uma mensagem é recebida na **observar & Bloquear** modo, na próxima vez que um recetor de fila aceita uma sessão de mensagens, irá começar com a mensagem de falha após a respetiva time-to-live (TTL) período de expirar.
 * Filas de armazenamento foram concebidas para suportar cenários de colocação em fila padrão, como desacoplando componentes da aplicação para aumentar a escalabilidade e tolerância a falhas, carregar nivelamento e a criação de fluxos de trabalho do processo.
-* Suporte de filas do Service Bus a *pelo-menos-uma vez* garantia de entrega. Além disso, o *pelo-mais-uma vez* semântica pode ser suportado com o estado da sessão para armazenar o estado da aplicação e com transações atomicamente receber mensagens e atualizar o estado da sessão.
+* Suporte de filas do Service Bus a *pelo-menos-uma vez* garantia de entrega. 
+* Inconsistências em relação ao processamento de mensagens no contexto de sessões de barramento de serviço podem ser evitadas ao utilizar o estado da sessão para armazenar o estado do aplicativo em relação ao progresso de manipulação de sequência de mensagem da sessão e com transações em torno de liquidar recebeu mensagens e a atualizar o estado da sessão. Esse tipo de recurso de consistência, às vezes, é rotulado *exatamente-processamento uma vez* de outro fabricante produtos, mas a transação falhas, obviamente, fará com que as mensagens sejam redeliveried e, portanto, o termo adequado não exatamente.
 * Filas de armazenamento fornecem um modelo de programação uniforme e consistente em filas, tabelas e BLOBs – para os desenvolvedores e para as equipas de operações.
 * Filas do Service Bus fornecem suporte para transações locais no contexto de uma única fila.
 * O **receber e eliminar** modo suportado pelo Service Bus fornece a capacidade de reduzir o contador de operações de mensagens (e o custo associado), em troca de garantia de entrega de baixa expectativa com.
@@ -173,7 +174,7 @@ Esta secção descreve as funcionalidades de autenticação e autorização supo
 
 | Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
-| Autenticação |**Chave simétrica** |**Chave simétrica** |
+| Authentication |**Chave simétrica** |**Chave simétrica** |
 | Modelo de segurança |Acesso delegado através de tokens SAS. |SAS |
 | Federação do fornecedor de identidade |**Não** |**Sim** |
 

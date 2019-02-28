@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 44f0309d472a79526537f79feabcd9777b70bcc7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 05802c2a6e1d5e0ea16aa8cfcc4333c14d05c7ae
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888783"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986086"
 ---
 # <a name="getting-compliance-data"></a>Obter dados de conformidade
 
@@ -28,7 +28,7 @@ Existem várias formas de acessar as informações de conformidade geradas pela 
 Antes de examinar os métodos para gerar relatórios sobre compatibilidade, vamos ver quando as informações de conformidade são atualizadas e a frequência e eventos que disparam um ciclo de avaliação.
 
 > [!WARNING]
-> Se está a ser comunicado o estado de conformidade como **não registada**, certifique-se de que o **policyinsights** (controlam o fornecedor de recursos é registado e que o utilizador tem o acesso adequado baseado em funções As permissões RBAC), conforme descrito [aqui](../overview.md#rbac-permissions-in-azure-policy).
+> Se está a ser comunicado o estado de conformidade como **não registada**, certifique-se de que o **policyinsights** (controlam o fornecedor de recursos é registado e que o utilizador tem o acesso adequado baseado em funções As permissões RBAC), conforme descrito em [RBAC no Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 

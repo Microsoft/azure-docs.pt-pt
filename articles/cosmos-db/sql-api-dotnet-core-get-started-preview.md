@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 4e6d981ef1ac7985e9f230cfbbda440a765e20ea
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695490"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959192"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Criar uma aplicação de consola .NET Core para gerir dados na conta do Azure Cosmos DB SQL API (SDK versão 3 pré-visualização)
 
@@ -131,7 +131,7 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
 
    Copie o URI a partir do portal e cole-a na `<your endpoint URL>` no `Program.cs` ficheiro. Copie a chave primária do portal e cole-o em `<your primary key>`.
 
-   ![Captura de ecrã para obter as chaves do Azure Cosmso DB a partir do portal do Azure](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
+   ![Captura de ecrã para obter as chaves do Azure Cosmos DB a partir do portal do Azure](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
 1. Em seguida, vamos criar uma nova instância do `CosmosClient` e configurar alguns scaffolding para nosso programa.
 

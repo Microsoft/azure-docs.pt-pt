@@ -14,12 +14,12 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2545e85ff466ed7455161eb725b824da465457bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 153b3d61324d504fe260b104bf412913f9692627
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177336"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957543"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de início de sessão com o Azure multi-factor Authentication
 > [!NOTE]
@@ -83,9 +83,8 @@ Por vezes, não tem o telefone ou o dispositivo que configurou como o seu métod
   ![Utilize o método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
+- Se tiver problemas ao iniciar sessão com a verificação de dois passos, obter mais informações em [a ter problemas com o Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
-Se tiver problemas ao iniciar sessão com a verificação de dois passos, obter mais informações em [a ter problemas com o Azure multi-factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+- Saiba como [gerir as definições da verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md).
 
-Saiba como [gerir as definições da verificação de dois passos](multi-factor-authentication-end-user-manage-settings.md).
-
-Descubra como [começar com a aplicação Microsoft Authenticator](user-help-auth-app-download-install.md) para que possa utilizar notificações para iniciar sessão, em vez de textos e chamadas telefónicas.
+- Descubra como [começar com a aplicação Microsoft Authenticator](user-help-auth-app-download-install.md) para que possa utilizar notificações para iniciar sessão, em vez de textos e chamadas telefónicas.

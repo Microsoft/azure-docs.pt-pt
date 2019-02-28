@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: a4eea340fe57ab3c05e527a476d9153113eedba5
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f56b4f07b7155d9f465a6ce492b4718d4a66e76e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819399"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959328"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Alertas e monitorizar fábricas de dados através do Azure Monitor
 Aplicações na cloud são complexas com muitas partes móveis. A monitorização fornece dados para garantir que seu aplicativo mantém-se e em execução em bom estado. Também ajuda-o a protele potenciais problemas ou resolução de problemas anteriores são. Além disso, pode utilizar dados de monitorização para obter informações aprofundadas sobre a sua aplicação. Esse conhecimento pode ajudá-lo a melhorar o desempenho da aplicação ou a capacidade de manutenção, ou automatize ações que caso contrário, requer intervenção manual.
@@ -40,11 +40,11 @@ Pode usar um armazenamento conta ou event hub espaço de nomes que não esteja n
 ### <a name="diagnostic-settings"></a>Definições de diagnóstico
 Registos de diagnóstico para recursos de computação-não são configurados com definições de diagnóstico. Definições de diagnóstico para um controlo de recursos:
 
-* Onde os registos de diagnóstico são enviados (conta de armazenamento, os Hubs de eventos ou do Log Analytics).
+* Onde os registos de diagnóstico são enviados (conta de armazenamento, os Hubs de eventos ou registos do Azure Monitor).
 * As categorias de registo são enviadas.
 * O tempo em que cada categoria de registo deve ser mantida numa conta de armazenamento.
 * A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 2147483647.
-* Se as políticas de retenção são definidas, mas armazenamento de registos numa conta de armazenamento está desativada (por exemplo, apenas os Hubs de eventos ou o Log Analytics opções estão selecionadas), as políticas de retenção não têm qualquer efeito.
+* Se as políticas de retenção são definidas, mas armazenamento de registos numa conta de armazenamento está desativado (por exemplo, apenas os Hubs de eventos do Azure Monitor ou registos opções estão selecionadas), as políticas de retenção não têm efeito.
 * Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Ativar registos de diagnóstico através de REST APIs

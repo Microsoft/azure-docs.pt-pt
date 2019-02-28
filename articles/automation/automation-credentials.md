@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0454bc211d2ae8497babc808f9794fae4d22c47e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a842c0807a3cfbad78a43bcffa896c83bceedfb9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498170"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959294"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credencial na automatização do Azure
 
-Um recurso de credencial da automatização contém um objeto que contém credenciais de segurança, como um nome de utilizador e palavra-passe. Configurações de Runbooks e DSC podem utilizar os cmdlets que aceitem um objeto PSCredential para autenticação, ou eles podem extrair o nome de utilizador e palavra-passe do objeto PSCredential para fornecer a alguma aplicação ou serviço que requer autenticação. As propriedades das credenciais são armazenadas em segurança na automatização do Azure e podem ser acedidas no runbook ou configuração DSC com o [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) atividade.
+Um recurso de credencial da automatização contém um objeto, que contém credenciais de segurança, como um nome de utilizador e palavra-passe. Configurações de Runbooks e DSC podem utilizar os cmdlets que aceitem um objeto PSCredential para autenticação, ou eles podem extrair o nome de utilizador e palavra-passe do objeto PSCredential para fornecer a alguma aplicação ou serviço que requer autenticação. As propriedades das credenciais são armazenadas em segurança na automatização do Azure e podem ser acedidas no runbook ou configuração DSC com o [Get-AutomationPSCredential](https://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) atividade.
 
 [!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -27,7 +27,7 @@ Um recurso de credencial da automatização contém um objeto que contém creden
 
 ## <a name="azure-classic-powershell-cmdlets"></a>Cmdlets do Azure PowerShell clássico
 
-Os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de credencial da automatização com o Windows PowerShell.  Eles são fornecidos como parte do [módulo do Azure PowerShell](/powershell/azure/overview) que está disponível para utilização nos runbooks de automatização e configurações de DSC.
+Os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de credencial da automatização com o Windows PowerShell.  Eles são fornecidos como parte do [módulo do Azure PowerShell](/powershell/azure/overview), que está disponível para utilização nos runbooks de automatização e configurações de DSC.
 
 | Cmdlets | Descrição |
 |:--- |:--- |
@@ -38,7 +38,7 @@ Os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de cre
 
 ## <a name="azurerm-powershell-cmdlets"></a>Cmdlets do AzureRM PowerShell
 
-Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de credencial da automatização com o Windows PowerShell.  Eles são fornecidos como parte do [módulo do Azurerm](/powershell/azure/overview) que está disponível para utilização nos runbooks de automatização e configurações de DSC.
+Para AzureRM, os cmdlets na tabela seguinte são utilizados para criar e gerir recursos de credencial da automatização com o Windows PowerShell.  Eles são fornecidos como parte do [módulo do Azurerm](/powershell/azure/overview), que está disponível para utilização nos runbooks de automatização e configurações de DSC.
 
 | Cmdlets | Descrição |
 |:--- |:--- |
@@ -106,6 +106,19 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
+Também pode utilizar uma credencial para autenticar no Azure com o [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Na maioria das circunstâncias, deve usar uma [conta Run As](manage-runas-account.md) e recuperá-la com [Get-AutomationConnection](automation-connections.md).
+
+```azurepowershell
+$myCred = Get-AutomationPSCredential -Name 'MyCredential`
+$userName = $myCred.UserName
+$securePassword = $myCred.Password
+$password = $myCred.GetNetworkCredential().Password
+
+$myPsCred = New-Object System.Management.Automation.PSCredential ($userName,$password)
+
+Connect-AzureRmAccount -Credential $myPsCred
+```
+
 ### <a name="graphical-runbook-sample"></a>Exemplo de runbook gráfico
 
 Adicionar uma **Get-AutomationPSCredential** atividade para um runbook gráfico clicando na credencial no painel de biblioteca do editor gráfico e selecionando **adicionar à tela**.
@@ -118,7 +131,7 @@ A imagem seguinte mostra um exemplo de como utilizar uma credencial num runbook 
 
 ## <a name="using-a-powershell-credential-in-dsc"></a>Utilizar uma credencial do PowerShell no DSC
 
-Enquanto as configurações de DSC na automatização do Azure podem fazer referência a ativos de credencial usando **Get-AutomationPSCredential**, ativos de credencial podem também ser transmitidos através de parâmetros, se assim o desejar. Para obter mais informações, consulte [compilar configurações no DSC de automatização do Azure](automation-dsc-compile.md#credential-assets).
+Enquanto as configurações de DSC na automatização do Azure podem fazer referência a ativos de credencial usando **Get-AutomationPSCredential**, ativos de credencial podem também ser transmitidos através de parâmetros, se quisesse. Para obter mais informações, consulte [compilar configurações no DSC de automatização do Azure](automation-dsc-compile.md#credential-assets).
 
 ## <a name="using-credentials-in-python2"></a>Com credenciais no Python2
 
@@ -141,5 +154,3 @@ print cred["password"]
 * Para começar com runbooks Gráficos, consulte o artigo [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar com runbooks do fluxo de trabalho do PowerShell, consulte o artigo [O meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md) 
 * Para começar com runbooks do Python2, veja [meu primeiro runbook Python2](automation-first-runbook-textual-python2.md) 
-
-

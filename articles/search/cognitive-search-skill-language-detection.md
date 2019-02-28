@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/25/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 088a147bbcf4f94209ce9faf62e14833a818408c
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 4ba597d28ddf4bbf1f2546c2bc7b498103b50efa
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411311"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959481"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Habilidade de cognitiva de deteção de idioma
 

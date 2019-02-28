@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: pareshmu
-ms.openlocfilehash: 0e999017f7c093b1b9b18db92950d66e453db47c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: e2c1dd0834ab659ac230dc67a760b10ca5c423ce
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670682"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985517"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -82,7 +82,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Datacenters da Ascenty](https://ascenty.com/servicos/cloud-connect/microsoft-expressroute/)** |Suportadas |Suportado |São Paulo |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportado |Amesterdão, Chicago, Dallas, Londres, Silicon Valley, Singapura, Sydney, Tóquio, Toronto, Washington D.C. |
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |Suportado |Suportado |Montreal, Toronto, Cidade do Quebeque |
-| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Suportado |Suportadas |Amesterdão, RAE de Hong Kong, Londres, São Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington D.C. |
+| **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/bt-compute-for-microsoft-azure)** |Suportado |Suportadas |Amesterdão, RAE de Hong Kong, Londres, Newport(Wales), são Paulo, Silicon Valley, Singapura, Sydney, Tóquio, Washington D.C. |
 | **C3ntro** |Brevemente |Brevemente |Miami |
 | **CDC** | Suportadas | Suportadas | Camberra, Camberra2 |
 | **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Suportado |Suportadas |Las Vegas, Nova Iorque, San Antonio, Silicon Valley, Tóquio, Toronto |
@@ -103,7 +103,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Internet Initiative Japan Inc. – IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Suportado |Suportado |Osaka, Tóquio |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Suportadas |Suportadas |Cidade do Cabo, Joanesburgo, Londres |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Suportado |Suportadas |Amesterdão, Amesterdão2, Dublin, Londres, Marselha, Paris |
-| **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Suportado |Suportadas | Amesterdão, Silicon Valley, Toronto |
+| **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Suportado |Suportadas | Amesterdão, Silicon Valley, Toronto |
 | **Jisc** |Suportado |Suportado |Londres |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Suportadas |Suportado |Seoul |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Suportado | Suportado | Amesterdão | 
@@ -185,7 +185,7 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
   * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [Interxion](http://www.interxion.com/products/interconnection/cloud-connect/)
-  * [IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)
+  * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](http://www.nextdc.com/)
   * [PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/) 
@@ -199,7 +199,7 @@ Se o seu fornecedor de conectividade não está listado nas secções anteriores
 | **Fornecedor de conectividade** | **Exchange** | **Localizações** |
 | --- | --- | --- |
 | **[1CLOUDSTAR](http://www.1cloudstar.com/service/cloudconnect-azure-expressroute/)** |Equinix |Singapura |
-| **[Airgate Technologies, Inc.](http://airgate.ca/cloud-express/)** | Equinix, Cologix | Toronto, Montreal |
+| **[Airgate Technologies, Inc.](https://www.airgate.ca/expressroute)** | Equinix, Cologix | Toronto, Montreal |
 | **[Alaska Communications](http://www.alaskacommunications.com/For-Your-Business/Direct-Cloud-Service)** |Equinix |Seattle |
 | **[Altice Business](https://golightpath.com/transport)** |Equinix |Nova Iorque, Washington D.C. |
 | **[Arteria Networks Corporation](https://www.arteria-net.com/business/service/cloud/sca/)** |Equinix |Tóquio |

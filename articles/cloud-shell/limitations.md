@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0cbd2c1f9a5a36d4e11eb86a3d531340b0e0ff03
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563886"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983732"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitações do Azure Cloud Shell
 
@@ -45,7 +45,7 @@ Cloud Shell suporta as versões mais recentes do Microsoft Edge, o Microsoft Int
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Para um determinado usuário, apenas um shell pode estar ativa
 
-Os utilizadores podem apenas iniciar um tipo de shell por vez, optar por **Bash** ou **PowerShell**. No entanto, pode ter várias instâncias de Bash ou do PowerShell em execução em simultâneo. A troca entre o Bash ou o PowerShell causas Cloud Shell para reiniciar, que termina sessões existentes.
+Os utilizadores podem apenas iniciar um tipo de shell por vez, optar por **Bash** ou **PowerShell**. No entanto, pode ter várias instâncias de Bash ou do PowerShell em execução em simultâneo. A troca entre o Bash ou o PowerShell, utilizando o menu faz com que o Cloud Shell reiniciar, que termina sessões existentes. Em alternativa, pode executar o bash no interior do PowerShell, escrevendo `bash`, e pode executar o PowerShell no interior do bash, escrevendo `pwsh`.
 
 ### <a name="usage-limits"></a>Limites de utilização
 
@@ -57,9 +57,9 @@ Cloud Shell destina-se para casos de uso interativo. Como resultado, qualquer se
 
 As permissões estão definidas como usuários regulares sem acesso de sudo. Qualquer instalação fora de sua `$Home` diretório não é persistente.
 
-### <a name="editing-bashrc"></a>Editar .bashrc
+### <a name="editing-bashrc-or-profile"></a>Editar .bashrc ou $PROFILE
 
-Tenha cuidado de edição .bashrc, isso pode causar erros inesperados no Cloud Shell.
+Tenha cuidado de edição .bashrc ou arquivo de $PROFILE do PowerShell, se o fizer, pode causar erros inesperados no Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitações do PowerShell
 
@@ -73,23 +73,15 @@ O `SqlServer` módulo incluído no Cloud Shell tem suporte apenas de pré-lança
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Localização do ficheiro predefinido quando criado a partir do disco do Azure:
 
-Utilizar cmdlets do PowerShell, os utilizadores não é podem criar arquivos sob a unidade do Azure. Quando os utilizadores criam novos ficheiros com outras ferramentas, como vim ou nano, os ficheiros são guardados para a `$HOME` por predefinição. 
+Utilizar cmdlets do PowerShell, os utilizadores não é podem criar ficheiros do Azure: unidade. Quando os utilizadores criam novos ficheiros com outras ferramentas, como vim ou nano, os ficheiros são guardados para a `$HOME` por predefinição. 
 
 ### <a name="gui-applications-are-not-supported"></a>Aplicativos de GUI não são suportados
 
-Se o usuário executa um comando que seria criar uma caixa de diálogo do Windows, tal como `Connect-AzureAD`, `Connect-AzureRmAccount`, ou `Connect-AzAccount` um vê como uma mensagem de erro: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
-
-### <a name="tab-completion-crashes-psreadline"></a>Conclusão de tabulação falha PSReadline
-
-Se EditMode o utilizador no PSReadline estiver definido como Emacs, o utilizador tenta exibir todas as possibilidades por meio de conclusão de tabulação e o tamanho da janela é demasiado pequeno para exibir todas as possibilidades, PSReadline falhará.
+Se o usuário executa um comando que criaria uma caixa de diálogo do Windows, um vê uma mensagem de erro, tais como: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Grande lacuna depois de exibir a barra de progresso
 
 Se o utilizador efetua uma ação que exibe uma barra, tal um separador de progresso conclusão ao mesmo tempo no `Azure:` unidade, em seguida, é possível que o cursor não está corretamente definido e uma lacuna aparece em que a barra de progresso era anteriormente.
-
-### <a name="random-characters-appear-inline"></a>Caracteres aleatórios são apresentadas inline
-
-A sequência de posição do cursor códigos, por exemplo `5;13R`, pode aparecer na entrada do usuário.  Os caracteres podem ser removidos manualmente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

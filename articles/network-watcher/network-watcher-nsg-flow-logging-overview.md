@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: d9d87e0e6427c0a0d4b16947fd0427e1c79d8f0c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 62b526950367987e26c1c67394bc0720ae895fa6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341050"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983800"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo do fluxo para grupos de segurança de rede
 
@@ -286,5 +286,5 @@ O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existe
 
 - Para saber como ativar os registos de fluxo, veja [registo do fluxo do NSG ativar](network-watcher-nsg-flow-logging-portal.md).
 - Para saber como ler os registos de fluxo, veja [registos de fluxo de NSG de leitura](network-watcher-read-nsg-flow-logs.md).
-- Para saber mais sobre o registo de NSG, consulte [do Log analytics para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Para saber mais sobre o registo de NSG, consulte [registos do Azure Monitor para grupos de segurança de rede (NSGs)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - Para determinar se o tráfego é permitido ou negado para ou a partir de uma VM, veja [diagnosticar um problema de filtragem de tráfego de rede VM](diagnose-vm-network-traffic-filtering-problem.md)

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/26/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: ade8ce1cc872c4d954d272f79ef9a3113ef0f683
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: c1a0e77f98d269185bc065c86a367c3ed6519fb5
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820081"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961980"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Pilha Managed Disks do Azure: diferenças e considerações
 
@@ -68,30 +68,29 @@ Pilha de Managed Disks do Azure suporta as seguintes versões de API:
 
 ## <a name="convert-to-managed-disks"></a>Converter para discos geridos
 
-Pode utilizar o script pelos seus próprios valores para converter uma VM atualmente aprovisionada da não-gerenciado para os managed disks abaixo
+Pode utilizar o seguinte script para converter uma VM atualmente aprovisionada da não geridos para discos geridos. Substitua os marcadores de posição pelos seus próprios valores:
 
 ```powershell
 $subscriptionId = 'subid'
 
-#Provide the name of your resource group
+# The name of your resource group
 $resourceGroupName ='rgmgd'
 
-#Provide the name of the Managed Disk
+# The name of the managed disk
 $diskName = 'unmgdvm'
 
-#Provide the size of the disks in GB. It should be greater than the VHD file size.
+# The size of the disks in GB. It should be greater than the VHD file size.
 $diskSize = '50'
 
-#Provide the URI of the VHD file that will be used to create Managed Disk. 
-# VHD file can be deleted as soon as Managed Disk is created.
+# The URI of the VHD file that will be used to create the managed disk.
+# The VHD file can be deleted as soon as the managed disk is created.
 $vhdUri = 'https://rgmgddisks347.blob.local.azurestack.external/vhds/unmgdvm20181109013817.vhd' 
 
-#Provide the storage type for the Managed Disk. PremiumLRS or StandardLRS.
+# The storage type for the managed disk; PremiumLRS or StandardLRS.
 $accountType = 'StandardLRS'
 
-#Provide the Azure Stack location where Managed Disk will be located. 
-#The location should be same as the location of the storage account where VHD file is stored.
-
+# The Azure Stack location where the managed disk is located.
+# The location should be the same as the location of the storage account in which VHD file is stored.
 $location = 'local'
 $virtualMachineName = 'mgdvm'
 $virtualMachineSize = 'Standard_D1'
@@ -99,23 +98,24 @@ $pipname = 'unmgdvm-ip'
 $virtualNetworkName = 'rgmgd-vnet'
 $nicname = 'unmgdvm295'
 
-#Set the context to the subscription Id where Managed Disk will be created
+# Set the context to the subscription ID in which the managed disk will be created
 Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
 $diskConfig = New-AzureRmDiskConfig -AccountType $accountType  -Location $location -DiskSizeGB $diskSize -SourceUri $vhdUri -CreateOption Import
 
-#Create Managed disk
+# Create managed disk
 New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
 $disk = get-azurermdisk -DiskName $diskName -ResourceGroupName $resourceGroupName
 $VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
 
-#Use the Managed Disk Resource Id to attach it to the virtual machine. Please change the OS type to linux if OS disk has linux OS
+# Use the managed disk resource ID to attach it to the virtual machine.
+# Change the OS type to Linux if the OS disk has Linux OS.
 $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $disk.Id -CreateOption Attach -Linux
 
-#Create a public IP for the VM
+# Create a public IP for the VM
 $publicIp = Get-AzureRmPublicIpAddress -Name $pipname -ResourceGroupName $resourceGroupName 
 
-#Get the virtual network where virtual machine will be hosted
+# Get the virtual network where the virtual machine will be hosted
 $vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
 
 # Create NIC in the first subnet of the virtual network
@@ -123,7 +123,7 @@ $nic = Get-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $resourceGr
 
 $VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
 
-#Create the virtual machine with Managed Disk
+# Create the virtual machine with managed disk
 New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
 ```
 

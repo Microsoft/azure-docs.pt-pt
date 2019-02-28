@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4a06b30c209828e7ffd9f59d1b4ece06cfe6e2dd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428912"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984208"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criar uma aplicação de compreensão de idiomas com os serviços cognitivos
 Utilize a processo de criação de aplicações para criar a sua aplicação LUIS. 
@@ -78,7 +78,9 @@ Para obter mais informações:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Adicionar listas de frase e padrões em iterações posteriores
 
-Uma prática recomendada é não se aplicam essas práticas antes da aplicação foi testada. Deve compreender como a aplicação se comporta antes de adicionar listas de frase e padrões. Assim que compreender como a aplicação se comporta sem eles, adicione cada um desses recursos conforme sejam aplicáveis à sua aplicação. Não é necessário adicionar estas funcionalidades com cada [iteração](luis-concept-app-iteration.md) ou alterar as funcionalidades em cada versão. 
+Uma prática recomendada é não se aplicam essas práticas antes da aplicação foi testada. Deve compreender como a aplicação se comporta antes de adicionar listas de frase e padrões, uma vez que estas funcionalidades são ponderadas mais pesada do que as expressões de exemplo e serão inclinar confiança. 
+
+Assim que compreender como a aplicação se comporta sem eles, adicione cada um desses recursos conforme sejam aplicáveis à sua aplicação. Não é necessário adicionar estas funcionalidades com cada [iteração](luis-concept-app-iteration.md) ou alterar as funcionalidades em cada versão. 
 
 Não causa nenhum dano adicioná-las no início do seu design de modelo mas é mais fácil ver como cada funcionalidade alterada resultados depois do modelo é testado com expressões com. 
 

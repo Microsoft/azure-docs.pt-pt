@@ -4,18 +4,19 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Neste início rápido de Java, utilize uma aplicação do LUIS pública disponível para determinar a intenção de um utilizador de texto de conversação.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: f7ecf2aaedfda9f7c78146b6e355cf4d8be02003
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 02e03868f5a48088b78d5d9b0221387212f248cf
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879733"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958716"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Início rápido: Objetivo de GET com Java
 

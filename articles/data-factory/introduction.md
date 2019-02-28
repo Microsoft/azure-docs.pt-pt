@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 9704002a30556c76c65ddcad1cb576fbf4502b55
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66ea269e2f29bfd39cdb81086391e0277474219d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014306"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961362"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução ao Azure Data Factory 
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-introduction.md)
 > * [Versão atual](introduction.md)
 
@@ -62,7 +62,7 @@ Assim que os dados estiverem presentes num arquivo de dados centralizado na clou
 Quando os dados não processados estiverem refinados e prontos para consumo por parte das empresas, carregue os dados para o Azure Data Warehouse, para a Base de Dados SQL do Azure, para o Azure CosmosDB ou para qualquer que seja o motor de análise para o qual os seus utilizadores empresariais podem apontar a partir as ferramentas de business intelligence que utilizam.
 
 ### <a name="monitor"></a>Monitorizar
-Depois de criar e implementar com êxito o seu pipeline de integração de dados, proporcionando valor comercial a partir dos dados refinados, monitorize as atividades e os pipelines agendados relativamente às taxas de êxito e falha. O Azure Data Factory tem suporte incorporado para monitorização de pipelines através do Azure Monitor, de APIs, do PowerShell, do Log Analytics e dos painéis de estado de funcionamento no portal do Azure.
+Depois de criar e implementar com êxito o seu pipeline de integração de dados, proporcionando valor comercial a partir dos dados refinados, monitorize as atividades e os pipelines agendados relativamente às taxas de êxito e falha. O Azure Data Factory tem suporte incorporado para monitorização de pipelines através do Azure Monitor, API, PowerShell, registos do Azure Monitor e dos painéis de estado de funcionamento no portal do Azure.
 
 ## <a name="top-level-concepts"></a>Principais conceitos
 As subscrições do Azure podem ter uma ou várias instâncias do Azure Data Factory (ou fábricas de dados). O Azure Data Factory é constituído por quatro componentes principais. Estes componentes funcionam em conjunto para fornecer a plataforma na qual pode compor fluxos de trabalho orientados por dados com passos para mover e transformar dados.

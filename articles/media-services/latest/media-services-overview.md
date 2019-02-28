@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/07/2019
+ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: d6805b3d60e5e30d35acc12c5564498830ddd8fb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881737"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960654"
 ---
 # <a name="what-is-azure-media-services-v3"></a>O que são os Serviços de Multimédia do Azure v3?
 
@@ -88,7 +88,7 @@ Os conteúdos de v3 de serviços de multimédia são organizados de acordo com a
 | Inícios rápidos | Mostre instruções de 1 dia fundamentais para os novos clientes experimentar rapidamente o serviços de multimédia.|
 | Tutoriais | Mostre baseados em cenários de procedimentos para algumas das tarefas principais de serviços de multimédia.|
 | Amostras | Ligações para exemplos de código. |
-| Conceitos | Conter uma explicação minuciosa dos conceitos de v3 de serviços de multimédia e funcionalidade. Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos antes de iniciar o desenvolvimento.<br/><br/>* Carregamento e o armazenamento de cloud<br/>* A codificação<br/>* Análise de multimédia<br/>* Empacotamento, entrega, proteção<br/>* Transmissão em direto<br/>* Monitorização contínua<br/>* Os clientes de Player<br/><br/>e muito mais. |
+| Conceitos | Contêm uma explicação detalhada das [funcionalidades e conceitos do serviços de multimédia v3](concepts-overview.md). Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos antes de iniciar o desenvolvimento.<br/><br/>* Carregamento e o armazenamento de cloud<br/>* A codificação<br/>* Análise de multimédia<br/>* Empacotamento, entrega, proteção<br/>* Transmissão em direto<br/>* A monitorização<br/>* Os clientes de Player<br/><br/>e muito mais. |
 | Guias de procedimentos | Demonstre como concluir uma tarefa.|
 
 ## <a name="next-steps"></a>Passos Seguintes

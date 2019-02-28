@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 6f6cf6de9b1f12451bf28a9bd7fc7077c1c6b1cd
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 4acd4f3fd9c013d622a23853dc2f0d02b8b753d9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673465"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985789"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Como atualizar o seu hub IoT
 
@@ -45,7 +45,9 @@ Esses exemplos destinam-se para o ajudar a compreender como ajustar o seu hub Io
 4. Para alterar o número de unidades do seu hub, introduza um novo valor sob **unidades do IoT Hub**. 
 5. Selecione **guardar** para guardar as alterações. 
 
-Agora é ajustado o seu hub IoT e suas configurações permanecem inalteradas. O limite máximo de partição para o IoT Hub de escalão básico é 8 e para o escalão standard é 32. A maioria dos Hubs de IoT precisa apenas quatro partições. O limite de partição é escolhido ao IoT Hub é criado e se relaciona com as mensagens do dispositivo para a cloud para o número de leitores simultâneos dessas mensagens. Este valor permanece inalterado durante a migração de escalão básico para o escalão standard. 
+Agora é ajustado o seu hub IoT e suas configurações permanecem inalteradas. 
+
+O limite de máxima de partições para o escalão básico IoT Hub e IoT Hub de escalão standard é 32. A maioria dos Hubs de IoT precisa apenas de 4 partições. O limite de partição é escolhido ao IoT Hub é criado e se relaciona com as mensagens do dispositivo para a cloud para o número de leitores simultâneos dessas mensagens. Este valor permanece inalterado durante a migração de escalão básico para o escalão standard. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
