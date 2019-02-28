@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: b6fbb71a827c90abd1fac58d7975ab2f7b2a5674
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: df83149126c439aae6256cd65473470461810bca
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560894"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961232"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas para além do 1433 para ADO.NET 4.5
 
@@ -75,7 +75,7 @@ Esta secção esclarece os monikers que se referem às versões do produto. Ele 
 
 * ® Controlador Microsoft ODBC 17 para SQL Server® - Windows, Linux e macOS https://www.microsoft.com/download/details.aspx?id=56567
 
-* Ligar à base de dados SQL do Azure V12 através de redirecionamento https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/
+* Ligar à base de dados SQL do Azure V12 através de redirecionamento https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
 * [Lista de versões do protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Descrição geral do desenvolvimento de banco de dados SQL](sql-database-develop-overview.md)

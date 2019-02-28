@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 14e587276deab9656c3be04c96182942767ae0f2
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099144"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986027"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização de 1811 de pilha do Azure
 
@@ -86,6 +86,8 @@ O Azure Stack lança correções em intervalos regulares. Certifique-se de que i
     Depois de importar os certificados de anfitrião de extensão obrigatório corretamente, pode retomar a atualização de 1811 a partir do portal do administrador. Embora a Microsoft solicitará operadores do Azure Stack para agendar uma janela de manutenção durante o processo de atualização, uma falha devido aos certificados de anfitrião de extensão em falta não deve afetar as cargas de trabalho ou serviços existentes.  
 
     Durante a instalação desta atualização, o portal de utilizador do Azure Stack está disponível enquanto o anfitrião de extensão está a ser configurado. A configuração do anfitrião de extensão pode demorar até 5 horas. Durante esse período, poderá verificar o estado de uma atualização ou retomar uma instalação de atualização falhada utilizando o [PowerShell de Administrador do Azure Stack ou o ponto final com privilégios](azure-stack-monitor-update.md).
+
+- Quando o Azure Stack é gerido pelo System Center Operations Manager (SCOM), certifique-se de que atualizar o pacote de gestão para o Microsoft Azure Stack para a versão 10.0.3.11 antes de aplicar 1811.
 
 ## <a name="new-features"></a>Novos recursos
 

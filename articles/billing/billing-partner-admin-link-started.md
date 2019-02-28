@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c38b28a247feb94efd5f4b73e690d30aac9ed73a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 85beb9b7e0c62d5e1c8dae61fdd15d5faf3a294c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900243"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985874"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro a suas contas do Azure
 
@@ -138,3 +138,25 @@ A ligação entre o ID de parceiro e a conta é feita para cada inquilino do cli
 **Podem outros parceiros ou clientes, editar ou remover a ligação para o ID de parceiro?**
 
 A ligação está associada ao nível da conta de utilizador. Apenas pode editar ou remover a ligação para o ID de parceiro. O cliente e outros parceiros que não é possível alterar a ligação para o ID de parceiro. 
+
+
+**O ID MPN posso utilizar se a minha empresa tem vários?**
+
+Pode utilizar qualquer ID MPN válido, exceto o v-ID da organização MPN. A maioria dos parceiros optarem por utilizar o ID MPN para a geografia onde baseia-se o cliente ou serviços estão a ser entregue.
+
+**Onde posso encontrar influenciada receita, geração de relatórios para o ID de parceiro ligado?**
+
+Pode encontrar a receita influenciada reporting em [dashboard de conhecimentos My](https://partner.microsoft.com/membership/reports/myinsights) ao selecionar a ligação de administrador do parceiro, conforme mostrado.
+
+**Por que motivo não vejo meu cliente nos relatórios?**
+
+Não é possível ver o cliente nos relatórios de devido aos motivos seguintes
+
+1. A conta de utilizador ligado não tem [acesso baseado em função ](https://docs.microsoft.com/azure/role-based-access-control/overview) em qualquer cliente subscrição do Azure ou recursos.
+
+2. A subscrição do Azure onde o utilizador tiver [acesso baseado em função ](https://docs.microsoft.com/azure/role-based-access-control/overview) acesso não tem qualquer utilização.
+
+**Ligar partner que ID funciona com o Azure Stack?**
+
+Sim, pode ligar o seu ID de parceiro para o Azure Stack.
+

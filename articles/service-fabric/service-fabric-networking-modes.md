@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 2ae533c81e68f8f6a32ad8fa0e45aed3c63eceb9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: cb918516a9180b4bffdc72c688df5d830e83833a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805261"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959668"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de funcionamento em rede de contentor do Service Fabric
 
@@ -30,7 +30,7 @@ Se tiver um serviço de contentor com um ponto de final estático no seu manifes
 Quando um serviço de contentor é reiniciado ou se move para outro nó no cluster, o endereço IP é alterado. Por esse motivo, não recomendamos utilizar o endereço IP atribuído dinamicamente para detetar os serviços de contentores. Apenas o serviço Service Fabric Naming ou o serviço DNS deve ser utilizado para a deteção de serviço. 
 
 >[!WARNING]
->Azure permite que um total de 4,096 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contentor (que estão a utilizar o modo de abrir) não pode exceder os 4,096 IPs dentro de uma rede virtual. Para cenários de alta densidade, recomendamos o modo de funcionamento em rede nat.
+>Azure permite que um total de 65,356 IPs por rede virtual. A soma do número de nós e o número de instâncias de serviço de contentor (que estão a utilizar o modo de abrir) não pode exceder os 65,356 IPs dentro de uma rede virtual. Para cenários de alta densidade, recomendamos o modo de funcionamento em rede nat. Além disso, outras dependências, tais como o Balanceador de carga terá outro [limitações](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) a serem considerados. Atualmente até 50 IPs por nó foram testadas e comprovadas estável. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurar a abrir o modo de funcionamento em rede

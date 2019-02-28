@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 4f1ce84dba4e9f35e7884ebd9058781eb30c3ec4
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 8dd3c6ce7eabdf90c2a84f4d1e52ce3aef2d5c12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815851"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984641"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -41,13 +41,13 @@ Redes virtuais do Azure têm registos de fluxo NSG, o que lhe fornecem informaç
 
 - **O grupo de segurança de rede (NSG)**: Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede para recursos ligados a uma rede Virtual do Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou a interfaces de rede individuais (NIC) ligadas a VMs (Resource Manager). Para obter mais informações, consulte [descrição geral de grupo de segurança de rede](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Registos de fluxo de grupo (NSG) de segurança de rede**: Permitem-lhe ver informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede. Fluxo NSG registos são escritos no formato json e mostram os fluxos de saída e entrados numa base por regra, que a NIC, o fluxo de mensagens em fila aplica-se a informações de cinco cadeias de identificação sobre o fluxo (endereço IP de origem/destino, porta de origem/destino e protocolo) e se o tráfego foi permitido ou negado. Para obter mais informações sobre os registos de fluxo do NSG, consulte [registos de fluxo NSG](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: Um serviço do Azure que recolhe dados de monitorização e armazena os dados num repositório central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. Monitorização de aplicações, tais como análise de tráfego e o monitor de desempenho de rede é criada com o Log Analytics como uma base. Para obter mais informações, consulte [do Log analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Área de trabalho de análise de registo**: Uma instância do log analytics, onde os dados relativos a uma conta do Azure, são armazenados. Para obter mais informações sobre áreas de trabalho do log analytics, consulte [criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: Um serviço do Azure que recolhe dados de monitorização e armazena os dados num repositório central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos pela API do Azure. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. Monitorização de aplicações, tais como análise de tráfego e o monitor de desempenho de rede é criada usando logs de Monitor do Azure como uma base. Para obter mais informações, consulte [registos do Azure Monitor](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Área de trabalho de análise de registo**: Uma instância de registos do Azure Monitor, onde os dados relativos a uma conta do Azure, são armazenados. Para obter mais informações sobre áreas de trabalho do Log Analytics, consulte [criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Observador de rede**: Um serviço regional que lhe permite monitorizar e diagnosticar condições ao nível de um cenário de rede no Azure. Pode ativar registos de fluxo NSG e desativar com o observador de rede. Para obter mais informações, consulte [observador de rede](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Como funciona a análise de tráfego
 
-Análise de tráfego examina os registos de fluxo NSG não processados e captura os registos reduzidos através da agregação fluxos comuns entre o mesmo endereço IP de origem, endereço IP de destino, porta de destino e protocolo. Por exemplo, o Host 1 (endereço IP: 10.10.10.10) comunicar com o anfitrião 2 (endereço IP: 10.10.20.10), 100 vezes num período de 1 hora, com a porta (por exemplo, 80) e protocolo (por exemplo, http). O log reduzido possui uma entrada, o que o anfitrião 1 e 2 do anfitrião comunicadas 100 vezes num período de 1 hora, utilizando a porta *80* e o protocolo *HTTP*, em vez de ter 100 entradas. Registos reduzidos são melhorados com geografia, segurança e informações de topologia e, em seguida, armazenados numa área de trabalho do log analytics. A imagem seguinte mostra o fluxo de dados:
+Análise de tráfego examina os registos de fluxo NSG não processados e captura os registos reduzidos através da agregação fluxos comuns entre o mesmo endereço IP de origem, endereço IP de destino, porta de destino e protocolo. Por exemplo, o Host 1 (endereço IP: 10.10.10.10) comunicar com o anfitrião 2 (endereço IP: 10.10.20.10), 100 vezes num período de 1 hora, com a porta (por exemplo, 80) e protocolo (por exemplo, http). O log reduzido possui uma entrada, o que o anfitrião 1 e 2 do anfitrião comunicadas 100 vezes num período de 1 hora, utilizando a porta *80* e o protocolo *HTTP*, em vez de ter 100 entradas. Registos reduzidos são melhorados com geografia, segurança e informações de topologia e, em seguida, armazenados numa área de trabalho do Log Analytics. A imagem seguinte mostra o fluxo de dados:
 
 ![Fluxo de dados para processar registos de fluxo NSG](./media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
@@ -164,9 +164,9 @@ Selecione as opções seguintes, conforme mostrado na imagem:
 2. Selecione uma conta de armazenamento existente para armazenar os registos de fluxo no. Se quiser armazenar os dados para sempre, defina o valor como *0*. Incorrem em taxas de armazenamento do Azure para a conta de armazenamento.
 3. Definir **retenção** para o número de dias que pretende armazenar os dados de.
 4. Selecione *nos* para **estado de análise de tráfego**.
-5. Selecione uma área de trabalho existentes do Log Analytics ou selecione **criar nova área de trabalho** para criar um novo. Uma área de trabalho do Log Analytics é utilizada pela análise de tráfego para armazenar os dados agregados e indexados que, em seguida, são utilizados para gerar a análise. Se selecionar uma área de trabalho existente, tem de existir uma das regiões suportadas e foram atualizados para a nova linguagem de consulta. Se não desejar atualizar de uma área de trabalho existente ou não tem uma área de trabalho numa região suportada, crie um novo. Para obter mais informações sobre as linguagens de consulta, consulte [atualizar o Azure Log Analytics para a nova pesquisa de registos](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+5. Selecione uma área de trabalho do Log Analytics existente ou selecione **criar nova área de trabalho** para criar um novo. Uma área de trabalho do Log Analytics é utilizada pela análise de tráfego para armazenar os dados agregados e indexados que, em seguida, são utilizados para gerar a análise. Se selecionar uma área de trabalho existente, tem de existir uma das regiões suportadas e foram atualizados para a nova linguagem de consulta. Se não desejar atualizar de uma área de trabalho existente ou não tem uma área de trabalho numa região suportada, crie um novo. Para obter mais informações sobre as linguagens de consulta, consulte [do Azure Monitor registos de atualização para a nova pesquisa de registo](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    A área de trabalho de análise do registo que aloja a solução de análise de tráfego e os NSGs não tem de ser na mesma região. Por exemplo, pode ter a análise de tráfego numa área de trabalho na região da Europa Ocidental, embora possa ter NSGs nos E.U.A. leste e E.U.A. oeste. Vários NSGs podem ser configurados na mesma área de trabalho.
+    A área de trabalho do Log Analytics que aloja a solução de análise de tráfego e os NSGs não tem de ser na mesma região. Por exemplo, pode ter a análise de tráfego numa área de trabalho na região da Europa Ocidental, embora possa ter NSGs nos E.U.A. leste e E.U.A. oeste. Vários NSGs podem ser configurados na mesma área de trabalho.
 6. Selecione **Guardar**.
 
     ![Seleção de conta de armazenamento, área de trabalho do Log Analytics e ativação de análise de tráfego](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)

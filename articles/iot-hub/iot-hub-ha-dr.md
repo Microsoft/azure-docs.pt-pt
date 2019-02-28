@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: 1596cf1337fa084fe6a160c99e52ae80ee3e2491
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 308d9a04e52572e00e1cbed24548e5f09adda571
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341978"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985925"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub elevada disponibilidade e recuperação após desastre
 
@@ -64,6 +64,7 @@ Depois de concluída a operação de ativação pós-falha para o hub IoT, todas
 >
 > - Após a ativação pós-falha, os eventos emitidos através do Event Grid podem ser consumidos por meio das mesmas subscrição ou subscrições configuradas anteriormente, desde que essas subscrições do Event Grid continuam a estar disponível.
 >
+> - Quando o encaminhamento para o armazenamento de BLOBs, recomendamos que inscrever os blobs e, em seguida, iterar sobre os mesmos, para garantir que todos os contentores são lidas sem fazer suposições de partição. O intervalo de partição potencialmente poderia alterar durante uma ativação pós-falha iniciada pelo Microsoft ou a ativação pós-falha manual. Para saber como enumere a lista de blobs consulte [encaminhamento para o armazenamento de BLOBs](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### <a name="microsoft-initiated-failover"></a>Ativação pós-falha iniciada pelo Microsoft
 
@@ -111,14 +112,14 @@ Num modelo de ativação pós-falha, a solução, faça uma cópia final execuç
 
 Num alto nível, implementar um modelo de ativação pós-falha com o IoT Hub, terá de seguir estes passos:
 
-* **Um IoT hub e lógica de roteamento de dispositivo secundário**: se o serviço na sua região primária é interrompido, dispositivos tem de começar a ligar para a região secundária. Devido à natureza com deteção de estado da maioria dos serviços de envolvidos, é comum para os administradores de solução acionar o processo de ativação pós-falha entre regiões. A melhor maneira para comunicar o novo ponto final para dispositivos, mantendo o controle do processo, é tê-los verificar regularmente uma *concierge* serviço para o ponto final atual do Active Directory. O serviço de concierge pode ser uma aplicação web que é replicada e mantida acessível usando técnicas de redirecionamento de DNS (por exemplo, utilizando [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md)).
+* **Um IoT hub e lógica de roteamento de dispositivo secundário**: Se o serviço na sua região primária é interrompido, dispositivos tem de começar a ligar para a região secundária. Devido à natureza com deteção de estado da maioria dos serviços de envolvidos, é comum para os administradores de solução acionar o processo de ativação pós-falha entre regiões. A melhor maneira para comunicar o novo ponto final para dispositivos, mantendo o controle do processo, é tê-los verificar regularmente uma *concierge* serviço para o ponto final atual do Active Directory. O serviço de concierge pode ser uma aplicação web que é replicada e mantida acessível usando técnicas de redirecionamento de DNS (por exemplo, utilizando [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md)).
 
    > [!NOTE]
    > O serviço hub IoT não é um tipo de ponto de extremidade suportados no Gestor de tráfego do Azure. A recomendação é integrar o serviço proposto concierge com o Gestor de tráfego do Azure, tornando-se a implementar a sonda de estado de funcionamento do ponto final API.
 
-* **Replicação do registo de identidade**: possam para ser usados, o hub IoT secundário tem de conter todas as identidades de dispositivos que podem ligar à solução. A solução deve manter cópias de segurança georreplicado de identidades de dispositivos e carregá-los para o hub IoT secundário antes de mudar o ponto final do Active Directory para os dispositivos. A funcionalidade de exportação de identidade de dispositivo do IoT Hub é útil neste contexto. Para obter mais informações, consulte [Guia do programador do IoT Hub - registo de identidade](iot-hub-devguide-identity-registry.md).
+* **Replicação do registo de identidade**: Para ser utilizável, o hub IoT secundário tem de conter todas as identidades de dispositivos que podem ligar à solução. A solução deve manter cópias de segurança georreplicado de identidades de dispositivos e carregá-los para o hub IoT secundário antes de mudar o ponto final do Active Directory para os dispositivos. A funcionalidade de exportação de identidade de dispositivo do IoT Hub é útil neste contexto. Para obter mais informações, consulte [Guia do programador do IoT Hub - registo de identidade](iot-hub-devguide-identity-registry.md).
 
-* **Lógica de mesclagem**: quando a região primária fique disponível novamente, tudo o estado e os dados que foram criados no site secundário tem de ser migrados de volta para a região primária. Este estado e os dados em grande parte relacionadas com identidades do dispositivo e metadados de aplicação, que devem ser mesclados com o principal hub de IoT e outros arquivos de específicas da aplicação na região primária. 
+* **Lógica de mesclagem**: Quando a região primária fica novamente disponível, todos os dados que foram criados no site secundário e Estado devem ser migrados para a região primária. Este estado e os dados em grande parte relacionadas com identidades do dispositivo e metadados de aplicação, que devem ser mesclados com o principal hub de IoT e outros arquivos de específicas da aplicação na região primária. 
 
 Para simplificar este passo, deve usar operações idempotentes. Operações Idempotentes minimizar os efeitos de colaterais de distribuição eventual consistente de eventos e de duplicados ou fora de ordem entrega de eventos. Além disso, a lógica do aplicativo deve ser concebida para tolerar possíveis inconsistências ou estado ligeiramente desatualizado. Esta situação pode ocorrer devido ao tempo adicional necessário para o sistema tratá-lo com base nos objetivos de ponto de recuperação (RPO).
 
@@ -126,7 +127,7 @@ Para simplificar este passo, deve usar operações idempotentes. Operações Ide
 
 Aqui está um resumo das opções de HA/DR apresentado neste artigo que pode ser utilizado como uma arquitetura de referência para escolher a opção certa que funciona para a sua solução.
 
-| Opção de HA/DR | RTO | RPO | Requer intervenção manual? | Complexidade da implementação | Impacto de custos adicionais|
+| Opção de HA/DR | RTO | RPO: | Requer intervenção manual? | Complexidade da implementação | Impacto de custos adicionais|
 | --- | --- | --- | --- | --- | --- | --- |
 | Ativação pós-falha iniciada pelo Microsoft |2 - 26 horas|Consulte a tabela RPO acima|Não|Nenhuma|Nenhuma|
 | Ativação pós-falha manual |10 min - 2 horas|Consulte a tabela RPO acima|Sim|Muito baixa. Só tem de acionar esta operação a partir do portal.|Nenhuma|

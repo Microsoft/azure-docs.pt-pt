@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 11/28/2018
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b01e16f85eaccee4d765b4985769df670d4d35ca
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 003b43760b4c0ae5785315e6acf0ed9982d9b1fe
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413035"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960858"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -56,7 +56,7 @@ O tráfego de rede de entrada para o seu endereço IP público do firewall é tr
 
 ### <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 
-Todos os eventos estão integrados o Azure Monitor, o que lhe permite arquivar registos numa conta de armazenamento, transmitir eventos para o Hub de Eventos ou enviá-los para o Log Analytics.
+Todos os eventos são integrados com o Azure Monitor, permitindo que arquivar registos para uma conta de armazenamento, transmitir eventos ao seu Hub de eventos, ou enviá-los para registos do Azure Monitor.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

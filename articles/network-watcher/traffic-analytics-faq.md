@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 87c624e0fc5eac60b309a2535afc7508f1b6b3ac
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383006"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986112"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -105,7 +105,7 @@ Sim.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Pode utilizar uma área de trabalho existente?
 
-Sim. Se selecionar uma área de trabalho existente, certifique-se de que foi migrada para a nova linguagem de consulta. Se não pretender atualizar a área de trabalho, terá de criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [atualizar o Azure Log Analytics para a nova pesquisa de registos](../log-analytics/log-analytics-log-search-upgrade.md).
+Sim. Se selecionar uma área de trabalho existente, certifique-se de que foi migrada para a nova linguagem de consulta. Se não pretender atualizar a área de trabalho, terá de criar um novo. Para obter mais informações sobre a nova linguagem de consulta, consulte [do Azure Monitor registos de atualização para a nova pesquisa de registo](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Pode ser de minha conta de armazenamento do Azure numa subscrição e minha área de trabalho do Log Analytics ser numa subscrição diferente?
 

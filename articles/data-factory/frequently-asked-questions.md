@@ -1,5 +1,5 @@
 ---
-title: 'Fábrica de dados do Azure: Perguntas mais frequentes | Documentos da Microsoft'
+title: 'Azure Data Factory: Perguntas mais frequentes | Documentos da Microsoft'
 description: Obtenha respostas para perguntas mais frequentes sobre o Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 112ff38ad4e35ac284501c5dd3881c4f340b5f9b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024098"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984650"
 ---
 # <a name="azure-data-factory-faq"></a>FAQ de fábrica de dados do Azure
 Este artigo fornece respostas para perguntas freqüentes sobre o Azure Data Factory.  
@@ -175,8 +175,35 @@ Sim. Uma saída da atividade pode ser consumida numa atividade subsequente com o
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como posso resolver corretamente os valores nulos numa saída da atividade? 
 Pode utilizar o `@coalesce` construir em expressões de lidar graciosamente com valores nulos. 
 
+## <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento
+
+### <a name="which-adf-version-do-i-use-to-create-data-flows"></a>Qual é a versão ADF usar para criar fluxos de dados?
+Utilize a versão do ADF V2 para criar fluxos de dados
+  
+### <a name="i-was-a-previous-private-preview-customer-using-data-flows-and-i-used-the-adf-v2-wdata-flows-preview-version"></a>Eu era um cliente de pré-visualização privada anterior usando os dados fluem e usei a versão de pré-visualização de fluxos do ADF V2 w/dados
+Esta versão está obsoleta. Utilize o ADF V2 para fluxos de dados
+  
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-data-flows"></a>O que mudou de pré-visualização privada para pré-visualização pública limitada nos fluxos de dados?
+Já não terá de colocar os seus próprios clusters do Databricks. ADF irá gerenciar a criação do cluster e a desmontagem. Conjuntos de dados do blob e conjuntos de dados do ADLS são separados em conjuntos de dados de texto delimitado por e no Parquet. Pode continuar a utilizar ADLS & Store de BLOBs para armazenar esses arquivos. Utilize o serviço ligado apropriadas para esses mecanismos de armazenamento.
+
+### <a name="can-i-migrate-my-private-preview-factories-to-adf-v2"></a>Posso migrar meu fábricas de pré-visualização privada para o ADF V2?
+
+[Sim, siga as instruções aqui](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-do-you-need"></a>Preciso de ajuda de resolução de problemas de minha lógica de fluxo de dados, o que precisa?
+
+Quando a Microsoft fornece ajuda ou resolução de problemas com os dados fluem, forneça o "DSL código Plan". Para tal, siga estes passos:
+
+* No Designer de fluxo de dados, clique em "Código" no canto superior direito. Isso exibirá o código JSON editável para o fluxo de dados.
+* A partir da vista de código, clique em "Planejar" no canto superior direito. O plano swtich de JSON para o plano de script DSL formatado.
+* Copie e cole este script ou guardá-lo num arquivo de texto.
+
+### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Como posso aceder a dados com os outros 80 tipos de conjunto de dados no ADF?
+
+Fluxo de dados atualmente permite BD SQL do Azure, Azure SQL DW, arquivos de texto delimitado por do Blob ou do ADLS e ficheiros Parquet de BLOBs ou ADLS nativamente para a origem e Sink. Utilize a atividade de cópia para testar dados n o partir de qualquer um dos outros conectores e, em seguida, executar uma atividade de fluxo de dados de mensagens em fila para transformar dados depois de ele é foi preparado. Por exemplo, o seu pipeline copiará pela primeira vez no Blob e, em seguida, uma atividade de fluxo de dados irá utilizar um conjunto de dados na origem para transformar dados.
+
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter instruções passo a passo Criar uma fábrica de dados, veja os tutoriais seguintes:
 
-- [Início rápido: Criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md)
+- [Quickstart: Criar uma fábrica de dados](quickstart-create-data-factory-dot-net.md)
 - [Tutorial: Copiar dados na cloud](tutorial-copy-data-dot-net.md)

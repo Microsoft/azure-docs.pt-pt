@@ -205,7 +205,7 @@ items:
     - name: Licença
       href: https://aka.ms/csspeech/license201809
     - name: Notificações de terceiros
-      href: https://csspeechstorage.blob.core.windows.net/drop/1.3.0/ThirdPartyNotices.html
+      href: https://aka.ms/csspeech/toctpn
   - name: SDK de Dispositivos de Voz
     displayName: roobo, speech devices sdk
     href: speech-devices-sdk.md
@@ -232,9 +232,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacidade e cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: 6e47177b8fe413f7e74265653e7ee2f8bcb2e9df
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 096aab6e2b59f8e6846be6ab1446a190df5e8434
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445733"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961997"

@@ -8,30 +8,32 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: bc3f97c798f5e040908e8103c00d3f015f8c824d
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a74c529fc3543d5cbdcf009a5b7736309e15569e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415339"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961708"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Gerir o aumento vertical de cluster para acomodar a pedido de alteração
 
-Dimensionar um cluster adequadamente é essencial para o desempenho do Explorador de dados do Azure. Mas a pedido num cluster não é possível prever com precisão de 100%. Um tamanho de cluster estático pode levar a utilização insuficientemente ou utilização excessiva, nenhum dos quais é ideal. Uma abordagem melhor é *dimensionamento* um cluster, adicionar e remover a capacidade e de CPU com a alteração a pedido. Existem dois fluxos de trabalho para dimensionamento, do aumento vertical e horizontal. Este artigo mostra-lhe como gerir o aumento vertical de cluster.
+Dimensionar um cluster adequadamente é essencial para o desempenho do Explorador de dados do Azure. Mas a pedido num cluster não é possível prever com precisão absoluto. Um tamanho de cluster estático pode levar a subutilização ou utilização, nenhum dos quais é ideal.
 
-1. Navegue até ao seu cluster e, em **configurações** selecionar **aumentar verticalmente**.
+Uma abordagem melhor é *dimensionamento* um cluster, adicionar e remover a capacidade e recursos de CPU com o pedido de alteração. Existem dois fluxos de trabalho de dimensionamento: vertical e horizontal. Este artigo mostra como gerir o aumento vertical de cluster.
 
-    É-lhe fornecido uma lista de SKUs disponíveis. Por exemplo, na imagem abaixo há apenas um SKU disponível: D14_V2.
+1. Aceda ao seu cluster. Sob **configurações**, selecione **aumentar verticalmente**.
+
+    É-lhe apresentada uma lista de SKUs disponíveis. Por exemplo, na figura a seguir, apenas quatro SKUs estão disponíveis.
 
     ![Aumentar verticalmente](media/manage-cluster-scale-up/scale-up.png)
 
-    D13_V2 está desativada uma vez que é o SKU atual do cluster. L8 e L16 estão desativados porque eles não está disponível na região onde está localizado o cluster.
+    SKUs estão desativadas porque eles são o SKU atual, ou não estão disponíveis na região onde está localizado o cluster.
 
-1. Para alterar o SKU, selecione o SKU que pretende e prima a **selecione** botão.
+1. Para alterar o SKU, selecione o SKU que pretende e escolha o **selecione** botão.
 
 > [!NOTE]
-> O processo de dimensionamento pode demorar alguns minutos e, durante esse período o cluster será suspensa. Tenha em atenção que a reduzir verticalmente pode prejudicar o desempenho do seu cluster.
+> O processo de aumentar verticalmente pode demorar alguns minutos e, durante esse período o cluster será suspensa. Tenha em atenção que a reduzir verticalmente pode prejudicar o desempenho do seu cluster.
 
-Agora já realizou uma operação de aumentar ou reduzir verticalmente para o seu cluster do Explorador de dados do Azure. Também é possível fazer [Escalamento horizontal do cluster](manage-cluster-scale-out.md), também conhecido como o dimensionamento automático, para dimensionar de forma dinâmica com base em métricas que especificar.
+Agora que fez uma operação de aumentar ou reduzir verticalmente para o seu cluster do Explorador de dados do Azure. Também pode [gerir cluster horizontal](manage-cluster-scale-out.md) para dinamicamente aumentar horizontalmente a contagem de instâncias com base nas métricas que especificar.
 
-Se precisar de assistência com problemas de dimensionamento do cluster, abra um pedido de suporte no [portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+Se precisar de assistência com problemas de dimensionamento de clusters, [abra um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) no portal do Azure.

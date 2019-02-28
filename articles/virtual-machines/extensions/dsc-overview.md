@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 2bdd3cd05f78503962461abfcc85320c25350e69
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: a002c4ff843ad1e0bc48d490132d7499526f4d7b
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593136"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958767"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão Azure Desired State Configuration
 
@@ -65,6 +65,25 @@ A instalação de WMF requer um reinício. Após o reinício, a extensão transf
 ### <a name="default-configuration-script"></a>Script de configuração predefinida
 
 A extensão DSC do Azure inclui um script de configuração predefinidas que tem se destina a ser utilizado quando carregar uma VM para o serviço de DSC de automatização do Azure. Os parâmetros do script estão alinhados com as propriedades configuráveis do [Gestor de configuração Local](/powershell/dsc/metaconfig). Para os parâmetros de script, consulte [predefinida de script de configuração](dsc-template.md#default-configuration-script) na [extensão Desired State Configuration do com modelos Azure Resource Manager](dsc-template.md). Para o script completo, consulte a [modelo de início rápido do Azure no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informações para registar com o serviço de configuração de estado de automatização do Azure (DSC)
+
+Quando utilizar a extensão de DSC para registar um nó com o serviço de configuração de estado, os três valores terá de ser fornecido.
+
+- RegistrationUrl - o endereço de https da conta de automatização do Azure
+- RegistrationKey - um segredo partilhado utilizado para registar nós com o serviço
+- NodeConfigurationName - o nome da configuração de nó (MOF) para solicitar a partir do serviço para configurar a função de servidor
+
+Estas informações podem ser vistas na [portal do Azure](../../automation/automation-dsc-onboarding.md#azure-portal) ou pode utilizar o PowerShell.
+
+```PowerShell
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
+```
+
+Para o nome de configuração do nó, certifique-se de que está a utilizar o nome da *configuração do nó* e não a configuração.
+Uma configuração é definida num script que é utilizado [para compilar a configuração de nó (arquivo MOF)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+O nome será sempre a configuração seguida de ponto final `.` e qualquer um dos `localhost` ou um nome de computador específico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensão DSC em modelos do Resource Manager
 

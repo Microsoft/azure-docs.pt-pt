@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 03384db96338bf78ed89c1cd0fb8780489ee0e13
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807393"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958835"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introdução aos laboratórios de sala de aula
 O Azure Lab Services permite-lhe configurar rapidamente um ambiente de laboratório de sala de aula na cloud. O educador cria um laboratório de sala de aula, aprovisiona máquinas virtuais do Linux ou Windows, instala os laboratórios de ferramentas e software necessários na sala de aula e disponibiliza-os aos utilizadores. Os alunos na sala de aula ligam-se a máquinas virtuais (VMs) no laboratório e utilizam-nas para os projetos, tarefas ou para fazer exercícios da sala de aula. 
 
-Os laboratórios de sala de aula são tipos de laboratório geridos que são geridos pelo Azure. O próprio serviço processa toda a gestão da infraestrutura de um laboratório gerido, desde gerar as máquinas virtuais (VMs) até processar os erros e dimensionar a infraestrutura. Especifica o tipo de infraestrutura que precisa e instala quaisquer ferramentas ou software necessário para a sala de aula. Os laboratórios geridos estão atualmente em pré-visualização.   
+Os laboratórios de sala de aula são tipos de laboratório geridos que são geridos pelo Azure. O próprio serviço processa todas as a gestão da infraestrutura para um tipo de laboratório gerido, de rotação a segurança de máquinas virtuais (VMs) para manipulação de erros e dimensionar a infraestrutura. Especifica o tipo de infraestrutura que precisa e instala quaisquer ferramentas ou software necessário para a sala de aula. 
 
 ## <a name="automatic-management-of-azure-infrastructure-and-scale"></a>Gestão automática da infraestrutura do Azure e escala 
 O Azure Lab Services é um serviço gerido, o que significa que o aprovisionamento e gestão da infraestrutura subjacente de um laboratório é processada automaticamente pelo serviço. Poderá se concentrar apenas sobre como preparar a experiência de laboratório certo para os seus utilizadores. Permitir que o serviço de lidar com o restante e implementar máquinas virtuais do seu laboratório para o público-alvo. Dimensione o laboratório para centenas de máquinas virtuais com um único clique.

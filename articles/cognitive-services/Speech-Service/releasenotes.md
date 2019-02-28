@@ -11,14 +11,22 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 0f5452e3abbde40c247ef7e000b84fc3eb00c943
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e389df02966146b217802d4e93f844a4fee425a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446839"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958659"
 ---
 # <a name="release-notes"></a>Notas de versão
+
+## <a name="speech-sdk-131-2019-february-refresh"></a>1.3.1 do SDK de voz: Atualização de Fevereiro de 2019
+
+Esta é uma versão de correção de erros e afetar apenas o SDK gerenciado/nativo. Ele não está a afetar a versão de JavaScript do SDK.
+
+**Correção de erros**
+
+* Foi corrigido um vazamento de memória ao utilizar a entrada do microfone. Stream com base ou o ficheiro de entrada não é afetado.
 
 ## <a name="speech-sdk-130-2019-february-release"></a>Voz SDK 1.3.0: Versão de Fevereiro de 2019
 
@@ -26,6 +34,8 @@ ms.locfileid: "56446839"
 
 * O SDK de voz suporta uma seleção de entrada microfone por meio da classe AudioConfig. Isto permite a transmitir dados áudio para o serviço de voz de um microfone de não-padrão. Para obter mais detalhes, consulte a documentação que descreve [seleção de dispositivo de entrada de áudio](how-to-select-audio-input-devices.md). Isso ainda não está disponível a partir do JavaScript.
 * O SDK de voz suporta agora Unity numa versão beta. Envie comentários através a secção de problema a [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples). Esta versão suporta Unity em Windows x86 e x64 (ambiente de trabalho ou aplicativos da plataforma Universal do Windows) e o Android (ARM32/64, x86). Estão disponíveis mais informações no nosso [início rápido do Unity](quickstart-csharp-unity.md).
+* O ficheiro `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (lançado em versões anteriores) não é necessária mais. A funcionalidade agora está integrada ao SDK core.
+
 
 **Amostras**
 
@@ -54,6 +64,7 @@ O seguinte conteúdo novo está disponível no nosso [repositório de exemplo](h
   * Suporte inicial e a implementação para sugestões de frase.
   * Devolver a coleção de propriedades com o JSON do serviço para reconhecimento
 * DLLs de Windows agora contém um recurso de versão.
+* Se criar um reconhecedor `FromEndpoint` pode adicionar parâmetros diretamente para o URL de ponto final. Usando `FromEndpoint` não pode configurar o reconhecedor através das propriedades de configuração padrão.
 
 **Correções de erros**
 

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/03/2018
-ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 60ef547cb3a6ef579f5ab0b3f5438212145d92ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545078"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961793"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Registos do servidor na base de dados do Azure para MySQL
 Na base de dados do Azure para MySQL, o log de consulta lenta está disponível para os utilizadores. Acesso ao registo de transação não é suportado. O log de consulta lenta pode ser utilizado para identificar afunilamentos de desempenho para resolução de problemas. 
@@ -44,7 +44,7 @@ Outros parâmetros que pode ajustar incluem:
 Consulte o MySQL [lento de documentação do log de consulta](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) para descrições completas dos parâmetros de registo de consulta lenta.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-Base de dados do Azure para MySQL está integrado com os registos de diagnóstico do Azure Monitor. Assim que tiver ativado os registos de consulta lenta no seu servidor MySQL, pode optar por fazê-los emitida para o Log Analytics, Hubs de eventos ou armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico, ver como a secção a [documentação de registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+Base de dados do Azure para MySQL está integrado com os registos de diagnóstico do Azure Monitor. Assim que tiver ativado os registos de consulta lenta no seu servidor MySQL, pode optar por fazê-los emitidos para os registos do Azure Monitor, os Hubs de eventos ou armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico, ver como a secção a [documentação de registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 A tabela seguinte descreve as novidades em cada registo. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 
@@ -53,7 +53,7 @@ A tabela seguinte descreve as novidades em cada registo. Dependendo do método d
 | TenantId | O ID de inquilino |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Carimbo de hora quando o registo foi registado em UTC |
-| Tipo | Tipo do registo. Sempre `AzureDiagnostics` |
+| Type | Tipo do registo. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID da subscrição que o servidor pertence a |
 | ResourceGroup | Nome do grupo de recursos do servidor pertence a |
 | ResourceProvider | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMYSQL` |

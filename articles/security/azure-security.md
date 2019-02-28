@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 74bdcc831f19031162d004e1ba98c0cfc258ce4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c66f0e67b09dab15431a8c7c10db1c820038dea6
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879424"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984990"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -116,7 +116,7 @@ Uma das formas mais simples de começar com o teste quanto a vulnerabilidades de
 Se preferir executar seus próprios testes de penetração ou quiser utilizar outro conjunto de scanner ou fornecedor, tem de seguir a [processo de aprovação de testes de penetração de Azure](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) e obtenha aprovação anterior para executar os testes de penetração pretendido.
 
 ### <a name="web-application-firewall"></a>Firewall de aplicações Web
-A firewall de aplicação web (WAF) no [Gateway de aplicação Azure](https://azure.microsoft.com/services/application-gateway/) ajuda a proteger aplicações web de ataques baseados na web comuns, como injeção SQL, ataques de script entre sites e seqüestro de sessão. Vem pré-configurada com proteção contra ameaças identificadas pelos [Open Web Application Security Project (OWASP) como as vulnerabilidades mais comuns de 10 principais](https://msdn.microsoft.com/library/).
+A firewall de aplicação web (WAF) no [Gateway de aplicação Azure](https://azure.microsoft.com/services/application-gateway/) ajuda a proteger aplicações web de ataques baseados na web comuns, como injeção SQL, ataques de script entre sites e seqüestro de sessão. Vem pré-configurada com proteção contra ameaças identificadas pelos [Open Web Application Security Project (OWASP) como as vulnerabilidades mais comuns de 10 principais](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 [Aplicação serviço de autenticação / autorização](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) é uma funcionalidade que fornece uma forma para a sua aplicação iniciar sessão dos utilizadores para que não precisa de alterar o código no back-end da aplicação. Ele fornece uma forma fácil de proteger a sua aplicação e trabalhar com dados de por utilizador.

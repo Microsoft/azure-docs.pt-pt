@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4bdc17e444239652fa612078e89ec85e357c9316
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750519"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985432"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>Competências cognitivas de reconhecimento de entidades
 
@@ -43,7 +43,8 @@ Parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 | categories    | Matriz de categorias que deve ser extraído.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se não for fornecida nenhum categoria, todos os tipos são devolvidos.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. São suportados os seguintes idiomas: `de, en, es, fr, it`|
 |minimumPrecision | Não utilizado. Reservado para utilização futura. |
-|includeTypelessEntities | Quando definido como VERDADEIRO se o texto contém uma entidade bem conhecida, mas não pode ser categorizado em uma das categorias suportadas, ele será retornado como parte do `"entities"` campo de saída complexa. A predefinição é `false` |
+|includeTypelessEntities | Quando definido como VERDADEIRO se o texto contém uma entidade bem conhecida, mas não pode ser categorizado em uma das categorias suportadas, ele será retornado como parte do `"entities"` campo de saída complexa. 
+Estes são entidades que são bem conhecidas, mas não classificadas como parte das atuais suportadas "categorias". Por exemplo "Windows 10" é uma entidade bem conhecida (um produto), mas "Produtos" não estão nas categorias atualmente suportadas. A predefinição é `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades

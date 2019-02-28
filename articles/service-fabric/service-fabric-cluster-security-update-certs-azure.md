@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 37140b665f30d8bb99dd49dbdcca265969eaaf2f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 047e058fee6cd72a7eeaecdde976b1b9d49aeb5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806696"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958954"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 Recomenda-se familiarizar com como o Service Fabric utiliza certificados X.509 e estar familiarizado com o [cenários de segurança do Cluster](service-fabric-cluster-security.md). Tem de compreender é que um certificado de cluster e o que é utilizado para, antes de prosseguir.
 
-Comportamento de carga de certificado predefinido do SDK do Azure serviço recursos de infraestrutura, é implementar e utilizar um certificado definido com uma data de expiração mais afastada no futuro; independentemente da respetiva definição de configuração primária ou secundária. Reverter para o comportamento clássico é um não avançada ação recomendada e requer definindo o valor do parâmetro de definição de "UseSecondaryIfNever" como false na sua configuração de Fabric.Code.
+Comportamento de carga de certificado predefinido do SDK do Azure serviço recursos de infraestrutura, é implementar e utilizar um certificado definido com uma data de expiração mais afastada no futuro; independentemente da respetiva definição de configuração primária ou secundária. Reverter para o comportamento clássico é um não avançada ação recomendada e requer definindo o valor do parâmetro de definição de "UseSecondaryIfNewer" como false na sua configuração de Fabric.Code.
 
 O Service fabric permite-lhe especificar os dois certificados de cluster, um site primário e um secundário, quando configurar a segurança de certificado durante a criação do cluster, para além dos certificados de cliente. Consulte a [criar um cluster do azure através do portal](service-fabric-cluster-creation-via-portal.md) ou [criar um cluster do azure através do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) para obter detalhes sobre a configuração dos mesmos em tempo de criação. Se especificar apenas um certificado de cluster em tempo de criação, em seguida, que é utilizado como o certificado primário. Após a criação do cluster, pode adicionar um novo certificado como um secundário.
 

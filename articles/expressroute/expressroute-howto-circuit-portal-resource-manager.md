@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 3abdeff3c3f1a4069130ed7c8d49d485feea4093
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 45e87be071e09a19f1d8164eb9a002909a964201
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894722"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960399"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -119,9 +119,9 @@ Pode efetuar as seguintes tarefas sem tempo de inatividade:
 
 * Ativar ou desativar um suplemento ExpressRoute Premium para o seu circuito do ExpressRoute.
 * Aumente a largura de banda do circuito do ExpressRoute, desde que haja capacidade na porta.
-  > [!IMPORTANT] Desatualização de largura de banda de um circuito não é suportada. 
+> [!IMPORTANT] Desatualização de largura de banda de um circuito não é suportada. 
 * Alterar o plano de medição da *dados limitados* ao *dados ilimitados*.
-  > [!IMPORTANT] Não é suportada a alteração do plano de medição de dados ilimitados para dados limitados.
+> [!IMPORTANT] Não é suportada a alteração do plano de medição de dados ilimitados para dados limitados.
 * Pode ativar e desativar *permitir operações clássicas*.
 > [!IMPORTANT]
 > Poderá ter de recriar o circuito do ExpressRoute, se houver a capacidade inadequada na porta existente. Não é possível atualizar o circuito se não existir nenhuma capacidade adicional disponível naquele local.

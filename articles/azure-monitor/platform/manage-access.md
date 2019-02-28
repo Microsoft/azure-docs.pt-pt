@@ -11,50 +11,59 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 4a777c2bd57d40b4bb6c8d36c996b655cb019e5f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b42eb963e33c14b003c053bb0f7fca6361dbd555
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005375"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985109"
 ---
-# <a name="manage-log-analytics-workspaces-in-azure-monitor"></a>Gerir áreas de trabalho do Log Analytics no Azure Monitor
+# <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerir dados de registo e áreas de trabalho no Azure Monitor
 Arquivos de Monitor do Azure registos de dados numa área de trabalho do Log Analytics, que é essencialmente um contentor que inclui informações de configuração e dados. Para gerir o acesso aos registos de dados, realizar diversas tarefas administrativas relacionadas com a áreas de trabalho. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
 
-Para criar uma área de trabalho, terá de:
+Este artigo explica como gerir o acesso aos logs e administrar as áreas de trabalho que os contêm. 
+
+## <a name="create-a-workspace"></a>Criar uma área de trabalho
+Para criar uma área de trabalho do Log Analytics, terá de:
 
 1. Ter uma subscrição do Azure.
 2. Escolher um nome de área de trabalho.
 3. Associe a área de trabalho uma das suas subscrições e grupos de recursos.
 4. Escolher uma localização geográfica.
 
-## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de áreas de trabalho necessárias
-Uma área de trabalho do Log Analytics é um recurso do Azure e é um contentor onde os dados é recolhidos, agregados, analisados e apresentados no Azure Monitor.
+Veja os artigos seguintes para obter detalhes sobre como criar uma área de trabalho:
 
-Pode ter várias áreas de trabalho por subscrição do Azure e pode ter acesso a mais do que uma área de trabalho, com a capacidade de facilmente consultas em-los. Esta secção descreve quando pode ser útil criar mais do que uma área de trabalho.
+- [Criar uma área de trabalho do Log Analytics no portal do Azure](../learn/quick-create-workspace.md)
+- [Criar uma área de trabalho do Log Analytics com a CLI 2.0 do Azure](../learn/quick-create-workspace-cli.md)
+- [Criar uma área de trabalho do Log Analytics com o Azure PowerShell](../learn/quick-create-workspace-posh.md)
+
+## <a name="determine-the-number-of-workspaces-you-need"></a>Determinar o número de áreas de trabalho necessárias
+Uma área de trabalho do Log Analytics é um recurso do Azure e é um contentor onde os dados é recolhidos, agregados, analisados e apresentados no Azure Monitor. Pode ter várias áreas de trabalho por subscrição do Azure e pode ter acesso a mais do que uma área de trabalho, com a capacidade de facilmente consultas em-los. Esta secção descreve quando pode ser útil criar mais do que uma área de trabalho.
 
 Uma área de trabalho do Log Analytics fornece:
 
-* Uma localização geográfica para armazenamento de dados
-* Isolamento de dados para definir os direitos de acesso de utilizador diferente
-* Como o âmbito para a configuração das definições [escalão de preço](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retenção](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) e [capping de dados](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap) 
+* Uma localização geográfica para armazenamento de dados.
+* Isolamento de dados para definir os direitos de acesso de utilizador diferente no modo voltada para a área de trabalho. Não é relevante ao trabalhar no modo centrada no recurso.
+* Como o âmbito para a configuração das definições [escalão de preço](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retenção](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) e [dados capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Custos relacionados com a ingestão de dados e de retenção são feitos no recurso da área de trabalho.
 
 Do ponto de vista para consumo, é recomendável que criar áreas de trabalho mínimo possível. Faz administração e a experiência de consulta mais fácil e rápido. Mas, com base nas características anteriores, talvez queira criar várias áreas de trabalho se:
 
 * For uma empresa global e precisar de dados armazenados em regiões específicas por motivos de soberania ou conformidade dos dados de log.
 * Estiver a utilizar o Azure e pretender evitar custos de transferência de dados de saída ao ter uma área de trabalho na mesma região dos recursos do Azure que gere.
-* Pretender atribuir custos a diferentes departamentos ou grupos empresariais com base na respetiva utilização através da criação de uma área de trabalho para cada departamento ou grupo empresarial na sua própria subscrição do Azure.
 * É um fornecedor de serviços geridos e necessita de manter os dados do Log Analytics de cada cliente gerido isolado em relação aos de outros clientes.
-* Gerir vários clientes e pretender que cada cliente / departamento ou grupo empresarial veja os seus próprios dados, mas não os dados de outras pessoas.
+* Gerir vários clientes e pretender que cada cliente / departamento ou grupo empresarial veja os seus próprios dados, mas não os dados de outras pessoas, e não há nenhuma necessidade comercial de um cliente cruzada consolidada / departamento ou vista de grupo empresarial. ".
 
 Quando utilizar agentes do Windows para recolher dados, pode [configurar cada agente para comunicar a uma ou mais áreas de trabalho](../../azure-monitor/platform/agent-windows.md).
 
 Se estiver a utilizar o System Center Operations Manager, cada grupo de gestão do Operations Manager só pode ser ligado a uma área de trabalho. Pode instalar o Microsoft Monitoring Agent em computadores geridos pelo Operations Manager e fazer com que o agente reporte ao Operations Manager e a uma área de trabalho do Log Analytics diferente.
 
-## <a name="workspace-information"></a>Informações da área de trabalho
-Enquanto analisa os dados na área de trabalho do Log Analytics no **do Azure Monitor** menu no portal do Azure, criar e gerir áreas de trabalho a **áreas de trabalho do Log Analytics** menu.
+A arquitetura da área de trabalho definida, deve impor para esta política em recursos do Azure com [do Azure Policy](../../governance/policy/overview.md). Isto pode fornecer uma definição incorporada que seria automaticamente se aplicam a todos os recursos do Azure. Por exemplo, pode definir uma política para garantir que todos os seus recursos do Azure numa região específica enviado todos os seus registos de diagnóstico para uma área de trabalho específica.
+
+## <a name="view-workspace-details"></a>Ver detalhes da área de trabalho
+Enquanto analisa os dados na sua área de trabalho do Log Analytics do **do Azure Monitor** menu no portal do Azure, criar e gerir áreas de trabalho a **áreas de trabalho do Log Analytics** menu.
  
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e clique em **todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **do Log Analytics** áreas de trabalho.  
@@ -63,25 +72,104 @@ Enquanto analisa os dados na área de trabalho do Log Analytics no **do Azure Mo
 
 3. Selecione a área de trabalho da lista.
 
-4. A página de área de trabalho apresenta detalhes sobre a introdução, configuração e ligações para informações adicionais.  
+4. A página de área de trabalho apresenta detalhes sobre a área de trabalho, introdução, configuração e ligações para informações adicionais.  
 
     ![Detalhes da área de trabalho](./media/manage-access/workspace-overview-page.png)  
 
+
+## <a name="workspace-permissions-and-scope"></a>Permissões de área de trabalho e âmbito
+Os dados que um utilizador tem acesso ao são determinados por vários fatores que estão listados na tabela seguinte. Cada um é descrito nas secções abaixo.
+
+| Fator | Descrição |
+|:---|:---|
+| [Modo de acesso](#access-modes) | Método que o utilizador utiliza para acessa a área de trabalho.  Define o âmbito dos dados disponíveis e o modo de controlo de acesso que é aplicado. |
+| [Modo de controlo de acesso](#access-control-mode) | Definir a área de trabalho que define se as permissões são aplicadas ao nível da área de trabalho ou recurso. |
+| [Permissões](#manage-accounts-and-users) | Permissões aplicadas a pessoa ou grupos de utilizadores para a área de trabalho ou recurso. Define os dados que o utilizador terá acesso a. |
+
+
+
+## <a name="access-modes"></a>Modos de acesso
+O _modo de acesso_ se refere à forma como um utilizador acede a uma área de trabalho do Log Analytics e define o âmbito dos dados podem aceder. 
+
+**Área de trabalho centrado**: Neste modo, um utilizador pode ver todos os registos na área de trabalho que têm permissões para. Consultas neste modo estão confinadas a todos os dados em todas as tabelas na área de trabalho. Este é o modo de acesso utilizado quando os registos são acedidos com a área de trabalho como o escopo, por exemplo, quando seleciona **registos** partir a **Azure Monitor** menu no portal do Azure.
+
+**Recurso centrado**: Quando acessar a área de trabalho para um recurso específico, por exemplo, quando seleciona **registos** de um menu de recursos no portal do Azure, pode ver os registos para apenas esse recurso. Consultas neste modo estão confinadas a apenas os dados associados a esse recurso. Este modo também permite que o controlo de acesso granular baseada em funções (RBAC). 
+
+> [!NOTE]
+> Os registos estão disponíveis para consultas centrada em recursos apenas se eles foram corretamente associados com o recurso relevante. Atualmente, os seguintes recursos têm limitações: 
+> - Computadores fora do Azure
+> - Service Fabric
+> - Application Insights
+> - Contentores
+> - Registos personalizados criados pela API do recoletor de dados de HTTP
+>
+> Pode testar se os registos estão corretamente associados com seus recursos ao executar uma consulta e inspecionar os registos que está interessado. Se o ID de recurso correto está a [_ResourceId](log-standard-properties.md#resourceid) propriedade, em seguida, dados está disponível para consultas centrada no recurso.
+
+### <a name="comparing-access-modes"></a>Comparar os modos de acesso
+
+A tabela seguinte resume os modos de acesso:
+
+| | Voltada para a área de trabalho | Centrado em recursos |
+|:---|:---|:---|
+| Quem é se destina a cada modelo? | Administração central. Administradores que precisam de configurar a recolha de dados e os utilizadores que necessitam de aceder a uma grande variedade de recursos. Também necessário atualmente para utilizadores que têm para aceder aos registos para recursos fora do Azure. | Equipes de aplicação. Administradores de recursos do Azure a ser monitorizados. |
+| O que requer um utilizador para ver os registos? | Permissões para a área de trabalho. Ver **permissões de área de trabalho** na [gerir contas e utilizadores](#manage-accounts-and-users). | Acesso de leitura para o recurso. Ver **permissões de recursos** na [gerir contas e utilizadores](#manage-accounts-and-users). As permissões podem ser herdadas (por exemplo, o grupo de recursos que contêm) ou diretamente atribuído ao recurso. Permissão para os registos para o recurso será automaticamente atribuído. |
+| O que é o âmbito de permissões? | Área de trabalho. Os utilizadores com acesso à área de trabalho podem consultar todos os registos nessa área de trabalho. | Recursos do Azure. Utilizador pode consultar os registos para recursos tem acesso a partir de qualquer área de trabalho, mas não é possível consultar os registos para outros recursos. |
+| Como pode aceder aos registos de utilizador? | Inicie **registos** partir **Azure Monitor** menu ou **áreas de trabalho do Log Analytics**. | Inicie **registos** no menu para o recurso do Azure. |
+
+
+## <a name="access-control-mode"></a>Modo de controlo de acesso
+O _modo de controlo de acesso_ é uma configuração em cada áreas de trabalho que define como as permissões são determinadas para essa área de trabalho.
+
+**Necessitam de permissões de área de trabalho**:  Este modo de controlo não permite granular RBAC. Para um utilizador aceder a área de trabalho, eles tem de possuir permissões para a área de trabalho. 
+
+Se um usuário acessa a área de trabalho no modo voltada para a área de trabalho, terá acesso a todos os dados na área de trabalho. Se um usuário acessa a área de trabalho no modo centrada em recursos, terá acesso aos dados apenas para esse recurso.
+
+Esta é a predefinição para todas as áreas de trabalho criadas antes de Março de 2019.
+
+**Utilizar permissões de recursos ou a área de trabalho**: Este modo de controle permite que o granular RBAC. Os utilizadores que ser terão acesso a apenas os dados associados a recursos que podem visualizar por meio de permissões do Azure, recursos para os quais têm `read` permissão. 
+
+Quando um usuário acessa a área de trabalho no modo voltada para a área de trabalho, permissões de área de trabalho serão aplicada. Quando um usuário acessa a área de trabalho no modo centrada em recursos, apenas as permissões de recursos serão verificadas e permissões de área de trabalho serão ignoradas. Ative o RBAC para um utilizador removê-los das permissões de área de trabalho e permitindo que suas permissões de recurso a ser reconhecida.
+
+Esta é a predefinição para todas as áreas de trabalho criadas depois de Março de 2019.
+
+> [!NOTE]
+> Se um utilizador tem permissões de recursos apenas para a área de trabalho, apenas poderão aceder a área de trabalho utilizar [voltada para o recurso modo](#access-modes).
+
+
+### <a name="define-access-control-mode-in-azure-portal"></a>Definir o modo de controlo de acesso no portal do Azure
+Pode ver o modo de controlo de acesso à área de trabalho atual na **descrição geral** página para a área de trabalho a **área de trabalho do Log Analytics** menu.
+
+![Modo de controlo de acesso de área de trabalho de modo de exibição](media/manage-access/view-access-control-mode.png)
+
+Pode alterar esta definição no **propriedades** página para a área de trabalho. Alterar a definição será desativada se não tiver permissões para configurar a área de trabalho.
+
+![Modo de acesso de área de trabalho de alteração](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-mode-in-resource-manager-template"></a>Definir o modo de acesso no modelo do Resource Manager
+Para configurar o modo de acesso num modelo Azure Resource Manager, defina o **enableLogAccessUsingOnlyResourcePermissions** sinalizador na área de trabalho para um dos seguintes valores de recursos.
+
+- **FALSO**: Defina a área de trabalho às permissões voltada para a área de trabalho. Esta é a predefinição se o sinalizador não está definido.
+- **Verdadeiro**: Defina a área de trabalho às permissões centrada no recurso.
+
+
 ## <a name="manage-accounts-and-users"></a>Gerir contas e utilizadores
-Cada área de trabalho pode ter múltiplas contas associadas e cada conta pode ter acesso a várias áreas de trabalho. O acesso é gerido através de [acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md). Estes direitos de acesso aplica-se no portal do Azure e o acesso de API.
+As permissões para a área de trabalho que são aplicadas a um utilizador específico são definidas pelo respetivo [modo de acesso](#access-mode) e o [modo de controlo de acesso](#access-control-mode) da área de trabalho. **Permissões de área de trabalho** são aplicadas quando um utilizador acede a qualquer área de trabalho utilizar **voltada para a área de trabalho** no [modo voltada para a área de trabalho](#access-modes). **Permissões de recursos** são aplicadas quando um utilizador acede a uma área de trabalho com **utilizar permissões de recursos ou a área de trabalho** [modo de controlo de acesso](#access-control-mode) usando [modo centrada no recurso ](#access-modes).
+
+### <a name="workspace-permissions"></a>Permissões de área de trabalho
+Cada área de trabalho pode ter múltiplas contas associadas e cada conta pode ter acesso a várias áreas de trabalho. O acesso é gerido através de [acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md). 
 
 
 As atividades seguintes também necessitam de permissões do Azure:
 
 | Ação                                                          | Permissões do Azure Necessárias | Notas |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Adicionar e remover soluções de gestão                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Estas permissões têm de ser concedidas ao nível do grupo de recursos ou da subscrição. |
+| Adicionar e remover soluções de monitorização                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Estas permissões têm de ser concedidas ao nível do grupo de recursos ou da subscrição. |
 | Alterar o escalão de preço                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Ver dados nos mosaicos de solução *Backup* e *Site Recovery* | Administrador/Coadministrador | Acede aos recursos implementados com o modelo de implementação clássica |
 | Criar um espaço de trabalho no portal do Azure                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### <a name="managing-access-to-log-analytics-workspace-using-azure-permissions"></a>Gerir o acesso à área de trabalho do Log Analytics com permissões do Azure
+#### <a name="manage-access-to-log-analytics-workspace-using-azure-permissions"></a>Gerir o acesso ao Log Analytics área de trabalho com permissões do Azure 
 Para conceder acesso à área de trabalho do Log Analytics com permissões do Azure, siga os passos em [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 O Azure tem duas funções de utilizador incorporadas para áreas de trabalho do Log Analytics:
@@ -141,7 +229,21 @@ Utilize estas funções para conceder aos utilizadores acesso em âmbitos difere
 - Grupo de Recursos - acesso a todas as áreas de trabalho no grupo de recursos
 - Recurso - acesso apenas à área de trabalho especificada
 
-Recomendamos que realiza as atribuições ao nível do recurso (área de trabalho), para garantir o controlo de acesso correto.  Utilize [funções personalizadas](../../role-based-access-control/custom-roles.md) para criar funções com as permissões específicas necessárias.
+Deve realizar atribuições ao nível do recurso (área de trabalho), para garantir o controlo de acesso precisos.  Utilize [funções personalizadas](../../role-based-access-control/custom-roles.md) para criar funções com as permissões específicas necessárias.
+
+### <a name="resource-permissions"></a>Permissões de recursos 
+Quando a consulta de utilizadores inicia a partir de uma área de trabalho através do acesso centrada no recurso, terão as seguintes permissões no recurso:
+
+| Permissão | Descrição |
+| ---------- | ----------- |
+| `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de ver todos os dados de registo para o recurso.  |
+
+
+Esta permissão é concedida normalmente de uma função que inclua  _\*/leitura ou_ _\*_ permissões como a conta interna [leitor](../../role-based-access-control/built-in-roles.md#reader) e [ Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) funções. Tenha em atenção que as funções personalizadas que incluem ações específicas ou funções incorporadas dedicadas poderão não incluir esta permissão.
+
+
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Ver [descrição geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recolher dados de computadores no seu datacenter ou outro ambiente de cloud.

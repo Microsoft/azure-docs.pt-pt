@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e82e8f6caafb38b758f552913def234a92a0d83
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454655"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959940"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar manualmente uma conta para a aplicação
 Se a câmara não consegue capturar o código QR, pode adicionar manualmente as informações da sua conta para a aplicação Microsoft Authenticator para verificação de dois fatores. Isto funciona para contas escolar ou profissional e contas de não-Microsoft.
@@ -102,5 +102,7 @@ Pode adicionar sua conta Amazon, a ativação da verificação de dois fatores e
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Depois de adicionar as suas contas para a aplicação, pode iniciar sessão com a aplicação Microsoft Authenticator no seu dispositivo. Para obter mais informações, consulte [iniciar sessão com a aplicação](user-help-auth-app-sign-in.md).
+
+- Se estiver a ter dificuldades em seu código de verificação para a sua conta Microsoft pessoal, consulte a **resolução de problemas de código de verificação** secção a [as informações de segurança de conta Microsoft & verificação códigos de](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artigo.
 
 - Para dispositivos iOS, também pode criar cópias de segurança as credenciais da conta e relacionados com as definições de aplicação, como a ordem das suas contas, a nuvem. Para obter mais informações, consulte [cópia de segurança e recuperação com a aplicação Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

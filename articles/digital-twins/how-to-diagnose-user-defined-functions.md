@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: stefanmsft
 ms.custom: seodec18
-ms.openlocfilehash: ebeed6d2a52937a6e80dfe28574ad854643fa7f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 6122cd4507ed0883d1b78ca519269c25098e55ff
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119228"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961419"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo utilizador no duplos Digital do Azure
 
@@ -29,10 +29,10 @@ Saber como diagnosticar quaisquer problemas que possam surgir dentro de sua inst
 
 ### <a name="enable-log-analytics-for-your-instance"></a>Ativar a análise de registo para a sua instância
 
-Os registos e métricas para a sua instância de duplos Digital do Azure são apresentadas no Azure Monitor. Esta documentação pressupõe que criou um [do Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) área de trabalho por meio da [Portal do Azure](../azure-monitor/learn/quick-create-workspace.md), da funcionalidade [da CLI do Azure](../azure-monitor/learn/quick-create-workspace-cli.md), ou através de [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+Os registos e métricas para a sua instância de duplos Digital do Azure são apresentadas no Azure Monitor. Esta documentação pressupõe que criou um [registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md) área de trabalho por meio dos [Portal do Azure](../azure-monitor/learn/quick-create-workspace.md), da funcionalidade [da CLI do Azure](../azure-monitor/learn/quick-create-workspace-cli.md), ou através de [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> Poderá haver um atraso de 5 minutos, ao enviar eventos para o Azure Log Analytics pela primeira vez.
+> Poderá haver um atraso de 5 minutos, ao enviar eventos para os registos do Azure Monitor pela primeira vez.
 
 Para configurar a monitorização e registo de recursos de duplos Digital do Azure, leia [como configurar a monitorização e registo](./how-to-configure-monitoring.md).
 
@@ -43,11 +43,11 @@ Leia o artigo [recolher e consumir dados de registo dos seus recursos do Azure](
 
 ### <a name="trace-sensor-telemetry"></a>Telemetria de sensores de rastreio
 
-A telemetria de sensores de rastreio, certifique-se de que as definições de diagnóstico estão ativadas para a sua instância de duplos Digital do Azure. Em seguida, certifique-se de que pretendido todas as categorias de registo estão selecionadas. Por fim, confirme que os registos pretendidos estão a ser enviados para o Azure Log Analytics.
+A telemetria de sensores de rastreio, certifique-se de que as definições de diagnóstico estão ativadas para a sua instância de duplos Digital do Azure. Em seguida, certifique-se de que pretendido todas as categorias de registo estão selecionadas. Por fim, confirme que os registos pretendidos estão a ser enviados para os registos do Azure Monitor.
 
 Para fazer corresponder uma mensagem de telemetria de sensor para seus respectivos registos, pode especificar um ID de correlação nos dados de evento a ser enviados. Para tal, defina o `x-ms-client-request-id` propriedade para um GUID.
 
-Depois de enviar telemetria, abrir o Log Analytics do Azure para consultar os registos com o conjunto de ID de correlação:
+Depois de enviar telemetria, abra o log Analytics para consultar os registos com o conjunto de ID de correlação:
 
 ```Kusto
 AzureDiagnostics
@@ -58,7 +58,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | O ID de correlação que foi especificada nos dados de eventos |
 
-Se ativar o registo para a função definida pelo usuário, esses registos são apresentados na sua instância do Azure Log Analytics com a categoria `UserDefinedFunction`. Para obtê-las, introduza a seguinte condição de consulta no Azure Log Analytics:
+Se ativar o registo para a função definida pelo usuário, esses registos são apresentados na sua instância de análise de registo com a categoria `UserDefinedFunction`. Para obtê-las, introduza a seguinte condição de consulta do log analytics:
 
 ```Kusto
 AzureDiagnostics

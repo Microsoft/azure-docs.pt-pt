@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0eb27e997d39ceb82098b63de607d3529ccc53b4
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427034"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984410"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
@@ -97,7 +97,7 @@ Saiba mais sobre os registos de fluxo do NSG ao concluir o tutorial [Registar o 
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Ver registos de diagnóstico de recursos de rede
 
-Pode ativar o registo de diagnóstico para recursos de rede do Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e gateways de aplicação. A capacidade de *registos de diagnóstico* oferece uma interface única para ativar e desativar os registos de diagnóstico de recursos de rede para qualquer recurso de rede existente que gere um registo de diagnóstico. Pode ver os registos de diagnóstico com ferramentas como o Microsoft PowerBI e o Azure Log Analytics. Para saber mais sobre como analisar os registos de diagnóstico de rede do Azure, veja [Azure network solutions in Log Analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) (Soluções de rede do Azure no Log Analytics).
+Pode ativar o registo de diagnóstico para recursos de rede do Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e gateways de aplicação. A capacidade de *registos de diagnóstico* oferece uma interface única para ativar e desativar os registos de diagnóstico de recursos de rede para qualquer recurso de rede existente que gere um registo de diagnóstico. Pode ver os registos de diagnóstico com ferramentas como o Microsoft Power BI e o Azure Monitor registos. Para saber mais sobre como analisar os registos de diagnóstico de rede do Azure, veja [soluções de rede do Azure nos registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="network-watcher-automatic-enablement"></a>Ativação automática de observador de rede
 Quando cria ou atualiza uma rede virtual na sua subscrição, o observador de rede será ativado automaticamente na região da sua rede Virtual. Não há impacto nos seus recursos ou cobrança associada para ativar automaticamente o Observador da Rede. Para obter mais informações, consulte [observador de rede criar](network-watcher-create.md).

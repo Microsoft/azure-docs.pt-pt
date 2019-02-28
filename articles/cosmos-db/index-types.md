@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: 02055ec07de2b08abdc949e17c668912431e00ce
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f45663fd0f63537f87ee4466ad5f17cce0bed6a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871256"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961725"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Tipos de índice no Azure Cosmos DB
 
@@ -54,6 +54,9 @@ Seguem-se exemplos de consultas de Hash, intervalo, e os índices espaciais pode
 
 ## <a name="index-precision"></a>Precisão de índice
 
+> [!NOTE]
+> Um novo esquema de índice que já não necessita de uma precisão de índice personalizado que não seja o value(-1) precisão máxima de suporte de contentores do Azure Cosmos. Com esse método, os caminhos são sempre indexados com a precisão máxima. Se especificar um valor de precisão na política de indexação, os pedidos CRUD num contentores silenciosamente irão ignorar o valor de precisão e a resposta do contêiner contém apenas o value(-1) precisão máxima.  Por predefinição, todos os novos contentores de Cosmos utilizam o novo esquema de índice.
+
 - Pode usar a precisão de índice para tornar uma compensação entre o armazenamento de índice sobrecarga e o desempenho da consulta. Para números, recomendamos que utilize a configuração de precisão de padrão de -1 (máximo). Como os números são 8 bytes em JSON, isto é equivalente a uma configuração de 8 bytes. Escolher um valor inferior para precisão, por exemplo, 1 a 7, significa que mapeia os valores dentro de alguns intervalos para o mesmo índice de entrada. Por conseguinte, é possível reduzir o espaço de armazenamento de índice, mas a execução de consultas poderá ter de processar mais itens. Por conseqüência, ele consome mais débito/RUs.
 
 - Precisão de índice tem mais prático do aplicativo com intervalos de cadeia de caracteres. Como cadeias de caracteres podem ser qualquer comprimento arbitrário, a escolha de precisão o índice poderá afetar o desempenho das consultas de intervalo de cadeia de caracteres. Também poderá afetar a quantidade de espaço de armazenamento de índice que é necessário. Índices de intervalo de cadeia de caracteres podem ser configurados com uma precisão de índice entre 1 e 100 ou -1 (máximo). Se quiser executar consultas de ORDER BY em Propriedades de cadeia de caracteres, tem de especificar uma precisão de -1 para os caminhos correspondentes.
@@ -61,9 +64,6 @@ Seguem-se exemplos de consultas de Hash, intervalo, e os índices espaciais pode
 - Os índices espaciais utilizam sempre a precisão de índice predefinido para todos os tipos (ponto, LineString e polígonos). A precisão de índice predefinido para os índices espaciais não pode ser substituída.
 
 O Azure Cosmos DB devolve um erro quando uma consulta utiliza ORDER BY, mas não tem um índice do intervalo contra o caminho de consultados com a precisão máxima.
-
-> [!NOTE]
-> Um novo esquema de índice que já não necessita de uma precisão de índice personalizado que não seja o value(-1) precisão máxima de suporte de contentores do Azure Cosmos. Com esse método, os caminhos são sempre indexados com a precisão máxima. Se especificar um valor de precisão na política de indexação, os pedidos CRUD num contentores silenciosamente irão ignorar o valor de precisão e a resposta do contêiner contém apenas o value(-1) precisão máxima.  Por predefinição, todos os novos contentores de Cosmos utilizam o novo esquema de índice.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

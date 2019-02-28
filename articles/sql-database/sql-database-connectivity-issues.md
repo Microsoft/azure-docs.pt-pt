@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 8c19022f168577cf65180357f280afd5a0e03073
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1a13f5f038afed914fd2b2a178974a0ba2e7255f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634163"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984225"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de ligação de base de dados SQL e erros transitórios
 
@@ -91,7 +91,7 @@ Para testar a sua lógica de repetição, tem de simular ou fazer com que um err
 Uma forma que pode testar a sua lógica de repetição é desligar o computador de cliente a partir da rede, enquanto o programa está em execução. O erro é:
 
 - **SqlException.Number** = 11001
-- Mensagem: "o sistema anfitrião não é conhecido"
+- Mensagem: "O sistema anfitrião não é conhecido"
 
 Como parte da primeira tentativa de repetição, o seu programa pode corrigir o problema de ortografia e, em seguida, tentar estabelecer ligação.
 
@@ -109,7 +109,7 @@ Para fazer este teste prático, desligue o computador a partir da rede antes de 
 Seu programa pode propositadamente errar o nome de utilizador antes da primeira tentativa de ligação. O erro é:
 
 - **SqlException.Number** = 18456
-- Mensagem: "início de sessão do utilizador"WRONG_MyUserName"."
+- Mensagem: "Falha de início de sessão para o utilizador"WRONG_MyUserName"."
 
 Como parte da primeira tentativa de repetição, o seu programa pode corrigir o problema de ortografia e, em seguida, tentar estabelecer ligação.
 
@@ -125,7 +125,7 @@ Para fazer este teste prático, o seu programa reconhece um parâmetro de tempo 
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parâmetros de .NET SqlConnection para tentativas de ligação
 
-Se o seu programa cliente se liga a base de dados SQL utilizando a classe do .NET Framework **System.Data.SqlClient.SqlConnection**, use o .NET 4.6.1 ou posterior (ou .NET Core) para que possa utilizar a sua funcionalidade de repetição da ligação. Para obter mais informações sobre a funcionalidade, consulte [esta página da Web](https://go.microsoft.com/fwlink/?linkid=393996).
+Se o seu programa cliente se liga a base de dados SQL utilizando a classe do .NET Framework **System.Data.SqlClient.SqlConnection**, use o .NET 4.6.1 ou posterior (ou .NET Core) para que possa utilizar a sua funcionalidade de repetição da ligação. Para obter mais informações sobre a funcionalidade, consulte [esta página da Web](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -137,7 +137,7 @@ Quando está a desenvolver o [cadeia de ligação](https://msdn.microsoft.com/li
 - **ConnectRetryInterval**:&nbsp;&nbsp;predefinido é de 1 segundo. O intervalo é de 1 a 60.
 - **Tempo limite da ligação**:&nbsp;&nbsp;a predefinição é 15 segundos. O intervalo é 0 e 2147483647.
 
-Especificamente, seus valores escolhidas devem tornar o verdadeiro de igualdade seguintes: tempo limite da ligação = ConnectRetryCount * ConnectionRetryInterval
+Especificamente, seus valores escolhidas devem tornar o verdadeiro de igualdade seguintes: Tempo limite da ligação = ConnectRetryCount * ConnectionRetryInterval
 
 Por exemplo, se a contagem for igual a 3 e o intervalo é igual a 10 segundos, um tempo limite de apenas alguns segundos 29 não dar ao sistema tempo suficiente para sua terceira e última novamente estabelecer ligação: 29 < 3 * 10.
 
@@ -181,7 +181,7 @@ Caso se esqueça de configurar o endereço IP, o seu programa falha com uma mens
 Para obter mais informações, consulte [configurar definições de firewall na base de dados SQL](sql-database-configure-firewall-settings.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-### <a name="connection-ports"></a>Ligação: portas
+### <a name="connection-ports"></a>Ligação: Portas
 
 Normalmente, precisa garantir que apenas a porta 1433 está aberta para comunicações de saída no computador que aloja o seu programa cliente.
 
@@ -232,7 +232,7 @@ Depois de ligar o seu programa, teste se funciona de uma consulta SQL SELECT cur
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>Diagnóstico: Abrir portas de verificação
+### <a name="diagnostics-check-the-open-ports"></a>Diagnósticos: Verifique as portas abertas
 
 Se suspeitar de que as tentativas de ligação falharem devido a problemas de porta, pode executar um utilitário no seu computador que relate as configurações da porta.
 
@@ -261,13 +261,13 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>Diagnóstico: Os erros do registo
+### <a name="diagnostics-log-your-errors"></a>Diagnósticos: Registar os erros
 
 Um problema intermitente, às vezes, melhor é diagnosticado pela deteção de um padrão geral ao longo de dias ou semanas.
 
 O cliente pode ajudar um diagnóstico através do registo de todos os erros que encontrar. Poderá conseguir correlacionar as entradas de registo com dados de erro que registos de base de dados SQL em si internamente.
 
-Biblioteca de Enterprise 6 (EntLib60) oferece as classes do .NET gerida para ajudá-lo com o registo. Para obter mais informações, consulte [5 - tão fácil como cair de um log: utilizar o Logging Application Block](https://msdn.microsoft.com/library/dn440731.aspx).
+Biblioteca de Enterprise 6 (EntLib60) oferece as classes do .NET gerida para ajudá-lo com o registo. Para obter mais informações, consulte [5 - tão fácil como cair de um registo: Utilizar o Logging Application Block](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -282,7 +282,7 @@ Aqui estão algumas instruções de Transact-SQL SELECIONE consultar os registos
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: Pesquisa para eventos de problema no registo de base de dados SQL
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnósticos: Procurar eventos de problema no registo de base de dados SQL
 
 Pode procurar entradas sobre eventos de problema no registo de base de dados SQL. Experimente a seguinte instrução Transact-SQL SELECT no *mestre* base de dados:
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 Biblioteca de Enterprise 6 (EntLib60) é uma estrutura de classes do .NET que o ajuda a implementar clientes robustos de serviços cloud, é um dos quais o serviço de base de dados SQL. Para localizar tópicos dedicados para cada área na qual EntLib60 podem ajudá-lo, consulte [Enterprise Library 6 - Abril de 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-A lógica de repetição para lidar com erros transitórios é uma área na qual EntLib60 podem ajudá-lo. Para obter mais informações, consulte [4 - Perseverance, segredo de todos os triumphs: utilizar o Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+A lógica de repetição para lidar com erros transitórios é uma área na qual EntLib60 podem ajudá-lo. Para obter mais informações, consulte [4 - Perseverance, segredo de todos os triumphs: Utilizar o bloco de aplicativo de processamento de falhas transitórias](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
 > O código-fonte para EntLib60 está disponível para download público a partir da [Centro de transferências](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft não tem planos para fazer mais atualizações de funcionalidades ou atualizações de manutenção para EntLib.
@@ -343,20 +343,20 @@ No espaço de nomes **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandli
 - **RetryPolicy** classe
   - **ExecuteAction** método
 - **ExponentialBackoff** classe
-- **SqlDatabaseTransientErrorDetectionStrategy** classe
+- **SqlDatabaseTransientErrorDetectionStrategy** class
 - **ReliableSqlConnection** classe
   - **ExecuteCommand** método
 
 No espaço de nomes **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
 
 - **AlwaysTransientErrorDetectionStrategy** classe
-- **NeverTransientErrorDetectionStrategy** classe
+- **NeverTransientErrorDetectionStrategy** class
 
 Seguem-se algumas ligações para informações sobre EntLib60:
 
 - Download gratuito do livro: [Guia do programador para o Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
-- Melhores práticas: [Repita orientações gerais](../best-practices-retry-general.md) tem uma excelente visão detalhada de lógica de repetição.
-- Download do NuGet: [Enterprise Library - transitório falhas manipulação aplicativo bloco 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Melhores práticas: [Repita a orientação geral](../best-practices-retry-general.md) tem uma excelente visão detalhada de lógica de repetição.
+- Download do NuGet: [A Enterprise Library - bloco de aplicativo de processamento de falhas transitórias 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
@@ -368,7 +368,7 @@ Seguem-se algumas ligações para informações sobre EntLib60:
   - Recolha informações contextuais que são os requisitos de registo útil para depuração e rastreamento, bem como para auditoria e geral.
 - O bloco de registo abstrai a funcionalidade de registo do destino de registo para que o código do aplicativo é consistente, independentemente da localização e o tipo de arquivo de log de destino.
 
-Para obter mais informações, consulte [5 - tão fácil como cair de um log: utilizar o Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Para obter mais informações, consulte [5 - tão fácil como cair de um registo: Utilizar o Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 

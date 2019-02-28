@@ -4,24 +4,21 @@ description: Saiba como política do Azure utiliza a configuração de convidado
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/29/2019
+ms.date: 02/27/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 19f55c7d383d64e6c400e22e624b713f6c42dc58
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e6621172734ea02f971bd5064b403ad4844210a3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649293"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960771"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de convidado do Azure Policy
 
 Para além de auditoria e [remediar](../how-to/remediate-resources.md) recursos do Azure, Azure Policy podem auditar as definições de dentro de uma máquina virtual. A validação é executada a extensão de configuração do convidado e o cliente. A extensão, por meio do cliente, valida as definições como a configuração do sistema operativo, configuração da aplicação ou presença, definições de ambiente e muito mais.
-
-> [!IMPORTANT]
-> Atualmente, apenas **incorporada** são suportadas políticas com a configuração de convidado.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -83,7 +80,7 @@ A tabela seguinte mostra uma lista de sistemas operativos suportados nas imagens
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configuração de convidado não é atualmente suportada nas imagens de máquina virtual personalizada.
+> Configuração do convidado pode auditar qualquer servidor com um SO suportado.  Se gostaria de servidores que utilizam uma imagem personalizada de auditoria, precisa duplicar a **DeployIfNotExists** definição e modificar a **se** secção para incluir as propriedades da imagem.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
 
@@ -93,6 +90,17 @@ A tabela seguinte lista os sistemas operativos que não são suportados:
 |-|-|
 |Cliente Windows | Não são suportados sistemas operativos de cliente (por exemplo, o Windows 7 e Windows 10).
 |Servidor de Nano do Windows Server 2016 | Não suportado.|
+
+### <a name="guest-configuration-extension-network-requirements"></a>Requisitos de rede de extensão da configuração de convidado
+
+Para comunicar com o fornecedor de recursos de configuração de convidado no Azure, as máquinas virtuais exigem acesso de saída para os datacenters do Azure na porta **443**. Se estiver a utilizar uma rede virtual privada no Azure e não permitir o tráfego de saída, exceções devem ser configuradas com [grupo de segurança de rede](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) regras. Neste momento, a etiqueta de serviço não existe para a configuração de convidado de política do Azure.
+
+Para listas de endereços IP, pode baixar [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e tem os intervalos implementados atualmente e as alterações futuras para os intervalos de IP. Apenas terá de permitir o acesso de saída para os IPs nas regiões onde as suas VMs são implementadas.
+
+> [!NOTE]
+> O ficheiro XML de endereço IP do Datacenter do Azure apresenta uma lista de intervalos de endereços IP que são utilizados nos datacenters do Microsoft Azure. O arquivo inclui os intervalos de computação, SQL e armazenamento.
+> Um ficheiro atualizado é publicado semanalmente. O ficheiro reflete os intervalos implementados atualmente e as alterações futuras para os intervalos de IP. Os novo intervalos que aparecem no ficheiro não são utilizados nos centros de dados para, pelo menos, uma semana.
+> É uma boa idéia para transferir o ficheiro XML novo todas as semanas. Em seguida, atualize o seu site para identificar corretamente os serviços em execução no Azure. Os utilizadores do Azure ExpressRoute devem observar que este ficheiro é utilizado para atualizar o anúncio de protocolo BGP (Border Gateway) do espaço Azure na primeira semana de cada mês.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração de convidado
 

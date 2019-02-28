@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: jingwang
-ms.openlocfilehash: b2676d16abe3fb3cb1ec59b261c6cc059b4795de
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cacc17464d15e8872508cff0e626b383ee9a2808
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674774"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985398"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Especificamente, este conector de armazenamento de BLOBs suporta:
 - Copiar blobs, tal como estão ou análise ou gerar blobs com [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
 
 >[!NOTE]
->Se permite _"Permitir confiável a serviços da Microsoft para aceder a esta conta de armazenamento"_ opção nas definições de firewall de armazenamento do Azure, com o Runtime de integração do Azure para ligar ao armazenamento de BLOBs falha com erro proibido, como ADF não estão considerado fidedigno serviço da Microsoft. Utilize o Runtime de integração autoalojado que estabelecer ligação através do qual em vez disso.
+>Se ativar a _"Permitir confiável a serviços da Microsoft para aceder a esta conta de armazenamento"_ opção nas definições de firewall de armazenamento do Azure, com o Runtime de integração do Azure para ligar ao armazenamento de BLOBs irá falhar com um erro proibido, porque não está ADF Tratado como um serviço confiável da Microsoft. Ligue através de um Runtime de integração autoalojado em vez disso.
 
 ## <a name="get-started"></a>Introdução
 

@@ -1,52 +1,54 @@
 ---
 title: Criação de partições no Azure Cosmos DB
-description: Descrição geral da criação de partições no Azure Cosmos DB
+description: Descrição geral da criação de partições no Azure Cosmos DB.
 ms.author: mjbrown
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: d9bd1bec6d1df6fab634c5d929cb778abbd3d13d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a8db510bea57fa3d6ee873571e586bcef7508b26
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478411"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961640"
 ---
-# <a name="partitioning-in-azure-cosmos-db---overview"></a>Criação de partições no Azure Cosmos DB - descrição geral
+# <a name="partitioning-in-azure-cosmos-db"></a>Criação de partições no Azure Cosmos DB
 
-Criação de partições é a técnica usada pelo Cosmos DB Dimensionar contentores individuais num banco de dados para satisfazer as necessidades de desempenho da sua aplicação. Ao utilizar a criação de partições, os itens num contentor estão divididos em subconjuntos distintos, chamados partições lógicas. As partições lógicas são criadas com base no valor de uma propriedade de chave de partição associada a cada item.
+O Azure Cosmos DB utiliza a criação de partições para dimensionar contentores individuais num banco de dados para satisfazer as necessidades de desempenho da sua aplicação. Na criação de partições, os itens num contentor são divididos em subconjuntos distintos chamados *partições lógicas*. Partições lógicas são formadas com base no valor de um *chave de partição* que está associada a cada item num contentor. Todos os itens numa partição lógica tem o mesmo valor de chave de partição.
 
-Uma partição lógica é um subconjunto distinto de itens num contentor. Os itens numa partição lógica são identificados pelo valor de chave de partição que é partilhado por todos os itens na partição lógica.  Por exemplo, considere um contentor que retém a documentos e cada documento tem um `UserID` propriedade.  Se `UserID` serve como a partição da chave para os itens num contentor e existem 1000 exclusivo `UserID` valores, partições lógicas de 1000 serão criadas para o contentor.
+Por exemplo, um contêiner contém documentos. Cada documento tem um valor exclusivo para o `UserID` propriedade. Se `UserID` serve como a partição da chave para os itens no contentor e existem 1.000 exclusivo `UserID` valores, 1000 partições lógicas são criadas para o contentor.
 
-Cada item num contêiner tem um **chave de partição** determina que o item **partição lógica**, e cada item também tem um **id de item** (que é exclusivo dentro de uma lógica partição).  O **índice** de um item identifica de forma exclusiva e ele é formado, combinando a chave de partição e o id do item.
+Além de uma chave de partição que determina a partição de lógica do item, cada item num contêiner tem um *ID de item* (exclusivos dentro de uma partição lógica). Combinando a chave de partição e o ID de item cria o item *índice*, que identifica exclusivamente o item.
 
-Escolher uma chave de partição é uma decisão importante que irão afetar o desempenho do aplicativo.  Para obter mais informações, consulte [escolher uma chave de partição](partitioning-overview.md#choose-partitionkey) artigo para obter instruções detalhadas.
+[Escolher uma chave de partição](partitioning-overview.md#choose-partitionkey) é uma decisão importante que irão afetar o desempenho do aplicativo.
 
-## <a name="logical-partition-management"></a>Gestão de partição lógica
+## <a name="managing-logical-partitions"></a>Gerenciamento de partições lógicas
 
-O cosmos DB forma transparente e automática gerencia o posicionamento de partições lógicas em partições físicas (infraestrutura de servidor) para atender com eficiência as necessidades de escalabilidade e desempenho do contentor. À medida que aumentam os requisitos de armazenamento e débito do aplicativo, o Cosmos DB move partições lógicas para distribuir automaticamente a carga por um maior número de servidores. Para saber mais sobre como o Cosmos DB gere partições, veja [partições lógicas](partition-data.md) artigo. Não é necessário compreender estes detalhes para criar ou executar as suas aplicações.
+O Azure Cosmos DB forma transparente e automática gerencia o posicionamento de partições lógicas em partições físicas (sua infra-estrutura de servidor) para atender com eficiência as necessidades de escalabilidade e desempenho do contentor. À medida que aumentam os requisitos de armazenamento e débito de uma aplicação, o Azure Cosmos DB move partições lógicas para distribuir automaticamente a carga por um maior número de servidores. 
 
-O cosmos DB utiliza baseada em hash de criação de partições para distribuir partições lógicas entre partições físicas.  O valor de chave de partição de um item é protegido por hash Cosmos DB e o resultado codificado determina a partição física. O cosmos DB aloca o espaço de chave de partição principais hashes uniformemente pelas partições físicas "n".
+O Azure Cosmos DB utiliza baseada em hash de criação de partições para distribuir partições lógicas entre partições físicas. O Azure Cosmos DB codifica o valor de chave de partição de um item. O resultado codificado determina a partição física. Em seguida, do Azure Cosmos DB aloca espaço de chave de partição principais hashes uniformemente entre as partições físicas.
 
-As consultas que acedem a dados dentro de uma única partição são mais económicas do que as consultas que acessam várias partições. Transações (em procedimentos armazenados ou disparadores) só são permitidas em relação a itens dentro de uma única partição lógica.  
+As consultas que acedem a dados dentro de uma única partição são mais económicas do que as consultas que acessam várias partições. Transações (em procedimentos armazenados ou disparadores) são permitidas apenas em relação a itens numa única partição lógica.
+
+Para saber mais sobre como o Azure Cosmos DB gere partições, veja [partições lógicas](partition-data.md). (Não é necessário compreender estes detalhes para criar ou executar as suas aplicações.)
 
 ## <a id="choose-partitionkey"></a>Escolher uma chave de partição
 
 Ao escolher uma chave de partição, considere os seguintes detalhes:
 
-* Uma única partição lógica é permitida um limite superior de 10 GB de armazenamento.  
+* Uma única partição lógica tem um limite máximo de 10 GB de armazenamento.  
 
-* Contentores particionadas são configurados com débito mínimo de 400 RU/s. Pedidos para a mesma chave de partição não podem exceder a taxa de transferência alocada a uma partição. Se estas excedem o débito alocado, os pedidos será limitado de taxa. Por isso, é importante escolher uma chave de partição não resulta na "pontos de acesso" na sua aplicação.
+* Os contentores particionados têm um débito mínimo de 400 unidades de pedido por segundo (RU/s). Pedidos para a mesma chave de partição não podem exceder a taxa de transferência que é atribuída a uma partição. Se solicitações excederem a taxa de transferência alocada, as solicitações são taxa limitado. Por isso, é importante escolher uma chave de partição não resulta na "pontos de acesso" na sua aplicação.
 
-* Escolha uma chave de partição que propaga uniformemente a carga de trabalho de todas as partições e de forma uniforme ao longo do tempo.  À sua escolha da chave de partição deve equilibrar a necessidade de consultas de partição eficiente e/ou transações face ao objectivo de distribuição de itens em várias partições para alcançar a escalabilidade.
+* Escolha uma chave de partição que propaga uniformemente a carga de trabalho, todas as partições e de forma uniforme ao longo do tempo. À sua escolha da chave de partição deve equilibrar a necessidade de consultas de partição eficiente e transações face ao objectivo de distribuição de itens em várias partições para alcançar a escalabilidade.
 
-* Escolha uma chave de partição que tenha uma vasta gama de valores e padrões de acesso que são distribuídos uniformemente por partições lógicas. A idéia básica é distribuir os dados e a atividade no seu contentor entre o conjunto de partições lógicas, para que os recursos de armazenamento e débito de dados podem ser distribuídos por partições lógicas.
+* Escolha uma chave de partição que tenha uma vasta gama de valores e padrões de acesso que são distribuídos uniformemente por partições lógicas. Isto ajuda a distribuir os dados e a atividade no seu contentor entre o conjunto de partições lógicas, para que os recursos de armazenamento e débito de dados podem ser distribuídos por partições lógicas.
 
-* Candidatos para as chaves de partição podem incluir as propriedades que são apresentados frequentemente como um filtro em suas consultas. Consultas podem ser encaminhadas com eficiência, incluindo a chave de partição no predicado de filtro.
+* Candidatos para as chaves de partição podem incluir propriedades que são apresentados frequentemente como um filtro em suas consultas. Consultas podem ser encaminhadas com eficiência, incluindo a chave de partição no predicado de filtro.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [partições](partition-data.md)
-* Saiba mais sobre [débito aprovisionado no Azure Cosmos DB](request-units.md)
-* Saiba mais sobre [distribuição global no Azure Cosmos DB](distribute-data-globally.md)
+* Saiba mais sobre [partições](partition-data.md).
+* Saiba mais sobre [débito aprovisionado no Azure Cosmos DB](request-units.md).
+* Saiba mais sobre [distribuição global no Azure Cosmos DB](distribute-data-globally.md).

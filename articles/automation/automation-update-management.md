@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fb96d69604ce341cec2de029f9663f6b8d274876
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 214c67e34fc8d36f2618c94414fe1c305efbf7d2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822383"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960144"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -119,6 +119,9 @@ Se o grupo de gestão do System Center Operations Manager estiver ligado a uma �
 * Pacote de Informações de Avaliação de Atualização do Microsoft System Center Advisor (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Pacote de Gestão de Implementação de Atualização
+
+> [!NOTE]
+> Se tiver um grupo de gestão do Operations Manager 1807 com agentes configurados ao nível do grupo de gestão para ser associada a uma área de trabalho, a solução atual para que eles apareçam é substituir **IsAutoRegistrationEnabled** para **True** no **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** regra.
 
 Para obter mais informações sobre como são atualizados os pacotes de gestão de solução, consulte [registos de ligar o Operations Manager para o Azure Monitor](../azure-monitor/platform/om-agents.md).
 
@@ -608,7 +611,7 @@ Para remover uma VM de gestão de atualizações:
 
 * Na área de trabalho do Log Analytics, remover a VM da pesquisa guardada para a configuração de âmbito `MicrosoftDefaultScopeConfig-Updates`. Pesquisas guardadas podem ser encontradas na **gerais** na sua área de trabalho.
 * Remover os [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente do Log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
-  
+
 ## <a name="troubleshoot"></a>Resolução de problemas
 
 Para saber como resolver problemas de gestão de atualizações, veja [resolução de problemas de gestão de atualizações](troubleshoot/update-management.md)

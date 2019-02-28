@@ -8,16 +8,18 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fb9ee97726632b7eeccc923596c1f5527a7c95bd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098583"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961621"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para o ExpressRoute
 
-Este artigo ajuda-o a configurar uma extensão de Monitor de desempenho de rede para monitorizar o ExpressRoute. Monitor de desempenho de rede (NPM) é uma solução que monitora a conectividade entre implementações de nuvem do Azure e localizações no local (das filiais, etc.) de monitorização de rede com base na cloud. NPM faz parte do Log Analytics. NPM oferece uma extensão para o ExpressRoute permite-lhe monitorizar o desempenho da rede sobre circuitos do ExpressRoute que estão configurados para utilizar o peering privado ou peering da Microsoft. Quando configurar NPM para ExpressRoute, pode detetar problemas de rede para identificar e eliminar. Este serviço também está disponível para a Cloud do Azure Government.
+Este artigo ajuda-o a configurar uma extensão de Monitor de desempenho de rede para monitorizar o ExpressRoute. Monitor de desempenho de rede (NPM) é uma solução que monitora a conectividade entre implementações de nuvem do Azure e localizações no local (das filiais, etc.) de monitorização de rede com base na cloud. NPM faz parte de registos do Azure Monitor. NPM oferece uma extensão para o ExpressRoute permite-lhe monitorizar o desempenho da rede sobre circuitos do ExpressRoute que estão configurados para utilizar o peering privado ou peering da Microsoft. Quando configurar NPM para ExpressRoute, pode detetar problemas de rede para identificar e eliminar. Este serviço também está disponível para a Cloud do Azure Government.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Pode:
 
@@ -58,7 +60,7 @@ Crie uma área de trabalho na subscrição que tem a ligação de VNets a circui
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. Na parte inferior da principal **Monitor de desempenho de rede** página, clique em **Create** para abrir **Monitor de desempenho de rede - criar nova solução** página. Clique em **registo de área de trabalho Analytics - Selecione uma área de trabalho** para abrir a página de áreas de trabalho. Clique em **+ criar nova área de trabalho** para abrir a página de área de trabalho.
-3. Sobre o **área de trabalho do Log Analytics** página, selecione **criar novo**, em seguida, configure as seguintes definições:
+3. Sobre o **área de trabalho do Log Analytics** página, selecione **criar nova**, em seguida, configure as seguintes definições:
 
   * Área de trabalho de análise de registo - escreva um nome para a área de trabalho.
   * Subscrição - se tiver várias subscrições, selecione aquele que pretende associar a área de trabalho.
@@ -98,7 +100,7 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação do 
 2. Na página **Bem-vindo**, clique em **Seguinte**.
 3. Sobre o **termos de licenciamento** página, leia a licença e, em seguida, clique em **concordo**.
 4. Sobre o **pasta de destino** página, altere ou mantenha a pasta de instalação predefinida e, em seguida, clique em **próxima**.
-5. Sobre o **opções de configuração do agente** página, pode optar por ligar o agente ao Azure Log Analytics ou o Operations Manager. Em alternativa, pode deixar as escolhas em branco se pretender configurar o agente mais tarde. Depois de fazer sua selection(s), clique em **seguinte**.
+5. Sobre o **opções de configuração do agente** página, pode optar por ligar o agente para registos do Azure Monitor ou o Operations Manager. Em alternativa, pode deixar as escolhas em branco se pretender configurar o agente mais tarde. Depois de fazer sua selection(s), clique em **seguinte**.
 
   * Se optar por ligar à **do Azure Log Analytics**, cole a **ID de área de trabalho** e **chave da área de trabalho** (chave primária) que copiou no bloco de notas na secção anterior. Clique depois em **Seguinte**.
 
@@ -111,7 +113,7 @@ Recomendamos que instale, pelo menos, dois agentes em cada lado da ligação do 
     ![Conta](./media/how-to-npm/10.png)
 6. Sobre o **pronto para instalar** página, reveja as suas opções e, em seguida, clique em **instalar**.
 7. Na página **Configuração Concluída com Êxito**, clique em **Concluir**.
-8. Quando terminar, o Microsoft Monitoring Agent é apresentada no painel de controlo. Pode rever a configuração e certifique-se de que o agente está ligado ao Azure Log Analytics. Quando estiver ligado, o agente apresenta uma mensagem que diz: **O Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
+8. Quando terminar, o Microsoft Monitoring Agent é apresentada no painel de controlo. Pode rever a configuração e certifique-se de que o agente está ligado aos registos do Azure Monitor. Quando estiver ligado, o agente apresenta uma mensagem que diz: **O Microsoft Monitoring Agent foi ligado com êxito para o serviço do Microsoft Operations Management Suite**.
 
 9. Repita este procedimento para cada VNET que tem de ser monitorizados.
 
@@ -135,7 +137,7 @@ Pode verificar facilmente se os agentes estão a comunicar.
 1. Num servidor com o agente de monitorização, abra a **painel de controlo**.
 2. Abra o **Microsoft Monitoring Agent**.
 3. Clique nas **do Azure Log Analytics** separador.
-4. Na **estado** coluna, deverá ver que o agente ligado com êxito para o Log Analytics.
+4. Na **estado** coluna, deverá ver que o agente ligado com êxito para os registos do Azure Monitor.
 
   ![status](./media/how-to-npm/12.png)
 

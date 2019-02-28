@@ -12,14 +12,18 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79abead77705d13df909703a234bf72ee121a5be
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301184"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961317"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>O que é a aplicação Microsoft Authenticator?
+
+>[!Important]
+>Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
 
 Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo:
@@ -31,7 +35,7 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 >[!Important]
 >A aplicação Microsoft Authenticator funciona com qualquer aplicação que utiliza a verificação de dois fatores e de qualquer conta que suporte os padrões baseados no tempo palavra-passe Monouso (TOTP).
 
->Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Sua organização pode implicar a utilizar uma aplicação de autenticação para início de sessão e aceder aos seus dados organizacionais e documentos. Embora o seu nome de utilizador poderá ser apresentada na aplicação, a conta, na verdade, não está configurada para atuar como um método de verificação até concluir o processo de registo. Para obter mais informações, consulte [adicionar a sua conta escolar ou profissional](user-help-auth-app-overview.md).
 
 >Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda. Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.
 

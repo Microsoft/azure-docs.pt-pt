@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: juliako
-ms.openlocfilehash: 471bc34272b8e141c8640bd218bdafd840850d24
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cda029dd11e8cb4cb07e9fce7eef95d6d4d78d7e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672275"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960226"
 ---
 # <a name="cloud-upload-and-storage"></a>Carregamento e armazenamento na cloud
 
@@ -35,12 +35,10 @@ Existem diferentes SKUs, pode escolher para a sua conta de armazenamento. Para o
 
 ## <a name="assets-in-a-storage-account"></a>Recursos numa conta de armazenamento
 
-Em serviços de multimédia v3, as APIs de armazenamento são utilizadas para carregar ficheiros.
+Em serviços de multimédia v3, as APIs de armazenamento são utilizadas para carregar ficheiros para ativos. Para obter mais informações, consulte [conceito de ativos](assets-concept.md).
 
 > [!Note]
 > Não deve tentar alterar os conteúdos de contentores de BLOBs que foram gerados pelo SDK de serviços de multimédia sem utilizar as APIs dos serviços de multimédia.
-
-Para ver como utilizar as APIs de armazenamento com os serviços de multimédia para carregar os ficheiros de entrada, confira [criar uma entrada da tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md). 
  
 ## <a name="next-steps"></a>Passos Seguintes
 

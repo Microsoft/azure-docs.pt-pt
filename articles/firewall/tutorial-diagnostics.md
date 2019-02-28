@@ -7,18 +7,20 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426172"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958988"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: monitorizar registos e métricas do Azure Firewall
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Monitorizar métricas e registos de Firewall do Azure
 
 Pode monitorizar os registos do Azure Firewall com registos de firewall. Também pode utilizar os registos de atividades para auditar operações nos recursos do Azure Firewall. Com as métricas, pode ver os contadores de desempenho no portal. 
 
-Pode aceder a alguns destes registos através do portal. Os registos podem ser enviados para o [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), o Armazenamento e os Hubs de Eventos, e analisados no Log Analytics ou através de ferramentas diferentes, como o Excel e o Power BI.
+Pode aceder a alguns destes registos através do portal. Os registos podem ser enviados para [registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), armazenamento e os Hubs de eventos e analisados no Azure Monitor registos ou através de ferramentas diferentes, como o Excel e o Power BI.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Neste tutorial, ficará a saber como:
 
@@ -48,7 +50,7 @@ Pode demorar alguns minutos até que os dados sejam apresentados nos seus regist
 
 3. Para iniciar a recolha de dados, clique em **Ativar os diagnósticos**.
 4. A página **Definições de diagnóstico** fornece as definições para os registos de diagnóstico. 
-5. Neste exemplo, o Log Analytics armazena os registos, por isso escreva **Análise do registo da firewall** como o nome.
+5. Neste exemplo, registos de Monitor do Azure armazena os logs, por isso escreva **análise do log de Firewall** para o nome.
 6. Clique em **Enviar para o Log Analytics** para configurar a sua área de trabalho. Também pode utilizar os hubs de eventos e uma conta de armazenamento para guardar os registos de diagnóstico.
 7. Em **Log Analytics**, clique em **Configurar**.
 8. Na página Áreas de Trabalho do Log Analytics, clique em **Criar Nova Área de Trabalho**.
@@ -89,14 +91,14 @@ Para ativar o registo de diagnósticos, utilize os seguintes passos:
 
 Pode ver e analisar os dados de registo de atividades através de um dos seguintes métodos:
 
-* **Ferramentas do Azure**: recuperar informações de registo de atividades através do Azure PowerShell, a CLI do Azure, a API REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), pode experimentá-lo gratuitamente. Ao utilizar o [pacote de conteúdos de Registos de Atividades do Azure para o Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), pode analisar os seus dados com dashboards pré-configurados que podem ser utilizados tal como estão ou personalizados.
+* **Ferramentas do Azure**: Obter informações de registo de Atividades através do Azure PowerShell, a CLI do Azure, a API de REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Power BI**: Se ainda não tiver uma [Power BI](https://powerbi.microsoft.com/pricing) conta, pode experimentar gratuitamente. Ao utilizar o [pacote de conteúdos de Registos de Atividades do Azure para o Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/), pode analisar os seus dados com dashboards pré-configurados que podem ser utilizados tal como estão ou personalizados.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ver e analisar os registos de regras de rede e de aplicação
 
-O Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) recolhe os ficheiros de registo de contadores e de eventos. Inclui visualizações e capacidades de pesquisa poderosas para analisar os seus registos.
+[Registos de Monitor do Azure](../azure-monitor/insights/azure-networking-analytics.md) recolhe os ficheiros de registo de eventos e de contador. Inclui visualizações e capacidades de pesquisa poderosas para analisar os seus registos.
 
-Para consultas de exemplo do Log Analytics do Azure Firewall, veja [Exemplos do Azure Firewall do Log Analytics](log-analytics-samples.md).
+Para consultas de exemplo de análise de registo de Firewall do Azure, veja [amostras do Firewall do Azure log analytics](log-analytics-samples.md).
 
 Também pode ligar à sua conta de armazenamento e obter as entradas de registo JSON para os registos de acesso e desempenho. Depois de transferir os ficheiros JSON, pode convertê-los em CSV e visualizá-los no Excel, Power BI ou qualquer outra ferramenta de visualização de dados.
 
@@ -108,10 +110,10 @@ Navegue até ao Azure Firewall, em **Monitorização**, clique em **Métricas**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que configurou a firewall para recolher registos, pode explorar o Log Analytics para ver os seus dados.
+Agora que configurou a firewall para recolher registos, pode explorar os registos do Azure Monitor para ver os seus dados.
 
 > [!div class="nextstepaction"]
-> [Soluções de monitorização de rede no Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)
+> [Monitorização de soluções no Azure Monitor registos da rede](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

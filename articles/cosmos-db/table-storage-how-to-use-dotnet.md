@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
-ms.openlocfilehash: 7798af5d667bcf70ba562bb7198f9af570f3005a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 57ed02463555ce9e958aedd9c2b317f7a167567b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044421"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985891"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introdução ao armazenamento de Tabelas do Azure e à API de Tabelas do Azure Cosmos DB com .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,7 +36,6 @@ Para concluir este exemplo com êxito, precisa do seguinte:
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Biblioteca Comum do Armazenamento do Azure para .NET (Pré-visualização)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - Um pacote de pré-visualização obrigatório que é suportado em ambientes de produção. 
 * [Biblioteca de Tabela do CosmosDB do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) - Esta biblioteca está atualmente disponível apenas para o .NET Standard, ainda não está disponível para .NET Core.
-* [Gestor de Configuração do Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
@@ -77,14 +76,11 @@ Há três pacotes recomendados a que tem de fazer referência no seu projeto par
 
 * [Biblioteca de Tabelas do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Este pacote fornece acesso programático a recursos de dados na sua conta de armazenamento de Tabelas do Azure ou conta da API de Tabelas do Azure Cosmos DB. Esta biblioteca está atualmente disponível apenas para o .NET Standard, ainda não está disponível para .NET Core.
 
-* [Biblioteca do Gestor de configuração do Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Este pacote fornece uma classe para analisar uma cadeia de ligação num ficheiro de configuração, independentemente de onde a sua aplicação está em execução.
-
 Para obter os pacotes NuGet, siga estes passos:
 
 1. Clique com o botão direito do rato no projeto no **Explorador de Soluções** e escolha **Gerir Pacotes NuGet**.
 2. Procure online por "Microsoft.Azure.Storage.Common", escolha a versão <= 9.0.0.1 e selecione **Instalar** para instalar a Biblioteca Comum do Armazenamento do Azure para .NET (Pré-visualização) e as respetivas dependências. Certifique-se de que a caixa **Incluir pré-lançamento** está marcada, uma vez que se trata de um pacote de pré-visualização.
 3. Procure online por "Microsoft.Azure.CosmosDB.Table" e selecione **Instalar** para instalar a Biblioteca de Tabelas do Microsoft Azure Cosmos DB.
-4. Procure online por "WindowsAzure.ConfigurationManager" e selecione **Instalar** para instalar a Biblioteca do Gestor de Configuração do Microsoft Azure.
 
 > [!NOTE]
 > As dependências ODataLib na Biblioteca Comum de Armazenamento para .NET são resolvidas pelos pacotes ODataLib disponíveis no NuGet e não pelo WCF Data Services. As bibliotecas ODataLib podem ser transferidas diretamente ou referenciadas pelo seu projeto de código através do NuGet. Os pacotes ODataLib específicos utilizados da Biblioteca de Clientes de Armazenamento são [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/) e [Spatial](https://nuget.org/packages/System.Spatial/). Embora estas bibliotecas sejam utilizadas pelas classes do armazenamento de Tabelas do Azure, são dependências necessárias para a programação com a Biblioteca Comum de Armazenamento.

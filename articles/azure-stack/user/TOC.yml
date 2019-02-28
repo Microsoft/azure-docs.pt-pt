@@ -148,6 +148,8 @@ items:
           href: azure-stack-solution-template-kubernetes-azuread.md
         - name: Implementar o Kubernetes com o AD FS
           href: azure-stack-solution-template-kubernetes-adfs.md
+        - name: Ativar o dashboard do Kubernetes
+          href: azure-stack-solution-template-kubernetes-dashboard.md
         - name: Resolver problemas de cluster do Kubernetes
           href: azure-stack-solution-template-kubernetes-trouble.md
       - name: Implementar os serviços cognitivos
@@ -179,7 +181,7 @@ items:
           href: azure-stack-version-profiles-powershell.md
         - name: CLI do Azure
           href: azure-stack-version-profiles-azurecli2.md
-        - name: GO
+        - name: Ir
           href: azure-stack-version-profiles-go.md
         - name: Ruby
           href: azure-stack-version-profiles-ruby.md
@@ -233,9 +235,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formação e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 0a573a5e9c79ffc2a9db52705cf229b3b776df65
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: a06965bc494da93dfb945ccdfbbf10db310df48c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411701"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986299"

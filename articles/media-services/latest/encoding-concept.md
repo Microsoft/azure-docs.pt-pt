@@ -9,19 +9,29 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 52e7fdf6de25300d4f78ee9822aca4ad83f646e9
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: ccf298c99851dc2418da894431c5c86adafe59b3
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408430"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959447"
 ---
 # <a name="encoding-with-media-services"></a>Encoding com Media Services
 
-Serviços de multimédia do Azure permite-lhe a codificar os seus ficheiros multimédia digital de alta qualidade em formatos que podem ser jogados numa grande variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Este tópico fornece orientações sobre como codificar o conteúdo com serviços de multimédia v3.
+Serviços de multimédia do Azure permite-lhe a codificar seus arquivos de mídia digital de alta qualidade em ficheiros MP4 de velocidade de transmissão adaptável, para que seu conteúdo pode ser jogado numa grande variedade de navegadores e dispositivos. Uma tarefa de codificação de serviços de multimédia com êxito cria uma saída ativo com um conjunto de MP4s de velocidade de transmissão adaptável e arquivos de manifesto (cliente e servidor). Neste ponto, pode aproveitar [empacotamento dinâmico](dynamic-packaging-overview.md).
+
+Para fazer vídeos na saída Asset disponível para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e, em seguida, crie URLs de transmissão em fluxo. Em seguida, com base no formato especificado no manifesto, seus clientes recebem o fluxo no protocolo que escolheu.
+
+O diagrama seguinte mostra o streaming sob demanda com o fluxo de trabalho de empacotamento dinâmico.
+
+![Codificação dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+
+Este tópico fornece orientações sobre como codificar o conteúdo com serviços de multimédia v3.
+
+## <a name="transforms-and-jobs"></a>Transformações e tarefas
 
 Codificar com serviços de multimédia v3, tem de criar uma [transformar](https://docs.microsoft.com/rest/api/media/transforms) e uma [tarefa](https://docs.microsoft.com/rest/api/media/jobs). Uma transformação define a receita para as suas definições e saídas de codificação e a tarefa é uma instância da receita. Para obter mais informações, consulte [transforma e tarefas](transforms-jobs-concept.md)
 
@@ -60,9 +70,11 @@ Serviços de multimédia suporta totalmente a personalizar todos os valores nas 
 
 ## <a name="scaling-encoding-in-v3"></a>Dimensionar codificação da v3
 
-Atualmente, os clientes têm a utilizar o portal do Azure ou serviços de multimédia v2 APIs para definir o RUs (conforme descrito em [Dimensionar processamento de multimédia](../previous/media-services-scale-media-processing-overview.md). 
+Dimensionar processamento de multimédia, veja [dimensionamento com a CLI](media-reserved-units-cli-how-to.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Transformações e tarefas](transforms-jobs-concept.md)
+* [Codificar a partir de um URL HTTPS com configurações predefinidas incorporadas](job-input-from-http-how-to.md)
+* [Codificar um arquivo local usando as configurações predefinidas incorporadas](job-input-from-local-file-how-to.md)
+* [Criar um personalizado predefinido para seus requisitos específicos de cenário ou dispositivo de destino](customize-encoder-presets-how-to.md)
 * [Carregar, codificar e transmitir em fluxo através dos Media Services](stream-files-tutorial-with-api.md)

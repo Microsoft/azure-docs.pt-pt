@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 73c94b79bb315c317d39ade704e2ee70a241a348
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187750"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984854"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilizar o Azure Monitor para VMs (pré-visualização) mapa para compreender os componentes da aplicação
 Visualizar os componentes da aplicação detetada em máquinas de virtuais Windows e Linux em execução no seu ambiente pode ser observado de duas formas com o Azure Monitor para as VMs, de uma máquina virtual diretamente ou através de grupos de VMs do Azure Monitor do Azure. 
@@ -39,7 +39,7 @@ Quando clica na máquina virtual, o **propriedades** painel é expandido no lado
 
 ![Propriedades do sistema do computador](./media/vminsights-maps/properties-pane-01.png)
 
-No lado direito do painel, clique nas **registo de eventos** ícone para mudar o foco do painel para mostrar uma lista das tabelas de dados recolhidos da VM enviou para o Log Analytics e está disponível para consulta.  Clicar em qualquer um dos tipos de registos listados abre o **registos** filtrado de página para ver os resultados para esse tipo com uma consulta previamente configurada em relação a máquina virtual específica.  
+No lado direito do painel, clique nas **registo de eventos** ícone para mudar o foco do painel para mostrar uma lista das tabelas de dados recolhidos da VM enviou para o Azure Monitor e está disponível para consulta.  Clicar em qualquer um dos tipos de registos listados abre o **registos** filtrado de página para ver os resultados para esse tipo com uma consulta previamente configurada em relação a máquina virtual específica.  
 
 ![Lista de pesquisa de registo no painel de propriedades](./media/vminsights-maps/properties-pane-logs-01.png)
 

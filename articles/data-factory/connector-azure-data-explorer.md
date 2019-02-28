@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: orspod
-ms.openlocfilehash: f614c6770dd29bc3d6b42c36fe8c81d9f129cd81
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d30eab024fa988b3341c5efc9fe188ee4802720a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816662"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961079"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para ou a partir do Explorador de dados do Azure com o Azure Data Factory
 
@@ -44,6 +44,22 @@ O conector do Explorador de dados do Azure permite-lhe efetuar o seguinte:
 As secções seguintes fornecem detalhes sobre as propriedades que são utilizadas para definir entidades do Data Factory específicas para o conector do Explorador de dados do Azure.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço ligado
+
+O conector do Explorador de dados do Azure utiliza a autenticação do principal de serviço. Siga estes passos para obter um principal de serviço e conceder permissões:
+
+1. Registe-se uma entidade de aplicação no Azure Active Directory (Azure AD) ao seguir [registar a aplicação com um inquilino do Azure AD](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Tome nota dos seguintes valores, o que utilizar para definir o serviço ligado:
+
+    - ID da aplicação
+    - Chave da aplicação
+    - ID do inquilino
+
+2. Conceda a service principal permissão adequada no Explorador de dados do Azure. Consulte a [permissões de base de dados de gerir o Azure Data Explorer](../data-explorer/manage-database-permissions.md) com informações detalhadas sobre funções e permissões, bem como instruções sobre como gerir permissões. Em geral, precisa
+
+    - **Como origem**, pelo menos a conceder **Visualizador de base de dados** função à base de dados.
+    - **Como sink**, pelo menos a conceder **ingestor de base de dados** função à base de dados.
+
+>[!NOTE]
+>Ao utilizar a interface do Usuário do ADF para criar, as operações de listagem de bases de dados no serviço ligado ou lista tabelas num conjunto de dados podem exigir a permissão com privilégios mais alta para o principal de serviço. Em alternativa, pode optar por introduzir manualmente o nome de base de dados e o nome de tabela. Copie funciona de execução de atividade, desde que o principal de serviço é concedido com a permissão adequada para dados de leitura/escrita.
 
 As seguintes propriedades são suportadas para o serviço ligado do Explorador de dados do Azure:
 
@@ -162,7 +178,7 @@ Para copiar dados para o Explorador de dados do Azure, definir a propriedade de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como: **AzureDataExplorerSink** | Sim |
-| ingestionMappingName | Nome de uma pré-criada **[mapeamento de CSV](/azure/kusto/management/mappings#csv-mapping)** numa tabela de Kusto; Mapeamento de Avro no Explorador de dados do Azure e de mapeamento de JSON não são suportados diretamente, mas ainda pode copiar dados de ficheiros JSON/Avro. Para mapear as colunas de origem para o Azure Data Explorer, pode usar a atividade de cópia [mapeamento de colunas](copy-activity-schema-and-type-mapping.md) que também conjuntamente de funciona com mapeamentos de CSV de Explorador de dados do Azure – copiar atividade maps/voltar-shapes dados de origem para o sink com base na coluna mapeamento de definições, em seguida, mapeia a dados novamente com base na configuração de mapeamento de ingestão se existe. Aplica-se ao [todos os arquivos de origem de suportados](copy-activity-overview.md#supported-data-stores-and-formats) incluindo formatos JSON e Avro. | Não |
+| ingestionMappingName | Nome de uma pré-criada **[mapeamento de CSV](/azure/kusto/management/mappings#csv-mapping)** numa tabela de Kusto. Para mapear as colunas de origem para o Explorador de dados do Azure – o que se aplica ao **[suportadas/formatos de arquivos de origem](copy-activity-overview.md#supported-data-stores-and-formats)** incluindo CSV/JSON/Avro formatos etc., pode utilizar a atividade de cópia [coluna mapeamento](copy-activity-schema-and-type-mapping.md) (implicitamente por nome ou explicitamente configurado) e/ou mapeamentos de CSV de Explorador de dados do Azure. | Não |
 
 **Exemplo:**
 

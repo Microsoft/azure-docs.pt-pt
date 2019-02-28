@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 01/31/2019
+ms.date: 02/25/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92fc46dd3fe3c6526a9a85fd13ec7297bf270976
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 423399c93fca222dad2db3175036719a0cd5fdb9
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208899"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986163"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Atribuir licenças aos utilizadores pela associação de grupo no Azure Active Directory
 
@@ -35,38 +35,33 @@ Neste exemplo, o inquilino contém um grupo de segurança chamado **departamento
 
 ## <a name="step-1-assign-the-required-licenses"></a>Passo 1: Atribuir as licenças necessárias
 
-1. Inicie sessão para o [ **portal do Azure** ](https://portal.azure.com) com uma conta de administrador. Para gerir licenças, a conta tem de ser um administrador de conta de utilizador ou função de administrador global.
+1. Inicie sessão para o [ **Centro de administração do Azure AD** ](https://aad.portal.azure.com) com uma conta de administrador de licença. Para gerir licenças, a conta tem de ser um administrador de licenças, o administrador de utilizadores ou o administrador global.
 
-2. Selecione **todos os serviços** no painel de navegação à esquerda e, em seguida, selecione **Azure Active Directory**. Pode adicionar este painel aos Favoritos ou afixá-la ao dashboard do portal.
+2. Selecione **licenças** para abrir um painel onde pode ver e gerir todos os produtos sujeito a licença no inquilino.
 
-3. Sobre o **do Azure Active Directory** painel, selecione **licenças** para abrir um painel onde pode ver e gerir todos os produtos sujeito a licença no inquilino.
-
-4. Sob **todos os produtos**, selecione Office 365 Enterprise E3 e Enterprise Mobility + Security selecionando os nomes de produtos. Para começar a atribuição, selecione **atribuir** na parte superior do painel.
+4. Sob **todos os produtos**, selecione Office 365 Enterprise E5 e Enterprise Mobility + Security E3, selecionando os nomes de produtos. Para começar a atribuição, selecione **atribuir** na parte superior do painel.
 
    ![Todos os produtos, atribuir licenças](./media/licensing-groups-assign/all-products-assign.png)
+  
+5. Sobre o **atribuir licenças** painel, selecione **utilizadores e grupos** para abrir uma lista de utilizadores e grupos.
 
-5. Sobre o **atribuir licenças** painel, clique em **utilizadores e grupos** para abrir o **utilizadores e grupos** painel. Procure o nome do grupo *departamento de RH*, selecione o grupo e, em seguida, certifique-se de que confirme clicando **selecione** na parte inferior do painel.
+6. Selecione um utilizador ou grupo e, em seguida, utilize o **selecione** na parte inferior do painel para confirmar a sua seleção.
 
-   ![Selecionar um grupo](./media/licensing-groups-assign/select-a-group.png)
-
-6. Sobre o **atribuir licenças** painel, clique em **opções de atribuição (opcionais)**, que apresenta todos os planos de serviço incluídos nos dois produtos que selecionamos anteriormente. Encontrar **Yammer Enterprise** e ativá-la **desativar** para desativar o serviço de licença de produto. Confirme clicando **OK** na parte inferior **opções de atribuição**.
+7. Sobre o **atribuir licenças** painel, clique em **opções de atribuição**, que apresenta todos os planos de serviço incluídos nos dois produtos que selecionamos anteriormente. Encontrar **Yammer Enterprise** e ativá-la **desativar** para desativar o serviço de licença de produto. Confirme clicando **OK** na parte inferior **opções de licença**.
 
    ![Opções de atribuição](./media/licensing-groups-assign/assignment-options.png)
+  
+8. Para concluir a atribuição, no painel **Atribuir licença**, clique em **Atribuir**, na parte inferior.
 
-7. Para concluir a atribuição, no painel **Atribuir licença**, clique em **Atribuir**, na parte inferior.
+9. É apresentada uma notificação no canto superior direito que mostra o estado e o resultado do processo. Se não foi possível concluir a atribuição ao grupo (por exemplo, por causa de licenças pré-existentes no grupo), clique na notificação para ver os detalhes da falha.
 
-8. É apresentada uma notificação no canto superior direito que mostra o estado e o resultado do processo. Se não foi possível concluir a atribuição ao grupo (por exemplo, por causa de licenças pré-existentes no grupo), clique na notificação para ver os detalhes da falha.
-
-Agora, especificamos um modelo de licença para o grupo do departamento de RH. Um processo em segundo plano no Azure AD foi iniciado para processar todos os membros existentes desse grupo. Esta operação inicial poderá demorar algum tempo, consoante o tamanho atual do grupo. O passo seguinte descreve como verificar se o processo foi concluída e determinar se as atenção adicional é necessário para resolver problemas.
-
-> [!NOTE]
-> Pode começar a atribuição do mesmo a partir de uma localização alternativa: **Utilizadores e grupos** no Azure AD. Aceda a **do Azure Active Directory** > **utilizadores e grupos** > **todos os grupos**. Em seguida, encontrar o grupo, selecione-a e vá para o **licenças** separador. O **atribuir** botão na parte superior do painel abre o painel de atribuição de licença.
+Quando atribuir licenças a um grupo, do Azure AD processa todos os membros existentes desse grupo. Este processo poderá demorar algum tempo, variando o tamanho do grupo. O passo seguinte descreve como verificar se o processo foi concluída e determinar se as atenção adicional é necessário para resolver problemas.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Passo 2: Certifique-se de que a atribuição inicial foi concluída
 
-1. Aceda a **do Azure Active Directory** > **utilizadores e grupos** > **todos os grupos**. Em seguida, localize a **departamento de RH** grupo que licenças foram atribuídas a.
+1. Aceda a **do Azure Active Directory** > **grupos**. Selecione o grupo que licenças foram atribuídas a.
 
-2. Sobre o **departamento de RH** painel de grupo, selecione **licenças**. Isto permite-lhe confirmar rapidamente se licenças foram atribuídas totalmente a utilizadores e se existem quaisquer erros que precisa examinar. As informações seguintes estão disponíveis:
+2. No painel de grupo, selecione **licenças**. Isto permite-lhe confirmar rapidamente se licenças foram atribuídas totalmente a utilizadores e se existem quaisquer erros que precisa examinar. As informações seguintes estão disponíveis:
 
    - Lista de licenças de produtos que estão atualmente atribuída ao grupo. Selecione uma entrada para mostrar os serviços específicos que foram ativados e fazer alterações.
 
@@ -86,8 +81,8 @@ Agora, especificamos um modelo de licença para o grupo do departamento de RH. U
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Passo 3: Verifique a existência de problemas de licença e resolvê-los
 
-1. Aceda a **do Azure Active Directory** > **utilizadores e grupos** > **todos os grupos**e localize o **departamento de RH** grupo de licenças foram atribuídas a.
-2. Sobre o **departamento de RH** painel de grupo, selecione **licenças**. A notificação na parte superior do painel mostra que há 10 utilizadores licenças não foi possível atribuir a. Clicar nele abre-se de uma lista de todos os utilizadores num Estado de erro de licenciamento para este grupo.
+1. Aceda a **do Azure Active Directory** > **grupos**e encontrar o grupo que licenças foram atribuídas a.
+2. No painel de grupo, selecione **licenças**. A notificação na parte superior do painel mostra que há 10 utilizadores licenças não foi possível atribuir a. Abra-o para ver uma lista de todos os utilizadores num Estado de erro de licenciamento para este grupo.
 3. O **atribuições falhadas** coluna nos informa que ambas as licenças de produto não foi possível atribuir aos utilizadores. O **principais motivo da falha** coluna contém a causa da falha. Neste caso, ele possui **planos do serviço em conflito**.
 
    ![Atribuições falhadas](./media/licensing-groups-assign/failed-assignments.png)

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231976"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986333"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Início rápido: Criar um balanceador de carga básico público com o portal do Azure
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Início rápido: Criar um balanceador de carga básico com o portal do Azure
 
 Balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por máquinas virtuais (VMs). Pode utilizar o portal do Azure para criar um balanceador de carga e balancear o tráfego entre VMs. Este guia de introdução mostra-lhe como criar e configurar um balanceador de carga, servidores de back-end e recursos de rede ao escalão de preço básico.
 
@@ -30,25 +30,27 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para fazer as tarefas neste início rápido, inicie sessão para o [portal do Azure](http://portal.azure.com).
 
-## <a name="create-a-basic-load-balancer"></a>Criar um balanceador de carga Básico
+## <a name="create-a-basic-load-balancer"></a>Criar um Balanceador de Carga Básico
 
 Primeiro, crie um balanceador de carga básico público com o portal. O nome e endereço IP público que criou são automaticamente configurados como front-end de Balanceador de carga.
 
-1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-   
-1. Na **criar Balanceador de carga** painel, escreva ou selecione estes valores:
-   
-   - **Nome**: Tipo *MyLoadBalancer*.
-   - **Tipo de**: Selecione **público**. 
-   - **SKU**: Selecione **Básico**.
-   - **Endereço IP público:** Selecione **Criar novo**. 
-     - **Endereço IP público** campo: Tipo *MyPublicIP*.
-     - **Configurar o endereço IP público** > **atribuição**: Selecione **dinâmica**.
-   - **ResourceGroup**: Selecione **criar novo**, em seguida, introduza *MyResourceGroupLB*e selecione **OK**. 
-   
-1. Selecione **Criar**.
-   
-![Criar um balanceador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
+2. Na **Noções básicas** separador da **criar Balanceador de carga** página, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **rever + criar**:
+
+    | Definição                 | Valor                                              |
+    | ---                     | ---                                                |
+    | Subscrição               | Selecione a sua subscrição.    |    
+    | Grupo de recursos         | Selecione **criar novo** e escreva *MyResourceGroupLB* na caixa de texto.|
+    | Name                   | *myLoadBalancer*                                   |
+    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Type          | Selecione **público**.                                        |
+    | SKU           | Selecione **Básico**.                          |
+    | Endereço IP público | Selecione **Criar novo**. |
+    | Nome do endereço IP público              | *MyPublicIP*   |
+    | Atribuição| Estático|
+
+3. Na **rever + criar** separador, clique em **criar**.   
+
 
 ## <a name="create-back-end-servers"></a>Criar servidores de back-end
 
@@ -82,7 +84,7 @@ Em seguida, crie uma rede virtual e duas máquinas virtuais para o conjunto de b
 1. Selecione o **Networking** separador ou selecione **seguinte: Discos**, em seguida, **seguinte: Funcionamento em rede**. 
    
    Certifique-se de que estão selecionadas as seguintes:
-   - **Rede virtual**: **myVnet**
+   - **Rede virtual**: **MyVnet**
    - **Sub-rede**: **MyBackendSubnet**
    - **IP público**: **MyVM1-ip**
    
@@ -196,12 +198,12 @@ A regra de Balanceador de carga com o nome **MyLoadBalancerRule** escuta na port
 1. Sobre o **Adicionar regra de balanceamento de carga** página, escreva ou selecione os seguintes valores:
    
    - **Nome**: Tipo *MyLoadBalancerRule*.
-   - **Endereço IP de front-end:** Tipo *LoadBalancerFrontend*.
+   - **Endereço IP de front-end:** Type *LoadBalancerFrontend*.
    - **Protocolo**: Selecione **TCP**.
    - **Porta**: Tipo *80*.
    - **Porta de back-end**: Tipo *80*.
    - **Conjunto back-end**: Selecione **MyBackendPool**.
-   - **Sonda de estado de funcionamento**: Selecione **MyHealthProbe**. 
+   - **Sonda de estado de funcionamento**: Select **MyHealthProbe**. 
    
 1. Selecione **OK**.
    

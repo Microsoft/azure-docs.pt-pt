@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 31aaa24dd6020cb8203e4ab1bfec8ce3e0ffd2b8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d273e963c6191fdc87c4f19c6465d8a9026a074e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299695"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959413"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Hubs de eventos do Azure no Azure Monitor
 
@@ -48,7 +48,7 @@ Para as métricas que suporta dimensões, tem de filtrar com o valor de dimensã
 
 ## <a name="billing"></a>Faturação
 
-Uso de métricas no Azure Monitor é atualmente gratuito. No entanto, se utilizar soluções adicionais que ingerir dados de métricas, pode ser cobrado por estas soluções. Por exemplo, é cobrado pelo armazenamento do Azure se arquivar dados de métricas para uma conta de armazenamento do Azure. Também são cobradas pelo Azure se os transmitir dados de métricas para o Log Analytics para análise avançada.
+Uso de métricas no Azure Monitor é atualmente gratuito. No entanto, se utilizar soluções adicionais que ingerir dados de métricas, pode ser cobrado por estas soluções. Por exemplo, é cobrado pelo armazenamento do Azure se arquivar dados de métricas para uma conta de armazenamento do Azure. Também são cobradas pelo Azure se os transmitir dados de métricas para os registos do Azure Monitor para análises avançadas.
 
 As métricas seguintes dão-lhe uma descrição geral do Estado de funcionamento do seu serviço. 
 

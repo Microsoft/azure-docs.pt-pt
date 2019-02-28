@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: f6179c14c0a057a08203764316eeb43783cd7fc8
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 02/27/2019
+ms.openlocfilehash: 0d0ee3664a5f442e4fbf61af3111a53110afd740
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887748"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984752"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criar e utilizar a georreplicação ativa
 
@@ -51,9 +51,6 @@ Tira partido da georreplicação ativa a [Always On](https://docs.microsoft.com/
 > Se houver uma falha de rede entre duas regiões, podemos Repetir cada 10 segundos para voltar a estabelecer ligações.
 > [!IMPORTANT]
 > Para garantir que uma alteração fundamental na base de dados primário é replicada para uma secundária antes da ativação pós-falha é, pode forçar a sincronização para garantir que a replicação das alterações críticas (por exemplo, atualizações de palavra-passe). Sincronização forçada afeta o desempenho, porque ele bloqueia o thread de chamada até que todas as transações consolidadas são replicadas. Para obter detalhes, consulte [sp_wait_for_database_copy_sync](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync). Para monitorizar o desfasamento de replicação entre a base de dados primária e geo-secundária, consulte [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).
-
-
-
 
 A figura seguinte mostra um exemplo de georreplicação ativa configurada com um site primário na região e.u.a. Centro-Norte e secundárias na região Centro-Sul.
 
@@ -110,7 +107,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Mantendo credenciais e as regras de firewall em sincronia**
 
-Recomendamos que utilize [regras de firewall de base de dados](sql-database-firewall-configure.md) para georreplicado bases de dados para que estas regras podem ser replicadas com a base de dados para garantir que todas as bases de dados secundárias têm as mesmas regras de firewall como principal. Essa abordagem elimina a necessidade dos clientes manualmente configurar e manter regras de firewall nos servidores que alojam as bases de dados primárias e secundárias. Da mesma forma, usando [utilizadores de base de dados contidos](sql-database-manage-logins.md) para dados de acesso garante que as bases de dados primários e secundários têm sempre a mesma as credenciais de utilizador durante uma ativação pós-falha, não há nenhum interrupções devido a incompatibilidades com inícios de sessão e palavras-passe. Com a adição da [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerir o acesso de utilizador para bases de dados primárias e secundárias e eliminando a necessidade de gerenciamento de credenciais em bases de dados completamente.
+Recomendamos que utilize [regras de firewall do IP de nível de base de dados](sql-database-firewall-configure.md) para georreplicado bases de dados para que estas regras podem ser replicadas com a base de dados para garantir que todas as bases de dados secundárias têm as mesmas regras de firewall do IP como principal. Essa abordagem elimina a necessidade dos clientes manualmente configurar e manter regras de firewall nos servidores que alojam as bases de dados primárias e secundárias. Da mesma forma, usando [utilizadores de base de dados contidos](sql-database-manage-logins.md) para dados de acesso garante que as bases de dados primários e secundários têm sempre a mesma as credenciais de utilizador durante uma ativação pós-falha, não há nenhum interrupções devido a incompatibilidades com inícios de sessão e palavras-passe. Com a adição da [do Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerir o acesso de utilizador para bases de dados primárias e secundárias e eliminando a necessidade de gerenciamento de credenciais em bases de dados completamente.
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade uma base de dados primária
 

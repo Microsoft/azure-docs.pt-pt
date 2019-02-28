@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: d7f1279dbe253a9bc18b9e99ac9dbdf2a7cf52a1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870606"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984888"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Início rápido: Criar uma base de dados na base de dados do SQL do Azure no portal do Azure
 
@@ -29,7 +29,7 @@ Para obter todos os passos neste início rápido, inicie sessão para o [portal 
 
 ## <a name="create-a-single-database"></a>Criar uma base de dados
 
-Uma base de dados tem um conjunto definido de recursos de computação, memória, e/s e armazenamento através de uma de duas [model(sql-database-purchase-models.md) de compra. Quando cria uma base de dados, também define um [servidor de base de dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo dentro [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) numa determinada região.
+Uma base de dados tem um conjunto definido de recursos de computação, memória, e/s e armazenamento através de uma de duas [modelos de compra](sql-database-purchase-models.md). Quando cria uma base de dados, também define um [servidor de base de dados SQL](sql-database-servers.md) para gerenciá-lo e colocá-lo dentro [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) numa determinada região.
 
 Para criar uma base de dados que contém os dados de exemplo do AdventureWorksLT:
 

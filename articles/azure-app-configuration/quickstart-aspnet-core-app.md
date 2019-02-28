@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: d9f27ae176796f72f9c6f460bf69c3f9a7acf0f7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ce19041b29d567f061dde59fbe041adf61f889a0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884816"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961487"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar uma aplicação ASP.NET Core com a configuração de aplicações do Azure
 
@@ -53,8 +53,6 @@ Adicionará a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/asp
 
 - Abra o ficheiro *.csproj*. Adicionar um `UserSecretsId` elemento, conforme mostrado abaixo e substitua o respetivo valor com os seus próprios, que é normalmente um GUID. Guarde o ficheiro.
 
-    *TestAppConfig.csproj:*
-
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -87,7 +85,7 @@ Adicionará a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/asp
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
-        dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>"
+        dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
 
     Gestor de segredo só serão utilizadas para testar a aplicação web localmente. Quando a aplicação é implementada (por exemplo, para [App Service do Azure](https://azure.microsoft.com/services/app-service/web)), que irá utilizar uma definição da aplicação (por exemplo, **cadeias de ligação** no serviço de aplicações) em vez de armazenar a cadeia de ligação com o segredo Gestor.
 

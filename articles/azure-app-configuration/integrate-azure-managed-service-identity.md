@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: bf8a1955f2c8e4a72e7cf88b013f8d5d5c2e672f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 874522b6b4ca3739e0736d4f70f76bb82cad25f9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884768"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957356"
 ---
 # <a name="tutorial-integrate-with-azure-managed-identities"></a>Tutorial: Integrar identidades geridas do Azure
 
@@ -77,7 +77,7 @@ Para configurar uma identidade gerida no portal, primeiro criar uma aplicação 
 
     ```json
     "AppConfig": {
-        "Url": "<service_endpoint>"
+        "Endpoint": "<service_endpoint>"
     }
     ```
 
@@ -89,7 +89,7 @@ Para configurar uma identidade gerida no portal, primeiro criar uma aplicação 
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfig:Url"]));
+                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"]));
             })
             .UseStartup<Startup>();
     ```
@@ -164,11 +164,27 @@ http://<app_name>.azurewebsites.net
 
 ![aplicação em execução no Serviço de Aplicações](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
-<!-- ### Use a managed identity in a .NET Core app -->
+## <a name="use-managed-identity-in-other-languages"></a>Utilizar a identidade gerida em outros idiomas
 
-<!-- ### Use a managed identity in a .NET Framework app -->
+Fornecedores de configuração de aplicação para o .NET Framework e Java Spring também têm suporte incorporado para identidade gerida. Nestes casos, simplesmente usa ponto final do URL de seu arquivo de configuração de aplicação em vez de sua cadeia de ligação completo quando configurar um fornecedor. Por exemplo, para a aplicação de consola do .NET Framework criada no guia de introdução, que especifique as seguintes definições no *App. config* ficheiro:
 
-<!-- ### Use a managed identity in a Java Spring app -->
+    ```xml
+    <configSections>
+        <section name="configBuilders" type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" restartOnExternalChanges="false" requirePermission="false" />
+    </configSections>
+
+    <configBuilders>
+        <builders>
+            <add name="MyConfigStore" mode="Greedy" endpoint="${Endpoint}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
+            <add name="Environment" mode="Greedy" type="Microsoft.Configuration.ConfigurationBuilders.EnvironmentConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Environment" />
+        </builders>
+    </configBuilders>
+
+    <appSettings configBuilders="Environment,MyConfigStore">
+        <add key="AppName" value="Console App Demo" />
+        <add key="Endpoint" value ="Set via an environment variable - for example, dev, test, staging, or production endpoint." />
+    </appSettings>
+    ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -10,13 +10,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/04/2019
-ms.author: tulasim88
-ms.openlocfilehash: 288db572f6b50d370f1dab710d3b0e7ab5e50bd5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.author: tulasim
+ms.openlocfilehash: 09369e760c654e7e56067e6da02bb772bffa7400
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878243"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960849"
 ---
 # <a name="get-analytics-on-your-knowledge-base"></a>Obter análises da base de dados de conhecimento
 

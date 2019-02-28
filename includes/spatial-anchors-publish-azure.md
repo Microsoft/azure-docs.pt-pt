@@ -4,12 +4,12 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 692eb3fcd1187bf64ba5215631679c4cddf45d56
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3ee9aca1ee86b04998e357875b98b14782b3e56d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752159"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56963318"
 ---
 ### <a name="launch-the-publish-wizard"></a>Iniciar o assistente de publicação
 
@@ -51,7 +51,7 @@ Selecione **OK**.
 
 ### <a name="create-and-publish-the-web-app"></a>Criar e publicar a aplicação Web
 
-No **Nome da Aplicação**, escreva um nome único para a aplicação (os carateres válidos são `a-z`, `0-9` e `-`) ou aceite o nome exclusivo gerado automaticamente. O URL da aplicação Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
+No **Nome da Aplicação**, escreva um nome único para a aplicação (os carateres válidos são `a-z`, `0-9` e `-`) ou aceite o nome exclusivo gerado automaticamente. O URL da aplicação Web é `https://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação.
 
 Selecione **Criar** para começar a criar os recursos do Azure.
 
@@ -59,4 +59,4 @@ Depois de concluir o assistente, este publica a aplicação Web ASP.NET Core no 
 
 ![Aplicação Web ASP.NET publicada no Azure](./media/spatial-anchors-azure/web-app-running-live.png)
 
-O nome da aplicação especificado no [passo para criar e publicar](#create-and-publish-the-web-app) é utilizado como o prefixo de URL no formato `http://<app_name>.azurewebsites.net`. Tome nota deste URL que será utilizado mais tarde.
+O nome da aplicação especificado no [passo para criar e publicar](#create-and-publish-the-web-app) é utilizado como o prefixo de URL no formato `https://<app_name>.azurewebsites.net`. Tome nota deste URL que será utilizado mais tarde.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 26865acbf635f07db4799ab197e110d37cbe69e8
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54810912"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984344"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o escalão certo do IoT Hub para a sua solução
 
@@ -53,7 +53,7 @@ IoT Hub também oferece um escalão gratuito, que serve para teste e avaliação
 
 Os Hubs IoT do Azure contêm muitos componentes principais do [os Hubs de eventos do Azure](../event-hubs/event-hubs-features.md), incluindo [partições](../event-hubs/event-hubs-features.md#partitions). Fluxos de eventos para IoT Hubs geralmente são preenchidos com dados telemétricos recebidos comunicado por vários dispositivos de IoT. A criação de partições do fluxo de eventos é utilizada para reduzir contenções que ocorrem quando em simultâneo de leitura e escrita em fluxos de eventos. 
 
-O limite de partição é escolhido ao IoT Hub é criado e não pode ser alterado. O limite de máxima de partições para os Hubs IoT do escalão básico é 8 e para o escalão standard, o máximo são 32. A maioria dos hubs de IoT precisam apenas de 4 partições. Para obter mais informações sobre como determinar as partições, consulte as FAQ dos Hubs de eventos [quantas partições é necessário?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+O limite de partição é escolhido ao IoT Hub é criado e não pode ser alterado. O limite de máxima de partições para o escalão básico IoT Hub e IoT Hub de escalão standard é 32. A maioria dos hubs de IoT precisam apenas de 4 partições. Para obter mais informações sobre como determinar as partições, consulte as FAQ dos Hubs de eventos [quantas partições é necessário?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 
 ## <a name="tier-upgrade"></a>Atualização do escalão

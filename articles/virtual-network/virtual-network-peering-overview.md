@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 856da056f833b9c7bcff2c96ff0495d05f86366f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56667952"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958189"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -63,7 +63,7 @@ Quando as redes virtuais estão em modo de peering na mesma região, também pod
 
 ![trânsito de peering de rede virtual](./media/virtual-networks-peering-overview/figure04.png)
 
-O trânsito de gateway não é suportado na relação de peering entre redes virtuais criadas em regiões diferentes. Para que o trânsito de gateway funcione, ambas as redes virtuais na relação de peering têm de existir na mesma região. O trânsito de gateway entre redes virtuais criadas através de modelos de implementação diferentes (Resource Manager e clássico), só é suportado se o gateway estiver na rede virtual (Resource Manager). Para saber mais sobre como utilizar um gateway para trânsito, veja [Configurar um gateway de VPN para trânsito num peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O trânsito de gateway não é suportado na relação de peering entre redes virtuais criadas em regiões diferentes. Para que o trânsito de gateway funcione, ambas as redes virtuais na relação de peering têm de existir na mesma região. O trânsito de gateway entre redes virtuais criadas com modelos de implementação diferentes (Resource Manager e clássica), só é suportada se o gateway (VPN ou ExpressRoute) está na rede virtual (Resource Manager). Para saber mais sobre como utilizar um gateway para trânsito, veja [Configurar um gateway de VPN para trânsito num peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando as redes virtuais que partilham uma única ligação ExpressRoute do Azure estão em modo de peering, o tráfego entre as mesmas passa pela relação de peering (ou seja, pela rede principal do Azure). Pode continuar a utilizar gateways locais em cada rede virtual para ligar ao circuito no local. Em alternativa, pode utilizar um gateway partilhado e configurar o trânsito para conectividade no local.
 

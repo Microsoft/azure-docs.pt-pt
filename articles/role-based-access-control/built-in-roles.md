@@ -15,12 +15,12 @@ ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 106cda22f8f7c54441f438b61eb427446f36a69a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ce9ef687643de7ec9b289f74feea613fb9a1db7a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807495"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960625"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 
@@ -1628,11 +1628,11 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | Microsoft.Insights/Register/Action | Registar o fornecedor do Microsoft Insights |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | Testes web do Application Insights de leitura/escrita/eliminar. |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Pacotes de soluções do Log Analytics de leitura/escrita/eliminar. |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Pacotes de soluções de análise de registo de leitura/escrita/eliminar. |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Análise de registo de leitura/escrita/eliminar procuras guardadas. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executa uma consulta de pesquisa |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Obtém as chaves partilhadas para a área de trabalho. Estas chaves são utilizadas para ligar os agentes de informações operacionais da Microsoft à área de trabalho. |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Leitura/escrita/eliminar configurações de informações de armazenamento do Log Analytics. |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Configurações de informações de armazenamento de análise de registo de leitura/escrita/eliminar. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
@@ -1831,7 +1831,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | Microsoft.Authorization/policySetDefinitions/* | Criar e gerir conjuntos de políticas |
 > | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta |
 > | Microsoft.Management/managementGroups/read | Lista os grupos de gestão para o usuário autenticado. |
-> | Microsoft.operationalInsights/workspaces/*/read | Ver dados do Log Analytics |
+> | Microsoft.operationalInsights/workspaces/*/read | Ver dados do log analytics |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Security/*/read | Componentes de segurança de leitura e de políticas |
@@ -1886,7 +1886,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Ações** |  |
 > | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
 > | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta |
-> | Microsoft.operationalInsights/workspaces/*/read | Ver dados do Log Analytics |
+> | Microsoft.operationalInsights/workspaces/*/read | Ver dados do log analytics |
 > | Microsoft.Resources/deployments/* | Criar e gerir implementações de grupo de recursos |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Security/*/read | Componentes de segurança de leitura e de políticas |

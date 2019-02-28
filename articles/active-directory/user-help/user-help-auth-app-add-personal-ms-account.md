@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67cb3d049cc2d2f26be6d62270e677a5cbcd39cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455046"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961589"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Adicionar as suas contas pessoais da Microsoft
 Adicione as suas contas Microsoft pessoais, como para Outlook.com e Xbox LIVE para a aplicação Microsoft Authenticator para o processo de verificação de dois fatores padrão e o método de telefone de início de sessão.
@@ -67,5 +67,7 @@ Pode adicionar a sua conta Microsoft pessoal, primeiro, Ativando a verificação
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Depois de adicionar as suas contas para a aplicação, pode iniciar sessão com a aplicação de autenticador no seu dispositivo. Para obter mais informações, consulte [iniciar sessão com a aplicação](user-help-auth-app-sign-in.md).
+
+- Se estiver a ter dificuldades em seu código de verificação para a sua conta Microsoft pessoal, consulte a **resolução de problemas de código de verificação** secção a [as informações de segurança de conta Microsoft & verificação códigos de](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artigo.
 
 - Para dispositivos iOS, também pode criar cópias de segurança as credenciais da conta e relacionados com as definições de aplicação, como a ordem das suas contas, a nuvem. Para obter mais informações, consulte [cópia de segurança e recuperação com a aplicação Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

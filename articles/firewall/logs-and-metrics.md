@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0698f1dbc491781089ef94eec32f2a427fd3cca4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c129c394f3d694b832722287027c1f9e58028a33
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422393"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56957696"
 ---
 # <a name="azure-firewall-logs"></a>Registos de Firewall do Azure
 
 Pode monitorizar os registos do Azure Firewall com registos de firewall. Também pode utilizar os registos de atividades para auditar operações nos recursos do Azure Firewall.
 
-Pode aceder a alguns destes registos através do portal. Os registos podem ser enviados para o [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), o Armazenamento e os Hubs de Eventos, e analisados no Log Analytics ou através de ferramentas diferentes, como o Excel e o Power BI.
+Pode aceder a alguns destes registos através do portal. Os registos podem ser enviados para [registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), armazenamento e os Hubs de eventos e analisados no Azure Monitor registos ou através de ferramentas diferentes, como o Excel e o Power BI.
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
 
@@ -26,7 +26,7 @@ Pode aceder a alguns destes registos através do portal. Os registos podem ser e
 
 * **Registo de regra de Aplicação**
 
-   O registo de regra de Aplicação é guardado numa conta de armazenamento, transmitido em fluxo aos Hubs de eventos e/ou enviado para o Log Analytics, apenas se o tiver ativado para cada Azure Firewall. Cada nova ligação que corresponde a uma das suas regras de aplicação configuradas resulta num registo da ligação aceite/negada. Os dados são registados no formato JSON, conforme mostrado no exemplo seguinte:
+   O registo de regra de aplicação é guardado para uma conta de armazenamento, transmitidos em fluxo aos hubs de eventos e/ou enviados para os registos do Azure Monitor apenas se está ativado para cada Firewall do Azure. Cada nova ligação que corresponde a uma das suas regras de aplicação configuradas resulta num registo da ligação aceite/negada. Os dados são registados no formato JSON, conforme mostrado no exemplo seguinte:
 
    ```
    Category: application rule logs.
@@ -49,7 +49,7 @@ Pode aceder a alguns destes registos através do portal. Os registos podem ser e
 
 * **Registo de regra de Rede**
 
-   O registo de regra de Rede é guardado numa conta de armazenamento, transmitido em fluxo aos Hubs de eventos e/ou enviado para o Log Analytics, apenas se o tiver ativado para cada Azure Firewall. Cada nova ligação que corresponde a uma das suas regras de rede configuradas resulta num registo da ligação aceite/negada. Os dados são registados no formato JSON, conforme mostrado no exemplo seguinte:
+   O registo de regra de rede é guardado para uma conta de armazenamento, transmitidos em fluxo aos hubs de eventos e/ou enviados para os registos do Azure Monitor apenas se está ativado para cada Firewall do Azure. Cada nova ligação que corresponde a uma das suas regras de rede configuradas resulta num registo da ligação aceite/negada. Os dados são registados no formato JSON, conforme mostrado no exemplo seguinte:
 
    ```
    Category: network rule logs.
@@ -73,9 +73,9 @@ Pode aceder a alguns destes registos através do portal. Os registos podem ser e
 
 Tem três opções para armazenar os registos:
 
-* **Conta de armazenamento**: as contas de armazenamento são ideais para os registos quando estes são armazenados durante um período mais longo e revistos quando necessário.
-* **Hubs de eventos**: os Hubs de eventos são uma excelente opção para integrar com outras informações de segurança e ferramentas de gestão de eventos (SEIM) para obter alertas sobre os seus recursos.
-* **Log Analytics**: o Log Analytics é ideal para monitorização geral em tempo real da sua aplicação ou para observar tendências.
+* **Conta de armazenamento**: Contas de armazenamento são melhor utilizadas para os registos quando os registos são armazenados durante um período mais longo e revisados quando necessário.
+* **Os hubs de eventos**: Os hubs de eventos são uma ótima opção para integrar com outras ferramentas de gestão (SEIM) de informações e eventos da segurança para obter alertas sobre seus recursos.
+* **Registos de Monitor do Azure**: Registos de Monitor do Azure melhor é utilizada para monitorização em tempo real gerais da sua aplicação ou ao procurar tendências.
 
 ## <a name="activity-logs"></a>Registos de atividade
 
@@ -86,4 +86,4 @@ Tem três opções para armazenar os registos:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber como monitorizar as métricas e registos de Firewall do Azure, veja [Tutorial: registos de Firewall de Azure Monitor](tutorial-diagnostics.md).
+Para saber como monitorizar as métricas e registos de Firewall do Azure, veja [Tutorial: Monitorize registos de Firewall do Azure](tutorial-diagnostics.md).

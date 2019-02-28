@@ -11,49 +11,52 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 2/22/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 946a70a1b3fe2ddcaf8ec58b9ebc297f1d8894fd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 785c02a0187cf02df3bb3cf5d248f97a3edf74c6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178860"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961759"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações
 
 ## <a name="overview"></a>Descrição geral
-Azure Active Directory (Azure AD), pode aprovisionar automaticamente os utilizadores e grupos a nenhum repositório de identidade ou de aplicação que é apoiado por um serviço da web com a interface definidos no [sistema para o protocolo de gestão de identidade entre domínios (SCIM) 2.0 especificação](https://tools.ietf.org/html/draft-ietf-scim-api-19). O Azure Active Directory pode enviar pedidos para criar, modificar ou eliminar atribuídos a utilizadores e grupos para o serviço web. O serviço web, em seguida, pode converter essas solicitações em operações no arquivo de identidade de destino. 
+
+SCIM é padronizado de protocolo e o esquema que visa consistência maior de unidade em como as identidades são geridas em todos os sistemas. Quando um aplicativo oferece suporte a um ponto de extremidade SCIM para gestão de utilizadores, o serviço de aprovisionamento de utilizador do Azure AD pode enviar pedidos para criar, modificar ou eliminar os utilizadores atribuídos e grupos para este ponto final. 
+
+Muitos dos aplicativos para que suporte do Azure AD [pré-integradas aprovisionamento automático de utilizadores](../saas-apps/tutorial-list.md) implementar SCIM, conforme os meios para o utilizador de receber notificações de alteração.  Além destas, os clientes podem ligar-se aplicações que suportam um perfil específico do [SCIM 2.0 a especificação de protocolo](https://tools.ietf.org/html/rfc7644) utilizando a opção de integração de "externas à Galeria" genérico no portal do Azure. 
+
+O foco principal deste documento é o perfil do SCIM 2.0, que implementa o Azure AD como parte do seu conector SCIM genérico para as aplicações externas à galeria. No entanto, com êxito de testes de um aplicativo que suporta SCIM com o Azure AD genérico o conector é um passo para um aplicativo listado na galeria do Azure AD como suportar o aprovisionamento de utilizadores. Para obter mais informações sobre como obter a sua aplicação na Galeria de aplicações do Azure AD, consulte a [uma rede de aplicações Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx).
+ 
 
 >[!IMPORTANT]
 >O comportamento da implementação do Azure AD SCIM foi atualizado pela última vez 18 de Dezembro de 2018. Para obter informações sobre o que foi alterado, consulte [SCIM 2.0 compatibilidade de protocolo do serviço aprovisionamento de utilizador do Azure AD](application-provisioning-config-problem-scim-compatibility.md).
 
 ![][0]
-*Figura 1: Aprovisionamento do Azure Active Directory para um armazenamento de identidade através de um serviço web*
+*Figura 1: Aprovisionamento do Azure Active Directory a um arquivo de identidade ou de aplicativo que implementa SCIM*
 
-Esse recurso pode ser usado em conjunto com a capacidade de "traga a sua própria aplicação" no Azure AD. Esta capacidade permite o início de sessão único e automático de utilizadores para aplicações que são apoiadas por um serviço da web SCIM de aprovisionamento.
+Este artigo é dividido em quatro seções:
 
-Existem dois casos de utilização para utilizar o SCIM no Azure Active Directory:
+* **[Aprovisionamento de utilizadores e grupos para aplicações de terceiros que suportam SCIM 2.0](#provisioning-users-and-groups-to-applications-that-support-scim)**  - se a sua organização está a utilizar uma aplicação de terceiros que implementa o perfil do SCIM 2.0 que o Azure AD suporta, pode começar a automatizar a ambos provisionamento e desprovisionamento de utilizadores e grupos hoje mesmo.
 
-* **Aprovisionamento de utilizadores e grupos para aplicações que suportam SCIM** -aplicações que suportam SCIM 2.0 e utilizam tokens de portador do OAuth para autenticação de trabalham com o Azure AD sem configuração.
+* **[Compreender a implementação do Azure AD SCIM](#understanding-the-azure-ad-scim-implementation)**  -se estiver a criar uma aplicação que suporte uma API de gerenciamento utilizador SCIM 2.0, esta secção descreve em detalhes como o cliente do Azure AD SCIM é implementado e como deve modelar seu protocolo SCIM solicitar manipulação e respostas.
   
-* **Criar sua própria solução de configuração para aplicações que suportam a outros aprovisionamento baseado na API** -para aplicações não SCIM, pode criar um ponto de extremidade SCIM para traduzir entre o ponto de final do Azure AD SCIM e qualquer API, o aplicativo oferece suporte para Aprovisionamento de utilizadores. Para ajudar a desenvolver um ponto de extremidade SCIM, há bibliotecas de Common Language Infrastructure (CLI), juntamente com os exemplos de código que mostram como fornecer um ponto de extremidade SCIM e traduzir mensagens SCIM.  
+* **[Criação de um ponto de extremidade SCIM usando bibliotecas Microsoft CLI](#building-a-scim-endpoint-using-microsoft-cli-libraries)**  – para ajudar a desenvolver um ponto de extremidade SCIM, há bibliotecas do Common Language Infrastructure (CLI), juntamente com os exemplos de código que mostram como para fornecer um ponto de extremidade SCIM e Traduza mensagens SCIM.  
+
+* **[Referência de esquema de utilizador e grupo](#user-and-group-schema-reference)**  -descreve o esquema de utilizador e grupo suportado pela implementação do Azure AD SCIM para as aplicações externas à galeria. 
 
 ## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Aprovisionamento de utilizadores e grupos para aplicações que suportam SCIM
-O Azure AD pode ser configurado para automaticamente os utilizadores de aprovisionamento atribuído e grupos para aplicativos que implementam uma [sistema para a gestão de identidade entre domínios 2 (SCIM)](https://tools.ietf.org/html/draft-ietf-scim-api-19) serviço web e aceitar tokens de portador do OAuth para autenticação. Dentro da especificação de SCIM 2.0, aplicativos têm de cumprir estes requisitos:
-
-* Suporta a criação de utilizadores e/ou grupos, de acordo com a seção 3.3 do protocolo SCIM.  
-* Suporta a modificação de utilizadores e/ou grupos com os pedidos de patch de acordo com a seção 3.5.2 do protocolo SCIM.  
-* Suporta a recuperação de um recurso conhecido de acordo com a seção 3.4.1 do protocolo SCIM.  
-* Suporta a consulta de utilizadores e/ou grupos, de acordo com a seção 3.4.2 do protocolo SCIM.  Por predefinição, os utilizadores são consultados por externalId e grupos são consultados por displayName.  
-* Suporta a consulta de utilizador por ID e pelo Gestor de acordo com a seção 3.4.2 do protocolo SCIM.  
-* Suporta a consulta de grupos por ID e por membro de acordo com a seção 3.4.2 do protocolo SCIM.  
-* Aceita tokens de portador do OAuth para autorização de acordo com a seção 2.1 do protocolo SCIM.
+O Azure AD pode ser configurado para automaticamente os utilizadores de aprovisionamento atribuído e grupos de aplicações que implementar um perfil específico dos [protocolo SCIM 2.0](https://tools.ietf.org/html/rfc7644). Os detalhes do perfil de estão documentados em [Noções básicas sobre a implementação do Azure AD SCIM](#implementing-a-scim-endpoint-that-works-with-azure-ad-user-provisioning).
 
 Contacte o seu fornecedor do aplicativo, ou na documentação do seu fornecedor de aplicações para declarações de estado de compatibilidade com esses requisitos.
+
+>[!IMPORTANT]
+>A implementação do Azure AD SCIM é criada sobre o serviço, que foi criado para manter os utilizadores sincronizados entre o Azure AD perpetuamente de aprovisionamento de utilizador do Azure AD e o aplicativo de destino e implementa um conjunto muito específico de operações padrão. é importante entender esses comportamentos para compreender o comportamento do cliente do Azure AD SCIM. Para obter mais informações, consulte [o que acontece durante o aprovisionamento do utilizador?](user-provisioning.md#what-happens-during-provisioning).
 
 ### <a name="getting-started"></a>Introdução
 Aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligadas ao Azure Active Directory usando o recurso de "aplicativo externas à Galeria" na Galeria de aplicações do Azure AD. Assim que estiver ligado, do Azure AD é executado um processo de sincronização de todos os 40 minutos em que ele consulta o ponto final SCIM do aplicativo para os utilizadores atribuídos e grupos e cria ou modifica-los, de acordo com os detalhes de atribuição.
@@ -97,18 +100,491 @@ Assim que tiver iniciado a sincronização inicial, pode utilizar o **registos d
 > A sincronização inicial demora mais tempo a serem executados do que as sincronizações subsequentes, o que ocorrer aproximadamente a cada 40 minutos, desde que o serviço está em execução. 
 
 
-## <a name="building-your-own-provisioning-solution-for-any-application"></a>Criar a sua própria solução de aprovisionamento para qualquer aplicação
-Ao criar um serviço da web SCIM que faz interface com o Azure Active Directory, pode ativar o aprovisionamento do utilizador de início de sessão e automática único para praticamente qualquer aplicativo que fornece uma API de aprovisionamento de utilizadores REST ou SOAP.
+## <a name="understanding-the-azure-ad-scim-implementation"></a>Compreender a implementação do Azure AD SCIM
+
+Se estiver a criar uma aplicação que suporte uma API de gerenciamento utilizador SCIM 2.0, esta secção descreve em detalhes como o cliente do Azure AD SCIM é implementado e como deve modelar o seu protocolo SCIM e respostas do processamento do pedido. Depois de implementar o ponto final SCIM, poderá testá-la ao seguir o procedimento descrito na secção anterior.
+
+Dentro de [SCIM 2.0 a especificação de protocolo](http://www.simplecloud.info/#Specification), a aplicação tem de cumprir estes requisitos:
+
+* Suporta a criação de utilizadores e, opcionalmente, também grupos, de acordo com a secção [3.3 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
+* Suporta a modificação de utilizadores e/ou grupos com os pedidos PATCH, de acordo [secção 3.5.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
+* Suporta a recuperação de um recurso conhecido para um utilizador ou grupo que criou anteriormente, como por [secção 3.4.1 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
+* Suporta a consulta de utilizadores e/ou grupos, de acordo com a secção [3.4.2 do protocolo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Por predefinição, os utilizadores são obtidos pelo respetivo `id` e consultados por seus `username` e `externalid`, e grupos são consultados por `displayName`.  
+* Suporta a consulta de utilizador por ID e pelo Gestor de acordo com a seção 3.4.2 do protocolo SCIM.  
+* Suporta a consulta de grupos por ID e por membro de acordo com a seção 3.4.2 do protocolo SCIM.  
+* Aceita um token de portador único para autenticação e autorização do Azure AD à sua aplicação.
+
+Além disso, siga estas Diretrizes gerais quando implementar um ponto de extremidade SCIM para garantir a compatibilidade com o Azure AD:
+
+* `id` é uma propriedade necessária para todos os recursos; cada resposta que retorna um recurso deve certificar-se cada recurso tem esta propriedade, exceto para `ListResponse` com zero membros.
+* Resposta a um pedido de consulta/filtro deve ser sempre um `ListResponse`.
+* Os grupos são opcionais, mas só suportada se a implementação de SCIM suporta pedidos de PATCH.
+* Não é necessário incluir o recurso de todo na resposta de PATCH.
+* Microsoft Azure AD apenas utiliza os seguintes operadores  
+     - `eq`
+     - `and`
+* Não necessitam de uma correspondência de maiúsculas e minúsculas nos elementos estruturais SCIM, em particular PATCH `op` valores de operação, conforme definido na https://tools.ietf.org/html/rfc7644#section-3.5.2. O Azure AD emite os valores de "op" como `Add`, `Replace`, e `Remove`.
+* Microsoft Azure AD torna os pedidos para obter um utilizador aleatório e o grupo para se certificar de que o ponto final e as credenciais são válidas. Também é feito como parte da **Testar ligação** flow na [portal do Azure](https://portal.azure.com). 
+* O atributo que os recursos podem ser consultados no deve ser definido como um atributo correspondente na aplicação no [portal do Azure](https://portal.azure.com). Para obter mais informações, consulte [personalizando utilizador aprovisionamento mapeamentos de atributos](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+
+### <a name="user-provisioning-and-de-provisioning"></a>Utilizador provisionamento e desprovisionamento
+A ilustração seguinte mostra as mensagens que o Azure Active Directory envia para um serviço SCIM para gerir o ciclo de vida de um utilizador no repositório de identidades da sua aplicação.  
+
+![][4]
+*Figura 4: Utilizador provisionamento e desprovisionamento sequência*
+
+### <a name="group-provisioning-and-de-provisioning"></a>Grupo de provisionamento e desprovisionamento
+Grupo de provisionamento e desprovisionamento é opcional. Quando implementada e ativada, a ilustração seguinte mostra as mensagens de benefícios do Azure AD envia para um serviço SCIM para gerir o ciclo de vida de um grupo no repositório de identidades da sua aplicação.  Essas mensagens são diferentes de mensagens relativas aos utilizadores de duas formas: 
+
+* Pedidos para obter os grupos de estipular que o atributo de membros é a excluir de qualquer recurso fornecido em resposta ao pedido.  
+* Os pedidos para determinar se um atributo de referência tem um determinado valor são pedidos sobre o atributo de membros.  
+
+![][5]
+*Figura 5: Grupo de provisionamento e desprovisionamento sequência*
+
+### <a name="scim-protocol-requests-and-responses"></a>SCIM protocolo solicitações e respostas
+Esta seção fornece pedidos SCIM exemplo emitidos pelo cliente do Azure AD SCIM, bem como as respostas do exemplo esperado. Para obter melhores resultados, deve codificar sua aplicação para processar estes pedidos no seguinte formato e emitir as respostas esperadas.
+
+>[!IMPORTANT]
+>Para compreender como e quando o serviço de aprovisionamento de utilizador do Azure AD emite as operações descritas abaixo, veja [o que acontece durante o aprovisionamento do utilizador?](user-provisioning.md#what-happens-during-provisioning).
+
+- [Operações de utilizador](#user-operations)
+    - [Criar utilizador](#create-user) - [pedir](#request) - [resposta](#response)
+    - [Obter utilizador](#get-user) - [pedir](#request-1) - [resposta](#response-1)
+    - [Obter utilizador por consulta](#get-user-by-query) - [pedir](#request-2) - [resposta](#response-2)
+    - [Obter utilizador por consulta - Zero resultados](#get-user-by-query---zero-results) - [pedir](#request-3) - [resposta](#response-3)
+    - [Atualizar o utilizador [Propriedades com múltiplos valores]](#update-user-multi-valued-properties) - [pedir](#request-4) - [resposta](#response-4)
+    - [Atualizar o utilizador [Propriedades de valor único]](#update-user-single-valued-properties) - [pedir](#request-5) - [resposta](#response-5)
+    - [Eliminar utilizador](#delete-user) - [pedir](#request-6) - [resposta](#response-6)
+- [Operações de grupo](#group-operations)
+    - [Criar grupo](#create-group) - [pedir](#request-7) - [resposta](#response-7)
+    - [Obter grupo](#get-group) - [pedir](#request-8) - [resposta](#response-8)
+    - [Obter grupo por displayName](#get-group-by-displayname) - [pedir](#request-9) - [resposta](#response-9)
+    - [Grupo de atualização [atributos de não-membro]](#update-group-non-member-attributes) - [pedir](#request-10) - [resposta](#response-10)
+    - [Grupo de atualização [Adicionar membros]](#update-group-add-members) - [pedir](#request-11) - [resposta](#response-11)
+    - [Grupo de atualização [remover membros]](#update-group-remove-members) - [pedir](#request-12) - [resposta](#response-12)
+    - [Eliminar grupo](#delete-group) - [pedir](#request-13) - [resposta](#response-13)
+
+### <a name="user-operations"></a>Operações de utilizador
+
+* Os utilizadores podem ser consultados ao `userName` ou `email[type eq "work"]` atributos.  
+
+#### <a name="create-user"></a>Criar Utilizador
+
+###### <a name="request"></a>Pedir
+*POST /utilizadores*
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User",
+        "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"],
+    "externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
+    "userName": "Test_User_ab6490ee-1e48-479e-a20b-2d77186b5dd1",
+    "active": true,
+    "emails": [{
+        "primary": true,
+        "type": "work",
+        "value": "Test_User_fd0ea19b-0777-472c-9f96-4f70d2226f2e@testuser.com"
+    }],
+    "meta": {
+        "resourceType": "User"
+    },
+    "name": {
+        "formatted": "givenName familyName",
+        "familyName": "familyName",
+        "givenName": "givenName"
+    },
+    "roles": []
+}
+```
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 201 criado*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "id": "48af03ac28ad4fb88478",
+    "externalId": "0a21f0f2-8d2a-4f8e-bf98-7363c4aed4ef",
+    "meta": {
+        "resourceType": "User",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+    },
+    "userName": "Test_User_ab6490ee-1e48-479e-a20b-2d77186b5dd1",
+    "name": {
+        "formatted": "givenName familyName",
+        "familyName": "familyName",
+        "givenName": "givenName",
+    },
+    "active": true,
+    "emails": [{
+        "value": "Test_User_fd0ea19b-0777-472c-9f96-4f70d2226f2e@testuser.com",
+        "type": "work",
+        "primary": true
+    }]
+}
+```
+
+
+#### <a name="get-user"></a>Obter utilizador
+
+###### <a name="request"></a>Pedir
+*GET /Users/5d48a0a8e9f04aa38008* 
+
+###### <a name="response"></a>Resposta
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "id": "5d48a0a8e9f04aa38008",
+    "externalId": "58342554-38d6-4ec8-948c-50044d0a33fd",
+    "meta": {
+        "resourceType": "User",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+    },
+    "userName": "Test_User_feed3ace-693c-4e5a-82e2-694be1b39934",
+    "name": {
+        "formatted": "givenName familyName",
+        "familyName": "familyName",
+        "givenName": "givenName",
+    },
+    "active": true,
+    "emails": [{
+        "value": "Test_User_22370c1a-9012-42b2-bf64-86099c2a1c22@testuser.com",
+        "type": "work",
+        "primary": true
+    }]
+}
+```
+#### <a name="get-user-by-query"></a>Obter utilizador por consulta
+
+##### <a name="request"></a>Pedir
+*GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+    "totalResults": 1,
+    "Resources": [{
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+        "id": "2441309d85324e7793ae",
+        "externalId": "7fce0092-d52e-4f76-b727-3955bd72c939",
+        "meta": {
+            "resourceType": "User",
+            "created": "2018-03-27T19:59:26.000Z",
+            "lastModified": "2018-03-27T19:59:26.000Z"
+            
+        },
+        "userName": "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081",
+        "name": {
+            "familyName": "familyName",
+            "givenName": "givenName"
+        },
+        "active": true,
+        "emails": [{
+            "value": "Test_User_91b67701-697b-46de-b864-bd0bbe4f99c1@testuser.com",
+            "type": "work",
+            "primary": true
+        }]
+    }],
+    "startIndex": 1,
+    "itemsPerPage": 20
+}
+
+```
+
+#### <a name="get-user-by-query---zero-results"></a>Obter utilizador por consulta - Zero resultados
+
+##### <a name="request"></a>Pedir
+*GET /Users?filter=userName eq "non-existent user"*
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+    "totalResults": 0,
+    "Resources": [],
+    "startIndex": 1,
+    "itemsPerPage": 20
+}
+
+```
+
+#### <a name="update-user-multi-valued-properties"></a>Atualizar o utilizador [Propriedades com múltiplos valores]
+
+##### <a name="request"></a>Pedir
+*Aplicar o PATCH/utilizadores/6764549bef60420686bc HTTP/1.1*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [
+            {
+            "op": "Replace",
+            "path": "emails[type eq \"work\"].value",
+            "value": "updatedEmail@microsoft.com"
+            },
+            {
+            "op": "Replace",
+            "path": "name.familyName",
+            "value": "updatedFamilyName"
+            }
+    ]
+}
+```
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "id": "6764549bef60420686bc",
+    "externalId": "6c75de36-30fa-4d2d-a196-6bdcdb6b6539",
+    "meta": {
+        "resourceType": "User",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+    },
+    "userName": "Test_User_fbb9dda4-fcde-4f98-a68b-6c5599e17c27",
+    "name": {
+        "formatted": "givenName updatedFamilyName",
+        "familyName": "updatedFamilyName",
+        "givenName": "givenName"
+    },
+    "active": true,
+    "emails": [{
+        "value": "updatedEmail@microsoft.com",
+        "type": "work",
+        "primary": true
+    }]
+}
+```
+
+#### <a name="update-user-single-valued-properties"></a>Atualizar o utilizador [Propriedades de valor único]
+
+##### <a name="request"></a>Pedir
+*Aplicar o PATCH/utilizadores/5171a35d82074e068ce2 HTTP/1.1*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [{
+        "op": "Replace",
+        "path": "userName",
+        "value": "5b50642d-79fc-4410-9e90-4c077cdd1a59@testuser.com"
+    }]
+}
+```
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "id": "5171a35d82074e068ce2",
+    "externalId": "aa1eca08-7179-4eeb-a0be-a519f7e5cd1a",
+    "meta": {
+        "resourceType": "User",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+        
+    },
+    "userName": "5b50642d-79fc-4410-9e90-4c077cdd1a59@testuser.com",
+    "name": {
+        "formatted": "givenName familyName",
+        "familyName": "familyName",
+        "givenName": "givenName",
+    },
+    "active": true,
+    "emails": [{
+        "value": "Test_User_49dc1090-aada-4657-8434-4995c25a00f7@testuser.com",
+        "type": "work",
+        "primary": true
+    }]
+}
+```
+
+#### <a name="delete-user"></a>Eliminar Utilizador
+
+##### <a name="request"></a>Pedir
+*Eliminar /Users/5171a35d82074e068ce2 HTTP/1.1.*
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 204 nenhum conteúdo*
+
+### <a name="group-operations"></a>Operações de grupo
+
+* Grupos sempre deverá ser criados com uma lista de membros vazio.
+* Grupos podem ser consultados ao `displayName` atributo.
+* Atualização para o pedido de PATCH de grupo deve resultar numa *HTTP 204 sem conteúdo* na resposta. Não é recomendada um corpo de uma lista de todos os membros a devolver.
+* Não é necessário suportar a retornar todos os membros do grupo.
+
+#### <a name="create-group"></a>Criar Grupo
+
+##### <a name="request"></a>Pedir
+*/Groups de POSTAGEM HTTP/1.1*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
+    "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
+    "id": "c4d56c3c-bf3b-4e96-9b64-837018d6060e",
+    "displayName": "displayName",
+    "members": [],
+    "meta": {
+        "resourceType": "Group"
+    }
+}
+```
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 201 criado*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+    "id": "927fa2c08dcb4a7fae9e",
+    "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
+    "meta": {
+        "resourceType": "Group",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+        
+    },
+    "displayName": "displayName",
+    "members": []
+}
+```
+
+#### <a name="get-group"></a>Obter Grupo
+
+##### <a name="request"></a>Pedir
+*GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+    "id": "40734ae655284ad3abcc",
+    "externalId": "60f1bb27-2e1e-402d-bcc4-ec999564a194",
+    "meta": {
+        "resourceType": "Group",
+        "created": "2018-03-27T19:59:26.000Z",
+        "lastModified": "2018-03-27T19:59:26.000Z"
+    },
+    "displayName": "displayName",
+}
+```
+
+#### <a name="get-group-by-displayname"></a>Obter grupo por displayName
+
+##### <a name="request"></a>Pedir
+*GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 200 OK*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:ListResponse"],
+    "totalResults": 1,
+    "Resources": [{
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+        "id": "8c601452cc934a9ebef9",
+        "externalId": "0db508eb-91e2-46e4-809c-30dcbda0c685",
+        "meta": {
+            "resourceType": "Group",
+            "created": "2018-03-27T22:02:32.000Z",
+            "lastModified": "2018-03-27T22:02:32.000Z",
+            
+        },
+        "displayName": "displayName",
+    }],
+    "startIndex": 1,
+    "itemsPerPage": 20
+}
+```
+#### <a name="update-group-non-member-attributes"></a>Grupo de atualização [atributos de não-membro]
+
+##### <a name="request"></a>Pedir
+*Aplicar o PATCH/grupos/fa2ce26709934589afc5 HTTP/1.1*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [{
+        "op": "Replace",
+        "path": "displayName",
+        "value": "1879db59-3bdf-4490-ad68-ab880a269474updatedDisplayName"
+    }]
+}
+```
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 204 nenhum conteúdo*
+
+### <a name="update-group-add-members"></a>Grupo de atualização [Adicionar membros]
+
+##### <a name="request"></a>Pedir
+*Aplicar o PATCH/grupos/a99962b9f99d4c4fac67 HTTP/1.1*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [{
+        "op": "Add",
+        "path": "members",
+        "value": [{
+            "$ref": null,
+            "value": "f648f8d5ea4e4cd38e9c"
+        }]
+    }]
+}
+```
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 204 nenhum conteúdo*
+
+#### <a name="update-group-remove-members"></a>Grupo de atualização [remover membros]
+
+##### <a name="request"></a>Pedir
+*Aplicar o PATCH/grupos/a99962b9f99d4c4fac67 HTTP/1.1*
+```json
+{
+    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+    "Operations": [{
+        "op": "Remove",
+        "path": "members",
+        "value": [{
+            "$ref": null,
+            "value": "f648f8d5ea4e4cd38e9c"
+        }]
+    }]
+}
+```
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 204 nenhum conteúdo*
+
+#### <a name="delete-group"></a>Eliminar Grupo
+
+##### <a name="request"></a>Pedir
+*Eliminar /Groups/cdb1ce18f65944079d37 HTTP/1.1.*
+
+##### <a name="response"></a>Resposta
+*HTTP/1.1 204 nenhum conteúdo*
+
+
+## <a name="building-a-scim-endpoint-using-microsoft-cli-libraries"></a>Criação de um ponto de extremidade SCIM usando bibliotecas Microsoft CLI
+Ao criar um serviço da web SCIM que faz interface com o Azure Active Directory, pode ativar o aprovisionamento automático de utilizadores para praticamente qualquer arquivo de identidade ou aplicação.
 
 Eis como funciona:
 
-1. O Azure AD fornece uma biblioteca de infraestrutura de linguagem comum com o nome [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). Integradores de sistemas e os programadores podem utilizar esta biblioteca para criar e implementar um web baseados em SCIM ponto final de serviço capaz de estabelecer a ligação do Azure AD para o armazenamento de identidade de qualquer aplicativo.
-2. Mapeamentos são implementados no serviço web para mapear o esquema de usuário padronizado para o esquema de utilizador e o protocolo necessário para a aplicação.
+1. O Azure AD fornece uma biblioteca de infraestrutura (CLI) de linguagem comum com o nome Microsoft.SystemForCrossDomainIdentityManagement, incluído no código exemplos descrevem abaixo. Integradores de sistemas e os programadores podem utilizar esta biblioteca para criar e implementar um web baseados em SCIM ponto final de serviço capaz de estabelecer a ligação do Azure AD para o armazenamento de identidade de qualquer aplicativo.
+2. Mapeamentos são implementados no serviço web para mapear o esquema de usuário padronizado para o esquema de utilizador e o protocolo necessário para a aplicação. 
 3. O URL de ponto final está registado no Azure AD como parte de uma aplicação personalizada na Galeria de aplicações.
 4. Utilizadores e grupos são atribuídos a esta aplicação no Azure AD. Após a atribuição, eles são colocados em fila para ser sincronizados com o aplicativo de destino. O processo de sincronização lidar com a fila é executado em 40 minutos.
 
 ### <a name="code-samples"></a>Exemplos de Código
-Para facilitar este processo, [exemplos de código](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) são fornecidas que criar um ponto de extremidade de serviço da web SCIM e demonstrar o aprovisionamento automático. É um exemplo de um provedor que mantém um ficheiro com linhas de valores separados por vírgulas que representam os utilizadores e grupos.  O outro é de um fornecedor que funciona com o serviço de gestão de acesso e identidade do Amazon Web Services.  
+Para facilitar este processo, [exemplos de código](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) são fornecidas que criar um ponto de extremidade de serviço da web SCIM e demonstrar o aprovisionamento automático. O exemplo é de um provedor que mantém um ficheiro com linhas de valores separados por vírgulas que representam os utilizadores e grupos.    
 
 **Pré-requisitos**
 
@@ -150,8 +626,8 @@ Para facilitar este processo, [exemplos de código](https://github.com/Azure/Azu
 4. No ecrã resultante, selecione o **aprovisionamento** separador na coluna esquerda.
 5. Na **modo de aprovisionamento** menu, selecione **automática**.
     
-   ![][2]
-   *Figura 4: Configurar o aprovisionamento no portal do Azure*
+  ![][2]
+  *Figura 6: Configurar o aprovisionamento no portal do Azure*
     
 6. Na **URL de inquilino** , insira o URL e a porta do ponto final do SCIM exposta de internet. A entrada é algo como http://testmachine.contoso.com:9000 ou http://\<ip-address >: 9000 /, onde \<ip-address > é a internet expostos IP endereço.  
 7. Se o ponto de extremidade SCIM exige um token de portador do OAuth a partir de um emissor diferente do Azure AD, em seguida, copie o token de portador do OAuth necessário para o opcional **segredo de Token** campo. Se este campo for deixado em branco, do Azure AD irá incluir um token de portador do OAuth emitido a partir do Azure AD com cada solicitação. Aplicações que utilizam o Azure AD como fornecedor de identidade pode validar este Azure AD-emitiu o token.
@@ -174,14 +650,14 @@ A verificar o exemplo a etapa final é abrir o ficheiro de TargetFile.csv na pas
 ### <a name="development-libraries"></a>Bibliotecas de programação
 Para desenvolver seu próprio serviço da web que está em conformidade com a especificação de SCIM, primeiro familiarize-se com as seguintes bibliotecas fornecidas pela Microsoft para ajudar a acelerar o processo de desenvolvimento: 
 
-1. Bibliotecas do Common Language Infrastructure (CLI) são oferecidas para utilização com linguagens com base em que a infraestrutura, como c#. Uma dessas bibliotecas, [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), declara uma interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, mostrada na ilustração seguinte:  Um desenvolvedor que usa as bibliotecas seria implementar a interface com uma classe que pode ser direcionada para, mais genericamente, como um fornecedor. As bibliotecas permitem aos programadores implementar um serviço web que está em conformidade com a especificação de SCIM. O serviço web pode ser hospedado em serviços de informação Internet ou qualquer executável assembly de infra-estrutura de linguagem comum. Pedido é convertido em chamadas para métodos do provedor, que poderiam ser programados pelo desenvolvedor para operar num armazenamento de identidade.
+1. Bibliotecas do Common Language Infrastructure (CLI) são oferecidas para utilização com linguagens com base em que a infraestrutura, como c#. Uma dessas bibliotecas, Microsoft.SystemForCrossDomainIdentityManagement.Service, declara uma interface, Microsoft.SystemForCrossDomainIdentityManagement.IProvider, mostrada na ilustração seguinte. Um desenvolvedor que usa as bibliotecas seria implementar a interface com uma classe que pode ser direcionada para, mais genericamente, como um fornecedor. As bibliotecas permitem aos programadores implementar um serviço web que está em conformidade com a especificação de SCIM. O serviço web pode ser hospedado em serviços de informação Internet ou qualquer assembly executável do CLI. Pedido é convertido em chamadas para métodos do provedor, que poderiam ser programados pelo desenvolvedor para operar num armazenamento de identidade.
   
    ![][3]
   
 2. [Express manipuladores de rotas](https://expressjs.com/guide/routing.html) são feitas disponíveis para análise de objetos de solicitação de node. js que representam chamadas (conforme definido pela especificação SCIM), a um serviço web do node. js.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Criação de um ponto de extremidade personalizado SCIM
-Utilizar as bibliotecas CLI, os desenvolvedores que usam essas bibliotecas podem alojar os seus serviços em qualquer assembly executável de infra-estrutura de linguagem comum ou em serviços de informação Internet. Eis o código de exemplo para hospedar um serviço num assembly executável, no endereço http://localhost:9000: 
+Utilizar as bibliotecas CLI, os desenvolvedores que usam essas bibliotecas podem alojar os seus serviços em qualquer assembly do executável da CLI ou dentro de serviços de informação Internet. Eis o código de exemplo para hospedar um serviço num assembly executável, no endereço http://localhost:9000: 
 
     private static void Main(string[] arguments)
     {
@@ -270,7 +746,7 @@ Um certificado de autenticação de servidor pode ser associado a uma porta num 
 
 Aqui, o valor fornecido para o argumento de certhash é o thumbprint do certificado, enquanto o valor fornecido para o argumento de appid é um identificador exclusivo global arbitrário.  
 
-Para hospedar o serviço dentro de serviços de informação Internet, um desenvolvedor criaria um assembly de biblioteca de código do CLA com uma classe chamada Startup no espaço de nomes padrão do assembly.  Eis um exemplo dessa classe: 
+Para hospedar o serviço dentro de serviços de informação Internet, um desenvolvedor criaria um assembly de biblioteca de código da CLI com uma classe chamada Startup no espaço de nomes padrão do assembly.  Eis um exemplo dessa classe: 
 
     public class Startup
     {
@@ -301,9 +777,9 @@ Para hospedar o serviço dentro de serviços de informação Internet, um desenv
     }
 
 ### <a name="handling-endpoint-authentication"></a>Processar a autenticação de ponto final
-Pedidos do Azure Active Directory incluem um token de portador do OAuth 2.0.   Qualquer serviço que o pedido a receber deve autenticar o emissor como sendo o Azure Active Directory em nome de inquilino do Azure Active Directory esperado, para acesso ao serviço da web do Azure Active Directory Graph.  No token, o emissor é identificado por uma afirmação de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor de afirmação, https://sts.windows.net, identifica o Azure Active Directory como o emissor, enquanto o caminho relativo de segmento, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 endereços, que é um identificador exclusivo do inquilino do Azure Active Directory no nome que o token foi emitido.  Se o token foi emitido para acessar o serviço web do Azure Active Directory Graph, em seguida, o identificador do serviço, 00000002-0000-0000-c000-000000000000, deve estar no valor de afirmação de aud o token.  
+Pedidos do Azure Active Directory incluem um token de portador do OAuth 2.0.   Qualquer serviço que o pedido a receber deve autenticar o emissor como sendo o Azure Active Directory em nome de inquilino do Azure Active Directory esperado, para acesso ao serviço da web do Azure Active Directory Graph.  No token, o emissor é identificado por uma afirmação de iss, como "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Neste exemplo, o endereço base do valor de afirmação, https://sts.windows.net, identifica o Azure Active Directory como o emissor, enquanto o caminho relativo de segmento, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 endereços, que é um identificador exclusivo do inquilino do Azure Active Directory no nome que o token foi emitido.  Se o token foi emitido para acessar o serviço web do Azure Active Directory Graph, em seguida, o identificador do serviço, 00000002-0000-0000-c000-000000000000, deve estar no valor de afirmação de aud o token.  Tenha em atenção que cada um dos aplicativos que estão registados num único inquilino poderá receber o mesmo `iss` a afirmação com SCIM pedidos.
 
-Os desenvolvedores que usam as bibliotecas do CLA fornecidas pela Microsoft para a criação de um serviço SCIM podem autenticar os pedidos do Azure Active Directory utilizando o pacote de Microsoft.Owin.Security.ActiveDirectory seguindo estes passos: 
+Os desenvolvedores que usam as bibliotecas CLI fornecidas pela Microsoft para a criação de um serviço SCIM podem autenticar os pedidos do Azure Active Directory utilizando o pacote de Microsoft.Owin.Security.ActiveDirectory seguindo estes passos: 
 
 1. Num provedor, implemente a propriedade Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior fazendo com que ele retorne um método a ser chamado sempre que o serviço é iniciado: 
 
@@ -356,61 +832,54 @@ Os desenvolvedores que usam as bibliotecas do CLA fornecidas pela Microsoft para
      }
    ```
 
+### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Manipulação de aprovisionamento e desaprovisionamento de utilizadores
 
-## <a name="user-and-group-schema"></a>Esquema de utilizador e grupo
-O Azure Active Directory pode aprovisionar dois tipos de recursos para serviços da web SCIM.  Esses tipos de recursos são utilizadores e grupos.  
+1. O Azure Active Directory consulta o serviço para um utilizador com um valor de atributo externalId correspondência o valor do atributo mailNickname de um utilizador no Azure AD. A consulta é expressa como um pedido de protocolo HTTP (Hypertext Transfer), como neste exemplo, na qual jyoung é um exemplo de um mailNickname de um utilizador no Azure Active Directory.
 
-Recursos de utilizador são identificados pelo identificador de esquema, "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User", que está incluído nessa especificação de protocolo: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  O mapeamento predefinido de atributos de utilizadores no Azure Active Directory para os atributos de recursos "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" é apresentado na tabela 1, abaixo.  
+    >[!NOTE]
+    > Este é apenas um exemplo. Nem todos os utilizadores terão um atributo mailNickname, e o valor que tem de um utilizador pode não ser exclusivo no diretório. Além disso, o atributo utilizado para efetuar a correspondência (que neste caso é externalId) pode ser configurado no [mapeamentos de atributos do Azure AD](customize-application-attributes.md).
 
-Grupo de recursos é identificados pelo identificador de esquema, http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Tabela 2, abaixo, mostra o mapeamento predefinido de atributos de grupos no Azure Active Directory para os atributos do http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group recursos.  
+  ````
+    GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
+    Authorization: Bearer ...
+  ````
+  Se o serviço foi criado com as bibliotecas CLI fornecidas pela Microsoft para implementar os serviços SCIM, em seguida, o pedido é convertido numa chamada para o método de consulta do fornecedor do serviço.  Esta é a assinatura desse método: 
+  ````
+    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+    // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
+    // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
+    // Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters is defined in 
+    // Microsoft.SystemForCrossDomainIdentityManagement.Protocol.  
 
-### <a name="table-1-default-user-attribute-mapping"></a>Tabela 1: Mapeamento de atributo de utilizador padrão
+    System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
+      Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
+      string correlationIdentifier);
+  ````
+  Esta é a definição da Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
+  ````
+    public interface IQueryParameters: 
+      Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
+    {
+        System.Collections.Generic.IReadOnlyCollection <Microsoft.SystemForCrossDomainIdentityManagement.IFilter> AlternateFilters 
+        { get; }
+    }
 
-| Utilizador do Active Directory do Azure | "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" |
-| --- | --- |
-| IsSoftDeleted |ativo |
-| displayName |displayName |
-| TelephoneNumber de fax |. Value de phoneNumbers [tipo eq "fax"] |
-| givenName |name.givenName |
-| jobTitle |título |
-| mail |. Value de e-mails [tipo eq "trabalho"] |
-| mailNickname |externalId |
-| gestor |gestor |
-| móvel |. Value de phoneNumbers [tipo eq "móvel"] |
-| objectId |ID |
-| postalCode |.postalCode endereços [tipo eq "trabalho"] |
-| Endereços de proxy |e-mails de [tipo é igual a "other"]. Valor |
-| physical-Delivery-OfficeName |endereços [tipo é igual a "other"]. Formatado |
-| streetAddress |.streetAddress endereços [tipo eq "trabalho"] |
-| Apelido |name.familyName |
-| Número de telefone |. Value de phoneNumbers [tipo eq "trabalho"] |
-| utilizador PrincipalName |userName |
-
-### <a name="table-2-default-group-attribute-mapping"></a>Tabela 2: Mapeamento de atributo de grupo predefinido
-
-| Grupo do Azure Active Directory | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
-| --- | --- |
-| displayName |externalId |
-| mail |. Value de e-mails [tipo eq "trabalho"] |
-| mailNickname |displayName |
-| membros |membros |
-| objectId |ID |
-| proxyAddresses |e-mails de [tipo é igual a "other"]. Valor |
-
-## <a name="user-provisioning-and-de-provisioning"></a>Utilizador provisionamento e desprovisionamento
-A ilustração seguinte mostra as mensagens que o Azure Active Directory envia para um serviço SCIM para gerir o ciclo de vida de um utilizador no outro armazenamento de identidade. O diagrama também mostra como um serviço SCIM implementado usando as bibliotecas CLI fornecido pela Microsoft para criar que esses serviços de convertem esses pedidos em chamadas para os métodos de um fornecedor.  
-
-![][4]
-*Figura 5: Utilizador provisionamento e desprovisionamento sequência*
-
-1. O Azure Active Directory consulta o serviço para um utilizador com um valor de atributo externalId correspondência o valor do atributo mailNickname de um utilizador no Azure AD. A consulta é expressa como um pedido de protocolo HTTP (Hypertext Transfer), como neste exemplo, na qual jyoung é um exemplo de um mailNickname de um utilizador no Azure Active Directory: 
+    public interface Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
+    {
+      system.Collections.Generic.IReadOnlyCollection<string> ExcludedAttributePaths 
+      { get; }
+      System.Collections.Generic.IReadOnlyCollection<string> RequestedAttributePaths 
+      { get; }
+      string SchemaIdentifier 
+      { get; }
+    }
 
    ```
      GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
      Authorization: Bearer ...
    ```
 
-   Se o serviço foi criado com as bibliotecas de infra-estrutura de linguagem comum fornecidas pela Microsoft para implementar os serviços SCIM, em seguida, o pedido é convertido numa chamada para o método de consulta do fornecedor do serviço.  Esta é a assinatura desse método: 
+   If the service was built using the Common Language Infrastructure libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider.  Here is the signature of that method: 
 
    ```
      // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
@@ -424,7 +893,7 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
        string correlationIdentifier);
    ```
 
-   Esta é a definição da Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
+   Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
 
    ```
      public interface IQueryParameters: 
@@ -462,110 +931,77 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
      }
    ```
 
-   No seguinte exemplo de uma consulta para um utilizador com um valor especificado para o atributo externalId, valores de argumentos transmitidos para o método de consulta são: 
+   In the following sample of a query for a user with a given value for the externalId attribute, values of the arguments passed to the Query method are: 
    * parameters.AlternateFilters.Count: 1
-   * parâmetros. AlternateFilters.ElementAt(0). AttributePath: externalId""
+   * parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
    * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
-   * parâmetros. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
+   * parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
    * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
-2. Se a resposta a uma consulta para o serviço web para um utilizador com um valor de atributo externalId que corresponde ao valor de atributo mailNickname de um utilizador não devolver quaisquer utilizadores, em seguida, Azure Active Directory solicita que o serviço aprovisionamento de um utilizador correspondente ao no Azure Active Directory.  Eis um exemplo de pedido: 
+2. If the response to a query to the web service for a user with an externalId attribute value that matches the mailNickname attribute value of a user does not return any users, then Azure Active Directory requests that the service provision a user corresponding to the one in Azure Active Directory.  Here is an example of such a request: 
 
-   ```
-     POST https://.../scim/Users HTTP/1.1
-     Authorization: Bearer ...
-     Content-type: application/scim+json
-     {
-       "schemas":
-       [
-         "urn:ietf:params:scim:schemas:core:2.0:User",
-         "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
-       "externalId":"jyoung",
-       "userName":"jyoung",
-       "active":true,
-       "addresses":null,
-       "displayName":"Joy Young",
-       "emails": [
-         {
-           "type":"work",
-           "value":"jyoung@Contoso.com",
-           "primary":true}],
-       "meta": {
-         "resourceType":"User"},
-        "name":{
-         "familyName":"Young",
-         "givenName":"Joy"},
-       "phoneNumbers":null,
-       "preferredLanguage":null,
-       "title":null,
-       "department":null,
-       "manager":null}
-   ```
+  ````
+    Autorização de HTTP/1.1 https://.../scim/Users de POSTAGEM: Portador...  Tipo de conteúdo: aplicação/scim + json {"esquemas": ["urn: ietf:params:scim:schemas:core:2.0:User", "urn: ietf:params:scim:schemas:extension:enterprise:2.0User"] "externalId": "jyoung", "nomedeutilizador": "jyoung", "ativo": true, "endereços": nulo,    "displayName": "Alegria Young", "mensagens de e-mail": [{"type": "trabalho", "value": "jyoung@Contoso.com", "primário": true}], "metadados": {"resourceType": "Utilizador"}, "nome": {"Nomedefamília": "Jovens", "givenName": "Alegria"}, "phoneNumbers": nulo, "preferredLa nguage": null,"title":"departamento"null,: null, o"Gestor": nulo}
+  ````
+  The CLI libraries provided by Microsoft for implementing SCIM services would translate that request into a call to the Create method of the service’s provider.  The Create method has this signature: 
+  ````
+    System.Threading.Tasks.Tasks é definida em mscorlib. dll.  
+    Microsoft.SystemForCrossDomainIdentityManagement.Resource está definido no / / Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
 
-   As bibliotecas de infra-estrutura de linguagem comum fornecidas pela Microsoft para implementar os serviços SCIM converte esse pedido numa chamada para o método de criação do fornecedor do serviço.  O método Create tem esta assinatura: 
+    System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> Create(    Microsoft.SystemForCrossDomainIdentityManagement.Resource resource,    string correlationIdentifier);
+  ````
+  In a request to provision a user, the value of the resource argument is an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, defined in the Microsoft.SystemForCrossDomainIdentityManagement.Schemas library.  If the request to provision the user succeeds, then the implementation of the method is expected to return an instance of the Microsoft.SystemForCrossDomainIdentityManagement. Core2EnterpriseUser class, with the value of the Identifier property set to the unique identifier of the newly provisioned user.  
 
-   ```
-     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
-     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
-     // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
- 
-     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> Create (
-       Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
-       string correlationIdentifier);
-   ```
+3. To update a user known to exist in an identity store fronted by an SCIM, Azure Active Directory proceeds by requesting the current state of that user from the service with a request such as: 
+  ````
+    OBTER autorização de HTTP/1.1 ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682: Portador...
+  ````
+  In a service built using the CLI libraries provided by Microsoft for implementing SCIM services, the request is translated into a call to the Retrieve method of the service’s provider.  Here is the signature of the Retrieve method: 
+  ````
+    System.Threading.Tasks.Tasks é definida em mscorlib. dll.  
+    Microsoft.SystemForCrossDomainIdentityManagement.Resource e / / Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters / / são definidos no Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
+    Nevrátila < Microsoft.SystemForCrossDomainIdentityManagement.Resource > obter (Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters parâmetros, cadeia de caracteres correlationIdentifier);
 
-   Num pedido de aprovisionamento de um utilizador, o valor do argumento de recursos é uma instância do Microsoft.SystemForCrossDomainIdentityManagement. Classe de Core2EnterpriseUser, definida na biblioteca do Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  Se o pedido para aprovisionar o utilizador for bem-sucedida, a implementação do método é esperada para retornar uma instância do Microsoft.SystemForCrossDomainIdentityManagement. Classe de Core2EnterpriseUser, com o valor da propriedade Identificador definido como o identificador exclusivo do utilizador recentemente aprovisionado.  
-
-3. Para atualizar um utilizador sabe existirem num arquivo de identidade apoiado por um SCIM, o Azure Active Directory continua ao pedir o estado atual do que o utilizador do serviço com um pedido, tais como: 
-
-   ```
-     GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
-     Authorization: Bearer ...
-   ```
-
-   Num serviço criado com as bibliotecas de infra-estrutura de linguagem comum fornecidas pela Microsoft para implementar os serviços SCIM, o pedido é convertido numa chamada para o método de recuperação do fornecedor do serviço.  Esta é a assinatura do método obter: 
-
-    ```
-     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
-     // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
-     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
-     // are defined in Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
-     System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> 
-        Retrieve(
-          Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
-            parameters, 
-            string correlationIdentifier);
- 
-     public interface 
-       Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
-         IRetrievalParameters
-         {
-           Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
-             ResourceIdentifier 
-               { get; }
-     }
-     public interface Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier
-     {
-         string Identifier 
-           { get; set; }
-         string Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier 
-           { get; set; }
-     }
-   ```
-
-   No exemplo de um pedido para obter o estado atual de um utilizador, os valores das propriedades do objeto fornecido como o valor do argumento parâmetros são os seguintes: 
+    interface pública Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
+        IRetrievalParameters {Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier ResourceIdentifier {get;}} interface pública Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier {string identificador {get; conjunto;} cadeia de caracteres Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier {get; conjunto;}}
+  ````
+  In the example of a request to retrieve the current state of a user, the values of the properties of the object provided as the value of the parameters argument are as follows: 
   
-   * Identificador: "54D382A4-2050-4C03-94D1-E769F1D15682"
-   * SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+   * Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-4. Se um atributo de referência está a ser atualizado, em seguida, o Azure Active Directory consulta o serviço para determinar se é ou não o valor atual do atributo de referência no arquivo de identidade apoiado pelo serviço já corresponde ao valor desse atributo no Active Directory do Azure Diretório. Para os utilizadores, o único atributo que o valor atual é consultado dessa maneira é o atributo de gestor. Eis um exemplo de um pedido para determinar se o atributo de Gestor de um objeto de utilizador em particular tem atualmente um determinado valor: 
+4. If a reference attribute is to be updated, then Azure Active Directory queries the service to determine whether or not the current value of the reference attribute in the identity store fronted by the service already matches the value of that attribute in Azure Active Directory. For users, the only attribute of which the current value is queried in this way is the manager attribute. Here is an example of a request to determine whether the manager attribute of a particular user object currently has a certain value: 
 
-   ```
-     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq  2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
-     Authorization: Bearer ...
-   ```
+  If the service was built using the CLI libraries provided by Microsoft for implementing SCIM services, then the request is translated into a call to the Query method of the service’s provider. The value of the properties of the object provided as the value of the parameters argument are as follows: 
+  
+  * parameters.AlternateFilters.Count: 2
+  * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
+  * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
+  * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+  * parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
+  * parameters.RequestedAttributePaths.ElementAt(0): "ID"
+  * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-   O valor do parâmetro de consulta de atributos, "ID", significa que, se um objeto de utilizador existe que satisfaz a expressão fornecida como o valor do parâmetro de consulta de filtro, em seguida, espera-se que o serviço responder com uma "urn: ietf:params:scim:schemas:core:2.0: Recurso de utilizador"ou"urn: ietf:params:scim:schemas:extension:enterprise:2.0:User", incluindo apenas o valor do atributo de"ID"desse recurso.  O valor do **ID** atributo é conhecido para o requerente. Está incluído no valor do parâmetro de consulta de filtro; o objetivo de pedir para ele, na verdade, é pedir uma representação de um mínimo de um recurso que que satisfaça a expressão de filtro como uma indicação de se pretende ou não existe a qualquer objeto desse tipo.   
+  Here, the value of the index x may be 0 and the value of the index y may be 1, or the value of x may be 1 and the value of y may be 0, depending on the order of the expressions of the filter query parameter.   
+
+5. Here is an example of a request from Azure Active Directory to an SCIM service to update a user: 
+  ````
+    PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1 autorização: Portador...  Tipo de conteúdo: aplicação/scim + json {"esquemas": ["urn: ietf:params:scim:api:messages:2.0:PatchOp"], "Operações": [{"op": "Adicionar", "caminho": "manager", "value": [{"$ref": "http://.../scim/Users/2819c223-7f76-453a-919d-413861904646", "value": "2819c223-7f76-453a-919d-413861904646"}]}]}
+  ````
+  The Microsoft CLI libraries for implementing SCIM services would translate the request into a call to the Update method of the service’s provider. Here is the signature of the Update method: 
+  ````
+    System.Threading.Tasks.Tasks e / / System.Collections.Generic.IReadOnlyCollection<T> / / são definidos em mscorlib. dll.  
+    Microsoft.SystemForCrossDomainIdentityManagement.IPatch, / / Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, / / Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, / / Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, / / Microsoft.SystemForCrossDomainIdentityManagement.OperationName, / / Microsoft.SystemForCrossDomainIdentityManagement.IPath e / / Microsoft.SystemForCrossDomainIdentityManagement.OperationValue / / são Microsoft.SystemForCrossDomainIdentityManagement.Protocol definidas em todos os. 
+
+    System.Threading.Tasks.Task Update(    Microsoft.SystemForCrossDomainIdentityManagement.IPatch patch,    string correlationIdentifier);
+
+    interface pública Microsoft.SystemForCrossDomainIdentityManagement.IPatch {Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase PatchRequest {get; conjunto;} Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier ResourceIdentifier {get; conjunto;}        
+    }
+
+    classe pública PatchRequest2:    Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase {System.Collections.Generic.IReadOnlyCollection público < Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation > operações {get;}
+
 
    Se o serviço foi criado com as bibliotecas de infra-estrutura de linguagem comum fornecidas pela Microsoft para implementar os serviços SCIM, em seguida, o pedido é convertido numa chamada para o método de consulta do fornecedor do serviço. O valor das propriedades do objeto fornecido como o valor do argumento parâmetros são os seguintes: 
   
@@ -718,18 +1154,64 @@ A ilustração seguinte mostra as mensagens que o Azure Active Directory envia p
 
    O objeto fornecido como o valor do argumento resourceIdentifier tem estes valores de propriedade no exemplo de um pedido para desaprovisionar um utilizador: 
 
-   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-   * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
+6. Desaprovisionar um utilizador de um arquivo de identidade apoiado por um serviço SCIM, do Azure AD envia um pedido, tais como: 
+  ````
+    DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
+    Authorization: Bearer ...
+  ````
+  Se o serviço foi criado com as bibliotecas CLI fornecidas pela Microsoft para implementar os serviços SCIM, em seguida, o pedido é convertido numa chamada para o método Delete do fornecedor do serviço.   Esse método tem esta assinatura: 
+  ````
+    // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
+    // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
+    // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
+    System.Threading.Tasks.Task Delete(
+      Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
+        resourceIdentifier, 
+      string correlationIdentifier);
+  ````
+  O objeto fornecido como o valor do argumento resourceIdentifier tem estes valores de propriedade no exemplo de um pedido para desaprovisionar um utilizador: 
+  
+  * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+  * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-## <a name="group-provisioning-and-de-provisioning"></a>Grupo de provisionamento e desprovisionamento
-A ilustração seguinte mostra as mensagens que Azure AcD envia a um serviço SCIM para gerir o ciclo de vida de um grupo no outro armazenamento de identidade.  Essas mensagens são diferentes de mensagens relativas aos utilizadores de três formas: 
+## <a name="user-and-group-schema-reference"></a>Referência de esquema de utilizador e grupo
+O Azure Active Directory pode aprovisionar dois tipos de recursos para serviços da web SCIM.  Esses tipos de recursos são utilizadores e grupos.  
 
-* O esquema de um recurso de grupo é identificado como `http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group`.  
-* Pedidos para obter os grupos de estipular que o atributo de membros é a excluir de qualquer recurso fornecido em resposta ao pedido.  
-* Os pedidos para determinar se um atributo de referência tem um determinado valor são pedidos sobre o atributo de membros.  
+Recursos de utilizador são identificados pelo identificador de esquema, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, que está incluído nessa especificação de protocolo: https://tools.ietf.org/html/rfc7643.  O mapeamento predefinido de atributos de utilizadores no Azure Active Directory para os atributos de recursos de utilizador é fornecido na tabela 1 abaixo.  
 
-![][5]
-*Figura 6: Grupo de provisionamento e desprovisionamento sequência*
+Grupo de recursos é identificados pelo identificador de esquema, `urn:ietf:params:scim:schemas:core:2.0:Group`.  Tabela 2 abaixo mostra o mapeamento predefinido de atributos de grupos no Azure Active Directory para os atributos do grupo de recursos.  
+
+### <a name="table-1-default-user-attribute-mapping"></a>Tabela 1: Mapeamento de atributo de utilizador padrão
+| Utilizador do Active Directory do Azure | "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User" |
+| --- | --- |
+| IsSoftDeleted |ativo |
+| displayName |displayName |
+| TelephoneNumber de fax |. Value de phoneNumbers [tipo eq "fax"] |
+| givenName |name.givenName |
+| jobTitle |título |
+| mail |. Value de e-mails [tipo eq "trabalho"] |
+| mailNickname |externalId |
+| gestor |gestor |
+| móvel |. Value de phoneNumbers [tipo eq "móvel"] |
+| objectId |ID |
+| postalCode |.postalCode endereços [tipo eq "trabalho"] |
+| Endereços de proxy |e-mails de [tipo é igual a "other"]. Valor |
+| physical-Delivery-OfficeName |endereços [tipo é igual a "other"]. Formatado |
+| streetAddress |.streetAddress endereços [tipo eq "trabalho"] |
+| Apelido |name.familyName |
+| Número de telefone |. Value de phoneNumbers [tipo eq "trabalho"] |
+| utilizador PrincipalName |userName |
+
+### <a name="table-2-default-group-attribute-mapping"></a>Tabela 2: Mapeamento de atributo de grupo predefinido
+| Grupo do Azure Active Directory | urn:ietf:params:scim:schemas:core:2.0:Group |
+| --- | --- |
+| displayName |externalId |
+| mail |. Value de e-mails [tipo eq "trabalho"] |
+| mailNickname |displayName |
+| membros |membros |
+| objectId |ID |
+| proxyAddresses |e-mails de [tipo é igual a "other"]. Valor |
+
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Automatizar o utilizador aprovisionamento/desaprovisionamento às aplicações SaaS](user-provisioning.md)

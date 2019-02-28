@@ -9,18 +9,20 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 2749a5c6c4e6003c51523d83c46b48d3b55b3d45
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 23759a6c3d920e2b791a10ddd5ac5c5285ed1889
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807589"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959872"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar a monitorização no duplos Digital do Azure
 
-Duplos Digital do Azure suporta registo robusto, monitorização e análise. Os desenvolvedores de soluções podem utilizar o Azure Log Analytics, os registos de diagnóstico, registo de atividade e outros serviços para suportar as necessidades complexas de monitorização de uma aplicação IoT. Opções de registo podem ser combinadas para consultar ou apresentar registos em vários serviços e fornecer cobertura de Registro em log granular para muitos serviços.
+Duplos Digital do Azure suporta registo robusto, monitorização e análise. Os desenvolvedores de soluções podem utilizar os registos do Azure Monitor, registos de diagnóstico, registo de atividade e outros serviços para suportar as necessidades complexas de monitorização de uma aplicação IoT. Opções de registo podem ser combinadas para consultar ou apresentar registos em vários serviços e fornecer cobertura de Registro em log granular para muitos serviços.
 
 Este artigo resume o registo e monitorização de opções e como combiná-los de formas específicas para Twins Digital do Azure.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="review-activity-logs"></a>Registos de atividades de revisão
 
@@ -75,7 +77,7 @@ Para ativar os registos de diagnóstico para uma instância:
 
     ![Duas definições de diagnóstico][5]
 
-    Os registos de diagnóstico são, muitas vezes, salvo usando [File Storage do Azure](../storage/files/storage-files-deployment-guide.md) e partilhado com [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md). Ambas as opções podem ser selecionadas.
+    Os registos de diagnóstico são, muitas vezes, salvo usando [File Storage do Azure](../storage/files/storage-files-deployment-guide.md) e partilhado com [registos do Azure Monitor](../azure-monitor/log-query/get-started-portal.md). Ambas as opções podem ser selecionadas.
 
 >[!TIP]
 >Uso **registos de diagnóstico** para informações sobre operações de recursos.
@@ -84,7 +86,7 @@ Para ativar os registos de diagnóstico para uma instância:
 
 Aplicações de IoT unam-se diferentes recursos, dispositivos, locais e dados em um. Registro em log detalhado fornece informações detalhadas sobre cada parte específica, o serviço ou o componente da arquitetura geral do aplicativo, mas uma visão unificada, muitas vezes, é necessária para manutenção e a depuração.
 
-Monitor do Azure inclui o serviço de Log Analytics poderoso, que permite que o registo origens sejam visualizados e analisados num único local. O Azure Monitor, por conseguinte, é extremamente útil para analisar os registos dentro sofisticados aplicações de IoT.
+Monitor do Azure inclui o serviço de análise do registo poderosa, que permite o registo de origens para ser visualizado e analisados num único local. O Azure Monitor, por conseguinte, é extremamente útil para analisar os registos dentro sofisticados aplicações de IoT.
 
 Exemplos de utilização incluem:
 
@@ -92,32 +94,32 @@ Exemplos de utilização incluem:
 * Ver registos para várias funções definidas pelo utilizador
 * Exibindo logs para dois ou mais serviços dentro de um período de tempo específico
 
-Consultar o registo completo é fornecido através de [do Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md). Para configurar estas funcionalidades poderosas:
+Consultar o registo completo é fornecido através de [registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md). Para configurar estas funcionalidades poderosas:
 
 1. Procure **do Log Analytics** no portal do Azure.
-1. Verá sua disponíveis **do Log Analytics** instâncias. Escolha uma e selecione **registos** a consulta:
+1. Verá sua disponíveis **área de trabalho do Log Analytics** instâncias. Escolha uma e selecione **registos** a consulta:
 
     ![Log analytics][6]
 
-1. Se ainda não tiver uma **do Log Analytics** instância, pode criar uma área de trabalho ao clicar o **Add** botão:
+1. Se ainda não tiver uma **área de trabalho do Log Analytics** instância, pode criar uma área de trabalho ao clicar o **Add** botão:
 
     ![Criar o OMS][7]
 
-Uma vez sua **do Log Analytics** instância é aprovisionada, pode utilizar consultas eficientes para encontrar entradas nos registos de múltiplos ou a procura utilizando critérios específicos usando **gestão de registos**:
+Uma vez sua **área de trabalho do Log Analytics** instância é aprovisionada, pode utilizar consultas eficientes para encontrar entradas nos registos de múltiplos ou a procura utilizando critérios específicos usando **gestão de registos**:
 
    ![Gestão de registos][8]
 
 Para obter mais informações sobre as operações de consulta poderosa, consulte [introdução às consultas](../azure-monitor/log-query/get-started-queries.md).
 
 > [!NOTE]
-> Poderá haver um atraso de 5 minutos, ao enviar eventos para **do Log Analytics** pela primeira vez.
+> Poderá haver um atraso de 5 minutos, ao enviar eventos para **área de trabalho do Log Analytics** pela primeira vez.
 
-O Azure Log Analytics também fornece o erro poderosas e serviços de notificação de alerta, que podem ser visualizados clicando **diagnosticar e resolver problemas**:
+Registos de Monitor do Azure também fornece o erro poderosas e serviços de notificação de alerta, que podem ser visualizados clicando **diagnosticar e resolver problemas**:
 
    ![Notificações de alerta e de erro][9]
 
 >[!TIP]
->Uso **do Log Analytics** para históricos de log de consulta para as várias funcionalidades de aplicação, subscrições ou serviços.
+>Uso **área de trabalho do Log Analytics** para históricos de log de consulta para as várias funcionalidades de aplicação, subscrições ou serviços.
 
 ## <a name="other-options"></a>Outras opções
 
@@ -129,7 +131,7 @@ Duplos Digital do Azure também suporta o registo específico de aplicação e a
 
 - Aprofunde-se em definições de diagnóstico do Azure, lendo um [descrição geral dos registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-- Leia mais sobre [do Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+- Leia mais sobre [registos do Azure Monitor](../azure-monitor/log-query/get-started-portal.md).
 
 <!-- Images -->
 [1]: media/how-to-configure-monitoring/activity-log.png

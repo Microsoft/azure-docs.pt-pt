@@ -11,16 +11,16 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f6c1af2051d946b29e2022c90d0ad9820b4d283
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1d483d14a08f589fc8d014a13a47008b9fb59690
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823506"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984956"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para a modelação de regressão
 
-Neste tutorial, saiba como preparar dados para regressão de modelagem, utilizando o SDK do Azure Machine Learning Data Prep. Executar várias transformações para filtrar e combinar os dois conjuntos de dados de táxis NYC diferentes.
+Neste tutorial, irá aprender a preparar dados para regressão de modelagem, utilizando o [do Azure Machine Learning dados de preparação do SDK para Python](https://aka.ms/data-prep-sdk). Executar várias transformações para filtrar e combinar os dois conjuntos de dados de táxis NYC diferentes.
 
 Este tutorial é a **primeira parte de uma série composta por duas partes**. Depois de concluir a série de tutoriais, pode prever o custo de uma viagem de táxis ao preparar um modelo sobre os recursos de dados. Esses recursos incluem o dia de recolha e tempo, o número de passageiros e o local de recebimento.
 
@@ -48,7 +48,7 @@ Obter todos os estes pré-requisitos a partir de qualquer uma das seções abaix
 
 ### <a name="azure"></a>Utilize blocos de notas do Azure: Blocos de notas do Jupyter gratuitos na cloud
 
-É fácil começar com blocos de notas do Azure! O [do Azure Machine Learning dados de preparação do SDK para Python](https://aka.ms/data-prep-sdk) já está instalado e configurado para si no [blocos de notas do Azure](https://notebooks.azure.com/). A instalação e as futuras atualizações são geridas automaticamente por meio de serviços do Azure.
+É fácil começar com blocos de notas do Azure! O SDK do Azure Machine Learning Data Prep já está instalado e configurado para si no [blocos de notas do Azure](https://notebooks.azure.com/). A instalação e as futuras atualizações são geridas automaticamente por meio de serviços do Azure.
 
 Depois de concluir os passos abaixo, execute o **tutoriais/regressão-part1-data-prep.ipynb** bloco de notas no seu **introdução** projeto.
 
@@ -662,7 +662,7 @@ Tenha em atenção que o perfil de dados de saída no `store_forward` coluna mos
 replaced_stfor_vals_df = latlong_filtered_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-Executar o `replace` funcionar no `distance` campo. A função reformata valores de distância, que estão incorretamente identificadas como `.00`e preenche qualquer nulos com zeros. Converter o `distance` campo para um formato numérico. Esses pontos de dados incorretos são provavelmente anomolies do sistema de recolha de dados no cabs a táxis.
+Executar o `replace` funcionar no `distance` campo. A função reformata valores de distância, que estão incorretamente identificadas como `.00`e preenche qualquer nulos com zeros. Converter o `distance` campo para um formato numérico. Esses pontos de dados incorretos são provavelmente anomalias no sistema de recolha de dados no cabs a táxis.
 
 
 ```python

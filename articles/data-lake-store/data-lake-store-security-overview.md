@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4da387abe24318a29472c11dffa7aac67192408c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a310851819f70d138a4980b1ab61891fb0b2c311
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297430"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959617"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Segurança no Azure Data Lake Storage Gen1
 Muitas empresas estão a tirar partido da análise de macrodados para as informações de negócio para os ajudar a tomar decisões inteligentes. Uma organização pode ter um ambiente complexo e regulado, com um número crescente de diversos usuários. É fundamental para uma empresa para se certificar de que a dados empresariais críticos são armazenados de forma mais segura, com o nível correto de acesso concedido a utilizadores individuais. Geração de armazenamento 1 do Azure Data Lake foi concebido para ajudar a satisfazer esses requisitos de segurança. Neste artigo, saiba mais sobre as capacidades de segurança de geração 1 de armazenamento do Data Lake, incluindo:
 
-* Autenticação
+* Authentication
 * Autorização
 * Isolamento de rede
 * Proteção de dados
@@ -82,7 +82,7 @@ Geração 1 de armazenamento do Data Lake também fornece encriptação para dad
 
 Gestão de chaves, Gen1 de armazenamento do Data Lake fornece dois modos para gerir as chaves de encriptação mestra (MEKs), que são necessárias para desencriptar todos os dados que são armazenados na geração 1 de armazenamento do Data Lake. Pode optar por permitir que os Data Lake Storage Gen1, faça a gestão de MEKs para, ou optar por manter a propriedade de MEKs com a sua conta do Azure Key Vault. Especifique o modo de gestão de chaves ao criar uma conta de geração 1 de armazenamento do Data Lake. Para obter mais informações sobre como fornecer configuração relacionada com encriptação, consulte [introdução ao Azure Data Lake Storage Gen1 através do Portal do Azure](data-lake-store-get-started-portal.md).
 
-## <a name="activity-and-diagnostic-logs"></a>Atividade e os registos de diagnóstico
+## <a name="activity-and-diagnostic-logs"></a>Registos de atividade e de diagnóstico
 Pode usar a atividade ou registos de diagnóstico, dependendo se estiver à procura de registos de atividades relacionadas com a gestão de conta ou atividades relacionadas com dados.
 
 * Atividades relacionadas com a gestão da conta utilizam APIs do Azure Resource Manager e são apresentadas no portal do Azure através de registos de atividades.
@@ -98,7 +98,7 @@ Para registos de auditoria da gestão de conta, ver e escolha as colunas que pre
 Para obter mais informações sobre como trabalhar com registos de atividades, consulte [ver registos de atividades para auditar as ações em recursos](../azure-resource-manager/resource-group-audit.md).
 
 ### <a name="diagnostics-logs"></a>Registos de diagnósticos
-Pode ativar a auditoria de acesso de dados e log de diagnóstico no portal do Azure e enviar os registos para uma conta de armazenamento de Blobs do Azure, um hub de eventos ou do Log Analytics.
+Pode ativar a auditoria de acesso de dados e log de diagnóstico no portal do Azure e enviar os registos para uma conta de armazenamento de Blobs do Azure, um hub de eventos ou os registos do Azure Monitor.
 
 ![Os registos de diagnóstico](./media/data-lake-store-security-overview/diagnostic-logs.png "os registos de diagnóstico")
 

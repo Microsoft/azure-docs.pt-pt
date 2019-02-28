@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5c63a838d6cffce5ca45dbf0dde50bb9bd01892c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171657"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961300"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -49,7 +49,7 @@ O **UserJourney** elemento contém os seguintes elementos:
 
 Um percurso do utilizador é representado como uma sequência de orquestração que deve ser seguida por meio de uma transação concluída com êxito. Se falhar qualquer passo, a transação falhar. Estes passos de orquestração referenciam os blocos de construção e os fornecedores de afirmações permitido no ficheiro de política. Qualquer passo de orquestração responsável para mostrar ou compor uma experiência de utilizador também tem uma referência para o identificador de definição de conteúdo correspondente.
 
-Etapas da orquestração podem ser conditionaly executada, com base em pré-condições definidas no elemento de passo de orquestração. Para examle pode verificar para realizar um passo de orquestração, apenas se existir um afirmações específicas, ou se uma afirmação é igual ou não com o valor especificado. 
+Etapas da orquestração podem ser condicionalmente executadas, com base em pré-condições definidas no elemento de passo de orquestração. Por exemplo, pode verificar para realizar um passo de orquestração, apenas se existir um afirmações específicas, ou se uma afirmação é igual ou não com o valor especificado. 
 
 Para especificar a lista ordenada de passos de orquestração, um **OrchestrationSteps** elemento é adicionado como parte da política. Este elemento é necessário.
 
@@ -77,7 +77,7 @@ O **OrchestrationStep** elemento pode conter os seguintes elementos:
 | ClaimsProviderSelections | 0:n | Uma lista de seleções de fornecedor de afirmações para o passo de orquestração. | 
 | ClaimsExchanges | 0:n | Uma lista de trocas de afirmações para o passo de orquestração. | 
 
-#### <a name="preconditions"></a>Pré-condições
+### <a name="preconditions"></a>Pré-condições
 
 O **pré-condições** elemento contém o seguinte elemento:
 
@@ -86,7 +86,7 @@ O **pré-condições** elemento contém o seguinte elemento:
 | Pré-condição | 0:n | Dependendo do perfil técnico a ser utilizado, um redireciona o cliente de acordo com a seleção do fornecedor de afirmações ou faz uma chamada de servidor para a troca de afirmações. | 
 
 
-##### <a name="precondition"></a>Pré-condição
+#### <a name="precondition"></a>Pré-condição
 
 O **pré-condição** elemento contém o atributo seguinte:
 
@@ -102,7 +102,7 @@ O **pré-condição** elementos contém os seguintes elementos:
 | Value | 1:n | Um ClaimTypeReferenceId para ser consultada para. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
 | Ação | 1:1 | A ação que deve ser efetuada se a verificação de pré-condição dentro de um passo de orquestração for verdadeira. Se o valor do `Action` está definido como `SkipThisOrchestrationStep`, associada `OrchestrationStep` não deve ser executado. | 
 
-### <a name="preconditions-examples"></a>Exemplos de pré-condições
+#### <a name="preconditions-examples"></a>Exemplos de pré-condições
 
 As seguintes pré-condições verifica a existência de objectId do utilizador. No percurso do utilizador, o usuário tiver selecionado para iniciar sessão com a conta local. Se existir o objectId, ignore este passo de orquestração.
 
@@ -226,20 +226,3 @@ O **ClaimsExchange** elemento contém os seguintes atributos:
 | --------- | -------- | ----------- |
 | Id | Sim | Um identificador do passo de exchange afirmações. O identificador é utilizado para a troca de afirmações entre uma seleção de fornecedor de afirmações passo na política de referência. | 
 | TechnicalProfileReferenceId | Sim | O identificador do perfil técnico que está a ser executado. |
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -8,12 +8,12 @@ ms.author: jasonh
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: 0bade9f393d879123b7b1485052f70924d9c9b9c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045486"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959140"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Aceder a registos de diagnóstico para o Azure Data Lake Analytics
 
@@ -41,7 +41,7 @@ Registo de diagnósticos permite-lhe recolher registos de auditoria de acesso de
 
      * Selecione **Stream para um Hub de eventos** para transmitir dados de registo para um Hub de eventos do Azure. Utilize esta opção se tiver um pipeline de processamento a jusante, que está a analisar os registos de entrada em tempo real. Se selecionar esta opção, tem de fornecer os detalhes para o Hub de eventos do Azure que pretende utilizar.
 
-     * Selecione __enviar para o Log Analytics__ para enviar os dados para o serviço Log Analytics. Utilize esta opção se pretender utilizar o Log Analytics para recolher e analisar registos.
+     * Selecione __enviar para o Log Analytics__ para enviar os dados para o serviço do Azure Monitor. Utilize esta opção se pretender utilizar registos de Monitor do Azure para recolher e analisar registos.
    * Especifique se pretende obter registos de auditoria, registos de pedidos ou ambas.  Um registo de pedido captura todos os pedidos de API. Um registo de auditoria regista todas as operações que são acionadas por esse pedido de API.
 
    * Para __arquivo para uma conta de armazenamento__, especifique o número de dias a manter os dados.
@@ -125,28 +125,28 @@ Aqui está uma entrada de exemplo no registo de pedido de formato JSON. Cada blo
 
 #### <a name="request-log-schema"></a>Esquema de registo de pedido
 
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |O período de tempo (em UTC) do registo |
-| resourceId |Cadeia |O identificador do recurso que demorou a operação de colocar em |
-| categoria |Cadeia |A categoria de registo. Por exemplo, **pedidos**. |
-| operationName |Cadeia |Nome da operação que é registado. Por exemplo, GetAggregatedJobHistory. |
-| resultType |Cadeia |O estado da operação, por exemplo, 200. |
-| callerIpAddress |Cadeia |O endereço IP do cliente que efetua o pedido |
-| correlationId |Cadeia |O identificador do registo. Este valor pode ser utilizado para agrupar um conjunto de entradas de registo relacionados. |
+| hora |String |O período de tempo (em UTC) do registo |
+| resourceId |String |O identificador do recurso que demorou a operação de colocar em |
+| categoria |String |A categoria de registo. Por exemplo, **pedidos**. |
+| operationName |String |Nome da operação que é registado. Por exemplo, GetAggregatedJobHistory. |
+| resultType |String |O estado da operação, por exemplo, 200. |
+| callerIpAddress |String |O endereço IP do cliente que efetua o pedido |
+| correlationId |String |O identificador do registo. Este valor pode ser utilizado para agrupar um conjunto de entradas de registo relacionados. |
 | identidade |Object |A identidade que gerou o registo |
 | propriedades |JSON |Veja a secção seguinte (esquema de propriedades de registo de pedido) para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades de registo de pedido
 
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 | --- | --- | --- |
-| HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, obter. |
-| Caminho |Cadeia |O caminho a operação foi realizado em |
-| RequestContentLength |Int |O comprimento do conteúdo da solicitação HTTP |
-| ClientRequestId |Cadeia |O identificador que identifica exclusivamente este pedido |
-| startTime |Cadeia |O tempo em que o servidor recebeu o pedido |
-| endTime |Cadeia |O tempo em que o servidor enviou uma resposta |
+| HttpMethod |String |O método HTTP utilizado para a operação. Por exemplo, obter. |
+| Caminho |String |O caminho a operação foi realizado em |
+| RequestContentLength |int |O comprimento do conteúdo da solicitação HTTP |
+| ClientRequestId |String |O identificador que identifica exclusivamente este pedido |
+| StartTime |String |O tempo em que o servidor recebeu o pedido |
+| endTime |String |O tempo em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 
@@ -177,15 +177,15 @@ Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob
 
 #### <a name="audit-log-schema"></a>Esquema de registo de auditoria
 
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |O período de tempo (em UTC) do registo |
-| resourceId |Cadeia |O identificador do recurso que demorou a operação de colocar em |
-| categoria |Cadeia |A categoria de registo. Por exemplo, **auditoria**. |
-| operationName |Cadeia |Nome da operação que é registado. Por exemplo, JobSubmitted. |
-| resultType |Cadeia |Subestado para o estado da tarefa (Oeprationname). |
-| resultSignature |Cadeia |Detalhes adicionais sobre o estado da tarefa (Oeprationname). |
-| identidade |Cadeia |O utilizador que a operação pedida. Por exemplo, susan@contoso.com. |
+| hora |String |O período de tempo (em UTC) do registo |
+| resourceId |String |O identificador do recurso que demorou a operação de colocar em |
+| categoria |String |A categoria de registo. Por exemplo, **auditoria**. |
+| operationName |String |Nome da operação que é registado. Por exemplo, JobSubmitted. |
+| resultType |String |Subestado para o estado da tarefa (Oeprationname). |
+| resultSignature |String |Detalhes adicionais sobre o estado da tarefa (Oeprationname). |
+| identidade |String |O utilizador que a operação pedida. Por exemplo, susan@contoso.com. |
 | propriedades |JSON |Veja a secção seguinte (esquema de propriedades de registo de auditoria) para obter detalhes |
 
 > [!NOTE]
@@ -195,15 +195,15 @@ Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
 
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 | --- | --- | --- |
-| JobId |Cadeia |A identificação atribuída ao trabalho |
-| JobName |Cadeia |O nome que foi fornecido para a tarefa |
-| JobRunTime |Cadeia |O tempo de execução usado para processar a tarefa |
-| SubmitTime |Cadeia |O tempo (em UTC) que a tarefa foi submetida |
-| startTime |Cadeia |O tempo que a tarefa iniciou a execução após o envio (em UTC) |
-| endTime |Cadeia |O tempo que a tarefa foi concluída |
-| Paralelismo |Cadeia |O número de unidades do Data Lake Analytics requerido para esta tarefa durante a submissão |
+| JobId |String |A identificação atribuída ao trabalho |
+| JobName |String |O nome que foi fornecido para a tarefa |
+| JobRunTime |String |O tempo de execução usado para processar a tarefa |
+| SubmitTime |String |O tempo (em UTC) que a tarefa foi submetida |
+| StartTime |String |O tempo que a tarefa iniciou a execução após o envio (em UTC) |
+| endTime |String |O tempo que a tarefa foi concluída |
+| Paralelismo |String |O número de unidades do Data Lake Analytics requerido para esta tarefa durante a submissão |
 
 > [!NOTE]
 > **SubmitTime**, **StartTime**, **EndTime**, e **paralelismo** fornecem informações sobre uma operação. Estas entradas de conter apenas um valor se operação iniciada ou concluída. Por exemplo, **SubmitTime** contém apenas um valor após **operationName** tem o valor **JobSubmitted**.

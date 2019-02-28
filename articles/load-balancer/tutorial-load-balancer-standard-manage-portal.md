@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 7caddde5c7695d0c572dc139b52cd0743e39d778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fa40f4f666444209f70d3f49b7947450af01ec36
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672004"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983291"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Balanceamento de carga de tráfego da internet para VMs com o portal do Azure
 
@@ -45,21 +45,22 @@ Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azu
 Nesta secção, vai criar um balanceador de carga público que ajuda a fazer o balanceamento de carga de máquinas virtuais. O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Quando cria um Balanceador de Carga Standard, também tem de criar um novo endereço IP Público Standard que seja configurado como o front-end (denominado *LoadBalancerFrontend* por predefinição) para o mesmo. 
 
 1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-2. Na página **Criar balanceador de carga**, introduza ou selecione as informações seguintes, aceite as predefinições das definições restantes e selecione **Criar**:
-    
+2. Na **Noções básicas** separador da **criar Balanceador de carga** página, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **rever + criar**:
+
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
+    | Subscrição               | Selecione a sua subscrição.    |    
+    | Grupo de recursos         | Selecione **criar novo** e escreva *MyResourceGroupSLB* na caixa de texto.|
     | Name                   | *myLoadBalancer*                                   |
-    | Type          | Público                                        |
-    | SKU           | Standard                          |
-    | Endereço IP público | Selecione **Criar novo** e escreva *myPublicIP* na caixa de texto. O SKU Standard para o endereço IP Público é selecionado por predefinição. Em **Zona de disponibilidade**, selecione **Com Redundância entre Zonas**. |
-    | Subscrição               | Selecione a sua subscrição.    |
-    |Grupo de recursos | Selecione **Criar novo** e, em seguida, escreva *myResourceGroupSLB*.    |
-    | Localização           | Selecione **Europa Ocidental**.                          |
-    
+    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Type          | Selecione **público**.                                        |
+    | SKU           | Selecione **padrão**.                          |
+    | Endereço IP público | Selecione **Criar novo**. |
+    | Nome do endereço IP público              | Tipo *myPublicIP* na caixa de texto.   |
+    |Zona de disponibilidade| Selecione **redundância de zona**.    |
+3. Na **rever + criar** separador, clique em **criar**.   
 
-![Criar um balanceador de carga](./media/load-balancer-standard-public-portal/create-load-balancer.png)
-   
+  
 ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
 Nesta secção, vai criar uma rede virtual, três máquinas virtuais para o conjunto de back-end do balanceador de carga e, em seguida, instalar o IIS nas máquinas virtuais para o ajudar a testar o balanceador de carga.

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: ba9dbeb01be5a9869b69836b118651cff7f0c92d
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 1bb729ecd532edf20a116c88a4773a6bb6617767
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750553"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959209"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Como utilizar o SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
@@ -42,7 +42,7 @@ Quando possível, os exemplos são fornece para as versões 3.x e a versão 2.x.
 >
 > Para obter mais informações, consulte [Compare os WebJobs SDK e as funções do Azure](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
-## <a name="webhobs-host"></a>Anfitrião de WebHobs
+## <a name="webjobs-host"></a>Anfitrião de WebJobs
 
 O anfitrião é um contentor de tempo de execução para as funções.  Escuta acionadores e as chamadas de funções. Na versão 3.x, o host é uma implementação de `IHost`e na versão 2.x é usar o `JobHost` objeto. Criar uma instância de host no seu código e escrever código para personalizar seu comportamento.
 

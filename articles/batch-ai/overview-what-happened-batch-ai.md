@@ -7,12 +7,12 @@ ms.service: batch-ai
 ms.topic: overview
 ms.date: 2/14/2019
 ms.author: garye
-ms.openlocfilehash: 9e893354fb8971826d6fa3eb6b565f660305da0a
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: fb1114e94c227ce6787532c6059186399d0f57f0
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889652"
+ms.locfileid: "56961365"
 ---
 # <a name="whats-happening-to-azure-batch-ai"></a>O que está a acontecer ao Azure Batch AI?
 
@@ -434,7 +434,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-As informações completas para este fragmento de código de treinamento (incluindo o arquivo de tf_mnist_replica.py) podem ser encontradas na [repositório do github de bloco de notas do Azure ML exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). O arquivo de dados em si também pode ser montado em nós individuais ou os dados de treinamento podem ser baixados no próprio nó. Obter mais detalhes sobre a referenciar o arquivo de dados no seu estimator está no [documentação de serviço do Azure ML](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
+As informações completas para este fragmento de código de treinamento (incluindo o arquivo de tf_mnist_replica.py) podem ser encontradas na [repositório do github de bloco de notas do Azure ML exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). O arquivo de dados em si também pode ser montado em nós individuais ou os dados de treinamento podem ser baixados no próprio nó. Obter mais detalhes sobre a referenciar o arquivo de dados no seu estimator está no [documentação de serviço do Azure ML](../machine-learning/service/how-to-access-data.md#access). 
 
 Submeter uma execução no Azure ML é por meio da função de envio.
 

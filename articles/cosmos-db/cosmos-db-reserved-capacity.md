@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e7a5ed6274a0429726f0ed19c0765cfdc3378daa
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5547186d314f0c8cebf9f08463e4953f9f20ad3c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888530"
+ms.locfileid: "56957985"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com capacidade de reserva no Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Quando a reserva expirar, as instâncias do Azure Cosmos DB continuam a ser exec
 
 ## <a name="cancellation-and-exchanges"></a>Cancelamento e trocas
 
-Para ajudar a identificar a capacidade de reserva certo, consulte [compreender como o desconto de reserva é aplicado ao Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). No caso, terá de cancelar ou trocar uma reserva de Azure Cosmos DB, contacte a equipa do Azure Cosmos DB em `askCosmosDB@microsoft.com`.
+Para ajudar a identificar a capacidade de reserva certo, consulte [compreender como o desconto de reserva é aplicado ao Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). No caso, terá de cancelar ou trocar uma reserva de Azure Cosmos DB, contacte a equipa do Azure Cosmos DB em `AskCosmosDB@microsoft.com`.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 01302bf206c4205abca23cb90684e0672215eeda
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b5e41b1f9ee982b8ff8c86232f715d5dab705cd6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884848"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962167"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início rápido: Criar um .NET Framework de aplicação com a configuração de aplicações do Azure
 
@@ -51,7 +51,7 @@ Para concluir este início rápido, instale [Visual Studio 2017](https://visuals
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
     ```
 
-2. Atualização do *App. config* ficheiro do seu projeto seguinte
+2. Atualização do *App. config* ficheiro do seu projeto seguinte:
 
     ```xml
     <configSections>
@@ -67,9 +67,10 @@ Para concluir este início rápido, instale [Visual Studio 2017](https://visuals
 
     <appSettings configBuilders="Environment,MyConfigStore">
         <add key="AppName" value="Console App Demo" />
-        <add key="ConnectionString" value ="First filled in by 'Environment'. Could be a dev, test, staging, or production connection string." />
+        <add key="ConnectionString" value ="Set via an environment variable - for example, dev, test, staging, or production connection string." />
     </appSettings>
     ```
+
    Plesae tenha em atenção, como podemos estará lendo a cadeia de ligação do seu arquivo de configuração de aplicação da variável de ambiente `ConnectionString`, é importante adicionar a `Environment` builder de configuração antes do `MyConfigStore` no `configBuilders` propriedade do `appSettings` secção.
 
 3. Open *Program.cs* e atualizar a `Main` método a utilizar a configuração de aplicações ao chamar `ConfigurationManager`.

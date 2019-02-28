@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 87b68eceda6749e3bb0fdc64394b2b839f3963c3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7d40a29a0d9d708deb5485b18327d809ded0022d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866747"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959549"
 ---
 # <a name="dynamic-manifests"></a>Manifestos dinâmicos
 
@@ -41,7 +41,7 @@ Este tópico explica os conceitos relacionados com **manifestos dinâmica** e fo
 
 ## <a name="manifest-files-overview"></a>Descrição geral de ficheiros de manifesto
 
-Quando codifica um recurso para transmissão em fluxo de velocidade de transmissão adaptável, um **manifesto** é criado (lista de reprodução) ficheiro (o arquivo é baseado em texto ou baseado em XML). O **manifesto** ficheiro inclui a transmissão em fluxo de metadados, tais como: controlar o tipo (áudio, vídeo ou texto), controlar o nome, hora de início e fim, a velocidade de transmissão (qualidades), linguagens de controle, a janela de apresentação (janela deslizante de duração fixa), (de codec de vídeo FourCC). Também instrui o player para recuperar o fragmento seguinte, fornecendo informações sobre os seguintes pode ser reproduzidos vídeo fragmentos disponíveis e a respetiva localização. Fragmentos de (ou segmentos) são os reais "segmentos" de um conteúdo de vídeo.
+R **manifesto** (lista de reprodução) ficheiro (baseado em texto ou baseado em XML) inclui a transmissão em fluxo de metadados, tais como: controlar o tipo (áudio, vídeo ou texto), controlar o nome, hora de início e fim, a velocidade de transmissão (qualidades), linguagens de controle, janela de apresentação (deslizante codec de vídeo de janela de duração fixa), (FourCC). Também instrui o player para recuperar o fragmento seguinte, fornecendo informações sobre os seguintes pode ser reproduzidos vídeo fragmentos disponíveis e a respetiva localização. Fragmentos de (ou segmentos) são os reais "segmentos" de um conteúdo de vídeo.
 
 Eis um exemplo de um ficheiro de manifesto HLS: 
 

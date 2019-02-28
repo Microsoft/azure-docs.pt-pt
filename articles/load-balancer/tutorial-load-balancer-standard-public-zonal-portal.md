@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/17/2018
+ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 76e55c643378e689f12d485100a81ccefa4196f4
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229817"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985993"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: Balancear carga de VMs dentro de uma zona de disponibilidade com o Balanceador de carga Standard com o portal do Azure
 
@@ -48,18 +48,22 @@ Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azu
 O Balanceador de Carga Standard só suporta endereços IP públicos padrão. Quando cria um novo IP público durante a criação do balanceador de carga, o mesmo é configurado, de forma automática, como uma versão de SKU Standard. Também tem redundância de zona automaticamente.
 
 1. No canto superior esquerdo do ecrã, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-2. Na página **Criar balanceador de carga**, introduza estes valores para o balanceador de carga:
-    - **myLoadBalancer**, no nome do balanceador de carga.
-    - **Público**, no tipo de balanceador de carga.
-      - **myPublicIPZonal**, no endereço IP público novo que criar. Selecione **Escolher um endereço IP público**. Em seguida, selecione **Criar novo**. Em nome, introduza **myPublicIP**. O SKU é o standard por predefinição. Em **Zona de disponibilidade**, selecione **Zona 1**.
-    - **myResourceGroupZLB**, no nome do novo grupo de recursos que criar.
-    - **westeurope**, na localização.
-3. Selecione **Criar** para criar o balanceador de carga.
-   
-    ![Criar uma instância do Balanceador de Carga Standard zonal com o portal do Azure](./media/tutorial-load-balancer-standard-zonal-portal/create-load-balancer-zonal-frontend.png)
+2. Na **Noções básicas** separador da **criar Balanceador de carga** página, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **rever + criar**:
 
+    | Definição                 | Valor                                              |
+    | ---                     | ---                                                |
+    | Subscrição               | Selecione a sua subscrição.    |    
+    | Grupo de recursos         | Selecione **criar novo** e escreva *MyResourceGroupZLB* na caixa de texto.|
+    | Name                   | *myLoadBalancer*                                   |
+    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Type          | Selecione **público**.                                        |
+    | SKU           | Selecione **padrão**.                          |
+    | Endereço IP público | Selecione **Criar novo**. |
+    | Nome do endereço IP público              | Tipo *myPublicIP* na caixa de texto.   |
+    |Zona de disponibilidade| Selecione **1**.    |
+3. Na **rever + criar** separador, clique em **criar**.   
 
-## <a name="create-backend-servers"></a>Criar servidores de back-end
+ ## <a name="create-backend-servers"></a>Criar servidores de back-end
 
 Nesta secção, vai criar uma rede virtual. Também vai criar duas máquinas virtuais na mesma zona (nomeadamente, na zona 1) da região para adicionar ao conjunto de back-ends do seu balanceador de carga. Em seguida, vai instalar o IIS nas máquinas virtuais para ajudar a testar o balanceador de carga com redundância entre zonas. Se uma VM falhar, a sonda de estado de funcionamento da VM na mesma zona falha. O tráfego continua a ser servido pelas outras VMs na mesma zona.
 

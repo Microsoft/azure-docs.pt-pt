@@ -1,5 +1,5 @@
 ---
-title: Solução de estado de funcionamento de agente no Azure | Documentos da Microsoft
+title: Solução de estado de funcionamento de agente no Azure Monitor | Documentos da Microsoft
 description: Este artigo destina-se para o ajudar a compreender como utilizar esta solução para monitorizar o estado de funcionamento dos seus agentes que reportam diretamente ao Log Analytics ou o System Center Operations Manager.
 services: operations-management-suite
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 203a37071637a7e0e44b65240be4c4cae974d95f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335967"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983389"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solução de estado de funcionamento de agente no Azure
-A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics ou um grupo de gestão do System Center Operations Manager ligado ao Log Analytics, o que não respondem e submeter operacional dados.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
+A solução de estado de funcionamento do agente no Azure ajuda-o a compreender, de todos os agentes que reportam diretamente para a área de trabalho do Log Analytics ou um grupo de gestão do System Center Operations Manager ligado para o Azure Monitor, que não respondem e submeter operacional dados.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implementar esta solução, confirme que tem atualmente suportada [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) de relatórios para a área de trabalho do Log Analytics ou a um [grupo de gestão do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado a área de trabalho.    
+Antes de implementar esta solução, confirme que tem atualmente suportada [agentes do Windows](../../log-analytics/log-analytics-windows-agent.md) de relatórios para a área de trabalho do Log Analytics ou a um [grupo de gestão do Operations Manager](../../azure-monitor/platform/om-agents.md) integrado a área de trabalho.
 
 ## <a name="solution-components"></a>Componentes da solução
 Esta solução consiste nos recursos seguintes que são adicionados à sua área de trabalho e a agentes ligados diretamente ou a grupos de gestão ligados do Operations Manager.
@@ -48,7 +48,7 @@ A tabela seguinte descreve as origens ligadas que são suportadas por esta solu�
 | Origem Ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | Agentes do Windows | Sim | Os eventos de heartbeat são recolhidos de agentes do Windows diretos.|
-| Grupo de gestão do System Center Operations Manager | Sim | Os eventos de heartbeat são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e, depois, reencaminhados para o Log Analytics. Não é necessária uma ligação direta a partir dos agentes do Operations Manager ao Log Analytics. Os dados de eventos de heartbeat são reencaminhados do grupo de gestão para o repositório do Log Analytics.|
+| Grupo de gestão do System Center Operations Manager | Sim | Os eventos de heartbeat são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e, depois, reencaminhados para o Azure Monitor. Não é necessária uma conexão direta de agentes do Operations Manager para o Azure Monitor. Dados de eventos de heartbeat são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics.|
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 Quando adiciona a solução à sua área de trabalho do Log Analytics, o **estado de funcionamento do agente** mosaico será adicionado ao seu dashboard. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico Solução Funcionamento de Agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -68,7 +68,7 @@ Clique no mosaico **Funcionamento de Agente** para abrir o dashboard **Funcionam
 
 ![Exemplo de dashboard da Solução Funcionamento de Agente](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
-## <a name="log-analytics-records"></a>Registos do Log Analytics
+## <a name="azure-monitor-log-records"></a>Registros de logs de Monitor do Azure
 A solução cria um tipo de registo na área de trabalho do Log Analytics.  
 
 ### <a name="heartbeat-records"></a>Registos de heartbeats
@@ -76,7 +76,7 @@ A solução cria um tipo de registo na área de trabalho do Log Analytics.
 
 | Propriedade | Descrição |
 | --- | --- |
-| Tipo | *Heartbeat*|
+| Type | *Heartbeat*|
 | Categoria | O valor é *Agente Direto*, *Agente do SCOM* ou *Servidor de Gestão do SCOM*.|
 | Computador | O nome do computador.|
 | OSType | Sistema operativo Windows ou Linux.|
@@ -92,7 +92,7 @@ A solução cria um tipo de registo na área de trabalho do Log Analytics.
 | RemoteIPLongitude | Longitude da localização geográfica do computador.|
 | RemoteIPLatitude | Latitude da localização geográfica do computador.|
 
-Cada agente que reporta a um servidor de gestão do Operations Manager envia dois heartbeats e valor da propriedade SCAgentChannel vai incluir quer **direto** e **SCManagementServer** dependendo de qual Log Origens de dados de análise e soluções ativados na sua subscrição. Se se lembra, dados das soluções são enviados diretamente a partir de um servidor de gestão do Operations Manager ao Log Analytics ou devido ao volume de dados recolhidos no agente, são enviados diretamente do agente para o Log Analytics. Para eventos de heartbeat que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gestão, pois os dados são efetivamente carregados por este.  Relativamente a heatbeats em que SCAgentChannel está definido como **Direto**, é o endereço IP público do agente.  
+Cada agente que reporta a um servidor de gestão do Operations Manager envia dois heartbeats e valor da propriedade SCAgentChannel vai incluir quer **direto** e **SCManagementServer** consoante o que origens de dados e soluções de monitorização que ativou na sua subscrição. Se se lembra, dados das soluções são enviados diretamente a partir de um servidor de gestão do Operations Manager para o Azure Monitor, ou devido ao volume de dados recolhidos no agente, são enviados diretamente do agente para o Azure Monitor. Para eventos de heartbeat que têm o valor **SCManagementServer**, o valor de ComputerIP é o endereço IP do servidor de gestão, pois os dados são efetivamente carregados por este.  Relativamente a heatbeats em que SCAgentChannel está definido como **Direto**, é o endereço IP público do agente.  
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos que esta solução recolhe.
@@ -117,4 +117,4 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos q
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Veja o artigo [Alerts in Log Analytics](../../azure-monitor/platform/alerts-overview.md) (Alertas no Log Analytics) para obter detalhes sobre a geração de alertas do Log Analytics. 
+* Saiba mais sobre [alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre a geração de alertas do Log Analytics. 

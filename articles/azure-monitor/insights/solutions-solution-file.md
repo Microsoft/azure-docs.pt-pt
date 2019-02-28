@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c84aedbdb306bbd7432c3c0b611e6e58243624e2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0e2f6a8bd8bc8e6f0dd8ba1ec642bff50c9a7977
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999373"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56984038"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um ficheiro de solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -85,12 +85,12 @@ A tabela seguinte lista os parâmetros padrão para todas as soluções de gest�
 
 | Parâmetro | Type | Descrição |
 |:--- |:--- |:--- |
-| accountName |cadeia |Nome da conta de automatização do Azure. |
-| pricingTier |cadeia |Escalão de preço da área de trabalho do Log Analytics e a conta de automatização do Azure. |
-| regionId |cadeia |Região da conta de automatização do Azure. |
-| solutionName |cadeia |Nome da solução.  Se estiver a implementar sua solução por meio de modelos de início rápido, em seguida, deve definir solutionName como um parâmetro para que pode definir uma cadeia de caracteres em vez disso, exigir que o utilizador especifique um. |
-| workspaceName |cadeia |Nome de área de trabalho do log Analytics. |
-| workspaceRegionId |cadeia |Região da área de trabalho do Log Analytics. |
+| accountName |string |Nome da conta de automatização do Azure. |
+| pricingTier |string |Escalão de preço da área de trabalho do Log Analytics e a conta de automatização do Azure. |
+| regionId |string |Região da conta de automatização do Azure. |
+| solutionName |string |Nome da solução.  Se estiver a implementar sua solução por meio de modelos de início rápido, em seguida, deve definir solutionName como um parâmetro para que pode definir uma cadeia de caracteres em vez disso, exigir que o utilizador especifique um. |
+| workspaceName |string |Nome de área de trabalho do log Analytics. |
+| workspaceRegionId |string |Região da área de trabalho do Log Analytics. |
 
 
 Segue-se a estrutura dos parâmetros padrão que pode copiar e colar no seu arquivo de solução.  
@@ -229,13 +229,6 @@ O **plano** entidade do recurso de solução tem as propriedades na tabela segui
 | produto |Cadeia de caracteres exclusiva para identificar a solução. |
 | publicador |Editor da solução. |
 
-
-
-## <a name="sample"></a>Sample
-Pode ver exemplos de arquivos de solução com um recurso de solução nas seguintes localizações.
-
-- [Recursos de automatização](solutions-resources-automation.md#sample)
-- [Recursos de pesquisa e alerta](solutions-resources-searches-alerts.md#sample)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

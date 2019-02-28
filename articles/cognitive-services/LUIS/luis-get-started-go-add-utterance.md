@@ -4,18 +4,19 @@ description: Neste guia de início rápido da linguagem Go, adicione expressões
 titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 2704981b92725d24562b02c427a72dfc59ff2029
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 60594137306bfe58024877947959f2865fffe019
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870555"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961810"
 ---
 # <a name="quickstart-change-model-using-go"></a>Início rápido: Modelo de alteração com Go
 

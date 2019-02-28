@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b35aafdad081a48c0d6048743f87e10c6a6b3a77
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: e92c812ffc8b72fe79248c602e48ff01ef9fefcb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752338"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961019"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação Android Unity com o Azure âncoras espaciais
 
@@ -77,6 +77,9 @@ Selecione **executar** da barra de ferramentas do Android Studio.
 Selecione o dispositivo Android no **selecione o destino de implementação** caixa de diálogo e selecione **OK** para executar a aplicação no dispositivo Android.
 
 Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
+
+> [!NOTE]
+> Ao executar a aplicação, se não vir a câmera como plano de fundo (para a instância em vez disso, verá um espaço em branco, azul ou outras texturas), em seguida, provavelmente terá de voltar a importar ativos no Unity. Pare a aplicação. No menu superior no Unity, escolha **elementos -> importe novamente todos os**. Em seguida, execute novamente a aplicação.
 
 Pare a aplicação, selecionando **parar** da barra de ferramentas do Android Studio.
 

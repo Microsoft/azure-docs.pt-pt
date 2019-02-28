@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 5a5472e3790235caec65e56f31096de3abfae93d
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100266"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986367"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de controladores de NVIDIA GPU para Linux
 
 ## <a name="overview"></a>Descrição geral
 
-Esta extensão instala controladores NVIDIA GPU em VMs de série N do Linux. Dependendo da família VM, a instalação da extensão controladores CUDA ou GRADE. Quando instalar NVIDIA os controladores com essa extensão, é abertos ao recebimento e aceita os termos do [contrato de licença de utilizador final NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM poderá reiniciar para concluir a configuração de controlador.
+Esta extensão instala controladores NVIDIA GPU em VMs de série N do Linux. Dependendo da família VM, a instalação da extensão controladores CUDA ou GRADE. Quando instalar NVIDIA os controladores com essa extensão, é abertos ao recebimento e aceita os termos do [contrato de licença de utilizador final NVIDIA](http://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Durante o processo de instalação, a VM poderá reiniciar para concluir a configuração de controlador.
 
 Uma extensão também está disponível para instalar controladores NVIDIA GPU no [VMs de série N Windows](hpccompute-gpu-windows.md).
 
@@ -74,8 +74,8 @@ O JSON seguinte mostra o esquema para a extensão.
 | Name | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.HpcCompute | cadeia |
-| tipo | NvidiaGpuDriverLinux | cadeia |
+| publicador | Microsoft.HpcCompute | string |
+| tipo | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Definições
@@ -85,7 +85,7 @@ Todas as definições são opcionais. O comportamento padrão é não atualizar 
 | Name | Descrição | Valor Predefinido | Valores válidos | Tipo de Dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualizar o kernel, mesmo que não é necessário para instalação de controladores | false | VERDADEIRO, FALSO | boolean |
-| driverVersion | NV: Versão do controlador de grelha<br> NC/ND: Versão do Kit de ferramentas CUDA. Os controladores mais recentes para o escolhido CUDA são instalados automaticamente. | mais recente | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | cadeia |
+| driverVersion | NV: Versão do controlador de grelha<br> NC/ND: Versão do Kit de ferramentas CUDA. Os controladores mais recentes para o escolhido CUDA são instalados automaticamente. | mais recente | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Instale o Kit de ferramentas de CUDA. Relevante apenas para VMs de série de NC/ND. | true | VERDADEIRO, FALSO | boolean |
 
 

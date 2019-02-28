@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 9874ff7fde049c4dba4efb77ff541c80e462671a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 7a645574a75a040c3b0218714363cf85e0384e68
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808667"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959838"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Resolver problemas de Gateway de aplicação com o serviço de aplicações – redirecionamento de URL do serviço de aplicações
+# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Resolver problemas do Gateway de Aplicação com o Serviço de Aplicações – redirecionamento de URL do Serviço de Aplicações
 
  Saiba como diagnosticar e resolver problemas de redirecionamento com Gateway de aplicação em que o URL do serviço de aplicações é obter exposto.
 
@@ -45,27 +45,27 @@ Para fazê-lo com o Gateway de aplicação, vamos utilizar a opção "Selecionar
 ![appservice-1](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-1.png)
 
 Por isso, quando o serviço de aplicação faz um redirecionamento, utiliza o nome de anfitrião "example.azurewebsites.net" no cabeçalho Location, em vez do nome de anfitrião original, a menos que configurado em contrário. Pode verificar os exemplo resposta cabeçalhos de solicitação e abaixo.
+```
+## Request headers to Application Gateway:
 
-Cabeçalhos de pedido para o Gateway de aplicação:
+Request URL: http://www.contoso.com/path
 
-URL do pedido: http://www.contoso.com/path
+Request Method: GET
 
-Método de pedido: GET
+Host: www.contoso.com
 
-Anfitrião: www.contoso.com
+## Response headers:
 
-Cabeçalhos de resposta:
+Status Code: 301 Moved Permanently
 
-Código de estado: 301 movida permanentemente
+Location: http://example.azurewebsites.net/path/
 
-Localização: http://example.azurewebsites.net/path/
-
-Servidor: Microsoft-IIS/10.0
+Server: Microsoft-IIS/10.0
 
 Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=example.azurewebsites.net
 
-X-com tecnologia-por: ASP.NET
-
+X-Powered-By: ASP.NET
+```
 No exemplo acima, pode notar que o cabeçalho de resposta tem um código de estado de 301 para o redirecionamento e o cabeçalho de localização tem de nome de anfitrião do serviço de aplicações em vez do nome de anfitrião original "www.contoso.com".
 
 ## <a name="solution"></a>Solução
@@ -76,43 +76,45 @@ Depois de fazer isso, o serviço de aplicações fará o redirecionamento (se ho
 
 Para conseguir isso, tem de possuir um domínio personalizado e siga o processo mencionado a seguir.
 
-- Registre-se o domínio para a lista de domínio personalizado do serviço de aplicações. Para isso, tem de ter um CNAME no seu domínio personalizado que aponta para o FQDN de serviço de aplicações. Para obter mais informações, consulte [mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).![ appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
+- Registre-se o domínio para a lista de domínio personalizado do serviço de aplicações. Para isso, tem de ter um CNAME no seu domínio personalizado que aponta para o FQDN de serviço de aplicações. Para obter mais informações, consulte [mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+
+![appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
 
 - Depois disso, o serviço de aplicações está pronto para aceitar o nome de anfitrião "www.contoso.com". Agora, altere a entrada CNAME no DNS para apontá-lo novamente para o FQDN do Gateway de aplicação. Por exemplo, "appgw.eastus.cloudapp.azure.com".
 
 - Certifique-se de que o seu domínio "www.contoso.com" é resolvido para o FQDN do Gateway de aplicação quando o fizer uma consulta DNS.
 
-- Defina a sonda personalizada para desativar "Escolher nome de anfitrião de back-end definições de HTTP". Isso pode ser feito a partir do portal, desmarcando a caixa de verificação nas definições de pesquisa e no PowerShell não for utilizado - PickHostNameFromBackendHttpSettings mude.
+- Defina a sonda personalizada para desativar "Escolher nome de anfitrião de back-end definições de HTTP". Isso pode ser feito a partir do portal, desmarcando a caixa de verificação nas definições de pesquisa e no PowerShell não for utilizado - PickHostNameFromBackendHttpSettings mude no comando Set-AzApplicationGatewayProbeConfig. No campo de nome de anfitrião da sonda, introduza o FQDN de serviço de aplicações "example.azurewebsites.net", tal como os pedidos de pesquisa enviados a partir do Gateway de aplicação irão ser isso no cabeçalho de anfitrião.
 
   > [!NOTE]
-  > Ao efetuar este passo, certifique-se de que a sonda personalizada não está associada às suas definições de HTTP de back-end.
+  > Ao fazer o próximo passo, certifique-se de que a sonda personalizada não está associada às suas definições de HTTP de back-end porque seus ainda de definições de HTTP tem a opção "Selecionar nome de anfitrião de back-end endereço" ativada neste momento.
 
-- Configure as definições de HTTP do seu Gateway de aplicação para desativar "Escolher nome de anfitrião de back-end Address". Isso pode ser feito a partir do portal, desmarcando a caixa de verificação e no PowerShell não for utilizado - PickHostNameFromBackendAddress mude.
+- Configure as definições de HTTP do seu Gateway de aplicação para desativar "Escolher nome de anfitrião de back-end Address". Isso pode ser feito no portal, desmarcando a caixa de verificação e no PowerShell com o não - PickHostNameFromBackendAddress mude no comando Set-AzApplicationGatewayBackendHttpSettings.
 
 - Associar a sonda personalizada para as definições de HTTP de back-end e verifique se o estado de funcionamento do back-end, se ele está em bom estado.
 
 - Depois de o fazer, o Gateway de aplicação encaminhe o mesmo nome de anfitrião "www.contoso.com" para o serviço de aplicações e o redirecionamento terá lugar ao mesmo nome de anfitrião. Pode verificar os exemplo resposta cabeçalhos de solicitação e abaixo.
+```
+  ## Request headers to Application Gateway:
 
-  Cabeçalhos de pedido para o Gateway de aplicação:
+  Request URL: http://www.contoso.com/path
 
-  URL do pedido: http://www.contoso.com/path
+  Request Method: GET
 
-  Método de pedido: GET
+  Host: [www.contoso.com](http://www.contoso.com)
 
-  Anfitrião: [www.contoso.com](http://www.contoso.com)
+  ## Response headers:
 
-  Cabeçalhos de resposta:
+  Status Code: 301 Moved Permanently
 
-  Código de estado: 301 movida permanentemente
+  Location: http://www.contoso.com/path/
 
-  Localização: http://www.contoso.com/path/
-
-  Servidor: Microsoft-IIS/10.0
+  Server: Microsoft-IIS/10.0
 
   Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=www.contoso.com
 
-  X-com tecnologia-por: ASP.NET
-
+  X-Powered-By: ASP.NET
+```
 ## <a name="next-steps"></a>Passos Seguintes
 
 Se os passos anteriores não resolverem o problema, abra um [pedido de suporte](https://azure.microsoft.com/support/options/).

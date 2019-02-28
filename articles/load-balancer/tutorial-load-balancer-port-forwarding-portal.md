@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2018
+ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e376011feacd59c84686aa3d60a7e79e07d61dbd
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672955"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959134"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configurar o encaminhamento de porta no balanceador de carga do Azure com o portal
 
@@ -44,25 +44,26 @@ Para obter todos os passos neste tutorial, inicie sessão no portal do Azure em 
 
 Primeiro, crie um balanceador de carga Standard público que pode balancear a carga de tráfego através de VMs. Um balanceador de carga Standard oferece suporte a apenas um endereço IP público Standard. Quando cria um balanceador de carga Standard, também é criar um novo endereço IP público Standard, que é configurado como o load balancer front-end e com o nome **LoadBalancerFrontEnd** por predefinição. 
 
-1. No canto superior esquerdo do portal, selecione **Criar um recurso** > **Rede** > **Balanceador de Carga**.
-   
-1. Na **criar Balanceador de carga** painel, escreva ou selecione estes valores:
-   
-   - **Nome**: Tipo *MyLoadBalancer*.
-   - **Tipo de**: Selecione **público**. 
-   - **SKU**: Selecione **padrão**.
-   - **Endereço IP público**: Selecione **criar novo**, em seguida, escreva *MyPublicIP* no campo.
-   - **Configurar o endereço IP público** > **zona de disponibilidade**: Selecione **redundância de zona**.
-   - **ResourceGroup**: Selecione **criar novo**, em seguida, introduza *MyResourceGroupLB*e selecione **OK**. 
-   - **Localização**: Selecione **Europa Ocidental**. 
-     
-     >[!NOTE]
-     >Certifique-se criar o Balanceador de carga e todos os recursos para o mesmo num local que suporta zonas de disponibilidade. Para obter mais informações, consulte [regiões que suportam as zonas de disponibilidade](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
-   
-1. Selecione **Criar**.
-   
-![Criar um balanceador de carga](./media/tutorial-load-balancer-port-forwarding-portal/1-load-balancer.png)
+1. No canto superior esquerdo do ecrã, clique em **Criar um recurso** > **Rede** > **Balanceador de Carga**.
+2. Na **Noções básicas** separador da **criar Balanceador de carga** página, introduza ou selecione as seguintes informações, aceite as predefinições para as restantes definições e, em seguida, selecione **rever + criar**:
 
+    | Definição                 | Valor                                              |
+    | ---                     | ---                                                |
+    | Subscrição               | Selecione a sua subscrição.    |    
+    | Grupo de recursos         | Selecione **criar novo** e escreva *MyResourceGroupLB* na caixa de texto.|
+    | Name                   | *myLoadBalancer*                                   |
+    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Type          | Selecione **público**.                                        |
+    | SKU           | Selecione **padrão**.                          |
+    | Endereço IP público | Selecione **Criar novo**. |
+    | Nome do endereço IP público              | Tipo *myPublicIP* na caixa de texto.   |
+    |Zona de disponibilidade| Selecione **redundância de zona**.    |
+     
+    >[!NOTE]
+     >Certifique-se criar o Balanceador de carga e todos os recursos para o mesmo num local que suporta zonas de disponibilidade. Para obter mais informações, consulte [regiões que suportam as zonas de disponibilidade](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+
+3. Na **rever + criar** separador, clique em **criar**.  
+  
 ## <a name="create-and-configure-back-end-servers"></a>Criar e configurar servidores back-end
 
 Criar uma rede virtual com duas máquinas virtuais e adicionar as VMs para o conjunto de back-end do seu Balanceador de carga. 

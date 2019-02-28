@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/20/2019
+ms.date: 02/26/2019
 ms.author: pareshmu
-ms.openlocfilehash: a7bd81d573b24248eb695595ffa13a3bff5b8370
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 58532eedab2e704861221b75d219a56e0a3f0f2c
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588250"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959566"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -103,7 +103,7 @@ A tabela seguinte mostra as localizações de conectividade e os fornecedores de
 | **Mumbai** | Tata Communications | Global CloudXchange (GCX), Sify, Tata Communications, Vodafone Idea |
 | **Mumbai2** | Airtel | Airtel, Sify, Vodafone Idea |
 | **Nova Iorque** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport, Zayo |
-| **Newport (País de Gales)** | Next Generation Data | Comunicações de Nível 3, Dados da Próxima Geração |
+| **Newport (País de Gales)** | Next Generation Data | British Telecom, comunicações de nível 3, dados da próxima geração |
 | **Osaca** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **Paris** | Interxion | Colt, Intercloud, Interxion, Equinix, Orange |
 | **Perth** | NextDC | NextDC |

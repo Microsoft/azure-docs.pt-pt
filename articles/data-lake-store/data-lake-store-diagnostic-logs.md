@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 357257d38c444eae8077568993d49816e3c090a3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a0bb320abb31b38461102e0e9a062ea0c2af51fb
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966080"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959583"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Aceder a registos de diagnóstico para a geração 1 de armazenamento do Azure Data Lake
 Aprenda a ativar o diagnóstico de registo para a sua conta de geração 1 de armazenamento do Azure Data Lake e ver os registos recolhidos para a sua conta.
@@ -46,7 +46,7 @@ As organizações podem ativar o registo de diagnóstico para a respetiva conta 
         
         * Selecione a opção para **Stream para um hub de eventos** para transmitir dados de registo para um Hub de eventos do Azure. É muito provável que irá utilizar esta opção se tiver um pipeline de processamento a jusante para analisar os registos recebidos em tempo real. Se selecionar esta opção, tem de fornecer os detalhes para o Hub de eventos do Azure que pretende utilizar.
 
-        * Selecione a opção para **enviar para o Log Analytics** para utilizar o serviço do Azure Log Analytics para analisar os dados de registo gerado. Se selecionar esta opção, tem de fornecer os detalhes para a área de trabalho do Log Analytics que poderá utilizar a análise de registos de executar. Ver [ver ou analisar os dados recolhidos com a pesquisa de registos do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre como utilizar o Log Analytics.
+        * Selecione a opção para **enviar para o Log Analytics** para utilizar o serviço do Azure Monitor para analisar os dados de registo gerado. Se selecionar esta opção, tem de fornecer os detalhes para a área de trabalho do Log Analytics que poderá utilizar a análise de registos de executar. Ver [ver ou analisar os dados recolhidos com a pesquisa de registos do Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre como utilizar o Azure Monitor registos.
      
    * Especifique se pretende obter registos de auditoria, registos de pedidos ou ambas.
    * Especifique o número de dias para o qual os dados devem ser mantidos. Retenção só é aplicável se estiver a utilizar a conta de armazenamento do Azure para arquivar dados de registo.
@@ -113,27 +113,27 @@ Aqui está uma entrada de exemplo no registo de pedido de formato JSON. Cada blo
     }
 
 #### <a name="request-log-schema"></a>Esquema de registo de pedido
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |O período de tempo (em UTC) do registo |
-| resourceId |Cadeia |O ID do recurso que demorou a operação de colocar em |
-| categoria |Cadeia |A categoria de registo. Por exemplo, **pedidos**. |
-| operationName |Cadeia |Nome da operação que é registado. Por exemplo, getfilestatus. |
-| resultType |Cadeia |O estado da operação, por exemplo, 200. |
-| callerIpAddress |Cadeia |O endereço IP do cliente que efetua o pedido |
-| correlationId |Cadeia |O ID do registo que podem utilizado para agrupar um conjunto de entradas de registo relacionados |
+| hora |String |O período de tempo (em UTC) do registo |
+| resourceId |String |O ID do recurso que demorou a operação de colocar em |
+| categoria |String |A categoria de registo. Por exemplo, **pedidos**. |
+| operationName |String |Nome da operação que é registado. Por exemplo, getfilestatus. |
+| resultType |String |O estado da operação, por exemplo, 200. |
+| callerIpAddress |String |O endereço IP do cliente que efetua o pedido |
+| correlationId |String |O ID do registo que podem utilizado para agrupar um conjunto de entradas de registo relacionados |
 | identidade |Object |A identidade que gerou o registo |
 | propriedades |JSON |Veja abaixo para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades de registo de pedido
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 | --- | --- | --- |
-| HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, obter. |
-| Caminho |Cadeia |O caminho a operação foi realizado em |
+| HttpMethod |String |O método HTTP utilizado para a operação. Por exemplo, obter. |
+| Caminho |String |O caminho a operação foi realizado em |
 | RequestContentLength |int |O comprimento do conteúdo da solicitação HTTP |
-| ClientRequestId |Cadeia |O ID que identifica exclusivamente este pedido |
-| startTime |Cadeia |O tempo em que o servidor recebeu o pedido |
-| endTime |Cadeia |O tempo em que o servidor enviou uma resposta |
+| ClientRequestId |String |O ID que identifica exclusivamente este pedido |
+| StartTime |String |O tempo em que o servidor recebeu o pedido |
+| endTime |String |O tempo em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob tem um objeto de raiz chamado **registos** que contém uma matriz de objetos de registo
@@ -160,25 +160,25 @@ Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob
     }
 
 #### <a name="audit-log-schema"></a>Esquema de registo de auditoria
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 | --- | --- | --- |
-| hora |Cadeia |O período de tempo (em UTC) do registo |
-| resourceId |Cadeia |O ID do recurso que demorou a operação de colocar em |
-| categoria |Cadeia |A categoria de registo. Por exemplo, **auditoria**. |
-| operationName |Cadeia |Nome da operação que é registado. Por exemplo, getfilestatus. |
-| resultType |Cadeia |O estado da operação, por exemplo, 200. |
-| resultSignature |Cadeia |Detalhes adicionais sobre a operação. |
-| correlationId |Cadeia |O ID do registo que podem utilizado para agrupar um conjunto de entradas de registo relacionados |
+| hora |String |O período de tempo (em UTC) do registo |
+| resourceId |String |O ID do recurso que demorou a operação de colocar em |
+| categoria |String |A categoria de registo. Por exemplo, **auditoria**. |
+| operationName |String |Nome da operação que é registado. Por exemplo, getfilestatus. |
+| resultType |String |O estado da operação, por exemplo, 200. |
+| resultSignature |String |Detalhes adicionais sobre a operação. |
+| correlationId |String |O ID do registo que podem utilizado para agrupar um conjunto de entradas de registo relacionados |
 | identidade |Object |A identidade que gerou o registo |
 | propriedades |JSON |Veja abaixo para obter detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
-| Nome | Tipo | Descrição |
+| Name | Tipo | Descrição |
 | --- | --- | --- |
-| StreamName |Cadeia |O caminho a operação foi realizado em |
+| StreamName |String |O caminho a operação foi realizado em |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemplos para processar os dados de registo
-Ao enviar registos de geração 1 de armazenamento do Azure Data Lake para o Azure Log Analytics (consulte [ver ou analisar os dados recolhidos com a pesquisa de registos do Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre como utilizar o Log Analytics), a seguinte consulta devolve uma tabela que contém uma lista do utilizador nomes a apresentar, a hora dos eventos e a contagem de eventos para a hora do evento, juntamente com o gráfico visual. Pode ser facilmente modificado para mostrar o GUID de utilizador ou outros atributos:
+Ao enviar registos de geração 1 de armazenamento do Azure Data Lake para registos do Azure Monitor (veja [ver ou analisar os dados recolhidos com a pesquisa de registos do Azure Monitor](../azure-monitor/learn/tutorial-viewdata.md) para obter detalhes sobre como utilizar o Azure Monitor registos), a seguinte consulta devolve uma tabela que contém um lista de utilizador nomes a apresentar, a hora dos eventos e a contagem de eventos para a hora do evento, juntamente com o gráfico visual. Pode ser facilmente modificado para mostrar o GUID de utilizador ou outros atributos:
 
 ```
 search *

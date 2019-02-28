@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: a55652c8d19866b717cbafec4629030a7708bb50
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d63fdbfd71e812e9b445fb0055cb9aee5876ecc1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359498"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962150"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ligar o Cosmos DB com o Azure Search utilizando indexadores
 
@@ -65,7 +65,7 @@ Uma **indexador** descreve a forma como os dados fluem da origem de dados para u
 
 Para configurar um indexador do Azure Cosmos DB, terá de criar um índice, origem de dados e, finalmente, o indexador. Pode criar esses objetos usando o [portal](search-import-data-portal.md), [.NET SDK](/dotnet/api/microsoft.azure.search), ou [REST API](/rest/api/searchservice/). 
 
-Este artigo mostra como utilizar a API REST. Se optar ativamente por participar no portal, o [Assistente de importação de dados](search-import-data-portal.md) orienta-o através da criação de todos estes recursos, incluindo o índice.
+Este artigo mostra como utilizar a API REST. Se optar pelo portal, certifique-se que a base de dados do Cosmos DB contém dados. O [Assistente de importação de dados](search-import-data-portal.md) lê metadados e realiza a amostragem de dados para inferir um esquema de índice, mas também cargas de dados do Cosmos DB. Se os dados estão em falta, o assistente será interrompido com este erro "esquema índice detectando de erro da origem de dados: Não foi possível criar um protótipo de índice porque a origem de dados "emptycollection" não devolveu dados. ".
 
 > [!TIP]
 > Pode iniciar o assistente **Importar dados** a partir do dashboard do Azure Cosmos DB, para simplificar a indexação dessa origem de dados. Na navegação à esquerda, aceda a **Coleções** > **Adicionar Azure Search** para começar.
@@ -185,7 +185,7 @@ Certifique-se de que o esquema do seu índice de destino é compatível com o es
 | Bool |Edm.Boolean, Edm.String |
 | Números que são semelhantes a números inteiros |Edm.Int32, Edm.Int64, Edm.String |
 | Números entre aquela aparência como os pontos de vírgula flutuante |Edm.Double, Edm.String |
-| Cadeia |Edm.String |
+| String |Edm.String |
 | Matrizes de tipos primitivos, por exemplo ["a", "b", "c"] |Coleção (Edm.String) |
 | Cadeias de caracteres que se pareçam com datas |Edm.DateTimeOffset, Edm.String |
 | Objetos GeoJSON, por exemplo {"type": "Point", "coordenadas": [longo, lat]} |Edm.GeographyPoint |

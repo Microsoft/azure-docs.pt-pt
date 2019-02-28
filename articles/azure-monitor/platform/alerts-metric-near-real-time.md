@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 05812d3c1f1596cbc560d50ac37a058d9438581a
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 1506911902940ebd6fa05a0d3534ce599c6d941a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101540"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961334"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos suportados para alertas de métricas no Azure Monitor
 
@@ -48,12 +48,13 @@ Eis a lista completa de origens de métrica de monitor do Azure suportadas pelos
 |Microsoft.KeyVault/vaults| Não | [cofres](../../azure-monitor/platform/metrics-supported.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Aplicações Lógicas](../../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [Gateways de Aplicação](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkapplicationgateways) |
-|Microsoft.Network/expressRouteCircuits | N/A |  [Express Route circuitos](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/dnsZones | N/A| [Zonas DNS](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) |
+|Microsoft.Network/expressRouteCircuits | N/A |  [Express Route circuitos](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Network/loadbalancers (apenas para o SKU Standard)| Sim| [Balanceadores de carga](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) |
 |Microsoft.Network/publicipaddresses     |  N/A       |[Endereços IP públicos](../../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses)|
-|Microsoft.PowerBIDedicated/capacities | N/A | [Capacidades](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Network/trafficManagerProfiles | Sim | [Perfis do Gestor de tráfego](../../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
+|Microsoft.OperationalInsights/workspaces| Sim|[Áreas de trabalho do log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+|Microsoft.PowerBIDedicated/capacities | N/A | [Capacidades](../../azure-monitor/platform/metrics-supported.md#microsoftpowerbidedicatedcapacities)|
 |Microsoft.Search/searchServices     |   N/A      |[Serviços de pesquisa](../../azure-monitor/platform/metrics-supported.md#microsoftsearchsearchservices)|
 |Microsoft.ServiceBus/namespaces     |  Sim       |[Service Bus](../../azure-monitor/platform/metrics-supported.md#microsoftservicebusnamespaces)|
 |Microsoft.Storage/storageAccounts     |    Sim     | [Contas de armazenamento](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccounts)|
@@ -62,7 +63,7 @@ Eis a lista completa de origens de métrica de monitor do Azure suportadas pelos
 | Microsoft.Web/serverfarms | Sim | [Planos de serviço de aplicações](../../azure-monitor/platform/metrics-supported.md#microsoftwebserverfarms)  |
 | Microsoft.Web/sites | Sim | [Serviços aplicacionais](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-excluding-functions) e [funções](../../azure-monitor/platform/metrics-supported.md#microsoftwebsites-functions)|
 | Microsoft.Web/sites/slots | Sim | [Ranhuras de serviço de aplicações](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
-|Microsoft.OperationalInsights/workspaces| Sim|[Áreas de trabalho do log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
+
 
 ## <a name="payload-schema"></a>Esquema do payload
 
