@@ -1,19 +1,19 @@
 ---
 title: Glossário do IoT Hub do Azure dos termos | Documentos da Microsoft
 description: Guia do programador - um glossário de termos comuns relacionados ao IoT Hub do Azure.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: dobett
-ms.openlocfilehash: d815f980a0583058957b7d87b6c99df59e9a4821
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d79485fa7587a6cf8783f2e5779fa0a1d593aea7
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817391"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011437"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do IoT Hub
 Este artigo lista alguns dos termos comuns utilizados nos artigos do IoT Hub.
@@ -97,7 +97,7 @@ No contexto de um [dispositivo duplo](iot-hub-devguide-device-twins.md), assim o
 Refere-se às mensagens enviadas a partir de um dispositivo ligado ao [IoT Hub](#iot-hub). Essas mensagens podem ser [ponto de dados](#data-point-message) ou [interativas](#interactive-message) mensagens. Para obter mais informações, consulte [enviar e receber mensagens com o IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="device"></a>Dispositivo
-No contexto da IoT, um dispositivo é, normalmente, um dispositivo de computação do autónomo em pequena escala, que pode recolher dados ou outros dispositivos de controlo. Por exemplo, um dispositivo pode ser um dispositivo de monitorização ambiental, ou um controlador para os sistemas de "watering hole" e ventilação num greenhouse. O [catálogo de dispositivos](https://catalog.azureiotsuite.com/) fornece uma lista de dispositivos de hardware certificado para trabalhar com [IoT Hub](#iot-hub).
+No contexto da IoT, um dispositivo é, normalmente, um dispositivo de computação do autónomo em pequena escala, que pode recolher dados ou outros dispositivos de controlo. Por exemplo, um dispositivo pode ser um dispositivo de monitorização ambiental, ou um controlador para os sistemas de "watering hole" e ventilação num greenhouse. O [catálogo de dispositivos](https://catalog.azureiotsolutions.com/) fornece uma lista de dispositivos de hardware certificado para trabalhar com [IoT Hub](#iot-hub).
 
 ## <a name="device-app"></a>Aplicação de dispositivo
 Uma aplicação de dispositivo é executado no seu [dispositivo](#device) e trata a comunicação com o seu [IoT hub](#iot-hub). Normalmente, utilize um da [do Azure IoT device SDKs](#azure-iot-device-sdks) quando implementar uma aplicação de dispositivo. Muitos dos tutoriais IoT, vai utilizar um [dispositivo simulado](#simulated-device) para sua comodidade.

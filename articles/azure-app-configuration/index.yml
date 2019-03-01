@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 711da2d16ad70bdcc954cfbc70daa2505da7f676
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7ddc451627cd6880f3aca6cdcff03d83b86b8eb1
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884105"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958308"
 documentType: LandingData
-title: Documentação da Configuração da Aplicação Azure
+title: Documentação da Configuração da Aplicação Azure (Pré-visualização)
 metadata:
   title: Documentação da Configuração da Aplicação Azure - Tutoriais, Referência da API
   meta.description: Azure App Configuration is an Azure managed service that helps developers centralize their application configurations simply and securely.

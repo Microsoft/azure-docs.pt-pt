@@ -1,0 +1,56 @@
+items:
+- name: API do Azure para FHIR
+  href: index.yml
+- name: Descrição geral
+  items:
+  - name: Sobre a API do Azure para FHIR
+    href: overview.md
+  - name: Sobre o FHIR Server para o Azure
+    href: overview-open-source-server.md
+- name: Inícios rápidos
+  items:
+  - name: Implementar a API do Azure para FHIR - Portal
+    href: fhir-paas-portal-quickstart.md
+  - name: Implementar a API do Azure para FHIR - PowerShell
+    href: fhir-paas-powershell-quickstart.md
+  - name: Implementar a API do Azure para FHIR - CLI
+    href: fhir-paas-cli-quickstart.md
+  - name: Implementar o FHIR Server para o Azure - Portal
+    href: fhir-oss-portal-quickstart.md
+  - name: Implementar o FHIR Server para o Azure - PowerShell
+    href: fhir-oss-powershell-quickstart.md
+  - name: Implementar o FHIR Server para o Azure - CLI
+    href: fhir-oss-cli-quickstart.md
+  expanded: true
+- name: Tutoriais
+  items:
+  - name: Aceder à API de FHIR com o Postman
+    href: access-fhir-postman-tutorial.md
+  expanded: false
+- name: Guias de procedimentos
+  items:
+  - name: Registar uma aplicação de recurso
+    href: register-resource-azure-ad-client-app.md
+  - name: Registar uma aplicação cliente confidencial
+    href: register-confidential-azure-ad-client-app.md
+  - name: Registar uma aplicação cliente pública
+    href: register-public-azure-ad-client-app.md
+  - name: Registar uma aplicação cliente de serviço
+    href: register-service-azure-ad-client-app.md
+  - name: Obter um token para a API do Azure para FHIR - CLI
+    href: get-healthcare-apis-access-token-cli.md
+  - name: Localizar IDs de objeto de identidade
+    href: find-identity-object-ids.md
+  expanded: false
+- name: Recursos
+  items:
+  - name: FAQ
+    href: fhir-faq.md
+  - name: Funcionalidades suportadas
+    href: fhir-features-supported.md
+ms.openlocfilehash: 60d0d4b8368a64b9ef66608de6824cec9876b8be
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56958121"

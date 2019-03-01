@@ -8,16 +8,18 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 64ae354c9233821ea7e53abfdc0dde105b22e466
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d23e6d00b77e69f7f3353938c52b450eebbfd142
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208079"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990685"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apêndice para a encriptação de disco do Azure 
 
 Este artigo é um apêndice ao [do Azure Disk Encryption para IaaS VMs](azure-security-disk-encryption-overview.md). Certifique-se de que o Azure Disk Encryption para IaaS VMs artigos primeiro para compreender o contexto de leitura. Este artigo descreve como preparar VHDs previamente encriptados e outras tarefas.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-your-subscription"></a>Estabelecer a ligação à subscrição
 Antes de começar, reveja os [pré-requisitos](azure-security-disk-encryption-prerequisites.md) artigo. Depois de todos os pré-requisitos tiverem sido cumpridos, ligar à sua subscrição ao executar os seguintes cmdlets:
@@ -27,22 +29,22 @@ Antes de começar, reveja os [pré-requisitos](azure-security-disk-encryption-pr
 1. Inicie uma sessão do PowerShell do Azure e iniciar sessão na sua conta do Azure com o seguinte comando:
 
      ```powershell
-     Connect-AzureRmAccount 
+     Connect-AzAccount 
      ```
 2. Se tiver várias subscrições e pretender especificar uma para utilizar, escreva o seguinte para ver as subscrições da sua conta:
      
      ```powershell
-     Get-AzureRmSubscription
+     Get-AzSubscription
      ```
 3. Para especificar a subscrição que pretende utilizar, introduza:
  
      ```powershell
-      Select-AzureRmSubscription -SubscriptionName <Yoursubscriptionname>
+      Select-AzSubscription -SubscriptionName <Yoursubscriptionname>
      ```
 4. Para verificar se a subscrição configurada está correta, escreva:
      
      ```powershell
-     Get-AzureRmSubscription
+     Get-AzSubscription
      ```
 5. Se for necessário, ligar ao Azure AD com [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
      
@@ -91,9 +93,9 @@ Antes de começar, reveja os [pré-requisitos](azure-security-disk-encryption-pr
 - **Lista todas as VMs encriptadas na sua subscrição**
 
      ```azurepowershell-interactive
-     $osVolEncrypted = {(Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
-     $dataVolEncrypted= {(Get-AzureRmVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
-     Get-AzureRmVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
+     $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).OsVolumeEncrypted}
+     $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
+     Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
      ```
 
 - **Lista de todos os segredos de encriptação de disco utilizados para encriptar as VMs num cofre de chaves** 
@@ -112,8 +114,8 @@ A tabela seguinte mostra quais parâmetros podem ser utilizados no script do Pow
 |------|------|------|
 |$resourceGroupName| Nome do grupo de recursos a que o Cofre de chaves pertence.  Será criado um novo grupo de recursos com este nome, caso não exista.| Verdadeiro|
 |$keyVaultName|Nome do Cofre de chaves na encriptação de que as chaves devem ser colocados. Será criado um novo cofre com este nome, caso não exista.| Verdadeiro|
-|$location|Localização do Cofre de chaves. Certificar-se de que o Cofre de chaves e as VMs a encriptar estão na mesma localização. Obtenha uma lista de localizações com `Get-AzureRMLocation`.|Verdadeiro|
-|$subscriptionId|Identificador da subscrição do Azure a ser utilizado.  Pode obter o seu ID de subscrição com `Get-AzureRMSubscription`.|Verdadeiro|
+|$location|Localização do Cofre de chaves. Certificar-se de que o Cofre de chaves e as VMs a encriptar estão na mesma localização. Obtenha uma lista de localizações com `Get-AzLocation`.|Verdadeiro|
+|$subscriptionId|Identificador da subscrição do Azure a ser utilizado.  Pode obter o seu ID de subscrição com `Get-AzSubscription`.|Verdadeiro|
 |$aadAppName|Nome da aplicação do Azure AD que será utilizada para escrever segredos no Cofre de chaves. Será criada uma nova aplicação com este nome, caso ainda não exista. Se esta aplicação já existir, transmita o parâmetro de aadClientSecret ao script.|Falso|
 |$aadClientSecret|Segredo do cliente de aplicação do Azure AD criado anteriormente.|Falso|
 |$keyEncryptionKeyName|Nome da chave de encriptação de chave opcional no Cofre de chaves. Será criada uma nova chave com este nome, caso não exista.|Falso|
@@ -225,7 +227,7 @@ Utilize o [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx) 
  CentOS 7.2, encriptação de disco do SO é suportada por meio de uma imagem especial. Para utilizar esta imagem, especifica "7.2n" como o SKU ao criar a VM:
 
  ```powershell
-    Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
+    Set-AzVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
  ```
 2. Configure a VM, de acordo com suas necessidades. Se vai encriptar todos os (SO + dados), unidades, as unidades de dados tem de ser especificado e montável de /etc/fstab.
 
@@ -241,9 +243,9 @@ Utilize o [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx) 
 
 5. Periodicamente, monitorizar o progresso de criptografia utilizando as instruções no [próxima seção](#monitoring-os-encryption-progress).
 
-6. Depois de Get-AzureRmVmDiskEncryptionStatus mostra "VMRestartPending", reinicie a VM ao iniciar sessão para o mesmo ou ao utilizar o portal, o PowerShell ou a CLI.
+6. Depois de Get-AzVmDiskEncryptionStatus mostra "VMRestartPending", reinicie a VM ao iniciar sessão para o mesmo ou ao utilizar o portal, o PowerShell ou a CLI.
     ```powershell
-    C:\> Get-AzureRmVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
+    C:\> Get-AzVmDiskEncryptionStatus  -ResourceGroupName $ResourceGroupName -VMName $VMName
     -ExtensionName $ExtensionName
 
     OsVolumeEncrypted          : VMRestartPending
@@ -256,7 +258,7 @@ Antes de reiniciar, recomendamos que guarde [diagnósticos de arranque](https://
 ## <a name="monitoring-os-encryption-progress"></a>Monitorizar o progresso de criptografia do sistema operacional
 Pode monitorizar o progresso de criptografia do sistema operacional de três formas:
 
-* Utilize o `Get-AzureRmVmDiskEncryptionStatus` cmdlet e inspecionar o campo de ProgressMessage:
+* Utilize o `Get-AzVmDiskEncryptionStatus` cmdlet e inspecionar o campo de ProgressMessage:
     ```powershell
     OsVolumeEncrypted          : EncryptionInProgress
     DataVolumesEncrypted       : NotMounted
@@ -537,7 +539,7 @@ para
 ## <a name="bkmk_UploadVHD"></a> Carregar o VHD encriptado para uma conta de armazenamento do Azure
 Depois de é ativada a encriptação do BitLocker ou encriptação de DM-Crypt, o VHD encriptado local tem de ser carregado para a sua conta de armazenamento.
 ```powershell
-    Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
+    Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="bkmk_UploadSecret"></a> Carregar o segredo para a VM encriptada para o seu Cofre de chaves
 Ao encriptar a utilizar uma aplicação do Azure AD (versão anterior), o segredo de encriptação de disco que obteve anteriormente tem de ser carregado como um segredo no Cofre de chaves. O Cofre de chaves tem de ter a encriptação de disco e permissões ativadas para o cliente do Azure AD.
@@ -546,14 +548,14 @@ Ao encriptar a utilizar uma aplicação do Azure AD (versão anterior), o segred
  $AadClientId = "My-AAD-Client-Id"
  $AadClientSecret = "My-AAD-Client-Secret"
 
- $key vault = New-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -Location $Location
+ $key vault = New-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -Location $Location
 
- Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -ServicePrincipalName $AadClientId -PermissionsToKeys all -PermissionsToSecrets all
- Set-AzureRmKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
+ Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -ServicePrincipalName $AadClientId -PermissionsToKeys all -PermissionsToSecrets all
+ Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Segredo de encriptação de disco não criptografado com uma KEK
-Para configurar o segredo no Cofre de chaves, utilize [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret). Se tiver uma máquina virtual do Windows, o ficheiro de bek é codificado como uma cadeia base64 e, em seguida, é carregado para o seu Cofre de chaves com o `Set-AzureKeyVaultSecret` cmdlet. Para o Linux, a frase de acesso é codificado como uma cadeia base64 e, em seguida, é carregado para o Cofre de chaves. Além disso, certifique-se de que as etiquetas seguintes estão definidas quando cria o segredo no Cofre de chaves.
+Para configurar o segredo no Cofre de chaves, utilize [Set-AzureKeyVaultSecret](/powershell/module/az.keyvault/set-azurekeyvaultsecret). Se tiver uma máquina virtual do Windows, o ficheiro de bek é codificado como uma cadeia base64 e, em seguida, é carregado para o seu Cofre de chaves com o `Set-AzureKeyVaultSecret` cmdlet. Para o Linux, a frase de acesso é codificado como uma cadeia base64 e, em seguida, é carregado para o Cofre de chaves. Além disso, certifique-se de que as etiquetas seguintes estão definidas quando cria o segredo no Cofre de chaves.
 
 #### <a name="windows-bek-file"></a>Ficheiro do Windows BEK
 ```powershell
@@ -578,7 +580,7 @@ $SecretName = [guid]::NewGuid().ToString()
 $SecureSecretValue = ConvertTo-SecureString $FileContentEncoded -AsPlainText -Force
 $Secret = Set-AzureKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
 
-# Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzureRmVMOSDisk when you attach your OS disk. 
+# Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzVMOSDisk when you attach your OS disk. 
 $SecretUrl=$secret.Id
 $SecretUrl
 ```
@@ -602,7 +604,7 @@ $SecretUrl
 Utilize o `$secretUrl` no próximo passo para [anexar o disco do SO sem utilizar KEK](#bkmk_URLnoKEK).
 
 ### <a name="bkmk_SecretKEK"></a> Segredo de encriptação de disco encriptado com uma KEK
-Antes de carregar o segredo ao Cofre de chaves, opcionalmente, poderá criptografá-los com uma chave de encriptação de chave. Utilizar a moldagem [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) primeiro criptografar o segredo usando a chave de encriptação de chave. O resultado desta operação de moldagem é uma cadeia de URL codificado em base64 que, em seguida, pode carregar como um segredo ao utilizar o [ `Set-AzureKeyVaultSecret` ](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret) cmdlet.
+Antes de carregar o segredo ao Cofre de chaves, opcionalmente, poderá criptografá-los com uma chave de encriptação de chave. Utilizar a moldagem [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) primeiro criptografar o segredo usando a chave de encriptação de chave. O resultado desta operação de moldagem é uma cadeia de URL codificado em base64 que, em seguida, pode carregar como um segredo ao utilizar o [ `Set-AzureKeyVaultSecret` ](/powershell/module/az.keyvault/set-azurekeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
@@ -699,7 +701,7 @@ Uso `$KeyEncryptionKey` e `$secretUrl` no passo seguinte para [anexar o disco do
 ###  <a name="bkmk_URLnoKEK"></a>Sem utilizar um KEK
 Enquanto está anexando o disco do SO, precisa passar `$secretUrl`. O URL foi gerado na secção "segredo de encriptação de disco não criptografado com uma KEK".
 ```powershell
-    Set-AzureRmVMOSDisk `
+    Set-AzVMOSDisk `
             -VM $VirtualMachine `
             -Name $OSDiskName `
             -SourceImageUri $VhdUri `
@@ -712,7 +714,7 @@ Enquanto está anexando o disco do SO, precisa passar `$secretUrl`. O URL foi ge
 ### <a name="bkmk_URLKEK"></a>Usando um KEK
 Ao anexar o disco do SO, passa `$KeyEncryptionKey` e `$secretUrl`. O URL foi gerado na secção "Segredo de encriptação de disco encriptado com uma KEK".
 ```powershell
-    Set-AzureRmVMOSDisk `
+    Set-AzVMOSDisk `
             -VM $VirtualMachine `
             -Name $OSDiskName `
             -SourceImageUri $CopiedTemplateBlobUri `

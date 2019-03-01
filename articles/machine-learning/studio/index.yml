@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b8ce62533af1cf8f921a8a8eafb8e781821c2604
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4428bf710df5eae3b06c8abd38eb85d6128a574d
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233817"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959430"
 documentType: LandingData
 title: Documentação do Machine Learning Studio
 metadata:
@@ -18,21 +18,10 @@ metadata:
   ms.author: jmartens
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.date: 01/24/2019
+  ms.date: 02/24/2019
 abstract:
   description: O Azure Machine Learning Studio é uma ferramenta de colaboração, de arrastar e largar para criar, testar e implementar soluções de análise preditiva nos seus dados. Tutoriais, vídeos e modelos de exemplo mostram-lhe como criar e implementar modelos de aprendizagem automática com o Studio.
 sections:
-- title: Inícios rápidos de cinco minutos
-  items:
-  - type: paragraph
-    text: 'Saiba como começar a utilizar o Machine Learning Studio:'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="create-experiment">Criar a sua primeira experimentação do Studio</a>
-    - html: <a href="algorithm-choice">Escolher o melhor algoritmo</a>
-    - html: <a href="deploy-consume-web-service-guide">Implementar modelos como serviços Web</a>
-    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Ler sobre "Ciência de dados para principiantes"</a>
 - title: Tutoriais Passo-a-Passo
   items:
   - type: paragraph
@@ -40,8 +29,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-part1-credit-risk">Criar e implementar uma solução preditiva</a>
-    - html: <a href="azure-ml-customer-churn-scenario">Exemplo de alterações do cliente</a>
+    - html: <a href="create-experiment">Criar a sua primeira experimentação do Studio</a>
+    - html: <a href="tutorial-part1-credit-risk">Criar e implementar uma solução preditiva para riscos de crédito</a>
 - title: Referência
   items:
   - type: list

@@ -77,6 +77,10 @@ items:
       items:
       - name: Ferramenta Copiar Dados
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
+    - name: 5 - Copiar novos ficheiros por nome de ficheiro particionado por tempo
+      items:
+      - name: Ferramenta Copiar Dados
+        href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
   - name: Transformar dados na cloud
     items:
     - name: HDInsight Spark
@@ -576,9 +580,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 077f25adefed6cea2e71d5447149184d3b13a845
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ce54fab37477f288a1cba0ce7aaf7a98f158c946
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807274"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959787"

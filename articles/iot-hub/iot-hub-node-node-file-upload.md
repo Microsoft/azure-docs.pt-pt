@@ -1,20 +1,20 @@
 ---
 title: Carregar ficheiros a partir de dispositivos no Hub de IoT do Azure com o nó | Documentos da Microsoft
 description: Como carregar ficheiros a partir de um dispositivo para a cloud com o Azure IoT device SDK para node. js. Os ficheiros carregados são armazenados num contentor de BLOBs de armazenamento do Azure.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: dobett
-ms.openlocfilehash: b3afbeb5a3fa2cda6ec5eaabe368163a370352d1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8b502c7616ed889166e0c5e708fe7858bf884031
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568197"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011165"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 

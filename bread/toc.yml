@@ -75,6 +75,9 @@ items:
     - name: Azure PowerShell
       tocHref: /azure/api-management/scripts/
       topicHref: /azure/api-management/powershell-samples/
+  - name: Configuração da Aplicação Azure
+    tocHref: /azure/azure-app-configuration/
+    topicHref: /azure/azure-app-configuration/
   - name: Serviço de Aplicações
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/
@@ -643,9 +646,9 @@ items:
   - name: Gateway de VPN
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: d93d5974d0792455f0314c6259e48dc1e80663fc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ac1df560f8dec2b25d167a65fc33beb98fd9c237
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737693"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959362"

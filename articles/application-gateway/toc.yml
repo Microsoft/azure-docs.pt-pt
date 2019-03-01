@@ -44,12 +44,18 @@ items:
     href: how-application-gateway-works.md
   - name: Componentes do Gateway de Aplicação
     href: application-gateway-components.md
-  - name: Descrição geral da política SSL
-    href: application-gateway-ssl-policy-overview.md
-  - name: Firewall de aplicação Web
-    href: waf-overview.md
-  - name: Configuração do WAF
-    href: application-gateway-waf-configuration.md
+  - name: SSL
+    items:
+    - name: Descrição geral da política SSL
+      href: application-gateway-ssl-policy-overview.md
+    - name: SSL ponto a ponto
+      href: ssl-overview.md
+  - name: WAF
+    items:
+    - name: Firewall de aplicação Web
+      href: waf-overview.md
+    - name: Configuração do WAF
+      href: application-gateway-waf-configuration.md
   - name: Encaminhamento do URL
     href: url-route-overview.md
   - name: Alojamento de vários sites
@@ -206,9 +212,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 6e181ed44c473482c02c6fda6131f258838e9713
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 7fd344a06dcd29c53d313a59c484101b1d0b2c8f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807750"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985670"
