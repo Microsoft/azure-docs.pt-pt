@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 7975516e80576a9d79b35da816d049f47ebc7d3a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650194"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011352"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilizar kubenet networking com seus próprios intervalos de endereços IP no Azure Kubernetes Service (AKS)
 
@@ -77,6 +77,9 @@ Uso *Azure CNI* quando:
 - A maioria da comunicação pod é recursos fora do cluster.
 - Não pretende gerir as UDRs.
 - Terá funcionalidades avançadas, como nós virtuais ou política de rede.
+
+> [!NOTE]
+> Kuberouter torna possível ativar a política de rede ao utilizar kubenet e pode ser instalado como um daemonset num cluster do AKS. Lembre kube router ainda está em versão beta e sem suporte é oferecido pela Microsoft para o projeto.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e uma sub-rede
 

@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o controlo de mapas de Android no Azure Maps | Documentos da Microsoft
-description: Utilize o controlo de mapas de Android no Azure Maps.
+title: Como utilizar o controlo do mapa de Android no Azure Maps | Documentos da Microsoft
+description: O controle de mapa Android do Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -9,53 +9,53 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 57cc585d621c71872a4b7658c74f581c8998b245
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341084"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010672"
 ---
-# <a name="how-to-use-azure-maps-android-sdk"></a>Como utilizar o SDK Android do Azure Maps
+# <a name="how-to-use-the-azure-maps-android-sdk"></a>Como utilizar o SDK Android do Azure Maps
 
-O SDK do Azure Maps Android é uma biblioteca de mapas de vetor para Android. Este artigo irá guiá-lo pelo processo de instalação do SDK Android do Azure Maps, para carregar um mapa e colocar um pin no mesmo.
+O Azure Maps Android SDK é uma biblioteca de mapa de vetor para Android. Este artigo orienta-o processo de instalação do SDK Android do Azure Maps, para carregar um mapa e colocar um pin no mapa.
 
-## <a name="prerequisites-to-get-started"></a>Pré-requisitos para começar a utilizar
+## <a name="prerequisites"></a>Pré-requisitos
 
-### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps 
+### <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps
 
-Para seguir os passos neste guia, tem primeiro de ver [gerir conta e chaves](how-to-manage-account-keys.md) para criar e gerir a sua subscrição de conta com S1 escalão de preço.
+Para concluir os procedimentos neste artigo, primeiro tem de [criar uma conta do Azure Maps](how-to-manage-account-keys.md) no escalão de preço S1.
 
-### <a name="download-android-studio"></a>Transferir o Android studio
+### <a name="download-android-studio"></a>Transferir o Android Studio
 
-Pode baixar [Android Studio](https://developer.android.com/studio/) gratuitamente a partir do Google. Para instalar o SDK Android do Azure Maps, terá primeiro de transferir o Android Studio e criar um projeto com uma atividade vazia.
+Terá de transferir o Android Studio e crie um projeto com uma atividade vazia antes de poder instalar o SDK Android do Azure Maps. Pode [transferir o Android Studio](https://developer.android.com/studio/) gratuitamente a partir do Google. 
 
 ## <a name="create-a-project-in-android-studio"></a>Criar um projeto no Android Studio
 
-Terá de criar um novo projeto com uma atividade vazia. Siga os passos abaixo para criar um novo projeto do Android Studio:
+Em primeiro lugar, terá de criar um novo projeto com uma atividade vazia. Conclua estes passos para criar um projeto do Android Studio:
 
-1. Sob *escolha o seu projeto*, verificar "Telefone e Tablet" como fator de forma que seu aplicativo será executado em.
-2. Clique em *atividade vazia* sob fator forma e clique em **próxima**.
-3. Sob *configurar o seu projeto*, selecione `API 21: Android 5.0.0 (Lollipop)` como o SDK mínimo. Esta é a versão mais baixa suportada pelo SDK Android do Azure Maps.
-4. Aceite a predefinição `Activity Name` e `Layout Name` e clique em **concluir**
+1. Sob **escolha o seu projeto**, selecione **telemóveis e tablets**. A aplicação é executada nesse fator forma.
+2. Sobre o **telemóveis e tablets** separador, selecione **atividade vazia**e, em seguida, selecione **seguinte**.
+3. Sob **configurar o seu projeto**, selecione `API 21: Android 5.0.0 (Lollipop)` como o SDK mínimo. Esta é a versão mais antiga suportada pelo SDK Android do Azure Maps.
+4. Aceite a predefinição `Activity Name` e `Layout Name` e selecione **concluir**.
 
-Ver [documentação do Android Studio](https://developer.android.com/studio/intro/) para obter mais ajuda para instalar o Android Studio e criando um novo projeto.
+Consulte a [documentação do Android Studio](https://developer.android.com/studio/intro/) para obter mais ajuda com a instalação do Android Studio e criando um novo projeto.
 
-![Criar um novo projeto](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Criar um projeto](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>Configurar um dispositivo virtual
 
-Android Studio permite-lhe configurar um dispositivo virtual Android no seu computador. Que pode ajudar a testar seu aplicativo enquanto programa. Para configurar um dispositivo virtual, clique no ícone Manager do dispositivo Virtual Android (AVD) no canto superior direito do ecrã do seu projeto. Em seguida, clique nas **criar dispositivo Virtual** botão. Também pode obter para o Gestor de via **ferramentas > Android > Gestor de AVD** na barra de ferramentas. Partir do **telemóveis** categoria, selecione **Nexus 5 X** e clique em **seguinte**.
+Android Studio permite-lhe configurar um dispositivo virtual Android no seu computador. Se o fizer, pode ajudá-lo a testar a sua aplicação durante o desenvolvimento. Para configurar um dispositivo virtual, selecione o ícone de Gestor do dispositivo Virtual Android (AVD) no canto superior direito de ecrã do seu projeto e, em seguida, selecione **criar dispositivo Virtual**. Também pode obter para o Gestor de AVD selecionando **ferramentas** > **Android** > **do Gestor do AVD** da barra de ferramentas. Na **telemóveis** categoria, selecione **Nexus 5 X**e, em seguida, selecione **seguinte**.
 
-Saiba mais sobre como configurar um AVD no [documentação do Android Studio](https://developer.android.com/studio/run/managing-avds).
+Pode saber mais sobre como configurar um AVD no [documentação do Android Studio](https://developer.android.com/studio/run/managing-avds).
 
 ![Emulador do Android](./media/how-to-use-android-map-control-library/android-emulator.png)
 
-## <a name="install-azure-maps-android-sdk"></a>Instalar o SDK do Android do Azure Maps
+## <a name="install-the-azure-maps-android-sdk"></a>Instalar o SDK Android do Azure Maps
 
-Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para instalar o SDK Android do Azure Maps. 
+A próxima etapa da criação de seu aplicativo é instalar o SDK Android do Azure Maps. Conclua estes passos para instalar o SDK:
 
-1. Adicione o seguinte para o **todos os projetos**, repositórios de bloco no seu **gradle** ficheiro.
+1. Adicione o seguinte código para o **todos os projetos**, **repositórios** bloquear sua **gradle** ficheiro.
 
     ```
     maven {
@@ -63,9 +63,9 @@ Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para in
     }
     ```
 
-2. Atualização de seus **gradle** e adicione o seguinte:
+2. Atualização de seus **gradle** e adicione o seguinte código ao mesmo:
 
-    1. Adicione o seguinte para o bloco de Android:
+    1. Adicione o seguinte código ao bloco de Android:
 
         ```
         compileOptions {
@@ -73,13 +73,13 @@ Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para in
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. Atualize seu bloco de dependências e adicione o seguinte:
+    2. Atualize seu bloco de dependências e adicione o seguinte código ao mesmo:
 
         ```
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Configurar permissões ao adicionar o seguinte para sua **androidmanifest. XML**
+3. Configurar permissões ao adicionar o seguinte XML para seus **androidmanifest. XML** ficheiro:
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -90,7 +90,7 @@ Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para in
     </manifest>
     ```
 
-4. Editar **res > layout > ctivity_main**, por isso, ele se parece com o XML abaixo:
+4. Editar **res** > **layout** > **ctivity_main** para que ele se parece com este XML:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -113,7 +113,7 @@ Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para in
     </FrameLayout>
     ```
 
-5. Editar **mainactivity. Java** para criar uma classe de atividade de vista do mapa. Depois de editar deve ser semelhante a classe abaixo:
+5. Editar **mainactivity. Java** para criar uma classe de atividade de vista do mapa. Depois de editá-lo, deve ser semelhante esta classe:
 
     ```java
     package com.example.myapplication;
@@ -185,23 +185,23 @@ Antes de avançarmos para criar a sua aplicação, siga os passos abaixo para in
 
     ```
 
-## <a name="import-classes"></a>Importar Classes
+## <a name="import-classes"></a>Importar classes
 
-Depois de concluir os passos acima, provavelmente receberá avisos do Android Studio em alguns do texto no código. Para resolver estes avisos, importar as classes que está a ser referenciadas no `MainActivity.java`.
+Depois de concluir os passos anteriores, provavelmente obterá avisos do Android Studio sobre alguns dos códigos. Para resolver estes avisos, importar as classes referenciadas no `MainActivity.java`.
 
-Pode importar automaticamente essas classes, premindo `Alt` + `Enter`(`Option` + `Return` no Mac). 
+Pode importar automaticamente essas classes selecionando Alt + Enter (opção + retorno num Mac).
 
-Clique nas **executar "Aplicação"** botão (ou `Control` + `R` num Mac) para criar seu aplicativo.
+Selecione o botão de execução, conforme mostrado no seguinte gráfico (ou prima controle + R num Mac), para criar seu aplicativo.
 
 ![Clique em executar](./media/how-to-use-android-map-control-library/run-app.png)
 
-Irá demorar alguns segundos para android studio para criar a aplicação. Após concluir a compilação pode testar a aplicação no dispositivo emulado Android. Verá um mapa como o mostrado abaixo.
+Android Studio irá demorar alguns segundos para criar a aplicação. Após a compilação estiver concluída, pode testar seu aplicativo no dispositivo emulado Android. Deverá ver um mapa como esta:
 
 ![Mapa de Android](./media/how-to-use-android-map-control-library/android-map.png)
 
 ## <a name="add-a-marker-to-the-map"></a>Adicionar um marcador ao mapa
 
-Para adicionar um marcador no seu mapa, adicione `mapView.getMapAsync()` funcionar para o `MainActivity.java`. O último `MainActivity.java` deve ter um aspeto semelhante ao seguinte:
+Para adicionar um marcador ao seu mapa, adicione a `mapView.getMapAsync()` funcionar para `MainActivity.java`. O último `MainActivity.java` código deve ser semelhante isto:
 
 ```java
 package com.example.myapplication;
@@ -288,6 +288,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Volte a executar a aplicação e deverá ver um marcador no mapa, como o mostrado abaixo.
+Execute novamente a sua aplicação. Deverá ver um marcador no mapa, conforme mostrado aqui:
 
 ![Pin de mapa de Android](./media/how-to-use-android-map-control-library/android-map-pin.png)

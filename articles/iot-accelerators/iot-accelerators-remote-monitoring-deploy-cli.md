@@ -8,16 +8,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7f1b9bb9d542b54afb6bf8b7bfc0df9fc1a9e434
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463223"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009431"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota com a CLI
 
-Este guia de procedimentos mostra como implementar o acelerador de solução de monitorização remota. Implementar a solução com a CLI. Também pode implementar a solução usando a interface do Usuário baseada na web em azureiotsuite.com, para saber mais sobre esta opção, consulte a[implementar o acelerador de solução de monitorização remota](quickstart-remote-monitoring-deploy.md) início rápido.
+Este guia de procedimentos mostra como implementar o acelerador de solução de monitorização remota. Implementar a solução com a CLI. Também pode implementar a solução usando a interface do Usuário baseada na web em azureiotsolutions.com, para saber mais sobre esta opção, consulte a [implementar o acelerador de solução de monitorização remota](quickstart-remote-monitoring-deploy.md) início rápido.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ A implementação Básica destina-se a demonstrar a solução. Para reduzir os c
 
 Uma implementação básica cria os seguintes serviços na sua subscrição do Azure:
 
-| Contagem | Recurso                       | Tipo         | Utilizado para |
+| Contagem | Recurso                       | Type         | Utilizado para |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Máquina Virtual do Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Alojamento de microsserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – escalão Standard | Gestão de dispositivos e a comunicação |

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1139993be6e408e0a2d19c13a6ced3823aaa0003
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: de72de6725172d118672292e1681d09f0dab291a
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858319"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008768"
 ---
 # <a name="how-to-get-analytics-for-bing-autosuggest-api"></a>Como obter a análise para a API de sugestão automática do Bing
 

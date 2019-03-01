@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5727965373752d40e3ce508c1bc79046c2b3b70b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8e3632fdb3b4d5c1d2b5465671f36a201c5ff990
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177756"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193301"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Pré-visualização: Resolução de problemas de proteção de palavra-passe do AD do Azure
 
@@ -27,27 +27,65 @@ ms.locfileid: "56177756"
 
 Após a implementação de proteção de palavra-passe do Azure AD, a resolução de problemas pode ser necessária. Este artigo apresenta detalhes para ajudar a compreender alguns passos de resolução de problemas comuns.
 
-## <a name="weak-passwords-are-not-getting-rejected-as-expected"></a>Não são introdução rejeitadas senhas fracas, conforme o esperado
+## <a name="the-dc-agent-cannot-locate-a-proxy-in-the-directory"></a>O agente de controlador de domínio não é possível localizar um proxy no diretório
 
-Isto pode ter várias causas possíveis:
+O sintoma principal deste problema é 30017 eventos no registo de eventos de administração do agente de controlador de domínio.
 
-1. Os agentes do DC não tem transferido ainda uma política. O sintoma é 30001 eventos no registo de eventos de administração do agente de controlador de domínio.
+A causa comum deste problema é que um proxy ainda não ter sido registado. Se tiver sido registado um proxy, pode haver algum atraso devido a latência de replicação do AD até que um agente de controlador de domínio específico é capaz de ver que o proxy.
 
-    As causas possíveis para este problema incluem:
+## <a name="the-dc-agent-is-not-able-to-communicate-with-a-proxy"></a>O agente de controlador de domínio não é capaz de comunicar com um proxy
 
-    1. Floresta ainda não está registada
-    2. Proxy ainda não está registado
-    3. Problemas de conectividade de rede estão a impedir o serviço de Proxy de comunicação com o Azure (requisitos de Proxy HTTP de verificação)
+O sintoma principal deste problema é 30018 eventos no registo de eventos de administração do agente de controlador de domínio. Isto pode ter várias causas possíveis:
 
-2. O modo de imposição de política de palavra-passe ainda está definido para auditoria. Se for este o caso, reconfigurá-la para impor com o portal de proteção de palavra-passe do Azure AD. Veja [proteção por senha ativar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. O agente de controlador de domínio está localizado numa parte isolada da rede que não permite a conectividade de rede para o proxy(s) registados. Esse problema, por conseguinte, pode ser expected\benign, desde que outros agentes do DC podem comunicar com o proxy(s) para transferir políticas de palavra-passe do Azure, em seguida, será obtido por controlador de domínio isolado por meio da replicação dos ficheiros de política no compartilhamento de sysvol.
 
-3. A política de palavra-passe foi desativada. Se for este o caso, reconfigurá-la ativada com o portal de proteção de palavra-passe do Azure AD. Veja [proteção por senha ativar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+1. A máquina de anfitrião do proxy está a bloquear o acesso aos finais de mapeador de ponto de extremidade RPC (porta 135)
 
-4. O algoritmo de validação da palavra-passe pode funcionar como esperado. Veja [como a palavras-passe são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated).
+   O instalador do Proxy de proteção de palavra-passe do Azure AD cria automaticamente uma regra de entrada da Firewall do Windows que permite o acesso a porta 135. Se esta regra mais tarde seja eliminada ou desabilitada, os agentes do DC será não é possível comunicar com o serviço de Proxy. Se o elemento incorporado Decompress Firewall do Windows tem sido desativada em lugar de outro produto de firewall, tem de configurar essa firewall para permitir o acesso a porta 135.
+
+1. A máquina de anfitrião do proxy está a bloquear o acesso ao ponto de extremidade RPC (dinâmico ou estático) escutámos pelo serviço de Proxy
+
+   O instalador do Proxy de proteção de palavra-passe do Azure AD cria automaticamente uma Firewall do Windows regra de entrada que permite o acesso a nenhuma porta de entrada abertas pelo serviço de Proxy de proteção de palavra-passe do Azure AD. Se esta regra mais tarde seja eliminada ou desabilitada, os agentes do DC será não é possível comunicar com o serviço de Proxy. Se o elemento incorporado Decompress Firewall do Windows foi desativada em lugar de outro produto de firewall, tem de configurar que firewall para permitir o acesso a nenhuma porta de entrada abertas pelo serviço de Proxy de proteção de palavra-passe do Azure AD. Esta configuração poderão ser estabelecida mais específica, se o serviço de Proxy tiver sido configurado para escutar numa porta específica de RPC estática (usando o `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
+
+## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>O serviço de Proxy pode receber chamadas de agentes do DC no domínio, mas não consegue comunicar com o Azure
+
+Certifique-se de que a máquina de proxy tem conectividade aos pontos finais listados na [requisitos de implementação](howto-password-ban-bad-on-premises-deploy.md).
+
+## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>O agente de controlador de domínio não é possível ao encriptar ou desencriptar ficheiros de política de palavra-passe e outro Estado
+
+Esse problema pode se manifestar com uma variedade de sintomas, mas normalmente tem uma causa comum.
+
+Proteção de palavra-passe do AD do Azure tem uma dependência essencial sobre a funcionalidade de criptografia e descriptografia fornecida pelo serviço de distribuição de chaves Microsoft, que está disponível nos controladores de domínio com o Windows Server 2012 e posterior. O serviço KDS tem de ser ativado e funcional em todos os Windows Server 2012 e posteriores controladores de domínio num domínio.  
+
+Por predefinição o KDS o modo de início de serviço do serviço está configurado como Manual (acionador de início). Esta configuração significa que a primeira vez que um cliente tenta utilizar o serviço, é iniciada a pedido. Este modo de início de serviço predefinida é aceitável para a proteção de palavra-passe do Azure AD trabalhar. 
+
+Se o modo de início de serviço KDS tiver sido configurado para desativado, esta configuração tem de ser corrigida antes de proteção de palavra-passe do Azure AD funcionem corretamente.
+
+Um teste simples para este problema é iniciar manualmente o serviço KDS, através da consola do MMC de gestão do serviço ou com outras ferramentas de gestão de serviço (por exemplo, execute "net start kdssvc" partir de uma consola de linha de comandos). O serviço KDS é esperado para iniciar com êxito e se manter em execução.
+
+A causa mais comum é que o objeto de controlador de domínio do Active Directory está localizado fora a UO de controladores de domínio predefinida. Esta configuração não é suportada pelo serviço KDS e não é uma limitação imposta pela proteção de palavra-passe do Azure AD. A correção para esta condição é mover o objeto de controlador de domínio para uma localização em que a UO de controladores de domínio predefinida.
+
+## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Senhas fracas estão a ser aceites, mas não devem ser
+
+Esse problema pode ter várias causas.
+
+1. Os agentes do DC não não transferir uma política ou não consegue desencriptar as políticas existentes. Verifique as causas possíveis nos tópicos acima.
+
+1. O modo de imposição de política de palavra-passe ainda está definido para auditoria. Se esta configuração está em vigor, reconfigurá-la para impor com o portal de proteção de palavra-passe do Azure AD. Ver [proteção por senha ativar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. A política de palavra-passe foi desativada. Se esta configuração está em vigor, reconfigurá-la ativada com o portal de proteção de palavra-passe do Azure AD. Ver [proteção por senha ativar](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
+
+1. Não tiver instalado o software do agente DC em todos os controladores de domínio no domínio. Nesta situação, é difícil garantir que os clientes remotos do Windows de destino um controlador de domínio específico durante uma operação de alteração de palavra-passe. Se tiver pensar que com êxito destina-se a um determinado controlador de domínio onde está instalado o software do agente DC, pode verificar para confirmar o registo de eventos de administração de agente do controlador de domínio: independentemente do resultado, haverá, pelo menos, um evento para documentar o resultado da palavra-passe validação. Se não houver nenhum evento presente para o utilizador cuja senha for alterada, a alteração de palavra-passe provavelmente foi processada por um controlador de domínio diferente.
+
+   Como um teste de alternativo, tente setting\changing palavras-passe enquanto tiver sessão iniciada diretamente para um controlador de domínio onde está instalado o software do agente DC. Essa técnica não é recomendada para domínios do Active Directory de produção.
+
+   Embora uma implementação incremental de software do agente de controlador de domínio seja suportada sujeitos a essas limitações, a Microsoft recomenda vivamente que o software do agente DC está instalado em todos os controladores de domínio num domínio logo que possível.
+
+1. O algoritmo de validação da palavra-passe, na verdade, pode funcionar como esperado. Ver [como a palavras-passe são avaliadas](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
 ## <a name="directory-services-repair-mode"></a>Modo de reparação de serviços de diretório
 
-Se o controlador de domínio é iniciado no modo de reparação dos serviços de diretório, o serviço do agente DC detecta isso e fará com que todas as atividades de imposição para ser desativado, independentemente da configuração de diretiva atualmente ativo ou validação da palavra-passe.
+Se o controlador de domínio é iniciado no modo de reparação dos serviços de diretório, o serviço do agente DC Deteta esta condição e fará com que todas as atividades de imposição para ser desativado, independentemente da configuração de diretiva atualmente ativo ou validação da palavra-passe.
 
 ## <a name="emergency-remediation"></a>Remediação de emergência
 

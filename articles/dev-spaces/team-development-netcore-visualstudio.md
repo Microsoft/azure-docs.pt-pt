@@ -1,5 +1,5 @@
 ---
-title: A equipe de desenvolvimento com espaços de desenvolvimento do Azure com .NET Core e o Visual Studio | Documentos da Microsoft
+title: Desenvolvimento em equipe com espaços de desenvolvimento do Azure com .NET Core e o Visual Studio
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -11,13 +11,13 @@ ms.author: stevenry
 ms.date: 12/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
-ms.openlocfilehash: af0a4a719f964e400119be313842f385b410406c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
+ms.openlocfilehash: 414a45e65bac2966cda0e58b55b7459a552d03fb
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817427"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193029"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipa com o Azure Dev Spaces
 

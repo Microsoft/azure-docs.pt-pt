@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 5862c6ef3c420c1722ddfbc1238be4e2bf43a507
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e752302baab14505e71c3f0f65840156833b8976
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447429"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194610"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+
+> [!IMPORTANT]  
+> Depois de 28 de Fevereiro de 2019, os recursos de rede (por exemplo, NICs, LBs, etc.) nos clusters novos criados numa VNET serão aprovisionados no mesmo grupo de recursos de cluster de HDInsight. Anteriormente, esses recursos tenham sido aprovisionados no grupo de recursos VNET. Não há nenhuma alteração para os clusters em execução atuais e os clusters criados sem uma VNET.
 
 Saiba como utilizar o HDInsight com um [rede Virtual do Azure](../virtual-network/virtual-networks-overview.md). Utilizar uma rede Virtual do Azure permite que os seguintes cenários:
 

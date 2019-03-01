@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a97e03f3c195b9fbd0ee7a09950414b7a940c7c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 694eb49244afb6761ce274572f15273ccef6cbb5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217484"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195035"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação do JavaScript
 
@@ -74,14 +74,15 @@ Pode escolher uma destas opções adequadas ao seu ambiente de desenvolvimento.
 * [Transfira o projeto do Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Extrair o ficheiro zip para uma pasta local, por exemplo, **C:\Azure-Samples**.
+Para abrir os ficheiros na pasta, utilize um editor, como [Visual Studio Code](https://code.visualstudio.com/).
 
 #### <a name="step-3-configure-your-javascript-app"></a>Passo 3: Configurar a sua aplicação do JavaScript
 
 > [!div renderon="docs"]
-> Editar `index.html` e defina a `clientID` e `authority` valores sob `applicationConfig`.
+> Sob a pasta *JavaScriptSPA*, edite `index.html` e defina a `clientID` e `authority` valores sob `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Editar `index.html` e substitua `applicationConfig` com:
+> Sob a pasta *JavaScriptSPA*, edite `index.html` e substitua `applicationConfig` com:
 
 ```javascript
 var applicationConfig = {
@@ -103,13 +104,9 @@ var applicationConfig = {
 > > [!TIP]
 > > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
 
-> [!NOTE]
-> O servidor está configurado para escutar na porta 30662 no *Server. js* de ficheiros [node. js](https://nodejs.org/en/download/) projeto e o *. csproj* do ficheiro no [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)projeto.
->
-
 #### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
 
-* Se estiver a utilizar o node. js:
+* Se estiver a utilizar [node. js](https://nodejs.org/en/download/):
 
     1. Execute o seguinte comando a partir do diretório do projeto para iniciar o servidor:
 
@@ -122,7 +119,7 @@ var applicationConfig = {
     1. Clique em **sessão** botão para iniciar o início de sessão e, em seguida, chamar o Microsoft Graph API.
 
 
-* Se utilizar o Visual Studio, certifique-se selecionar a solução de projeto e, em seguida, prima **F5** para executar o seu projeto.
+* Se utilizar [Visual Studio](https://visualstudio.microsoft.com/downloads/), certifique-se de selecionar a solução de projeto e, em seguida, prima **F5** para executar o seu projeto.
 
 ## <a name="more-information"></a>Mais Informações
 
@@ -217,9 +214,9 @@ Para obter um guia passo a passo mais detalhado sobre como criar a aplicação p
 ### <a name="learn-the-steps-to-create-the-application-for-this-quickstart"></a>Conheça as etapas para criar a aplicação para este início rápido
 
 > [!div class="nextstepaction"]
-> [Chamar tutorial da Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Tutorial para iniciar sessão e chamar MS Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
 
 ### <a name="browse-the-msal-repo-for-documentation-faq-issues-and-more"></a>Procurar o repositório MSAL para documentação, perguntas frequentes, problemas e muito mais
 
 > [!div class="nextstepaction"]
-> [repositório do GitHub de msal](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [Repositório do GitHub de msal](https://github.com/AzureAD/microsoft-authentication-library-for-js)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: df3ae6fbeceb85df6d6e5245a5bbad517179733c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697454"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991364"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: Avaliar cargas de trabalho no local para migração no Azure
 
@@ -90,7 +90,7 @@ Tecnologia | Descrição | Custo
 --- | --- | ---
 [Assistente de Migração de Dados](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso utiliza o Assistente de migração de dados para avaliar e detetar problemas de compatibilidade que possam afetar a sua funcionalidade de base de dados no Azure. Assistente de migração de dados, avalia paridade de funcionalidades entre o SQL origens e destinos. Ele recomenda melhorias de desempenho e confiabilidade. | Assistente de migração de dados é uma ferramenta gratuita e transferível.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | A Contoso utiliza o serviço Azure Migrate para avaliar as respetivas VMs de VMware. O Azure Migrate avalia a adequabilidade de migração das máquinas. Ele fornece estimativas de dimensionamento e custos para executar no Azure.  | A partir de Maio de 2018, o Azure Migrate é um serviço gratuito.
-[Mapa do Serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | O Azure Migrate utiliza o mapa de serviço para mostrar as dependências entre as máquinas que a empresa quer migrar. | O Mapa de Serviços faz parte do Azure Log Analytics. Atualmente, a Contoso pode utilizar o mapa de serviço por 180 dias sem incorrer em custos.
+[Mapa do Serviço](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | O Azure Migrate utiliza o mapa de serviço para mostrar as dependências entre as máquinas que a empresa quer migrar. | Mapa de serviço faz parte de registos do Azure Monitor. Atualmente, a Contoso pode utilizar o mapa de serviço por 180 dias sem incorrer em custos.
 
 Neste cenário, a Contoso transfere e executa Data Migration Assistant para avaliar a base de dados do SQL Server no local para a sua aplicação de viagens. A Contoso utiliza o Azure Migrate com o mapeamento da dependência para avaliar as VMs da aplicação antes da migração para o Azure.
 

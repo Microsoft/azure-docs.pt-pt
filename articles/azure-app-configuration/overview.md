@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 11dd91039bb352e86800982d0a294f82622a56fe
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8207c9bb4cce3d793a5030febc532b869f54dd3f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884832"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195137"
 ---
 # <a name="what-is-azure-app-configuration"></a>O que é a configuração de aplicações do Azure
 
 Configuração de aplicações do Azure fornece um serviço para gerir as definições da aplicação centralmente. Programas modernos, especialmente os que são executados numa nuvem, geralmente têm vários componentes que são distribuídos por natureza. Propagação de definições de configuração nesses componentes pode levar a erros de resolução de problemas é difícil durante a implementação de uma aplicação. Configuração de aplicações permite-lhe armazenar todas as definições para a sua aplicação e proteger seus acessos num único local.
+
+Serviço de configuração de aplicação está em **pré-visualização privada**. É gratuito para utilizar durante o período de pré-visualização.
 
 ## <a name="why-use-app-configuration"></a>Por que usar a configuração de aplicações
 
@@ -44,6 +46,12 @@ Configuração de aplicações oferece as seguintes vantagens:
 * Segurança aprimorada por meio de identidades geridas do Azure.
 * Concluir encriptações de dados, Inativos ou em trânsito.
 * Integração nativa com arquiteturas populares.
+
+Configuração de aplicações complementa [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) utilizado para armazenar segredos da aplicação. Configuração de aplicações torna mais fácil de implementar seguintes cenários:
+
+* Gestão centralizada e a distribuição dos dados de configuração hierárquica para ambientes diferentes e localizações geográficas.
+* Alterações de configuração dinâmica sem voltar a implementar ou reiniciar uma aplicação.
+* Gestão de recursos.
 
 ## <a name="how-to-use-app-configuration"></a>Como utilizar a configuração de aplicações
 

@@ -12,32 +12,32 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 315a96680674636f7cab9d93b362febcb25f9922
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447070"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991347"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um fornecedor de recursos do serviço de aplicações para um ambiente desligado do Azure Stack protegido pelo AD FS
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]
-> Aplicar a atualização de 1809 seu sistema integrado do Azure Stack ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.4 de serviço de aplicações do Azure.
+> Aplicar a atualização de 1901 seu sistema integrado do Azure Stack ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.5 de serviço de aplicações do Azure.
 
 Ao seguir as instruções neste artigo, pode instalar o [fornecedor de recursos do serviço de aplicações](azure-stack-app-service-overview.md) para um ambiente do Azure Stack que é:
 
 - não ligado à Internet
 - protegida por serviços de Federação do Active Directory (AD FS).
 
- > [!IMPORTANT]
- > Antes de implementar o fornecedor de recursos, reveja as notas de versão para saber mais sobre novas funcionalidades, correções e os problemas conhecidos que podem afetar a sua implementação.
- 
+> [!IMPORTANT]  
+> Antes de executar o instalador de fornecedor de recursos, certifique-se de que seguiu a documentação de orientação [antes de começar](azure-stack-app-service-before-you-get-started.md) e li a [notas de versão](azure-stack-app-service-release-notes-update-five.md) que acompanham o 1.5 versão conhecer novas funcionalidade, correções e os problemas conhecidos que podem afetar a sua implementação.
+
 Para adicionar o fornecedor de recursos do serviço de aplicações para a sua implementação do Azure Stack offline, tem de concluir estas tarefas de nível superior:
 
 1. Concluir o [passos de pré-requisitos](azure-stack-app-service-before-you-get-started.md) (como comprar certificados, o que pode demorar alguns dias para receber).
@@ -105,7 +105,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 
     ![Instalador do serviço de aplicações][5]
 
-9. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado ou endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites
+9. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado ou endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Se estiver a utilizar um servidor de ficheiros que é associado a um domínio, tem de fornecer o nome de utilizador completo, incluindo o domínio, por exemplo, myfileserverdomain\FileShareOwner.
 
     > [!NOTE]
     > O instalador tentará testar a conectividade para a partilha de ficheiros antes de continuar.  No entanto, se optar por implementar numa rede Virtual existente, o instalador pode não ser capaz de se ligar à partilha de ficheiros e apresenta um aviso, perguntando se deseja continuar.  Verifique as informações de partilha de ficheiros e continuar se eles estão corretos.
@@ -196,6 +196,11 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 
     ![Instalador do serviço de aplicações][18]
 
+## <a name="post-deployment-steps"></a>Passos de pós-implementação
+
+> [!IMPORTANT]  
+> Se forneceu a RP de serviço de aplicações com uma sempre na instância do SQL tem [adicionar as bases de dados appservice_hosting e appservice_metering a um grupo de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizar as bases de dados para evitar qualquer perda de serviço do evento de uma ativação pós-falha de base de dados.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validar o serviço de aplicações numa instalação do Azure Stack
 
 1. No portal de administração do Azure Stack, aceda a **administração - serviço de aplicações**.
@@ -209,7 +214,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
 > * Origem: Qualquer
 > * Intervalo de portas de origem: *
 > * Destino: Endereços IP
-> * Intervalo de endereços IP de destino: Intervalo de IPs para seu servidor de ficheiros
+> * Intervalo de endereços IP de destino: Intervalo de IPs para o servidor de ficheiros
 > * Intervalo de portas de destino: 445
 > * Protocolo: TCP
 > * Ação: Permitir

@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0a4295d71a5811750d1603eaf860833cdd5fcc9e
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 4ad9de80a77d054ef723d9ed5bd53e410c653baa
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658169"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195086"
 documentType: LandingData
 title: Espaços de Programador do Azure
 metadata:
-  title: Espaços de Programador do Azure | Microsoft Docs
+  title: Espaços de Programador do Azure
   meta.description: Rapid Kubernetes development with containers and microservices on Azure.
   services: azure-dev-spaces
   author: zr-msft

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: ae3d1fa6a921067e8c3b629206e47e1a1314adc1
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c4567919490c8bc9094dea3dddbe22550d9eebb2
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889244"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192910"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com redes aceleradas
 
@@ -48,7 +48,7 @@ As distribuições seguintes são suportadas prontos a utilizar da galeria do Az
 ### <a name="supported-vm-instances"></a>Instâncias VM suportadas
 Funcionamento em rede acelerado é suportado em fins mais gerais e tamanhos de instâncias com otimização de computação com vCPUs 2 ou mais.  Esta série suportado é: D/DSv2 e F/Fs
 
-Redes aceleradas é suportada em instâncias que suportam o hyperthreading, nas instâncias VM com vCPUs 4 ou mais. Série suportado é: D/DSv3, E/ESv3, Fsv2 e Ms/Mms
+Redes aceleradas é suportada em instâncias que suportam o hyperthreading, nas instâncias VM com vCPUs 4 ou mais. Série suportado é: D/Dsv3, E/Esv3, Fsv2, Lsv2, Ms/Mms e Ms/Mmsv2.
 
 Para obter mais informações sobre as instâncias de VM, consulte [tamanhos de VM do Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -73,7 +73,7 @@ Depois da máquina virtual é criada, pode confirmar que Accelerated Networking 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Instale [do Azure PowerShell](/powershell/azure/install-az-ps) versão 1.0.0 ou posterior. Para localizar a versão atualmente instalada, execute `Get-Module -ListAvailable Az`. Se precisar de instalar ou atualizar, instale a versão mais recente do módulo de Az a [galeria do PowerShell](https://www.powershellgallery.com/packages/Az). Numa sessão do PowerShell, inicie sessão para uma conta do Azure com [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount).
+Instale [do Azure PowerShell](/powershell/azure/install-az-ps) versão 1.0.0 ou posterior. Para localizar a versão atualmente instalada, execute `Get-Module -ListAvailable Az`. Se precisar de instalar ou atualizar, instale a versão mais recente do módulo de Az a [galeria do PowerShell](https://www.powershellgallery.com/packages/Az). Numa sessão do PowerShell, inicie sessão para uma conta do Azure com [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 Nos exemplos a seguir, substitua os nomes de parâmetros de exemplo pelos seus próprios valores. Os nomes de parâmetros de exemplo incluídos *myResourceGroup*, *myNic*, e *myVM*.
 

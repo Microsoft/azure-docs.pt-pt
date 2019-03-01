@@ -1,31 +1,31 @@
 ---
-title: 'Início rápido: PHP, API de sugestão automática do Bing'
+title: 'Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o PHP'
 titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para o ajudar a começar a utilizar rapidamente a API de Sugestão Automática do Bing.
+description: Saiba como começar rapidamente a sugerir termos de pesquisa em tempo real com a API de sugestão automática do Bing.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 139c7149173285283041f5f4b30d2002e40810c2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: 4918521698f939370734600a209e3bc1fdd0f104
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872922"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008972"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-php"></a>Início Rápido da API de Sugestão Automática do Bing com PHP
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o PHP
 
-Este artigo mostra-lhe como utilizar o [a API de sugestão automática do Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) com PHP. A API de Sugestão Automática do Bing devolve uma lista de consultas sugeridas com base na cadeia de consulta parcial que o utilizador introduz na caixa de pesquisa. Normalmente, esta API é chamada sempre que o utilizador escreve um novo caráter na caixa de pesquisa e, em seguida, apresenta as sugestões na lista pendente da caixa de pesquisa. Este artigo mostra como enviar um pedido que devolve as cadeias de consulta sugeridas para *sail*.
+Utilize este início rápido para começar a fazer chamadas para a API de sugestão automática do Bing e obter a resposta JSON. Este aplicativo simples do PHP envia uma consulta de pesquisa parcial para a API e retorna sugestões para as pesquisas. Embora esse aplicativo é escrito em PHP, a API é um serviço RESTful Web compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
+* [PHP 5.6.x](http://php.net/downloads.php) ou posterior
 
-Tem de ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **a API de Sugestão Automática do Bing v7**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/#search) é suficiente para este guia de início rápido. Precisa da chave de acesso fornecida quando ativar a avaliação gratuita, ou pode utilizar uma chave de subscrição paga do dashboard do Azure.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## <a name="get-autosuggest-results"></a>Obter resultados de Sugestão Automática
 

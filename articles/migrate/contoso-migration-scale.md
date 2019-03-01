@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: bc4673a12ec5b752a513b4a95796f2aeb8b8ce5d
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328585"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991253"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - dimensionamento uma migração para o Azure
 
@@ -379,7 +379,7 @@ Contoso dependerá do Centro de segurança do Azure para gestão de segurança u
 
 ### <a name="monitoring"></a>Monitorização
 
-A Contoso precisa de visibilidade sobre o estado de funcionamento e o desempenho de aplicações recentemente migradas, a infraestrutura e a dados agora em execução no Azure. Contoso irá tirar partido de cloud do Azure incorporada, ferramentas como o Azure Monitor, do Log Analytics e Application Insights de monitorização.
+A Contoso precisa de visibilidade sobre o estado de funcionamento e o desempenho de aplicações recentemente migradas, a infraestrutura e a dados agora em execução no Azure. Contoso irá tirar partido de cloud do Azure incorporada, ferramentas como o Azure Monitor, área de trabalho do Log Analytics e Application Insights de monitorização.
  
 - Com estas ferramentas Contoso pode facilmente recolher dados de fontes e obter informações valiosas. Por exemplo, a Contoso pode medir a utilização de memória e disco da CPU para as VMs, ver aplicações e dependências de rede em várias VMs e acompanhar o desempenho do aplicativo.
 - Contoso irá utilizar estas ferramentas de monitorização de nuvem para tomar ação e integrar com soluções de serviço.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 6696935cf23fa7286f23ae9b7d0e8a278e31403d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5fd885acc4294ae9f370d3becd0ad8cfb7935193
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652667"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992367"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -275,7 +275,7 @@ Centro de segurança do Azure automaticamente recolhe, analisa e funde dados de 
 * Ataques de força bruta contra máquinas virtuais
 * Alertas de segurança de soluções de segurança de parceiros integradas, como o anti-malware ou Firewalls de aplicações Web
 
-### <a name="why-did-secure-scores-values-change"></a>Por que proteger a alteração de valores de pontuações?
+### Por que proteger a alteração de valores de pontuações? <a name="secure-score-faq"></a>
 A partir de Fevereiro de 2019, o Centro de segurança ajustado a pontuação de algumas recomendações, para se ajustar melhor aos seus gravidade. Como resultado esse ajuste, podem existir valores de pontuação de proteger as alterações no geral.  Para obter mais informações sobre a pontuação segura, consulte [proteger o cálculo de pontuação](security-center-secure-score.md).
 
 ### <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>O que é a diferença entre ameaças detetados e alertados pelo Microsoft Security Response Center em comparação com o Centro de segurança do Azure?

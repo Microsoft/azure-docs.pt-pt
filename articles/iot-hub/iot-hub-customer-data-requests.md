@@ -1,19 +1,19 @@
 ---
 title: Recursos de pedido de dados do cliente
 description: Resumo das funcionalidades de pedido de dados do cliente
-author: dominicbetts
-ms.author: dobett
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 862ed2b38521cac3a4c83a9dc90db78f9f030ff1
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e9cc16d659e220dbe72cc2b2e22f71a817b36de2
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451821"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011318"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumo das funcionalidades de pedido de dados do cliente
 

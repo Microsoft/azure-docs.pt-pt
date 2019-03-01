@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 5933f74dcedb579023d187061229cdd53bce6414
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c79b7966a98946673d1a8f9daec42717dc27575
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819443"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193046"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 
@@ -119,7 +119,7 @@ Os passos seguintes mostram como preparar o exemplo em [Node.js](https://nodejs.
 1. Regresse ao ambiente de linha de comandos e gere a cadeia de ligação ao executar:
 
     ```cmd/sh
-    dps_keygen <scope_id> <device_id> <Primary Key>
+    dps_keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
    Copie o resultado e guarde-o num novo ficheiro (por exemplo, connection.txt).

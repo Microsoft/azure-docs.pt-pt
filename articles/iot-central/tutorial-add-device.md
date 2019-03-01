@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 695050a46df4b208205ce394cc79db891803cfa4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 04bdbd6c6af1f0e3a479920bc7f286343052281e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731534"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192161"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 
@@ -102,18 +102,12 @@ Os passos seguintes mostram como preparar o exemplo em [Node.js](https://nodejs.
 1. No ambiente de linha de comandos, navegue para a pasta `connectedairconditioner` que criou.
 
 1. Instale o gerador de chaves de DPS com o seguinte comando:
-    
+
     ```cmd/sh
     npm i -g dps-keygen
     ```
 
    Saiba mais sobre a [ferramenta de linha de comandos aqui](https://www.npmjs.com/package/dps-keygen).
-
-1. Transfira e deszipe a ferramenta de dps_cstr no [GitHub] ((Windows)https://github.com/Azure/dps-keygen/archive/master.zip
-
-)
-
-    Make sure you choose the one that matches your platform. For example, on Windows the dps_cstr.exe and the dll files should be now available in your folder. 
 
 1. A cadeia de ligação para uma instância de dispositivo na sua aplicação é gerada a partir das informações do dispositivo concedidas pelo IoT Central.
 
@@ -121,17 +115,16 @@ Os passos seguintes mostram como preparar o exemplo em [Node.js](https://nodejs.
 
    ![Página do dispositivo que mostra a ligação para informações de ligação](media/tutorial-add-device/connectionlink.png)
 
-
 1. Na página de Ligação do Dispositivo, copie e cole o ID de Âmbito, o ID do Dispositivo e a Chave Primária para um editor de texto e, em seguida, guarde. Utilize estes valores no próximo passo.
 
-   ![Detalhes da ligação](media/tutorial-add-device/device-connect.PNG)
+   ![Detalhes da ligação](media/tutorial-add-device/device-connect.png)
 
 1. Regresse ao ambiente de linha de comandos e gere a cadeia de ligação ao executar:
 
-   ```cmd/sh
-   dps_cstr <scope_id> <device_id> <Primary Key>
-   ```
-   
+    ```cmd/sh
+    dps_keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
+    ```
+
    Copie o resultado e guarde-o num novo ficheiro (por exemplo, connection.txt).
 
 1. Para inicializar o projeto em Node.js, execute o seguinte comando ao aceitar todas as predefinições:

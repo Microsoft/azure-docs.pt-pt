@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: f366b9eee3104527fb9e974b51f339494b552e3b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f8af19056a343abdbafcd4ead8b072330cb41fd9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739698"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192077"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Definir se um aplicativo desenvolvedores controlado distribuição (ADCD) na IBM zD & T v1
 
@@ -89,7 +89,7 @@ Agora que tem o pacote (s), tem de os carregar para a VM no Azure.
         gunzip \*.gz
     ```
     
-![](media/01-gunzip.png)
+![Explorador de ficheiros que mostra descompactado gz volumes](media/01-gunzip.png)
 
 ## <a name="configure-the-image-storage"></a>Configurar o armazenamento de imagem
 
@@ -105,11 +105,11 @@ A próxima etapa é configurar zD & ionar para utilizar o pacote carregado (s). 
      >
      > Lembre-se de que o acesso web utiliza a porta 9443. Utilize esta opção para iniciar sessão no servidor web. O ID de utilizador para ZD & T é **zdtadmin** e a palavra-passe é **palavra-passe**.
 
-    ![](media/02-welcome.png)
+    ![IBM zD & T Enterprise Edition bem-vindo ao ecrã](media/02-welcome.png)
 
 3. Sobre o **início rápido** página, em **configurar**, selecione **imagem armazenamento**.
 
-     ![](media/03-quickstart.png)
+     ![IBM zD & ecrã T Enterprise Edition início rápido](media/03-quickstart.png)
 
 4. Sobre o **configurar o armazenamento de imagem** página, selecione **SSH File Transfer Protocol**.
 
@@ -133,7 +133,7 @@ A próxima etapa é configurar o ambiente de destino da T & zD. Este ambiente al
 
 5. Na **etiqueta de ambiente de destino** , introduza uma etiqueta como **MyCICS.**
 
-     ![](media/04-add-target.png)
+     ![Adicionar ecrã de ambiente de destino](media/04-add-target.png)
 
 ## <a name="configure-adcd-and-deploy"></a>Configurar ADCD e implementar
 
@@ -143,7 +143,7 @@ Depois de concluir os passos de configuração anteriores, tem de configurar zD 
 
 2. Partindo do princípio de que todas as imagens foram carregadas para os diretórios corretos, clique nas **imagem a partir de ADCD** link seja exibido na parte inferior direita (mostrada no passo 7 na captura de ecrã seguinte).
 
-     ![](media/05-adcd.png)
+     ![IBM zD & T Enterprise Edition - ecrã Configurar ADCD](media/05-adcd.png)
 
 ## <a name="create-the-image"></a>Criar a imagem
 
@@ -157,7 +157,7 @@ Quando o passo de configuração anterior estiver concluído, o **criar uma imag
 
 4. Selecione o **criar imagem** botão na parte inferior direita.
 
-     ![](media/06-adcd.png)
+     ![IBM zD & T Enterprise Edition - criar uma imagem usando o ecrã de componentes de ADCD](media/06-adcd.png)
 
 5. Na janela que aparece, informando que a imagem foi implementada com êxito, escolha **implantar imagens**.
 
@@ -169,7 +169,7 @@ Quando o passo de configuração anterior estiver concluído, o **criar uma imag
 
 9. Certifique-se a caixa está selecionada para **automaticamente o problema IPL comando para z/OS, depois de implementar**.
 
-     ![](media/07-properties.png)
+     ![Ecrã de propriedades](media/07-properties.png)
 
 10. Selecione **concluída**.
 
@@ -194,5 +194,5 @@ Parabéns! Agora está executando um ambiente de mainframe IBM no Azure.
 [microfocus-setup]: /microfocus/set-up-micro-focus-on-azure.md
 [microfocus-demo]: /microfocus/demo.md
 [ibm-get-started]: /ibm/get-started.md
-[ibm-install-z]: /ibm/install-ibm-z-environment.md
+[ibm-install-z]: install-ibm-z-environment.md
 [ibm-demo]: /ibm/demo.md

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 21175e74bd40d0d4aeaf1c0a1e677f1c8113e80a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9a2cf35203c673d6296754360ac4f794241d4c43
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738016"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008683"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de gestão de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, gestão de API do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para fazer a conexão. Gestão de API pode ser implementada em dois modos principais dentro de uma rede virtual:
@@ -74,7 +74,7 @@ Também pode ativar a conectividade de rede virtual utilizando cmdlets do PowerS
 
 * Crie um serviço de gestão de API numa rede virtual: Utilize o cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para criar um serviço de gestão de API do Azure numa rede virtual e configurá-lo para usar o tipo de rede virtual interna.
 
-* Implemente um serviço de gestão de API existente numa rede virtual: Utilize o cmdlet [AzApiManagementDeployment atualização](/powershell/module/az.apimanagement/update-azapimanagementdeployment) para mover um serviço de gestão de API existente numa rede virtual e configurá-lo para usar o tipo de rede virtual interna.
+* Atualize uma implementação existente de um serviço de gestão de API numa rede virtual: Utilize o cmdlet [AzApiManagementRegion atualização](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover um serviço de gestão de API existente numa rede virtual e configurá-lo para usar o tipo de rede virtual interna.
 
 ## <a name="apim-dns-configuration"></a>Configuração de DNS
 Quando a gestão de API está no modo de rede virtual externa, o DNS é gerido pelo Azure. Para o modo de rede virtual interna, terá de gerir o seu próprio tipo de encaminhamento.

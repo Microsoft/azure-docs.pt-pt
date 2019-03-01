@@ -3,23 +3,22 @@ title: Sincronizar estados de dispositivos a partir do Hub IoT do Azure | Micros
 description: Utilize dispositivos duplos para sincronizar estados entre os seus dispositivos e o seu hub do IoT
 services: iot-hub
 documentationcenter: ''
-author: dominicbetts
-manager: timlt
-ms.assetid: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d613526cd6c1adc277ba3bd58a40f757a9c7b729
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421917"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009414"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 

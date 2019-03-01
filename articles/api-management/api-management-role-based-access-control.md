@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: d2d62dea683d3e42411d526fe002596e6473b4a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 21e7406d566be5be73342d530a4ad66b80a1d23f
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736673"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990446"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como utilizar o controlo de acesso baseado em funções na gestão de API do Azure
 Gestão de API do Azure baseia-se no controlo de acesso de controlo (RBAC) para ativar a gestão de acessos detalhada para os serviços de gestão de API e entidades (por exemplo, APIs e as políticas). Este artigo fornece uma descrição geral das funções incorporadas e personalizadas na gestão de API. Para obter mais informações sobre a gestão de acesso no portal do Azure, consulte [introdução à gestão de acesso no portal do Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -47,6 +47,9 @@ A tabela seguinte fornece breves descrições das funções incorporadas. Pode a
 
 ## <a name="custom-roles"></a>Funções personalizadas
 Se nenhuma das funções incorporadas às suas necessidades específicas, funções personalizadas podem ser criadas para fornecer gestão de acesso mais granular para entidades de gestão de API. Por exemplo, pode criar uma função personalizada que tem acesso só de leitura a um serviço de gestão de API, mas apenas tem acesso de escrita para uma API específica. Para saber mais sobre as funções personalizadas, veja [funções personalizadas no Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
+
+> [!NOTE]
+> Para conseguir ver uma instância de gestão de API no portal do Azure, uma função personalizada tem de incluir o ```Microsoft.ApiManagement/service/read``` ação.
 
 Quando cria uma função personalizada, é mais fácil de começar com uma das funções incorporadas. Editar os atributos a adicionar **ações**, **NotActions**, ou **AssignableScopes**e, em seguida, guarde as alterações como uma nova função. O exemplo seguinte começa com a função "Leitor do serviço de gestão de API do Azure" e cria uma função personalizada chamada "Editor de API de calculadora." Pode atribuir a função personalizada para uma API específica. Por conseqüência, esta função só tem acesso a essa API. 
 

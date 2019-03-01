@@ -1,15 +1,15 @@
 ---
-author: dominicbetts
-ms.service: iot-hub
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: 2d041ccbcf85f1931ca8ebc8b17595c9221c03cc
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 242f601ced4838a1b4e559774c25d05de04ddb77
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54414600"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57016360"
 ---
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Adicionar um grupo de consumidores ao seu hub IoT
 

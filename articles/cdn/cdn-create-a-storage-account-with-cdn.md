@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 025f2ecef070170fef216d7533150359cf11c50f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092592"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193369"
 ---
-# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: integrar uma conta de armazenamento do Azure com a CDN do Azure
+# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início rápido: Integrar uma conta de armazenamento do Azure CDN do Azure
 Neste início rápido, permite que a [Rede de Entrega de Conteúdos (CDN) do Azure](cdn-overview.md) coloque conteúdo do armazenamento do Azure em cache. A CDN do Azure oferece aos programadores uma solução global para entregar conteúdo de largura de banda elevada. Pode colocar blobs e conteúdo estático em cache de instâncias de computação em nós físicos nos Estados Unidos da América, Europa, Ásia, Austrália e América do Sul.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -31,7 +31,7 @@ Neste início rápido, permite que a [Rede de Entrega de Conteúdos (CDN) do Azu
 Inicie sessão no [Portal do Azure](https://portal.azure.com) com a sua conta do Azure.
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
-Utilize o procedimento seguinte para criar uma nova conta de armazenamento para uma subscrição do Azure. Uma conta de armazenamento dá acesso a serviços de Armazenamento do Microsoft Azure. A conta de armazenamento representa o nível mais elevado de espaço de nomes para aceder a cada componente de serviços de Armazenamento do Microsoft Azure: armazenamento de Blobs, Filas e Tabelas do Azure. Para mais informações, consulte [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md).
+Utilize o procedimento seguinte para criar uma nova conta de armazenamento para uma subscrição do Azure. Uma conta de armazenamento dá acesso a serviços de Armazenamento do Microsoft Azure. A conta de armazenamento representa o mais alto nível do espaço de nomes para aceder a cada um dos componentes do serviço de armazenamento do Azure: Armazenamento de BLOBs, filas e tabelas do Azure. Para mais informações, consulte [Introdução ao Armazenamento do Microsoft Azure](../storage/common/storage-introduction.md).
 
 Para criar uma conta de armazenamento, tem de ser o administrador de serviços ou um coadministrador da subscrição associada.
 
@@ -66,7 +66,7 @@ Pode utilizar vários métodos para criar uma conta de armazenamento, incluindo 
     
 4. Para as restantes definições, utilize os valores especificados na seguinte tabela:
 
-    | Definição  | Valor |
+    | Definição  | Value |
     | -------- | ----- |
     | **Deployment model** (Modelo de implementação) | Utilize o valor predefinido. |
     | **Account kind** (Tipo de conta) | Utilize o valor predefinido. |
@@ -94,11 +94,12 @@ Pode ativar a CDN do Azure para a sua conta de armazenamento diretamente a parti
     
 2. Crie um novo ponto final ao introduzir as informações necessárias especificadas na seguinte tabela:
 
-    | Definição  | Valor |
+    | Definição  | Value |
     | -------- | ----- |
-    | **Perfil da CDN** | Selecione **Criar novo** e introduza *my-cdn-profile-123* como o nome de perfil. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente.  |
+    | **Perfil da CDN** | Selecione **criar novo** e introduza o nome de perfil, por exemplo, *my-cdn-perfil-123*. Este nome tem de ser globalmente exclusivo.  |
     | **Escalão de preço** | Selecione **Standard da Verizon** na lista pendente. |
-    | **Nome do ponto final da CDN** | Introduza *my-endpoint-123* no nome de anfitrião do ponto final. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. Este nome é utilizado para aceder aos seus recursos em cache no domínio _&lt;nome do ponto final&gt;_.azureedge.net. Por predefinição, um novo ponto final da CDN utiliza o nome do anfitrião da conta de armazenamento com o servidor de origem.|
+    | **Nome do ponto final da CDN** | Introduza o nome de anfitrião do ponto final, ou seja, *my-endpoint-123*. Este nome tem de ser globalmente exclusivo. Este nome é utilizado para aceder aos seus recursos em cache no domínio _&lt;nome do ponto final&gt;_.azureedge.net. |
+    | **Nome de anfitrião da origem** | Por predefinição, um novo ponto final da CDN utiliza o nome do anfitrião da conta de armazenamento com o servidor de origem. |
 
 3. Selecione **Criar**. Depois da criação do ponto final, este é apresentado na lista de pontos finais.
 
@@ -141,9 +142,9 @@ Nos passos anteriores, criou um perfil e um ponto final de CDN num grupo de recu
 
 3. Para eliminar a conta de armazenamento, selecione-a no dashboard e, em seguida, selecione **Eliminar** no menu superior.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre como adicionar um domínio personalizado e ativar o HTTPS no ponto final de CDN, veja o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: aceder aos blobs de armazenamento com um domínio personalizado da CDN do Azure através de HTTPS](cdn-storage-custom-domain-https.md)
+> [Tutorial: Blobs de armazenamento de acesso com um domínio personalizado da CDN do Azure através de HTTPS](cdn-storage-custom-domain-https.md)
 

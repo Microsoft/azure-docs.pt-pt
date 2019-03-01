@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 02/28/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 14b277e505e2a4975945f4b2f8f8410e25e0f8b3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166034"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193590"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>O que é a condição de localização no acesso condicional do Azure Active Directory? 
 
@@ -59,7 +59,7 @@ Um local nomeado tem os seguintes componentes:
 
 - **Nome** -o nome a apresentar de um local nomeado.
 
-- **Intervalos de IP** -um ou mais intervalos de endereços de IPv4 no formato CIDR. Especificar um intervalo de endereços Ipv6 não é suportado.
+- **Intervalos de IP** -um ou mais intervalos de endereços de IPv4 no formato CIDR. Especificar um intervalo de endereços IPv6 não é suportado.
 
 - **Marcar como localização fidedigna** -um sinalizador pode ser definido para um local nomeado indicar a localização fidedigna. Normalmente, os locais confiáveis são áreas de rede que são controladas pelo seu departamento de TI. Além do acesso condicional, localizações com nome confiáveis também são utilizadas pelos relatórios de segurança do Azure Identity Protection e o Azure AD para reduzir [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
@@ -142,7 +142,7 @@ Por predefinição, o Azure AD emite um token numa base horária. Depois de move
 
 ### <a name="user-ip-address"></a>Endereço IP do utilizador
 
-O endereço IP que é utilizado na avaliação da política é o endereço IP público do utilizador. Para dispositivos numa rede privada, isso não é o IP do cliente de dispositivo do utilizador na intranet, é o endereço utilizado pela rede para ligar à Internet pública. 
+O endereço IP que é utilizado na avaliação da política é o endereço IP público do utilizador. Para dispositivos numa rede privada, isso não é o IP do cliente de dispositivo do utilizador na intranet, é o endereço utilizado pela rede para ligar à Internet pública. Se o seu dispositivo tem apenas um endereço IPv6, a configurar a condição de localização não é suportada.
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Carregamento em massa e o download de localizações com nome
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 5c4d16ff85972bc4b608e6ce2006912fb27d49d2
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 5d0b53590e901cfa1686a71c3f0dda7fb771b56b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895436"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990310"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinar um grupo com o mapeamento de grupo de dependência
 
@@ -21,9 +21,10 @@ Este artigo descreve como refinar um grupo ao visualizar as dependências de tod
 > [!NOTE]
 > Grupos para o qual pretende visualizar as dependências não devem conter mais de 10 máquinas. Se tiver mais de 10 máquinas no grupo, recomendamos que dividi-lo em grupos mais pequenos para aproveitar a funcionalidade de visualização de dependência.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prepare-for-dependency-visualization"></a>Preparar para a visualização de dependências
-O Azure Migrate tira partido da solução mapa de serviço do Log Analytics para ativar a visualização de dependências de máquinas.
+O Azure Migrate tira partido da solução mapa de serviço nos registos do Azure Monitor para ativar a visualização de dependências de máquinas.
 
 > [!NOTE]
 > A funcionalidade de visualização de dependência não está disponível no Azure Government.
@@ -104,7 +105,7 @@ Depois de instalar agentes em todas as máquinas do grupo, pode visualizar as de
 3. Para ver dependências mais granulares, clique no intervalo de tempo de modificá-lo. Por predefinição, o intervalo é uma hora. Pode modificar o intervalo de tempo ou especificar o início e datas de término e duração.
 
     > [!NOTE]
-      Atualmente, a visualização de dependência da interface do Usuário não suporta a seleção de um intervalo de tempo mais de uma hora. Utilizar o Log Analytics para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) ao longo de um período mais longo.
+      Atualmente, a visualização de dependência da interface do Usuário não suporta a seleção de um intervalo de tempo mais de uma hora. Utilização do Azure Monitor regista [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-a-group) ao longo de um período mais longo.
 
 4. Verifique se as máquinas dependentes, o processo em execução dentro de cada máquina e identificar as máquinas que devem ser adicionadas ou removidas do grupo.
 5. Utilize Ctrl + clique para selecionar máquinas no mapa para adicionar ou removê-los do grupo.
@@ -117,19 +118,19 @@ Depois de instalar agentes em todas as máquinas do grupo, pode visualizar as de
 
 Se pretender verificar as dependências de uma máquina específica que aparece no mapa de dependências de grupo, a [configurar o mapeamento de dependência de máquina](how-to-create-group-machine-dependencies.md).
 
-## <a name="query-dependency-data-from-log-analytics"></a>Dados de dependência de consulta do Log Analytics
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Consultar dados de dependência de logs de Monitor do Azure
 
-Dados de dependência capturados pelo mapa de serviço estão disponíveis para consultar no workspare do Log Analytics associado ao projeto do Azure Migrate. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados de mapa de serviço para consultar no Log Analytics. 
+Dados de dependência capturados pelo mapa de serviço estão disponíveis para consulta na área de trabalho do Log Analytics associada ao projeto do Azure Migrate. [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sobre as tabelas de dados de mapa de serviço para consultar no Azure Monitor registos. 
 
-Para executar as consultas do Log Analytics:
+Para executar as consultas de Kusto:
 
 1. Depois de instalar os agentes, vá para o portal e clique em **descrição geral**.
 2. No **descrição geral**, aceda à **Essentials** secção do projeto e clique no nome de área de trabalho fornecido junto a **área de trabalho OMS**.
 3. Na página de área de trabalho do Log Analytics, clique em **gerais** > **registos**.
-4. Escreva a consulta para recolher dados de dependência com o Log Analytics. Consultas de exemplo para recolher dados de dependência estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Escreva a consulta para recolher dados de dependência com os registos do Azure Monitor. Consultas de exemplo para recolher dados de dependência estão disponíveis [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Execute a consulta ao clicar em execução. 
 
-[Saiba mais](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre como escrever consultas do Log Analytics. 
+[Saiba mais](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sobre como escrever consultas do Kusto. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

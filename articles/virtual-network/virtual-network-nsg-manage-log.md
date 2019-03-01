@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 20c103c19de203d7598484b8f1d160256cb253e9
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 6cc75a70dfc7022efa8577234cc67659d53b2f88
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648868"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194422"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registo de diagnósticos para um grupo de segurança de rede
 
@@ -78,7 +78,7 @@ $Oms=Get-AzOperationalInsightsWorkspace `
 
 Se não tiver uma área de trabalho existente, pode criar um com [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace).
 
-Existem duas categorias de registo, que pode ativar os registos para. Para obter mais informações, consulte [categorias de registo](#log-categories). Ativar o registo de diagnóstico para o NSG com [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting). O exemplo seguinte registos de dados de categoria de evento e o contador para a área de trabalho para um NSG, utilizando os IDs para o NSG e a área de trabalho que obteve anteriormente:
+Existem duas categorias de registo, que pode ativar os registos para. Para obter mais informações, consulte [categorias de registo](#log-categories). Ativar o registo de diagnóstico para o NSG com [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting). O exemplo seguinte registos de dados de categoria de evento e o contador para a área de trabalho para um NSG, utilizando os IDs para o NSG e a área de trabalho que obteve anteriormente:
 
 ```azurepowershell-interactive
 Set-AzDiagnosticSetting `

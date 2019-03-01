@@ -13,14 +13,17 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40be6f333bf259cc036bec9c0d9fc967dd33f2a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 81d0590215f92f7b3d1c2ad0bbbc509da31c2fd1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960042"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011629"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Transferir e instalar a aplicação Microsoft Authenticator
+>[!Important]
+>Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+
 A aplicação Microsoft Authenticator ajuda-o início de sessão para as suas contas se usar a verificação de dois fatores. Verificação de dois fatores ajuda-o a aceder às suas contas de forma mais segura, especialmente enquanto vê informações confidenciais. Uma vez que as palavras-passe podem ser esquecidas, roubado ou comprometido, dois fatores verificação é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na.
 
 Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo:
@@ -29,8 +32,12 @@ Pode utilizar a aplicação Microsoft Authenticator de várias formas, incluindo
 
 - **Início de sessão no telefone.** Uma versão de verificação de dois fatores, que lhe permite início de sessão sem exigir uma palavra-passe, com o seu nome de utilizador e dispositivo móvel com a impressão digital, face ou o PIN.
 
+- **Geração de código.** Como um gerador de código para outras contas que suportam aplicações de autenticação.
+
 >[!Important]
->Sua organização pode implicar a utilizar uma aplicação de autenticação para início de sessão e aceder aos seus dados organizacionais e documentos. Embora o seu nome de utilizador poderá ser apresentada na aplicação, a conta, na verdade, não está configurada para atuar como um método de verificação até concluir o processo de registo. Para obter mais informações, consulte [adicionar a sua conta escolar ou profissional](user-help-auth-app-overview.md).
+>A aplicação Microsoft Authenticator funciona com qualquer conta que utiliza a verificação de dois fatores e suporta os padrões baseados no tempo palavra-passe Monouso (TOTP).
+
+>Sua organização pode implicar a utilizar uma aplicação de autenticação para início de sessão e aceder aos seus dados organizacionais e documentos. Embora o seu nome de utilizador poderá ser apresentada na aplicação, a conta, na verdade, não está configurada para atuar como um método de verificação até concluir o processo de registo. Para obter mais informações, consulte [adicionar a sua conta escolar ou profissional](user-help-auth-app-add-work-school-account.md).
 
 >[!NOTE]
 >Se estiver a ter problemas ao iniciar sessão para a sua conta, veja [quando não pode iniciar sessão na sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obter mais informações sobre o que fazer quando receber o ["não existe essa conta Microsoft"](https://support.microsoft.com/help/13811) de mensagens ao tentar iniciar sessão na sua conta Microsoft.
@@ -42,7 +49,7 @@ Instale a versão mais recente da aplicação Microsoft Authenticator, com base 
 
 - **Apple iOS.** No seu dispositivo iOS da Apple, vá para o Store da aplicação para [transferir e instalar a aplicação Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
-    >[Importante] Se não estiver atualmente no seu dispositivo móvel, continua a poder aceder a aplicação Microsoft Authenticator, enviando-se uma ligação de transferência a partir da [página do Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
+>[Importante] Se não estiver atualmente no seu dispositivo móvel, continua a poder aceder a aplicação Microsoft Authenticator, enviando-se uma ligação de transferência a partir da [página do Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

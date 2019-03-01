@@ -1,26 +1,22 @@
 ---
-title: 'Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics | Microsoft Docs '
+title: 'Tutorial: Funções definidas pelo utilizador para JavaScript do Stream Analytics do Azure | Documentos da Microsoft '
 description: Neste tutorial, vai realizar mecânicas de consulta avançada com as funções definidas pelo utilizador do JavaScript
-keywords: javascript, funções definidas pelo utilizador, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-ms.assetid: ''
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
-ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088882"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192280"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutorial: Funções definidas pelo utilizador para JavaScript do Stream Analytics do Azure
  
 O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas no JavaScript. Com o conjunto avançado de métodos de **Cadeia**, **RegExp**, **Matemática**, **Matriz** e **Data** que o JavaScript dispõe, as transformações de dados complexas com tarefas do Stream Analytics tornam-se mais fáceis de criar.
 
@@ -50,12 +46,19 @@ Eis algumas coisas que não pode fazer com uma função definida pelo utilizador
 Embora as funções como **Date.GetDate()** ou **Math.random()** não estejam bloqueadas na definição das funções, deve evitar utilizá-las. Estas funções **não** devolvem o mesmo resultado sempre que as chamar e o serviço Azure Stream Analytics não mantém um diário das invocações de função e dos resultados devolvidos. Se uma função devolve diferentes resultados nos mesmos eventos, não é garantida repetibilidade quando uma tarefa for reiniciada por si ou pelo serviço do Stream Analytics.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Adicionar uma função definida pelo utilizador do JavaScript no portal do Azure
-Para criar uma função simples definida pelo utilizador do JavaScript sob uma tarefa do Stream Analytics existente, siga estes passos:
+Para criar uma função de definidas pelo utilizador de JavaScript simples numa tarefa do Stream Analytics existente, siga estes passos:
+
+> [!NOTE]
+> Estes passos funcionem nas tarefas do Stream Analytics configuradas para ser executada na cloud. Se a tarefa de Stream Analytics é configurada para executar no Azure IoT Edge, em vez disso, utilizar o Visual Studio e [escrever usando a função definida pelo utilizador C# ](stream-analytics-edge-csharp-udf.md).
 
 1.  No portal do Azure, encontre a tarefa do Stream Analytics.
-2.  Em **TOPOLOGIA DA TAREFA**, selecione a sua função. É apresentada uma lista vazia das funções.
-3.  Para criar uma nova função definida pelo utilizador, selecione **Adicionar**.
+
+2. Sob o **topologia da tarefa** cabeçalho, selecione **funções**. É apresentada uma lista vazia das funções.
+
+3.  Para criar uma nova função definida pelo utilizador, selecione **+ adicionar**.
+
 4.  No painel **Nova Função**, para **Tipo de Função**, selecione **JavaScript**. É apresentado um modelo de função predefinido no editor.
+
 5.  Para o **alias do UDF**, introduza **hex2Int** e altere a implementação da função da seguinte forma:
 
     ```javascript
@@ -70,7 +73,7 @@ Para criar uma função simples definida pelo utilizador do JavaScript sob uma t
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo utilizador do JavaScript numa consulta
 
-1. No editor de consulta, em **TOPOLOGIA DA TAREFA**, selecione **Consulta**.
+1. No editor de consulta, sob o **topologia da tarefa** cabeçalho, selecione **consulta**.
 2.  Edite a consulta e, em seguida, chame a função definida pelo utilizador, da seguinte forma:
 
     ```SQL

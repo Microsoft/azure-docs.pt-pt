@@ -1,19 +1,20 @@
 ---
 title: Introdução à gestão de dispositivos do IoT Hub do Azure (Java) | Documentos da Microsoft
 description: Como utilizar a gestão de dispositivos do IoT Hub do Azure para iniciar um reinício do dispositivo remoto. Utilizar o Azure IoT device SDK para Java para implementar uma aplicação de dispositivo simulado que inclui um método direto e o serviço de IoT do Azure SDK para Java para implementar um serviço de aplicações que invoca o método direto.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 46b094e8436d74915a1cd5a0ccec402bee03e33b
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 272f4cfd4d79ef6d4fca3f3c00afb1c251649db8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515289"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010757"
 ---
 # <a name="get-started-with-device-management-java"></a>Introdução à gestão de dispositivo (Java)
 
@@ -39,7 +40,7 @@ No final deste tutorial, tem duas aplicações de consola Java:
 
 * Os relatórios a hora da última reinicialização por meio de uma propriedade comunicada.
 
-**reinício de Acionador**. Esta aplicação:
+**trigger-reboot**. Esta aplicação:
 
 * Chama um método direto na aplicação do dispositivo simulado.
 

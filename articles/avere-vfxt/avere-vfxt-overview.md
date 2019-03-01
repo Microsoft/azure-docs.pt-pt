@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670492"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989324"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT para Azure? 
 
@@ -19,8 +19,8 @@ O Avere vFXT para Azure é uma solução de colocação na cache do sistema de f
 
 O Avere vFXT suporta os seguintes cenários de computação comuns: 
 
-* Arquitetura de cloud híbrida: o Avere vFXT para Azure pode trabalhar com um sistema de armazenamento de hardware, que oferece o benefício de informática na cloud sem ter de mover ficheiros. 
-* Cloud bursting: o Avere vFXT para Azure pode ajudá-lo a mover os seus dados para a cloud para um único projeto ou efetuar uma migração "lift-and-shift" de todo o fluxo de trabalho permanentemente. 
+* Arquitetura de nuvem híbrida: Avere vFXT para o Azure pode trabalhar com um sistema de armazenamento de hardware, que oferece o benefício de computação em nuvem sem ter de mover ficheiros. 
+* Segurança da cloud: Avere vFXT para o Azure pode ajudá-lo a mover seus dados para a cloud para um único projeto, ou "lift- and -shift" todo o fluxo de trabalho permanentemente. 
 
 ![Diagrama que mostra os detalhes do sistema Avere vFXT numa subscrição do Azure ligada ao armazenamento de Blobs e a um datacenter no local](media/avere-vfxt-hybrid.png)
 
@@ -67,12 +67,12 @@ O Avere vFXT utiliza os seguintes recursos do Azure:
 
 |Componente do Azure|   |
 |----------|-----------|
-|Máquinas virtuais|3 ou mais D16s_v3 ou E32s_v3|
+|Máquinas virtuais|E32s_v3 3 ou mais|
 |Armazenamento SSD Premium|200 GB de espaço para SO e 1 a 4 TB de espaço na cache por nó |
 |Conta de armazenamento (opcional) |v2|
 |Armazenamento de back-end de dados (opcional) | Um contentor de Blobs LRS vazio |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Seguem-se algumas ligações para começar a criar a sua própria implementação do Avere vFXT. 
 

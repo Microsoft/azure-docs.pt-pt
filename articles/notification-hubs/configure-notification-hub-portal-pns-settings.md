@@ -1,6 +1,6 @@
 ---
-title: Configurar o hub de notificação do Azure com as definições de PNS | Documentos da Microsoft
-description: Neste guia de introdução, saiba como configurar um hub de notificação no portal do Azure com definições de sistema (PNS) de notificação de plataforma.
+title: Configure as notificações push nos Hubs de notificação do Azure | Documentos da Microsoft
+description: Saiba como configurar o Notification Hubs do Azure no portal do Azure, utilizando as definições de sistema (PNS) de notificação de plataforma.
 services: notification-hubs
 author: jwargo
 manager: patniko
@@ -10,96 +10,126 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 7f7e4a4d75a8e118da6f026817bc4ecfcc7a60db
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6d0076f2ddaee0a1a0daa4c1bf6b0c8bec2ff3e8
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314133"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010179"
 ---
-# <a name="configure-an-azure-notification-hub-with-platform-notification-system-settings-in-the-azure-portal"></a>Configurar um hub de notificação do Azure com definições de sistema de notificação de plataforma no portal do Azure 
-Os Hubs de Notificação do Azure oferecem um motor de envio de escalamento horizontal e utilização fácil que lhe permite enviar notificações para qualquer plataforma (iOS, Android, Windows, Kindle, Baidu, etc.) a partir de qualquer back-end (cloud ou no local). Para obter mais informações sobre o serviço, consulte [o que é o Notification Hubs do Azure?](notification-hubs-push-notification-overview.md).
+# <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Configure as notificações push num hub de notificação no portal do Azure
 
-[Criar um hub de notificação do Azure com o portal do Azure](create-notification-hub-portal.md) se ainda não fez isso. Neste guia de introdução, saiba como configurar um hub de notificação no portal do Azure com definições de sistema (PNS) de notificação de plataforma.
+Os Hubs de notificação do Azure oferece um mecanismo de push que é fácil de usar e que aumenta horizontalmente. Utilize os Hubs de notificação para enviar notificações para qualquer plataforma (iOS, Android, Windows, Kindle e Baidu) e a partir de qualquer back-end (na cloud ou no local). Para obter mais informações, consulte [o que é o Notification Hubs do Azure?](notification-hubs-push-notification-overview.md).
 
-## <a name="apple-push-notification-service-apns"></a>Serviço Apple Push Notification (APNS)
-1. Na **Hub de notificação** página no portal do Azure, selecione **Apple (APNS)** sob **definições** no menu da esquerda.
-2. Se selecionou **certificado**, e fazer as seguintes ações:
-    1. Selecione o **ícone de ficheiros**e selecione o **p12** ficheiro a carregar. 
-    2. Especifique a **palavra-passe**.
-    3. Selecione o modo **Sandbox**. Utilize o modo **Produção** apenas se pretender enviar notificações push a utilizadores que já tenham adquirido a aplicação da loja.
+Neste início rápido, irá utilizar as definições de sistema (PNS) de notificação de plataforma nos Hubs de notificação para definir as notificações push em várias plataformas. O guia de introdução mostra-lhe os passos a efetuar no portal do Azure.
 
-        ![Configurar certificação APNS no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
-3. Se selecionou **Token**e siga estes passos: 
-    1. Introduza os valores para **ID da chave**, **ID de pacote**, **ID da equipa**, e **token**.
-    2. Selecione o modo **Sandbox**. Utilize o modo **Produção** apenas se pretender enviar notificações push a utilizadores que já tenham adquirido a aplicação da loja.
+Se ainda não tiver criado um hub de notificação, crie uma agora. Para obter mais informações, consulte [criar um hub de notificação do Azure no portal do Azure](create-notification-hub-portal.md). 
 
-        ![Configurar o token do APNS no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+## <a name="apple-push-notification-service"></a>Serviço Apple Push Notification
 
-Para um tutorial completo sobre como enviar notificações push para dispositivos iOS com Notification Hubs do Azure e o Apple Push Notification Service (APNS), consulte [deste tutorial](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+Para definir a Apple Push Notification Service (APNS):
 
-## <a name="google-firebase-cloud-messaging-fcm"></a>Google Firebase Cloud Messaging (FCM)
-1. Sobre o **Hub de notificação** página no portal do Azure, selecione **Google (GCM/FCM)** sob **definições** no menu da esquerda. 
-2. Colar o **chave de servidor** para o projeto do FCM que guardou anteriormente. 
-3. Selecione **Guardar** na barra de ferramentas. 
+1. No portal do Azure, no **Hub de notificação**, selecione **Apple (APNS)**.
 
-    ![Hubs de notificação do Azure – Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
-4. Verá uma mensagem nos alertas que o hubs de notificação foi atualizada com êxito. O **guardar** botão está desativado. 
+1. Para **modo de autenticação**, selecione **certificado** ou **Token**.
 
-Para um tutorial completo sobre como enviar notificações push para dispositivos Android com Notification Hubs do Azure e o Google Firebase Cloud Messaging, consulte [deste tutorial](notification-hubs-android-push-notification-google-fcm-get-started.md).
+   a. Se selecionou **certificado**:
+      * Selecione o ícone de ficheiro e, em seguida, selecione o *. p12* ficheiro que pretende carregar.
+      * Introduza uma palavra-passe.
+      * Selecione o modo **Sandbox**. Ou, para enviar notificações push para utilizadores que adquirido a aplicação da loja, selecione **produção** modo.
 
-## <a name="windows-push-notification-service-wns"></a>Serviço de notificações de Push do Windows (WNS)
-1. Sobre o **Hub de notificação** página no portal do Azure, selecione **Windows (WNS)** sob **definições** no menu da esquerda.
+      ![Captura de ecrã de um APNS certificado configuração no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+
+   b. Se selecionou **Token**:
+
+      * Introduza os valores para **Id de chave**, **Id do pacote**, **Id da equipa**, e **Token**.
+      * Selecione o modo **Sandbox**. Ou, para enviar notificações push para utilizadores que adquirido a aplicação da loja, selecione **produção** modo.
+
+      ![Captura de ecrã de um APNS token configuração no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+
+Para obter mais informações, consulte [notificações Push para iOS ao utilizar os Hubs de notificação do Azure](notification-hubs-ios-apple-push-notification-apns-get-started.md).
+
+## <a name="google-firebase-cloud-messaging"></a>Google Firebase Cloud Messaging
+
+Para definir as notificações push para o Google Firebase Cloud Messaging (FCM):
+
+1. No portal do Azure, no **Hub de notificação**, selecione **Google (GCM/FCM)**. 
+2. Colar o **chave de API** para o projeto do FCM que guardou anteriormente. 
+3. Selecione **Guardar**. 
+
+   ![Captura de ecrã que mostra como configurar os Hubs de notificação para o Google FCM](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
+
+Quando concluir estes passos, um alerta indica que o hub de notificação foi atualizado com êxito. O **guardar** botão está desativado. 
+
+Para obter mais informações, consulte [notificações Push para dispositivos Android com Hubs de notificação e o Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md).
+
+## <a name="windows-push-notification-service"></a>Serviço de notificação Push do Windows
+
+Para definir a cópia de segurança Windows Push Notification Service (WNS):
+
+1. No portal do Azure, no **Hub de notificação**, selecione **Windows (WNS)**.
 2. Introduza os valores para **SID do pacote** e **chave de segurança**.
-3. Selecione **Guardar** na barra de ferramentas.
+3. Selecione **Guardar**.
 
-    ![Caixas do SID do Pacote e Chave de Segurança](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
+   ![Captura de ecrã que mostra as caixas do SID do pacote e a chave de segurança](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
+Para obter informações, consulte [enviar notificações para aplicações UWP com Notification Hubs do Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 
-Para um tutorial completo sobre como enviar notificações para uma aplicação plataforma Universal do Windows (UWP) em execução num dispositivo Windows, consulte [deste tutorial](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+## <a name="microsoft-push-notification-service-for-windows-phone"></a>Serviço de notificações Push da Microsoft para Windows Phone
 
-## <a name="windows-phone---microsoft-push-notification-service"></a>Windows Phone - serviço de notificações Push da Microsoft
-1. Sobre o **Hub de notificação** página no portal do Azure, selecione **Windows Phone (MPNS)** sob **definições**.
-2. Se pretender ativar push não autenticado, selecione **ativar push não autenticado**e selecione **guardar** na barra de ferramentas.
+Para definir a cópia de segurança Microsoft Push Notification Service (MPNS) para Windows Phone: 
 
-    ![Portal do Azure – Ativar notificações push não autenticadas](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
-3. Se pretender utilizar o **autenticado** push, siga estes passos:
-    1. Selecione **carregar certificado** na barra de ferramentas.
-    2. Selecione o **ícone de arquivo** e selecione o ficheiro de certificado.
-    3. Introduza o **palavra-passe** para o certificado. 
-    4. Selecione **OK** para fechar a **carregar certificado** página. 
-    5. Sobre o **Windows Phone(MPNS)** página, selecione **guardar** na barra de ferramentas.
+1. No portal do Azure, no **Hub de notificação**, selecione **Windows Phone (MPNS)**.
+1. Ative qualquer uma das notificações push não autenticado ou autenticado:
 
-Para um tutorial completo sobre como enviar notificações push para um aplicativo Windows Phone 8 utilizando o Microsoft Push Notification Service (MPNS), consulte [deste tutorial](notification-hubs-windows-mobile-push-notifications-mpns.md).
+   a. Para ativar as notificações push não autenticado, selecione **ativar push não autenticado** > **guardar**.
+
+      ![Captura de ecrã que mostra como ativar notificações push não autenticado](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
+
+   b. Para ativar as notificações push autenticado:
+      * Na barra de ferramentas, selecione **carregar certificado**.
+      * Selecione o ícone de ficheiro e, em seguida, selecione o ficheiro de certificado.
+      * Introduza a palavra-passe para o certificado.
+      * Selecione **OK**.
+      * Sobre o **Windows Phone (MPNS)** página, selecione **guardar**.
+
+Para obter mais informações, consulte [notificações Push para aplicações Windows Phone com os Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md).
       
-## <a name="amazon-device-messaging-adm"></a>Amazon Device Messaging (ADM)
-1. Sobre o **Hub de notificação** página no portal do Azure, selecione **Amazon (ADM)** sob **definições** no menu da esquerda.
-2. Introduza os valores para **ID de cliente** e **segredo do cliente**.
-3. Selecione **Guardar** na barra de ferramentas.
-    
-    ![Hubs de notificação do Azure – definições do ADM](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
+## <a name="amazon-device-messaging"></a>Amazon Device Messaging
 
-Para obter um tutorial completo sobre como utilizar notificações de push Notification Hubs do Azure para uma aplicação Kindle, consulte [deste tutorial](notification-hubs-kindle-amazon-adm-push-notification.md).
+Para definir as notificações push para o Amazon Device Messaging (ADM):
+
+1. No portal do Azure, no **Hub de notificação**, selecione **Amazon (ADM)**.
+2. Introduza os valores para **ID de cliente** e **segredo do cliente**.
+3. Selecione **Guardar**.
+    
+   ![Definições de captura de ecrã do ADM no portal do Azure](./media/notification-hubs-kindle-get-started/notification-hub-adm-settings.png)
+
+Para obter mais informações, consulte [introdução aos Hubs de notificação para aplicações Kindle](notification-hubs-kindle-amazon-adm-push-notification.md).
 
 ## <a name="baidu-android-china"></a>Baidu (Android China)
-1. Sobre o **Hub de notificação** página no portal do Azure, selecione **Baidu (Android China)** sob **definições** no menu da esquerda. 
-2. Introduza o **chave de API** que obtém a partir da consola do Baidu, no projeto Baidu cloud push. 
+
+Para definir as notificações push para o Baidu:
+
+1. No portal do Azure, no **Hub de notificação**, selecione **Baidu (Android China)**. 
+2. Introduza o **chave de Api** que obteve na consola do Baidu, no projeto Baidu cloud push. 
 3. Introduza o **chave secreta** que obteve na consola do Baidu, no projeto Baidu cloud push. 
-4. Selecione **Guardar** na barra de ferramentas. 
+4. Selecione **Guardar**. 
 
-    ![Hubs de notificação do Azure – Baidu (Android China)](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
-4. Verá uma mensagem nos alertas que o hubs de notificação foi atualizada com êxito. O **guardar** botão está desativado. 
+    ![Captura de ecrã dos Hubs de notificação que mostra a configuração para as notificações push do Baidu (Android China)](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 
-Para um tutorial completo sobre como enviar notificações de push com Notification Hubs do Azure e o Baidu cloud push, consulte [deste tutorial](notification-hubs-baidu-china-android-notifications-get-started.md).
+Quando concluir estes passos, um alerta indica que o hub de notificação foi atualizado com êxito. O **guardar** botão está desativado. 
+
+Para obter mais informações, consulte [introdução aos Hubs de notificação utilizando o Baidu](notification-hubs-baidu-china-android-notifications-get-started.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste início rápido, aprendeu a configurar os sistemas de notificação de plataforma diferente para um hub de notificação no portal do Azure. 
+Neste início rápido, aprendeu a configurar as definições de sistema de notificação de plataforma para um hub de notificação no portal do Azure. 
 
-Para obter instruções passo a passo completas para enviar notificações para estas plataformas diferentes, veja os tutoriais na **tutoriais** secção.
+Para saber mais sobre como enviar notificações push para várias plataformas, veja estes tutoriais:
 
-- [Enviar notificações push para dispositivos iOS com Notification Hubs do Azure e o Apple Push Notification Service (APNS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
-- [Enviar notificações push para dispositivos Android com Notification Hubs do Azure e o Google Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
-- [Notificações push para uma aplicação plataforma Universal do Windows (UWP) em execução num dispositivo Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-- [Enviar notificações push para um aplicativo Windows Phone 8 utilizando o Microsoft Push Notification Service (MPNS)](notification-hubs-windows-mobile-push-notifications-mpns.md).
-- [Notificações push para uma aplicação Kindle](notification-hubs-kindle-amazon-adm-push-notification.md).
-- [Notificações push utilizando a emissão de cloud de Notification Hubs do Azure e Baidu](notification-hubs-baidu-china-android-notifications-get-started.md).
+- [Enviar notificações push para dispositivos iOS com Hubs de notificação e APNS](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+- [Notificações push para dispositivos Android com Hubs de notificação e FCM do Google](notification-hubs-android-push-notification-google-fcm-get-started.md)
+- [Notificações push para uma aplicação UWP em execução num dispositivo Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+- [Enviar notificações push para um aplicativo Windows Phone 8 com o MPNS](notification-hubs-windows-mobile-push-notifications-mpns.md)
+- [Notificações push para uma aplicação Kindle](notification-hubs-kindle-amazon-adm-push-notification.md)
+- [Notificações push utilizando a emissão de cloud os Hubs de notificação e Baidu](notification-hubs-baidu-china-android-notifications-get-started.md)

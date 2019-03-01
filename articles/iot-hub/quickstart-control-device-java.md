@@ -1,21 +1,21 @@
 ---
 title: 'Guia de Início Rápido: controlar um dispositivo a partir de um Hub IoT do Azure (Java) | Microsoft Docs'
 description: Neste guia de início rápido, irá executar duas aplicações Java de exemplo. Existe uma aplicação back-end que pode controlar remotamente dispositivos ligados ao seu hub. A outra aplicação simula um dispositivo ligado ao seu hub que pode ser controlado remotamente.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 30c5026c0f7c8fcce3cee8780622f4c835f043ce
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 82586838c9b442ce27d6a18f45fb93370e532701
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670949"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011573"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Início rápido: Controlar um dispositivo ligado a um hub IoT (Java)
 

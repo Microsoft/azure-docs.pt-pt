@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: e83ff9f3bf02a134919d497662744028e1b9acda
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 895afb7af8ed7100af237f88e2953f4dc0991acb
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56343022"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195256"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Políticas de segurança do Azure monitorizadas pelo centro de segurança do Azure
 Este artigo fornece uma lista de definições de política do Azure que pode ser monitorizada no Centro de segurança. Para obter mais informações sobre as políticas de segurança, consulte [trabalhar com políticas de segurança](tutorial-security-policy.md).
@@ -58,30 +58,30 @@ Para compreender as diretivas internas que são monitorizadas pelo centro de seg
 |Auditar a ativação dos registos de diagnósticos nos Serviços de Aplicação|Registos de auditoria que ative o diagnóstico na aplicação. Isto permite-lhe recriar os registos de atividade para efeitos de investigação se ocorrer um incidente de segurança ou a rede estiver comprometida.| 
 |Auditar o estado de encriptação de dados transparente|Estado de encriptação de dados transparente para bases de dados SQL de auditoria.| 
 |Auditar as Definições de auditoria ao nível do servidor SQL|Audita a existência de auditoria de SQL ao nível do servidor.| 
-|[Preview]: Monitorizar a base de dados SQL não encriptada no Centro de segurança do Azure|Bases de dados ou servidores SQL não encriptados serão monitorizados pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar a base de dados SQL não auditada no Centro de segurança do Azure|Servidores do SQL Server e bases de dados que não têm a auditoria de SQL ativada serão monitorizados pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar atualizações de sistema em falta no Centro de segurança do Azure|Atualizações de sistema de segurança nos seus servidores em falta serão monitorizadas pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Auditar encriptação de BLOBs em falta para contas de armazenamento|Esta política audita contas de armazenamento sem encriptação de Blobs. Aplica-se apenas aos tipos de recurso Microsoft. Storage, não a outros fornecedores de armazenamento. Rede possível acesso Just In Time será monitorizado pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar o acesso de apenas no Time (JIT) de rede possível no Centro de segurança do Azure|Rede possível acesso apenas no Time (JIT) será monitorizado pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar aplicação possíveis listas de permissões no Centro de segurança do Azure|Configuração de lista de permissões de aplicação possíveis será monitorizada pelo centro de segurança do Azure.| 
-|[Preview]: Monitorizar o acesso de rede permissivo no Centro de segurança do Azure|Grupos de segurança de rede com regras demasiado permissivas serão monitorizados pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar vulnerabilidades do SO no Centro de segurança do Azure|Servidores que não satisfaçam a linha de base configurada serão monitorizados pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar o Endpoint Protection em falta no Centro de segurança do Azure|Servidores sem um agente do Endpoint Protection instalado serão monitorizados pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar discos de VM não encriptados no Centro de segurança do Azure|As VMs sem uma encriptação de disco ativada serão monitorizadas pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar Vulnerabilidades de VM no Centro de Segurança do Azure|Monitoriza vulnerabilidades detetadas pela solução Avaliação de Vulnerabilidades e VMs sem uma solução de Avaliação de Vulnerabilidades no Centro de Segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar aplicações web desprotegidas no Centro de segurança do Azure|Aplicativos Web sem uma proteção de Firewall de aplicações Web serão monitorizados pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar pontos finais de redes desprotegidos no Centro de segurança do Azure|Pontos finais de rede sem proteção por Firewall de próxima geração serão monitorizados pelo centro de segurança do Azure como recomendações.| 
-|[Preview]: Monitorizar os resultados da avaliação de Vulnerabilidade do SQL no Centro de segurança do Azure|Monitorizar os resultados da análise de Avaliação de Vulnerabilidades e recomendações para remediar vulnerabilidades de base de dados.| 
-|[Preview]: Número máximo de proprietários para uma subscrição de auditoria|Recomenda-se a designação no máximo de 3 proprietários da subscrição para poder reduzir o potencial de falha de um proprietário comprometido.| 
-|[Preview]: Número mínimo de proprietários para a subscrição de auditoria|Recomenda-se a designação de mais do que um proprietário da subscrição para ter a redundância de acesso de administrador.| 
-|[Preview]: Contas com permissões de proprietário que não sejam MFA ativada numa subscrição de auditoria|O Multi-Factor Authentication (MFA) deve estar ativado para todas as contas de subscrição com permissões de proprietário para evitar falhas de contas ou de recursos.| 
-|[Preview]: Contas com permissões de escrita que não sejam MFA ativada numa subscrição de auditoria|O Multi-Factor Authentication (MFA) deve estar ativado para todas as contas de subscrição com privilégios de escrita para evitar falhas de contas ou de recursos.| 
-|[Preview]: Contas com permissões de leitura que não sejam MFA ativada numa subscrição de auditoria|O Multi-Factor Authentication (MFA) deve estar ativado para todas as contas de subscrição com privilégios de leitura para evitar uma falha de contas ou de recursos.| 
-|[Preview]: As contas preteridas com permissões de proprietário de uma subscrição de auditoria|As contas preteridas com permissões de proprietário devem ser removidas da sua subscrição. As contas preteridas são contas que foram bloqueadas de iniciar sessão.| 
-|[Preview]: As contas preteridas numa assinatura de auditoria|Deve remover as contas preteridas das suas subscrições. As contas preteridas são contas que foram bloqueadas de iniciar sessão.| 
-|[Preview]: As contas externas com permissões de proprietário de uma subscrição de auditoria|As contas externas com permissões de proprietário devem ser removidas da sua subscrição para impedir acessos não monitorizados.| 
-|[Preview]: Auditoria a contas externas com permissões de escrita numa assinatura|As contas externas com privilégios de escrita devem ser removidas da sua subscrição para impedir o acesso não monitorizado.| 
-|[Preview]: As contas externas com permissões de leitura numa subscrição de auditoria|Deve remover as contas externas com privilégios de leitura da sua subscrição para impedir o acesso não monitorizado.| 
+|\[Pré-visualização]: Monitorizar a base de dados SQL não encriptada no Centro de segurança do Azure|Bases de dados ou servidores SQL não encriptados serão monitorizados pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar a base de dados SQL não auditada no Centro de segurança do Azure|Servidores do SQL Server e bases de dados que não têm a auditoria de SQL ativada serão monitorizados pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar atualizações de sistema em falta no Centro de segurança do Azure|Atualizações de sistema de segurança nos seus servidores em falta serão monitorizadas pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Auditar encriptação de BLOBs em falta para contas de armazenamento|Esta política audita contas de armazenamento sem encriptação de Blobs. Aplica-se apenas aos tipos de recurso Microsoft. Storage, não a outros fornecedores de armazenamento. Rede possível acesso Just In Time será monitorizado pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar o acesso de apenas no Time (JIT) de rede possível no Centro de segurança do Azure|Rede possível acesso apenas no Time (JIT) será monitorizado pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar aplicação possíveis listas de permissões no Centro de segurança do Azure|Configuração de lista de permissões de aplicação possíveis será monitorizada pelo centro de segurança do Azure.| 
+|\[Pré-visualização]: Monitorizar o acesso de rede permissivo no Centro de segurança do Azure|Grupos de segurança de rede com regras demasiado permissivas serão monitorizados pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar vulnerabilidades do SO no Centro de segurança do Azure|Servidores que não satisfaçam a linha de base configurada serão monitorizados pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar o Endpoint Protection em falta no Centro de segurança do Azure|Servidores sem um agente do Endpoint Protection instalado serão monitorizados pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar discos de VM não encriptados no Centro de segurança do Azure|As VMs sem uma encriptação de disco ativada serão monitorizadas pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar Vulnerabilidades de VM no Centro de Segurança do Azure|Monitoriza vulnerabilidades detetadas pela solução Avaliação de Vulnerabilidades e VMs sem uma solução de Avaliação de Vulnerabilidades no Centro de Segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar aplicações web desprotegidas no Centro de segurança do Azure|Aplicativos Web sem uma proteção de Firewall de aplicações Web serão monitorizados pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar pontos finais de redes desprotegidos no Centro de segurança do Azure|Pontos finais de rede sem proteção por Firewall de próxima geração serão monitorizados pelo centro de segurança do Azure como recomendações.| 
+|\[Pré-visualização]: Monitorizar os resultados da avaliação de Vulnerabilidade do SQL no Centro de segurança do Azure|Monitorizar os resultados da análise de Avaliação de Vulnerabilidades e recomendações para remediar vulnerabilidades de base de dados.| 
+|\[Pré-visualização]: Número máximo de proprietários para uma subscrição de auditoria|Recomenda-se a designação no máximo de 3 proprietários da subscrição para poder reduzir o potencial de falha de um proprietário comprometido.| 
+|\[Pré-visualização]: Número mínimo de proprietários para a subscrição de auditoria|Recomenda-se a designação de mais do que um proprietário da subscrição para ter a redundância de acesso de administrador.| 
+|\[Pré-visualização]: Contas com permissões de proprietário que não sejam MFA ativada numa subscrição de auditoria|O Multi-Factor Authentication (MFA) deve estar ativado para todas as contas de subscrição com permissões de proprietário para evitar falhas de contas ou de recursos.| 
+|\[Pré-visualização]: Contas com permissões de escrita que não sejam MFA ativada numa subscrição de auditoria|O Multi-Factor Authentication (MFA) deve estar ativado para todas as contas de subscrição com privilégios de escrita para evitar falhas de contas ou de recursos.| 
+|\[Pré-visualização]: Contas com permissões de leitura que não sejam MFA ativada numa subscrição de auditoria|O Multi-Factor Authentication (MFA) deve estar ativado para todas as contas de subscrição com privilégios de leitura para evitar uma falha de contas ou de recursos.| 
+|\[Pré-visualização]: As contas preteridas com permissões de proprietário de uma subscrição de auditoria|As contas preteridas com permissões de proprietário devem ser removidas da sua subscrição. As contas preteridas são contas que foram bloqueadas de iniciar sessão.| 
+|\[Pré-visualização]: As contas preteridas numa assinatura de auditoria|Deve remover as contas preteridas das suas subscrições. As contas preteridas são contas que foram bloqueadas de iniciar sessão.| 
+|\[Pré-visualização]: As contas externas com permissões de proprietário de uma subscrição de auditoria|As contas externas com permissões de proprietário devem ser removidas da sua subscrição para impedir acessos não monitorizados.| 
+|\[Pré-visualização]: Auditoria a contas externas com permissões de escrita numa assinatura|As contas externas com privilégios de escrita devem ser removidas da sua subscrição para impedir o acesso não monitorizado.| 
+|\[Pré-visualização]: As contas externas com permissões de leitura numa subscrição de auditoria|Deve remover as contas externas com privilégios de leitura da sua subscrição para impedir o acesso não monitorizado.| 
 
 
 

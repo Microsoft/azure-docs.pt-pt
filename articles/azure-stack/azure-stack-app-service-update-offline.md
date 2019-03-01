@@ -12,23 +12,22 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 332722a1774eea41ab3566051da138f2383fef98
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 9d941c36499f851f20c41fa6dd01faf14e4192ba
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447672"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992775"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Atualização offline do serviço de aplicações do Azure no Azure Stack
 
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!IMPORTANT]
-> Aplicar a atualização de 1809 ou mais tarde para o Azure Stack sistema integrado ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.4 de serviço de aplicações do Azure. Antes de atualizar o fornecedor de recursos, reveja as notas de versão para saber mais sobre novas funcionalidades, correções e os problemas conhecidos que podem afetar a sua implementação.
+> Aplicar a atualização de 1901 ou mais tarde para o Azure Stack sistema integrado ou implementar o development kit do Azure Stack mais recentes antes de implementar 1.5 de serviço de aplicações do Azure. 
 
 Ao seguir as instruções neste artigo, pode atualizar o [fornecedor de recursos do serviço de aplicações](azure-stack-app-service-overview.md) implementado num ambiente do Azure Stack que é:
 
@@ -36,9 +35,7 @@ Ao seguir as instruções neste artigo, pode atualizar o [fornecedor de recursos
 * protegida por serviços de Federação do Active Directory (AD FS).
 
 > [!IMPORTANT]
-> Antes de executar a atualização, certifique-se de que já tenha concluído a [implementação do serviço de aplicações do Azure no fornecedor de recursos do Azure Stack](azure-stack-app-service-deploy-offline.md)
->
->
+> Antes de executar a atualização, certifique-se de que já tenha concluído a [implementação do serviço de aplicações do Azure no fornecedor de recursos do Azure Stack](azure-stack-app-service-deploy-offline.md) e que leu o [notas de versão](azure-stack-app-service-release-notes-update-five.md), que acompanham a versão 1.5, para saber mais sobre novas funcionalidades, correções e os problemas conhecidos que podem afetar a sua implementação.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Execute o instalador de fornecedor de recursos do serviço de aplicações
 
@@ -101,7 +98,7 @@ Para atualizar o serviço de aplicações num ambiente desligado, primeiro tem d
 
    1. Clique nas **Connect** junto aos **subscrições do Azure Stack** caixa.
         * Se estiver a utilizar o Azure Active Directory (Azure AD), introduza a conta de administrador do Azure AD e a palavra-passe que forneceu quando implementou o Azure Stack. Clique em **iniciar sessão**.
-        * Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo _cloudadmin@azurestack.local_. Introduza a palavra-passe e clique em **sessão**.
+        * Se estiver a utilizar os serviços de Federação do Active Directory (AD FS), forneça a sua conta de administrador. Por exemplo, _cloudadmin@azurestack.local_. Introduza a palavra-passe e clique em **sessão**.
    2. Na **subscrições do Azure Stack** caixa, selecione a **subscrição do fornecedor predefinido**.
    3. Na **localizações do Azure Stack** caixa, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
    4. Se for detetada uma implementação existente do serviço de aplicações, em seguida, a conta de armazenamento e de grupo de recursos será preenchida e a cinzento.

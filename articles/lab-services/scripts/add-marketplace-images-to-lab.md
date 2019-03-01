@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 22c30e1c3b19e62489a08a702d8b35fbc4862e13
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e099a29a198d43bf8d00487ab45e2648479aedbe
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728221"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194782"
 ---
 # <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>Utilize o PowerShell para adicionar uma imagem do marketplace a um laboratório no Azure DevTest Labs
 
@@ -40,7 +40,7 @@ Este script utiliza os seguintes comandos:
 
 | Comando | Notas |
 |---|---|
-| [Find-AzResource](/powershell/module/az.resources/find-azresource) | Procura de recursos com base em parâmetros especificados. |
+| Find-AzResource | Procura de recursos com base em parâmetros especificados. |
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obtém os recursos. |
 | [Set-AzResource](/powershell/module/az.resources/set-azresource) | Modifica um recurso. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Crie um recurso. |

@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1509f40b88e3dc9c51bd00ed379c5b0130230a99
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b1c69705131cfea4e5ace9b5b9e829b3fdfa87e4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178843"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991653"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referência de eventos de risco do Azure Active Directory Identity Protection
 
@@ -83,6 +83,7 @@ Esse tipo de evento de risco indica inícios de sessão de endereços IP infetad
 **Tipo de Deteção:** Em tempo real  
 **Nome antigo:** Inícios de sessão de localizações desconhecidas
 
-Este tipo de evento de risco considera anteriores propriedades de início de sessão (por exemplo, dispositivo, localização, rede) para determinar os inícios de sessão com as propriedades não familiares. O sistema armazena as propriedades de localizações anteriores, utilizadas por um utilizador e considera estes "familiar". O evento de risco é acionado quando o início de sessão ocorre com propriedades ainda não estiver na lista de propriedades familiares. O sistema tem um período de aprendizagem inicial de 30 dias, durante o qual não sinaliza quaisquer novas deteções.
+Este tipo de evento de risco considera anteriores histórico de início de sessão (IP, Latitude / Longitude e o ASN) para procurar por inícios de sessão anómalos. O sistema armazena informações sobre localizações anteriores, utilizado por um utilizador e considera esses locais "familiares". O evento de risco é acionado quando o início de sessão ocorre a partir de uma localização que não ainda esteja na lista de localizações familiares. Criado recentemente os utilizadores serão no "modo de aprendizagem" durante um período de tempo em que propriedades de início de sessão não familiares eventos de risco serão desativados enquanto os nossos algoritmos saiba o comportamento do utilizador. A aprendizagem é dinâmica, duração de modo e depende em quanto tempo demora o algoritmo para recolher informações suficientes sobre os padrões de início de sessão do utilizador. A duração mínima é de cinco dias. Um utilizador pode voltar atrás no modo de aprendizagem após um longo período de inatividade. O sistema também ignora os inícios de sessão de dispositivos familiares e localizações geograficamente próximas uma localização familiar. 
+
 Executamos também esta deteção para a autenticação básica (ou protocolos herdados). Uma vez que estes protocolos não tem propriedades modernos, como o ID de cliente, não existe telemetria limitada para reduzir os falsos positivos. Recomendamos que os nossos clientes para mover para a autenticação moderna.
 

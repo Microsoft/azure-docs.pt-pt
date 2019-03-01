@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: 0e05bf71c1689015be0b8e3a4be1b37447ba6eb8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: b08e8ea6a8768510177f1ea664f3036813e1a890
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961249"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009924"
 ---
 # <a name="manage-azure-vm-backups"></a>Gerir as cópias de segurança de VMs do Azure
 
@@ -74,20 +74,23 @@ Pode gerir cópias de segurança utilizando o dashboard e por desagregação par
 Pode demorar uma demanda cópia de segurança de uma VM, uma vez que é configurado para proteção.
 - Se a cópia de segurança inicial estiver pendente, a cópia de segurança a pedido cria uma cópia completa da máquina virtual no cofre dos serviços de recuperação.
 - Se a cópia de segurança inicial estiver concluída, uma cópia de segurança a pedido irá enviar apenas alterações de instantâneo anterior, para o Cofre dos serviços de recuperação. Ou seja, cópias de segurança subsequentes são sempre incrementais.
-- O período de retenção para uma cópia de segurança a pedido é o valor de retenção especificado para o ponto de cópia de segurança diário na política. Não se for selecionado não existe nenhum ponto de cópia de segurança diário, em seguida, é utilizado o ponto de cópia de segurança semanal.
+- O intervalo de retenção para uma cópia de segurança a pedido é o valor de retenção especificado no momento do acionamento de tarefa de cópia de segurança.
 
 Para acionar uma cópia de segurança a pedido:
 
-1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), clique em **agora a cópia de segurança**.
+1. Na [dashboard de item do cofre](#view-vms-in-the-dashboard), clique em **Item de cópia de segurança** sob o **Item protegido** secção.
 
     ![Cópia de segurança agora botão](./media/backup-azure-manage-vms/backup-now-button.png)
 
- 2. Clique em **Sim** para iniciar a tarefa de cópia de segurança.
+2. Clique em **Máquina Virtual do Azure** partir **tipo de gestão de cópia de segurança**. O **Item de cópia de segurança (Máquina Virtual do Azure)** é apresentado o painel.
+3. Selecione uma VM e clique em **cópia de segurança agora** para criar uma cópia de segurança a pedido. O **painel cópia de segurança agora** aparece.
+4. Na **reter cópia de segurança até** opção, especifique uma data para cópia de segurança a ser mantido.
 
     ![Cópia de segurança agora botão](./media/backup-azure-manage-vms/backup-now-check.png)
 
+5. Clique em **OK**, para executar a tarefa de cópia de segurança.
 
- O trabalho de cópia de segurança cria um ponto de recuperação. O período de retenção do ponto de recuperação é o mesmo que o intervalo de retenção especificado na política de associados à máquina virtual. Para acompanhar o progresso para a tarefa, no dashboard do cofre, clique nas **tarefas de cópia de segurança** mosaico.  
+Para acompanhar o progresso para a tarefa, no dashboard do cofre, clique nas **tarefas de cópia de segurança** mosaico.
 
 ## <a name="stop-protecting-a-vm"></a>Parar a proteção de uma VM
 

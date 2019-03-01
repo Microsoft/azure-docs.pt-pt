@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55097814"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008910"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de métricas com limiares dinâmicos no Azure Monitor (pré-visualização pública)
 
@@ -79,7 +79,11 @@ Provavelmente não. Limiares dinâmicos são bons para detetar desvios significa
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>A quantidade de dados é utilizado para visualização e, em seguida, calcular limiares?
 
-Os limiares que aparece no gráfico, antes da criação de uma regra de alerta em métrica, são calculados com base nos últimos 10 dias de dados históricos, depois de criar uma regra de alerta, os limiares dinâmica irá adquirir os dados históricos adicionais que está disponíveis e será Aprenda continuamente com base nos dados novos para tornar os limiares mais precisas.
+Os limiares que aparece no gráfico, antes da criação de uma regra de alerta em métrica, são calculados com base em dados históricos suficiente para calcular a hora ou diariamente padrões sazonais (10 dias). Pressionar "Padrão de semanal de exibição" irá adquirir dados históricos suficientes para calcular padrões sazonais semanais (28 dias). Depois de criar uma regra de alerta, os limiares dinâmica irá utilizar necessários de todos os dados históricos que estão disponível e irão aprender continuamente e adeptos com base nos dados novos para fazer com que os limiares mais precisos.
+
+## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>A quantidade de dados é necessário para acionar um alerta?
+
+Limiares dinâmicos requer, pelo menos, três dias de dados para garantir que os limiares precisos antes de acionar alertas.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Práticas recomendadas de limiares dinâmicas
 

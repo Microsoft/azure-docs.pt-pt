@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3036bbc74b4ed8ee92e10f952252889c4c12f845
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: bf5721e206316a4ce576253743e9ac65de47094a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353945"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194049"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configurar vários VIPs para um serviço em nuvem
 
@@ -172,7 +172,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 
 ## <a name="next-steps"></a>Próximos Passos
 
-[Análise de registos para balanceamento de carga do Azure](load-balancer-monitor-log.md)
+[Registos de Monitor do Azure para o balanceamento de carga do Azure](load-balancer-monitor-log.md)
 
 [Descrição de geral do Internet destinado ao load balancer](load-balancer-internet-overview.md)
 

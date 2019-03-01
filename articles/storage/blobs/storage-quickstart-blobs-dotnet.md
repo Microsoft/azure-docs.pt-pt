@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Utilizar o .NET para criar um blob no armazenamento de objetos – Armazenamento do Microsoft Azure'
+title: 'Início rápido: Utilizar o .NET para criar um blob no armazenamento de objetos - armazenamento do Azure'
 description: Neste início rápido, vai aprender a utilizar a biblioteca de cliente do Armazenamento do Microsoft Azure para .NET para criar um contentor e um blob no armazenamento de Blobs (objetos). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 277ed8328a537efe4d32e1ca8b0d62f5d74537dd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712029"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193182"
 ---
-# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Início Rápido: Utilizar o .NET para criar um blob no armazenamento de objetos
+# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Início rápido: Utilizar o .NET para criar um blob no armazenamento de objetos
 
 Neste início rápido, vai aprender a utilizar a biblioteca de cliente do Armazenamento do Microsoft Azure para .NET para criar um contentor e um blob no armazenamento de Blobs (objetos). Em seguida, vai aprender a transferir o blob para o computador local e a listar todos os blobs num contentor.
 
@@ -162,6 +162,7 @@ A primeira ação realizada pelo exemplo consiste em verificar se a variável de
 string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
+CloudStorageAccount storageAccount;
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with operations against Blob storage here.
@@ -196,7 +197,7 @@ Neste caso, o exemplo chama o método [CreateAsync](/dotnet/api/microsoft.window
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
 // Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
-cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
+CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 

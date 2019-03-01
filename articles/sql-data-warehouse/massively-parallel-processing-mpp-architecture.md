@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f5e140e4f620362ca90a1e1cd06d23719cd2099
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 236009a3292f26d7fda73013c022f40535aa1ecb
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471611"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992333"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>O Azure SQL Data Warehouse - paralelo em grande escala (MPP) arquitetura de processamento
 Saiba como o Azure SQL Data Warehouse combina processamento paralelo em massa (MPP) com o armazenamento do Azure para alcançar a escalabilidade e de elevado desempenho. 
@@ -84,7 +84,7 @@ Uma tabela distribuída round robin distribui uniformemente os dados por uma tab
 ## <a name="replicated-tables"></a>Tabelas replicadas
 Tabelas replicadas fornece o desempenho de consulta mais rápido para tabelas pequenas.
 
-Uma tabela que é replicada armazena em cache uma cópia completa da tabela em cada nó de computação. Conseqüentemente, a replicação de uma tabela remove a necessidade de transferir dados entre nós de computação antes de uma associação ou agregação. Tabelas replicadas são melhor utilizadas com tabelas pequenas. Armazenamento extra é necessário e existem sobrecargas adicionais que são incorridas quando a escrita de dados que tornam grandes tabelas impraticável.  
+Uma tabela que é replicada armazena em cache uma cópia completa da tabela em cada nó de computação. Conseqüentemente, a replicação de uma tabela remove a necessidade de transferir dados entre nós de computação antes de uma associação ou agregação. Tabelas replicadas são melhor utilizadas com tabelas pequenas. É necessário armazenamento adicional e existe overhead adicional que é incorrido durante a escrita de dados que tornam impraticável a tabelas grandes.  
 
 O diagrama seguinte mostra uma tabela replicada. Para o SQL Data Warehouse, a tabela replicada é colocado em cache no primeiro de distribuição em cada nó de computação.  
 

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 68c5d6e68562d4027c102e1bde42c775648e58c4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f919e9a7cca210fa5920bcc6bed05a9a41fba8bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124848"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192389"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Criar esquemas de controlo personalizado que monitorizam os fluxos de trabalho ponto-a-ponto no Azure Logic Apps
 
@@ -60,17 +60,17 @@ Este artigo fornece código personalizado que podem ser usadas nas camadas de fo
 | --- | --- | --- |
 | sourceType |   | Tipo de origem de execução. Valores permitidos são **Microsoft.Logic/workflows** e **personalizado**. (Obrigatório) |
 | Origem |   | Se o tipo de origem for **Microsoft.Logic/workflows**, as informações de origem tem de cumprir esse esquema. Se o tipo de origem for **personalizado**, o esquema é um JToken. (Obrigatório) |
-| systemId | Cadeia | ID de sistema da aplicação lógica. (Obrigatório) |
-| runId | Cadeia | ID de execução da aplicação lógica (Obrigatório) |
-| operationName | Cadeia | Nome da operação (por exemplo, ação ou acionador). (Obrigatório) |
-| repeatItemScopeName | Cadeia | Repetir o nome do item, se a ação está dentro de um `foreach` / `until` loop. (Obrigatório) |
+| systemId | String | ID de sistema da aplicação lógica. (Obrigatório) |
+| runId | String | ID de execução da aplicação lógica (Obrigatório) |
+| operationName | String | Nome da operação (por exemplo, ação ou acionador). (Obrigatório) |
+| repeatItemScopeName | String | Repetir o nome do item, se a ação está dentro de um `foreach` / `until` loop. (Obrigatório) |
 | repeatItemIndex | Número inteiro | Se a ação está dentro de um `foreach` / `until` loop. Indica o índice do item repetido. (Obrigatório) |
-| trackingId | Cadeia | ID de controlo, para correlacionar mensagens. (Opcional) |
-| correlationId | Cadeia | ID de correlação, ao correlacionar as mensagens. (Opcional) |
-| clientRequestId | Cadeia | Cliente pode preenchê-lo para correlacionar mensagens. (Opcional) |
+| trackingId | String | ID de controlo, para correlacionar mensagens. (Opcional) |
+| correlationId | String | ID de correlação, ao correlacionar as mensagens. (Opcional) |
+| clientRequestId | String | Cliente pode preenchê-lo para correlacionar mensagens. (Opcional) |
 | eventLevel |   | Nível do evento. (Obrigatório) |
 | eventTime |   | Hora do evento, no formato AAAA-MM-DDTHH:MM:SS.00000Z da UTC. (Obrigatório) |
-| RecordType |   | Tipo de registro de rastreamento. Permitido é de valor **personalizado**. (Obrigatório) |
+| recordType |   | Tipo de registro de rastreamento. Permitido é de valor **personalizado**. (Obrigatório) |
 | registo |   | Tipo de registo personalizado. O formato permitido é JToken. (Obrigatório) |
 ||||
 
@@ -84,4 +84,4 @@ Para obter informações sobre esquemas de controlo de protocolo de B2B, consult
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [monitorizar mensagens B2B](logic-apps-monitor-b2b-message.md)
-* Saiba mais sobre [controlo mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* Saiba mais sobre [mensagens B2B no Azure Monitor registos de controlo](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

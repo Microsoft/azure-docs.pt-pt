@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 317e843f1fcc2fc85ffbc590d48e9bdf4aa934c1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: e2cafe0c8c5d8194519428839ec3c73f5dc726c0
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415770"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992038"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -92,7 +92,7 @@ Componente | Comunica com |  Detalhes
 --- | --- |---
 Recoletor  | Serviço do Azure Migrate | O recoletor liga-se ao serviço através da porta SSL 443.
 Recoletor | vCenter Server | Por predefinição, o recoletor liga-se ao vCenter Server na porta 443. Se o servidor escutar noutra porta, configure-a como porta de saída na VM do recoletor.
-VM no local | Área de trabalho do Log Analytics | [TCP 443] | [O Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) utiliza a porta TCP 443 para se ligar ao Log Analytics. Só precisa desta porta se estiver a utilizar a visualização de dependências, a qual precisa do agente MMA.
+VM no local | Área de trabalho do Log Analytics | [TCP 443] | [O Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) utiliza a porta TCP 443 para ligar ao Azure Monitor registos. Só precisa desta porta se estiver a utilizar a visualização de dependências, a qual precisa do agente MMA.
 
 
 ## <a name="what-happens-after-assessment"></a>O que acontece após a avaliação?

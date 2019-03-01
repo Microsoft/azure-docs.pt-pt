@@ -10,13 +10,13 @@ ms.reviewer: estfan, LADocs
 manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 10/16/2018
-ms.openlocfilehash: 04fb86f9b8f8be2c013f9bd7449dd5a4b2bcf90c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.date: 02/26/2019
+ms.openlocfilehash: 9b5452f112c6325dafd5edbe693b90ec2a94abc0
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854123"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990242"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços do Azure Logic Apps
 
@@ -33,12 +33,12 @@ Para obter mais informações, consulte [preços de aplicações lógicas](https
 
 ## <a name="fixed-pricing-model"></a>Modelo de preços fixo
 
-Para novas aplicações de lógica que são executados dentro de um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), paga um preço mensal fixo ações incorporadas e conectores padrão com etiqueta ISE. Um ISE fornece uma forma de criar e executar aplicações lógicas isoladas que podem aceder aos recursos numa rede virtual do Azure.  
+Para novas aplicações de lógica que são executados dentro de um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), paga um preço mensal fixo ações incorporadas e conectores padrão. Um ISE fornece uma forma de criar e executar aplicações lógicas isoladas que podem aceder aos recursos numa rede virtual do Azure. 
 
-O ISE inclui um conector empresarial gratuito, que inclui ligações tantas quanto quiser. Utilização para a empresa adicional conectores são cobrados com base no preço de consumo Enterprise. 
+Sua unidade de base do ISE corrigiu capacidade, portanto, se precisar de mais débito, pode [adiciona mais unidades de escala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), qualquer um durante a criação ou posteriormente. O ISE inclui um conector empresarial gratuito, que inclui ligações tantas quanto quiser. Utilização para a empresa adicional conectores são cobrados com base no preço de consumo Enterprise. 
 
 > [!NOTE]
-> O ambiente de serviço de integração está em *pré-visualização privada*. Para pedir acesso [criar o pedido de associação aqui](https://aka.ms/iseprivatepreview). Para obter mais informações, consulte [preços de aplicações lógicas](https://azure.microsoft.com/pricing/details/logic-apps).
+> O ISE encontra-se no [ *pré-visualização pública*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter mais informações, consulte [preços de aplicações lógicas](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 

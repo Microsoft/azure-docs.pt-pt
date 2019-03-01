@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 3b057e9c4a0fccb3f85ec237433e4020fd4a84da
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737489"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990540"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações no Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56737489"
 Antes de implementar o serviço de aplicações do Azure no Azure Stack, tem de concluir os passos de pré-requisitos neste artigo.
 
 > [!IMPORTANT]
-> Aplicar a atualização de 1809 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.4 de serviço de aplicações do Azure.
+> Aplicar a atualização de 1901 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.5 de serviço de aplicações do Azure.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Transferir os instalador e do programa auxiliar de scripts
 
@@ -49,15 +49,7 @@ Antes de implementar o serviço de aplicações do Azure no Azure Stack, tem de 
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Distribua a extensão de Script personalizado do Marketplace
 
-Serviço de aplicações do Azure no Azure Stack requer v1.9.0 de extensão de Script personalizado.  A extensão tem de ser [distribuídos do Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) antes de iniciar a implementação ou a atualização do serviço de aplicações do Azure no Azure Stack
-
-## <a name="high-availability"></a>Elevada disponibilidade
-
-A atualização 1802 de pilha do Azure foi adicionado suporte para domínios de falha. Novas implementações do serviço de aplicações do Azure no Azure Stack irão ser distribuídas por domínios de falha e fornecem tolerância a falhas.
-
-Para as implementações existentes do serviço de aplicações do Azure no Azure Stack, que foram implementadas antes da atualização 1802, consulte a [reequilibrar um fornecedor de recursos do serviço de aplicações em domínios de falha](azure-stack-app-service-fault-domain-update.md) artigo.
-
-Além disso, implemente o servidor de ficheiros necessários e instâncias do SQL Server numa configuração de elevada disponibilidade.
+Serviço de aplicações do Azure no Azure Stack requer v1.9.1 de extensão de Script personalizado.  A extensão tem de ser [distribuídos do Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) antes de iniciar a implementação ou a atualização do serviço de aplicações do Azure no Azure Stack
 
 ## <a name="get-certificates"></a>Obter certificados
 

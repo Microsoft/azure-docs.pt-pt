@@ -4,14 +4,14 @@ description: Pré-requisitos para Avere vFXT para o Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 045b010736f8cecf877408f23530022af1f94f14
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299212"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991427"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
 
@@ -57,7 +57,7 @@ Tem de ter uma quota suficiente para os seguintes componentes do Azure. Se for n
 
 |Componente do Azure|Quota|
 |----------|-----------|
-|Máquinas virtuais|3 ou mais D16s_v3 ou E32s_v3|
+|Máquinas virtuais|E32s_v3 3 ou mais|
 |Armazenamento SSD Premium|200 GB de espaço para SO e 1 a 4 TB de espaço na cache por nó |
 |Conta de armazenamento (opcional) |v2|
 |Armazenamento de back-end de dados (opcional) |Um novo contentor de BLOBs LRS |
@@ -151,6 +151,30 @@ Tem de criar a função de nó de cluster antes de poder criar o vFXT Avere para
    ```
 
 O nome da função é utilizado ao criar o cluster. Neste exemplo, o nome é ``avere-operator``.
+
+## <a name="optional-create-a-storage-service-endpoint-in-your-virtual-network"></a>(Opcional) Criar um ponto de extremidade do serviço de armazenamento na sua rede virtual
+
+R [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) mantém o tráfego de Blobs do Azure local em vez de encaminhá-lo fora da rede virtual. Recomenda-se para qualquer vFXT Avere para cluster do Azure que utiliza o Blob do Azure para o armazenamento de dados back-end. 
+
+Se está a fornecer uma vnet já existente e criar um novo contentor de Blobs do Azure para o armazenamento de back-end como parte da criação do cluster, tem de ter um ponto de extremidade de serviço na vnet para o armazenamento do Microsoft. Este ponto final tem de existir antes de criar o cluster ou a criação falhará. 
+
+Um ponto de extremidade do serviço de armazenamento é recomendado para qualquer vFXT Avere para cluster do Azure que utiliza o armazenamento de Blobs do Azure, mesmo que adicione o armazenamento mais tarde. 
+
+> [!TIP] 
+> * Ignore este passo se estiver a criar uma nova rede virtual como parte da criação do cluster. 
+> * Este passo é opcional se não estiver a criar o armazenamento de BLOBs durante a criação do cluster. Nesse caso, pode criar o ponto final de serviço mais tarde se decidir utilizar BLOBs do Azure.
+
+Crie o ponto de extremidade do serviço de armazenamento a partir do portal do Azure. 
+
+1. No portal, clique em **redes virtuais** à esquerda.
+1. Selecione a vnet para o seu cluster. 
+1. Clique em **pontos finais de serviço** à esquerda.
+1. Clique em **adicionar** na parte superior.
+1. Deixe o serviço como ``Microsoft.Storage`` e selecione a sub-rede do cluster.
+1. Na parte inferior, clique em **adicionar**.
+
+  ![Captura de ecrã portal do Azure com anotações para obter os passos de criação de ponto final do serviço](media/avere-vfxt-service-endpoint.png)
+
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Passo seguinte: Criar o cluster vFXT
 

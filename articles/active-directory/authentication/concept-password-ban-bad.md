@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ca079fa2ec41f85c365102fbd81ffde23e97e2c4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206553"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990497"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar palavras-passe incorretas na sua organização
 
@@ -96,7 +96,7 @@ Exemplo: um utilizador altera a palavra-passe para "C0ntos0Blank12"
 
 Depois de normalização, esta palavra-passe, torna-se "contosoblank12". O processo de correspondência localiza a que esta palavra-passe contém duas palavras-passe banidas: contoso e em branco. Esta palavra-passe, em seguida, recebe uma pontuação:
 
-[contoso] + [em branco] = [1] + [2] = 4 pontos, uma vez que esta palavra-passe é em 5 pontos, será rejeitada.
+[contoso] + [em branco] + [1] + [2] = 4 pontos, uma vez que esta palavra-passe é em 5 pontos, será rejeitada.
 
 Exemplo: um utilizador altera a palavra-passe para "ContoS0Bl@nkf9!".
 

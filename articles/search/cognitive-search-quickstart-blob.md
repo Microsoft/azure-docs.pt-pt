@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 70ccee4c69ba04206e4a7fe74c3bf158ae11a7b4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564566"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989886"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Início rápido: Criar um pipeline de pesquisa cognitiva com habilidades e dados de exemplo
 
@@ -53,7 +53,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 > [!NOTE]
 > A partir de 21 de Dezembro de 2018, poderá associar um recurso dos serviços cognitivos com um conjunto de capacidades do Azure Search. Isso permitirá que comecem a cobrança de consumo para a execução do conjunto de capacidades. Esta data, podemos também começar a cobrar extração de imagem como parte da fase de aberturas de documentos. Continuaremos a oferecer a extração de texto de documentos sem custos adicionais.
 >
-> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
+> A execução das habilidades internas será cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem são cobrados ao preço de pré-visualização e está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -86,7 +86,7 @@ Primeiro, inscreva-se no serviço do Azure Search.
   ![Página de definições do serviço no portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definições do serviço no portal")
 
   > [!NOTE]
-  > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Será capaz de executar um número limitado de possível sem associar um recurso dos serviços cognitivos pago. Saiba mais [mais](cognitive-search-attach-cognitive-services.md).
+  > A Pesquisa cognitiva está em pré-visualização pública. A execução do conjunto de competências está atualmente disponível em todos os escalões, incluindo o gratuito. Será capaz de executar um número limitado de possível sem associar um recurso dos serviços cognitivos pago. Saiba [mais](cognitive-search-attach-cognitive-services.md).
 
 1. Afixe o serviço no dashboard para ter acesso rápido às informações do serviço.
 
@@ -98,7 +98,9 @@ O pipeline de melhoramento solicita as origens de dados do Azure suportadas pelo
 
 1. A [transferência de dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) é constituída por um pequeno conjunto de ficheiros de diferentes tipos. 
 
-1. Inscreva-se para o armazenamento de Blobs do Azure, criar uma conta de armazenamento, abra as páginas de serviços de Blob e criar um contentor. No contentor, definiu o acesso público ao nível para **contentor**. Para obter mais informações, consulte [secção "Criar um contentor de"](../storage/blobs/storage-unstructured-search.md#create-a-container) no *procurar dados não estruturados* tutorial.
+1. Inscreva-se para o armazenamento de Blobs do Azure, criar uma conta de armazenamento, abra as páginas de serviços de Blob e criar um contentor. 
+
+1. No contentor, definiu o acesso público ao nível para **contentor (acesso de leitura anónimo para contentores e blobs)**. Para obter mais informações, consulte [secção "Criar um contentor de"](../storage/blobs/storage-unstructured-search.md#create-a-container) no *procurar dados não estruturados* tutorial.
 
 1. O contentor que criou, clique em **carregar** para carregar os ficheiros de exemplo que transferiu no passo anterior.
 

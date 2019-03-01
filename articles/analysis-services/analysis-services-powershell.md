@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8f309d628ec4531ca5594ecb25533b1484e8b274
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 177d74a54e4ab4de698cbb63091656cc8b584e2b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732403"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010689"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerir o Azure Analysis Services com o PowerShell
 
@@ -51,7 +51,7 @@ Módulo - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Az
 
 |Cmdlet|Descrição| 
 |------------|-----------------| 
-|[Add-AzAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-AzAnalysisServicesaccount)|Adiciona uma conta autenticada a utilizar para pedidos de cmdlet do servidor Azure Analysis Services.| 
+|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Adiciona uma conta autenticada a utilizar para pedidos de cmdlet do servidor Azure Analysis Services.| 
 |[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Exporta um registo de uma instância do servidor do Analysis Services no atualmente conectado no ambiente conforme especificado no comando de Add-AzAnalysisServicesAccount|  
 |[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Reinicia uma instância do servidor do Analysis Services no ambiente de atualmente com sessão iniciado; especificado no comando de Add-AzAnalysisServicesAccount.|  
 |[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Sincroniza um banco de dados especificado na instância especificada do servidor do Analysis Services para todas as instâncias de aumentar horizontalmente a consulta atualmente conectado no ambiente conforme especificado no comando de Add-AzAnalysisServicesAccount no|  

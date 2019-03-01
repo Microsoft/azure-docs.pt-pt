@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: e727e1ad9a4d202a3798f516d1db7d88464999fa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d8031d4984a278c04342853a06fecb3c8a9a8171
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875961"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194456"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
 
@@ -30,11 +30,11 @@ Cada modelo fornece as vantagens e desvantagens de desempenho e disponibilidade 
 
 ## <a name="consistency-levels-and-latency"></a>Níveis de consistência e a latência
 
-- A latência de leitura para todos os níveis de consistência é sempre garantida ao ser inferior a 10 milissegundos no percentil 99. Latência de leitura conta com o SLA. A média de leitura de latência no percentil 50th, normalmente é 2 milissegundos ou menos. Contas Cosmos do Azure, que abrangem várias regiões e são configuradas com consistência forte são uma exceção a essa garantia.
+A latência de leitura para todos os níveis de consistência é sempre garantida ao ser inferior a 10 milissegundos no percentil 99. Latência de leitura conta com o SLA. A média de leitura de latência no percentil 50th, normalmente é 2 milissegundos ou menos. Contas Cosmos do Azure, que abrangem várias regiões e são configuradas com consistência forte são uma exceção a essa garantia.
 
-- A latência de escrita para os restantes níveis de consistência é sempre garantida ao ser inferior a 10 milissegundos no percentil 99. Esta latência de escrita conta com o SLA. A latência média de escrita, no percentil 50th, costuma ser 5 milissegundos ou menos.
+A latência de escrita para todos os níveis de consistência é sempre garantida ao ser inferior a 10 milissegundos no percentil 99. Esta latência de escrita conta com o SLA. A latência média de escrita, no percentil 50th, costuma ser 5 milissegundos ou menos.
 
-Algumas contas do Cosmos do Azure podem ter várias regiões configurados com consistência forte. Neste caso, a latência de escrita é garantida que ser tempo menor do que duas vezes ida e volta (RTT) mais de 10 milissegundos no percentil 99. O RTT entre qualquer uma das duas regiões mais distantes está associado a sua conta do Cosmos do Azure. É igual a RTT entre qualquer uma das duas regiões mais distantes à conta do Cosmos do Azure. Esta opção está atualmente em pré-visualização.
+Para contas do Cosmos do Azure configuradas com consistência forte com mais de uma região de, a latência de escrita é garantida para ser inferior a duas vezes ida e volta (RTT) de tempo entre qualquer uma das duas regiões de mais distantes, além de 10 milissegundos no percentil 99. Esta opção está atualmente em pré-visualização.
 
 A latência RTT exata é uma função de distância de velocidade de luz e a topologia de rede do Azure. Redes do Azure não oferecem qualquer latência SLAs de RTT entre quaisquer duas regiões do Azure. Para a sua conta do Cosmos do Azure, latências de replicação são apresentadas no portal do Azure. Pode utilizar o portal do Azure para monitorizar as latências de replicação entre várias regiões associadas a sua conta.
 

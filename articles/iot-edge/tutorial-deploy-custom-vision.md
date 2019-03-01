@@ -9,26 +9,30 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c36e557f4e7c4a42726ee96de8bd73755d5e19c4
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075833"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193675"
 ---
-# <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
+# <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Executar a classificação de imagens na periferia com o serviço de visão personalizada
 
 O Azure IoT Edge pode mover as suas cargas de trabalho da cloud para a periferia e tornar a sua solução IoT Edge mais eficiente. Esta capacidade é particularmente útil para serviços que processam muitos dados, como modelos de imagem digitalizada. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/home.md) permite-lhe compilar classificadores de imagens personalizados e implementá-los como contentores nos dispositivos. Em conjunto, estes dois serviços permitem-lhe obter informações de imagens ou de transmissões em fluxo de vídeos sem que seja necessário transferir todos os dados do local primeiro. A Visão Personalizada oferece um classificador que compara uma imagem com um modelo preparado para gerar informações. 
 
 Por exemplo, a Visão Personalizada num dispositivo IoT Edge pode determinar se o tráfego numa autoestrada é superior ou inferior ao normal ou se um parque de estacionamento tem lugares disponíveis numa fila. Essas informações podem ser partilhadas com outro serviço, o que possibilita realizar ações. 
 
-
 Neste tutorial, ficará a saber como: 
 
 > [!div class="checklist"]
+>
 > * Compilar um classificador de imagens com a Visão Personalizada.
 > * Desenvolver um módulo do IoT Edge que consulta o servidor Web da Visão Personalizada no seu dispositivo.
 > * Enviar os resultados do classificador de imagens para o Hub IoT.
+
+<center>
+![Diagrama - arquitetura do Tutorial, testar e implementar o classificador](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +47,7 @@ Recursos da cloud:
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão standard no Azure. 
 * Um registo de contentor. Este tutorial utiliza o [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/). 
-    * Saber as credenciais da [conta de administrador](../container-registry/container-registry-authentication.md#admin-account) do registo de contentor.
+* Saber as credenciais da [conta de administrador](../container-registry/container-registry-authentication.md#admin-account) do registo de contentor.
 
 Recursos de desenvolvimento:
 
@@ -151,7 +155,7 @@ Uma solução é uma forma lógica de desenvolver e organizar vários módulos p
 
 3. Selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code. 
 
-4. Na paleta de comandos, introduza e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
+4. Na paleta de comandos, introduza e execute o comando **Azure IoT Edge: Nova solução de IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
 
    | Campo | Valor |
    | ----- | ----- |
@@ -201,7 +205,7 @@ Numa implementação da Visão Personalizada real, as imagens ou as transmissõe
 
 Nesta secção, vai adicionar um módulo novo à mesma CustomVisionSolution e fornecer código para criar a câmara simulada. 
 
-1. Na mesma janela do Visual Studio Code, utilize a paleta de comandos para executar **Azure IoT Edge: Add IoT Edge Module**. Na paleta de comandos, indique as informações seguintes relativas ao módulo novo: 
+1. Na mesma janela do Visual Studio Code, utilize a paleta de comandos para executar **Azure IoT Edge: Adicionar módulo do IoT Edge**. Na paleta de comandos, indique as informações seguintes relativas ao módulo novo: 
 
    | Mensagem | Valor | 
    | ------ | ----- |
@@ -423,7 +427,7 @@ Primeiro, compile e envie a solução para o registo de contentor.
 
 Em seguida, configure o acesso ao Hub IoT a partir do Visual Studio Code. 
 
-1. Na paleta de comandos do VS Code, selecione **Azure IoT Hub: Select IoT Hub**.
+1. Na paleta de comandos VS Code, selecione **IoT Hub do Azure: Selecione o IoT Hub**.
 2. Siga os avisos para iniciar sessão na conta do Azure. 
 3. Na paleta de comandos, selecione a sua subscrição do Azure e, em seguida, selecione o seu Hub IoT. 
 

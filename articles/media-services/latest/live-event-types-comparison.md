@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 02/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9671d9f61b610a85cbf2475e045c641a29dac11b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878362"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010621"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de evento em direto
 
@@ -33,7 +33,7 @@ A tabela seguinte compara as funcionalidades dos dois tipos de evento em direto.
 | Velocidade de transmissão única entrada é codificada em múltiplas velocidades de transmissão na cloud |Não |Sim |
 | Resolução máxima de vídeo para feed de contribuição |4K (4096 x 2160 em 60 quadros por segundo) |1080p (1920 x 1088 em 30 quadros por segundo)|
 | Camadas máximas recomendadas no feed de contribuição|Até 12|Um áudio|
-| Máximas camadas de dados de saída| Mesmo que a entrada|Até 7|
+| Máximas camadas de dados de saída| Mesmo que a entrada|Até 6|
 | Feed de largura de banda agregada máxima de contribuição|60 Mbps|N/A|
 | Velocidade de transmissão máxima para uma única camada na contribuição |20 Mbps|20 Mbps|
 | Suporte para faixas de áudio de vários idiomas|Sim|Não|

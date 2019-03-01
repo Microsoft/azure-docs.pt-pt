@@ -4,18 +4,18 @@ description: Explica o planeamento para o fazer antes de implementar Avere vFXT 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: a097110bac7dad630f9a85dd8b20678db0c739cf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744661"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990990"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear o seu sistema Avere vFXT
 
-Este artigo explica como planejar um vFXT Avere novo para o cluster do Azure para se certificar-se de que o cluster que cria é posicionado e o tamanho adequado para as suas necessidades. 
+Este artigo explica como planejar um vFXT Avere novo para o cluster do Azure que é posicionado e o tamanho adequado para as suas necessidades. 
 
 Antes de passar no Azure Marketplace ou criar todas as VMs, considere a forma do cluster irá interagir com outros elementos no Azure. Planear onde estarão localizados na sua rede privada e sub-redes recursos do cluster e decidir onde será seu armazenamento de back-end. Certifique-se de que os nós do cluster que cria poderosos o suficiente para suportar o fluxo de trabalho. 
 
@@ -32,16 +32,22 @@ Siga estas diretrizes quando planear a infraestrutura de rede Avere vFXT do seu 
 * Todos os elementos devem ser geridos com uma nova subscrição criada para a implementação de vFXT Avere. As vantagens incluem: 
   * Controlo custo mais simples - modo de exibição e ciclos de todos os custos de recursos, a infraestrutura e a computação numa subscrição de auditoria.
   * Limpeza mais fácil - pode remover a subscrição completa quando terminar com o projeto.
-  * Criação de partições conveniente de recurso quotas - proteger outras cargas de trabalho críticas de limitação de recursos possível quando o grande número de clientes utilizado para seu fluxo de trabalho de computação de alto desempenho, isolando os clientes de vFXT Avere a visualização e de cluster numa subscrição individual.
+  * Criação de partições conveniente de recurso quotas - proteger outras cargas de trabalho críticas de recursos possível limitação ao isolar o Avere vFXT clientes e o cluster numa única subscrição. Isso evita conflitos quando a visualização de um grande número de clientes para um fluxo de trabalho de computação de alto desempenho.
 
 * Localize os sistemas de computação de clientes próximo vFXT cluster. Armazenamento de back-end pode ser mais remoto.  
 
-* Para simplificar, localize o cluster de vFXT e o controlador de cluster VM na mesma rede virtual (vnet) e no mesmo grupo de recursos. Também devem utilizar a mesma conta de armazenamento. (O controlador de cluster cria o cluster e também pode ser utilizado para gestão de linha de comandos cluster.)  
-
-  > [!NOTE] 
-  > O modelo de criação do cluster pode criar um novo grupo de recursos e uma nova conta de armazenamento para o cluster. Pode especificar um grupo de recursos existente, mas tem de estar vazio.
+* O cluster de vFXT e a VM do controlador de cluster devem estar localizados na mesma rede virtual (vnet), no mesmo grupo de recursos e utilizam a mesma conta de armazenamento. O modelo de criação de clusters automatizada processa isto na maioria das situações.
 
 * O cluster tem de estar localizado na sua própria sub-rede para evitar conflitos de endereços IP com clientes ou os recursos de computação. 
+
+* O modelo de criação do cluster pode criar a maioria dos recursos de infraestrutura necessários para o cluster, incluindo grupos de recursos, redes virtuais, sub-redes e contas de armazenamento. Se pretende utilizar recursos já existentes, certifique-se de que cumpram os requisitos nesta tabela. 
+
+  | Recurso | Utilizar existente? | Requisitos |
+  |----------|-----------|----------|
+  | Grupo de recursos | Sim, se estiver vazia | Tem de estar vazio| 
+  | Conta de armazenamento | Sim se ligar um existente contentor de Blob a após a criação de cluster <br/>  Não se for criar um novo contentor de Blob durante a criação do cluster | Contentor de Blob existente tem de estar vazio <br/> &nbsp; |
+  | Rede virtual | Sim | Tem de incluir um ponto de extremidade do serviço de armazenamento se criar um novo contentor de Blobs do Azure | 
+  | Subrede | Sim |   |
 
 ## <a name="ip-address-requirements"></a>Requisitos de endereços IP 
 
@@ -62,22 +68,20 @@ Se utilizar o armazenamento de Blobs do Azure, também poderá precisar de ender
 
 Tem a opção para localizar recursos de rede e armazenamento de BLOBs (se utilizado) em diferentes grupos de recursos do cluster.
 
-## <a name="vfxt-node-sizes"></a>tamanhos de nó vFXT 
+## <a name="vfxt-node-size"></a>tamanho do nó vFXT
 
-As VMs que servem como nós de cluster determinam a capacidade de débito e o armazenamento de pedido da cache. Pode escolher entre dois tipos de instância, com memória diferente, o processador e características de armazenamento local. 
+As VMs que servem como nós de cluster determinam a capacidade de débito e o armazenamento de pedido da cache. <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
 Cada nó de vFXT será idêntico. Ou seja, se criar um cluster de três nós terá três VMs do mesmo tipo e tamanho. 
 
 | Tipo de instância | vCPUs | Memória  | Armazenamento SSD local  | Discos de dados máximos | Débito de disco eliminadas do cache | NIC (contagem) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_D16s_v3 | 16  | 64 GiB  | 128 GiB  | 32 | 25,600 IOPS <br/> 384 MBps | MBps de 8.000 (8) |
 | Standard_E32s_v3 | 32  | 256 GiB | 512 GiB  | 32 | 51,200 IOPS <br/> 768 MBps | MBps de 16 000 (8)  |
 
-Cache de disco por nó é configurável e pode rage de 1000 GB a 8000 GB. 1 TB por nó é o tamanho da cache recomendada para nós de Standard_D16s_v3 e 4 TB por nó é recomendada para Standard_E32s_v3 nós.
+Cache de disco por nó é configurável e pode rage de 1000 GB a 8000 GB. 4 TB por nó é o tamanho de cache recomendada para Standard_E32s_v3 nós.
 
-Para obter mais informações sobre estas VMs, leia os seguintes documentos do Microsoft Azure:
+Para obter mais informações sobre estas VMs, leia a documentação do Microsoft Azure:
 
-* [Tamanhos de máquinas virtuais de fins gerais](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general)
 * [Tamanhos de máquinas virtuais com otimização de memória](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>Quota de conta
@@ -120,7 +124,7 @@ Para obter detalhes sobre estas opções, leia os [documentação de rede Virtua
 
 Se definir um endereço IP público no controlador de cluster, pode utilizá-lo como um anfitrião de atalhos para contactar o cluster de vFXT Avere de fora da sub-rede privada. No entanto, uma vez que o controlador tem privilégios de acesso para modificar nós de cluster, esta ação cria um risco de segurança pequeno.  
 
-Para obter mais segurança com um endereço IP público, utilize um grupo de segurança de rede para permitir o acesso de entrada apenas através da porta 22. Opcionalmente, pode proteger ainda mais o sistema, bloqueando para baixo de acesso aos seus endereços de origem do intervalo de IP - ou seja, permitir apenas ligações a partir de máquinas que pretende utilizar para o acesso de cluster.
+Para melhorar a segurança de um controlador com um endereço IP público, o script de implementação cria automaticamente um grupo de segurança de rede que restringe o acesso de entrada apenas a porta 22. Pode proteger ainda mais o sistema, bloqueando para baixo de acesso aos seus endereços de origem do intervalo de IP - ou seja, permitir apenas ligações a partir de máquinas que pretende utilizar para o acesso de cluster.
 
 Ao criar o cluster, pode escolher se deve ou não criar um endereço IP público no controlador de cluster. 
 

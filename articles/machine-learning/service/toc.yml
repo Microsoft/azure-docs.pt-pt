@@ -53,6 +53,8 @@ items:
     href: concept-accelerate-with-fpgas.md
   - name: Pipelines de aprendizagem automática
     href: concept-ml-pipelines.md
+  - name: Segurança empresarial
+    href: concept-enterprise-security.md
 - name: Guias de procedimentos
   items:
   - name: Gerir áreas de trabalho
@@ -187,9 +189,9 @@ items:
     href: support-for-aml-services.md
   - name: Comparar os nossos produtos de ML
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 313cf4072e8bf8c6f82caa4107badd8b435ebb42
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5d7cdcec4e0b855f509539a1fc79015793efc404
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822054"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192136"

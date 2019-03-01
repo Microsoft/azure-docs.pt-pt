@@ -1,5 +1,5 @@
 ---
-title: Monitorizar aplicações lógicas com o Log Analytics - Azure Logic Apps | Documentos da Microsoft
+title: Monitorizar aplicações lógicas com os registos do Azure Monitor - Azure Logic Apps | Documentos da Microsoft
 description: Obter informações e dados para resolução de problemas e diagnosticar as execuções de aplicação lógica com o Azure Log Analytics de depuração
 services: logic-apps
 ms.service: logic-apps
@@ -9,21 +9,23 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3f890e6cabd757fdd38374befaaccd1a10c9bd96
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995646"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192467"
 ---
-# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Monitorizar aplicações lógicas com o Azure Log Analytics
+# <a name="monitor-logic-apps-with-azure-monitor-logs"></a>Monitorizar aplicações lógicas com os registos do Azure Monitor
 
-Para monitorizar e obter os detalhes de depuração mais avançadas sobre as aplicações lógicas, ative [do Azure Log Analytics](../log-analytics/log-analytics-overview.md) quando criar a sua aplicação lógica. O log Analytics disponibiliza diagnósticos de registo e monitorização para as aplicações lógicas ao instalar a solução de gestão do Logic Apps no portal do Azure. Esta solução também fornece informações agregadas para a aplicação lógica é executado com detalhes específicos, tais como Estado, o tempo de execução, o estado de ressubmissão e o IDs de correlação. Este artigo mostra como ativar o Log Analytics, para que pode ver eventos de tempo de execução e dados para a aplicação lógica é executada.
+Para monitorizar e obter os detalhes de depuração mais avançadas sobre as aplicações lógicas, ative [registos do Azure Monitor](../log-analytics/log-analytics-overview.md) quando criar a sua aplicação lógica. Registos de Monitor do Azure disponibiliza diagnósticos de registo e monitorização para as aplicações lógicas ao instalar a solução de gestão do Logic Apps no portal do Azure. Esta solução também fornece informações agregadas para a aplicação lógica é executado com detalhes específicos, tais como Estado, o tempo de execução, o estado de ressubmissão e o IDs de correlação. Este artigo mostra como ativar os registos do Azure Monitor para que pode ver eventos de tempo de execução e dados para a aplicação lógica é executada.
 
-Para ativar o Azure Log Analytics para o logic apps existentes, siga estes passos para [ativar o registo de diagnósticos e enviar dados de tempo de execução de aplicação lógica para o Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+Para ativar os registos do Azure Monitor para o logic apps existentes, siga estes passos para [ativar o registo de diagnósticos e enviar dados de tempo de execução de aplicação lógica para registos do Azure Monitor](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 > [!NOTE]
 > Passos para saber como realizar estas tarefas com o Microsoft Operations Management Suite (OMS), que é descrito anteriormente, esta página [extinguir em Janeiro de 2019](../azure-monitor/platform/oms-portal-transition.md), substitui esses passos com o Azure Log Analytics em vez disso. 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +58,7 @@ Antes de começar, terá de uma área de trabalho do Log Analytics. Saiba mais [
 
 ## <a name="install-logic-apps-management-solution"></a>Instalar a solução de gestão do Logic Apps
 
-Se já ativou o Log Analytics quando criou a sua aplicação lógica, ignore este passo. Já tem a solução de gestão do Logic Apps instalada.
+Se já ativou os registos do Azure Monitor quando criou a sua aplicação lógica, ignore este passo. Já tem a solução de gestão do Logic Apps instalada.
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**. Na caixa de pesquisa, encontre "log analytics" e selecione **do Log Analytics**.
 
@@ -116,17 +118,17 @@ Após a execução da sua aplicação lógica, pode ver o estado e a contagem pa
 
      Quaisquer propriedades controladas adicionadas recentemente poderão demorar 10 a 15 minutos antes de serem apresentados pela primeira vez. Saiba mais [como adicionar propriedades controladas à sua aplicação lógica](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Volte a submeter:** pode submeter novamente um ou mais execuções da aplicação lógica que falhou, foi concluída com êxito, ou são ainda em execução. Selecione as caixas de verificação para as execuções que pretende submeter novamente e escolha **volte a submeter**. 
+   * **Submeter novamente:** Pode submeter novamente um ou mais execuções da aplicação lógica que falhou, foi concluída com êxito, ou ainda estão em execução. Selecione as caixas de verificação para as execuções que pretende submeter novamente e escolha **volte a submeter**. 
 
      ![Submeter novamente execuções da aplicação lógica](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 1. Para filtrar esses resultados, pode realizar a filtragem do lado do cliente e servidor.
 
-   * **Filtro do lado do cliente**: para cada coluna, selecione os filtros que pretende, por exemplo:
+   * **Filtro do lado do cliente**: Para cada coluna, selecione os filtros que pretende, por exemplo:
 
      ![Filtros de coluna de exemplo](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * **Filtro do lado do servidor**: escolher uma janela de tempo específico ou para limitar o número de execuções que aparecem, utilize o controlo de âmbito na parte superior da página. Por predefinição, apenas 1000 registos são apresentados ao mesmo tempo.
+   * **Filtro do lado do servidor**: Para escolher um intervalo de tempo específico ou para limitar o número de execuções que aparecem, utilize o controlo de âmbito na parte superior da página. Por predefinição, apenas 1000 registos são apresentados ao mesmo tempo.
    
      ![Alterar a janela de tempo](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
@@ -149,9 +151,9 @@ Após a execução da sua aplicação lógica, pode ver o estado e a contagem pa
 
      ![Ver ações e os detalhes de uma execução da aplicação lógica](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
-     Na página do Log Analytics do Azure, pode atualizar consultas e ver os resultados da tabela. Esta consulta utiliza [linguagem de consulta de Kusto](https://aka.ms/LogAnalyticsLanguageReference), que pode editar se desejar exibir resultados diferentes. 
+     Na página de análise de registo, pode atualizar consultas e ver os resultados da tabela. Esta consulta utiliza [linguagem de consulta de Kusto](https://aka.ms/LogAnalyticsLanguageReference), que pode editar se desejar exibir resultados diferentes. 
 
-     ![O Azure Log Analytics - vista de consulta](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     ![o log analytics - vista de consulta](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

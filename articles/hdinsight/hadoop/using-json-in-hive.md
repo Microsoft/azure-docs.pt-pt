@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2019
 ms.author: hrasheed
-ms.openlocfilehash: d6897e35aa60be11cf556335d211c5ea616295b6
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: b174b1279a2e93560932334c9ae1e926c1eeca3c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652700"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990769"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Processar e analisar documentos JSON com o Apache Hive no HDInsight do Azure
 
@@ -59,7 +59,7 @@ Saiba como processar e analisar ficheiros JavaScript Object Notation (JSON) util
 
 O ficheiro pode ser encontrado em **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Para obter mais informações sobre como utilizar o armazenamento de Blobs do Azure com o HDInsight, consulte [compatível com o uso HDFS Blob storage do Azure com o Apache Hadoop no HDInsight](../hdinsight-hadoop-use-blob-storage.md). Pode copiar o ficheiro para o contentor predefinido do cluster.
 
-Neste tutorial, vai utilizar a consola Apache Hive. Para obter instruções sobre como abrir a consola do Hive, consulte [utilizar o Apache Hive com o Apache Hadoop no HDInsight com o ambiente de trabalho remoto](apache-hadoop-use-hive-remote-desktop.md).
+Neste tutorial, vai utilizar a consola Apache Hive. Para obter instruções sobre como abrir a consola do Hive, consulte [utilização Apache Ambari Hive View com o Apache Hadoop no HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
 ## <a name="flatten-json-documents"></a>Nivelamento de documentos JSON
 Os métodos listados na secção seguinte requerem que o documento JSON ser composto por uma única linha. Por isso, tem de nivelamento o documento JSON para uma cadeia de caracteres. Se o documento JSON já foi simplificado, pode ignorar este passo e ir diretamente para a próxima seção sobre análise de dados JSON. Aplaná o documento JSON, execute o seguinte script:

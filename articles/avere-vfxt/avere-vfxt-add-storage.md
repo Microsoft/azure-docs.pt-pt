@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: cda95b8f7cbf1da85f080c7ea53306f48375db32
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813233"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992350"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -72,7 +72,7 @@ Em seguida, avance para [criar uma junção](#create-a-junction).
 Para utilizar o armazenamento de Blobs do Azure como armazenamento de back-end do seu cluster vFXT, terá de um contêiner vazio para adicionar como um filtro de núcleo.
 
 > [!TIP] 
-> Se optar por criar um contentor de BLOBs ao mesmo tempo, que criar o cluster de vFXT Avere, o modelo de implementação ou o script cria um contentor de armazenamento, define-lo como um filtro de núcleos e cria a junção de espaço de nomes como parte da criação do cluster vFXT. 
+> Se optar por criar um contentor de BLOBs ao mesmo tempo, que criar o cluster de vFXT Avere, o modelo de implementação ou o script cria um contentor de armazenamento, define-lo como um filtro de núcleos e cria a junção de espaço de nomes como parte da criação do cluster vFXT. O modelo também cria um ponto de extremidade de serviço de armazenamento dentro da rede de virtual do cluster. 
 
 Adicionar armazenamento de BLOBs para o cluster requer estas tarefas:
 

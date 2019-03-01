@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 92889708df2df06096ac74d6f270af990d02c07a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7d02f5b592600cf7efd0980c1284e8c724cd1f5b
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984259"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195159"
 ---
-# <a name="vmware-monitoring-preview-solution-in-azure-monitor"></a>Solução de monitorização de VMware (pré-visualização) no Azure Monitor
+# <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solução de monitorização de VMware (preterido) no Azure Monitor
 
 ![Símbolo de VMware](./media/vmware/vmware-symbol.png)
 

@@ -23,6 +23,8 @@ items:
     href: tutorial-traffic-manager-weighted-endpoint-routing.md
   - name: Encaminhar tráfego com base na sub-rede do utilizador
     href: tutorial-traffic-manager-subnet-routing.md
+  - name: Registos de alias para o Gestor de Tráfego
+    href: ../dns/tutorial-alias-tm.md?toc=%2fazure%2ftraffic-manager%2ftoc.json
 - name: Amostras
   items:
   - name: CLI do Azure
@@ -136,9 +138,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
-ms.openlocfilehash: d444e2c8fec0d1adb0ac18756cbdecc751e9dc97
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 7d9640cba3e65eacc16fb3de59e3a099aa1926e2
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079108"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991103"

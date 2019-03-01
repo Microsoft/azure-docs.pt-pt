@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2019
+ms.date: 2/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 0b548acc92ab1efedab963e9bd3318e8525ffee4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 73a88ec0280728b4a485bd095096e90bbc43ef40
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649565"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990956"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Proteger as máquinas e aplicações no Centro de segurança do Azure
 Centro de segurança do Azure analisa o estado de segurança dos seus recursos do Azure. Quando o Centro de segurança identifica potenciais vulnerabilidades de segurança, cria recomendações que descreve o processo de configuração de controlos necessários. Recomendações se aplicam a tipos de recursos do Azure: máquinas virtuais (VMs) e computadores, aplicações, redes, SQL e identidade e acesso.
@@ -226,7 +226,11 @@ Se pretender definir existente todos os conjuntos de dimensionamento para instal
 |Máquina|30|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|Instale uma solução de avaliação de vulnerabilidades nas suas máquinas virtuais|
 |Máquina|1|Migrar máquinas virtuais para novos recursos do Azure Resource Manager|Utilizar o Azure Resource Manager para as suas máquinas virtuais para fornecer aprimoramentos de segurança, tais como: aceder a mais forte controlo de acesso (RBAC), a auditoria melhor, a implantação baseada no Resource Manager e a governação de identidades geridas, acesso ao Cofre de chaves para segredos, Autenticação baseada no AD do Azure e o suporte para etiquetas e grupos de recursos para facilitar a gestão segurança. |
 |Máquina|30|Remediar vulnerabilidades através de uma solução de avaliação de vulnerabilidade|As máquinas virtuais para o qual é implementar uma solução de terceiros de 3 de avaliação do vulnerabilidade estão a ser continuamente avaliadas em relação a aplicação e vulnerabilidades do SO. Sempre que encontram-se estas vulnerabilidades, elas estão disponíveis para obter mais informações, como parte da recomendação.|
-
+|Conjuntos de dimensionamento de máquinas virtuais |4|Ativar os registos de diagnóstico nos Conjuntos de Dimensionamento de Máquinas Virtuais|Ativar os registos e mantenha-os para até um ano. Isto permite-lhe recriar os registos de atividade para efeitos de investigação. Isto é útil quando ocorrer um incidente de segurança ou a rede estiver comprometida.|
+|Conjuntos de dimensionamento de máquinas virtuais|35|Remediar vulnerabilidades na configuração de segurança nos seus conjuntos de dimensionamento de máquinas virtuais|Remediar vulnerabilidades na configuração de segurança nos conjuntos de dimensionamento da máquina virtual para protegê-los de ataques. |
+|Conjuntos de dimensionamento de máquinas virtuais|5|Remediar falhas do estado de funcionamento do Endpoint Protection em conjuntos de dimensionamento de máquinas virtuais|Corrija as falhas de estado de funcionamento de proteção do ponto final nos conjuntos de dimensionamento da máquina virtual para protegê-los de ameaças e vulnerabilidades. |
+|Conjuntos de dimensionamento de máquinas virtuais|10|Instalar a solução do Endpoint Protection em conjuntos de dimensionamento de máquinas virtuais|Instale uma solução de proteção de ponto final em seus conjuntos de dimensionamento de máquina virtual, para protegê-los de ameaças e vulnerabilidades. |
+|Conjuntos de dimensionamento de máquinas virtuais|40|Instalar atualizações do sistema em conjuntos de dimensionamento de máquinas virtuais|Instale o sistema de segurança em falta e as atualizações críticas para proteger os conjuntos de dimensionamento da máquina virtual do Windows e do Linux. |
  
 
 

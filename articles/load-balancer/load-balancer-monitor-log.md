@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d6b5a8b31b78e21868a7f81c481c4fce1cd4e6f5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164131"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192450"
 ---
-# <a name="log-analytics-for-public-basic-load-balancer"></a>Análise de registos para o Balanceador de carga básico público
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registos de Monitor do Azure para o Balanceador de carga básico público
 
 >[!IMPORTANT] 
 >O Balanceador de carga do Azure suporta dois tipos diferentes: Basic e Standard. Este artigo aborda o Balanceador de Carga Básico. Para obter mais informações sobre o Balanceador de carga Standard, veja [descrição geral do Balanceador de carga Standard](load-balancer-standard-overview.md) que expõe a telemetria por meio de métricas multidimensionais no Azure Monitor.
@@ -32,7 +32,7 @@ Pode utilizar diferentes tipos de registos no Azure para gerir e resolver proble
 * **Registos de sonda de estado de funcionamento:** Pode utilizar este registo para ver problemas detetados pelo seu sonda de estado de funcionamento, como o número de instâncias no seu conjunto de back-end que não estão a receber pedidos do Balanceador de carga devido a falhas de sonda de estado de funcionamento. Este registo é escrito quando ocorre uma alteração no estado de sonda de estado de funcionamento.
 
 > [!IMPORTANT]
-> Do log analytics atualmente balanceadores de carga funciona apenas para básico público. Registos apenas estão disponíveis para recursos implementados no modelo de implementação do Resource Manager. Não é possível utilizar registos para os recursos no modelo de implementação clássica. Para obter mais informações sobre os modelos de implementação, consulte [implementação do Gestor de recursos de compreensão e a implementação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
+> Monitor do Azure regista atualmente funciona apenas para balanceadores de carga básico público. Registos apenas estão disponíveis para recursos implementados no modelo de implementação do Resource Manager. Não é possível utilizar registos para os recursos no modelo de implementação clássica. Para obter mais informações sobre os modelos de implementação, consulte [implementação do Gestor de recursos de compreensão e a implementação clássica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Ativar registo
 

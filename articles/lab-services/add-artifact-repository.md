@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 9a267b48e185e02c1b1217380429453799308bbe
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 393a5c0af5ff7ccaef8aa462391c5c9457aa9c08
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886782"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011123"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefactos para seu laboratório no DevTest Labs
 DevTest Labs permite-lhe especificar um artefacto a ser adicionados a uma VM no momento da criação da VM ou após a VM é criada. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar na VM. Artefactos são definidos num ficheiro JSON carregado de um repositório do GitHub ou o Git do VSTS. 
@@ -172,7 +172,7 @@ Existem algumas formas de implementar o modelo para o Azure e ter o recurso cria
 - [Implementar recursos com modelos do Resource Manager e o Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Implementar recursos com modelos do Resource Manager e a API REST do Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-Vamos continuar e veja como implementar o modelo no PowerShell. Cmdlets utilizados para implementar o modelo são específicas do contexto, para que o inquilino atual e a subscrição atual são utilizados. Uso [Set-AzContext](/powershell/module/az.profile/set-azcontext) antes de implementar o modelo, se necessário, para alterar o contexto.
+Vamos continuar e veja como implementar o modelo no PowerShell. Cmdlets utilizados para implementar o modelo são específicas do contexto, para que o inquilino atual e a subscrição atual são utilizados. Uso [Set-AzContext](/powershell/module/az.accounts/set-azcontext) antes de implementar o modelo, se necessário, para alterar o contexto.
 
 Primeiro, crie um grupo de recursos utilizando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Se o grupo de recursos que pretende utilizar já existir, ignore este passo.
 
@@ -375,7 +375,7 @@ if ($ArtifactRepositoryName -eq $null){
 | [Get-AzResource](/powershell/module/az.resources/get-azresource) | Este comando é utilizado para obter detalhes sobre o laboratório, como a localização do mesmo. |
 | [New-AzResource](/powershell/module/az.resources/new-azresource) | Não existe nenhum comando específico para adicionar repositórios de artefacto. Genérica [New-AzResource](/powershell/module/az.resources/new-azresource) cmdlet faz o trabalho. Este cmdlet necessita de um a **ResourceId** ou o **ResourceName** e **ResourceType** par saber o tipo de recurso para criar. Este script de exemplo utiliza o nome do recurso e o par de tipo de recurso. <br/><br/>Tenha em atenção que está a criar a origem do repositório de artefactos na mesma localização e sob o mesmo grupo de recursos como o laboratório.|
 
-O script adiciona um novo recurso para a subscrição atual. Uso [Get-AzContext](/powershell/module/az.profile/get-azcontext) para ver estas informações. Uso [Set-AzContext](/powershell/module/az.profile/set-azcontext) para definir o inquilino atual e a subscrição.
+O script adiciona um novo recurso para a subscrição atual. Uso [Get-AzContext](/powershell/module/az.accounts/get-azcontext) para ver estas informações. Uso [Set-AzContext](/powershell/module/az.accounts/set-azcontext) para definir o inquilino atual e a subscrição.
 
 A melhor forma de descobrir o nome de recurso e informações de tipo de recurso é utilizar o [APIs de REST do Azure de unidade de teste](https://azure.github.io/projects/apis/) Web site. Veja a [DevTest Labs – 2016 a 05-15](http://aka.ms/dtlrestapis) fornecedor para ver as APIs REST disponível para o fornecedor de DevTest Labs. Os utilizadores de script o seguinte ID de recurso. 
 

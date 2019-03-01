@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: d607d6cd813b23051e1676153cbb134261bcf5bc
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c5e172410c7cb60888107e37064c2429caf6df9e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960629"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195494"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Início rápido: Criar uma aplicação de Java Spring com a configuração de aplicações
 
@@ -93,7 +93,7 @@ Irá utilizar o [Spring Initializr](https://start.spring.io/) para criar um novo
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.RC2</version>
+        <version>1.1.0.M1</version>
     </dependency>
     ```
 
@@ -144,15 +144,10 @@ Irá utilizar o [Spring Initializr](https://start.spring.io/) para criar um novo
     }
     ```
 
-6. Crie um novo ficheiro designado `bootstrap.yaml` sob o diretório de recursos da sua aplicação, adicione as seguintes linhas ao ficheiro e substitua os valores de exemplo com as propriedades adequadas para seu armazenamento de configuração de aplicação.
+6. Crie um novo ficheiro designado `bootstrap.properties` sob o diretório de recursos da sua aplicação, adicione as seguintes linhas ao ficheiro e substitua os valores de exemplo com as propriedades adequadas para seu armazenamento de configuração de aplicação.
 
-    ```yaml
-    spring:
-        cloud:
-            azure:
-                config:
-                    stores:
-                        - connection-string: [your-connection-string]
+    ```properties
+    spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
     ```
 
 ## <a name="build-and-run-the-app-locally"></a>Criar e executar a aplicação localmente

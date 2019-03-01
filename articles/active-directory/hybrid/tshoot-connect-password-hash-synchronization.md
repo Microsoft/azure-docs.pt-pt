@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29cb7f6799556406c4c5def12b1367bfd581d06b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198752"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193335"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas de sincronização de hash de palavra-passe com a sincronização do Azure AD Connect
 Este tópico fornece os passos sobre como resolver problemas com a sincronização de hash de palavra-passe. Se as palavras-passe não estão sincronizado como esperado, pode ser para um subconjunto de utilizadores ou para todos os utilizadores.
@@ -225,7 +225,7 @@ Para resolver problemas de onde sem palavras-passe são sincronizadas para um ut
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Sem palavras-passe são sincronizadas: manual passos de resolução de problemas
 Siga estes passos para determinar por que são sincronizadas sem palavras-passe:
 
-1. For o Connect [modo de teste](how-to-connect-sync-operations.md#staging-mode)? Um servidor no modo de teste não sincroniza as palavras-passe.
+1. For o Connect [modo de teste](how-to-connect-sync-staging-server.md)? Um servidor no modo de teste não sincroniza as palavras-passe.
 
 2. Executar o script a [obter o estado das definições de sincronização de palavra-passe](#get-the-status-of-password-sync-settings) secção. Ele fornece uma descrição geral da configuração de sincronização de palavra-passe.  
 

@@ -1,18 +1,19 @@
 ---
 title: Configurar o carregamento de ficheiro para o IoT Hub com a CLI do Azure | Documentos da Microsoft
 description: Como configurar o ficheiro carrega para o IoT Hub do Azure com a CLI do Azure de várias plataformas.
-author: dominicbetts
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 6cd0b657c8d0352c41e0da538396b166d633306a
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.author: robin.shahan
+ms.openlocfilehash: a77635b6c022527203d1df752723aac3ce2c296c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057348"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010791"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurar o IoT Hub, carregamentos de ficheiros com a CLI do Azure
 
@@ -88,15 +89,15 @@ Agora pode configurar o seu IoT hub para ativar a capacidade de [carregar fichei
 
 A configuração requer os seguintes valores:
 
-* **Contentor de armazenamento**: um contentor de BLOBs numa conta de armazenamento do Azure na sua subscrição do Azure atual para associar o seu hub IoT. Obter as informações de conta de armazenamento necessário na secção anterior. IoT Hub gera automaticamente os URIs de SAS com permissões de escrita para este contentor de BLOBs para os dispositivos a utilizar quando eles carregam ficheiros.
+* **Contentor de armazenamento**: Um contentor de BLOBs numa conta de armazenamento do Azure na sua subscrição do Azure atual para associar o seu hub IoT. Obter as informações de conta de armazenamento necessário na secção anterior. IoT Hub gera automaticamente os URIs de SAS com permissões de escrita para este contentor de BLOBs para os dispositivos a utilizar quando eles carregam ficheiros.
 
 * **Receber notificações sobre os ficheiros carregados**: Ativar ou desativar notificações de carregamento do ficheiro.
 
-* **TTL de SAS**: esta definição é o tempo de vida dos URIs de SAS retornado para o dispositivo ao IoT Hub. Definido como uma hora por predefinição.
+* **SAS TTL**: Esta definição é o tempo de vida dos URIs de SAS retornado para o dispositivo ao IoT Hub. Definido como uma hora por predefinição.
 
 * **TTL de padrão de definições de notificação de ficheiros**: O tempo de vida de um ficheiro a carregar notificação antes de expirar. Definido como um dia por predefinição.
 
-* **Contagem máxima de entrega de notificação de ficheiros**: O número de vezes o IoT Hub tentará entregar um arquivo carregar notificação. Definido como 10, por predefinição.
+* **Contagem máxima de entrega de notificação de ficheiros**: O número de vezes que o IoT Hub tentará entregar um arquivo carregar notificação. Definido como 10, por predefinição.
 
 Utilize os seguintes comandos do CLI do Azure para configurar as definições de carregamento de ficheiros no seu hub IoT:
 

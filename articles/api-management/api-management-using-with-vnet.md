@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 2770c6a31f0117b96e08eb8a03986f37ebdb7098
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 98d8f530b91c2b2483d00838cd4001be88e18a6c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733746"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011216"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre o início de redes virtuais do Azure com as informações aqui: [Descrição geral da rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -89,7 +89,7 @@ Também pode ativar a conectividade VNET utilizando os cmdlets do PowerShell
 
 * **Criar um serviço de gestão de API dentro de uma VNET**: Utilize o cmdlet [New-AzApiManagement](/powershell/module/az.apimanagement/new-azapimanagement) para criar um serviço de gestão de API do Azure dentro de uma VNET.
 
-* **Implementar um serviço de gestão de API existente dentro de uma VNET**: Utilize o cmdlet [AzApiManagementDeployment atualização](/powershell/module/az.apimanagement/update-azapimanagementdeployment) para mover um serviço de gestão de API do Azure existente numa rede Virtual.
+* **Implementar um serviço de gestão de API existente dentro de uma VNET**: Utilize o cmdlet [AzApiManagementRegion atualização](/powershell/module/az.apimanagement/update-azapimanagementregion) para mover um serviço de gestão de API do Azure existente numa rede Virtual.
 
 ## <a name="connect-vnet"> </a>Ligar a um serviço web hospedado dentro de uma rede virtual
 Depois do seu serviço de gestão de API está ligado à VNET, aceder aos serviços de back-end dentro da mesma não é diferente de aceder aos serviços do público. Apenas digitar o endereço IP local ou o nome de anfitrião (se um servidor DNS está configurado para a VNET) do seu serviço web para o **URL do serviço Web** campo ao criar uma nova API ou editar um já existente.
@@ -132,7 +132,7 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 
 + **Acesso DNS**: Acesso de saída na porta 53 é necessário para a comunicação com servidores DNS. Se existir um servidor DNS personalizado na outra extremidade de um gateway VPN, o servidor DNS tem de ser acessível a partir da sub-rede de gestão de API de hospedagem.
 
-+ **Métricas e monitorização de estado de funcionamento**: Conectividade de rede de saída para monitorização do Azure pontos finais, que resolver sob os seguintes domínios: 
++ **Métricas e monitorização de estado de funcionamento**: Conectividade de rede de saída para monitorização do Azure pontos finais, que resolver sob os seguintes domínios:
 
     | Azure Environment | Pontos Finais                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -202,7 +202,6 @@ De acordo com o cálculo acima o tamanho mínimo da sub-rede, no qual pode ser i
 * [Etiquetas de serviço](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
-[api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-using-with-vnet/api-management-using-vnet-add-api.png
 [api-management-vnet-private]: ./media/api-management-using-with-vnet/api-management-vnet-internal.png

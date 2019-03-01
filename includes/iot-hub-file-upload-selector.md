@@ -1,15 +1,15 @@
 ---
-author: dominicbetts
+author: robinsh
+ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: 4dc1cc3dfbd16e5881e1a7102b7c63c0484c8a52
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 363e2612e8e8a3b342852154be9280c6037a3338
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164813"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011718"
 ---
 > [!div class="op_single_selector"]
 > * [Portal do Azure](../articles/iot-hub/iot-hub-configure-file-upload.md)

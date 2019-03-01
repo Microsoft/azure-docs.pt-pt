@@ -1,20 +1,20 @@
 ---
 title: Criar um hub de IoT do Azure com a API de REST do fornecedor de recursos | Documentos da Microsoft
 description: Como utilizar a API de REST do fornecedor de recursos para criar um IoT Hub.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: 7ace4c1827b340f6247d69902538fdaaf1243106
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d87ca39eb27673be8d5cd0feece3eabe3e214de1
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727796"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011097"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Criar um hub IoT com o fornecedor de recursos REST API (.NET)
 

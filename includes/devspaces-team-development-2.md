@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 7dddf7e48913aea9d84e0f8b66c2c9d29449ee6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825661"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195621"
 ---
 ### <a name="run-the-service"></a>Executar o serviço
 
@@ -81,7 +81,7 @@ Concluiu o guia de introdução! Aprendeu a:
 > * Desenvolver e testar de forma produtiva o seu código num ambiente de equipa.
 > * Estabelecer uma linha de base da funcionalidade através de espaços de programador para testar facilmente isoladas de alterações dentro do contexto de uma aplicação de microsserviços maior
 
-Agora que explorou os Espaços de Programação do Azure, [partilhe o seu espaço de programação com um membro da equipa](../articles/dev-spaces/how-to/share-dev-spaces.md) e ajude-o a ver como é fácil colaborar em conjunto.
+Agora que tiver explorado espaços de desenvolvimento do Azure, [partilhar o seu espaço de desenvolvimento com um membro da Equipe](../articles/dev-spaces/how-to/share-dev-spaces.md) e começar a colaborar.
 
 ## <a name="clean-up"></a>Limpeza
 Para eliminar completamente uma instância dos Espaços de Programador do Azure num cluster, incluindo todos os espaços de programador e serviços em execução, utilize o comando `az aks remove-dev-spaces`. Não se esqueça que esta ação é irreversível. Pode adicionar suporte aos Espaços de Programador do Azure novamente no cluster, mas será como se estivesse novamente a começar. Os seus serviços e espaços antigos não serão restaurados.

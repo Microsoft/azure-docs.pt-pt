@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8b895580f2edc0b7af1c6195212490ce083208ad
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700082"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991160"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Melhores práticas para proteger e gerenciar as cargas de trabalho migradas para o Azure
 
@@ -588,7 +588,7 @@ Recursos do Azure geram um número considerável de dados de telemetria e métri
 
 - Por predefinição, a maioria dos tipos de recursos não tem o registo de diagnósticos ativado.
 - Ao ativar o registo de diagnósticos todos os seus recursos, pode consultar os dados de registo e criar alertas e playbooks com base no mesmo.
-- Quando ativar o registo de diagnósticos, cada recurso terão um conjunto específico de categorias. Selecione uma ou mais categorias de registo e uma localização para os dados de registo. Os registos podem ser enviados para uma conta de armazenamento, hub de eventos, ou para o Log Analytics. 
+- Quando ativar o registo de diagnósticos, cada recurso terão um conjunto específico de categorias. Selecione uma ou mais categorias de registo e uma localização para os dados de registo. Os registos podem ser enviados para uma conta de armazenamento, hub de eventos, ou para os registos do Azure Monitor. 
 
 
 ![Registo de diagnósticos](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Tal como acontece com qualquer sistema de produção, tornando a qualquer tipo d
 O Azure tem uma solução de controlo de alterações na automatização do Azure:
 
 - A solução controla as alterações ao software do Windows e Linux e arquivos, chaves de registo do Windows, serviços do Windows e dos daemons do Linux.
-- As alterações nos servidores monitorizados são enviadas para o serviço do Log Analytics na cloud para processamento.
+- As alterações nos servidores monitorizados são enviadas para o serviço do Azure Monitor na cloud para processamento.
 - Lógica é aplicada para os dados recebidos e o serviço em nuvem regista os dados.
 - No dashboard do controlo de alterações, pode ver facilmente as alterações efetuadas na sua infraestrutura de servidor.
 

@@ -1,19 +1,19 @@
 ---
 title: Agendar tarefas com o Azure IoT Hub (.NET/.NET) | Documentos da Microsoft
 description: Como agendar um trabalho do IoT Hub do Azure para invocar um método direto em vários dispositivos. Utilizar o Azure IoT device SDK para .NET para implementar as aplicações de dispositivo simulado e uma aplicação de serviço para executar a tarefa.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: dobett
-ms.openlocfilehash: 4089ee74b44bc17324c7cd33b1bbd734a651d75f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.author: robin.shahan
+ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514813"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008887"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Agendar e difundir tarefas (.NET/.NET)
 
@@ -29,9 +29,9 @@ Uma tarefa encapsula uma destas ações e controla a execução com um conjunto 
 
 Para saber mais sobre cada uma destas capacidades, consulte:
 
-* Dispositivo duplo e propriedades: [introdução aos dispositivos duplos](iot-hub-csharp-csharp-twin-getstarted.md) e [Tutorial: como utilizar propriedades dos dispositivos duplos](tutorial-device-twins.md)
+* Dispositivo duplo e propriedades: [Introdução aos dispositivos duplos](iot-hub-csharp-csharp-twin-getstarted.md) e [Tutorial: Como utilizar propriedades dos dispositivos duplos](tutorial-device-twins.md)
 
-* Métodos diretos: [Guia do programador do IoT Hub - métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: utilizar métodos diretos](quickstart-control-device-dotnet.md)
+* Métodos diretos: [Guia do programador do IoT Hub - métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: Utilizar métodos diretos](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -291,6 +291,6 @@ Já está pronto para executar as aplicações.
 
 Neste tutorial, utilizou uma tarefa para agendar um método direto a um dispositivo e a atualização das propriedades do dispositivo duplo.
 
-Para continuar a introdução ao IoT Hub e padrões de gestão de dispositivos como remota sobre a atualização de firmware do ar, leia [Tutorial: como fazer uma atualização de firmware](tutorial-firmware-update.md).
+Para continuar a introdução ao IoT Hub e padrões de gestão de dispositivos como remota sobre a atualização de firmware do ar, leia [Tutorial: Como fazer uma atualização de firmware](tutorial-firmware-update.md).
 
 Para saber mais sobre implementar o AI em dispositivos de ponta com o Azure IoT Edge, veja [introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

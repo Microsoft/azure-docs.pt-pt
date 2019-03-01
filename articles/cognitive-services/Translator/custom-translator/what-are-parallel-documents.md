@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fc3e545db0529739659c1019cbed6d434b586f8f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 10f34a24668981da5629bd9d03652aa76081bd44
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726963"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194117"
 ---
 # <a name="what-are-parallel-documents"></a>Quais são os documentos paralelos?
 
@@ -23,7 +23,7 @@ Não importa qual idioma está marcado como "origem" e o idioma que está marcad
 
 ## <a name="requirements"></a>Requisitos
 
-Precisará de um mínimo de 10 000 frases paralelas para treinar um sistema. Como melhor prática, pode adicionar continuamente mais conteúdo paralelo e voltar a preparar, para melhorar a qualidade do seu sistema de tradução.
+Precisará de um mínimo de 10 000 frases de paralelas exclusivos para treinar um sistema. Como melhor prática, pode adicionar continuamente mais conteúdo paralelo e voltar a preparar, para melhorar a qualidade do seu sistema de tradução.
 
 A Microsoft requer que os documentos carregados para o tradutor personalizado não se viole propriedades de direitos de autor ou intelectual de terceiros. Para obter mais informações, consulte a [termos de utilização](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Carregar um documento com o portal não altera a propriedade da propriedade intelectual no próprio documento.

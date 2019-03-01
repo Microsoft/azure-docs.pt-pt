@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 124ac79971ca2ee1e7b5ad085a73aceb8f5d8841
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428976"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191395"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar tráfego de rede de e para uma máquina virtual utilizando o portal do Azure
 
@@ -100,7 +100,10 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 
 6. Na lista de NSGs, selecione o NSG denominado **myVm nsg**.
 7. Em **Definições dos registos de fluxo**, selecione **Ligado**.
-8. Selecione a versão de registo do fluxo. Versão 2 contém estatísticas de sessão de fluxo (Bytes e pacotes) um. ![Selecione a versão de registos de fluxo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+8. Selecione a versão de registo do fluxo. Versão 2 contém estatísticas de sessão de fluxo (Bytes e pacotes)
+
+   ![Selecione a versão de registos de fluxo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. Selecione a conta de armazenamento que criou no passo 3.
 10. Defina **Retenção (dias)** como 5 e, em seguida, selecione **Guardar**.
 
@@ -109,17 +112,13 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
 1. No Observador de Rede, no portal, selecione **Registos de fluxo do NSG** em **REGISTOS**.
 2. Selecione **Pode transferir registos de fluxo a partir de contas de armazenamento configuradas**, conforme mostrado na imagem seguinte:
 
-  ![Transferir os registos de fluxo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+   ![Transferir os registos de fluxo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Selecione a conta de armazenamento que configurou no passo 2 da secção [Ativar o registo de fluxo do NSG](#enable-nsg-flow-log).
-4. Selecione **Contentores**, em **SERVIÇO BLOB** e, em seguida, selecione o contentor **insights-logs-networksecuritygroupflowevent**, conforme mostrado na imagem seguinte:
+4. Sob **serviço Blob**, selecione **Blobs**e, em seguida, selecione o **insights-logs-networksecuritygroupflowevent** contentor.
+5. No contentor, navegue na hierarquia de pasta até chegar a um ficheiro PT1H.json, conforme mostrado na imagem que se segue. Ficheiros de registo são escritos para uma hierarquia de pastas que se segue a seguinte convenção de nomenclatura: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/ RESOURCEGROUPS/{resourceGroupName}/Providers/Microsoft.Network/NETWORKSECURITYGROUPS/{nsgName}/y={Year}/m={Month}/d={Day}/h={Hour}/m=00/macAddress={macAddress}/PT1H.JSON
 
-    ![Selecionar o contentor](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
-5. Navegue até à hierarquia de pastas e, em seguida, até obter um ficheiro PT1H.json, conforme mostrado na imagem seguinte:
-
-    ![Ficheiro de registo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
-
-    Os ficheiros de registo são escritos numa hierarquia de pastas que segue a seguinte convenção de nome: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={ano}/m={mês}/d={dia}/h={hora}/m=00/macAddress={macAddress}/PT1H.json
+   ![Registo de fluxo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Selecione **...** à direita do ficheiro PT1H.json e, em seguida, **Transferir**.
 
@@ -195,7 +194,6 @@ O seguinte json é um exemplo do que verá no ficheiro PT1H.json para cada fluxo
     }
 }
 ```
-
 
 O valor de **mac** na saída anterior é o endereço MAC da interface de rede que foi criada quando a VM foi criada. As informações separadas por vírgulas para **flowTuples** são as seguintes:
 

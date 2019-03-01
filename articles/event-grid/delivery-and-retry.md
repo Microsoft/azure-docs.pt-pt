@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: spelluru
-ms.openlocfilehash: b69215a76b332db9b994827705d6bbc3b48af5c8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465518"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991211"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens do Event Grid e tente novamente
 
@@ -24,17 +24,20 @@ Atualmente, Event Grid envia individualmente cada evento para os subscritores. O
 
 ## <a name="retry-schedule-and-duration"></a>Agenda de repetição e a duração
 
-Grelha de eventos utiliza uma política de repetição de término exponencial para a entrega de eventos. Se um ponto final não responder ou retorna um código de falha, o Event Grid repete a entrega na agenda seguinte:
+Grelha de eventos utiliza uma política de repetição de término exponencial para a entrega de eventos. Se um ponto final não responder ou retorna um código de falha, o Event Grid repete a entrega na agenda seguinte na base de melhor esforço:
 
 1. 10 segundos
-2. 30 segundos
-3. 1 minuto
-4. 5 minutos
-5. 10 minutos
-6. 30 minutos
-7. 1 hora
+1. 30 segundos
+1. 1 minuto
+1. 5 minutos
+1. 10 minutos
+1. 30 minutos
+1. 1 hora
+1. Hora a hora para até 24 horas
 
-Grelha de eventos adiciona uma pequeno randomização para todos os passos de repetição. Depois de uma hora, a entrega de eventos será repetida uma vez por hora.
+Grelha de eventos adiciona uma pequeno aleatoriedade para todos os passos de repetição e oportunisticamente pode ignorar determinadas repetições se um ponto final for consistentemente mau estado de funcionamento, inativo por um longo período, ou parece estar sobrecarregado.
+
+Para comportamento determinístico, defina a hora do evento ao vivo e tentativas de entregas máxima a [as políticas de repetição de subscrição](manage-event-delivery.md).
 
 Por predefinição, o Event Grid expira todos os eventos que não são entregues no prazo de 24 horas. Pode [personalizar a política de repetição](manage-event-delivery.md) durante a criação de uma subscrição de evento. Fornecer o número máximo de tentativas de entrega (a predefinição é 30) e o evento time-to-live (a predefinição é 1440 minutos).
 

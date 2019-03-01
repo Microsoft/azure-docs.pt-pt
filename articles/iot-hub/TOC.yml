@@ -419,7 +419,7 @@ items:
   - name: Exemplos de IoT do Azure para a Plataforma de iOS
     href: https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/
   - name: Catálogo de dispositivos Azure Certified for IoT
-    href: https://catalog.azureiotsuite.com/
+    href: https://catalog.azurazureiotsolutionseiotsuite.com/
   - name: Centro de Programadores do Azure IoT
     href: https://azure.microsoft.com/develop/iot/
   - name: Pedidos de dados do cliente
@@ -446,9 +446,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: dc4c3b1df33f7adac3061341e8bca03654837ef7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d6e4297f24644366f4779eb40e0fb638a4532adf
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415855"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009975"

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 02/19/2018
 ms.author: raynew
-ms.openlocfilehash: 61219fc4e1fc329708a7e58ee6a293e4e25cca31
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 408d8ec1c14174fe0536681afcb8f646481b851b
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887816"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193913"
 ---
 # <a name="back-up-sql-server-databases-on-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure 
 
@@ -67,7 +67,7 @@ Revisão [perguntas mais frequentes sobre](faq-backup-sql-server.md) sobre como 
 
 Antes de fazer cópias de segurança da base de dados do SQL Server, verifique as seguintes condições:
 
-1. Identificar ou [criar](backup-azure-sql-database.md#create-a-recovery-services-vault) um cofre de serviços de recuperação na mesma região ou região do que a VM que aloja a instância do SQL Server. V
+1. Identificar ou [criar](backup-azure-sql-database.md#create-a-recovery-services-vault) um cofre de serviços de recuperação na mesma região ou região do que a VM que aloja a instância do SQL Server.
 2. [Verifique as permissões de VM](#fix-sql-sysadmin-permissions) necessários para fazer backup de bancos de dados SQL.
 3. Certifique-se de que a VM tem [conectividade de rede](backup-azure-sql-database.md#establish-network-connectivity).
 4. Verifique se as bases de dados do SQL Server são nomeados de acordo com [diretrizes de nomenclatura](backup-azure-sql-database.md) para cópia de segurança do Azure.

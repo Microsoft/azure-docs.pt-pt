@@ -4,14 +4,14 @@ description: Compreenda como a indexação funciona no Azure Cosmos DB. Saiba co
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 3/1/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6c145b58a1f0eaaf93fb5797028e11ba8338d6be
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2b46638a7e0fa3dc80fa4d2fa23d49b37b8885ec
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460238"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193160"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Política de índice no Azure Cosmos DB
 
@@ -23,9 +23,9 @@ Pode substituir a predefinição de política num contentor do Cosmos do Azure d
 
 * **Configurar os modos de índice**: Ao utilizar a política de indexação num contentor, pode configurar diferentes modos de indexação, como *consistência* ou *nenhum*.
 
-## <a name="indexing-modes"></a>Modos de indexação 
+## <a name="indexing-modes"></a>Modos de indexação
 
-O Azure Cosmos DB suporta dois modos de indexação que pode configurar num contentor do Cosmos do Azure. Pode configurar os seguintes dois modos indexação através da política de indexação: 
+O Azure Cosmos DB suporta dois modos de indexação que pode configurar num contentor do Cosmos do Azure. Pode configurar os seguintes dois modos indexação através da política de indexação:
 
 * **Consistente**: Se a política de um contentor Cosmos do Azure estiver definida para consistência, as consultas num contêiner específico, siga o mesmo nível de consistência que foi especificado para leituras de ponto (por exemplo, sólido, prescrição vinculada, sessão ou eventual). 
 
@@ -37,6 +37,9 @@ O Azure Cosmos DB suporta dois modos de indexação que pode configurar num cont
   > Configurar o modo de indexação como um None tem o efeito colateral de remover qualquer índice existente. Deve utilizar esta opção se os padrões de acesso requerem o ID ou Self-apenas a ligação.
 
 Níveis de consistência de consulta são mantidos semelhantes para as operações de leitura normais. Base de dados do Cosmos do Azure devolve um erro se consultar o contentor que tem um nenhum modo de indexação. Pode executar as consultas como verificações por meio do explícita **x-ms-documentdb-enable-análise** cabeçalho na REST API ou a **EnableScanInQuery** pedido de opção com o SDK de .NET. Algumas consultas a recursos, como ORDER BY não são atualmente suportadas com **EnableScanInQuery**, porque eles impor um índice correspondente.
+
+> [!NOTE]
+> Azure Cosmos DB tem um terceiro, o modo de indexação lento. No entanto isso está sendo com ênfase reduzida porque o desempenho da consulta e o custo podem ser imprevisíveis. Recomendamos que utilize a indexação de modo consistente.
 
 ## <a name="modifying-the-indexing-policy"></a>Modificar a política de indexação
 

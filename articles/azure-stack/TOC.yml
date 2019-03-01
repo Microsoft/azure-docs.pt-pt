@@ -308,6 +308,8 @@ items:
         href: azure-stack-app-service-release-notes-update-three.md
       - name: Serviço de aplicações no notas de versão de atualização 4 do Azure Stack
         href: azure-stack-app-service-release-notes-update-four.md
+      - name: Serviço de aplicações no notas de versão de atualização 5 do Azure Stack
+        href: azure-stack-app-service-release-notes-update-five.md
   - name: Criar planos, ofertas e quotas
     items:
     - name: Plano, oferta, quota e descrição geral da subscrição
@@ -397,9 +399,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Formação e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 041362b8498cd44fb58f2951b039a2bf14354ee6
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 0a38112e8e57c685dec49a380a0e669429dc2673
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805210"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991628"

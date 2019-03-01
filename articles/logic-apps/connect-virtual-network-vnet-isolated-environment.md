@@ -8,18 +8,18 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/24/2019
-ms.openlocfilehash: eb082d5194cb6948668c4944208ec11fab987206
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.date: 02/26/2019
+ms.openlocfilehash: c0f4d483c214847227059046c2dda305f63398d6
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806530"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991740"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure do Azure Logic Apps com um ambiente de serviço de integração (ISE)
 
 > [!NOTE]
-> Esta capacidade está em *pré-visualização pública*. 
+> Esta capacidade está em [ *pré-visualização pública*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Para cenários em que o logic apps e as contas de integração precisam de acesso a uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md), criar um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Um ISE é um ambiente isolado e privado que utiliza armazenamento dedicado e outros recursos mantidos separados do serviço de aplicações lógicas "global" ou público. Essa separação também reduz a qualquer impacto que outros inquilinos do Azure podem ter sobre o desempenho das suas aplicações. O ISE encontra-se *injetado* para a sua rede virtual do Azure, que, em seguida, implementa o serviço de aplicações lógicas na sua rede virtual. Quando cria uma conta de integração ou da aplicação lógica, selecione esta ISE como a respetiva localização. Sua conta de integração ou da aplicação lógica, em seguida, pode aceder diretamente a recursos, como máquinas virtuais (VMs), servidores, sistemas e serviços, na sua rede virtual.
 
@@ -73,7 +73,7 @@ Para controlar o tráfego de entrada e saído entre sub-redes da rede virtual on
 | Publicar os registos de diagnóstico e métricas | Saída | 443 | VIRTUAL_NETWORK  | AzureMonitor | |
 | Estruturador de aplicações lógicas - propriedades dinâmicas | Entrada | 454 | INTERNET  | VIRTUAL_NETWORK | Pedidos são provenientes do Logic Apps [aceder ao ponto final de entrada a endereços IP nessa região](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | Dependência de aplicação do serviço de gestão | Entrada | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
-| Implementação do conector | Entrada | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Necessário para implantar e atualizar os conectores. Fechar ou blockng esta porta faz com que as implementações de ISE efetuar a ativação e impede que o conector atualizações ou correções. |
+| Implementação do conector | Entrada | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Necessário para implantar e atualizar os conectores. Fechar ou bloquear essa porta faz com que as implementações de ISE efetuar a ativação e impede que o conector atualizações ou correções. |
 | Gestão de API - ponto final de gestão | Entrada | 3443 | APIManagement  | VIRTUAL_NETWORK | |
 | Dependência do registo para a política do Hub de eventos e o agente de monitorização | Saída | 5672 | VIRTUAL_NETWORK  | EventHub | |
 | Aceder a Cache do Azure para instâncias de Redis entre instâncias de função | Entrada <br>Saída | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | |
@@ -142,7 +142,7 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
    | **Grupo de recursos** | Sim | <*Azure-resource-group-name*> | O grupo de recursos do Azure onde pretende criar o seu ambiente |
    | **Nome do ambiente de serviço de integração** | Sim | <*environment-name*> | O nome para dar o seu ambiente |
    | **Localização** | Sim | <*Azure-datacenter-region*> | A região do datacenter do Azure onde pretende implementar o seu ambiente |
-   | **Capacidade adicional** | Sim | 0, 1, 2, 3 | O número de unidades de processamento para utilizar para este recurso do ISE |
+   | **Capacidade adicional** | Sim | 0, 1, 2, 3 | O número de unidades de processamento para utilizar para este recurso ISE. Para adicionar capacidade após a criação, consulte [adicionar capacidade](#add-capacity). |
    | **Rede virtual** | Sim | <*Azure-virtual-network-name*> | A rede virtual do Azure em que deseja injetar o seu ambiente para que aplicações lógicas nesse ambiente podem acessar a rede virtual. Se não tiver uma rede, pode criar uma aqui. <p>**Importante**: Pode *apenas* realizar este injeção quando cria seu ISE. No entanto, antes de poder criar esta relação, certifique-se de que já [configurar o controlo de acesso baseado em funções na sua rede virtual para o Azure Logic Apps](#vnet-access). |
    | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro *vazio* sub-redes para a criação de recursos no seu ambiente. Por isso, certifique-se de que estas sub-redes *não são delegados* a qualquer serviço. *Não é possível alterar* estes endereços de sub-rede depois de criar o seu ambiente. <p><p>Para criar cada sub-rede [siga os passos nesta tabela](#create-subnet). Cada sub-rede tem de cumprir estes critérios: <p>-Pode estar vazio. <br>-Utiliza um nome que não começa com um número ou um hífen. <br>-Consome os [formato de encaminhamento de entre domínios Classless (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e um espaço de endereços de classe B. <br>-Inclui, pelo menos, um `/27` no espaço de endereços, de modo a sub-rede obtém, pelo menos, 32 endereços. Para saber mais sobre o cálculo do número de endereços, veja [blocos CIDR de IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Por exemplo: <p>- `10.0.0.0/24` tem de 256 endereços porque 2<sup>(32-24)</sup> é 2<sup>8</sup> ou 256. <br>- `10.0.0.0/27` tem 32 endereços porque 2<sup>(32-27)</sup> é 2<sup>5</sup> ou 32. <br>- `10.0.0.0/28` tem apenas 16 endereços porque 2<sup>(32-28)</sup> é 2<sup>4</sup> ou 16. |
    |||||
@@ -187,6 +187,30 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
    > Se falhar a implementação ou eliminar seu ISE, do Azure *poderá* demorar até uma hora antes de lançar as sub-redes. Por isso, poderá ter de aguardar antes de reutilizar essas sub-redes no ISE do outro.
 
 1. Para ver o seu ambiente, escolha **Ir para recurso** se o Azure não passar automaticamente para o seu ambiente após a conclusão da implementação.  
+
+<a name="add-capacity"></a>
+
+### <a name="add-capacity"></a>Adicionar capacidade
+
+A unidade de base do ISE corrigiu capacidade, portanto, se precisar de mais débito, pode adicionar mais unidades de escala. Pode escolher para dimensionamento automático com base em métricas de desempenho ou com base num determinado número de unidades de processamento. Se escolher o dimensionamento automático com base em métricas, pode escolher de entre vários critérios e especifique as condições de limiar para atender esse critério.
+
+1. No portal do Azure, encontre o ISE.
+
+1. Para ver métricas de desempenho para seu ISE, no menu principal do seu ISE, escolha **descrição geral**.
+
+1. Para configurar o dimensionamento automático, em **configurações**, selecione **aumentar horizontalmente**. Sobre o **configurar** separador, escolha **ativar o dimensionamento automático**.
+
+1. Na **predefinido** secção, escolha o **dimensionam com base numa métrica** ou **Dimensionar para uma contagem de instâncias específica**.
+
+1. Se escolher com base na instância, introduza o número de unidades de processamento entre 0 e 3, inclusivamente. Caso contrário, para baseada em métrica, siga estes passos:
+
+   1. Na **predefinido** secção, escolha **adicionar uma regra**.
+
+   1. Sobre o **regra de dimensionamento** painel, configurar os critérios e a ação a tomar quando a regra for acionada.
+   
+   1. Quando tiver terminado, escolha **adicionar**.
+
+1. Quando tiver terminado, lembre-se de guardar as alterações.
 
 <a name="create-logic-apps-environment"></a>
 

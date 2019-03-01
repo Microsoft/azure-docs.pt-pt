@@ -1,19 +1,19 @@
 ---
 title: Utilizar o portal do Azure para configurar o carregamento de ficheiros | Documentos da Microsoft
 description: Como utilizar o portal do Azure para configurar o hub IoT para permitir carregamentos de ficheiros a partir dos dispositivos ligados. Inclui informações sobre como configurar o conta de armazenamento do Azure de destino.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: dobett
-ms.openlocfilehash: a9f9eeaed2716c5d492099568fd6f90080471af2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.author: robin.shahan
+ms.openlocfilehash: 04f3f05c8c18a3356c282144cda62d1f980362fe
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055202"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008446"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurar o IoT Hub, carregamentos de ficheiros com o portal do Azure
 
@@ -31,11 +31,11 @@ Para utilizar o [funcionalidade de carregamento de ficheiros no IoT Hub](iot-hub
 
 * **Receber notificações sobre os ficheiros carregados**: Ativar ou desativar notificações de carregamento do ficheiro através do botão de alternar.
 
-* **TTL de SAS**: esta definição é o tempo de vida dos URIs de SAS retornado para o dispositivo ao IoT Hub. Definido como uma hora por padrão, mas pode ser personalizado para outros valores no controlo de deslize.
+* **SAS TTL**: Esta definição é o tempo de vida dos URIs de SAS retornado para o dispositivo ao IoT Hub. Definido como uma hora por padrão, mas pode ser personalizado para outros valores no controlo de deslize.
 
 * **TTL de padrão de definições de notificação de ficheiros**: O tempo de vida de um ficheiro a carregar notificação antes de expirar. Definido como um dia por padrão, mas pode ser personalizado para outros valores no controlo de deslize.
 
-* **Contagem máxima de entrega de notificação de ficheiros**: O número de vezes o IoT Hub tentará entregar um arquivo carregar notificação. Definido como 10, por predefinição, mas pode ser personalizado para outros valores no controlo de deslize.
+* **Contagem máxima de entrega de notificação de ficheiros**: O número de vezes que o IoT Hub tentará entregar um arquivo carregar notificação. Definido como 10, por predefinição, mas pode ser personalizado para outros valores no controlo de deslize.
 
    ![Configurar o carregamento de ficheiros do IoT Hub no portal](./media/iot-hub-configure-file-upload/file-upload-selected-container.png)
 

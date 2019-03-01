@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 501bfddd64d3353abc9212d63c76fb582e81a580
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b9672c55ae2285a7dd9d951038ef41eebcfa195c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649515"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192791"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Restringir o acesso à rede a recursos de PaaS com pontos finais de serviço de rede virtual com o PowerShell
 
@@ -197,13 +197,13 @@ A chave é utilizada para criar uma partilha de ficheiros num passo posterior. I
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Criar uma partilha de ficheiros na conta de Armazenamento
 
-Criar um contexto para a sua conta de armazenamento e a chave com [New-AzStorageContext](/powershell/module/azure.storage/new-AzStoragecontext). O contexto contém a chave de conta e o nome da conta de armazenamento:
+Criar um contexto para a sua conta de armazenamento e a chave com [New-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext). O contexto contém a chave de conta e o nome da conta de armazenamento:
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-Criar uma partilha de ficheiros com [New-AzStorageShare](/powershell/module/azure.storage/new-AzStorageshare):
+Criar uma partilha de ficheiros com [New-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
 
 $share = New-AzStorageShare my-file-share -Context $storageContext
 

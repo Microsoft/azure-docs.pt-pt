@@ -1,18 +1,19 @@
 ---
 title: Opções de cloud para dispositivo IoT Hub do Azure | Documentos da Microsoft
 description: Guia de desenvolvedor – documentação de orientação sobre quando utilizar métodos diretos, dispositivo duplo as propriedades pretendidas ou mensagens na cloud para o dispositivo para as comunicações da cloud para o dispositivo.
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: 2c2701b2ccfceef7f64078d13501aa9184fc87a3
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 4b738f34ae75478c0120832e7ad2b6a6a83dbf69
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451634"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010713"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Orientações de comunicações da cloud para dispositivo
 

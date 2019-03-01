@@ -1,19 +1,20 @@
 ---
 title: Agendar tarefas com o IoT Hub do Azure (Java) | Documentos da Microsoft
 description: Como agendar um trabalho do IoT Hub do Azure para invocar um método direto e definir uma propriedade pretendida em vários dispositivos. Utilizar o Azure IoT device SDK para Java para implementar as aplicações de dispositivo simulado e o serviço de IoT do Azure SDK para Java para implementar uma aplicação de serviço para executar a tarefa.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
-ms.author: dobett
-ms.openlocfilehash: 52c5e1a2166c2c609b2edc486bd451f01b3395fa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: d2d92c05e54bc78d5b01e73b586e5c25fc431255
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515799"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011403"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Agendar e difundir tarefas (Java)
 
@@ -29,9 +30,9 @@ Uma tarefa encapsula uma destas ações e controla a execução com um conjunto 
 
 Para saber mais sobre cada uma destas capacidades, consulte:
 
-* Dispositivo duplo e propriedades: [começar a utilizar dispositivos duplos](iot-hub-java-java-twin-getstarted.md)
+* Dispositivo duplo e propriedades: [Introdução aos dispositivos duplos](iot-hub-java-java-twin-getstarted.md)
 
-* Métodos diretos: [Guia do programador do IoT Hub - métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: utilizar métodos diretos](quickstart-control-device-java.md)
+* Métodos diretos: [Guia do programador do IoT Hub - métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: Utilizar métodos diretos](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

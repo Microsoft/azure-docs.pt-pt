@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: b579816a4367537a7da4aa0f68c8776465295448
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 61afefb955914c75606c4fff36ebcc05a4ad0057
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670758"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010910"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente dos serviços de recuperação do Azure (MARS) da Microsoft
 
@@ -29,7 +29,7 @@ O agente de MARS é utilizado pela cópia de segurança do Azure para o Cofre de
 O que pode criar cópias de segurança depende de onde o agente está instalado.
 
 - [Saiba mais](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) sobre arquitetura de cópia de segurança com o agente MARS.
-- [Saiba mais]() sobre o MABS/DPM [arquitetura de cópia de segurança](backup-architecture.md#architecture-back-up-to-dpmmabs)e [requisitos](backup-support-matrix-mabs-dpm.md).
+- Saiba mais sobre o MABS/DPM [arquitetura de cópia de segurança](backup-architecture.md#architecture-back-up-to-dpmmabs)e [requisitos](backup-support-matrix-mabs-dpm.md).
 
 
 ## <a name="supported-installation"></a>Instalação suportada
@@ -37,7 +37,7 @@ O que pode criar cópias de segurança depende de onde o agente está instalado.
 **Instalar** | **Detalhes**
 --- | ---
 **Transferir o agente de MARS mais recente** | Pode baixar a versão mais recente do agente a partir do cofre, ou [transferi-lo diretamente](https://aka.ms/azurebackup_agent).
-**Instalar diretamente num computador** | Pode instalar o agente de MARS diretamente num servidor do Windows no local ou VM do Windows Azure com qualquer uma da [sistemas operativos suportados]().
+**Instalar diretamente num computador** | Pode instalar o agente de MARS diretamente num servidor do Windows no local ou VM do Windows Azure com qualquer uma da [sistemas operativos suportados](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 **Instale num servidor de cópia de segurança** | Quando configurar o DPM ou MABS para criar cópias de segurança para o Azure, transfira e instale o agente de MARS no servidor. O agente pode ser instalado em conformidade com o [sistemas operativos suportados](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte de cópia de segurança do servidor.
 
 > [!NOTE]

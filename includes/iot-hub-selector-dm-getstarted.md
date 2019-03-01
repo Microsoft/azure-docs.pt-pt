@@ -1,19 +1,19 @@
 ---
-author: dominicbetts
+author: wesmc7777
+ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
-ms.openlocfilehash: 13eddced155eab6dedfbce77330e7a178ecfb3cb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 19331f35ea2fa773325ec61e728677e37767ab54
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166469"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011820"
 ---
 > [!div class="op_single_selector"]
-> * [Dispositivo: Node.js Serviço: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [Dispositivo: C# serviço:C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
+> * [Dispositivo: NODE. js serviço: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
+> * [Dispositivo: C#Serviço: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Dispositivo: Serviço de Java: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 > * [Dispositivo: Serviço de Python: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)
 

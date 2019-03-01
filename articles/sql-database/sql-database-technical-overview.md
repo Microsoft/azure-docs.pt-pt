@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c11dc2b24e3cf5d201a73c1ed405ba4b7c09978b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982272"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992605"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL?
 
@@ -101,7 +101,15 @@ Utilize a [monitorização de desempenho incorporada](sql-database-performance.m
 
 ## <a name="availability-capabilities"></a>Capacidades de disponibilidade
 
-O contrato de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/) do Azure líder da indústria, que garante 99,99% de disponibilidade, com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. A plataforma do Azure totalmente gerencia cada base de dados e não garantias de nenhuma perda de dados e alta porcentagem de disponibilidade de dados. O Azure gere automaticamente a aplicação de patches, as cópias de segurança, a replicação, a deteção de falhas, falhas potenciais subjacentes de hardware, software ou rede, a implementação de correções de erros, as ativações pós-falha, as atualizações da base de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. Disponibilidade de Premium é obtida com a integração de computação e armazenamento num único nó para o desempenho e, em seguida, implementar a tecnologia semelhante para grupos de Disponibilidade AlwaysOn nos bastidores. Para uma discussão completa sobre as capacidades de elevada disponibilidade da base de dados do Azure SQL, consulte [disponibilidade de base de dados SQL](sql-database-high-availability.md). Além disso, a Base de Dados SQL proporciona funcionalidades de [continuidade de negócio e escalabilidade global](sql-database-business-continuity.md):
+Num ambiente tradicional do SQL Server, geralmente (pelo menos) 2 máquinas localmente definidas com cópias (sincronicamente manter) exatas dos dados (com funcionalidades como instâncias de Cluster de ativação pós-falha ou a grupos de Disponibilidade AlwaysOn) para proteger contra uma Falha de um único componente/máquina.  Isso fornece elevada disponibilidade, mas não protege contra um desastre natural destruir seu centro de dados.
+ 
+Recuperação após desastre parte do princípio de que um evento catastrófico será geograficamente localizados suficiente para ter outra máquina/conjunto de máquinas com uma cópia dos seus dados perto de.  No SQL Server, poderia usar grupos de Disponibilidade AlwaysOn em execução no modo assíncrono para obter esta capacidade.  A velocidade da luz problemas normalmente, isto significa que as pessoas não pretende esperar até que a replicação para acontecer que distantes antes de consolidar uma transação, portanto, há a potencial perda de dados quando o fizer ativações pós-falha não planeadas.
+
+Bases de dados no serviço premium e comercial crítico camadas já [fazer algo muito semelhante](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para a sincronização de um grupo de disponibilidade. Bases de dados nos escalões de serviço mais baixos fornecem redundância por meio de armazenamento com um [mecanismo de diferente mas equivalente](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). Há uma lógica que protege contra uma falha de máquina única.  A funcionalidade de georreplicação ativa lhe a capacidade de proteger contra desastres em que uma região inteira for destruída.
+
+As zonas de disponibilidade do Azure é um play sobre o problema de elevada disponibilidade.  Ele tenta proteger contra a falha de um único centro de dados criar numa única região.  Então, quer proteger contra a perda de energia ou de rede para um edifício. No SQL Azure, isso funcionará ao colocar as réplicas diferentes em diferentes zonas de disponibilidade (edifícios diferentes, com eficiência) e, caso contrário, está a funcionar como antes. 
+
+Na verdade, o contrato de nível de serviço de disponibilidade de 99,99% líder da indústria do Azure [(SLA)](https://azure.microsoft.com/support/legal/sla/), com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 x 7. A plataforma do Azure totalmente gerencia cada base de dados e não garantias de nenhuma perda de dados e alta porcentagem de disponibilidade de dados. O Azure gere automaticamente a aplicação de patches, as cópias de segurança, a replicação, a deteção de falhas, falhas potenciais subjacentes de hardware, software ou rede, a implementação de correções de erros, as ativações pós-falha, as atualizações da base de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. Disponibilidade de Premium é obtida com a integração de computação e armazenamento num único nó para o desempenho e, em seguida, implementar a tecnologia semelhante para grupos de Disponibilidade AlwaysOn nos bastidores. Para uma discussão completa sobre as capacidades de elevada disponibilidade da base de dados do Azure SQL, consulte [disponibilidade de base de dados SQL](sql-database-high-availability.md). Além disso, a Base de Dados SQL proporciona funcionalidades de [continuidade de negócio e escalabilidade global](sql-database-business-continuity.md):
 
 - **[Cópias de segurança automáticas](sql-database-automated-backups.md)**:
 

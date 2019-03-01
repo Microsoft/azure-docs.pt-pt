@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 02/19/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: f5b884ddda292b1c523a5364d34753ccb3a5bbdf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594054"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194448"
 ---
 # <a name="validate-oem-packages"></a>Validar pacotes do OEM
 
@@ -91,6 +91,9 @@ Utilize o **URL de SAS do Blob** quando fornecer pacote blob URLs para o portal.
 ## <a name="apply-monthly-update"></a>Aplicar atualização mensal
 
 [!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+
+> [!NOTE]
+> Depois de aplicar a atualização mensal, recomendamos que execute AzureStack de teste para verificar se a atualização foi aplicada corretamente e está em bom estado de funcionamento. Se AzureStack teste falhar, relatar o problema para a Microsoft. Não prossiga com a aprovação de teste até que o problema esteja resolvido. Pode encontrar informações sobre como executar o comando de teste para o Azure Stack desta [artigo](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
 
 ## <a name="create-a-package-validation-workflow"></a>Criar um fluxo de trabalho de validação do pacote
 

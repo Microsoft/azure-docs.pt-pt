@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: a9f6676f1b2fdf812ec87595083ba6317a11873c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c9437f69bf337f79c9531a12af6ac7868261f5b1
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462159"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992442"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar o TTL no Azure Cosmos DB
 
@@ -82,6 +82,37 @@ Além de definir um tempo de duração num contentor predefinido, pode definir u
 
 * Se o valor de TTL está desativada no nível do contentor, o campo de valor de TTL no item será ignorado enquanto o TTL é novamente ativado no contentor.
 
+### <a id="portal-set-ttl-item"></a>Portal do Azure
+
+Utilize os seguintes passos para ativar o TTL num item:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+
+2. Criar uma nova conta do Cosmos do Azure ou selecione uma conta existente.
+
+3. Abra o **Data Explorer** painel.
+
+4. Selecione um contentor existente, expandi-lo e modificar os seguintes valores:
+
+   * Abra o **dimensionamento e definições** janela.
+   * Sob **definição** localizar, **TTL**.
+   * Selecione **ativada (sem predefinição)** ou selecione **no** e definir um valor TTL. 
+   * Clique em **Guardar** para guardar as alterações.
+
+5. Em seguida, navegue para o item para o qual pretende definir a hora em direto, adicione a `ttl` propriedade e selecione **atualização**. 
+
+  ```json
+  {
+    "id": "1",
+    "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
+    "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
+    "_etag": "\"0d00b23f-0000-0000-0000-5c7712e80000\"",
+    "_attachments": "attachments/",
+    "ttl": 10,
+    "_ts": 1551307496
+  }
+  ```
+
 ### <a id="dotnet-set-ttl-item"></a>SDK do .NET
 
 ```csharp
@@ -94,7 +125,7 @@ public class SalesOrder
     public string CustomerId { get; set; }
     // used to set expiration policy
     [JsonProperty(PropertyName = "ttl", NullValueHandling = NullValueHandling.Ignore)]
-    public int? TimeToLive { get; set; }
+    public int? ttl { get; set; }
 
     //...
 }
@@ -103,7 +134,7 @@ SalesOrder salesOrder = new SalesOrder
 {
     Id = "SO05",
     CustomerId = "CO18009186470",
-    TimeToLive = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
+    ttl = 60 * 60 * 24 * 30;  // Expire sales orders in 30 days
 };
 ```
 
@@ -121,7 +152,7 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = 60 * 30 * 30; // update time to live
+readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
@@ -139,7 +170,7 @@ response = await client.ReadDocumentAsync(
     new RequestOptions { PartitionKey = new PartitionKey("CO18009186470") });
 
 Document readDocument = response.Resource;
-readDocument.TimeToLive = null; // inherit the default TTL of the collection
+readDocument.ttl = null; // inherit the default TTL of the collection
 
 response = await client.ReplaceDocumentAsync(readDocument);
 ```

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4920d2a6c26da12effc2b44be8d3c6cbdb5e2a6f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0fd865a6890721d3889fc5cef39d9888fe1fb689
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199141"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191820"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP utilizando o portal do Azure
 
@@ -194,4 +194,4 @@ Como o último passo, configure os registos de recursos DNS para apontar para os
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre como combinar serviços no Azure em de balanceamento de carga [com os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Saiba como pode utilizar diferentes tipos de registos para gerir e resolver problemas relacionados com o Balanceador de carga no [do Log analytics para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Saiba como pode utilizar diferentes tipos de registos para gerir e resolver problemas relacionados com o Balanceador de carga no [registos do Azure Monitor para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

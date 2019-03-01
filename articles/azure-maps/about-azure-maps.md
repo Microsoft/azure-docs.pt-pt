@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce55185effc67709157ce6219c405bb8e32dd5db
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 53f216e19b8e087c0052751e96f203e0db85dc13
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768584"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990293"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
@@ -22,7 +22,7 @@ Mapas do Azure é uma coleção de serviços geoespaciais, desagregado pelos dad
 
 O vídeo seguinte explica o Azure Maps detalhadamente:
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="map-controls"></a>Controlos de Mapas
 

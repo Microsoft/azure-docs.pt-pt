@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0e668c0b31defd5c945ddf2fec1b00f75d92f174
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052518"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990158"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligar a IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -88,10 +88,10 @@ Quando a ligação tiver êxito, reinicia o DevKit dentro de alguns segundos. Em
 
 ![Nome do Wi-Fi e endereço IP](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/wifi-ip.jpg)
 
-> [!NOTE] 
-> O endereço IP apresentado na foto não pode corresponder o endereço IP real atribuído e apresentados no ecrã de DevKit. Isso é normal, porque o Wi-Fi utiliza o DHCP para atribuir dinamicamente IPs.
+> [!NOTE]
+> Precisará de uma rede de 2,4 GHz para IoT DevKit trabalhar. O módulo de Wi-Fi sobre o IoT DevKit não é compatível com a rede de 5GHz. Verifique [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#wi-fi-configuration) para obter mais detalhes.
 
-Após a configuração de Wi-Fi, as suas credenciais serão mantidas no dispositivo para essa conexão, mesmo que o dispositivo está desligado. Por exemplo, se configurar o DevKit para Wi-Fi na sua casa e, em seguida, efetuar o DevKit para o office, terá de reconfigurar o modo do Pacífico (começando no passo na secção "Introduza o modo do Pacífico") para ligar o DevKit ao seu Wi-Fi do escritório. 
+Após a configuração de Wi-Fi, as suas credenciais serão mantidas no dispositivo para essa conexão, mesmo que o dispositivo está desligado. Por exemplo, se configurar o DevKit para Wi-Fi na sua casa e, em seguida, efetuar o DevKit para o office, terá de reconfigurar o modo do Pacífico (começando no passo na secção "Introduza o modo do Pacífico") para ligar o DevKit ao seu Wi-Fi do escritório.
 
 ## <a name="start-using-the-devkit"></a>Começar a utilizar o DevKit
 
@@ -175,7 +175,7 @@ Siga estes passos para preparar o ambiente de desenvolvimento para DevKit:
 
 ### <a name="install-st-link-drivers"></a>Instalar controladores de ST-ligação
 
-[ST-ligação/V2](http://www.st.com/en/development-tools/st-link-v2.html) é a interface USB que IoT DevKit utiliza para comunicar com a sua máquina de desenvolvimento. Siga os passos de específicas de SO para permitir o acesso de máquina para o seu dispositivo.
+[ST-ligação/V2](http://www.st.com/en/development-tools/st-link-v2.html) é a interface USB que IoT DevKit utiliza para comunicar com a sua máquina de desenvolvimento. Tem de instalá-lo no Windows para ativar o flash o código de deivce compilado para o DevKit. Siga os passos de específicas de SO para permitir o acesso de máquina para o seu dispositivo.
 
 * **Windows**: Baixe e instale o controlador USB a partir [STMicroelectronics site](http://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: Nenhum driver é necessário para macOS.

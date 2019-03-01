@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0467f131ab4300ba3217ed01f37ebb7f4b8dbe5e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e8028bc9a4a6f3245dca61d6dd30db22dc295a7f
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732777"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992452"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um fornecedor de recursos do serviço de aplicações para o Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56732777"
 Utilize as orientações neste artigo para implementar o serviço de aplicações no Azure Stack.
 
 > [!IMPORTANT]  
-> Aplicar a atualização de 1809 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.4 de serviço de aplicações do Azure.
+> Aplicar a atualização de 1901 seu sistema integrado do Azure Stack ou implementar a mais recente do Azure Stack Development Kit (ASDK) antes de implementar 1.5 de serviço de aplicações do Azure.
 
 Pode dar a capacidade de criar aplicações de API web e os seus utilizadores. Para permitir aos utilizadores criar esses aplicativos, terá de:
 
@@ -38,7 +38,7 @@ Pode dar a capacidade de criar aplicações de API web e os seus utilizadores. P
  - Depois de instalar o fornecedor de recursos do serviço de aplicações, pode incluí-lo em seus planos e ofertas. Os utilizadores, em seguida, podem subscrever para obter o serviço e comece a criar aplicações.
 
 > [!IMPORTANT]  
-> Antes de executar o instalador de fornecedor de recursos, certifique-se de que seguiu a documentação de orientação [antes de começar](azure-stack-app-service-before-you-get-started.md).
+> Antes de executar o instalador de fornecedor de recursos, certifique-se de que seguiu a documentação de orientação [antes de começar](azure-stack-app-service-before-you-get-started.md) e li a [notas de versão](azure-stack-app-service-release-notes-update-five.md), que acompanham a versão 1.5, para saber mais sobre o novo funcionalidade, correções e os problemas conhecidos que podem afetar a sua implementação.
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>Execute o instalador de fornecedor de recursos do serviço de aplicações
 
@@ -99,7 +99,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
    ![Instalador do serviço de aplicações][4]
 
-8. Introduza as informações para a partilha de ficheiros e, em seguida, selecione **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome completamente qualificado domínio (FQDN) ou o endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.
+8. Introduza as informações para a partilha de ficheiros e, em seguida, selecione **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome completamente qualificado domínio (FQDN) ou o endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Se estiver a utilizar um servidor de ficheiros que é associado a um domínio, tem de fornecer o nome de utilizador completo, incluindo o domínio, por exemplo, myfileserverdomain\FileShareOwner.
 
    >[!NOTE]
    >O instalador tentará testar a conectividade à partilha de ficheiros antes de continuar. No entanto, se estiver a implementar uma rede virtual existente, o teste de ligação poderá falhar. É-lhe fornecido um aviso e uma linha de comandos para continuar. Se as informações da partilha de ficheiros estiverem corretas, continue a implantação.
@@ -184,6 +184,11 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
 
     ![Instalador do serviço de aplicações][17]
 
+## <a name="post-deployment-steps"></a>Passos de pós-implementação
+
+> [!IMPORTANT]  
+> Se forneceu a RP de serviço de aplicações com uma sempre na instância do SQL tem [adicionar as bases de dados appservice_hosting e appservice_metering a um grupo de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizar as bases de dados para evitar qualquer perda de serviço do evento de uma ativação pós-falha de base de dados.
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validar o serviço de aplicações numa instalação do Azure Stack
 
 1. No portal de administração do Azure Stack, aceda a **administração - serviço de aplicações**.
@@ -197,7 +202,7 @@ Para implementar o fornecedor de recursos do serviço de aplicações, siga este
     - Origem: Qualquer
     - Intervalo de portas de origem: *
     - Destino: Endereços IP
-    - Intervalo de endereços IP de destino: Intervalo de IPs para seu servidor de ficheiros
+    - Intervalo de endereços IP de destino: Intervalo de IPs para o servidor de ficheiros
     - Intervalo de portas de destino: 445
     - Protocolo: TCP
     - Ação: Permitir

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a0685f75111a5552645d487589734846b05968
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164639"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991485"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escrever expressões para mapeamentos de atributos no Azure Active Directory
 Quando configurar o aprovisionamento a uma aplicação SaaS, um dos tipos de mapeamentos de atributos que pode especificar é um mapeamento de expressão. Para eles, deve escrever uma expressão de tipo de script que permite transformar os dados dos seus utilizadores em formatos que são mais aceitáveis para a aplicação SaaS.
@@ -175,7 +175,7 @@ Substitui os valores dentro de uma cadeia de caracteres. Ele funciona de forma d
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Função:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Descrição:**<br> Requer um argumento de cadeia de caracteres. Devolve a cadeia de caracteres, mas com qualquer repalced diacritical caracteres com caracteres não diacritical equivalentes.
+**Descrição:**<br> Devolve um único appRoleAssignment na lista de todos os appRoleAssignments atribuído a um utilizador para um determinado aplicativo. Esta função é necessária para converter o objeto de appRoleAssignments numa cadeia de caracteres de nome de função única. Tenha em atenção que a melhor prática é para garantir que apenas um appRoleAssignment é atribuída a um utilizador ao mesmo tempo e se várias funções forem atribuídas a cadeia de função devolvida pode não ser previsível. 
 
 **Parâmetros:**<br> 
 

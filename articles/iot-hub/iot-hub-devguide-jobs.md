@@ -1,19 +1,19 @@
 ---
 title: Compreender as tarefas do IoT Hub do Azure | Documentos da Microsoft
 description: Guia do desenvolvedor – agendamento de trabalhos para execução em vários dispositivos ligados ao seu hub IoT. Tarefas podem atualizar as etiquetas e propriedades pretendidas e invocar métodos diretos em vários dispositivos.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: dobett
-ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884229"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011369"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
@@ -119,22 +119,22 @@ A lista seguinte mostra as propriedades e as descrições correspondentes, que p
 | **startTime** |Aplicação fornecida a hora de início (ISO-8601) para a tarefa. |
 | **endTime** |IoT Hub fornecidos data (ISO-8601) para quando a tarefa é concluída. Válido apenas depois que a tarefa de atinge o estado "concluído". |
 | **tipo** |Tipos de tarefas: |
-| | **scheduledUpdateTwin**: uma tarefa utilizada para atualizar um conjunto de propriedades pretendidas ou etiquetas. |
-| | **scheduledDeviceMethod**: uma tarefa utilizada para invocar um método de dispositivo num conjunto de dispositivos duplos. |
+| | **scheduledUpdateTwin**: Uma tarefa utilizada para atualizar um conjunto de propriedades pretendidas ou etiquetas. |
+| | **scheduledDeviceMethod**: Uma tarefa utilizada para invocar um método de dispositivo num conjunto de dispositivos duplos. |
 | **status** |Estado atual da tarefa. Valores possíveis para obter o estado: |
-| | **pendente**: agendada e a aguardar a ser escolhidas pelo serviço de tarefa. |
-| | **agendada**: agendada para um momento no futuro. |
-| | **executar**: tarefa atualmente ativa. |
-| | **Cancelado**: tarefa foi cancelada. |
-| | **Falha ao**: Falha na tarefa. |
-| | **concluído**: tarefa for concluída. |
+| | **Pendente**: Agendada e a aguardar a ser escolhidas pelo serviço de tarefa. |
+| | **scheduled**: Agendada para um momento no futuro. |
+| | **Executar**: Tarefa atualmente ativa. |
+| | **canceled**: Tarefa foi cancelada. |
+| | **failed**: Falha na tarefa. |
+| | **Concluído**: Tarefa foi concluída. |
 | **deviceJobStatistics** |Estatísticas sobre a execução da tarefa. |
 | | **deviceJobStatistics** propriedades: |
-| | **deviceJobStatistics.deviceCount**: número de dispositivos no trabalho. |
-| | **deviceJobStatistics.failedCount**: número de dispositivos em que a tarefa falhou. |
-| | **deviceJobStatistics.succeededCount**: número de dispositivos em que a tarefa foi concluída com êxito. |
-| | **deviceJobStatistics.runningCount**: número de dispositivos que estão atualmente a executar a tarefa. |
-| | **deviceJobStatistics.pendingCount**: número de dispositivos que estão pendentes para executar a tarefa. |
+| | **deviceJobStatistics.deviceCount**: Número de dispositivos no trabalho. |
+| | **deviceJobStatistics.failedCount**: Número de dispositivos em que a tarefa falhou. |
+| | **deviceJobStatistics.succeededCount**: Número de dispositivos em que a tarefa foi concluída com êxito. |
+| | **deviceJobStatistics.runningCount**: Número de dispositivos que estão atualmente a executar a tarefa. |
+| | **deviceJobStatistics.pendingCount**: Número de dispositivos que estão pendentes para executar a tarefa. |
 
 ### <a name="additional-reference-material"></a>Material de referência adicionais
 

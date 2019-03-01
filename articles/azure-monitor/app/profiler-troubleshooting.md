@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: e5e80ac2229c3a2962702527dc3162229c25a5c5
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 7d0743c09adf1c50d888d2e279ba85a8369bf286
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750876"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991635"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Resolução de problemas de ativação ou ao visualizar o Application Insights Profiler
 
@@ -135,15 +135,19 @@ Para ver se o Profiler está configurado corretamente ao diagnóstico do Azure, 
 
 Para verificar as definições que foram utilizadas para configurar o diagnóstico do Azure:
 
-1. Inicie sessão para a máquina virtual (VM) e, em seguida, abra o ficheiro de registo nesta localização: 
+1. Inicie sessão para a máquina virtual (VM) e, em seguida, abra o ficheiro de registo nesta localização. (A unidade pode ser c: ou d: e a versão de plug-in podem ser diferentes).
 
     ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
+    ```
+    ou
+    ```
+    c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
     ```
 
 1. No ficheiro, pode procurar a cadeia de caracteres **WadCfg** para encontrar as definições que foram transmitidas para a VM para configurar o diagnóstico do Azure. Pode verificar se a iKey usada pelo coletor Profiler está correta.
 
-1. Verifique a linha de comando que é utilizada para iniciar o Profiler. Os argumentos que são utilizados para iniciar o Profiler estão no seguinte ficheiro:
+1. Verifique a linha de comando que é utilizada para iniciar o Profiler. Os argumentos que são utilizados para iniciar o Profiler estão no seguinte ficheiro. (A unidade pode ser c: ou d:)
 
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json

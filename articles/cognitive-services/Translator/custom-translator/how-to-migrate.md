@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 21d4e8c3ea51da559ac1d576c1a076898136ded8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 13d446f9f2aa651c766f250e551a97a97cf4d5d8
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727847"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195239"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar os projetos de área de trabalho de Hub e ao Translator personalizado
 
@@ -27,7 +27,7 @@ Estas ações são executadas durante a migração:
 * Em qualquer momento, a pontuação de BLEU migrados do Hub de treinamento pode ser encontrado na página TrainingDetails do modelo no "Bleu pontuação no Hub de MT" cabeçalho.
 
 >[!Note]
->Para um treinamento tenha êxito, o Translator personalizado requer mínimo 10.000 extraídas as frases. Para um número inferior de frases extraídos do que o [mínima sugerida](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Translator personalizado não é possível realizar um treinamento.
+>Para um treinamento tenha êxito, o Translator personalizado requer um mínimo de 10 000 frases extraídos exclusivos. Tradutor personalizado não é possível realizar uma formação com frases extraídas menos do que o [mínima sugerida](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
 
 ## <a name="enable-account-migration"></a>Ativar a migração de contas
 

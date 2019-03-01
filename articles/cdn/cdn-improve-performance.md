@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 02/28/2018
 ms.author: magattus
-ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4d1725b0559c34692d1a89d016fd2d6b7b1b26c1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997278"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193097"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho ao comprimir ficheiros na CDN do Azure para
 Compressão de ficheiros é um método simples e eficaz para melhorar a velocidade de transferência de ficheiro e aumentar o desempenho de carregamento da página, reduzindo o tamanho de um ficheiro antes do envio do servidor. Compressão de ficheiros pode reduzir os custos de largura de banda e proporcionar uma experiência de maior capacidade de resposta para os seus utilizadores.
@@ -102,8 +102,10 @@ Os escalões CDN standard e premium fornecem a mesma funcionalidade de compacta�
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>CDN Standard do Azure de perfis da Microsoft
 
-Para **CDN Standard do Microsoft Azure** perfis, apenas os ficheiros elegíveis são compactados. Para ser elegível para compressão, tem um ficheiro:-ser de um tipo MIME que tem sido [configurado para compressão](#enabling-compression).
--Ser maior do que 1 KB-ser menor do que 8 MB
+Para **CDN Standard do Microsoft Azure** perfis, apenas os ficheiros elegíveis são compactados. Para ser elegível para compressão, um ficheiro tem de:
+- Ter um tipo MIME que tem sido [configurado para compressão](#enabling-compression).
+- Apresentar mais do que 1 KB
+- Ser menor do que 8 MB
 
 Estes perfis suportam as seguintes codificações de compressão:
 - gzip (GNU zip)
@@ -117,7 +119,7 @@ Quando um pedido para um recurso Especifica compactação gzip e os resultados d
 
 Para **CDN do Azure Standard da Verizon** e **CDN do Azure Premium da Verizon** perfis, apenas os ficheiros elegíveis são compactados. Para ser elegível para compressão, um ficheiro tem de:
 - Ser maior do que 128 bytes
-- Ser menor que 1 MB
+- Ser menor que 3 MB
  
 Estes perfis suportam as seguintes codificações de compressão:
 - gzip (GNU zip)
@@ -161,7 +163,7 @@ As tabelas seguintes descrevem o comportamento de compressão da CDN do Azure pa
 ## <a name="media-services-cdn-compression"></a>Compressão de CDN dos serviços de multimédia
 Para pontos finais ativados para CDN de serviços de multimédia de transmissão em fluxo, a compressão está ativada por predefinição para os seguintes tipos MIME: 
 - application/vnd.ms-sstr+xml 
-- aplicação/dash + xml
+- application/dash+xml
 - application/vnd.apple.mpegurl
 - aplicação/f4m + xml 
 
