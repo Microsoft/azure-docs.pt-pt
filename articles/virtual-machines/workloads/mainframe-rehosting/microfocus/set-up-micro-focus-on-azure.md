@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 2b730179cecee32282b9a79d8b62e3a35ee91048
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46b135aabaefb3a94e4470927297fb696f216b7a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739775"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192535"
 ---
 # <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Instalar o Micro Focus Enterprise Server 4.0 e o Enterprise Developer 4.0 no Azure
 
@@ -66,11 +66,11 @@ Antes de começar, verifique estes pré-requisitos:
 
 9. Faça duplo clique no ficheiro para iniciar a instalação. Na janela do primeiro, selecione a localização de instalação e aceite o contrato de licença de utilizador final.
 
-     ![](media/01-enterprise-server.png)
+     ![Ecrã de configuração de servidor de Enterprise de foco micro](media/01-enterprise-server.png)
 
      Quando a configuração estiver concluída, é apresentada a seguinte mensagem:
 
-     ![](media/02-enterprise-server.png)
+     ![Ecrã de configuração de servidor de Enterprise de foco micro](media/02-enterprise-server.png)
 
 ### <a name="check-for-updates"></a>Procurar atualizações
 
@@ -82,11 +82,11 @@ Após a instalação, certifique-se de que verifique a existência de quaisquer 
 
 2. Clique em **começar** \> **Gestor de licenciamento do Micro foco** \> **administração do licenciamento**e, em seguida, clique no **instalar** separador. Escolha o tipo de formato de licença para carregar: um ficheiro de licença ou um código de licença de 16 carateres. Por exemplo, para um arquivo, na **ficheiro de licença**, navegue para o **mflic** ficheiro carregado anteriormente para a VM e selecione **instalar licenças**.
 
-     ![](media/03-enterprise-server.png)
+     ![Caixa de diálogo de administração do licenciamento de foco micro](media/03-enterprise-server.png)
 
 3. Certifique-se de que carrega os Enterprise Server. Tente iniciar o site de administração do servidor de empresa a partir de um browser utilizando este URL <http://localhost:86/> . A página de administração de servidor empresarial é apresentada, conforme mostrado.
 
-     ![](media/04-enterprise-admin.png)
+     ![Página de administração de servidor empresarial](media/04-enterprise-admin.png)
 
 ## <a name="install-enterprise-developer-on-the-developer-machine"></a>Instalar o desenvolvedor empresariais no computador do desenvolvedor
 
@@ -102,17 +102,17 @@ Após a instalação, certifique-se de que verifique a existência de quaisquer 
 
 4. Clique duas vezes o **edvs2017.exe** arquivo para iniciar a instalação. Na janela do primeiro, selecione a localização de instalação e aceite o contrato de licença de utilizador final. Se desejar, escolha **instalar o Rumba 9,5** para instalar este emulador do terminal, que provavelmente será necessário.
 
-     ![](media/04-enterprise-server.png)
+     ![Foco Enterprise Developer micro para caixa de diálogo de instalação do Visual Studio 2017](media/04-enterprise-server.png)
 
 5. Após a configuração estiver concluída, é apresentada a seguinte mensagem:
 
-     ![](media/05-enterprise-server.png)
+     ![Mensagem de êxito de configuração](media/05-enterprise-server.png)
 
 6. Inicie o Gestor de licença de foco de Micro, tal como fez para Enterprise Server. Escolher **começar** \> **Gestor de licenciamento do Micro foco** \> **administração do licenciamento**e clique no **instalar**separador.
 
 7. Escolha o tipo de formato de licença para carregar: um ficheiro de licença ou um código de licença de 16 carateres. Por exemplo, para um arquivo, na **ficheiro de licença**, navegue para o **mflic** ficheiro carregado anteriormente para a VM e selecione **instalar licenças**.
 
-     ![](/edia/07-enterprise-server.png)
+     ![Caixa de diálogo de administração do licenciamento de foco micro](/edia/07-enterprise-server.png)
 
 Quando carrega o programador empresarial, a implementação de um ambiente de desenvolvimento e teste do Micro Focus no Azure está concluída!
 

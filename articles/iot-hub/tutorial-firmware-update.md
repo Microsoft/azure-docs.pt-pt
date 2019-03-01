@@ -2,22 +2,22 @@
 title: Atualizar o firmware do dispositivo através do Hub IoT do Azure | Microsoft Docs
 description: Implemente um processo de atualização de firmware do dispositivo através de tarefas e dispositivos duplos.
 services: iot-hub
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: c387a7c10b962cfd27a7563c00ce58f58e97b9d5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 094d8f842c49905636eb4b79a97540267227b241
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671833"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011199"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 

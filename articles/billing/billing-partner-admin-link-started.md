@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 85beb9b7e0c62d5e1c8dae61fdd15d5faf3a294c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985874"
+ms.locfileid: "57008598"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro a suas contas do Azure
 
@@ -142,11 +142,11 @@ A ligação está associada ao nível da conta de utilizador. Apenas pode editar
 
 **O ID MPN posso utilizar se a minha empresa tem vários?**
 
-Pode utilizar qualquer ID MPN válido, exceto o v-ID da organização MPN. A maioria dos parceiros optarem por utilizar o ID MPN para a geografia onde baseia-se o cliente ou serviços estão a ser entregue.
+Pode utilizar qualquer ID MPN válido, exceto históricos orgnization(v-org) ID do MPN. A maioria dos parceiros optarem por utilizar o ID MPN para a geografia onde baseia-se o cliente ou serviços estão a ser entregue.
 
 **Onde posso encontrar influenciada receita, geração de relatórios para o ID de parceiro ligado?**
 
-Pode encontrar a receita influenciada reporting em [dashboard de conhecimentos My](https://partner.microsoft.com/membership/reports/myinsights) ao selecionar a ligação de administrador do parceiro, conforme mostrado.
+Pode encontrar a receita influenciada reporting em [dashboard de conhecimentos My](https://partner.microsoft.com/membership/reports/myinsights). Tem de selecionar a ligação de administrador de parceiro como o tipo de associação de parceiro.
 
 **Por que motivo não vejo meu cliente nos relatórios?**
 

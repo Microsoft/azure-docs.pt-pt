@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: 067ab7538924f4aef7c48731d10fa7e68855214a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8be0ebc486739f8826e8a1d5a5307a219ba71b6f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739769"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192722"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Mainframe realojamento em máquinas virtuais do Azure
 
@@ -25,7 +25,7 @@ Uma máquina virtual do Azure (VM) é utilizada para isolar e gerir os recursos 
 
 VMs do Azure podem executar ambientes de emulação de mainframe e compiladores que suportam cenários de migração lift-and-shift. Desenvolvimento e teste, muitas vezes, estão entre as cargas de trabalho de primeira para migrar de um mainframe para um ambiente de dev/test do Azure. Componentes de servidor comuns que poderá emular incluem o processo de transações online (OLTP), batch e os sistemas de ingestão de dados, como mostra a figura seguinte.
 
-![](media/01-overview.png)
+![Ambientes de emulação no Azure permitem-lhe executar sistemas baseados em z/OS.](media/01-overview.png)
 
 Algumas cargas de trabalho de mainframe podem ser migradas para o Azure com relativa facilidade, enquanto outros podem ser rehosted no Azure através de uma solução de parceiro. Para obter orientações detalhadas sobre como escolher uma solução de parceiro, o [Centro de migração de Mainframe Azure](https://azure.microsoft.com/migration/mainframe/) pode ajudar.
 

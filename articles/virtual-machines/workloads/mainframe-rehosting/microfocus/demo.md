@@ -8,12 +8,12 @@ manager: edprice
 editor: edprice
 tags: ''
 keywords: ''
-ms.openlocfilehash: c921fd0c52d555264ab511486709b888b50bd68e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 2a29b484b58b887981b1879ceba5bf7426bb6c2e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739710"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192009"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>Configurar a Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 no Azure
 
@@ -73,7 +73,7 @@ Depois de instalar Enterprise Developer 4.0 na VM, tem de configurar a instânci
     - Ativação de TCP
     - Partilha de portas TCP
 
-     ![](media/01-demo-roles.png)
+     ![Assistente para adicionar funções e funcionalidades: Serviços de função](media/01-demo-roles.png)
 
 8. Depois de ter adicionado todas as opções, clique em **seguinte** para instalar.
 
@@ -101,7 +101,7 @@ Alguns processos de Enterprise Server tem de conseguir iniciar sessão no servid
 
 4. Selecione **funções de servidor** e verifique **sysadmin**.
 
-     ![](media/02-demo-explorer.png)
+     ![Janela do Explorador de objetos do SSMS: Propriedades do Início de Sessão](media/02-demo-explorer.png)
 
 ## <a name="create-the-bankdemo-database-and-all-its-objects"></a>Criar a base de dados BankDemo e todos os seus objetos
 
@@ -117,7 +117,7 @@ Alguns processos de Enterprise Server tem de conseguir iniciar sessão no servid
 
 A consulta deve ser executado sem erros. Quando estiver terminado, terá a base de dados de exemplo para a aplicação de BankDemo.
 
-![](media/03-demo-query.png)
+![SQLQuery1.sql output](media/03-demo-query.png)
 
 ## <a name="verify-that-the-database-tables-and-objects-have-been-created"></a>Certifique-se de que as tabelas de base de dados e objetos foram criados
 
@@ -125,7 +125,7 @@ A consulta deve ser executado sem erros. Quando estiver terminado, terá a base 
 
 2. Expanda a **base de dados** e selecione **tabelas**. Deverá ver algo semelhante ao seguinte.
 
-     ![](media/04-demo-explorer.png)
+     ![Tabela BANKDEMO expandida no Object Explorer](media/04-demo-explorer.png)
 
 ## <a name="build-the-application-in-enterprise-developer"></a>Criar a aplicação no Enterprise Developer
 
@@ -147,7 +147,7 @@ A consulta deve ser executado sem erros. Quando estiver terminado, terá a base 
 
 6. Quando o projeto é criado, examine o **saída** janela. Ele deve ter um aspeto semelhante à imagem abaixo.
 
-     ![](media/05-demo-output.png)
+     ![Janela de saída que mostra a compilação bem-sucedida](media/05-demo-output.png)
 
 ## <a name="deploy-the-bankdemo-application-into-the-region-database"></a>Implementar a aplicação de BankDemo no banco de dados de região
 
@@ -164,7 +164,7 @@ A consulta deve ser executado sem erros. Quando estiver terminado, terá a base 
 > [!NOTE]
 > Certifique-se de usar uma barra (/), não uma barra invertida (\\). Este script é executado durante algum tempo.
 
-![](media/06-demo-cmd.png)
+![Administração: Janela de linha de comandos do Programador de Enterprise](media/06-demo-cmd.png)
 
 ## <a name="create-the-bankdemo-region-in-enterprise-administrator-for-net"></a>Criar a região de BankDemo no administrador de empresa para .NET
 
@@ -178,11 +178,11 @@ A consulta deve ser executado sem erros. Quando estiver terminado, terá a base 
 
 5. Fornecer a instância de servidor de base de dados, clique em **próxima**e, em seguida, introduza o nome da região **BANKDEMO**.
 
-     ![](media/07-demo-cics.png)
+     ![Definir a caixa de diálogo de região](media/07-demo-cics.png)
 
 6. Para selecionar o ficheiro de definição de região para a base de dados entre regiões, localize **região\_bankdemo\_db.config** na **c:\\utilizadores\\pública\\ Documentos\\Micro Focus\\Enterprise Developer\\exemplos\\Mainframe\\CICS\\DotNet\\BankDemo**.
 
-     ![](media/08-demo-cics.png)
+     ![Defina região - nome da região: BANKDEMO](media/08-demo-cics.png)
 
 7. Clique em **Concluir**.
 
@@ -198,11 +198,11 @@ A consulta deve ser executado sem erros. Quando estiver terminado, terá a base 
 
 5. Selecione **definição de recurso do banco de dados XA** e, em seguida, escreva **BANKDEMO** para o **nome** e **região**.
 
-     ![](media/09-demo-xa.png)
+     ![Novo ecrã de definição de recurso XA de base de dados](media/09-demo-xa.png)
 
 6. Clique nas reticências (**...** ) para abrir o Assistente de cadeia de ligação. Para **nome do servidor**, tipo **(local)\\SQLEXPRESS**. Para **início de sessão**, selecione **autenticação do Windows**. Para o nome de base de dados, escreva **BANKDEMO**
 
-     ![](media/10-demo-string.png)
+     ![Ecrã de cadeia de ligação de edição](media/10-demo-string.png)
 
 7. Teste a ligação.
 
@@ -217,11 +217,11 @@ A consulta deve ser executado sem erros. Quando estiver terminado, terá a base 
 
 3. Com o botão direito **BANKDEMO CICS região** no **consola** painel e selecione **região iniciar/parar**.
 
-4. Na parte inferior a **iniciar / parar** caixa que aparece no painel do meio, selecione **iniciar**. Após alguns segundos, a região é iniciado.
+4. Na parte inferior a **região iniciar/parar** caixa que aparece no painel do meio, selecione **iniciar**. Após alguns segundos, a região é iniciado.
 
-     ![](/media/11-demo-sql.png)
+     ![Caixa de SQL iniciar/parar](/media/11-demo-sql.png)
 
-     ![](media/12-demo-cics.png)
+     ![Região do CICS BANKDEMO - ecrã de introdução](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>Criar um serviço de escuta
 
@@ -245,7 +245,7 @@ Tem de criar um serviço de escuta de sessões de TN3270 que aceder à aplicaç�
 
 9. Para iniciar o serviço de escuta, clique nas **iniciar o serviço de escuta** ícone ou escolha **opções** \> **iniciar o serviço de escuta**.
 
-     ![](media/13-demo-listener.png)
+     ![Janelas do Editor de configuração do serviço de escuta](media/13-demo-listener.png)
 
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Configurar Rumba para aceder à aplicação BankDemo
@@ -264,8 +264,8 @@ O último ponto que precisa fazer é configurar uma sessão de 3270 usando Rumba
 
 6. Para o ID de utilizador, escreva **B0001** e a palavra-passe, escreva qualquer coisa. A primeira tela BANK20 abre.
 
-![](media/14-demo.png)
-![](media/15-demo.png)
+![Ecrã de boas-vindas exibição de mainframe](media/14-demo.png)
+![ecrã de demonstração do subsistema de apresentação de Mainframe - Rumba -](media/15-demo.png)
 
 Parabéns! Está agora a executar um aplicativo do CICS no Azure utilizando Micro Focus Enterprise Server.
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/27/2019
-ms.openlocfilehash: 06e76b8eed283c6ef09f38e876c60b05477cf0ce
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.date: 02/28/2019
+ms.openlocfilehash: 85455020099ee738425fde9c03df152669f73863
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985823"
+ms.locfileid: "56992503"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Tutorial: Migrar o MongoDB para API do Azure Cosmos DB para o MongoDB online com o DMS (pré-visualização)
 Pode utilizar o serviço de migração de base de dados do Azure para efetuar uma migração de online (período de indisponibilidade mínimo) de bases de dados a partir de um local ou na cloud a instância do MongoDB à API do Azure Cosmos DB para o MongoDB.
@@ -45,6 +45,15 @@ Este artigo descreve uma migração online do MongoDB à API do Azure Cosmos DB 
 Para concluir este tutorial, precisa de:
 - [Criar um Azure Cosmos DB API para MongoDB conta](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Criar uma rede Virtual do Azure (VNET) para o serviço de migração de base de dados do Azure com o modelo de implementação Azure Resource Manager, que garante uma conectividade site a site aos seus servidores de origem no local, utilizando um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Durante a configuração VNET, se utilizar o ExpressRoute com peering de rede para a Microsoft, adicione o seguinte serviço [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) à sub-rede na qual o serviço será aprovisionado:
+    > - Ponto de extremidade de destino da base de dados (por exemplo, ponto de extremidade do SQL, ponto final do Cosmos DB etc.)
+    > - Ponto final de armazenamento
+    > - Ponto final de barramento de serviço
+    >
+    > Esta configuração é necessária porque o serviço de migração de base de dados do Azure não tem conectividade à internet.
+
 - Certifique-se de que as regras do grupo de segurança de rede de VNET não bloqueiam as seguintes portas de comunicação: 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego dos NSGs das VNETs do Azure, veja o artigo [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Filtrar tráfego de rede com grupos de segurança de rede).
 - Altere a firewall do servidor de origem para permitir que o serviço de migração de base de dados do Azure aceder ao servidor MongoDB de origem, que, por predefinição, é a porta TCP 27017.
 - Se estiver a utilizar uma aplicação de firewall à frente da base ou bases de dados, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base ou bases de dados de origem para migração.
@@ -155,7 +164,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
     Se a cadeia de caracteres **criar** é apresentado junto ao nome da base de dados, ele indica que o serviço de migração de base de dados do Azure não encontrou a base de dados de destino e o serviço irá criar a base de dados para si.
 
-    Neste momento na migração, se a partilha de débito for o pretendido na base de dados, especifique um débito RU. No Cosmos DB, pode aprovisionar o débito ao nível da base de dados ou individualmente para cada coleção. Débito é medido em [unidades de pedido](https://docs.microsoft.com/azure/cosmos-db/request-units) (RUs). Saiba mais sobre [preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
+    Nesta fase da migração, se quiser partilhar o débito no banco de dados, especifique um débito RU. No Cosmos DB, pode aprovisionar o débito ao nível da base de dados ou individualmente para cada coleção. Débito é medido em [unidades de pedido](https://docs.microsoft.com/azure/cosmos-db/request-units) (RUs). Saiba mais sobre [preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
     ![Mapear para as bases de dados de destino](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 

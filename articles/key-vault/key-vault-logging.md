@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: c9d8dd366ecabe9eb508998d526ddfe7b1da300d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960528"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194100"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -306,11 +306,11 @@ A tabela seguinte lista os **operationName** valores e os comandos correspondent
 | **SecretList** |[Lista os segredos num cofre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Lista as versões de um segredo](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
 
-## <a id="loganalytics"></a>Utilizar o Log Analytics
+## <a id="loganalytics"></a>Utilizar registos do Azure Monitor
 
-Pode utilizar a solução de Cofre de chaves no Azure Log Analytics para rever o Key Vault **AuditEvent** registos. Log Analytics, vai utilizar consultas de registo para analisar dados e obter as informações que necessárias. 
+Pode utilizar a solução de Cofre de chaves nos registos do Azure Monitor para rever o Key Vault **AuditEvent** registos. Registos do Azure Monitor, vai utilizar consultas de registo para analisar dados e obter as informações que necessárias. 
 
-Para obter mais informações, incluindo informação sobre configuração, veja [Azure Key Vault solution in Log Analytics (Solução Cofre de Chaves do Azure no Log Analytics)](../azure-monitor/insights/azure-key-vault.md). Este artigo também contém instruções se tiver de migrar a partir da solução de Cofre de chaves antiga que foi oferecida durante a pré-visualização do Log Analytics, onde primeiro encaminhado os registos para uma conta de armazenamento do Azure e configurado o Log Analytics para ler a partir daí.
+Para obter mais informações, incluindo como configurar estas definições, consulte [solução do Azure Key Vault nos registos do Azure Monitor](../azure-monitor/insights/azure-key-vault.md). Este artigo também contém instruções se tiver de migrar a partir da solução de Cofre de chaves antiga que foi oferecida durante os registos do Azure Monitor, pré-visualizar, onde primeiro encaminhada os registos para uma conta de armazenamento do Azure e os registos de monitorização do Azure configurado para ler a partir daí.
 
 ## <a id="next"></a>Passos seguintes
 

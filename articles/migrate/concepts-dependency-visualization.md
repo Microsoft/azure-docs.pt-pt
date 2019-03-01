@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b266ff100d2573ce547564a52ec0efda6ec53458
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257980"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991857"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
@@ -26,7 +26,7 @@ Visualização de dependências no Azure Migrate permite-lhe criar grupos de con
 
 ## <a name="how-does-it-work"></a>Como funciona?
 
-O Azure Migrate utiliza a [mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md) solução em [do Log Analytics](../log-analytics/log-analytics-overview.md) para visualização de dependência.
+O Azure Migrate utiliza a [mapa de serviço](../operations-management-suite/operations-management-suite-service-map.md) solução em [registos do Azure Monitor](../log-analytics/log-analytics-overview.md) para visualização de dependência.
 - Para aproveitar a visualização de dependências, precisa associar área de trabalho do Log Analytics, nova ou existente, com um projeto do Azure Migrate.
 - Só pode criar ou anexar uma área de trabalho na mesma subscrição em que é criado o projeto de migração.
 - Para anexar uma área de trabalho do Log Analytics a um projeto, aceda a **Essentials** secção do projeto **descrição geral** página e clique em **requer configuração**

@@ -1,5 +1,5 @@
 ---
-title: Criar um espaço de programador do Kubernetes na cloud | Microsoft Docs
+title: Criar um espaço de desenvolvimento de Kubernetes na cloud
 titleSuffix: Azure Dev Spaces
 author: stepro
 services: azure-dev-spaces
@@ -9,14 +9,14 @@ ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores
+keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
 manager: mmontwil
-ms.openlocfilehash: c8c85c9220574a3e18e5549e1607dafe1aec03ab
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b55a330516216ba49041bce35d55c89b8d348c15
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818175"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191889"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Início rápido: Criar um espaço de desenvolvimento de Kubernetes com espaços de desenvolvimento do Azure (Java e o VS Code)
 

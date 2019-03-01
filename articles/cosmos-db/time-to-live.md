@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d09abfbec7ace3112de35869ccc95c56e113e6fe
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461173"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991840"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>TTL no Azure Cosmos DB 
 
@@ -30,7 +30,7 @@ O tempo para o valor de TTL é definido em segundos, e ela é interpretada como 
 
    - Se o momento presente e o valor está definido como um número ("n") – itens expirarem "n" segundos após a sua última hora de modificação.
 
-2. **TTL de num item** (definido com o `TimeToLive`):
+2. **TTL de num item** (definido com o `ttl`):
 
    - Esta propriedade é aplicável apenas se `DefaultTimeToLive` está presente e não está definido como nulo para o contentor principal.
 

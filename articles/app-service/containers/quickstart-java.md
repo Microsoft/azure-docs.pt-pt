@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e4ae0c944323f18876ffcd1ee5c21aa29e9806cc
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d2c21e82447c4be8b7e0cfaa023f87547277433a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650823"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195205"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Início rápido: Criar uma aplicação Java no serviço de aplicações no Linux
 
@@ -55,25 +55,18 @@ Em seguida, adicione a seguinte definição de plug-in dentro do elemento `<buil
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
     <!--*************************************************-->
-      
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
         <version>1.5.3</version>
         <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
             <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
             <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime>
+            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
         </configuration>
     </plugin>
 </plugins>

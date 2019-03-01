@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 8a828bcb7817c30631930da953bc9eef6250c398
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 01d7d197983638e415798b0b73e7ac7168c8cfab
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736442"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192705"
 ---
 # <a name="view-model-details"></a>Ver detalhes do modelo
 

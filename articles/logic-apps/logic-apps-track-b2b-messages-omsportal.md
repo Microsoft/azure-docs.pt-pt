@@ -1,5 +1,5 @@
 ---
-title: Monitorizar mensagens B2B com o Log Analytics - Azure Logic Apps | Documentos da Microsoft
+title: Monitorizar mensagens B2B com os registos do Azure Monitor - Azure Logic Apps | Documentos da Microsoft
 description: Controlar a comunicação de B2B para contas de integração e o Azure Logic Apps com o Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
@@ -9,16 +9,16 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8cf5d9f3ee1503769a2ec199847175899bcd86bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996550"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193216"
 ---
-# <a name="track-b2b-messages-with-azure-log-analytics"></a>Monitorizar mensagens B2B com o Azure Log Analytics
+# <a name="track-b2b-messages-with-azure-monitor-logs"></a>Monitorizar mensagens B2B com os registos do Azure Monitor
 
-Depois de definir a comunicação de B2B entre parceiros comerciais na sua conta de integração, os parceiros podem trocar mensagens com protocolos, como o AS2, X12 e EDIFACT. Para verificar que estas mensagens são processadas corretamente, pode controlar estas mensagens com [do Azure Log Analytics](../log-analytics/log-analytics-overview.md). Por exemplo, pode utilizar estas capacidades de controle baseado na web para mensagens de controlo:
+Depois de definir a comunicação de B2B entre parceiros comerciais na sua conta de integração, os parceiros podem trocar mensagens com protocolos, como o AS2, X12 e EDIFACT. Para verificar que estas mensagens são processadas corretamente, pode controlar estas mensagens com [registos do Azure Monitor](../log-analytics/log-analytics-overview.md). Por exemplo, pode utilizar estas capacidades de controle baseado na web para mensagens de controlo:
 
 * Contagem de mensagens e o Estado
 * Estado de agradecimentos
@@ -29,19 +29,21 @@ Depois de definir a comunicação de B2B entre parceiros comerciais na sua conta
 > [!NOTE]
 > Passos para saber como realizar estas tarefas com o Microsoft Operations Management Suite (OMS), que é descrito anteriormente, esta página [extinguir em Janeiro de 2019](../azure-monitor/platform/oms-portal-transition.md), substitui esses passos com o Azure Log Analytics em vez disso. 
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma aplicação de lógica que está configurada com o registo de diagnósticos. Saiba mais [como criar uma aplicação lógica](quickstart-create-first-logic-app-workflow.md) e [como configurar o registo para essa aplicação lógica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Uma conta de integração que está configurada com a monitorização e registo. Saiba mais [como criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [como configurar a monitorização e registo para essa conta](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Se ainda não o fez, [publicar dados de diagnóstico para o Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Se ainda não o fez, [publicar dados de diagnóstico para os registos do Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 * Depois de cumprir os requisitos anteriores, também precisa de uma área de trabalho do Log Analytics, que são utilizados para comunicação de B2B através da análise de registo de controlo. Se não tiver uma área de trabalho do Log Analytics, saiba [como criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 ## <a name="install-logic-apps-b2b-solution"></a>Instalar a solução de aplicações lógicas B2B
 
-Antes de pode ter o Log Analytics monitorizar mensagens B2B para a aplicação lógica, adicione a **Logic Apps B2B/EDI** solução para o Log Analytics. Saiba mais sobre [adicionar soluções ao Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+Antes de pode ter registos do Azure Monitor monitorizar mensagens B2B para a aplicação lógica, adicione a **Logic Apps B2B/EDI** solução para os registos do Azure Monitor. Saiba mais sobre [adicionar soluções para os registos do Azure Monitor](../azure-monitor/learn/quick-create-workspace.md).
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Todos os serviços**. Na caixa de pesquisa, encontre "log analytics" e selecione **do Log Analytics**.
 
@@ -128,7 +130,7 @@ Após o processamento de mensagens B2B, pode ver o estado e os detalhes para ess
    * Para pesquisar resultados com consultas pré-criadas, escolha **Favoritos**.
 
    * Saiba mais [como criar consultas, adicione filtros](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md). 
-   Ou obtenha mais informações [como encontrar dados com pesquisas de registos no Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Ou obtenha mais informações [como encontrar dados com pesquisas de registos nos registos do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
 
    * Para alterar a consulta na caixa de pesquisa, atualize a consulta com as colunas e os valores que pretende utilizar como filtros.
 
@@ -237,7 +239,7 @@ Aqui estão os formatos de nome para cada pasta de mensagem EDIFACT transferida 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Consulta para mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Consulta para mensagens B2B nos registos do Azure Monitor](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [Esquemas de controlo de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [Esquemas de controlo de X12](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Esquemas de controlo personalizado](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

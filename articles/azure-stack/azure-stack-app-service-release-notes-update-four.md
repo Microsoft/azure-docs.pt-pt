@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 2555ce4b9485ba6464bde3422df114343b579641
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243424"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991086"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Serviço de aplicações no notas de versão de atualização 4 do Azure Stack
 
@@ -96,7 +96,12 @@ Serviço de aplicações do Azure no Azure Stack atualização 4 inclui as segui
 
 - Certifique-se de que ponto final é especificado na cadeia de ligação de armazenamento personalizado quando especificado na nova aplicação de função
 
-### <a name="post-update-steps-optional"></a>Passos de atualização de POST (opcional)
+### <a name="post-deployment-steps"></a>Passos de pós-implementação
+
+> [!IMPORTANT]  
+> Se forneceu a RP de serviço de aplicações com uma sempre na instância do SQL tem [adicionar as bases de dados appservice_hosting e appservice_metering a um grupo de disponibilidade](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) e sincronizar as bases de dados para evitar qualquer perda de serviço do evento de uma ativação pós-falha de base de dados.
+
+### <a name="post-update-steps-optional"></a>Etapas de pós-atualização (opcionais)
 
 Para os clientes que pretendem migrar para o banco de dados independente do serviço de aplicações do Azure atual em implementações do Azure Stack, execute estes passos depois do serviço de aplicações do Azure no Azure Stack 1.4 atualização estar concluída:
 

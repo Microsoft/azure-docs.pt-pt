@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: cbfe4fcf30e9529f191f2a80de8ab83e7e0811f7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 09805719262f0a1d30f3b38af4b5209667d25e5a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735903"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195375"
 ---
 # <a name="add-public-ip-addresses"></a>Adicionar endereços IP públicos
 *Aplica-se a: Integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*  

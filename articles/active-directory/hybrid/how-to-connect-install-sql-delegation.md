@@ -16,12 +16,12 @@ ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41859195474f19906118dbe94503bcbe04d0ac65
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 31cfcc6d2309b90565f71a7827fb7057145323c3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960365"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192417"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalar o Azure AD Connect com permissões de administrador do SQL delegado
 Antes da compilação mais recente do Azure AD Connect, a delegação administrativa, ao implementar as configurações necessárias do SQL, não era suportada.  Os utilizadores que pretendem instalar o Azure AD Connect é necessário ter permissões de administrador (SA) de servidor no SQL server.
@@ -59,9 +59,9 @@ Para aprovisionar a base de dados fora de banda e instale o Azure AD Connect com
  3. Envie um e-mail para o administrador do Azure AD Connect que indica o nome de servidor e a instância SQL que deve ser utilizado quando instalar o Azure AD Connect.
 
 ## <a name="additional-information"></a>Informações adicionais
-Assim que a base de dados é aprovisionado, o administrador do Azure AD Connect pode instalar e configurar sincronização no local a suas necessidades.  
+Assim que a base de dados é aprovisionado, o administrador do Azure AD Connect pode instalar e configurar sincronização no local a suas necessidades.
 
-Para obter mais informações sobre como instalar o Azure AD Connect com uma base de dados existente, consulte [instalar o Azure AD Connect com a base de dados ADSync existente](how-to-connect-install-existing-database.md)
+No caso do administrador do SQL tem restaurada ADSync base de dados a partir de uma cópia de segurança do Azure AD Connect anterior, terá de instalar o novo servidor do Azure AD Connect com a base de dados existente. Para obter mais informações sobre como instalar o Azure AD Connect com uma base de dados existente, consulte [instalar o Azure AD Connect com a base de dados ADSync existente](how-to-connect-install-existing-database.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Introdução ao Azure AD Connect com as definições rápidas](how-to-connect-install-express.md)

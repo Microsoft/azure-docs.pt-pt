@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: dbd9eaf531dcad230c23d1b41110036102faf3df
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 83229cdca0ccff68dcdd543495a7a19b6e6c4c5b
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652672"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990056"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas Frequentes de Avere vFXT para Azure
 
@@ -63,7 +63,7 @@ Avere vFXT é uma cache. Especificamente, ele não armazenar dados. Utiliza uma 
 
 ### <a name="what-regions-are-supported"></a>Que regiões são suportadas?
 
-A partir de 1 de Novembro de 2018, Avere vFXT para o Azure é suportado em todas as regiões, exceto para as regiões de soberania (China, Alemanha) e regiões do Governo. Certifique-se de que a região que pretende utilizar pode oferecer suporte a grande quantidade de núcleos de computação e as instâncias VM necessárias para criar o cluster de vFXT Avere.
+Avere vFXT para o Azure é suportado em todas as regiões, exceto para as regiões de soberania (China, Alemanha). Certifique-se de que a região que pretende utilizar pode oferecer suporte a grande quantidade de núcleos de computação e as instâncias VM necessárias para criar o cluster de vFXT Avere.
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Como posso obter ajuda com Avere vFXT?
 
@@ -88,15 +88,17 @@ Avere vFXT é uma aplicação em cluster feita de várias máquinas virtuais do 
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Que tipo de máquinas virtuais do Azure é executado Avere vFXT no?  
 
-Um vFXT Avere para cluster do Azure utiliza o Microsoft Azure E32s_v3 ou D16s_v3 máquinas virtuais. 
+Um vFXT Avere para cluster do Azure utiliza as máquinas virtuais do Microsoft Azure E32s_v3. 
 
-### <a name="can-i-mix-and-match-virtual-machine-types-for-my-cluster"></a>Pode combinar e corresponder aos tipos de máquina virtual para o meu cluster?
+<!-- ### Can I mix and match virtual machine types for my cluster?
 
-Não, tem de escolher um tipo de máquina virtual ou outro.
+No, you must choose one virtual machine type or the other.
     
-### <a name="can-i-move-between-virtual-machine-types"></a>Posso mover entre tipos de máquina virtual?
+### Can I move between virtual machine types?
 
-Sim, há um caminho de migração para mover de um tipo VM para outra. [Abra um pedido de suporte](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) para saber como.
+Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
+
+-->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>O ambiente de vFXT Avere Dimensionar?
 
@@ -175,7 +177,7 @@ Sim, pode criar o seu sistema de vFXT Avere numa rede virtual diferente. Leia [p
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Avere vFXT requer sua própria sub-rede?
 
-Sim. Avere vFXT executa estritamente como um cluster do HA e requer vários endereços IP para operar. Se o cluster estiver na sua própria sub-rede, a evitar o risco de conflitos de endereços IP, o que pode causar problemas para instalação e o funcionamento normal. Sub-rede do cluster pode ser dentro da rede virtual existente, desde que a sobreposição de endereços não IP.
+Sim. Avere vFXT executa estritamente como um cluster de elevada disponibilidade (HA) e requer vários endereços IP para operar. Se o cluster estiver na sua própria sub-rede, a evitar o risco de conflitos de endereços IP, o que pode causar problemas para instalação e o funcionamento normal. Sub-rede do cluster pode ser dentro da rede virtual existente, desde que a sobreposição de endereços não IP.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>Posso executar Avere vFXT em InfiniBand?
 

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c791dc8216a4c905b4147f59a42d52091f14aae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 93e1904862af7eaad395bf14b0d09555d9d1d2ab
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465984"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990140"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Documentação de orientação para uso tabelas replicadas no Azure SQL Data Warehouse
 Este artigo fornece recomendações para a criação de tabelas replicadas no seu esquema do SQL Data Warehouse. Utilize estas recomendações para melhorar o desempenho de consulta, reduzindo a complexidade de movimento e a consulta de dados.
@@ -58,7 +58,7 @@ Antes de optar por distribuir ou replicar uma tabela, pense sobre os tipos de co
 
 Consultas de intensiva da CPU têm um melhor desempenho quando o trabalho é distribuído por todos os nós de computação. Por exemplo, consultas que executam cálculos em cada linha de uma tabela funcionar melhor em tabelas distribuídas a tabelas replicadas. Como uma tabela replicada é armazenada por completo em cada nó de computação, executa uma consulta de intensiva da CPU em tabelas replicadas contra a tabela inteira em cada nó de computação. A computação extra pode abrandar o desempenho de consulta.
 
-Por exemplo, esta consulta tem um predicado complexo.  Ele é executado mais rapidamente quando o fornecedor é uma tabela distribuída, em vez de uma tabela replicada. Neste exemplo, o fornecedor pode ser distribuídas por round robin.
+Por exemplo, esta consulta tem um predicado complexo.  Ele é executado mais rapidamente quando os dados estão numa tabela distribuída, em vez de uma tabela replicada. Neste exemplo, os dados podem ser distribuída round robin.
 
 ```sql
 
@@ -69,7 +69,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Converter tabelas de round robin existentes em tabelas replicadas
-Se já tiver as tabelas round-robin, recomendamos que convertê-los para tabelas replicadas, se cumprirem com critérios descritos neste artigo. Tabelas replicadas melhorar o desempenho em tabelas round robin porque eliminam a necessidade de movimento de dados.  Uma tabela round-robin requer sempre movimento de dados de associações. 
+Se já tiver as tabelas round-robin, recomendamos que convertê-los para tabelas replicadas, se cumprirem os critérios descritos neste artigo. Tabelas replicadas melhorar o desempenho em tabelas round robin porque eliminam a necessidade de movimento de dados.  Uma tabela round-robin requer sempre movimento de dados de associações. 
 
 Este exemplo utiliza [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) para alterar a tabela DimSalesTerritory para tabelas replicadas. Este exemplo funciona independentemente DimSalesTerritory é distribuída por hash ou round robin.
 

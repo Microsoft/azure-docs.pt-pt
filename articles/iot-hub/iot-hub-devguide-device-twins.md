@@ -1,18 +1,19 @@
 ---
 title: Compreender duplos de dispositivo do IoT Hub do Azure | Documentos da Microsoft
 description: Guia do desenvolvedor – utilizar dispositivos duplos para sincronizar dados de configuração e o estado entre o IoT Hub e os seus dispositivos
-author: fsautomata
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: elioda
-ms.openlocfilehash: 606a7c64cc60fa81a71bf40a8087875e08e7c984
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 4cbb8e389f403aeb149998acc21956ebce40be78
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053028"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011505"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e utilizar dispositivos duplos no IoT Hub
 
@@ -51,7 +52,7 @@ O ciclo de vida de um dispositivo duplo está ligado a correspondente [identidad
 
 Um dispositivo duplo é um documento JSON que inclui:
 
-* **Etiquetas**. Uma secção do documento JSON que o back-end de solução pode ler e escrever. As etiquetas não estão visíveis para aplicações de dispositivos.
+* **Tags**. Uma secção do documento JSON que o back-end de solução pode ler e escrever. As etiquetas não estão visíveis para aplicações de dispositivos.
 
 * **Propriedades pretendidas**. Utilizados em conjunto com as propriedades comunicadas para sincronizar a configuração do dispositivo ou condições. O back-end de solução pode definir as propriedades pretendidas e, a aplicação de dispositivo pode lê-los. A aplicação de dispositivo também pode receber notificações de alterações nas propriedades pretendidas.
 
@@ -181,14 +182,14 @@ O back-end de solução funciona no dispositivo duplo usando as seguintes opera�
 
    - Propriedades
 
-   | Nome | Valor |
+   | Name | Value |
    | --- | --- |
-   $content-tipo | application/json |
+   $content-type | application/json |
    $iothub-enqueuedtime |  Tempo quando a notificação foi enviada |
-   $iothub-mensagem-origem | twinChangeEvents |
-   $content-encoding | UTF-8 |
+   $iothub-message-source | twinChangeEvents |
+   $content-encoding | utf-8 |
    deviceId | ID do dispositivo |
-   HubName | Nome do IoT Hub |
+   hubName | Nome do IoT Hub |
    operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) timestamp da operação |
    iothub-message-schema | deviceLifecycleNotification |
    opType | "replaceTwin" ou "updateTwin" |

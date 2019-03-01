@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e79fdf2d7d680b3a229385c0fd96d844b3425b18
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455937"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992486"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurar dados a partir de uma cópia de segurança no Azure Cosmos DB 
 
@@ -33,6 +33,11 @@ Deve ter os seguintes detalhes antes de solicitar um restauro:
 * Se um ou mais bases de dados são eliminados, deve fornecer a conta do Cosmos do Azure, bem como os nomes de base de dados do Cosmos do Azure e especificar se existe uma nova base de dados com o mesmo nome.
 
 * Se um ou mais contentores são eliminados, deve fornecer o nome de conta do Cosmos do Azure, os nomes de base de dados e os nomes de contentor. E especificar se existe um contentor com o mesmo nome.
+
+* Se tiver eliminado acidentalmente ou danificado seus dados, deve contactar [suporte do Azure](https://azure.microsoft.com/support/options/) dentro de 8 horas para que a equipa do Azure Cosmos DB pode ajudar a restaurar os dados de cópias de segurança.
+  
+  * Se tiver eliminado acidentalmente a base de dados ou o contentor, abra um incidente de suporte de gravidade B ou a gravidade C Azure. 
+  * Se o ter acidentalmente excluída ou danificada alguns documentos dentro do contêiner, abra um incidente de suporte de gravidade A. 
 
 Quando ocorre a Corrupção de dados e se os documentos dentro de um contêiner serem modificados ou eliminados, **eliminar o contentor logo que possível**. Ao eliminar o contentor, pode evitar o Azure Cosmos DB substituam as cópias de segurança. Se por algum motivo, a eliminação não for possível, deve enviar um pedido de logo que possível. Além do nome da conta do Cosmos do Azure, os nomes de base de dados, nomes de coleções, deve especificar o ponto no tempo para que os dados possam ser restaurados. É importante usarmos o possível ajudar-na determinar as melhor cópias de segurança disponíveis nesse momento. Também é importante especificar a hora em UTC. 
 

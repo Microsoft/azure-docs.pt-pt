@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5a9ea460684383bd09e5a679f3140d3b8f083d4d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 579c23fc3092acb785e89ddfa390e9495fc004d3
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823625"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194532"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -57,6 +57,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Certificados de serviço de aplicações - veja [limitações de certificado do serviço de aplicações](#app-service-certificate-limitations)
 * Automatização - Runbooks tem de existir no mesmo grupo de recursos como a conta de automatização.
 * Azure Active Directory B2C
+* A Cache do Azure para Redis - se a Cache do Azure para a instância de Redis está configurada com uma rede virtual, a instância não pode ser movida para uma subscrição diferente. Ver [limitações de redes virtuais](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure Data Explorer
 * Azure Database for MariaDB
@@ -64,6 +65,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Base de Dados do Azure para PostgreSQL
 * DevOps do Azure - as organizações de DevOps do Azure com a extensão de não-Microsoft compras obrigatória [cancelar as suas compras](https://go.microsoft.com/fwlink/?linkid=871160) antes de poder avançar a conta em várias subscrições.
 * Azure Maps
+* Registos de Monitor do Azure
 * Reencaminhamento do Azure
 * O Azure Stack - registos
 * Batch
@@ -91,11 +93,10 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Podem ser movidas balanceadores de carga - Balanceador de carga de SKU básico. Não é possível mover o Balanceador de carga de SKU Standard.
 * Aplicações Lógicas
 * Machine Learning - Machine Learning Studio, serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de aprendizagem automática podem ser movidos entre subscrições.
-* Managed Disks – consulte [limitações de máquinas virtuais para restrições](#virtual-machines-limitations)
+* Managed Disks - Managed Disks em zonas de disponibilidade não podem ser movidos para uma subscrição diferente
 * Identidade gerida - atribuído ao utilizador
 * Serviços de Multimédia
 * Monitor de - Certifique-se de que mover para a nova assinatura não excede [quotas da subscrição](../azure-subscription-service-limits.md#monitor-limits)
-* Registos de Monitor do Azure
 * Hubs de Notificação
 * Informações Operacionais
 * Gestão de Operações
@@ -103,7 +104,6 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Power BI - tanto o Power BI Embedded e robustez com a coleção de área de trabalho de BI
 * IP público - IP público de SKU básico que podem ser movido. Não é possível mover o IP público de SKU Standard.
 * Serviços de recuperação cofre - Inscreva-se numa [pré-visualização](#recovery-services-limitations).
-* A Cache do Azure para Redis - se a Cache do Azure para a instância de Redis está configurada com uma rede virtual, a instância não pode ser movida para uma subscrição diferente. Ver [limitações de redes virtuais](#virtual-networks-limitations).
 * Scheduler
 * Pesquisa - não é possível mover a vários recursos de pesquisa em regiões diferentes numa única operação. Em vez disso, movê-los em operações separadas.
 * Service Bus
@@ -116,7 +116,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Servidor de base de dados SQL - base de dados e o servidor tem de estar no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados do Azure SQL Database e o Azure SQL Data Warehouse.
 * Time Series Insights
 * Gestor de Tráfego
-* Máquinas virtuais - para VMs com discos geridos, consulte [limitações de máquinas virtuais](#virtual-machines-limitations)
+* Máquinas virtuais - veja [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Máquinas virtuais (clássico) - consulte [limitações da implementação clássica](#classic-deployment-limitations)
 * Veja conjuntos de dimensionamento de máquinas virtuais - [limitações de máquinas virtuais](#virtual-machines-limitations)
 * Redes virtuais - veja [limitações de redes virtuais](#virtual-networks-limitations)
@@ -133,6 +133,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Azure Databricks
 * Azure Firewall
 * Azure Migrate
+* Azure NetApp Files
 * Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
 * Aplicativos clássicos
 * Container Instances
@@ -145,7 +146,6 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Serviços de laboratório - mudança para o novo grupo de recursos na mesma subscrição está ativada, mas a movimentação entre subscrições não está ativada.
 * Aplicações Geridas
 * Microsoft Genomics
-* Azure NetApp Files
 * SAP HANA no Azure
 * Segurança
 * Site Recovery
@@ -166,13 +166,12 @@ A secção fornece descrições de como lidar com cenários complicados para mov
 
 ### <a name="virtual-machines-limitations"></a>Limitações de máquinas virtuais
 
-A partir de 24 de Setembro de 2018, pode mover os discos geridos. Esse suporte significa que pode mover máquinas virtuais com discos geridos, imagens geridas, instantâneos geridos e conjuntos de disponibilidade com máquinas virtuais que utilizam discos geridos.
+Pode mover as máquinas virtuais com discos geridos, imagens geridas, instantâneos geridos e conjuntos de disponibilidade com máquinas virtuais que utilizam discos geridos. Discos geridos em zonas de disponibilidade não podem ser movidos para uma subscrição diferente.
 
 Ainda não são suportados os seguintes cenários:
 
 * Máquinas virtuais com o certificado armazenadas no Key Vault pode ser movidas para um novo grupo de recursos na mesma subscrição, mas não em várias subscrições.
-* Discos geridos em zonas de disponibilidade não podem ser movidos para uma subscrição diferente
-* Não é possível mover a conjuntos de dimensionamento de máquina virtual com o Balanceador de carga de SKU Standard ou IP público de SKU Standard
+* Não é possível mover a conjuntos de dimensionamento de máquina virtual com o Balanceador de carga de SKU Standard ou IP público de SKU Standard.
 * Máquinas virtuais criadas a partir dos recursos de mercado com planos ligados não pode ser movidas entre grupos de recursos ou subscrições. Desaprovisionar a máquina virtual na subscrição atual e implemente novamente na subscrição nova.
 
 Para mover máquinas virtuais configuradas com o Azure Backup, utilize a seguinte solução:
@@ -190,6 +189,8 @@ Para mover máquinas virtuais configuradas com o Azure Backup, utilize a seguint
 ### <a name="virtual-networks-limitations"></a>Limitações de redes virtuais
 
 Ao mover uma rede virtual, também tem de mover os recursos dependentes. Para Gateways de VPN, tem de mover os endereços IP, gateways de rede virtual e todos os recursos de ligação associada. Gateways de rede local podem estar num grupo de recursos diferente.
+
+Para mover uma máquina virtual com uma placa de interface de rede, tem de mover todos os recursos dependentes. Tem de mover a rede virtual para a placa de interface de rede, todos os cartões de interface outra rede para a rede virtual e os gateways de VPN.
 
 Para mover uma rede virtual em modo de peering, tem primeiro de desativar o peering de rede virtual. Uma vez desativada, pode mover a rede virtual. Após a mudança, reativar o peering de rede virtual.
 

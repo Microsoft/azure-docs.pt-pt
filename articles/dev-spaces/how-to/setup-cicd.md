@@ -1,5 +1,5 @@
 ---
-title: Utilizar o CI/CD com espaços de desenvolvimento do Azure | Documentos da Microsoft
+title: Utilizar o CI/CD com espaços de desenvolvimento do Azure
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,16 +7,16 @@ ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
-ms.topic: article
+ms.topic: conceptual
 manager: yuvalm
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-ms.openlocfilehash: 0abe2902248c8203046cfe891d136ca7d5d0a75b
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b614a517874363be95ff17d802995a927a15af2f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55666899"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194635"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utilizar o CI/CD com espaços de desenvolvimento do Azure
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9839d636ba582c5006a260aeb6a17ac1a12e9b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdd4ecb1bfc9385ea3fa23756fcbf8fb20b6d87c
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986010"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193250"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Pré-visualização: Implementar a proteção de palavras-passe do AD do Azure
 
@@ -57,6 +57,7 @@ Preferencialmente, isto é conseguido ao corrigir totalmente a máquina através
 * Uma conta de administrador global para registar o serviço de Proxy de proteção de palavra-passe do Azure AD e a floresta com o Azure AD.
 * Uma conta com privilégios de administrador de domínio do Active Directory no domínio de raiz de floresta para registar a floresta do Active Directory do Windows Server com o Azure AD.
 * Qualquer domínio do Active Directory, o controlador de domínio a executar software do serviço de agente tem de utilizar DFSR para a replicação de sysvol.
+* O serviço de distribuição de chaves Microsoft tem de estar ativado em todos os Windows Server 2012 e posteriores controladores de domínio no domínio (ativada através do início do acionador manual é o estado predefinido deste serviço).
 
 ## <a name="single-forest-deployment"></a>Implementação de floresta única
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: eb5d1ca55efed7e83739f21a432b61b6aad25f70
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165033"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194015"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Adicionar servidores de alojamento para o fornecedor de recursos do MySQL
 
@@ -44,7 +44,9 @@ Certificar-se de que tem as credenciais para uma conta com privilégios de admin
 4. Forneça os detalhes de ligação da sua instância do servidor MySQL.
 
    * Para **nome do servidor que aloja MySQL**, forneça o nome de domínio completamente qualificado (FQDN) ou um endereço IPv4 válido. Não utilize o nome abreviado de VM.
-   * Uma instância de MySQL predefinida não é fornecida, pelo que tem de especificar o **tamanho de servidor de alojamento de em GB**. Introduza um tamanho próximo da capacidade do servidor da base de dados.
+   - O administrador predefinido **nome de utilizador** para o Bitnami MySQL imagens disponíveis no mercado do Azure Stack é *raiz*. 
+   - Se não souber a raiz **palavra-passe**, consulte a [Bitnami documentação](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) para saber como fazê-lo. 
+   - Uma instância de MySQL predefinida não é fornecida, pelo que tem de especificar o **tamanho de servidor de alojamento de em GB**. Introduza um tamanho próximo da capacidade do servidor da base de dados.
    * Manter a predefinição para **subscrição**.
    * Para **grupo de recursos**, crie um novo ou utilizar um grupo existente.
 

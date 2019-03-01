@@ -4,7 +4,7 @@ description: " A migração de cargas de trabalho de IaaS do Azure oferece oport
 services: security
 documentationcenter: na
 author: barclayn
-manager: barbkess
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 6bf73bcc691e2ab27f3ec379530a59d3b616a070
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: de89e0a30f39ba97379b4d55914338702aef5c32
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341221"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990413"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho de IaaS no Azure
 
@@ -39,7 +39,7 @@ As melhores práticas baseiam-se um consenso de opinião, e trabalhar com recurs
 O primeiro passo para proteger as suas VMs é garantir que os utilizadores autorizados apenas pode configurar novas VMs e acesso de VMs.
 
 **Melhor prática**: Controlar o acesso VM.   
-**Detalhe**: Uso [políticas do Azure](../governance/policy/overview.md) para estabelecer as convenções para recursos na sua organização e criar políticas personalizadas. Aplicar estas políticas para recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). As VMs que pertencem a um grupo de recursos herdam suas diretivas.
+**Detalhe**: Uso [políticas do Azure](../azure-policy/azure-policy-introduction.md) para estabelecer as convenções para recursos na sua organização e criar políticas personalizadas. Aplicar estas políticas para recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). As VMs que pertencem a um grupo de recursos herdam suas diretivas.
 
 Se sua organização tiver várias subscrições, poderá ter uma forma de gerenciar com eficiência o acesso, políticas e conformidade para nessas subscrições. [Grupos de gestão do Azure](../azure-resource-manager/management-groups-overview.md) fornecer um nível de âmbito acima subscrições. Organizar subscrições para grupos de gestão (contentores) e aplicar suas condições de governação a esses grupos. Todas as subscrições dentro de um grupo de gestão herdam automaticamente as condições aplicadas ao grupo. Os grupos de gestão dão-lhe capacidades de gestão de nível empresarial em grande escala, independentemente do seu tipo de subscrição.
 
@@ -153,10 +153,10 @@ Seguem-se melhores práticas para utilizar o Azure Disk Encryption:
 **Detalhe**: O Azure Disk Encryption gera e escreve as chaves de encriptação para o seu Cofre de chaves. A gestão de chaves de encriptação no seu Cofre de chaves requer autenticação do Azure AD. Crie uma aplicação do Azure AD para esta finalidade. Para fins de autenticação, pode utilizar a autenticação com base no segredo do cliente ou [autenticação de cliente baseada em certificado do Azure AD](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Melhor prática**: Utilize uma chave de encriptação de chaves (KEK) para uma camada adicional de segurança para as chaves de encriptação. Adicione um KEK ao seu Cofre de chaves.   
-**Detalhe**: Utilize o [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) cmdlet para criar uma chave de encriptação de chave no Cofre de chaves. Também pode importar um KEK de seu módulo de segurança de hardware (HSM) de no local para a gestão de chaves. Para obter mais informações, consulte a [documentação do Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quando é especificada uma chave de encriptação de chave, o Azure Disk Encryption utiliza essa chave para encapsular os segredos de encriptação antes de escrever para o Key Vault. Manter uma cópia de caução desta chave num local a gestão de chaves HSM oferece proteção adicional contra a eliminação acidental de chaves.
+**Detalhe**: Utilize o [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet para criar uma chave de encriptação de chave no Cofre de chaves. Também pode importar um KEK de seu módulo de segurança de hardware (HSM) de no local para a gestão de chaves. Para obter mais informações, consulte a [documentação do Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quando é especificada uma chave de encriptação de chave, o Azure Disk Encryption utiliza essa chave para encapsular os segredos de encriptação antes de escrever para o Key Vault. Manter uma cópia de caução desta chave num local a gestão de chaves HSM oferece proteção adicional contra a eliminação acidental de chaves.
 
 **Melhor prática**: Efetuar uma [instantâneo](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/ou criar cópias de segurança antes dos discos são encriptados. As cópias de segurança fornecem uma opção de recuperação se acontecer de uma falha inesperada durante a encriptação.   
-**Detalhe**: As VMs com discos geridos requerem uma cópia de segurança antes de ocorre de encriptação. Depois de uma cópia de segurança é feita, pode utilizar o **Set-AzureRmVMDiskEncryptionExtension** cmdlet para encriptar discos geridos ao especificar a *- skipVmBackup* parâmetro. Para obter mais informações sobre como criar cópias de segurança e restaurar VMs encriptadas, consulte a [Azure Backup](../backup/backup-azure-vms-encryption.md) artigo.
+**Detalhe**: As VMs com discos geridos requerem uma cópia de segurança antes de ocorre de encriptação. Depois de uma cópia de segurança é feita, pode utilizar o **conjunto AzVMDiskEncryptionExtension** cmdlet para encriptar discos geridos ao especificar a *- skipVmBackup* parâmetro. Para obter mais informações sobre como criar cópias de segurança e restaurar VMs encriptadas, consulte a [Azure Backup](../backup/backup-azure-vms-encryption.md) artigo.
 
 **Melhor prática**: Para certificar-se de que os segredos de encriptação, não ultrapassam limites regionais, o Azure Disk Encryption tem o Cofre de chaves e as VMs localizadas na mesma região.   
 **Detalhe**: Criar e utilizar um cofre de chaves que está na mesma região que a VM ser encriptada.

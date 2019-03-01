@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e5b06ad551b45bc0c892bc789c6f5c5a27b5bb0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ca5dc106d3a524f9bdd6f2d989ef1189032cd60f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882982"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195528"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -1102,7 +1102,7 @@ Nome alterado do Azure AD Sync para o Azure AD Connect.
 * Pode [configurar o AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * Pode [atualizar do DirSync](how-to-dirsync-upgrade-get-started.md)
 * [Impedir eliminações acidentais](how-to-connect-sync-feature-prevent-accidental-deletes.md)
-* Introduzida [modo de teste](how-to-connect-sync-operations.md#staging-mode)
+* Introduzida [modo de teste](how-to-connect-sync-staging-server.md)
 
 **Novas funcionalidades de pré-visualização:**
 

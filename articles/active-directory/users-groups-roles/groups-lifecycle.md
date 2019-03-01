@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0df176185bde104a2beb34ea64d54e4069643f69
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d26cd97a248172955dcfcf2662424d1e782793bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190098"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192332"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
 
@@ -30,6 +30,8 @@ Depois de definir um grupo a expirar:
 -   Os proprietários do grupo são notificados para renovar o grupo que está prestes à expiração
 -   Qualquer grupo que não for renovado é eliminado
 -   Qualquer grupo do Office 365, que é eliminado pode ser restaurado dentro de 30 dias, os proprietários do grupo ou o administrador
+
+Atualmente, apenas uma política de expiração pode ser configurada para grupos do Office 365 num inquilino.
 
 > [!NOTE]
 > Configurar e utilizar a política de expiração para grupos do Office 365 requerem às suas mãos licenças do Azure AD Premium para todos os membros dos grupos aos quais é aplicada a política de expiração.
@@ -61,6 +63,10 @@ Para obter mais informações sobre as permissões para restaurar um grupo elimi
   * Selecione os grupos do Office 365 expirarem. Pode ativar a expiração para **todos os** grupos do Office 365, pode optar por ativar apenas **selecionados** grupos do Office 365, ou selecione **None**  para desativar a expiração de todos os grupos.
   * Guardar as definições, quando tiver terminado, selecionando **guardar**.
 
+> [!NOTE]
+> * Quando configurar a expiração pela primeira vez, todos os grupos que são mais antigos do que o intervalo de expiração estão definidos para 30 dias até à expiração. O primeiro e-mail de notificação de renovação é enviado no prazo de um dia. Por exemplo, um grupo foi criado de 400 dias atrás, e o intervalo de expiração é definido para 180 dias. Quando aplicar definições de expiração, o grupo A tem 30 dias antes de ser eliminado, a menos que o proprietário renova-lo.
+> * Quando um grupo dinâmico é eliminado e restaurado, é visto como um novo grupo e novamente preenchido de acordo com a regra. Este processo pode demorar até 24 horas.
+
 ## <a name="email-notifications"></a>Notificações por e-mail
 
 Notificações de e-mail como este são enviadas para os proprietários do grupo do Office 365 30 dias, 15 dias e 1 dia antes da expiração do grupo. O idioma da mensagem de e-mail é determinado pelo idioma preferencial do proprietário de grupos ou a linguagem de inquilino. Se o proprietário do grupo tiver definido um idioma preferencial ou os proprietários de vários têm o mesmo idioma preferencial, é utilizado esse idioma. Para todos os outros casos, é utilizado o idioma de inquilino.
@@ -77,11 +83,12 @@ O grupo pode ser restaurado dentro de 30 dias após a sua eliminação seleciona
     
 Se o grupo de que está a restaurar contém documentos, sites do SharePoint ou outros objetos persistentes, poderá demorar até 24 horas para restaurar completamente o grupo e o respetivo conteúdo.
 
+## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Como obter a data de expiração de grupo do Office 365
+Para além do painel de acesso, onde os utilizadores podem ver os detalhes de grupo, incluindo a data de expiração e data da última renovada, data de expiração de um grupo do Office 365 pode ser obtida da versão Beta do Microsoft Graph REST API. foi ativado expirationDateTime como uma propriedade de grupo na versão Beta do Microsoft Graph. Pode ser obtida com um pedido GET. Para obter mais detalhes, consulte [neste exemplo](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+
 > [!NOTE]
-> * Quando configurar a expiração pela primeira vez, todos os grupos que são mais antigos do que o intervalo de expiração estão definidos para 30 dias até à expiração. O primeiro e-mail de notificação de renovação é enviado no prazo de um dia. 
->   Por exemplo, um grupo foi criado de 400 dias atrás, e o intervalo de expiração é definido para 180 dias. Quando aplicar definições de expiração, o grupo A tem 30 dias antes de ser eliminado, a menos que o proprietário renova-lo.
-> * Atualmente, apenas uma política de expiração pode ser configurada para grupos do Office 365 num inquilino.
-> * Quando um grupo dinâmico é eliminado e restaurado, é visto como um novo grupo e novamente preenchido de acordo com a regra. Este processo pode demorar até 24 horas.
+> Para gerir membros do grupo no painel de acesso, "Restringir o acesso a grupos no painel de acesso" tem de ser definido como "Não", no Azure Active Directory grupos de definições gerais.
+
 
 ## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Como funciona o expiração de grupo do Office 365 com uma caixa de correio em retenção legal
 Quando um grupo expira e é eliminado, em seguida, de 30 dias após a eliminação de dados do grupo de aplicações, Planner, Sites, como ou Equipes é eliminado permanentemente, mas a caixa de correio de grupo que está em suspensão legal é mantida e não é eliminada permanentemente. O administrador pode utilizar os cmdlets do Exchange para restaurar a caixa de correio para obter os dados. 

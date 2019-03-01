@@ -16,12 +16,12 @@ ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91dd25eadd3842cf1a94608a6f0ad9cfcd25039a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b55a7016ec0068234dfc6110d9d4afc04119ccdd
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197237"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194066"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -365,7 +365,7 @@ A configuração ocorre nesta página.
 
 No modo de teste, é possível efetuar as alterações necessárias no motor de sincronização e rever o que está prestes a ser exportado. Quando lhe parecer que a configuração está boa, execute novamente o assistente de instalação e desative o modo de teste. Os dados são exportados para o Azure AD deste servidor. Não se esqueça de desativar ao mesmo tempo o outro servidor para que haja apenas um servidor a exportar ativamente.
 
-Para obter mais informações, consulte [Modo de teste](how-to-connect-sync-operations.md#staging-mode).
+Para obter mais informações, consulte [Modo de teste](how-to-connect-sync-staging-server.md).
 
 ### <a name="verify-your-federation-configuration"></a>Verificar a configuração de federação
 O Azure AD Connect verifica as definições de DNS quando clica no botão Verificar.

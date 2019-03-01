@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a40159a43db6f83029ed6eacd37d2a4eff28aa09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203856"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193063"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: Scheduler
 Este tópico descreve o agendador interno na sincronização do Azure AD Connect (também conhecido como motor de sincronização).
@@ -55,7 +55,7 @@ Se vir **o comando de sincronização ou o cmdlet não está disponível** quand
 * **PurgeRunHistoryInterval**. O tempo de registos de operações devem ser mantidos. Estes registos podem ser revistos no Gestor do serviço de sincronização. A predefinição é manter estes registos de 7 dias.
 * **SyncCycleEnabled**. Indica se o scheduler está a executar a importação, sincronização e processos de exportação como parte da operação.
 * **MaintenanceEnabled**. Mostra se o processo de manutenção está ativado. Ele atualiza as certificados/chaves e remove o registo de operações.
-* **StagingModeEnabled**. Mostra se [modo de teste](how-to-connect-sync-operations.md#staging-mode) está ativada. Se esta definição estiver ativada, em seguida, suprime as exportações a execução, mas continua a executar a importação e sincronização.
+* **StagingModeEnabled**. Mostra se [modo de teste](how-to-connect-sync-staging-server.md) está ativada. Se esta definição estiver ativada, em seguida, suprime as exportações a execução, mas continua a executar a importação e sincronização.
 * **SchedulerSuspended**. Definido pelo Connect durante uma atualização para bloquear temporariamente o agendador de execução.
 
 Pode alterar algumas destas definições com `Set-ADSyncScheduler`. Podem ser modificados os seguintes parâmetros:

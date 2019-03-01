@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564447"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195511"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Resolução de problemas de ficheiros do Azure no Windows
 
@@ -75,12 +75,11 @@ Para utilizar o `Test-NetConnection` cmdlet, o AzureRM PowerShell módulo tem de
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 Se a ligação for bem-sucedida, deverá ver o resultado seguinte:
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -93,7 +92,19 @@ Se a ligação for bem-sucedida, deverá ver o resultado seguinte:
 
 ### <a name="solution-for-cause-1"></a>Solução para causa 1
 
-Trabalhar com o seu departamento de TI para abrir a porta 445 de saída para [intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+#### <a name="solution-1---use-azure-file-sync"></a>Solução 1 - utilização do Azure File Sync
+O Azure File Sync pode transforma o seu servidor do Windows no local numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. O Azure File Sync funciona através da porta 443 e, portanto, pode ser utilizado como uma solução alternativa para aceder aos ficheiros do Azure de clientes que tenham a porta 445 bloqueado. [Saiba como configurar o Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+
+#### <a name="solution-2---use-vpn"></a>Solução 2 – utilização VPN
+Ao configurar uma VPN para a sua conta de armazenamento específico, o tráfego passará por meio de um túnel seguro, em vez de através da internet. Siga os [instruções para configurar a VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) para aceder aos ficheiros do Azure do Windows.
+
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Solução de 3 - desbloquear a porta 445, com a ajuda de seu ISP / administrador de TI
+Trabalhar com o seu departamento de TI ou um ISP para abrir a porta 445 de saída para [intervalos de IP do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solução 4 - utilizar a API REST com base em ferramentas como o Explorer/Powershell do armazenamento
+Os ficheiros do Azure também suporta REST, além de SMB. Acesso REST funciona através da porta 443 (tcp padrão). Existem várias ferramentas que são escritas usando a REST API que permitem a Rica experiência de interface do Usuário. [Explorador de armazenamento](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) é uma delas. [Transferir e instalar o Explorador de armazenamento](https://azure.microsoft.com/en-us/features/storage-explorer/) e ligar à partilha de ficheiros de cópia de ficheiros do Azure. Também pode utilizar [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) que utilizador também a REST API.
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Causa 2: NTLMv1 está ativada
 

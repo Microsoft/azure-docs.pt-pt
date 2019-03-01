@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.openlocfilehash: b06213b253b6a289513d5cc1b8fcf0f2e25897f5
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 1b130dff9d290dcce566570fd015d227d44a1310
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594802"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191906"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-powershell"></a>Balanceamento de carga em várias configurações de IP com o PowerShell
 
@@ -143,4 +143,4 @@ Siga os passos abaixo para obter o cenário descrito neste artigo:
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre como combinar serviços no Azure em de balanceamento de carga [com os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Saiba como utilizar diferentes tipos de registos no Azure para gerir e resolver problemas relacionados com o Balanceador de carga [do Log analytics para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Saiba como utilizar diferentes tipos de registos no Azure para gerir e resolver problemas relacionados com o Balanceador de carga [registos do Azure Monitor para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

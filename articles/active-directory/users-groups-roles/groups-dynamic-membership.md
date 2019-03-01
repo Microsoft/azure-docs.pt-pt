@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8d5ecd33f0bc67b6e0ec2e559a8475da490369e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8a21e300c2540ddefb79fcaf593f752eef7e2c2e
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210667"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010196"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -137,7 +137,7 @@ Se deseja comparar o valor de um atributo de utilizador em relação a um númer
  No exemplo seguinte, a expressão avalia como VERDADEIRO se o valor de user.department for igual a qualquer um dos valores na lista:
 
 ```
-   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003","50005","50006","50007","50008","50016","50020","50024","50038","50039","51100"]
 ```
 
 
@@ -359,7 +359,7 @@ Os seguintes atributos do dispositivo podem ser utilizados.
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores geridos pelo agente de PC do Intune) | (device.managementType -eq "MDM")
  deviceId | um ID de dispositivo do Azure AD | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | ID de objeto de um válido do Azure AD |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
- systemLabels | qualquer cadeia de caracteres que a propriedade de dispositivo do Intune para dispositivos modernos à área de trabalho de marcação | (device.systemLabels-contém "M365Managed")
+ systemLabels | qualquer cadeia de caracteres que a propriedade de dispositivo do Intune para dispositivos modernos à área de trabalho de marcação | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
 > Para o deviceOwnership quando criar grupos dinâmicos para dispositivos que precisa para definir o valor igual a "Empresa". Sobre o Intune em vez disso, a propriedade do dispositivo é representada como empresa. Consulte a [Tiposdeproprietário](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes) para obter mais detalhes. 

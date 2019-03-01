@@ -1,19 +1,19 @@
 ---
 title: Introdução à gestão de dispositivos do IoT Hub do Azure (Node) | Documentos da Microsoft
 description: Como utilizar a gestão de dispositivos do IoT Hub para iniciar um reinício do dispositivo remoto. Utilize o SDK do Azure IoT para node. js para implementar uma aplicação de dispositivo simulado que inclui um método direto e um serviço de aplicações que invoca o método direto.
-author: juanjperez
-manager: cberlin
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.author: juanpere
-ms.openlocfilehash: 278765957156b56c3c476678b8db0efe5fb73c68
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 3f861259c8c760b921f1c33f4e449853a3686a40
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118273"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010808"
 ---
 # <a name="get-started-with-device-management-node"></a>Introdução à gestão de dispositivo (Node)
 

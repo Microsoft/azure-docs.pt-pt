@@ -17,12 +17,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e07fc6c4ce7477cd6f1c64d5de1574ae7c4cecff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168957"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191992"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Sincronização do Azure AD Connect: Executar o assistente de instalação pela segunda vez
 Na primeira vez que executar o Assistente de instalação do Azure AD Connect, ele explica como configurar a sua instalação. Se executar novamente o Assistente de instalação, ele oferece opções para manutenção.
@@ -73,7 +73,7 @@ Quando seleciona esta opção, são listados todos os diretórios na sua configu
 ![Página com uma lista de todos os diretórios no ambiente](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>Configurar o modo de teste
-Esta opção permite-lhe ativar e desativar o modo de teste no servidor. Podem encontrar mais informações sobre o teste de modo e como são utilizadas no [operações](how-to-connect-sync-operations.md#staging-mode).
+Esta opção permite-lhe ativar e desativar o modo de teste no servidor. Podem encontrar mais informações sobre o teste de modo e como são utilizadas no [operações](how-to-connect-sync-staging-server.md).
 
 A opção mostra se o teste está atualmente ativado ou desativado:  
 ![Opção que também está a mostrar o estado atual do modo de teste](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)

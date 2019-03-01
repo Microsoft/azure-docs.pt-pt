@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b05f2dc1ed766ccb06b71c2977ceaf2b7cd823d3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b044edbc24a83aeb98ff603a43f160a6c88d940f
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869671"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193352"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Atualização automática
 Esta funcionalidade foi introduzida com compilação [1.1.105.0 (lançado em Fevereiro de 2016)](reference-connect-version-history.md#111050).  Esta funcionalidade foi atualizada na [criar 1.1.561](reference-connect-version-history.md#115610) e agora oferece suporte a cenários adicionais que foram anteriormente não suportados.
@@ -100,7 +100,7 @@ Aqui está uma lista das mensagens mais comuns que encontrar. Não listar todos,
 | UpgradeNotSupportedNonMsolAccount |O [conta de conector do AD DS](reference-connect-accounts-permissions.md#ad-ds-connector-account) não é a conta de msol _ predefinida mais. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | Quando configurar o AAD Connect, que escolheu *não Configure* ao selecionar o método de início de sessão. | 
 | UpgradeNotSupportedPtaSignInMethod | Tiver selecionado autenticação pass-through como o método de início de sessão. |
-| UpgradeNotSupportedStagingModeEnabled |O servidor está definido para estar no [modo de teste](how-to-connect-sync-operations.md#staging-mode). |
+| UpgradeNotSupportedStagingModeEnabled |O servidor está definido para estar no [modo de teste](how-to-connect-sync-staging-server.md). |
 | UpgradeNotSupportedUserWritebackEnabled |Ativou o [repetição de escrita do utilizador](how-to-connect-preview.md#user-writeback) funcionalidade. |
 
 ## <a name="next-steps"></a>Passos Seguintes

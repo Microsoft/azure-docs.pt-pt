@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 767021772fc86013cd8192216eb03840f1160807
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0260ecbf23e0240b836f6d6004959a9604085fc1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878702"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194967"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
@@ -51,7 +51,7 @@ Para forçar o pedido deve ser processada por um Data Center específico, altere
 
 ## <a name="authentication"></a>Authentication
 
-Subscrever a API de texto do Translator ou [dos serviços cognitivos tudo-em-um](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivos da Microsoft e usar sua assinatura da chave (disponível no portal do Azure) para autenticar. 
+Subscrever a API de texto do Translator ou [serviço de multi de serviços cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivos da Microsoft e usar sua assinatura da chave (disponível no portal do Azure) para autenticar. 
 
 Existem três cabeçalhos que pode utilizar para autenticar a sua subscrição. Esta tabela fornece descreve a forma como cada um é utilizado:
 
@@ -59,7 +59,7 @@ Existem três cabeçalhos que pode utilizar para autenticar a sua subscrição. 
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Utilizar com a subscrição de serviços cognitivos, se estiver passando a chave secreta*.<br/>O valor é a chave secreta do Azure para a sua subscrição para a API de texto do Translator.|
 |Autorização|*Utilizar com subscrição dos serviços cognitivos, se estiver passando um token de autenticação.*<br/>O valor é o token de portador: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Utilizar com a subscrição de tudo-em-um dos serviços cognitivos, se estiver passando uma chave secreta de tudo-em-um.*<br/>O valor é a região da subscrição tudo-em-um. Este valor é opcional quando não utilizar uma subscrição de tudo-em-um.|
+|Ocp-Apim-Subscription-Region|*Utilizar com a subscrição de múltiplos serviço de serviços cognitivos, se estiver passando uma chave secreta múltiplos serviço.*<br/>O valor é a região da subscrição múltiplos serviço. Este valor é opcional quando não utilizar uma subscrição de múltiplos serviço.|
 
 ###  <a name="secret-key"></a>Chave secreta
 A primeira opção é autenticar com o `Ocp-Apim-Subscription-Key` cabeçalho. Basta adicionar o `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` cabeçalho para o seu pedido.
@@ -89,21 +89,22 @@ Authorization: Bearer <Base64-access_token>
 
 Um token de autenticação é válido durante 10 minutos. O token deve ser reutilizado ao fazer várias chamadas para as APIs de Microsoft Translator. No entanto, se o seu programa faz solicitações para a API do Translator ao longo de um longo período de tempo, em seguida, seu programa tem de pedir um novo token de acesso em intervalos regulares (por exemplo, a cada 8 minutos).
 
-### <a name="all-in-one-subscription"></a>Subscrição de tudo-em-um
+### <a name="multi-service-subscription"></a>Subscrição múltiplos serviço
 
-A última opção de autenticação é utilizar a subscrição do serviço cognitivo tudo-em-um. Isto permite-lhe utilizar uma única chave secreta para autenticar pedidos para vários serviços. 
+A última opção de autenticação é utilizar a subscrição de múltiplos serviço de um serviço cognitivo. Isto permite-lhe utilizar uma única chave secreta para autenticar pedidos para vários serviços. 
 
-Quando utilizar uma chave secreta de tudo-em-um, tem de incluir dois cabeçalhos de autenticação com o seu pedido. A primeira passa a chave secreta, o segundo Especifica a região associada à sua subscrição. 
-* `Ocp-Api-Subscription-Key`
+Quando utiliza uma chave secreta múltiplos serviço, tem de incluir dois cabeçalhos de autenticação com o seu pedido. A primeira passa a chave secreta, o segundo Especifica a região associada à sua subscrição. 
+* `Ocp-Apim-Subscription-Key`
 * `Ocp-Apim-Subscription-Region`
+
+Região é necessária para a subscrição múltiplos serviço de API de texto. A região que selecionou é a região que pode utilizar para a tradução de texto ao utilizar a chave de subscrição de múltiplos serviços, e tem de ser a mesma região que selecionou quando se inscreveu para a sua subscrição múltiplos serviço através do portal do Azure.
+
+Regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, e `westus2`.
 
 Se passar a chave secreta na cadeia de consulta com o parâmetro `Subscription-Key`, em seguida, tem de especificar a região com o parâmetro de consulta `Subscription-Region`.
 
 Se utilizar um token de portador, tem de obter o token do ponto de extremidade de região: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
-Regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, e `westus2`.
-
-Região é necessária para a subscrição da API de texto de tudo-em-um.
 
 ## <a name="errors"></a>Erros
 
