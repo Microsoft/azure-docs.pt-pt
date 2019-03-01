@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c9c717540e0ca71b0dcd2b82fa29240bffd5e40b
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 9fb6f65c05f6789177923a3e62e8978bb5cdf457
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547121"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56992112"
 documentType: LandingData
 title: Documentação da Base de Dados do Azure para PostgreSQL
 metadata:
@@ -15,9 +15,9 @@ metadata:
   ms.author: raagyema
   ms.service: postgresql
   ms.topic: landing-page
-  ms.date: 11/30/2018
+  ms.date: 02/25/2019
 abstract:
-  description: A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional baseado no motor de base de dados PostgreSQL de código aberto.  É uma oferta de base de dados como serviço completamente gerida capaz de processar cargas de trabalho fundamentais com um desempenho previsível, elevada disponibilidade e escalabilidade dinâmica.  Programe aplicações com a Base de Dados do Azure para PostgreSQL ao tirar partido das ferramentas de código aberto e da plataforma da sua preferência.  Saiba como utilizar a Base de Dados do Azure para PostgreSQL com os nossos guias de introdução, tutoriais e amostras.
+  description: A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional baseado no motor de base de dados PostgreSQL de código aberto.  É uma oferta de base de dados como serviço totalmente gerida capaz de processar cargas de trabalho fundamentais com desempenho previsível, segurança, elevada disponibilidade e escalabilidade dinâmica.  Programe aplicações com a Base de Dados do Azure para PostgreSQL ao tirar partido das ferramentas de código aberto e da plataforma da sua preferência.  Saiba como utilizar a Base de Dados do Azure para PostgreSQL com os nossos guias de introdução, tutoriais e amostras.
 sections:
 - title: Inícios rápidos de cinco minutos
   items:
@@ -43,6 +43,7 @@ sections:
     items:
     - html: Estruturar uma base de dados &#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Portal do Azure</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">CLI do Azure</a>
     - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Criar uma Aplicação Web com Python e CLI</a>
+    - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">Monitorizar e otimizar o serviço</a>
 - title: Desenvolva as suas competências com o Microsoft Learn
   items:
   - type: list
@@ -72,6 +73,8 @@ sections:
     className: cardsD
     items:
     - title: Linha de Comandos
-      html: <p><a href="/cli/azure">CLI do Azure</a></p>
+      html: <p><a href="/cli/azure/postgres">CLI do Azure</a></p>
     - title: REST
       html: <p><a href="/rest/api/postgresql">API REST</a></p>
+    - title: Azure Resource Manager
+      html: <p><a href="/azure/templates/microsoft.dbforpostgresql/allversions">Modelos do Resource Manager</a></p>

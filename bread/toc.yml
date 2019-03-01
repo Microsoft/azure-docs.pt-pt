@@ -548,6 +548,9 @@ items:
   - name: Centro de Segurança
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/
+  - name: Azure Sentinel
+    tocHref: /azure/sentinel/
+    topicHref: /azure/sentinel/
   - name: Service Bus
     tocHref: /azure/service-bus/
     topicHref: /azure/service-bus/
@@ -646,9 +649,9 @@ items:
   - name: Gateway de VPN
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: ac1df560f8dec2b25d167a65fc33beb98fd9c237
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 437c5cc70a4325c3911d906c85f7b89407bc1200
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959362"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011130"

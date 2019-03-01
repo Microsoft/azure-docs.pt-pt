@@ -6,6 +6,8 @@ items:
   - name: O que está a acontecer ao Batch AI?
     displayName: retire, retired, retiring, deprecate, deprecated, deprecating, happening
     href: overview-what-happened-batch-ai.md
+  - name: Migrar para o Azure Machine Learning
+    href: how-to-migrate.md
   - name: O que é o Batch AI?
     href: overview.md
   expanded: true
@@ -67,9 +69,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 8fb9ce00a162a28554b4ec02b190d0261dbde623
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c4249b5c3c40c5b37a4a848cf6d57e1955cec85a
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410198"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191786"

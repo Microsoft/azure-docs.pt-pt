@@ -1,0 +1,94 @@
+items:
+- name: Documentação da Pré-visualização do Azure Sentinel
+  href: index.yml
+- name: Descrição geral
+  href: overview.md
+- name: Inícios rápidos
+  items:
+  - name: Inclusão do Azure Sentinel
+    href: quickstart-onboard.md
+  - name: Obter visibilidade sobre os alertas
+    href: quickstart-get-visibility.md
+  expanded: true
+- name: Tutoriais
+  items:
+  - name: Detetar ameaças suspeitas
+    href: tutorial-detect-threats.md
+  - name: Investigar casos
+    href: tutorial-investigate-cases.md
+  - name: Responder a ameaças
+    href: tutorial-respond-threats-playbook.md
+- name: Guias de procedimentos
+  items:
+  - name: Ligar a origens de dados
+    href: connect-data-sources.md
+    items:
+    - name: Ligar aos serviços Microsoft
+      items:
+      - name: Ligar ao Azure AD
+        href: connect-azure-active-directory.md
+      - name: Ligar ao Office 365
+        href: connect-office-365.md
+      - name: Ligar ao Cloud App Security
+        href: connect-cloud-app-security.md
+      - name: Ligar ao Registo de Atividades do Azure
+        href: connect-azure-activity.md
+      - name: Ligar ao Azure AD Identity Protection
+        href: connect-azure-ad-identity-protection.md
+      - name: Ligar ao Azure Information Protection
+        href: connect-azure-information-protection.md
+      - name: Ligar ao Azure ATP
+        href: connect-azure-atp.md
+      - name: Ligar ao Centro de Segurança do Azure
+        href: connect-azure-security-center.md
+      - name: Ligar à firewall do Windows
+        href: connect-windows-firewall.md
+      - name: Ligar aos eventos de segurança do Windows
+        href: connect-windows-security-events.md
+    - name: Ligar soluções externas
+      items:
+      - name: Ligar a CEF genérico
+        href: connect-common-event-format.md
+      - name: Ligar a Barracuda
+        href: connect-barracuda.md
+      - name: Ligar a Check Point
+        href: connect-checkpoint.md
+      - name: Ligar a Palo Alto
+        href: connect-paloalto.md
+      - name: Ligar a Fortinet
+        href: connect-fortinet.md
+      - name: Ligar a F5
+        href: connect-f5.md
+      - name: Ligar a Syslog
+        href: connect-syslog.md
+      - name: Ligar a Cisco
+        href: connect-cisco.md
+    - name: Ligar às informações sobre ameaças
+      href: connect-threat-intelligence.md
+  - name: Análise de utilizador
+    href: user-analytics.md
+  - name: Investigação
+    href: hunting.md
+    items:
+    - name: Utilizar blocos de notas para investigar
+      href: notebooks.md
+    - name: Utilizar marcadores para investigar
+      href: bookmarks.md
+  - name: Ativar a fusão
+    href: connect-fusion.md
+- name: Recursos
+  items:
+  - name: Recursos úteis
+    href: resources.md
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blogue sobre Segurança, Privacidade e Conformidade do Azure
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 50587fc6b2fca37ddbe5a9a1cbe4ff1914c809c9
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993372"

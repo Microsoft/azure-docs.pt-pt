@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2105919e0c21ef57ae2cd19450110df384252e97
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 43d28cde7e4287b5394087000b5e730a94748713
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730941"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010638"
 documentType: LandingData
 title: Documentação da Sugestão Automática do Bing
 metadata:
@@ -12,18 +12,39 @@ metadata:
   title: Documentação da Sugestão Automática do Bing – Tutoriais, inícios rápidos, referências de API | Microsoft Docs
   description: Saiba como utilizar a API de Sugestão Automática do Bing para obter consultas sugeridas com base numa consulta parcial. Os tutoriais mostram-lhe como criar aplicações que utilizam o serviço.
   services: cognitive-services
-  author: v-jaswel
-  manager: kamrani
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jaswel
+  ms.date: 02/20/2019
+  ms.author: aahi
 abstract:
-  description: A API de Sugestão Automática do Bing permite-lhe enviar um termo de consulta de pesquisa parcial para o Bing e obter uma lista de consultas sugeridas em que outros utilizadores têm procurado.  Por exemplo, conforme o utilizador insere cada caráter do respetivo termo de pesquisa, chamaria esta API e preencheria a lista pendente da caixa de pesquisa com as cadeias de consulta sugeridas. Saiba como utilizar a API de Sugestão Automática com os nossos inícios rápidos, tutoriais e amostras.
+  description: A API de Sugestão Automática do Bing permite-lhe enviar um termo de consulta de pesquisa parcial para o Bing e obter uma lista de consultas sugeridas em que outros utilizadores têm procurado.  Por exemplo, quando os utilizadores escreverem cada caráter do respetivo termo de pesquisa, pode chamar esta API para povoar a lista pendente da caixa de pesquisa com sugestões. Saiba como utilizar a API de Sugestão Automática com os nossos inícios rápidos, tutoriais e amostras.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-autosuggest/overview
+      html: <p>Saiba mais sobre a API de Sugestão Automática do Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: O que é a API de Sugestão Automática do Bing?
+    - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
+      html: <p>Saiba como procurar sugestões em tempo real</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Obter sugestões da API de Sugestão Automática do Bing
+    - href: /azure/cognitive-services/bing-autosuggest/language-support
+      html: <p>Saiba que idiomas são suportados pela API.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Idiomas Suportados
 - title: Inícios rápidos de cinco minutos
   items:
   - type: paragraph
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Saiba como desenvolver aplicativos usando a API de Sugestão Automática do Bing:'
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">Aplicação Web de página única</a> &#124; <a href="tutorials/autosuggest-source.md">Código fonte</a>
+    text: <a href="tutorials/autosuggest.md">Aplicação Web de página única</a>
 - title: Referência
   items:
   - type: list

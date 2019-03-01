@@ -1,0 +1,68 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 5f1d6005dd94bc700682e749f08c47356fcdc829
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: HT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993338"
+documentType: LandingData
+title: Documentação da Pré-visualização do Azure Sentinel
+metadata:
+  title: Documentação da Pré-visualização do Azure Sentinel - Tutoriais, Inícios Rápidos | Microsoft Docs
+  meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
+  services: sentinel
+  author: cmcclister
+  manager: carolz
+  ms.service: sentinel
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 02/28/19
+  ms.author: cmcclister
+abstract:
+  description: A Pré-visualização do Azure Sentinel é um SIEM nativo da cloud que fornece análises de segurança inteligentes para toda a sua empresa à escala da cloud. Obtenha a velocidade ilimitada da cloud e o dimensionamento de que precisa para se concentrar no que realmente importa. Recolha facilmente dados de todos os seus recursos na cloud ou no local, do Office 365, dos recursos do Azure e de outras clouds. Detete ameaças com eficácia com a aprendizagem automática incorporada dos especialistas de análise de segurança da Microsoft. Automatize a resposta às ameaças através da orquestração incorporada e dos manuais de procedimentos sobre automatização.
+sections:
+- title: Inícios rápidos de cinco minutos
+  items:
+  - type: paragraph
+    text: Saiba como incluir os seus dados no Azure Sentinel e obter visibilidade sobre os seus dados e potenciais ameaças.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/deploy.svg
+      text: Inclusão do Azure Sentinel
+      href: /azure/sentinel/quickstart-onboard
+    - image:
+        src: media/index/get-started.svg
+      text: Introdução ao Azure Sentinel
+      href: /azure/sentinel/quickstart-get-visibility
+- title: Tutoriais Passo-a-Passo
+  items:
+  - type: paragraph
+    text: Saiba como definir políticas de segurança, proteger os seus recursos em relação a atividades maliciosas e responder a alertas de segurança e de incidentes.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/sentinel/tutorial-detect-threats">Detetar ameaças com o Azure Sentinel</a>
+    - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Configurar respostas automatizadas às ameaças</a>
+- title: Desenvolva as suas competências com o Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introdução à Segurança no Azure
+      href: https://docs.microsoft.com/learn/azure
+      image:
+        src: media/index/tutorial.svg
+        href: https://docs.microsoft.com/learn/azure
+  - type: paragraph
+    text: <a href="/learn/browse/?term=security">Mais aprendizagem interativa...</a>
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - html: <a href="https://azure.microsoft.com/updates/?product=sentinel">Atualizações de serviço</a>

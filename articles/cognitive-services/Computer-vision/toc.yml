@@ -126,9 +126,7 @@ items:
     href: concept-detecting-color-schemes.md
   - name: Gerar miniaturas
     href: concept-generating-thumbnails.md
-  - name: Extrair texto com o OCR
-    href: concept-extracting-text-ocr.md
-  - name: Reconhecer impressos e texto manuscrito
+  - name: Reconhecer texto impresso e manuscrito
     href: concept-recognizing-text.md
   - name: Detetar conteúdos adultos e indecorosos
     href: concept-detecting-adult-content.md
@@ -202,9 +200,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-ms.openlocfilehash: e3653590989020e4a9186cf9e083bf3b061f2f49
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 2fc31b518155f49cd17b86780e6accbacc2ba354
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452326"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192314"

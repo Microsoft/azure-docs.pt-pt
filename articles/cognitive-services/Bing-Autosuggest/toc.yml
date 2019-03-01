@@ -27,8 +27,6 @@ items:
   items:
   - name: Aplicação Web de página única
     href: tutorials/autosuggest.md
-  - name: Aplicação Web de página única (código fonte)
-    href: tutorials/autosuggest-source.md
 - name: Guias de procedimentos
   items:
   - name: Atualizar da v5 para v7
@@ -37,6 +35,8 @@ items:
   items:
   - name: Sugerir termos de consulta
     href: concepts/get-suggestions.md
+  - name: Enviar pedidos
+    href: concepts/sending-requests.md
 - name: Referência
   items:
   - name: API de Sugestão Automática do Bing v7
@@ -56,8 +56,6 @@ items:
     maintainContext: true
 - name: Recursos
   items:
-  - name: FAQ
-    href: bing-autosuggest-resource-faq.md
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/
   - name: UserVoice
@@ -74,15 +72,13 @@ items:
     href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
   - name: Experimente!
     href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
-  - name: Ponto final de Sugestão Automática do Bing
-    href: autosuggest-endpoint.md
   - name: Suporte de idioma e região
     href: language-support.md
   - name: Análise da API de Sugestão Automática do Bing
     href: bing-autosuggest-stats.md
-ms.openlocfilehash: 19443b5bf95bd2e9aa982c53612297a63f4110b8
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 5e0a0f0734b694a098cc6685e337aa24b41962d5
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269792"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57011539"

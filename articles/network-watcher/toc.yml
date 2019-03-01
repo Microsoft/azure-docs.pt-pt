@@ -111,6 +111,8 @@ items:
         items:
         - name: Perguntas mais frequentes
           href: traffic-analytics-faq.md
+        - name: Esquema e Agregação de Dados
+          href: traffic-analytics-schema.md
       - name: Utilizar o Power BI
         href: network-watcher-visualize-nsg-flow-logs-power-bi.md
       - name: Utilizar o Elastic Stack
@@ -181,9 +183,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/network-watcher
-ms.openlocfilehash: 69b4efb5adc0b6c3c7766b7c9178ccefb816711d
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4e070a2cdddf88a8f6a959dbe9b75444e42d8c5c
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391645"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57009747"

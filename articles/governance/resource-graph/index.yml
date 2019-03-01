@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fb2260d844e82632fd54cea27acc07b226b83a50
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e437d1767fba01a75852bedc5a89de94c222d4f5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446465"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195069"
 documentType: LandingData
 title: Documentação do Azure Resource Graph
 metadata:
@@ -48,10 +48,8 @@ sections:
     className: cardsD
     items:
     - title: Linha de Comandos
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">CLI do Azure</a></p>
-    - title: PowerShell
-      html: <p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: API REST
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Recursos</a></p>
-    - title: OpenAPI (Swagger)
-      html: <p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview</a></p>
+      html: <p><a href="/cli/azure/ext/resource-graph/graph">CLI do Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+    - title: Linguagens
+      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK for .NET</a> (Azure SDK para .NET)</p>
+    - title: REST
+      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Referência da API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>
