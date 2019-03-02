@@ -4,7 +4,7 @@ description: Saiba como recolher dados do Centro de segurança do Azure no Azure
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1770d5a1fd5598972e5966ad041d35b4a9c9138d
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: f59c5f6a9f497a6420172996f9f327f16ffd26f9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993133"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242280"
 ---
 # <a name="collect-data-from-azure-security-center"></a>Recolher dados a partir do Centro de segurança do Azure
 

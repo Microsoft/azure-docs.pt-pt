@@ -10,18 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 34f34545e4511c4f8bc4af95f906f2871480bd47
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 7819dc62d766a6b35f5c2efe1179cb0adb0ab933
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310168"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243555"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
-Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação. Para obter um tutorial passo a passo sobre como criar um modelo, consulte [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
+Este artigo descreve a estrutura de um modelo Azure Resource Manager. Ela apresenta as diferentes secções de um modelo e as propriedades que estão disponíveis dessas secções. O modelo é constituído por JSON e expressões que pode utilizar para construir valores para a sua implementação.
+
+Este artigo destina-se a utilizadores que têm um pouco familiarizado com modelos do Resource Manager. Ele fornece informações detalhadas sobre a estrutura e a sintaxe do modelo. Se pretender uma introdução à criação de um modelo, veja [criar o primeiro modelo do Azure Resource Manager](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Formato de modelo
 
@@ -197,15 +199,106 @@ Para obter informações sobre como definir parâmetros, consulte [secção de p
 
 Na secção de variáveis, é possível construir valores que podem ser utilizados em todo o seu modelo. Não precisa de definir variáveis, mas elas, muitas vezes, simplificam seu modelo, reduzindo as expressões complexas.
 
-O exemplo seguinte mostra uma simple definição de variável:
+### <a name="available-definitions"></a>Definições disponíveis
+
+O exemplo seguinte mostra as opções disponíveis para definir uma variável:
 
 ```json
 "variables": {
-  "webSiteName": "[concat(parameters('siteNamePrefix'), uniqueString(resourceGroup().id))]",
+    "<variable-name>": "<variable-value>",
+    "<variable-name>": { 
+        <variable-complex-type-value> 
+    },
+    "<variable-object-name>": {
+        "copy": [
+            {
+                "name": "<name-of-array-property>",
+                "count": <number-of-iterations>,
+                "input": <object-or-value-to-repeat>
+            }
+        ]
+    },
+    "copy": [
+        {
+            "name": "<variable-array-name>",
+            "count": <number-of-iterations>,
+            "input": <object-or-value-to-repeat>
+        }
+    ]
+}
+```
+
+Para obter informações sobre como utilizar `copy` para criar vários valores para uma variável, consulte [iteração variável](resource-group-create-multiple.md#variable-iteration).
+
+### <a name="define-and-use-a-variable"></a>Definir e usar uma variável
+
+O exemplo seguinte mostra uma definição de variável. Ele cria um valor de cadeia de caracteres para um nome de conta de armazenamento. Ele utiliza várias funções de modelo para obter um valor de parâmetro e concatena-lo a uma cadeia exclusiva.
+
+```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 },
 ```
 
-Para obter informações sobre como definir as variáveis, consulte [secção de variáveis de modelos Azure Resource Manager](resource-manager-templates-variables.md).
+Utilize a variável quando definir o recurso.
+
+```json
+"resources": [
+  {
+    "name": "[variables('storageName')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    ...
+```
+
+### <a name="configuration-variables"></a>Variáveis de configuração
+
+Pode utilizar tipos complexos de JSON para definir valores relacionados para um ambiente.
+
+```json
+"variables": {
+    "environmentSettings": {
+        "test": {
+            "instanceSize": "Small",
+            "instanceCount": 1
+        },
+        "prod": {
+            "instanceSize": "Large",
+            "instanceCount": 4
+        }
+    }
+},
+```
+
+Parâmetros, vai criar um valor que indica que configuração valores devem ser usados.
+
+```json
+"parameters": {
+    "environmentName": {
+        "type": "string",
+        "allowedValues": [
+          "test",
+          "prod"
+        ]
+    }
+},
+```
+
+Obter as definições atuais com:
+
+```json
+"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
+```
+
+### <a name="variables-example-templates"></a>Modelos de exemplo de variáveis
+
+Estes modelos de exemplo demonstram alguns cenários de utilização de variáveis. Implementá-las para testar como as variáveis são tratadas em cenários diferentes. 
+
+|Modelo  |Descrição  |
+|---------|---------|
+| [definições de variável](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Demonstra os diferentes tipos de variáveis. O modelo implementa todos os recursos. Ele constrói os valores das variáveis e retorna esses valores. |
+| [variável de configuração](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Demonstra o uso de uma variável que define os valores de configuração. O modelo implementa todos os recursos. Ele constrói os valores das variáveis e retorna esses valores. |
+| [regras de segurança de rede](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e [ficheiro de parâmetros](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Constrói uma matriz no formato correto para a atribuição de regras de segurança a um grupo de segurança de rede. |
+
 
 ## <a name="functions"></a>Funções
 
@@ -214,7 +307,7 @@ No seu modelo, pode criar suas próprias funções. Estas funções estão dispo
 Ao definir uma função de utilizador, existem algumas restrições:
 
 * A função não é possível aceder a variáveis.
-* A função só pode utilizar os parâmetros definidos na função. Quando utiliza a [função de parâmetros](resource-group-template-functions-deployment.md#parameters) dentro de uma função definida pelo utilizador, é restritos para os parâmetros para essa função.
+* A função só pode utilizar os parâmetros definidos na função. Quando utiliza a [função de parâmetros](resource-group-template-functions-deployment.md#parameters) dentro de uma função definida pelo usuário, está restrito para os parâmetros para essa função.
 * A função não é possível chamar outras funções definidas pelo utilizador.
 * A função não é possível utilizar o [fazem referência função](resource-group-template-functions-resource.md#reference).
 * Parâmetros para a função não podem ter valores predefinidos.
@@ -282,18 +375,91 @@ A seção de recursos, vai definir os recursos que são implementados ou atualiz
 Para condicionalmente incluir ou excluir um recurso durante a implementação, utilize o [elemento Condition](resource-manager-templates-resources.md#condition). Para obter mais informações sobre a seção de recursos, consulte [seção de recursos de modelos Azure Resource Manager](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Saídas
-Na secção de saídas, especifique os valores que são devolvidos da implementação. Por exemplo, pode devolver o URI para aceder a um recurso implementado.
+
+Na secção de saídas, especifique os valores que são devolvidos da implementação. Normalmente, retornar valores de recursos que foram implementados.
+
+### <a name="available-properties"></a>Propriedades disponíveis
+
+O exemplo seguinte mostra a estrutura de uma definição de saída:
 
 ```json
 "outputs": {
-  "newHostName": {
+    "<outputName>" : {
+        "condition": "<boolean-value-whether-to-output-value>",
+        "type" : "<type-of-output-value>",
+        "value": "<output-value-expression>"
+    }
+}
+```
+
+| Nome do elemento | Necessário | Descrição |
+|:--- |:--- |:--- |
+| outputName |Sim |Nome do valor de saída. Tem de ser um identificador de JavaScript válido. |
+| condition |Não | É devolvido o valor booleano que indica se este valor de saída. Quando `true`, o valor está incluído na saída para a implementação. Quando `false`, o valor de saída é ignorado para esta implementação. Quando não especificado, o valor predefinido é `true`. |
+| tipo |Sim |Tipo do valor de saída. Valores de saída suportam os mesmos tipos de parâmetros de entrada de modelo. |
+| valor |Sim |Expressão de linguagem de modelo que é avaliada e devolvida como valor de saída. |
+
+### <a name="define-and-use-output-values"></a>Definir e utilizar valores de saída
+
+O exemplo seguinte mostra como devolver o ID de recurso para um endereço IP público:
+
+```json
+"outputs": {
+  "resourceID": {
     "type": "string",
-    "value": "[reference(variables('webSiteName')).defaultHostName]"
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
   }
 }
 ```
 
-Para obter mais informações, consulte [produz a seção de modelos Azure Resource Manager](resource-manager-templates-outputs.md).
+O exemplo seguinte mostra como devolver condicionalmente o ID de recurso para um endereço IP público com base em se um foi implementado uma nova:
+
+```json
+"outputs": {
+  "resourceID": {
+    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
+    "type": "string",
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+  }
+}
+```
+
+Para obter um exemplo simple de saída condicional, veja [modelo de saída condicional](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
+
+Após a implementação, pode recuperar o valor com o script. Para o PowerShell, utilize:
+
+```powershell
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+```
+
+Para a CLI do Azure, utilize:
+
+```azurecli-interactive
+az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
+```
+
+Pode obter o valor de saída a partir de um modelo ligado utilizando a [referência](resource-group-template-functions-resource.md#reference) função. Para obter um valor de saída a partir de um modelo ligado, obter o valor da propriedade com a sintaxe, como: `"[reference('deploymentName').outputs.propertyName.value]"`.
+
+Ao obter uma propriedade de saída a partir de um modelo ligado, o nome da propriedade não pode incluir um traço.
+
+O exemplo seguinte mostra como definir o endereço IP num Balanceador de carga ao obter um valor a partir de um modelo ligado.
+
+```json
+"publicIPAddress": {
+    "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+}
+```
+
+Não é possível utilizar o `reference` função na secção de saídas de um [modelo aninhado](resource-group-linked-templates.md#link-or-nest-a-template). Para devolver os valores para um recurso implementado num modelo aninhado, converta seu modelo aninhado para um modelo ligado.
+
+### <a name="output-example-templates"></a>Modelos de exemplo de saída
+
+|Modelo  |Descrição  |
+|---------|---------|
+|[Copie as variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | Cria variáveis complexo e produz esses valores. Não implemente todos os recursos. |
+|[Endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | Cria um endereço IP público e devolve o ID de recurso. |
+|[Balanceador de carga](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) | Ligações para o modelo anterior. Utiliza o ID de recurso na saída, ao criar o Balanceador de carga. |
+
 
 <a id="comments" />
 

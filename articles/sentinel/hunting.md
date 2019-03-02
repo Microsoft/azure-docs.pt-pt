@@ -4,7 +4,7 @@ description: Este artigo descreve como utilizar as capacidades de buscar sentine
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 6aa9dd27-6506-49c5-8e97-cc1aebecee87
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: b03221802d5727c333cfc9a6927abb2eafca1a0d
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 24792a0099d4e45e100fa6cf0b211c62fc8630de
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992958"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242331"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Busca de ameaças com sentinela na pré-visualização no Azure
 

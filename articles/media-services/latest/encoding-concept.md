@@ -9,25 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 02/27/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ccf298c99851dc2418da894431c5c86adafe59b3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959447"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243624"
 ---
 # <a name="encoding-with-media-services"></a>Encoding com Media Services
 
-Serviços de multimédia do Azure permite-lhe a codificar seus arquivos de mídia digital de alta qualidade em ficheiros MP4 de velocidade de transmissão adaptável, para que seu conteúdo pode ser jogado numa grande variedade de navegadores e dispositivos. Uma tarefa de codificação de serviços de multimédia com êxito cria uma saída ativo com um conjunto de MP4s de velocidade de transmissão adaptável e arquivos de manifesto (cliente e servidor). Neste ponto, pode aproveitar [empacotamento dinâmico](dynamic-packaging-overview.md).
+Serviços de multimédia do Azure permite-lhe a codificar seus arquivos de mídia digital de alta qualidade em ficheiros MP4 de velocidade de transmissão adaptável, para que seu conteúdo pode ser jogado numa grande variedade de navegadores e dispositivos. Uma tarefa de codificação de serviços de multimédia com êxito cria uma saída ativo com um conjunto de MP4s de velocidade de transmissão adaptável e ficheiros de configuração de transmissão em fluxo. Os ficheiros de configuração incluem. ISM, .ismc, .mpi e outros arquivos que não deve modificar. Depois de fazer o trabalho de codificação, pode aproveitar [empacotamento dinâmico](dynamic-packaging-overview.md) e iniciar a transmissão em fluxo.
 
-Para fazer vídeos na saída Asset disponível para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e, em seguida, crie URLs de transmissão em fluxo. Em seguida, com base no formato especificado no manifesto, seus clientes recebem o fluxo no protocolo que escolheu.
+Para fazer vídeos na saída Asset disponível para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e criar URLs de transmissão em fluxo. Em seguida, com base no formato especificado no manifesto, seus clientes recebem o fluxo no protocolo que escolheu.
 
 O diagrama seguinte mostra o streaming sob demanda com o fluxo de trabalho de empacotamento dinâmico.
 
-![Codificação dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Este tópico fornece orientações sobre como codificar o conteúdo com serviços de multimédia v3.
 

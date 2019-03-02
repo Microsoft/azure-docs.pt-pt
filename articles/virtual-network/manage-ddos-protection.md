@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 360c0d9a96b8dac2f08b89caa8c1fd36e8a54b3f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 32c4516c7dc68b04826b362d34841160936d682d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020426"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244524"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir padrão do Azure DDoS Protection através do portal do Azure
 
@@ -31,7 +31,7 @@ Antes de concluir qualquer os passos neste tutorial, inicie sessão no portal do
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-ddos-protection-plan"></a>Criar um plano de proteção DDoS
+## <a name="create-a-ddos-protection-plan"></a>Criar um plano de proteção contra DDoS
 
 Um plano de proteção contra DDoS define um conjunto de redes virtuais que têm a norma de proteção DDoS ativada, entre subscrições. Pode configurar um plano de proteção de DDoS para sua organização e redes virtuais ligação de várias subscrições para o mesmo plano. O plano de proteção contra DDoS em si também está associado uma subscrição que selecionou durante a criação do plano. A subscrição o plano é associado a implica a fatura mensal recorrente para o plano, bem como os custos da utilização excessiva, no caso do número de endereços IP públicos protegidos exceder 100. Para obter mais informações sobre os preços de DDoS, consulte [os detalhes dos preços](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
@@ -44,7 +44,7 @@ Criação de mais de um plano não é necessária para a maioria das organizaç�
 
     |Definição        |Valor                                              |
     |---------      |---------                                          |
-    |Nome           | myDdosProtectionPlan                              |
+    |Name           | myDdosProtectionPlan                              |
     |Subscrição   | Selecione a sua subscrição.                         |
     |Grupo de recursos | Selecione **criar novo** e introduza *myResourceGroup* |
     |Localização       | EUA Leste                                           |
@@ -98,7 +98,7 @@ Pode selecionar qualquer uma das métricas de proteção contra DDoS disponívei
 
     |Definição                  |Valor                                                                                               |
     |---------                |---------                                                                                           |
-    |Nome                     | myDdosAlert                                                                                        |
+    |Name                     | myDdosAlert                                                                                        |
     |Subscrição             | Selecione a subscrição que contém o endereço IP público que pretende receber alertas para.        |
     |Grupo de recursos           | Selecione o grupo de recursos que contém o endereço IP público que pretende receber alertas para.      |
     |Recurso                 | Selecione o endereço IP público que contém o endereço IP público que pretende receber alertas para. DDoS monitoriza os endereços IP públicos atribuídos aos recursos numa rede virtual. Se não tiver quaisquer recursos com endereços IP públicos na rede virtual, primeiro tem de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implementados através do Resource Manager (não clássica) listados na [rede Virtual para os serviços do Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), exceto para ambientes de serviço de aplicações do Azure e o Gateway de VPN do Azure. Para continuar com este tutorial, pode criar rapidamente um [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquina virtual.                   |
@@ -159,7 +159,7 @@ Relatórios de mitigação de ataque usa os dados de protocolo de Netflow que s�
 
     - **Arquivo para uma conta de armazenamento**: Dados são gravados para uma conta de armazenamento do Azure. Para saber mais sobre esta opção, veja [arquivar os registos de diagnóstico](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream para um hub de eventos**: Permite que um destinatário de registo recolher registos com um Hub de eventos do Azure. Os hubs de eventos permitem a integração com Splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, veja [Stream registos de diagnóstico para um hub de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Enviar para o Log Analytics**: Escreve os registos para o serviço do Azure Log Analytics. Para saber mais sobre esta opção, veja [recolher registos para utilização no Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Enviar para o Log Analytics**: Escreve os registos para o serviço do Azure Monitor. Para saber mais sobre esta opção, veja [recolher registos para utilização nos registos do Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Os relatórios de atenuação de incremental e posteriores do ataque incluem os seguintes campos
 - Vetores de ataque
@@ -181,7 +181,7 @@ Registos de fluxo de mitigação de ataque permite-lhe rever o tráfego ignorado
 
     - **Arquivo para uma conta de armazenamento**: Dados são gravados para uma conta de armazenamento do Azure. Para saber mais sobre esta opção, veja [arquivar os registos de diagnóstico](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - **Stream para um hub de eventos**: Permite que um destinatário de registo recolher registos com um Hub de eventos do Azure. Os hubs de eventos permitem a integração com Splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, veja [Stream registos de diagnóstico para um hub de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-    - **Enviar para o Log Analytics**: Escreve os registos para o serviço do Azure Log Analytics. Para saber mais sobre esta opção, veja [recolher registos para utilização no Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    - **Enviar para o Log Analytics**: Escreve os registos para o serviço do Azure Monitor. Para saber mais sobre esta opção, veja [recolher registos para utilização nos registos do Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 1. Para ver os dados de registos de fluxo no dashboard de análise do Azure, pode importar o dashboard de exemplo do https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
 
 Os registos de fluxo terá os seguintes campos: 
@@ -207,7 +207,7 @@ Microsoft associou [BreakingPoint Cloud](https://www.ixiacom.com/products/breaki
 
 Para trabalhar com planos de proteção DDoS, deve ser atribuída a sua conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as ações adequadas listadas na tabela a seguir:
 
-| Ação                                            | Nome                                     |
+| Ação                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Ler um plano de proteção DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Criar ou atualizar um plano de proteção DDoS  |

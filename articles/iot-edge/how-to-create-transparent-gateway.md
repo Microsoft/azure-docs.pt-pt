@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7e196a912db723d5d118b0aadc98f73f1c7271e0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556225"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243759"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como gateway transparente
 
@@ -45,7 +45,10 @@ Um dispositivo Azure IoT Edge para configurar como um gateway. Pode utilizar o s
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [ARM32 do Linux](./how-to-install-iot-edge-linux-arm.md)
 
-Pode utilizar qualquer máquina para gerar os certificados e, em seguida, copie os mesmos para o seu dispositivo IoT Edge. 
+Pode utilizar qualquer máquina para gerar os certificados e, em seguida, copie os mesmos para o seu dispositivo IoT Edge.
+
+>[!NOTE]
+>O "nome de gateway" utilizado para criar os certificados nessa instrução, tem de ser o mesmo nome que é utilizado como nome de anfitrião em seu arquivo de config.yaml do IoT Edge e como GatewayHostName na cadeia de ligação do dispositivo downstream. O "nome de gateway" tem de ser resolvido para um endereço IP, usando DNS ou uma entrada de ficheiro host. Comunicação com base no protocolo utilizado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) tem de ser possível entre o dispositivo jusante e o transparant do IoT Edge. Se uma firewall entre, a respetiva porta tem de ser aberto.
 
 ## <a name="generate-certificates-with-windows"></a>Gerar certificados com o Windows
 

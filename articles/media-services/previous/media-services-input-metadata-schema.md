@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: 42e3464a190f296675b544e0087b664ff256f2fa
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7ba5287b6214564a7be7e4b183aa8fe397bd24b8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003249"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243742"
 ---
-# <a name="input-metadata-legacy"></a>Metadados (legada) de entrada
+# <a name="input-metadata"></a>Metadados de entrada 
 
 Uma tarefa de codificação está associada a um recurso de entrada (ou recursos) no qual pretende efetuar algumas tarefas de codificação.  Após a conclusão de uma tarefa, um elemento de saída é produzido.  O elemento de saída contém vídeo, áudio, miniaturas, manifesto, etc. O elemento de saída também contém um ficheiro com metadados sobre o elemento de entrada. O nome de ficheiro dos metadados de XML tem o seguinte formato: &lt;asset_id&gt;_metadata.xml (por exemplo, d de 57-8 41114ad3-eb5e - 4c 92-5354e2b7d4a4_metadata.xml), onde &lt;asset_id&gt; é o valor de AssetId das elemento de entrada.  
 

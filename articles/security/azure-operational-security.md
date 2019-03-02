@@ -1,6 +1,6 @@
 ---
 title: Segurança operacional do Azure | Documentos da Microsoft
-description: Saiba mais sobre o Microsoft Azure Log Analytics, seus serviços e como ele funciona.
+description: Saiba mais sobre os registos do Microsoft Azure Monitor, seus serviços e como ele funciona.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc820d0e8a19ae3905fbd26a1b9a98e948ecfb63
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2f68156e593281acb46dbeb132f0f45db4b3dfb9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107292"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244779"
 ---
 # <a name="azure-operational-security"></a>Segurança operacional do Azure
 ## <a name="introduction"></a>Introdução
@@ -53,36 +53,36 @@ Este white paper descreve a abordagem da Microsoft para segurança operacionais 
 6.  [Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-azure-log-analytics"></a>Do Microsoft Azure Log Analytics
+## <a name="microsoft-azure-monitor-logs"></a>Registos do Microsoft Azure Monitor
 
-Microsoft Azure Log Analytics é a solução de gestão de TI para a cloud híbrida. Usada sozinha ou para expandir a sua implementação do System Center existente, do Log Analytics dá-lhe a máxima flexibilidade e o controle para a gestão baseada na nuvem da sua infraestrutura.
+Registos do Microsoft Azure Monitor é a solução de gestão de TI para a cloud híbrida. Usada sozinha ou para expandir a sua implementação existente do System Center, os registos de Monitor do Azure dá-lhe a máxima flexibilidade e o controle para a gestão baseada na nuvem da sua infraestrutura.
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Registos de Monitor do Azure](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-Com o Log Analytics, pode gerir qualquer instância em qualquer cloud, incluindo no local, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a um custo menor do que soluções competitivas. Criado para o mundo de cloud em primeiro lugar, o Log Analytics oferece uma nova abordagem para gerir a sua empresa que é a forma mais rápida e rentável para atender aos novos desafios de negócios e acomodar novas cargas de trabalho, aplicações e ambientes na cloud.
+Com os registos do Azure Monitor, pode gerenciar qualquer instância em qualquer cloud, incluindo no local, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a um custo menor do que soluções competitivas. Criado para o mundo de cloud-first, registos do Azure Monitor oferece uma nova abordagem para gerir a sua empresa que é a forma mais rápida e rentável para atender aos novos desafios de negócios e acomodar novas cargas de trabalho, aplicações e ambientes na cloud.
 
-### <a name="log-analytics-services"></a>Serviços de análise de registo
+### <a name="azure-monitor-services"></a>Monitorizar os serviços do Azure
 
-A funcionalidade principal do Log Analytics é fornecida por um conjunto de serviços que são executados no Azure. Cada serviço proporciona uma função de gestão específica e pode combinar serviços para alcançar cenários de gestão diferentes.
+A funcionalidade principal dos logs de Monitor do Azure é fornecida por um conjunto de serviços que são executados no Azure. Cada serviço proporciona uma função de gestão específica e pode combinar serviços para alcançar cenários de gestão diferentes.
 
 | Serviço  | Descrição|
 | :------------- | :-------------|
-| Log Analytics | Monitorizar e analisar a disponibilidade e o desempenho de diferentes recursos, incluindo computadores e máquinas virtuais. |
+| Registos de Monitor do Azure | Monitorizar e analisar a disponibilidade e o desempenho de diferentes recursos, incluindo computadores e máquinas virtuais. |
 |Automatização | Automatizar processos manuais e impor configurações para computadores e máquinas virtuais. |
 | Cópia de segurança | Criar cópias de segurança e restaurar dados críticos. |
 | Site Recovery | Providenciar elevada disponibilidade para aplicações críticas. |
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitorização através da recolha de dados de recursos geridos num repositório central. Estes dados podem incluir dados de eventos ou de desempenho ou dados personalizados fornecidos através da API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação.
+[Registos de Monitor do Azure](https://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitorização através da recolha de dados de recursos geridos num repositório central. Estes dados podem incluir dados de eventos ou de desempenho ou dados personalizados fornecidos através da API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação.
 
 
 Este método permite-lhe consolidar os dados de várias origens, para que pode combinar dados dos seus serviços do Azure com os seus existentes ambiente no local. Também separa claramente a recolha dos dados das ações tomadas em relação aos mesmos, para que todas as ações estejam disponíveis para todos os tipos de dados.
 
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Registos de Monitor do Azure](./media/azure-operational-security/azure-operational-security-fig2.png)
 
-O serviço Log Analytics gere os seus dados com base na cloud em segurança, utilize os seguintes métodos:
+O serviço do Azure Monitor gere os seus dados com base na cloud em segurança, utilize os seguintes métodos:
 -   segregação de dados
 -   Retenção de dados
 -   segurança física
@@ -92,22 +92,22 @@ O serviço Log Analytics gere os seus dados com base na cloud em segurança, uti
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[O Azure Backup](https://azure.microsoft.com/documentation/services/backup) fornece dados de cópia de segurança e restaurar os serviços e faz parte do conjunto de produtos e serviços do Log Analytics.
+[O Azure Backup](https://azure.microsoft.com/documentation/services/backup) fornece dados de cópia de segurança e restaurar os serviços e faz parte do conjunto de produtos e serviços do Azure Monitor.
 Protege os dados de aplicação e mantém-nos durante anos sem qualquer investimento de capital e com um mínimo de custos operacionais. Pode criar cópias de segurança dados a partir de servidores Windows físicos e virtuais, além de cargas de trabalho de aplicação, como o SQL Server e SharePoint. Também pode ser utilizado pelo [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) para replicar dados protegidos para o Azure para redundância e armazenamento de longa duração.
 
 
 Os dados protegidos no Azure Backup são armazenados num cofre de cópias de segurança localizado numa região geográfica específica. Os dados são replicados na mesma região e, dependendo do tipo de cofre, também podem ser replicados para outra região para uma maior resiliência.
 
 ### <a name="management-solutions"></a>Soluções de Gestão
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) é a solução da Microsoft com base na cloud IT management que ajuda a gerenciar e proteger no local e a infraestrutura na cloud.
+[O Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) é a solução da Microsoft com base na cloud IT management que ajuda a gerenciar e proteger no local e a infraestrutura na cloud.
 
 
-[Soluções de gestão](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) são conjuntos pré-embalados de demonstração de Teoremas que implementam um cenário de gestão específico através de um ou mais serviços do Log Analytics. Soluções diferentes estão disponíveis da Microsoft e de parceiros que pode adicionar facilmente a sua subscrição do Azure para aumentar o valor do seu investimento no Log Analytics. Como parceiro, pode criar suas próprias soluções para seus aplicativos e serviços de suporte e forneça aos utilizadores através do Azure Marketplace ou modelos de início rápido.
+[Soluções de gestão](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) são conjuntos pré-embalados de demonstração de Teoremas que implementam um cenário de gestão específico através de um ou mais serviços do Azure Monitor. Soluções diferentes estão disponíveis da Microsoft e de parceiros que pode adicionar facilmente a sua subscrição do Azure para aumentar o valor do seu investimento no Azure Monitor. Como parceiro, pode criar suas próprias soluções para seus aplicativos e serviços de suporte e forneça aos utilizadores através do Azure Marketplace ou modelos de início rápido.
 
 
 ![Soluções de Gestão](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-Um bom exemplo de uma solução que utiliza vários serviços para fornecer funcionalidade adicional é o [solução de gestão de atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Esta solução utiliza o [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agente para Windows e Linux recolher informações sobre atualizações necessárias em cada agente. Escreve estes dados no repositório do Log Analytics, onde pode analisá-los com um dashboard incluído.
+Um bom exemplo de uma solução que utiliza vários serviços para fornecer funcionalidade adicional é o [solução de gestão de atualizações](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management). Esta solução utiliza o [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) agente para Windows e Linux recolher informações sobre atualizações necessárias em cada agente. Ele grava esses dados para o repositório de registos do Azure Monitor, onde pode analisá-los com um dashboard incluído.
 
 Quando cria uma implementação, os runbooks do [automatização do Azure](https://docs.microsoft.com/azure/automation/automation-intro) são utilizados para instalar atualizações necessárias. Todo este processo é gerido no portal e não tem de se preocupar com os detalhes subjacentes.
 
@@ -312,7 +312,7 @@ Este resumos de artigo proteger a sua privacidade e proteção de seus dados, ao
 
 Este artigo explica
 
--   Como dados são recolhidos, processados e protegidos no pacote do Log Analytics.
+-   Como dados são recolhidos, processados e protegidos no pacote do Azure Monitor.
 
 -   Analise rapidamente eventos em várias origens de dados. Identifique riscos de segurança e compreenda o âmbito e o impacto das ameaças e ataques para reduzir os danos provocados por falhas na segurança.
 
@@ -335,7 +335,7 @@ Este artigo explica
 
 A Microsoft desenvolve o seu software e serviços com segurança para ajudar a garantir que a sua infraestrutura de nuvem é resiliente e defendido contra ataques.
 
-- [Log Analytics | Segurança e conformidade](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Registos de Monitor do Azure | Segurança e conformidade](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Utilize dados de segurança da Microsoft e de análise para executar mais a deteção de ameaças inteligente e eficiente.
 

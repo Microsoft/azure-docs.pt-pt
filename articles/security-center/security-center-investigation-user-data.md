@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 81bd34cdbe35f3e12d5afddc929b0fac7631f4cc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113078"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244303"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerir os dados de utilizador encontrados numa investigação do Centro de segurança do Azure
-Este artigo fornece informações sobre como gerir os dados de utilizador encontrados na funcionalidade de investigação do Centro de segurança do Azure. Investigação de dados é armazenada no [do Azure Log Analytics](../log-analytics/log-analytics-overview.md) e expostos no Centro de segurança. Gestão de dados de utilizador inclui a capacidade de eliminar ou exportar dados.
+Este artigo fornece informações sobre como gerir os dados de utilizador encontrados na funcionalidade de investigação do Centro de segurança do Azure. Investigação de dados é armazenada no [registos do Azure Monitor](../log-analytics/log-analytics-overview.md) e expostos no Centro de segurança. Gestão de dados de utilizador inclui a capacidade de eliminar ou exportar dados.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -58,4 +58,4 @@ A função de proprietário, contribuinte, atribuída a um utilizador de centro 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a gestão de dados do utilizador, consulte [gerir os dados de utilizador no Centro de segurança do Azure](security-center-privacy.md).
-Para saber mais sobre a eliminação de dados privados no Log Analytics, veja [como exportar e eliminar dados privados](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).
+Para saber mais sobre a eliminação de dados privados nos registos do Azure Monitor, consulte [como exportar e eliminar dados privados](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

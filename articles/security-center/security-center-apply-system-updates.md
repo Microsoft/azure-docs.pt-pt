@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: afd6ded48bc330032b77be4bc8cd186a6f71ee5f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 9c2d6c48b9bf51062181886c8a9ef789b1c2b359
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105132"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240835"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Aplicar atualizações do sistema no Centro de segurança do Azure
 Centro de segurança do Azure monitoriza diárias máquinas virtuais (VMs) Windows e Linux e computadores para atualizações de sistema operativo em falta. Centro de segurança obtém uma lista de atualizações críticas e de segurança disponíveis do Windows Update ou Windows Server Update Services (WSUS), dependendo de qual o serviço está configurado num computador Windows. Centro de segurança também verifica as atualizações mais recentes nos sistemas Linux. Se a sua VM ou o computador está em falta uma atualização do sistema, o Centro de segurança recomendará que aplique as atualizações do sistema.
@@ -63,13 +63,13 @@ Neste exemplo, utilizamos **computação**.
 
    ![Atualização de segurança em falta][3]
 
-4. Selecione o **pesquisa** ícone na fita superior.  Uma consulta de pesquisa do Log Analytics abre filtrada para os computadores em falta a atualização.
+4. Selecione o **pesquisa** ícone na fita superior.  Uma consulta de pesquisa de registos do Azure Monitor abre filtrada para os computadores em falta a atualização.
 
-   ![Pesquisa do log Analytics][4]
+   ![Pesquisa de registos de Monitor do Azure][4]
 
 5. Selecione um computador a partir da lista para obter mais informações. Outro resultado da pesquisa é aberto com informações filtradas apenas para esse computador.
 
-    ![Pesquisa do log Analytics][5]
+    ![Pesquisa de registos de Monitor do Azure][5]
 
 ## <a name="reboot-after-system-updates"></a>Reiniciar após atualizações do sistema
 1. Retorno para o **recomendações** painel. Uma nova entrada foi gerada depois aplicado atualizações do sistema, chamadas **reiniciar após atualizações do sistema**. Esta entrada permite-lhe saber que terá de reiniciar a VM para concluir o processo de aplicar atualizações do sistema.

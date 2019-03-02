@@ -3,7 +3,7 @@ title: Incorporar o Azure Cloud Shell | Documentos da Microsoft
 description: Aprenda a incorporar o Azure Cloud Shell.
 services: cloud-shell
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
-ms.author: juluk
-ms.openlocfilehash: 37ad0adf01172fadc6d9845576045a4542bdae19
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.author: damaerte
+ms.openlocfilehash: 4cd6eeb37eb441528e411377cf175cd950d50b04
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497795"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245800"
 ---
 # <a name="embed-azure-cloud-shell"></a>Incorporar o Azure Cloud Shell
 
@@ -52,8 +52,8 @@ Defina uma experiência de shell específica ao aumentar o seu URL.
 |Experiência   |do IdP   |
 |---|---|
 |Mais recentemente utilizado shell   |[shell.azure.com](https://shell.azure.com)           |
-|Bash                       |[shell.Azure.com/bash](https://shell.azure.com/bash)       |
-|PowerShell                 |[shell.Azure.com/PowerShell](https://shell.azure.com/powershell) |
+|Bash                       |[shell.azure.com/bash](https://shell.azure.com/bash)       |
+|PowerShell                 |[shell.azure.com/powershell](https://shell.azure.com/powershell) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Guia de introdução do Cloud Shell de bash](quickstart.md)<br>

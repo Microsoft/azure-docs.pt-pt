@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 0a0d003f3d78c6d18938e9c87dd4862f7429d55b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4ef16a932eb50294ff3d1596873295d82f8d894e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728697"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241482"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do programador do Azure funções c# script (. csx)
 
@@ -376,7 +376,7 @@ Para obter informações sobre como carregar ficheiros para a pasta de função,
 O diretório que contém o ficheiro de script de função é automaticamente assistiu para que as alterações aos assemblies. Para ver as alterações de assembly em outros diretórios, adicioná-los para o `watchDirectories` listar, num [Host. JSON](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Utilizar pacotes de NuGet
-Utilizar pacotes de NuGet num C# função, carregar um *function.proj* ficheiro para de pasta a função no sistema de ficheiros da aplicação de função. Eis um exemplo *function.proj* arquivo que adiciona uma referência ao *Microsoft.ProjectOxford.Face* versão *1.1.0*:
+Usar pacotes NuGet num 2.x C# função, carregar um *function.proj* ficheiro para de pasta a função no sistema de ficheiros da aplicação de função. Eis um exemplo *function.proj* arquivo que adiciona uma referência ao *Microsoft.ProjectOxford.Face* versão *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -390,19 +390,36 @@ Utilizar pacotes de NuGet num C# função, carregar um *function.proj* ficheiro 
 </Project>
 ```
 
-Para utilizar um feed de NuGet personalizado, especifique o feed num *Nuget.Config* ficheiro na raiz da aplicação de funções. Para obter mais informações, consulte [comportamento de configurar o NuGet](/nuget/consume-packages/configuring-nuget-behavior).
+Para utilizar um feed de NuGet personalizado, especifique o feed num *Nuget.Config* ficheiro na raiz da aplicação de funções. Para obter mais informações, consulte [comportamento de configurar o NuGet](/nuget/consume-packages/configuring-nuget-behavior). 
 
-### <a name="using-a-extensionscsproj-file"></a>Através de um ficheiro de extensions.csproj
+> [!NOTE]
+> No 1.x C# funções, pacotes de NuGet são referenciadas com um *Project* de ficheiros em vez de uma *function.proj* ficheiro.
+
+Para funções de 1.x, utilize um *Project* de ficheiros em vez disso. Eis um exemplo *Project* ficheiro: 
+
+```json
+{
+  "frameworks": {
+    "net46":{
+      "dependencies": {
+        "Microsoft.ProjectOxford.Face": "1.1.0"
+      }
+    }
+   }
+}
+```
+
+### <a name="using-a-functionproj-file"></a>Através de um ficheiro de function.proj
 
 1. Abra a função no portal do Azure. Separador registos apresenta o resultado de instalação do pacote.
-2. Para carregar um *extensions.csproj* de ficheiros, utilize um dos métodos descritos os [como atualizar os ficheiros de aplicação de função](functions-reference.md#fileupdate) no tópico de referência do programador das funções do Azure.
-3. Depois do *extensions.csproj* ficheiro é carregado, verá a saída semelhante ao seguinte exemplo na sua função da transmissão em fluxo o registo:
+2. Para carregar um *function.proj* de ficheiros, utilize um dos métodos descritos os [como atualizar os ficheiros de aplicação de função](functions-reference.md#fileupdate) no tópico de referência do programador das funções do Azure.
+3. Depois do *function.proj* ficheiro é carregado, verá a saída semelhante ao seguinte exemplo na sua função da transmissão em fluxo o registo:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
 2018-12-14T22:00:48.681 [Information] Starting packages restore
 2018-12-14T22:00:57.064 [Information] Restoring packages for D:\local\Temp\9e814101-fe35-42aa-ada5-f8435253eb83\function.proj...
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\function.proj...
 2018-12-14T22:01:00.844 [Information] Installing Newtonsoft.Json 10.0.2.
 2018-12-14T22:01:01.041 [Information] Installing Microsoft.ProjectOxford.Common.DotNetStandard 1.0.0.
 2018-12-14T22:01:01.140 [Information] Installing Microsoft.ProjectOxford.Face.DotNetStandard 1.0.0.

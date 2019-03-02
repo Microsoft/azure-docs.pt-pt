@@ -1,5 +1,5 @@
 ---
-title: Serviços de Machine Learning (com R) na descrição geral do SQL do Azure da base de dados (pré-visualização)
+title: Serviços do Azure SQL da base de dados Machine Learning com visão geral do R (pré-visualização)
 description: Este tópico descreve os serviços do Azure SQL Database Machine Learning (com R) e explica como funciona.
 services: sql-database
 ms.service: sql-database
@@ -11,22 +11,26 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 02/06/2019
-ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 03/01/2019
+ms.openlocfilehash: 5f876deef4c92c0d678380a49aa38628e0afa660
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875608"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240309"
 ---
-# <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Serviços de Machine Learning (com R) na base de dados do Azure SQL (pré-visualização)
+# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços do Azure SQL da base de dados Machine Learning com R (pré-visualização)
 
 Serviços de Machine Learning é um recurso do Azure SQL Database, utilizado para a execução de scripts do R na base de dados. A funcionalidade inclui pacotes de Microsoft R para Análise Preditiva de alto desempenho e o machine learning. Os dados relacionais podem ser usados nos scripts de R por meio de procedimentos armazenados, instruções de R que contém script T-SQL ou código de R que contém o T-SQL.
 
 > [!IMPORTANT]
-> Serviços de Machine Learning (com R) na base de dados do Azure SQL está atualmente em pré-visualização pública para bases de dados individuais e conjuntos elásticos com o modelo de compra baseado em vCore na **fins gerais** e **críticosdenegócio** escalões de serviço. Esta pré-visualização pública inicial, o **hiperescala** escalão de serviço e o **instância gerida** opção de implementação não são suportadas. Atualmente, a única linguagem suportada é R. Ainda não há suporte para Python neste momento. 
+> Serviços do Azure SQL Database Machine Learning (com R) está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> A pré-visualização está atualmente disponível nas seguintes regiões: oeste Europa, Europa do Norte, E.U.A. oeste 2, E.U.A. leste, Centro-Sul, e.u.a. Centro-Norte, Canadá Central, Sudeste asiático, Sul da Índia e Sudeste da Austrália. 
+> A pré-visualização pública está disponível para bases de dados individuais e conjuntos elásticos com o modelo de compra baseado em vCore na **fins gerais** e **crítico para a empresa** escalões de serviço. Esta pré-visualização pública inicial, o **hiperescala** escalão de serviço e o **instância gerida** opção de implementação não são suportadas. Atualmente, a única linguagem suportada é R. Ainda não há suporte para Python neste momento.
+>
+> A pré-visualização está atualmente disponível nas seguintes regiões: Europa Ocidental, Europa do Norte, E.U.A. oeste 2, E.U.A. leste, Centro-Sul dos E.U.A., Centro-Norte, Canadá Central, Sudeste asiático, Sul da Índia e Sudeste da Austrália.
 >
 > [Inscreva-se na pré-visualização](#signup) abaixo.
 
@@ -60,7 +64,7 @@ Para se inscrever na pré-visualização pública, siga estes passos:
 
 Assim que estão inscritos no programa, Microsoft irá carregar para a pré-visualização pública e ativar R para sua existente ou novo banco de dados.
 
-Não utilize serviços de Machine Learning com R para cargas de trabalho de produção durante a pré-visualização pública.
+Serviços de Machine Learning com R não é recomendado para a carga de trabalho de produção durante a pré-visualização pública.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

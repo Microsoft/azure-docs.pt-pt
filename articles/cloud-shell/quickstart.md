@@ -3,7 +3,7 @@ title: Guia de introdução do Azure Cloud Shell de bash | Documentos da Microso
 description: Início rápido para o Bash no Cloud Shell
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
-ms.author: juluk
-ms.openlocfilehash: 0b3616a723e793ab1ce8d7bcca1f53ca10ec4f96
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: damaerte
+ms.openlocfilehash: 56a4645c5f86e9f95e82533b7f5f81b7bca51e7b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970670"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245323"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Início rápido para o Bash no Azure Cloud Shell
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: 52c0799dd2f3c22b1ae3553869aafe9a1fcffc7f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: e752c19dc74135c05b971f8eb296da61259d0c20
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887935"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217772"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -113,9 +113,9 @@ Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, 
 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações
 
-- <a name="cross-region"></a>Pode configurar o peering entre redes virtuais na mesma região ou regiões diferentes. Peering de redes virtuais em diferentes regiões também é referido como *global peering*.
-- Ao criar um peering global, as redes virtuais em modo de peering podem existir em qualquer região de cloud pública do Azure, regiões da cloud na China ou regiões de cloud do Governo. Não pode configurar o peering entre nuvens.
-- Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end do Balanceador de carga interno do Azure numa rede virtual em modo de peering global. O Balanceador de carga e os recursos que se comunicam com o mesmo tem de ser numa rede virtual na mesma região. Se as redes virtuais em modo de peering na mesma região no entanto, os recursos em qualquer rede virtual podem comunicar com o endereço IP Front-end do Balanceador de carga interno do Azure em qualquer rede virtual no peering.
+- <a name="cross-region"></a>Pode configurar o peering entre redes virtuais na mesma região ou regiões diferentes. Peering de redes virtuais em diferentes regiões também é referido como *Global VNet Peering*. 
+- Ao criar um peering global, as redes virtuais em modo de peering podem existir em qualquer região de cloud pública do Azure ou em regiões da cloud na China, mas não está no governo regiões de cloud. Pode apenas ponto a ponto as redes virtuais na mesma região em regiões de cloud do Azure Government. Não é possível configurar o peering entre nuvens.
+- Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end de um balanceador de carga interno básico numa rede virtual em modo de peering global. Suporte para o Balanceador de carga básico só existe na mesma região. Existe suporte para o Balanceador de carga Standard para o Global VNet Peering.
 - Não é possível utilizar gateways remotos ou permitir que o trânsito de gateway em redes virtuais global em modo de peering. Para utilizar gateways remotos ou permitir que o trânsito de gateway, as redes virtuais em modo de peering tem de ser na mesma região.
 - As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando configurar o peering de redes virtuais em diferentes subscrições, ambas as subscrições podem ser associadas ao inquilino do Azure Active Directory idêntica ou diferente. Se ainda não tiver um inquilino do AD, pode [criá-lo](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Suporte para o peering entre redes virtuais das subscrições associadas aos diferentes inquilinos do Azure Active Directory não está disponível no Portal. Pode utilizar modelos, PowerShell ou CLI.
 - As redes virtuais que configurar o peering tem de ter espaços de endereços IP não sobrepostos.

@@ -4,7 +4,7 @@ description: Saiba como recolher dados do Azure ATP no Azure sentinela.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 5bf3cc44-ecda-4c78-8a63-31ab42f43605
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4415e8527852955f93402abb6aa068b9dd6b1197
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 154af3988084792331db082b99cae0ae06126f1b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992909"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242178"
 ---
 # <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Recolher dados do Azure Advanced proteção contra ameaças (ATP)
 

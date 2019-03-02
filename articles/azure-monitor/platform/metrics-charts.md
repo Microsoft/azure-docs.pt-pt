@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: c71822f50879404ba943ef6e703364a09a80fbf3
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e5c7d019a34736cfbc26e245dc54a93374aada9c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310948"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242433"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas do Azure Monitor
 
@@ -76,16 +76,16 @@ Pode aplicar filtros para os gráficos que mostram as métricas com dimensões. 
 
 5. Pode repetir os passos 1 a 4 para aplicar vários filtros para os mesmo gráficos.
 
-## <a name="segment-a-chart"></a>Segmentar um gráfico
+## <a name="apply-splitting-to-a-chart"></a>Aplicam-se de que a divisão de um gráfico
 
 Pode dividir uma métrica por dimensão para visualizar como diferentes segmentos da comparação de métrica em relação a si e identificar os segmentos afastados de uma dimensão. 
 
-### <a name="to-segment-a-chart"></a>Para segmentar um gráfico
+### <a name="to-apply-splitting"></a>Para aplicar a divisão
 
 1. Clique em **aplicam-se de que a divisão** acima do gráfico.
  
    > [!NOTE]
-   > Pode ter vários filtros, mas o valor de apenas uma divisão/segmentação em qualquer gráfico único.
+   > A divisão não pode ser utilizada com gráficos que têm várias métricas. Além disso, pode ter vários filtros, mas apenas uma dimensão de divisão aplicadas a qualquer único gráfico.
 
 2. Escolha uma dimensão no qual pretende segmentar o gráfico:
 

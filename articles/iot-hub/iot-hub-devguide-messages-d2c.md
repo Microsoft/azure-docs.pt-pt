@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: cabfe4381f7f941f2a5e049eed73be546902f6ae
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: dd811a48d6f3f1061bad49a81b7e833dcb40e1e3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55485352"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241294"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilizar o encaminhamento de mensagens para enviar mensagens do dispositivo para a cloud para diferentes pontos de extremidade
 
@@ -101,7 +101,7 @@ Na maioria dos casos, o aumento de média de latência é inferior a 500 MS. Pod
 
 O IoT Hub fornece encaminhamento várias e métricas para uma visão geral do Estado de funcionamento do seu hub e as mensagens enviadas relacionados com o ponto final. Pode combinar informações a partir de várias métricas para identificar a causa de raiz para problemas. Por exemplo, utilize métrica **encaminhamento: mensagens de telemetria removidas** ou **d2c.telemetry.egress.dropped** para identificar o número de mensagens que foram removidos quando eles não correspondeu consultas em qualquer uma das rotas e a rota de contingência foi desativada. [Métricas do IoT Hub](iot-hub-metrics.md) apresenta uma lista de todas as métricas que estão ativadas por predefinição para o seu IoT Hub.
 
-Com o **rotas** registos de diagnóstico no Azure Monitor [das definições de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md), pode erros de roteiros que ocorrem durante a avaliação de um Estado de funcionamento encaminhamento de consulta e o ponto final como percebido pelo IoT Hub, por exemplo Quando um ponto final está inativo. Estes registos de diagnóstico podem ser enviados para o Log Analytics, Hubs de eventos ou armazenamento do Azure para processamento personalizado.
+Com o **rotas** registos de diagnóstico no Azure Monitor [das definições de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md), pode erros de roteiros que ocorrem durante a avaliação de um Estado de funcionamento encaminhamento de consulta e o ponto final como percebido pelo IoT Hub, por exemplo Quando um ponto final está inativo. Estes registos de diagnóstico podem ser enviados para os registos do Azure Monitor, os Hubs de eventos ou armazenamento do Azure para processamento personalizado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

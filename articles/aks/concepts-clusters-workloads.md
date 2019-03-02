@@ -5,18 +5,18 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7f964397b476d5a97ecdde0ae22bd6662a435e1a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d4293bf6a375f3e1a26c0c4fb50fcdc7bb5b8e8e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456525"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243861"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos do Kubernetes principal para o Azure Kubernetes Service (AKS)
 
-Como o desenvolvimento de aplicativos foi movido para uma abordagem baseada em contentor, a necessidade de orquestrar e gerir os recursos ligados entre torna-se importantes. O Kubernetes é a plataforma líder que fornece a capacidade de fornecer um agendamento fiável de cargas de trabalho de aplicação tolerante a falhas. O Azure Kubernetes Service (AKS) é um oferta que simplifica ainda mais a implementação de aplicações baseadas em contentores e gestão de Kubernetes gerido.
+Como o desenvolvimento de aplicativos se mova em direção de uma abordagem baseada em contentor, a necessidade de orquestrar e gerir os recursos, é importante. O Kubernetes é a plataforma líder que fornece a capacidade de fornecer um agendamento fiável de cargas de trabalho de aplicação tolerante a falhas. O Azure Kubernetes Service (AKS) é um oferta que simplifica ainda mais a implementação de aplicações baseadas em contentores e gestão de Kubernetes gerido.
 
 Este artigo apresenta os componentes de infraestrutura do Kubernetes principal como a *principal do cluster*, *nós*, e *conjuntos de nós*. Recursos de carga de trabalho, como *pods*, *implementações*, e *define* também são apresentadas, juntamente com como do grupo de recursos em *espaços de nomes*.
 
@@ -52,9 +52,11 @@ O mestre de cluster inclui os seguintes componentes principais do Kubernetes:
 
 AKS fornece um modelo de cluster de inquilino único, com um servidor de API dedicado, o Scheduler, etc. Definir o número e tamanho de nós e a plataforma do Azure configura a comunicação segura entre o mestre de cluster e nós. A interação com o mestre de cluster ocorre através de APIs do Kubernetes, tais como `kubectl` ou o dashboard do Kubernetes.
 
-Este principal de cluster gerido significa que não é necessário configurar componentes, como uma elevada disponibilidade *etcd* store, mas também significa que não é possível acessar diretamente o mestre de cluster. Atualizações para o Kubernetes são orquestradas através da CLI do Azure ou o portal do Azure, que atualiza o mestre de cluster e, em seguida, os nós. Para resolver possíveis problemas, pode rever os registos de principal do cluster através de registos do Azure Monitor.
+Este principal de cluster gerido significa que não precisa de configurar componentes, como uma elevada disponibilidade *etcd* store, mas também significa que não é possível acessar diretamente o mestre de cluster. Atualizações para o Kubernetes são orquestradas através da CLI do Azure ou o portal do Azure, que atualiza o mestre de cluster e, em seguida, os nós. Para resolver possíveis problemas, pode rever os registos de principal do cluster através de registos do Azure Monitor.
 
 Se precisar de configurar o mestre de cluster de uma maneira específica ou precisar de acesso direto a elas, pode implementar seu próprio cluster do Kubernetes com [mecanismo de aks][aks-engine].
+
+Para as práticas recomendadas associadas, consulte [melhores práticas para segurança do cluster e atualizações no AKS][operator-best-practices-cluster-security].
 
 ## <a name="nodes-and-node-pools"></a>Nós e conjuntos de nós
 
@@ -62,7 +64,7 @@ Para executar as suas aplicações e serviços de suporte, terá de Kubernetes *
 
 - O `kubelet` é o agente do Kubernetes que processa os pedidos de orquestração do cluster principal e o agendamento dos pedido contentores em execução.
 - Rede virtual é processado pelos *kube proxy* em cada nó. As rotas do proxy o tráfego de rede e gere o endereçamento IP para os serviços e os pods.
-- O *tempo de execução do contentor* é o componente que permite que aplicações em contentores executar e interagir com recursos adicionais, tais como a rede virtual e armazenamento. No AKS, o Docker é utilizado como o tempo de execução do contentor.
+- O *tempo de execução do contentor* é o componente que permite que aplicações em contentores executar e interagir com recursos adicionais, tais como a rede virtual e armazenamento. AKS, Moby é utilizado como o tempo de execução do contentor.
 
 ![Máquina virtual do Azure e recursos de suporte para um nó do Kubernetes](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -70,7 +72,7 @@ O tamanho de VM do Azure para os nós define o número de CPUs, quantidade de me
 
 No AKS, a imagem de VM para os nós no seu cluster baseia-se atualmente no Ubuntu Linux. Quando cria um cluster do AKS ou aumentar verticalmente o número de nós, a plataforma do Azure cria o número pedido de VMs e configura-as. Não existe nenhuma configuração manual para executar.
 
-Se precisar de utilizar um sistema operacional, tempo de execução do contentor, de outro anfitrião ou incluir pacotes personalizados, pode implementar seu próprio cluster do Kubernetes com [mecanismo de aks][aks-engine]. O montante `aks-engine` libera recursos e fornece opções de configuração antes de eles são suportados oficialmente em clusters do AKS. Por exemplo, se pretender utilizar contentores do Windows ou um tempo de execução do contentor que não seja o Docker, pode utilizar `aks-engine` para configurar e implementar um cluster do Kubernetes que atenda às suas necessidades atuais.
+Se precisar de utilizar um sistema operacional, tempo de execução do contentor, de outro anfitrião ou incluir pacotes personalizados, pode implementar seu próprio cluster do Kubernetes com [mecanismo de aks][aks-engine]. O montante `aks-engine` libera recursos e fornece opções de configuração antes de eles são suportados oficialmente em clusters do AKS. Por exemplo, se pretender utilizar contentores do Windows ou um tempo de execução do contentor que não seja Moby, pode utilizar `aks-engine` para configurar e implementar um cluster do Kubernetes que atenda às suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
@@ -92,6 +94,8 @@ Por exemplo:
     - Um total de *(32-4) = 28 GiB* está disponível para o nó
     
 O nó subjacente SO também requer alguma quantidade de recursos de CPU e memória para concluir as suas próprias funções principais.
+
+Para as práticas recomendadas associadas, consulte [melhores práticas para as funcionalidades básicas do scheduler no AKS][operator-best-practices-scheduler].
 
 ### <a name="node-pools"></a>Conjuntos de nós
 
@@ -236,3 +240,5 @@ Este artigo aborda alguns dos componentes principais do Kubernetes e como eles s
 [aks-concepts-network]: concepts-network.md
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
 [aks-helm]: kubernetes-helm.md
+[operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[operator-best-practices-scheduler]: operator-best-practices-scheduler.md

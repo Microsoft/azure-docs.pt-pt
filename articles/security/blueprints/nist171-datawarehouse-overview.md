@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: ec608964190c65d8d064582920e53545b9ee62a6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a1850ecfbb21eb9495bb0e6de362dc8dee3026a2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404007"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242365"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-warehouse-for-nist-sp-800-171"></a>Segurança do Azure e o esquema de conformidade – armazém de dados para SP do NIST 800-171
 
@@ -51,11 +51,10 @@ Esta solução utiliza os seguintes serviços do Azure. Para obter mais informa�
 - Azure Active Directory
 - Catálogo de Dados do Azure
 - Azure Key Vault
-- Azure Monitor
+- O Azure Monitor (logs)
 - Centro de Segurança do Azure
 - Azure Load Balancer
 - Storage do Azure
-- Azure Log Analytics
 - Máquinas Virtuais do Azure
     - (1) anfitrião de bastião
     - (2) controlador de domínio do as Active Directory
@@ -67,16 +66,16 @@ Esta solução utiliza os seguintes serviços do Azure. Para obter mais informa�
     - (4) grupos de segurança de rede
 - Cofre dos Serviços de Recuperação
 - SQL Data Warehouse
-- SQL Server Reporting Services
+- Serviços de Relatórios do SQL Server
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 A secção seguinte fornece detalhes sobre os elementos de implantação e a implementação.
 
-**O Azure SQL Data Warehouse**: [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) é um armazém de dados empresarial que tira proveito do processamento paralelo em grande escala para executar rapidamente consultas complexas em petabytes de dados. Os utilizadores podem utilizar consultas simples de PolyBase T-SQL para importar grandes quantidades de dados para o SQL data warehouse e utilize o poder de processamento paralelo em grande escala para executar análises de elevado desempenho.
+**Azure SQL Data Warehouse**: [O SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) é um armazém de dados empresarial que tira proveito do processamento paralelo em grande escala para executar rapidamente consultas complexas em petabytes de dados. Os utilizadores podem utilizar consultas simples de PolyBase T-SQL para importar grandes quantidades de dados para o SQL data warehouse e utilize o poder de processamento paralelo em grande escala para executar análises de elevado desempenho.
 
 **SQL Server Reporting Services**: [SQL Server Reporting Services](https://docs.microsoft.com/sql/reporting-services/report-data/sql-azure-connection-type-ssrs) fornece a rápida criação de relatórios com tabelas, gráficos, mapas, medidores, matrizes e mais para o SQL Data Warehouse.
 
-**O catálogo de dados do Azure**: [catálogo de dados](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) facilita a detetar e compreender pelos utilizadores que gerem os dados de origens de dados. Podem ser registadas, marcadas e está à procura dados de origens de dados comuns. Os dados permanecem na localização existente, mas uma cópia dos respetivos metadados é adicionada ao catálogo de dados. Uma referência para a localização de origem de dados está incluída. Os metadados são indexados para tornar cada origem de dados fácil de descobrir através da pesquisa. Indexação também torna compreensível para os utilizadores que a detetarem.
+**Catálogo de dados do Azure**: [Catálogo de dados](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) facilita a detetar e compreender pelos utilizadores que gerem os dados de origens de dados. Podem ser registadas, marcadas e está à procura dados de origens de dados comuns. Os dados permanecem na localização existente, mas uma cópia dos respetivos metadados é adicionada ao catálogo de dados. Uma referência para a localização de origem de dados está incluída. Os metadados são indexados para tornar cada origem de dados fácil de descobrir através da pesquisa. Indexação também torna compreensível para os utilizadores que a detetarem.
 
 **Anfitrião de bastião**: O anfitrião de bastião é o único ponto de entrada que os utilizadores podem utilizar para aceder os recursos implementados neste ambiente. O anfitrião de bastião fornece uma ligação segura a recursos implementados, permitindo apenas tráfego remoto de endereços IP públicos numa lista segura. Para permitir o tráfego de ambiente de trabalho remoto, a origem do tráfego deve ser definida no grupo de segurança de rede.
 
@@ -90,7 +89,7 @@ Esta solução cria uma VM como um anfitrião de bastião associados a um domín
 ### <a name="virtual-network"></a>Rede virtual
 Esta arquitetura de referência define uma rede privada virtual com um espaço de endereços de 10.0.0.0/16.
 
-**Grupos de segurança de rede**: [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) contêm listas de controlo de acesso que permitem ou negam o tráfego dentro de uma rede virtual. Podem ser utilizados NSGs para proteger o tráfego numa sub-rede ou o nível VM individual. Existem os NSGs seguintes:
+**Grupos de segurança de rede**: [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSGs) contêm listas de controlo de acesso que permitem ou negam o tráfego dentro de uma rede virtual. Podem ser utilizados NSGs para proteger o tráfego numa sub-rede ou o nível VM individual. Existem os NSGs seguintes:
   - Um NSG para a camada de dados (clusters do SQL Server, testemunho do SQL Server e o Balanceador de carga SQL)
   - Um NSG para o anfitrião de bastião de gestão
   - Um NSG para o Active Directory
@@ -98,18 +97,18 @@ Esta arquitetura de referência define uma rede privada virtual com um espaço d
 
 Cada um dos NSGs tem portas específicas e protocolos abra para que a solução possam funcionar corretamente e de forma segura. Além disso, as seguintes configurações são habilitadas para cada NSG:
   - [Eventos e registos de diagnóstico](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) forem ativadas e armazenados numa conta de armazenamento.
-  - O log Analytics está ligado a [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+  - Registos de Monitor do Azure está ligada a [diagnóstico do NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
-**Sub-redes**: cada sub-rede está associada ao seu NSG correspondente.
+**Sub-redes**: Cada sub-rede está associado a seu NSG correspondente.
 
 ### <a name="data-at-rest"></a>Dados inativos
 A arquitetura protege dados em repouso através de várias medidas. Estas medidas incluem a criptografia e auditoria de base de dados.
 
-**O armazenamento do Azure**: para satisfazer os requisitos para os dados encriptados em inatividade, todos os [armazenamento](https://azure.microsoft.com/services/storage/) utiliza [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Esta funcionalidade ajuda a proteger e salvaguardar os dados para oferecer suporte a requisitos de conformidade e de compromissos de segurança organizacional.
+**O armazenamento do Azure**: Para cumprir os requisitos para os dados encriptados em inatividade, todos os [armazenamento](https://azure.microsoft.com/services/storage/) utiliza [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Esta funcionalidade ajuda a proteger e salvaguardar os dados para oferecer suporte a requisitos de conformidade e de compromissos de segurança organizacional.
 
-**O Azure Disk Encryption**: [encriptação de disco](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) utiliza a funcionalidade BitLocker do Windows para fornecer a criptografia de volume de sistema operativo e discos de dados. A solução se integra com o Key Vault para ajudar a controlar e gerir as chaves de encriptação de disco.
+**Azure Disk Encryption**: [Encriptação de disco](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) utiliza a funcionalidade BitLocker do Windows para fornecer a criptografia de volume de sistema operativo e discos de dados. A solução se integra com o Key Vault para ajudar a controlar e gerir as chaves de encriptação de disco.
 
-**Base de dados SQL do Azure**: instância da base de dados SQL utiliza as seguintes medidas de segurança da base de dados:
+**Base de dados SQL do Azure**: A instância de base de dados SQL utiliza as seguintes medidas de segurança da base de dados:
 -   [Autenticação do Active Directory e a autorização](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permite a gestão de identidades de utilizadores de base de dados e outros serviços da Microsoft num local central.
 -   [Auditoria de base de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) faixas de base de dados eventos e escreve-os para uma auditoria registo numa conta de armazenamento do Azure.
 -   Base de dados SQL está configurado para utilizar [encriptação de dados transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Ele executa criptografia em tempo real e a descriptografia da base de dados, cópias de segurança associadas e ficheiros de registo de transação para proteger as informações em repouso. Encriptação de dados transparente fornece garantia de que são armazenados os dados não tem sido sujeita a acesso não autorizado.
@@ -138,11 +137,11 @@ As seguintes tecnologias fornecem capacidades para gerir o acesso aos dados no a
 - Registos de diagnóstico para o Cofre de chaves estão ativados com um período de retenção de, pelo menos, 365 dias.
 - Operações de criptografia permitidas para as chaves estão limitadas aos obrigatórios.
 
-**Gerenciamento de patches**: as VMs do Windows implementadas como parte desta arquitetura de referência estão configurados por predefinição para receber atualizações automáticas do serviço de atualização do Windows. Esta solução também inclui a [automatização do Azure](https://docs.microsoft.com/azure/automation/automation-intro) serviço por meio do qual as implementações atualizadas podem ser criadas para o patch VMs quando necessário.
+**Gerenciamento de patches**: VMs do Windows implementadas como parte desta arquitetura de referência estão configuradas por predefinição para receber atualizações automáticas do serviço de atualização do Windows. Esta solução também inclui a [automatização do Azure](https://docs.microsoft.com/azure/automation/automation-intro) serviço por meio do qual as implementações atualizadas podem ser criadas para o patch VMs quando necessário.
 
-**Proteção contra software maligno**: [Antimalware da Microsoft](https://docs.microsoft.com/azure/security/azure-security-antimalware) para VMs fornece a capacidade de proteção em tempo real que ajuda a identifica e remove vírus, spyware e outro software malicioso. Os clientes podem configurar alertas que geram quando conhecido software malicioso ou indesejável se tentar instalar ou executar em VMs protegidas.
+**Proteção contra Malware**: [O Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para VMs fornece a capacidade de proteção em tempo real que ajuda a identifica e remove vírus, spyware e outro software malicioso. Os clientes podem configurar alertas que geram quando conhecido software malicioso ou indesejável se tentar instalar ou executar em VMs protegidas.
 
-**Centro de segurança do Azure**: com [Centro de segurança](https://docs.microsoft.com/azure/security-center/security-center-intro), os clientes podem centralmente aplicam-se e gerir políticas de segurança em cargas de trabalho, limitar a exposição a ameaças e detetar e responder a ataques. Centro de segurança também acessa as configurações existentes dos serviços do Azure para fornecer a configuração e recomendações de serviço para o ajudar a melhorar a postura de segurança e proteger os dados.
+**Centro de segurança do Azure**: Com o [Centro de segurança](https://docs.microsoft.com/azure/security-center/security-center-intro), os clientes podem centralmente aplicam-se e gerir políticas de segurança em cargas de trabalho, limitar a exposição a ameaças e detetar e responder a ataques. Centro de segurança também acessa as configurações existentes dos serviços do Azure para fornecer a configuração e recomendações de serviço para o ajudar a melhorar a postura de segurança e proteger os dados.
 
 Centro de segurança utiliza uma variedade de capacidades de deteção para alertar os clientes de potenciais ataques que visam seus ambientes. Estes alertas contêm informações valiosas sobre o que acionou o alerta, os recursos afetados e a origem do ataque. Centro de segurança tem um conjunto de [predefinidos alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) que são acionados quando uma ameaça ou atividade suspeita ocorre. Os clientes podem usar [regras de alerta personalizadas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) para definir novos alertas de segurança com base nos dados que já são recolhidos do seu ambiente.
 
@@ -151,27 +150,27 @@ Centro de segurança fornece alertas de segurança priorizados e incidentes. Cen
 Esta arquitetura de referência também utiliza a [avaliação de vulnerabilidade](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) capacidade no Centro de segurança. Depois de estar configurada, um agente de parceiro (por exemplo, Qualys) relatórios de dados de vulnerabilidade à plataforma de gestão do parceiro. Por sua vez, a plataforma de gestão do parceiro fornece dados de vulnerabilidades e de estado de funcionamento de volta ao Centro de Segurança. Os clientes podem utilizar estas informações para identificar rapidamente VMs vulneráveis.
 
 ### <a name="business-continuity"></a>Continuidade do negócio
-**Elevada disponibilidade**: cargas de trabalho do servidor são agrupadas num [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ajudar a garantir a elevada disponibilidade de VMs no Azure. Pelo menos uma VM está disponível durante um evento de manutenção não planeada ou não planeada, que cumpre 99,95% do SLA do Azure.
+**Elevada disponibilidade**: Cargas de trabalho do servidor são agrupadas numa [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ajudar a garantir a elevada disponibilidade de VMs no Azure. Pelo menos uma VM está disponível durante um evento de manutenção não planeada ou não planeada, que cumpre 99,95% do SLA do Azure.
 
-**Cofre dos serviços de recuperação**: A [do cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) hospeda os dados de cópia de segurança e protege todas as configurações de VMs nesta arquitetura. Com o Cofre de serviços de recuperação, os clientes podem restaurar ficheiros e pastas a partir de uma VM de IaaS sem restaurar toda a VM. Este processo acelera os tempos de restauro.
+**Cofre dos Recovery Services**: O [cofre dos serviços de recuperação](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) hospeda os dados de cópia de segurança e protege todas as configurações de VMs nesta arquitetura. Com o Cofre de serviços de recuperação, os clientes podem restaurar ficheiros e pastas a partir de uma VM de IaaS sem restaurar toda a VM. Este processo acelera os tempos de restauro.
 
 ### <a name="logging-and-auditing"></a>Registro e auditoria
 
 Serviços do Azure extensivamente de registo do sistema e a atividade do utilizador, bem como o estado de funcionamento do sistema:
-- **Registos de atividades**: [registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos numa subscrição. Registos de atividades podem ajudar a determinar o iniciador de uma operação, hora da ocorrência e o estado.
-- **Os registos de diagnóstico**: [registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registos emitidos por cada recurso. Estes registos incluem registos de sistema de eventos do Windows, registos de armazenamento, registos de auditoria do Cofre de chaves e os registos de acesso e de firewall do Gateway de aplicação do Azure. Todos os registos de diagnóstico escrevem para uma conta de armazenamento do Azure centralizado e criptografado para arquivamento. Os utilizadores podem configurar o período de retenção, até e 730 dias, para satisfazer os seus requisitos específicos.
+- **Registos de atividades**: [Registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos numa subscrição. Registos de atividades podem ajudar a determinar o iniciador de uma operação, hora da ocorrência e o estado.
+- **Os registos de diagnóstico**: [Os registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registos emitidos por cada recurso. Estes registos incluem registos de sistema de eventos do Windows, registos de armazenamento, registos de auditoria do Cofre de chaves e os registos de acesso e de firewall do Gateway de aplicação do Azure. Todos os registos de diagnóstico escrevem para uma conta de armazenamento do Azure centralizado e criptografado para arquivamento. Os utilizadores podem configurar o período de retenção, até e 730 dias, para satisfazer os seus requisitos específicos.
 
-**Log Analytics**: estes registos são consolidados numa [Log Analytics](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios do dashboard. Depois de recolhidos, os dados são organizado em tabelas separadas para cada tipo de dados nas áreas de trabalho do Log Analytics. Dessa forma, todos os dados podem ser analisados em conjunto, independentemente de sua fonte original. Centro de segurança integra-se com o Log Analytics. Os clientes podem utilizar consultas do Log Analytics para aceder aos respetivos dados de eventos de segurança e combiná-los com dados de outros serviços.
+**Registos de Monitor do Azure**: Estes registos são consolidados no [registos do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios do dashboard. Depois de recolhidos, os dados são organizado em tabelas separadas para cada tipo de dados nas áreas de trabalho do Log Analytics. Dessa forma, todos os dados podem ser analisados em conjunto, independentemente de sua fonte original. Centro de segurança integra-se com os registos do Azure Monitor. Os clientes podem utilizar consultas de Kusto para aceder aos respetivos dados de eventos de segurança e combiná-los com dados de outros serviços.
 
-A seguinte do Log Analytics [soluções de gestão](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) são incluídos como parte desta arquitetura:
--   [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A verificação do Active Directory Health solução avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular. Ele fornece uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
-- [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): O estado de funcionamento de SQL Consulte solução avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular. Fornece aos clientes com uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
-- [Estado de funcionamento do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): solução o estado de funcionamento do agente reporta o número de agentes que está implementado e a respetiva distribuição geográfica. Também relata o número de agentes é sem resposta e o número de agentes que submeter dados operacionais.
--   [Log Analytics da atividade](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): ajuda a solução da análise de registos de atividade com uma análise de registos de atividade do Azure em todas as subscrições do Azure para um cliente.
+O Azure seguinte [soluções de monitorização](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) são incluídos como parte desta arquitetura:
+-   [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de verificação de estado de funcionamento do Active Directory avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular. Ele fornece uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
+- [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): A solução de verificação de estado de funcionamento do SQL avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular. Fornece aos clientes com uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
+- [Estado de funcionamento do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): A solução de estado de funcionamento do agente relata o número de agentes é implementado e a respetiva distribuição geográfica. Também relata o número de agentes é sem resposta e o número de agentes que submeter dados operacionais.
+-   [Log Analytics da atividade](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): A solução Log Analytics da atividade auxilia com uma análise de registos de atividade do Azure em todas as subscrições do Azure para um cliente.
 
-**A automatização do Azure**: [automatização](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) armazena, executa e gere runbooks. Nesta solução, runbooks ajudam a recolher registos de base de dados SQL. Os clientes podem usar a automação [controlo de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking) solução para o identificar facilmente as alterações no ambiente.
+**A automatização do Azure**: [Automatização](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) armazena, executa e gere runbooks. Nesta solução, runbooks ajudam a recolher registos de base de dados SQL. Os clientes podem usar a automação [controlo de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking) solução para o identificar facilmente as alterações no ambiente.
 
-**O Azure Monitor**: [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências. As organizações podem usá-lo de auditoria, criar alertas e arquivar dados. Também pode controlar as chamadas de API em seus recursos do Azure.
+**Azure Monitor**: [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências. As organizações podem usá-lo de auditoria, criar alertas e arquivar dados. Também pode controlar as chamadas de API em seus recursos do Azure.
 
 ## <a name="threat-model"></a>Modelo de risco
 

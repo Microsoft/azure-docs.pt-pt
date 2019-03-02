@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9783c7f2837619d9b279a645668d06d9e0a144bb
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: d90daaf18e5161053e00671b7667d05ec8e5db76
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804786"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242926"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 
@@ -33,13 +33,13 @@ Monitorização de aplicações controla como os recursos e componentes da sua a
 
 Um dos objetivos do Service Fabric é tornar as aplicações resilientes a falhas de hardware. Essa meta é alcançada através de capacidade dos serviços do sistema da plataforma para detetar problemas de infraestrutura e, rapidamente, com cargas de trabalho de ativação pós-falha para outros nós do cluster. Mas e se os serviços do sistema se tem problemas? Ou, em caso de tentar implementar ou mover uma carga de trabalho, são violou regras para o posicionamento de serviços? O Service Fabric fornece diagnósticos para estes e outros problemas, para se certificar de que é informado sobre como a plataforma do Service Fabric interage com seus aplicativos, serviços, contentores e nós.
 
-Para clusters do Windows, recomenda-se que configure a monitorização de clusters com [agente de diagnóstico](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) e [do Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
+Para clusters do Windows, recomenda-se que configure a monitorização de clusters com [agente de diagnóstico](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) e [registos do Azure Monitor](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup).
 
-Para clusters do Linux, do Log Analytics também é a ferramenta recomendada para a plataforma do Azure e o monitoramento da infraestrutura. Diagnóstico de plataforma Linux necessita de configuração diferente, segundo observado na [eventos de cluster do Service Fabric do Linux do Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
+Para clusters do Linux, os registos do Azure Monitor também é a ferramenta recomendada para a plataforma do Azure e o monitoramento da infraestrutura. Diagnóstico de plataforma Linux necessita de configuração diferente, segundo observado na [eventos de cluster do Service Fabric do Linux do Syslog](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-syslog).
 
 ## <a name="infrastructure-monitoring"></a>Monitorização das infraestruturas
 
-[Log Analytics](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) é recomendada para a monitorização de eventos de nível de cluster. Depois de configurar o agente Log Analytics com a sua área de trabalho, tal como descrito na ligação anterior, poderá recolher métricas de desempenho, como a utilização de CPU, contadores de desempenho do .NET, como o processo ao nível de utilização da CPU, desempenho do Service Fabric contadores como n. º de exceções de um serviço fiável e métricas de contentor, como a utilização da CPU.  Terá de escrever os registos de contentor para stdout ou stderr para que elas estarão disponíveis no Log Analytics.
+[Registos de Monitor do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-agent) é recomendada para a monitorização de eventos de nível de cluster. Depois de configurar o agente Log Analytics com a sua área de trabalho, tal como descrito na ligação anterior, poderá recolher métricas de desempenho, como a utilização de CPU, contadores de desempenho do .NET, como o processo ao nível de utilização da CPU, desempenho do Service Fabric contadores como n. º de exceções de um serviço fiável e métricas de contentor, como a utilização da CPU.  Terá de escrever os registos de contentor para stdout ou stderr para que estejam disponíveis nos registos do Azure Monitor.
 
 ## <a name="watchdogs"></a>Watchdogs
 
@@ -50,7 +50,7 @@ Em geral, um watchdog é um serviço separado que observa o estado de funcioname
 * Introdução ao instrumentar seus aplicativos: [Geração de eventos e de registo ao nível no aplicativo](service-fabric-diagnostics-event-generation-app.md).
 * Avance para os passos para configurar o Application Insights para a sua aplicação com [monitorizar e diagnosticar uma aplicação ASP.NET Core no Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Saiba mais sobre a monitorização da plataforma e os eventos que o Service Fabric fornece para: [Geração de eventos e de registo ao nível no plataforma](service-fabric-diagnostics-event-generation-infra.md).
-* Configure a integração do Log Analytics com o Service Fabric: [Configurar o Log Analytics para um cluster](service-fabric-diagnostics-oms-setup.md)
-* Saiba como configurar o Log Analytics para monitorizar contentores: [Monitorização e diagnósticos para contentores do Windows no Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Configure a integração de registos do Azure Monitor com o Service Fabric: [Configurar os registos do Azure Monitor para um cluster](service-fabric-diagnostics-oms-setup.md)
+* Saiba como configurar registos de Azure Monitor para monitorizar contentores: [Monitorização e diagnósticos para contentores do Windows no Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
 * Veja os problemas de diagnóstico de exemplo e soluções com o Service Fabric: [cenários comuns de diagnóstico](service-fabric-diagnostics-common-scenarios.md)
 * Saiba mais sobre as recomendações gerais da monitorização para recursos do Azure: [Melhores práticas - monitorização e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

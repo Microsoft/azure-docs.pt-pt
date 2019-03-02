@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0afc507a49ae7cc54fb0daa5c7ae71c3a40ee637
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 09abb8fa2c8d08b27b83a2510b4c1133458b8363
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731111"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240733"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolha de dados no Centro de segurança do Azure
 Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Dados são recolhidos com o agente de Log Analytics, que lê várias configurações relacionadas à segurança e logs de eventos a partir da máquina e copia os dados para a área de trabalho para análise. Exemplos destes dados são: operação sistema tipo e versão, (registos de eventos Windows), de registos de sistema operativo processos em execução, nome da máquina, endereços IP e com sessão iniciada no utilizador. O agente Log Analytics também copia os ficheiros de informação de falha para a área de trabalho.
@@ -87,11 +87,11 @@ Para selecionar uma área de trabalho criada pelo centro de segurança:
 -   Centro de segurança habilitará automaticamente uma solução de centro de segurança na área de trabalho pelo escalão de preço definido para a subscrição. 
 
 > [!NOTE]
-> Escalão de áreas de trabalho criadas pelo centro de segurança de preços do log Analytics não afeta a faturação do Centro de segurança. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho. Para o escalão gratuito, o Centro de segurança permite que o *SecurityCenterFree* solução na área de trabalho predefinida. No escalão Standard, o Centro de segurança permite que o *segurança* solução na área de trabalho predefinida.
+> Escalão de áreas de trabalho criadas pelo centro de segurança de preços do log analytics não afeta a faturação do Centro de segurança. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho. Para o escalão gratuito, o Centro de segurança permite que o *SecurityCenterFree* solução na área de trabalho predefinida. No escalão Standard, o Centro de segurança permite que o *segurança* solução na área de trabalho predefinida.
 
 Para obter mais informações sobre os preços, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
-Para obter mais informações sobre contas existentes do Log Analytics, consulte [clientes existentes do Log Analytics](security-center-faq.md#existingloganalyticscust).
+Para obter mais informações sobre contas de análise de registo existente, consulte [os clientes de análise do registo existente](security-center-faq.md#existingloganalyticscust).
 
 ### <a name="using-an-existing-workspace"></a>Utilizar uma área de trabalho existente
 
@@ -149,7 +149,7 @@ Quando seleciona uma área de trabalho para armazenar seus dados, todas as área
 ## <a name="data-collection-tier"></a>Camada de recolha de dados
 Selecionar um escalão de recolha de dados no Centro de segurança do Azure só afetarão o armazenamento de eventos de segurança na sua área de trabalho do Log Analytics. O agente Log Analytics ainda irá recolher e analisar os eventos de segurança necessários para deteções de ameaças do Centro de segurança do Azure, independentemente de qual dos escalões de eventos de segurança optar por armazenar na sua área de trabalho do Log Analytics (se houver). Selecionar a opção para armazenar eventos de segurança na sua área de trabalho irá permitir a investigação, a pesquisa e a auditoria desses eventos na sua área de trabalho. 
 > [!NOTE]
-> Armazenamento de dados no Log Analytics, pode incorrer em custos adicionais para o armazenamento de dados, consulte a página de preços para obter mais detalhes.
+> Armazenamento de dados no log analytics, pode incorrer em custos adicionais para o armazenamento de dados, consulte a página de preços para obter mais detalhes.
 >
 Pode escolher o direito de política para as suas subscrições e áreas de trabalho do quatro conjuntos de eventos de filtragem para serem armazenados na sua área de trabalho: 
 
@@ -212,8 +212,8 @@ Para obter mais informações, consulte [o que acontece se um SCOM ou OMS direci
 
 -   Uma extensão de VM já existente está presente<br>
     - Centro de segurança oferece suporte a instalações de extensão existente e não substitui as ligações existentes. Centro de segurança armazena os dados da VM na área de trabalho já ligado e fornece proteção com base em soluções de ativadas na área de trabalho de segurança.   
-    - Para ver a área de trabalho que a extensão existente está a enviar dados para executar o teste seja [valide a conectividade com o Centro de segurança do Azure](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Em alternativa, pode abrir o Log analytics, selecione uma área de trabalho, selecione a VM e examinar a ligação de agente do Log Analytics. 
-    - Se tiver um ambiente em que o agente do Log Analytics está instalado em estações de trabalho do cliente e de relatórios numa área de trabalho do Log Analytics existentes, reveja a lista de [sistemas operativos suportados pelo centro de segurança do Azure](security-center-os-coverage.md) certificar-se o sistema operativo é suportado e ver [clientes existentes do Log Analytics](security-center-faq.md#existingloganalyticscust) para obter mais informações.
+    - Para ver a área de trabalho que a extensão existente está a enviar dados para executar o teste seja [valide a conectividade com o Centro de segurança do Azure](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Em alternativa, pode abrir as áreas de trabalho do Log Analytics, selecione uma área de trabalho, selecione a VM e examinar a ligação de agente do Log Analytics. 
+    - Se tiver um ambiente em que o agente do Log Analytics está instalado em estações de trabalho do cliente e de relatórios numa área de trabalho do Log Analytics existentes, reveja a lista de [sistemas operativos suportados pelo centro de segurança do Azure](security-center-os-coverage.md) certificar-se o sistema operativo é suportado e ver [os clientes de análise do registo existente](security-center-faq.md#existingloganalyticscust) para obter mais informações.
  
 ### Desativar aprovisionamento automático <a name="offprovisioning"></a>
 Pode desativar aprovisionamento automático de recursos em qualquer altura ao desativar esta definição na política de segurança. 

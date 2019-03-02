@@ -4,7 +4,7 @@ description: Este documento fornece uma lista de recursos úteis ao trabalhar co
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: c54b04ca956ca3298db8ec5fb52904543bbd3d29
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 18216c636ebcd84172154ac46fdcd54de64c9bb9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992937"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241804"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Recursos úteis para trabalhar com a pré-visualização de sentinela do Azure
 

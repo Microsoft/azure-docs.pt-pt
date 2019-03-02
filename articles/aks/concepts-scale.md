@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 7cd6af1dc6b947abd91c9d25a4b102e52da9d24d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: c7019eac4edc530de5ef64ba9eb32e8e4994e75b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456729"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245204"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Azure Kubernetes Service (AKS)
 
@@ -51,7 +51,7 @@ Terá de ajustar esses valores de arrefecimento. Os valores de arrefecimento pre
 
 ## <a name="cluster-autoscaler"></a>Dimensionamento automático de cluster
 
-Para responder às mudanças na procura de pod, Kubernetes, tem um cluster dimensionamento automático que ajusta o número de nós com base no pedido de recursos de computação no conjunto de nós. Por predefinição, o dimensionamento automático de cluster, verifica o servidor de API cada 10 segundos para todas as alterações necessárias na contagem de nós. Se o dimensionamento automático de cluster determina que uma alteração é necessária, o número de nós no cluster do AKS aumenta ou diminui em conformidade. O dimensionamento automático de cluster funciona com clusters do AKS habilitados no RBAC com o Kubernetes 1.10.x ou superior.
+Para responder às mudanças na procura de pod, Kubernetes, tem um cluster dimensionamento automático que ajusta o número de nós com base no pedido de recursos de computação no conjunto de nós. O dimensionamento automático de cluster utiliza os parâmetros de arranque para coisas como intervalos de tempo entre eventos de dimensionamento e limiares de recursos. Se o dimensionamento automático de cluster determina que uma alteração é necessária, o número de nós no cluster do AKS aumenta ou diminui em conformidade. Executam clusters do AKS que utilizam o dimensionamento automático de cluster em conjuntos de dimensionamento de máquina virtual para gerir o dimensionamento de cópia de segurança e reduzir verticalmente eventos de nós do AKS.
 
 ![Dimensionamento automático de cluster do Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 

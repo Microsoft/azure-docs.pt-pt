@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 12c5ba06eed37072d4c122be9e47a80ce94a5f1b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8beac9d4a84fdee4e8fa7689d60cb51c20acd671
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872833"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241838"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Portanto, quiser saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, a implementação e a gestão de microsserviços dimensionáveis e fiáveis.  Service Fabric tem uma grande área de superfície, no entanto, e há muito a aprender.  Este artigo fornece uma sinopse do Service Fabric e descreve os principais conceitos, modelos, ciclo de vida do aplicativo, teste, clusters e monitorização de estado de funcionamento de programação. Leitura a [descrição geral](service-fabric-overview.md) e [o que são microsserviços?](service-fabric-overview-microservices.md) para uma introdução e como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista de conteúdo abrangente, mas associar à descrição geral e ao obter os artigos de introdução para todas as áreas do Service Fabric. 
@@ -119,7 +119,7 @@ Um [cluster do Service Fabric](service-fabric-deploy-anywhere.md) é um conjunto
 Clusters do Service Fabric podem ser criadas em máquinas virtuais ou físicas que executem Windows Server ou Linux. Pode implementar e executar aplicações do Service Fabric em qualquer ambiente em que tem um conjunto de computadores Windows Server ou Linux que estão interligados: no local, no Microsoft Azure ou em qualquer fornecedor de cloud.
 
 ### <a name="clusters-on-azure"></a>Clusters no Azure
-Executar clusters do Service Fabric no Azure fornece integração com outras funcionalidades do Azure e serviços, o que torna as operações e gestão do cluster mais fácil e mais confiável. Um cluster é um recurso do Azure Resource Manager, para que pode modelar clusters, como quaisquer outros recursos no Azure. Gestor de recursos também fornece gerenciamento fácil de todos os recursos utilizados pelo cluster, como uma única unidade. Clusters no Azure estão integrados com o diagnóstico do Azure e o Log Analytics. Tipos de nó de cluster são [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/index), por isso, a funcionalidade de dimensionamento automático é criada.
+Executar clusters do Service Fabric no Azure fornece integração com outras funcionalidades do Azure e serviços, o que torna as operações e gestão do cluster mais fácil e mais confiável. Um cluster é um recurso do Azure Resource Manager, para que pode modelar clusters, como quaisquer outros recursos no Azure. Gestor de recursos também fornece gerenciamento fácil de todos os recursos utilizados pelo cluster, como uma única unidade. Clusters no Azure são integrados com o diagnóstico do Azure e os registos do Azure Monitor. Tipos de nó de cluster são [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/index), por isso, a funcionalidade de dimensionamento automático é criada.
 
 Pode criar um cluster no Azure através da [portal do Azure](service-fabric-cluster-creation-via-portal.md), de um [modelo](service-fabric-cluster-creation-via-arm.md), ou a partir de [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md).
 

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2b528892d2046f590d979d1646583e028fe4a834
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004602"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218078"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger uma base de dados individual ou agrupada
 
@@ -90,7 +90,7 @@ Agora, já pode ligar a qualquer base de dados do servidor com o endereço IP ou
 
 ### <a name="setup-database-firewall-rules"></a>Configurar regras de firewall da base de dados
 
-Regras de firewall ao nível da base de dados só se aplicam às bases de dados individuais. Estas regras são portáteis e seguirão a base de dados durante um failover de servidor. Regras de firewall ao nível da base de dados só podem ser configuradas com instruções Transact-SQL (T-SQL) e apenas depois que tiver configurado uma regra de firewall ao nível do servidor.
+Regras de firewall ao nível da base de dados só se aplicam às bases de dados individuais. A base de dados irá reter essas regras durante uma ativação pós-falha do servidor. Regras de firewall ao nível da base de dados só podem ser configuradas com instruções Transact-SQL (T-SQL) e apenas depois que tiver configurado uma regra de firewall ao nível do servidor.
 
 Para configurar uma regra de firewall ao nível da base de dados:
 
@@ -264,7 +264,7 @@ Se forem detetadas atividades anómalas, receberá um e-mail com informações s
 
 ### <a name="auditing"></a>Auditoria
 
-A funcionalidade de auditoria controla os eventos de base de dados e escreve eventos num registo de auditoria o armazenamento do Azure, do log analytics, ou para um hub de eventos. Auditoria ajuda a manter a conformidade regulamentar, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que possam indiciar potenciais violações de segurança.
+A funcionalidade de auditoria controla os eventos de base de dados e escreve eventos num registo de auditoria o armazenamento do Azure, os registos do Azure Monitor, ou para um hub de eventos. Auditoria ajuda a manter a conformidade regulamentar, compreender a atividade de base de dados e obter informações sobre discrepâncias e anomalias que possam indiciar potenciais violações de segurança.
 
 Para ativar a auditoria:
 
@@ -286,7 +286,7 @@ Para ativar a auditoria:
         - **Log Analytics**, que armazena automaticamente os eventos para consulta ou análise adicional
 
             > [!NOTE]
-            > R **área de trabalho do Log analytics** é necessária para suportar funcionalidades avançadas, como análise, regras de alerta personalizadas e exportações do Excel ou Power BI. Sem uma área de trabalho, o editor de consultas está disponível.
+            > R **área de trabalho do Log Analytics** é necessária para suportar funcionalidades avançadas, como análise, regras de alerta personalizadas e exportações do Excel ou Power BI. Sem uma área de trabalho, o editor de consultas está disponível.
 
         - **Hub de eventos**, que permite que os eventos para ser encaminhado para utilização em outros aplicativos
 

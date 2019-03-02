@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 121011555d0ba6fdae392275495b89a9759f3978
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490385"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244269"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure práticas recomendadas de modelo do Resource Manager
 
@@ -131,7 +131,7 @@ As informações nesta secção podem ser úteis quando trabalha com [parâmetro
 
 ## <a name="variables"></a>Variáveis
 
-As seguintes informações podem ser úteis quando trabalha com [variáveis](resource-manager-templates-variables.md):
+As seguintes informações podem ser úteis quando trabalha com [variáveis](resource-group-authoring-templates.md#variables):
 
 * Utilize variáveis para valores que tem de utilizar mais do que uma vez num modelo. Se for utilizado um valor apenas uma vez, um valor embutido em torna seu modelo mais fácil de ler.
 
@@ -277,7 +277,7 @@ As seguintes informações podem ser úteis quando trabalha com [recursos](resou
 
 ## <a name="outputs"></a>Saídas
 
-Se utilizar um modelo para criar os endereços IP públicos, incluir uma [produz secção](resource-manager-templates-outputs.md) que devolve detalhes do endereço IP e o nome de domínio completamente qualificado (FQDN). Pode utilizar valores de saída facilmente obter detalhes sobre os endereços IP públicos e FQDNs após a implementação.
+Se utilizar um modelo para criar os endereços IP públicos, incluir uma [produz secção](resource-group-authoring-templates.md#outputs) que devolve detalhes do endereço IP e o nome de domínio completamente qualificado (FQDN). Pode utilizar valores de saída facilmente obter detalhes sobre os endereços IP públicos e FQDNs após a implementação.
 
 ```json
 "outputs": {

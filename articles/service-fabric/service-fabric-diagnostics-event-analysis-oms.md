@@ -1,6 +1,6 @@
 ---
-title: Análise de eventos de recursos de infraestrutura de serviço do Azure com o Log Analytics | Documentos da Microsoft
-description: Saiba mais sobre como visualizar e analisar eventos com o Log Analytics para monitorização e diagnóstico de clusters do Azure Service Fabric.
+title: Registos de análise de eventos do Service Fabric do Azure com o Azure Monitor | Documentos da Microsoft
+description: Saiba mais sobre como visualizar e analisar eventos com o Azure Monitor regista para monitorização e diagnóstico de clusters do Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,28 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: e8719b071bf2e836ed92fa4f6dcddc5f1865b320
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2f3106b33ab0cbea95efe2ac42c05a8543719190
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668799"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246921"
 ---
-# <a name="event-analysis-and-visualization-with-log-analytics"></a>Análise de eventos e visualização com o Log Analytics
- Log Analytics recolhe e analisa a telemetria a partir de aplicações e serviços alojados na cloud e fornece ferramentas de análise para ajudar a maximizar a disponibilidade e desempenho. Este artigo descreve como executar consultas do Log Analytics para obter informações e resolver problemas relacionados com o que acontece no seu cluster. As seguintes perguntas comuns são abordadas:
+# <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Análise de eventos e visualização com os registos do Azure Monitor
+ Registos de Monitor do Azure recolhe e analisa a telemetria a partir de aplicações e serviços alojados na cloud e fornece ferramentas de análise para ajudar a maximizar a disponibilidade e desempenho. Este artigo descreve como executar consultas nos registos do Azure Monitor para obter informações e resolver problemas relacionados com o que acontece no seu cluster. As seguintes perguntas comuns são abordadas:
 
 * Como posso resolver eventos de estado de funcionamento?
 * Como posso saber quando um nó ficar inativo?
 * Como posso saber se os serviços do meu aplicativo tem iniciou ou parou?
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="overview-of-the-log-analytics-workspace"></a>Descrição geral da área de trabalho do Log Analytics
 
 >[!NOTE] 
 >Embora o armazenamento de diagnóstico está ativado por predefinição, o momento de criação de cluster, tem ainda de configurar a área de trabalho do Log Analytics para ler a partir do armazenamento do diagnóstico.
 
-O log Analytics recolhe dados de recursos geridos, incluindo uma tabela de armazenamento do Azure ou um agente e mantém-lo num repositório central. Os dados, em seguida, podem ser utilizado para análise, alertas e visualização, ou ainda mais a exportação. O log Analytics oferece suporte a eventos, dados de desempenho ou outros dados personalizados. Confira [passos para configurar a extensão de diagnóstico para agregar eventos](service-fabric-diagnostics-event-aggregation-wad.md) e [passos para criar uma área de trabalho do Log Analytics para ler a partir de eventos no armazenamento](service-fabric-diagnostics-oms-setup.md) para se certificar de que os dados estão a ser encaminhados para o Log Analytics .
+Monitor do Azure regista recolhe dados de recursos geridos, incluindo uma tabela de armazenamento do Azure ou um agente e mantém-lo num repositório central. Os dados, em seguida, podem ser utilizado para análise, alertas e visualização, ou ainda mais a exportação. Monitor do Azure regista suporta eventos, dados de desempenho ou outros dados personalizados. Confira [passos para configurar a extensão de diagnóstico para agregar eventos](service-fabric-diagnostics-event-aggregation-wad.md) e [passos para criar uma área de trabalho do Log Analytics para ler a partir de eventos no armazenamento](service-fabric-diagnostics-oms-setup.md) para se certificar de que os dados estão a ser encaminhados para o Azure Monitor registos.
 
-Depois de dados são recebidos pelo Log Analytics, o Azure tem várias *soluções de gestão* que são soluções previamente incluídas em pacotes ou dashboards operacionais para monitorizar os dados recebidos, personalizados para vários cenários. Estes incluem uma *análise do Service Fabric* solução e um *contentores* solução, que são as mais relevantes duas para diagnóstico e monitorização quando utilizar clusters do Service Fabric. Este artigo descreve como utilizar a solução de análise do Service Fabric, que é criada com a área de trabalho.
+Depois de dados são recebidos pelos registos do Azure Monitor, o Azure tem várias *soluções de monitorização* que são soluções previamente incluídas em pacotes ou dashboards operacionais para monitorizar os dados recebidos, personalizados para vários cenários. Estes incluem uma *análise do Service Fabric* solução e um *contentores* solução, que são as mais relevantes duas para diagnóstico e monitorização quando utilizar clusters do Service Fabric. Este artigo descreve como utilizar a solução de análise do Service Fabric, que é criada com a área de trabalho.
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Acesso a solução de análise do Service Fabric
 
@@ -110,7 +112,7 @@ A linguagem de consulta de Kusto é poderosa. Outra consulta valiosa, que pode e
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para ativar a monitorização, ou seja, contadores de desempenho da infraestrutura, aceda à [adicionando o agente Log Analytics](service-fabric-diagnostics-oms-agent.md). O agente recolhe os contadores de desempenho e os adiciona à sua área de trabalho existente.
-* Para os clusters no local, o Log Analytics oferece um Gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para o Log Analytics. Leia mais sobre isso em [ligar os computadores sem acesso à Internet ao Log Analytics com o gateway do Log Analytics](../azure-monitor/platform/gateway.md).
+* Para os clusters no local, registos do Azure Monitor oferece um Gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para os registos do Azure Monitor. Leia mais sobre isso em [ligação de computadores sem acesso à Internet para os registos de Monitor do Azure com o gateway do Log Analytics](../azure-monitor/platform/gateway.md).
 * Configurar [alertas automáticos](../log-analytics/log-analytics-alerts.md) para ajudar no diagnóstico e de deteção.
-* Familiarizar-se com as funcionalidades de [registos de pesquisas e consultas](../log-analytics/log-analytics-log-searches.md) que são oferecidas como parte do Log Analytics.
-* Obtenha uma visão geral mais detalhada do Log Analytics e o que ele oferece, leia [o que é o Log Analytics?](../operations-management-suite/operations-management-suite-overview.md).
+* Familiarizar-se com o [pesquisas e consultas de registo](../log-analytics/log-analytics-log-searches.md) funcionalidades oferecidos como parte dos registos do Azure Monitor.
+* Obtenha uma visão geral mais detalhada de registos do Azure Monitor e o que ele oferece, leia [o que é o Azure Monitor registos?](../operations-management-suite/operations-management-suite-overview.md).

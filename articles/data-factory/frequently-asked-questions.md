@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 112ff38ad4e35ac284501c5dd3881c4f340b5f9b
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984650"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240801"
 ---
 # <a name="azure-data-factory-faq"></a>FAQ de fábrica de dados do Azure
 Este artigo fornece respostas para perguntas freqüentes sobre o Azure Data Factory.  
@@ -195,7 +195,7 @@ Já não terá de colocar os seus próprios clusters do Databricks. ADF irá ger
 Quando a Microsoft fornece ajuda ou resolução de problemas com os dados fluem, forneça o "DSL código Plan". Para tal, siga estes passos:
 
 * No Designer de fluxo de dados, clique em "Código" no canto superior direito. Isso exibirá o código JSON editável para o fluxo de dados.
-* A partir da vista de código, clique em "Planejar" no canto superior direito. O plano swtich de JSON para o plano de script DSL formatado.
+* A partir da vista de código, clique em "Planejar" no canto superior direito. O botão de alternar do plano muda de JSON para o modo só de leitura formatado DSL script plano.
 * Copie e cole este script ou guardá-lo num arquivo de texto.
 
 ### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Como posso aceder a dados com os outros 80 tipos de conjunto de dados no ADF?

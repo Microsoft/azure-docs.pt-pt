@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbfade56ff12aa719927d496606a6ce4b4fe5a38
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 07e98d5a93b8576c06e9be8274a974b1b574da4b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167155"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217752"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementar o Multi-Factor Authentication do Azure baseado em cloud
 
@@ -42,6 +42,9 @@ Antes de começar, certifique-se de que tem os seguintes pré-requisitos:
 ## <a name="choose-authentication-methods"></a>Escolher métodos de autenticação
 
 Ative, pelo menos, um método de autenticação para os seus utilizadores com base nos requisitos da sua organização. Achamos que, quando estiver ativado para os utilizadores da aplicação Microsoft Authenticator fornece a melhor experiência de utilizador. Se precisa entender quais métodos estão disponíveis e como configurá-los, consulte o artigo [quais são os métodos de autenticação](concept-authentication-methods.md).
+
+> [!IMPORTANT]
+> A partir de Março de 2019 as opções de chamada telefónica não estarão disponível para os utilizadores do MFA e o SSPR em inquilinos gratuitos/avaliação do Azure AD. Mensagens SMS não são afetadas por esta alteração. Chamada telefónica continuará a estar disponíveis para os utilizadores na pago inquilinos do Azure AD. Esta alteração só afeta o inquilinos gratuitos/avaliação do Azure AD.
 
 ## <a name="get-users-to-enroll"></a>Introdução aos utilizadores a inscrição
 

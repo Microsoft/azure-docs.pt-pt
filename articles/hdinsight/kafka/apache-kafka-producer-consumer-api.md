@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 23a676c64ec2788ec4a9b3d61f86529fa437079f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c0ef7ce7520886787f4df8d3998cb464d477a2c3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580387"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244541"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar o Apache Kafka produtor e consumidor APIs
 
@@ -133,6 +133,8 @@ Neste código, o consumidor está configurado para ler a partir do início do t�
 O ficheiro [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) oferece uma interface de linha de comandos que executa o código do produtor ou do consumidor. Tem de fornecer as informações do anfitrião de mediador de Kafka como um parâmetro. Opcionalmente, pode incluir um valor de ID de grupo, o qual é utilizado pelo processo de consumidor. Se criar várias instâncias de consumidor com o mesmo ID de grupo, estes efetuarão o balanceamento de carga da leitura do tópico.
 
 ## <a name="build-and-deploy-the-example"></a>Criar e implementar o exemplo
+
+Pode ignorar as etapas 1 e 2 para compilação e transferir o jars(kafka-producer-consumer.jar) pré-criados de [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). Em seguida, pode copiar este jar ao seu cluster do HDInsight.
 
 1. Transfira os exemplos partir de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 

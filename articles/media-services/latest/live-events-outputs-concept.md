@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: cce3ea06ebd7d3469dad14e491124f81567610ea
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: c4be56b3ee32a5177c66353ba45c6b3647c732f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894067"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240087"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos em Direto e Saídas em Direto
 
@@ -42,7 +42,7 @@ R [evento em direto](https://docs.microsoft.com/rest/api/media/liveevents) pode 
 
 ### <a name="pass-through"></a>Pass-through
 
-![pass-through](./media/live-streaming/pass-through.png)
+![pass-through](./media/live-streaming/pass-through.svg)
 
 Ao utilizar o pass-through **evento em direto**, contar com o codificador em direto de locais para gerar um fluxo de vídeo de velocidade de transmissão múltiplas e enviar como a contribuição feed para o evento em direto (usando o protocolo RTMP ou MP4 fragmentado). O evento em direto, em seguida, continua até os fluxos de vídeo de entrada sem qualquer processamento adicional. Tal um LiveEvent pass-through está otimizado para eventos em direto de longa execução ou transmissão em direto lineares 24 x 365. Ao criar este tipo de evento em direto, especifique nenhum (LiveEventEncodingType.None).
 
@@ -56,11 +56,16 @@ Ver um exemplo de código do .NET no [MediaV3LiveApp](https://github.com/Azure-S
 
 ### <a name="live-encoding"></a>Live Encoding  
 
-![codificação do Live](./media/live-streaming/live-encoding.png)
+![codificação do Live](./media/live-streaming/live-encoding.svg)
 
 Ao utilizar o live encoding com Media Services, poderia configurar a seu codificador em direto de locais para enviar uma velocidade de transmissão única vídeo como a contribuição de feed para o evento em direto (usando o protocolo RTMP ou Mp4 fragmentado). O evento Live codifica essa entrada velocidade de transmissão única transmitir para um [vários transmissão em fluxo vídeo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), torna-o disponível para entrega ao reproduzir os dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. Ao criar este tipo de evento em direto, especifique o tipo de codificação **padrão** (LiveEventEncodingType.Standard).
 
 Pode enviar a contribuição de feed de cada até 1080 resolução numa taxa de quadros de 30 quadros/segundo, com o codec de vídeo H.264/AVC e AAC (AAC-LC, HE-AACv1 ou HE-AACv2) codec de áudio. Consulte a [comparação de tipos de evento em direto](live-event-types-comparison.md) artigo para obter mais detalhes.
+
+Ao usar a codificação em tempo real (evento em direto é definido como **padrão**), a predefinição de codificação define como o fluxo de entrada é codificado em várias velocidades de transmissão ou camadas. Para obter informações, consulte [predefinições do sistema](live-event-types-comparison.md#system-presets).
+
+> [!NOTE]
+> Atualmente, o único permitido valor predefinido para o tipo de padrão de evento em direto é *Default720p*. Se precisar de utilizar uma predefinição de codificação em direto personalizada, entre em contato com amshelp@microsoft.com. Deve especificar a tabela desejada de resolução e velocidades de transmissão. Certifique-se de que existe apenas uma camada em 720p e no máximo, 6 camadas.
 
 ## <a name="live-event-creation-options"></a>Opções de criação de evento em direto
 

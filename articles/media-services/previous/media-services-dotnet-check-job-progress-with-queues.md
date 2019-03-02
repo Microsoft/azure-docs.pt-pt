@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/09/2019
 ms.author: juliako
-ms.openlocfilehash: a863915ceef437957170d87ac4cc452d651a8dab
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8bf2452afe3f9b11287848fb1e3880f7fac506ff
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994958"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243130"
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net-legacy"></a>Utilize o armazenamento de filas do Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET (Legado)
+# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utilize o armazenamento de filas do Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET 
 
 Ao executar tarefas de codificação, muitas vezes, necessitam de uma maneira de controlar o progresso da tarefa. Pode configurar a entrega de notificações para os serviços de multimédia [armazenamento de filas do Azure](../../storage/storage-dotnet-how-to-use-queues.md). Pode monitorizar o progresso da tarefa, obter notificações do armazenamento de filas. 
 

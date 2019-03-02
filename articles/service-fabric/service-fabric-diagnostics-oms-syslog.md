@@ -14,23 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 25452d3d65518511c47087d1cb712d0a512416fc
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297672"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245561"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster do Service Fabric do Linux do Syslog
 
 Service Fabric expõe um conjunto de eventos de plataforma para o informar de atividade importante no seu cluster. A lista completa dos eventos que são expostos está disponível [aqui](service-fabric-diagnostics-event-generation-operational.md). Existem várias formas através das quais estes eventos podem ser consumidos. Neste artigo, vamos falar sobre como configurar o Service Fabric para gravar esses eventos Syslog.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="introduction"></a>Introdução
 
 Na versão 6.4, foi introduzido o SyslogConsumer para enviar os eventos de plataforma do Service Fabric para Syslog para clusters do Linux. Depois de ativar, irão fluir automaticamente syslog que podem ser recolhidos e enviados pelo agente de análise do registo de eventos.
 
 Cada evento do Syslog tem 4 componentes
-* Recurso
+* Função
 * Identidade
 * Mensagem
 * Gravidade
@@ -93,8 +95,8 @@ Seguem-se as alterações para chamar
     }
 ```
 
-## <a name="log-analytics-integration"></a>Integração de análise de registos
-Pode ler esses eventos do Syslog numa ferramenta de monitoramento, como o Log Analytics. Pode criar uma área de trabalho do Log Analytics ao utilizar o Azure Marketplace a utilizar estas [instruções]. (.. / azure-monitor/learn/quick-create-workspace.md) também tem de adicionar o agente Log Analytics ao seu cluster para recolher e enviar estes dados para a área de trabalho. Este é o mesmo agente utilizado para recolher contadores de desempenho. 
+## <a name="azure-monitor-logs-integration"></a>Integração de registos de Monitor do Azure
+Pode ler esses eventos do Syslog numa ferramenta de monitoramento, como registos do Azure Monitor. Pode criar uma área de trabalho do Log Analytics ao utilizar o Azure Marketplace a utilizar estas [instruções]. (.. / azure-monitor/learn/quick-create-workspace.md) também tem de adicionar o agente Log Analytics ao seu cluster para recolher e enviar estes dados para a área de trabalho. Este é o mesmo agente utilizado para recolher contadores de desempenho. 
 
 1. Navegue para o `Advanced Settings` painel
 
@@ -120,6 +122,6 @@ O exemplo acima é de um evento de NodeDown. Pode ver a lista completa de evento
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Implementar o agente do Log Analytics](service-fabric-diagnostics-oms-agent.md) para os nós para recolher contadores de desempenho e recolher estatísticas de docker e registos para os seus contentores
-* Familiarizar-se com o [pesquisas e consultas de registo](../log-analytics/log-analytics-log-searches.md) funcionalidades oferecidos como parte do Log Analytics
-* [Utilizar o estruturador de vistas para criar vistas personalizadas no Log Analytics](../log-analytics/log-analytics-view-designer.md)
-* Referência para saber como [integração do Log Analytics com o Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Familiarizar-se com o [pesquisas e consultas de registo](../log-analytics/log-analytics-log-searches.md) funcionalidades oferecidos como parte dos registos do Azure Monitor
+* [Utilizar o estruturador de vistas para criar vistas personalizadas nos registos do Azure Monitor](../log-analytics/log-analytics-view-designer.md)
+* Referência para saber como [do Azure Monitor registos integração com o Syslog](../log-analytics/log-analytics-data-sources-syslog.md).

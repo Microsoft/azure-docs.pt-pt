@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: f367d6e1b1c545bcad0faf030a56fdec2ffafca2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1ea11c44806e2375a272fe8f5e256d8ffde7affb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989070"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240410"
 ---
-# <a name="implement-failover-streaming-with-media-services-legacy"></a>Implementar ativação pós-falha de transmissão em fluxo com os serviços de multimédia (Legado)
+# <a name="implement-failover-streaming-with-media-services"></a>Implementar ativação pós-falha, transmissão em fluxo com os serviços de multimédia 
 
 Estas instruções demonstram como copiar o conteúdo (blobs) de um recurso em outro modo a lidar com a redundância para a pedido de transmissão em fluxo. Este cenário é útil se desejar configurar a rede de entrega de conteúdos do Azure para efetuar a ativação pós-falha entre dois datacenters, em caso de indisponibilidade num único datacenter. Estas instruções utilizam o SDK de serviços de multimédia do Azure, API de REST de serviços de multimédia do Azure e o SDK de armazenamento do Azure para demonstrar as seguintes tarefas:
 

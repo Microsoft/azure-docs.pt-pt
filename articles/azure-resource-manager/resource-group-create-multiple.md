@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 9914943cc5b3ef9e95f12c6890cb8e1646f7e335
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311721"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244240"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar mais de uma instância de um recurso ou uma propriedade nos modelos do Azure Resource Manager
 
@@ -272,6 +272,8 @@ Pode usar recursos e a propriedade iteração juntos. Referência a iteração d
 
 Para criar várias instâncias de uma variável, utilize o `copy` propriedade na secção de variáveis. Criar uma matriz de elementos construído com o valor a `input` propriedade. Pode utilizar o `copy` propriedade dentro de uma variável ou ao nível superior da secção de variáveis. Quando utilizar `copyIndex` dentro de uma iteração de variável, tem de fornecer o nome da iteração.
 
+Para obter um exemplo simples de criação de uma matriz de valores de cadeia de caracteres, consulte [modelo de matriz de cópia](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
+
 O exemplo seguinte mostra várias formas diferentes de criar variáveis de matriz com elementos construídos dinamicamente. Ele mostra como utilizar a cópia dentro de uma variável para criar matrizes de objetos e cadeias de caracteres. Ele também mostra como utilizar a cópia no nível superior para criar matrizes de objetos, cadeias de caracteres e inteiros.
 
 ```json
@@ -344,6 +346,50 @@ O exemplo seguinte mostra várias formas diferentes de criar variáveis de matri
     }
   }
 }
+```
+
+O tipo de variável é criada depende do objeto de entrada. Por exemplo, a variável chamada **superior-nível--matriz de objeto** no exemplo anterior devolve:
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+E, a variável chamada **superior-nível--matriz de cadeia** devolve:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
 ```
 
 ## <a name="depend-on-resources-in-a-loop"></a>Dependem de recursos num loop

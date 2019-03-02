@@ -3,7 +3,7 @@ title: Recolher dados de inteligência de ameaças na pré-visualização de sen
 description: Saiba mais sobre como ligar a dados de inteligência de ameaças ao Azure sentinela.
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 56412543-5664-44c1-b026-2dbaf78a9a50
 ms.service: security-center
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6ac93b99b1e4eb8c0b42992c813cb491834b1693
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 2c5a7dc08886e21ef8e287540d9139ec555b11a2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993273"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242297"
 ---
 # <a name="collect-data-from-threat-intelligence-providers"></a>Recolher dados de fornecedores de inteligência de ameaças 
 

@@ -4,7 +4,7 @@ description: Saiba como recolher dados do Azure AD Identity Protection em sentin
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 02057fc0f288c8ae77a700f09a8b6e599f6d1b16
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 609aced38b7e30f78d81934867196c568dcc85ca
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993231"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240003"
 ---
 # <a name="collect-data-from-azure-ad-identity-protection"></a>Recolher dados do Azure AD Identity Protection
 

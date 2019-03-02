@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
-ms.openlocfilehash: 492beba1040cef3d5a910cc9db3fe16b41c33cd6
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: eb2f42b690099002f2f14aa4e782906a76c01d4c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301592"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241515"
 ---
 # <a name="azure-logging-and-auditing"></a>Registo e auditoria do Azure
 
@@ -50,7 +50,7 @@ A tabela seguinte lista os tipos mais importantes de registos disponíveis no Az
 |[Análise de armazenamento do Azure](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Registo de armazenamento, fornece dados de métricas para uma conta de armazenamento|Fornece informações sobre os pedidos de rastreio, analisa as tendências de utilização e diagnósticos de problemas com a sua conta de armazenamento.|   REST API ou o [biblioteca de cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Registos de fluxo do grupo de segurança de rede (NSG)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON, mostra os fluxos de saída e entrados numa base por regras|Mostra informações sobre o tráfego IP de entrada e de saída através de um grupo de segurança de rede.|[Observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Os registos, exceções e diagnósticos personalizados|   Fornece um desempenho de aplicações (APM) de serviço para os desenvolvedores da web em várias plataformas de monitorização.| REST API, [do Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Processar dados / alertas de segurança|    Alertas do Centro de segurança do Azure, alertas do Log Analytics do Azure|   Fornece informações de segurança e alertas.|  REST APIs, JSON|
+|Processar dados / alertas de segurança|    Alertas do Centro de segurança do Azure, alertas de registos do Azure Monitor|    Fornece informações de segurança e alertas.|  REST APIs, JSON|
 
 ### <a name="activity-logs"></a>Registos de atividade
 
@@ -78,7 +78,7 @@ Cenários de integração de um evento de registo de atividade:
 
 * Consultá-los através do cmdlet do PowerShell, CLI do Azure ou REST API.
 
-* Exportar o registo de atividades com perfis de registo para [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+* Exportar o registo de atividades com perfis de registo para [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 Pode utilizar uma conta de armazenamento ou [espaço de nomes de hub de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) que não está na mesma subscrição que aquele que está a emitir o registo. Quem configura a definição tem de ter o adequado [controlo de acesso baseado em funções (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) acesso para ambas as subscrições.
 
@@ -96,15 +96,15 @@ Registos de diagnóstico do Azure oferecem várias opções de configuração, c
 
 * [Stream-los para os hubs de eventos](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) para ingestão por um serviço de terceiros ou de uma solução de análise personalizada, tal como [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
-* Analisá-los com [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
+* Analisá-los com [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
 **Serviços suportados, o esquema para os registos de diagnóstico e categorias de registo suportadas por tipo de recurso**
 
 
 | Serviço | Esquema e documentação | Tipo de recurso | Categoria |
 | ------- | ------------- | ------------- | -------- |
-|Azure Load Balancer| [O log Analytics para o Balanceador de carga (pré-visualização)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers| LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
-|Grupos de Segurança de Rede|[Análise de registos para grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
+|Azure Load Balancer| [Registos de Monitor do Azure para o Balanceador de carga (pré-visualização)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers<br>Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent<br>LoadBalancerProbeHealthStatus|
+|Grupos de Segurança de Rede|[Registos de Monitor do Azure para grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups<br>Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent<br>NetworkSecurityGroupRuleCounter|
 |Gateway de Aplicação do Azure|[Registo de diagnósticos para o Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways<br>Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog<br>ApplicationGatewayPerformanceLog<br>ApplicationGatewayFirewallLog|
 |Azure Key Vault|[Registos do Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[Ativar e utilizar a análise de tráfego de pesquisa](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
@@ -112,7 +112,7 @@ Registos de diagnóstico do Azure oferecem várias opções de configuração, c
 |Azure Data Lake Analytics|[Registos de diagnóstico de acesso para o Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts<br>Microsoft.DataLakeAnalytics/accounts|Auditoria<br>Pedidos|
 |Azure Logic Apps|[Esquema de controlo personalizado B2B de Aplicações Lógicas](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows<br>Microsoft.Logic/integrationAccounts|WorkflowRuntime<br>IntegrationAccountTrackingEvents|
 |Azure Batch|[Registos de diagnóstico do Azure Batch](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
-|Automatização do Azure|[Análise de registos para a automatização do Azure](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
+|Automatização do Azure|[Registos de Monitor do Azure para a automatização do Azure](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts<br>Microsoft.Automation/automationAccounts|JobLogs<br>JobStreams|
 |Azure Event Hubs|[Registos de diagnóstico de Hubs de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces<br>Microsoft.EventHub/namespaces|ArchiveLogs<br>OperationalLogs|
 |Azure Stream Analytics|[Registos de diagnóstico da tarefa](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs<br>Microsoft.StreamAnalytics/streamingjobs|Execução<br>Criação de conteúdos|
 |Service Bus do Azure|[Registos de diagnóstico do Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
@@ -216,7 +216,7 @@ As mesmas políticas de retenção que forem vistas num outros registos aplicam-
 
 **Registos de diagnóstico**
 
-Eventos periódicos e espontânea são criados pelos recursos de rede e com sessão iniciados em contas de armazenamento e enviados para um hub de eventos ou o Log Analytics. Os registos de fornecem informações sobre o estado de funcionamento de um recurso. Elas podem ser exibidas em ferramentas como o Power BI e o Log Analytics. Para saber como ver os registos de diagnóstico, veja [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Eventos periódicos e espontânea são criados pelos recursos de rede e com sessão iniciados em contas de armazenamento e enviados para um hub de eventos ou de registos do Azure Monitor. Os registos de fornecem informações sobre o estado de funcionamento de um recurso. Elas podem ser exibidas em ferramentas como o Power BI e o Azure Monitor registos. Para saber como ver os registos de diagnóstico, veja [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 ![Registos de diagnósticos](./media/azure-log-audit/azure-log-audit-fig5.png)
 
@@ -302,29 +302,31 @@ O Centro de Segurança emprega análises de segurança avançadas, que ultrapass
 
 * **Deteção de anomalias**: Utiliza a criação de perfis estatística para criar uma linha de base histórica. Alerta sobre os desvios de linhas de base estabelecidos em conformidade com um potencial vetor de ataque.
 
-Muitas operações de segurança e as equipes de resposta a incidentes contam com uma solução SIEM como ponto de partida para separação e investigar alertas de segurança. Com integração de registos do Azure, pode sincronizar alertas do Centro de segurança e os eventos de segurança de máquina virtual, recolhidos por registos de diagnóstico e auditoria do Azure, com a sua solução do Log Analytics ou SIEM em tempo real.
+Muitas operações de segurança e as equipes de resposta a incidentes contam com uma solução SIEM como ponto de partida para separação e investigar alertas de segurança. Com integração de registos do Azure, pode sincronizar alertas do Centro de segurança e os eventos de segurança de máquina virtual, recolhidos por registos de diagnóstico e auditoria do Azure, com a solução de SIEM em tempo real ou registos do Azure Monitor.
 
-## <a name="log-analytics"></a>Log Analytics
+## <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
 
-Log Analytics é um serviço do Azure que ajuda a recolher e analisar os dados que são gerados por recursos na sua cloud e ambientes no local. Ele fornece informações em tempo real ao utilizar pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores, independentemente da respetiva localização física.
+Registos de Monitor do Azure é um serviço no Azure que ajuda a recolher e analisar os dados que são gerados por recursos na sua cloud e ambientes no local. Ele fornece informações em tempo real ao utilizar pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores, independentemente da respetiva localização física.
 
-![Diagrama do log Analytics](./media/azure-log-audit/azure-log-audit-fig8.png)
+![Diagrama de registos do Azure Monitor](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-No centro do Log Analytics é a área de trabalho do Log Analytics, que está alojada no Azure. O log Analytics recolhe dados na área de trabalho a partir de origens ligadas ao configurar origens de dados e adicionar soluções à sua subscrição. Origens de dados e soluções de cada criar diferentes tipos de registos, cada um com seu próprio conjunto de propriedades. Mas origens e soluções podem ainda ser analisadas em conjunto em consultas para a área de trabalho. Esta capacidade permite-lhe utilizar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados recolhidos por uma variedade de origens.
+Os registos do centro do Azure Monitor é a área de trabalho do Log Analytics, que está alojada no Azure. Registos de Monitor do Azure recolhe dados na área de trabalho de origens ligadas ao configurar origens de dados e adicionar soluções à sua subscrição. Origens de dados e soluções de cada criar diferentes tipos de registos, cada um com seu próprio conjunto de propriedades. Mas origens e soluções podem ainda ser analisadas em conjunto em consultas para a área de trabalho. Esta capacidade permite-lhe utilizar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados recolhidos por uma variedade de origens.
 
-Origens ligadas são os computadores e outros recursos que geram os dados recolhidos pelo Log Analytics. Origens podem incluir os agentes que estão instalados no [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) e [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) computadores que se ligam diretamente ou agentes no [um grupo de gestão ligado do System Center Operations Manager](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Log Analytics também pode recolher dados a partir de um [conta de armazenamento do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage).
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+Origens ligadas são os computadores e outros recursos que geram os dados que são recolhidos pelos registos do Azure Monitor. Origens podem incluir os agentes que estão instalados no [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) e [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) computadores que se ligam diretamente ou agentes no [um grupo de gestão ligado do System Center Operations Manager](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Registos de Monitor do Azure também podem recolher dados a partir de um [conta de armazenamento do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage).
 
 [Origens de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources) são os vários tipos de dados que são recolhidos a partir de cada origem ligada. As origens incluem eventos e [dados de desempenho](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters) partir [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events) e agentes do Linux, além de origens como [registos do IIS](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-iis-logs) e [registos de texto personalizado](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-custom-logs). Pode configurar cada origem de dados que pretende recolher e a configuração é entregue automaticamente a cada origem ligada.
 
 Existem quatro formas de [recolher registos e métricas para serviços do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage):
 
-* Direcionar o diagnóstico do Azure para o Log Analytics (**diagnóstico** na tabela a seguir)
+* Direcionar o diagnóstico do Azure para registos do Azure Monitor (**diagnóstico** na tabela a seguir)
 
-* Diagnóstico do Azure para o armazenamento do Azure para o Log Analytics (**armazenamento** na tabela a seguir)
+* Registos do diagnóstico do Azure para o armazenamento do Azure para o Azure Monitor (**armazenamento** na tabela a seguir)
 
 * Conectores para serviços do Azure (**conector** na tabela a seguir)
 
-* Scripts para recolher e, em seguida, postar dados para o Log Analytics (células em branco na tabela a seguir e para os serviços que não estão listados)
+* Scripts para recolher e, em seguida, publicar dados sobre os registos do Azure Monitor (células em branco na tabela a seguir e para os serviços que não estão listados)
 
 | Serviço | Tipo de recurso | Registos | Métricas | Solução |
 | :------ | :------------ | :--- | :------ | :------- |
@@ -369,7 +371,7 @@ Integração de registos recolhe diagnóstico do Azure a partir de suas máquina
 
 Integração de registos, atualmente, suporta a integração de registos de atividade do Azure, registos de auditoria de registos de eventos do Windows das máquinas de virtuais do Windows com a sua subscrição do Azure, alertas do Centro de segurança do Azure, os registos de diagnóstico do Azure e do Azure AD.
 
-| Tipo de registo | O log Analytics que suporta JSON (Splunk, ArcSight e IBM QRadar) |
+| Tipo de registo | O Azure Monitor registos de suporte JSON (Splunk, ArcSight e IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
 |Registos de auditoria do Azure AD|   Sim|
 |Registos de atividade| Sim|
@@ -385,7 +387,7 @@ Cenários de integração para o SIEM:
 
 * [Integração de registos do Azure FAQ](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq): Este artigo responde a perguntas sobre a integração de registos do Azure.
 
-* [Integrar alertas do Centro de segurança com o Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Este artigo descreve como sincronizar alertas do Centro de segurança, eventos de segurança de máquina virtual recolhidos pelos registos de diagnóstico do Azure, e registos de auditoria do Azure com a sua solução do Log Analytics ou SIEM.
+* [Integrar alertas do Centro de segurança com o Azure Log Integration](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration): Este artigo descreve como sincronizar alertas do Centro de segurança, eventos de segurança de máquina virtual recolhidos pelos registos de diagnóstico do Azure, e registos de auditoria do Azure com a solução de SIEM ou registos do Azure Monitor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

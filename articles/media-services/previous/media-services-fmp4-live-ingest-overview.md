@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/03/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 16b8b5a012c5d2073a3472a70cf2064b8b0e59cd
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6de31da1809173fb5fae1abcde47861ed7542f31
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984839"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240274"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification-legacy"></a>(Legada) de especificação de ingestão de MP4 fragmentado em direto dos serviços de multimédia do Azure
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação de ingestão de MP4 fragmentado em direto dos serviços de multimédia do Azure 
 
 Essa especificação descreve o protocolo e o formato fragmentado com base em MP4 em direto transmissão em fluxo para ingestão de para serviços de multimédia do Azure. Os Media Services fornecem um serviço de transmissão em fluxo em direto que os clientes podem utilizar para transmitir em fluxo eventos em direto e transmissão de conteúdo em tempo real ao utilizar o Azure como a plataforma na cloud. Este documento também discute as melhores práticas para a criação altamente redundantes e robustos em direto de mecanismos de ingestão.
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 0af3133a1f9a903874c25bf34af0fbf99da8af14
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 64150438560d48575b4b65db4cdaf61aa0ada240
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381189"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243836"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opções de acesso e identidade para o Azure Kubernetes Service (AKS)
 
@@ -75,6 +75,8 @@ Um ClusterRoleBinding funciona da mesma forma para vincular funções a utilizad
 
 Para começar a utilizar com o Azure AD e RBAC do Kubernetes, veja [integrar o Azure Active Directory com o AKS][aks-aad].
 
+Para as práticas recomendadas associadas, consulte [melhores práticas para autenticação e autorização no AKS][operator-best-practices-identity].
+
 Para obter mais informações sobre principais Kubernetes e conceitos do AKS, consulte os artigos seguintes:
 
 - [Kubernetes / clusters do AKS e cargas de trabalho][aks-concepts-clusters-workloads]
@@ -98,3 +100,4 @@ Para obter mais informações sobre principais Kubernetes e conceitos do AKS, co
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[operator-best-practices-identity]: operator-best-practices-identity.md

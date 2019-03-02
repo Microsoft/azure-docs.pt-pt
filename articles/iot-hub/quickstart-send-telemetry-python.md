@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/22/2019
-ms.openlocfilehash: d36408f50e868aaccec30a1e085075161e00f217
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.date: 02/28/2019
+ms.openlocfilehash: 8dab132cd03b24f4f9e55cb777cc0f984526ba12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010213"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243368"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Início rápido: Enviar telemetria a partir de um dispositivo para um hub IoT e lê-lo com uma aplicação de back-end (Python)
 
@@ -31,9 +31,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Python. Precisa do Python 2.7.X ou 3.5.X no seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Python. Atualmente, os SDKs IoT do Microsoft Azure para Python suporta apenas as versões específicas do Python para cada plataforma. Para obter mais informações, consulte a [Leiame do SDK de Python](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues).
 
-Pode transferir o Python para múltiplas plataformas em [Python.org](https://www.python.org/downloads/). O instalador do Python que escolher deve basear-se na arquitetura do sistema com o qual está a trabalhar. Se a arquitetura de CPU do seu sistema for de 32 bits, transfira o x86, que é o instalador predefinido em Python.org. Para a arquitetura de 64 bits, tem de transferir o instalador x86-64.
+Este guia de introdução pressupõe que está a utilizar uma máquina de desenvolvimento do Windows. Para sistemas Windows, só [Python 3.6.x](https://www.python.org/downloads/release/python-368/) é suportada. O instalador do Python que escolher deve basear-se na arquitetura do sistema com o qual está a trabalhar. Se o seu sistema de arquitetura de CPU é de 32 bits, em seguida, instalador de download x86; para a arquitetura de 64 bits, transfira o instalador de x86 64. Além disso, certifique-se de que o [Microsoft Visual C++ Redistributable para Visual Studio 2017](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) está instalado para a sua arquitetura (x86 ou x64).
+
+Pode transferir o Python para outras plataformas partir [Python.org](https://www.python.org/downloads/).
 
 Pode verificar qual a versão atual do Python no seu computador de desenvolvimento através de um dos seguintes comandos:
 

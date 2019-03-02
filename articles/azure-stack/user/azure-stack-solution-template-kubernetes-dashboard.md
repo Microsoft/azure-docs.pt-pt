@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 197e79c2674d314c178444cc1f0d685503425031
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cdc1be0c0274977fe14ef704fbb74fa955ad7e11
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986927"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242416"
 ---
 # <a name="enable-the-kubernetes-dashboard-in-azure-stack"></a>Ativar o Dashboard do Kubernetes no Azure Stack 
 
@@ -107,7 +107,6 @@ Pode obter o URL para o dashboard a partir do nó principal no seu cluster.
 3. Anote as localizações de ficheiros. Atualizar o script com as localizações e, em seguida, abra o PowerShell com uma linha de comandos elevada. Execute o script atualizado:  
 
     ```PowerShell   
-    Import  /etc/kubernetes/certs/ca.crt -CertStoreLocation cert:\LocalMachine\Root 
     Import-Certificate -Filepath "ca.crt" -CertStoreLocation cert:\LocalMachine\Root 
     $pfxpwd = Get-Credential -UserName 'Enter password below' -Message 'Enter password below' 
     Import-PfxCertificate -Filepath "client.pfx" -CertStoreLocation cert:\CurrentUser\My -Password $pfxpwd.Password 
@@ -121,9 +120,11 @@ Pode obter o URL para o dashboard a partir do nó principal no seu cluster.
 3.  Selecione o certificado de cliente.
 4.  Introduza o token. 
 5. Voltar a ligar para a linha de comandos de bash no nó principal e conceder permissões para `kubernetes-dashboard`. Execute o seguinte comando:
-    ```Bash   
+
+    ```Bash  
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
+
     O script fornece `kubernetes-dashboard` privilégios de administrador da Cloud. Para obter mais informações, consulte [habilitados no RBAC para clusters](https://docs.microsoft.com/azure/aks/kubernetes-dashboard).
 
 Pode utilizar o dashboard. Para obter mais informações sobre o dashboard do Kubernetes, consulte [Dashboard de interface do Usuário de Web do Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/) 

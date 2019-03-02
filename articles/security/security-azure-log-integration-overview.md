@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 7b06d7bb85e7445f50956a003e46542062b09165
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: c644d81b647fc1151b10a94fb636e3eeaba1ce5c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118280"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245051"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Introdução à integração de registos do Azure
 
@@ -61,7 +61,7 @@ Se não existem outras opções estão disponíveis, considere utilizar o Azure 
 |---------|--------------------------|-------------------------------------------|
 |**Splunk** | Começar a migrar para o [suplemento do Azure Monitor para Splunk](https://splunkbase.splunk.com/app/3534/). | Utilize o [Splunk conector](https://splunkbase.splunk.com/app/3534/). |
 |**QRadar** | Migrar para ou a começar a utilizar o conector de QRadar documentada na última seção [Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). | Utilizar o conector de QRadar documentada na última seção [Azure Stream a monitorização dos dados para um hub de eventos para consumo por uma ferramenta externa](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). |
-|**ArcSight** | Continuar a utilizar o integrador de registos do Azure até que um conector esteja disponível e, em seguida, migrar para a solução baseada no conector.  | Considere utilizar o Azure Log Analytics como alternativa. Não incluir a integração de registos do Azure, a menos que está disposto a passar pelo processo de migração quando o conector for disponibilizado. |
+|**ArcSight** | Continuar a utilizar o integrador de registos do Azure até que um conector esteja disponível e, em seguida, migrar para a solução baseada no conector.  | Considere a utilização de registos do Azure Monitor como alternativa. Não incluir a integração de registos do Azure, a menos que está disposto a passar pelo processo de migração quando o conector for disponibilizado. |
 
 > [!NOTE]
 > Embora a integração de registos do Azure é uma solução gratuita, existem custos de armazenamento do Azure associados com o armazenamento de informações de ficheiros de registo.

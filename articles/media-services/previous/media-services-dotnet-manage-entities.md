@@ -2,7 +2,7 @@
 title: Gerenciamento de ativos e entidades relacionadas com os serviços de multimédia .NET SDK
 description: Saiba como gerir recursos e entidades relacionadas com o SDK de Media Services para .NET.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 7cab21919eca9ba62fa57e1c6b2089c0b8e115dc
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f9f4dacc8aac2fc47002b65798c8367e354bb69c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979977"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240546"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gerenciamento de ativos e entidades relacionadas com os serviços de multimédia .NET SDK
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "55979977"
 > 
 > 
 
-Este tópico mostra como gerir entidades de serviços de multimédia do Azure com .NET (Legado)
+Este tópico mostra como gerir entidades de serviços de multimédia do Azure com .NET.
 
 >[!NOTE]
 > A partir de 1 de abril de 2017, qualquer Registo de tarefa na sua conta com mais de 90 dias será eliminado automaticamente, juntamente com os seus registos de Tarefas associados, mesmo se o número total de registos for inferior à quota máxima. Por exemplo, 1 de Abril de 2017, qualquer registo de tarefa na sua conta com mais de 31 de Dezembro de 2016, serão automaticamente eliminado. Se precisar de arquivar as informações de tarefas, pode usar o código descrito neste tópico.

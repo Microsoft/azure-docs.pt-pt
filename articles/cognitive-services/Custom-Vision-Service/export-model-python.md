@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: 298279fd67b312b6a7ab3a9939444c344407127f
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 6c020fec5e94967a841e03a44f6174a3b7867258
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806900"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246156"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Executar o modelo TensorFlow em Python
 
@@ -49,6 +49,10 @@ import os
 
 graph_def = tf.GraphDef()
 labels = []
+
+# These are set to the default names from exported models, update as needed.
+filename = "model.pb"
+labels_filename = "labels.txt"
 
 # Import the TF graph
 with tf.gfile.FastGFile(filename, 'rb') as f:

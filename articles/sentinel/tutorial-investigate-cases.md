@@ -4,7 +4,7 @@ description: Utilize este tutorial para saber como investigar casos com sentinel
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: a493cd67-dc70-4163-81b8-04a9bc0232ac
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 424f7eeacf5ca3317462fa63cf684c0d5d1bac9e
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 8d44c1448296df16e9dd58a486d4cfb21bb053de
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993252"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244203"
 ---
 # <a name="tutorial-investigate-cases-with-azure-sentinel-preview"></a>Tutorial: Investigar casos com a pré-visualização de sentinela do Azure
 

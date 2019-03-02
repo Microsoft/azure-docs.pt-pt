@@ -4,7 +4,7 @@ description: Saiba mais sobre o Azure sentinela, suas principais capacidades e c
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: dccbfea0fd26b9d9673ff7652ba6fc4ee632cc46
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 2859df94b1418cfa9fbfaa341e6bf08b257875bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992798"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245298"
 ---
 # <a name="what-is-azure-sentinel-preview"></a>O que é a pré-visualização de sentinela do Azure?
 
@@ -66,11 +66,11 @@ Para ajudar a reduzir o ruído e minimizar o número de alertas, terá de rever 
 
 ![Casos](./media/overview/cases.png)
 
-## <a name="user-analytics"></a>Análise de utilizadores
+## <a name="user-analytics"></a>Análise de utilizador
 
 Com integração nativa de machine learning (ML), e [análise de utilizadores](user-analytics.md), sentinela do Azure pode ajudar a detetar ameaças rapidamente. Sentinel do Azure integra-se perfeitamente com o Azure proteção avançada contra ameaças para analisar o comportamento dos utilizadores e atribuir prioridades a quais usuários, deve investigar em primeiro lugar, com base nos seus alertas e padrões de atividade suspeita em sentinela do Azure e o Microsoft 365.
 
-![Análise de utilizadores](./media/overview/user-analytics.png)
+![Análise de utilizador](./media/overview/user-analytics.png)
 
 
 ## <a name="security-automation--orchestration"></a>Segurança de automatização e orquestração
@@ -90,11 +90,11 @@ Azure Sentinel [investigação profunda](tutorial-investigate-cases.md) ferramen
 ![Investigação](./media/overview/investigation.png)
 
 
-## <a name="hunting"></a>Sorte!
+## <a name="hunting"></a>Investigação
 
 Utilizar o Azure sentinela [caçar poderosas ferramentas de pesquisa e consulta](hunting.md), com base no framework MITRE, que permitem-lhe proativamente hunt ameaças de segurança entre origens de dados da sua organização, antes de um alerta é acionado. Depois de descobrir que consulta de arquivo terá fornece informações de alto valor sobre possíveis ataques, também pode criar regras de detecção personalizadas com base na sua consulta e aborde essas perspectivas como alertas para os respondentes de incidentes de segurança. Durante a procura, pode criar marcadores para eventos interessantes, permitindo que retornar a elas mais tarde, partilhá-los com outras pessoas e agrupá-los com outros eventos correlating para criar um caso convincente para investigação.
 
-![Sorte!](./media/overview/hunting.png)
+![Investigação](./media/overview/hunting.png)
 
 ## <a name="community"></a>Comunidade
 

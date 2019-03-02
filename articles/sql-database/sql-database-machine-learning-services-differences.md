@@ -1,5 +1,5 @@
 ---
-title: Diferenças fundamentais do Machine Learning Services (com R) na descrição geral da base de dados do Azure SQL (pré-visualização)
+title: Principais diferenças para serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização)
 description: Este tópico descreve as principais diferenças entre serviços do Azure SQL Database Machine Learning (com R) e serviços de Machine Learning do SQL Server.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,22 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: c750942f8f0f2727d1d11945a84bffb434a01193
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237489"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242127"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Principais diferenças entre os serviços do Machine Learning na base de dados do Azure SQL e SQL Server
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principais diferenças entre os serviços do Machine Learning no Azure SQL Database (pré-visualização) e o SQL Server
 
-A funcionalidade do Machine Learning Services (com R) na Base de Dados SQL do Azure é semelhante ao [Machine Learning Services para SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Seguem-se algumas diferenças fundamentais entre eles.
+A funcionalidade de serviços do Azure SQL Database Machine Learning (com R) no (pré-visualização) é semelhante à [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Seguem-se algumas diferenças fundamentais.
+
+> [!IMPORTANT]
+> Serviços do Aprendizado de máquina de base de dados do Azure SQL está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="language-support"></a>Suporte de idiomas
 
@@ -41,7 +46,19 @@ Gestão de pacotes de R e instalação de trabalho diferentes entre a base de da
 
 ## <a name="resource-governance"></a>Governação de recursos
 
-Não é possível limitar os recursos de R através de [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) e agrupamentos de recursos externos. Recursos de R são uma percentagem de recursos da base de dados SQL e dependem em que camada de serviço que escolher. Para obter mais informações, consulte [modelos de compra do Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+Não é possível limitar os recursos de R através de [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) e agrupamentos de recursos externos.
+
+Durante a pré-visualização pública, os recursos de R estão definidos para um máximo de 20% dos recursos de base de dados SQL e dependem em que camada de serviço que escolher. Para obter mais informações, consulte [modelos de compra do Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+
+### <a name="insufficient-memory-error"></a>Erro de memória insuficiente
+
+Se existir memória suficiente disponível para R, receberá uma mensagem de erro. Mensagens de erro comuns são:
+
+- Não é possível comunicar com o tempo de execução de script de 'R' para o id do pedido: ***. Verifique os requisitos do runtime de 'R'
+- Ocorreu um erro de script de 'R' durante a execução de "sp_execute_external_script" com HRESULT 0x80004004. ... Ocorreu um erro de script externo: "... Não foi possível alocar a memória (0 Mb) na função de C 'R_AllocStringBuffer' "
+- Ocorreu um erro de script externo: Erro: não é possível alocar o vetor de tamanho.
+
+Utilização depende da quantidade de memória é utilizada nos scripts R e o número de consultas paralelas que está sendo executada. Se receber os erros acima, pode dimensionar a base de dados para um escalão de serviço mais elevado para resolver este problema.
 
 ## <a name="security-isolation"></a>Isolamento de segurança
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1ce1faa13c541939335d188866e15c683b6ffc28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2065381063058eb59dd5896e12c1aa34184148bf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110273"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247006"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerir problemas de proteção de ponto final com o Centro de segurança do Azure
 Centro de segurança do Azure monitoriza o estado de proteção antimalware e os relatórios isso o painel de problemas de proteção de ponto final. Centro de segurança destaca os problemas, como ameaças detetadas e proteção insuficiente, que pode tornar as máquinas virtuais (VMs) e os computadores vulneráveis a ameaças de antimalware. Ao utilizar as informações em **problemas do Endpoint protection**, pode identificar um plano para resolver quaisquer problemas identificados.
@@ -84,13 +84,13 @@ Neste exemplo, utilizamos **computação**.  Veremos como instalar o antimalware
 
    ![Selecione o Endpoint protection não instalado em computadores não Azure][4]
 
-2. Sob **Endpoint protection não instalado em computadores não Azure**, selecione uma área de trabalho. Uma consulta de pesquisa do Log Analytics filtrada para a área de trabalho abre e apresenta uma lista de computadores em falta antimalware. Selecione um computador a partir da lista para obter mais informações.
+2. Sob **Endpoint protection não instalado em computadores não Azure**, selecione uma área de trabalho. Uma consulta de pesquisa de registos do Azure Monitor filtrada para a área de trabalho abre e apresenta uma lista de computadores em falta antimalware. Selecione um computador a partir da lista para obter mais informações.
 
-   ![Pesquisa do log Analytics][5]
+   ![Pesquisa de registos de Monitor do Azure][5]
 
 Outro resultado da pesquisa é aberto com informações filtradas apenas para esse computador.
 
-  ![Pesquisa do log Analytics][6]
+  ![Pesquisa de registos de Monitor do Azure][6]
 
 > [!NOTE]
 > Recomendamos que a proteção de ponto final ser aprovisionada para todas as VMs e computadores ajudar a identificar e remover vírus, spyware e outro software malicioso.

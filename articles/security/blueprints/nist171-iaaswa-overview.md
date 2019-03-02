@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 78c92f8d738dd675ac20c31bd8171bd4370a56f6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b30094e264086f018acbf84144300df46c60ac4e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406250"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241328"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-nist-sp-800-171"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de IaaS para SP do NIST 800-171
 
@@ -54,16 +54,15 @@ Esta solução utiliza os seguintes serviços do Azure. Para obter mais informa�
 - Gateway de Aplicação do Azure
     - (1) firewall de aplicações web
         - Modo de firewall: prevenção
-        - Conjunto de regra: OWASP 3.0
+        - Conjunto de regras: OWASP 3.0
         - Porta do serviço de escuta: 443
 - Azure Active Directory
 - Azure Key Vault
 - Azure Load Balancer
-- Azure Monitor
+- O Azure Monitor (logs)
 - Azure Resource Manager
 - Centro de Segurança do Azure
 - Storage do Azure
-- Azure Log Analytics
 - Automatização do Azure
 - Testemunho de nuvem
 - Cofre dos Serviços de Recuperação
@@ -83,7 +82,7 @@ Esta solução cria uma VM como um anfitrião de bastião associados a um domín
 ### <a name="virtual-network"></a>Rede virtual
 A arquitetura define uma rede privada virtual com um espaço de endereços de 10.200.0.0/16.
 
-**Grupos de segurança de rede**: esta solução implementa recursos numa arquitetura com sub-redes separadas para gerenciamento da web, base de dados, do Active Directory e numa rede virtual. Sub-redes logicamente são separados por regras NSG aplicadas às sub-redes individuais. As regras de restringem o tráfego entre sub-redes para que apenas necessário para a funcionalidade de gerenciamento do sistema e.
+**Grupos de segurança de rede**: Esta solução implementa recursos numa arquitetura com sub-redes separadas para gerenciamento da web, base de dados, do Active Directory e numa rede virtual. Sub-redes logicamente são separados por regras NSG aplicadas às sub-redes individuais. As regras de restringem o tráfego entre sub-redes para que apenas necessário para a funcionalidade de gerenciamento do sistema e.
 
 Consulte a configuração para [NSGs](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) implementado com esta solução. As organizações podem configurar NSGs ao editar o ficheiro anterior usando [esta documentação](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) como guia.
 
@@ -100,11 +99,11 @@ Azure encripta todas as comunicações de e para os centros de dados do Azure po
 ### <a name="data-at-rest"></a>Dados inativos
 A arquitetura protege dados em repouso através de várias medidas. Estas medidas incluem a criptografia e auditoria de base de dados.
 
-**O armazenamento do Azure**: para satisfazer os requisitos para os dados encriptados em inatividade, todos os [armazenamento](https://azure.microsoft.com/services/storage/) utiliza [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Esta funcionalidade ajuda a proteger e salvaguardar os dados para oferecer suporte a requisitos de conformidade definidos pelo SP NIST 800-171 e de compromissos de segurança organizacional.
+**O armazenamento do Azure**: Para cumprir os requisitos para os dados encriptados em inatividade, todos os [armazenamento](https://azure.microsoft.com/services/storage/) utiliza [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Esta funcionalidade ajuda a proteger e salvaguardar os dados para oferecer suporte a requisitos de conformidade definidos pelo SP NIST 800-171 e de compromissos de segurança organizacional.
 
-**O Azure Disk Encryption**: encriptação de disco é utilizado para discos de VM de IaaS do Windows criptografados. [Encriptação de disco](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) utiliza a funcionalidade BitLocker do Windows para fornecer a criptografia de volume de sistema operativo e discos de dados. A solução está integrada com o Key Vault para ajudar a controlar e gerir as chaves de encriptação de disco.
+**Azure Disk Encryption**: Encriptação de disco é utilizado para discos de VM de IaaS do Windows criptografados. [Encriptação de disco](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) utiliza a funcionalidade BitLocker do Windows para fornecer a criptografia de volume de sistema operativo e discos de dados. A solução está integrada com o Key Vault para ajudar a controlar e gerir as chaves de encriptação de disco.
 
-**SQL Server**: instância do SQL Server utiliza as seguintes medidas de segurança da base de dados:
+**SQL Server**: Instância do SQL Server usa as seguintes medidas de segurança da base de dados:
 -   [Auditoria de SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017) regista os eventos de base de dados e escreve-as para registos de auditoria.
 -   [Encriptação de dados transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) executa em tempo real criptografia e descriptografia da base de dados, cópias de segurança associadas e ficheiros de registo de transação para proteger as informações em repouso. Encriptação de dados transparente fornece garantia de que são armazenados os dados não tem sido sujeita a acesso não autorizado.
 -   [Regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) impedir o acesso de todos os servidores de base de dados até que sejam concedidas as permissões apropriadas. A firewall concede acesso a bases de dados com base no endereço IP de origem de cada pedido.
@@ -130,11 +129,11 @@ As seguintes tecnologias fornecem capacidades para gerir o acesso aos dados no a
 - Operações de criptografia permitidas para as chaves estão limitadas aos obrigatórios.
 - A solução está integrada com o Key Vault para gerir as chaves de encriptação de discos de VM de IaaS e segredos.
 
-**Gerenciamento de patches**: as VMs do Windows implementadas como parte desta arquitetura de referência estão configurados por predefinição para receber atualizações automáticas do serviço de atualização do Windows. Esta solução também inclui a [automatização do Azure](https://docs.microsoft.com/azure/automation/automation-intro) serviço por meio do qual as implementações atualizadas podem ser criadas para o patch VMs quando necessário.
+**Gerenciamento de patches**: VMs do Windows implementadas como parte desta arquitetura de referência estão configuradas por predefinição para receber atualizações automáticas do serviço de atualização do Windows. Esta solução também inclui a [automatização do Azure](https://docs.microsoft.com/azure/automation/automation-intro) serviço por meio do qual as implementações atualizadas podem ser criadas para o patch VMs quando necessário.
 
-**Proteção contra software maligno**: [Antimalware da Microsoft](https://docs.microsoft.com/azure/security/azure-security-antimalware) para VMs fornece a capacidade de proteção em tempo real que ajuda a identifica e remove vírus, spyware e outro software malicioso. Os clientes podem configurar alertas que geram quando conhecido software malicioso ou indesejável se tentar instalar ou executar em VMs protegidas.
+**Proteção contra Malware**: [O Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) para VMs fornece a capacidade de proteção em tempo real que ajuda a identifica e remove vírus, spyware e outro software malicioso. Os clientes podem configurar alertas que geram quando conhecido software malicioso ou indesejável se tentar instalar ou executar em VMs protegidas.
 
-**Centro de segurança do Azure**: com [Centro de segurança](https://docs.microsoft.com/azure/security-center/security-center-intro), os clientes podem centralmente aplicam-se e gerir políticas de segurança em cargas de trabalho, limitar a exposição a ameaças e detetar e responder a ataques. Centro de segurança também acessa as configurações existentes dos serviços do Azure para fornecer a configuração e recomendações de serviço para o ajudar a melhorar a postura de segurança e proteger os dados.
+**Centro de segurança do Azure**: Com o [Centro de segurança](https://docs.microsoft.com/azure/security-center/security-center-intro), os clientes podem centralmente aplicam-se e gerir políticas de segurança em cargas de trabalho, limitar a exposição a ameaças e detetar e responder a ataques. Centro de segurança também acessa as configurações existentes dos serviços do Azure para fornecer a configuração e recomendações de serviço para o ajudar a melhorar a postura de segurança e proteger os dados.
 
 Centro de segurança utiliza uma variedade de capacidades de deteção para alertar os clientes de potenciais ataques que visam seus ambientes. Estes alertas contêm informações valiosas sobre o que acionou o alerta, os recursos afetados e a origem do ataque. Centro de segurança tem um conjunto de [predefinidos alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) que são acionados quando uma ameaça ou atividade suspeita tem lugar. Os clientes podem usar [regras de alerta personalizadas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) para definir novos alertas de segurança com base nos dados que já são recolhidos do seu ambiente.
 
@@ -142,9 +141,9 @@ Centro de segurança fornece alertas de segurança priorizados e incidentes. Cen
 
 Esta arquitetura de referência utiliza o [avaliação de vulnerabilidade](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) capacidade no Centro de segurança. Depois de estar configurada, um agente de parceiro (por exemplo, Qualys) relatórios de dados de vulnerabilidade à plataforma de gestão do parceiro. Por sua vez, a plataforma de gestão do parceiro fornece dados de vulnerabilidades e de estado de funcionamento de volta ao Centro de Segurança. Os clientes podem utilizar estas informações para identificar rapidamente VMs vulneráveis.
 
-**O Gateway de aplicação do Azure**: A arquitetura reduz o risco de vulnerabilidades de segurança através da utilização de um gateway de aplicação com uma firewall de aplicações web configuradas e o conjunto de regras OWASP ativada. Capacidades adicionais incluem:
+**Gateway de aplicação do Azure**: A arquitetura reduz o risco de vulnerabilidades de segurança através da utilização de um gateway de aplicação com uma firewall de aplicações web configuradas e o conjunto de regras OWASP ativada. Capacidades adicionais incluem:
 
-- [SSL de ponto final das](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+- [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 - Ativar [descarga de SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal).
 - Desativar [TLS versões 1.0 e 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 - [Firewall de aplicações Web](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (modo de prevenção).
@@ -157,27 +156,27 @@ Esta arquitetura de referência utiliza o [avaliação de vulnerabilidade](https
 
 **Elevada disponibilidade**: A solução implementa todas as VMs num [conjunto de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Conjuntos de disponibilidade garantem que as VMs são distribuídas por vários clusters de hardware isolados para melhorar a disponibilidade. Pelo menos uma VM está disponível durante um evento de manutenção não planeada ou não planeada, que cumpre 99,95% do SLA do Azure.
 
-**Cofre dos serviços de recuperação**: A [cofre dos Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) hospeda os dados de cópia de segurança e protege todas as configurações de máquinas virtuais do Azure nesta arquitetura. Com o Cofre de serviços de recuperação, os clientes podem restaurar ficheiros e pastas a partir de uma VM de IaaS sem restaurar toda a VM. Este processo acelera os tempos de restauro.
+**Cofre dos Recovery Services**: O [cofre dos Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) hospeda os dados de cópia de segurança e protege todas as configurações de máquinas virtuais do Azure nesta arquitetura. Com o Cofre de serviços de recuperação, os clientes podem restaurar ficheiros e pastas a partir de uma VM de IaaS sem restaurar toda a VM. Este processo acelera os tempos de restauro.
 
-**Testemunho de nuvem**: [testemunho de nuvem](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunho de quórum do cluster de ativação pós-falha no Windows Server 2016 que utiliza o Azure como o ponto de arbitragem. Testemunho de nuvem, como outro testemunho de quórum, obtém um voto e pode participar nos cálculos do quórum. Utiliza o armazenamento de Blobs do Azure standard publicamente disponível. Essa organização elimina a sobrecarga de manutenção extra de VMs alojadas numa nuvem pública.
+**Testemunho de nuvem**: [Testemunho de nuvem](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) é um tipo de testemunho de quórum do cluster de ativação pós-falha no Windows Server 2016 que utiliza o Azure como o ponto de arbitragem. Testemunho de nuvem, como outro testemunho de quórum, obtém um voto e pode participar nos cálculos do quórum. Utiliza o armazenamento de Blobs do Azure standard publicamente disponível. Essa organização elimina a sobrecarga de manutenção extra de VMs alojadas numa nuvem pública.
 
 ### <a name="logging-and-auditing"></a>Registro e auditoria
 
 Serviços do Azure extensivamente de registo do sistema e a atividade do utilizador, bem como o estado de funcionamento do sistema:
-- **Registos de atividades**: [registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos numa subscrição. Registos de atividades podem ajudar a determinar o iniciador de uma operação, hora da ocorrência e o estado.
-- **Os registos de diagnóstico**: [registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registos emitidos por cada recurso. Estes registos incluem registos de sistema de eventos do Windows, registos de armazenamento, registos de auditoria do Cofre de chaves e os registos de acesso e de firewall do Gateway de aplicação. Todos os registos de diagnóstico escrevem para uma conta de armazenamento do Azure centralizado e criptografado para arquivamento. Os utilizadores podem configurar o período de retenção, até e 730 dias, para satisfazer os seus requisitos específicos.
+- **Registos de atividades**: [Registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos numa subscrição. Registos de atividades podem ajudar a determinar o iniciador de uma operação, hora da ocorrência e o estado.
+- **Os registos de diagnóstico**: [Os registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registos emitidos por cada recurso. Estes registos incluem registos de sistema de eventos do Windows, registos de armazenamento, registos de auditoria do Cofre de chaves e os registos de acesso e de firewall do Gateway de aplicação. Todos os registos de diagnóstico escrevem para uma conta de armazenamento do Azure centralizado e criptografado para arquivamento. Os utilizadores podem configurar o período de retenção, até e 730 dias, para satisfazer os seus requisitos específicos.
 
-**Log Analytics**: estes registos são consolidados numa [Log Analytics](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios do dashboard. Depois de recolhidos, os dados são organizado em tabelas separadas para cada tipo de dados nas áreas de trabalho do Log Analytics. Dessa forma, todos os dados podem ser analisados em conjunto, independentemente de sua fonte original. Centro de segurança integra-se com o Log Analytics. Os clientes podem utilizar consultas do Log Analytics para aceder aos respetivos dados de eventos de segurança e combiná-los com dados de outros serviços.
+**Registos de Monitor do Azure**: Estes registos são consolidados no [registos do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios do dashboard. Depois de recolhidos, os dados são organizado em tabelas separadas para cada tipo de dados nas áreas de trabalho do Log Analytics. Dessa forma, todos os dados podem ser analisados em conjunto, independentemente de sua fonte original. Centro de segurança integra-se com os registos do Azure Monitor. Os clientes podem utilizar consultas de Kusto para aceder aos respetivos dados de eventos de segurança e combiná-los com dados de outros serviços.
 
-A seguinte do Log Analytics [soluções de gestão](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) são incluídos como parte desta arquitetura:
--   [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A verificação do Active Directory Health solução avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular. Ele fornece uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
-- [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): O estado de funcionamento de SQL Consulte solução avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular. Fornece aos clientes com uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
-- [Estado de funcionamento do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): solução o estado de funcionamento do agente reporta o número de agentes que está implementado e a respetiva distribuição geográfica. Também relata o número de agentes é sem resposta e o número de agentes que submeter dados operacionais.
--   [Log Analytics da atividade](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): ajuda a solução da análise de registos de atividade com uma análise de registos de atividade do Azure em todas as subscrições do Azure para um cliente.
+O Azure seguinte [soluções de monitorização](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) são incluídos como parte desta arquitetura:
+-   [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de verificação de estado de funcionamento do Active Directory avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular. Ele fornece uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
+- [Avaliação do SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): A solução de verificação de estado de funcionamento do SQL avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular. Fornece aos clientes com uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.
+- [Estado de funcionamento do agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): A solução de estado de funcionamento do agente relata o número de agentes é implementado e a respetiva distribuição geográfica. Também relata o número de agentes é sem resposta e o número de agentes que submeter dados operacionais.
+-   [Log Analytics da atividade](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): A solução Log Analytics da atividade auxilia com uma análise de registos de atividade do Azure em todas as subscrições do Azure para um cliente.
 
-**A automatização do Azure**: [automatização](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) armazena, executa e gere runbooks. Nesta solução, runbooks ajudam a recolher registos do SQL Server. Os clientes podem usar a automação [controlo de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking) solução para o identificar facilmente as alterações no ambiente.
+**A automatização do Azure**: [Automatização](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) armazena, executa e gere runbooks. Nesta solução, runbooks ajudam a recolher registos do SQL Server. Os clientes podem usar a automação [controlo de alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking) solução para o identificar facilmente as alterações no ambiente.
 
-**O Azure Monitor**: [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências. As organizações podem usá-lo de auditoria, criar alertas e arquivar dados. Também pode controlar as chamadas de API em seus recursos do Azure.
+**Azure Monitor**: [Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) ajuda os usuários a acompanhar o desempenho, manter a segurança e identificar tendências. As organizações podem usá-lo de auditoria, criar alertas e arquivar dados. Também pode controlar as chamadas de API em seus recursos do Azure.
 
 ## <a name="threat-model"></a>Modelo de risco
 

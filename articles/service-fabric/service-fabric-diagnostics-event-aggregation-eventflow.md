@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 31d06c6329a8348a73533a42b73ce435c573c034
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: eee5e71863f9a9195dc1f6f711cbacbc95ab84f2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823880"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246768"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Agregação de eventos e coleções com o EventFlow
 
@@ -157,5 +157,5 @@ Inicie o serviço e a depuração de observar a janela de saída no Visual Studi
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Análise de eventos e visualização com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Análise de eventos e visualização com o Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* [Análise de eventos e visualização com os registos do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * [Documentação do EventFlow](https://github.com/Azure/diagnostics-eventflow)

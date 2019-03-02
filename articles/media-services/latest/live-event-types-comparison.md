@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9671d9f61b610a85cbf2475e045c641a29dac11b
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010621"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243895"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de evento em direto
 
@@ -33,7 +33,7 @@ A tabela seguinte compara as funcionalidades dos dois tipos de evento em direto.
 | Velocidade de transmissão única entrada é codificada em múltiplas velocidades de transmissão na cloud |Não |Sim |
 | Resolução máxima de vídeo para feed de contribuição |4K (4096 x 2160 em 60 quadros por segundo) |1080p (1920 x 1088 em 30 quadros por segundo)|
 | Camadas máximas recomendadas no feed de contribuição|Até 12|Um áudio|
-| Máximas camadas de dados de saída| Mesmo que a entrada|Até 6|
+| Máximas camadas de dados de saída| Mesmo que a entrada|Até 6 (consulte as predefinições do sistema abaixo)|
 | Feed de largura de banda agregada máxima de contribuição|60 Mbps|N/A|
 | Velocidade de transmissão máxima para uma única camada na contribuição |20 Mbps|20 Mbps|
 | Suporte para faixas de áudio de vários idiomas|Sim|Não|
@@ -54,6 +54,30 @@ A tabela seguinte compara as funcionalidades dos dois tipos de evento em direto.
 | Suporte para não-uniforme GOPs de entrada|Sim|Não – entrada deve ter resolvido duração GOP|
 | Suporte para entrada de taxa de quadros de variável|Sim|Não – entrada deve ser corrigida taxa de quadros. Secundárias variações são pela tolerar, por exemplo, durante o plano de movimento elevada. Mas o feed de contribuição não é possível remover a taxa de quadros (por exemplo, para 15 quadros por segundo).|
 | Auto-shutoff de evento em direto quando a introdução do feed é perdido|Não|Após 12 horas, se não houver nenhum LiveOutput em execução|
+
+## <a name="system-presets"></a>Predefinições do sistema
+
+Ao usar a codificação em tempo real (evento em direto é definido como **padrão**), a predefinição de codificação define como o fluxo de entrada é codificado em várias velocidades de transmissão ou camadas. Atualmente, o único valor permitido para a configuração predefinida é *Default720p* (predefinição).
+
+**Default720p** irá codificar o vídeo para as camadas de 6 seguintes.
+
+### <a name="output-video-stream"></a>Stream de vídeo de saída
+
+| BitRate | Largura | Altura | MaxFPS | Perfil | Nome do Stream de saída |
+| --- | --- | --- | --- | --- | --- |
+| 3500 |1280 |720 |30 |Elevado |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Elevado |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Elevado |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Elevado |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Elevado |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Elevado |Video_340x192_200kbps |
+
+> [!NOTE]
+> Se precisar de utilizar uma predefinição de codificação em direto personalizada, entre em contato com amshelp@microsoft.com. Deve especificar a tabela desejada de resolução e velocidades de transmissão. Certifique-se de que existe apenas uma camada em 720p e no máximo, 6 camadas.
+
+### <a name="output-audio-stream"></a>Stream de áudio de saída
+
+Áudio está codificado para estéreo AAC-LC em 128 kbps, taxa de amostragem de 48 kHz.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a405583503b75a64dda2bf277a4a50be4e926d28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 857672e8dee4dbe8d586db0cd80b206ec6ecb7df
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111293"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244575"
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -393,7 +393,7 @@ Além disso, o WAF do Gateway de aplicação ajuda-o a monitorizar as aplicaçõ
 
 O registo de formatada do JSON vai diretamente para a conta de armazenamento do cliente. Tem controle total sobre estes registos e pode aplicar as suas políticas de retenção.
 
-Também pode ingerir estes registos para o seu próprio sistema de análise com [Azure Log Integration](https://aka.ms/AzLog). Registos WAF também estão integrados [do Log Analytics](../log-analytics/log-analytics-overview.md) pelo que pode utilizar o Log Analytics para executar consultas detalhadas sofisticadas.
+Também pode ingerir estes registos para o seu próprio sistema de análise com [Azure Log Integration](https://aka.ms/AzLog). Registos WAF também estão integrados [registos do Azure Monitor](../log-analytics/log-analytics-overview.md) pelo que pode utilizar os registos do Azure Monitor para executar consultas detalhadas sofisticadas.
 
 #### <a name="azure-web-application-firewall-waf"></a>Firewall de aplicações web do Azure (WAF)
 
@@ -507,7 +507,7 @@ O Azure oferece diversas ferramentas para monitorizar, prevenir, detetar e respo
 
 -   Monitorização ao nível da rede recursos
 
--   Log Analytics
+-   Registos de Monitor do Azure
 
 ### <a name="network-watcher"></a>Observador de rede
 
@@ -547,7 +547,7 @@ Determina a [próximo salto](https://docs.microsoft.com/azure/network-watcher/ne
 
 Também o salto seguinte devolve a tabela de rotas associada com o próximo salto. Ao consultar um salto seguinte se a rota é definida como uma rota definida pelo utilizador, será devolvido esse caminho. Caso contrário, o salto seguinte devolve "Rotas de sistema".
 
-#### <a name="security-group-view"></a>Vista de grupo de segurança
+#### <a name="security-group-view"></a>Vista do grupo de segurança
 
 Obtém as regras de segurança aplicada e eficiente que são aplicadas numa VM. Grupos de segurança de rede são associados a um nível de sub-rede ou num nível NIC. Quando associados a um nível de sub-rede, aplica-se a todas as instâncias VM na sub-rede. Rede [vista de grupo de segurança](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) devolve todas as configurado NSGs e regras que estão associadas a um nível NIC e sub-rede de uma máquina virtual, fornece ideias sobre a configuração. Além disso, as regras de segurança efetivas são devolvidas para cada uma das NICs numa VM. Vista de grupo de segurança de rede a utilizar, pode avaliar uma VM para vulnerabilidades de rede, tais como abrir portas. Também pode validar se o seu grupo de segurança de rede está a funcionar conforme esperado com base numa [comparação entre configurada e as regras de segurança efetivas](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
 
@@ -597,17 +597,17 @@ As métricas são medidas de desempenho e contadores coletados durante um perío
 
 #### <a name="diagnostic-logs"></a>Registos de diagnósticos
 
-Eventos periódicos e espontânea são criados pelos recursos de rede e com sessão iniciados em contas de armazenamento, enviadas para um Hub de eventos, ou o Log Analytics. Estes registos fornecem informações sobre o estado de funcionamento de um recurso. Estes registos podem ser visualizados em ferramentas como o Power BI e o Log Analytics. Para saber como ver os registos de diagnóstico, visite [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Eventos periódicos e espontânea são criados pelos recursos de rede e com sessão iniciados em contas de armazenamento, enviadas para um Hub de eventos ou os registos do Azure Monitor. Estes registos fornecem informações sobre o estado de funcionamento de um recurso. Estes registos podem ser visualizados em ferramentas como o Power BI e o Azure Monitor registos. Para saber como ver os registos de diagnóstico, visite [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
 
 Os registos de diagnóstico estão disponíveis para [Balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), rotas, e [Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
 
 Observador de rede fornece que um diagnóstico regista o modo de exibição. Esta vista contém todos os recursos de rede que suportam o registo de diagnósticos. A partir desta vista, pode ativar e desativar recursos de rede rápida e conveniente.
 
-### <a name="log-analytics"></a>Log analytics
+### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
 
-[Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é um serviço no Azure que monitoriza a sua cloud e ambientes para manter a disponibilidade e desempenho no local. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.
+[Registos de Monitor do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é um serviço no Azure que monitoriza a sua cloud e ambientes para manter a disponibilidade e desempenho no local. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.
 
-O log Analytics oferece as seguintes soluções para monitorização de suas redes:
+Registos de Monitor do Azure oferece as seguintes soluções para monitorização de suas redes:
 
 -   Monitor de desempenho de rede (NPM)
 
@@ -627,7 +627,7 @@ O [Monitor de desempenho de rede](https://docs.microsoft.com/azure/log-analytics
 -   Sub-redes alojar várias camadas de um aplicativo de várias camadas.
 
 
-#### <a name="azure-application-gateway-analytics-in-log-analytics"></a>Análise do gateway de aplicação do Azure no log analytics
+#### <a name="azure-application-gateway-analytics-in-azure-monitor-logs"></a>Análise do gateway de aplicação do Azure nos registos do Azure Monitor
 
 Os seguintes registos são suportados para Gateways de aplicação:
 
@@ -641,7 +641,7 @@ As métricas seguintes são suportadas para Gateways de aplicação:
 
 -   débito de 5 minutos
 
-#### <a name="azure-network-security-group-analytics-in-log-analytics"></a>Análise de grupo de segurança de rede do Azure no log analytics
+#### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Análise de grupo de segurança de rede do Azure nos registos do Azure Monitor
 
 Os seguintes registos são suportados para [grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
 
@@ -652,7 +652,7 @@ Os seguintes registos são suportados para [grupos de segurança de rede](https:
 ## <a name="next-steps"></a>Passos Seguintes
 Obter mais informações sobre segurança lendo alguns dos nossos tópicos de segurança detalhados:
 
--   [Análise de registos para grupos de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Registos de Monitor do Azure para grupos de segurança de rede (NSGs)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [Inovações do sistema de rede que orientam a interrupção da cloud](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

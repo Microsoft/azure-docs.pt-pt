@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 44fc096fa95be3a469ada7c7dc212ce4fc04e83b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486543"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218061"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Armazenamento do Azure da pilha: Diferenças e considerações
 
@@ -44,6 +44,7 @@ Este artigo resume as diferenças de armazenamento do Azure Stack conhecidas dos
 |Tamanho máximo de blob de bloco|4.75 TB (100 MB X 50 000 blocos)|4.75 TB (100 MB x 50 000 blocos) para a atualização 1802 ou a versão mais recente. 50 000 x 4 MB (aproximadamente, 195 GB) para versões anteriores.
 |Cópia do instantâneo de blob de página|Cópia de segurança do Azure discos não geridos VM ligados a uma VM em execução suportada|Ainda não é suportado.
 |Cópia do instantâneo incremental de blob de página|Premium e blobs de página do Azure standard suportados|Ainda não é suportado.
+|A faturação do blob de página|São cobradas taxas de páginas exclusivas, quer estejam no blob ou no instantâneo. Não faria cobrado custos adicionais para instantâneos associados um blob até que o blob de base que está a ser atualizado.|São cobradas taxas de instantâneos de blob e assiociated bases. Serão cobrados encargos adicionais para cada instantâneo individual.
 |Camadas de armazenamento para armazenamento de BLOBs|Camadas frequente, esporádica e de camadas de armazenamento de arquivo.|Ainda não é suportado.
 |Eliminação de forma recuperável para armazenamento de BLOBs|Geralmente disponível|Ainda não é suportado.
 |Tamanho máximo de blob de página|8 TB|1 TB

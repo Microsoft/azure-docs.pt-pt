@@ -4,7 +4,7 @@ description: Saiba como recolher dados do Azure Active Directory no Azure sentin
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: e145807b3170b7b822eabba09ce2e97da5467761
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 315b18feb74862bbeca6ff8265ee003fbad48595
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993259"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242321"
 ---
 # <a name="collect-data-from-azure-active-directory"></a>Recolher dados do Azure Active Directory
 

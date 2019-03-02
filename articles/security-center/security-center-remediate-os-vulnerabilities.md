@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a951e60b417167f2e1566efb689ea0f2d4e65374
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f3764e5f4a5d6bbc3d6988321a2d7648012825ae
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111429"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242246"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Remediar configurações de segurança no Centro de segurança do Azure
 Centro de segurança do Azure diariamente analisa o sistema operativo (SO) das suas máquinas virtuais (VMs) e a computadores para uma configuração que poderia fazer com que as VMs e computadores mais vulneráveis a ataques. Centro de segurança recomenda que resolver vulnerabilidades quando a configuração do SO não coincide com as regras de configuração de segurança recomendadas e recomenda alterações de configuração para resolver estas vulnerabilidades.
@@ -84,7 +84,7 @@ Este exemplo aborda a recomendação "Remediar configurações de segurança" em
    ![Áreas de trabalho listadas][4]
 
 5. Selecione uma área de trabalho.  
-  Uma consulta de pesquisa do Log Analytics abre filtrado para a área de trabalho com o erro de correspondência de configurações de segurança.
+  Uma consulta de pesquisa de registos do Azure Monitor abre filtrado para a área de trabalho com o erro de correspondência de configurações de segurança.
 
    ![Área de trabalho com a Vulnerabilidade do SO][5]
 

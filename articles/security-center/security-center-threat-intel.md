@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 07592c6852a7fce057381cb9086baedc9d2b1bd6
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: f1e238890b777e2816648ec407e2581f636d1c12
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111752"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57239832"
 ---
 # <a name="security-alerts-map-and-threat-intelligence"></a>Informações sobre ameaças e mapa de alertas de segurança
 Este artigo ajuda-o a utilizar o mapa de alertas de segurança do Centro de segurança do Azure e a segurança mapa das informações sobre ameaças baseada em eventos para resolver problemas relacionados à segurança.
@@ -62,7 +62,7 @@ Para ver o mapa de inteligência de ameaças com base em eventos de segurança b
 4. Na parte superior do mapa, selecione **ver informações sobre ameaças clássico**. O **informações sobre ameaças** dashboard abre.
 
    > [!NOTE]
-   > Se a coluna mais à direita mostrar **ATUALIZAR PLANO**, esta área de trabalho está a utilizar a subscrição gratuita. Atualize para o plano Standard para utilizar esta funcionalidade. Se a coluna mais à direita mostrar **PRECISA DE ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para utilizar esta funcionalidade. Para obter mais informações sobre o plano de preços, leia o artigo sobre os preços do Centro de Segurança do Azure.
+   > Se a coluna mais à direita mostrar **ATUALIZAR PLANO**, esta área de trabalho está a utilizar a subscrição gratuita. Atualize para o plano Standard para utilizar esta funcionalidade. Se a coluna da direita mostra **precisa de ATUALIZAÇÃO**, atualizar [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para utilizar esta funcionalidade. Para obter mais informações sobre o plano de preços, leia o artigo sobre os preços do Centro de Segurança do Azure.
    >
 5. Se tiver mais do que uma área de trabalho para investigar, priorize a investigação de acordo com a coluna **IP malicioso**. Mostra o número atual de IPs maliciosos nesta área de trabalho. Selecione a área de trabalho que pretende utilizar e o dashboard **Informações sobre ameaças** é apresentado.
 

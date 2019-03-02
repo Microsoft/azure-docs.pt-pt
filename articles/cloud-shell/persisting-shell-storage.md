@@ -3,7 +3,7 @@ title: Manter os ficheiros para o Bash no Azure Cloud Shell | Documentos da Micr
 description: Instruções sobre como o Bash no Azure Cloud Shell persistir os ficheiros.
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
-ms.author: juluk
-ms.openlocfilehash: 7bf31c11c705dbdfe8a326aad99ee8d373db8f3e
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.author: damaerte
+ms.openlocfilehash: 0aa00af543a3d21db9b8ad0ed808a8bff0b534e1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301099"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246275"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 

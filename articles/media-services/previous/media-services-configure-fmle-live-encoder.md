@@ -14,14 +14,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 02adb36bec574719f3f6d7f1c1b66124f96ccae1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: df0dc1a8f574f8df23100528d822891178418b6c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309238"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241362"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream-legacy"></a>Utilizar o codificador FMLE para enviar um fluxo em direto com velocidade de transmissão única (Legado)
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador FMLE para enviar um fluxo em direto com velocidade de transmissão única 
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)

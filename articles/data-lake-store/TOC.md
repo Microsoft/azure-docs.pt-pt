@@ -87,7 +87,7 @@
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=data-lake-store)
 ## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
-## [Java](/java/api/com.microsoft.azure.datalake.store)
+## [Java](https://docs.microsoft.com/java/api/overview/azure/datalake?view=azure-java-stable)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (Gestão de Conta)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python (Gestão do Sistema de Ficheiros)](http://azure-datalake-store.readthedocs.io/en/latest)

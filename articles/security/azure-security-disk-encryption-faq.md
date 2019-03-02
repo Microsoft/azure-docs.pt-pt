@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/25/2019
+ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1b045ecf10399ca2297e4d9d010d5c973c40f4e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 305a5c5d4f82c732dd796f5c5140c0da04fe7b13
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193284"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245221"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption para VMs de IaaS FAQ
 
@@ -73,9 +73,13 @@ Para começar, leia os [descrição geral do Azure Disk Encryption](azure-securi
 
 Sim, pode criptografar volumes de arranque e de dados para VMs de IaaS de Linux e Windows. Para VMs do Windows, não é possível encriptar os dados sem primeiro criptografar o volume do sistema operacional. Para VMs do Linux, é possível criptografar o volume de dados sem ter de criptografar o volume do sistema operacional pela primeira vez. Depois de criptografia do volume do sistema operacional para Linux, desativar a encriptação num volume do sistema operacional para VMs de IaaS Linux não é suportada.
 
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Pode criptografar um volume desmontado com o Azure Disk Encryption?
+
+Não, o Azure Disk Encryption encripta apenas volumes montados.
+
 ## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Como rodar segredos ou chaves de encriptação?
 
-Para girar segredos, basta chame o mesmo comando que utilizou originalmente para ativar a encriptação de disco. Rodar a chave de encriptação de chave, chame o mesmo comando que utilizou originalmente para ativar a encriptação de disco, especificando a encriptação de chave nova. 
+Para rodar segredos, basta chamar o mesmo comando que utilizou originalmente para ativar a encriptação de disco, especificando um cofre de chaves diferentes. Rodar a chave de encriptação de chave, chame o mesmo comando que utilizou originalmente para ativar a encriptação de disco, especificando a encriptação de chave nova. 
 
 ## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Como adicionar ou remover uma chave de encriptação de chave, se eu originalmente não utilizar um?
 
@@ -145,6 +149,10 @@ No Windows, ADE utiliza o método de encriptação BitLocker AES256 (AES256WithD
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se eu utilizar EncryptFormatAll e especifique todos os tipos de volume, irá apagar os dados em unidades de dados que nós já de ser encriptados?
 Não, os dados não ser apagados da unidades de dados que já são encriptadas com o Azure Disk Encryption. Semelhante a como EncryptFormatAll não voltar a encriptar a unidade do SO, ele não criptografa novamente a unidade de dados já encriptados. Para obter mais informações, consulte a [EncryptFormatAll critérios](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Pode criar cópias de segurança e restaurar uma VM encriptada? 
+
+Cópia de segurança do Azure fornece um mecanismo de cópia de segurança e restaurar encriptada da VM na mesma subscrição e região.  Para obter instruções, consulte [fazer backup e restaurar máquinas virtuais encriptadas com o Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Atualmente, o restauro de uma VM encriptada para uma região diferente não é suportado.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Onde posso ir para colocar questões ou comentários?
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 3a21fe180dca4cc0b678624e775b67c3868f57ab
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 11e60469c6c023228bdac9058d956d1e7089bf29
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992363"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243147"
 ---
-# <a name="h264-multiple-bitrate-1080p-audio-51-legacy"></a>H264 Multiple Bitrate 1080p Audio 5.1 (Legado)
+# <a name="h264-multiple-bitrate-1080p-audio-51"></a>H264 taxa de bits Múltiplas 1080p Audio 5.1 
 
 `Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   

@@ -4,7 +4,7 @@ description: Este artigo descreve como utilizar os indicadores de buscar sentine
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 484acdc16f57f37098d669f03c1b51c087308289
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993196"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242841"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>Mantenha um registo de dados durante a sorte!
 

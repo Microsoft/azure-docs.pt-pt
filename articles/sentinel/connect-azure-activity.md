@@ -4,7 +4,7 @@ description: Saiba como recolher dados de atividade do Azure no Azure sentinela.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 8c25baa8-b93b-41da-9e6c-15bb7b5c5511
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 068da0c196cba8095aca24a572eb4dfaec685c7a
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 42ce8d06489cfacf7ba9bb3de1425224b5df95e7
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992944"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240580"
 ---
 # <a name="collect-data-from-azure-activity-log"></a>Recolher dados de registo de atividades do Azure
 

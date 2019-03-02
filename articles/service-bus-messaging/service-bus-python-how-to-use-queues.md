@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: aschhab
-ms.openlocfilehash: 172fee19de77deb4ecf679d6884dfcea2a4968be
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865965"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242603"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Como utilizar filas do Service Bus com Python
 
@@ -38,7 +38,7 @@ Este artigo descreve como utilizar as filas do Service Bus. Os exemplos são esc
 
 
 ## <a name="create-a-queue"></a>Criar uma fila
-O **ServiceBusService** objeto permite-lhe trabalhar com as filas. Adicione o seguinte código perto da parte superior de qualquer ficheiro de Python no qual pretende aceder através de programação do Service Bus:
+O **ServiceBusClient** objeto permite-lhe trabalhar com as filas. Adicione o seguinte código perto da parte superior de qualquer ficheiro de Python no qual pretende aceder através de programação do Service Bus:
 
 ```python
 from azure.servicebus import ServiceBusClient
@@ -69,7 +69,7 @@ sb_client.create_queue("taskqueue", queue_options)
 Para obter mais informações, consulte [documentação de Python do Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Para enviar uma mensagem numa fila do Service Bus, suas chamadas de aplicação do `send_queue_message` método no **ServiceBusService** objeto.
+Para enviar uma mensagem numa fila do Service Bus, suas chamadas de aplicação do `send` método no `ServiceBusClient` objeto.
 
 O exemplo seguinte demonstra como enviar uma mensagem de teste para a fila com o nome `taskqueue` usando `send_queue_message`:
 
@@ -89,7 +89,7 @@ As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [e
 Para obter mais informações, consulte [documentação de Python do Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-As mensagens são recebidas a partir de um fila com o `receive_queue_message` método no **ServiceBusService** objeto:
+As mensagens são recebidas a partir de um fila com o `get_receiver` método no `ServiceBusService` objeto:
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -97,9 +97,12 @@ from azure.servicebus import QueueClient, Message
 # Create the QueueClient 
 queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
 
-# Send a test message to the queue
-msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+## Receive the message from the queue
+with queue_client.get_receiver() as queue_receiver:
+    messages = queue_receiver.fetch_next(timeout=3)
+    for message in messages:
+        print(message)
+        message.complete()
 ```
 
 Para obter mais informações, consulte [documentação de Python do Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).

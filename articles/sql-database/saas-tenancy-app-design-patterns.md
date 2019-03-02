@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471203"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217874"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de inquilinos de bases de dados de SaaS de multi-inquilino
 
@@ -99,7 +99,7 @@ Quando as bases de dados são implementadas no mesmo grupo de recursos, eles pod
 
 ![Design da aplicação multi-inquilino com a base de dados por inquilino, utilizando o conjunto elástico.][image-mt-app-db-per-tenant-pool-153p]
 
-Base de dados SQL do Azure fornece as ferramentas necessárias para configurar, monitorizar e gerir a partilha.  Ambas as métricas de desempenho da base de dados ao nível do conjunto e estão disponíveis no portal do Azure e com o Log Analytics.  As métricas podem fornecer excelentes conhecimentos sobre o desempenho de agregação e específico de inquilino.  Bases de dados individuais podem ser movidas entre conjuntos para fornecer recursos reservados para um inquilino específico.  Essas ferramentas permitem-lhe assegurar um bom desempenho de forma económica.
+Base de dados SQL do Azure fornece as ferramentas necessárias para configurar, monitorizar e gerir a partilha.  Ambas as métricas de desempenho da base de dados ao nível do conjunto e estão disponíveis no portal do Azure e através de registos do Azure Monitor.  As métricas podem fornecer excelentes conhecimentos sobre o desempenho de agregação e específico de inquilino.  Bases de dados individuais podem ser movidas entre conjuntos para fornecer recursos reservados para um inquilino específico.  Essas ferramentas permitem-lhe assegurar um bom desempenho de forma económica.
 
 #### <a name="operations-scale-for-database-per-tenant"></a>Escala de operações para a base de dados por inquilino
 

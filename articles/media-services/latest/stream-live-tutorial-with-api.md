@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 3500463cc57fb236de2a591181a5dc7054780404
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338602"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240699"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Stream em direto com serviços de multimédia v3 através do .NET
 
@@ -81,9 +81,9 @@ Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de
 
 ### <a name="create-a-live-event"></a>Criar um evento em direto
 
-Esta secção mostra como criar uma **pass-through** tipo de evento em direto (LiveEventEncodingType definida como None). Se pretender criar um evento em direto que esteja ativado para codificação em tempo real definido LiveEventEncodingType como **padrão**. 
-
-Algumas outras coisas que pode querer especificar ao criar o evento em direto são:
+Esta secção mostra como criar uma **pass-through** tipo de evento em direto (LiveEventEncodingType definida como None). Para obter mais informações sobre os tipos de eventos em direto disponíveis, consulte [tipos de evento em direto](live-events-outputs-concept.md#live-event-types). 
+ 
+Algumas coisas que talvez queira especificar ao criar o evento em direto são:
 
 * A localização dos Serviços de Multimédia 
 * O protocolo de transmissão em fluxo para o evento em direto (atualmente, são suportados os protocolos RTMP e Smooth Streaming).<br/>Não é possível alterar a opção de protocolo enquanto o evento em direto ou suas saídas associadas em direto estão em execução. Se necessitar de protocolos diferentes, deve criar evento Live separado para cada protocolo de transmissão em fluxo.  

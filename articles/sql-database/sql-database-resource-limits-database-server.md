@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 670ca1b8ba16122d4e969a41f8679e1a6d1b27c6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/01/2019
+ms.openlocfilehash: 011aa97d44a92feced7328b2bd014395d2c5b765
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990109"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246703"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de base de dados SQL para o servidor de base de dados do Azure SQL
 
@@ -73,6 +73,29 @@ Quando se deparar com alta utilização de sessão ou de trabalho, as opções d
 
 - Aumentar o serviço de camada ou tamanho do conjunto elástico ou base de dados de computação. Ver [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).
 - Otimização de consultas para reduzir a utilização de recursos de cada consulta, se a causa da utilização da função de trabalho maior é devido à contenção de recursos de computação. Para obter mais informações, consulte [ajuste de consulta/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
+
+### <a name="transaction-log-rate-governance"></a>Governação de taxa de registo de transação 
+Governação de taxa de registo de transação é um processo na base de dados do SQL do Azure utilizada para limitar as taxas de ingestão elevada para cargas de trabalho, como em massa insert, SELECT INTO e compilações de índice. Estes limites são controlados e impostos no nível de frações de segundos para a taxa de geração de registos do log, a limitação de taxa de transferência, independentemente de quantos IOs pode ser emitida em relação a arquivos de dados.  Velocidades de geração de log de transação atualmente dimensionadas de forma linear até um ponto que seja dependente do hardware, com o log máximo taxa permitido que está a ser 48 MB/s com o modelo de compra de vCore. 
+
+> [!NOTE]
+> O IOs físico real para os ficheiros de registo de transações não é regido ou limitado. 
+
+As taxas de log são definidas, de modo que podem ser obtidos e constante numa variedade de cenários, enquanto o sistema geral pode manter sua funcionalidade com um impacto minimizado para a carga de utilizador. Governação de taxa de registo garante que as cópias de segurança permanecem na capacidade de recuperação publicada SLAs o registo de transação.  Este governação também impede que um registo de segurança excessivo em réplicas secundárias.
+
+Como os registos são gerados, cada operação é avaliada e avaliada para se deve ser atrasada para manter uma taxa de registo pretendido máximo (MB/s por segundo). Os atrasos não são adicionados quando os registros de log são libertados para o armazenamento, em vez disso, governação de taxa de registo é aplicada durante a geração de taxa de registo em si.
+
+A geração de log real taxas de imposto em tempo de execução também podem ser influenciadas por mecanismos de comentários, reduzindo temporariamente as taxas de log permitido para que o sistema pode estabilizar. Gestão de espaços de ficheiro de registo, evitando a deparar fora de condições do espaço de registo e o grupo de disponibilidade com mecanismos de replicação temporariamente pode diminuir os limites de todo o sistema. 
+
+Formação de tráfego do registo taxa Governador é exibida por meio dos seguintes tipos de espera (exposto no [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV):
+
+| Tipo de espera | Notas |
+| :--- | :--- |
+| LOG_RATE_GOVERNOR | Limitar a base de dados |
+| POOL_LOG_RATE_GOVERNOR | Limitação do conjunto |
+| INSTANCE_LOG_RATE_GOVERNOR | Limitação de nível de instância |  
+| HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controlo de comentários, replicação física do grupo de disponibilidade no Premium/críticas para a empresa não manter atualizado |  
+| HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controlo de comentários, limitação de taxas para evitar um fora de condição de espaço de registo |
+||||
 
 ## <a name="next-steps"></a>Passos Seguintes
 

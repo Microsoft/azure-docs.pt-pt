@@ -3,7 +3,7 @@ title: Com o editor do Azure Cloud Shell | Documentos da Microsoft
 description: Descrição geral de como usar o editor de Azure Cloud Shell.
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: juluk
-ms.openlocfilehash: caf6e18a9a30654710f5445ed6ab957a5253d62e
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.author: damaerte
+ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259965"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243164"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Com o editor do Azure Cloud Shell
 

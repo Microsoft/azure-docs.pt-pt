@@ -4,7 +4,7 @@ description: Saiba como recolher dados de F5 no sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 0001cad6-699c-4ca9-b66c-80c194e439a5
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 79b4cd6a09e3902d26969b5cd6f0b4007b524811
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 7c64bfa2d02e4c65f3be60a1b11a8d1eb5d54afa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993217"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242450"
 ---
 # <a name="connect-your-f5-appliance"></a>Ligar a sua aplicação da F5
 

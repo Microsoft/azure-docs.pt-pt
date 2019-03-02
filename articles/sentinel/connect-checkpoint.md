@@ -4,7 +4,7 @@ description: Saiba como recolher dados de ponto de verificação no sentinela do
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 3229233d-400d-4971-8d76-eaa0d6591d75
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9a3968198f70d581c156e01286f239cff749a2ff
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: fe2c187da102a1877ab8cc50cbb0ab9830669c0c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993161"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241906"
 ---
 # <a name="connect-your-check-point-appliance"></a>Ligar a sua aplicação de ponto de verificação
 

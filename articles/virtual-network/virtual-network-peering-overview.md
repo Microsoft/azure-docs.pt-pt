@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: 3f308c38e9fa23c36f964b117f620a39e56c9bbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c1693b6e5ef9abbd1c72c10581a9f36325cf6478
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958189"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243997"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
-O peering de rede virtual permite ao utilizador ligar duas [redes virtuais](virtual-networks-overview.md) do Azure de forma totalmente integrada. Uma vez executado o peering, as redes virtuais aparecem como uma única, para fins de conectividade. O tráfego entre máquinas virtuais nas redes virtuais em modo de peering será encaminhado através da infraestrutura principal da Microsoft, tal como o tráfego é encaminhado entre máquinas virtuais na mesma rede virtual através apenas de endereços IP *privados*. O Azure suporta:
+Peering de rede virtual permite que se conecte do Azure [redes virtuais](virtual-networks-overview.md). Uma vez executado o peering, as redes virtuais aparecem como uma única, para fins de conectividade. O tráfego entre máquinas virtuais nas redes virtuais em modo de peering será encaminhado através da infraestrutura principal da Microsoft, tal como o tráfego é encaminhado entre máquinas virtuais na mesma rede virtual através apenas de endereços IP *privados*. O Azure suporta:
 * VNet Peering - Ligar VNets na mesma região do Azure
 * Global VNET Peering - Ligar VNets entre regiões do Azure
 
@@ -78,7 +78,7 @@ Também pode tentar o [resolução de problemas de problemas de peering de rede 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações
 
 As seguintes restrições aplicam-se apenas quando as redes virtuais global em modo de peering:
-- Os recursos numa rede virtual não conseguem comunicar com o endereço IP do front-end de um balanceador de carga interno do Azure na rede virtual em modo de peering global. O balanceador de carga e os recursos que comunicam com o mesmo têm de estar na mesma região.
+- Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end de um balanceador de carga interno básico numa rede virtual em modo de peering global. Suporte para o Balanceador de carga básico só existe na mesma região. Existe suporte para o Balanceador de carga Standard para ambos, Global VNet Peering e VNet Peering. 
 - Não pode utilizar gateways remotos ou permitir trânsito de gateway. Para utilizar gateways remotos ou permitir trânsito de gateway, as redes virtuais em modo de peering têm de estar na mesma região.
 
 Para saber mais sobre os requisitos e as limitações, veja [Requisitos e limitações do peering de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites ao número de peerings que pode criar para uma rede virtual, veja [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) (Limites de rede do Azure). 

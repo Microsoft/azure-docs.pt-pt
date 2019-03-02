@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bbf04104d70ecb6ea8d83c6167b5b9b0dfe2c2dc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339792"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217449"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -30,6 +30,8 @@ Auditoria do Azure [base de dados SQL](sql-database-technical-overview.md) e [SQ
 
 > [!NOTE] 
 > Este tópico aplica-se ao servidor SQL do Azure, bem como às bases de dados da Base de Dados SQL e do SQL Data Warehouse que são criadas no servidor SQL do Azure. Para simplificar, a Base de Dados SQL é utilizada para referenciar a Base de Dados SQL e o SQL Data Warehouse.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
 ## <a id="subheading-1"></a>Base de dados do SQL do Azure a auditoria de descrição geral
@@ -85,7 +87,7 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 
     ![Painel de navegação][3]
 
-5. **Novo** -agora tem várias opções de configuração onde os registos de auditoria serão escritos. Pode escrever os registos para uma conta de armazenamento do Azure, para uma área de trabalho do Log Analytics para consumo pelo Log Analytics ou para hub de eventos para consumo com o hub de eventos. Pode configurar qualquer combinação destas opções e registos de auditoria serão escritos para cada um.
+5. **Novo** -agora tem várias opções de configuração onde os registos de auditoria serão escritos. Pode escrever os registos para uma conta de armazenamento do Azure, para uma área de trabalho do Log Analytics para consumo pelos registos do Azure Monitor ou para hub de eventos para consumo com o hub de eventos. Pode configurar qualquer combinação destas opções e registos de auditoria serão escritos para cada um.
 
     ![Opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -95,7 +97,7 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 
 7. Para configurar a auditoria de escrever registos para um trabalho do Log Analytics, selecione **Log Analytics (pré-visualização)** e abra **detalhes do Log Analytics**. Selecione ou crie a área de trabalho do Log Analytics para onde os registos serão escritos e, em seguida, clique em **OK**.
 
-    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Área de trabalho do Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Para configurar a auditoria de escrever registos para um hub de eventos, selecione **Hub de eventos (pré-visualização)** e abra **detalhes do Hub de eventos**. Selecione o hub de eventos em que os registos serão escritos e, em seguida, clique em **OK**. Certifique-se de que o hub de eventos está na mesma região que a sua base de dados e o servidor.
 
@@ -112,7 +114,7 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 
 ## <a id="subheading-3"></a>Analisar registos de auditoria e relatórios
 
-Se optar por escrever registos de auditoria para o Log Analytics:
+Se optar por escrever registos de auditoria nos registos de Monitor do Azure:
 
 - Utilize o [portal do Azure](https://portal.azure.com).  Abra a base de dados relevante. No topo da base de dados **auditoria** página, clique em **ver registos de auditoria**.
 
@@ -123,7 +125,7 @@ Se optar por escrever registos de auditoria para o Log Analytics:
     ![abrir no Log Analytics](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - Em alternativa, também pode aceder os registos de auditoria no painel do Log Analytics. Abra a área de trabalho do Log Analytics e, em **gerais** secção, clique em **registos**. Pode começar com uma consulta simples, tais como: *pesquisar "SQLSecurityAuditEvents"* para ver a auditoria de registos.
-    A partir daqui, pode também usar [do Log Analytics](../log-analytics/log-analytics-log-search.md) para executar pesquisas avançadas nos seus dados de registo de auditoria. O log Analytics dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa do Log Analytics, consulte [referência de pesquisa do Log Analytics](../log-analytics/log-analytics-log-search.md).
+    A partir daqui, pode também usar [registos do Azure Monitor](../log-analytics/log-analytics-log-search.md) para executar pesquisas avançadas nos seus dados de registo de auditoria. Registos de Monitor do Azure dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa de registos do Azure Monitor, consulte [referência de pesquisa de registos do Azure Monitor](../log-analytics/log-analytics-log-search.md).
 
 Se optar por escrever registos de auditoria para o Hub de eventos:
 
@@ -187,7 +189,7 @@ Georreplicado bancos de dados, quando ativar a auditoria na base de dados primá
     >[!IMPORTANT]
     >Com a auditoria ao nível da base de dados, as definições de armazenamento para a base de dados secundário será idênticas de base de dados primária, fazendo com que o tráfego entre regiões. Recomendamos que ativar a auditoria apenas ao nível do servidor e deixe a auditoria ao nível do banco de dados desativada para todas as bases de dados.
     > [!WARNING]
-    > Utilizando a análise de hub ou de registo de eventos como destinos para registos de auditoria ao nível do servidor não é suportada atualmente para bases de dados de georreplicação secundárias.
+    > Com o hub de eventos ou registos do Azure Monitor como destinos para registos de auditoria ao nível do servidor não é suportada atualmente para bases de dados de georreplicação secundárias.
 
 ### <a id="subheading-6">Regeneração da chave de armazenamento</a>
 
@@ -256,7 +258,7 @@ Obter política expandida com em que suporta a cláusula para filtragem adiciona
 Pode gerenciar a auditoria de base de dados de SQL do Azure através de [do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) modelos, conforme mostrado nestes exemplos:
 
 - [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para a conta de armazenamento de Blobs do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para o Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria nos registos do Azure Monitor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Implementar um servidor de SQL do Azure com auditoria ativada para escrever registos de auditoria para os Hubs de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 <!--Anchors-->

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 301dd9357bc1585d96eda216d7e47601e488665b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 60a0d7c2da25f63d0728dbb86f9a6c2328def811
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871804"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245260"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção de ameaças avançada do Azure
 
-Ofertas do Azure criadas na funcionalidade de deteção de ameaças avançada por meio de serviços como o Azure Active Directory (Azure AD), o Azure Log Analytics e o Centro de segurança do Azure. Este conjunto de capacidades e serviços de segurança fornece uma forma simple e rápida de compreender o que está acontecendo dentro de suas implementações do Azure.
+Ofertas do Azure criadas na funcionalidade de deteção de ameaças avançada por meio de serviços como o Azure Active Directory (Azure AD), os registos do Azure Monitor e o Centro de segurança do Azure. Este conjunto de capacidades e serviços de segurança fornece uma forma simple e rápida de compreender o que está acontecendo dentro de suas implementações do Azure.
 
 O Azure oferece um vasto leque de opções para configurar e personalizar a segurança para satisfazer os requisitos das suas implementações de aplicações. Este artigo discute como a cumprir esses requisitos.
 
@@ -75,17 +75,17 @@ PIM ajuda-o:
 
 -   Obtenha alertas sobre o acesso a uma função com privilégios.
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma Microsoft baseado na nuvem gestão solução de TI que ajuda a gerenciar e proteger no local e a infraestrutura na cloud. Uma vez que o Log Analytics é implementado como um serviço baseado na nuvem, pode tê-lo em funcionamento rapidamente com um investimento mínimo em serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, reduzindo a manutenção contínua e os custos de atualização.
+[Registos de Monitor do Azure](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é uma Microsoft baseado na nuvem gestão solução de TI que ajuda a gerenciar e proteger no local e a infraestrutura na cloud. Uma vez que os registos do Azure Monitor é implementado como um serviço baseado na nuvem, pode tê-lo em funcionamento rapidamente com um investimento mínimo em serviços de infraestrutura. Novos recursos de segurança são entregues automaticamente, reduzindo a manutenção contínua e os custos de atualização.
 
-Além de fornecer serviços importantes por conta própria, do Log Analytics pode ser integrado com componentes do System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para expandir a sua segurança existente investimentos de gestão para a cloud. System Center e o Log Analytics podem trabalhar em conjunto para fornecer a experiência de um gestão híbrida completa.
+Além de fornecer serviços importantes sobre o seu próprio, o Azure Monitor registos podem ser integrado com componentes do System Center, como [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), para expandir a sua segurança existente investimentos de gestão para o na cloud. Registos do System Center e o Azure Monitor podem trabalhar em conjunto para fornecer a experiência de um gestão híbrida completa.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Postura de segurança e conformidade holística
 
-O [dashboard de segurança de análise de registo e auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma visão abrangente da sua organização postura de segurança IT, com consultas de pesquisa incorporada para problemas relevantes que necessitam da sua atenção. O dashboard de segurança e auditoria é o ecrã principal para tudo relacionado à segurança no Log Analytics. Fornece informações de alto nível sobre o estado de segurança dos computadores. Também pode ver todos os eventos a partir das últimas 24 horas, 7 dias, ou qualquer outro período de tempo personalizado.
+O [dashboard de segurança de análise de registo e auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma visão abrangente da sua organização postura de segurança IT, com consultas de pesquisa incorporada para problemas relevantes que necessitam da sua atenção. O dashboard de segurança e auditoria é o ecrã principal para tudo relacionado à segurança nos registos do Azure Monitor. Fornece informações de alto nível sobre o estado de segurança dos computadores. Também pode ver todos os eventos a partir das últimas 24 horas, 7 dias, ou qualquer outro período de tempo personalizado.
 
-O log Analytics ajudá-lo a rapidamente e facilmente compreender a postura de segurança geral de qualquer ambiente, todos os dentro do contexto de operações de TI, incluindo o software de atualização de avaliação, avaliação de antimalware e linhas de base de configuração. Dados de registo de segurança são imediatamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
+Monitor do Azure regista ajudam a perceber rapidamente e facilmente a postura de segurança geral de qualquer ambiente, tudo dentro do contexto de operações de TI, incluindo a avaliação de atualização de software, avaliação de antimalware e linhas de base de configuração. Dados de registo de segurança são imediatamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
 
 ![O dashboard de segurança de análise de registo e auditoria](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
@@ -102,25 +102,25 @@ O dashboard de segurança de análise de registo e auditoria está organizado em
 -   **Consultas de segurança comuns**: Lista as consultas de segurança mais comuns que pode utilizar para monitorizar o seu ambiente. Ao selecionar qualquer consulta, o painel de pesquisa abre e apresenta os resultados para essa consulta.
 
 ### <a name="insight-and-analytics"></a>O Insight and analytics
-No centro do [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é o repositório, o que está alojado pelo Azure.
+No centro do [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é o repositório, o que está alojado pelo Azure.
 
 ![Diagrama de informações e análise](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Recolher dados para o repositório de origens ligadas mediante a configuração de origens de dados e adicionar soluções à sua subscrição.
 
-![O dashboard do Log Analytics](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![O dashboard de registos do Azure Monitor](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Origens de dados e soluções criam tipos de registo separado com seu próprio conjunto de propriedades, mas pode ainda analisá-los em conjunto em consultas para o repositório. Pode utilizar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados que são recolhidos por várias origens.
 
 
-É maior parte da interação com o Log Analytics através do portal do Azure, o que é executado em qualquer browser e fornece a acesso a definições de configuração e a várias ferramentas para analisar e atuar sobre os dados recolhidos. No portal, pode utilizar:
+Maior parte da interação com os registos do Azure Monitor é através do portal do Azure, o que é executado em qualquer browser e fornece a acesso a definições de configuração e a várias ferramentas para analisar e atuar sobre os dados recolhidos. No portal, pode utilizar:
 * [Pesquisas de registos](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) onde constrói as consultas para analisar os dados recolhidos.
 * [Dashboards](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), que pode personalizar com vistas gráficas das suas pesquisas mais valiosas.
 * [Soluções](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), que fornecem ferramentas de análise e funcionalidade adicionais.
 
 ![Ferramentas de análise](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-As soluções acrescentam funcionalidades ao Log Analytics. Eles principalmente executar na cloud e fornecem uma análise de dados que são recolhidos no repositório do Log Analytics. Soluções também podem definir novos tipos de registos a serem recolhidos que podem ser analisados com pesquisas de registos ou por meio de uma interface de usuário adicionais que a solução fornece no dashboard do Log Analytics.
+As soluções acrescentam funcionalidades aos registos do Azure Monitor. Eles principalmente executar na cloud e fornecem uma análise de dados que são recolhidos no repositório do log analytics. Soluções também podem definir novos tipos de registos a serem recolhidos que podem ser analisados com pesquisas de registos ou por meio de uma interface de usuário adicionais que a solução fornece no dashboard de análise do registo.
 
 O dashboard de segurança e auditoria é um exemplo desses tipos de soluções.
 

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: c8c2c58250b6f806b48241ad1bb2a85202b9b67a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bccf79cea88890d02e2e1bfeb952ca9e754705cb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456882"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217381"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>O Azure SQL encriptação de dados transparente com chaves geridas pelo cliente no Azure Key Vault: Oferecer suporte a sua própria chave
 
@@ -72,7 +72,7 @@ Quando a TDE primeiro estiver configurado para utilizar um protetor de TDE do Ke
  > [!NOTE]
  > Se o TDE encriptados bases de dados SQL perdem o acesso ao Cofre de chaves, porque eles não consigam ignorar a firewall, as bases de dados estão inacessíveis dentro de 24 horas.
 
-- Ative a auditoria e relatórios sobre todas as chaves de encriptação: O Key Vault proporciona registos que são fáceis de injetar em outras informações de segurança e as ferramentas de gestão (SIEM) de eventos. Operations Management Suite (OMS) [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) é um exemplo de um serviço que já está integrado.
+- Ative a auditoria e relatórios sobre todas as chaves de encriptação: O Key Vault proporciona registos que são fáceis de injetar em outras informações de segurança e as ferramentas de gestão (SIEM) de eventos. Operations Management Suite (OMS) [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) é um exemplo de um serviço que já está integrado.
 - Para garantir a elevada disponibilidade de bases de dados encriptados, configure cada servidor de base de dados SQL com dois cofres de chaves do Azure que residem em diferentes regiões.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Diretrizes para configurar o Protetor de TDE (chave assimétrica)

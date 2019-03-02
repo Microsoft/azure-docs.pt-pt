@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: af3cc229482021fe6d5e5c988bc98afe6f7f97ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 165617270bef58f7a92fab0adc75c916129ef317
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114166"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242705"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de Dados do Centro de Segurança do Azure
 Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Segurança do Azure recolhe e processa dados relacionados com segurança, incluindo informações de configuração, metadados, registos de eventos, ficheiros de informação de falha de sistema e mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
@@ -76,7 +76,7 @@ Se estiver a utilizar o Centro de Segurança do Azure gratuito, também pode des
 Os clientes podem consumir dados relacionados com o Centro de Segurança a partir de fluxos de dados diferentes, conforme mostrado abaixo:
 
 * **Atividade do Azure**: todos os alertas de segurança, pedidos [atempados](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) aprovados pelo Centro de Segurança e todos os alertas gerados por [controlos de aplicação adaptável](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Log Analytics**: todos os alertas de segurança.
+* **Registos de Monitor do Azure**: todos os alertas de segurança.
 
 
 > [!NOTE]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: b1a39016907e697ab03a8a6962fb1e75e4433675
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382350"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57218044"
 ---
 # <a name="openshift-in-azure"></a>OpenShift no Azure
 
@@ -46,7 +46,7 @@ Das cinco versões abordadas neste artigo, apenas dois estão atualmente dispon�
 
 Plataforma de contentores é uma prontas para empresas [versão comercial](https://www.openshift.com) partir e suportados pelo Red Hat. Com esta versão, os clientes comprar as elegibilidades necessárias para a plataforma de contentores do OpenShift e são responsáveis pela instalação e gestão de toda a infraestrutura.
 
-Uma vez que os clientes "proprietário" a plataforma de toda, eles podem instalá-lo em datacenters no local ou numa nuvem pública (por exemplo, o Azure, AWS ou o Google).
+Uma vez que os clientes "proprietário" a plataforma de toda, eles podem instalá-lo em datacenters no local ou numa nuvem pública (por exemplo, o Azure).
 
 ## <a name="openshift-on-azure"></a>OpenShift no Azure
 
@@ -58,7 +58,7 @@ OKD é um [aberto](https://www.okd.io/) projeto a montante do OpenShift suportad
 
 ## <a name="openshift-dedicated"></a>OpenShift dedicado
 
-É dedicada, gerida de Red Hat *inquilino único* OpenShift que utiliza o OpenShift Container Platform. Red Hat gerencia todos da infraestrutura subjacente (VMs, cluster do OpenShift, rede, armazenamento, etc.). O cluster é específico para um cliente e é executado numa nuvem pública (por exemplo, o AWS ou Google). Um cluster inicial inclui quatro nós de aplicação e todos os custos são anual e pago inicialmente.
+É dedicada, gerida de Red Hat *inquilino único* OpenShift que utiliza o OpenShift Container Platform. Red Hat gerencia todos da infraestrutura subjacente (VMs, cluster do OpenShift, rede, armazenamento, etc.). O cluster é específico para um cliente e é executado numa nuvem pública (por exemplo, o Azure). Um cluster inicial inclui quatro nós de aplicação e todos os custos são anual e pago inicialmente.
 
 ## <a name="openshift-online"></a>OpenShift Online
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3a99c0157ef3afe9823d73379775ddcf564faccc
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193811"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241582"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Suporte de idioma e região para a API de texto do tradutor
 
@@ -33,7 +33,7 @@ A API de texto do Translator suporta os seguintes idiomas para a tradução de t
 * Predefinição neural: Neural é o sistema de tradução do padrão. Utilize o parâmetro `category=smt` para aceder ao sistema de estatístico para utilização com o Microsoft Translator Hub.
 * Neural apenas: Apenas tradução neural está disponível.
 
-**API do Microsoft Translator v3** a API do Microsoft Translator V3 é neural por predefinição e sistemas estatísticos só estão disponíveis quando nenhum sistema neural existe. Tradutor personalizado só pode ser utilizado com linguagens neurais. [Ver langauges disponíveis no personalizado Translator](#customization).
+**API do Microsoft Translator v3** a API do Microsoft Translator V3 é neural por predefinição e sistemas estatísticos só estão disponíveis quando nenhum sistema neural existe. Tradutor personalizado só pode ser utilizado com linguagens neurais. [Ver os idiomas atualmente disponíveis no personalizado Translator](#customization).
 
 |Idioma|  Código do idioma|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|

@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 377b41f6ea011c06457fb6550ddd8d448574835e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 355b859428712b2e7b086fdfc152044814695b7b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881341"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243946"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
-Este artigo ilustra cenários comuns que os utilizadores tem encontrado na área de monitorização e diagnóstico com o Service Fabric. Os cenários apresentados abrangem todas as 3 camadas do service fabric: Aplicativo, Cluster e infraestrutura. Cada solução utiliza o Application Insights e Log Analytics, ferramentas de monitorização do Azure, para concluir cada cenário. Os passos em cada solução de dar aos utilizadores uma introdução sobre como utilizar o Application Insights e o Log Analytics no contexto do Service Fabric.
+Este artigo ilustra cenários comuns que os utilizadores tem encontrado na área de monitorização e diagnóstico com o Service Fabric. Os cenários apresentados abrangem todas as 3 camadas do service fabric: Aplicativo, Cluster e infraestrutura. Cada solução utiliza o Application Insights e registos do Azure Monitor, ferramentas, de monitorização do Azure para concluir cada cenário. Os passos em cada solução de fornecem aos usuários uma introdução sobre como utilizar o Application Insights e registos do Azure Monitor no contexto do Service Fabric.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites-and-recommendations"></a>Pré-requisitos e recomendações
 
@@ -63,7 +65,7 @@ As soluções neste artigo, irão utilizar as seguintes ferramentas. Recomendamo
 1. Eventos de nó são controlados pelo cluster do Service Fabric. Navegue para o recurso de solução de análise do Service Fabric com o nome **ServiceFabric(NameofResourceGroup)**
 2. Clique no gráfico na parte inferior do painel intitulada "Resumo"
 
-    ![Solução de análise de registo](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Solução de registos de Monitor do Azure](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. Aqui tem muitos mosaicos exibindo a várias métricas e gráficos. Clique dos gráficos e será direcionado para a pesquisa de registos. Aqui pode consultar quaisquer contadores de desempenho ou eventos de cluster.
 4. Introduza a seguinte consulta. Estes IDs de evento encontram-se no [referência de eventos do nó](service-fabric-diagnostics-event-generation-operational.md#application-events)
@@ -75,7 +77,7 @@ As soluções neste artigo, irão utilizar as seguintes ferramentas. Recomendamo
 
 5. Clique em "Nova regra de alerta" na parte superior e agora sempre que um evento chegar com base nesta consulta, receberá um alerta no seu método escolhido de comunicação.
 
-    ![Novo alerta do log Analytics](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Monitor do Azure regista novo alerta](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Como pode posso ser alertado reversões de atualização de aplicação?
 
@@ -143,7 +145,7 @@ Verifique estas ligações para obter a lista completa dos contadores de desempe
 
 * [Configure alertas em IA](../azure-monitor/app/alerts.md) para ser notificado sobre as alterações no desempenho ou na utilização
 * [Deteção no Application Insights inteligente](../azure-monitor/app/proactive-diagnostics.md) realiza uma análise proativa de telemetria a ser enviada para IA para o avisar de potenciais problemas de desempenho
-* Saiba mais sobre o Log Analytics [alertas](../log-analytics/log-analytics-alerts.md) para ajudar no diagnóstico e de deteção.
-* Para os clusters no local, o Log Analytics oferece um gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para o Log Analytics. Leia mais sobre isso em [ligar os computadores sem acesso à Internet ao Log Analytics com o gateway do Log Analytics](../azure-monitor/platform/gateway.md)
-* Familiarizar-se com o [pesquisas e consultas de registo](../log-analytics/log-analytics-log-searches.md) funcionalidades oferecidos como parte do Log Analytics
-* Obtenha uma visão geral mais detalhada do Log Analytics e o que ele oferece, leia [o que é o Log Analytics?](../operations-management-suite/operations-management-suite-overview.md)
+* Saiba mais sobre os registos do Azure Monitor [alertas](../log-analytics/log-analytics-alerts.md) para ajudar no diagnóstico e de deteção.
+* Para os clusters no local, registos do Azure Monitor oferece um gateway (reencaminhar Proxy HTTP) que pode ser utilizado para enviar dados para os registos do Azure Monitor. Leia mais sobre isso em [ligar computadores sem acesso à Internet para os registos de Monitor do Azure com o gateway do Log Analytics](../azure-monitor/platform/gateway.md)
+* Familiarizar-se com o [pesquisas e consultas de registo](../log-analytics/log-analytics-log-searches.md) funcionalidades oferecidos como parte dos registos do Azure Monitor
+* Obtenha uma visão geral mais detalhada de registos do Azure Monitor e o que ele oferece, leia [o que é o Azure Monitor registos?](../operations-management-suite/operations-management-suite-overview.md)

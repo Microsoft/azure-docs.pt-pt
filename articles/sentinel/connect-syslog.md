@@ -4,7 +4,7 @@ description: Saiba como recolher dados de Syslog no sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 5dd59729-c623-4cb4-b326-bb847c8f094b
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 51549f1cc07569ac6474f2dd1a8d9a7adeee5de9
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: ec23d4cec5ec1dbcaba5eca73ae6aba8391f2742
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993014"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242144"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Ligue a sua solução externa com o Syslog
 

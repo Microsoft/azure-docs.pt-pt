@@ -10,18 +10,27 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 60a76df6360ca66e8f55b03d5914283f669eb402
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 045a8fc3723c7bae176f0b99a83965bb2bef721d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118110"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242943"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Executar com segurança inferência dentro de uma rede virtual do Azure e de experimentações
 
 Neste artigo, irá aprender a executar as experimentações e inferência numa rede virtual. Uma rede virtual funciona como um limite de segurança, isolamento de recursos do Azure a partir da internet pública. Também pode associar uma rede virtual do Azure à sua rede no local. Permite-lhe preparar seus modelos e aceder aos seus modelos implementados para inferência de forma segura.
 
 O serviço Azure Machine Learning depende de outros serviços do Azure para recursos de computação. Recursos de computação (destinos de computação) são utilizados para preparar e implementar modelos. Estes computação destinos podem ser criados numa rede virtual. Por exemplo, pode utilizar a máquina de Virtual de ciência de dados do Microsoft para preparar um modelo e, em seguida, implementar o modelo para o Azure Kubernetes Service (AKS). Para obter mais informações sobre as redes virtuais, consulte a [descrição geral da rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Este documento parte do princípio de que está familiarizado com redes virtuais do Azure e o IP de rede em geral. Este documento também assume que criou uma rede virtual e uma sub-rede a utilizar com os seus recursos de computação. Se não estiver familiarizado com as redes virtuais do Azure, leia os artigos seguintes para saber mais sobre o serviço:
+
+* [Endereçamento IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
+* [Grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview)
+* [Quickstart: Criar uma rede virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Filtrar tráfego de rede](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
 
 ## <a name="storage-account-for-your-workspace"></a>Conta de armazenamento para a área de trabalho
 

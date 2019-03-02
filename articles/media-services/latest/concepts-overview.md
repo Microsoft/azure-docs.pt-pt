@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: be55fcd7bb4baab218f739094b91fc734c2fb70d
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f9d431fe0ee76edf5d41c1ce7831f335128402a8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985564"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244745"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de multimédia
 
@@ -36,7 +36,7 @@ Depois de carregar os ficheiros de multimédia digital de alta qualidade nos ati
 
 Codificar com serviços de multimédia v3, tem de criar **transforma** e **tarefas**.
 
-![Transformações](./media/concepts/transforms-jobs.png)
+![Transformações](./media/encoding/transforms-jobs.png)
 
 - [Transformações e tarefas](transforms-jobs-concept.md)
 - [Encoding com Media Services](encoding-concept.md)
@@ -55,7 +55,7 @@ Ao criar o **localizador de transmissão em fluxo**, além do nome do elemento, 
 
 Empacotamento dinâmico é utilizado se transmite o seu conteúdo ao vivo ou sob demanda. O diagrama seguinte mostra o streaming sob demanda com o fluxo de trabalho de empacotamento dinâmico.
 
-![Codificação dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 Com os serviços de multimédia, pode fornecer seu conteúdo ao vivo e sob demanda encriptado dinamicamente com o Advanced Encryption Standard (AES-128) ou / e qualquer um dos três sistemas de gestão (DRM) de direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados.
 
@@ -63,11 +63,13 @@ Se especificar opções de encriptação no seu fluxo, crie o **política de cha
 
 A imagem seguinte ilustra o fluxo de trabalho de proteção de conteúdo de serviços de multimédia: 
 
-![Proteger conteúdo](./media/concepts/content-protection.png)
+![Proteger conteúdo](./media/content-protection/content-protection.svg)
+
+&#42;* encriptação dinâmica suporta AES-128 "chave não encriptada", CBCS e CENC. 
 
 Pode utilizar os serviços de multimédia **manifestos dinâmica** transmitir apenas uma representação em específica ou subclips do seu vídeo. No exemplo a seguir, um codificador foi utilizado para codificar um recurso de mezanino em sete representações de vídeo de MP4s de ISO (a partir de 180p para 1080p). O elemento codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de transmissão em fluxo: HLS, MPEG DASH e Smooth.  Na parte superior do diagrama, é mostrado o manifesto HLS para o elemento com sem filtros (que contém todas as representações de sete).  Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro com o nome "ott". Especifica o filtro de "ott" para remover todas as velocidades de transmissão abaixo 1 Mbps, o que resultou nos níveis de qualidade dois na parte inferior a ser eliminados na resposta. Na parte inferior direita, é mostrado o manifesto HLS ao qual foi aplicado um filtro com o nome "móvel". O filtro "móvel" Especifica a remover representações em que a resolução é maior do que 720p, o que resultou em duas representações de 1080p a ser suprimidas.
 
-![Filtragem de representação](./media/concepts/media-services-rendition-filter.png)
+![Filtragem de representação](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
 
 - [Empacotamento dinâmico](dynamic-packaging-overview.md)
 - [Pontos finais de transmissão em fluxo](streaming-endpoint-concept.md)
@@ -84,7 +86,7 @@ Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seu
 
 A imagem seguinte ilustra o fluxo de trabalho do tipo de pass-through:
 
-![pass-through](./media/concepts/pass-through.png)
+![pass-through](./media/live-streaming/pass-through.svg)
 
 - [Descrição geral de transmissão em fluxo em direto](live-streaming-overview.md)
 - [Eventos em direto e saídas em direto](live-events-outputs-concept.md)

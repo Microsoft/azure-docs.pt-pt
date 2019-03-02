@@ -4,7 +4,7 @@ description: Saiba como ler e compreender a utilização e faturação para a su
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: alherz
+manager: jureid
 editor: ''
 tags: billing
 ms.assetid: 32eea268-161c-4b93-8774-bc435d78a8c9
@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: fdf346348be11a9f592fa3eff40e2f56e94ba656
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ac36c76e8605df0fee3e39341c8be0fef7e58ddf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904323"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246601"
 ---
-# <a name="understand-your-bill-for-microsoft-azure"></a>Compreender a sua fatura do Microsoft Azure
+# <a name="understand-your-microsoft-azure-bill"></a>Compreender a sua fatura do Microsoft Azure
 Para compreender a fatura do Azure, compare a fatura com o ficheiro de utilização diária detalhadas e os relatórios de gestão de custos no portal do Azure.
 
-Este artigo não se aplica aos clientes do Azure com um Enterprise Agreement (os clientes com EA). Se estiver num cliente EA, consulte [compreender a sua fatura para clientes do Azure com um Enterprise Agreement](billing-understand-your-bill-ea.md).  
+Este artigo não se aplica aos clientes do Azure com um Enterprise Agreement (os clientes com EA). Se estiver num cliente EA, consulte [compreender a sua fatura para clientes do Azure com um Enterprise Agreement](billing-understand-your-bill-ea.md).
+
+Este artigo não se aplica aos clientes do Azure com um contrato de cliente da Microsoft. Se tiver uma conta de cobrança para um contrato de cliente da Microsoft, consulte [compreender os encargos do Azure na sua fatura de contrato de cliente da Microsoft](billing-mca-understand-your-bill.md).
 
 Para obter uma explicação de como funciona a faturação do programa de fornecedor de soluções de Cloud do Azure (Azure CSP), incluindo o veja de ciclo, preços e utilização, faturação [descrição geral de faturação do Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -44,8 +46,8 @@ As cobranças de utilização são apresentadas no nível do medidor. Os seguint
  | Nota fiscal (PDF) | Utilização detalhada (CSV)|
  | --- | --- |
 |Ciclo de faturação | Período de Faturação |
- |Nome |Categoria do Medidor |
- |Tipo |Subcategoria do medidor |
+ |Name |Categoria do Medidor |
+ |Type |Subcategoria do medidor |
  |Recurso |Nome do Medidor |
  |Região |Região do Medidor |
  |Consumido |Quantidade Consumida |
@@ -60,7 +62,7 @@ O **instrução** secção da sua utilização detalhada CSV mostra o valor cobr
 
 ![Custos de utilização CSV](./media/billing-understand-your-bill/2.png)
 
-Para ver uma divisão diária desta cobrança, vá para o **utilização diária** secção de CSV. Filtrar por "Scheduler" em *categoria do medidor*. Pode ver quais os dias foi utilizado o medidor e qual a quantidade consumida. O *Resource* e *grupo de recursos* informações também estão listadas para comparação. O *consumida* valores devem adicionar a cópia de segurança para o que é apresentado da nota fiscal.
+Para ver uma divisão diária desta cobrança, vá para o **utilização diária** secção de CSV. Filtrar por *agendador* sob *categoria do medidor*. Pode ver quais os dias foi utilizado o medidor e qual a quantidade consumida. O *Resource* e *grupo de recursos* informações também estão listadas para comparação. O *consumida* valores devem adicionar a cópia de segurança para o que é apresentado da nota fiscal.
 
 ![Secção utilização diária o CSV](./media/billing-understand-your-bill/3.png)
 
@@ -71,12 +73,12 @@ Para saber mais, consulte:
 - [Compreender a fatura do Azure](billing-understand-your-invoice.md)
 - [Compreender a utilização detalhada do Azure](billing-understand-your-invoice.md)
 
-### <a name="option-2-compare-the-usage-and-costs-with-the-azure-portal"></a>Opção 2: Comparar a utilização e os custos com o portal do Azure
+### <a name="option-2-compare-the-usage-and-costs-in-the-azure-portal"></a>Opção 2: Comparar a utilização e custos no portal do Azure
 
 O portal do Azure pode também ajudar a verificar os encargos. Para obter uma visão geral da sua utilização faturada e a cobrança, ver os gráficos de gestão de custos.
 
 1. No portal do Azure, aceda a [subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selecione a sua subscrição > **análise de custo**. 
+1. Selecione a sua subscrição > **análise de custo**.
 1. Filtrar por **Timespan**.
 1. Para continuar o exemplo anterior, verá um custo de utilização para o serviço de agendador do Azure.
 
@@ -96,9 +98,9 @@ Encargos de serviços externos são faturados em separado. Os encargos não apar
 
 ## <a name="resources-billed-by-usage-meters"></a>Cobrado pelos medidores de utilização de recursos
 
-Azure não diretamente de fatura com base no recurso de custos. Cobrança para um recurso é calculada com os medidores de um ou mais. Estes medidores são usados para controlar a utilização de um recurso durante seu ciclo de vida. Destes medidores, em seguida, são utilizados para calcular a fatura.
+Azure não diretamente de fatura com base no recurso de custos. Cobrança para um recurso é calculada com os medidores de um ou mais. Medidores são usados para controlar a utilização de um recurso durante seu ciclo de vida. Destes medidores, em seguida, são utilizados para calcular a fatura.
 
-Por exemplo, quando cria um único recurso do Azure, como uma máquina virtual, tem uma ou mais instâncias de medidor criadas. Estes medidores são usados para controlar a utilização do recurso ao longo do tempo. Cada medidor emite os registos de utilização que são utilizados pelo Azure para calcular a fatura.
+Por exemplo, quando cria um único recurso do Azure, como uma máquina virtual, tem uma ou mais instâncias de medidor criadas. Medidores são usados para controlar a utilização do recurso ao longo do tempo. Cada medidor emite os registos de utilização que são utilizados pelo Azure para calcular a fatura.
 
 Por exemplo, uma única máquina de virtual (VM) criada no Azure pode ter os seguintes medidores criados para controlar a sua utilização:
 
@@ -113,7 +115,7 @@ Por exemplo, uma única máquina de virtual (VM) criada no Azure pode ter os seg
 - Escrita de BLOBs de blocos de e/s padrão
 - Eliminação de BLOBs de blocos de e/s de padrão
 
-Quando a VM é criada, cada um desses medidores começa a emissão de registos de utilização. Esta utilização e o preço do medidor é controlado no Azure, sistema de medição.
+Quando a VM é criada, a cada medidor começa a emissão de registos de utilização. Esta utilização e o preço do medidor é controlado no Azure, sistema de medição.
 
 ## <a name="payment"></a>Pagar a sua fatura
 
@@ -134,6 +136,10 @@ Para verificar o estado de seu pagamento [criar um pedido de suporte](https://po
   - [Informações para cada serviço detalhadas de preços](https://azure.microsoft.com/pricing/)
 - [Reveja a utilização e custos regularmente no portal do Azure](billing-getting-started.md#costs).
 
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
 ## <a name="learn-more"></a>Saiba mais
 
 - [Obtenha sua fatura do Azure e dados de utilização diária](billing-download-azure-invoice-daily-usage-date.md)
@@ -141,7 +147,3 @@ Para verificar o estado de seu pagamento [criar um pedido de suporte](https://po
 - [Compreender os termos na utilização de detalhadas do Microsoft Azure](billing-understand-your-usage.md)
 - [Gestão de custos de portal do Azure](https://docs.microsoft.com/azure/billing/billing-getting-started)
 - [Evitar custos inesperados com a faturação do Azure e a gestão de custos](billing-getting-started.md#costs)
-
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
-
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

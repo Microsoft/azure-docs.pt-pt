@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: bb987bcc38dee1f3d4ea2fce19e5e546ebfc8f7c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310745"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240240"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização no Centro de segurança do Azure da integridade de ficheiros
 Saiba como configurar o monitoramento de integridade de ficheiros (FIM) no Centro de segurança do Azure com estas instruções.
@@ -37,7 +37,7 @@ Centro de segurança recomenda entidades para monitorizar, que é possível habi
 
 > [!NOTE]
 > A funcionalidade de monitoramento de integridade de ficheiros (FIM) funciona para VMs e computadores Windows e Linux e está disponível no escalão Standard do Centro de segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
-FIM carrega dados para a área de trabalho do Log Analytics. Aplicam os encargos de dados, com base na quantidade de dados que carrega. Ver [preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
+FIM carrega dados para a área de trabalho do Log Analytics. Aplicam os encargos de dados, com base na quantidade de dados que carrega. Ver [preços do log analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
 >
 >
 

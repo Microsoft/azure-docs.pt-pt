@@ -9,14 +9,14 @@ ms.author: dwgeo
 ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: def72c1bb42d083c38640f7c6165c305a5820c75
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8dab462d5a79b0fe938f08591feff775da64a9b0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003283"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240291"
 ---
-# <a name="configure-localization-legacy"></a>Configurar a localização (Legado)
+# <a name="configure-localization"></a>Configurar localização 
 
 Azure Media Clipper está disponível em 18 idiomas. Para definir o idioma de widget, tem de definir o `language` parâmetro durante a inicialização. Passa a cadeia de caracteres do código de idioma desejado na lista seguinte:
 - Chinês (simplificado): zh-hans

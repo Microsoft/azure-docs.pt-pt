@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: ea50902a557e8bd7aa18fbc03fca8fc4a99ac2e2
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 7b436acb937216ad02289282f4a7ac5f88df2eea
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770793"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245154"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Fluxos de dispositivo do Hub IoT (pré-visualização)
 
@@ -117,16 +117,16 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Resolver problemas, através de fluxos de dispositivo, os registos de atividades
 
-Pode configurar o Azure Log Analytics para recolher o registo de atividades de fluxos de dispositivos no IoT Hub. Isso pode ser muito útil para cenários de resolução de problemas.
+Pode configurar os registos do Azure Monitor para recolher o registo de atividades de fluxos de dispositivos no IoT Hub. Isso pode ser muito útil para cenários de resolução de problemas.
 
-Siga os passos abaixo para configurar o Azure Log Analytics para atividades de fluxo de dispositivo do IoT Hub:
+Siga os passos abaixo para configurar os registos do Azure Monitor para atividades de fluxo de dispositivo do IoT Hub:
 
 1. Navegue para o *das definições de diagnóstico* separador do seu IoT Hub e clique em *ativar diagnósticos* ligação.
 
   ![Texto alternativo](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "ativar disgnostics registos")
 
 
-2. Indique um nome para as definições de diagnóstico e escolha *enviar para o Log Analytics* opção. Vai ser orientado ao escolher um recurso do Log Analytics existente ou crie um novo. Além disso, verifique os *DeviceStreams* da lista.
+2. Indique um nome para as definições de diagnóstico e escolha *enviar para o Log Analytics* opção. Vai ser orientado ao escolher um recurso de área de trabalho do Log Analytics existente ou crie um novo. Além disso, verifique os *DeviceStreams* da lista.
 
     ![Texto alternativo](./media/iot-hub-device-streams-overview/device-streams-diagnostics.PNG "ativar dispositivo transmite em fluxo registos")
 

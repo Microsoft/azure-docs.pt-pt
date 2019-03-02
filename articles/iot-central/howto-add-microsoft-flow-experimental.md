@@ -4,16 +4,16 @@ description: Utilizar o conector de IoT Central no Microsoft Flow para acionar f
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 76b1940ea1724c7eee8d2784c0e2c2328dd4c8bf
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: ba6b8c76b31f09eb8f04097f935f865728a4e893
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55774134"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217500"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Criar fluxos de trabalho com o conector do Centro de IoT no Microsoft Flow
 
@@ -26,9 +26,9 @@ Utilize o Microsoft Flow para automatizar fluxos de trabalho entre os vários ap
 - Um aplicativo de pay as you go
 - Uma conta escolar ou Microsoft pessoal ou profissional para iniciar sessão no Flow ([Saiba mais sobre os planos do Microsoft Flow](https://aka.ms/microsoftflowplans))
 
-## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Acionar um fluxo de trabalho quando é acionada uma regra
+## <a name="trigger-a-workflow"></a>Acionar um fluxo de trabalho
 
-Esta secção mostra-lhe como acionar uma notificação por telemóvel na aplicação móvel do Flow, quando é acionada uma regra no Centro de IoT.
+Esta secção mostra-lhe como acionar uma notificação por telemóvel na aplicação móvel do Flow quando uma regra é acionada no Centro de IoT.
 
 1. Comece por [criar uma regra no Centro de IoT](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Depois de guardar as condições de regra, clique nas **ação do Microsoft Flow** como uma nova ação. Um novo separador ou janela deve ser aberto no browser, a levá-lo no Microsoft Flow.
 
@@ -70,9 +70,10 @@ Esta secção mostra-lhe como criar um novo dispositivo no Centro de IoT no envi
 
 1. Escolha a sua aplicação e escolha um modelo de dispositivo para criar um dispositivo a partir nas listas pendentes. Verá a ação se expandem para mostrar todas as propriedades e definições do dispositivo.
 
-1. Selecione o campo de nome do dispositivo. No painel de conteúdo dinâmico, escolha **nome do dispositivo**. Este valor vai ser transmitida a partir da entrada do usuário através da aplicação móvel e vai ser o nome do seu dispositivo novo na IoT Central. Neste exemplo, o único campo obrigatório é o nome do dispositivo, indicado pelo asterisco vermelho. Outro modelo de dispositivo pode ter vários campos necessários que tem de ser preenchidos para criar um novo dispositivo.
+1. Selecione o campo de nome do dispositivo. No painel de conteúdo dinâmico, escolha **nome do dispositivo**. Este valor é passado da entrada, o usuário digita através da aplicação móvel e é o nome do seu novo dispositivo na IoT Central. Neste exemplo, o único campo obrigatório é o nome do dispositivo, indicado pelo asterisco vermelho. Outro modelo de dispositivo pode ter vários campos necessários que tem de ser preenchidos para criar um novo dispositivo.
 
     ![Fluxo de criar o painel de dinâmica de ação de dispositivo](./media/howto-add-microsoft-flow-experimental/flowcreatedevice.png)
+
 1. (Opcional) Preencha outros campos conforme achar adequado para os criação de novos dispositivos.
 
 1. Por fim, guarde o seu fluxo de trabalho.
@@ -112,22 +113,24 @@ Esta secção mostra-lhe como atualizar as definições e propriedades no Centro
 Pode eliminar um dispositivo ao seu ID de dispositivo com o **do Azure IoT Central - eliminar um dispositivo** ação. Aqui está um fluxo de trabalho de exemplo que exclui um dispositivo com o envio de um botão na aplicação móvel do Microsoft Flow.
 
    ![O fluxo de trabalho do fluxo de eliminação de dispositivos](./media/howto-add-microsoft-flow-experimental/flowdeletedevice.png)
-    
+
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Se estiver a ter problemas ao criar uma ligação para o conector do Azure IoT Central, aqui estão algumas dicas para ajudá-lo.
 
-1. Contas pessoais da Microsoft (tal como @hotmail.com, @live.com, @outlook.com domínios) não são suportadas neste momento. Deve usar um trabalho AAD conta escolar ou profissional.
+1. Contas pessoais da Microsoft (tal como @hotmail.com, @live.com, @outlook.com domínios) não são suportadas neste momento. Tem de utilizar um trabalho do Azure Active Directory (AD) ou conta escolar.
 
 2. Para utilizar o conector do Centro de IoT no Microsoft Flow, deve ter assinado no aplicativo IoT Central, pelo menos, uma vez. Caso contrário, a aplicação não será apresentado nas listas pendentes aplicação.
 
-3. Se estiver a receber um erro ao utilizar uma conta do AAD, tente abrir o Windows PowerShell e execute os seguintes commandlets como administrador.
+3. Se estiver a receber um erro ao utilizar uma conta do Azure AD, tente abrir o Windows PowerShell e execute os seguintes commandlets como administrador.
+
     ``` PowerShell
     Install-Module AzureAD
     Connect-AzureAD
     New-AzureADServicePrincipal -AppId 9edfcdd9-0bc5-4bd4-b287-c3afc716aac7 -DisplayName "Azure IoT Central"
     ```
-    
+
 ## <a name="next-steps"></a>Passos Seguintes
+
 Agora que aprendeu como utilizar o Microsoft Flow para criar fluxos de trabalho, a próxima etapa sugerida é [gerir dispositivos](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 

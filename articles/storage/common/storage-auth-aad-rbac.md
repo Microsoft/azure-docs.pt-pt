@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 622a7bc870aba58205c1811de2fcdcabffd177e5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 19a4f8fc41ed4d6850f114e19f49f239befe08d0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869688"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242654"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Conceder acesso a contentores do Azure e filas com RBAC no portal do Azure (pré-visualização)
 
@@ -88,14 +88,12 @@ Por exemplo, se atribuir o **contribuinte de dados de Blob de armazenamento (pr�
 
 No entanto, se desejar ver um blob no portal do Azure, Mary, em seguida, o **contribuinte de dados de Blob de armazenamento (pré-visualização)** função por si só não irá fornecer permissões suficientes para navegar através do portal para o blob para vê-la. Mais permissões do Azure AD são necessárias para navegar através do portal e ver os outros recursos que estão visíveis.
 
-Se os utilizadores precisam para poder aceder a blobs no portal do Azure, em seguida, atribuir-lhes uma função RBAC adicional, o [leitor](../../role-based-access-control/built-in-roles.md#reader) função, para esses utilizadores. O **leitor** função é uma função do Azure Resource Manager que permite aos utilizadores ver recursos da conta de armazenamento, mas não modificá-los. Ele não fornece as permissões de leitura aos dados no armazenamento do Azure, mas apenas a recursos da conta de gestão.
+Se os utilizadores precisam para poder aceder a blobs no portal do Azure, em seguida, atribuir-lhes uma função RBAC adicional, o [leitor](../../role-based-access-control/built-in-roles.md#reader) função, para esses usuários, no nível da conta de armazenamento ou superior. O **leitor** função é uma função do Azure Resource Manager que permite aos utilizadores ver recursos da conta de armazenamento, mas não modificá-los. Ele não fornece as permissões de leitura aos dados no armazenamento do Azure, mas apenas a recursos da conta de gestão.
 
-Siga estes passos para atribuir a **leitor** função para que um utilizador pode aceder a blobs do portal do Azure. Neste caso, a atribuição tem um âmbito para o contentor:
+Siga estes passos para atribuir a **leitor** função para que um utilizador pode aceder a blobs do portal do Azure. Neste exemplo, a atribuição tem um âmbito para a conta de armazenamento:
 
-1. Na [portal do Azure](https://portal.azure.com), navegue para a sua conta de armazenamento e exibir o **descrição geral** para a conta.
-1. Em serviços, selecione **Blobs**. 
-1. Localizar o contentor para o qual pretende atribuir uma função e apresentar as definições do contentor. 
-1. Selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para o contentor. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
+1. Na [portal do Azure](https://portal.azure.com), navegue até à sua conta de armazenamento.
+1. Selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para a conta de armazenamento. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
 1. Na **adicionar atribuição de função** janela, selecione a **leitor** função. 
 1. Partir do **atribuir acesso a** lista pendente, selecione **utilizador, grupo ou principal de serviço do Azure AD**.
 1. Procure para localizar a entidade de segurança para o qual pretende atribuir a função.

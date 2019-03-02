@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 6cc75a70dfc7022efa8577234cc67659d53b2f88
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ed611eeeffa77aa42ab017ee97c6b1a0b7f7822e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194422"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240665"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registo de diagnósticos para um grupo de segurança de rede
 
@@ -131,7 +131,7 @@ Ver e analisar registos. Para obter mais informações, consulte [ver e analisar
 Dados de diagnóstico podem ser:
 - [Escrito para uma conta de armazenamento do Azure](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), para inspeção de auditoria ou manual. Pode especificar o período de retenção (em dias) com as definições de diagnóstico de recursos.
 - [Transmissão em fluxo para um hub de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ingestão por um serviço de terceiros, ou uma solução de análise personalizada, como o Power BI.
-- [Escrito para o Azure Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Escritas nos registos do Azure do Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Categorias de registo
 
@@ -198,7 +198,7 @@ O registo do contador de regra contém informações sobre cada regra aplicada a
 ## <a name="view-and-analyze-logs"></a>Ver e analisar registos
 
 Para saber como ver dados de registo de diagnóstico, veja [descrição geral de registos de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se tiver de enviar dados de diagnóstico para:
-- **Log Analytics**: Pode utilizar o [análise do grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+- **Registos de Monitor do Azure**: Pode utilizar o [análise do grupo de segurança de rede](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
 ) solução de informações melhoradas. A solução fornece visualizações para as regras do NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede numa máquina virtual.
 - **Conta de armazenamento do Azure**: Dados são escritos num ficheiro PT1H.json. Pode encontrar o:
   - Registo de eventos no seguinte caminho: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

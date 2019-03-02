@@ -4,7 +4,7 @@ description: Saiba como recolher dados de Fortinet no sentinela do Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: add92907-0d7c-42b8-a773-f570f2d705ff
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 37d5afbe3d6da1a50b6261e5c80ddd2bb86ff2f0
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 9b268c6d310f773017ff57f7f937338612894f82
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993056"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245000"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Ligar a sua aplicação da Fortinet 
 

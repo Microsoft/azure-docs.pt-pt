@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: abfc7ce78e8676e9560621be1ec9a81717d958e5
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a802b12f34c5fe16202f55416a698823e55c01bb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994288"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245903"
 ---
 # <a name="create-azure-resource-manager-template"></a>Criar o modelo Azure Resource Manager
 
@@ -40,13 +40,13 @@ Vamos examinar as partes do modelo para compreender como funciona o modelo. O mo
 
 * O [parâmetros](resource-manager-templates-parameters.md) seção, que mostra os valores que pode especificar durante a implementação para personalizar a infraestrutura que é implementada. 
 
-* O [variáveis](resource-manager-templates-variables.md) seção, que mostra os valores que são utilizados em todo o modelo.
+* O [variáveis](resource-group-authoring-templates.md#variables) seção, que mostra os valores que são utilizados em todo o modelo.
 
 * O [funções](resource-group-authoring-templates.md#functions) seção, que mostra expressões de modelo que são utilizadas no seu modelo de personalizado.
 
 * O [recursos](resource-manager-templates-resources.md) seção, que mostra os recursos do Azure que são implementados na sua subscrição.
 
-* O [produz](resource-manager-templates-outputs.md) seção, que mostra os valores que são devolvidos após a implementação estiver concluída.
+* O [produz](resource-group-authoring-templates.md#outputs) seção, que mostra os valores que são devolvidos após a implementação estiver concluída.
 
 ## <a name="look-for-similar-templates"></a>Procure os modelos semelhantes
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 51a334557ddfb57ceab318963e319fd046d3a703
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6aec4e4bbf0abcfb6201da50381b6697a47716fa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820047"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244592"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
 
-Service Fabric expõe um conjunto principal de eventos de cluster para o informar do Estado do seu cluster como [eventos de Service Fabric](service-fabric-diagnostics-events.md). Estes são baseiam-se a ações executadas pelo Service Fabric no seu cluster e os nós ou decisões de gerenciamento feitas por um operador/proprietário de cluster. Esses eventos podem ser acedidos através da configuração de diversas formas, incluindo a configuração [Log Analytics com o seu cluster](service-fabric-diagnostics-oms-setup.md), ou consultando o [EventStore](service-fabric-diagnostics-eventstore.md). Nas máquinas do Windows, estes eventos são inseridos no registo de eventos - para que possa ver eventos no Visualizador de eventos de Service Fabric. 
+Service Fabric expõe um conjunto principal de eventos de cluster para o informar do Estado do seu cluster como [eventos de Service Fabric](service-fabric-diagnostics-events.md). Estes são baseiam-se a ações executadas pelo Service Fabric no seu cluster e os nós ou decisões de gerenciamento feitas por um operador/proprietário de cluster. Esses eventos podem ser acedidos através da configuração de diversas formas, incluindo a configuração [registos com o seu cluster do Azure Monitor](service-fabric-diagnostics-oms-setup.md), ou consultando o [EventStore](service-fabric-diagnostics-eventstore.md). Nas máquinas do Windows, estes eventos são inseridos no registo de eventos - para que possa ver eventos no Visualizador de eventos de Service Fabric. 
 
 Aqui estão algumas características destes eventos
 * Cada evento está associado a uma entidade específica no cluster por exemplo, aplicações, serviço, nó, réplica.

@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
-ms.openlocfilehash: 214f52e8c9d2803b6e33c9347c87d0cc1cf7f7e9
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0a230ff1c4d5c6bb36003f07cc1c411f7e2c3629
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991126"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241005"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do IoT Hub do Azure e diagnosticar problemas rapidamente
 
 As empresas que implementam o IoT Hub do Azure esperam um desempenho fiável dos seus recursos. Para ajudar a manter uma veja fechar a suas operações, o IoT Hub está totalmente integrado [do Azure Monitor](../azure-monitor/index.yml) e [do Azure Resource Health](../service-health/resource-health-overview.md). Estes dois serviços trabalham para lhe fornecer os dados que necessários para manter as suas soluções de IoT de cópia de segurança e em execução em bom estado de funcionamento. 
 
-Monitor do Azure é uma única origem de monitorização e registo para todos os seus serviços do Azure. Pode enviar os registos de diagnóstico do Azure Monitor gera o Log Analytics, Hubs de eventos ou armazenamento do Azure para processamento personalizado. Definições de métricas e diagnósticos do Monitor do Azure dão-lhe visibilidade para o desempenho dos seus recursos. Continue a ler este artigo para saber como [utilização do Azure Monitor](#use-azure-monitor) com o seu hub IoT. 
+Monitor do Azure é uma única origem de monitorização e registo para todos os seus serviços do Azure. Pode enviar os registos de diagnóstico do Azure Monitor gera registos do Azure Monitor, os Hubs de eventos ou armazenamento do Azure para processamento personalizado. Definições de métricas e diagnósticos do Monitor do Azure dão-lhe visibilidade para o desempenho dos seus recursos. Continue a ler este artigo para saber como [utilização do Azure Monitor](#use-azure-monitor) com o seu hub IoT. 
 
 > [!IMPORTANT]
 > Não são garantidos que os eventos emitidos pelo serviço do IoT Hub com os registos de diagnóstico do Azure Monitor ser ordenada ou confiável. Alguns eventos podem ser perdidos ou ser entregue fora de ordem. Os registos de diagnóstico também não devem ser em tempo real e poderá demorar alguns minutos para eventos em log à sua escolha de destino.

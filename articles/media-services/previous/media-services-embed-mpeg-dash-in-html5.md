@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2c8e71a058b2c770741c38f07c6c440fea90f2b2
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ab9bf868191238d933ae301b9a7df293842e8e36
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998438"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247057"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs-legacy"></a>Incorporar um vídeo de transmissão em fluxo Adaptivo MPEG-DASH numa aplicação HTML5 com dash. js (Legado)
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporar um vídeo de transmissão em fluxo Adaptivo MPEG-DASH numa aplicação HTML5 com dash. js  
 
 ## <a name="overview"></a>Descrição geral
 MPEG-DASH é um padrão ISO para a transmissão em fluxo adaptativa de conteúdo de vídeo, que oferece benefícios significativos para os desenvolvedores que desejam disponibilizar transmissões de saída de vídeos de alta qualidade, adaptável. Com MPEG-DASH, o fluxo de vídeo se ajusta automaticamente a uma definição inferior quando a rede fique congestionada. Isso reduz a probabilidade do Visualizador a ver um vídeo "em pausa", enquanto o player baixa os seguintes alguns segundos para reproduzir (também conhecido como colocação em memória intermédia). Como reduz o congestionamento de rede, o leitor de vídeo por sua vez será retornado para um fluxo de maior qualidade. Essa capacidade de adaptar-se a largura de banda necessária também resulta numa hora de início mais rápida para vídeo. Isso significa que o primeiro alguns segundos podem ser reproduzidos num segmento de qualidade mais baixo do fast para download e, em seguida, migrar para um conteúdo de uma vez suficientes de qualidade superior tem sido colocados em memória intermédia.

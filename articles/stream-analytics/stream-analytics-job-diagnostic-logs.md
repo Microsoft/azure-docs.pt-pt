@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34f994bfca8bdeaffde6732572f47aeaa86b2ac5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818936"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247159"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Resolver problemas relacionados com o Azure Stream Analytics, utilizando os registos de diagnóstico
 
-Ocasionalmente, uma tarefa do Azure Stream Analytics inesperadamente interrompe o processamento. É importante conseguir resolver este tipo de evento. Falhas podem ser causadas por um resultado de consulta inesperada, por conectividade a dispositivos ou por uma falha inesperada do serviço. Os registos de diagnóstico do Stream Analytics podem ajudar a identificar a causa dos problemas quando eles ocorrerem e reduzem o tempo de recuperação.
+Ocasionalmente, uma tarefa do Azure Stream Analytics inesperadamente interrompe o processamento. É importante conseguir resolver este tipo de evento. As falhas podem ser provocadas por um resultado de consulta inesperado, pela conectividade aos dispositivos ou por uma falha de serviço repentina. Os registos de diagnóstico do Stream Analytics podem ajudar a identificar a causa dos problemas quando eles ocorrerem e reduzem o tempo de recuperação.
 
 ## <a name="log-types"></a>Tipos de registo
 
@@ -29,7 +29,9 @@ Stream Analytics oferece dois tipos de registos:
 * [Os registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) (configurável), que fornecem informações mais ricas sobre tudo o que acontece com uma tarefa. Registos do diagnóstico início quando a tarefa é criada e de fim quando a tarefa é eliminada. Eles abrangem eventos quando a tarefa é atualizada e durante a execução.
 
 > [!NOTE]
-> Pode utilizar serviços como o armazenamento do Azure, os Hubs de eventos do Azure e Azure Log Analytics para analisar dados nonconforming. É cobrado com base no modelo de preços para os serviços.
+> Pode utilizar serviços como o armazenamento do Azure, os Hubs de eventos do Azure, e os registos do Azure Monitor para analisar dados nonconforming. É cobrado com base no modelo de preços para os serviços.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="debugging-using-activity-logs"></a>Registos de depuração com a atividade
 
@@ -51,11 +53,11 @@ Registos de atividades estão ativados por predefinição e atribuir informaçõ
 
 5. Pode efetuar ações corretivas com base na mensagem de erro em JSON. Neste exemplo, verifica para garantir que o valor de latitude é entre-90 graus e 90 graus tem de ser adicionado à consulta.
 
-6. Se a mensagem de erro nos registos de atividade não é útil para identificar a causa raiz, ative os registos de diagnóstico e utilizar o Log Analytics.
+6. Se a mensagem de erro nos registos de atividade não é útil para identificar a causa raiz, ativar registos de diagnóstico e utilize registos do Azure Monitor.
 
-## <a name="send-diagnostics-to-log-analytics"></a>Enviar diagnósticos para o Log Analytics
+## <a name="send-diagnostics-to-azure-monitor-logs"></a>Enviar diagnósticos para registos do Azure Monitor
 
-Ativar registos de diagnóstico e enviando-as para o Log Analytics é altamente recomendado. Os registos de diagnóstico são **desativar** por predefinição. Para ativar os registos de diagnóstico, conclua estes passos:
+Ativar registos de diagnóstico e enviando-as aos registos do Azure Monitor é altamente recomendado. Os registos de diagnóstico são **desativar** por predefinição. Para ativar os registos de diagnóstico, conclua estes passos:
 
 1.  Inicie sessão no portal do Azure e navegue para a sua tarefa do Stream Analytics. Sob **monitorização**, selecione **os registos de diagnóstico**. Em seguida, selecione **ativar os diagnósticos**.
 
@@ -67,7 +69,7 @@ Ativar registos de diagnóstico e enviando-as para o Log Analytics é altamente 
 
 3. Quando a tarefa de Stream Analytics é iniciado, os registos de diagnóstico são encaminhados para a área de trabalho do Log Analytics. Navegue para a área de trabalho do Log Analytics e escolha **Logs** sob a **geral** secção.
 
-   ![Registos de análise na secção geral de registo](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
+   ![Registos de Monitor do Azure na secção Geral](./media/stream-analytics-job-diagnostic-logs/log-analytics-logs.png)
 
 4. Pode [escrever sua própria consulta](../azure-monitor/log-query/get-started-portal.md) para procurar termos, identificar tendências, analisar padrões e fornecer informações com base nos seus dados. Por exemplo, pode escrever uma consulta para filtrar apenas os registos de diagnóstico que tenham a mensagem "a tarefa de transmissão em fluxo falhou." Os registos de diagnóstico do Azure Stream Analytics são armazenados no **AzureDiagnostics** tabela.
 

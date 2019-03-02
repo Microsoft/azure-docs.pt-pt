@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339761"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240172"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Detetar e resolver problemas se desliga hub IoT do Azure
 
@@ -54,7 +54,7 @@ Para obter mais informações, consulte [o que são alertas Clássicos no Micros
 
 ## <a name="resolve-connectivity-errors"></a>Resolver erros de conectividade
 
-Quando ativar os registos de diagnóstico e alertas para dispositivos conectados, obtenha alertas quando ocorrerem erros. Esta secção descreve como resolver problemas comuns quando receber um alerta. Os passos abaixo partem do princípio de que tiver configurado a Log Analytics do Azure para os seus registos de diagnóstico.
+Quando ativar os registos de diagnóstico e alertas para dispositivos conectados, obtenha alertas quando ocorrerem erros. Esta secção descreve como resolver problemas comuns quando receber um alerta. Os passos abaixo partem do princípio de que tiver configurado a registos do Azure Monitor para os seus registos de diagnóstico.
 
 1. Procurar a sua área de trabalho **do Log Analytics** no portal do Azure.
 1. Selecione **pesquisa de registos**.

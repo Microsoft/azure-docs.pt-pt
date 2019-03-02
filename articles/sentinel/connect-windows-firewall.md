@@ -4,7 +4,7 @@ description: Saiba como recolher dados de firewall do Windows no Azure sentinela
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 0e41f896-8521-49b8-a244-71c78d469bc3
 ms.service: sentinel
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 31ca68efdea7df18b1de7fc7e512c8d2bde4ea96
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: f1844073c36b1d996107e317ed32a8f0806a2b61
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992902"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241787"
 ---
-# <a name="connect-windows-firewall"></a>Ligue-se a firewall do Windows
+# <a name="connect-windows-firewall"></a>Ligar à firewall do Windows
 
 > [!IMPORTANT]
 > Sentinel do Azure está atualmente em pré-visualização pública.

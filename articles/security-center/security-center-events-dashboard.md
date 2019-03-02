@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: rkarlin
-ms.openlocfilehash: f1a3268fcacd4083b767a3fe89d6ab9b41b6cceb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2b9426043619887d99003677fd6e8488cb56cce2
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114064"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241073"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitorização e a processar eventos de segurança no Centro de segurança do Azure
 O dashboard de eventos fornece uma descrição geral do número de eventos de segurança recolhidos ao longo do tempo e uma lista de eventos notáveis que podem exigir a sua atenção.  
@@ -28,6 +28,8 @@ O dashboard de eventos fornece uma descrição geral do número de eventos de se
 > Para utilizar esta funcionalidade, sua área de trabalho tem de executar a versão 2 do Log Analytics e estar no escalão Standard do Centro de segurança. Consulte o Centro de segurança [página de preços](security-center-pricing.md) para obter mais informações sobre o escalão Standard.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>O que é um evento de segurança?
 Usos do Centro de segurança do Microsoft Monitoring Agent para recolher vários segurança e configurações relacionados com eventos das suas máquinas e armazena esses eventos em suas áreas de trabalho. Exemplos destes dados são: registos de sistema (registos de eventos Windows), em execução operativo processa e eventos de soluções de segurança integrado com o Centro de segurança. O Agente de Monitorização da Microsoft também copia os ficheiros de informação de falha de sistema para as suas áreas de trabalho.
@@ -70,7 +72,7 @@ O **dashboard de eventos** fornece uma descrição geral do número de horas ext
   ![Pesquisas de registos][6]
 
 ## <a name="add-a-notable-event"></a>Adicionar um evento notável
-Centro de segurança fornece eventos notáveis de out-of-the-box. Pode adicionar eventos notáveis, com base na sua própria consulta utilizando o [linguagem de consulta do Log Analytics](../log-analytics/log-analytics-search-reference.md). Vamos voltar à **dashboard de eventos** para adicionar um evento notável.
+Centro de segurança fornece eventos notáveis de out-of-the-box. Pode adicionar eventos notáveis, com base na sua própria consulta utilizando o [linguagem de consulta de Kusto](../log-analytics/log-analytics-search-reference.md). Vamos voltar à **dashboard de eventos** para adicionar um evento notável.
 
 1. Selecione **adicionar evento notável**.
 
@@ -94,7 +96,7 @@ Se a linha de área de trabalho:
 - Está em branco - sua área de trabalho cumpre os requisitos e selecionar uma área de trabalho leva-o ao dashboard
 
 > [!NOTE]
-> Sob **dashboard de eventos**, o **eventos** coluna indica a quantidade de eventos em cada área de trabalho.  Esta coluna está em branco para algumas áreas de trabalho porque o escalão gratuito do Centro de segurança é aplicado a essa área de trabalho. Sob o escalão gratuito, o Centro de segurança irá recolher eventos, mas os eventos não são guardados no Log Analytics e não estão disponíveis no dashboard.
+> Sob **dashboard de eventos**, o **eventos** coluna indica a quantidade de eventos em cada área de trabalho.  Esta coluna está em branco para algumas áreas de trabalho porque o escalão gratuito do Centro de segurança é aplicado a essa área de trabalho. Sob o escalão gratuito, o Centro de segurança irá recolher eventos, mas os eventos não são guardados nos registos do Azure Monitor e não estão disponíveis no dashboard.
 >
 >
 
@@ -119,9 +121,9 @@ Se a linha de área de trabalho:
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu como utilizar o dashboard de eventos do Centro de segurança. Para saber mais sobre como funciona o dashboard e escrever suas próprias consultas de eventos, consulte:
 
-- [O que é o Log Analytics?](../log-analytics/log-analytics-overview.md) – Descrição geral no Log Analytics
-- [Compreender a pesquisa do Log Analytics](../log-analytics/log-analytics-log-search-new.md) - descreve como as pesquisas de registos são usadas no Log Analytics e fornece os conceitos que devem ser compreendidos antes de criar uma pesquisa de registos
-- [Referência de pesquisa do log Analytics](../log-analytics/log-analytics-search-reference.md) – Saiba como escrever suas próprias consultas de eventos usando a linguagem de consulta no registo
+- [O que é o Azure Monitor registos?](../log-analytics/log-analytics-overview.md) – Descrição geral nos registos do Azure Monitor
+- [Compreender a pesquisa em Kusto](../log-analytics/log-analytics-log-search-new.md) - descreve como as pesquisas de registos são utilizadas nos registos do Azure Monitor e fornece os conceitos que devem ser compreendidos antes de criar uma pesquisa de registos
+- [Referência de pesquisa de Kusto](../log-analytics/log-analytics-search-reference.md) – Saiba como escrever suas próprias consultas de eventos usando a linguagem de consulta no registo
 
 Para saber mais sobre o Centro de segurança, veja:
 

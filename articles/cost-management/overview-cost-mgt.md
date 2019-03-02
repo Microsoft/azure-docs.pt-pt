@@ -10,20 +10,20 @@ ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6e9eb5709882cc084da8fe02ebb23b70852185d3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768662"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240104"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Azure Cost Management?
 
-A gestão de custos é o processo em que planeia e controla de forma eficaz os custos envolvidos na sua empresa. Normalmente, as tarefas de gestão de custos são realizadas por equipas de finanças, gestão e aplicações. O Azure Cost Management ajuda as organizações para planejar com custo em mente. Também ajuda a analisar eficazmente os custos e a tomar medidas para otimizar os gastos com a cloud. Para saber mais sobre como abordar a gestão de custos como uma organização, veja o artigo [Melhores práticas do Azure Cost Management](cost-mgt-best-practices.md).
+Gestão de custos é o processo de planejamento e controlar os custos envolvidos na sua empresa com eficiência. Normalmente, as tarefas de gestão de custos são realizadas por equipas de finanças, gestão e aplicações. O Azure Cost Management ajuda as organizações a planear com custo em mente. Também ajuda a analisar os custos de forma eficaz e tomar medidas para otimizar a cloud de gastos. Para saber mais sobre como abordar a gestão de custos como uma organização, veja o artigo [Melhores práticas do Azure Cost Management](cost-mgt-best-practices.md).
 
 Embora relacionada, a faturação é diferente da gestão de custos. A faturação é o processo de faturar clientes relativamente a bens ou serviços e gerir a relação comercial.  Normalmente, as equipas de aprovisionamento e finanças realizam tarefas de faturação.
 
-O Cost Management apresenta padrões de utilização e custos da organização com uma análise avançada. Os relatórios no Cost Management apresentam o custo, a utilização e a instância reservada do Azure, e a utilização do Benefício Híbrido do Azure. Em conjunto, os relatórios apresentam os seus custos internos e externos relativamente à utilização e os custos do Azure Marketplace. Outros custos, como compras de reservas, suporte e impostos, ainda não são apresentados nos relatórios. Os relatórios ajudam-no a compreender os seus gastos e a utilização de recursos, e podem ajudar a detetar anomalias nos gastos. Também está disponível a análise preditiva. O Cost Management utiliza grupos de gestão, orçamentos e recomendações do Azure para mostrar claramente como as suas despesas estão organizadas e como poderá reduzir os custos.
+O Cost Management apresenta padrões de utilização e custos da organização com uma análise avançada. Os relatórios no Cost Management mostram os custos com base na utilização consumidos pelos serviços do Azure e ofertas do Marketplace de terceiros. Os custos baseiam-se nos preços negociados e fatorar na reserva e descontos do benefício híbrido do Azure. Em conjunto, os relatórios apresentam os seus custos internos e externos relativamente à utilização e os custos do Azure Marketplace. Outros custos, como compras de reservas, suporte e impostos, ainda não são apresentados nos relatórios. Os relatórios ajudam-no a compreender os seus gastos e a utilização de recursos, e podem ajudar a detetar anomalias nos gastos. Também está disponível a análise preditiva. O Cost Management utiliza grupos de gestão, orçamentos e recomendações do Azure para mostrar claramente como as suas despesas estão organizadas e como poderá reduzir os custos.
 
 Pode utilizar o portal do Azure ou várias APIs para a automatização de exportações, para integrar dados de custos em sistemas e processos externos. Também estão disponíveis a exportação automatizada de dados de faturação e o agendamento de relatórios.
 

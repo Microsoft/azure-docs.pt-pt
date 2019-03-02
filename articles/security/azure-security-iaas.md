@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: de89e0a30f39ba97379b4d55914338702aef5c32
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: c60022d43af1601359ab5de8b4d3e4eb06dd239a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990413"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243232"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho de IaaS no Azure
 
@@ -128,7 +128,7 @@ Para monitorizar a postura de segurança da sua [Windows](../security-center/sec
 
 Centro de segurança pode monitorizar ativamente ameaças e potenciais ameaças são expostas nos alertas de segurança. Ameaças correlacionadas são agregadas numa única vista chamada um incidente de segurança.
 
-Centro de segurança armazena os dados no [do Azure Log Analytics](../log-analytics/log-analytics-overview.md). O log Analytics proporciona um mecanismo de análise e linguagem de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Dados também são recolhidos a partir [do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), soluções de gestão e agentes instalados nas máquinas virtuais na cloud ou no local. Esta funcionalidade partilhada ajuda-o a formar uma visão geral do seu ambiente.
+Centro de segurança armazena os dados no [registos do Azure Monitor](../log-analytics/log-analytics-overview.md). Registos de Monitor do Azure fornece um mecanismo de análise e linguagem de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Dados também são recolhidos a partir [do Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), soluções de gestão e agentes instalados nas máquinas virtuais na cloud ou no local. Esta funcionalidade partilhada ajuda-o a formar uma visão geral do seu ambiente.
 
 As organizações que não impõem uma segurança forte para as suas VMs permaneçam sem conhecimento dos potenciais tentativas por usuários não autorizados para driblar controles de segurança.
 

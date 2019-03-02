@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 68503b399d132aae5a4999e6ce08c51e4542e2e7
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699147"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242620"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de IaaS de três camadas para UK OFFICIAL
 
@@ -176,7 +176,7 @@ Nestas VNets continuam a ser geridas como recursos separados, mas aparecem como 
 
 **Registos de firewall**: Gateway de aplicação fornece registos de diagnóstico e de acesso completos. Os registos de firewall estão disponíveis para recursos de gateway de aplicações que tenham a WAF ativada.
 
-**Arquivo de log**: Armazenamento de dados de log pode ser configurado para escrever para uma conta de armazenamento do Azure centralizadas para arquivamento e um período de retenção definida. Os registos podem ser processados com o Azure Log Analytics ou por sistemas SIEM de terceiros.
+**Arquivo de log**: Armazenamento de dados de log pode ser configurado para escrever para uma conta de armazenamento do Azure centralizadas para arquivamento e um período de retenção definida. Os registos podem ser processados através de registos do Azure Monitor ou por sistemas SIEM de terceiros.
 
 ### <a name="identity"></a>Identidade
 

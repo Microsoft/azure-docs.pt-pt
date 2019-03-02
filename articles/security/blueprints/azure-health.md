@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 28d1ed43ecdb1ff853e066567f331b8c302ce7aa
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 509d529c7e860f4c46bc3368028a4e8d24812051
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730448"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242824"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
 
@@ -361,8 +361,8 @@ A solução suporta o Azure Event Grid, um único serviço para gerir o encaminh
 ### <a name="azure-alerts"></a>Alertas do Azure
 - [Os alertas oferecem um método para monitorizar serviços do Azure e permitem-lhe configurar as condições em dados. Os alertas também fornecem notificações quando os dados de monitorização corresponde a uma condição de alerta.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gestão.
+### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+[Registos de Monitor do Azure](/azure/operations-management-suite/operations-management-suite-overview) é uma coleção de serviços de gestão.
 
 -   Área de trabalho está ativada para o Centro de segurança
 
