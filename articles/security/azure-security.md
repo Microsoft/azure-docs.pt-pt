@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c66f0e67b09dab15431a8c7c10db1c820038dea6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7c76f7c5810370fa396b81bcc16e7e2204393bc1
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984990"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247550"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição geral
@@ -75,7 +75,7 @@ As capacidades incorporadas estão organizadas em seis (6) áreas funcionais: Op
 Esta seção fornece informações adicionais sobre os principais recursos nas operações de segurança e informações de resumo sobre esses recursos.
 
 ### <a name="security-and-audit-dashboard"></a>Dashboard de auditoria e segurança
-O [solução de segurança e auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma visão abrangente da sua organização postura de segurança IT com [consultas de pesquisa incorporada](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) para problemas relevantes que necessitam da sua atenção. O [segurança e auditoria](https://technet.microsoft.com/library/mt484091.aspx) dashboard é o ecrã principal, tudo relacionado com a segurança no Log Analytics. Ele fornece informações de alto nível sobre o estado de segurança de seus computadores. Também inclui a capacidade de ver todos os eventos das últimas 24 horas, 7 dias ou qualquer outro intervalo de tempo personalizado.
+O [solução de segurança e auditoria](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) fornece uma visão abrangente da sua organização postura de segurança IT com [consultas de pesquisa incorporada](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) para problemas relevantes que necessitam da sua atenção. O [segurança e auditoria](https://technet.microsoft.com/library/mt484091.aspx) dashboard é o ecrã principal, tudo relacionado com a segurança nos registos do Azure Monitor. Ele fornece informações de alto nível sobre o estado de segurança de seus computadores. Também inclui a capacidade de ver todos os eventos das últimas 24 horas, 7 dias ou qualquer outro intervalo de tempo personalizado.
 
 Além disso, pode configurar a segurança e conformidade para [automaticamente executar ações específicas](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando é detetado um evento específico.
 
@@ -94,10 +94,10 @@ Se existirem panes, falhas ou problemas de desempenho, pode pesquisar através d
 ### <a name="azure-monitor"></a>Azure Monitor
 [O Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) oferece a visualização, consulta, encaminhamento, alertas, dimensionamento automático e automatização em ambos os dados da infraestrutura do Azure ([registo de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) e cada recurso do Azure individual ([diagnóstico Regista](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Pode utilizar o Azure Monitor para o alertar sobre eventos relacionados à segurança que são gerados nos registos do Azure.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) – dá uma solução de gestão de TI no local e de terceiros infraestrutura baseada na nuvem (por exemplo, o AWS), além de recursos do Azure. Dados do Azure Monitor podem ser encaminhados diretamente ao Log Analytics para que possa ver métricas e registos de todo o ambiente num único local.
+### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+[Registos de Monitor do Azure](https://azure.microsoft.com/documentation/services/log-analytics/) – dá uma solução de gestão de TI no local e de terceiros infraestrutura baseada na nuvem (por exemplo, o AWS), além de recursos do Azure. Dados do Azure Monitor podem ser roteados diretamente para os registos do Azure Monitor, para que possa ver métricas e registos de todo o ambiente num único local.
 
-O log Analytics pode ser uma ferramenta útil na análise de segurança forense e de outros, como a ferramenta permite-lhe procurar rapidamente por meio de grandes quantidades de entradas relacionadas com segurança com uma abordagem de consulta flexíveis. Além disso, no local [registos de firewall e proxy podem ser exportados para o Azure e disponibilizados para análise a utilizar o Log Analytics.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
+Registos de Monitor do Azure podem ser uma ferramenta útil na análise de segurança forense e de outros, como a ferramenta permite-lhe procurar rapidamente por meio de grandes quantidades de entradas relacionadas com segurança com uma abordagem de consulta flexíveis. Além disso, no local [registos de firewall e proxy podem ser exportados para o Azure e disponibilizados para análise com os registos do Azure Monitor.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [O Assistente do Azure](https://docs.microsoft.com/azure/advisor/) é consultor da cloud personalizado que ajuda a otimizar as suas implementações do Azure. Analisa a configuração do recurso e a telemetria de utilização. Depois, recomenda soluções para ajudar a melhorar a [desempenho](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), [security](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations), e [elevada disponibilidade](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) dos seus recursos durante a procura de oportunidades para [reduzir sua gerais com o Azure gastar](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). O Assistente do Azure fornece recomendações de segurança, que podem significativamente melhorar a sua postura de segurança geral para soluções de que implementar no Azure. Estas recomendações são obtidas de análise de segurança executada pelo [Centro de segurança do Azure.](https://docs.microsoft.com/azure/security-center/security-center-intro)

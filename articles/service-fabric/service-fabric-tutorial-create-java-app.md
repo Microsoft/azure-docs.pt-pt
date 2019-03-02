@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 2ef38e34403a9c04eac5132c66682a045a589cf8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3309690212f8c2e92c4a2328721624a83928f315
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733066"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247482"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Tutorial: Crie uma aplicação com um serviço de front-end de API da web de Java e um serviço de back-end com monitorização de estado no Service Fabric
 
@@ -29,14 +29,6 @@ Este tutorial é a primeira parte de uma série. Quando tiver terminado, terá u
 
 ![Aplicação de Voto Local](./media/service-fabric-tutorial-create-java-app/votingjavalocal.png)
 
-Na primeira parte da série, saiba como:
-
-> [!div class="checklist"]
-> * Criar um serviço Java fiável e com estado
-> * Criar um serviço de aplicações Web em Java sem estado
-> * Utilizar a comunicação remota do serviço para comunicar com o serviço com estado
-> * Implementar a aplicação num cluster do Service Fabric local
-
 Nesta série de tutoriais, ficará a saber como:
 > [!div class="checklist"]
 > * Criar uma aplicação Java Service Fabric Reliable Services
@@ -44,6 +36,15 @@ Nesta série de tutoriais, ficará a saber como:
 > * [Implementar a aplicação num cluster do Azure](service-fabric-tutorial-java-deploy-azure.md)
 > * [Configurar a monitorização e os diagnósticos da aplicação](service-fabric-tutorial-java-elk.md)
 > * [Configurar CI/CD](service-fabric-tutorial-java-jenkins.md)
+
+
+Na primeira parte da série, saiba como:
+
+> [!div class="checklist"]
+> * Criar um serviço Java fiável e com estado
+> * Criar um serviço de aplicações Web em Java sem estado
+> * Utilizar a comunicação remota do serviço para comunicar com o serviço com estado
+> * Implementar a aplicação num cluster do Service Fabric local
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

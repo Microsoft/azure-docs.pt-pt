@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: f615c4ca9ffc56daafcedd711f27672e0855e4fa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 22160a46b0c1d8fe53abe20b3d8a1b83891de5da
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883952"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247584"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -398,19 +398,19 @@ Além disso, a lista de verificação:
 
 Segurança operacional do Azure baseia-se uma estrutura que incorpore os dados recolhidos através de um vários recursos que são exclusivos da Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa de centro de resposta de segurança Microsoft e o conhecimento profundo do campo das ameaças de cibersegurança.
 
-### <a name="microsoft-azure-log-analytics"></a>Do Microsoft Azure Log Analytics
+### <a name="microsoft-azure-monitor"></a>Monitor do Microsoft Azure
 
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é a solução de gestão de TI para a cloud híbrida. Usada sozinha ou para expandir a sua implementação do System Center existente, do Log Analytics dá-lhe a máxima flexibilidade e o controle para a gestão baseada na nuvem da sua infraestrutura.
+[O Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) é a solução de gestão de TI para a cloud híbrida. Usada sozinha ou para expandir a sua implementação existente do System Center, os registos de Monitor do Azure dá-lhe a máxima flexibilidade e o controle para a gestão baseada na nuvem da sua infraestrutura.
 
-![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Azure Monitor](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Com o Log Analytics, pode gerir qualquer instância em qualquer cloud, incluindo no local, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a um custo menor do que soluções competitivas. Criado para o mundo de cloud em primeiro lugar, o Log Analytics oferece uma nova abordagem para gerir a sua empresa que é a forma mais rápida e rentável para atender aos novos desafios de negócios e acomodar novas cargas de trabalho, aplicações e ambientes na cloud.
+Com o Azure Monitor, pode gerenciar qualquer instância em qualquer cloud, incluindo no local, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a um custo menor do que soluções competitivas. Criado para o mundo de cloud em primeiro lugar, o Azure Monitor oferece uma nova abordagem para gerir a sua empresa que é a forma mais rápida e rentável para atender aos novos desafios de negócios e acomodar novas cargas de trabalho, aplicações e ambientes na cloud.
 
-### <a name="log-analytics"></a>Log analytics
+### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitorização através da recolha de dados de recursos geridos num repositório central. Estes dados podem incluir dados de eventos ou de desempenho ou dados personalizados fornecidos através da API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação.
+[Registos de Monitor do Azure](https://azure.microsoft.com/documentation/services/log-analytics) fornece serviços de monitorização através da recolha de dados de recursos geridos num repositório central. Estes dados podem incluir dados de eventos ou de desempenho ou dados personalizados fornecidos através da API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação.
 
-![Log analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
+![Registos de Monitor do Azure](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
 Este método permite-lhe consolidar os dados de uma variedade de origens, para que pode combinar dados dos seus serviços do Azure com os seus existentes ambiente no local. Também separa claramente a recolha dos dados das ações tomadas em relação aos mesmos, para que todas as ações estejam disponíveis para todos os tipos de dados.
 

@@ -5,18 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/25/2019
+ms.date: 3/1/2019
 ms.author: victorh
-ms.openlocfilehash: f1e92c8581f8528b3622ad88f086d3f66619b996
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7f5f377f34a43dfb01ea516e023bb98f118d0dd4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823485"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247227"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Utilizar o DNS do Azure para domínios privados
 
 O sistema de nomes de domínio ou DNS, é responsável pela tradução (ou resolver) um nome de serviço para o endereço IP. Um serviço de alojamento para domínios DNS, o DNS do Azure oferece resolução de nomes através da infraestrutura do Microsoft Azure. Além de oferecer suporte a domínios DNS de acesso à internet, DNS do Azure também suporta agora domínios DNS privados como uma funcionalidade de pré-visualização.
+
+[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 O DNS do Azure fornece um serviço DNS fiável e seguro para gerir e resolver os nomes de domínio numa rede virtual sem ser necessária adicionar uma solução DNS personalizada. Ao utilizar zonas privadas do DNS, pode utilizar seus próprios nomes de domínio personalizado em vez dos nomes fornecida pelo Azure atualmente disponíveis. Utilizar nomes de domínio personalizado ajuda-o a criar a sua arquitetura de rede virtual para se adequar melhor às necessidades da sua organização. Ele fornece resolução de nomes para máquinas virtuais (VMs) numa rede virtual assim como entre redes virtuais. Além disso, pode configurar nomes de zonas com uma vista dividida horizontalmente, que permite que uma zona DNS pública e privada para o nome da partilha.
 
@@ -26,7 +28,8 @@ Se especificar uma rede virtual de registo, os registos DNS para as VMs da rede 
 
 ![Descrição geral do DNS](./media/private-dns-overview/scenario.png)
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+> [!NOTE]
+> Como melhor prática, não utilize um domínio. local para a sua zona DNS privada. Nem todos os sistemas de operativos dar suporte a isso.
 
 ## <a name="benefits"></a>Benefícios
 

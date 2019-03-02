@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 4da18fffc98367f24ec95bd27617e7638e3d5705
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/01/2019
+ms.openlocfilehash: 3e31842cf4b6afa2117ea71c644b0376e8434bd0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003674"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247312"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro SQL para aplicações de cliente da base de dados SQL: Erros de ligação de base de dados e outros problemas
 
@@ -58,7 +58,7 @@ Os seguintes erros estão transitórios e devem ser repetidos na lógica do apli
 | 4060 |16 |Não é possível abrir a base de dados "%.&#x2a;ls" pedida pelo início de sessão. O início de sessão falhou. |
 | 40197 |17 |O serviço encontrou um erro ao processar o pedido. Tente novamente. Código de erro %d.<br/><br/>Recebe este erro quando o serviço está desativado devido a software ou atualizações de hardware, falhas de hardware ou outros problemas de ativação pós-falha. O código de erro (%d) incorporado na mensagem de erro 40197 fornece informações adicionais sobre o tipo de falha ou ativação pós-falha que ocorreu. Alguns exemplos do erro códigos são incorporados na mensagem de erro 40197 são 40020, 40143, 40166 e 40540.<br/><br/>Restabelecer ligação ao seu servidor de base de dados SQL automaticamente liga-o para uma cópia de bom estado de funcionamento da base de dados. A aplicação tem de capturar o registo de erros 40197, o código de erro embedded (%d) na mensagem de para resolução de problemas e tente voltar a ligar à base de dados SQL até que os recursos estão disponíveis e a ligação é estabelecida novamente. |
 | 40501 |20 |O serviço está ocupado neste momento. Repita o pedido após 10 segundos. ID do incidente: %ls. Código: %d.<br/><br/>Para obter mais informações, consulte:<br/>• [Limites de recursos do azure SQL Database](sql-database-service-tiers-dtu.md). |
-| 40613 |17 |Base de dados '%.&#x2a;ls' no servidor '%.&#x2a;ls' não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de '%.&#x2a;ls'. |
+| 40613 |17 |Base de dados '%.&#x2a;ls' no servidor '%.&#x2a;ls' não está atualmente disponível. Tente novamente a ligação mais tarde. Se o problema persistir, contacte o suporte ao cliente e forneça o ID de rastreio de sessão de '%.&#x2a;ls'.<br/><br/> Este erro pode ocorrer se já existir uma existente ligação de administrador dedicada (DAC) estabelecida para a base de dados. |
 | 49918 |16 |Não é possível processar o pedido. Sem recursos suficientes para processar o pedido.<br/><br/>O serviço está ocupado neste momento. Repita o pedido mais tarde. |
 | 49919 |16 |Não é possível o processo de criar ou atualizar o pedido. Demasiado muitos criar ou atualizar operações em curso para a subscrição "% ld".<br/><br/>O serviço está ocupado a processar vários criar ou atualizar pedidos para a sua subscrição ou o servidor. Pedidos atualmente estão bloqueados para otimização de recursos. Consulta [DM operation_status](https://msdn.microsoft.com/library/dn270022.aspx) para operações pendentes. Aguarde até que pendente criar ou atualizar pedidos forem concluídos ou elimine um dos seus pedidos pendentes e repita o pedido mais tarde. |
 | 49920 |16 |Não é possível processar o pedido. Demasiadas operações em curso para a subscrição "% ld".<br/><br/>O serviço está ocupado a processar vários pedidos para esta subscrição. Pedidos atualmente estão bloqueados para otimização de recursos. Consulta [DM operation_status](https://msdn.microsoft.com/library/dn270022.aspx) estado da operação. Aguarde até que os pedidos pendentes estiverem concluída ou elimine um dos seus pedidos pendentes e repita o pedido mais tarde. |

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d07e11d005ac05c9bf048a48c5865885813707cb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d6644cf923d439a9f6ef13b53a84ff6626f04ade
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874550"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247465"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Atualizar as soluções de análise de macrodados de geração 1 de armazenamento do Azure Data Lake para geração 2 de armazenamento do Azure Data Lake
 
@@ -45,7 +45,7 @@ Além disso, existem componentes abrangentes para aprovisionar, gerir e monitori
 
 **Figura 2** mostra um exemplo de como esses componentes irão ser implementados através da utilização de tecnologias específicas.
 
-A funcionalidade de armazenar no **figura 1** fornecido pelo Data Lake Storage Gen1 (**figura 2**). Observe como os vários componentes do fluxo de dados interagem com a geração 1 de armazenamento do Data Lake ao utilizar REST APIs ou SDK de Java. Observe também como os componentes de funcionalidades transversais interagem com a geração 1 de armazenamento do Data Lake. O componente de aprovisionamento utiliza modelos de recursos do Azure, ao passo que o componente de monitorização que utiliza o Log Analytics utiliza dados operacionais que provém de geração 1 de armazenamento do Data Lake.
+A funcionalidade de armazenar no **figura 1** fornecido pelo Data Lake Storage Gen1 (**figura 2**). Observe como os vários componentes do fluxo de dados interagem com a geração 1 de armazenamento do Data Lake ao utilizar REST APIs ou SDK de Java. Observe também como os componentes de funcionalidades transversais interagem com a geração 1 de armazenamento do Data Lake. O componente de aprovisionamento utiliza modelos de recursos do Azure, ao passo que o componente de monitorização que utiliza registos do Azure Monitor utiliza dados operacionais que provém de geração 1 de armazenamento do Data Lake.
 
 Para atualizar uma solução da utilização de geração 1 de armazenamento do Data Lake para geração 2 de armazenamento do Data Lake, precisará copiar os dados e metadados, vincular novamente os fluxos de dados e, em seguida, todos os componentes terão de ser capazes de trabalhar com a geração 2 de armazenamento do Data Lake.
 

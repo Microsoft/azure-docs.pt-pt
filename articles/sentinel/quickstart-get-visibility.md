@@ -4,7 +4,7 @@ description: Início rápido do Azure Sentinel - introdução ao Azure sentinela
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 ms.assetid: 5a4ae93c-d648-41fb-8fb8-96a025d2f73e
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1b42d0c902828a566c29bfeb6b37512ffadf4a1f
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 1d54ac521fb8b81ed5fa135f68af420bda261661
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992802"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246955"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Início rápido: Introdução ao Azure sentinela pré-visualização
 

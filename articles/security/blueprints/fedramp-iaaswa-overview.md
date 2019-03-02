@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6dd413a6b6550e18551db1105d306f8a0bdaf9c2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: daa81f4ec14a0e022ea22948324478b8e9cc3ce3
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106754"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247363"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Azure Security and Compliance Blueprint: Aplicação Web de IaaS para FedRAMP
 
@@ -72,8 +72,7 @@ Esta solução utiliza os seguintes serviços do Azure. Detalhes da arquitetura 
 - Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Log Analytics
-- Azure Monitor
+- O Azure Monitor (logs)
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 
@@ -148,11 +147,11 @@ As seguintes tecnologias fornecem capacidades de gestão no ambiente do Azure de
 
 ### <a name="logging-and-auditing"></a>Registro e auditoria
 
-O log Analytics proporciona extenso registo de atividade do sistema e do usuário, bem como o estado de funcionamento do sistema. O [do Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) solução recolhe e analisa os dados gerados pelos recursos no Azure e ambientes no local.
+Registos de Monitor do Azure fornece o registo extensivo de atividade do sistema e do usuário, bem como o estado de funcionamento do sistema. O [registos do Azure Monitor](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) solução recolhe e analisa os dados gerados pelos recursos no Azure e ambientes no local.
 
 - **Registos de atividades:**  [Registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos numa subscrição. Registos de atividades podem ajudar a determinar o iniciador de uma operação, hora da ocorrência e o estado.
 - **Registos de diagnóstico:**  [Os registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) são emitidos por todos os recursos de todos os registos. Estes registos incluem registos de sistema de eventos do Windows, registos de armazenamento do Azure, registos de auditoria do Cofre de chaves e os registos de acesso e de firewall do Gateway de aplicação.
-- **Arquivamento de registo:**  Todos os registos de diagnóstico escrevem para uma conta de armazenamento do Azure centralizado e criptografado para arquivamento. O período de retenção é configurável pelo utilizador, cópia de segurança e 730 dias, para atender aos requisitos de retenção de específicas da organização. Estes registos ligar ao Azure Log Analytics para processamento, armazenamento e relatórios do dashboard.
+- **Arquivamento de registo:**  Todos os registos de diagnóstico escrevem para uma conta de armazenamento do Azure centralizado e criptografado para arquivamento. O período de retenção é configurável pelo utilizador, cópia de segurança e 730 dias, para atender aos requisitos de retenção de específicas da organização. Estes registos ligar-se aos registos do Azure Monitor para processamento, armazenamento e relatórios do dashboard.
 
 Além disso, as seguintes soluções de monitorização são instaladas como parte dessa arquitetura. Tenha em atenção que é responsabilidade do cliente para configurar estas soluções para se alinhar com controlos de segurança do FedRAMP:
 -   [Avaliação do AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de verificação de estado de funcionamento do Active Directory avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular e fornece uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.

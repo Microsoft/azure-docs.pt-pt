@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 02/12/2019
-ms.openlocfilehash: 61c4edc5ec9c690944047ce67f619f0f69f62f6c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: 033b853537ade927e4bb7e47c92efe1acff226d9
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236741"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247397"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Início rápido: Utilizar o Machine Learning Services (com R) na base de dados do Azure SQL (pré-visualização)
 
@@ -29,8 +29,12 @@ Machine Learning Services inclui uma distribuição base da linguagem R, recober
 
 Se não tiver uma subscrição do Azure, [criar uma conta](https://azure.microsoft.com/free/) antes de começar.
 
-> [!NOTE]
-> Serviços de Machine Learning (com R) na base de dados do Azure SQL está atualmente em pré-visualização pública. [Inscreva-se na pré-visualização](sql-database-machine-learning-services-overview.md#signup).
+> [!IMPORTANT]
+> Serviços do Aprendizado de máquina de base de dados do Azure SQL está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> [Inscreva-se na pré-visualização](sql-database-machine-learning-services-overview.md#signup).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

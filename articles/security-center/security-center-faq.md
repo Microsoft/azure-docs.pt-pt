@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 5fd885acc4294ae9f370d3becd0ad8cfb7935193
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 312e6c3c102946bcd19247f0730369dc7d0c8aba
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992367"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247431"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -54,8 +54,8 @@ Ver [permissões no Centro de segurança do Azure](security-center-permissions.m
 ## <a name="data-collection-agents-and-workspaces"></a>Recolha de dados, agentes e áreas de trabalho
 Centro de segurança recolhe dados a partir das suas máquinas virtuais do Azure (VMs) e computadores não Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos com o Microsoft Monitoring Agent, que lê várias configurações relacionadas com segurança e registos de eventos a partir da máquina e copia os dados para a sua área de trabalho para análise.
 
-### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Estou me são faturadas para o Log Analytics nas áreas de trabalho criadas pelo centro de segurança?
-Não. Áreas de trabalho criadas pelo centro de segurança, enquanto configurado para o Log Analytics por nó de faturação, não implicam custos de Log Analytics. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho:
+### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Estou me são faturadas para os registos do Azure Monitor em áreas de trabalho criadas pelo centro de segurança?
+Não. Áreas de trabalho criadas pelo centro de segurança, enquanto o configurado para os registos do Azure Monitor faturação de nó, por não ter custos de registos do Azure Monitor. A faturação do Centro de segurança baseia-se sempre em sua política de segurança do Centro de segurança e as soluções instaladas numa área de trabalho:
 
 - **Escalão gratuito** – Centro de segurança ativa a solução de "SecurityCenterFree" na área de trabalho predefinida. Não são cobradas no escalão gratuito.
 - **Escalão Standard** – Centro de segurança ativa a solução de "Segurança" na área de trabalho predefinida.
@@ -63,9 +63,11 @@ Não. Áreas de trabalho criadas pelo centro de segurança, enquanto configurado
 Para obter mais informações sobre os preços, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/). A página de preços aborda as alterações ao armazenamento de dados de segurança e faturação rateada entram partir Junho de 2017.
 
 > [!NOTE]
-> O escalão de áreas de trabalho criadas pelo centro de segurança de preços do Log Analytics não afeta a faturação do Centro de segurança.
+> O escalão de áreas de trabalho criadas pelo centro de segurança de preços do log analytics não afeta a faturação do Centro de segurança.
 >
 >
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>O que qualifica uma VM para aprovisionamento automático da instalação do Microsoft Monitoring Agent?
 VMs de IaaS de Linux ou Windows qualificam se:
@@ -217,7 +219,7 @@ O agente consome uma quantia nominal de recursos do sistema e deve ter pouco imp
 ### <a name="where-is-my-data-stored"></a>Onde são armazenados os meus dados?
 Dados recolhidos por este agente são armazenados numa área de trabalho do Log Analytics existente associados à subscrição ou uma nova área de trabalho. Para obter mais informações, consulte [segurança de dados](security-center-data-security.md).
 
-## Clientes existentes do Log Analytics<a name="existingloganalyticscust"></a>
+## Os clientes de registos existente do Azure Monitor<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>O Centro de segurança substituir quaisquer ligações existentes entre as VMs e áreas de trabalho?
 Se uma VM já tiver o Microsoft Monitoring Agent instalado como uma extensão do Azure, o Centro de segurança não substitui a ligação de área de trabalho existente. Em vez disso, o Centro de segurança utiliza a área de trabalho existente.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo
-ms.openlocfilehash: 963587415e1060997b4f90e822c6c57a05610544
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: c6b923808b7d1a1e29fa6847f3a975785ad7e798
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807172"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247499"
 ---
 # <a name="production-readiness-checklist"></a>Lista de verificação da preparação de produção
 
@@ -42,9 +42,9 @@ ms.locfileid: "56807172"
 6. Compreender e definir o [nível de durabilidade](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Para executar cargas de trabalho com monitorização de estado de tipos de nós, recomenda-se ao nível de durabilidade Silver ou superior. O tipo de nó primário deve ter um nível de durabilidade definido para Silver ou superior.
 7. Compreender e escolha o [nível de fiabilidade](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) do tipo de nó. Confiabilidade Silver ou superior é recomendada.
 8. As cargas de trabalho para identificar de teste de carga e dimensionamento [requisitos de capacidade](service-fabric-cluster-capacity.md) para o seu cluster. 
-9. Seus serviços e aplicações são monitorizadas e registos de aplicações estão a ser gerados e armazenados, com o alerta. Por exemplo, veja [adicionar registos à sua aplicação do Service Fabric](service-fabric-how-to-diagnostics-log.md) e [monitorizar contentores com o Log Analytics](service-fabric-diagnostics-oms-containers.md).
-10. O cluster é monitorizado com alertas (por exemplo, com [do Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)). 
-11. A infraestrutura de conjunto de dimensionamento de máquina virtual subjacente é monitorizada com alertas (por exemplo, com [do Log Analytics](service-fabric-diagnostics-oms-agent.md).
+9. Seus serviços e aplicações são monitorizadas e registos de aplicações estão a ser gerados e armazenados, com o alerta. Por exemplo, veja [adicionar registos à sua aplicação do Service Fabric](service-fabric-how-to-diagnostics-log.md) e [monitorizar contentores com os registos do Azure Monitor](service-fabric-diagnostics-oms-containers.md).
+10. O cluster é monitorizado com alertas (por exemplo, com [registos do Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)). 
+11. A infraestrutura de conjunto de dimensionamento de máquina virtual subjacente é monitorizada com alertas (por exemplo, com [registos do Azure Monitor](service-fabric-diagnostics-oms-agent.md).
 12. O cluster tem [certificados primário e secundário](service-fabric-cluster-security-update-certs-azure.md) sempre (para que não fica bloqueado).
 13. Manter clusters separados para desenvolvimento, teste e produção. 
 14. [As atualizações de aplicações](service-fabric-application-upgrade.md) e [atualizações do cluster](service-fabric-tutorial-upgrade-cluster.md) são testados no desenvolvimento e teste clusters pela primeira vez. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: e845adc3aad21e62009ee9b99dbd65bcff794bd9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 497fc1dd5691b5aa33207c6a3943a51c473d2f6c
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117805"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247210"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações de PaaS
 
@@ -153,7 +153,7 @@ A monitorização é o ato de recolha e análise de dados para determinar o dese
 
 Uso [do Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) para monitorizar a disponibilidade, desempenho e utilização da sua aplicação, se está alojado na cloud ou no local. Ao utilizar o Application Insights, pode rapidamente identificar e diagnosticar erros em seu aplicativo sem esperar por um utilizador para comunicá-las. Com as informações que recolher, pode fazer escolhas informadas sobre a manutenção e as melhorias da aplicação.
 
-O Application Insights tem um vasto conjunto ferramentas para interagir com os dados que recolhe. O Application Insights armazena os dados num repositório comum. Pode tirar partido de funcionalidades partilhadas como alertas, dashboards e a análise detalhada graças à linguagem de consulta do Log Analytics.
+O Application Insights tem um vasto conjunto ferramentas para interagir com os dados que recolhe. O Application Insights armazena os dados num repositório comum. Pode tirar partido da funcionalidade partilhada, como alertas, dashboards e análises detalhadas com a linguagem de consulta de Kusto.
 
 
 

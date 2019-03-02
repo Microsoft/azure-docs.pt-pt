@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 8627f5bb704c963b628fb3dab29b6d2cfee0789b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978600"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57247329"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQs de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 Pode encontrar o valor de extensionName na `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Existe que um exemplo de modelo que se integra com o Log Analytics de conjunto de dimensionamento de máquinas virtuais?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Existe que um exemplo de modelo que se integra com os registos do Azure Monitor de conjunto de dimensionamento de máquinas virtuais?
 
-Para o exemplo de modelo que se integra com o Log Analytics do conjunto de dimensionamento de máquinas virtuais, consulte o segundo exemplo na [implementar um cluster do Azure Service Fabric e ative a monitorização, utilizar o Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Para um dimensionamento de máquinas virtuais do conjunto de exemplo de modelo que se integra com os registos do Azure Monitor, consulte o segundo exemplo na [implementar um cluster do Azure Service Fabric e ative a monitorização utilizando o Azure Monitor registos](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Extensões parecem ser executadas em paralelo em conjuntos de dimensionamento de máquina virtual. Isso faz com que minha extensão de script personalizado efetuar a ativação. O que posso fazer para corrigir este problema?
 
@@ -658,7 +658,7 @@ Sim, pode utilizar a operação de recriação de imagem para repor a uma VM sem
 
 Para obter mais informações, consulte [gerir todas as VMs num conjunto de dimensionamento de máquina virtual](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>É possível integrar os conjuntos de dimensionamento com o Azure Log Analytics?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>É possível integrar os conjuntos de dimensionamento com os registos do Azure Monitor?
 
 Sim, pode, instalando a extensão do Log Analytics na escala de VMs do conjunto. Eis um exemplo da CLI do Azure:
 ```
@@ -666,7 +666,10 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 ```
 Pode encontrar o necessário workspaceId e workspaceKey na área de trabalho do Log Analytics do portal do Azure. Na página Descrição geral, clique no mosaico de definições. Clique no separador de origens ligadas na parte superior.
 
-Nota: se as conjunto de dimensionamento _upgradePolicy_ está definida para Manual, tem de aplicar a extensão para todas as VMs no conjunto de chamando atualização nos mesmos. Na CLI isso seria _az vmss update-instances_.
+> [!NOTE]
+> Se as conjunto de dimensionamento _upgradePolicy_ está definida para Manual, tem de aplicar a extensão para todas as VMs no conjunto de chamando atualização nos mesmos. Na CLI isso seria _az vmss update-instances_.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
