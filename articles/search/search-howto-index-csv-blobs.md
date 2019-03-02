@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: eac0c1f2f7ded35cf09eec12f0406c754621f49c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: dce19e750c5546ddd5cac18411dcbb4a603e5c45
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465467"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216106"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexar blobs CSV com o indexador de Blobs do Azure Search
 Por predefinição, [indexador de Blobs do Azure Search](search-howto-indexing-azure-blob-storage.md) analisa delimitados por blobs de texto como um único segmento de texto. No entanto, com blobs que contém dados do CSV, muitas vezes, pretende processar cada linha no blob como um documento separado. Por exemplo, tendo em conta o seguinte texto delimitado, poderá analisá-lo em dois documentos, cada um contendo "id", "datePublished" e "etiquetas" campos: 
@@ -26,9 +26,8 @@ Por predefinição, [indexador de Blobs do Azure Search](search-howto-indexing-a
 
 Neste artigo, aprenderá como analisar blobs CSV com um indexador de Blobs do Azure Search. 
 
-> [!IMPORTANT]
-> A indexação de BLOBs CSV está atualmente em pré-visualização pública e não deve ser usada em ambientes de produção. Para obter mais informações, consulte [REST api-version = 2017-11-11-pré-visualização](search-api-2017-11-11-preview.md). 
-> 
+> [!NOTE]
+> Siga as recomendações de configuração do indexador nas [um-para-muitos indexação](search-howto-index-one-to-many-blobs.md) para vários documentos de pesquisa de um blob do Azure de saída.
 
 ## <a name="setting-up-csv-indexing"></a>Configuração de CSV de indexação
 Indexar CSV blobs, criar ou atualizar uma definição de indexador com o `delimitedText` modo de análise:  

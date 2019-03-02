@@ -16,18 +16,18 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 161b2054d690a2e609085852aa7caf2f02366f69
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903728"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215664"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
 [Serviço de aplicações do Azure](../overview.md) é uma plataforma de computação totalmente gerida que está otimizada para o alojamento de sites e aplicações web. Os clientes podem utilizar o Serviço de Aplicações no Linux para alojar aplicações Web nativamente no Linux para pilhas de aplicações suportadas. O [idiomas](#languages) secção lista as pilhas de aplicação que são atualmente suportadas.
 
-## <a name="languages"></a>Linguagens
+## <a name="languages"></a>Languages
 
 O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas para aumentar a produtividade do programador. Se o runtime pedido pela sua aplicação não for suportado nas imagens incorporadas, existem instruções sobre como [criar a sua própria imagem do Docker](tutorial-custom-docker-image.md) para implementar a Aplicação Web para Contentores.
 
@@ -71,9 +71,7 @@ Verifique o [Dashboard de Estado do Azure](https://azure.microsoft.com/status).
 
 O portal do Azure mostra apenas as funcionalidades que funcionam atualmente para a Aplicação Web para Contentores. À medida que ativamos mais funcionalidades, estas tornam-se visíveis no portal.
 
-Algumas funcionalidades, como a integração da rede virtual, a autenticação do Azure Active Directory/terceiros ou as extensões de site do Kudu, ainda não estão disponíveis. Assim que estas funcionalidades estiverem disponíveis, atualizaremos a nossa documentação e o blogue com as alterações.
-
-O Serviço de Aplicações no Linux é suportado apenas com os planos do Serviço de Aplicações [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem um escalão [Gratuito ou Partilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). Não pode criar a Aplicação Web para Contentores num plano do Serviço de Aplicações que já aloja Aplicações Web que não são do Linux. 
+O Serviço de Aplicações no Linux é suportado apenas com os planos do Serviço de Aplicações [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem um escalão [Gratuito ou Partilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). Não pode criar a Aplicação Web para Contentores num plano do Serviço de Aplicações que já aloja Aplicações Web que não são do Linux.  
 
 Além disso, com base numa limitação atual, não misture as aplicações Windows e Linux no mesmo grupo de recursos.
 

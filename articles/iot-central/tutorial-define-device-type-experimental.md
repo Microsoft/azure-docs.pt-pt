@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 2506137e03e8677827bb1e2a3914ee10ae24f368
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 2e3e790ac33f7c93bc5fe6deb705425b0e958def
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810121"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214499"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Tutorial: Definir um novo tipo de dispositivo na sua aplicação do Azure IoT Central (design de nova interface do Usuário)
 
@@ -87,7 +87,7 @@ Para adicionar um novo modelo de dispositivo para a sua aplicação, terá de ir
 
 Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Condicionado Ligado** para dispositivos que enviam telemetria de temperatura para a sua aplicação:
 
-1. Sobre o **modelos de dispositivos** página, clique em **+ novo**:
+1. Sobre o **modelos de dispositivos** página, clique em **+**:
 
     ![Página de modelos de dispositivo, criar modelo de dispositivo](./media/tutorial-define-device-type-experimental/newtemplate.png)
 
@@ -397,7 +397,7 @@ Agora que definiu sua **ligado ar-condicionado** modelo de dispositivo, pode per
     | Intervalo de Tempo   | Últimos 30 minutos |
     | Medidas     | Ventoinha erro entrar (clique em **visibilidade** junto a **erro de Motor de ventoinha**) |
 
-    ![Definições do gráfico de linhas](./media/tutorial-define-device-type-experimental/dashboardeventchartsetting.png)
+    ![Definições de gráfico do evento](./media/tutorial-define-device-type-experimental/dashboardeventchartsetting.png)
 
     Em seguida, clique em **Guardar**.
 

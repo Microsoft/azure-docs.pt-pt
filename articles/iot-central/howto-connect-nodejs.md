@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 7b1d7c50970107300676213707368f9f16e04812
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b22d719a25a93e1dffdba848e18f732b31e6e67d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194806"
+ms.locfileid: "57214525"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -269,11 +269,11 @@ Como um operador na sua aplicação do Azure IoT Central, para o seu dispositivo
 
     ![Ver telemetria](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. Os mosaicos de propriedades do dispositivo serão atualizados se a ligação for bem-sucedida. 
+* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. Os mosaicos de propriedades do dispositivo são atualizados, se a ligação for bem-sucedida.
 
     ![Ver as propriedades do dispositivo](media/howto-connect-nodejs/viewproperties.png)
 
-* Definir a temperatura de velocidade e o destino de fã do **definições** página. Os valores de definições irão sincronizar se a ligação for bem-sucedida. 
+* Definir a temperatura de velocidade e o destino de fã do **definições** página. Os valores de definições de sincronização se a ligação for bem-sucedida.
 
     ![Velocidade de fã de conjunto](media/howto-connect-nodejs/setfanspeed.png)
 

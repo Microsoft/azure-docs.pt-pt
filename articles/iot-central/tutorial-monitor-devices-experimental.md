@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 9480565643887b5a9a4d644ba3173b365eaea29c
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 03e0826d306328ce9a7293d26289f04a012c447f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767778"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216463"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Utilizar o Azure IoT Central para monitorizar os seus dispositivos
 
@@ -55,7 +55,7 @@ Escolha a vista **Dashboard** para ver as informações sobre o dispositivo.
 
 ![Dashboard do dispositivo](media/tutorial-monitor-devices-experimental/initial_screen.png)
 
-O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Também pode ver a temperatura ideal atual do dispositivo no mosaico **Definir temperatura ideal**. Decide que a temperatura ideal é demasiado elevada.
+O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Também pode ver que a temperatura atual de destino para o dispositivo na **propriedades do dispositivo** mosaico. Decide que a temperatura ideal é demasiado elevada.
 
 ## <a name="remediate-an-issue"></a>Resolver um problema
 

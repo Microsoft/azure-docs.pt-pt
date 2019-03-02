@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: b48910b74d90072a360bad504e2b826402dceea5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ee828c908cb3b103befa3890b43bb2c1f04f7cf0
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639882"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214049"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Atualizar uma oferta VM existente no Azure Marketplace
 
@@ -35,6 +35,8 @@ Há uma série de motivos comuns para que possa atualizar a sua oferta, incluind
 
 Para ajudá-lo a essas modificações, o portal oferece-a **Compare** e **histórico** funcionalidades.  
 
+>[!Note]
+>Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora está disponível.  Veja [fornecedores de soluções Cloud](../../cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Alterações unpermitted a oferta de VM ou SKU
 
@@ -149,12 +151,12 @@ Se já ter sido faturadas pelo ciclo durante o qual uma diminuição do preço o
 
 A partir de 1 de Setembro de 2018, chamado de uma nova seção **preços de moeda simplificado** será adicionado ao portal. Microsoft está simplificando o negócio do Azure Marketplace, permitindo que mais previsível em termos de preços e coleções a partir de seus clientes em todo o mundo. Esta otimização incluirá a redução do número de moedas em que podemos criar uma fatura seus clientes.
 
-A nova secção, irá demorar preços nestas novas moedas. Depois de todos os clientes terem sido migrados para nestas novas moedas de liquidação, vai ser descontinuada a secção de preços original e apenas a secção simplificado moeda preços irão permanecer.
+A nova secção, irá demorar preços nestas novas moedas. Depois de todos os clientes terem sido migrados para nestas novas moedas de liquidação, vai ser descontinuada a secção de preços original e apenas a secção simplificado moeda preços irão permanecer.
 
 Terá até 1 de Novembro de 2018 para definir um novo preço para as regiões em que a moeda de liquidação está mudando. Não será capaz de aumentar o preço para regiões em que a moeda de liquidação não está a mudar.
 
 > [!NOTE] 
-> Se usar APIs para publicar a sua oferta, poderá ver uma nova seção no JSON oferecem. Isso poderia ser anotado como `virtualMachinePricingV2` ou `monthlyPricingV2`, dependendo do tipo de oferta. 
+> Se usar APIs para publicar a sua oferta, poderá ver uma nova seção no JSON oferecem. Isso poderia ser anotado como `virtualMachinePricingV2` ou `monthlyPricingV2`, dependendo do tipo de oferta. 
 
 Se tiver dúvidas sobre esta alteração, contacte [suporte do Azure Marketplace](../../support-azure-marketplace.md).
 

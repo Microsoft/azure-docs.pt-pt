@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1d6f43b23bddf2d1ff7a2a41a11b4a2c8623d372
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c8cba4006d1112ccc1529fc1769e046fe45468a7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768629"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214185"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -27,12 +27,7 @@ Dispositivos podem utilizar a medição de telemetria para enviar dados numéric
 
 Para criar uma regra de telemetria, o modelo do dispositivo tem de ter pelo menos uma medida de telemetria definida. Este exemplo utiliza um dispositivo de refrigerated de venda automática de máquina que envia telemetria de temperatura e humidade. A regra monitoriza a temperatura comunicada pelo dispositivo e envia um e-mail quando ele for superior a 80 graus.
 
-1. Com o Device Explorer, navegue para o modelo de dispositivo para o qual está a adicionar a regra para.
-
-1. Sob o modelo selecionado, clique num dispositivo existente. 
-
-    >[!TIP]
-    >Se o modelo não tem todos os dispositivos, em seguida, adicione um novo dispositivo pela primeira vez.
+1. Utilizar o **modelos de dispositivos** página, navegue para o modelo de dispositivo para o qual está a adicionar a regra para.
 
 1. Se ainda não criou quaisquer regras, verá o ecrã seguinte:
 
@@ -60,11 +55,11 @@ Condição define os critérios que é monitorizado pela regra.
 
 1. Selecione a telemetria que pretende monitorizar a partir da **medição** lista pendente.
 
-   ![Condição](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
-
 1. Em seguida, escolha **agregação**, **operador**e fornecer uma **limiar** valor.
-    - Agregação é opcional. Sem agregação, a regra é acionada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra está configurada para acionar quando temperatura for superior a 80, em seguida, a regra irá acionar quase instantaneamente quando o dispositivo comunica a temperatura > 80.
+    - Agregação é opcional. Sem agregação, a regra é acionada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra está configurada para o acionador quando a temperatura for superior a 80, em seguida, a regra é acionada quase instantaneamente quando o dispositivo comunica temperatura > 80.
     - Se uma função de agregação, como média, Mín, Máx, contagem for escolhida, em seguida, o utilizador tem de fornecer uma **janela de tempo agregado** ao longo do que a condição tem de ser avaliada. Por exemplo, se definir o período como "5 minutos" e a sua regra de procura de temperatura média superior a 80, a regra é acionada quando a temperatura média for superior a 80, para, pelo menos, 5 minutos. A frequência de avaliação da regra é igual a **janela de tempo agregado**, que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
+
+    ![Condição](media/howto-create-telemetry-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE]
     >É possível adicionar mais do que uma medida de telemetria em **condição**. Quando são especificadas várias condições, todas as condições têm de ser cumpridas para a regra acionar. Cada conditon obtém associado implicitamente por uma cláusula 'E'. Ao utilizar o agregado, cada medida tem de ser agregada.

@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: c11dc2b24e3cf5d201a73c1ed405ba4b7c09978b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 29a0d0679adc51cf1493d241273e3b572a7fd57d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992605"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214304"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL?
 
@@ -95,7 +95,7 @@ Utilize a [monitorização de desempenho incorporada](sql-database-performance.m
 
 - **O armazenamento do Azure**: Para arquivar grandes quantidades de telemetria a um preço baixo
 - **Hub de eventos do Azure**: Para integrar a telemetria de base de dados SQL com a sua solução personalizada monitorizção ou em pipelines
-- **Log Analytics do Azure**: Para solução de monitorização incorporada com relatórios, alertas e mitigação.
+- **Registos de Monitor do Azure**: Para solução de monitorização incorporada com relatórios, alertas e mitigação.
 
     ![arquitetura](./media/sql-database-metrics-diag-logging/architecture.png)
 

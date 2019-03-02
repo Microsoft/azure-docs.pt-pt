@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 09/06/2018
+ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d2c7fbba8184fba81be5e93eae1dd816687ecb4
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e9cf4fd448527e8104883e1c23c8c4b64fde3f0d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992673"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213641"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 
@@ -97,6 +97,10 @@ Pode manter o armazém de dados restaurados e atual ou elimine um deles. Se pret
 Para restaurar um armazém de dados, consulte [restaurar um armazém de dados com o portal do Azure](sql-data-warehouse-restore-database-portal.md), [restaurar um armazém de dados com o PowerShell](sql-data-warehouse-restore-database-powershell.md), ou [restaurar um armazém de dados com REST APIs](sql-data-warehouse-restore-database-rest-api.md).
 
 Para restaurar um armazém de dados eliminada ou em pausa, pode [criar um pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md).
+
+## <a name="cross-subscription-restore"></a>Entre o restauro de subscrição
+
+Se tiver de restaurar diretamente na subscrição, votar para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Restaurar para um servidor lógico diferente e ["Mover"](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) o servidor entre subscrições para efetuar um restauro entre subscrições. 
 
 ## <a name="geo-redundant-restore"></a>Restauro com redundância geográfica
 

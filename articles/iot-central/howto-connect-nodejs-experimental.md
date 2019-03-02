@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b8f2df14e0aa0246d794bd56f4187002cfdeee02
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ba5a8cc09a098e58c39d42475d18e92e45222937
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194473"
+ms.locfileid: "57216786"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -93,7 +93,7 @@ Introduza o nome do campo exatamente como mostrados na tabela no modelo de dispo
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-Na aplicação do Azure IoT Central, adicione um dispositivo real a partir do modelo de dispositivo, criar e tome nota da cadeia de ligação do dispositivo. Para obter instruções passo a passo sobre como ligar uma aplicação node. js ao IoT Central, consulte [gerar cadeia de ligação para o dispositivo real do aplicativo](tutorial-add-device-experimental.md#generate-connection-string-for-real-device-from-application) e [preparar o código de cliente](tutorial-add-device-experimental.md#prepare-the-client-code) nos tutoriais > Adicione um dispositivo.
+Na aplicação do Azure IoT Central, adicione um dispositivo real a partir do modelo de dispositivo, criar e tome nota da cadeia de ligação do dispositivo. Para obter instruções passo a passo sobre como ligar uma aplicação node. js ao IoT Central, consulte [gerar cadeia de ligação para o dispositivo real do aplicativo](tutorial-add-device-experimental.md#generate-connection-string) e [preparar o código de cliente](tutorial-add-device-experimental.md#prepare-the-client-code) nos tutoriais > Adicione um dispositivo.
 
 ### <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
 
@@ -268,11 +268,11 @@ Como um operador na sua aplicação do Azure IoT Central, para o seu dispositivo
 
     ![Ver telemetria](media/howto-connect-nodejs-experimental/viewtelemetry.png)
 
-* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. Os mosaicos de propriedades do dispositivo serão atualizados se a ligação for bem-sucedida. 
+* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. A dispositivo propriedades mosaicos atualização se a ligação for bem-sucedida.
 
     ![Ver as propriedades do dispositivo](media/howto-connect-nodejs-experimental/viewproperties.png)
 
-* Definir a temperatura de velocidade e o destino de fã do **definições** página. Os valores de definições irão sincronizar se a ligação for bem-sucedida. 
+* Definir a temperatura de velocidade e o destino de fã do **definições** página. Os valores de definições de sincronização se a ligação for bem-sucedida.
 
     ![Velocidade de fã de conjunto](media/howto-connect-nodejs-experimental/setfanspeed.png)
 

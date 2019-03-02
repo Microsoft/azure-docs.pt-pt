@@ -1,6 +1,6 @@
 ---
-title: Monitorizar a sincronização de dados SQL do Azure com o Log Analytics | Documentos da Microsoft
-description: Saiba como monitorizar a sincronização de dados SQL do Azure através da utilização do Log Analytics
+title: Monitorizar a sincronização de dados SQL do Azure com os registos do Azure Monitor | Documentos da Microsoft
+description: Saiba como monitorizar a sincronização de dados SQL do Azure através de registos do Azure Monitor
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -12,16 +12,18 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 75bbae000fa0fbbf783b3df43bd51ed2f8a73e96
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a1f2b0e3095718caad7c35a20bf7e91c88568364
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561421"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213471"
 ---
-# <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorizar a sincronização de dados SQL com o Log Analytics 
+# <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorizar a sincronização de dados SQL com os registos do Azure Monitor 
 
 Verificar o registo de atividade de sincronização de dados SQL e detetar erros e avisos, tinha anteriormente verificar a sincronização de dados SQL manualmente no portal do Azure ou utilizar o PowerShell ou a API REST. Siga os passos neste artigo para configurar uma solução personalizada que melhora a experiência de monitorização de sincronização de dados. Pode personalizar esta solução para se ajustarem ao seu cenário.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincronizar dados em várias bases de dados na cloud e no local com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md).
 
@@ -30,27 +32,27 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard de monitorização para todos os grupos de sincronização 
 
-Já não terá de consultar os registos de cada grupo de sincronização individualmente para verificar se há problemas. Pode monitorizar todos os grupos de sincronização a partir de qualquer uma das suas subscrições num único local ao utilizar uma vista personalizada do Log Analytics. Esta vista apresenta as informações que é importante para os clientes de sincronização de dados SQL.
+Já não terá de consultar os registos de cada grupo de sincronização individualmente para verificar se há problemas. Pode monitorizar todos os grupos de sincronização de qualquer uma das suas subscrições num único local, utilizando uma vista de análise de registo personalizado. Esta vista apresenta as informações que é importante para os clientes de sincronização de dados SQL.
 
 ![Dashboard de monitorização de sincronização de dados](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Notificações de E-Mail automatizadas
 
-Já não terá de verificar o registo manualmente no portal do Azure ou através do PowerShell ou a API REST. Com o [do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), pode criar alertas que vão diretamente para os endereços de e-mail das pessoas que precisam para vê-los quando ocorre um erro.
+Já não terá de verificar o registo manualmente no portal do Azure ou através do PowerShell ou a API REST. Com o [registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), pode criar alertas que vão diretamente para os endereços de e-mail das pessoas que precisam para vê-los quando ocorre um erro.
 
 ![Notificações de e-mail de sincronização de dados](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Como configurar estas funcionalidades de monitorização? 
 
-Implemente uma solução de monitorização para sincronização de dados SQL em menos de uma hora, efetuando os seguintes procedimentos de Log Analytics personalizado:
+Implementar um Monitor personalizado do Azure registos de solução de monitorização para sincronização de dados SQL em menos de uma hora, efetuando os seguintes procedimentos:
 
 Tem de configurar três componentes:
 
--   Um runbook do PowerShell para alimentar dados de registo de sincronização de dados SQL para o Log Analytics.
+-   Um runbook do PowerShell para alimentar dados de registo de sincronização de dados SQL para registos do Azure Monitor.
 
--   Um alerta do Log Analytics para notificações por e-mail.
+-   Um alerta do log analytics para notificações por e-mail.
 
--   Uma vista do Log Analytics para monitorização.
+-   Uma análise de registos Vista para monitorização.
 
 ### <a name="samples-to-download"></a>Exemplos para transferir
 
@@ -70,7 +72,7 @@ Certifique-se de que configurou os seguintes procedimentos:
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>Runbook do PowerShell para obter o Log de sincronização de dados SQL 
 
-Utilize um runbook do PowerShell alojado na automatização do Azure para extrair os dados de log de sincronização de dados SQL e enviá-lo para o Log Analytics. Um script de exemplo está incluído. Como pré-requisito, tem de ter uma conta de automatização do Azure. Em seguida, terá de criar um runbook e agendar sua execução. 
+Utilize um runbook do PowerShell alojado na automatização do Azure para extrair os dados de log de sincronização de dados SQL e enviá-lo para registos do Azure Monitor. Um script de exemplo está incluído. Como pré-requisito, tem de ter uma conta de automatização do Azure. Em seguida, terá de criar um runbook e agendar sua execução. 
 
 ### <a name="create-a-runbook"></a>Criar um runbook
 
@@ -100,7 +102,7 @@ Para obter mais informações sobre a criação de um runbook, consulte [meu pri
 
     2.  Informações do grupo de sincronização.
 
-    3.  Registe informações de análise. Pode encontrar estas informações no Portal do Azure | Definições | Origens ligadas. Para obter mais informações sobre como enviar dados para o Log Analytics, consulte [enviar dados para o Log Analytics com a API de Recoletor de dados HTTP (pré-visualização)](../azure-monitor/platform/data-collector-api.md).
+    3.  Monitor do Azure regista as informações. Pode encontrar estas informações no Portal do Azure | Definições | Origens ligadas. Para obter mais informações sobre como enviar dados para os registos do Azure Monitor, consulte [enviar dados para logs de Monitor do Azure com a API de Recoletor de dados HTTP (pré-visualização)](../azure-monitor/platform/data-collector-api.md).
 
 11. Execute o runbook no painel de teste. Verifique para se certificar de que ele foi concluída com êxito.
 
@@ -120,7 +122,7 @@ Para agendar o runbook:
 
 4.  Selecione **criar uma nova agenda.**
 
-5.  Definir **periodicidade** para periódico e defina o intervalo que pretende. Utilize o mesmo intervalo aqui, no script e no Log Analytics.
+5.  Definir **periodicidade** para periódico e defina o intervalo que pretende. Utilize o mesmo intervalo aqui, no script e nos registos do Azure Monitor.
 
 6.  Selecione **Criar**.
 
@@ -130,7 +132,7 @@ Para monitorar sua automação está em execução conforme esperado, em **descr
 
 ## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Criar um alerta do leitor do Log Analytics para notificações por E-Mail
 
-Para criar um alerta que utiliza o Log Analytics, efetue os seguintes procedimentos. Como pré-requisito, tem de ter ligado com uma área de trabalho do Log Analytics do Log Analytics.
+Para criar um alerta que utiliza registos do Azure Monitor, efetue os seguintes procedimentos. Como pré-requisito, tem de ter os logs de Monitor do Azure associados a uma área de trabalho do Log Analytics.
 
 1.  No portal do Azure, selecione **pesquisa de registos**.
 
@@ -152,7 +154,7 @@ Para criar um alerta que utiliza o Log Analytics, efetue os seguintes procedimen
 
 ## <a name="create-a-log-analytics-view-for-monitoring"></a>Criar uma vista do Log Analytics para monitorizar
 
-Este passo cria uma vista do Log Analytics para monitorizar visualmente todos os grupos de sincronização especificado. A vista inclui vários componentes:
+Este passo cria uma vista do log analytics para monitorizar visualmente todos os grupos de sincronização especificado. A vista inclui vários componentes:
 
 -   Um mosaico de descrição geral, que mostra o número de erros, sucessos e avisos de todos os grupos de sincronização tem.
 
@@ -160,9 +162,9 @@ Este passo cria uma vista do Log Analytics para monitorizar visualmente todos os
 
 -   Um mosaico para cada grupo de sincronização, que mostra o número de erros, êxitos e avisos e as mensagens de erro recentes.
 
-Para configurar o modo de exibição do Log Analytics, efetue os seguintes procedimentos:
+Para configurar a vista do log analytics, efetue os seguintes procedimentos:
 
-1.  Na home page do Log Analytics, selecione o sinal de adição no lado esquerdo para abrir o **estruturador de vistas**.
+1.  Na home page do log analytics, selecione o sinal de adição no lado esquerdo para abrir o **estruturador de vistas**.
 
 2.  Selecione **importação** na barra superior do designer de vista. Em seguida, selecione o ficheiro de exemplo "DataSyncLogOMSView".
 
@@ -186,7 +188,7 @@ Na maioria dos casos, essa solução é gratuita.
 
 **Automatização do Azure:** Pode haver um custo incorrido com a conta de automatização do Azure, dependendo da sua utilização. Os primeiros 500 minutos de tempo por mês de execução de tarefas são gratuitos. Na maioria dos casos, esta solução deverá utilizar menos de 500 minutos por mês. Para evitar encargos, agende o runbook seja executado num intervalo de duas horas ou mais. Para mais informações, veja [os preços de automatização](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics:** Pode haver um custo associado com o Log Analytics, dependendo da sua utilização. O escalão gratuito inclui 500 MB de dados ingeridos por dia. Na maioria dos casos, esta solução é esperada para a ingestão de menos de 500 MB por dia. Para reduzir a utilização, utilize à apenas de falha de filtragem incluídos no runbook. Se estiver a utilizar mais de 500 MB por dia, atualize para o escalão pago para evitar o risco de análise a parar quando for atingida a limitação. Para mais informações, veja [preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Registos de Monitor do Azure:** Pode haver um custo associado a registos do Azure Monitor, dependendo da sua utilização. O escalão gratuito inclui 500 MB de dados ingeridos por dia. Na maioria dos casos, esta solução é esperada para a ingestão de menos de 500 MB por dia. Para reduzir a utilização, utilize à apenas de falha de filtragem incluídos no runbook. Se estiver a utilizar mais de 500 MB por dia, atualize para o escalão pago para evitar o risco de análise a parar quando for atingida a limitação. Para mais informações, veja [registos do Azure Monitor preços](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Exemplos de código
 

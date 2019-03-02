@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 02/28/2018
 ms.author: diberry
-ms.openlocfilehash: 51e6a5da0d757023bd7cd1f61c77387a77b77de4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 82c4f82e047892d1b1093aff8cbfefa8f6d5d22f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869057"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213138"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>Enviar um e-mail entidade criados previamente para uma aplicação LUIS
 Extração de e-mail inclui o endereço de e-mail completo de uma expressão. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém o e-mail para os objetivos do aplicativo. Entidade de e-mail é suportada no `en-us` apenas a cultura. 
@@ -42,7 +42,10 @@ O exemplo seguinte mostra a resolução do **builtin.email** entidade.
       "entity": "patti.owens@microsoft.com",
       "type": "builtin.email",
       "startIndex": 31,
-      "endIndex": 55
+      "endIndex": 55,
+      "resolution": {
+        "value": "patti.owens@microsoft.com"
+      }
     }
   ]
 }

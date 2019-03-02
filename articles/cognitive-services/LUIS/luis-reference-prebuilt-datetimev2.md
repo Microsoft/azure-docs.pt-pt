@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 02/28/2018
 ms.author: diberry
-ms.openlocfilehash: 59fbe18fe7a3cc5b9cf5b31f3e580382b9de08ff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1e029fe167e4f59777ef44d5c90c8ccdd0fd1f9a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879042"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216253"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>DatetimeV2 entidade criados previamente para uma aplicação LUIS
 
@@ -33,8 +33,8 @@ O exemplo seguinte resposta JSON tem um `datetimeV2` entidade com um subtipo de 
   {
     "entity": "8am on may 2nd 2017",
     "type": "builtin.datetimeV2.datetime",
-    "startIndex": 15,
-    "endIndex": 30,
+    "startIndex": 0,
+    "endIndex": 18,
     "resolution": {
       "values": [
         {

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b975d7dccc85973a42408d87e3c03a91aaf1c450
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: b0262ecbcc5a7f512c8779c230b2e2d4bb039842
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812758"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216684"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a sua aplicação do Azure IoT Central
 
@@ -30,13 +30,13 @@ Para executar os passos descritos neste artigo é necessário o seguinte:
 
 Pode adicionar imagens personalizadas para as seguintes localizações num aplicativo do Azure IoT Central:
 
-* O **Gerenciador de aplicativos** página
+* O **meus aplicativos** página
 
     ![Imagem na página do Gestor de aplicações](media/howto-prepare-images-experimental/applicationmanager.png)
 
-* A home page
+* O dashboard de aplicações
 
-    ![Imagem na home page](media/howto-prepare-images-experimental/homepage.png)
+    ![Imagem no dashboard de aplicações](media/howto-prepare-images-experimental/homepage.png)
 
 * Um modelo de dispositivo
 
@@ -60,7 +60,7 @@ A tabela seguinte resume os tamanhos de imagem, que pode usar:
 | -------- | ------ |
 | Gestor de aplicações | 268x160 px |
 | Modelo de dispositivos | 64x64 px |
-| Home page e mosaicos do dashboard | O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px |
+| Mosaicos do dashboard | O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px |
 
 Para uma melhor visualização no aplicativo, deve criar imagens que correspondem às dimensões mostradas na tabela anterior.
 
@@ -70,21 +70,21 @@ As secções seguintes descrevem como carregar as imagens em diferentes locais:
 
 ### <a name="application-manager"></a>Gestor de aplicações
 
-Para carregar uma imagem no **Gerenciador de aplicativos**, navegue para o **as definições da aplicação** página no **administração** secção. Tem de ser um administrador para concluir essa tarefa:
+Para carregar uma imagem a utilizar no **meus aplicativos** página, navegue para o **as definições da aplicação** página no **administração** secção. Tem de ser um administrador para concluir essa tarefa:
 
 ![Carregar a imagem de aplicação](media/howto-prepare-images-experimental/uploadapplicationmanager.png)
 
 Clique no mosaico de imagem de aplicação para carregar a sua imagem preparada (268 x 160 px) do seu computador local.
 
-### <a name="home-page"></a>Página de boas-vindas
+### <a name="application-dashboard"></a>Dashboard de aplicações
 
-Para carregar uma imagem na home page, navegue para o **home page** da sua aplicação e clique em **editar**. Tem de ser um construtor para concluir essa tarefa:
+Para carregar uma imagem no dashboard do aplicativo, navegue para o **Dashboard** página da sua aplicação e clique em **editar**. Tem de ser um construtor para concluir essa tarefa:
 
-![Carregar a imagem da página inicial](media/howto-prepare-images-experimental/uploadhomepage.png)
+![Carregar a imagem do dashboard](media/howto-prepare-images-experimental/uploadhomepage.png)
 
 Na imagem de configurar, clique no mosaico de imagem para carregar a sua imagem preparada do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
-**Guardar** a imagem carregada. Pode redimensioná-la no modo de edição. Clique em **feito** quando terminar. 
+**Guardar** a imagem carregada. Pode redimensioná-la no modo de edição. Clique em **feito** quando terminar.
 
 ### <a name="device-template"></a>Modelo de dispositivos
 
@@ -92,7 +92,7 @@ Para carregar uma imagem num modelo de dispositivo, navegue até **modelos de di
 
 ![Carregar a imagem de modelo do dispositivo](media/howto-prepare-images-experimental/uploaddevicetemplate.png)
 
-Clique no mosaico de imagem para carregar a sua imagem preparada (64 x 64 px) do seu computador local. 
+Clique no mosaico de imagem para carregar a sua imagem preparada (64 x 64 px) do seu computador local.
 
 ### <a name="device-dashboard"></a>Dashboard do dispositivo
 

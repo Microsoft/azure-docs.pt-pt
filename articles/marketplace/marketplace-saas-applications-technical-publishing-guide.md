@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: bd6c592f0d3d073ec2a05c8f4636086df01ddb06
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450750"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213624"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação da oferta de aplicações de SaaS
 
@@ -143,6 +143,9 @@ A Microsoft hospeda a transação de comércio. A Microsoft cobra o cliente em s
 |Cancelamento | A oferta é pode ser cancelada pelo cliente em qualquer altura. |  
 |Página de destino de transação | Alojar uma página de destino de transação de associação de marcas do Azure, onde os utilizadores podem criar e gerir as respetivas contas de serviço SaaS. |   
 | API de subscrição | Expor um serviço que pode interagir com a subscrição de SaaS para criar, atualizar e eliminar um plano de serviço e de conta de utilizador. Críticas de API de alterações têm de ser suportadas dentro de 24 horas. Alterações na API não críticas serão lançadas periodicamente. |  
+
+>[!Note]
+>Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora está disponível.  Veja [fornecedores de soluções Cloud](./cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Se ainda não fez isso,

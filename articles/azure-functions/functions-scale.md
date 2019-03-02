@@ -10,15 +10,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8d2d171235a23d3e41fda6172efe29b3bb358f0e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 1d385fd8c8388e3ce54b89ff2ac863cd5a1aa0df
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804183"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216140"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento de funções do Azure e alojamento
 
@@ -125,7 +125,8 @@ A unidade de escala é a aplicação de funções. Quando a aplicação de funç
 Dimensionamento pode variar em vários fatores e o dimensionamento de forma diferente, consoante o acionador e o idioma selecionado. No entanto, há alguns aspetos do dimensionamento que existem atualmente no sistema:
 
 * Uma aplicação de funções individual só é aumentada verticalmente para um máximo de 200 instâncias. Uma única instância pode processar mais do que uma mensagem ou pedido de cada vez, então não é um conjunto de limite no número de execuções simultâneas.
-* Novas instâncias só serão alocadas no máximo uma vez a cada 10 segundos.
+* Para acionadores de HTTP, novas instâncias serão apenas alocadas no máximo uma vez a cada 1 segundo.
+* Para acionadores de não-HTTP, novas instâncias serão apenas alocadas no máximo uma vez a cada 30 segundos.
 
 Acionadores diferentes também podem ter diferentes limites de dimensionamento, bem como documentado abaixo:
 

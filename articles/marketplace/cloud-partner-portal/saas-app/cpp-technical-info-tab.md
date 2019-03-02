@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0f6bbf5f235d6ae3e86114e583d55c502296470
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 383f65ea925a3575afd988e07784be643201c6b8
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895402"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214508"
 ---
 # <a name="saas-application-technical-info-tab"></a>Separador de informações técnicas de aplicação SaaS
 
@@ -73,6 +73,9 @@ A chamada para o campo de ação permite-lhe escolher a mensagem que aparece no 
 - Contactem-me
 
 Para obter mais informações sobre a chamada para opções de ação, consulte escolha uma opção de publicação.
+
+>[!Note]
+>Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora disponível.  Veja [fornecedores de soluções Cloud](../../cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

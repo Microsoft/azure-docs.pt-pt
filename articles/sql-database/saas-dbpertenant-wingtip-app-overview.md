@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: bbebfca1684cad600d7ef0cc1a4cff2201fdc07e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: c26f042cb749f9ab023e7033ea015b74d87ca92a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566158"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214117"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introdução às aplicações SaaS multi-inquilino que utiliza o padrão de base de dados por inquilino com a base de dados SQL
 
@@ -46,7 +46,7 @@ Depois de implementar a aplicação, explore os tutoriais seguintes, que têm po
 |[Implementar e explorar a aplicação Wingtip SaaS](saas-dbpertenant-get-started-deploy.md)|  Implementar e explorar a aplicação Wingtip SaaS com a sua subscrição do Azure. |
 |[Aprovisionar e catalogar inquilinos](saas-dbpertenant-provision-and-catalog.md)| Saiba como o aplicativo se conecta aos inquilinos ao utilizar uma base de dados do catálogo e, como o catálogo mapeia os inquilinos aos respetivos dados. |
 |[Monitorizar e gerir o desempenho](saas-dbpertenant-performance-monitoring.md)| Saiba como utilizar funcionalidades de monitorização de base de dados SQL e definir alertas quando os limiares de desempenho são excedidos. |
-|[Monitorizar com o Log Analytics do Azure](saas-dbpertenant-log-analytics.md) | Aprenda a usar [do Log Analytics](../log-analytics/log-analytics-overview.md) para monitorizar grandes quantidades de recursos em vários conjuntos. |
+|[Monitorizar com os registos do Azure Monitor](saas-dbpertenant-log-analytics.md) | Aprenda a usar [registos do Azure Monitor](../log-analytics/log-analytics-overview.md) para monitorizar grandes quantidades de recursos em vários conjuntos. |
 |[Restaurar um único inquilino](saas-dbpertenant-restore-single-tenant.md)| Saiba como restaurar uma base de dados do inquilino para um ponto anterior no tempo. Além disso, saiba como restaurar um banco de dados paralela, o que deixa a base de dados do inquilino existente online. |
 |[Gerir esquema de banco de dados do inquilino](saas-tenancy-schema-management.md)| Saiba como atualizar o esquema e atualizar dados de referência em todas as bases de dados do inquilino. |
 |[Executar consultas distribuídas de entre inquilinos](saas-tenancy-cross-tenant-reporting.md) | Criar uma base de dados de análise ad hoc e executar consultas distribuídas em tempo real em todos os inquilinos.  |

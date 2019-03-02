@@ -3,18 +3,18 @@ title: Criar uma aplicação do Azure IoT Central | Microsoft Docs
 description: Crie uma nova aplicação do Azure IoT Central. Utilize um modelo de aplicação para criar uma aplicação de avaliação ou pay as you go.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 02/20/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b02ca043539067061e8b7fec0e002d7d21290c38
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e538d0caf82d67314834a630d53dd03f2c1a11bd
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55823539"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216599"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Criar uma aplicação do Azure IoT Central
 
@@ -46,7 +46,7 @@ Para criar uma nova aplicação do Azure IoT Central:
 
 1. Se estiver a criar uma aplicação **Pay As You Go**, tem de selecionar o *Diretório*, a *Subscrição do Azure* e a *Região*. 
 
-    - O *Diretório* é o diretório do Azure Active Directory utilizado para criar a aplicação. Contém identidades de utilizadores, credenciais e outras informações organizacionais. Se não tiver um diretório do AAD, é gerado um por si quando criar uma subscrição do Azure.
+    - *Diretório* é o Azure Active Directory (AD) para criar a sua aplicação. Contém identidades de utilizadores, credenciais e outras informações organizacionais. Se não tiver um Azure AD, é criada uma para quando cria uma subscrição do Azure.
 
     - A *Subscrição do Azure* permite-lhe criar instâncias de serviços do Azure. O IoT Central aprovisiona os recursos na sua subscrição. Se não tiver uma subscrição do Azure, pode criá-la na [página de inscrição do Azure](https://aka.ms/createazuresubscription). Depois de criar a subscrição, regresse à página **Create Application** (Criar Aplicação). A subscrição nova aparece no menu pendente **Azure Subscription** (Subscrição do Azure).
 

@@ -4,8 +4,8 @@ description: Saiba mais sobre a utilização do SSH com o serviço de aplicaçõ
 keywords: serviço de aplicações do Azure, aplicação web, linux, oss
 services: app-service
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: wesmc
+ms.date: 02/25/2019
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 9a05769b4cfd4bcaca0df9e1af1816d99f78bc62
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3b3a4b6767855fa2f7ba595072b187b7a8bff400
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984480"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216004"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte SSH para o serviço de aplicações do Azure no Linux
 
@@ -111,18 +111,6 @@ Através de TCP de túnel, podem criar uma ligação de rede entre o computador 
 
 Para começar, tem de instalar [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Para ver como ele funciona sem instalar a CLI do Azure, abra [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-Adicione a extensão de serviço de aplicações mais recentes, executando [Adicionar extensão az](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
-
-```azurecli-interactive
-az extension add --name webapp
-```
-
-Se já passaram `az extension add` anteriormente, execute [atualização da extensão az](/cli/azure/extension?view=azure-cli-latest#az-extension-update) em vez disso:
-
-```azurecli-interactive
-az extension update --name webapp
-```
-
 Abrir uma ligação remota à sua aplicação com o [az webapp remoto-ligação criar](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) comando. Especifique  _\<subscrição\_id >_,  _\<grupo\_nome >_ e \_< aplicação\_nome > _ para a sua aplicação.
 
 ```azurecli-interactive
@@ -167,7 +155,7 @@ A P P   S E R V I C E   O N   L I N U X
 0e690efa93e2:~#
 ```
 
-Está agora ligado ao conector. 
+Está agora ligado ao conector.  
 
 Tente executar o [superior](https://ss64.com/bash/top.html) comando. Deve ser capaz de ver o processo da sua aplicação na lista de processos. O resultado de exemplo abaixo, é aquele com `PID 263`.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ead303257b0b5a4b56803abe57a0101b8f031c0
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 9623cf727998348c313b7184c29e968afd33c6cc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589116"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214151"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registo de informações de segurança para ativar combinado (pré-visualização)
 
@@ -38,6 +38,9 @@ Conclua os seguintes passos para ativar o registo combinado:
 3. Sob **os utilizadores podem utilizar funcionalidades para registar e gerir informações de segurança de pré-visualização - atualizar**, optar por ativar para um **selecionados** grupo de utilizadores ou para **todos os** utilizadores.
 
 ![Ativar a experiência de pré-visualização de informações de segurança combinado para todos os utilizadores no portal do Azure AD](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+
+> [!IMPORTANT]
+> A partir de Março de 2019 as opções de chamada telefónica não estarão disponível para os utilizadores do MFA e o SSPR em inquilinos gratuitos/avaliação do Azure AD. Mensagens SMS não são afetadas por esta alteração. Chamada telefónica continuará a estar disponíveis para os utilizadores na pago inquilinos do Azure AD. Esta alteração só afeta o inquilinos gratuitos/avaliação do Azure AD.
 
 > [!NOTE]
 > Uma vez ativar registo combinado, os utilizadores que registar ou confirmar o que seu número de telefone ou a aplicação móvel através da nova experiência pode utilizá-los para a MFA e o SSPR, se esses métodos estão ativados nas políticas do MFA e o SSPR. Se, em seguida, desativa essa experiência, os utilizadores que vão para o registo SSPR anterior página em [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) terão de efetuar a autenticação multifator para poderem aceder a página.

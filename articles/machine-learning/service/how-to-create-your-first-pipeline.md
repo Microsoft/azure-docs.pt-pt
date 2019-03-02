@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5d453fbacb44105c491c9e69085a219099943fa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: b1544d73478f30c7501e76a8e20975f975f9708d
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326913"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215052"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Criar e executar um pipeline de machine learning com o Azure Machine Learning SDK
 
@@ -234,7 +234,7 @@ except ComputeTargetException:
 
 ## <a id="steps"></a>Construir suas etapas de pipeline
 
-Depois de criar e anexar um destino de computação à sua área de trabalho, está pronto para definir um passo de pipeline. Existem muitos passos internos disponível através do SDK do Azure Machine Learning. As mais básicas destes passos é uma [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que executa um script de Python num destino de computação especificado.
+Depois de criar e anexar um destino de computação à sua área de trabalho, está pronto para definir um passo de pipeline. Existem muitos passos internos disponível através do SDK do Azure Machine Learning. As mais básicas destes passos é uma [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py), que executa um script de Python num destino de computação especificado:
 
 ```python
 trainStep = PythonScriptStep(
@@ -281,6 +281,8 @@ steps = [dbStep]
 pipeline1 = Pipeline(workspace=ws, steps=steps)
 ```
 
+Para obter mais informações, consulte a [pacote de passos de pipeline do azure](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) e [Pipeline classe](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) referência.
+
 ## <a name="submit-the-pipeline"></a>Submeter o pipeline
 
 Quando submete o pipeline, o serviço Azure Machine Learning verifica as dependências para cada passo e carrega um instantâneo do diretório de origem que especificou. Se não for especificado nenhum diretório de origem, o atual diretório de local é carregado.
@@ -302,6 +304,8 @@ Quando executa primeiro um pipeline, o Azure Machine Learning:
 * Cria artefatos, como registos, stdout e stderr, métricas e especificado pelo passo de saída. Estes artefactos, em seguida, são carregados e mantidos no armazenamento de dados do usuário padrão.
 
 ![Diagrama da execução de uma experimentação como um pipeline](./media/how-to-create-your-first-pipeline/run_an_experiment_as_a_pipeline.png)
+
+Para obter mais informações, consulte a [experimentar classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) referência.
 
 ## <a name="publish-a-pipeline"></a>Publicar um pipeline
 

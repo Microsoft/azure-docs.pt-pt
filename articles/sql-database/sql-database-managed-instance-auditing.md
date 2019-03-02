@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 452811cae74253570591e5ffe2c58708fe632b39
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 28891c103df91baa16b895ece7909658fede3b91
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894399"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213318"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria da instância de base de dados do SQL do Azure gerido
 
@@ -158,9 +158,9 @@ Para obter informações adicionais:
 - [CRIAR A AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
-## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Configurar a auditoria para o seu servidor para o Hub de eventos ou o Log Analytics
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurar a auditoria para o seu servidor para os registos do Hub de eventos ou do Azure Monitor
 
-Registos de auditoria a partir de uma instância gerida podem ser enviados para o mesmo Hubs ou o Log Analytics através do Azure Monitor. Esta secção descreve como configurar esta opção:
+Registos de auditoria a partir de uma instância gerida podem ser enviados para o mesmo Hubs ou registos do Azure Monitor. Esta secção descreve como configurar esta opção:
 
 1. Navegue no [Portal do Azure](https://portal.azure.com/) para a instância gerida.
 
@@ -170,7 +170,7 @@ Registos de auditoria a partir de uma instância gerida podem ser enviados para 
 
 4. Selecione **SQLSecurityAuditEvents** na lista de registos.
 
-5. Selecione um destino para os eventos de auditoria - Hub de eventos, o Log Analytics ou ambos. Para cada destino, configure os parâmetros necessários (por exemplo, área de trabalho do Log Analytics).
+5. Selecione um destino para os eventos de auditoria - Hub de eventos, registos do Azure Monitor ou ambos. Para cada destino, configure os parâmetros necessários (por exemplo, área de trabalho do Log Analytics).
 
 6. Clique em **Guardar**.
 
@@ -213,11 +213,13 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
 Para consumir dados de registos de auditoria do Hub de eventos, terá de configurar um fluxo para consumir eventos e escrevê-los para um destino. Para obter mais informações, consulte a documentação de Hubs de eventos do Azure.
 
-### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>Consumir e analisar registos armazenados no Log Analytics
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Consumir e analisar registos armazenados nos registos do Azure Monitor
 
-Se os registos de auditoria são escritos para o Log Analytics, estão disponíveis na área de trabalho do Log Analytics, onde pode executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue para o Log Analytics e, em *gerais* secção clique *registos* e introduza uma consulta simples, tais como: `search "SQLSecurityAuditEvents"` para ver a auditoria de registos.  
+Se os registos de auditoria são escritos nos registos do Azure Monitor, estão disponíveis na área de trabalho do Log Analytics, onde pode executar pesquisas avançadas nos dados de auditoria. Como ponto de partida, navegue para a área de trabalho do Log Analytics e, em *gerais* secção clique *registos* e introduza uma consulta simples, tais como: `search "SQLSecurityAuditEvents"` para ver a auditoria de registos.  
 
-O log Analytics dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa do Log Analytics, consulte [referência de pesquisa do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Registos de Monitor do Azure dá-lhe as informações operacionais em tempo real através da pesquisa integrada e dashboards personalizados para analisar, prontamente, milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações adicionais úteis sobre comandos e linguagem de pesquisa de registos do Azure Monitor, consulte [referência de pesquisa de registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Auditoria de diferenças entre bases de dados na base de dados do Azure SQL e bancos de dados no SQL Server
 
@@ -232,7 +234,7 @@ Auditoria de XEvent na instância gerida suporta destinos de armazenamento de Bl
 A chave de diferenças no `CREATE AUDIT` sintaxe de auditoria para o armazenamento de Blobs do Azure são:
 
 - Uma nova sintaxe `TO URL` é fornecido e permite-lhe especificar o URL do contentor de armazenamento de Blobs do Azure onde o `.xel` ficheiros são colocados.
-- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecida para ativar os destinos de até mesmo Hub e o Log Analytics.
+- Uma nova sintaxe `TO EXTERNAL MONITOR` é fornecido para permitir que até mesmo Hub e o Azure Monitor destinos de registos.
 - A sintaxe `TO FILE` é **nepodporuje** porque a base de dados SQL não é possível aceder a partilhas de ficheiros do Windows.
 - É a opção Encerrar **nepodporuje**.
 - `queue_delay` 0 é **nepodporuje**.

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
-ms.openlocfilehash: 98b2c0bc27336e9ee5fe9aaf6332d9854e9af4de
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5689cdb2e9f8028f8e1e05a9b43cc00719701fce
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650296"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213913"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -231,6 +231,26 @@ VNet peering (ou peering da rede virtual) permite-lhe ligar redes virtuais. Uma 
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Pode criar uma ligação de peering para uma VNet numa região diferente?
 Sim. Global VNet peering permite-lhe configurar o peering entre VNets em diferentes regiões. Global VNet peering está disponível em todas as regiões públicas do Azure e regiões de cloud da China. Não é possível globalmente emparelhamento de regiões públicas do Azure para as regiões de cloud nacional. Global peering não está atualmente disponível na cloud do Governo.
+
+### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quais são as restrições relacionadas com a Global VNet Peering e Balanceadores de carga?
+Se as duas redes virtuais estiverem numa região diferente (Global VNet Peering), é possível ligar a recursos que utilizar o Balanceador de carga básico. Pode ligar a recursos que utilizam o Balanceador de carga Standard.
+Os seguintes recursos utilizam balanceadores de carga básico, que significa que não consegue comunicar aos mesmos através de Global VNet Peering:
+- VMs por trás de balanceadores de carga básico
+- Conjuntos de dimensionamento de VM com balanceadores de carga básico 
+- Cache de Redis 
+- Gateway de aplicação (v1) SKU
+- Service Fabric
+- SQL Always on
+- SQL MI
+- Gestão de API
+- AD DS
+- Aplicações Lógicas
+- HD Insight
+-   Azure Batch
+- AKS
+- Ambiente do Serviço de Aplicações
+
+Pode ligar a estes recursos através do ExpressRoute ou VNet a VNet através de Gateways de VNet.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Posso habilitar o VNet Peering se meu redes virtuais pertencem a subscrições dentro de diferentes inquilinos do Azure Active Directory?
 Sim. É possível estabelecer o VNet Peering (sejam locais ou globais) se as suas subscrições pertencem a diferentes inquilinos do Azure Active Directory. Pode fazê-lo através do PowerShell ou CLI. Portal ainda não é suportado.

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: d2093c5b4c07e6e62df4d1f52a7fbe6e12a91ea0
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342309"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217058"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no armazém de dados SQL do Azure
 
@@ -131,7 +131,7 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
     4. O ficheiro mesclado é aberta no SSMS, onde pode ver e analisá-lo, bem como exportá-lo para um ficheiro XEL ou CSV ou para uma tabela.
 
-* Utilize o [sincronizar aplicações](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que criamos. Ele é executado no Azure e utiliza as APIs públicas do Log Analytics para enviar registos de auditoria SQL para o Log Analytics. A aplicação de sincronização envia registos de auditoria SQL para o Log Analytics para consumo por meio do dashboard do Log Analytics.
+* Utilize o [sincronizar aplicações](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que criamos. Ele é executado no Azure e utiliza o log analytics registos de auditoria de APIs públicas para enviar por push SQL sobre os registos do Azure Monitor. A aplicação de sincronização envia registos de auditoria SQL para registos do Azure Monitor para consumo através do dashboard de análise de registo.
 
 * Utilize o Power BI. Pode ver e analisar dados de registo de auditoria no Power BI. Saiba mais sobre [Power BI e o acesso de um modelo que pode ser baixado](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 

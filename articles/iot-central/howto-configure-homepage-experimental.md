@@ -1,47 +1,50 @@
 ---
-title: Configurar a home page da sua aplicação do Azure IoT Central | Documentos da Microsoft
-description: Como um construtor, saiba como configurar a home page da sua aplicação do Azure IoT Central.
+title: Configurar o dashboard de aplicações do Azure IoT Central | Documentos da Microsoft
+description: Como um construtor, saiba como configurar o dashboard de aplicações do Azure IoT Central do padrão.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/05/2019
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 599616f046b2eccee009e8a08e8a2f51cf968644
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 5d769de62ccae1b1480e4da9e9643b63633073a4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55773826"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215562"
 ---
-# <a name="configuring-homepage"></a>Configurar a home page
+# <a name="configure-the-application-dashboard"></a>Configurar o dashboard de aplicações
 
-A home page é a página que carrega quando os utilizadores que têm acesso à aplicação, navegue até ao URL da aplicação. Se tiver selecionado o "Exemplo de Contoso" ou "Exemplo Devkits" modelos de aplicativos durante a criação de seu aplicativo, seu aplicativo irá ter previamente definido Home Pages. Se por outro lado, tiver selecionado o modelo de aplicativo de "Aplicativo personalizado", sua home page estará em branco.
+O **Dashboard** é a página que carrega quando os utilizadores que têm acesso à aplicação, navegue até ao URL da aplicação. Se tiver selecionado um a **Contoso de exemplo** ou **exemplo Devkits** o modelo de aplicativo para criar a sua aplicação, seu aplicativo tem um dashboard predefinido. Se tiver escolhido o **aplicativo personalizado** o modelo de aplicativo, o seu dashboard está em branco.
+
+> [!NOTE]
+> Os utilizadores também podem [criar seus próprios dashboards pessoais](howto-personalize-dashboard-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) para utilizar em vez do dashboard de aplicações predefinido.
 
 ## <a name="add-tiles"></a>Adicionar mosaicos
 
-Por exemplo, segue-se a página inicial para aplicativos com base no modelo de "Exemplo Contoso". Para personalizar a home page para a sua aplicação, primeiro selecione **editar** no canto superior direito. 
+Captura de ecrã seguinte mostra o dashboard numa aplicação criada a partir da **exemplo Contoso** modelo. Para personalizar o dashboard predefinido para a sua aplicação, clique em **editar** na parte superior direita da página.
 
-![Home page para aplicações com base no modelo de "Exemplo Contoso"](media/howto-configure-homepage-experimental/image1.png)
+![Dashboard de aplicações com base no modelo de "Exemplo Contoso"](media/howto-configure-homepage-experimental/image1.png)
 
-Selecionando **editar**, abrirá a biblioteca do dashboard num painel à esquerda. Existem muitos tipos de mosaicos e primitivos de dashboard que podem ser adicionados para personalizar a sua home page.
+Clicar **editar**, abre o painel de biblioteca do dashboard. A biblioteca contém os mosaicos e primitivos de dashboard, que pode utilizar para personalizar o dashboard.
 
 ![Biblioteca do dashboard](media/howto-configure-homepage-experimental/image2.png)
 
-Por exemplo, pode adicionar um **definições e propriedades** mosaico para mostrar uma seleção dos valores atuais das definições e propriedades. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Depois que fornecem o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. Neste caso, selecionámos **definir a temperatura**. Clicar **feito** fará com que este mosaico apareça na home page.
+Por exemplo, pode adicionar um **as definições e propriedades** mosaico para mostrar uma seleção dos valores de propriedades e definições atuais de um dispositivo. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Depois que fornecem o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. Captura de ecrã seguinte mostra as definições e propriedades selecionadas a adicionar ao mosaico. Clique em **feito** para guardar a alteração ao dashboard.
 
 ![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](media/howto-configure-homepage-experimental/image3.png)
 
-Agora quando um operador visualiza a home page, pode ver este mosaico que apresenta as propriedades ou as definições do dispositivo:
+Agora, quando um operador visualiza o dashboard de aplicações predefinido, verão o mosaico novo com o **definir a temperatura** definição para o dispositivo:
 
 ![Separador "Dashboard" com as definições apresentadas e propriedades para o mosaico](media/howto-configure-homepage-experimental/image4.png)
 
-Experimente os vários outros tipos de blocos na biblioteca para descobrir como pode personalizar a home page do seu aplicativo ainda mais.
+Pode explorar outros tipos de mosaico na biblioteca para saber como personalizar ainda mais o dashboard de aplicações predefinido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como configurar a sua home page do Azure IoT Central, pode:
+Agora que aprendeu como configurar o seu dashboard de aplicações padrão do Azure IoT Central, pode:
 
 > [!div class="nextstepaction"]
 > [Saiba como preparar e carregar imagens](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417640"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216939"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na cloud – gerenciamento de seus bancos de dados individuais e agrupados na base de dados do Azure SQL
 
@@ -261,9 +261,9 @@ Pode consultar o [DM db_resource_stats](/sql/relational-databases/system-dynamic
 
 ![Query Performance Insight](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-log-analytics"></a>Análise SQL do Azure (pré-visualização) no Log Analytics
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Registos de análise de SQL do Azure (pré-visualização) no Azure Monitor
 
-[O Azure Log Analytics](../azure-monitor/insights/azure-sql.md) permite-lhe recolher e visualizar as principais métricas de desempenho de SQL Azure do Azure, suporta até 150 000 bases de dados SQL e 5000 conjuntos elásticos SQL por área de trabalho. Pode usá-lo para monitorizar e receber notificações. Pode monitorizar métricas de conjunto elástico e de base de dados SQL em várias subscrições do Azure e conjuntos elásticos e pode ser utilizado para identificar problemas em cada camada de uma pilha de aplicação.
+[Registos de Monitor do Azure](../azure-monitor/insights/azure-sql.md) permite-lhe recolher e visualizar as principais métricas de desempenho de SQL Azure do Azure, suporta até 150 000 bases de dados SQL e 5000 conjuntos elásticos SQL por área de trabalho. Pode usá-lo para monitorizar e receber notificações. Pode monitorizar métricas de conjunto elástico e de base de dados SQL em várias subscrições do Azure e conjuntos elásticos e pode ser utilizado para identificar problemas em cada camada de uma pilha de aplicação.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Eu estou observar problemas de desempenho: Meu metodologia de resolução de problemas de base de dados SQL difere do SQL Server
 

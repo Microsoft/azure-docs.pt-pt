@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 74f6d5989d86cc92371b060caf164f895b75511f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 9d8b425ff73672ce8989e235c4a2c130c763716c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263633"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213556"
 ---
 # <a name="azure-saas-application-offer"></a>Oferta de aplicação SaaS do Azure
 
@@ -36,6 +36,9 @@ Alguns dos benefícios da listagem de seus aplicativos num mercado da Microsoft 
 - Expandir a sua equipa de vendas: alcançar utilizadores empresariais em todo o mundo e obter um canal de vendas que interage com os utilizadores finais, ajuda a gerar oportunidades potenciais e inicia conversas com os novos clientes em vários setores.
 
 - A obter informações acionáveis: partilharemos informações sobre como a execução da sua aplicação no AppSource, o que funciona bem e como melhorar ainda mais os seus procedimentos de vendas.
+ 
+>[!Note]
+>Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora está disponível.  Veja [fornecedores de soluções Cloud](../../cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais.
 
 ## <a name="publishing-process-workflow"></a>Fluxo de trabalho de processo publicação 
 

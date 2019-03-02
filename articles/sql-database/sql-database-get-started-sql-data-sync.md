@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 04bb32abf7100975d72e5782b79b44006f1ac965
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 4cd7c61903bad5c0f1d6c41165e9bd7ff61a6d09
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567932"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213437"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutorial: Configurar a sincronização de dados do SQL entre a base de dados do Azure SQL e SQL Server no local
 
@@ -232,7 +232,7 @@ Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
 - [Agente de sincronização de dados para sincronização de dados SQL do Azure](sql-database-data-sync-agent.md)
 - [Melhores práticas](sql-database-best-practices-data-sync.md) e [como resolver problemas com a sincronização de dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
-- [Monitorizar a sincronização de dados SQL com o Log Analytics](sql-database-sync-monitor-oms.md)
+- [Monitorizar a sincronização de dados SQL com os registos do Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Atualizar o esquema de sincronização com o Transact-SQL](sql-database-update-sync-schema.md) ou [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 Para obter mais informações sobre a Base de Dados SQL, veja:

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5be6acc28932cb3c7f0481b18cbcffae27c3ce13
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 1629e08d4ba1a7fd7cedb40b1e46d1bfd2766497
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002379"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215545"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho da base de SQL do Azure multi-inquilino em partição horizontal em aplicações SaaS multi-inquilino de
 
@@ -52,7 +52,7 @@ Gerir o desempenho da base de dados consiste em compilar e analisar dados de des
 
 O [portal do Azure](https://portal.azure.com) fornece monitorização e alertas incorporados na maior parte dos recursos. Base de dados SQL, monitorização e alertas estão disponível em bases de dados. Estes alertas e monitorização incorporados são específicos dos recursos, portanto, é útil para utilização em pequenos números de recursos, mas não é conveniente quando trabalha com muitos recursos.
 
-Para cenários de volume elevado, em que trabalha com muitos recursos, [do Log Analytics](https://azure.microsoft.com/services/log-analytics/) pode ser utilizado. Este é um serviço do Azure separado que fornece análises sobre os registos de diagnóstico emitidos e a telemetria recolhida numa área de trabalho do log analytics. O log Analytics pode recolher telemetria de muitos serviços e ser utilizado para consultar e definir alertas.
+Para cenários de volume elevado, em que trabalha com muitos recursos, [registos do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) pode ser utilizado. Este é um serviço do Azure separado que fornece análises sobre os registos de diagnóstico emitidos e a telemetria recolhida na área de trabalho do Log Analytics. Registos de Monitor do Azure podem recolher telemetria de muitos serviços e ser utilizados para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código de origem da aplicação de base de dados do Wingtip Tickets SaaS multi-inquilino e os scripts
 

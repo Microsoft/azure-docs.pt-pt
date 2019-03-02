@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175154"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215596"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Reposição de uma senha de autoatendimento do Azure AD completa implementação piloto
 
@@ -42,8 +42,8 @@ Neste tutorial, vai ativar uma implementação piloto de reposição personaliza
       * Certifique-se de que os utilizadores no grupo que escolheu estão adequadamente licenciados.
    * Clicar em **Guardar**
 1. Na página **Métodos de autenticação**
-   * Defina o **Número de métodos necessários para a reposição** como **2**
-   * Escolha os**Métodos disponíveis para os utilizadores** que a sua organização vai permitir. Neste tutorial, selecione as caixas para ativar **E-mail**, **Telemóvel** e **Telefone do emprego**.
+   * Definir o **número de métodos necessários para repor** para **1**
+   * Escolha os**Métodos disponíveis para os utilizadores** que a sua organização vai permitir. Para este tutorial, selecione as caixas para habilitar **E-Mail** e **código de aplicação móvel (pré-visualização)**.
    * Clicar em **Guardar**
 1. Na página **Registo**
    * Selecione **Sim** para **Exigir que os utilizadores se registem ao iniciar sessão**.

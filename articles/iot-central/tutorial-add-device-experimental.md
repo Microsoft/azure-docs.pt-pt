@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 1c79b7966a98946673d1a8f9daec42717dc27575
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 8792873407a6103134300f11b4dae002e4df107a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193046"
+ms.locfileid: "57216225"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 
@@ -52,11 +52,11 @@ Para adicionar um dispositivo real à sua aplicação, utilize o modelo de dispo
 
    O **Device Explorer** mostra o modelos de dispositivo **Ar Condicionado Ligado** e o dispositivo simulado que foi criado automaticamente quando o construtor criou o modelo de dispositivo.
 
-2. Para começar a ligar um dispositivo de ar condicionado ligado real, selecione **Novo** e, em seguida, **Real**:
+2. Para começar a ligar um dispositivo real conectado ar-condicionado, clique em **+**, em seguida, **Real**:
 
    ![Começar a adicionar um novo dispositivo de ar condicionado ligado real](media/tutorial-add-device-experimental/newreal.png)
 
-3. Introduza o ID do dispositivo (**deve ser escrito em minúsculas**) ou utilize o ID do dispositivo sugerido. Também pode introduzir o nome para o seu novo dispositivo e escolher **Criar**.  
+3. Introduza o Id de dispositivo (deve ser minúscula) ou utilizar o ID de dispositivo sugerido. Também pode introduzir o nome para o seu novo dispositivo e escolher **Criar**.
 
    ![Mudar o nome do dispositivo](media/tutorial-add-device-experimental/rename.png)
 
@@ -64,7 +64,7 @@ Para adicionar um dispositivo real à sua aplicação, utilize o modelo de dispo
 
 O dispositivo real é criado a partir do modelo de dispositivo **Ar Condicionado Ligado**. Pode utilizar as **Definições** para configurar o dispositivo e definir valores de propriedade para registar informações sobre o dispositivo.
 
-1. Na página **Definições**, tenha em atenção que o estado da definição **Definir Temperatura** é **sem atualização**. Permanece neste estado até o dispositivo real ligar à aplicação e reconhecer que agiu na definição. 
+1. Na página **Definições**, tenha em atenção que o estado da definição **Definir Temperatura** é **sem atualização**. Permanece neste estado até o dispositivo real ligar à aplicação e reconhecer que agiu na definição.
 
     ![As definições mostram a sincronização](media/tutorial-add-device-experimental/settingssyncing.png)
 
@@ -74,7 +74,7 @@ O dispositivo real é criado a partir do modelo de dispositivo **Ar Condicionado
 
 3. Pode ver as páginas **Medidas**, **Regras** e **Dashboard** para o dispositivo real.
 
-## <a name="generate-connection-string-for-real-device-from-application"></a>Gerar cadeia de ligação para o dispositivo real a partir da aplicação
+## <a name="generate-connection-string"></a>Gerar cadeia de ligação
 
 Um programador de dispositivos tem de incorporar a *cadeia de ligação* do dispositivo real no código executado no dispositivo. A cadeia de ligação permite ao dispositivo ligar de forma segura à sua aplicação do Azure IoT Central. Gere a cadeia de ligação como parte da preparação do código do cliente escrito no Node.js nos passos seguintes. A aplicação do Node.js representa o ar condicionado real ligado. 
 
@@ -119,7 +119,7 @@ Os passos seguintes mostram como preparar o exemplo em [Node.js](https://nodejs.
 1. Regresse ao ambiente de linha de comandos e gere a cadeia de ligação ao executar:
 
     ```cmd/sh
-    dps_keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
+    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
    Copie o resultado e guarde-o num novo ficheiro (por exemplo, connection.txt).
@@ -161,7 +161,7 @@ Os passos seguintes mostram como preparar o exemplo em [Node.js](https://nodejs.
 
 1. Guarde as alterações efetuadas até ao momento, mas mantenha o ficheiro aberto.
 
-## <a name="understand-how-client-code-maps-to-the-application"></a>Compreender a forma como o código de cliente mapeia para a aplicação
+## <a name="review-client-code"></a>Reveja o código de cliente
 
 Na secção anterior, criou um projeto em Node.js para uma aplicação que liga à sua aplicação do Azure IoT Central. Nesta secção, vai adicionar o código para:
 
@@ -298,7 +298,7 @@ Na secção anterior, criou um projeto em Node.js para uma aplicação que liga 
 
 1. Guarde as alterações efetuadas até ao momento, mas mantenha o ficheiro aberto.
 
-## <a name="configure-client-code-for-the-real-device"></a>Configurar o código de cliente para o dispositivo real
+## <a name="configure-client-code"></a>Configurar código de cliente
 
 <!-- Add the connection string to the sample code, build, and run --> Para configurar o código de cliente para ligar à sua aplicação do Azure IoT Central, tem de adicionar a cadeia de ligação para o dispositivo real que anotou anteriormente no tutorial.
 
@@ -327,7 +327,7 @@ Na secção anterior, criou um projeto em Node.js para uma aplicação que liga 
 
 1. Após cerca de 30 segundos, é apresentada a telemetria na página do dispositivo **Medidas**:
 
-   ![Telemetria real](media/tutorial-add-device-experimental/realtelemetry.png)
+   ![Real ~ ~ telemetria](media/tutorial-add-device-experimental/realtelemetry.png)
 
 1. Na página **Definições**, pode ver que a definição está agora sincronizada. Quando o dispositivo foi ligado pela primeira vez, recebeu o valor da definição e confirmou a alteração:
 

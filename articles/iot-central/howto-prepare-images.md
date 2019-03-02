@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f0e4d1badd0ed992c96f6624813e575d0f286d8b
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198614"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216803"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a sua aplicação do Azure IoT Central
 
@@ -34,9 +34,9 @@ Pode adicionar imagens personalizadas para as seguintes localizações num aplic
 
     ![Imagem na página do Gestor de aplicações](media/howto-prepare-images/applicationmanager.png)
 
-* A home page
+* O dashboard de aplicações
 
-    ![Imagem na home page](media/howto-prepare-images/homepage.png)
+    ![Imagem no dashboard de aplicações](media/howto-prepare-images/homepage.png)
 
 * Um modelo de dispositivo
 
@@ -58,9 +58,9 @@ A tabela seguinte resume os tamanhos de imagem, que pode usar:
 
 | Localização | Tamanhos |
 | -------- | ------ |
-| Gestor de Aplicações | 268 x 160 px |
-| Modelo de dispositivos | 64 x 64 px |
-| Home page e mosaicos do dashboard | O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px |
+| Gestor de aplicações | 268x160 px |
+| Modelo de dispositivos | 64x64 px |
+| Mosaicos do dashboard | O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px |
 
 Para uma melhor visualização no aplicativo, deve criar imagens que correspondem às dimensões mostradas na tabela anterior.
 
@@ -76,11 +76,11 @@ Para carregar uma imagem no **Gerenciador de aplicativos**, navegue para o **as 
 
 Clique no mosaico de imagem de aplicação para carregar a sua imagem preparada (268 x 160 px) do seu computador local.
 
-### <a name="home-page"></a>Página de boas-vindas
+### <a name="application-dashboard"></a>Dashboard de aplicações
 
-Para carregar uma imagem na home page, navegue para o **home page** da sua aplicação e clique em **editar**. Tem de ser um construtor para concluir essa tarefa:
+Para carregar uma imagem no dashboard do aplicativo, navegue para o **Dashboard** da sua aplicação e clique em **editar**. Tem de ser um construtor para concluir essa tarefa:
 
-![Carregar a imagem da página inicial](media/howto-prepare-images/uploadhomepage.png)
+![Carregar a imagem do dashboard de aplicações](media/howto-prepare-images/uploadhomepage.png)
 
 Na imagem de configurar, clique no mosaico de imagem para carregar a sua imagem preparada do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 

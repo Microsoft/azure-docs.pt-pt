@@ -3,17 +3,17 @@ title: Administrar uma aplicação do Azure IoT Central | Documentos da Microsof
 description: Como um administrador, como administrar a sua aplicação do Azure IoT Central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b43e496323da75dfc63f889283257fac41f48abf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 8989d6ef54961f5f8eea7c6d8c9d941319bd917a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117736"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215411"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrar a sua aplicação do Centro de IoT
 
@@ -44,7 +44,7 @@ Na **as configurações do aplicativo** página, pode alterar o nome e o URL do 
 Para alterar a imagem de aplicação, consulte [preparar e carregar imagens para a sua aplicação do Azure IoT Central](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ### <a name="copy-an-application"></a>Copiar uma aplicação
-Pode criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dispositivo, o histórico de dados do dispositivo e dados de utilizador. A cópia será um aplicativo de pay as you go, que lhe será cobrado. Não é possível criar uma aplicação de avaliação desta forma.
+Pode criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dispositivo, o histórico de dados do dispositivo e dados de utilizador. A cópia é um aplicativo de pay as you go, que lhe será cobrado. Não é possível criar uma aplicação de avaliação desta forma.
 
 Clique nas **cópia** botão. Na caixa de diálogo, introduza os detalhes para a nova aplicação de pay as you go. Em seguida, clique nas **cópia** botão para confirmar que pretende prosseguir. Saiba mais sobre os campos neste formulário na [criar uma aplicação](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) início rápido.
 
@@ -62,7 +62,7 @@ Depois da operação de cópia da aplicação for bem-sucedida, pode ir para a n
 > [!Note]
 > Para eliminar uma aplicação, também tem de ter permissões para eliminar recursos na subscrição do Azure que escolheu quando criou a aplicação. Para obter mais informações, consulte [utilizar o controlo de acesso baseado em funções para gerir o acesso aos recursos da sua subscrição do Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-Utilize o **eliminar** botão Eliminar permanentemente a sua aplicação IoT Central. Isso vai eliminar permanentemente todos os dados que está associada essa aplicação.
+Utilize o **eliminar** botão Eliminar permanentemente a sua aplicação IoT Central. Fazê-lo permanentemente elimina todos os dados que está associada essa aplicação.
 
 ## <a name="manage-users"></a>Gerir utilizadores
 
@@ -95,7 +95,7 @@ Para eliminar os utilizadores, selecione uma ou mais caixas de verificação sob
 
 ## <a name="manage-roles"></a>Gerir funções
 
-As funções permitem controlar quem na sua organização pode efetuar várias tarefas no IoT Central. Existem três funções, que pode atribuir aos utilizadores da sua aplicação. 
+As funções permitem controlar quem na sua organização pode efetuar várias tarefas no IoT Central. Existem três funções, que pode atribuir aos utilizadores da sua aplicação.
 
 ### <a name="administrator"></a>Administrador
 
@@ -111,7 +111,6 @@ Os utilizadores a **Application Builder** função pode fazer tudo num aplicativ
 
 Os utilizadores a **operador aplicações** função não pode efetuar alterações aos modelos de dispositivo e não pode administrar o aplicativo. Isso significa que operadores podem adicionar e eliminar dispositivos, gerir conjuntos de dispositivos e executar tarefas e de análise. Operadores não terão acesso para o **Application Builder** e **administração** páginas.
 
-
 ## <a name="view-your-bill"></a>Veja a sua fatura
 
 Para ver a sua fatura, vá para o **faturação** página no **administração** secção. A página de faturação do Azure é aberto num novo separador, onde pode ver a fatura para cada uma das suas aplicações do Azure IoT Central.
@@ -124,14 +123,14 @@ Pode converter a sua aplicação de avaliação para uma aplicação de pay as y
 - As aplicações **Pay As You Go** são cobradas por dispositivo, sendo os primeiros cinco gratuitos.
 
 Saiba mais sobre os preços na [página de preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
-    
+
 Para concluir este processo self-service, siga estes passos:
 
-1. Vá para o **faturação** página no **administração** secção. 
+1. Vá para o **faturação** página no **administração** secção.
 
     ![Estado de avaliação](media/howto-administer-experimental/freetrialbilling.png)
 
-1. Clique em **converter para pay as you go**. 
+1. Clique em **converter para pay as you go**.
 
     ![Converter a versão de avaliação](media/howto-administer-experimental/convert.png)
 

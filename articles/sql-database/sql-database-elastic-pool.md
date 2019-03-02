@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 02/28/2019
+ms.openlocfilehash: dd06ae6046ab96d95cf1c1907c74d0b4d9a843bb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963850"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214338"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>O ajudam a gerir e dimensionar várias bases de dados SQL do Azure de conjuntos elásticos
 
@@ -200,6 +200,20 @@ Por predefinição, o gráfico na **utilização de recursos de bases de dados**
 Também pode selecionar métricas mais para exibição lado a lado nesta tabela de base de dados para obter uma visão mais completa do seu desempenho de bases de dados.
 
 Para obter mais informações, consulte [criar alertas de base de dados SQL no portal do Azure](sql-database-insights-alerts-portal.md).
+
+## <a name="customer-case-studies"></a>Casos práticos de clientes
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  A SnelStart utilizado conjuntos elásticos com o Azure SQL Database para expandir rapidamente os seus serviços empresariais a uma taxa de 1000 novas de dados SQL Azure por mês.
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco utiliza conjuntos elásticos com o Azure SQL Database para os serviços rapidamente aprovisionar e Dimensionar para milhares de inquilinos na nuvem.
+
+- [Daxko/CSI](http://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+
+  Daxko/CSI utiliza conjuntos elásticos com o SQL Database do Azure para acelerar o seu ciclo de desenvolvimento e para melhorar o serviço ao cliente e o desempenho.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

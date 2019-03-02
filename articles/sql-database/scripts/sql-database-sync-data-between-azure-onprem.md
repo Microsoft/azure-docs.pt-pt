@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 74f89778ffa1715c5434b6bfe8191b3373a311ca
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4d00d3f12f0baf1bb63b3ff3c803e591be45ac8c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452350"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215256"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL e uma base de dados do SQL Server no local
 
@@ -399,7 +399,7 @@ Para obter mais informações sobre a Sincronização de Dados SQL, veja:
         -  [Utilizar o PowerShell para sincronizar entre várias bases de dados SQL do Azure](sql-database-sync-data-between-sql-databases.md)
 -   Agente de - de sincronização de dados [agente de sincronização de dados SQL do Azure de sincronização de dados](../sql-database-data-sync-agent.md)
 -   Melhores práticas - [melhores práticas para a sincronização de dados SQL do Azure](../sql-database-best-practices-data-sync.md)
--   Monitor de - [monitorizar a sincronização de dados SQL com o Log Analytics](../sql-database-sync-monitor-oms.md)
+-   Monitor de - [registos de monitorizar a sincronização de dados de SQL com o Azure Monitor](../sql-database-sync-monitor-oms.md)
 -   Resolução de problemas - [solucionar problemas com a sincronização de dados SQL do Azure](../sql-database-troubleshoot-data-sync.md)
 -   Atualizar o esquema de sincronização
     -   Com o Transact-SQL - [automatizar a replicação das alterações de esquema na sincronização de dados SQL do Azure](../sql-database-update-sync-schema.md)

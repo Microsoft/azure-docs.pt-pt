@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 82d072cc6f86ae758bd0fdd4d02b68b1ac1de53a
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 6d86d4c03a41834322c98438958c0b9e87e6025c
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097155"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213530"
 ---
 # <a name="azure-application-offer"></a>Oferta de aplicação do Azure
 
@@ -44,6 +44,9 @@ Existem dois tipos de aplicações do Azure: geridos aplicativos e modelos de so
 
 Para além do Azure Marketplace, também pode oferecer aplicativos gerenciados num catálogo de serviços. O catálogo de serviços é um catálogo interno de soluções aprovadas para os utilizadores de uma organização. Utilizar o catálogo para atender aos padrões organizacionais, oferecendo soluções para grupos de uma organização. Os funcionários utilizam o catálogo para localizar facilmente aplicações que são recomendadas e aprovadas pelos departamentos de TI.
 
+>[!Note]
+>Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora está disponível.  Veja [fornecedores de soluções Cloud](../../cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais.
+
 Para obter mais informações sobre as vantagens e os tipos de aplicativos gerenciados, consulte a [descrição geral de aplicativos de geridas do Azure](https://docs.microsoft.com/azure/managed-applications/overview).
 
 
@@ -64,7 +67,6 @@ Os passos de alto nível para publicar uma oferta de aplicação do Azure são:
 3. [Criar o SKU](./cpp-skus-tab.md) -criar o SKU (s) associado com a oferta. Um SKU exclusivo é necessário para cada imagem que pretende publicar.
 
 4. Certificar e [publicar a oferta](./cpp-publish-offer.md) -depois da oferta e os ativos técnicos são concluídos, pode enviar a oferta. Esta submissão inicia o processo de publicação. Durante este processo, a solução é testada, validado, certified, em seguida, "entrar no ar" no Azure Marketplace.
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

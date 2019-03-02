@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 24e159ea2cccfdaab9c732835506a1a22abab134
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 68fb7678fac2a0a32278e813d03a0eebd20565ec
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869157"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216055"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta de registo é criada no Azure](alerts-log.md), tem a opção de [configurar a utilização de grupos de ação](action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e os detalhes sobre como configurar o webhook com base em JSON personalizado.
@@ -78,9 +78,6 @@ Para incluir os resultados da pesquisa num payload personalizado, certifique-se 
 ## <a name="sample-payloads"></a>Cargas de exemplo
 Esta secção mostra o payload de exemplo do webhook para alertas de registo, incluindo a carga é padrão e quando seu custom.
 
-> [!NOTE]
-> Para garantir a compatibilidade com versões anteriores, é o mesmo que o payload do webook padrão para os alertas com o Azure Log Analytics [gestão de alertas do Log Analytics](alerts-metric.md). Mas para os alertas de registo utilizando [Application Insights](../../azure-monitor/app/analytics.md), o payload do webook standard baseia-se no esquema do grupo de ação.
-
 ### <a name="standard-webhook-for-log-alerts"></a>Padrão Webhook para alertas de registo 
 Ambos estes exemplos tiveram indicado um payload fictício com apenas duas colunas e linhas de duas.
 
@@ -118,7 +115,11 @@ Segue-se um payload de exemplo para uma ação padrão de webhook *sem opção d
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> Valor do campo de gravidade poderá ser alterado se tiver [mudado a sua preferência de API](alerts-log-api-switch.md) para alertas de registos no Log Analytics.
+
 
 #### <a name="log-alert-for-azure-application-insights"></a>Alerta de registo para o Azure Application Insights
 Segue-se um payload de exemplo para um webhook padrão *sem opção de Json personalizada* quando utilizada para a aplicação com base em insights-alertas de registo.
@@ -154,7 +155,7 @@ Segue-se um payload de exemplo para um webhook padrão *sem opção de Json pers
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }

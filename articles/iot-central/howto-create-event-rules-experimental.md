@@ -3,17 +3,17 @@ title: Criar e gerir regras de evento na sua aplicação do Azure IoT Central | 
 description: As regras de eventos do Azure IoT Central permitem-lhe monitorizar os seus dispositivos em tempo real e invocar ações, tal como enviar um e-mail quando a regra for acionada automaticamente.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8655265f5f793741c2d563d1e79d4565700e0128
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 937f8fe09cae6284b318201657cf112138ac17c7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768533"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217228"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de evento e configure as notificações na sua aplicação do Azure IoT Central
 
@@ -27,29 +27,21 @@ Dispositivos podem utilizar a medição de eventos para enviar eventos de dispos
 
 Para criar uma regra de evento, o modelo do dispositivo tem de ter definida de medição, pelo menos, um evento. Este exemplo utiliza um dispositivo de refrigerated de venda automática de máquina que reporta um evento de erro motor ventoinha. A regra monitoriza o evento comunicado pelo dispositivo e envia um e-mail sempre que o evento é comunicado.
 
-1. Com o Device Explorer, navegue para o modelo de dispositivo para o qual está a adicionar a regra para.
-
-1. Sob o modelo selecionado, clique num dispositivo existente.
-
-    >[!TIP] 
-    >Se o modelo não tem todos os dispositivos, em seguida, adicione um novo dispositivo pela primeira vez.
+1. Utilizar o **modelos de dispositivos** página, navegue para o modelo de dispositivo para o qual está a adicionar a regra para.
 
 1. Se ainda não criou quaisquer regras, verá o ecrã seguinte:
 
     ![Ainda não existem regras](media/howto-create-event-rules-experimental/Rules_Landing_Page.png)
 
+1. Sobre o **regras** separador, clique em **+ nova regra** para ver os tipos de regras, pode criar.
 
-1. Sobre o **regras** separador, clique em **Editar modelo** e, em seguida **+ nova regra de** para ver os tipos de regras, pode criar.
-
-
-1. Clique nas **evento** mosaico para criar uma regra de monitorização de eventos.
+1. Escolha o **evento** mosaico para criar uma regra de monitorização de eventos.
 
     ![Tipos de regra](media/howto-create-event-rules-experimental/Rule_Types.png)
 
-    
 1. Introduza um nome que ajuda a identificar a regra neste modelo de dispositivo.
 
-1. Para ativar imediatamente a regra para todos os dispositivos criadas através deste modelo, alternar **ativar regra para todos os dispositivos para este modelo**.
+1. Para ativar imediatamente a regra para todos os dispositivos criadas através deste modelo, alternar **ativar regra para todos os dispositivos deste modelo**.
 
     ![Detalhes da regra](media/howto-create-event-rules-experimental/Rule_Detail.png)
 
@@ -65,18 +57,17 @@ Condição define os critérios que é monitorizado pela regra.
 
    ![Condição](media/howto-create-event-rules-experimental/Condition_Filled_Out.png)
 
-
 1. Opcionalmente, também pode definir **contagem** como **agregação** e forneça o limiar correspondente.
 
-    - Sem agregação, a regra é acionada para cada ponto de dados de evento que atenda à condição. Por exemplo, se configurar a condição da regra para acionar quando ocorre um evento de "Ventoinha Motor Error", em seguida, a regra irá acionar quase que imediatamente quando o dispositivo comunica que o evento.
-    - Se a contagem é utilizada como uma função de agregação, então tem de fornecer um **limiar** e uma **janela de tempo agregado** ao longo do que a condição tem de ser avaliada. Neste caso, a contagem de eventos é agregada e a regra irá acionar apenas se a contagem de eventos agregado corresponde ao limiar.
- 
-    Por exemplo, se deseja alertar quando há mais de três eventos de dispositivo dentro de 5 minutos, em seguida, selecione o evento e definir a função de agregação como "contagem", o operador como "maior que" e "limiar" como 3. Definir "Agregação período de tempo" como "5 minutos". A regra é acionada quando mais de três eventos são enviados pelo dispositivo dentro de 5 minutos. A frequência de avaliação da regra é igual a **janela de tempo agregado**, que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos. 
+    - Sem agregação, a regra é acionada para cada ponto de dados de evento que atenda à condição. Por exemplo, se configurar a regra de condição para acionar quando uma **erro de Motor de ventoinha** evento ocorre, em seguida, a regra for acionada quase que imediatamente quando o dispositivo comunica que o evento.
+    - Se a contagem é utilizada como uma função de agregação, então tem de fornecer um **limiar** e uma **janela de tempo agregado** ao longo do que a condição tem de ser avaliada. Neste caso, a contagem de eventos é agregada e a regra é acionada apenas se a contagem de eventos agregado corresponde ao limiar.
+
+    Por exemplo, se deseja alertar quando há mais de três eventos de dispositivo dentro de 5 minutos, em seguida, selecione o evento e definir a função de agregação como "contagem", o operador como "maior que" e "limiar" como 3. Definir "Agregação período de tempo" como "5 minutos". A regra é acionada quando mais de três eventos são enviados pelo dispositivo dentro de 5 minutos. A frequência de avaliação da regra é igual a **janela de tempo agregado**, que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
 
     ![Adicionar condição de eventos](media/howto-create-event-rules-experimental/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE] 
-    >Mais do que uma medida de eventos pode ser adicionada sob **condição**. Quando são especificadas várias condições, todas as condições têm de ser cumpridas para a regra acionar. Cada conditon obtém associado implicitamente por uma cláusula 'E'. Ao utilizar o agregado, cada medida tem de ser agregada.
+    >[!NOTE]
+    >Mais do que uma medida de eventos pode ser adicionada sob **condição**. Quando são especificadas várias condições, todas as condições têm de ser cumpridas para a regra acionar. Cada condição obtém associada implicitamente por uma cláusula 'E'. Ao utilizar o agregado, cada medida tem de ser agregada.
 
 ### <a name="configure-actions"></a>Configurar ações
 

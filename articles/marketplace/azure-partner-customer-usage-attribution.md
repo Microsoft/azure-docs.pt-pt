@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: b82961d2446cf1e97e10dce2dc44525ea1d3d9bd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3f3c7523bfc800a74da56b1b3241ac5756c68d14
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733253"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215511"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição de utilização do cliente de parceiro do Azure
 
@@ -27,16 +27,19 @@ Como um parceiro de software para o Azure, as soluções necessitam de component
 
 Agora, a Microsoft oferece um método para ajudar os parceiros a controlar melhor a utilização do Azure de implementações dos clientes de seu software no Azure. O novo método utiliza o Azure Resource Manager para orquestrar a implementação de serviços do Azure.
 
-Como um parceiro da Microsoft, pode associar a utilização do Azure com todos os recursos do Azure que for aprovisionado em nome de um cliente. É possível formar a associação através do Azure Marketplace, o repositório início rápido, repositórios de GitHub privados e captação de clientes de um para um. Para ativar o controlo, existem duas abordagens:
+Como um parceiro da Microsoft, pode associar a utilização do Azure com todos os recursos do Azure que for aprovisionado em nome de um cliente. É possível formar a associação através do Azure Marketplace, o repositório início rápido, repositórios de GitHub privados e captação de clientes de um para um. Atribuição de utilização do cliente oferece suporte a três opções de implementação:
 
-- Modelos do Azure Resource Manager: Modelos do Resource Manager ou modelos de soluções para implementar os serviços do Azure para executar o software do parceiro. Parceiros, podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração da sua solução do Azure. Um modelo do Resource Manager permite que e seus clientes, para implementar a solução durante seu ciclo de vida. Pode ter a certeza de que os recursos são implementados num estado consistente. 
+- Modelos do Azure Resource Manager: Parceiros podem utilizar modelos do Resource Manager para implementar os serviços do Azure para executar o software do parceiro. Parceiros, podem criar um modelo do Resource Manager para definir a infraestrutura e a configuração da sua solução do Azure. Um modelo do Resource Manager permite que e seus clientes, para implementar a solução durante seu ciclo de vida. Pode ter a certeza de que os recursos são implementados num estado consistente. 
 - APIs do Resource Manager do Azure: Parceiros podem chamar as APIs do Resource Manager diretamente a implementar um modelo do Resource Manager ou a gerar as chamadas à API para aprovisionar diretamente os serviços do Azure. 
+- Terraform: Parceiros podem utilizar o orchestrator de cloud, como o Terraform para implementar um modelo do Resource Manager ou diretamente implementar serviços do Azure. 
 
-É necessária a atribuição de utilização do cliente [oferta de aplicação do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) publicadas no Azure Marketplace.
+Atribuição de utilização do cliente é para a nova implementação e não suporta a identificação de recursos existentes que já foram implementados.
+
+É necessária a atribuição de utilização do cliente [aplicação do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): oferta de modelo de solução publicada no Azure Marketplace.
 
 ## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager
 
-Muitas soluções de parceiros são implementadas na subscrição de um cliente, utilizando modelos do Resource Manager. Se tiver um modelo do Resource Manager que está disponível no Azure Marketplace, no GitHub, ou como um guia de introdução, o processo para modificar o modelo para ativar o novo método de rastreamento deve ser simples.
+Muitas soluções de parceiros são implementadas na subscrição de um cliente, utilizando modelos do Resource Manager. Se tiver um modelo do Resource Manager que está disponível no Azure Marketplace, no GitHub, ou como um guia de introdução, o processo para modificar o modelo para ativar a atribuição de utilização do cliente deve ser simples.
 
 Para obter mais informações sobre como criar e publicar modelos de solução, consulte
 
@@ -93,7 +96,7 @@ Se estiver a utilizar um modelo do Resource Manager, deve Etiquetar sua soluçã
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Marcar uma implementação com as APIs do Resource Manager
 
-Para essa abordagem de controlo, ao projetar suas chamadas de API, incluem um GUID no cabeçalho do agente de utilizador no pedido. Adicione o GUID para cada oferta ou SKU. Formatar a cadeia de caracteres com o **pid -** prefixo e incluir o GUID gerado pelo parceiro. Eis um exemplo do formato de GUID para inserção no agente de utilizador: 
+Para ativar a utilização do cliente a atribuição e, ao estruturar as chamadas de API, incluem um GUID no cabeçalho do agente de utilizador no pedido. Adicione o GUID para cada oferta ou SKU. Formatar a cadeia de caracteres com o **pid -** prefixo e incluir o GUID gerado pelo parceiro. Eis um exemplo do formato de GUID para inserção no agente de utilizador: 
 
 ![Formato de GUID de exemplo](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
@@ -124,6 +127,24 @@ Ao utilizar a CLI do Azure para o GUID de acréscimo, defina o **AZURE_HTTP_USER
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+## <a name="use-terraform"></a>Utilize o Terraform
+
+O suporte para o Terraform está disponível através 1.21.0 do fornecedor do Azure de versão: [ https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019 ](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Este suporte aplica-se a todos os parceiros que implementar a sua solução por meio do Terraform, e todos os recursos implementados e limitados pelo fornecedor do Azure (versão 1.21.0 ou posterior).
+
+O fornecedor do Azure para o Terraform adicionado um novo campo opcional chamado [ *partner_id* ](https://www.terraform.io/docs/providers/azurerm/#partner_id) que é onde especifica o GUID que utilizar para a sua solução de controlo. O valor deste campo também pode ter origem no *ARM_PARTNER_ID* variável de ambiente.
+
+```
+provider "azurerm" { 
+          subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+          client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+          …… 
+          # new stuff for ISV attribution
+          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+```
+Parceiros que desejam obter a implantação por meio do Terraform rastreada pela atribuição de utilização do cliente tem de fazer o seguinte:
+
+* Criar um GUID (o GUID deve ser adicionado para cada oferta ou SKU)
+* Atualizar o seu fornecedor do Azure para definir o valor da *partner_id* para o GUID (não pré-correção o GUID com "pid-", basta defini-lo para o GUID real)
 
 ## <a name="create-guids"></a>Criar GUIDs
 
@@ -145,7 +166,7 @@ Também pode controlar GUIDs num nível mais granular, como o SKU, onde os SKUs 
 
 ## <a name="register-guids-and-offers"></a>Registe-se de GUIDs e ofertas
 
-Para incluir um GUID no nosso controle, o GUID tem de estar registado.  
+Os GUIDs têm de estar registados para ativar a atribuição de utilização do cliente.
 
 Todos os registos para o modelo GUIDs são feitos por meio do Azure Marketplace Cloud Partner Portal (CPP). 
 
@@ -226,9 +247,17 @@ foreach ($deployment in $deployments){
 }
 ```
 
+## <a name="report"></a>Relatório
+
+Pode encontrar o relatório de atribuição de utilização do cliente no dashboard do Centro de parceiros analisar. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+
+Escolha o modelo controlado na lista pendente do tipo de associação de parceiro para ver o relatório.
+
+![Relatório de atribuição de utilização do cliente](media/marketplace-publishers-guide/customer-usage-attribution-report.png)
+
 ## <a name="notify-your-customers"></a>Notificar os seus clientes
 
-Parceiros devem informar aos clientes sobre as implementações que utilizam o GUID do Gestor de recursos de controle. Microsoft comunica a utilização do Azure associado a estas implementações para o parceiro. Os exemplos seguintes incluem conteúdo que pode utilizar para notificar os seus clientes sobre estas implementações. Nos exemplos, substitua \<parceiro > com o nome da sua empresa. Parceiros devem certificar-se de que a notificação se alinha com os seus dados políticas de privacidade e a coleção, incluindo opções para os clientes a excluir de controlo. 
+Parceiros devem informar aos clientes sobre as implementações que utilizam a atribuição de utilização do cliente. Microsoft comunica a utilização do Azure associado a estas implementações para o parceiro. Os exemplos seguintes incluem conteúdo que pode utilizar para notificar os seus clientes sobre estas implementações. Nos exemplos, substitua \<parceiro > com o nome da sua empresa. Parceiros devem certificar-se de que a notificação se alinha com os seus dados políticas de privacidade e a coleção, incluindo opções para os clientes a excluir de controlo. 
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificação para implementações de modelo do Resource Manager
 
@@ -240,7 +269,7 @@ Quando implementa \<parceiro > software, a Microsoft é capaz de identificar a i
 
 ## <a name="get-support"></a>Obter suporte
 
-Se precisar de assistência, siga estes passos.
+Se precisar de assistência de integração do Marketplace e/ou atribuição de utilização do cliente, siga estes passos.
 
 1. Vá para o [página de suporte](https://go.microsoft.com/fwlink/?linkid=844975). 
 
@@ -266,44 +295,66 @@ Se precisar de assistência, siga estes passos.
 
 1. Preencha o formulário e, em seguida, selecione **submeter**.
 
+Também pode receber orientação técnica do Microsoft Partner consultor técnico de pré-vendas técnicas, implantação e cenários de desenvolvimento de aplicações para compreender e incorporar a atribuição de utilização do cliente.
+
+### <a name="how-to-submit-a-technical-consultation-request"></a>Como submeter um pedido de consultoria técnica
+
+1. Visite [ http://aka.ms/TechnicalJourney ](http://aka.ms/TechnicalJourney).
+1. Selecione infraestrutura de nuvem e gestão e uma nova página serão aberta para que possa ver a viagem técnica.
+1. Em serviços de implantação, clique num botão de pedido de envio
+1. Inicie sessão com a sua MSA (conta da MPN) ou o AAD (conta de Dashboard de parceiro). com base nas suas credenciais de início de sessão, irá abrir um formulário de solicitação online: 
+    * Concluir/Revisão das informações de contacto.
+    * Os detalhes de consultoria podem ser preenchidos previamente ou selecione listas pendentes.
+    * Introduza um título e a descrição do problema (fornecer tantos detalhes quanto possível).
+1. Clique em submeter
+
+Ver instruções passo a passo com capturas de ecrã em [ http://aka.ms/TechConsultInstructions ](http://aka.ms/TechConsultInstructions).
+
+### <a name="whats-next"></a>O que se segue
+
+Será contactado por um consultor técnico do parceiro Microsoft para configurar uma chamada para definir o âmbito suas necessidades.
+
 ## <a name="faq"></a>FAQ
 
 **O que é o benefício da adição o GUID para o modelo?**
 
-Microsoft fornece aos parceiros com uma visão de implementações dos clientes dos seus modelos e as informações na respetiva utilização influenced. A Microsoft e o parceiro podem utilizar estas informações para o envolvimento de mais de perto de unidade entre as equipas de vendas. A Microsoft e o parceiro podem utilizar os dados para obter uma visão mais consistente de impacto de um parceiro individuais no crescimento do Azure. 
-
-**Quem pode adicionar um GUID para um modelo?**
-
-O recurso de controle destina-se para se ligar soluções de parceiros para a utilização do Azure do cliente. Os dados de utilização estão associados à identidade de um parceiro Microsoft Partner Network (MPN ID). Os relatórios estão disponíveis para parceiros no CPP.
+Microsoft fornece aos parceiros com uma visão de implementações dos clientes das suas soluções e informações na respetiva utilização influenced. A Microsoft e o parceiro podem utilizar estas informações para o envolvimento de mais de perto de unidade entre as equipas de vendas. A Microsoft e o parceiro podem utilizar os dados para obter uma visão mais consistente de impacto de um parceiro individuais no crescimento do Azure. 
 
 **Depois de um GUID é adicionado, pode ela ser alterada?**
  
-Sim, um parceiro de implementação ou do cliente pode personalizar o modelo e pode alterar ou remover o GUID. Sugerimos que parceiros descrevem proativamente a função do recurso e GUID para seus clientes e parceiros para impedir a remoção ou edições feitas para o GUID de controlo. O GUID a alteração afeta apenas as implementações de novo, não existentes e recursos.
-
-**Quando reporting estará disponível?**
-
-Uma versão beta do reporting deve estar disponível em breve. Relatórios serão integrados a CPP.
+Sim, um parceiro de implementação ou do cliente pode personalizar o modelo e pode alterar ou remover o GUID. Sugerimos que parceiros descrevem proativamente a função do recurso e GUID para seus clientes e parceiros para impedir a remoção ou edições feitas para o GUID. O GUID a alteração afeta apenas as implementações de novo, não existentes e recursos.
 
 **Pode controlar implementados a partir de um repositório de terceiros como o GitHub de modelos?**
 
-Sim, desde que o GUID está presente quando o modelo é implementado, a utilização é controlada. Parceiros têm de ter um perfil no CPP para registar modelos relacionados que são publicados fora do Azure Marketplace. 
-
-**Existe alguma diferença se o modelo é implementado no Azure Marketplace em comparação com outros repositórios de como o GitHub?**
-
-Sim, os parceiros que publicar ofertas no Azure Marketplace podem receber dados mais detalhados sobre as implementações do Azure Marketplace. Os parceiros beneficiam de expor a sua oferta para os clientes no portal do Azure Marketplace e no portal do Azure. Ofertas no Azure Marketplace também geram oportunidades potenciais do parceiro.
-
-**E se eu criar um modelo personalizado para um compromisso de individuais dos clientes?**
-
-Há ainda adicionar o GUID para o modelo. Se usar um GUID registado existente, está incluído da criação de relatórios. Se criar um novo GUID, terá de registar o novo GUID para que ele seja incluído no rastreio.
+Sim, desde que o GUID está presente quando o modelo é implementado, a utilização é controlada. Parceiros têm de ter um perfil no CPP para registar os GUIDs utilizados para a implementação fora do Azure Marketplace. 
 
 **O cliente receber relatórios também?**
 
 Os clientes podem controlar a utilização de recursos individuais ou grupos de recursos definida pelo cliente no portal do Azure.   
 
-**É essa metodologia de controle semelhante para o parceiro de registo Digital (DPOR)?**
+**Esta metodologia é semelhante para o parceiro de registo Digital (DPOR)?**
 
 Este novo método de conexão a implementação e utilização a solução de um parceiro fornece um mecanismo para ligar uma solução de parceiro a utilização do Azure. DPOR destina-se para associar uma consultoria (integrador de sistemas) ou o parceiro de gestão (fornecedor de serviços geridos) com a subscrição do Azure de um cliente.   
 
 **O que é o benefício de usar o formulário de gerador de GUID do armazenamento do Azure?**
 
 Formulário de gerador de GUID do armazenamento do Azure é garantido para gerar um GUID no formato necessário. Além disso, se estiver a utilizar qualquer um plano de dados do armazenamento do Azure métodos de controle, pode aproveitar o mesmo GUID para o plano de controlo do mercado de controlo. Isto permite-lhe tirar partido de um GUID um unificada para atribuição de parceiro sem a necessidade de manter GUIDS separados.
+
+**Pode utilizar um VHD privado, personalizado para uma oferta de modelo de solução no Azure Marketplace?**
+
+Não, não é possível. A imagem de máquina virtual tem de ser proveniente do Azure Marketplace, consulte: [ https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines ](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines). 
+
+Pode criar uma oferta VM no marketplace usando seu VHD personalizado e marcá-la como privada, para que ninguém pode vê-lo. Em seguida, a referência a esta VM no seu modelo de solução.
+
+**Falha ao atualizar *contentVersion* propriedade para o modelo principal?**
+
+Provavelmente um bug em alguns casos quando o modelo está a ser implementado usando um TemplateLink de outro modelo que esperam contentVersion mais antigo por algum motivo. A solução alternativa é usar a propriedade de metadados:
+
+```
+"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "contentVersion": "1.0.1.0"
+    },
+    "parameters": {
+```

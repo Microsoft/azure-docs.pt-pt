@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56f59a76ac3d11677d5b1f76904cf74e933fa7f6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3d1ee0b25fbbf0ef895bdf6ff8afad71ff82de25
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753344"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217177"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Relações de âncora e localizar de forma no âncoras espaciais do Azure
 
@@ -77,4 +77,4 @@ A aplicação pode verificar que duas âncoras estão ligadas através da emiss�
 
 ### <a name="sample-code"></a>Código de exemplo
 
-Pode ver o código de exemplo que mostra como ligar as âncoras e fazer nas proximidades de consultas. Consulte as aplicações de exemplo de âncoras espaciais do Azure no GitHub.
+Pode ver o código de exemplo que mostra como ligar as âncoras e fazer nas proximidades de consultas. Consulte a [aplicações de exemplo de âncoras de geográficos Azure](https://github.com/Azure/azure-spatial-anchors-samples) no GitHub.

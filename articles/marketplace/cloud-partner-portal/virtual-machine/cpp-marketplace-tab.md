@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa43a6f1f7c757366e321e7da0fb1e47d4928cee
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 551f2bbc4846a1b47dafaa03cca08b424572ebf5
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639919"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214882"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Separador do Marketplace de máquina virtual
 
-O **Marketplace** separador da **nova oferta** página permite-lhe fornecer os seus clientes potenciais informações de marketing, vendas e legais e contratos e gerir as oportunidades potenciais geradas a partir do Marketplace. Esta forma longa é dividida em quatro seções: **descrição geral**, **artefactos Marketing**, **levar gestão**, e **legais**. 
+O **Marketplace** separador da **nova oferta** página permite-lhe fornecer os seus clientes potenciais informações de marketing, vendas e legais e contratos e gerir as oportunidades potenciais geradas a partir do Marketplace. Esta forma longa é dividida em quatro seções: **Descrição geral**, **artefactos de Marketing**, **numa gestão**, e **legais**. 
 
 ## <a name="overview-section"></a>Seção de visão geral
 Nesta secção, é possível inserir as informações gerais sobre a sua oferta do Azure Marketplace.  Um anexado asterisco (*) no nome do campo indica que é necessário.
@@ -38,15 +38,17 @@ A tabela seguinte descreve a finalidade e o conteúdo desses campos.
 | **Resumo**               | Breve objetivo ou a função da solução.  Comprimento máximo de 100 carateres. |
 | **Resumo completo**          | Objetivo ou a função da solução.  Comprimento máximo de 256 carateres. |
 | **Descrição**           | Descrição da solução.  Comprimento máximo de 3000 carateres, oferece suporte a formatação de HTML simples. |
+| **Canal de revendedor CSP da Microsoft** | Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora está disponível.  Veja [fornecedores de soluções Cloud](../../cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais. |
 | **Identificador de marketing**  | Uma URL exclusiva para associar a esta oferta, normalmente inclui a sua organização e o nome da solução, 50 carateres de comprimento máximo.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **IDs de subscrição de pré-visualização** | Adicione um e 100 identificadores de subscrição dos visualizadores. Estas subscrições listadas em branco têm acesso para a oferta assim que for publicado, antes de entrar no ar. |
-| **Ligações úteis**          | Seleção múltipla de negócios e técnicas categorias que oferecem pode ser melhor associada.  Máximo permitido de cinco.  |
+| **Ligações úteis**          | Adicione o URL para a documentação atualizados, notas de versão, FAQs e assim por diante. |
+| **Sugestões de categorias (máx. 5)** | Seleção múltipla de negócios e técnicas categorias que oferecem pode ser melhor associada.  Máximo permitido de cinco.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Secção de artefactos de marketing
 
-Esta segunda secção está dividida em três subsecções: **logótipos**, **captura de ecrã**, e **vídeos**. Logótipos são o único necessário artefactos, de marketing, no entanto, todos são altamente recomendáveis para melhor apelo do cliente.
+Esta segunda secção está dividida em três subsecções: **Logótipos**, **captura de ecrã**, e **vídeos**. Logótipos são o único necessário artefactos, de marketing, no entanto, todos são altamente recomendáveis para melhor apelo do cliente.
 
 ![Secção de artefactos da guia Marketplace do formulário de nova oferta de mensagens em fila para máquinas virtuais de marketing](./media/publishvm_009.png)
 
@@ -57,7 +59,7 @@ Esta segunda secção está dividida em três subsecções: **logótipos**, **ca
 | **Médio**                | mapa de bits do pixel 90 x 90. ico                                                      |
 | **Grandes**                 | mapa de bits do pixel 115 x 115. ico                                                   |
 | **Ampla**                  | mapa de bits do pixel de 255 x 115. ico                                                    |
-| **Hero**                  | 815 x 290 bitmap.  Opcional, no entanto uma vez carregado não é possível eliminar o ícone de hero. |
+| **Hero**                  | 815x290 bitmap.  Opcional, no entanto uma vez carregado não é possível eliminar o ícone de hero. |
 | *Capturas de ecrã*  | É opcional, mas máximo de cinco capturas de ecrã por SKU. |
 | **Nome**                  | Nome ou o título <!-- TODO - max char length? none specified in UI -->                               |
 | **Imagem**                 | Imagem de captura de ecrã, 533 x 324 pixel                                         |
@@ -120,7 +122,7 @@ Depois de publicar a oferta com êxito, a ligação da oportunidade potencial é
 
 ## <a name="legal-section"></a>Secção legal
 
-Esta última seção permite-lhe fornecer os dois documentos legais necessários para cada oferta: política de privacidade e termos de utilização.
+Esta última seção permite-lhe fornecer os dois documentos legais necessários para cada oferta: Política de privacidade e termos de utilização.
 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |

@@ -3,7 +3,7 @@ title: Resolução de problemas de erros de arranque do BitLocker numa VM do Azu
 description: Saiba como resolver erros de arranque do BitLocker numa VM do Azure
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+authors: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: bb284813ca5d0897b109547c1e7cc21e9e560863
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 13a45593509deb0cb9578c5ea6ed83aab3e008a4
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733990"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216565"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erros de arranque do BitLocker numa VM do Azure
 

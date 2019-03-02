@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: f6874b1d97c36d22e60606ad8c8a356baec53b85
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6f8dd8611e5e2120bdfa0ae111bf6e248ca0f3cb
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893601"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214754"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -76,7 +76,7 @@ Pode configurar bases de dados SQL do Azure para recolher a telemetria de diagn�
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Utilizar o **as definições de diagnóstico** menu para cada um único, agrupados, ou instância de base de dados no portal do Azure para configurar a transmissão em fluxo de telemetria de diagnóstico para bases de dados SQL do Azure. Pode definir os destinos seguintes: O armazenamento do Azure, os Hubs de eventos do Azure e Log Analytics do Azure.
+Utilizar o **as definições de diagnóstico** menu para cada um único, agrupados, ou instância de base de dados no portal do Azure para configurar a transmissão em fluxo de telemetria de diagnóstico para bases de dados SQL do Azure. Pode definir os destinos seguintes: Registos do Azure, armazenamento, o Event Hubs do Azure e o Azure Monitor.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-pooled-or-instance-databases"></a>Configurar a transmissão em fluxo de telemetria de diagnóstico para única, agrupada ou bases de dados de instância
 
@@ -100,7 +100,7 @@ Para ativar de transmissão em fluxo de telemetria de diagnóstico para único, 
    ![Configurar os diagnósticos para única, agrupada ou bases de dados de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> Não não possível ativar os registos de auditoria de segurança das definições de diagnóstico da base de dados. Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos no Log Analytics do Azure e Hubs de eventos de auditoria](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Não não possível ativar os registos de auditoria de segurança das definições de diagnóstico da base de dados. Para ativar a transmissão de registos de auditoria, consulte [configurar a auditoria da base de dados](sql-database-auditing.md#subheading-2), e [registos em registos de Monitor do Azure e Hubs de eventos de auditoria](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > Repita estes passos para cada base de dados de SQL do Azure que pretende monitorizar.
 
@@ -152,7 +152,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 
 1. Introduza um nome de definição para sua própria referência.
 1. Selecione um recurso de destino para os dados de diagnóstico de transmissão em fluxo: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **enviar para o Log Analytics**.
-1. Para o Log Analytics, selecione **configurar** e criar uma nova área de trabalho ao selecionar **+ criar nova área de trabalho**, ou selecione uma área de trabalho existente.
+1. Para o log analytics, selecione **configurar** e criar uma nova área de trabalho ao selecionar **+ criar nova área de trabalho**, ou selecione uma área de trabalho existente.
 1. Selecione a caixa de verificação de telemetria de diagnóstico do conjunto elástico: **AllMetrics**.
 1. Selecione **Guardar**.
 
@@ -181,7 +181,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 
 1. Introduza um nome de definição para sua própria referência.
 1. Selecione um recurso de destino para os dados de diagnóstico de transmissão em fluxo: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **enviar para o Log Analytics**.
-1. Para o Log Analytics, selecione **configurar** e criar uma nova área de trabalho ao selecionar **+ criar nova área de trabalho**, ou utilizar uma área de trabalho existente.
+1. Para o log analytics, selecione **configurar** e criar uma nova área de trabalho ao selecionar **+ criar nova área de trabalho**, ou utilizar uma área de trabalho existente.
 1. Selecione a caixa de verificação de telemetria de diagnóstico por exemplo: **ResourceUsageStats**.
 1. Selecione **Guardar**.
 
@@ -288,7 +288,7 @@ Análise de SQL do Azure é uma solução de cloud que monitoriza o desempenho d
 
 ![Descrição geral da análise SQL do Azure](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-Registos de diagnóstico e métricas de base de dados SQL podem ser transmitidos em análise de SQL do Azure utilizando o incorporado **enviar para o Log Analytics** opção no separador de definições de diagnóstico no portal. Também pode ativar o Log Analytics utilizando uma definição de diagnóstico através de cmdlets do PowerShell, a CLI do Azure ou a API de REST do Azure Monitor.
+Registos de diagnóstico e métricas de base de dados SQL podem ser transmitidos em análise de SQL do Azure utilizando o incorporado **enviar para o Log Analytics** opção no separador de definições de diagnóstico no portal. Também pode ativar o log analytics utilizando uma definição de diagnóstico através de cmdlets do PowerShell, a CLI do Azure ou a API de REST do Azure Monitor.
 
 ### <a name="installation-overview"></a>Visão geral da instalação
 
@@ -379,7 +379,7 @@ Saiba como [transferir registos de diagnóstico e métricas do armazenamento](..
 
 ## <a name="data-retention-policy-and-pricing"></a>Política de retenção de dados e preços
 
-Se selecionar os Hubs de eventos ou uma conta de armazenamento, pode especificar uma política de retenção. Esta política elimina os dados que é mais antigos que um período de tempo selecionado. Se especificar o Log Analytics, a política de retenção depende do escalão de preço selecionado. Neste caso, as unidades gratuitas fornecidas de ingestão de dados, podem ativar gratuita monitorização de vários bancos de dados por mês. O consumo de telemetria de diagnóstico em excesso relativamente às unidades gratuitas pode implicar custos. Lembre-se de que as bases de dados ativas com cargas de trabalho mais pesadas ingerir mais dados do que as bases de dados inativos. Para obter mais informações, consulte [preços do Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+Se selecionar os Hubs de eventos ou uma conta de armazenamento, pode especificar uma política de retenção. Esta política elimina os dados que é mais antigos que um período de tempo selecionado. Se especificar o Log Analytics, a política de retenção depende do escalão de preço selecionado. Neste caso, as unidades gratuitas fornecidas de ingestão de dados, podem ativar gratuita monitorização de vários bancos de dados por mês. O consumo de telemetria de diagnóstico em excesso relativamente às unidades gratuitas pode implicar custos. Lembre-se de que as bases de dados ativas com cargas de trabalho mais pesadas ingerir mais dados do que as bases de dados inativos. Para obter mais informações, consulte [preços do Log analytics](https://azure.microsoft.com/pricing/details/monitor/).
 
 Se estiver a utilizar a análise de SQL do Azure, pode monitorizar o consumo de ingestão de dados na solução selecionando **área de trabalho do OMS** no menu de navegação de análise de SQL do Azure e, em seguida, selecionar **utilização** e **os custos estimados**.
 

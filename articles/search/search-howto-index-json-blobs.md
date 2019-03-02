@@ -10,19 +10,25 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 3fcac10e32d6510510dc3a069c754a6f482e75eb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: f287648758d2883226132c0f45418dacaaf27652
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194848"
+ms.locfileid: "57216327"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexar blobs JSON com o indexador Blob do Azure Search
 Este artigo mostra-lhe como configurar um indexador de Blobs do Azure Search para extrair conteúdo estruturado de documentos JSON no armazenamento de Blobs do Azure e permitir pesquisável no Azure Search. Este fluxo de trabalho cria um índice da Azure Search e carrega-os com existente textos extraídos dos JSON blobs. 
 
 Pode utilizar o [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), ou [SDK de .NET](#json-indexer-dotnet) para indexar conteúdo JSON. Comum a todas as abordagens é que os documentos JSON estão localizados num contentor de BLOBs numa conta de armazenamento do Azure. Para obter orientações sobre como enviar documentos JSON a partir de outras plataformas não pertencente ao Azure, consulte [importação de dados no Azure Search](search-what-is-data-import.md).
 
-Blobs JSON no armazenamento de Blobs do Azure são, normalmente, um único documento JSON ou uma matriz JSON. O indexador blob do Azure Search pode analisar a construção dependendo de como definir o **parsingMode** parâmetro na solicitação.
+Blobs JSON no armazenamento de Blobs do Azure são, normalmente, um único documento JSON ou uma coleção de entidades JSON. Para coleções de JSON, o blob pode ter uma **matriz** dos elementos JSON bem formados. BLOBs também poderiam ser compostos por várias entidades individuais de JSON separadas por uma nova linha. O indexador blob do Azure Search pode analisar esse tipo de construção, dependendo de como definir o **parsingMode** parâmetro na solicitação.
+
+> [!IMPORTANT]
+> `json` e `jsonArray` modos de análise estão disponíveis em geral, mas `jsonLines` modo de análise está em pré-visualização pública e não deve ser usado em ambientes de produção. Para obter mais informações, consulte [REST api-version = 2017-11-11-pré-visualização](search-api-2017-11-11-preview.md). 
+
+> [!NOTE]
+> Siga as recomendações de configuração do indexador nas [um-para-muitos indexação](search-howto-index-one-to-many-blobs.md) para vários documentos de pesquisa de um blob do Azure de saída.
 
 <a name="json-indexer-portal"></a>
 
@@ -51,11 +57,13 @@ Na **origem de dados** página, a origem tem de ser **armazenamento de Blobs do 
 
 + **Dados a extrair** deve ser *conteúdo e metadados*. Escolher esta opção permite que o Assistente para inferir um esquema de índice e mapear os campos para importação.
    
-+ **Modo de análise** deve ser definido como *JSON* ou *matriz JSON*. 
++ **Modo de análise** deve ser definido como *JSON*, *matriz JSON* ou *linhas JSON*. 
 
   *JSON* articule toda cada blob como um documento único de pesquisa, aparecer como um item independente nos resultados da pesquisa. 
 
-  *Matriz JSON* é para blobs é composto por vários elementos, onde pretende que cada elemento a ser articulado como autónomo, independente de pesquisar no documento. Se os blobs são complexos e não escolher *matriz JSON* todo o blob é ingerido como um único documento.
+  *Matriz JSON* é para blobs que contêm dados JSON bem formados, o JSON bem formado corresponde a uma matriz de objetos ou tem uma propriedade que é uma matriz de objetos e pretende que cada elemento a ser articulado como autónomo, independente de pesquisar no documento. Se os blobs são complexos e não escolher *matriz JSON* todo o blob é ingerido como um único documento.
+
+  *Linhas JSON* é para blobs é composto por várias entidades JSON separadas por uma nova linha, onde pretende que cada entidade para ser articulada como um documento de pesquisa independente autónomo. Se os blobs são complexos e não escolher *linhas JSON* modo, em seguida, todo o blob de análise é ingerido como um único documento.
    
 + **Contentor de armazenamento** tem de especificar a conta de armazenamento e contentor ou uma cadeia de ligação que é resolvido para o contentor. Pode obter cadeias de ligação na página de portal do serviço Blob.
 
@@ -116,12 +124,13 @@ Para JSON baseadas em código indexação, utilize [Postman](search-fiddler.md) 
 
 Em contraste com o Assistente do portal, uma abordagem de código requer que tenha um índice no local, pronto para aceitar os documentos JSON ao enviar o **criar indexador** pedido.
 
-Blobs JSON no armazenamento de Blobs do Azure são, normalmente, um único documento JSON ou uma matriz JSON. O indexador blob do Azure Search pode analisar a construção, dependendo de como definir o **parsingMode** parâmetro na solicitação.
+Blobs JSON no armazenamento de Blobs do Azure são, normalmente, um único documento JSON ou um JSON "matriz". O indexador blob do Azure Search pode analisar a construção, dependendo de como definir o **parsingMode** parâmetro na solicitação.
 
 | Documento JSON | parsingMode | Descrição | Disponibilidade |
 |--------------|-------------|--------------|--------------|
-| Um por blob | `json` | Analisa JSON blobs como um único segmento de texto. Cada blob JSON torna-se um único documento de Azure Search. | Disponível em geral nos dois [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
-| Vários por blob | `jsonArray` | Analisa uma matriz JSON no blob, onde cada elemento da matriz se torna um documento separado do Azure Search.  | Disponível em geral nos dois [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) APIs. |
+| Um por blob | `json` | Analisa JSON blobs como um único segmento de texto. Cada blob JSON torna-se um único documento de Azure Search. | Disponível em geral nos dois [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Vários por blob | `jsonArray` | Analisa uma matriz JSON no blob, onde cada elemento da matriz se torna um documento separado do Azure Search.  | Disponível em pré-visualização em ambos [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Vários por blob | `jsonLines` | Analisa um blob que contém várias entidades JSON (uma "matriz") separadas por uma nova linha, onde cada entidade se torna um documento separado do Azure Search. | Disponível em pré-visualização em ambos [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - montar entradas para o pedido
 
@@ -208,12 +217,16 @@ Até agora, as definições para a origem de dados e índice foram parsingMode i
 
 + Definir **parsingMode** para `json` para cada blob como um único documento de índice.
 
-+ Definir **parsingMode** para `jsonArray` se os blobs consistem em matrizes JSON, e precisar de cada elemento da matriz para se tornar um documento separado no Azure Search. Pode pensar num documento como um único item nos resultados da pesquisa. Se pretender que cada elemento da matriz ser apresentado nos resultados da pesquisa como um item independente, em seguida, utilize o `jsonArray` opção.
++ Definir **parsingMode** para `jsonArray` se os blobs consistem em matrizes JSON, e precisar de cada elemento da matriz para se tornar um documento separado no Azure Search. 
 
-Para matrizes JSON, se a matriz de existir como uma propriedade de nível inferior, pode definir uma raiz do documento que indica em que a matriz é colocada dentro do blob.
++ Definir **parsingMode** para `jsonLines` se os blobs são compostas por várias entidades JSON, que são separadas por uma nova linha, e terá de cada entidade para se tornar um documento separado no Azure Search.
+
+Pode pensar num documento como um único item nos resultados da pesquisa. Se pretender que cada elemento da matriz ser apresentado nos resultados da pesquisa como um item independente, em seguida, utilize o `jsonArray` ou `jsonLines` opção conforme apropriado.
+
+Dentro da definição de indexador, opcionalmente, pode utilizar [mapeamentos de campo](search-indexer-field-mappings.md) escolher quais propriedades do documento JSON de origem são usadas para preencher o índice de pesquisa de destino. Para `jsonArray` análise modo, se a matriz existe como uma propriedade de nível inferior, pode definir uma raiz do documento que indica em que a matriz é colocada dentro do blob.
 
 > [!IMPORTANT]
-> Quando utiliza `json` ou `jsonArray` modo de análise, o Azure Search assume que todos os blobs na sua origem de dados contenham JSON. Se tiver de suportar uma mistura de blobs JSON e não-JSON na mesma origem de dados, fale na [nosso site do UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Quando utiliza `json`, `jsonArray` ou `jsonLines` modo de análise, o Azure Search assume que todos os blobs na sua origem de dados contenham JSON. Se tiver de suportar uma mistura de blobs JSON e não-JSON na mesma origem de dados, fale na [nosso site do UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 
 ### <a name="how-to-parse-single-json-blobs"></a>Como analisar únicos de JSON de blobs
@@ -232,7 +245,7 @@ O indexador blob analisa o documento JSON num único documento de Azure Search. 
 
 Como observado, os mapeamentos de campo não são necessários. Tendo em conta um índice com "text", "datePublished e"etiquetas"campos, o blob indexador pode inferir o mapeamento correto sem um campo de mapeamento presentes no pedido.
 
-### <a name="how-to-parse-json-arrays"></a>Como analisar as matrizes de JSON
+### <a name="how-to-parse-json-arrays-in-a-well-formed-json-document"></a>Como analisar matrizes JSON num documento JSON bem formado
 
 Em alternativa, pode optar por para a funcionalidade de matriz JSON. Esta funcionalidade é útil quando os blobs de conter uma *matriz de objetos JSON*, e pretender que cada elemento para se tornar um documento separado do Azure Search. Por exemplo, tendo em conta o blob JSON seguinte, pode preencher o índice da Azure Search com três documentos separados, cada um com campos "id" e "text".  
 
@@ -281,7 +294,31 @@ Utilize esta configuração para indexar a matriz contida no `level2` propriedad
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-### <a name="field-mappings"></a>Mapeamentos de campo
+### <a name="how-to-parse-blobs-with-multiple-json-entities-separated-by-newlines"></a>Como analisar a blobs com várias entidades JSON separadas por garantidamente
+
+Se o blob contém várias entidades JSON separadas por uma nova linha e pretende que cada elemento para se tornar um documento separado do Azure Search, pode optar pela funcionalidade de linhas JSON. Por exemplo, com o blob seguinte (em que existem três diferentes entidades JSON), que pode preencher o índice da Azure Search com três seprate documentos, cada um com campos "id" e "text".
+
+    { "id" : "1", "text" : "example 1" }
+    { "id" : "2", "text" : "example 2" }
+    { "id" : "3", "text" : "example 3" }
+
+Para linhas JSON, a definição de indexador deve ter um aspeto semelhante ao seguinte exemplo. Tenha em atenção que o parâmetro parsingMode Especifica o `jsonLines` analisador. 
+
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "name" : "my-json-indexer",
+      "dataSourceName" : "my-blob-datasource",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
+    }
+
+Novamente, tenha em atenção que os mapeamentos de campo podem ser omitido, semelhante a `jsonArray` modo de análise.
+
+### <a name="using-field-mappings-to-build-search-documents"></a>Através de mapeamentos de campo para criar documentos de pesquisa
 
 Quando os campos de origem e destino não estão alinhados perfeitamente, pode definir uma secção de mapeamento de campo no corpo do pedido para associações de campo a campo explícitas.
 

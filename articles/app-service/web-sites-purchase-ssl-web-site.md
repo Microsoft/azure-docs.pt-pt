@@ -4,7 +4,7 @@ description: Saiba como comprar um certificado de serviço de aplicações e vin
 services: app-service
 documentationcenter: .net
 author: cephalin
-manager: cfowler
+manager: jpconnoc
 tags: buy-ssl-certificates
 ms.assetid: cdb9719a-c8eb-47e5-817f-e15eaea1f5f8
 ms.service: app-service
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b569165153ce713846be5e836a26f48e500be1fc
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594139"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216582"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de aplicações do Azure
 
@@ -121,28 +121,35 @@ Utilize a seguinte tabela para o ajudar a configurar o enlace na **enlaces SSL**
 
 Visite a sua aplicação através de `HTTPS://<domain_name>` em vez de `HTTP://<domain_name>` para verificar se o certificado foi configurado corretamente.
 
-## <a name="rekey-and-sync-certificate"></a>A recodificação e o certificado de sincronização
+## <a name="rekey-certificate"></a>Recodificar certificado
 
-Se alguma vez precisar de recodificar o certificado, selecione o certificado no [certificados do serviço de aplicações](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) página, em seguida, selecione **recodificação e sincronização** no painel de navegação esquerda.
+Se acha que o certificado 's privado chave for comprometida, pode executar a recodificação do certificado. Selecione o certificado no [certificados do serviço de aplicações](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) página, em seguida, selecione **recodificar e sincronizar** no painel de navegação esquerda.
 
-Clique em **recodificar** botão para iniciar o processo. Este processo pode demorar 1 a 10 minutos a concluir.
+Clique em **recodificar** para iniciar o processo. Este processo pode demorar 1 a 10 minutos a concluir.
 
 ![Inserir a imagem de recodificação SSL](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 Recodificação do certificado agrega o certificado com um novo certificado emitido a partir da autoridade de certificação.
 
+Quando a operação de recodificação estiver concluída, clique em **sincronização**. A operação de sincronização atualiza automaticamente os enlaces de nome de anfitrião para o certificado no serviço de aplicações sem causar qualquer período de indisponibilidade para as suas aplicações.
+
+> [!NOTE]
+> Se não clicar **sincronização**, serviço de aplicações sincroniza automaticamente o certificado no prazo de 48 horas.
+
 ## <a name="renew-certificate"></a>Renovar certificado
 
-Para ativar a renovação automática do certificado em qualquer altura, selecione o certificado no [certificados do serviço de aplicações](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) página, em seguida, clique em **definições de renovação automática** na navegação à esquerda. 
+Para ativar a renovação automática do certificado em qualquer altura, selecione o certificado no [certificados do serviço de aplicações](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) página, em seguida, clique em **definições de renovação automática** na navegação à esquerda.
 
 Selecione **nos** e clique em **guardar**. Certificados podem começar a renovar automaticamente 60 dias antes da expiração, se tiver ativada a renovação automática.
 
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+![Renovar certificado automaticamente](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
 Para renovar manualmente o certificado em vez disso, clique em **renovação Manual**. Pode pedir para renovar manualmente o certificado 60 dias antes da expiração.
 
+Depois de concluída a operação de renovação, clique em **sincronização**. A operação de sincronização atualiza automaticamente os enlaces de nome de anfitrião para o certificado no serviço de aplicações sem causar qualquer período de indisponibilidade para as suas aplicações.
+
 > [!NOTE]
-> O certificado renovado não está vinculado automaticamente à sua aplicação, quer renovados manualmente ou ele renovado automaticamente. Associá-lo à sua aplicação, consulte [renovar certificados](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+> Se não clicar **sincronização**, serviço de aplicações sincroniza automaticamente o certificado no prazo de 48 horas.
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 

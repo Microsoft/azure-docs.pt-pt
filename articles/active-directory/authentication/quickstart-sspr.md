@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6cd463a728d8362221aaf7789258d7815566b23
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 285c8a9c34d13b6c2696481e813d27943169e559
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176259"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214916"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Início rápido: Reposição personalizada de palavra-passe
 
@@ -42,8 +42,8 @@ Neste início rápido, vai percorrer a configuração da reposição personaliza
 3. Na página **Métodos de autenticação**, selecione o seguinte:
    * Número de métodos necessários para repor: **1**
    * Métodos disponíveis para os utilizadores:
-      * **Número de telemóvel**
-      * **Telefone do emprego**
+      * **E-mail**
+      * **Código de aplicação móvel (pré-visualização)**
    * Clique em **Guardar**.
 
     ![Autenticação][Authentication]

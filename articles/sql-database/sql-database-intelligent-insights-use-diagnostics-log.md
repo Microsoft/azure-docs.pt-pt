@@ -12,16 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: a2b4f85ac9c62c93e06f73090b6b144ff79319d1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561880"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217041"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Utilizar o registo de diagnóstico de desempenho do Intelligent Insights SQL Database do Azure
 
-Esta página fornece informações sobre como utilizar o log de diagnóstico de desempenho de base de dados do Azure SQL gerado pelo [informações inteligentes](sql-database-intelligent-insights.md), seu formato e os dados nele contidos para necessidades de seu desenvolvimento personalizado. Pode enviar este registo de diagnósticos para [do Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Event Hubs do Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para DevOps personalizado de alertas e relatórios capacidades.
+Esta página fornece informações sobre como utilizar o log de diagnóstico de desempenho de base de dados do Azure SQL gerado pelo [informações inteligentes](sql-database-intelligent-insights.md), seu formato e os dados nele contidos para necessidades de seu desenvolvimento personalizado. Pode enviar este registo de diagnósticos para [registos do Azure Monitor](../azure-monitor/insights/azure-sql.md), [Event Hubs do Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-storage), ou uma solução de terceiros para DevOps personalizado de alertas e relatórios capacidades.
 
 ## <a name="log-header"></a>Cabeçalho de registo
 
@@ -135,7 +135,7 @@ A última parte do registo de desempenho de informações inteligentes diz respe
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Pode utilizar o registo de desempenho de informações inteligentes com [do Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para DevOps personalizado de alertas e dos recursos de relatórios.
+Pode utilizar o registo de desempenho de informações inteligentes com [registos do Azure Monitor]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou uma solução de terceiros para DevOps personalizado de alertas e dos recursos de relatórios.
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [informações inteligentes](sql-database-intelligent-insights.md) conceitos.

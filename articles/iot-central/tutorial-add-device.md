@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 04bdbd6c6af1f0e3a479920bc7f286343052281e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 307449a24555fed48899d67196114cb24f0bb572
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192161"
+ms.locfileid: "57216854"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 
@@ -111,27 +111,27 @@ Os passos seguintes mostram como preparar o exemplo em [Node.js](https://nodejs.
 
 1. A cadeia de ligação para uma instância de dispositivo na sua aplicação é gerada a partir das informações do dispositivo concedidas pelo IoT Central.
 
-   Regresse ao portal do IoT Central. No ecrã do dispositivo do seu ar condicionado real, escolha **Ligar**.
+    Regresse ao portal do IoT Central. No ecrã do dispositivo do seu ar condicionado real, escolha **Ligar**.
 
-   ![Página do dispositivo que mostra a ligação para informações de ligação](media/tutorial-add-device/connectionlink.png)
+    ![Página do dispositivo que mostra a ligação para informações de ligação](media/tutorial-add-device/connectionlink.png)
 
 1. Na página de Ligação do Dispositivo, copie e cole o ID de Âmbito, o ID do Dispositivo e a Chave Primária para um editor de texto e, em seguida, guarde. Utilize estes valores no próximo passo.
 
-   ![Detalhes da ligação](media/tutorial-add-device/device-connect.png)
+    ![Detalhes da ligação](media/tutorial-add-device/device-connect.PNG)
 
 1. Regresse ao ambiente de linha de comandos e gere a cadeia de ligação ao executar:
 
     ```cmd/sh
-    dps_keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
+     dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
     ```
 
-   Copie o resultado e guarde-o num novo ficheiro (por exemplo, connection.txt).
+    Copie o resultado e guarde-o num novo ficheiro (por exemplo, connection.txt).
 
 1. Para inicializar o projeto em Node.js, execute o seguinte comando ao aceitar todas as predefinições:
 
-   ```cmd/sh
+    ```cmd/sh
     npm init
-   ```
+    ```
 
 1. Para instalar os pacotes necessários, execute o seguinte comando:
 

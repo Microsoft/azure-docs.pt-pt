@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b8844e6ca9effe78f8d98571af2ce59b4e0abee8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5e8e634bfb69d7c274322d34d26ff614f75905af
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465321"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215932"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -228,7 +228,7 @@ Base de dados de raiz de Federação pode ser utilizado no serviço de sincroniz
 
 Sincronização de dados SQL está executando como esperado? Para monitorizar a atividade e resolver problemas, consulte os artigos seguintes:
 
-- [Monitorizar a Sincronização de Dados SQL do Azure com o Log Analytics](sql-database-sync-monitor-oms.md)
+- [Monitorizar a sincronização de dados SQL do Azure com os registos do Azure Monitor](sql-database-sync-monitor-oms.md)
 - [Resolver problemas da Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Obtenha mais informações sobre a Base de Dados SQL do Azure

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 1a21ab5af8c0dc5fbbe2c1dbab8931bd903df4ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235993"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213930"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -84,7 +84,7 @@ Para uma descrição geral de permissões na base de dados do Azure SQL, consult
 
 Base de dados SQL protege os dados dos clientes, fornecendo capacidades de deteção de ameaças e auditoria.
 
-### <a name="sql-auditing-in-log-analytics-and-event-hubs"></a>Auditoria de SQL no Log Analytics e Hubs de eventos
+### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>Auditoria de SQL no Azure Monitor registos e os Hubs de eventos
 
 A auditoria de base de dados SQL controla as atividades de base de dados e ajuda a manter a conformidade com as normas de segurança, registrando eventos de base de dados para uma auditoria iniciar sessão numa conta de armazenamento do Azure pertencentes ao cliente. A auditoria permite aos utilizadores monitorizar atividades de base de dados em curso, bem como analisar e investigar atividade do histórico para identificar potenciais ameaças ou suspeitas abuso e violações de segurança. Para obter mais informações, consulte Introdução à [a auditoria de base de dados SQL](sql-database-auditing.md).  
 

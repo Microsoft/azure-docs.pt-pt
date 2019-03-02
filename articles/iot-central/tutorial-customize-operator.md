@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d10e0b48da497dafe9bb841c68746328e8334c91
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657659"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215732"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a vista do operador do Azure IoT Central
 
@@ -28,8 +28,8 @@ Neste tutorial, ficará a saber como:
 > * Configurar o seu esquema de definições do dispositivo
 > * Configurar o seu esquema de propriedades do dispositivo
 > * Pré-visualizar o dispositivo como operador
-> * Configurar a sua home page predefinida
-> * Pré-visualizar a home page predefinida como operador
+> * Configurar o seu dashboard de aplicações predefinido
+> * Pré-visualizar o dashboard de aplicações padrão como um operador
 
 [!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
@@ -115,7 +115,7 @@ Para além do dashboard e das definições, também pode configurar a vista do o
 > [!NOTE]
 > No modo **Editar Modelo**, não pode editar os valores das propriedades.
 
-## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Pré-visualizar o dispositivo de ar condicionado ligado como um operador
+## <a name="preview-the-device"></a>Pré-visualização do dispositivo
 
 No modo **Editar Modelo**, pode personalizar as páginas do dashboard, das definições e da propriedades de um operador. Se não estiver no modo **Editar Modelo**, poderá ver a aplicação como um operador.
 
@@ -135,30 +135,33 @@ No modo **Editar Modelo**, pode personalizar as páginas do dashboard, das defin
 
     ![Vista do operador do dashboard do dispositivo](media/tutorial-customize-operator/operatordashboard.png)
 
-## <a name="configure-the-default-home-page"></a>Configurar a sua home page predefinida
+## <a name="configure-the-default-dashboard"></a>Configurar o dashboard predefinido
 
-Quando um construtor ou operador inicia sessão numa aplicação do Azure IoT Central, verão uma home page. Enquanto construtor, pode configurar o conteúdo desta home page para incluir o conteúdo mais útil e relevante para um operador.
+Quando um construtor ou o operador inicia sessão a uma aplicação do Azure IoT Central, verão o dashboard de aplicações. Como um construtor, pode configurar o conteúdo do dashboard predefinido para incluir o conteúdo mais útil e relevante para um operador.
 
-1. Para personalizar a home page predefinida, navegue para a **Home page** e selecione **Editar**, no canto superior direito da página. Após selecionar **Editar**, um painel deslizará da direita com uma lista de objetos que pode adicionar à sua Home page.
+> [!NOTE]
+> Os utilizadores também podem criar seus próprios dashboards pessoais e escolher uma como seu padrão.
 
-    ![Página Application Builder](media/tutorial-customize-operator/builderhome.png)
+1. Para personalizar o dashboard de aplicações predefinido, navegue para o **Dashboard** página e clique em **editar** no canto superior direito da página. É apresentado um painel com uma biblioteca de objetos, que pode adicionar ao dashboard.
 
-2. Para personalizar a home page, adicione mosaicos a partir da **Biblioteca**. Escolha **Ligação** e adicione os detalhes do site da sua organização. Em seguida, escolha **Guardar**:
+    ![Página de dashboard](media/tutorial-customize-operator/builderhome.png)
 
-    ![Adicionar ligação à home page](media/tutorial-customize-operator/addlink.png)
+2. Para personalizar o dashboard, adicione mosaicos a partir da **biblioteca**. Escolha **Ligação** e adicione os detalhes do site da sua organização. Em seguida, escolha **Guardar**:
+
+    ![Adicionar ligação ao dashboard](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Também pode adicionar ligações a páginas na sua aplicação do Azure IoT Central. Por exemplo, pode adicionar uma ligação a um dashboard de dispositivo ou à página de definições.
 
-3. Opcionalmente, escolha **Imagem** e carregue uma imagem a apresentar na sua home page. Uma imagem pode ter um URL para o qual navega ao clicar no mesmo:
+3. Opcionalmente, escolha **imagem** e carregar uma imagem a apresentar no seu dashboard. Uma imagem pode ter um URL para o qual navega, quando clica nele:
 
-    ![Adicionar imagem à home page](media/tutorial-customize-operator/addimage.png)
+    ![Adicionar uma imagem ao dashboard](media/tutorial-customize-operator/addimage.png)
 
     Para obter mais informações, veja [Como preparar e carregar imagens para a aplicação do Azure IoT Central](howto-prepare-images.md).
 
-## <a name="preview-the-default-home-page-as-an-operator"></a>Pré-visualizar a home page predefinida como operador
+## <a name="preview-the-dashboard"></a>Pré-visualização do dashboard
 
-Para pré-visualizar a home page como um operador e deixar de editar, selecione **Concluído** no canto superior direito da página
+Para pré-visualizar o dashboard de aplicações como um operador, selecione **feito** no canto superior direito da página
 
 ![Alternar Modo de Estrutura](media/tutorial-customize-operator/operatorviewhome.png)
 
@@ -174,8 +177,8 @@ Neste tutorial, aprendeu a personalizar a vista do operador da aplicação.
 > * Configurar o seu esquema de definições do dispositivo
 > * Configurar o seu esquema de propriedades do dispositivo
 > * Pré-visualizar o dispositivo como operador
-> * Configurar a sua home page predefinida
-> * Pré-visualizar a home page predefinida como operador
+> * Configurar o seu dashboard de aplicações predefinido
+> * Pré-visualizar o dashboard de aplicações padrão como um operador
 
 Agora que aprendeu a personalizar a vista do operador da aplicação, os próximos passos sugeridos são:
 

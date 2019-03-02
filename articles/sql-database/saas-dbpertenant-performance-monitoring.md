@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5b9d5d6252f22901d2b8ac5a61d924ce12cc7065
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 902fbde0eca8db9113dda51e5d912fa9d94644ee
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004652"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215171"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho de bases de dados SQL do Azure e conjuntos numa aplicação SaaS multi-inquilino
 
@@ -57,7 +57,7 @@ Os conjuntos e as bases de dados em conjuntos, devem ser monitorizados para gara
 
 O [portal do Azure](https://portal.azure.com) fornece monitorização e alertas incorporados na maior parte dos recursos. Na Base de Dados SQL, a monitorização e os alertas estão disponíveis nas bases de dados e nos conjuntos. Estes alertas e monitorização incorporados são específicos dos recursos, portanto, é útil para utilização em pequenos números de recursos, mas não é muito útil quando trabalha com muitos recursos.
 
-Para cenários de volume elevado, em que trabalha com muitos recursos, [do Log Analytics](saas-dbpertenant-log-analytics.md) pode ser utilizado. Este é um serviço do Azure separado que fornece análises sobre os registos de diagnóstico emitidos e a telemetria recolhida numa área de trabalho do log analytics. O log Analytics pode recolher telemetria de muitos serviços e ser utilizado para consultar e definir alertas.
+Para cenários de volume elevado, em que trabalha com muitos recursos, [registos do Azure Monitor](saas-dbpertenant-log-analytics.md) pode ser utilizado. Este é um serviço do Azure separado que fornece análises sobre os registos de diagnóstico emitidos e a telemetria recolhida na área de trabalho do Log Analytics. Registos de Monitor do Azure podem recolher telemetria de muitos serviços e ser utilizados para consultar e definir alertas.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicativo da Wingtip Tickets SaaS da base de dados por inquilino
 
@@ -247,4 +247,4 @@ Neste tutorial, ficará a saber como:
 * Adicionais [tutoriais que são criados após a implementação da aplicação Wingtip Tickets SaaS da base de dados por inquilino](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Conjuntos elásticos SQL](sql-database-elastic-pool.md)
 * [Automatização do Azure](../automation/automation-intro.md)
-* [Log Analytics](saas-dbpertenant-log-analytics.md) – Tutorial de configuração e utilização do Log Analytics
+* [Registos de Monitor do Azure](saas-dbpertenant-log-analytics.md) - definição e utilização tutorial de registos do Azure Monitor

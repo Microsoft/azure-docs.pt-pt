@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/01/2019
 ms.author: raynew
-ms.openlocfilehash: 960d1df7c89383efc976fed959c1a39fae461c52
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2225c978eade3af12e910d7f403ca06287cabbef
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875816"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214236"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -230,6 +230,26 @@ Disco FC | Não suportado. | Falha na verificação se não suportado.
 BitLocker | Não suportado. | O BitLocker tem de ser desativado antes de ativar a replicação para uma máquina. |
 o nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
 
+## <a name="azure-site-recovery-churn-limits"></a>Limites de alterações a dados do Azure Site Recovery
+
+A tabela seguinte fornece os limites do Azure Site Recovery. Estes limites baseiam-se nos nossos testes, mas não abrangem todas as combinações de E/S de aplicações possíveis. Os resultados reais podem variar consoante a combinação de E/S da sua aplicação. Para obter melhores resultados, recomendamos vivamente a [execute a ferramenta Planeador de implementações](site-recovery-deployment-planner.md) e realizar testes exaustivos às aplicações através da emissão de uma ativação pós-falha de teste para obter a imagem de VERDADEIRO de desempenho do aplicativo.
+
+**Destino do armazenamento da replicação** | **Tamanho médio de E/S do disco de origem** |**Média de alterações a dados do disco de origem** | **Total de alterações a dados do disco de origem por dia**
+---|---|---|---
+Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
+Disco Premium P10 ou P15 | 32 KB ou superior | 8 MB/s | 672 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |10 MB/s | 842 GB por disco
+
+**Alterações a dados de origem** | **Limite Máximo**
+---|---
+Média de alterações a dados por VM| 25 MB/s
+Alterações a dados de pico em todos os discos numa VM | 54 MB/s
+Máximo de alterações a dados por dia suportadas por um Servidor de Processos | 2 TB
+
+Estes são números médios, que pressupõem uma sobreposição de 30 por cento de E/S. O Site Recovery é capaz de processar um débito superior com base no rácio de sobreposição, em tamanhos de escrita maiores e no comportamento real de E/S da carga de trabalho. Os números anteriores pressupõem um atraso típico de aproximadamente cinco minutos. Ou seja, depois de os dados serem carregados, são processados e é criado um ponto de recuperação ao fim de cinco minutos.
 
 ## <a name="vault-tasks"></a>Tarefas de cofre
 
