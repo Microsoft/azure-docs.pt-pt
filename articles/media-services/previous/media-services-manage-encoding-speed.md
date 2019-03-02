@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 2d36b10adbe277331eafdf1b68d0f5711508cc05
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c794326c9832308cac519617e46b05e311106802
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992217"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240427"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding-legacy"></a>Gerir a velocidade e simultaneidade da codificação (Legado)
+#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Gerir a velocidade e simultaneidade da codificação  
 
 Este artigo fornece uma breve descrição geral de como pode gerir a velocidade e simultaneidade de seus trabalhos/tarefas de codificação.
 

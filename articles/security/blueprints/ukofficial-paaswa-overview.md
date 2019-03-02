@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7f67b7363719f544c485503e0f8207bb1f1078ce
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301803"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244711"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Aplicação Web de PaaS de alojamento para cargas de trabalho oficial do Reino Unido
 
@@ -57,9 +57,8 @@ Esta solução utiliza os seguintes serviços do Azure. Os detalhes a arquitetur
 - Aplicação API
 - DNS do Azure
 - Cofre de Chaves
-- Azure Monitor
+- O Azure Monitor (logs)
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Centro de Segurança do Azure
 - Base de Dados SQL do Azure
@@ -169,11 +168,11 @@ Informações detalhadas sobre como proteger o armazenamento do Azure podem ser 
 
 ### <a name="monitoring-logging-and-audit"></a>Monitorização, registo e auditoria
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure que ajuda a recolher e analisar dados gerados pelos recursos na sua cloud e ambientes no local.
+[Registos de Monitor do Azure](https://azure.microsoft.com/services/log-analytics/) é um serviço no Azure que ajuda a recolher e analisar dados gerados pelos recursos na sua cloud e ambientes no local.
 
-#### <a name="log-analytics-in-this-blueprint"></a>Log Analytics nesse plano gráfico
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Registos de Monitor do Azure neste esquema
 
 - Avaliação do SQL
 - Diagnóstico do Cofre de chaves
