@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a04a9f225d46ae3dc51381f01984a4ac2af3448f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5f97c2997711c30ad52e5209ba86e0d1bfe30ea8
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890966"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251840"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Armazenamento premium do Azure: conceber o elevado desempenho
 
@@ -69,11 +69,11 @@ Quando pretender otimizar seu aplicativo para obter uma maior IOPS e débito, af
 
 As seguintes operações de plano de controle em Managed Disks podem envolver o movimento do disco de uma localização de armazenamento para outro. Isso é orquestrado por meio de cópia em segundo plano de dados que podem demorar várias horas a concluir, normalmente, menos de 24 horas, consoante a quantidade de dados nos discos. Durante esse tempo seu aplicativo pode assistir superior do que a latência de leitura normal como algumas leituras podem obter redirecionadas para a localização original e podem demorar mais tempo a concluir. Não é afetado na latência de escrita durante este período.
 
-1. [Atualizar o tipo de armazenamento](../articles/virtual-machines/windows/convert-disk-storage.md).
-1. [Desanexar e anexar um disco a partir de uma VM para outra](../articles/virtual-machines/windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
-1. [Criar um disco gerido a partir de um VHD](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md).
-1. [Criar um disco gerido a partir de um instantâneo](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-1. [Converter os discos não geridos para managed disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
+- Atualize o tipo de armazenamento.
+- Desanexar e anexar um disco a partir de uma VM para outra.
+- Crie um disco gerido a partir de um VHD.
+- Crie um disco gerido a partir de um instantâneo.
+- Converta discos não geridos para managed disks.
 
 # <a name="performance-application-checklist-for-disks"></a>Lista de verificação de aplicação de desempenho para discos
 

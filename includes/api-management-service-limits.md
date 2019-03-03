@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: 646ebc79e3615b289b60e47c0a38595e7892d8cc
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 609eaa25640e74ffe3b39606051edd7048f72497
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55084788"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251948"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -23,7 +23,8 @@ ms.locfileid: "55084788"
 | Ligações de back-end em simultâneo<sup>3</sup> por uma autoridade HTTP | 2048 por unidade<sup>4</sup> |
 | Tamanho máximo da resposta em cache | 2MB |
 | Tamanho do documento de política máximo | 256KB<sup>5</sup> | 
-| Domínios de gateway personalizada máximo por instância de serviço<sup>6</sup> | 20 | 
+| Domínios de gateway personalizada máximo por instância de serviço<sup>6</sup> | 20 |
+| Número máximo de certificados de AC por instância de serviço | 10 | 
 | Número máximo de instâncias de serviço por assinatura<sup>7</sup> | 20 | 
 | Número máximo de subscrições por instância de serviço<sup>7</sup> | 500 |
 | Número máximo de certificados de cliente por instância de serviço<sup>7</sup> | 50 | 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1556a7d482a6644831589937b1847b1d63e72693
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cdfc858522c5b331c90259de0fb5ad84fa54bc5d
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56890985"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57251961"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Que tipos de disco estão disponíveis no Azure?
 
@@ -95,11 +95,11 @@ SSDs padrão do Azure são uma opção de armazenamento económico, otimizada pa
 
 Tamanhos marcados com asterisco estão atualmente em pré-visualização.
 
-| Tamanhos SSD Standard  | E10               | E15               | E20             | E30 | E40              | E50              | E60*              | E70*              | E80*              |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Tamanho do disco em GiB           | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
-| IOPs por disco       | Até 500              | Até 500              | Até 500              | Até 500 | Até 500              | Até 500              | Até 500             | Até 500              | Até 1.300              | Até 2000              | Até 2000              |
-| Débito por disco |  Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg| Até 300 MiB/seg |  Até 500 MiB/seg | Até 500 MiB/seg |
+| Tamanhos SSD Standard  | E4                   | E6                   | E10               | E15               | E20             | E30 | E40              | E50              | E60*              | E70*              | E80*              |
+|---------------------|---------------------|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| Tamanho do disco em GiB           | 32             | 64             | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
+| IOPs por disco       | Até 120              | Até 240              | Até 500              | Até 500              | Até 500              | Até 500 | Até 500              | Até 500              | Até 500             | Até 500              | Até 1.300              | Até 2000              | Até 2000              |
+| Débito por disco |  Até 25 MiB/seg  |  Máximo de 50 MiB/seg  |  Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg | Até 60 MiB/seg| Até 300 MiB/seg |  Até 500 MiB/seg | Até 500 MiB/seg |
 
 ## <a name="standard-hdd"></a>HDD Standard
 
