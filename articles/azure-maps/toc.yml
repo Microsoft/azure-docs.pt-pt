@@ -149,6 +149,30 @@ items:
       href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
   - name: Modelo do Resource Manager
     href: /azure/templates/microsoft.maps/accounts
+- name: Recursos
+  items:
+  - name: Termos de utilização do Azure Maps
+    href: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31.
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/azure-maps
+  - name: Calculadora de preços
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-maps
+  - name: Fórum do MSDN
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
+  - name: Glossário
+    href: glossary.md
+  - name: Atualizações de serviço
+    href: https://azure.microsoft.com/updates
+  - name: Centro de Programadores do Azure IoT
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Mapa do Azure
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Estudos de caso técnicos
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: Vídeos
+    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
 - name: Relacionado
   items:
   - name: Soluções
@@ -175,31 +199,9 @@ items:
       href: /azure/iot-edge
     - name: SDKs do Dispositivo IoT
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-- name: Recursos
-  items:
-  - name: Centro de Programadores do Azure IoT
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Mapa do Azure
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Glossário
-    href: glossary.md
-  - name: Fórum do MSDN
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: Preços
-    href: https://azure.microsoft.com/pricing/details/azure-maps
-  - name: Calculadora de preços
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Atualizações de serviço
-    href: https://azure.microsoft.com/updates
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-maps
-  - name: Estudos de caso técnicos
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Vídeos
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: 114647e85aa775d37dab827daef2e55867e5a47b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 194b8ff59a19e33a3ec8e2544e4d04c9afb6613f
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234396"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57246447"

@@ -160,6 +160,8 @@ items:
         href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
       - name: Indexador do Cosmos DB
         href: search-howto-index-cosmosdb.md
+      - name: Indexação de blobs um-para-muitos
+        href: search-howto-index-one-to-many-blobs.md
       - name: Indexação de blob CSV
         href: search-howto-index-csv-blobs.md
       - name: Indexação de blob JSON
@@ -307,9 +309,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: e34081a7dfa2faec11dbdf18020b20a33b355568
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 10f61a434d509ab5dc6255ecf326a49a95380e97
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593612"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213879"

@@ -597,7 +597,7 @@ items:
             href: saas-dbpertenant-provision-and-catalog.md
           - name: Monitorizar o desempenho da base de dados
             href: saas-dbpertenant-performance-monitoring.md
-          - name: Monitorizar com o Log Analytics
+          - name: Monitorizar com os registos do Azure Monitor
             href: saas-dbpertenant-log-analytics.md
           - name: Restaurar um inquilino
             href: saas-dbpertenant-restore-single-tenant.md
@@ -716,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar tarefa elástica (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: e9e048d8c27a0d1accfbd029892bebad6a5ffba6
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 459ea95c74eedc207b08bda6ece5a27b963d8df7
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011063"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214032"

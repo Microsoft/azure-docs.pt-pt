@@ -26,10 +26,12 @@ items:
     - name: Configurar ADCD no zD&T
       href: ibm/demo.md
     - name: IBM Db2 pureScale
-      href: https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure
-ms.openlocfilehash: 659823acdb4e3294ca5bceafbc8263c884419356
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+    - name: Implementar o IBM DB2 pureScale
+      href: https://docs.microsoft.com/azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+ms.openlocfilehash: 8400e03bc506c642f86ae5754133d3ab4c52b5bc
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192962"
+ms.locfileid: "57215461"
