@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 93a4595ce0b36c8d0f447177bda69d2d8cab12c8
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a8b792ee7731a9994ded76ef1614fc3966d033d0
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117533"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243810"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integração de registos do Azure com o registo de diagnósticos do Azure e o reencaminhamento de eventos do Windows
 
@@ -248,5 +248,5 @@ Para saber mais sobre a integração de registo do Azure, veja os artigos seguin
 * [Introdução à integração de registos do Azure](security-azure-log-integration-overview.md). Este artigo apresenta o Azure Log Integration, suas principais capacidades e como ele funciona.
 * [Passos de configuração de parceiros](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/). Esta postagem de blog mostra-lhe como configurar a integração de registos do Azure para trabalhar com soluções de parceiros Splunk e cso da HP e IBM QRadar. Ele descreve a nossa documentação de orientação atual sobre como configurar os componentes SIEM. Verifique junto do fornecedor do SIEM para obter mais detalhes.
 * [Integração de registos do Azure perguntas mais frequentes (FAQ)](security-azure-log-integration-faq.md). Encontre respostas para perguntas comuns sobre a integração de registos do Azure.
-* [Integrar alertas do Centro de segurança do Azure com o Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). Este artigo mostra-lhe como sincronizar alertas do Centro de segurança e eventos de segurança de máquinas virtuais que são recolhidos pelo diagnóstico do Azure e a atividade do Azure registos. Sincronizar os registos ao utilizar a sua solução SIEM ou do Azure Log Analytics.
+* [Integrar alertas do Centro de segurança do Azure com o Azure Log Integration](../security-center/security-center-integrating-alerts-with-log-integration.md). Este artigo mostra-lhe como sincronizar alertas do Centro de segurança e eventos de segurança de máquinas virtuais que são recolhidos pelo diagnóstico do Azure e a atividade do Azure registos. Sincronizar os registos ao utilizar a solução de SIEM ou registos do Azure Monitor.
 * [Registos de auditoria de novas funcionalidades para o diagnóstico do Azure e Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/). Esta postagem de blog apresenta os registos de auditoria do Azure e outros recursos que podem ajudá-lo a obterem informações sobre as operações de recursos do Azure.
