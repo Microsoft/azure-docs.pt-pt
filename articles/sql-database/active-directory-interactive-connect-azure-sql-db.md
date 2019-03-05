@@ -12,12 +12,12 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: a7f2dbdb089df8035d18db25b3968d63a3c97c0f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cb892ddf6414b270d891042c9849137f1e2fdb35
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767504"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307773"
 ---
 # <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>Ligar à base de dados SQL do Azure com o MFA do Active Directory
 
@@ -341,5 +341,6 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Obter informações sobre o administrador do Azure AD para o SQL Server](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator)
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+- [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

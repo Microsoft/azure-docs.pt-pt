@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: b1f6024538c6807fd68a0d7b0b7ae2776938055b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 71e70962a8c55d397b6261571cfef4a126d3e8b4
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888199"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307824"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Quer manter a sua telemetria por mais tempo do que o período de retenção padrão? Ou processá-los de alguma forma especializada? A exportação contínua é ideal para isso. Os eventos de que ver no portal do Application Insights podem ser exportados para o armazenamento no Microsoft Azure no formato JSON. A partir daí pode transferir os seus dados e escrever qualquer código que precisa para processá-lo.  
@@ -29,7 +29,7 @@ Antes de configurar a exportação contínua, existem algumas alternativas que t
 * [Análise](../../azure-monitor/app/analytics.md) fornece uma linguagem de consulta poderosa para a telemetria. Ele também pode exportar os resultados.
 * Se pretende [explorar os seus dados no Power BI](../../azure-monitor/app/export-power-bi.md ), pode fazer isso sem utilizar a exportação contínua.
 * O [REST API de acesso a dados](https://dev.applicationinsights.io/) permite-lhe aceder programaticamente a sua telemetria.
-* Também pode acessar o programa de configuração [exportação contínua através do Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
+* Também pode acessar o programa de configuração [exportação contínua através do Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Após a exportação contínua copia os seus dados para o armazenamento (em que ele pode manter-se para, desde que gosta), ela ainda está disponível no Application Insights para o habitual [período de retenção](../../azure-monitor/app/data-retention-privacy.md).
 

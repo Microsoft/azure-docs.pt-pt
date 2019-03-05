@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 75ed69d749e23f39c03afb09f70a18cc1aed600b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5de5191ee616f38404e2423c23f4e8b363240b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078580"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308334"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados no Log Analytics com um runbook da automatização do Azure
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Pode recolher uma quantidade significativa de dados no Log Analytics a partir de várias origens, incluindo [origens de dados](../../azure-monitor/platform/agent-data-sources.md) nos agentes e também [dados recolhidos a partir do Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md). Há um cenários, embora em que precisa recolher dados que não acessível através destas origens padrão. Nestes casos, pode utilizar o [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) para escrever dados para o Log Analytics a partir de qualquer cliente de REST API. Um método comum para efetuar a recolha de dados está a utilizar um runbook na automatização do Azure.
 
 Este tutorial explica o processo para criar e agendar um runbook na automatização do Azure para escrever dados para o Log Analytics.
@@ -62,9 +65,9 @@ A galeria do PowerShell entanto dá-lhe uma opção rápida para implementar um 
 
 | Propriedade | Valor de ID de área de trabalho | Valor de chave da área de trabalho |
 |:--|:--|:--|
-| Nome | WorkspaceId | WorkspaceKey |
-| Tipo | Cadeia | Cadeia |
-| Valor | Cole o ID de área de trabalho de sua área de trabalho do Log Analytics. | Colar com a primária ou uma chave secundária da sua área de trabalho do Log Analytics. |
+| Name | WorkspaceId | WorkspaceKey |
+| Type | String | String |
+| Value | Cole o ID de área de trabalho de sua área de trabalho do Log Analytics. | Colar com a primária ou uma chave secundária da sua área de trabalho do Log Analytics. |
 | Encriptados | Não | Sim |
 
 ## <a name="3-create-runbook"></a>3. Criar runbook
@@ -92,7 +95,7 @@ A automatização do Azure tem um editor no portal do qual pode editar e testar 
     # Code copied from the runbook AzureAutomationTutorial.
     $connectionName = "AzureRunAsConnection"
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName
-    Connect-AzureRmAccount `
+    Connect-AzAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -109,7 +112,7 @@ A automatização do Azure tem um editor no portal do qual pode editar e testar 
     $logType = "AutomationJob"
     
     # Get the jobs from the past hour.
-    $jobs = Get-AzureRmAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
+    $jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName -StartTime (Get-Date).AddHours(-1)
     
     if ($jobs -ne $null) {
         # Convert the job data to json
@@ -176,9 +179,9 @@ A forma mais comum para iniciar um runbook que recolhe dados de monitorização 
 2. Clique em **adicionar um agendamento** > **ligar uma agenda ao runbook** > **criar uma nova agenda**.
 5. Escreva os seguintes valores para a agenda e clique em **criar**.
 
-| Propriedade | Valor |
+| Propriedade | Value |
 |:--|:--|
-| Nome | Hora a hora a AutomationJobs |
+| Name | AutomationJobs-Hourly |
 | Inicia | Selecione a que qualquer altura, pelo menos, 5 minutos posterior à hora atual. |
 | Recorrência | Periódico |
 | Repetir a cada | 1 hora |

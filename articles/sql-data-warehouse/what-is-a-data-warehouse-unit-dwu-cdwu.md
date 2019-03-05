@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7da813022527830a5ede62c9f4ce98645fe63d4b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 32a3ec7146e4dd43e0c5f522187856132745b539
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871610"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307094"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Unidades do Data Warehouse (DWUs) e de computação (cDWUs) de unidades do Data Warehouse
 Recomendações sobre como escolher o número ideal de unidades do data warehouse (DWUs, cDWUs) para otimizar o preço e desempenho e como alterar o número de unidades. 
@@ -124,10 +124,13 @@ Para alterar o número de DWUs ou cDWUs:
 3. Clique em **Guardar**. É apresentada uma mensagem de confirmação. Clique em **sim** para confirmar ou **não** para cancelar.
 
 ### <a name="powershell"></a>PowerShell
-Para alterar o número de DWUs ou cDWUs, utilize o [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) cmdlet do PowerShell. O exemplo seguinte define o objetivo de nível de serviço para DW1000 MySQLDW que está alojado no servidor MyServer da base de dados.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Para alterar o número de DWUs ou cDWUs, utilize o [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet do PowerShell. O exemplo seguinte define o objetivo de nível de serviço para DW1000 MySQLDW que está alojado no servidor MyServer da base de dados.
 
 ```Powershell
-Set-AzureRmSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
 Para obter mais informações, consulte [cmdlets do PowerShell para o SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)

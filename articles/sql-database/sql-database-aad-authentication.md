@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 4f8ee5a3a72fc143822a71bcb933f34e2f371019
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 1318cd3d1c0c51889cc70b6836d06d6d6ee70c24
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453142"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308385"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Utilizar autenticação do Active Directory do Azure para a autenticação com o SQL
 
@@ -81,7 +81,7 @@ Para criar um utilizador de base de dados contidos na base de dados do Azure SQL
 - Os seguintes membros do Azure AD podem ser aprovisionados no servidor SQL do Azure ou SQL Data Warehouse:
 
   - Membros nativos: Membro criado no Azure AD no domínio gerido ou num domínio dos clientes. Para obter mais informações, consulte [adicionar seu próprio nome de domínio para o Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
-  - Membros do domínio federado: Membro criado no Azure AD com um domínio federado. Para obter mais informações, consulte [Microsoft Azure suporta agora a Federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+  - Membros do domínio federado: Membro criado no Azure AD com um domínio federado. Para obter mais informações, consulte [Microsoft Azure suporta agora a Federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/).
   - Importados os membros do outro Azure AD que sejam membros do domínio federado ou nativo.
   - Grupos do Active Directory criados como grupos de segurança.
 

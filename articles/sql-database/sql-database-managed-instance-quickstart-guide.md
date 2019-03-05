@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 3bf0f62b0a8d909231ad747435ce363e6686fe80
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 44ea6db1c31f0ebfbe2abe2f9f6eea165a3ff4e0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874754"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306770"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução ao Azure SQL Database instância gerida
 
@@ -28,6 +28,7 @@ O [instância gerida](sql-database-managed-instance-index.yml) opção de implem
 Os inícios Rápidos seguintes permitem-lhe rapidamente criar uma instância gerida, configurar uma máquina virtual ou do ponto de ligação de VPN de site para a aplicação de cliente e restaurar uma base de dados para a nova instância gerida com um `.bak` ficheiro.
 
 ### <a name="configure-environment"></a>Configurar o ambiente
+
 Como primeiro passo, terá de criar a sua primeira instância gerida com o ambiente de rede onde será colocado e ativar a ligação do computador ou máquina virtual em que está a executar consultas para a instância gerida. Pode utilizar os seguintes guias:
 
 - [Criar uma instância gerida no portal do Azure](sql-database-managed-instance-get-started.md). No portal do Azure, configure os parâmetros necessários (nome de utilizador/palavra-passe, número de núcleos e a quantidade de armazenamento máximo) e criar automaticamente o ambiente de rede do Azure sem a necessidade de saber sobre o funcionamento em rede detalhes e requisitos de infraestrutura. Apenas Certifique-se de que tem um [tipo de subscrição](sql-database-managed-instance-resource-limits.md#supported-subscription-types) que atualmente tem permissão para criar uma instância gerida. Se tem sua própria rede que pretende utilizar ou se pretender personalizar a rede, consulte [configurar uma rede virtual existente para a instância gerida da base de dados do Azure SQL](sql-database-managed-instance-configure-vnet-subnet.md) ou [criar uma rede virtual para a base de dados do Azure SQL instância gerida](sql-database-managed-instance-create-vnet-subnet.md).
@@ -39,10 +40,11 @@ Como primeiro passo, terá de criar a sua primeira instância gerida com o ambie
   > [!NOTE]
   > Também pode utilizar o expressroute ou de ligação site a site da rede local, mas essas abordagens estão fora do âmbito dos inícios Rápidos seguintes.
 
-### <a name="migrate-your-databases"></a>Migre bases de dados 
+### <a name="migrate-your-databases"></a>Migre bases de dados
+
 Depois de criar uma instância gerida e configurar o acesso, pode começar a migrar as bases de dados do SQL Server no local ou VMs do Azure. Migração falha se tiver algumas funcionalidades não suportadas na base de dados origem que pretende migrar. Para evitar falhas e verificar a compatibilidade, pode instalar [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) que analisa as bases de dados no SQL Server e encontra qualquer problema que poderia bloquear a migração para uma instância gerida, por exemplo, a existência de [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou vários ficheiros de registo. Se resolver estes problemas, as bases de dados estão prontos para migrar para a instância gerida. [Base de dados de Assistente de experimentação](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) é outra ferramenta útil que pode gravar sua carga de trabalho no SQL Server e de repetição-lo numa instância gerida para que possa determinar estarão disponíveis para ser problemas de desempenho se migrar para uma instância gerida.
 
-Assim que tiver a certeza de que pode migrar a base de dados para uma instância gerida, pode utilizar os recursos nativos de restauro do SQL Server para restaurar uma base de dados para uma instância gerida de uma `.bak` ficheiro. Pode utilizar este método para migrar bases de dados do SQL Server da base de dados motor instalado no local ou VM do Azure. Para um guia de introdução, consulte [restaurar a partir de cópia de segurança para uma instância gerida](sql-database-managed-instance-get-started-restore.md). Neste início rápido, restaurar a partir de um `.bak` ficheiros armazenados no armazenamento de Blobs do Azure com o `RESTORE` comando do Transact-SQL. 
+Assim que tiver a certeza de que pode migrar a base de dados para uma instância gerida, pode utilizar os recursos nativos de restauro do SQL Server para restaurar uma base de dados para uma instância gerida de uma `.bak` ficheiro. Pode utilizar este método para migrar bases de dados do SQL Server da base de dados motor instalado no local ou VM do Azure. Para um guia de introdução, consulte [restaurar a partir de cópia de segurança para uma instância gerida](sql-database-managed-instance-get-started-restore.md). Neste início rápido, restaurar a partir de um `.bak` ficheiros armazenados no armazenamento de Blobs do Azure com o `RESTORE` comando do Transact-SQL.
 
 > [!TIP]
 > Para utilizar o `BACKUP` comando do Transact-SQL para criar uma cópia de segurança da base de dados no armazenamento de Blobs do Azure, consulte [cópia de segurança do SQL Server para URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
@@ -51,7 +53,9 @@ Estes inícios rápidos permitem-lhe rapidamente criar, configurar e restaurar a
 
 ## <a name="customize-network-environment"></a>Personalizar o ambiente de rede
 
-Embora a VNet/sub-rede podem ser configurada automaticamente quando a instância é criada no portal do Azure, pode querer criar a VNet/sub-rede antes de criar instâncias geridas, para que possa configurar os parâmetros da VNet e sub-rede. A maneira mais fácil para criar e configurar o ambiente de rede está a utilizar um [implementação de recursos do Azure](sql-database-managed-instance-create-vnet-subnet.md) modelo para criar e configurar a rede e a sub-rede para a instância gerida. Basta pressionar o Azure Resource Manager botão implementar e preencher o formulário com parâmetros. 
+Embora a VNet/sub-rede podem ser configurada automaticamente quando a instância é criada usando [do portal do Azure](sql-database-managed-instance-get-started.md), talvez seja bom para criá-lo antes de começar a criar instâncias geridas porque pode configurar os parâmetros da VNet e a sub-rede. A maneira mais fácil para criar e configurar o ambiente de rede é usar [implementação de recursos do Azure](sql-database-managed-instance-create-vnet-subnet.md) modelo que irá criar e configurar a rede e a sub-rede onde a instância será colocada. Basta pressionar o Azure Resource Manager botão implementar e preencher o formulário com parâmetros.
+
+Como alternativa, pode utilizar [script do PowerShell](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) para automatizar a criação da rede.
 
 Como alternativa, pode também utilizar isso [script do PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) para automatizar a criação da rede.
 
@@ -72,5 +76,5 @@ Artigos nestes inícios rápidos permitem-lhe configurar uma instância gerida e
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Encontrar um [lista de alto nível das funcionalidades suportadas na instância gerida aqui](sql-database-features.md) e [detalhes e problemas conhecidos aqui](sql-database-managed-instance-transact-sql-information.md).
-- Saiba mais sobre [características técnicas de instância gerida](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits). 
-- Encontre mais avançadas como-para [como utilizar uma instância gerida na base de dados do Azure SQL](sql-database-howto-managed-instance.md). 
+- Saiba mais sobre [características técnicas de instância gerida](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+- Encontre mais avançadas como-para [como utilizar uma instância gerida na base de dados do Azure SQL](sql-database-howto-managed-instance.md).

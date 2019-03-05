@@ -2,22 +2,17 @@
 title: Analisar dados de registo no Azure Monitor | Documentos da Microsoft
 description: Precisa de uma consulta de registo para recuperar dados de registo do Azure Monitor.  Este artigo descreve como os novos registos, as consultas são utilizadas no Azure Monitor e fornece os conceitos que tem de compreender antes de criar um.
 services: log-analytics
-documentationcenter: ''
 author: bwren
-manager: carmonm
-editor: ''
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: 259a792acb4d2fb8f9695f0f5a856bdf5069f2cd
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3e0cc41b2bb9b5c8193e64ccec767e551b3525e1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749754"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307400"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analisar dados de registo no Azure Monitor
 
@@ -34,14 +29,19 @@ Precisa de uma consulta de registo para recuperar os dados de registo do Azure M
 
 ## <a name="where-log-queries-are-used"></a>Em que são utilizadas consultas de registo
 
-As diferentes formas que irá utilizar consultas de registo no Azure Monitor incluem o seguinte:
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+As diferentes formas que irá utilizar consultas no Azure Monitor incluem o seguinte:
+
 
 - **Portal.** Pode executar análises interativas de dados de registo no [portal do Azure](portals.md).  Isto permite-lhe editar a consulta e analisar os resultados numa variedade de formatos e visualizações.  
 - **Regras de alerta.** [Regras de alerta](../platform/alerts-overview.md) identificar proativamente os problemas dos dados na sua área de trabalho.  Cada regra de alerta baseia-se uma pesquisa de registos que está a ser executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
 - **Dashboards.** Pode afixar os resultados de qualquer consulta numa [dashboard do Azure](../learn/tutorial-logs-dashboards.md) que permitem que visualize os dados de registos e de métricas em conjunto e, opcionalmente, partilhar com outros utilizadores do Azure. 
 - **Modos de exibição.**  Pode criar visualizações de dados a serem incluídos nos dashboards do utilizador com [estruturador de vistas](../platform/view-designer.md).  Consultas de registo que fornecem os dados utilizados pelo [mosaicos](../platform/view-designer-tiles.md) e [partes de visualização](../platform/view-designer-parts.md) em cada vista.  
+
 - **Exportar.**  Quando importa dados de registo do Azure Monitor para o Excel ou [Power BI](../platform/powerbi.md), cria uma consulta de registo para definir os dados para exportar.
-- **PowerShell.** Pode executar um script do PowerShell a partir de uma linha de comando ou um runbook da automatização do Azure que utiliza [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados de registo do Azure Monitor.  Este cmdlet requer uma consulta para determinar os dados a obter.
+- **PowerShell.** Pode executar um script do PowerShell a partir de uma linha de comando ou um runbook da automatização do Azure que utiliza [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) para recuperar dados de registo do Azure Monitor.  Este cmdlet requer uma consulta para determinar os dados a obter.
 - **API de Logs de Monitor do Azure.**  O [API do Azure Monitor registos](../platform/alerts-overview.md) permite que qualquer cliente de REST API recuperar dados de registo de área de trabalho.  O pedido de API inclui uma consulta que é executada no Azure Monitor para determinar os dados a obter.
 
 ![Pesquisas de registos](media/log-query-overview/queries-overview.png)

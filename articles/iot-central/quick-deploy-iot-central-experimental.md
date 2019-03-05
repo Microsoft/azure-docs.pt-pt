@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: e538d0caf82d67314834a630d53dd03f2c1a11bd
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: ae5eedf898b2dd9c766b535c6171b6f2d62210f4
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216599"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306923"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Criar uma aplicação do Azure IoT Central
 
@@ -55,7 +55,7 @@ Para criar uma nova aplicação do Azure IoT Central:
     > [!Note]
     > Depois de escolher a região, não pode mover a aplicação para outra posteriormente.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

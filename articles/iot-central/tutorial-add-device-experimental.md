@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8792873407a6103134300f11b4dae002e4df107a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cb457f59cf20f213aaeef6c2d336659c259060ad
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216225"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307246"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 
@@ -52,7 +52,7 @@ Para adicionar um dispositivo real à sua aplicação, utilize o modelo de dispo
 
    O **Device Explorer** mostra o modelos de dispositivo **Ar Condicionado Ligado** e o dispositivo simulado que foi criado automaticamente quando o construtor criou o modelo de dispositivo.
 
-2. Para começar a ligar um dispositivo real conectado ar-condicionado, clique em **+**, em seguida, **Real**:
+2. Para começar a ligar um dispositivo real conectado ar-condicionado, selecione **+**, em seguida, **Real**:
 
    ![Começar a adicionar um novo dispositivo de ar condicionado ligado real](media/tutorial-add-device-experimental/newreal.png)
 

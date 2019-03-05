@@ -67,6 +67,7 @@ items:
 - name: Conceitos
   items:
   - name: Base de dados de conhecimento
+    displayName: metadata, pair
     href: Concepts/knowledge-base.md
   - name: O ciclo de vida de desenvolvimento de uma base de dados de conhecimento
     href: Concepts/development-lifecycle-knowledge-base.md
@@ -77,6 +78,7 @@ items:
     displayName: DefaultAnswer, Default answer
     href: Concepts/confidence-score.md
   - name: Origens de dados suportadas
+    displayName: metadata, pair
     href: Concepts/data-sources-supported.md
 - name: Guias de procedimentos
   items:
@@ -89,6 +91,7 @@ items:
     - name: Migrar para uma base de dados de conhecimento
       href: Tutorials/migrate-knowledge-base.md
     - name: Editar uma base de dados de conhecimento
+      displayName: metadata, pair
       href: How-To/edit-knowledge-base.md
     - name: Colaborar numa base de dados de conhecimento
       href: How-To/collaborate-knowledge-base.md
@@ -97,6 +100,7 @@ items:
     - name: Testar uma base de dados de conhecimento
       href: How-To/test-knowledge-base.md
     - name: Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
+      displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject
       href: How-to/improve-knowledge-base.md
   - name: Utilizar a base de dados de conhecimento
     items:
@@ -186,9 +190,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blogue
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: d2843221ae4aae151e423e96b6633b69fc7a706d
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 59c69b3436eecd6b3c915ede313eb854ff6af121
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652506"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306651"

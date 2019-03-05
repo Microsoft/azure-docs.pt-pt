@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 5ad04c52da4709a7097ff7915d7af7404d6725eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4dc98fc3912f9d9c659ecfcaa3df253d30bfcc78
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53109494"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306974"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>Criar uma área de trabalho do Log Analytics com o PowerShell
 
@@ -31,6 +31,8 @@ Este script ajuda-o em funcionamento rapidamente com uma área de trabalho do Lo
 
 ## <a name="sample-script"></a>Script de exemplo
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/log-analytics/log-analytics-create-new-resource/log-analytics-create-new-resource.ps1 "Create new Log Analytics workspace")]
 
 ## <a name="script-explanation"></a>Explicação do script
@@ -39,8 +41,8 @@ Este script utiliza os seguintes comandos para criar uma nova área de trabalho 
 
 | Comando | Notas |
 |---|---|
-| [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace) | Obtém informações sobre uma área de trabalho existente. |
-| [Novo-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace) | Cria uma área de trabalho no grupo de recursos especificado e localização. |
+| [Get-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/get-azoperationalinsightsworkspace) | Obtém informações sobre uma área de trabalho existente. |
+| [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace) | Cria uma área de trabalho no grupo de recursos especificado e localização. |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

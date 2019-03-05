@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d94d434f83e1a8507b1a98660e8169ff6be4ee24
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5c9d8330e857a8f76e143631f17e29ba44244a88
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244594"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307926"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Resolução de problemas de armazém de dados SQL do Azure
 Este artigo apresenta uma lista de perguntas de resolução de problemas comuns.
@@ -52,7 +52,7 @@ Este artigo apresenta uma lista de perguntas de resolução de problemas comuns.
 | Msg 40847: Não foi possível efetuar a operação porque o servidor iria exceder a quota permitida da unidade de transação de base de dados de 45000. | Reduza a [DWU] [ DWU] da base de dados está a tentar criar ou [pedir um aumento de quota][request a quota increase]. |
 | Investigar a utilização de espaço                              | Ver [tamanhos de tabela] [ Table sizes] para compreender a utilização de espaço do seu sistema. |
 | Ajuda a gerir a tabelas                                    | Consulte a [descrição geral da tabela] [ Overview] artigo para obter ajuda com o gerenciamento de suas tabelas.  Este artigo também contém ligações para tópicos mais detalhados, como [tipos de dados de tabelas][Data types], [distribuição de uma tabela][Distribute], [Uma tabela de indexação][Index], [criação de partições de uma tabela][Partition], [manutenção de estatísticas de tabela] [ Statistics] e [tabelas temporárias][Temporary]. |
-| Barra de progresso de criptografia (TDE) de dados transparente não está a atualizar no Portal do Azure | Pode ver o estado de TDE via [powershell](/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption). |
+| Barra de progresso de criptografia (TDE) de dados transparente não está a atualizar no Portal do Azure | Pode ver o estado de TDE via [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 ## <a name="polybase"></a>Polybase
 | Problema                                           | Resolução                                                   |

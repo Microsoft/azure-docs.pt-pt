@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8d638743b3cb07b0d060e754ecb76e74bd02719d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 512956d2de0f9a838cc6378345a334e489d1d120
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215018"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306872"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Funções do Azure de Acionador com webhooks no Azure IoT Central
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
     ![Criar uma nova aplicação de função no Portal do Azure](media/howto-trigger-azure-functions/createfunction.png)
 
-2. Expanda a aplicação de função e clique nas **botão +** ao lado de funções. Se esta função for a primeira na sua aplicação de funções, selecione **Função personalizada**. É apresentado o conjunto completo de modelos de função.
+2. Expanda a sua aplicação de funções e selecione o **botão +** ao lado de funções. Se esta função for a primeira na sua aplicação de funções, selecione **Função personalizada**. É apresentado o conjunto completo de modelos de função.
 
     ![Escolha a função personalizada na aplicação de função](media/howto-trigger-azure-functions/customfunction.png)
 
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
     ![Selecione o acionador de webhook genérico](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 
-4. Na função nova, clique em **</> Obter URL da função** e, em seguida, copie e guarde o valor. Utilize este valor para configurar o webhook.
+4. Na função nova, selecione **<> / obter URL da função**e, em seguida, copie e guarde o valor. Utilize este valor para configurar o webhook.
 
     ![Obter o URL da função](media/howto-trigger-azure-functions/getfunctionurl.png)
 
@@ -49,7 +49,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
     ![Introduza o URL de função no campo URL de retorno de chamada](media/howto-trigger-azure-functions/configurewebhook.PNG)
 
-6. Guarde a regra. Agora quando a regra é acionada, o webhook invoca a aplicação de funções para executar. Na sua aplicação de função, pode clicar **Monitor** para ver o histórico de invocação de função. Pode utilizar o App Insights ou a vista clássica para ver o histórico.
+6. Guarde a regra. Agora quando a regra é acionada, o webhook invoca a aplicação de funções para executar. Na sua aplicação de função, pode selecionar **Monitor** para ver o histórico de invocação de função. Pode utilizar o App Insights ou a vista clássica para ver o histórico.
 
     ![Monitorizar o histórico de invocação da função](media/howto-trigger-azure-functions/monitorfunction.PNG)
 

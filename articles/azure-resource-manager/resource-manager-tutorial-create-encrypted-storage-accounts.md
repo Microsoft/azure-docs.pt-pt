@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 645d7c2dca166bf95b4bd6bd7677100644a1f948
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097595"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306702"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Tutorial: Utilizar a referência de modelo do Azure Resource Manager
 
 Saiba como encontrar as informações de esquema do modelo e utilizar as informações para criar modelos do Azure Resource Manager.
 
 Neste tutorial, vai utilizar um modelo de base dos modelos de Início Rápido do Azure. Com a documentação de referência do modelo, personalize o modelo para criar uma conta de Armazenamento encriptada.
+
+![Conta de armazenamento encriptada de implementar a referência de modelo do Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 Este tutorial abrange as seguintes tarefas:
 

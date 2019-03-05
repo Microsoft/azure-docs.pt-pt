@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: bb13e507e7992f4cd4d767a7a18850739b8dccf2
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: f119d128b35b93d7e18d514c09d187689d8dffe9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270203"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306906"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar a cópia de segurança de cargas de trabalho no Azure com o System Center DPM
 
@@ -48,20 +48,17 @@ DPM numa VM do Azure | System Center 2012 R2 com Update Rollup 3 do DPM 2012 R2 
 DPM num servidor físico | System Center 2012 SP1 ou posterior; System Center 2012 R2.
 DPM numa VM do Hyper-V | System Center 2012 SP1 ou posterior; System Center 2012 R2.
 DPM numa VM do VMware | System Center 2012 R2 com Update Rollup 5 ou posterior.
-Componentes | O servidor DPM deve ter o Windows PowerShell e o .net Framework 4.5 instalado.
+Componentes | O servidor DPM deve ter o Windows PowerShell e .NET Framework 4.5 instalado.
 Aplicações suportadas | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode criar cópias de segurança.
 Tipos de ficheiro suportados | Estes tipos de ficheiro podem ser uma cópia de segurança com o Azure Backup: Encriptados (cópias de segurança completas só); Comprimidos (cópias de segurança incrementais suportadas); Dispersos (cópias de segurança incrementais suportadas); Comprimidos e dispersos (tratados como dispersos).
 Tipos de ficheiro não suportado | Servidores em sistemas de ficheiros sensíveis a maiúsculas; ligações diretas (ignoradas); (ignorados); de pontos de reanálise encriptados e comprimidos (ignorados); encriptados e dispersos (ignorados); Fluxo comprimido; analisar o fluxo.
-Armazenamento local | Cada máquina que pretende criar cópias de segurança tem de ter armazenamento local livre é de, pelo menos, 5% do tamanho dos dados que estão a cópia de segurança.  Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização de rascunho.
+Armazenamento local | Cada máquina que pretende criar cópias de segurança tem de ter armazenamento local livre é de, pelo menos, 5% do tamanho dos dados que estão a cópia de segurança. Por exemplo, o backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização de rascunho.
 Armazenamento do Cofre | Não há limite para a quantidade de dados, que pode criar cópias de segurança para um cofre de cópia de segurança do Azure, mas o tamanho de uma origem de dados (por exemplo uma máquina virtual ou a base de dados) não deve exceder os 54400 GB.
 Agente do Backup do Azure | Se o DPM está em execução no System Center 2012 SP1, instale o Rollup 2 ou posterior para o DPM SP1. Isto é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implementar a versão mais recente do agente de cópia de segurança do Azure, também conhecido como o agente do serviço de recuperação do Azure (MARS) da Microsoft. Se tiver uma versão anterior implementada, atualize para a versão mais recente para se certificar que cópia de segurança funciona conforme esperado.
 
-
 Antes de começar, precisa de uma conta do Azure com a funcionalidade de cópia de segurança do Azure ativada. Se não tiver uma conta, pode criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre [preços de cópia de segurança do Azure](https://azure.microsoft.com/pricing/details/backup/).
 
-
 [!INCLUDE [backup-create-rs-vault.md](../../includes/backup-create-rs-vault.md)]
-
 
 ## <a name="modify-storage-settings"></a>Modificar as definições de armazenamento
 
@@ -82,7 +79,6 @@ Para editar a definição de replicação de armazenamento:
 
     ![Lista de cofres de cópia de segurança](./media/backup-azure-dpm-introduction/choose-storage-configuration-rs-vault.png)
 
-
 ## <a name="download-vault-credentials"></a>Transferir as credenciais do cofre
 
 Utilize as credenciais do cofre quando registar o servidor do DPM no cofre.
@@ -98,7 +94,7 @@ Para obter as credenciais de transferir o ficheiro de credenciais de cofre atrav
 
 - As credenciais do cofre são utilizadas apenas durante o fluxo de trabalho do registo.
 - É da responsabilidade do cliente, certifique-se de que o ficheiro de credenciais do Cofre é não comprometido e seguro.
-    -  Se se perder o controlo sobre as credenciais, as credenciais do cofre podem ser utilizadas para registar outras máquinas para o cofre.
+    - Se se perder o controlo sobre as credenciais, as credenciais do cofre podem ser utilizadas para registar outras máquinas para o cofre.
     - No entanto, os dados de cópia de segurança são encriptados com uma frase de acesso que pertence ao cliente, para que os dados de cópia de segurança existentes não podem ficar comprometidos.
 - Certifique-se de que esse ficheiro é guardado numa localização que pode ser acedida a partir do servidor DPM. Se ele é armazenado num compartilhamento de arquivo/SMB, verifique as permissões de acesso.
 - As credenciais do cofre expiram após 48 horas. Pode transferir as credenciais do cofre novo quantas vezes for necessário. No entanto, apenas o ficheiro de credenciais de cofre mais recente pode ser utilizado durante o fluxo de trabalho do registo.
@@ -138,8 +134,7 @@ Todas as máquinas que é uma cópia de segurança pelo Azure Backup tem de ter 
 7. O agente de cópia de segurança do Azure instala o .NET Framework 4.5 e o Windows PowerShell (se não estiver instalados) para concluir a instalação.
 8. Depois do agente está instalado, **fechar** a janela.
 
-   ![Fechar](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
-
+    ![Fechar](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
 
 ## <a name="register-the-dpm-server-in-the-vault"></a>Registar o servidor do DPM no Cofre
 
@@ -175,8 +170,7 @@ Todas as máquinas que é uma cópia de segurança pelo Azure Backup tem de ter 
     > Que possui a frase de acesso de encriptação e a Microsoft não tem visibilidade para o mesmo.
     > Se a frase de acesso for perdida ou esquecida; Microsoft não pode ajudar a recuperar os dados de cópia de segurança.
 
-13. Clique em **registar** para registar o servidor do DPM no cofre.  
-
+13. Clique em **registar** para registar o servidor do DPM no cofre.
 
 Depois do servidor está registado com êxito para o Cofre e agora está pronto para iniciar o backup do Microsoft Azure.
 
