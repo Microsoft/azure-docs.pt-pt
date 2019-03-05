@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: fc18262326a8474cac417b67a37df35d91d75439
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 99fce821c903a9638575eba9fe4a17d294bcbd60
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657744"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310510"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -65,7 +65,7 @@ Medidas são os dados provenientes do seu dispositivo. Pode adicionar várias me
 - **Estado** medidas representam o estado do dispositivo ou de seus componentes durante um período de tempo. Por exemplo, um modo de ventoinha pode ser definido como tendo **operacional** e **parado** como dois Estados possíveis.
 
 ### <a name="create-a-telemetry-measurement"></a>Criar uma medida de telemetria
-Para adicionar uma nova medida de telemetria, selecione **Editar modelo**e, em seguida, clique nas **+ nova medida** botão. Selecione **telemetria** como a medição escreva e introduza os detalhes o **telemetria criar** formulário.
+Para adicionar uma nova medida de telemetria, selecione **Editar modelo**e, em seguida, selecione a **+ nova medida** botão. Selecione **telemetria** como a medição escreva e introduza os detalhes o **telemetria criar** formulário.
 
 > [!NOTE]
 > Os nomes de campo no modelo do dispositivo tem de corresponder os nomes de propriedade no código de dispositivo correspondente para que a medição de telemetria a apresentar na aplicação quando está ligado um dispositivo real. Fazer o mesmo ao configurar as definições de propriedades do dispositivo e comandos enquanto continua a definir o modelo de dispositivo nas seções a seguir.
@@ -84,7 +84,7 @@ Depois de selecionar **feito**, o **temperatura** medição aparece na lista de 
   O tipo de dados da medição de telemetria é uma vírgula flutuante ponto número.
 
 ### <a name="create-an-event-measurement"></a>Criar uma medida de eventos
-Para adicionar uma nova medida de evento, selecione **Editar modelo**e, em seguida, clique nas **+ nova medida** botão. Selecione **evento** como a medição escreva e introduza os detalhes o **Create Event** formulário.
+Para adicionar uma nova medida de evento, selecione **Editar modelo**e, em seguida, selecione a **+ nova medida** botão. Selecione **evento** como a medição escreva e introduza os detalhes o **Create Event** formulário.
 
 Forneça o **nome a apresentar**, **nome do campo**, e **gravidade** detalhes do evento. Pode escolher entre três níveis de gravidade disponíveis: **Erro**, **aviso**, e **informações**.  
 
@@ -108,7 +108,7 @@ Para ver mais detalhes sobre o evento, selecione o ícone de eventos no gráfico
   O tipo de dados da medição de eventos é a cadeia de caracteres.
 
 ### <a name="create-a-state-measurement"></a>Criar uma medida de estado
-Para adicionar uma nova medida de estado, selecione **Editar modelo**e, em seguida, clique nas **+ nova medida** botão. Selecione **estado** como a medição escreva e introduza os detalhes o **estado de criar** formulário.
+Para adicionar uma nova medida de estado, selecione **Editar modelo**e, em seguida, selecione a **+ nova medida** botão. Selecione **estado** como a medição escreva e introduza os detalhes o **estado de criar** formulário.
 
 Forneça os detalhes para **nome a apresentar**, **nome do campo**, e **valores** do Estado. Cada valor também pode ter um nome a apresentar que será utilizado quando o valor é apresentado em gráficos e tabelas.
 
@@ -125,7 +125,7 @@ Depois de selecionar **feito**, o **modo ventoinha** medição do estado é apre
 
 ![Gráfico de estado de medida](./media/howto-set-up-template/statemeasurementschart.png)
 
-Se o dispositivo envia demasiados pontos de dados num pequeno período de tempo, a medição de estado é apresentado com um elemento visual diferente, como mostrado na captura de ecrã seguinte. Se clicar no gráfico, todos os pontos de dados dentro desse período de tempo são apresentados numa ordem cronológica. Também pode reduzir o intervalo de tempo para ver a medição plotada no gráfico.
+Se o dispositivo envia demasiados pontos de dados num pequeno período de tempo, a medição de estado é apresentado com um elemento visual diferente, como mostrado na captura de ecrã seguinte. Se selecionar o gráfico, todos os pontos de dados dentro desse período de tempo são apresentados numa ordem cronológica. Também pode reduzir o intervalo de tempo para ver a medição plotada no gráfico.
 
 > [!NOTE]
   O tipo de dados da medição de estado é a cadeia de caracteres.
@@ -241,7 +241,7 @@ Como é que um comando diferente a partir de uma definição?
 * **Comando**: Utilizar comandos instantaneamente executar um comando no dispositivo remotamente a partir de IoT Central. Se um dispositivo não está ligado, o comando exceder o tempo limite e falha. Por exemplo, que pretende reiniciar um dispositivo.  
 
 
-Por exemplo, pode adicionar um novo **eco** comando selecionando **Editar modelo**, em seguida, clicar em **+ novo comando**e inserindo o comando novo:
+Por exemplo, pode adicionar um novo **eco** comando selecionando **Editar modelo**, em seguida, selecionar **+ novo comando**e inserindo o comando novo:
 
 | Nome a Apresentar  | Nome do Campo | Tempo Limite Predefinido | Tipo de Dados |
 | --------------| -----------|---------------- | --------- | 

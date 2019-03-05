@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a1f1270f5c77332cbcc8c7761203f0194be62a94
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ade6737d2df37d35eefd0be77895a54e1cea433d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881099"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314879"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Editar uma base de dados de conhecimento do QnA Maker
 
@@ -71,7 +71,7 @@ Adicione perguntas alternativas para um par de QnA existente para aumentar a pro
 ## <a name="add-metadata"></a>adicionar metadados
 
 
-Adicionar os pares de metadados ao selecionar o ícone de metadados
+Adicione os pares de metadados ao selecionar o ícone de metadados. Um par de metadados é composta por uma chave e um valor.
 
 ![Adicionar metadados](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

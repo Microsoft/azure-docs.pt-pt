@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 98d48659225d89f476ca1e3cc437245bc9e9f753
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 453a048bc9e7c2878c0730b9002b10bdeb8c22fa
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564821"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316222"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurar a autenticação multifator para o SQL Server Management Studio e o Azure AD
 
@@ -28,7 +28,7 @@ Este tópico mostra-lhe como utilizar a autenticação multifator do Azure Activ
 
 ## <a name="configuration-steps"></a>Passos de configuração
 
-1. **Configurar um Azure Active Directory** – para obter mais informações, consulte [administrar o seu diretório do Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [integrar as identidades no local com o Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [ Adicionar o seu próprio nome de domínio para o Azure AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure suporta agora a Federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), e [gerir do Azure AD com o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
+1. **Configurar um Azure Active Directory** – para obter mais informações, consulte [administrar o seu diretório do Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [integrar as identidades no local com o Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [ Adicionar o seu próprio nome de domínio para o Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure suporta agora a Federação com o Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), e [gerir do Azure AD com o Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
 2. **Configurar a MFA** – para obter instruções passo a passo, consulte [o que é o Azure multi-factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [condicional acesso (MFA) com o Azure SQL Database e o armazém de dados](sql-database-conditional-access.md). (O acesso condicional completa requer um Premium do Azure Active Directory (Azure AD). MFA limitado é um padrão do Azure AD.)
 3. **Configurar a base de dados SQL ou SQL Data Warehouse para autenticação do Azure AD** – para obter instruções passo a passo, consulte [ligar à base de dados SQL ou SQL Data Warehouse por através do Azure autenticação do Active Directory](sql-database-aad-authentication.md).
 4. **Baixe o SSMS** – no computador cliente, transfira o SSMS mais recente, a partir [baixar o SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). Para todas as funcionalidades neste tópico, utilize, pelo menos, Julho de 2017, versão 17,2.  

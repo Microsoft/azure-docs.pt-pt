@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 69c7da1a529e46c054d9c824c2aee71fa67bd8ff
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 8fbad5350170d0e5434dfc2db3c85c04c2807726
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768646"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311479"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-new-ui-design"></a>Gerir dispositivos na sua aplicação do Azure IoT Central (design de nova interface do Usuário)
 
@@ -66,7 +66,7 @@ Ao registar de em massa dispositivos na sua aplicação:
     > [!NOTE]
     > Se não tiver um modelo de dispositivo, mas, em seguida, pode importar dispositivos sob **não associados dispositivos** e registá-los sem um modelo. Depois de tem sido importados dispositivos, em seguida, pode associá-las com um modelo.
 
-1. Clique em **importar**.
+1. Selecione **importação**.
 
     ![Ação de importação](./media/howto-manage-devices-experimental/BulkImport1.png)
 
@@ -92,11 +92,11 @@ Se registar dispositivos ao iniciar a importação sob **não associados disposi
 
 1. Selecione os dispositivos que pretende associar com um modelo:
 
-1. Clique em **associar**:
+1. Selecione **associar**:
 
     ![Associar Dispositivos](./media/howto-manage-devices-experimental/UnassociatedDevices2.png)
 
-1. Escolha o modelo da lista de modelos disponíveis e clique em **associar** botão.
+1. Escolha o modelo da lista de modelos disponíveis e selecione **associar**.
 
 1. Os dispositivos selecionados estão associados com o modelo de dispositivo que escolheu.
 
@@ -113,7 +113,7 @@ Em massa dispositivos de exportação da sua aplicação:
 
 1. No painel esquerdo, escolha o modelo de dispositivo a partir do qual pretende exportar os dispositivos.
 
-1. Selecione os dispositivos que pretende exportar e, em seguida, clique nas **exportar** ação.
+1. Selecione os dispositivos que pretende exportar e, em seguida, selecione o **exportar** ação.
 
     ![Exportar](./media/howto-manage-devices-experimental/Export1.png)
 
@@ -121,7 +121,7 @@ Em massa dispositivos de exportação da sua aplicação:
 
 1. Quando a exportação for concluída, é apresentada uma mensagem de êxito, juntamente com uma ligação para transferir o ficheiro gerado.
 
-1. Clique nas **mensagem de êxito** para transferir o ficheiro numa pasta local no disco.
+1. Selecione o **mensagem de êxito** para transferir o ficheiro numa pasta local no disco.
 
     ![Sucesso de exportação](./media/howto-manage-devices-experimental/Export2.png)
 

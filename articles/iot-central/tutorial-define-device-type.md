@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1ed1790d9fe1cdaa8d00b45e0684531984906c7f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 0e872509b7971adce871daf6967c0fcd1a87e9bc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661824"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311040"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo na sua aplicação do Azure IoT Central
 
@@ -118,7 +118,7 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
     ![Medidas do ar condicionado](./media/tutorial-define-device-type/airconmeasurements.png)
 
     > [!NOTE]
-    > Para alterar o nome ou o modelo do dispositivo, clique no texto na parte superior da página.
+    > Para alterar o nome do dispositivo ou modelo de dispositivo, selecione o texto na parte superior da página.
 
 5. Para adicionar a medição de telemetria de temperatura, escolha **Nova Medida**. Em seguida, escolha **Telemetria** como o tipo de medida:
 
@@ -187,7 +187,7 @@ Pode utilizar o Evento para definir os dados de ponto no tempo que são enviados
 
     ![Ver simulação do evento](./media/tutorial-define-device-type/eventview.png)
 
-1. Para ver detalhes adicionais sobre o evento, clique no evento no gráfico:
+1. Para ver detalhes adicionais sobre o evento, selecione o evento no gráfico:
 
     ![Ver Detalhes do Evento](./media/tutorial-define-device-type/eventviewdetail.png)
 
@@ -228,7 +228,7 @@ Pode utilizar o Estado para definir e visualizar o estado do dispositivo ou o re
 
     ![Ver simulação do estado](./media/tutorial-define-device-type/stateview.png)
 
-4. No caso, existem demasiados pontos de dados enviados pelo dispositivo num curto período, a medição de estado é apresentada com um visual diferente, conforme mostrado abaixo. Se clicar no gráfico, então todos os pontos de dados nesse período de tempo são apresentados por ordem cronológica. Também pode reduzir o intervalo de tempo para ver as medições mais detalhadamente.
+4. No caso, existem demasiados pontos de dados enviados pelo dispositivo num curto período, a medição de estado é apresentada com um visual diferente, conforme mostrado abaixo. Se selecionar o gráfico, em seguida, todos os pontos de dados dentro desse período de tempo são apresentados numa ordem cronológica. Também pode reduzir o intervalo de tempo para ver as medições mais detalhadamente.
 
     ![Ver Detalhes de estado](./media/tutorial-define-device-type/stateviewdetail.png)
 
@@ -367,7 +367,7 @@ Pode utilizar _comandos_ para ativar um operador para executar comandos diretame
 
 1. Navegue para a página **Comandos** para o seu modelo de dispositivo **Ar Condicionado Ligado** para editar o modelo. 
 
-1. Clique em **Novo Comando** para adicionar um comando ao dispositivo e começar a configurar o novo comando.
+1. Selecione **novo comando** para adicionar um comando para o seu dispositivo e começar a configurar o seu novo comando.
 
    Pode criar comandos de tipos diferentes com base nos seus requisitos. 
 
@@ -381,7 +381,7 @@ Pode utilizar _comandos_ para ativar um operador para executar comandos diretame
     | Tipo a Apresentar         | texto            |
     | Descrição          | Comando do Dispositivo  |  
 
-    Pode adicionar mais entradas ao comando ao clicar em **+** para **Campos de Entrada**.
+    Pode adicionar entradas adicionais para o comando selecionando **+** para **campos de entrada**.
 
     ![Preparar para adicionar uma definição](media/tutorial-define-device-type/commandsecho1.png)
 
@@ -439,7 +439,7 @@ Agora que definiu o seu modelo de dispositivo do **Ar Condicionado Ligado**, pod
 
     Em seguida, escolha **Guardar**.
 
-1. Para adicionar a opção para definir a temperatura do dashboard, selecione **Definições e Propriedades**. Clique em **Adicionar/Remover** para adicionar as definições ou propriedades que gostaria de ver no dashboard. 
+1. Para adicionar a opção para definir a temperatura do dashboard, selecione **Definições e Propriedades**. Selecione **Adicionar/remover** para adicionar as definições ou propriedades que gostaria de ver no dashboard. 
 
     ![Componentes do dashboard](./media/tutorial-define-device-type/dashboardcomponents4.png)
 

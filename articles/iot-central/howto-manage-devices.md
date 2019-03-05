@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b882c31f40f177b81fc84eb7071f396bddeaa0dd
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 21c29d90d8ed149062f24b470603b0e0e03cc6ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658119"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315610"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação do Azure IoT Central
 
@@ -67,7 +67,7 @@ Ao registar de em massa dispositivos na sua aplicação:
  >   [!NOTE] 
     Se não tiver um modelo de dispositivo, mas, em seguida, pode importar dispositivos sob **não associados dispositivos** e registá-los sem qualquer modelo. Assim que os dispositivos forem importados, pode, em seguida, associá-las com um modelo como um passo subsequente.
 
-1. Clique em **importar**.
+1. Selecione **importação**.
 
     [![Ação de importação](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
@@ -79,7 +79,7 @@ Ao registar de em massa dispositivos na sua aplicação:
 
     [![Importar com êxito](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
-Se o dispositivo importar falha da operação, verá uma mensagem de erro na grade de dispositivo. Um ficheiro de registo capturar todos os erros é gerado e pode ser baixado clicando a mensagem de erro.
+Se o dispositivo importar falha da operação, verá uma mensagem de erro na grade de dispositivo. Um ficheiro de registo capturar todos os erros é gerado e pode ser baixado ao selecionar a mensagem de erro.
 
 
 **Associação de dispositivos com um modelo**
@@ -89,9 +89,9 @@ Se registar dispositivos ao iniciar a importação sob **não associados disposi
 1. No painel esquerdo, escolha **não associados dispositivos**.
     [![Dispositivos não associados](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. Selecione os dispositivos que pretende associar com um modelo.
-1. Clique em **associar** opção.
+1. Selecione **associar** opção.
     [![Associar dispositivos](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
-1. Escolha o modelo da lista de modelos disponíveis e clique em **associar** botão.
+1. Escolha o modelo da lista de modelos disponíveis e selecione **associar**.
 1. Os dispositivos selecionados serão movidos sob o modelo do respectivo dispositivo.
 
  >   [!NOTE] 
@@ -106,7 +106,7 @@ Em massa dispositivos de exportação da sua aplicação:
 
 1. No painel esquerdo, escolha o modelo de dispositivo para o qual pretende exportar os dispositivos.
 
-1. Selecione os dispositivos que pretende exportar e, em seguida, clique nas **exportar** ação.
+1. Selecione os dispositivos que pretende exportar e, em seguida, selecione o **exportar** ação.
 
     [![Exportar](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
 
@@ -114,7 +114,7 @@ Em massa dispositivos de exportação da sua aplicação:
 
 1. Quando a exportação for concluída, é apresentada uma mensagem de êxito, juntamente com uma ligação para transferir o ficheiro gerado.
 
-1. Clique nas **mensagem de êxito** para transferir o ficheiro numa pasta local no disco.
+1. Selecione o **mensagem de êxito** para transferir o ficheiro numa pasta local no disco.
 
     [![Sucesso de exportação](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 

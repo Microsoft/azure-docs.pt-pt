@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/28/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 1db3e5b88560e5f574e01c16d10e95e2d0607cc1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b52d260e46de89a98bbf2882cbf398115c139128
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195460"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314267"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início rápido: Criar e implementar modelos Azure Resource Manager com o portal do Azure
 
 Saiba como gerar um modelo do Resource Manager com o portal do Azure e o processo de edição e a implementar o modelo a partir do portal. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](resource-group-overview.md).
+
+![Diagrama de início rápido de modelo manager do recurso portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Depois de concluir o tutorial, vai implementar uma conta de armazenamento do Azure. O mesmo processo pode ser utilizado para implementar a outros recursos do Azure.
 

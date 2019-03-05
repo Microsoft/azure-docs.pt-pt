@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/01/2019
-ms.openlocfilehash: 07e530a30898e57916b91632c4bf49d43d69471a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 2d7b692880810f4ac54d383c5cf48072cff17b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564855"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317752"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemplos do Azure PowerShell para a Base de Dados SQL do Azure
 
@@ -65,7 +65,7 @@ A tabela seguinte inclui ligações para scripts do PowerShell do Azure de exemp
 | |  |
 |---|---|
 |**Criar e configurar instâncias geridas**||
-| [Criar e gerir uma Instância Gerida](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Este script do PowerShell mostra como criar e gerir uma Instância Gerida com o Azure PowerShell |
+| [Criar e gerir uma Instância Gerida](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/) | Este script do PowerShell mostra como criar e gerir uma Instância Gerida com o Azure PowerShell |
 | [Criar e gerir uma instância gerida com o modelo Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra-lhe como criar e gerir uma instância gerida com o modelo do Azure PowerShell e do Azure Resource Manager.|
 | **Configurar a encriptação de dados transparente (TDE)**||
 | [Gerir a encriptação de dados transparente numa instância gerida com a sua própria chave de Cofre de chaves do Azure](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura encriptação de dados transparente (TDE) o cenário traga a sua própria chave para SQL instância gerida do Azure, com uma chave do Azure Key Vault|

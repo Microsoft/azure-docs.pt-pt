@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b5ec8df9ff08aace69680c188f9ab05e944ce891
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 80c98d151c1b42b0c6106d4fa1af921bbb5ef55f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734577"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308402"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Configurar um modelo de dispositivo (design de nova interface do Usuário)
 
@@ -46,7 +46,7 @@ Partir deste modelo de dispositivo, pode criar e ligar os dispositivos de ventoi
 
 1. Navegue para o **modelos de dispositivos** página.
 
-2. Para criar um modelo em branco, clique em **+** e, em seguida, introduza um nome, tal como **refrigerador** ao seu novo modelo de dispositivo. Em seguida, selecione **criar**:
+2. Para criar um modelo em branco, selecione **+** e, em seguida, introduza um nome, tal como **refrigerador** ao seu novo modelo de dispositivo. Em seguida, selecione **criar**:
 
    ![Página de detalhes do dispositivo com "Refrigerador" como o nome do modelo](./media/howto-set-up-template-experimental/devicedetailspage.png)
 
@@ -64,7 +64,7 @@ Medidas são os dados provenientes do seu dispositivo. Pode adicionar várias me
 
 ### <a name="create-a-telemetry-measurement"></a>Criar uma medida de telemetria
 
-Para adicionar uma nova medida de telemetria, clique em **+ nova medida**, escolha **telemetria** como a medida de tipo e introduza os detalhes no formulário.
+Para adicionar uma nova medida de telemetria, selecione **+ nova medida**, escolha **telemetria** como a medida de tipo e introduza os detalhes no formulário.
 
 > [!NOTE]
 > Os nomes de campo no modelo do dispositivo tem de corresponder os nomes de propriedade no código de dispositivo correspondente para que a medição de telemetria a apresentar na aplicação quando está ligado um dispositivo real. Fazer o mesmo ao configurar as definições de propriedades do dispositivo e comandos enquanto continua a definir o modelo de dispositivo nas seções a seguir.
@@ -77,14 +77,14 @@ Por exemplo, pode adicionar uma nova medida de telemetria de temperatura:
 
 ![Formulário de "Criar telemetria" com detalhes para medidas de temperatura](./media/howto-set-up-template-experimental/measurementsform.png)
 
-Depois de clicar em **salvar**, o **temperatura** medição aparece na lista de medidas. Em pouco tempo, verá a visualização dos dados de temperatura do dispositivo simulado.
+Depois de selecionar **salvar**, o **temperatura** medição aparece na lista de medidas. Em pouco tempo, verá a visualização dos dados de temperatura do dispositivo simulado.
 
 > [!NOTE]
 > O tipo de dados da medição de telemetria é uma vírgula flutuante ponto número.
 
 ### <a name="create-an-event-measurement"></a>Criar uma medida de eventos
 
-Para adicionar uma nova medida de evento, clique em **+ nova medida** e selecione **eventos** como o tipo de medição. Introduza os detalhes o **Create Event** formulário.
+Para adicionar uma nova medida de evento, selecione **+ nova medida** e selecione **eventos** como o tipo de medição. Introduza os detalhes o **Create Event** formulário.
 
 Forneça o **nome a apresentar**, **nome do campo**, e **gravidade** detalhes do evento. Pode escolher entre três níveis de gravidade disponíveis: **Erro**, **aviso**, e **informações**.
 
@@ -96,9 +96,9 @@ Por exemplo, pode adicionar um novo **erro de Motor de ventoinha** eventos.
 
 ![Formulário de "Criar eventos" com detalhes para um evento de motor de ventoinha](./media/howto-set-up-template-experimental/eventmeasurementsform.png)
 
-Depois de clicar em **salvar**, o **ventoinha erro de Motor** medição aparece na lista de medidas. Em pouco tempo, verá a visualização dos dados do evento do dispositivo simulado.
+Depois de selecionar **salvar**, o **ventoinha erro de Motor** medição aparece na lista de medidas. Em pouco tempo, verá a visualização dos dados do evento do dispositivo simulado.
 
-Para ver mais detalhes sobre um evento, clique no ícone de eventos no gráfico:
+Para ver mais detalhes sobre um evento, selecione o ícone de eventos no gráfico:
 
 ![Detalhes do evento de "Erro de Motor de ventoinha"](./media/howto-set-up-template-experimental/eventmeasurementsdetail.png)
 
@@ -107,7 +107,7 @@ Para ver mais detalhes sobre um evento, clique no ícone de eventos no gráfico:
 
 ### <a name="create-a-state-measurement"></a>Criar uma medida de estado
 
-Para adicionar uma nova medida de estado, clique a **+ nova medida** e selecione **estado** como o tipo de medição. Introduza os detalhes o **estado de criar** formulário.
+Para adicionar uma nova medida de estado, selecione o **+ nova medida** e selecione **estado** como o tipo de medição. Introduza os detalhes o **estado de criar** formulário.
 
 Forneça os detalhes para **nome a apresentar**, **nome do campo**, e **valores** do Estado. Cada valor também pode ter um nome a apresentar que será utilizado quando o valor é apresentado em gráficos e tabelas.
 
@@ -119,9 +119,9 @@ Por exemplo, pode adicionar um novo **ventoinha modo** estado de que tem dois va
 
 ![Formulário de "Estado de edição" com detalhes para o modo de ventoinha](./media/howto-set-up-template-experimental/statemeasurementsform.png)
 
-Depois de clicar em **salvar**, o **modo ventoinha** medição do estado é apresentado na lista de medidas. Ver uns breves instantes, a visualização dos dados de estado do dispositivo simulado.
+Depois de selecionar **salvar**, o **modo ventoinha** medição do estado é apresentado na lista de medidas. Ver uns breves instantes, a visualização dos dados de estado do dispositivo simulado.
 
-Se o dispositivo envia demasiados pontos de dados num pequeno período de tempo, a medição de estado é apresentado com um elemento visual diferente. Clique no gráfico para ver todos os pontos de dados dentro desse período de tempo por ordem cronológica. Também pode reduzir o intervalo de tempo para ver a medição plotada no gráfico.
+Se o dispositivo envia demasiados pontos de dados num pequeno período de tempo, a medição de estado é apresentado com um elemento visual diferente. Selecione o gráfico para ver todos os pontos de dados dentro desse período de tempo por ordem cronológica. Também pode reduzir o intervalo de tempo para ver a medição plotada no gráfico.
 
 > [!NOTE]
 > O tipo de dados da medição de estado é a cadeia de caracteres.
@@ -138,7 +138,7 @@ Elas podem estar em um de três Estados. O dispositivo comunica esses Estados.
 
 - **Erro**: O dispositivo devolveu um erro.
 
-Por exemplo, pode adicionar uma nova definição de velocidade de ventoinha clicando **configurações** e introduzir no novo **número** definição:
+Por exemplo, pode adicionar uma nova definição de velocidade de ventoinha selecionando **configurações** e introduzir no novo **número** definição:
 
 | Nome a Apresentar  | Nome do Campo    |  Unidades  | Casas decimais |Inicial|
 | --------------| ------------- |---------| ---------|---- |
@@ -198,7 +198,7 @@ Pode criar uma propriedade de localização como uma propriedade de aplicação 
    - **Localização como um endereço**
    - **Localização como coordenadas**
 
-4. Clique em **Guardar**. Um operador pode atualizar o valor de localização dos **Device Explorer**.
+4. Selecione **Guardar**. Um operador pode atualizar o valor de localização dos **Device Explorer**.
 
 #### <a name="add-location-as-a-device-property"></a>Adicionar localização como uma propriedade do dispositivo
 
@@ -231,7 +231,7 @@ Como é que um comando diferente a partir de uma definição?
 
 * **Comando**: Utilizar comandos instantaneamente executar um comando no dispositivo remotamente a partir de IoT Central. Se um dispositivo não está ligado, o comando exceder o tempo limite e falha. Por exemplo, que pretende reiniciar um dispositivo.
 
-Por exemplo, pode adicionar um novo **eco** comando ao selecionar o **comandos** separador, em seguida, clicando em **+ novo comando**e introduzir os novos detalhes do comando:
+Por exemplo, pode adicionar um novo **eco** comando ao selecionar o **comandos** separador, em seguida, selecionando **+ novo comando**e introduzir os novos detalhes do comando:
 
 | Nome a Apresentar  | Nome do Campo | Tempo Limite Predefinido | Tipo de Dados |
 | --------------| -----------|---------------- | --------- |

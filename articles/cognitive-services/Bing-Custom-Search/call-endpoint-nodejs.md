@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 03/04/2018
 ms.author: aahi
-ms.openlocfilehash: 81746f1c1516bd59cbfb917dcaefa00195558d05
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 65b0e6e9fb6f04d4536b642fe58da4e6c0f1aa69
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875455"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336586"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Início rápido: Chamar o ponto final de pesquisa personalizada do Bing com node. js
 

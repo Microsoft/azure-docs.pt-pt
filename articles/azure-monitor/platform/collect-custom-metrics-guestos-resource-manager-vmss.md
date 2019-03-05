@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: afe1214299b7f1ecd741f992af75abedcfe77b84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895946"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308708"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO convidado para o arquivo de métrica de Monitor do Azure com um modelo Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Ao utilizar o Azure Monitor [extensão do Windows Azure Diagnostics (WAD)](diagnostics-extension-overview.md), pode coletar métricas e registos do sistema operativo convidado (SO convidado) que é executado como parte de uma máquina virtual, um serviço em nuvem ou um cluster do Azure Service Fabric. A extensão pode enviar telemetria para vários locais diferentes listados no artigo ligado anteriormente.  
 
@@ -27,7 +29,7 @@ Se estiver familiarizado com modelos do Resource Manager, saiba mais sobre [impl
 
 - A sua subscrição tem de estar registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Tem de ter [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) instalado, ou pode utilizar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Tem de ter [do Azure PowerShell](/powershell/azure) instalado, ou pode utilizar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um sink de dados 
@@ -236,17 +238,17 @@ Guarde e feche ambos os ficheiros.
 Para implementar o modelo do Resource Manager, utilize o Azure PowerShell:  
 
 1. Inicie o PowerShell. 
-1. Inicie sessão no Azure com `Login-AzureRmAccount`.
-1. Obter a lista de subscrições com `Get-AzureRmSubscription`.
+1. Inicie sessão no Azure com `Login-AzAccount`.
+1. Obter a lista de subscrições com `Get-AzSubscription`.
 1. Defina a subscrição irá criar ou atualizar a máquina virtual: 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Crie um novo grupo de recursos para a VM que está sendo implementada. Execute o seguinte comando: 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -258,7 +260,7 @@ Para implementar o modelo do Resource Manager, utilize o Azure PowerShell:
    > Se quiser atualizar um conjunto de dimensionamento existente, adicione **-modo Incremental** ao final do comando. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. Depois de sua implementação com êxito, deve encontrar o conjunto de dimensionamento no portal do Azure. Ele deve emitir métricas para o Azure Monitor. 

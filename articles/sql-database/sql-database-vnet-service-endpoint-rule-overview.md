@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 6ded590ac5a9c30655d8ed19c370ce476d1c9631
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 15ca464e8e44183b445bfdabe9abf5dd560a4f70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456287"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312267"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Utilizar pontos finais de serviço de rede virtual e regras para servidores de base de dados
 
@@ -174,6 +174,8 @@ Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data War
 
 #### <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1.  Instalar o Azure PowerShell através desta [guia](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Se tiver uma conta de armazenamento para fins gerais v1 ou BLOBs, tem de atualizar primeiro para fins gerais v2 através desta [guia](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Tem de ter **permitir confiável a serviços da Microsoft para aceder a esta conta de armazenamento** ativada na conta de armazenamento do Azure **Firewalls e redes virtuais** menu definições. Consulte este [guia](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para obter mais informações.
@@ -182,9 +184,9 @@ Normalmente é utilizar o PolyBase para carregar dados para o Azure SQL Data War
 1.  No PowerShell, **registar o servidor de base de dados SQL** com o Azure Active Directory (AAD):
 
     ```powershell
-    Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+    Connect-AzAccount
+    Select-AzSubscription -SubscriptionId your-subscriptionId
+    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. Criar uma **para fins gerais v2 conta de armazenamento** usando essa [guia](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -273,7 +275,7 @@ Esta secção ilustra como pode usar o [portal do Azure] [ http-azure-portal-lin
 
 ## <a name="powershell-alternative"></a>Alternativa de PowerShell
 
-Um script do PowerShell, também pode criar regras de rede virtual. O cmdlet crucial **New-AzureRmSqlServerVirtualNetworkRule**. Se estiver interessado, consulte [PowerShell para criar um ponto final de serviço de rede Virtual e uma regra para o Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Um script do PowerShell, também pode criar regras de rede virtual. O cmdlet crucial **New-AzSqlServerVirtualNetworkRule**. Se estiver interessado, consulte [PowerShell para criar um ponto final de serviço de rede Virtual e uma regra para o Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>Alternativa de REST API
 

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9cf4fd448527e8104883e1c23c8c4b64fde3f0d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8faeb06987577d7e0098e3b5047cdde91b1254ae
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213641"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315236"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 
@@ -48,7 +48,6 @@ Esta funcionalidade permite-lhe manualmente os instantâneos de Acionador para c
 
 > [!NOTE]
 > Se necessitar de mais de 7 dias de pontos de restauração, votar, para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. Se precisar de uma cópia ativa do armazém de dados restaurada, pode retomar o que deverá demorar apenas alguns minutos.
->
 
 ### <a name="restore-point-retention"></a>Retenção do ponto de restauro
 
@@ -66,17 +65,15 @@ Quando remover um armazém de dados, o SQL Data Warehouse cria um instantâneo f
 
 > [!IMPORTANT]
 > Se eliminar uma instância do SQL server lógica, todas as bases de dados que pertencem à instância também são eliminados e não podem ser recuperados. Não é possível restaurar um servidor foi eliminado.
->
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Após desastre e cópias de segurança geo recuperação
 
 O SQL Data Warehouse efetua uma cópia de segurança geo uma vez por dia para uma [Centro de dados emparelhado](../best-practices-availability-paired-regions.md). O RPO para um georrestauro é de 24 horas. Pode restaurar a cópia de segurança geo para um servidor em qualquer outra região em que o SQL Data Warehouse é suportado. Uma cópia de segurança geo assegura que pode restaurar o armazém de dados no caso de não conseguir aceder os pontos de restauro na sua região primária.
 
-Cópias de segurança geo são ativados por padrão. Se o seu armazém de dados é a geração 1, pode [para anular](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) se desejar. Não pode desativar cópias de segurança geo para a geração 2, como proteção de dados é uma incorporada garantida.
+Cópias de segurança geo são ativados por padrão. Se o seu armazém de dados é a geração 1, pode [para anular](/powershell/module/az.sql/set-azsqldatabasegeobackuppolicy) se desejar. Não pode desativar cópias de segurança geo para a geração 2, como proteção de dados é uma incorporada garantida.
 
 > [!NOTE]
 > Se necessitar de um RPO mais curto para cópias de segurança geo, votar para esta capacidade [aqui](https://feedback.azure.com/forums/307516-sql-data-warehouse). Também pode criar um ponto de restauro definidas pelo utilizador e restaurar a partir do ponto de restauro recentemente criado para um novo armazém de dados numa região diferente. Depois de ter restaurado, ter o armazém de dados online e pode colocar em pausa indefinidamente para reduzir os custos de computação. A base de dados em pausa leva a custos de armazenamento à tarifa de armazenamento Premium do Azure. Se necessitar de uma cópia ativa do armazém de dados, é possível retomar o que deve demorar apenas alguns minutos.
->
 
 ## <a name="backup-and-restore-costs"></a>Custos de cópia de segurança e restauro
 
@@ -108,7 +105,6 @@ Pode [restaurar o seu armazém de dados](https://docs.microsoft.com/azure/sql-da
 
 > [!NOTE]
 > Para efetuar um restauro com redundância geográfica tem não tiver optado por fora desta funcionalidade.
->
 
 ## <a name="next-steps"></a>Passos Seguintes
 

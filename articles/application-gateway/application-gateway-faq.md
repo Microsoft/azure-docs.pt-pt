@@ -8,14 +8,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: a65aabc7b56c4dd5f2d22974756f5f3e54cebb31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5552ca80059b4aa7ef96caf7984b4c15ec177d38
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867716"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316596"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas mais frequentes sobre o Gateway de aplicação
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general"></a>Geral
 
@@ -41,10 +43,10 @@ Suporte de protocolo HTTP/2 está disponível para clientes que se conectam para
 
 Por predefinição, o suporte de HTTP/2 está desativado. O exemplo de fragmento de código do Azure PowerShell seguinte mostra como pode ativá-la:
 
-```powershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+```azurepowershell
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Os recursos que são atualmente suportados como parte do conjunto de back-end?
@@ -70,6 +72,10 @@ Serviços de escuta são processados na ordem em que forem sendo apresentados. P
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Onde posso encontrar IP do Gateway de aplicação e o DNS?
 
 Quando utiliza um endereço IP público como um ponto de extremidade, estes pode encontrar informações no recurso de endereço IP público ou na página de descrição geral para o gateway de aplicação no portal. Para endereços IP internos, isso pode ser encontrado na página de descrição geral.
+
+### <a name="what-is-keep-alive-timeout-and-tcp-idle-timeout-setting-on-application-gateway"></a>O que é o tempo limite de ligação Keep-Alive e definição de tempo limite de inatividade de TCP no Gateway de aplicação?
+
+Tempo limite de ligação Keep-Alive no v1 SKU é o tempo limite de seg. 120 Keep-Alive no v2 SKU é o tempo limite de inatividade de TCP do segundo 75. é o padrão de 4 min no VIP do Gateway de aplicação de front-end.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>O nome IP ou DNS se altera ao longo da duração do Gateway de aplicação?
 
@@ -126,7 +132,7 @@ Grupos de segurança de rede (NSGs) são suportados na sub-rede de gateway de ap
 
 * Exceções tiver de ser colocadas no tráfego de entrada nas portas 65503 65534 para o Gateway de aplicação v1 SKU e portas 65200-65535 para o SKU de v2. Este intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Estão protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados adequados, as entidades externas, incluindo os clientes desses gateways, não são possível iniciar quaisquer alterações nesses pontos finais.
 
-* Conectividade de internet de saída não pode ser bloqueada.
+* Conectividade de internet de saída não pode ser bloqueada. Regras de saída padrão no NSG já permitem a conectividade à internet. Recomendamos que não remove as regras de saída predefinido e que não criar outras regras de saída que negam conectividade de internet de saída.
 
 * Tráfego a partir da etiqueta AzureLoadBalancer têm de ser permitido.
 
@@ -342,7 +348,7 @@ Existem três logs disponíveis para o Gateway de aplicação. Para obter mais i
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Como posso saber se minha membros do agrupamento de back-end estão em bom Estados?
 
-Pode utilizar o cmdlet do PowerShell `Get-AzureRmApplicationGatewayBackendHealth` ou verificar o estado de funcionamento através do portal, visite a página [diagnóstico do Gateway de aplicação](application-gateway-diagnostics.md)
+Pode utilizar o cmdlet do PowerShell `Get-AzApplicationGatewayBackendHealth` ou verificar o estado de funcionamento através do portal, visite a página [diagnóstico do Gateway de aplicação](application-gateway-diagnostics.md)
 
 ### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>O que é a política de retenção de registos de diagnóstico?
 

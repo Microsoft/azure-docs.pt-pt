@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 7afc1170ba2503c8a8c97be9a19459c92e331449
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 4a3b48be893c596f1a86bbf308a97868ed546006
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453584"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313927"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -126,12 +126,11 @@ Para alterar o período de retenção de cópia de segurança de PITR no portal 
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>Alterar o período de retenção de cópia de segurança de PITR com o PowerShell
 
-```powershell
-Set-AzureRmSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
-```
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> Esta API está incluída no módulo do PowerShell azurerm. SQL a partir da versão [4.7.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.7.0-preview).
+```powershell
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
+```
 
 ### <a name="change-pitr-retention-period-using-rest-api"></a>Alterar o período de retenção PITR com a REST API
 
@@ -174,4 +173,4 @@ Para obter mais informações, consulte [API de REST de retenção de cópia de 
 - Para restaurar para um ponto no tempo, com o portal do Azure, consulte [restaurar base de dados para um ponto no tempo com o portal do Azure](sql-database-recovery-using-backups.md).
 - Para restaurar para um ponto no tempo com o PowerShell, consulte [restaurar base de dados para um ponto no tempo com o PowerShell](scripts/sql-database-restore-database-powershell.md).
 - Para configurar, gerir e restaurar a partir de retenção de longa duração de cópias de segurança no armazenamento de Blobs do Azure com o portal do Azure automatizadas, consulte [gerir a retenção de cópia de segurança de longa duração com o portal do Azure](sql-database-long-term-backup-retention-configure.md).
-- Para configurar, gerir e restaurar a partir de retenção de longa duração de cópias de segurança no armazenamento do blogue do Azure com o PowerShell automatizadas, consulte [gerir a retenção de cópia de segurança de longa duração com o PowerShell](sql-database-long-term-backup-retention-configure.md).
+- Para configurar, gerir e restaurar a partir de retenção de longa duração de cópias de segurança no armazenamento de Blobs do Azure com o PowerShell automatizadas, consulte [gerir a retenção de cópia de segurança de longa duração com o PowerShell](sql-database-long-term-backup-retention-configure.md).

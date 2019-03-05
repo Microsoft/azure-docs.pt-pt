@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 5e3ef7782f805e07e24783a987f2753e4e889946
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 1c145f100e22dbb268a7cd491eb8a43b51988c69
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313038"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315814"
 ---
 # <a name="log-analytics-faq"></a>FAQ do Log Analytics
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Log Analytics no Microsoft Azure. Se tiver perguntas adicionais sobre o Log Analytics, avance para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
 
 
@@ -168,7 +171,7 @@ O tráfego para o Log Analytics utiliza o circuito de ExpressRoute de peering p�
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>P. Existe uma forma simple e fácil de mover uma área de trabalho do Log Analytics existente para outra subscrição de área de trabalho/Azure Log Analytics?
 
-R. O `Move-AzureRmResource` cmdlet permite-lhe mover uma área de trabalho do Log Analytics bem como uma conta de automatização de uma subscrição do Azure para outra. Para obter mais informações, consulte [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
+R. O `Move-AzResource` cmdlet permite-lhe mover uma área de trabalho do Log Analytics bem como uma conta de automatização de uma subscrição do Azure para outra. Para obter mais informações, consulte [movimentação AzResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Esta alteração também pode ser feita no portal do Azure.
 
@@ -196,7 +199,7 @@ Sob **do Azure Log Analytics (OMS)**, remover todas as áreas de trabalho listad
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>P: Por que eu ganho um erro ao tentar mover a minha área de trabalho de uma subscrição do Azure para outra?
 
-R: Para mover uma área de trabalho para uma subscrição diferente ou um grupo de recursos, tem primeiro de desassociar a conta de automatização na área de trabalho. A desassociar uma conta de automatização requer a remoção destas soluções se estiverem instalados na área de trabalho: Gestão de atualizações, controlo de alterações ou iniciar/parar VMs fora do horário comercial são removidas. Depois destas soluções são removidas, desassociar a conta de automatização, selecionando **ligado áreas de trabalho** no painel da esquerda a automação de conta de recurso e clique em **desassociar área de trabalho** da faixa de opções.
+R: Para mover uma área de trabalho para uma subscrição diferente ou um grupo de recursos, tem primeiro de desassociar a conta de automatização na área de trabalho. Desassociar uma conta de Automatização requer que as seguintes soluções sejam removidas, caso estejam instaladas na área de trabalho: Gestão de atualizações, controlo de alterações ou iniciar/parar VMs fora do horário comercial são removidas. Depois destas soluções são removidas, desassociar a conta de automatização, selecionando **ligado áreas de trabalho** no painel da esquerda a automação de conta de recurso e clique em **desassociar área de trabalho** da faixa de opções.
  > Removido de soluções precisam de ser reinstalados na área de trabalho e a ligação de automatização à área de trabalho tem de ser expressas novamente após a mudança.
 
 Certifique-se de que tem permissão em ambas as subscrições do Azure.

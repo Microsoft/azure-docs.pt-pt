@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 03/01/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 7696f1628edd3b81568382fd7892a877c6f54ef7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5ce27f16268c7a640b15fb0e95aed019b186e389
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312396"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307909"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Resolução de problemas comuns do indexador no Azure Search
 

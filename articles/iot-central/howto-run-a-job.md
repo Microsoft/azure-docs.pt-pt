@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 09/15/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ac5accc72369d811c0d36c4ef64cd8d523a061f3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f08167b4f37193c9a04da02fdd31e066a97aec66
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724507"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317667"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar uma tarefa no seu aplicativo de Central de IoT do Azure
 
@@ -25,7 +25,7 @@ Esta secção mostra-lhe como criar e executar uma tarefa. Cada passo passa por 
 
 1. Navegue até às tarefas no painel de navegação.
 
-1. Clique em **+ novo** para começar a criar uma nova tarefa.
+1. Selecione **+ novo** para começar a criar uma nova tarefa.
 
     ![Criar nova tarefa](./media/howto-run-a-job/createnewjob.png)
 
@@ -33,11 +33,11 @@ Esta secção mostra-lhe como criar e executar uma tarefa. Cada passo passa por 
 
 1. Selecione o conjunto de dispositivo que pretende que o seu trabalho a ser aplicado. Depois de selecionar o dispositivo definida, verá no lado direito, preencha com os dispositivos dentro do conjunto de dispositivo selecionado. Se selecionar um conjunto de dispositivo quebrado, não existem dispositivos irão apresentar e verá uma mensagem que explica que o seu conjunto de dispositivos é quebrado.
 
-1. Em seguida, selecione o tipo de tarefa que vai ser definido (uma definição, propriedade ou comando). Clique em **+** ao lado do tipo de tarefa selecionada e adicionar as suas operações pretendidas.
+1. Em seguida, selecione o tipo de tarefa que vai ser definido (uma definição, propriedade ou comando). Selecione **+** ao lado do tipo de tarefa selecionada e adicionar as suas operações pretendidas.
 
     ![Configurar tarefa](./media/howto-run-a-job/configurejob.png)
 
-1. No lado direito, escolha os dispositivos que pretende executar a tarefa. Ao clicar na caixa de verificação principal, todos os dispositivos são selecionados no conjunto de dispositivo inteiro. Ao clicar na caixa de verificação junto ao nome, são selecionados todos os dispositivos na página atual.
+1. No lado direito, escolha os dispositivos que pretende executar a tarefa. Ao selecionar a caixa de verificação principal, todos os dispositivos são selecionados no conjunto de dispositivo inteiro. Ao selecionar a caixa de verificação junto ao nome, são selecionados todos os dispositivos na página atual.
 
 1. Depois dos dispositivos pretendidos tenham sido selecionados, selecione **executar**. A tarefa aparecerão agora no principal **tarefas** página. Nesta vista, é capaz de ver o seu trabalho em execução e o histórico de qualquer anteriormente executar tarefas. Seu trabalho em execução serão sempre apresentados na parte superior da lista.
 
@@ -48,19 +48,19 @@ Esta secção mostra-lhe como criar e executar uma tarefa. Cada passo passa por 
     > [!NOTE]
     > Poderá ver o histórico das suas tarefas de execução anterior até 30 dias.
 
-1. Para obter uma descrição geral do seu trabalho, clique no nome da tarefa que quer ver da sua lista. Esta descrição geral contém os detalhes da tarefa, dispositivos e os Estados do dispositivo.
+1. Para obter uma descrição geral do seu trabalho, selecione o nome da tarefa que quer ver da sua lista. Esta descrição geral contém os detalhes da tarefa, dispositivos e os Estados do dispositivo.
 
     ![Ver o estado do dispositivo](./media/howto-run-a-job/viewdevicestatus.png)
 
 ### <a name="stop-a-running-job"></a>Parar uma tarefa em execução
 
-Se desejar parar uma tarefa que está atualmente em execução, clique no nome da tarefa em execução que pretende parar. Escolha o **parar** botão no painel. Verá que o estado da tarefa foi alterado para refletir que a tarefa foi parada.
+Se desejar parar uma tarefa que está atualmente em execução, selecione o nome da tarefa em execução que pretende parar. Escolha o **parar** botão no painel. Verá que o estado da tarefa foi alterado para refletir que a tarefa foi parada.
 
    ![Parar tarefa](./media/howto-run-a-job/stopjob.png)
 
 ### <a name="run-a-stopped-job"></a>Executar uma tarefa parada
 
-Se gostaria de executar uma tarefa que está atualmente parada, clique no nome da tarefa parada que gostaria de executar. Escolha o **executar** botão no painel. Verá que o estado da tarefa foi alterado para refletir que a tarefa está agora em execução novamente.
+Se gostaria de executar uma tarefa que está atualmente parada, selecione o nome da tarefa parada que gostaria de executar. Escolha o **executar** botão no painel. Verá que o estado da tarefa foi alterado para refletir que a tarefa está agora em execução novamente.
 
    ![Tarefa de retomada de forma](./media/howto-run-a-job/resumejob.png)
 
@@ -85,7 +85,7 @@ A mensagem de estado é seguida por uma visão geral dos dispositivos dentro da 
 
 ### <a name="view-the-device-status"></a>Ver o estado do dispositivo
 
-Para ver o estado de cada dispositivo no trabalho, clique no nome da tarefa. Aqui verá os detalhes do trabalho e todos os dispositivos que foram uma parte da tarefa específica. Junto a cada nome de dispositivo, verá uma das seguintes mensagens de estado:
+Para ver o estado de cada dispositivo no trabalho, selecione o nome da tarefa. Aqui verá os detalhes do trabalho e todos os dispositivos que foram uma parte da tarefa específica. Junto a cada nome de dispositivo, verá uma das seguintes mensagens de estado:
 
 | Mensagem de estado       | Significado de estado                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

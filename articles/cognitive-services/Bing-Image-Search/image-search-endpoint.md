@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 03/04/2019
 ms.author: v-gedod
-ms.openlocfilehash: 5e5cf9fcf6f70449fef8237fc004332e36bcd3b4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fcae25ea0ef3f48beac6c221a11ca8a91443f7ce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860274"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336145"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Pontos finais para a API de pesquisa de imagens do Bing
 
 O **API de pesquisa de imagens** inclui três pontos de extremidade.  Ponto final 1 devolve imagens da Web com base numa consulta. Ponto final 2 devolve [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Ponto final 3 devolve imagens em destaque.
+
 ## <a name="endpoints"></a>Pontos Finais
+
 Para obter resultados de imagem usando a API do Bing, envie um pedido para um dos seguintes pontos finais. Utilize os cabeçalhos e os parâmetros de URL para definir ainda mais especificações.
 
 **Endpoint 1:** Devolve as imagens que são relevantes para a consulta de pesquisa do utilizador definida por `?q=""`.

@@ -8,12 +8,12 @@ ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: ba6b8c76b31f09eb8f04097f935f865728a4e893
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: c2c172dc5f03aee8b167cd65562de3329c54d563
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217500"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313014"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Criar fluxos de trabalho com o conector do Centro de IoT no Microsoft Flow
 
@@ -30,24 +30,24 @@ Utilize o Microsoft Flow para automatizar fluxos de trabalho entre os vários ap
 
 Esta secção mostra-lhe como acionar uma notificação por telemóvel na aplicação móvel do Flow quando uma regra é acionada no Centro de IoT.
 
-1. Comece por [criar uma regra no Centro de IoT](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Depois de guardar as condições de regra, clique nas **ação do Microsoft Flow** como uma nova ação. Um novo separador ou janela deve ser aberto no browser, a levá-lo no Microsoft Flow.
+1. Comece por [criar uma regra no Centro de IoT](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Depois de guardar as condições de regra, selecione o **ação do Microsoft Flow** como uma nova ação. Um novo separador ou janela deve ser aberto no browser, a levá-lo no Microsoft Flow.
 
     ![Criar uma nova ação do Microsoft Flow](media/howto-add-microsoft-flow-experimental/createflowaction.png)
 
 1. Inicie sessão no Microsoft Flow. Isso não tem de ser a mesma conta que aquela que utiliza no Centro de IoT. Acessará uma página de descrição geral que mostra um conector do Centro de IoT ligar a uma ação personalizada.
 
-1. Inicie sessão no conector do Centro de IoT e clique em **continuar**. É direcionado para o estruturador do Microsoft Flow para criar o seu fluxo de trabalho. O fluxo de trabalho tem um acionador de IoT Central que tem a sua aplicação e a regra já preenchidos.
+1. Inicie sessão para o conector do Centro de IoT e selecione **continuar**. É direcionado para o estruturador do Microsoft Flow para criar o seu fluxo de trabalho. O fluxo de trabalho tem um acionador de IoT Central que tem a sua aplicação e a regra já preenchidos.
 
 1. Escolher **+ novo passo** e **adicionar uma ação**. Neste momento é possível adicionar qualquer ação que pretende o fluxo de trabalho. Por exemplo, vamos enviar uma notificação por telemóvel. Procure **notificação**e escolha **notificações - enviar-me uma notificação por telemóvel**.
 
 1. Na ação, preencha o campo de texto com o que deseja que a notificação a dizer. Pode incluir *conteúdo dinâmico* da sua regra de IoT Central, passando informações importantes, como o nome do dispositivo e timestamp para a notificação.
 
     > [!NOTE]
-    > Clique em "Ver mais" texto na janela de conteúdo dinâmico para obter a medição e valores de propriedade que disparou a regra.
+    > Selecione o **ver mais** texto na janela de conteúdo dinâmico para obter valores de propriedade e de medição que disparou a regra.
 
     ![Fluxo de edição de ação com o painel dinâmico aberto](./media/howto-add-microsoft-flow-experimental/flowdynamicpane.png)
 
-1. Quando tiver concluído a ação de edição, clique em **guardar**. Será redirecionado à página de descrição geral do seu fluxo de trabalho. Aqui pode ver o histórico de execuções e partilhá-lo com outros colegas.
+1. Quando tiver concluído a ação de edição, selecione **guardar**. Será redirecionado à página de descrição geral do seu fluxo de trabalho. Aqui pode ver o histórico de execuções e partilhá-lo com outros colegas.
 
     > [!NOTE]
     > Se pretender que outros utilizadores na sua aplicação do Centro de IoT para editar esta regra, tem de partilhá-lo com os mesmos no Microsoft Flow. Adicione as suas contas do Microsoft Flow como proprietários no fluxo de trabalho.

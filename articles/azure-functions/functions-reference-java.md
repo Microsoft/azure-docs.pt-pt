@@ -11,22 +11,26 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 96b22a6e44142fef8d47dc228d5491c31c65478f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 14a9e369f3366fc103cde2f0faafb570de409de7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823064"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311870"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
 O runtime das funções do Azure suporta [Java SE 8 LTS (zulu8.31.0.2-jre8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/).
 
-## <a name="programming-model"></a>Modelo de programação
+Este guia contém informações sobre as complicações de escrever as funções do Azure com Java.
+
+Uma função de Java é um `public` método decorado com anotação `@FunctionName`. Esse método define a entrada para uma função de java e tem de ser exclusivo num determinado pacote. 
+
+Este artigo pressupõe que já leu a [referência para programadores do funções do Azure](functions-reference.md). Também deverá concluir o início rápido das funções para criar a sua primeira função, usando [Visual Studio Code](functions-create-first-function-vs-code.md) ou [com o maven](functions-create-first-java-maven.md).
+
+## <a name="programming-model"></a>Modelo de programação 
 
 Os conceitos de [acionadores e enlaces](functions-triggers-bindings.md) são fundamentais para as funções do Azure. Acionadores de iniciar a execução do seu código. Enlaces dão-lhe uma forma de passar dados para e devolver dados de uma função, sem ter de escrever o código de acesso de dados personalizados.
-
-Uma função deve ser um método sem monitoração de estado para processar a entrada e produzir a saída. A função não deve depender de quaisquer campos de instância da classe. Todos os métodos de função devem ser `public` e o método com anotação @FunctionName tem de ser exclusivo como o nome do método define a entrada para uma função.
 
 ## <a name="folder-structure"></a>estrutura de pastas
 

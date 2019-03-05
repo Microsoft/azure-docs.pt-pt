@@ -12,20 +12,22 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/12/2018
-ms.openlocfilehash: 95a86dafc4705d58ac459ff57e4f221d19fb7a37
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4a3677dc5402948fc0105190d1891d709291d0f7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990296"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317735"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de encriptação de dados transparente (TDE) com o PowerShell
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - Tem de ter uma subscrição do Azure e de ser um administrador da subscrição
-- Tem de ter o Azure PowerShell versão 4.2.0 ou mais recente instalado e em execução. 
-- Este guia de procedimentos pressupõe que já estiver a utilizar uma chave de Cofre de chaves do Azure como o protetor de TDE para uma base de dados do Azure SQL ou armazém de dados. Ver [encriptação de dados transparente com a integração do Azure Key Vault - suporte BYOK](transparent-data-encryption-byok-azure-sql.md) para saber mais.
+- Tem de ter o Azure PowerShell instalada e em execução. 
+- Este guia de procedimentos pressupõe que já estiver a utilizar uma chave de Cofre de chaves do Azure como o protetor de TDE para uma base de dados do Azure SQL ou armazém de dados. Ver [encriptação de dados transparente com suporte BYOK](transparent-data-encryption-byok-azure-sql.md) para saber mais.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -45,34 +47,34 @@ Este guia de procedimentos é feito por duas abordagens consoante o resultado pr
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Para manter os recursos encriptados acessível
 
 1. Criar uma [nova chave no Cofre de chaves](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Certifique-se de que esta chave nova é criada num cofre de chaves separado do protetor de TDE potencialmente comprometido, uma vez que o controlo de acesso é aprovisionado num nível de cofre. 
-2. Adicionar a nova chave para o servidor utilizando o [Add-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) e [Set-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) cmdlets e atualizá-lo como protetor de TDE novo do servidor.
+2. Adicionar a nova chave para o servidor utilizando o [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) e [conjunto AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets e atualizá-lo como protetor de TDE novo do servidor.
 
    ```powershell
    # Add the key from Key Vault to the server  
-   Add-AzureRmSqlServerKeyVaultKey `
+   Add-AzSqlServerKeyVaultKey `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -KeyId <KeyVaultKeyId>
 
    # Set the key as the TDE protector for all resources under the server
-   Set-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Set-AzSqlServerTransparentDataEncryptionProtector `
    -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> `
    -Type AzureKeyVault -KeyId <KeyVaultKeyId> 
    ```
 
-3. Certifique-se o servidor e as réplicas tem atualizado para o novo protetor de TDE com o [Get-AzureRmSqlServerTransparentDataEncryptionProtector](/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) cmdlet. 
+3. Certifique-se o servidor e as réplicas tem atualizado para o novo protetor de TDE com o [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet. 
 
    >[!NOTE]
    > Pode demorar alguns minutos para que o novo protetor de TDE a ser propagada para todas as bases de dados e bases de dados secundárias sob o servidor.
 
    ```powershell
-   Get-AzureRmSqlServerTransparentDataEncryptionProtector `
+   Get-AzSqlServerTransparentDataEncryptionProtector `
    -ServerName <LogicalServerName> `
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Efetuar uma [cópia de segurança da chave nova](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey) no Cofre de chaves.
+4. Efetuar uma [cópia de segurança da chave nova](/powershell/module/az.keyvault/backup-azurekeyvaultkey) no Cofre de chaves.
 
    ```powershell
    <# -OutputFile parameter is optional; 
@@ -82,18 +84,18 @@ Este guia de procedimentos é feito por duas abordagens consoante o resultado pr
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
    ```
-
-5. Eliminar a chave de comprometido do Cofre de chave com o [Remove-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet. 
+ 
+5. Eliminar a chave de comprometido do Cofre de chave com o [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azurekeyvaultkey) cmdlet. 
 
    ```powershell
-   Remove-AzureKeyVaultKey `
+   Remove-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName>
    ```
-
-6. Para restaurar uma chave para o Cofre de chaves no futuro com o [restauro-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey) cmdlet:
+ 
+6. Para restaurar uma chave para o Cofre de chaves no futuro com o [restauro AzKeyVaultKey](/powershell/module/az.keyvault/restore-azurekeyvaultkey) cmdlet:
    ```powershell
-   Restore-AzureKeyVaultKey `
+   Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -InputFile <BackupFilePath>
    ```

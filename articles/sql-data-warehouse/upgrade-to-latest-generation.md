@@ -10,22 +10,25 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 70a59ddc1b15693cb2a50c1dc2da6dd9233e0811
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990022"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314845"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Otimizar o desempenho ao atualizar o SQL Data Warehouse
+
 Atualize o Azure SQL Data Warehouse para a última geração da arquitetura de hardware e o armazenamento do Azure.
 
 ## <a name="why-upgrade"></a>Por que atualizar?
+
 Agora pode atualizar facilmente para a camada de SQL Data Warehouse de computação otimizada geração 2 no portal do Azure para [regiões suportadas](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Se a sua região não suporta a atualização automática, pode atualizar para uma região suportada ou aguarde Self-atualizar para estar disponível na sua região. Atualize agora para aproveitar a última geração de hardware do Azure e a arquitetura de armazenamento melhorada, incluindo um desempenho mais rápido, escalabilidade e armazenamento em colunas ilimitado. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Aplica-se a
+
 Esta atualização aplica-se para armazéns de dados de escalão de computação otimizada geração 1 no [regiões suportadas](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Antes de começar
@@ -49,10 +52,15 @@ Esta atualização aplica-se para armazéns de dados de escalão de computação
    |           DW2000            |           DW2000c           |
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
->[!Note]
->Níveis de desempenho sugerida não são uma conversão direta. Por exemplo, recomendamos que vai de DW600 para DW500c.
+
+> [!Note]
+> Níveis de desempenho sugerida não são uma conversão direta. Por exemplo, recomendamos que vai de DW600 para DW500c.
 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Atualizar numa região suportada no portal do Azure
+
+## <a name="before-you-begin"></a>Antes de começar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
 > A migração de geração 1 para a geração 2 através do portal do Azure é permanente. Não é um processo para retornar à geração 1.  
@@ -73,13 +81,13 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
    Comando do PowerShell de geração 1 original:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
    ```
 
    Modificado para:
 
    ```powershell
-   Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
+   Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
    ```
 
    > [!NOTE] 
@@ -100,8 +108,6 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
    > [!NOTE] 
    > SERVICE_OBJECTIVE = 'DW300' é alterado para SERVICE_OBJECTIVE = ' DW300**c**'
 
-
-
 ## <a name="start-the-upgrade"></a>Iniciar a atualização
 
 1. Aceda ao seu armazém de dados de escalão de computação otimizada geração 1 no portal do Azure. Se o armazém de dados de escalão de computação otimizada geração 1 a ser atualizado está em pausa, [retomar o armazém de dados](pause-and-resume-compute-portal.md). 
@@ -110,7 +116,6 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
     > [!NOTE]
     > Se não vir a **atualizar para ger2** cartão no separador tarefas, o tipo de subscrição é limitado na região atual.
     > [Submeter um pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md) para obter a sua subscrição na lista de permissões.
-
 
 3. Certifique-se de que sua carga de trabalho foi concluída em execução e terem silenciado as antes de atualizar. Vai sofrer períodos de inatividade para alguns minutos até que o armazém de dados estiver novamente online como um armazém de dados de escalão de computação otimizada geração 2. **Selecione a atualização**:
 
@@ -173,6 +178,7 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
+
 ## <a name="upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal"></a>Atualizar a partir de uma região geográfica do Azure através de restauro através do portal do Azure
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Criar um ponto de restauro definidas pelo utilizador através do portal do Azure
@@ -190,6 +196,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Nome do ponto de restauro](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurar uma base de dados do Active Directory ou em pausa no portal do Azure
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Navegue para o SQL data warehouse que pretende restaurar a partir de.
 3. Na parte superior da seção de visão geral, selecione **restaurar**.
@@ -205,11 +212,13 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
     ![Pontos de restauro definidas pelo utilizador](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Restaurar a partir de uma região geográfica do Azure com o PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para recuperar uma base de dados, utilize o [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet.
 
 > [!NOTE]
 > Pode efetuar um georrestauro para ger2! Para tal, especifique um ServiceObjectiveName de geração 2 (por exemplo, DW1000**c**) como um parâmetro opcional.
->
 
 1. Abra o Windows PowerShell.
 2. Ligue a sua conta do Azure e listar todas as subscrições associadas à sua conta.
@@ -235,7 +244,6 @@ $GeoRestoredDatabase.status
 
 > [!NOTE]
 > Para configurar a sua base de dados após o restauro foi concluída, consulte [configurar a sua base de dados após a recuperação](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
->
 
 A base de dados recuperada serão habilitados para TDE se a base de dados de origem é habilitado para TDE.
 
@@ -243,4 +251,5 @@ A base de dados recuperada serão habilitados para TDE se a base de dados de ori
 Se encontrar algum problema com o data warehouse, crie uma [pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e fazer referência a "Atualização de geração 2" como a causa possível.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 O armazém de dados atualizada está online. Para tirar partido da arquitetura avançada, consulte [classes de recursos para a gestão da carga de trabalho](resource-classes-for-workload-management.md).

@@ -10,42 +10,39 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 412c2faead0102d3995e3df9db31b81c4dd4aa22
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ec1f9a8a10f346c4b8e9e8dac364b2687637c204
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452010"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317905"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Cmdlets do PowerShell e APIs REST para o SQL Data Warehouse
 Muitas tarefas de administração do SQL Data Warehouse podem ser geridas através de cmdlets do Azure PowerShell ou REST APIs.  Seguem-se alguns exemplos de como utilizar comandos do PowerShell para automatizar tarefas comuns no seu armazém de dados SQL.  Para alguns bons exemplos REST, consulte o artigo [gerir escalabilidade com REST][Manage scalability with REST].
 
-> [!NOTE]
-> Para utilizar o Azure PowerShell com o SQL Data Warehouse, é necessário o Azure PowerShell, versão 1.0.3 ou superior.  Pode verificar a sua versão, executando **Get-Module - ListAvailable-Name Azure**.  Pode ser instalada a versão mais recente a partir [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Para mais informações sobre como instalar a versão mais recente, consulte [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)][How to install and configure Azure PowerShell].
-> 
-> 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-azure-powershell-cmdlets"></a>Introdução aos cmdlets do PowerShell do Azure
 1. Abra o Windows PowerShell.
 2. Na linha de comandos do PowerShell, execute estes comandos para iniciar sessão para o Azure Resource Manager e selecione a sua subscrição.
    
     ```PowerShell
-    Connect-AzureRmAccount
-    Get-AzureRmSubscription
-    Select-AzureRmSubscription -SubscriptionName "MySubscription"
+    Connect-AzAccount
+    Get-AzSubscription
+    Select-AzSubscription -SubscriptionName "MySubscription"
     ```
 
 ## <a name="pause-sql-data-warehouse-example"></a>Exemplo de armazém de dados SQL de colocar em pausa
 Colocar em pausa uma base de dados com o nome "Database02" alojada num servidor com o nome "Servidor01."  O servidor está num grupo de recursos do Azure com o nome "ResourceGroup1."
 
 ```Powershell
-Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
+Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-Uma variação, neste exemplo de objeto recuperado para canaliza [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].  Como resultado, a base de dados está em pausa. O comando final mostra os resultados.
+Uma variação, neste exemplo de objeto recuperado para canaliza [Suspend-AzSqlDatabase][Suspend-AzSqlDatabase].  Como resultado, a base de dados está em pausa. O comando final mostra os resultados.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
-$resultDatabase = $database | Suspend-AzureRmSqlDatabase
+$database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
+$resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
@@ -53,14 +50,14 @@ $resultDatabase
 Retomar a operação de uma base de dados com o nome "Database02" alojada num servidor com o nome "Servidor01." O servidor está contido num grupo de recursos com o nome "ResourceGroup1."
 
 ```Powershell
-Resume-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
+Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Uma variação, este exemplo obtém uma base de dados com o nome "Database02" de um servidor com o nome "Servidor01" que está contido num grupo de recursos com o nome "ResourceGroup1." Ele canaliza o objeto obtido [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase].
+Uma variação, este exemplo obtém uma base de dados com o nome "Database02" de um servidor com o nome "Servidor01" que está contido num grupo de recursos com o nome "ResourceGroup1." Ele canaliza o objeto obtido [AzSqlDatabase retomar][Resume-AzSqlDatabase].
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
-$resultDatabase = $database | Resume-AzureRmSqlDatabase
+$database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
+$resultDatabase = $database | Resume-AzSqlDatabase
 ```
 
 > [!NOTE]
@@ -71,16 +68,16 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 ## <a name="other-supported-powershell-cmdlets"></a>Suporte dos outros cmdlets do PowerShell
 Estes cmdlets do PowerShell são suportados com o Azure SQL Data Warehouse.
 
-* [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
-* [Get-AzureRmSqlDeletedDatabaseBackup][Get-AzureRmSqlDeletedDatabaseBackup]
-* [Get-AzureRmSqlDatabaseRestorePoints][Get-AzureRmSqlDatabaseRestorePoints]
-* [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase]
-* [Remove-AzureRmSqlDatabase][Remove-AzureRmSqlDatabase]
-* [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase]
-* [Resume-AzureRmSqlDatabase][Resume-AzureRmSqlDatabase]
-* [Select-AzureRmSubscription][Select-AzureRmSubscription]
-* [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
-* [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
+* [Get-AzSqlDatabase][Get-AzSqlDatabase]
+* [Get-AzSqlDeletedDatabaseBackup][Get-AzSqlDeletedDatabaseBackup]
+* [Get-AzSqlDatabaseRestorePoints][Get-AzSqlDatabaseRestorePoints]
+* [New-AzSqlDatabase][New-AzSqlDatabase]
+* [Remove-AzSqlDatabase][Remove-AzSqlDatabase]
+* [Restore-AzSqlDatabase][Restore-AzSqlDatabase]
+* [Resume-AzSqlDatabase][Resume-AzSqlDatabase]
+* [Select-AzSubscription][Select-AzSubscription]
+* [Set-AzSqlDatabase][Set-AzSqlDatabase]
+* [Suspend-AzSqlDatabase][Suspend-AzSqlDatabase]
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais exemplos do PowerShell, consulte:
@@ -101,17 +98,17 @@ Para outras tarefas que podem ser automatizadas com o PowerShell, consulte [Cmdl
 <!--MSDN references-->
 [Azure SQL Database Cmdlets]: https://docs.microsoft.com/powershell/module/azurerm.sql
 [Operations for Azure SQL Database]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[Get-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabase
-[Get-AzureRmSqlDeletedDatabaseBackup]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-AzureRmSqlDeletedDatabaseBackup
-[Get-AzureRmSqlDatabaseRestorePoints]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-AzureRmSqlDatabaseRestorePoints
-[New-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzureRmSqlDatabase
-[Remove-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRmSqlDatabase
-[Restore-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Restore-AzureRmSqlDatabase
-[Resume-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Resume-AzureRmSqlDatabase
-<!-- It appears that Select-AzureRmSubscription isn't documented, so this points to Select-AzureSubscription -->
-[Select-AzureRmSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
-[Set-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRmSqlDatabase
-[Suspend-AzureRmSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Suspend-AzureRmSqlDatabase
+[Get-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-Azsqldatabase
+[Get-AzSqlDeletedDatabaseBackup]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-AzSqlDeletedDatabaseBackup
+[Get-AzSqlDatabaseRestorePoints]: https://docs.microsoft.com/powershell/module/azurerm.sql/get-AzSqlDatabaseRestorePoints
+[New-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/New-AzSqlDatabase
+[Remove-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzSqlDatabase
+[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Restore-AzSqlDatabase
+[Resume-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Resume-AzSqlDatabase
+<!-- It appears that Select-AzSubscription isn't documented, so this points to Select-AzureSubscription -->
+[Select-AzSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
+[Set-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzSqlDatabase
+[Suspend-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/azurerm.sql/Suspend-AzSqlDatabase
 
 <!--Other Web references-->
 [Microsoft Web Platform Installer]: https://aka.ms/webpi-azps

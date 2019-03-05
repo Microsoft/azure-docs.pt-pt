@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: da7556b909ec4eb544a6b4e4fab7af4a0919a158
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234242"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308181"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo de atividade através do Azure Monitor  
 
@@ -204,13 +204,26 @@ O json de exemplo acima podem ser salvas como (Digamos) sampleActivityLogAlert.j
 
 ## <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>Implementar o modelo do Resource Manager com o PowerShell
+Utilizar o PowerShell para implementar o modelo de recurso mostrado na [modelo do Resource secção anterior] de exemplo (#--modelo do resource manager, utilize o seguinte comando:
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+
+em que o sampleActivityLogAlert.parameters.json contém os valores fornecidos para os parâmetros necessários para a criação de regra de alerta.
+
+### <a name="use-activity-log-powershell-cmdlets"></a>Utilizar cmdlets do PowerShell do registo de atividade
+
 Alertas de registo de atividade tem dedicados cmdlets do PowerShell disponíveis:
 
-- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): Para criar um novo ou atualizar o recurso de regra de alerta de registo de atividade existente
-- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): Para obter um ou mais recursos de regra de alerta de registo de atividade
-- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): Para eliminar o recurso de regra de alerta de registo de atividade com confirmação do utilizador
-- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): Para ativar um recurso de regra de alerta de registo de atividade existente
-- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): Para desativar um recurso de regra de alerta de registo de atividade existente
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Cria um novo ou atualizar um alerta de registo de atividades existentes.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Obtém a atividade de um ou mais recursos de alerta de registo.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Permite que um alerta de registo de atividades existentes e define suas marcas.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Desativa um alerta de registo de atividades existentes e define suas marcas.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    : Remove um alerta de registo de atividades.
 
 ## <a name="cli"></a>CLI
 

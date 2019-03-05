@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 16e23f77509d2402f765981b39a30e08a2309f68
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 325e06cadd2593684bc610a0387829541bea30b2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156532"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311802"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - portal do Azure
 
@@ -105,7 +105,7 @@ Neste exemplo, vai criar duas máquinas virtuais que utiliza o Azure como servid
 
 5. Aceite o **discos** separador predefinições e, em seguida, selecione **seguinte: Funcionamento em rede**.
 
-6. No **Networking** separador, certifique-se de que **myVNet** está selecionada para o **rede Virtual** e a **sub-rede** está definido como  **myBackendSubnet**. Aceite as outras predefinições e, em seguida, selecione **seguinte: Gestão**.
+6. No **Networking** separador, certifique-se de que **myVNet** está selecionada para o **rede Virtual** e a **sub-rede** está definido como  **myBackendSubnet**. Aceite as outras predefinições e, em seguida, selecione **seguinte: Management**.
 
 8. Sobre o **gestão** separador, defina **diagnósticos de arranque** para **desativar**. Aceite as outras predefinições e, em seguida, selecione **rever + criar**.
 
@@ -115,6 +115,8 @@ Neste exemplo, vai criar duas máquinas virtuais que utiliza o Azure como servid
 
 ### <a name="install-iis"></a>Instalar o IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Open [do Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Para tal, selecione **Cloud Shell** na barra de navegação superior do portal do Azure e, em seguida, selecione **PowerShell** na lista pendente. 
 
     ![Instalar uma extensão personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
@@ -122,7 +124,7 @@ Neste exemplo, vai criar duas máquinas virtuais que utiliza o Azure como servid
 2. Execute o comando seguinte para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -133,7 +135,7 @@ Neste exemplo, vai criar duas máquinas virtuais que utiliza o Azure como servid
       -Location EastUS
     ```
 
-3. Crie uma segunda máquina virtual e instalar o IIS, utilizando os passos que concluiu anteriormente. Uso *myVM2* para o nome da máquina virtual e para o **VMName** definição do **Set-AzureRmVMExtension** cmdlet.
+3. Crie uma segunda máquina virtual e instalar o IIS, utilizando os passos que concluiu anteriormente. Uso *myVM2* para o nome da máquina virtual e para o **VMName** definição do **Set-AzVMExtension** cmdlet.
 
 ### <a name="add-backend-servers"></a>Adicionar servidores back-end
 

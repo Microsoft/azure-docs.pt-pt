@@ -10,19 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c73084b03736a422e5e3b617ec058ade1de0fbb9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823659"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317123"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Início rápido: Criar modelos Azure Resource Manager com o Visual Studio Code
 
 Aprenda a utilizar o código do Visual Studio e a extensão das Ferramentas do Azure Resource Manager para criar e editar modelos do Azure Resource Manager. Pode criar modelos do Resource Manager no Visual Studio Code sem a extensão, mas esta proporciona opções de conclusão automática que simplificam o desenvolvimento dos modelos. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](resource-group-overview.md).
+
+Neste tutorial, vai implementar uma conta de armazenamento:
+
+![Diagrama de código do visual studio de início rápido do Resource manager modelo](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -90,15 +94,24 @@ Para experiência sobre como editar um modelo com o Visual Studio Code, é poss�
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Existem muitos métodos para implementar modelos.  Neste início rápido, vai utilizar o Cloud shell do Azure. O Cloud shell é um aplicativo web, que não requerem nenhuma configuração. Suporta a CLI do Azure e o Azure PowerShell.
+Existem muitos métodos para implementar modelos. O Azure Cloud shell é utilizado neste início rápido. O cloud shell oferece suporte a CLI do Azure e o Azure PowerShell. Utilize o Seletor de separador de escolher entre o CLI e o PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
 1. Iniciar sessão no [Cloud shell do Azure](https://shell.azure.com)
 
+2. Escolha o seu ambiente preferido selecionando o **PowerShell** ou **Bash**(CLI) no canto superior esquerdo.  É necessário reiniciar o Shell quando mudar.
+
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![CLI Cloud Shell do portal do Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. Escolha o seu ambiente preferido selecionando o **PowerShell** ou **Bash** no canto superior esquerdo. Para utilizar a CLI, terá de abrir uma sessão do Bash. Para executar o Azure PowerShell, terá de abrir uma sessão do PowerShell. Selecione a seta para baixo para alternar entre o Bash e o PowerShell. Veja a captura de ecrã anterior. É necessário reiniciar o Shell quando mudar.
+
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+
+    ![Portal do Azure Cloud shell do PowerShell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
+
+    ---
+
 3. Selecione **Carregar/transferir ficheiros** e, em seguida, selecione **Carregar**.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)

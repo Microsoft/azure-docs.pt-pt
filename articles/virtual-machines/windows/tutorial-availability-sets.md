@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3ee9740f9ef7e364c47bb205315683d1e4ea9294
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f71bfa39e4ded0ea300cc2d329c442fdc6ddec37
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977134"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309082"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutorial: Criar e implementar máquinas virtuais altamente disponíveis com o Azure PowerShell
 
@@ -38,7 +38,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="availability-set-overview"></a>Descrição geral do conjunto de disponibilidade
 
-Um conjunto de disponibilidade é uma funcionalidade de agrupamento lógico para isolar os recursos VM uns dos outros quando são implantados. O Azure torna-se de que as VMs que colocar num conjunto de disponibilidade são executadas em vários servidores físicos, computação racks, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou software, apenas um subconjunto das suas VMs são afetados e a solução global permanece operacional. Conjuntos de disponibilidade são essenciais para a criação de soluções cloud fiáveis.
+Um conjunto de disponibilidade é uma funcionalidade de agrupamento lógico para isolar os recursos da VM entre si quando são implantados. O Azure torna-se de que as VMs que colocar num conjunto de disponibilidade são executadas em vários servidores físicos, computação racks, unidades de armazenamento e comutadores de rede. Se ocorrer uma falha de hardware ou software, apenas um subconjunto das suas VMs são afetados e a solução global permanece operacional. Conjuntos de disponibilidade são essenciais para a criação de soluções cloud fiáveis.
 
 Consideremos uma solução típica baseada em VM em que poderá ter quatro servidores Web de front-end e duas VMs de back-end. Com o Azure, iria querer definir dois conjuntos de disponibilidade antes de implementar as suas VMs: um para a camada web e para a camada de back. Quando cria uma nova VM, especifique o conjunto como um parâmetro de disponibilidade. O Azure torna-se de que as VMs estão isoladas em vários recursos de hardware físico. Se o hardware físico, um dos seus servidores em execução no tiver um problema, sabe que as outras instâncias dos seus servidores continuará a ser executada uma vez que estão num hardware diferente.
 

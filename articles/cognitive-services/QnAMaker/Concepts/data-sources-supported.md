@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 03/04/2019
 ms.author: tulasim
-ms.openlocfilehash: 09e01f7705c61bdf110c0bc84cefa396f430f7f8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d41c7a24d72cdafac953e0215a6cbd2d9e8bba01
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884516"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316477"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 
@@ -122,7 +122,7 @@ Segue-se um exemplo de um documento do word QnA estruturado:
 
 QnAs na forma de estruturado *. txt*, *. tsv* ou *. xls* ficheiros também podem ser carregados para o QnA Maker para criar ou aumente uma base de dados de conhecimento.  Estas podem ser texto simples, ou podem ter o conteúdo em RTF ou HTML. 
 
-| Pergunta  | Resposta  | Metadados                |
+| Pergunta  | Resposta  | Metadados (1 chave: valor de 1) |
 |-----------|---------|-------------------------|
 | Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
@@ -137,7 +137,7 @@ Segue-se um exemplo de um QnA estruturado *. xls* arquivo, com conteúdo HTML:
 
 Importar uma base de dados de conhecimento substitui o conteúdo da base de dados de conhecimento existente. Importação requer um ficheiro. tsv estruturados que contém informações de origem de dados. Estas informações ajudam o QnA Maker agrupar os pares de resposta de pergunta e atributo-los para uma determinada origem de dados.
 
-| Pergunta  | Resposta  | Origem| Metadados                |
+| Pergunta  | Resposta  | Origem| Metadados (1 chave: valor de 1) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |

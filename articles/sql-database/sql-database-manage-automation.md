@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 05dfece2a2e69c5cdb3f08b51424720a1c2898db
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f462940f652f568168c4d0b1e8012c7196d59b13
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561948"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314165"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Gerir bases de dados SQL do Azure com a automatização do Azure
 
@@ -37,7 +37,7 @@ Base de dados SQL do Azure podem ser gerido na automatização do Azure com o [c
 
 A automatização do Azure também tem a capacidade de comunicar com os servidores SQL diretamente, através da emissão de comandos SQL com o PowerShell.
 
-O [Galeria de runbooks da automatização do Azure](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) contém uma variedade de runbooks de equipe e da Comunidade de produto para começar a automatizar a gestão de bases de dados SQL do Azure, outros serviços do Azure e sistemas de terceiros. Galeria runbooks incluem:
+O [Galeria de runbooks da automatização do Azure](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) contém uma variedade de runbooks de equipe e da Comunidade de produto para começar a automatizar a gestão de bases de dados SQL do Azure, outros serviços do Azure e sistemas de terceiros. Galeria runbooks incluem:
 
 - [Executar consultas SQL numa base de dados do SQL Server](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 - [Aumentar verticalmente (para cima ou para baixo) uma base de dados do SQL do Azure com base numa agenda](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
@@ -50,4 +50,4 @@ Agora que aprendeu as noções básicas da automatização do Azure e como ele p
 
 - [Descrição geral da automatização do Azure](../automation/automation-intro.md)
 - [O meu primeiro runbook](../automation/automation-first-runbook-graphical.md)
-- [Automatização do Azure: O agente do SQL na Cloud](https://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 
+- [Automatização do Azure: O agente do SQL na Cloud](https://azure.microsoft.com/blog/20../../azure-automation-your-sql-agent-in-the-cloud/) 

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 3d35075c768855ebd907b96de2ded82757d5e525
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6562156432a86c346a0fee382af50f210e3cf6dc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242909"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308521"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitorização de desempenho com os registos do Azure Monitor
 
 Este artigo aborda os passos para adicionar o agente Log Analytics como extensão de conjunto de dimensionamento de máquinas virtuais ao seu cluster e ligá-la à sua área de trabalho do Log Analytics do Azure existente. Isso permite recolher dados de diagnóstico sobre contentores, aplicativos e monitorização do desempenho. Ao adicioná-la como uma extensão para o recurso de conjunto de dimensionamento de máquina virtual, do Azure Resource Manager garante que é instalado em cada nó, mesmo quando a dimensionar o cluster.
 
 > [!NOTE]
-> Este artigo pressupõe que tem uma área de trabalho do Log Analytics do Azure já configurada. Se não o fizer, aceda a [configurar os registos do Azure do Azure Monitor](service-fabric-diagnostics-oms-setup.md)
+> Este artigo pressupõe que tem uma área de trabalho do Log Analytics do Azure já configurada. Se não o fizer, aceda a [configurar os registos do Azure Monitor](service-fabric-diagnostics-oms-setup.md)
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -39,13 +39,13 @@ A melhor forma de adicionar o agente Log Analytics para o cluster é por meio de
 2. No Portal, navegue para o grupo de recursos onde está localizada a sua área de trabalho do Log Analytics. Clique para o recurso de análise de registo (o tipo do recurso será área de trabalho do Log Analytics). Assim que estiver a página de descrição geral de recursos, clique em **definições avançadas** na secção definições no menu da esquerda.
 
     ![Página de propriedades do log analytics](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
- 
+
 3. Clique em **servidores do Windows** se estão esperando um cluster do Windows, e **servidores Linux** se estiver a criar um cluster do Linux. Esta página irá mostrar sua `workspace ID` e `workspace key` (apresentados como chave primária no portal). Precisará para o passo seguinte.
 
 4. Execute o comando para instalar o agente do Log Analytics no seu cluster, utilizando o `vmss extension set` API no Cloud Shell:
 
     Para um cluster do Windows:
-    
+
     ```sh
     az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
@@ -59,7 +59,7 @@ A melhor forma de adicionar o agente Log Analytics para o cluster é por meio de
     Eis um exemplo do agente do Log Analytics que está a ser adicionado a um cluster do Windows.
 
     ![Comando de cli de agente de análise de registo](media/service-fabric-diagnostics-oms-agent/cli-command.png)
- 
+
 5. Esta operação deve demorar menos de 15 minutos para adicionar com êxito o agente para os nós. Pode verificar que os agentes foram adicionados ao utilizar o `az vmss extension list` API:
 
     ```sh
@@ -74,7 +74,7 @@ Pode transferir e modificar este modelo para implementar um cluster mais adequad
 
 ## <a name="view-performance-counters"></a>Contadores de desempenho do Vista
 
-Agora que adicionou o agente do Log Analytics, head a ativação pós-falha para o portal do Log Analytics para escolher os contadores de desempenho pretende recolher. 
+Agora que adicionou o agente do Log Analytics, head a ativação pós-falha para o portal do Log Analytics para escolher os contadores de desempenho pretende recolher.
 
 1. No portal do Azure, vá para o grupo de recursos em que criou a solução de análise do Service Fabric. Selecione **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
 
@@ -92,7 +92,7 @@ Agora que adicionou o agente do Log Analytics, head a ativação pós-falha para
 
 8. Verá os mosaicos na forma de um gráfico para cada uma das soluções de ativadas, incluindo um para o Service Fabric. Clique nas **Service Fabric** gráfico para continuar para a solução de análise do Service Fabric.
 
-9. Verá alguns mosaicos com gráficos no canal operacional e de eventos do reliable services. A representação gráfica de fluxo para os contadores que selecionou de dados será apresentado no nó de métricas. 
+9. Verá alguns mosaicos com gráficos no canal operacional e de eventos do reliable services. A representação gráfica de fluxo para os contadores que selecionou de dados será apresentado no nó de métricas.
 
 10. Clique num gráfico de métrica de contentor para ver detalhes adicionais. Pode também consultar os dados de contador de desempenho da mesma forma para eventos de cluster e filtra os nós, o nome do contador de desempenho e a valores usando a linguagem de consulta de Kusto.
 

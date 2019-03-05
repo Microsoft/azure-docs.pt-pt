@@ -10,42 +10,42 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6e4b754c02e21954efaab03b942b6994fd1b7b4d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: aefb9b9f5da0f8fef5295b49fe0ee1431556e89f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472206"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308878"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início rápido: Colocar em pausa e retomar a computação do Azure SQL Data Warehouse com o PowerShell
 Utilize o PowerShell para colocar em pausa a computação do Azure SQL Data Warehouse para reduzir os custos. [Retomar a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para utilizar o armazém de dados.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-Este tutorial requer a versão 5.1.1 ou posterior do módulo do Azure PowerShell. Execute ` Get-Module -ListAvailable AzureRM` para localizar a versão que tem atualmente. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps)(Instalar o módulo do Azure PowerShell).
-
 ## <a name="before-you-begin"></a>Antes de começar
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Este guia de introdução pressupõe que já tiver um armazém de dados SQL que pode colocar em pausa e retomar. Se precisar de criar uma, pode utilizar [criar e ligar - portal](create-data-warehouse-portal.md) para criar um armazém de dados chamado **mySampleDataWarehouse**.
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie a sessão na sua subscrição do Azure com o comando [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) e siga as instruções no ecrã.
+Inicie sessão na sua subscrição do Azure com o [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) de comando e siga na tela as direções.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
-Para ver a subscrição que está a utilizar, execute [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
+Para ver a subscrição que está a utilizar, execute [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
-Se precisar de utilizar uma subscrição diferente que não o predefinido, execute [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Se precisar de utilizar uma subscrição diferente que não o predefinido, execute [Set-AzContext](/powershell/module/az.profile/set-azcontext).
 
 ```powershell
-Set-AzureRmContext -SubscriptionName "MySubscription"
+Set-AzContext -SubscriptionName "MySubscription"
 ```
 
 ## <a name="look-up-data-warehouse-information"></a>Procure pelas informações de armazém de dados
@@ -67,38 +67,38 @@ Siga estes passos para encontrar as informações de localização para o seu ar
 ## <a name="pause-compute"></a>Computação em pausa
 Para reduzir os custos, pode colocar em pausa e retomar a computação recursos sob demanda. Por exemplo, se não estiver a utilizar a base de dados durante a noite e no fim de semana, pode colocar em pausa durante essas horas e retomá-lo durante o dia. Não existe nenhum custo associado para recursos de computação, enquanto a base de dados está em pausa. No entanto, continuar a ser cobrado o armazenamento.
 
-Para colocar em pausa uma base de dados, utilize o [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase) cmdlet. O exemplo seguinte coloca em pausa um armazém de dados com o nome **mySampleDataWarehouse** alojada num servidor com o nome **newserver 20171113**. O servidor está num grupo de recursos do Azure com o nome **myResourceGroup**.
+Para colocar em pausa uma base de dados, utilize o [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) cmdlet. O exemplo seguinte coloca em pausa um armazém de dados com o nome **mySampleDataWarehouse** alojada num servidor com o nome **newserver 20171113**. O servidor está num grupo de recursos do Azure com o nome **myResourceGroup**.
 
 
 ```Powershell
-Suspend-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
 ```
 
-Uma variação, neste exemplo seguinte obtém a base de dados para o objeto de $database. Ele encaminha, então, o objeto [Suspend-AzureRmSqlDatabase](/powershell/module/azurerm.sql/suspend-azurermsqldatabase). Os resultados são armazenados no resultDatabase objeto. O comando final mostra os resultados.
+Uma variação, neste exemplo seguinte obtém a base de dados para o objeto de $database. Ele encaminha, então, o objeto [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase). Os resultados são armazenados no resultDatabase objeto. O comando final mostra os resultados.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+$database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
-$resultDatabase = $database | Suspend-AzureRmSqlDatabase
+$resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
 
 ## <a name="resume-compute"></a>Computação de retomar
-Para iniciar uma base de dados, utilize o [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) cmdlet. O exemplo seguinte inicia um banco de dados chamado mySampleDataWarehouse alojada num servidor com o nome newserver 20171113. O servidor está num grupo de recursos do Azure com o nome myResourceGroup.
+Para iniciar uma base de dados, utilize o [retomar AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) cmdlet. O exemplo seguinte inicia um banco de dados chamado mySampleDataWarehouse alojada num servidor com o nome newserver 20171113. O servidor está num grupo de recursos do Azure com o nome myResourceGroup.
 
 ```Powershell
-Resume-AzureRmSqlDatabase –ResourceGroupName "myResourceGroup" `
+Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-Uma variação, neste exemplo seguinte obtém a base de dados para o objeto de $database. Ele encaminha, então, o objeto [Resume-AzureRmSqlDatabase](/powershell/module/azurerm.sql/resume-azurermsqldatabase) e armazena os resultados em $resultDatabase. O comando final mostra os resultados.
+Uma variação, neste exemplo seguinte obtém a base de dados para o objeto de $database. Ele encaminha, então, o objeto [retomar AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) e armazena os resultados em $resultDatabase. O comando final mostra os resultados.
 
 ```Powershell
-$database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" `
+$database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
-$resultDatabase = $database | Resume-AzureRmSqlDatabase
+$resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
 ```
 

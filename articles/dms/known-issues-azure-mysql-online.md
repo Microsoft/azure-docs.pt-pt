@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/05/2019
+ms.openlocfilehash: be6c31840abcf2503293c381aad2848afebe3d9b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721653"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337129"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Limitações de migração/problemas conhecidos com migrações online BD do Azure para MySQL
 
@@ -80,7 +80,7 @@ Grandes colunas de objeto (LOB) são colunas que poderiam ter um aumento de tama
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solução**: Se tiver o objeto LOB que é maior do que 32 KB, contacte a equipa de engenharia na [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com). 
+    **Solução**: Se tiver o objeto LOB que é maior do que 32 KB, contacte a equipa de engenharia na [faça migrações de base de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## <a name="other-limitations"></a>Outras limitações
 - Uma cadeia de caracteres de palavra-passe que tenha chavetas {chavetas} no início e fim da cadeia de palavra-passe não é suportada. Esta limitação aplica-se para ambas as ligar à origem MySQL e o destino da base de dados do Azure para MySQL.

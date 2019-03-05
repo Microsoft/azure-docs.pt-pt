@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: cba0bad2e81ffddedfc4ca04e82e17e4286b389b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ecfd9671587c0544cf82aa7ddbccef975e1fe5c6
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312124"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310425"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportar os dados no Azure IoT Central
 
@@ -28,13 +28,13 @@ Este artigo descreve como utilizar a funcionalidade de exportação contínua de
 
 - Tem de ser um administrador na sua aplicação do Centro de IoT
 
-## <a name="export-to-blob-storage"></a>Exportar para o armazenamento de BLOBs
+## <a name="export-to-blob-storage"></a>Exportar para o Armazenamento de Blobs
 
 Medidas, dispositivos e dados de modelos de dispositivos são exportados para a sua conta de armazenamento, uma vez por minuto, com cada ficheiro que contém o lote de alterações, uma vez que o último exportou o ficheiro. Os dados exportados estão sendo [Apache AVRO](https://avro.apache.org/docs/current/index.html) formato.
 
 Saiba mais sobre [exportar para o armazenamento de BLOBs](howto-export-data-blob-storage.md).
 
-## <a name="export-to-event-hubs-and-service-bus"></a>Exportar para os Hubs de eventos e o Service Bus
+## <a name="export-to-event-hubs-and-service-bus"></a>Exportar para os Hubs de Eventos e o Service Bus
 
 Medidas, dispositivos e dados de modelos de dispositivos são exportados para o seu hub de eventos ou fila do Service Bus ou tópico. Medidas exportado dados chegam em tempo quase real e contém a totalidade da mensagem de seus dispositivos enviados ao IoT Central, não apenas os valores de medidas de si. Dispositivos exportados dados chegam em lotes, uma vez por minuto e contém alterações para propriedades e configurações de todos os dispositivos e modelos de dispositivos exportado contém alterações para todos os modelos de dispositivos.
 
@@ -81,14 +81,14 @@ Agora que tem um destino de armazenamento/Event Hubs/Service Bus para exportar d
 
 1. Inicie sessão na sua aplicação IoT Central.
 
-2. No menu à esquerda, clique em **a exportação contínua de dados**.
+2. No menu da esquerda, selecione **a exportação contínua de dados**.
 
     > [!Note]
     > Se não vir a exportação contínua de dados no menu à esquerda, não for um administrador na sua aplicação. Fale com o administrador para configurar a exportação de dados.
 
     ![Criar novo cde Hub de eventos](media/howto-export-data/export_menu.PNG)
 
-3. Clique nas **+ novo** botão no canto superior direito. Escolha uma das **armazenamento de Blobs do Azure**, **Event Hubs do Azure**, ou **Azure Service Bus** como o destino da exportação. 
+3. Selecione o **+ novo** botão no canto superior direito. Escolha uma das **armazenamento de Blobs do Azure**, **Event Hubs do Azure**, ou **Azure Service Bus** como o destino da exportação. 
 
     > [!NOTE] 
     > O número máximo de exportações por aplicação é cinco. 
@@ -107,10 +107,10 @@ Agora que tem um destino de armazenamento/Event Hubs/Service Bus para exportar d
 
 5. (Opcional) Se escolheu **introduza uma cadeia de ligação**, aparece uma caixa de novo para que cole a cadeia de ligação. Para obter a cadeia de ligação para a sua:
     - Conta de armazenamento, aceda à conta de armazenamento no Portal do Azure.
-        - Sob **configurações**, clique em **chaves de acesso**
+        - Sob **configurações**, selecione **chaves de acesso**
         - Copiar a cadeia de ligação chave1 ou a cadeia de ligação chave2
     - Os Hubs de eventos ou do Service Bus, avance para o espaço de nomes no Portal do Azure.
-        - Sob **configurações**, clique em **políticas de acesso partilhado**
+        - Sob **configurações**, selecione **políticas de acesso partilhado**
         - Escolher a predefinição **RootManageSharedAccessKey** ou criar um novo
         - Copie a cadeia de ligação primária ou secundária
  

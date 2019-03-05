@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 7a090a068984a71c917cf5c33761dd78ac1ad2c8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d89e5d6fd21fdc37bffcc730fb20bae30ecc4f7c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453261"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315032"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Criar um gateway de aplicação com uma firewall de aplicações web no portal do Azure
 
@@ -30,6 +30,8 @@ Neste artigo, vai aprender a:
 > * Criar uma conta de armazenamento e configurar o diagnóstico
 
 ![Exemplo de firewall de aplicações Web](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -103,7 +105,7 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
 2. Execute o comando seguinte para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -114,7 +116,7 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
       -Location EastUS
     ```
 
-3. Crie uma segunda máquina virtual e instale o IIS com os passos que acabou de concluir. Introduza *myVM2* para o respetivo nome e para VMName em Set-AzureRmVMExtension.
+3. Crie uma segunda máquina virtual e instale o IIS com os passos que acabou de concluir. Introduza *myVM2* para seu nome e para VMName no conjunto AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Adicionar servidores back-end
 

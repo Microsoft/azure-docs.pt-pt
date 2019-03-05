@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 83225af7cb2cbdff4a264693e30b2a813f6ec9c7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 69b941b97a533740322d9070497de6845e834a16
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214934"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315644"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Como utilizar a análise para analisar os dados de dispositivo
 
@@ -23,7 +23,7 @@ O Azure IoT Central fornece capacidades de análises avançadas que fazem sentid
 
 ## <a name="querying-your-data"></a>Consultar dados
 
-Terá de escolher uma **dispositivos conjunto**, adicione um **filtro** (opcional) e selecione um **período de tempo** para começar a utilizar. Quando tiver terminado, clique em *Mostrar resultados* para começar a visualizar seus dados.
+Terá de escolher uma **dispositivos conjunto**, adicione um **filtro** (opcional) e selecione um **período de tempo** para começar a utilizar. Quando tiver terminado, selecione **Mostrar resultados** para começar a visualizar seus dados.
 
 * **Conjuntos de dispositivo:** R [dispositivos conjunto](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) é um grupo definido pelo utilizador dos seus dispositivos. Por exemplo, todos os refrigeradores no Oakland ou todos passe 2.0 turbines de vento.
 

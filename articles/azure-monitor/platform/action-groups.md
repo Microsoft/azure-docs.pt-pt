@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a817e3681f6b94b1b9ad7d5a2d2a1369935ee064
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8e9208981dd54fef1f56ee552d34bab78210b96d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651776"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316562"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ação no portal do Azure
 ## <a name="overview"></a>Descrição geral ##
@@ -69,7 +69,7 @@ Depois de criar um grupo de ação, é visível na **grupos de ação** secção
 > [!NOTE]
 > Ver [limites de serviço de subscrição para monitorização](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) para limites numérico em cada um dos itens abaixo.  
 
-**Aplicação do Azure Push** -pode ter um número limitado de ações de aplicação do Azure num grupo de ação. Neste momento, a ação de aplicações do Azure só suporta ServiceHealth alertas. Qualquer outra altura alerta será ignorada. Ver [configurar alertas sempre que uma notificação de estado de funcionamento do serviço é lançada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Aplicação do Azure Push** -pode ter um número limitado de ações de aplicação do Azure num grupo de ação. Neste momento, a ação de aplicações do Azure só suporta ServiceHealth alertas. Qualquer outro tipo de alerta será ignorado. Ver [configurar alertas sempre que uma notificação de estado de funcionamento do serviço é lançada](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **E-mail** -serão enviadas mensagens de correio eletrónico dos seguintes endereços de e-mail. Certifique-se de que a filtragem de e-mail está configurado corretamente
    - azure-noreply@microsoft.com

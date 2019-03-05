@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2c32ef84c1016d0058ee07220729a291aff19b70
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7097c3852ad903e9d8f7c8786ea7fd616706f108
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868073"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317327"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Camada de serviços de Hiperescala (pré-visualização) para até 100 TB
 
@@ -112,7 +112,7 @@ Com a capacidade de rapidamente acelerar/desacelerar nós de computação adicio
 
 ## <a name="create-a-hyperscale-database"></a>Criar uma base de dados de grande escala
 
-Uma base de dados de grande escala pode ser criada com o [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Bases de dados de grande dimensão estão disponíveis apenas usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
+Uma base de dados de grande escala pode ser criada com o [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Bases de dados de grande dimensão estão disponíveis apenas usando o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 O seguinte comando do T-SQL cria uma base de dados de grande escala. Tem de especificar o objetivo do edition e o serviço no `CREATE DATABASE` instrução.
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Migrar uma base de dados de SQL do Azure existente para a camada de serviços de Hiperescala
 
-Pode mover as bases de dados SQL do Azure existentes para a utilização de Hiperescala a [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Em pré-visualização pública, esta é uma migração unidirecional. Não é possível mover bases de dados de Hiperescala para outra camada de serviço. Recomendamos que faça uma cópia dos seus bancos de dados de produção e migrar para o de Hiperescala para uma prova de conceitos (provas de conceito).
+Pode mover as bases de dados SQL do Azure existentes para a utilização de Hiperescala a [portal do Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Em pré-visualização pública, esta é uma migração unidirecional. Não é possível mover bases de dados de Hiperescala para outra camada de serviço. Recomendamos que faça uma cópia dos seus bancos de dados de produção e migrar para o de Hiperescala para uma prova de conceitos (provas de conceito).
 
 O comando T-SQL seguinte move uma base de dados para a camada de serviços de Hiperescala. Tem de especificar o objetivo do edition e o serviço no `ALTER DATABASE` instrução.
 

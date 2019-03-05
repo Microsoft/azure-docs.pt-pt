@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d10e0b48da497dafe9bb841c68746328e8334c91
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 0f03cdb7f407e0f568b543cc09527bb6a6e4c25a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215732"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317225"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Tutorial: Personalizar a vista do operador do Azure IoT Central
 
@@ -79,7 +79,7 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     ![Editar esquema do dashboard](media/tutorial-customize-operator/dashboardlayout.png)
 
-7. Clique em **Concluído** quando terminar de fazer as alterações.
+7. Selecione **feito** quando terminar de fazer alterações.
 
 ## <a name="configure-your-settings-layout"></a>Configurar o seu esquema de definições
 
@@ -93,7 +93,7 @@ Também pode configurar a vista do operador das definições do dispositivo como
 
     ![Editar o esquema de definições](media/tutorial-customize-operator/settingslayout.png)
 
-3. Clique em **Concluído** quando terminar de fazer as alterações.
+3. Selecione **feito** quando terminar de fazer alterações.
 
 > [!NOTE]
 > No modo **Editar Modelo**, não pode editar os valores das definições.
@@ -110,7 +110,7 @@ Para além do dashboard e das definições, também pode configurar a vista do o
 
     ![Editar o esquema de propriedades](media/tutorial-customize-operator/propertieslayout.png)
 
-3. Clique em **Concluído** quando terminar de fazer as alterações.
+3. Selecione **feito** quando terminar de fazer alterações.
 
 > [!NOTE]
 > No modo **Editar Modelo**, não pode editar os valores das propriedades.
@@ -119,7 +119,7 @@ Para além do dashboard e das definições, também pode configurar a vista do o
 
 No modo **Editar Modelo**, pode personalizar as páginas do dashboard, das definições e da propriedades de um operador. Se não estiver no modo **Editar Modelo**, poderá ver a aplicação como um operador.
 
-1. Para ver o dispositivo de ar condicionado ligado como um operador, clique em **Concluído** para parar a edição do modelo e voltar à vista do operador do dispositivo.
+1. Para ver o seu dispositivo ligado ar-condicionado como um operador, selecione **feito** para parar de editar o modelo e regressar à vista da operadora do dispositivo.
 
 2. Para atualizar a Localização deste dispositivo, edite o valor no mosaico Localização e escolha **Guardar**:
 
@@ -142,7 +142,7 @@ Quando um construtor ou o operador inicia sessão a uma aplicação do Azure IoT
 > [!NOTE]
 > Os utilizadores também podem criar seus próprios dashboards pessoais e escolher uma como seu padrão.
 
-1. Para personalizar o dashboard de aplicações predefinido, navegue para o **Dashboard** página e clique em **editar** no canto superior direito da página. É apresentado um painel com uma biblioteca de objetos, que pode adicionar ao dashboard.
+1. Para personalizar o dashboard de aplicações predefinido, navegue para o **Dashboard** página e selecione **editar** no canto superior direito da página. É apresentado um painel com uma biblioteca de objetos, que pode adicionar ao dashboard.
 
     ![Página de dashboard](media/tutorial-customize-operator/builderhome.png)
 
@@ -153,7 +153,7 @@ Quando um construtor ou o operador inicia sessão a uma aplicação do Azure IoT
     > [!NOTE]
     > Também pode adicionar ligações a páginas na sua aplicação do Azure IoT Central. Por exemplo, pode adicionar uma ligação a um dashboard de dispositivo ou à página de definições.
 
-3. Opcionalmente, escolha **imagem** e carregar uma imagem a apresentar no seu dashboard. Uma imagem pode ter um URL para o qual navega, quando clica nele:
+3. Opcionalmente, escolha **imagem** e carregar uma imagem a apresentar no seu dashboard. Uma imagem pode ter um URL para o qual navega, ao selecioná-lo:
 
     ![Adicionar uma imagem ao dashboard](media/tutorial-customize-operator/addimage.png)
 
@@ -165,7 +165,7 @@ Para pré-visualizar o dashboard de aplicações como um operador, selecione **f
 
 ![Alternar Modo de Estrutura](media/tutorial-customize-operator/operatorviewhome.png)
 
-Pode clicar nos mosaicos de ligação e imagem para navegar para os URLs definidos como um construtor.
+Pode selecionar os mosaicos de imagem e ligação para navegar para os URLs que definir como um construtor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

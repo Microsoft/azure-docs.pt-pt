@@ -4,15 +4,15 @@ description: Fornece informações sobre a aplicação Recoletora no Azure Migra
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 0568df92db2114c57a0aa027ade369e4b256af84
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3d9106fb682a370e18fc78d35ca31662bae44524
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813335"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310646"
 ---
 # <a name="about-the-collector-appliance"></a>Sobre a aplicação Recoletora
 
@@ -111,7 +111,7 @@ A verificação de conectividade é validada ao ligar a uma lista de URLs.
 --- | --- | ---
 *.portal.azure.com | Aplicável para o Azure Global. Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
 *.portal.azure.us | Aplicável apenas para o Azure Government. Verificações de conectividade com o serviço do Azure e a sincronização de hora. | Acesso a URL é necessário.<br/><br/> A verificação de pré-requisitos falha se nenhuma conectividade.
-*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Utilizado para transferir o módulo do PowerShell vCenter PowerCLI. | Acesso a URLs opcionais.<br/><br/> Verificação de pré-requisitos não falhará.<br/><br/> Instalação do módulo automática na VM do Recoletor irá falhar. Terá de instalar manualmente o módulo.
+*.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| Utilizado para transferir o módulo do PowerShell vCenter PowerCLI. | É necessário o acesso aos URLs.<br/><br/> Verificação de pré-requisitos não falhará.<br/><br/> Instalação do módulo automática na VM do Recoletor irá falhar. Terá de instalar o módulo manualmente numa máquina que tenha conectividade à internet e, em seguida, copie os módulos para a aplicação. [Saiba mais indo para o passo n. º 4 neste guia de resolução de problemas](https://docs.microsoft.com/azure/migrate/troubleshooting-general#error-unhandledexception-internal-error-occurred-systemiofilenotfoundexception).
 
 
 ### <a name="install-vmware-powercli-module-manually"></a>Instalar manualmente o módulo de VMware PowerCLI

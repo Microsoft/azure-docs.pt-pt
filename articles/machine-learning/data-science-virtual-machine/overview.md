@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 44427183b6cc785af33daf92bda050336eec5284
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 35d5e5d76dbcb4f1d995a9da13a81ef8b184150c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245291"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337350"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows
 
@@ -38,7 +38,7 @@ A VM de Ciência de Dados foi concebida e configurada para trabalhar com uma vas
 Esta secção sugere alguns principais cenários para os quais a VM de Ciência de Dados pode ser implementada.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Ambiente de trabalho de análise pré-configurado na cloud
-A VM de Ciência de Dados disponibiliza uma configuração de linha base às equipas de ciência de dados que pretendem substituir os ambientes de trabalho locais por um ambiente de trabalho gerido na cloud. Esta linha base garante que todos os cientistas de dados de uma equipa têm uma configuração consistente com a qual podem verificar as experimentações e promover a colaboração. Também reduz os custos ao diminuir a carga dos administradores do sistema e ao poupar o tempo necessário para avaliar, instalar e manter os vários pacotes de software que as análises avançadas exigem.  
+A VM de Ciência de Dados disponibiliza uma configuração de linha base às equipas de ciência de dados que pretendem substituir os ambientes de trabalho locais por um ambiente de trabalho gerido na cloud. Esta linha base garante que todos os cientistas de dados de uma equipa têm uma configuração consistente com a qual podem verificar as experimentações e promover a colaboração. Também reduz os custos ao diminuir a carga dos administradores do sistema e ao poupar o tempo necessário para avaliar, instalar e manter os vários pacotes de software que as análises avançadas exigem.
 
 ### <a name="data-science-training-and-education"></a>Formação e educação em ciência de dados
 Normalmente, os formadores e educadores que ensinam as turmas de ciência de dados disponibilizam uma imagem de máquina virtual, de modo a garantir que os alunos têm uma configuração consistente e que os exemplos funcionam de forma previsível. A VM de Ciência de Dados cria um ambiente a pedido com uma configuração consistente que facilita os desafios de suporte e de incompatibilidade. Os casos em que estes ambientes têm de ser criados constantemente, especialmente para aulas de formação mais pequenas, retiram benefícios significativos destas características.
@@ -50,7 +50,7 @@ As hackathons/competições de ciência de dados ou a modelação e exploração
 A VM de Ciência de Dados pode ser utilizada para avaliar ou aprender, com um esforço de configuração mínimo, ferramentas como o Microsoft ML Server, o SQL Server, as ferramentas do Visual Studio, o Jupyter, as ferramentas de aprendizagem profunda / ML e ferramentas novas populares na comunidade. Uma vez que a VM de Ciência de Dados pode ser configurada rapidamente, pode ser aplicada a outros cenários de utilização de curto prazo, como a replicação de experimentações publicadas, a execução de demonstrações, o acompanhamento das instruções em sessões online e tutoriais de conferência.
 
 ### <a name="deep-learning"></a>Aprendizagem aprofundada
-A VM de Ciência de Dados pode ser utilizada para preparar modelos através da utilização de algoritmos de aprendizagem aprofundada em GPU (unidades de processamento gráfico) com base em hardware. Ao utilizar as capacidades de dimensionamento de VMs da cloud do Azure, a DSVM ajuda-o a utilizar hardware baseado em GPU na cloud, consoante as necessidades. O utilizador pode mudar para uma VM baseada em GPU quando estiverem a preparar modelos grandes ou precisarem de computações de alta velocidade, mas tenham de manter o mesmo disco do SO.  A edição do Windows Server 2016 da DSVM vem pré-instalada com controladores de GPU, estruturas e versões de GPU de estruturas de aprendizagem aprofundada. Na edição do Linux, a aprendizagem aprofundada em GPU está ativada nas DSVMs do CentOS e do Ubuntu. Pode implementar a edição Ubuntu, CentOS ou Windows 2016 da VM de Ciência de Dados numa máquina virtual do Azure não baseada em GPU, caso em que todas as estruturas de aprendizagem aprofundada reverterão para o modo CPU. 
+A VM de Ciência de Dados pode ser utilizada para preparar modelos através da utilização de algoritmos de aprendizagem aprofundada em GPU (unidades de processamento gráfico) com base em hardware. Ao utilizar as capacidades de dimensionamento de VMs da cloud do Azure, a DSVM ajuda-o a utilizar hardware baseado em GPU na cloud, consoante as necessidades. O utilizador pode mudar para uma VM baseada em GPU quando estiverem a preparar modelos grandes ou precisarem de computações de alta velocidade, mas tenham de manter o mesmo disco do SO.  A edição do Windows Server 2016 da DSVM vem pré-instalada com controladores de GPU, estruturas e versões de GPU de estruturas de aprendizagem aprofundada. Na edição do Linux, a aprendizagem aprofundada em GPU está ativada nas DSVMs do CentOS e do Ubuntu. Pode implementar a edição Ubuntu, CentOS ou Windows 2016 da VM de Ciência de Dados numa máquina virtual do Azure não baseada em GPU, caso em que todas as estruturas de aprendizagem aprofundada reverterão para o modo CPU.
 
 ## <a name="whats-included-in-the-data-science-vm"></a>O que está incluído na VM de Ciência de Dados?
 A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas ferramentas populares de ciência de dados e aprendizagem aprofundada. Também inclui ferramentas que tornam mais fácil trabalhar com vários dados e produtos de análise do Azure, como o Microsoft ML Server (R, Python) para a criação de modelos preditivos ou o SQL Server 2017 para a exploração de conjuntos de dados em grande escala. Também está incluído um conjunto de ferramentas da comunidade de código aberto e da Microsoft, bem como códigos de exemplo e blocos de notas. A tabela seguinte detalha e compara os principais componentes incluídos nas edições do Windows e do Linux da Máquina Virtual de Ciência de Dados.
@@ -86,7 +86,7 @@ A Máquina Virtual de Ciência de Dados tem já instaladas e configuradas muitas
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim e Emacs | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git e GitBash | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | S | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | S | N |
 | PowerBI Desktop | S | N |
 | SDKs para aceder aos serviços do Azure e do Cortana Intelligence Suite | S | S |
 | **Ferramentas de movimento e gestão de dados** | | |

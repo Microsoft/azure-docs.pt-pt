@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 640abdd533a6c0b0ec448076c713aaf754baf2b6
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: e4a2bb6d68562781592e1dfe5ad820044e8da708
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011301"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313944"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Tutorial: Notificações push para aplicações iOS com Notification Hubs do Azure
 
@@ -113,11 +113,29 @@ O Notification Hub já está configurado para trabalhar com APNs e tem as cadeia
      > [!NOTE]
      > Se vir um erro, como ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ``` durante a execução `pod install`, execute `pod repo update` para obter os pods mais recente a partir do repositório Cocoapods e, em seguida, executar `pod install`.
 
+   - Integração através de Carthage
+
+     Adicione as seguintes dependências ao seu `Cartfile` para incluir o SDK dos Notification Hubs do Azure na sua aplicação.
+
+     ```ruby
+     github "Azure/azure-notificationhubs-ios"
+     ```
+
+     Em seguida, atualizar e criar dependências:
+
+     ```shell
+     $ carthage update
+     ```
+
+     Para obter mais informações sobre como utilizar Carthage, consulte a [repositório do Carthage GitHub](https://github.com/Carthage/Carthage).
+
    - Integração ao copiar os binários no seu projeto
 
-     Transfira o [Framework de Mensagens do Windows Azure] e deszipe o ficheiro. No Xcode, clique com o botão direito do rato no projeto e clique na opção **Adicionar Ficheiros a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto Xcode. Selecione **Opções** e certifique-se de que **Copiar itens, se necessário** está selecionado e, em seguida, clique em **Adicionar**.
+       1. Transfira o [SDK dos Notification Hubs do Azure](https://github.com/Azure/azure-notificationhubs-ios/releases) framework fornecida como um ficheiro zip e Descompacte-o.
 
-     ![Deszipar o Azure SDK][10]
+       2. No Xcode, clique com o botão direito do rato no projeto e clique na opção **Adicionar Ficheiros a** para adicionar a pasta **WindowsAzureMessaging.framework** ao seu projeto Xcode. Selecione **Opções** e certifique-se de que **Copiar itens, se necessário** está selecionado e, em seguida, clique em **Adicionar**.
+
+       ![Deszipar o Azure SDK][10]
 
 6. Adicione um novo ficheiro de cabeçalho ao projeto com o nome `HubInfo.h`. Este ficheiro detém as constantes para o Hub de Notificação. Adicione as seguintes definições e substitua os marcadores de posição literais de cadeia pelo seu *nome do hub* e pela *DefaultListenSharedAccessSignature* anotado anteriormente.
 

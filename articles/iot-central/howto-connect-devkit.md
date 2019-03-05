@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6d2cb95efbff223aecf1f0525dbb93698639d41a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 5412e0a7bae3667ceb29085da566ef3b73c82c35
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198733"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316630"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
 
@@ -45,14 +45,14 @@ Para obter detalhes completos sobre a configuração, consulte [detalhes do mode
 
 Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir do **MXChip** modelo de dispositivo e tome nota dos detalhes da ligação de dispositivo (**chave de ID de âmbito, o ID de dispositivo e o principal**).
 
-1. Adicionar uma **dispositivo real** do Device Explorer, clique em **+ novo > Real** para adicionar um dispositivo real.
+1. Adicionar uma **dispositivo real** a partir do Device Explorer, selecione **+ novo > Real** para adicionar um dispositivo real.
     * Introduza o Id de dispositivo **<span style="color:Red">(deve ser minúscula)</span>** ou utilize o ID de dispositivo sugerido.
     * Introduza o nome do dispositivo ou utilize o nome sugerido
     
     ![Adicionar Dispositivo](media/concepts-connectivity/add-device.png)
 
 
-1. Obter os detalhes de ligação, tal como **chave de ID de âmbito, o ID de dispositivo e o primário** para o dispositivo foi adicionado ao clicar em **Connect** na página do dispositivo.
+1. Obter os detalhes de ligação, tal como **chave de ID de âmbito, o ID de dispositivo e o primário** para o dispositivo foi adicionado ao selecionar **Connect** na página do dispositivo.
  
     ![Detalhes da ligação](media/concepts-connectivity/device-connect.PNG)
 
@@ -189,26 +189,26 @@ Uma aplicação criada a partir do modelo de aplicativo de exemplo Devkits inclu
 | Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidade       | %      | 0       | 100     | 0              |
-| Temp           | ° C     | -40,Year),temperature     | 120     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
 | pressure       | hPa    | 260     | 1260    | 0              |
 | magnetometerX  | mgauss | -1000   | 1000    | 0              |
 | magnetometerY  | mgauss | -1000   | 1000    | 0              |
 | magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | grupo de gestão     | -2000   | 2000    | 0              |
-| accelerometerY | grupo de gestão     | -2000   | 2000    | 0              |
-| accelerometerZ | grupo de gestão     | -2000   | 2000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 
 #### <a name="states"></a>Estados 
-| Nome          | Nome a apresentar   | NORMAL | CUIDADO | PERIGO | 
+| Name          | Nome a apresentar   | NORMAL | CUIDADO | PERIGO | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | Estado do dispositivo   | Verde  | Orange  | Vermelho    | 
 
 #### <a name="events"></a>Eventos 
-| Nome             | Nome a apresentar      | 
+| Name             | Nome a apresentar      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | B de botão premido  | 
 
@@ -230,7 +230,7 @@ Ativar/desativar definições
 
 ### <a name="properties"></a>Propriedades
 
-| Tipo            | Nome a apresentar | Nome do campo | Tipo de dados |
+| Type            | Nome a apresentar | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Morrem número   | dieNumber  | número    |
 | Propriedade do dispositivo | Localização do dispositivo   | localização  | localização    |

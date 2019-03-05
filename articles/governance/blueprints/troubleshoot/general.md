@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0d49045eea5a65461b142262bae83b9b8e7f84c8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ff68bfc9cdd13563fa8f938870742e9e9ceac9c2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816594"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313264"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Resolver problemas de erros usando os esquemas do Azure
 
@@ -65,7 +65,7 @@ Passar um parâmetro de esquema que utiliza uma função, como `[resourceGroup()
 
 #### <a name="resolution"></a>Resolução
 
-Para passar uma função através de como um parâmetro, toda a cadeia com de escape `[` , de modo a que o parâmetro de esquema é semelhante a `[[resourceGroup().tags.myTag]`. O caráter de escape faz com que os planos gráficos tratar o valor como uma cadeia de caracteres ao processar o plano gráfico. Planos gráficos locais, em seguida, onde a função no artefacto permitindo que seja dinâmica, conforme o esperado.
+Para passar uma função através de como um parâmetro, toda a cadeia com de escape `[` , de modo a que o parâmetro de esquema é semelhante a `[[resourceGroup().tags.myTag]`. O caráter de escape faz com que os planos gráficos tratar o valor como uma cadeia de caracteres ao processar o plano gráfico. Planos gráficos locais, em seguida, onde a função no artefacto permitindo que seja dinâmica, conforme o esperado. Para obter mais informações, consulte [estrutura de arquivos de modelo - sintaxe](../../../azure-resource-manager/resource-group-authoring-templates.md#syntax).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

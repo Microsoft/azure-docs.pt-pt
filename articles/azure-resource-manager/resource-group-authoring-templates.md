@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7819dc62d766a6b35f5c2efe1179cb0adb0ab933
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 024a622484a83957c9ab5f4a684a346a55787ccf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243555"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313366"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
@@ -31,13 +31,13 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  },
-    "variables": {  },
-    "functions": [  ],
-    "resources": [  ],
-    "outputs": {  }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  },
+  "variables": {  },
+  "functions": [  ],
+  "resources": [  ],
+  "outputs": {  }
 }
 ```
 
@@ -55,106 +55,106 @@ Cada elemento tem propriedades que pode definir. O exemplo seguinte mostra a sin
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "",
-    "parameters": {  
-        "<parameter-name>" : {
-            "type" : "<type-of-parameter-value>",
-            "defaultValue": "<default-value-of-parameter>",
-            "allowedValues": [ "<array-of-allowed-values>" ],
-            "minValue": <minimum-value-for-int>,
-            "maxValue": <maximum-value-for-int>,
-            "minLength": <minimum-length-for-string-or-array>,
-            "maxLength": <maximum-length-for-string-or-array-parameters>,
-            "metadata": {
-                "description": "<description-of-the parameter>" 
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "",
+  "parameters": {  
+    "<parameter-name>" : {
+      "type" : "<type-of-parameter-value>",
+      "defaultValue": "<default-value-of-parameter>",
+      "allowedValues": [ "<array-of-allowed-values>" ],
+      "minValue": <minimum-value-for-int>,
+      "maxValue": <maximum-value-for-int>,
+      "minLength": <minimum-length-for-string-or-array>,
+      "maxLength": <maximum-length-for-string-or-array-parameters>,
+      "metadata": {
+        "description": "<description-of-the parameter>" 
+      }
+    }
+  },
+  "variables": {
+    "<variable-name>": "<variable-value>",
+    "<variable-object-name>": {
+      <variable-complex-type-value>
+    },
+    "<variable-object-name>": {
+      "copy": [
+        {
+          "name": "<name-of-array-property>",
+          "count": <number-of-iterations>,
+          "input": <object-or-value-to-repeat>
         }
+      ]
     },
-    "variables": {
-        "<variable-name>": "<variable-value>",
-        "<variable-object-name>": {
-            <variable-complex-type-value>
-        },
-        "<variable-object-name>": {
-            "copy": [
-                {
-                    "name": "<name-of-array-property>",
-                    "count": <number-of-iterations>,
-                    "input": <object-or-value-to-repeat>
-                }
-            ]
-        },
-        "copy": [
-            {
-                "name": "<variable-array-name>",
-                "count": <number-of-iterations>,
-                "input": <object-or-value-to-repeat>
-            }
-        ]
-    },
-    "functions": [
+    "copy": [
       {
-        "namespace": "<namespace-for-your-function>",
-        "members": {
-          "<function-name>": {
-            "parameters": [
-              {
-                "name": "<parameter-name>",
-                "type": "<type-of-parameter-value>"
-              }
-            ],
-            "output": {
-              "type": "<type-of-output-value>",
-              "value": "<function-expression>"
+        "name": "<variable-array-name>",
+        "count": <number-of-iterations>,
+        "input": <object-or-value-to-repeat>
+      }
+    ]
+  },
+  "functions": [
+    {
+      "namespace": "<namespace-for-your-function>",
+      "members": {
+        "<function-name>": {
+          "parameters": [
+            {
+              "name": "<parameter-name>",
+              "type": "<type-of-parameter-value>"
             }
+          ],
+          "output": {
+            "type": "<type-of-output-value>",
+            "value": "<function-expression>"
           }
         }
       }
-    ],
-    "resources": [
-      {
-          "condition": "<boolean-value-whether-to-deploy>",
-          "apiVersion": "<api-version-of-resource>",
-          "type": "<resource-provider-namespace/resource-type-name>",
-          "name": "<name-of-the-resource>",
-          "location": "<location-of-resource>",
-          "tags": {
-              "<tag-name1>": "<tag-value1>",
-              "<tag-name2>": "<tag-value2>"
-          },
-          "comments": "<your-reference-notes>",
-          "copy": {
-              "name": "<name-of-copy-loop>",
-              "count": "<number-of-iterations>",
-              "mode": "<serial-or-parallel>",
-              "batchSize": "<number-to-deploy-serially>"
-          },
-          "dependsOn": [
-              "<array-of-related-resource-names>"
-          ],
-          "properties": {
-              "<settings-for-the-resource>",
-              "copy": [
-                  {
-                      "name": ,
-                      "count": ,
-                      "input": {}
-                  }
-              ]
-          },
-          "resources": [
-              "<array-of-child-resources>"
-          ]
-      }
-    ],
-    "outputs": {
-        "<outputName>" : {
-            "condition": "<boolean-value-whether-to-output-value>",
-            "type" : "<type-of-output-value>",
-            "value": "<output-value-expression>"
-        }
     }
+  ],
+  "resources": [
+    {
+      "condition": "<boolean-value-whether-to-deploy>",
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+        "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+        },
+        "comments": "<your-reference-notes>",
+        "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": "<number-of-iterations>",
+          "mode": "<serial-or-parallel>",
+          "batchSize": "<number-to-deploy-serially>"
+        },
+        "dependsOn": [
+          "<array-of-related-resource-names>"
+        ],
+        "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+            {
+              "name": ,
+              "count": ,
+              "input": {}
+            }
+          ]
+        },
+        "resources": [
+          "<array-of-child-resources>"
+        ]
+    }
+  ],
+  "outputs": {
+    "<outputName>" : {
+      "condition": "<boolean-value-whether-to-output-value>",
+      "type" : "<type-of-output-value>",
+      "value": "<output-value-expression>"
+    }
+  }
 }
 ```
 
@@ -170,7 +170,7 @@ O exemplo seguinte mostra como utilizar várias funções ao construir um valor:
 
 ```json
 "variables": {
-    "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 }
 ```
 
@@ -180,20 +180,179 @@ Para obter a lista completa de funções de modelo, consulte [funções de model
 
 Na secção de parâmetros do modelo, especifique os valores que pode inserir ao implementar os recursos. Estes valores de parâmetros permitem-lhe personalizar a implementação, fornecendo valores que são adaptadas para um ambiente específico (por exemplo, desenvolvimento, teste e produção). Não é necessário fornecer os parâmetros no seu modelo, mas sem parâmetros seu modelo implementaria sempre os mesmos recursos com os mesmos nomes, locais e propriedades.
 
-O exemplo seguinte mostra uma definição de parâmetro simples:
+Está limitado a 256 parâmetros num modelo. Pode reduzir o número de parâmetros com objetos que contêm várias propriedades, conforme mostrado neste artigo.
+
+### <a name="available-properties"></a>Propriedades disponíveis
+
+As propriedades disponíveis para um parâmetro são:
 
 ```json
 "parameters": {
-  "siteNamePrefix": {
-    "type": "string",
+  "<parameter-name>" : {
+    "type" : "<type-of-parameter-value>",
+    "defaultValue": "<default-value-of-parameter>",
+    "allowedValues": [ "<array-of-allowed-values>" ],
+    "minValue": <minimum-value-for-int>,
+    "maxValue": <maximum-value-for-int>,
+    "minLength": <minimum-length-for-string-or-array>,
+    "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "The name prefix of the web app that you wish to create."
+      "description": "<description-of-the parameter>" 
+    }
+  }
+}
+```
+
+| Nome do elemento | Necessário | Descrição |
+|:--- |:--- |:--- |
+| parameterName |Sim |Nome do parâmetro. Tem de ser um identificador de JavaScript válido. |
+| tipo |Sim |Tipo do valor de parâmetro. Os tipos permitidos e os valores são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. |
+| defaultValue |Não |Valor predefinido para o parâmetro, se não for fornecido nenhum valor para o parâmetro. |
+| allowedValues |Não |Matriz de valores permitidos para o parâmetro para se certificar de que o valor correto é fornecido. |
+| minValue |Não |O valor mínimo para os parâmetros de tipo int, este valor é inclusivo. |
+| maxValue |Não |O valor máximo para os parâmetros de tipo int, este valor é inclusivo. |
+| minLength |Não |O comprimento mínimo para a cadeia, cadeia segura e parâmetros de tipo de matriz, este valor é inclusivo. |
+| maxLength |Não |O comprimento máximo para a cadeia, cadeia segura e parâmetros de tipo de matriz, este valor é inclusivo. |
+| descrição |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. Para obter mais informações, consulte [comentários em modelos](#comments). |
+
+### <a name="define-and-use-a-parameter"></a>Definir e utilizar um parâmetro
+
+O exemplo seguinte mostra uma definição de parâmetro simples. Ele define o nome do parâmetro e especifica que demora um valor de cadeia de caracteres. O parâmetro só aceita valores que façam sentido para seu uso pretendido. Especifica um valor predefinido quando é fornecido nenhum valor durante a implementação. Por fim, o parâmetro inclui uma descrição de seu uso.
+
+```json
+"parameters": {
+  "storageSKU": {
+    "type": "string",
+    "allowedValues": [
+      "Standard_LRS",
+      "Standard_ZRS",
+      "Standard_GRS",
+      "Standard_RAGRS",
+      "Premium_LRS"
+    ],
+    "defaultValue": "Standard_LRS",
+    "metadata": {
+      "description": "The type of replication to use for the storage account."
+    }
+  }   
+}
+```
+
+No modelo, referenciar o valor para o parâmetro com a seguinte sintaxe:
+
+```json
+"resources": [
+  {
+    "type": "Microsoft.Storage/storageAccounts",
+    "sku": {
+      "name": "[parameters('storageSKU')]"
+    },
+    ...
+  }
+]
+```
+
+### <a name="template-functions-with-parameters"></a>Funções de modelo com parâmetros
+
+Ao especificar o valor predefinido para um parâmetro, pode utilizar a maioria das funções de modelo. Pode utilizar outro valor de parâmetro para criar um valor predefinido. O modelo seguinte demonstra o uso de funções no valor predefinido:
+
+```json
+"parameters": {
+  "siteName": {
+    "type": "string",
+    "defaultValue": "[concat('site', uniqueString(resourceGroup().id))]",
+    "metadata": {
+      "description": "The site name. To use the default value, do not specify a new value."
     }
   },
+  "hostingPlanName": {
+    "type": "string",
+    "defaultValue": "[concat(parameters('siteName'),'-plan')]",
+    "metadata": {
+      "description": "The host name. To use the default value, do not specify a new value."
+    }
+  }
+}
+```
+
+Não é possível utilizar o `reference` função na secção de parâmetros. Parâmetros são avaliados antes da implantação até a `reference` função não é possível obter o estado de tempo de execução de um recurso. 
+
+### <a name="objects-as-parameters"></a>Objetos como parâmetros
+
+Pode ser mais fácil organizar os valores relacionados, passando-os na como um objeto. Essa abordagem também reduz o número de parâmetros no modelo.
+
+Defina o parâmetro no seu modelo e especifique um objeto JSON em vez de um único valor durante a implementação. 
+
+```json
+"parameters": {
+  "VNetSettings": {
+    "type": "object",
+    "defaultValue": {
+      "name": "VNet1",
+      "location": "eastus",
+      "addressPrefixes": [
+        {
+          "name": "firstPrefix",
+          "addressPrefix": "10.0.0.0/22"
+        }
+      ],
+      "subnets": [
+        {
+          "name": "firstSubnet",
+          "addressPrefix": "10.0.0.0/24"
+        },
+        {
+          "name": "secondSubnet",
+          "addressPrefix": "10.0.1.0/24"
+        }
+      ]
+    }
+  }
 },
 ```
 
-Para obter informações sobre como definir parâmetros, consulte [secção de parâmetros de modelos Azure Resource Manager](resource-manager-templates-parameters.md).
+Em seguida, referenciar subproperties do parâmetro ao utilizar o operador de ponto.
+
+```json
+"resources": [
+  {
+    "apiVersion": "2015-06-15",
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[parameters('VNetSettings').name]",
+    "location": "[parameters('VNetSettings').location]",
+    "properties": {
+      "addressSpace":{
+        "addressPrefixes": [
+          "[parameters('VNetSettings').addressPrefixes[0].addressPrefix]"
+        ]
+      },
+      "subnets":[
+        {
+          "name":"[parameters('VNetSettings').subnets[0].name]",
+          "properties": {
+            "addressPrefix": "[parameters('VNetSettings').subnets[0].addressPrefix]"
+          }
+        },
+        {
+          "name":"[parameters('VNetSettings').subnets[1].name]",
+          "properties": {
+            "addressPrefix": "[parameters('VNetSettings').subnets[1].addressPrefix]"
+          }
+        }
+      ]
+    }
+  }
+]
+```
+
+### <a name="parameter-example-templates"></a>Modelos de exemplo de parâmetro
+
+Estes modelos de exemplo demonstram alguns cenários de utilização de parâmetros. Implementá-las para testar como os parâmetros são tratados em cenários diferentes.
+
+|Modelo  |Descrição  |
+|---------|---------|
+|[parâmetros com funções para os valores predefinidos](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstra como utilizar funções de modelo ao definir os valores predefinidos de parâmetros. O modelo implementa todos os recursos. Ele constrói os valores de parâmetros e retorna esses valores. |
+|[Objeto de parâmetro](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstra como utilizar um objeto para um parâmetro. O modelo implementa todos os recursos. Ele constrói os valores de parâmetros e retorna esses valores. |
 
 ## <a name="variables"></a>Variáveis
 
@@ -205,26 +364,26 @@ O exemplo seguinte mostra as opções disponíveis para definir uma variável:
 
 ```json
 "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-name>": { 
-        <variable-complex-type-value> 
-    },
-    "<variable-object-name>": {
-        "copy": [
-            {
-                "name": "<name-of-array-property>",
-                "count": <number-of-iterations>,
-                "input": <object-or-value-to-repeat>
-            }
-        ]
-    },
+  "<variable-name>": "<variable-value>",
+  "<variable-name>": { 
+    <variable-complex-type-value> 
+  },
+  "<variable-object-name>": {
     "copy": [
-        {
-            "name": "<variable-array-name>",
-            "count": <number-of-iterations>,
-            "input": <object-or-value-to-repeat>
-        }
+      {
+        "name": "<name-of-array-property>",
+        "count": <number-of-iterations>,
+        "input": <object-or-value-to-repeat>
+      }
     ]
+  },
+  "copy": [
+    {
+      "name": "<variable-array-name>",
+      "count": <number-of-iterations>,
+      "input": <object-or-value-to-repeat>
+    }
+  ]
 }
 ```
 
@@ -256,16 +415,16 @@ Pode utilizar tipos complexos de JSON para definir valores relacionados para um 
 
 ```json
 "variables": {
-    "environmentSettings": {
-        "test": {
-            "instanceSize": "Small",
-            "instanceCount": 1
-        },
-        "prod": {
-            "instanceSize": "Large",
-            "instanceCount": 4
-        }
+  "environmentSettings": {
+    "test": {
+      "instanceSize": "Small",
+      "instanceCount": 1
+    },
+    "prod": {
+      "instanceSize": "Large",
+      "instanceCount": 4
     }
+  }
 },
 ```
 
@@ -273,13 +432,13 @@ Parâmetros, vai criar um valor que indica que configuração valores devem ser 
 
 ```json
 "parameters": {
-    "environmentName": {
-        "type": "string",
-        "allowedValues": [
-          "test",
-          "prod"
-        ]
-    }
+  "environmentName": {
+    "type": "string",
+    "allowedValues": [
+      "test",
+      "prod"
+    ]
+  }
 },
 ```
 
@@ -289,7 +448,7 @@ Obter as definições atuais com:
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-### <a name="variables-example-templates"></a>Modelos de exemplo de variáveis
+### <a name="variable-example-templates"></a>Modelos de exemplo de variável
 
 Estes modelos de exemplo demonstram alguns cenários de utilização de variáveis. Implementá-las para testar como as variáveis são tratadas em cenários diferentes. 
 
@@ -384,11 +543,11 @@ O exemplo seguinte mostra a estrutura de uma definição de saída:
 
 ```json
 "outputs": {
-    "<outputName>" : {
-        "condition": "<boolean-value-whether-to-output-value>",
-        "type" : "<type-of-output-value>",
-        "value": "<output-value-expression>"
-    }
+  "<outputName>" : {
+    "condition": "<boolean-value-whether-to-output-value>",
+    "type" : "<type-of-output-value>",
+    "value": "<output-value-expression>"
+  }
 }
 ```
 
@@ -446,7 +605,7 @@ O exemplo seguinte mostra como definir o endereço IP num Balanceador de carga a
 
 ```json
 "publicIPAddress": {
-    "id": "[reference('linkedTemplate').outputs.resourceID.value]"
+  "id": "[reference('linkedTemplate').outputs.resourceID.value]"
 }
 ```
 
@@ -471,24 +630,24 @@ Pode adicionar um `metadata` objeto praticamente qualquer lugar no seu modelo. G
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "comments": "This template was developed for demonstration purposes.",
+    "author": "Example Name"
+  },
 ```
 
 Para **parâmetros**, adicione um `metadata` objeto com um `description` propriedade.
 
 ```json
 "parameters": {
-    "adminUsername": {
-      "type": "string",
-      "metadata": {
-        "description": "User name for the Virtual Machine."
-      }
-    },
+  "adminUsername": {
+    "type": "string",
+    "metadata": {
+      "description": "User name for the Virtual Machine."
+    }
+  },
 ```
 
 Ao implementar o modelo através do portal, o texto que fornecer na descrição do é automaticamente utilizado como uma dica para esse parâmetro.
@@ -525,13 +684,13 @@ Para **produz**, adicionar um objeto de metadados para o valor de saída.
 
 ```json
 "outputs": {
-    "hostname": {
-      "type": "string",
-      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
-      "metadata": {
-        "comments": "Return the fully qualified domain name"
-      }
-    },
+  "hostname": {
+    "type": "string",
+    "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]",
+    "metadata": {
+      "comments": "Return the fully qualified domain name"
+    }
+  },
 ```
 
 Não é possível adicionar um objeto de metadados para as funções definidas pelo utilizador.
@@ -545,8 +704,8 @@ Para comentários embutidos, pode usar `//` mas essa sintaxe não funciona com t
   "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
   "dependsOn": [ // storage account and network interface must be deployed first
-      "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
-      "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
 ```
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 21814ddf6af5e65725f5e0e6ebdf31206565baa2
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: dd6148d2d817b1f2465b6beaba5fd488b16ead21
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218010"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315967"
 ---
 # <a name="manage-your-application-preferences"></a>Gerir as suas preferências de aplicação
 
@@ -27,7 +27,7 @@ Centro de IoT é suportado em vários idiomas. Pode mudar o seu idioma preferenc
 
 ## <a name="changing-theme"></a>Alterar o tema
 
-Temos suporte para o tema escuro e o tema claro. Embora o tema no claro é o padrão, pode alterar isto ao clicar no ícone das definições na barra de navegação superior.
+Temos suporte para o tema escuro e o tema claro. Embora o tema no claro é o padrão, pode alterar isto ao selecionar o ícone de definições na barra de navegação superior.
 
 ![Seletor de temas do Centro de IoT](media/howto-manage-preferences/settings.png)
 

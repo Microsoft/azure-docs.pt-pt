@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 33e24a8d8715dd6f2b37ed566a1479dffd93c466
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159422"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308096"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurar um gateway de aplicação com a terminação de SSL com o portal do Azure
 
@@ -29,6 +29,8 @@ Neste artigo, vai aprender a:
 > * Criar as máquinas virtuais utilizadas como servidores de back-end
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -132,7 +134,7 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
 2. Execute o comando seguinte para instalar o IIS na máquina virtual: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -143,7 +145,7 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
       -Location EastUS
     ```
 
-3. Crie uma segunda máquina virtual e instale o IIS com os passos que acabou de concluir. Introduza *myVM2* para o respetivo nome e para VMName em Set-AzureRmVMExtension.
+3. Crie uma segunda máquina virtual e instale o IIS com os passos que acabou de concluir. Introduza *myVM2* para seu nome e para VMName no conjunto AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Adicionar servidores back-end
 

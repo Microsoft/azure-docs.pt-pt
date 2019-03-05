@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d8a5ca6285624720e23a4986917ab5e715f6ebfa
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 5c414e4398ef280b0d04d0a384722ee923c4cefa
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768018"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316034"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central (design de nova interface do Usuário)
 
@@ -36,15 +36,15 @@ Antes de começar, deve concluir o tutorial [Definir um novo tipo de dispositivo
 
 ## <a name="create-a-telemetry-based-rule"></a>Criar uma regra baseada em telemetria
 
-1. Para adicionar uma nova regra de acesso com base na telemetria ao seu aplicativo, no menu de navegação esquerdo, escolha **modelos de dispositivos**:
+1. Para adicionar uma nova regra de acesso com base na telemetria ao seu aplicativo, no menu de navegação esquerdo, selecione **modelos de dispositivos**:
 
     ![Página de modelos de dispositivo](media/tutorial-configure-rules-experimental/templatespage1.png)
 
     Verá o **ligado ar-condicionado (1.0.0)** modelo de dispositivo que criou no tutorial anterior.
 
-2. Para personalizar o modelo de dispositivo, clique nas **ligado ar-condicionado** modelo que criou no tutorial anterior.
+2. Para personalizar o modelo de dispositivo, selecione o **ligado ar-condicionado** modelo que criou no tutorial anterior.
 
-3. Para adicionar uma regra baseada em telemetria no **regras** ver, escolha **regras**, clique em **+ nova regra**e, em seguida, selecione **telemetria**:
+3. Para adicionar uma regra baseada em telemetria no **regras** visualizar, selecione **regras**, selecione **+ nova regra**e, em seguida, selecione **telemetria**:
 
     ![Vista de regras](media/tutorial-configure-rules-experimental/newrule.png)
 
@@ -59,7 +59,7 @@ Antes de começar, deve concluir o tutorial [Definir um novo tipo de dispositivo
 
     ![Condição da regra de temperatura](media/tutorial-configure-rules-experimental/temperaturerule.png)
 
-    Em seguida, clique em **Guardar**.
+    Em seguida, selecione **Guardar**.
 
 ## <a name="add-an-action"></a>Adicionar uma ação
 
@@ -81,7 +81,7 @@ Quando definir uma regra, também pode definir uma ação a executar quando são
 
     ![Ação de temperatura](media/tutorial-configure-rules-experimental/temperatureaction.png)
 
-3. Clique em **Guardar**. A regra está listada na **regras** página.
+3. Selecione **Guardar**. A regra está listada na **regras** página.
 
 ## <a name="test-the-rule"></a>Testar a regra
 

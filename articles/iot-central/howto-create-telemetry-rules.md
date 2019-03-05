@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: aee31f54ddf4e71dd9b9391ec93d0f2319addc3f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964820"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307966"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -29,18 +29,18 @@ Para criar uma regra de telemetria, o modelo do dispositivo tem de ter pelo meno
 
 1. Com o Device Explorer, navegue para o modelo de dispositivo para o qual está a adicionar a regra para.
 
-1. Sob o modelo selecionado, clique num dispositivo existente. 
+1. Sob o modelo selecionado, selecione um dispositivo existente.
 
-    >[!TIP] 
+    >[!TIP]
     >Se o modelo não tem todos os dispositivos, em seguida, adicione um novo dispositivo pela primeira vez.
 
 1. Se ainda não criou quaisquer regras, verá o ecrã seguinte:
 
     ![Ainda não existem regras](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. Sobre o **regras** separador, clique em **Editar modelo** e, em seguida **+ nova regra de** para ver os tipos de regras, pode criar.
+1. Sobre o **regras** separador, selecione **Editar modelo** e, em seguida **+ nova regra de** para ver os tipos de regras, pode criar.
 
-1. Clique em **telemetria** para criar uma regra para monitorizar a telemetria do dispositivo.
+1. Selecione **telemetria** para criar uma regra para monitorizar a telemetria do dispositivo.
 
     ![Tipos de regra](media/howto-create-telemetry-rules/Rule_Types.png)
 
@@ -57,7 +57,7 @@ Para criar uma regra de telemetria, o modelo do dispositivo tem de ter pelo meno
 
 Condição define os critérios que é monitorizado pela regra.
 
-1. Clique em **+** junto a **condições** para adicionar uma nova condição.
+1. Selecione **+** junto a **condições** para adicionar uma nova condição.
 
 1. Selecione a telemetria que pretende monitorizar a partir da **medição** lista pendente.
 

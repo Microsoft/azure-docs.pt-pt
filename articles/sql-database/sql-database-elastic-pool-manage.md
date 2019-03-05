@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 2a719fcbe2180e366060fba11bf64ad9770aa672
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: e35de707abe04702201969fdfd008fc9713fc391
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756126"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309745"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Criar e gerir conjuntos elásticos na base de dados do Azure SQL
 
@@ -39,6 +39,8 @@ Aqui pode fazer qualquer combinação das seguintes alterações e guardá-los t
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Gerir conjuntos elásticos e bases de dados agrupadas
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados agrupadas com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps). Para criar e gerir os servidores de base de dados SQL para um conjunto elástico, consulte [criar e gerir servidores de base de dados SQL](sql-database-servers.md). Para criar e gerir regras de firewall, consulte [criar e gerir regras de firewall com o PowerShell](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-azure-powershell).
 
 > [!TIP]
@@ -47,15 +49,15 @@ Para criar e gerir conjuntos elásticos da base de dados SQL e bases de dados ag
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Cria um conjunto elástico.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Obtém conjuntos elásticos e os respetivos valores de propriedade.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Modifica as propriedades de um conjunto elástico, por exemplo, utilize o **StorageMB** propriedade para modificar o armazenamento máximo de um conjunto elástico.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Elimina um conjunto elástico.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Obtém o estado de operações num conjunto elástico|
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Cria uma nova base de dados num conjunto existente ou como uma base de dados. |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Obtém uma ou mais bases de dados.|
-|[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Define as propriedades para uma base de dados ou move uma base de dados existente para, de ou entre conjuntos elásticos.|
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Remove uma base de dados.|
+|[New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool)|Cria um conjunto elástico.|
+|[Get-AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|Obtém conjuntos elásticos e os respetivos valores de propriedade.|
+|[Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool)|Modifica as propriedades de um conjunto elástico, por exemplo, utilize o **StorageMB** propriedade para modificar o armazenamento máximo de um conjunto elástico.|
+|[Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool)|Elimina um conjunto elástico.|
+|[Get-AzSqlElasticPoolActivity](/powershell/module/az.sql/get-azsqlelasticpoolactivity)|Obtém o estado de operações num conjunto elástico|
+|[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|Cria uma nova base de dados num conjunto existente ou como uma base de dados. |
+|[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|Obtém uma ou mais bases de dados.|
+|[Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)|Define as propriedades para uma base de dados ou move uma base de dados existente para, de ou entre conjuntos elásticos.|
+|[Remove-AzSqlDatabase](/powershell/module/az.sql/remove-azsqldatabase)|Remove uma base de dados.|
 
 > [!TIP]
 > Criação de muitas bases de dados num conjunto elástico pode demorar tempo quando terminado a utilizar o portal ou cmdlets do PowerShell que criam apenas uma base de dados cada vez. Para automatizar a criação de um conjunto elástico, veja [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).

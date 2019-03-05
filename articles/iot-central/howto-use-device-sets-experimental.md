@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: b3bd157f06c922d96f71627f885fe6de2537987a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 935c9bbbb3e3d66eeef7258299677b44a32f7a13
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215298"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311043"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utilize conjuntos de dispositivo na aplicação do Azure IoT Central
 
@@ -27,7 +27,7 @@ Para criar um conjunto de dispositivos:
 
 1. Escolher **conjuntos de dispositivo** no menu de navegação esquerdo.
 
-1. Clique em **+ Novo**.
+1. Selecione **+ nova**.
 
     ![Novo conjunto de dispositivos](media/howto-use-device-sets-experimental/image1.png)
 
@@ -52,7 +52,7 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
 
 1. Selecione o separador **Dashboard**.
 
-1. Clique em **Editar**.
+1. Selecione **Editar**.
 
     ![Modo de design no](media/howto-use-device-sets-experimental/image3.png)
 
@@ -61,7 +61,7 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
 1. Adicione um mosaico de ligação:
     1. Escolher **Link** no painel direito.
     1. Dar a sua ligação de um **Title**.
-    1. Escolha um URL para seja aberta quando a ligação é clicada.
+    1. Escolha um URL para seja aberta quando a ligação está selecionada.
     1. Forneça uma descrição que mostra abaixo da ligação a **Title**.
     1. Escolha **Guardar**.
 
@@ -83,7 +83,7 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
         > [!NOTE]
         > Pode adicionar várias imagens, ligações e grades.
   
-    1. Clique em **Concluído**.
+    1. Selecione **Done** (Concluído).
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurar o mapa de localização no seu dispositivo define o dashboard
 
@@ -97,7 +97,7 @@ Para adicionar um mapa de localização para o dispositivo define dashboard tem 
 4. Agora quando um operador vê o dispositivo define o dashboard, o operador pode ver todos os mosaicos que configurou, incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante!
 
 > [!NOTE]
-> Será capaz de redimensionar o mapa para seu tamanho desejado. Clicar num pin no mapa irá apresentar as informações do dispositivo, o nome e a localização. Pode clicar em pop-up para ir para a página de propriedades do dispositivo.
+> Será capaz de redimensionar o mapa para seu tamanho desejado. A seleção de um pin no mapa irá apresentar as informações do dispositivo, o nome e a localização. Pode selecionar o pop-up para ir para a página de propriedades do dispositivo.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o seu conjunto de dispositivos
 

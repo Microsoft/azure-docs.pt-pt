@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4d1624e324f7d83ef17e6a321a086cdb2c91b142
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 72a3bead4ba8670187c35856f9cd4e4f4b975a30
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651061"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311700"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 O [ciclo de vida de desenvolvimento de base de dados de conhecimento](../Concepts/development-lifecycle-knowledge-base.md) orienta-o sobre como gerir a sua BDC do início ao fim. Utilize estas melhores práticas para melhorar a sua base de dados de conhecimento e fornecer os melhores resultados para os utilizadores finais do seu bot de aplicação/bate-papo.
@@ -108,7 +108,7 @@ A ferramenta QnA Maker permite que os usuários [colaborar](../How-to/collaborat
 
 ## <a name="active-learning"></a>Aprendizagem ativa
 
-[Aprendizagem ativa](../How-to/improve-knowledge-base.md) faz o trabalho melhor de sugerir perguntas alternativas quando tem uma vasta gama de qualidade e a quantidade de consultas com base no utilizador. É importante permitir consultas de utilizador do cliente-aplicativos participar no ativo ciclo de comentários sem censura de aprendizado.
+[Aprendizagem ativa](../How-to/improve-knowledge-base.md) faz o trabalho melhor de sugerir perguntas alternativas quando tem uma vasta gama de qualidade e a quantidade de consultas com base no utilizador. É importante permitir consultas de utilizador do cliente-aplicativos participar no ativo ciclo de comentários sem censura de aprendizado. Assim que as perguntas são sugeridas no portal do QnA Maker, terá de rever e aceitar ou rejeitar essas sugestões. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

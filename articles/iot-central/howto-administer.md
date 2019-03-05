@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: feaedff2cb9f8eae30fd17c497b4a2f6de490b07
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d325c30173955ff7c08099a125094ffe620c7ee3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822600"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313383"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrar a sua aplicação do Centro de IoT
 
@@ -46,7 +46,7 @@ Para alterar a imagem de aplicação, consulte [preparar e carregar imagens para
 ### <a name="copy-an-application"></a>Copiar uma aplicação
 Pode criar uma cópia de qualquer aplicativo, menos quaisquer instâncias de dispositivo, o histórico de dados do dispositivo e dados de utilizador. A cópia será um aplicativo de pay as you go, que lhe será cobrado. Não é possível criar uma aplicação de avaliação desta forma.
 
-Clique nas **cópia** botão. Na caixa de diálogo, introduza os detalhes para a nova aplicação de pay as you go. Em seguida, clique nas **cópia** botão para confirmar que pretende prosseguir. Saiba mais sobre os campos neste formulário na [criar uma aplicação](quick-deploy-iot-central.md) início rápido.
+Selecione **cópia**. Na caixa de diálogo, introduza os detalhes para a nova aplicação de pay as you go. Em seguida, selecione **cópia** para confirmar que pretende prosseguir. Saiba mais sobre os campos neste formulário na [criar uma aplicação](quick-deploy-iot-central.md) início rápido.
 
 ![Página de definições de aplicação](media/howto-administer/appCopy2.png)
 
@@ -131,13 +131,13 @@ Para concluir este processo self-service, siga estes passos:
 
     ![Estado de avaliação](media/howto-administer/freetrialbilling.png)
 
-1. Clique em **converter para pay as you go**. 
+1. Selecione **converter para pay as you go**. 
 
     ![Converter a versão de avaliação](media/howto-administer/convert.png)
 
 1. Selecione o adequado do Azure Active Directory e, em seguida, a subscrição do Azure para utilizar para a sua aplicação de pay as you go.
 
-1. Depois de clicar em **converter**, seu aplicativo agora é um aplicativo de pay as you go e iniciar a faturadas.
+1. Depois de selecionar **converter**, seu aplicativo agora é um aplicativo de pay as you go e iniciar a faturadas.
 
 ## <a name="export-data"></a>Exportar dados
 

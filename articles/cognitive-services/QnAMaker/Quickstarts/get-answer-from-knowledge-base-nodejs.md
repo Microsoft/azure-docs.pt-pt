@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: d9d8b76501932667a1c5adc93ab1e6ee7939ac7a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: f055ecdcc157a9ecf1a564913b0a4f889364b427
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215931"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309830"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Obtenha respostas a uma pergunta de uma base de dados de conhecimento com node. js
 
@@ -77,6 +77,8 @@ node get-answer.js
 ```
 
 [!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)]
+
+Saiba mais sobre o [solicitação](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 

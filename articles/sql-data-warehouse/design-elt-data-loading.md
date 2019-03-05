@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: be3843dc8dfbb45ebb981123bf3df4bb741c82d8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 96f6da7e081430768b5a6f8fd874e289b8256271
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466088"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308487"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Conceber um estratégia de carregamento para o Azure SQL Data Warehouse de dados de PolyBase
 
@@ -40,7 +40,7 @@ Os passos básicos para a implementação de um ELT PolyBase do SQL Data Warehou
 
 Para obter um tutorial de carregamento, veja [utilizar o PolyBase para carregar dados do armazenamento de Blobs do Azure ao Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-Para obter mais informações, consulte [blog de padrões de carregamento](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/). 
+Para obter mais informações, consulte [blog de padrões de carregamento](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
 
 ## <a name="1-extract-the-source-data-into-text-files"></a>1. Extrair os dados de origem para ficheiros de texto

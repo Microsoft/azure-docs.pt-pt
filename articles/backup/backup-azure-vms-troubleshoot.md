@@ -6,14 +6,14 @@ author: srinathv
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/7/2018
+ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: 057057b155c6c48dabd0b97b3f6a57f3ee4c7cc1
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 8e49abb224cf37c875b0c071ea7c461879c08fc9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888955"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312771"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizando o Azure Backup com as informações listadas na tabela a seguir:
@@ -58,7 +58,7 @@ Pode resolver erros encontrados ao utilizando o Azure Backup com as informaçõe
 
 | Detalhes do erro | Solução |
 | --- | --- |
-| Falha no restauro com um erro interno de cloud. |<ol><li>O serviço em nuvem para o qual está a tentar restaurar está configurado com as definições de DNS. Pode verificar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>Se **endereço** estiver configurado, as definições de DNS estão configuradas.<br> <li>O serviço de nuvem para o qual está a tentar restaurar está configurado com **ReservedIP**, e as VMs existentes no serviço cloud estão no estado de paragem. Pode verificar que um serviço em nuvem reservou a um IP utilizando os seguintes cmdlets do PowerShell: **$deployment = Get-AzureDeployment - ServiceName "servicename"-DEP de ranhura "Produção" $. ReservedIPName**. <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações de rede especiais para o mesmo serviço cloud: <ul><li>Máquinas de virtuais em configuração de Balanceador de carga, interna e externa.<li>Máquinas virtuais com vários IPs reservados. <li>Máquinas virtuais com vários NICs. </ul><li>Selecione um novo serviço cloud na interface do Usuário ou consulte [restaurar considerações](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) para VMs com configurações de rede especiais.</ol> |
+| Falha no restauro com um erro interno de cloud. |<ol><li>O serviço em nuvem para o qual está a tentar restaurar está configurado com as definições de DNS. Pode verificar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>Se **endereço** estiver configurado, as definições de DNS estão configuradas.<br> <li>O serviço de nuvem para o qual está a tentar restaurar está configurado com **ReservedIP**, e as VMs existentes no serviço cloud estão no estado de paragem. Pode verificar que um serviço em nuvem reservou a um IP utilizando os seguintes cmdlets do PowerShell: **$deployment = Get-AzureDeployment - ServiceName "servicename"-DEP de ranhura "Produção" $. ReservedIPName**. <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações de rede especiais para o mesmo serviço cloud: <ul><li>Máquinas de virtuais em configuração de Balanceador de carga, interna e externa.<li>Máquinas virtuais com vários IPs reservados. <li>Máquinas virtuais com vários NICs. </ul><li>Selecione um novo serviço cloud na interface do Usuário ou consulte [restaurar considerações](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) para VMs com configurações de rede especiais.</ol> |
 | O nome DNS selecionado já está a ser utilizado: <br>Especifique um nome DNS diferente e tente novamente. |Este nome DNS refere-se para o nome do serviço cloud, normalmente, terminando **. cloudapp.net**. Este nome tem de ser exclusivo. Se obtiver este erro, tem de escolher um nome VM diferente durante o restauro. <br><br> Este erro é mostrado apenas aos utilizadores do portal do Azure. A operação de restauro através do PowerShell é bem-sucedida, porque ele restaura apenas os discos e não cria a VM. O erro irá ser enfrentado quando a VM explicitamente é criada por si, depois da operação de restauro de disco. |
 | A configuração de rede virtual especificada não está correta: <br>Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhuma |
 | O serviço cloud especificado está a utilizar um IP reservado que não corresponde à configuração da máquina virtual a ser restaurada: <br>Especifique um serviço cloud diferente que não está a utilizar um IP reservado. Ou escolha outro ponto de recuperação para restaurar a partir de. |Nenhuma |

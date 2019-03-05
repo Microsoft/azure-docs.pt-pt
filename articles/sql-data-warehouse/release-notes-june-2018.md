@@ -10,23 +10,25 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: cae02627c539e543d27ea188d521605f187ea8a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: accb2b730d5b165e29a1ff050cbb2c0ffa2f379d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475351"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317174"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>O que há de novo no Azure SQL Data Warehouse? junho de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Junho de 2018. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="user-defined-restore-points"></a>Pontos de restauro definido pelo utilizador
 O SQL Data Warehouse tira automaticamente instantâneos do seu armazém de dados, garantindo um objetivo de ponto de recuperação de oito horas (RPO) a cada 8 horas. Enquanto isso automatizada instantâneos facilidade o fardo da gestão da execução do seu armazém de dados, há a necessidade de criar instantâneos em momentos críticos com base nas necessidades da sua empresa. Por exemplo, um instantâneo antes uma carga significativa de dados ou a implementação de novos scripts para o armazém de dados para ativar um ponto de restauro logo antes da operação. 
 
-Agora suporta o SQL Data Warehouse [pontos de restauro definidas pelo utilizador](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) através da [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet.
+Agora suporta o SQL Data Warehouse [pontos de restauro definidas pelo utilizador](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) através da [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
 
 ```PowerShell
-New-AzureRmSqlDatabaseRestorePoint
+New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName
     -DatabaseName $DatabaseName

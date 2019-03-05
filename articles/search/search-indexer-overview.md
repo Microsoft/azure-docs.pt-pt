@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 754bd06e6033b49d24112cb20686e1c9b200d0d0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0a6c894b08fd76a018035a824b463e41e31c2f2f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875485"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310204"
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores na Pesquisa do Azure
 
@@ -48,14 +48,16 @@ Indexadores rastrear arquivos de dados no Azure.
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Table Storage do Azure](search-howto-indexing-azure-tables.md) 
-    * Tenha em atenção que o armazenamento de tabelas do Azure não é suportado para [pesquisa cognitiva](cognitive-search-concept-intro.md)
 
+> [!Note]
+> Armazenamento de tabelas do Azure não é suportado para [pesquisa cognitiva](cognitive-search-concept-intro.md).
+>
 
 ## <a name="basic-configuration-steps"></a>Passos de configuração básica
 Os indexadores podem oferecer funcionalidades que são exclusivas da origem de dados. Relativamente a isto, alguns aspetos de configuração do indexador ou da origem de dados irão variar consoante o tipo de indexador. No entanto, todos os indexadores partilham da mesma composição e requisitos básicos. Os passos que são comuns a todos os indexadores são abordados abaixo.
 
 ### <a name="step-1-create-a-data-source"></a>Passo 1: Criar uma origem de dados
-Um indexador solicita dados de uma *origem de dados* que contém informações como uma cadeia de ligação e, possivelmente, credenciais. Chamar o [criar origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST API ou [classe de origem de dados](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) para criar o recurso.
+Um indexador obtém a ligação à origem de dados de um *origem de dados* objeto. A definição de origem de dados fornece uma cadeia de ligação e, possivelmente, credenciais. Chamar o [criar origem de dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source) REST API ou [classe de origem de dados](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource) para criar o recurso.
 
 As origens de dados são configuradas e geridas independentemente dos indexadores que as utilizam, o que significa que uma origem de dados pode ser utilizada por vários indexadores para carregar mais de um índice de cada vez.
 
@@ -67,6 +69,59 @@ Um indexador irá automatizar algumas tarefas relacionadas com a ingestão de da
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Passo 3: Criar e agendar o indexador
 A definição de indexador é uma construção que especifica o índice, a origem de dados e uma agenda. Um indexador pode fazer referência a uma origem de dados de outro serviço, desde que essa origem de dados seja da mesma subscrição. Para mais informações sobre a estruturação de um indexador, consulte o artigo [Create Indexer (Azure Search REST API) (Criar um indexador (API REST do Azure Search))](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+
+<a id="RunIndexer"></a>
+
+## <a name="run-indexers-on-demand"></a>Executar os indexadores a pedido
+
+Embora seja comum para agendar a indexação, um indexador também pode ser chamado a pedido com o comando executar:
+
+    POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
+    api-key: [Search service admin key]
+
+> [!NOTE]
+> Quando executar a API devolve com êxito, a invocação de indexador foi agendada, mas o processamento real acontece de forma assíncrona. 
+
+Pode monitorizar o estado do indexador no portal ou através de obter indexador Estado API, que descrevemos, em seguida. 
+
+<a name="GetIndexerStatus"></a>
+
+## <a name="get-indexer-status"></a>Obter estado do indexador
+
+Pode recuperar o histórico de estado e a execução de um indexador através da API REST:
+
+    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
+    api-key: [Search service admin key]
+
+A resposta contém o estado geral do indexador, a invocação de indexador último (ou em curso) e o histórico de invocações de indexador recentes.
+
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+         },
+        "executionHistory":[ {
+            "status":"success",
+             "errorMessage":null,
+            "startTime":"2014-11-26T03:37:18.853Z",
+            "endTime":"2014-11-26T03:37:19.012Z",
+            "errors":[],
+            "itemsProcessed":11,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        }]
+    }
+
+Histórico de execução contém até as 50 execuções concluídas mais recentes, que são classificadas em ordem cronológica reversa (para que a execução mais recente acontecer primeira na resposta).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as tarefas específicas de cada tipo de origem de dados.

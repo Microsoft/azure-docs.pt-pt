@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 1db16f203755f9afc265495daba056313138a5dc
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d50f25fbe10fc5ac4e834141fe7ac45fbed918ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55819455"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309031"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros de gateway inválido no Gateway de aplicação
 
 Saiba como resolver erros de gateway inválido (502) recebidos ao utilizar o gateway de aplicação.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Descrição geral
 
@@ -50,21 +52,21 @@ Valide a configuração de NSG, UDR e DNS ao efetuar os seguintes passos:
 * Verifique o UDR associado à sub-rede de Gateway de aplicação. Certifique-se de que UDR não está a encaminhar tráfego para fora da sub-rede de back-end - por exemplo, verificar para o encaminhamento para aplicações virtuais ou rotas predefinidas que está a ser anunciadas à sub-rede de Gateway de aplicação através do ExpressRoute/VPN de rede.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * Verifique NSG em vigor e a rota com a VM de back-end
 
 ```powershell
-Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
 * Verifique a presença de DNS personalizado na VNet. DNS pode ser verificado ao observar a detalhes das propriedades na saída da VNet.
 
 ```json
-Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
 DhcpOptions            : {
                            "DnsServers": [
                              "x.x.x.x"
@@ -84,7 +86,7 @@ Se estiver presente, certifique-se de que o servidor DNS é capaz de resolver co
 | URL de Pesquisa |http://127.0.0.1/ |Caminho do URL |
 | Intervalo |30 |Intervalo de sonda em segundos |
 | Tempo limite |30 |Tempo limite de sonda em segundos |
-| Limiar de mau estado de funcionamento |3 |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Limiar com funcionamento incorreto |3 |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 ### <a name="solution"></a>Solução
 
@@ -109,7 +111,7 @@ Sondas de estado de funcionamento personalizadas permitem maior flexibilidade pa
 | Caminho |Caminho relativo da sonda. O caminho válido começa com "/". A sonda é enviada ao \<protocolo\>://\<anfitrião\>:\<porta\>\<caminho\> |
 | Intervalo |Intervalo de sonda em segundos. Este é o intervalo de tempo entre dois sondas consecutivos. |
 | Tempo limite |Sonda de tempo limite em segundos. Se uma resposta válida não está a ser recebida durante este período de tempo limite, a sonda está marcada como falhado. |
-| Limiar de mau estado de funcionamento |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Limiar com funcionamento incorreto |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 ### <a name="solution"></a>Solução
 
@@ -132,7 +134,7 @@ Quando é recebido um pedido de utilizador, o Gateway de aplicação aplica as r
 Gateway de aplicação permite aos utilizadores configurar esta definição através de BackendHttpSetting, que pode ser aplicado, em seguida, para conjuntos diferentes. Diferentes conjuntos de back-end podem ter diferente BackendHttpSetting e limite de tempo do pedido, por conseguinte, diferentes configurados.
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## <a name="empty-backendaddresspool"></a>BackendAddressPool vazio
@@ -146,7 +148,7 @@ Se o Gateway de aplicação não tem VMs ou conjunto de dimensionamento de máqu
 Certifique-se de que o conjunto de endereços de back-end não está vazio. Isso pode ser feito através do PowerShell, CLI ou do portal.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
 A saída do cmdlet anterior deve conter o conjunto de endereços de back-end não vazia. Segue-se um exemplo em que dois conjuntos, são devolvidos que estão configurados com endereços IP ou FQDN para VMs de back-end. O estado de aprovisionamento do BackendAddressPool deve ser "com êxito".

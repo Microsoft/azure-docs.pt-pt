@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bd2f675fe646395b60aeb687f67269b0184563bd
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193403"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309915"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de Windows IoT Core à sua aplicação do Azure IoT Central
 
@@ -72,10 +72,10 @@ Para implementar a aplicação de cliente do passo anterior para o seu dispositi
 Depois de fazer isso, precisará abrir o [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) ao escrever na http://[device-IP-address]:8080 em qualquer navegador.
 
 Desde há e, como apresentado na if abaixo, poderá ser útil para:
-1. Expanda o nó de "Aplicações" no lado esquerdo.
-2. Clique em "amostras de execução rápida".
-3. Clique em "Cliente do Hub IoT do Azure".
-4. Clique em "Implementar e executar".
+1. Expanda a **aplicações** nó à esquerda.
+2. Selecione **amostras de execução rápida**.
+3. Selecione **cliente do Hub IoT do Azure**.
+4. Selecione **implementar e executar**.
 
 ![GIF do cliente do Hub IoT do Azure no Windows Device Portal](./media/howto-connect-windowsiotcore/iothubapp.gif)
 

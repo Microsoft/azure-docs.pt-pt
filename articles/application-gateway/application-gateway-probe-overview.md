@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: 884775fc2783256d9fff43e8bc6b26cc4f638648
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 15481706d56af6cd9565e8c475b4770e432c1838
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998625"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337370"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Descrição geral do Application Gateway health monitorização
 
@@ -22,6 +22,8 @@ O Gateway de aplicação do Azure por predefinição monitoriza o estado de func
 ![exemplo de sonda de gateway de aplicação][1]
 
 Além de utilizar a monitorização de sonda de estado de funcionamento do predefinido, também pode personalizar a sonda de estado de funcionamento para atender às necessidades da sua aplicação. Neste artigo, são abordadas predefinido e sondas de estado de funcionamento personalizados.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="default-health-probe"></a>Sonda de estado de funcionamento predefinida
 
@@ -33,20 +35,20 @@ Se falhar a verificação de sonda de padrão para o servidor A, o gateway de ap
 
 ### <a name="probe-matching"></a>Correspondência de sonda
 
-Por predefinição, uma resposta de HTTP (S) com o código de estado 200 é considerada em bom estado. Além disso, sondas de estado de funcionamento personalizados suportam dois critérios de correspondência. Critérios de correspondência podem ser utilizado para, opcionalmente, modifique a interpretação de padrão do que constitui uma resposta de bom estado de funcionamento.
+Por predefinição, uma resposta de HTTP (S) com o código de estado entre 200 e 399 é considerada em bom estado. Além disso, sondas de estado de funcionamento personalizados suportam dois critérios de correspondência. Critérios de correspondência podem ser utilizado para, opcionalmente, modifique a interpretação de padrão do que constitui uma resposta de bom estado de funcionamento.
 
 A seguir é correspondentes aos critérios: 
 
 - **Correspondência de código de estado de resposta HTTP** - critério para abertos ao recebimento de correspondência de sonda http resposta código ou resposta intervalos de código especificadas pelo utilizador. Códigos de estado de resposta separados por vírgulas individuais ou um intervalo de código de estado é suportado.
 - **Correspondência de corpo de resposta HTTP** - critério que examina o corpo de resposta HTTP e as correspondências com um utilizador especificado a cadeia de caracteres de correspondência de sonda. O aspeto de apenas de correspondência de presença do utilizador especificado no corpo de resposta de cadeias de caracteres e não é uma correspondência de expressão regular completa.
 
-Critérios de correspondência podem ser especificados utilizando o `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet.
+Critérios de correspondência podem ser especificados utilizando o `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
 
 Por exemplo:
 
-```powershell
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
-$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```azurepowershell
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
 Assim que os critérios de correspondência for especificado, pode ser anexado a configuração através de sonda um `-Match` parâmetro no PowerShell.
 
@@ -57,7 +59,7 @@ Assim que os critérios de correspondência for especificado, pode ser anexado a
 | URL de Pesquisa |http://127.0.0.1:\<port\>/ |Caminho do URL |
 | Intervalo |30 |A quantidade de tempo em segundos a aguardar antes da próxima sonda de estado de funcionamento é enviada.|
 | Tempo limite |30 |A quantidade de tempo em segundos, o gateway de aplicação aguarda uma resposta de sonda antes de os marcar a sonda como mau estado de funcionamento. Se uma sonda retornar saudável, o back-end correspondente será imediatamente marcado como em bom estado.|
-| Limiar de mau estado de funcionamento |3 |Controla quantas sondas para enviar no caso de falha da sonda de estado de funcionamento normal. Estas sondas de estado de funcionamento adicionais são enviadas numa rápida sucessão para determinar o estado de funcionamento do back-end rapidamente e não espere durante o intervalo de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Limiar com funcionamento incorreto |3 |Controla quantas sondas para enviar no caso de falha da sonda de estado de funcionamento normal. Estas sondas de estado de funcionamento adicionais são enviadas numa rápida sucessão para determinar o estado de funcionamento do back-end rapidamente e não espere durante o intervalo de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 > [!NOTE]
 > A porta é a mesma porta que as definições de HTTP de back-end.
@@ -86,7 +88,7 @@ A tabela seguinte fornece definições para as propriedades de uma sonda de esta
 | Caminho |Caminho relativo da sonda. O caminho válido começa com "/". |
 | Intervalo |Intervalo de sonda em segundos. Este valor é o intervalo de tempo entre dois sondas consecutivos. |
 | Tempo limite |Sonda de tempo limite em segundos. Se uma resposta válida não está a ser recebida durante este período de tempo limite, a sonda está marcada como falhado.  |
-| Limiar de mau estado de funcionamento |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
+| Limiar com funcionamento incorreto |Contagem de repetições de sonda. O servidor de back-end está marcado para baixo depois que a contagem de falhas consecutivas da sonda atinge o limiar de mau estado de funcionamento. |
 
 > [!IMPORTANT]
 > Se o Gateway de aplicação está configurado para um único site, por predefinição, o anfitrião nome deve ser especificado como '127.0.0.1', a menos que caso contrário, é configurado na sonda personalizada.

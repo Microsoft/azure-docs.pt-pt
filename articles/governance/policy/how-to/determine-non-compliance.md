@@ -1,5 +1,5 @@
 ---
-title: Determinar as causas de não conformidade
+title: Determinar as causas da não conformidade
 description: Quando um recurso está em conformidade, existem muitas razões possíveis. Aprenda a saber o que causou a não conformidade.
 services: azure-policy
 author: DCtheGeek
@@ -8,14 +8,14 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: bdc7e635537eb4f836f0d4b5e2c18cc62b7fd310
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890466"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314131"
 ---
-# <a name="determine-causes-of-non-compliance"></a>Determinar as causas de não conformidade
+# <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
 Quando um recurso do Azure é identificado como não conforme a uma regra de política, é útil compreender qual a parte da regra o recurso não está em conformidade com. Também é útil para entender quais alteração alterado um recurso anteriormente em conformidade para torná-lo em não conformidade. Existem duas formas de localizar estas informações:
 
@@ -108,7 +108,7 @@ A matriz seguinte mapeia cada possível _motivo_ para o responsável [condição
 
 ## <a name="change-history-preview"></a>Histórico de alterações (pré-visualização)
 
-Como parte de um novo **pré-visualização pública**, os últimos 14 dias de alteração de histórico está disponível para todos os recursos do Azure que suportam [concluir a eliminação de modo](../../../azure-resource-manager/complete-mode-deletion.md). Histórico de alterações fornece detalhes sobre o quando foi detetada uma alteração e um _visual diff_ para cada alteração. Uma deteção de alteração é acionada quando são adicionadas, remover ou alterar as propriedades do Gestor de recursos.
+Como parte de um novo **pré-visualização pública**, os últimos 14 dias de alteração está disponível para todos os recursos do Azure que suportam o histórico [concluir a eliminação de modo](../../../azure-resource-manager/complete-mode-deletion.md). Histórico de alterações fornece detalhes sobre o quando foi detetada uma alteração e um _visual diff_ para cada alteração. Uma deteção de alteração é acionada quando são adicionadas, remover ou alterar as propriedades do Gestor de recursos.
 
 1. Inicie o serviço Azure Policy no portal do Azure ao clicar em **Todos os serviços** e, em seguida, ao pesquisar e selecionar **Policy**.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a7de9126716437e4e90185f46c9cf95f7de20d40
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 2a989a98399e9d6701d92d8e4e22b243cb1ebff5
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220537"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315831"
 ---
 # <a name="create-and-manage-personal-dashboards"></a>Criar e gerir dashboards pessoais
 
@@ -21,15 +21,15 @@ O **Dashboard** é a página que carrega ao navegar pela primeira vez para seu a
 
 ## <a name="create-dashboard"></a>criar dashboard
 
-Captura de ecrã seguinte mostra o dashboard numa aplicação criada a partir da **exemplo Contoso** modelo. Pode substituir o dashboard de aplicações predefinido com um dashboard pessoal. Para tal, clique em **+ novo** na parte superior direita da página.
+Captura de ecrã seguinte mostra o dashboard numa aplicação criada a partir da **exemplo Contoso** modelo. Pode substituir o dashboard de aplicações predefinido com um dashboard pessoal. Para tal, selecione **+ novo** na parte superior direita da página.
 
 ![Dashboard de aplicações com base no modelo de "Exemplo Contoso"](media/howto-personalize-dashboard-experimental/defaultdashboard.png)
 
-Clicar **+ novo**, abre o editor de dashboard. No editor, pode dar o dashboard com um nome e escolher itens da biblioteca. A biblioteca contém os mosaicos e primitivos de dashboard, que pode utilizar para personalizar o dashboard.
+Selecionando **+ novo**, abre o editor de dashboard. No editor, pode dar o dashboard com um nome e escolher itens da biblioteca. A biblioteca contém os mosaicos e primitivos de dashboard, que pode utilizar para personalizar o dashboard.
 
 ![Biblioteca do dashboard](media/howto-personalize-dashboard-experimental/dashboardeditor.png)
 
-Por exemplo, pode adicionar um **as definições e propriedades** mosaico para mostrar os valores de propriedades e definições para um dos dispositivos que gere. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Em seguida, dar o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. A captura de ecrã a seguir mostra a **fã velocidade** definição selecionada para adicionar ao mosaico. Clique em **feito** para guardar a alteração ao seu dashboard.
+Por exemplo, pode adicionar um **as definições e propriedades** mosaico para mostrar os valores de propriedades e definições para um dos dispositivos que gere. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Em seguida, dar o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. A captura de ecrã a seguir mostra a **fã velocidade** definição selecionada para adicionar ao mosaico. Selecione **feito** para guardar a alteração ao seu dashboard.
 
 ![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](media/howto-personalize-dashboard-experimental/dashboardsetting.png)
 

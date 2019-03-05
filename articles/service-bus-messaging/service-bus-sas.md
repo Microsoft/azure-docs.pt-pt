@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: d70b7acb906c60001ad005a0fe9361950bc029b7
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895861"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308861"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso do Service Bus com assinaturas de acesso partilhado
 
@@ -84,7 +84,7 @@ O cálculo de hash terá um aspeto semelhante ao seguinte pseudocódigo e retorn
 SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 ```
 
-O token contém os valores não protegido por hash, para que o destinatário pode Reprocessar o hash com os mesmos parâmetros, verificar se o emissor está na posse de uma chave de assinatura válida. 
+O token contém os valores não protegido por hash, para que o destinatário pode Reprocessar o hash com os mesmos parâmetros, verificar se o emissor está na posse de uma chave de assinatura válida.
 
 O URI do recurso é o URI completo do recurso do Service Bus para o qual o acesso seja solicitado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>`, ou seja, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. O URI tem de ser [codificada de percentagem](https://msdn.microsoft.com/library/4fkewx0t.aspx).
 
@@ -156,7 +156,7 @@ helloMessage.MessageId = "SAS-Sample-Message";
 sendClient.Send(helloMessage);
 ```
 
-Também pode utilizar o fornecedor do token diretamente para a emissão de tokens para passar para outros clientes. 
+Também pode utilizar o fornecedor do token diretamente para a emissão de tokens para passar para outros clientes.
 
 Cadeias de ligação podem incluir um nome de regra (*SharedAccessKeyName*) e a chave de regra (*SharedAccessKey*) ou um token emitido anteriormente (*SharedAccessSignature*). Quando os estão presentes na cadeia de ligação transmitida a qualquer construtor ou método de fábrica abertos ao recebimento de uma cadeia de ligação, o fornecedor do token SAS é automaticamente criado e preenchido.
 
@@ -171,7 +171,7 @@ POST https://<yournamespace>.servicebus.windows.net/<yourentity>/messages
 Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
-``` 
+```
 
 Lembre-se de que isso funciona para tudo. Pode criar a SAS para uma fila, tópico ou subscrição.
 
@@ -183,7 +183,7 @@ Na secção anterior, vimos como utilizar o token SAS com um pedido HTTP POST pa
 
 Antes de começar a enviar dados para o Service Bus, o publicador tem de enviar o token SAS dentro de uma mensagem AMQP para um nó AMQP bem definido, denominado **$cbs** (pode vê-lo como uma fila "especial" utilizada pelo serviço para adquirir e validar todas as a SAS tokens). O publicador tem de especificar o **ReplyTo** campo dentro da mensagem AMQP; este é o nó no qual o serviço responde ao publicador com o resultado da validação do token (uma solicitação/resposta simples padrão entre o publicador e o serviço ). Este nó de resposta é criada "em tempo real," falando sobre "criação dinâmica de nó remoto", conforme descrito pela especificação do AMQP 1.0. Depois de verificar que o token SAS é válido, o publicador pode ir adiante e começar a enviar dados para o serviço.
 
-Os passos seguintes mostram como enviar o token SAS com a utilização do protocolo AMQP a [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) biblioteca. Isto é útil se não conseguir utilizar o SDK de barramento de serviço oficiais (por exemplo, num WinRT, o .net Compact Framework, .net Micro Framework e Mono) desenvolver em C\#. É claro, esta biblioteca é útil para ajudar a compreender como baseado em declarações funciona ao nível do AMQP, como viu como ele funciona no nível HTTP (com um pedido POST de HTTP e o token SAS enviado dentro o cabeçalho "Authorization"). Se não precisar de tal conhecimento profundo sobre AMQP, pode utilizar o SDK de barramento de serviço oficial com o .net aplicativos de Framework, o que farão isso para.
+Os passos seguintes mostram como enviar o token SAS com a utilização do protocolo AMQP a [AMQP.NET Lite](https://github.com/Azure/amqpnetlite) biblioteca. Isto é útil se não é possível utilizar o SDK do barramento de serviço (por exemplo no WinRT, .NET Compact Framework, .NET Micro Framework e Mono) oficial desenvolver em C\#. É claro, esta biblioteca é útil para ajudar a compreender como baseado em declarações funciona ao nível do AMQP, como viu como ele funciona no nível HTTP (com um pedido POST de HTTP e o token SAS enviado dentro o cabeçalho "Authorization"). Se não precisar de tal conhecimento profundo sobre AMQP, pode utilizar o SDK de barramento de serviço oficial com aplicativos do .NET Framework, que farão isso para.
 
 ### <a name="c35"></a>C&#35;
 
@@ -236,12 +236,12 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-O `PutCbsToken()` método recebe o *ligação* (instância de classe de ligação AMQP fornecido pela [biblioteca .NET de AMQP Lite](https://github.com/Azure/amqpnetlite)) que representa a ligação de TCP para o serviço e a *sasToken* token de parâmetro que é a SAS para enviar. 
+O `PutCbsToken()` método recebe o *ligação* (instância de classe de ligação AMQP fornecido pela [biblioteca .NET de AMQP Lite](https://github.com/Azure/amqpnetlite)) que representa a ligação de TCP para o serviço e a *sasToken* token de parâmetro que é a SAS para enviar.
 
 > [!NOTE]
 > É importante que a ligação é criada com **mecanismo de autenticação do SASL definido como anónimo** (e não o predefinido simples com o nome de utilizador e palavra-passe utilizada quando não precisar de enviar o token SAS).
-> 
-> 
+>
+>
 
 Em seguida, o publicador cria duas ligações AMQP para enviar o token SAS e receber a resposta (o resultado de validação do token) do serviço.
 
@@ -295,7 +295,7 @@ A tabela seguinte mostra os direitos de acesso necessários para várias operaç
 | **Regras** | | |
 | Criar uma regra |Gerir |../myTopic/subscriptions/mySubscription |
 | Eliminar uma regra |Gerir |../myTopic/subscriptions/mySubscription |
-| Enumerar regras |Gerir ou ouvir |../myTopic/subscriptions/mySubscription/Rules 
+| Enumerar regras |Gerir ou ouvir |../myTopic/subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Passos Seguintes
 

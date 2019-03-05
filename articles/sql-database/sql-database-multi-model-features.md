@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 69ca51776a61b43768ce7cb1565451c4f118de6e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55300256"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316528"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Capacidades de vários modelos de base de dados do Azure SQL
 
@@ -124,7 +124,7 @@ CREATE TABLE Collection (
 
 Pode personalizar esta estrutura de chave-valor de acordo com as suas necessidades, sem limitações. Por exemplo, o valor pode ser o documento XML em vez de `nvarchar(max)` tipo, se o valor é um documento JSON, pode colocar `CHECK` restrição que verifica a validade do conteúdo JSON. Pode colocar qualquer número de valores relacionados com uma chave nas colunas adicionais, adicionar colunas calculadas e índices para simplificar e otimizar o acesso a dados, definir a tabela como uma tabela com otimização de memória/de só de esquema para obter um melhor desempenho, etc.
 
-Ver [como BWin está a utilizar o OLTP dentro da memória para alcançar o desempenho sem precedentes e o dimensionamento](https://blogs.msdn.microsoft.com/sqlcat/2016/10/26/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para o seu cache de ASP.NET solução que alcançado 1.200.000 dos lotes por segundos, como um exemplo de como relacional modelo pode ser usado com eficiência como solução de par chave-valor na prática.
+Ver [como BWin está a utilizar o OLTP dentro da memória para alcançar o desempenho sem precedentes e o dimensionamento](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para o seu cache de ASP.NET solução que alcançado 1.200.000 dos lotes por segundos, como um exemplo de como relacional modelo pode ser usado com eficiência como solução de par chave-valor na prática.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Recursos com vários modelos em bases de dados do Azure SQL também são os principais de recursos de motor de base de dados do SQL Server que são partilhados entre a base de dados do Azure SQL e SQL Server. Para obter mais detalhes sobre estas funcionalidades, visite as páginas de documentação da base de dados relacional do SQL:

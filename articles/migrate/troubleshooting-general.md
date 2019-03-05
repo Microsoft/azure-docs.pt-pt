@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: cb1bed847f5b7afe7c1eff0243c64e8c25ddb814
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e85608c411c0aea7b7bf71be19939f6859139c56
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992571"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314378"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -163,10 +163,34 @@ Este problema pode ocorrer devido a um problema com a instalação do VMware Pow
         C:\Program ficheiros (x86) \WindowsPowerShell\Modules
 
    d. Reinicie o serviço de "Recoletor do Azure Migrate" no Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em Iniciar.
-   
-   e. Faça duplo clique em 'Executar recoletor' do atalho de desktop para iniciar a aplicação recoletor. A aplicação de recoletor automaticamente deve transferir e instalar a versão necessária fo PowerCLI.
 
-3. Se o procedimento acima não resolverem o problema, instale manualmente [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e verifique se o problema está resolvido.
+   e. Faça duplo clique em 'Executar recoletor' do atalho de desktop para iniciar a aplicação recoletor. A aplicação de recoletor deve baixar e instalar a versão necessária do PowerCLI automaticamente.
+
+3. Se o procedimento acima não resolverem o problema, siga os passos um c acima e, em seguida, instale manualmente o PowerCLI na aplicação através dos seguintes passos:
+
+   a. Limpeza do wsu PowerCLI incompleta todos os ficheiros de instalação, seguindo os passos #a para #c no passo 2 de # acima.
+
+   b. Vá para Iniciar > executar > Open PowerShell(x86) do Windows no modo de administrador
+
+   c. Execute o comando:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" (tipo de "A" quando ele solicitar a confirmação)
+
+   d. Reinicie o serviço de "Recoletor do Azure Migrate" no Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em Iniciar.
+
+   e. Faça duplo clique em 'Executar recoletor' do atalho de desktop para iniciar a aplicação recoletor. A aplicação de recoletor deve baixar e instalar a versão necessária do PowerCLI automaticamente.
+
+4. Se não é possível transferir o módulo na aplicação devido a problemas de firewall, transfira e instale o módulo numa máquina que tem acesso à internet com os seguintes passos:
+
+    a. Limpeza do wsu PowerCLI incompleta todos os ficheiros de instalação, seguindo os passos #a para #c no passo 2 de # acima.
+
+    b. Vá para Iniciar > executar > Open PowerShell(x86) do Windows no modo de administrador
+
+    c. Execute o comando:  Install-Module "VMWare.VimAutomation.Core" - RequiredVersion "6.5.2.6234650" (tipo de "A" quando ele solicitar a confirmação)
+
+    d. Copie todos os módulos começando com "VMware" de "C:\Program Files (x86) \WindowsPowerShell\Modules" para o mesmo local na VM do recoletor.
+
+    e. Reinicie o serviço de "Recoletor do Azure Migrate" no Windows Service Manager (Open 'Executar' e o tipo de Services. msc para abrir o Gestor de serviço do Windows). Clique com o botão direito do rato no serviço do Azure Migrate Recoletor e clique em Iniciar.
+
+    f. Faça duplo clique em 'Executar recoletor' do atalho de desktop para iniciar a aplicação recoletor. A aplicação de recoletor deve baixar e instalar a versão necessária do PowerCLI automaticamente.
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 

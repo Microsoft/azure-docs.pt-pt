@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 2/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: aeda7377a2d5d070a2e36126d53f8f5c203a8256
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: d72676d7eaad539fc6e023bc96ccbb16f0958a7a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991398"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311377"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -47,7 +47,6 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 
 + **Novos recursos**
     + Experiência de editor para relatórios de tabela nova arrastar e soltar. Os utilizadores podem arrastar uma coluna do poço para a área de tabela em que será apresentada uma pré-visualização da tabela. As colunas podem ser reorganizadas.
-    + Novo botão de execução para execuções submetido com ScriptRunConfig. Os utilizadores podem executar novamente existente ser executado num cluster de cálculo remoto de sua preferência.
     + Novo Visualizador de arquivos de registos
     + Links para experimentação é executada, computação, modelos, imagens e implantações do separador de atividades
 

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 750403c18a6eaa36cdc05ece2de1222ad050ba1b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56989545"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310561"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Utilizar identidades geridas na gestão de API do Azure
 
@@ -166,7 +166,7 @@ O exemplo seguinte mostra um modelo do Azure Resource Manager que contém os seg
         "keyVaultIdToCertificate": {
             "type": "string",
             "metadata": {
-                "description": "Reference to the KeyVault certificate."
+                "description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
             }
         }
     },

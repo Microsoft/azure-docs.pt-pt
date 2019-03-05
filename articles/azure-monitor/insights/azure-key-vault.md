@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c3148ebe11ba0e23cbded5965234ece9fb6082aa
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192775"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317701"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solução de análise do Cofre de chaves do Azure no Log Analytics
 
 ![Símbolo do Key Vault](media/azure-key-vault/key-vault-analytics-symbol.png)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Pode utilizar a solução do Azure Key Vault no Log Analytics para rever os registos AuditEvent do Azure Key Vault.
 
@@ -55,13 +57,13 @@ Utilize as seguintes instruções para instalar e configurar a solução do Azur
 8. Clique em *guardar* para ativar o registo de diagnóstico para o Log Analytics
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Ativar diagnósticos de Key Vault com o PowerShell
-O seguinte script do PowerShell fornece um exemplo de como utilizar `Set-AzureRmDiagnosticSetting` para ativar o registo de diagnóstico para o Key Vault:
+O seguinte script do PowerShell fornece um exemplo de como utilizar `Set-AzDiagnosticSetting` para ativar o registo de diagnóstico para o Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
-$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+$kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
 
 
@@ -103,17 +105,17 @@ A solução de Cofre de chaves do Azure analisa os registos que tenham um tipo d
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Tipo |*AzureDiagnostics* |
+| Type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
-| callerIpAddress |Endereço IP do cliente que efetuou o pedido |
+| CallerIpAddress |Endereço IP do cliente que efetuou o pedido |
 | Categoria | *AuditEvent* |
 | CorrelationId |Um GUID opcional que o cliente pode passar para correlacionar os registos do lado do cliente com os registos do lado do serviço (Cofre de Chaves). |
-| durationMs |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Desta vez não inclui a latência de rede, para que o tempo que medir do lado do cliente pode não corresponder neste momento. |
+| DurationMs |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Desta vez não inclui a latência de rede, para que o tempo que medir do lado do cliente pode não corresponder neste momento. |
 | httpStatusCode_d |Código de estado HTTP devolvido pelo pedido (por exemplo, *200*) |
 | id_s |ID exclusivo do pedido |
 | identity_claim_appid_g | GUID para o id da aplicação |
 | OperationName |Nome da operação, conforme documentado no [registo do Cofre de chaves do Azure](../../key-vault/key-vault-logging.md) |
-| operationVersion |Versão de REST API solicitada pelo cliente (por exemplo *2015-06-01*) |
+| OperationVersion |Versão de REST API solicitada pelo cliente (por exemplo *2015-06-01*) |
 | requestUri_s |URI do pedido |
 | Recurso |Nome do Cofre de chaves |
 | ResourceGroup |Grupo de recursos do Cofre de chaves |
@@ -121,7 +123,7 @@ A solução de Cofre de chaves do Azure analisa os registos que tenham um tipo d
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *VAULTS* |
 | resultSignature |Estado de HTTP (por exemplo, *OK*) |
-| resultType |Resultado do pedido de REST API (por exemplo, *êxito*) |
+| ResultType |Resultado do pedido de REST API (por exemplo, *êxito*) |
 | SubscriptionId |ID de subscrição do Azure da subscrição que contém o Key Vault |
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migrar a partir da antiga solução de Cofre de chaves

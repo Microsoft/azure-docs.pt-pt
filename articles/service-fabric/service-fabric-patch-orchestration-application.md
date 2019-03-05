@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 717b895696ca93444744955937c6de23626c7835
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1f6ce2e51255ddf43b6c123585866117d76f8d0b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234753"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313655"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -60,6 +60,9 @@ A aplicação de orquestração do patch é composta pelos subcomponentes seguin
 > A aplicação de orquestração do patch utiliza o serviço de sistema do Service Fabric reparação manager para desativar ou ativar o nó e executar verificações do Estado de funcionamento. A tarefa de reparação criada pela aplicação de orquestração do patch controla o progresso da atualização do Windows para cada nó.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!NOTE]
+> Versão mínima do .NET framework necessária seja a 4.6.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Ativar o serviço de Gestor de reparação (se não tiver o já)
 
@@ -152,7 +155,7 @@ O comportamento da aplicação de orquestração do patch pode ser configurado p
 |MaxResultsToCache    |Longo                              | Número máximo de resultados de atualização do Windows, que devem ser colocados em cache. <br>Valor predefinido é 3000 assumindo a: <br> -Número de nós é 20. <br> -Número de atualizações a acontecer num nó por mês é cinco. <br> -Número de resultados por operação pode ser 10. <br> -Devem ser armazenados resultados para os últimos três meses. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica a política que está a ser utilizado pelo serviço de coordenador para instalar atualizações do Windows em todos os nós de cluster do Service Fabric.<br>                         Valores permitidos são: <br>                                                           <b>NodeWise</b>. Atualização do Windows é instalado um nó por vez. <br>                                                           <b>UpgradeDomainWise</b>. Atualização do Windows está instalado um domínio de atualização de cada vez. (No máximo, podem ir todos os nós que pertencem a um domínio de atualização para o Windows Update.)<br> Consulte a [FAQ](#frequently-asked-questions) secção sobre como decidir o que é melhor se adequam política para o seu cluster.
 |LogsDiskQuotaInMB   |Longo  <br> (Predefinição: 1024)               |Tamanho máximo da aplicação de orquestração do patch os logs em MB, que pode ser mantido localmente em nós.
-| WUQuery               | cadeia<br>(Predefinição: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
+| WUQuery               | string<br>(Predefinição: "IsInstalled=0")                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 | InstallWindowsOSOnlyUpdates | Booleano <br> (predefinição: FALSO)                 | Utilize este sinalizador para controlar quais atualizações devem ser baixadas e instaladas. São permitidos valores seguintes <br>TRUE - instala apenas atualizações de sistema operativo do Windows.<br>FALSE – instala todas as atualizações disponíveis na máquina.          |
 | WUOperationTimeOutInMinutes | Int <br>(Predefinição: 90)                   | Especifica o tempo limite para qualquer operação de atualização do Windows (pesquisa ou download ou instalação). Se não é possível concluir a operação no tempo limite especificado, é abortada.       |
 | WURescheduleCount     | Int <br> (Predefinição: 5)                  | O número máximo de vezes que o serviço reagenda o Windows update no caso de uma operação falha de forma permanente.          |

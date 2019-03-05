@@ -1,7 +1,7 @@
 ---
 title: Criar um índice no código utilizando a API REST - Azure Search
 description: Crie um índice pesquisável de texto completo em código usando a pedidos HTTP e a API de REST do Azure Search.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: b4d85d3b8ee7e6a872fdd6bf07917770c4d2ee9e
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 98749e0900920d0d3541c78c79598123e4f987df
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265265"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313975"
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Criar um índice da Azure Search utilizando a API REST
 > [!div class="op_single_selector"]

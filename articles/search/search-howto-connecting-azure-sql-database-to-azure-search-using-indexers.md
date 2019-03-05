@@ -1,7 +1,7 @@
 ---
 title: Ligar e indexar o Azure SQL Database conteúdo com indexadores - Azure Search
 description: Aprenda a pesquisar dados na base de dados do SQL Azure com indexadores para pesquisa em texto completo no Azure Search. Este artigo aborda as ligações, a configuração do indexador e ingestão de dados.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752897"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315219"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ligar a e indexar o conteúdo de indexadores do Azure Search a utilizar o Azure SQL Database
 
@@ -305,8 +305,8 @@ Indexador SQL expõe várias definições de configuração:
 
 | Definição | Tipo de dados | Objetivo | Valor predefinido |
 | --- | --- | --- | --- |
-| queryTimeout |cadeia |Define o tempo limite de execução da consulta SQL |5 minutos ("00: 05:00") |
-| disableOrderByHighWaterMarkColumn |Bool |Faz com que a consulta SQL utilizada pela política máximo para omita a cláusula ORDER BY. Consulte [máximo política](#HighWaterMarkPolicy) |false |
+| queryTimeout |string |Define o tempo limite de execução da consulta SQL |5 minutos ("00: 05:00") |
+| disableOrderByHighWaterMarkColumn |booleano |Faz com que a consulta SQL utilizada pela política máximo para omita a cláusula ORDER BY. Consulte [máximo política](#HighWaterMarkPolicy) |false |
 
 Estas definições são utilizadas no `parameters.configuration` objeto na definição do indexador. Por exemplo, para definir o tempo limite de consulta para 10 minutos, criar ou atualizar o indexador com a seguinte configuração:
 

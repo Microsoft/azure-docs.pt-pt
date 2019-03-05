@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 937f8fe09cae6284b318201657cf112138ac17c7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 7ed7ad6529035fbea018bdf1515947d37dfbbece
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217228"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308156"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de evento e configure as notificações na sua aplicação do Azure IoT Central
 
@@ -33,7 +33,7 @@ Para criar uma regra de evento, o modelo do dispositivo tem de ter definida de m
 
     ![Ainda não existem regras](media/howto-create-event-rules-experimental/Rules_Landing_Page.png)
 
-1. Sobre o **regras** separador, clique em **+ nova regra** para ver os tipos de regras, pode criar.
+1. Sobre o **regras** separador, selecione **+ nova regra** para ver os tipos de regras, pode criar.
 
 1. Escolha o **evento** mosaico para criar uma regra de monitorização de eventos.
 

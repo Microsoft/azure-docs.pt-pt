@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 67b9be6f7788acd44ac60fe0c71133d69a2c122e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565484"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313842"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Instalação de descrição geral das tarefas de bases de dados elásticas
 
@@ -90,13 +90,13 @@ Os parâmetros fornecidos nesta invocação de exemplo podem ser modificados par
 </tr>
     <tr>
     <td>ServiceVmSize</td>
-    <td>Fornece o tamanho da VM para utilização no serviço Cloud. Este parâmetro, por predefinição A0. Valores de parâmetros de A0/A1/A2/A3 são aceites que fazer com que a função de trabalho utilizar um tamanho de extra pequena/pequeno/médio/grande, respectivamente. Veja de obter mais informações sobre tamanhos de função de trabalho, Fo [tarefas de bases de dados elásticas, componentes e preços](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornece o tamanho da VM para utilização no serviço Cloud. Este parâmetro, por predefinição A0. Valores de parâmetros de.... /.. / A3 são aceites que fazer com que a função de trabalho utilizar um tamanho de extra pequena/pequeno/médio/grande, respectivamente. Veja de obter mais informações sobre tamanhos de função de trabalho, Fo [tarefas de bases de dados elásticas, componentes e preços](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fornece o tamanho de computação para uma edição Standard. Este parâmetro, por predefinição S0. Valores de parâmetro de S0/S1/S2/S3/S4/S6/S9/S12 são aceites que fazer com que a base de dados do SQL do Azure utilizar o tamanho de computação respectivos. Para obter mais informações sobre tamanhos de computação de base de dados SQL, consulte [tarefas de bases de dados elásticas, componentes e preços](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornece o tamanho de computação para uma edição Standard. Este parâmetro, por predefinição S0. Valores de parâmetro de.... /.. /.. /.. / S9/S12 são aceites que fazer com que a base de dados do SQL do Azure utilizar o tamanho de computação respectivos. Para obter mais informações sobre tamanhos de computação de base de dados SQL, consulte [tarefas de bases de dados elásticas, componentes e preços](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
@@ -148,7 +148,7 @@ Para atualizar o tamanho da VM de uma instalação, execute o seguinte script co
 
     <tr>
     <td>ServiceVmSize</td>
-    <td>Fornece o tamanho da VM para utilização no serviço Cloud. Este parâmetro, por predefinição A0. Valores de parâmetros de A0/A1/A2/A3 são aceites que fazer com que a função de trabalho utilizar um tamanho de extra pequena/pequeno/médio/grande, respectivamente. Veja de obter mais informações sobre tamanhos de função de trabalho, Fo [tarefas de bases de dados elásticas, componentes e preços](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornece o tamanho da VM para utilização no serviço Cloud. Este parâmetro, por predefinição A0. Valores de parâmetros de.... /.. / A3 são aceites que fazer com que a função de trabalho utilizar um tamanho de extra pequena/pequeno/médio/grande, respectivamente. Veja de obter mais informações sobre tamanhos de função de trabalho, Fo [tarefas de bases de dados elásticas, componentes e preços](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>

@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 22d7da30602bd83c7194cd7e016a0d4a2b9093ed
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817954"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310068"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Criar modelos Azure Resource Manager com recursos dependentes
 
-Saiba como criar um modelo do Azure Resource Manager para implementar vários recursos.  Depois de criar o modelo, implemente o modelo com o Cloud Shell do portal do Azure.
+Saiba como criar um modelo do Azure Resource Manager para implementar vários recursos e configurar a ordem de implementação. Depois de criar o modelo, implemente o modelo com o Cloud Shell do portal do Azure.
 
 Neste tutorial, vai criar uma conta de armazenamento, uma máquina virtual, uma rede virtual e mais alguns recursos dependentes. Alguns dos recursos não podem ser implementados enquanto existir outro recurso. Por exemplo, não é possível criar a máquina virtual enquanto as respetivas conta de armazenamento e interface de rede existirem. Defina esta relação fazendo com que um recurso seja dependente dos outros recursos. O Resource Manager avalia as dependências entre os recursos e implementa-os por ordem dependente. Quando os recursos não são dependentes entre si, o Resource Manager implementa-os em paralelo. Para obter mais informações, veja [Definir a ordem para implementar recursos nos Modelos do Azure Resource Manager](./resource-group-define-dependencies.md).
+
+![Diagrama de ordem de implementação do Resource manager modelo recursos dependentes](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 

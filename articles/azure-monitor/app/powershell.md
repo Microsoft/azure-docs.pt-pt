@@ -12,14 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: 74da56b5e90512f8b903d5a62f7dde4e903560b8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ea4bc61dec59308b2c2311e8300e44aae78fc041
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817869"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313519"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Criar recursos do Application Insights com o PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Este artigo mostra-lhe como automatizar a criação e atualização das [Application Insights](../../azure-monitor/app/app-insights-overview.md) recursos automaticamente, com a gestão de recursos do Azure. Pode, por exemplo, tal como parte de um processo de compilação. Juntamente com o recurso do Application Insights básico, pode criar [testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md), configure a [alertas](../../azure-monitor/app/alerts.md), defina o [preços esquema](pricing.md)e criar outros recursos do Azure .
 
 A chave para criar esses recursos é modelos JSON para [do Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). Em resumo, o procedimento é: transferir as definições de JSON dos recursos existentes; parametrizar determinados valores, tais como nomes; e, em seguida, execute o modelo, sempre que pretender criar um novo recurso. Pode empacotar vários recursos em conjunto, para criá-los todos em um ir - por exemplo, um monitor de aplicação com testes de disponibilidade, alertas e armazenamento para a exportação contínua. Existem algumas sutilezas a algumas das parameterizations, o que vamos explicar aqui.
@@ -154,12 +157,12 @@ Criar um novo ficheiro. JSON - vamos chamá-lo `template1.json` neste exemplo. C
 ## <a name="create-application-insights-resources"></a>Criar recursos do Application Insights
 1. No PowerShell, inicie sessão no Azure:
    
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 2. Execute um comando como este:
    
     ```PS
    
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
 
@@ -175,8 +178,8 @@ Pode adicionar outros parâmetros, encontrará as suas descrições na secção 
 Depois de criar um recurso de aplicação, poderá ser útil a chave de instrumentação: 
 
 ```PS
-    $resource = Find-AzureRmResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzureRmResource -ResourceId $resource.ResourceId
+    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
+    $details = Get-AzResource -ResourceId $resource.ResourceId
     $ikey = $details.Properties.InstrumentationKey
 ```
 
@@ -189,7 +192,7 @@ Pode definir o [plano de preços](pricing.md).
 Para criar um recurso de aplicação com o plano de preços do Enterprise, usando o modelo acima:
 
 ```PS
-        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -priceCode 2 `
                -appName myNewApp

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
 ms.custom: mvc
-ms.openlocfilehash: d613526cd6c1adc277ba3bd58a40f757a9c7b729
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5163f2596e9ba08754cd3a5e49040a9d95764192
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009414"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312958"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -59,7 +59,7 @@ Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure
 
 Para concluir este tutorial, a sua subscrição do Azure tem de conter um hub do IoT com um dispositivo adicionado ao registo de identidades de dispositivos. A entrada no registo de identidades de dispositivos permite que o dispositivo simulado que executará neste tutorial se ligue ao seu hub.
 
-Se ainda não tiver um hub do IoT configurado na sua subscrição, pode configurar um com o seguinte script da CLI. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central**, que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub do IoT, que irá utilizar no exemplo de back-end para ligar ao seu hub do IoT:
+Se ainda não tiver um hub IoT que configurar na sua subscrição, pode configurar um com o seguinte script CLI. Este script utiliza o nome **tutorial-iot-hub** para o hub do IoT. Quando o executar, deve substituir este nome pelo seu próprio nome exclusivo. O script cria o grupo de recursos e o hub na região **E.U.A. Central**, que pode alterar para uma região mais próxima de si. O script obtém a cadeia de ligação do serviço do hub do IoT, que irá utilizar no exemplo de back-end para ligar ao seu hub do IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ae9f4d1ebcb84748b665579104f63dab3ee6f076
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 65940aa07c532ae3bc708d475b2d6ac60cf8d636
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463876"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308929"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bases de dados de nuvem
 
@@ -126,13 +126,15 @@ Tenha em atenção que o instalador para o .NET 4.6.1 pode exigir mais armazenam
 
 ## <a name="transactions-across-multiple-servers"></a>Transações entre vários servidores
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Transações de bases de dados elásticas são suportadas em diferentes servidores de base de dados SQL na base de dados do Azure SQL. Quando as transações ultrapassam os limites do servidor de base de dados SQL, os servidores participantes primeiro tem de ser introduzidos numa relação de comunicação bidirecional. Assim que tiver sido estabelecida a relação de comunicação, qualquer base de dados em qualquer um dos dois servidores pode participar em transações elásticas com bases de dados de outro servidor. Com transações que abrange mais de dois servidores de base de dados SQL, uma relação de comunicação tem de estar no local para qualquer par de servidores de base de dados SQL.
 
 Utilize os seguintes cmdlets do PowerShell para gerir as relações de comunicação entre servidores de transações de bases de dados elásticas:
 
-* **New-AzureRmSqlServerCommunicationLink**: Utilize este cmdlet para criar uma nova relação de comunicação entre dois servidores de base de dados SQL na base de dados do Azure SQL. A relação é simétrica, que significa que ambos os servidores podem iniciar transações com o outro servidor.
-* **Get-AzureRmSqlServerCommunicationLink**: Utilize este cmdlet para obter as relações de comunicação existentes e as respetivas propriedades.
-* **Remove-AzureRmSqlServerCommunicationLink**: Utilize este cmdlet para remover uma relação de comunicação existente. 
+* **New-AzSqlServerCommunicationLink**: Utilize este cmdlet para criar uma nova relação de comunicação entre dois servidores de base de dados SQL na base de dados do Azure SQL. A relação é simétrica, que significa que ambos os servidores podem iniciar transações com o outro servidor.
+* **Get-AzSqlServerCommunicationLink**: Utilize este cmdlet para obter as relações de comunicação existentes e as respetivas propriedades.
+* **Remove-AzSqlServerCommunicationLink**: Utilize este cmdlet para remover uma relação de comunicação existente. 
 
 ## <a name="monitoring-transaction-status"></a>Monitorização do Estado de transação
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: cc19a2d7641b20a413bbc39efe0d1c5ede362e6d
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6d4f588a98e519298b91c158b11730a23567aa7f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734460"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310969"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>As funções runtime versões descrição geral do Azure
 
@@ -49,7 +49,7 @@ Pode optar por migrar uma aplicação existente, escrita para utilizar o tempo d
 
 ### <a name="changes-in-triggers-and-bindings"></a>Alterações em acionadores e enlaces
 
-Versão 2.x precisa que instale as extensões para específicos acionadores e enlaces utilizados pelas funções na sua aplicação. A única exceção para esta acionadores HTTP e timer, que não necessitam de uma extensão.  Para obter mais informações, consulte [Registre-se e instalar as extensões de enlace](./functions-bindings-expressions-patterns.md).
+Versão 2.x precisa que instale as extensões para específicos acionadores e enlaces utilizados pelas funções na sua aplicação. A única exceção para esta acionadores HTTP e timer, que não necessitam de uma extensão.  Para obter mais informações, consulte [Registre-se e instalar as extensões de enlace](./functions-bindings-register.md).
 
 Também há algumas alterações no `function.json` ou atributos da função entre versões. Por exemplo, o Hub de eventos `path` propriedade é agora `eventHubName`. Consulte a [tabela de associação existente](#bindings) para obter ligações para documentação para cada ligação.
 

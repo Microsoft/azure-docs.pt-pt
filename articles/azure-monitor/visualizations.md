@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: b903d20136beb306d3f38fbebdb70562b3634d31
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749788"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315100"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualização de dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar a métrica dados armazenados no Azure Monitor e de registo.
@@ -71,9 +71,8 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 - Consultas estão limitadas de tamanho de resposta para o tempo de execução de 8MB e a consulta de 110 segundos.
 
 
-
-## <a name="application-insights-workbooks"></a>Pastas de trabalho do Application Insights
-[Pastas de trabalho](../application-insights/app-insights-usage-workbooks.md) são documentos interativos que fornecem informações mais detalhadas sobre os seus dados, a investigação e a colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são resolução de problemas de guias e incidente postmortem.
+## <a name="workbooks"></a>Livros
+[Pastas de trabalho](../azure-monitor/app/usage-workbooks.md) são documentos interativos que fornecem informações mais detalhadas sobre os seus dados, a investigação e a colaboração dentro da equipe. Exemplos específicos em que as pastas de trabalho são úteis são resolução de problemas de guias e incidente postmortem.
 
 ![Livro](media/visualizations/workbook.png)
 
@@ -122,7 +121,6 @@ Visualizações, como tabelas e gráficos podem ajudar a analisar os dados de mo
 - Suporta parâmetros.
 
 ### <a name="limitations"></a>Limitações
-- Suporta as métricas, mas não regista.
 - Sem integração do Azure. Não é possível gerir dashboards e modelos através do Gestor de recursos do Azure.
 - Custo para suportar uma infraestrutura adicional o Grafana ou custos adicionais para o Grafana Cloud.
 
@@ -142,6 +140,7 @@ Pode aceder a dados no registo e dados de métrica no Azure Monitor através da 
 - Saiba mais sobre o [dados recolhidos pelo Azure Monitor](platform/data-collection.md).
 - Saiba mais sobre [dashboards do Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais sobre [modos de exibição no Azure Monitor](platform/view-designer.md).
-- Saiba mais sobre [pastas de trabalho no Application Insights](app/usage-workbooks.md).
-- Saiba mais sobre [importar dados de registo no Power BI](platform/powerbi.md).
-- Saiba mais sobre o [Plug-in de origem de dados do Azure Monitor da Grafana](platform/grafana-plugin.md).
+- Saiba mais sobre [livros](../azure-monitor/app/usage-workbooks.md).
+- Saiba mais sobre [importar dados de registo no Power BI](../azure-monitor/platform/powerbi.md).
+- Saiba mais sobre o [Plug-in de origem de dados do Azure Monitor da Grafana](../azure-monitor/platform/grafana-plugin.md).
+

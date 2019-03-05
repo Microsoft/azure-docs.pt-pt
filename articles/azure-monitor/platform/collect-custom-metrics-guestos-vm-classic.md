@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: f6bf672905fe7752a6c3d07492861f43af43e1f5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 57212da1a8da7ee6c57faf2413b88a413df04817
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893974"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315134"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Enviar métricas de SO convidado para o arquivo de dados do Azure Monitor para uma máquina virtual de Windows (clássico)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 O Azure Monitor [extensão de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (também conhecida como "WAD" ou "Diagnóstico") permite-lhe recolher métricas e registos do sistema operativo convidado (SO convidado) em execução como parte de uma máquina virtual, o serviço em nuvem ou o Service Fabric cluster. A extensão pode enviar telemetria para [vários locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -31,7 +33,7 @@ O processo que é descrito neste artigo só funciona em máquinas virtuais clás
 
 - A sua subscrição tem de estar registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Tem de ter [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
+- Tem de ter [do Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Criar uma máquina virtual clássica e uma conta de armazenamento
 
@@ -145,7 +147,7 @@ Conceda esta aplicação permissões de "Editor de métricas de monitorização"
 1. Inicie o PowerShell e inicie sessão.
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Comece por definir o contexto para a sua VM clássica.
@@ -157,7 +159,7 @@ Conceda esta aplicação permissões de "Editor de métricas de monitorização"
 1. Defina o contexto da conta de armazenamento clássicas que foi criado com a VM.
 
     ```powershell
-    $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
+    $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
 1.  Defina o caminho do ficheiro de diagnóstico para uma variável com o seguinte comando:

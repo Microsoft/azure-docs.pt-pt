@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: bbf04104d70ecb6ea8d83c6167b5b9b0dfe2c2dc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 38a5434d4b6f27aacdf1861fa0b005501ad1e28b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217449"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308895"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -160,7 +160,7 @@ Se optar por escrever registos de auditoria numa conta de armazenamento do Azure
 
     4. O ficheiro mesclado é aberta no SSMS, onde pode ver e analisá-lo, bem como exportá-lo para um ficheiro XEL ou CSV ou para uma tabela.
 
-- Utilize o Power BI. Pode ver e analisar dados de registo de auditoria no Power BI. Para obter mais informações e para aceder a um modelo que pode ser baixado, veja [analisar dados de registo de auditoria no Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Utilize o Power BI. Pode ver e analisar dados de registo de auditoria no Power BI. Para obter mais informações e para aceder a um modelo que pode ser baixado, veja [analisar dados de registo de auditoria no Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 - Transferir os ficheiros de registo do contentor de blob de armazenamento do Azure através do portal ou com uma ferramenta como [Explorador de armazenamento do Azure](http://storageexplorer.com/).
   - Depois de transferir um ficheiro de registo localmente, clique duas vezes o arquivo para abrir, visualizar e analisar os registos no SSMS.
   - Também pode transferir vários arquivos simultaneamente através do Explorador de armazenamento do Azure. Para fazer isso, uma subpasta específica com o botão direito e selecione **guardar como** salvar numa pasta local.
@@ -170,8 +170,8 @@ Se optar por escrever registos de auditoria numa conta de armazenamento do Azure
   - Depois de baixar vários ficheiros ou numa subpasta que contém ficheiros de registo, é possível intercalá-los localmente conforme descrito nas instruções de ficheiros de auditoria de intercalação do SSMS descritas anteriormente.
   - Auditoria de BLOBs de modo de exibição aceder programaticamente aos registos:
 
-    - Utilize o [leitor de eventos expandidos](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) biblioteca do c#.
-    - [Ficheiros de eventos expandidos de consulta](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) com o PowerShell.
+    - Utilize o [leitor de eventos expandidos](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) biblioteca do c#.
+    - [Ficheiros de eventos expandidos de consulta](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) com o PowerShell.
 
 ## <a id="subheading-5"></a>Práticas de produção
 

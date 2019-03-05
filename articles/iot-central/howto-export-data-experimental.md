@@ -8,12 +8,12 @@ ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: c595627275848de5489fe11e1327a72bf6251199
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 80ba612bf0f76fb0c1e202bec0bf88fa75fb2c98
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213267"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314012"
 ---
 # <a name="export-your-data-from-azure-iot-central"></a>Exportar os dados do Azure IoT Central
 
@@ -85,14 +85,14 @@ Agora que tem um destino de armazenamento/Event Hubs/Service Bus para exportar d
 
 1. Inicie sessão na sua aplicação IoT Central.
 
-2. No menu à esquerda, clique em **a exportação contínua de dados**.
+2. No menu da esquerda, selecione **a exportação contínua de dados**.
 
     > [!Note]
     > Se não vir a exportação contínua de dados no menu à esquerda, não for um administrador na sua aplicação. Fale com o administrador para configurar a exportação de dados.
 
     ![Criar novo Hub de eventos](media/howto-export-data-experimental/export_menu.png)
 
-3. Clique nas **+ novo** botão no canto superior direito. Escolha uma das **armazenamento de Blobs do Azure**, **Event Hubs do Azure**, ou **Azure Service Bus** como o destino da exportação.
+3. Selecione o **+ novo** botão no canto superior direito. Escolha uma das **armazenamento de Blobs do Azure**, **Event Hubs do Azure**, ou **Azure Service Bus** como o destino da exportação.
 
     > [!NOTE]
     > O número máximo de exportações por aplicação é cinco.
@@ -111,10 +111,10 @@ Agora que tem um destino de armazenamento/Event Hubs/Service Bus para exportar d
 
 5. (Opcional) Se escolheu **introduza uma cadeia de ligação**, aparece uma caixa de novo para que cole a cadeia de ligação. Para obter a cadeia de ligação para a sua:
     - Conta de armazenamento, aceda à conta de armazenamento no Portal do Azure.
-        - Sob **configurações**, clique em **chaves de acesso**
+        - Sob **configurações**, selecione **chaves de acesso**
         - Copiar a cadeia de ligação chave1 ou a cadeia de ligação chave2
     - Os Hubs de eventos ou do Service Bus, avance para o espaço de nomes no Portal do Azure.
-        - Sob **configurações**, clique em **políticas de acesso partilhado**
+        - Sob **configurações**, selecione **políticas de acesso partilhado**
         - Escolher a predefinição **RootManageSharedAccessKey** ou criar um novo
         - Copie a cadeia de ligação primária ou secundária
 

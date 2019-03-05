@@ -16,12 +16,12 @@ ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4499424ef25e7d2ba32b691cce6d5d3d1face0d0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877950"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308470"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de ficheiro no Azure Stack
 
@@ -44,7 +44,7 @@ ms.locfileid: "56877950"
 
 | **Item** | **Default value** (Valor predefinido) | **Descrição** |
 | --- | --- | --- |
-| Capacidade máxima (GB) |2048 |Capacidade de armazenamento total que pode ser utilizada por uma subscrição nesta localização. |
+| Capacidade máxima (GB) |2048 |Capacidade de armazenamento total (incluindo os blobs e todos os instantâneos de assiociated tabelas, filas) que pode ser utilizada por uma subscrição nesta localização. |
 | Número total de contas de armazenamento |20 |O número máximo de contas de armazenamento que uma subscrição pode criar nesta localização. |
 
 > [!NOTE]  

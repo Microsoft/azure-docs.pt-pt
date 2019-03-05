@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: 41ffd7229383f1006bb846f975aeccf83256032a
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807733"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314675"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Ligar computadores sem acesso à internet com o gateway do Log Analytics
 
@@ -154,29 +154,39 @@ Para instalar um gateway, siga estes passos.  (Se tiver instalado uma versão an
 
 
 ## <a name="configure-network-load-balancing"></a>Configurar o balanceamento de carga de rede 
-Configure o gateway de elevada disponibilidade utilizando a rede balanceamento de carga (NLB). Utilize o Microsoft Azure Load Balancer ou balanceadores de carga baseada em hardware.  O Balanceador de carga gere tráfego ao redirecionar as ligações pedidas dos agentes do Log Analytics ou servidores de gestão do Operations Manager em todos os seus nós. Se um servidor de gateway ficar inativo, o tráfego será redirecionado para outros nós.
+Pode configurar o gateway para elevada disponibilidade com a rede balanceamento de carga (NLB) com qualquer um dos Microsoft [rede balanceamento de carga (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), ou balanceadores de carga baseada em hardware. O Balanceador de carga gere tráfego ao redirecionar as ligações pedidas dos agentes do Log Analytics ou servidores de gestão do Operations Manager em todos os seus nós. Se um servidor de Gateway ficar inativo, o tráfego é redirecionado para outros nós.
+
+### <a name="microsoft-network-load-balancing"></a>Balanceamento de carga na rede da Microsoft
+Para saber como projetar e implementar uma cluster de balanceamento de carga na rede Windows Server 2016, veja [balanceamento de carga na rede](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Os passos seguintes descrevem como configurar uma cluster de balanceamento de carga na rede Microsoft.  
+
+1. Inicie sessão para o servidor do Windows que é um membro do cluster NLB com uma conta administrativa.  
+2. Abra o Gestor de balanceamento de carga na rede no Gestor de servidores, clique em **ferramentas**e, em seguida, clique em **Gestor de balanceamento de carga na rede**.
+3. Para ligar um servidor de gateway do Log Analytics com o Microsoft Monitoring Agent instalado, endereço IP do cluster com o botão direito e, em seguida, clique em **Adicionar anfitrião ao Cluster**. 
+
+    ![Rede de carga, Gestor de balanceamento – Adicionar anfitrião ao Cluster](./media/gateway/nlb02.png)
+ 
+4. Introduza o endereço IP do servidor de gateway que pretende ligar. 
+
+    ![Rede de carga, Gestor de balanceamento – Adicionar anfitrião ao Cluster: Ligar](./media/gateway/nlb03.png) 
+
+### <a name="azure-load-balancer"></a>Azure Load Balancer
+Para saber como projetar e implementar um balanceador de carga do Azure, veja [o que é o Balanceador de carga do Azure?](../../load-balancer/load-balancer-overview.md). Para implementar um balanceador de carga básico, siga os passos descritos neste [início rápido](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) excluindo os passos descritos na secção **criar servidores de back-end**.   
+
+> [!NOTE]
+> Configurar o Balanceador de carga do Azure utilizando o **SKU básico**, requer que as máquinas virtuais do Azure pertencer a um conjunto de disponibilidade. Para saber mais sobre os conjuntos de disponibilidade, veja [gerir a disponibilidade das máquinas de virtuais do Windows no Azure](../../virtual-machines/windows/manage-availability.md). Para adicionar máquinas virtuais existentes para um conjunto de disponibilidade, consulte [conjunto do Azure Resource Manager VM conjunto de disponibilidade](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> 
+
+Depois de criar o Balanceador de carga, um conjunto de back-end tem de ser criada, que distribui o tráfego para um ou mais servidores de gateway. Siga os passos descritos na secção do artigo de início rápido [criar recursos para o Balanceador de carga](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
 
 >[!NOTE]
->Para saber como projetar e implementar um cluster de NLB do Windows Server 2016, veja [balanceamento de carga na rede](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing). 
+>Quando configurar a sonda de estado de funcionamento, ele deve ser configurado para utilizar a porta TCP do servidor de gateway. A sonda de estado de funcionamento dinamicamente adiciona ou remove os servidores de gateway a rotação do Balanceador de carga com base na respetiva resposta às verificações do Estado de funcionamento. 
 >
 
-Siga estes passos para configurar um cluster do Balanceador de carga da Microsoft:  
-
-1. Utilize uma conta de administrador para iniciar sessão para o Windows Server que seja membro do cluster de Balanceador de carga.
-1. No Gestor de servidores, abra **Gestor de balanceamento de carga na rede**, selecione **ferramentas**e, em seguida, selecione **Gestor de balanceamento de carga na rede**.
-1. Para ligar um servidor de gateway do Log Analytics com o Microsoft Monitoring Agent instalado, endereço IP do cluster com o botão direito e, em seguida, clique em **Adicionar anfitrião ao Cluster**.
-
-   ![Captura de ecrã da carga balanceamento Gestor de rede, com a adicionar ao Cluster de anfitriões selecionado](./media/gateway/nlb02.png)
-
-1. Introduza o endereço IP do servidor de gateway que pretende ligar.
-
-   ![Captura de ecrã da carga balanceamento Gestor de rede, que mostra a página Adicionar anfitrião ao Cluster: Ligar](./media/gateway/nlb03.png)
-    
 ## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>Configurar o agente Log Analytics e o grupo de gestão do Operations Manager
 Nesta seção, verá como configurar os agentes, um grupo de gestão do Operations Manager ou do Azure Automation Hybrid Runbook Workers do Log Analytics ligadas diretamente com o gateway do Log Analytics para comunicar com a automatização do Azure ou o Log Analytics.  
 
 ### <a name="configure-a-standalone-log-analytics-agent"></a>Configurar um agente de Log Analytics autónomo
-Ao configurar o agente Log Analytics, substitua o valor de servidor proxy com o endereço IP do servidor de gateway do Log Analytics e o respetivo número de porta. Se implementar vários servidores de gateway por trás de um NLB, a configuração de proxy de agente do Log Analytics é o endereço IP virtual do NLB.  
+Ao configurar o agente Log Analytics, substitua o valor de servidor proxy com o endereço IP do servidor de gateway do Log Analytics e o respetivo número de porta. Se tiver implementado por trás de um balanceador de carga de vários servidores de gateway, a configuração de proxy de agente do Log Analytics é o endereço IP virtual do Balanceador de carga.  
 
 >[!NOTE]
 >Para instalar o agente Log Analytics no gateway e computadores do Windows que se ligam diretamente ao Log Analytics, consulte [computadores Windows ligar ao serviço Log Analytics no Azure](agent-windows.md). Para ligar computadores Linux, veja [configurar um agente do Log Analytics para computadores Linux num ambiente híbrido](../../azure-monitor/learn/quick-collect-linux-computer.md). 
@@ -200,7 +210,7 @@ Para utilizar o Gateway de OMS para suportar o Operations Manager, tem de ter:
 > Não se especificar nenhum valor para o gateway, valores em branco são enviados por push para todos os agentes.
 >
 
-Se o grupo de gestão do Operations Manager está a registar com uma área de trabalho do Log Analytics pela primeira vez, não verá a opção de especificar a configuração de proxy para o grupo de gestão na consola de operações.  Esta opção só está disponível se o grupo de gestão foi registado com o serviço.  
+Se o grupo de gestão do Operations Manager está a registar com uma área de trabalho do Log Analytics pela primeira vez, não verá a opção de especificar a configuração de proxy para o grupo de gestão na consola de operações. Esta opção só está disponível se o grupo de gestão foi registado com o serviço.  
 
 Para configurar a integração, atualize a configuração de proxy do sistema, utilizando Netsh no sistema em que estiver a executar a consola de operações e em todos os servidores de gestão no grupo de gestão. Siga estes passos.
 
@@ -220,7 +230,7 @@ Depois de concluir a integração com o Log Analytics, remova a alteração ao e
 
    ![Captura de ecrã do Operations Manager, que mostra a seleção de configurar o servidor de Proxy](./media/gateway/scom01.png)
 
-1. Selecione **utilizar um servidor proxy para aceder ao Operations Management Suite** e, em seguida, introduza o endereço IP do servidor de gateway do Log Analytics ou o endereço IP virtual do NLB. Tenha cuidado para começar com o prefixo `http://`.
+1. Selecione **utilizar um servidor proxy para aceder ao Operations Management Suite** e, em seguida, introduza o endereço IP do servidor de gateway do Log Analytics ou o endereço IP virtual do Balanceador de carga. Tenha cuidado para começar com o prefixo `http://`.
 
    ![Captura de ecrã do Operations Manager, que mostra o proxy de endereço do servidor](./media/gateway/scom02.png)
 

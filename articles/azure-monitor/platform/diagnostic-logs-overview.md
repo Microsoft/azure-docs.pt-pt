@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 704c12bc2ea16fcad5672dde4181f63495fbe967
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870844"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310187"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recolher e consumir dados de registo dos seus recursos do Azure
 
@@ -113,12 +113,14 @@ Definições de diagnóstico de inquilino só podem ser configuradas no painel d
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Ativar a recolha de registos de diagnóstico de recursos através do PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Para ativar a recolha de registos de diagnóstico de recursos através do Azure PowerShell, utilize os seguintes comandos:
 
 Para ativar o armazenamento de registos de diagnóstico numa conta de armazenamento, utilize este comando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
 ```
 
 O ID de conta de armazenamento é o ID de recurso para a conta de armazenamento para o qual pretende enviar os registos.
@@ -126,7 +128,7 @@ O ID de conta de armazenamento é o ID de recurso para a conta de armazenamento 
 Para ativar a transmissão em fluxo de registos de diagnóstico para um hub de eventos, use este comando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your Service Bus rule id] -Enabled $true
 ```
 
 O ID de regra de barramento de serviço é uma cadeia de caracteres com este formato: `{Service Bus resource ID}/authorizationrules/{key name}`.
@@ -134,13 +136,13 @@ O ID de regra de barramento de serviço é uma cadeia de caracteres com este for
 Para permitir o envio de registos de diagnóstico para uma área de trabalho do Log Analytics, use este comando:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 ```
 
 Pode obter o ID de recurso da sua área de trabalho do Log Analytics com o seguinte comando:
 
 ```powershell
-(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+(Get-AzOperationalInsightsWorkspace).ResourceId
 ```
 
 Pode combinar estes parâmetros para ativar várias opções de saída.

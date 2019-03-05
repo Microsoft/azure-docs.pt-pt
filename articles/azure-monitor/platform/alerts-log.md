@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 839a6b3cc90c6a8fcc512c100c8825f9513ded26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 21f3f9cba6fadb8f3d163fb5a9ed8b214e43c541
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875944"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316375"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo com o Azure Monitor
 
@@ -310,28 +310,29 @@ O json de exemplo acima podem ser salvas como (Digamos) sampleScheduledQueryRule
 
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Gerir alertas de registo com o PowerShell, CLI ou API
 
-[O Azure Monitor - regras de consulta agendada API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) é uma REST API e totalmente compatível com a API de REST do Azure Resource Manager. Por conseguinte, pode ser utilizada através do Powershell com o cmdlet do Gestor de recursos, bem como a CLI do Azure.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+O Azure Monitor - regras de consulta API agendada] (https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) é uma REST API e totalmente compatível com a API de REST do Azure Resource Manager. Por conseguinte, pode ser utilizada através do Powershell com o cmdlet do Gestor de recursos, bem como a CLI do Azure.
+
 
 > [!NOTE]
 > Alertas de registo para o Log Analytics também podem ser geridas com o legado [API de alerta do Log Analytics](../../azure-monitor/platform/api-alerts.md) e os modelos de legado do [guardada do Log Analytics, pesquisas e alertas](../../azure-monitor/insights/solutions-resources-searches-alerts.md) também. Para obter mais informações sobre como utilizar a nova API de ScheduledQueryRules descritas aqui, por padrão, consulte [mudar para a nova API para alertas do Log Analytics](alerts-log-api-switch.md).
 
+Alertas de registo atualmente não tem comandos dedicados do PowerShell ou CLI atualmente; mas, conforme ilustrado abaixo podem ser utilizados por meio do cmdlet do PowerShell do Azure Resource Manager para o exemplo de modelo do Resource mostrado anteriormente (sampleScheduledQueryRule.json) no [secção do modelo do Resource](#azure-resource-template-for-application-insights) :
 
-Alertas de registo não tem comandos dedicados do PowerShell ou CLI atualmente; mas, conforme ilustrado abaixo podem ser utilizadas por meio do cmdlet do PowerShell do Azure Resource Manager para exemplo de modelo do Resource mostrado anteriormente (sampleScheduledQueryRule.json) na secção de modelo do Resource:
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
 Ilustrado abaixo utilização através do comando do Azure Resource Manager na CLI do Azure para o modelo de recurso mostrado anteriormente (sampleScheduledQueryRule.json) de exemplo na secção de modelo do Resource:
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
-```
+On successful operation, 201 will be returned to state new alert rule creation or 200 will be returned if an existing alert rule was modified.
 
-Numa operação concluída com êxito, será devolvido 201 à criação de regra de alerta do estado novo ou 200 vai ser devolvido se uma regra de alerta existente foi modificada.
+## Next steps
 
-## <a name="next-steps"></a>Passos Seguintes
-
-* Saiba mais sobre [alertas de registo nos alertas do Azure](../../azure-monitor/platform/alerts-unified-log.md)
-* Compreender [ações de Webhook para alertas de registo](../../azure-monitor/platform/alerts-log-webhook.md)
-* Saiba mais sobre [Application Insights](../../azure-monitor/app/analytics.md)
-* Saiba mais sobre [do Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
+* Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
+* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).

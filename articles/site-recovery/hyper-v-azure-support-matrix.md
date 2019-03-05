@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 15d85d30f73a9880a6a68a62ab208bb0bdbf5402
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 325df38cfea0c87cda8b7fb5ab37dca4a6a529fd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788043"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315678"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -33,8 +33,8 @@ Hyper-V sem o Virtual Machine Manager | Pode executar a recuperação após desa
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Hyper-V (sem o Gestor de Máquina Virtual a ser executada) | Windows Server 2016 (incluindo instalação server core), Windows Server 2012 R2 com as atualizações mais recentes | Para as VMs localizadas num anfitrião com o Windows Server 2016, não é suportada a recuperação para uma localização alternativa.<br/><br/> Se já tiver configurado o Windows Server 2012 R2 com / ou o SCVMM 2012 R2 com o Azure Site Recovery e o plano para atualizar o sistema operacional, siga as orientações [documentação.](upgrade-2012R2-to-2016.md) 
-Hyper-V (em execução com o Virtual Machine Manager) | Virtual Machine Manager 2016, o Virtual Machine Manager 2012 R2 | Se for utilizado do Virtual Machine Manager, os anfitriões do Windows Server 2016 devem ser geridos no Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (sem o Gestor de Máquina Virtual a ser executada) | Windows Server 2016 (incluindo instalação server core), Windows Server 2012 R2 com as atualizações mais recentes | Se já tiver configurado o Windows Server 2012 R2 com / ou o SCVMM 2012 R2 com o Azure Site Recovery e o plano para atualizar o sistema operacional, siga as orientações [documentação.](upgrade-2012R2-to-2016.md) 
+Hyper-V (em execução com o Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se for utilizado do Virtual Machine Manager, os anfitriões do Windows Server 2016 devem ser geridos no Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>VMs replicadas

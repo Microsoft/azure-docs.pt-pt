@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 58f448646efc4cac9298d5dc4ec7a99e0e39bddc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454326"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309099"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Criar e configurar um gateway de aplicação para alojar vários web sites com o portal do Azure
 
@@ -94,6 +94,8 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
 
 ### <a name="install-iis"></a>Instalar o IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Abra a shell interativa e certifique-se de que está definida como **PowerShell**.
 
     ![Instalar uma extensão personalizada](./media/create-multiple-sites-portal/application-gateway-extension.png)
@@ -102,7 +104,7 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -113,7 +115,7 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
       -Settings $publicSettings
     ```
 
-3. Criar a segunda máquina virtual e instalar o IIS com os passos que acabou de concluir. Introduza os nomes dos *fabrikamVM* para o nome e o valor de VMName em Set-AzureRmVMExtension.
+3. Criar a segunda máquina virtual e instalar o IIS com os passos que acabou de concluir. Introduza os nomes dos *fabrikamVM* para o nome e o valor de VMName no conjunto AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Criar conjuntos de back-end com as máquinas virtuais
 

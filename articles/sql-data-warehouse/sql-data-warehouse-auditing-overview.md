@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d2093c5b4c07e6e62df4d1f52a7fbe6e12a91ea0
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d9a911dccf3d59bf1159cf8576b95d86ef26657b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217058"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314250"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Auditoria no armazém de dados SQL do Azure
 
@@ -133,7 +133,7 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
 * Utilize o [sincronizar aplicações](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) que criamos. Ele é executado no Azure e utiliza o log analytics registos de auditoria de APIs públicas para enviar por push SQL sobre os registos do Azure Monitor. A aplicação de sincronização envia registos de auditoria SQL para registos do Azure Monitor para consumo através do dashboard de análise de registo.
 
-* Utilize o Power BI. Pode ver e analisar dados de registo de auditoria no Power BI. Saiba mais sobre [Power BI e o acesso de um modelo que pode ser baixado](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+* Utilize o Power BI. Pode ver e analisar dados de registo de auditoria no Power BI. Saiba mais sobre [Power BI e o acesso de um modelo que pode ser baixado](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
 * Transferir os ficheiros de registo do contentor de blob de armazenamento do Azure através do portal ou com uma ferramenta como [Explorador de armazenamento do Azure](http://storageexplorer.com/).
     * Depois de transferir um ficheiro de registo localmente, pode clicar duas vezes o arquivo para abrir, visualizar e analisar os registos no SSMS.
@@ -144,8 +144,8 @@ Existem vários métodos que pode utilizar para ver os registos de auditoria de 
 
    * Auditoria de BLOBs de modo de exibição aceder programaticamente aos registos:
 
-     * Utilize o [leitor de eventos expandidos](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) biblioteca do c#.
-     * [Ficheiros de eventos expandidos de consulta](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) com o PowerShell.
+     * Utilize o [leitor de eventos expandidos](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) biblioteca do c#.
+     * [Ficheiros de eventos expandidos de consulta](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) com o PowerShell.
 
 
 
@@ -169,17 +169,20 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
 4. Volte para o armazenamento da interface do Usuário e **regenerar** a *chave de acesso secundária* (como preparação para a próxima chaves atualizar ciclo.
 
 ## <a id="subheading-5"></a>Automatização (PowerShell/REST API)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Também pode configurar a auditoria no Azure SQL Data Warehouse, utilizando as seguintes ferramentas de automatização:
 
 * **Cmdlets do PowerShell**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
-   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
-   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
-   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
-   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
-   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
-   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+   * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
+   * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
+   * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
+   * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
+   * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
+   * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy)
 
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Suportam de clientes de nível inferior para máscara de dados de auditorias e dinâmicos

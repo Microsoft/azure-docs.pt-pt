@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/11/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 35af6a6113fd61c7faee7eb371f416fa7f2507dd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f5845dbb3cab243817ff6005db8b16f6a5f343c5
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423362"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314148"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - Azure PowerShell
 
@@ -21,45 +21,47 @@ Este guia de introdução mostra-lhe como utilizar o portal do Azure para criar 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## <a name="run-azure-powershell-locally"></a>Executar localmente o Azure PowerShell
 
-Se optar por instalar e utilizar o Azure PowerShell localmente, este tutorial requer a versão do módulo 3.6 ou posterior do Azure PowerShell.
+Se optar por instalar e utilizar o Azure PowerShell localmente, este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior.
 
-1. Para localizar a versão, execute `Get-Module -ListAvailable AzureRM`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/azurerm/install-azurerm-ps). 
-2. Para criar uma ligação com o Azure, execute `Login-AzureRmAccount`.
+1. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). 
+2. Para criar uma ligação com o Azure, execute `Login-AzAccount`.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-No Azure, alocar recursos relacionados a um grupo de recursos. Criar um grupo de recursos com o [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet da seguinte forma: 
+No Azure, alocar recursos relacionados a um grupo de recursos. Criar um grupo de recursos com o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet da seguinte forma: 
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
 ## <a name="create-network-resources"></a>Criar recursos de rede
 
 Crie uma rede virtual para que o gateway de aplicação pode comunicar com outros recursos. Duas sub-redes são criadas neste exemplo: um para o gateway de aplicação e outro para os servidores de back-end. A sub-rede do gateway de aplicação pode conter apenas os gateways de aplicação. Não existem outros recursos são permitidos.
 
-1. Criar as configurações de sub-rede chamando [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig).
-2. Criar a rede virtual com as configurações de sub-rede chamando [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork).
-3. Criar o endereço IP público ao chamar [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress).
+1. Criar as configurações de sub-rede chamando [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
+2. Criar a rede virtual com as configurações de sub-rede chamando [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
+3. Criar o endereço IP público ao chamar [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress).
 
 ```azurepowershell-interactive
-$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
   -AddressPrefix 10.0.1.0/24
-$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.2.0/24
-New-AzureRmVirtualNetwork `
+New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $agSubnetConfig, $backendSubnetConfig
-New-AzureRmPublicIpAddress `
+New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
@@ -71,45 +73,45 @@ Neste exemplo, vai criar duas máquinas virtuais do Azure utilizar como servidor
 
 ### <a name="create-two-virtual-machines"></a>Criar duas máquinas virtuais
 
-1. Crie uma interface de rede com [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). 
-2. Crie uma configuração de máquina virtual com [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig).
-3. Criar a máquina virtual com [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+1. Criar uma interface de rede com [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface). 
+2. Crie uma configuração de máquina virtual com [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig).
+3. Criar a máquina virtual com [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 Ao executar o exemplo de código seguinte para criar as máquinas virtuais, o Azure pede-lhe as credenciais. Introduza *azureuser* para o nome de utilizador e *Azure123456!* a palavra-passe:
     
 ```azurepowershell-interactive
-$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
+$vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
 $cred = Get-Credential
 for ($i=1; $i -le 2; $i++)
 {
-  $nic = New-AzureRmNetworkInterface `
+  $nic = New-AzNetworkInterface `
     -Name myNic$i `
     -ResourceGroupName myResourceGroupAG `
     -Location EastUS `
     -SubnetId $subnet.Id
-  $vm = New-AzureRmVMConfig `
+  $vm = New-AzVMConfig `
     -VMName myVM$i `
     -VMSize Standard_DS2_v2
-  Set-AzureRmVMOperatingSystem `
+  Set-AzVMOperatingSystem `
     -VM $vm `
     -Windows `
     -ComputerName myVM$i `
     -Credential $cred
-  Set-AzureRmVMSourceImage `
+  Set-AzVMSourceImage `
     -VM $vm `
     -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer `
     -Skus 2016-Datacenter `
     -Version latest
-  Add-AzureRmVMNetworkInterface `
+  Add-AzVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  Set-AzureRmVMBootDiagnostics `
+  Set-AzVMBootDiagnostics `
     -VM $vm `
     -Disable
-  New-AzureRmVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
-  Set-AzureRmVMExtension `
+  New-AzVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
+  Set-AzVMExtension `
     -ResourceGroupName myResourceGroupAG `
     -ExtensionName IIS `
     -VMName myVM$i `
@@ -125,37 +127,37 @@ for ($i=1; $i -le 2; $i++)
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
 
-1. Uso [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) para criar a configuração que associa a sub-rede que criou com o gateway de aplicação. 
-2. Uso [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) para criar a configuração que atribui o endereço IP público que criou anteriormente para o gateway de aplicação. 
-3. Uso [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) para atribuir a porta 80 para acessar o gateway de aplicação.
+1. Uso [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration) para criar a configuração que associa a sub-rede que criou com o gateway de aplicação. 
+2. Uso [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig) para criar a configuração que atribui o endereço IP público que criou anteriormente para o gateway de aplicação. 
+3. Uso [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport) para atribuir a porta 80 para acessar o gateway de aplicação.
 
 ```azurepowershell-interactive
-$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myAGSubnet
-$pip    = Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+$vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myAGSubnet
+$pip    = Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
+$gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
   -Subnet $subnet
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig `
   -Name myAGFrontendIPConfig `
   -PublicIPAddress $pip
-$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+$frontendport = New-AzApplicationGatewayFrontendPort `
   -Name myFrontendPort `
   -Port 80
 ```
 
 ### <a name="create-the-backend-pool"></a>Criar o conjunto de back-end
 
-1. Utilize [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) para criar o conjunto de back-end para o gateway de aplicação. 
-2. Configurar as definições para o conjunto de back-end com [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+1. Uso [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) para criar o conjunto de back-end para o gateway de aplicação. 
+2. Configurar as definições para o conjunto de back-end com [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
 
 ```azurepowershell-interactive
-$address1 = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
-$address2 = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic2
-$backendPool = New-AzureRmApplicationGatewayBackendAddressPool `
+$address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
+$address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic2
+$backendPool = New-AzApplicationGatewayBackendAddressPool `
   -Name myAGBackendPool `
   -BackendIPAddresses $address1.ipconfigurations[0].privateipaddress, $address2.ipconfigurations[0].privateipaddress
-$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
@@ -167,16 +169,16 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 O Azure requer um serviço de escuta ativar o gateway de aplicação para encaminhar o tráfego adequadamente para o conjunto de back-end. O Azure também requer uma regra para o serviço de escuta de saber qual conjunto de back-end a utilizar para tráfego de entrada. 
 
-1. Criar um serviço de escuta com o [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) com a configuração de front-end e porta de front-end que criou anteriormente. 
-2. Utilize [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) para criar uma regra denominada *rule1*. 
+1. Criar um serviço de escuta com o [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração de front-end e porta de front-end que criou anteriormente. 
+2. Uso [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) para criar uma regra com o nome *rule1*. 
 
 ```azurepowershell-interactive
-$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+$defaultlistener = New-AzApplicationGatewayHttpListener `
   -Name myAGListener `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $frontendport
-$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+$frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
   -HttpListener $defaultlistener `
@@ -188,15 +190,15 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 Agora que criou os recursos de suporte necessários, crie o gateway de aplicação:
 
-1. Uso [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) para especificar parâmetros para o gateway de aplicação.
-2. Uso [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) para criar o gateway de aplicação.
+1. Uso [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) para especificar parâmetros para o gateway de aplicação.
+2. Uso [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) para criar o gateway de aplicação.
 
 ```azurepowershell-interactive
-$sku = New-AzureRmApplicationGatewaySku `
+$sku = New-AzApplicationGatewaySku `
   -Name Standard_Medium `
   -Tier Standard `
   -Capacity 2
-New-AzureRmApplicationGateway `
+New-AzApplicationGateway `
   -Name myAppGateway `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
@@ -214,11 +216,11 @@ New-AzureRmApplicationGateway `
 
 Embora o IIS não é necessário para criar o gateway de aplicação, a instalou neste início rápido para verificar se o Azure criada com êxito o gateway de aplicação. Utilize o IIS para testar o gateway de aplicação:
 
-1. Execute [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obter o endereço IP público do gateway de aplicação. 
+1. Execute [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço IP público do gateway de aplicação. 
 2. Copie e cole o endereço IP público na barra de endereço do seu browser. Quando atualizar o navegador, deverá ver o nome da máquina virtual.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
 ![Testar o gateway de aplicação](./media/quick-create-powershell/application-gateway-iistest.png)
@@ -228,10 +230,10 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 Quando já não precisar dos recursos que criou com o gateway de aplicação, remova o grupo de recursos. Ao remover o grupo de recursos, também remover o gateway de aplicação e todos os respetivos recursos relacionados. 
 
-Para remover o grupo de recursos, chamar o [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet da seguinte forma:
+Para remover o grupo de recursos, chamar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet da seguinte forma:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroupAG
+Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

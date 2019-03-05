@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 6865a90a46c5614c5735f9766194c40dfd3e2e4f
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: b7aa1186005cd34b4c6a1c6fca4f89f6b845025b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216956"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312533"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-new-ui-design"></a>Faça um tour do Azure IoT Central da interface do Usuário (design de nova interface do Usuário)
 
@@ -37,7 +37,7 @@ Como _operador_, utilize a IU do Azure IoT Central para gerir a sua solução do
 
 ## <a name="use-the-left-navigation-menu"></a>Utilizar o menu de navegação à esquerda
 
-Utilize o menu de navegação à esquerda para aceder as áreas diferentes do aplicativo. Pode expandir ou fechar barra de navegação, clicando em **<** ou **>**:
+Utilize o menu de navegação à esquerda para aceder as áreas diferentes do aplicativo. Pode expandir ou fechar barra de navegação, selecionando **<** ou **>**:
 
 | Menu | Descrição |
 | ---- | ----------- |

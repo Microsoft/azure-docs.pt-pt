@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9925f2ed9f5b24a4113c30f1d00eb3a5bbed8eb5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d21fe7c70c09ad41faf628db45d82b995c8f2515
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205346"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311445"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -117,7 +117,7 @@ Para obter mais informações quando tiver problemas de conectividade, consulte 
 * Opcional: Uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos do componente
-### <a name="powershell-and-net-framework"></a>PowerShell e o .net Framework
+### <a name="powershell-and-net-framework"></a>PowerShell e .NET Framework
 O Azure AD Connect depende do Microsoft PowerShell e .NET Framework 4.5.1. Precisa esta versão ou uma versão posterior instalado no seu servidor. Dependendo da versão do Windows Server, efetue o seguinte:
 
 * Windows Server 2012R2
@@ -133,16 +133,16 @@ Anterior à versão 1.1.614.0, o Azure AD Connect, por predefinição utiliza o 
 
 1. Não é possível ativar o TLS 1.2 antes do Windows Server 2008 R2 ou posterior. Certifique-se de que tem a correção do .net 4.5.1 instalada para o seu sistema operativo, consulte [consultoria de segurança da Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Pode ter esta correção ou versão posterior já instaladas no seu servidor.
 2. Se usar o Windows Server 2008 R2, certifique-se de que TLS 1.2 está ativada. No servidor Windows Server 2012 e versões posteriores, TLS 1.2 já deve estar ativada.
-   ```
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-   ```
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    ```
 3. Para todos os sistemas operativos, definir esta chave de registo e reinicie o servidor.
-   ```
-   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
-   "SchUseStrongCrypto"=dword:00000001
-   ```
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319
+    "SchUseStrongCrypto"=dword:00000001
+    ```
 4. Se também pretender ativar o TLS 1.2 entre o servidor de motor de sincronização e um SQL Server remoto, em seguida, confirme se tem as versões necessárias instaladas para [suporte de TLS 1.2 para Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Pré-requisitos para Federação de instalação e configuração

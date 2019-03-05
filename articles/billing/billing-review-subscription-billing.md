@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: erikre
-ms.openlocfilehash: a4e5307a151439dde5ac41cb5b1bbb80f43ad71c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 3a487b56c3ce81f3a13add767a9bf7ad59cf79cd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112755"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315950"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Reveja a faturação de subscrição com REST APIs
 
-Ajuda de APIs de relatórios do Azure, reveja e gira os seus custos do Azure.  
+Ajuda de APIs de relatórios do Azure, reveja e gira os seus custos do Azure.
 
 Filtros de ajudar a personalizar os resultados para atender às suas necessidades.
 
@@ -31,26 +31,26 @@ Aqui, vai aprender a utilizar uma API REST para devolver os detalhes de faturaç
 
 ``` http
 GET https://management.azure.com/subscriptions/${subscriptionID}/providers/Microsoft.Billing/billingPeriods/${billingPeriod}/providers/Microsoft.Consumption/usageDetails?$filter=properties/usageEnd ge '${startDate}' AND properties/usageEnd le '${endDate}'
-Content-Type: application/json   
+Content-Type: application/json
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>Criar o pedido  
+## <a name="build-the-request"></a>Criar o pedido
 
 O `{subscriptionID}` parâmetro é necessário e identifica a subscrição de destino.
 
 O `{billingPeriod}` parâmetro é necessário e especifica um atual [período de faturação](https://docs.microsoft.com/rest/api/billing/billingperiods/get#billingperiod).
 
-O `${startDate}` e `${endDate}` parâmetros são necessários para este exemplo, mas opcional para o ponto final.  Especifica o intervalo de datas como cadeias de caracteres no formato dd-MM-AAAA (exemplos: `'20180501'` e `'20180615'`). 
+O `${startDate}` e `${endDate}` parâmetros são necessários para este exemplo, mas opcional para o ponto final. Especifica o intervalo de datas como cadeias de caracteres no formato dd-MM-AAAA (exemplos: `'20180501'` e `'20180615'`).
 
-Os seguintes cabeçalhos são necessários: 
+Os seguintes cabeçalhos são necessários:
 
-|Cabeçalho do pedido|Descrição|  
-|--------------------|-----------------|  
-|*Content-Type:*|Necessário. Definido como `application/json`.|  
-|*Autorização:*|Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|Cabeçalho do pedido|Descrição|
+|--------------------|-----------------|
+|*Content-Type:*|Necessário. Definido como `application/json`.|
+|*Autorização:*|Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
-## <a name="response"></a>Resposta  
+## <a name="response"></a>Resposta
 
 Código de estado 200 (OK) é devolvido para uma resposta com êxito, que contém uma lista dos custos detalhadas para a sua conta.
 
@@ -67,47 +67,47 @@ Código de estado 200 (OK) é devolvido para uma resposta com êxito, que conté
         "usageStart": "${startDate}}",
         "usageEnd": "${endDate}",
         "currency": "USD",
-        "usageQuantity": ${usageQuantity},
-        "billableQuantity": ${billableQuantity},
-        "pretaxCost": ${cost},
+        "usageQuantity": "${usageQuantity}",
+        "billableQuantity": "${billableQuantity}",
+        "pretaxCost": "${cost}",
         "meterId": "${meterID}",
-        "meterDetails": ${meterDetails}
+        "meterDetails": "${meterDetails}"
       }
     }
-    ],
-    "nextLink": "${nextLinkURL}"
-} 
-```  
+  ],
+  "nextLink": "${nextLinkURL}"
+}
+```
 
 Cada item na **valor** representa um detalhes sobre a utilização de um serviço:
 
 |Propriedade de resposta|Descrição|
 |----------------|----------|
-|**subscriptionGuid** | ID exclusivo global para a subscrição. | 
+|**subscriptionGuid** | ID exclusivo global para a subscrição. |
 |**startDate** | Data a utilização iniciada. |
 |**endDate** | A utilização terminada de datas. |
-|**useageQuantity** | Quantidade usada. | 
+|**useageQuantity** | Quantidade usada. |
 |**billableQuantity** | Quantidade, na verdade, é cobrada. |
-|**pretaxCost** | Custo faturado, antes dos impostos aplicáveis. | 
+|**pretaxCost** | Custo faturado, antes dos impostos aplicáveis. |
 |**meterDetails** | Obter informações detalhadas sobre a utilização. |
-|**nextLink**| Quando definida, especifica um URL para o próximo "page" dos detalhes. Em branco quando a página é o último. |  
-||
-  
-Neste exemplo é abreviado; ver [lista os detalhes de utilização](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) para obter uma descrição completa de cada campo de resposta. 
+|**nextLink**| Quando definida, especifica um URL para o próximo "page" dos detalhes. Em branco quando a página é o último. |
+
+Neste exemplo é abreviado; ver [lista os detalhes de utilização](https://docs.microsoft.com/rest/api/consumption/usagedetails/listbybillingperiod#usagedetailslistresult) para obter uma descrição completa de cada campo de resposta.
 
 Outros códigos de estado indicam condições de erro. Nestes casos, o objeto de resposta explica por que o pedido falhou.
 
 ``` json
-{  
-  "error": [  
-    { "code": "Error type." 
-      "message": "Error response describing why the operation failed."  
-    }  
-  ]  
-}  
-```  
+{
+  "error": [
+    {
+      "code": "Error type.",
+      "message": "Error response describing why the operation failed."
+    }
+  ]
+}
+```
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos Seguintes
 - Revisão [Enterprise descrição geral dos relatórios](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Investigar [Enterprise REST API de faturação](https://docs.microsoft.com/rest/api/billing/)   
-- [Introdução à API REST do Azure](https://docs.microsoft.com/rest/api/azure/)   
+- Investigar [Enterprise REST API de faturação](https://docs.microsoft.com/rest/api/billing/)
+- [Introdução à API REST do Azure](https://docs.microsoft.com/rest/api/azure/)

@@ -13,14 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: d6933d5fd72a3a6c945d3afc3fdd3512be5b28d1
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7654de7041b2aa7a5b72f551893c3e0fb60bbd40
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591606"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309864"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerir o Log Analytics, utilizando modelos Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Pode usar [modelos Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar áreas de trabalho do Log Analytics. Exemplos de tarefas que pode realizar com modelos incluem:
 
 * Criar uma área de trabalho incluindo o escalão de preço de definição 
@@ -122,7 +125,7 @@ Os seguintes parâmetros de definir um valor predefinido:
    * Para o PowerShell, utilize os seguintes comandos a partir da pasta que contém o modelo:
    
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
    * Linha de comandos, utilize os seguintes comandos a partir da pasta que contém o modelo:
@@ -500,7 +503,7 @@ Para implementar o modelo de exemplo:
 
 #### <a name="powershell"></a>PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Linha de comandos

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.author: orspod
-ms.openlocfilehash: d30eab024fa988b3341c5efc9fe188ee4802720a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 41cdae310fb9c2fc66ec9ed78ddc21596c9a5ba9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961079"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317854"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para ou a partir do Explorador de dados do Azure com o Azure Data Factory
 
@@ -137,6 +137,9 @@ Para copiar dados a partir do Explorador de dados do Azure, defina o **tipo** pr
 | tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como: **AzureDataExplorerSource** | Sim |
 | consulta | Um pedido de só de leitura fornecido num [formato KQL](/azure/kusto/query/). Utilize a consulta KQL personalizada como uma referência. | Sim |
 | queryTimeout | O tempo de espera antes do pedido de consulta exceder o tempo limite. Valor predefinido é 10 minutos (00: 10:00); permitido valor máximo é de 1 hora (01: 00:00). | Não |
+
+>[!NOTE]
+>Origem de Explorador de dados do Azure por predefinição tem um limite de tamanho de 500 000 registos ou 64 MB. Para obter todos os registros sem truncamento, pode especificar `set notruncation;` no início da sua consulta. Consulte a [consultar limites](https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits) em mais detalhes.
 
 **Exemplo:**
 

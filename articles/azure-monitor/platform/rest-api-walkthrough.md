@@ -8,20 +8,22 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: 707c04c22e54220f3020b5897c364318b427267b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 2ba0ea64aab67221aa1ee3a87ad35ce7d5516167
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586598"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310051"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Instruções de API do REST de monitorização do Azure
 
-Este artigo mostra como efetuar a autenticação para que seu código pode utilizar o [referência da API do REST do Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Este artigo mostra como efetuar a autenticação para que seu código pode utilizar o [referência da API do REST do Microsoft Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
 A API do Azure Monitor permite obter automaticamente as definições de métricas de predefinidas disponíveis, granularidade e valores de métrica. Os dados podem ser salvas num arquivo de dados separado, como a base de dados do Azure SQL, Azure Cosmos DB ou o Azure Data Lake. A partir daí, análises adicionais podem ser executadas conforme necessário.
 
-Além de trabalhar com vários pontos de dados de métrica, a API de Monitor também torna possível listar regras de alerta, ver registos de atividades e muito mais. Para obter uma lista completa de operações disponíveis, consulte a [referência da API do REST do Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Além de trabalhar com vários pontos de dados de métrica, a API de Monitor também torna possível listar regras de alerta, ver registos de atividades e muito mais. Para obter uma lista completa de operações disponíveis, consulte a [referência da API do REST do Microsoft Azure Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
 ## <a name="authenticating-azure-monitor-requests"></a>Pedidos de autenticação do Azure Monitor
 
@@ -34,24 +36,24 @@ $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
 
 # Authenticate to a specific Azure subscription.
-Connect-AzureRmAccount -SubscriptionId $subscriptionId
+Connect-AzAccount -SubscriptionId $subscriptionId
 
 # Password for the service principal
 $pwd = "{service-principal-password}"
 $secureStringPassword = ConvertTo-SecureString -String $pwd -AsPlainText -Force
 
 # Create a new Azure AD application
-$azureAdApplication = New-AzureRmADApplication `
+$azureAdApplication = New-AzADApplication `
                         -DisplayName "My Azure Monitor" `
                         -HomePage "https://localhost/azure-monitor" `
                         -IdentifierUris "https://localhost/azure-monitor" `
                         -Password $secureStringPassword
 
 # Create a new service principal associated with the designated application
-New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
 # Assign Reader role to the newly created service principal
-New-AzureRmRoleAssignment -RoleDefinitionName Reader `
+New-AzRoleAssignment -RoleDefinitionName Reader `
                           -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
 ```
@@ -59,9 +61,9 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 Para consultar a API do Azure Monitor, a aplicação cliente deve utilizar o principal de serviço criado anteriormente para autenticar. O script do PowerShell de exemplo seguinte mostra uma abordagem, utilizando o [Active Directory Authentication Library](../../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) para obter o token de autenticação do JWT. O token JWT é passado como parte de um parâmetro de autorização de HTTP em pedidos para a API de REST do Azure Monitor.
 
 ```PowerShell
-$azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
+$azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
 
-$subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
+$subscription = Get-AzSubscription -SubscriptionId $subscriptionId
 
 $clientId = $azureAdApplication.ApplicationId.Guid
 $tenantId = $subscription.TenantId
@@ -630,7 +632,7 @@ O ID de recurso também pode ser obtido a partir do portal do Azure. Para tal, n
 O ID de recurso pode ser obtido utilizando cmdlets do Azure PowerShell também. Por exemplo, para obter o ID de recurso para uma aplicação de lógica do Azure, execute o cmdlet Get-AzureLogicApp, como no exemplo seguinte:
 
 ```PowerShell
-Get-AzureRmLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
+Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 ```
 
 O resultado deve ser semelhante ao seguinte exemplo:

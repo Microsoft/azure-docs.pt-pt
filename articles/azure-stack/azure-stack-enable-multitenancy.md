@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/6/2018
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: bryanr
-ms.lastreviewed: 11/6/2018
-ms.openlocfilehash: 7d013fce08f688c49d828b829f84e385455c84fe
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 16d915ff6ce0f787febbdc4be4d41e1c2e714d7f
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249702"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336670"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Vários inquilinos no Azure Stack
 

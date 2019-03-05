@@ -8,17 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: sogup
-ms.openlocfilehash: b08e8ea6a8768510177f1ea664f3036813e1a890
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 47acccf0cdb246683314322ed73f21446e3a9345
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009924"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310034"
 ---
 # <a name="manage-azure-vm-backups"></a>Gerir as cópias de segurança de VMs do Azure
 
 Este artigo descreve como gerir VMs do Azure, uma cópia de segurança com o [serviço de cópia de segurança do Azure](backup-overview.md) cópias de segurança e resume as informações de alertas de cópia de segurança disponíveis no dashboard do portal.
-
 
 No portal do Azure, o dashboard do Cofre de serviços de recuperação fornece acesso a informações sobre o cofre, incluindo:
 
@@ -42,20 +41,17 @@ Pode gerir cópias de segurança utilizando o dashboard e por desagregação par
 4. Abra o dashboard do cofre.
     ![Abra o dashboard do cofre e o painel de definições](./media/backup-azure-manage-vms/full-view-rs-vault.png)
 
-4. Sobre o **itens de cópia de segurança** mosaico, clique em **máquinas virtuais do Azure**.
+5. Sobre o **itens de cópia de segurança** mosaico, clique em **máquinas virtuais do Azure**.
 
     ![Mosaico de abrir itens de cópia de segurança](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-5. Na **itens de cópia de segurança** painel, pode ver a última tarefa de cópia de segurança para cada item. Neste exemplo, existe uma máquina virtual, demovm-markgal, protegida por este cofre.  
+6. Na **itens de cópia de segurança** painel, pode ver a última tarefa de cópia de segurança para cada item. Neste exemplo, existe uma máquina virtual, demovm-markgal, protegida por este cofre.  
 
     ![Mosaico de itens de cópia de segurança](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
-
-6. No dashboard do item do cofre, pode criar ou modificar as políticas de cópia de segurança, ver pontos de restauro, execute uma paragem de cópia de segurança, a pedido e retomar a proteção de VMs, eliminar pontos de recuperação e executar um restauro.
+7. No dashboard do item do cofre, pode criar ou modificar as políticas de cópia de segurança, ver pontos de restauro, execute uma paragem de cópia de segurança, a pedido e retomar a proteção de VMs, eliminar pontos de recuperação e executar um restauro.
 
     ![Dashboard de itens de cópia de segurança com o painel de definições](./media/backup-azure-manage-vms/item-dashboard-settings.png)
-
-
 
 ## <a name="manage-backup-policies"></a>Gerir políticas de cópia de segurança
 1. Sobre o [dashboard de item do cofre](#view-vms-in-the-dashboard), clique em **todas as definições** .
@@ -71,7 +67,9 @@ Pode gerir cópias de segurança utilizando o dashboard e por desagregação par
 
 
 ## <a name="run-an-on-demand-backup"></a>Executar cópias de segurança a pedido
+
 Pode demorar uma demanda cópia de segurança de uma VM, uma vez que é configurado para proteção.
+
 - Se a cópia de segurança inicial estiver pendente, a cópia de segurança a pedido cria uma cópia completa da máquina virtual no cofre dos serviços de recuperação.
 - Se a cópia de segurança inicial estiver concluída, uma cópia de segurança a pedido irá enviar apenas alterações de instantâneo anterior, para o Cofre dos serviços de recuperação. Ou seja, cópias de segurança subsequentes são sempre incrementais.
 - O intervalo de retenção para uma cópia de segurança a pedido é o valor de retenção especificado no momento do acionamento de tarefa de cópia de segurança.
@@ -101,7 +99,7 @@ Existem duas formas de parar a proteção de VMs:
 
 >[!NOTE]
 >
-* Se **parar cópia de segurança** com **reter dados de cópia de segurança**, os pontos de recuperação não irão expirar dentro de acordo com a política de cópia de segurança. É-lhe cobrada as instâncias protegidas e o armazenamento consumido. Os pontos de recuperação só serão possível limpar depois de retomar a cópia de segurança (voltar a ativar a proteção) de acordo com a política ou elimine manualmente os dados de cópia de segurança.
+* Se **parar cópia de segurança** com **reter dados de cópia de segurança**, não irão expirar os pontos de recuperação de acordo com a política de cópia de segurança, uma vez que a coleta de lixo (GC) não é executado para as origens de dados Inativas. É-lhe cobrada as instâncias protegidas e o armazenamento consumido. Os pontos de recuperação só serão possível limpar depois de retomar a cópia de segurança (voltar a ativar a proteção) de acordo com a política ou elimine manualmente os dados de cópia de segurança.
 * Se eliminar uma origem de dados sem parar cópia de segurança, novas cópias de segurança começam a falhar. Novamente, os pontos de recuperação antigos irão expirar acordo com a política, mas um último ponto de recuperação sempre será mantido até parar cópia de segurança e eliminar os dados.
 
 Para parar a proteção para uma máquina virtual:
@@ -112,7 +110,6 @@ Para parar a proteção para uma máquina virtual:
     ![Parar proteção](./media/backup-azure-manage-vms/retain-or-delete-option.png)
 
  Uma mensagem de notificação permite-lhe saber que as tarefas de cópia de segurança foram paradas.
-
 
 ## <a name="resume-protection-of-a-vm"></a>Retomar a proteção de uma VM
 
@@ -145,7 +142,7 @@ Este procedimento pressupõe que a tarefa de cópia de segurança para a VM foi 
 
     ![Parar de verificação](./media/backup-azure-manage-vms/item-verification-box.png)
 
-4. Para eliminar os dados de cópia de segurança para o item atual, clique em ![botão Parar de cópia de segurança](./media/backup-azure-manage-vms/delete-button.png)
+3. Para eliminar os dados de cópia de segurança para o item atual, clique em ![botão Parar de cópia de segurança](./media/backup-azure-manage-vms/delete-button.png)
 
     Uma mensagem de notificação permite-lhe saber que os dados de cópia de segurança foi eliminados.
 

@@ -12,20 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dc9b58402ed0fcc48d60b51d30f891ffcadddbe0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55472658"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315627"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerir conjuntos elásticos de base de dados SQL com o PowerShell (pré-visualização)
 
-
-[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
-
 As APIs do PowerShell para o **tarefas de bases de dados elásticas** (em pré-visualização), permitem-lhe definir um grupo de bases de dados em relação aos quais os scripts serão executados. Este artigo mostra como criar e gerir **tarefas de bases de dados elásticas** utilizando cmdlets do PowerShell. Ver [descrição geral das tarefas elásticas](sql-database-elastic-jobs-overview.md). 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Uma subscrição do Azure. Para uma avaliação gratuita, consulte [durante um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -34,9 +32,9 @@ As APIs do PowerShell para o **tarefas de bases de dados elásticas** (em pré-v
 * **Tarefas de base de dados elásticas** pacotes do PowerShell: Consulte [tarefas de instalação de bases de dados elásticas](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Selecione a sua subscrição do Azure
-Para selecionar a subscrição tem o Id de subscrição (**- SubscriptionId**) ou o nome da subscrição (**- SubscriptionName**). Se tiver várias subscrições podem executar o **Get-AzureRmSubscription** cmdlet e copie as informações de subscrição pretendida do resultado definido. Depois de ter as informações da sua subscrição, execute o cmdlet seguinte para definir esta subscrição como predefinição, ou seja o destino para a criação e gestão de tarefas:
+Para selecionar a subscrição tem o Id de subscrição (**- SubscriptionId**) ou o nome da subscrição (**- SubscriptionName**). Se tiver várias subscrições podem executar o **Get-AzSubscription** cmdlet e copie as informações de subscrição pretendida do resultado definido. Depois de ter as informações da sua subscrição, execute o cmdlet seguinte para definir esta subscrição como predefinição, ou seja o destino para a criação e gestão de tarefas:
 
-    Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
+    Select-AzSubscription -SubscriptionId {SubscriptionID}
 
 O [ISE do PowerShell](https://technet.microsoft.com/library/dd315244.aspx) é recomendado para utilização desenvolver e executar scripts do PowerShell contra as tarefas de bases de dados elásticas.
 

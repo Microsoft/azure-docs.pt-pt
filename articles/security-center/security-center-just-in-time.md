@@ -3,7 +3,7 @@ title: Acesso de máquina de virtual just-in-time no Centro de segurança do Azu
 description: Este documento demonstra como just-in-time o acesso à VM no Centro de segurança do Azure ajuda a controlar o acesso às suas máquinas virtuais do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/4/2018
-ms.author: rkarlin
-ms.openlocfilehash: 2bfa3b6001d714da39ebeb709600504f9d7331c5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 2/28/2019
+ms.author: monhaber
+ms.openlocfilehash: 9cdcfbc6074f8e343e2571063cc5dafe54072753
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733662"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314777"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerir o acesso de máquina virtual com just-in-time
 
@@ -144,11 +144,11 @@ Isto permite o acesso just-in-time para a VM com as seguintes definições:
 - Servidores do Windows:
     - Porta RDP 3389
     - 3 horas de acesso permitido máximo
-    - Endereços IP de origem permitidos está definido como, por pedido
+    - Endereços IP de origem permitidos é definido como qualquer
 - Servidores Linux:
     - Porta SSH 22
     - 3 horas de acesso permitido máximo
-    - Endereços IP de origem permitidos está definido como, por pedido
+    - Endereços IP de origem permitidos é definido como qualquer
      
 Se uma VM já tiver just-in-time ativada, quando vai para a página de configuração será capaz de ver que just-in-time estiver ativado e que pode utilizar a ligação para abrir a política no Centro de segurança do Azure para ver e alterar as definições.
 

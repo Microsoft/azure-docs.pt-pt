@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/26/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1390a3be20dd1fc66bb04939f9ce41139db3cb2e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4027982479b2db315ed47f0eb1cb51977f6374b1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873275"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310782"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelo do Resource Manager
 
 Saiba como obter segredos a partir do Azure Key Vault e transmitir os segredos como parâmetros durante a implementação do Resource Manager. O valor nunca está exposto porque só fazem referência a sua ID de Cofre de chaves. Para obter mais informações, veja [Utilizar o Azure Key Vault para transmitir valores de parâmetros seguros durante a implementação](./resource-manager-keyvault-parameter.md)
 
 No tutorial [Definir a ordem de implementação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes. Neste tutorial, personalizar o modelo para recuperar a palavra-passe de administrador de máquina virtual de um cofre de chaves.
+
+![Diagrama de integração de Cofre de chaves de modelo do Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 

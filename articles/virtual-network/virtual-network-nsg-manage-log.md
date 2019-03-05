@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: ed611eeeffa77aa42ab017ee97c6b1a0b7f7822e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 0b859b6c3fa37e8dbac82436d1e2f2444c9d2dcf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240665"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312159"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Registo de diagnósticos para um grupo de segurança de rede
 
@@ -120,7 +120,7 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Se não tiver uma área de trabalho existente, pode criar uma com o [portal do Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Existem duas categorias de registo, que pode ativar os registos para. 
+Se não tiver uma área de trabalho existente, pode criar uma com o [portal do Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Existem duas categorias de registo, que pode ativar os registos para.
 
 Se pretender apenas registar dados para uma categoria ou outro, remova a categoria que não pretende registar dados para no comando anterior. Se quiser iniciar a outro [destino](#log-destinations) que uma área de trabalho do Log Analytics, utilizar os parâmetros adequados para um Azure [conta de armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Hub de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -131,7 +131,7 @@ Ver e analisar registos. Para obter mais informações, consulte [ver e analisar
 Dados de diagnóstico podem ser:
 - [Escrito para uma conta de armazenamento do Azure](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), para inspeção de auditoria ou manual. Pode especificar o período de retenção (em dias) com as definições de diagnóstico de recursos.
 - [Transmissão em fluxo para um hub de eventos](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para ingestão por um serviço de terceiros, ou uma solução de análise personalizada, como o Power BI.
-- [Escritas nos registos do Azure do Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+- [Escritas nos registos do Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
 
 ## <a name="log-categories"></a>Categorias de registo
 
@@ -155,7 +155,7 @@ O registo de eventos contém informações sobre os quais as regras do NSG são 
         "primaryIPv4Address":"192.168.1.4",
         "ruleName":"[SECURITY-RULE-NAME]",
         "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
-        "priority":[PRIORITY-SPECIFIED-IN-RULE],
+        "priority":"[PRIORITY-SPECIFIED-IN-RULE]",
         "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "conditions":{
             "protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",

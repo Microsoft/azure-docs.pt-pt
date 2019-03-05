@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/07/2019
-ms.openlocfilehash: 3657844d5dd4c4dcf9b9729aaeea6c9af3ed6519
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3594ff05e0f58671e8566b3b69972de32a58855a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894888"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308453"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a retenção de cópia de segurança de longa duração de base de dados do Azure SQL
 
@@ -74,13 +74,10 @@ Ver as cópias de segurança que são mantidas para um banco de dados específic
 
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Utilizar o PowerShell para configurar políticas de retenção de longo prazo e restaurar cópias de segurança
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 As secções seguintes mostram como utilizar o PowerShell para configurar a retenção de cópia de segurança de longo prazo, ver cópias de segurança no armazenamento de SQL do Azure e o restauro a partir de uma cópia de segurança no armazenamento de SQL do Azure.
 
-> [!IMPORTANT]
-> API do LTR V2 é suportada nas seguintes versões do PowerShell:
-- [Azurerm. SQL 4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) ou mais recente
-- [AzureRM 6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ou mais recente
-> 
 
 ### <a name="rbac-roles-to-manage-long-term-retention"></a>Funções do RBAC para gerir a retenção de longo prazo
 
@@ -91,11 +88,11 @@ Para gerir cópias de segurança LTR, terá de ser
 
 Se um controlo mais granular for necessário, pode criar funções personalizadas do RBAC e atribuí-las no **subscrição** âmbito. 
 
-Para **Get-AzureRmSqlDatabaseLongTermRetentionBackup** e **Restore-AzureRmSqlDatabase** a função tem de ter as seguintes permissões:
+Para **Get-AzSqlDatabaseLongTermRetentionBackup** e **restauro AzSqlDatabase** a função tem de ter as seguintes permissões:
 
 Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/ longTermRetentionBackups/leitura
  
-Para **Remove-AzureRmSqlDatabaseLongTermRetentionBackup** a função tem de ter as seguintes permissões:
+Para **Remove-AzSqlDatabaseLongTermRetentionBackup** a função tem de ter as seguintes permissões:
 
 Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
 
@@ -109,17 +106,17 @@ Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/long
 # $resourceGroup = “{resource-group-name}” 
 # $dbName = ”{database-name}”
 
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId $subId
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId $subId
 
 # get the server
-$server = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroup
+$server = Get-AzSqlServer -ServerName $serverName -ResourceGroupName $resourceGroup
 
 # create LTR policy with WeeklyRetention = 12 weeks. MonthlyRetention and YearlyRetention = 0 by default.
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W 
 
 # create LTR policy with WeeklyRetention = 12 weeks, YearlyRetention = 5 years and WeekOfYear = 16 (week of April 15). MonthlyRetention = 0 by default.
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -WeeklyRetention P12W -YearlyRetention P5Y -WeekOfYear 16
 ```
 
 ### <a name="view-ltr-policies"></a>Ver políticas de LTR
@@ -127,16 +124,16 @@ Este exemplo mostra como listar as políticas LTR dentro de um servidor
 
 ```powershell
 # Get all LTR policies within a server
-$ltrPolicies = Get-AzureRmSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzureRmSqlDatabaseLongTermRetentionPolicy -Current 
+$ltrPolicies = Get-AzSqlDatabase -ResourceGroupName Default-SQL-WestCentralUS -ServerName trgrie-ltr-server | Get-AzSqlDatabaseLongTermRetentionPolicy -Current 
 
 # Get the LTR policy of a specific database 
-$ltrPolicies = Get-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
+$ltrPolicies = Get-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName  -ResourceGroupName $resourceGroup -Current
 ```
 ### <a name="clear-an-ltr-policy"></a>Limpar uma política LTR
 Este exemplo mostra como limpar a uma política LTR de um banco de dados
 
 ```powershell
-Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
+Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -DatabaseName $dbName -ResourceGroupName $resourceGroup -RemovePolicy
 ```
 
 ### <a name="view-ltr-backups"></a>Ver cópias de segurança LTR
@@ -148,20 +145,20 @@ Este exemplo mostra como listar as cópias de segurança LTR dentro de um servid
 # The backups are grouped by the logical database id.
 # Within each group they are ordered by the timestamp, the earliest
 # backup first.  
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location 
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location 
 
 # Get the list of LTR backups from the Azure region under 
 # the named server. 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName
 
 # Get the LTR backups for a specific database from the Azure region under the named server 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -DatabaseName $dbName
 
 # List LTR backups only from live databases (you have option to choose All/Live/Deleted)
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -DatabaseState Live
 
 # Only list the latest LTR backup for each database 
-$ltrBackups = Get-AzureRmSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
+$ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location -ServerName $serverName -OnlyLatestPerDatabase
 ```
 
 ### <a name="delete-ltr-backups"></a>Eliminar cópias de segurança LTR
@@ -171,7 +168,7 @@ Este exemplo mostra como eliminar um LTR cópia de segurança na lista de cópia
 ```powershell
 # remove the earliest backup 
 $ltrBackup = $ltrBackups[0]
-Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
+Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 > [!IMPORTANT]
 > A eliminar LTR cópia de segurança é não reversível. Pode definir notificações sobre cada delete no Azure Monitor ao filtrar pela operação 'Elimina uma cópia de segurança de retenção de longo prazo'. O registo de atividade contém informações sobre quem e quando efetuou o pedido. Ver [criar alertas de registo de atividades](../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
@@ -182,7 +179,7 @@ Este exemplo mostra como restaurar a partir de uma cópia de segurança LTR. Ten
 
 ```powershell
 # Restore LTR backup as an S3 database
-Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName S3
+Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName S3
 ```
 
 > [!NOTE]

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: sashan,moslake
+ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 011aa97d44a92feced7328b2bd014395d2c5b765
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 00b20b3f144a2e98fb028e3db7c50af61330d721
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246703"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316460"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de base de dados SQL para o servidor de base de dados do Azure SQL
 
@@ -74,7 +74,7 @@ Quando se deparar com alta utilização de sessão ou de trabalho, as opções d
 - Aumentar o serviço de camada ou tamanho do conjunto elástico ou base de dados de computação. Ver [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md).
 - Otimização de consultas para reduzir a utilização de recursos de cada consulta, se a causa da utilização da função de trabalho maior é devido à contenção de recursos de computação. Para obter mais informações, consulte [ajuste de consulta/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="transaction-log-rate-governance"></a>Governação de taxa de registo de transação 
+## <a name="transaction-log-rate-governance"></a>Governação de taxa de registo de transação 
 Governação de taxa de registo de transação é um processo na base de dados do SQL do Azure utilizada para limitar as taxas de ingestão elevada para cargas de trabalho, como em massa insert, SELECT INTO e compilações de índice. Estes limites são controlados e impostos no nível de frações de segundos para a taxa de geração de registos do log, a limitação de taxa de transferência, independentemente de quantos IOs pode ser emitida em relação a arquivos de dados.  Velocidades de geração de log de transação atualmente dimensionadas de forma linear até um ponto que seja dependente do hardware, com o log máximo taxa permitido que está a ser 48 MB/s com o modelo de compra de vCore. 
 
 > [!NOTE]

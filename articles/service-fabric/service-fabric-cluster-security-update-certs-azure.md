@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 047e058fee6cd72a7eeaecdde976b1b9d49aeb5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958954"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315282"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Adicionar ou remover certificados para um cluster do Service Fabric no Azure
 Recomenda-se familiarizar com como o Service Fabric utiliza certificados X.509 e estar familiarizado com o [cenários de segurança do Cluster](service-fabric-cluster-security.md). Tem de compreender é que um certificado de cluster e o que é utilizado para, antes de prosseguir.
@@ -259,7 +259,7 @@ Para referência rápida, eis o comando para obter o estado de funcionamento do 
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>Implementação de certificados de aplicação para o cluster.
+## <a name="deploying-client-certificates-to-the-cluster"></a>Implementação de certificados de cliente para o cluster.
 
 Pode utilizar os mesmos passos conforme descrito em 5 de passos anteriores para que os certificados implementados a partir de um cofre de chaves para os nós. Só tem de definir e utilizar parâmetros diferentes.
 

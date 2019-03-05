@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: c5f90776cb0e8617f0e524bd6b1701f4bf20d0a1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 06c74aa85bda13ccd6849056ccc031ae6f1c12c2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415713"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315559"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Início rápido: Importar um ficheiro BACPAC para uma base de dados na base de dados do Azure SQL
 
@@ -58,6 +58,8 @@ Para importar uma base de dados do SQL Server com o [SqlPackage](https://docs.mi
 
 Para dimensionamento e desempenho, recomendamos que com SqlPackage na maioria dos ambientes de produção, em vez de utilizar o portal do Azure. Para um blog da Equipe Consultiva para SQL Server clientes sobre como migrar utilizando `BACPAC` arquivos, consulte [migrando do SQL Server para o Azure SQL Database using BACPAC ficheiros](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 
+Para dimensionamento e desempenho, recomendamos que utilize SqlPackage na maioria dos ambientes de produção. Para saber mais sobre a migração com ficheiros BACPAC num blogue da Equipa de Aconselhamento ao Cliente do SQL Server, consulte [Migrating from SQL Server to Azure SQL Database using BACPAC Files (Migrar a partir do SQL Server para a Base de Dados SQL do Azure com Ficheiros BACPAC)](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+
 O seguinte comando SqlPackage importa os **AdventureWorks2008R2** base de dados do armazenamento local para um servidor de base de dados do Azure SQL chamado **mynewserver20170403**. Ele cria uma nova base de dados chamado **myMigratedDatabase** com um **Premium** escalão de serviço e um **P6** objetivo de serviço. Altere estes valores conforme adequado para o seu ambiente.
 
 ```cmd
@@ -80,16 +82,18 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [Uma instância gerida](sql-database-managed-instance.md) não suporta atualmente a migrar uma base de dados num banco de dados de instância de um ficheiro BACPAC, com o Azure PowerShell]. Para importar para uma instância gerida, utilize o SQL Server Management Studio ou SQLPackage.
 
 
-Utilize o [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) cmdlet para submeter um pedido de base de dados de importação para o serviço de base de dados do Azure SQL. Dependendo do tamanho da base de dados, a importação pode demorar algum tempo a concluir.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Utilize o [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet para submeter um pedido de base de dados de importação para o serviço de base de dados do Azure SQL. Dependendo do tamanho da base de dados, a importação pode demorar algum tempo a concluir.
 
  ```powershell
- $importRequest = New-AzureRmSqlDatabaseImport
+ $importRequest = New-AzSqlDatabaseImport 
     -ResourceGroupName "<your_resource_group>" `
     -ServerName "<your_server>" `
     -DatabaseName "<your_database>" `
     -DatabaseMaxSizeBytes "<database_size_in_bytes>" `
     -StorageKeyType "StorageAccessKey" `
-    -StorageKey $(Get-AzureRmStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
+    -StorageKey $(Get-AzStorageAccountKey -ResourceGroupName "<your_resource_group>" -StorageAccountName "<your_storage_account").Value[0] `
     -StorageUri "https://myStorageAccount.blob.core.windows.net/importsample/sample.bacpac" `
     -Edition "Standard" `
     -ServiceObjectiveName "P6" `
@@ -98,14 +102,14 @@ Utilize o [New-AzureRmSqlDatabaseImport](/powershell/module/azurerm.sql/new-azur
 
  ```
 
- Pode utilizar o [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet para verificar o progresso da importação. Executar o cmdlet imediatamente após a solicitação normalmente devolve **Estado: InProgress**. A importação estiver concluída, quando vir **Estado: Foi efetuada com êxito**.
+ Pode utilizar o [Get-AzSqlDatabaseImportExportStatus](/powershell/module/az.sql/get-azsqldatabaseimportexportstatus) cmdlet para verificar o progresso da importação. Executar o cmdlet imediatamente após a solicitação normalmente devolve **Estado: InProgress**. A importação estiver concluída, quando vir **Estado: Foi efetuada com êxito**.
 
 ```powershell
-$importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+$importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 [Console]::Write("Importing")
 while ($importStatus.Status -eq "InProgress")
 {
-    $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
+    $importStatus = Get-AzSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
     [Console]::Write(".")
     Start-Sleep -s 10
 }

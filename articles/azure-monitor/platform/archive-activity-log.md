@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: f02b17ff4e83c3300973c86f26db76ebff5a8d0a
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750893"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310911"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arquivar o registo de atividades do Azure
 Neste artigo, vamos mostrar como pode usar o portal do Azure, Cmdlets do PowerShell ou CLI de várias plataformas para arquivar sua [ **registo de atividades do Azure** ](../../azure-monitor/platform/activity-logs-overview.md) numa conta de armazenamento. Esta opção é útil se gostaria de manter o registo de atividades mais de 90 dias (com controlo total sobre a política de retenção) para cópia de segurança, auditoria ou análise estática. Se só precisa de manter seus eventos durante 90 dias ou menos não é necessário configurar o arquivo para uma conta de armazenamento, uma vez que os eventos de registo de Atividades são mantidos na plataforma do Azure durante 90 dias sem ativar arquivamento.
@@ -44,10 +44,12 @@ Para arquivar o registo de atividade usando qualquer um dos métodos abaixo, def
 
 ## <a name="archive-the-activity-log-via-powershell"></a>Arquivar o registo de atividade através do PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your storage account belongs to>"
@@ -56,13 +58,13 @@ Para arquivar o registo de atividade usando qualquer um dos métodos abaixo, def
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
    ```
 
 | Propriedade | Necessário | Descrição |
 | --- | --- | --- |
 | StorageAccountId |Sim |ID de recurso da conta do Storage para o qual os registos de atividades devem ser salvos. |
-| Localizações |Sim |Lista separada por vírgulas de regiões para o qual pretende recolher eventos de registo de atividades. Pode ver uma lista de todas as regiões para a sua subscrição com `(Get-AzureRmLocation).Location`. |
+| Localizações |Sim |Lista separada por vírgulas de regiões para o qual pretende recolher eventos de registo de atividades. Pode ver uma lista de todas as regiões para a sua subscrição com `(Get-AzLocation).Location`. |
 | RetentionInDays |Não |Número de dias para que eventos devem ser mantidos, entre 1 e 2147483647. Um valor de zero armazena os logs de indefinidamente (Eterno). |
 | Categorias |Não |Lista separada por vírgulas das categorias de evento que deve ser recolhidos. Valores possíveis são escrita, eliminação e ação.  Se não for indicado, em seguida, todos os valores possíveis são pressupõe-se |
 

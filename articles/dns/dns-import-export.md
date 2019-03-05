@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 3dac11ac4409ddde5264307439533bd583d75a9d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d41ad3232fef57d1008f1e15d5d7d5ee1e106e9b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993063"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312654"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importar e exportar um ficheiro de zona DNS com a CLI do Azure 
 
@@ -120,7 +120,7 @@ Para verificar a zona DNS depois de importar o ficheiro, pode utilizar qualquer 
 * Pode usar `nslookup` para verificar a resolução de nomes para os registos. Uma vez que a zona não é delegada ainda, terá de especificar explicitamente os servidores de nomes DNS do Azure corretos. O exemplo a seguir mostra como recuperar os nomes dos servidores de nome atribuídos à zona. Isso mostra também como consultar o registo "www" ao utilizar `nslookup`.
 
     ```azurecli
-    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    az network dns record-set ns list -g myresourcegroup -z contoso.com  --output json 
     ```
 
     ```json

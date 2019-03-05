@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: aaaec6e02c9280801fbf7e3b5a8eaa1ae4a1ff43
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3d4c1029315e754410f31b13042d1d6acb105da1
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429774"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309694"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>O registo de atividades do Azure para os Hubs de eventos do Stream
 Pode transmitir em fluxo a [registo de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md) em tempo real para qualquer aplicativo, por qualquer um:
@@ -58,21 +58,24 @@ Para atualizar o perfil de registo do registo de atividades para incluir a trans
 6. Se tiver várias subscrições, repita esta ação e enviar todos os dados para o hub de eventos do mesmo.
 
 ### <a name="via-powershell-cmdlets"></a>Cmdlets do PowerShell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Se já existir um perfil de registo, tem primeiro de remover o perfil de registo existentes e, em seguida, crie um novo perfil de registo.
 
-1. Utilize `Get-AzureRmLogProfile` para identificar se existe um perfil de registo.  Se existir um perfil de registo, localize a *nome* propriedade.
-2. Uso `Remove-AzureRmLogProfile` para remover o perfil de registo com o valor do *nome* propriedade.
+1. Utilize `Get-AzLogProfile` para identificar se existe um perfil de registo.  Se existir um perfil de registo, localize a *nome* propriedade.
+2. Uso `Remove-AzLogProfile` para remover o perfil de registo com o valor do *nome* propriedade.
 
     ```powershell
     # For example, if the log profile name is 'default'
-    Remove-AzureRmLogProfile -Name "default"
+    Remove-AzLogProfile -Name "default"
     ```
-3. Utilize `Add-AzureRmLogProfile` para criar um novo perfil de registo:
+3. Utilize `Add-AzLogProfile` para criar um novo perfil de registo:
 
    ```powershell
    # Settings needed for the new log profile
    $logProfileName = "default"
-   $locations = (Get-AzureRmLocation).Location
+   $locations = (Get-AzLocation).Location
    $locations += "global"
    $subscriptionId = "<your Azure subscription Id>"
    $resourceGroupName = "<resource group name your event hub belongs to>"
@@ -81,7 +84,7 @@ Se já existir um perfil de registo, tem primeiro de remover o perfil de registo
    # Build the service bus rule Id from the settings above
    $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
-   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
 ### <a name="via-azure-cli"></a>Através da CLI do Azure

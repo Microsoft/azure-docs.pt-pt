@@ -8,14 +8,16 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1e322c9bd6f78c4801c14e9982cc170b3af1971a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: dba1f66be91d8fa8e151a2771bad70b721af02dc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893583"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313077"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar métricas de SO convidado para a métrica do Azure Monitor armazenam clássico dos serviços de Cloud 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Com o Azure Monitor [extensão de diagnóstico](diagnostics-extension-overview.md), pode coletar métricas e registos do sistema operativo convidado (SO convidado) em execução como parte de uma máquina virtual, um serviço em nuvem ou um cluster do Service Fabric. A extensão pode enviar telemetria para [vários locais diferentes.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -31,7 +33,7 @@ O processo que está descrito em funciona este artigo apenas para contadores de 
 
 - A sua subscrição tem de estar registrada com [Microsoft. insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- Tem de ter [do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
+- Tem de ter [do Azure PowerShell](/powershell/azure) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) instalado.
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Aprovisionar uma conta de serviço e o armazenamento na cloud 
 
@@ -141,7 +143,7 @@ Guarde este ficheiro de diagnóstico localmente.
 Inicie o PowerShell e inicie sessão no Azure. 
 
 ```PowerShell
-Login-AzureRmAccount 
+Login-AzAccount 
 ```
 
 Utilize os seguintes comandos para armazenar os detalhes da conta de armazenamento que criou anteriormente. 

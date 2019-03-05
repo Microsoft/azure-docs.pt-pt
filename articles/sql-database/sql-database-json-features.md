@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 7e688abbe1b8188cb85e5762086009522b5b7d39
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 02cec7f3696a43e8effe9d551c1f3e3fddc25ec8
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332086"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317208"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Introdução com funcionalidades JSON na base de dados do Azure SQL
 Azure base de dados SQL permite-lhe analisa e consulta dados representados no JavaScript Object Notation [(JSON)](http://www.json.org/) formate e exportar os seus dados relacionais como texto JSON. Os seguintes cenários JSON estão disponíveis na base de dados do Azure SQL:
@@ -190,7 +190,7 @@ A coleção de encomendas formatados como uma matriz JSON e fornecido como um pa
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber como integrar o JSON na sua aplicação, veja estes recursos:
 
-* [Blogue do TechNet](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
+* [Blogue do TechNet](https://blogs.technet.microsoft.com/dataplatforminsider/20../../json-in-sql-server-2016-part-1-of-4/)
 * [Documentação do MSDN](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Vídeo do Channel 9](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 

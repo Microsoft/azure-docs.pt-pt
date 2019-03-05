@@ -4,19 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: ''
 author: diberry
 manager: nitinme
-displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: 93e735958669dd39deaf88d1d468a9148b7db3d1
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cff4199663bce39353f8c10c68f51f15d6a72a22
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960311"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314828"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
@@ -33,13 +32,13 @@ A ferramenta QnA Maker aprende novas variações de pergunta com comentários im
 
 Qualquer um dos métodos fornece o classificador com consultas similares estão agrupados em cluster.
 
-Quando as consultas semelhantes são colocados num cluster, o QnA Maker sugere perguntas baseada no utilizador para o estruturador de base de dados de conhecimento para aceitar ou rejeitar.
-
 ## <a name="how-active-learning-works"></a>Como Active Directory funciona de aprendizagem
 
 Aprendizagem ativa é acionada com base em classificações de melhores respostas alguns devolvidas pelo QnA Maker para qualquer determinada consulta. Se as diferenças de pontuação se situam dentro de um pequeno intervalo, em seguida, a consulta é considerada uma possível _sugestão_ para cada uma das possíveis respostas. 
 
 Todas as sugestões sejam agrupadas por semelhança e sugestões principais para perguntas alternativas são apresentadas com base na frequência das consultas determinadas pelos usuários finais. Aprendizagem ativa fornece as sugestões de possíveis melhor em casos em que os pontos finais estão a obter uma quantidade razoável e a variedade de consultas de utilização.
+
+Assim que as perguntas são sugeridas no portal do QnA Maker, terá de rever e aceitar ou rejeitar essas sugestões. 
 
 ## <a name="upgrade-version-to-use-active-learning"></a>Atualizar a versão a utilizar a aprendizagem ativa
 
@@ -58,6 +57,8 @@ O algoritmo para determinar a proximidade não é um cálculo simple. Os interva
 ## <a name="turn-on-active-learning"></a>Ativar o aprendizagem ativa
 
 Aprendizagem ativa está desativada por predefinição. A ativá-lo para ver perguntas sugeridas. 
+
+1. Selecione **publicar** para publicar a base de dados de conhecimento. Consultas de aprendizagem ativa são recolhidas a partir do GenerateAnswer predição ponto final de API apenas. As consultas para o painel de teste no portal do Qna Maker não afetam aprendizagem ativa.
 
 1. Para ativar o Active Directory de aprendizado no, clique no seu **Name**, aceda a [ **definições de serviço** ](https://www.qnamaker.ai/UserSettings) no portal do QnA Maker, no canto superior direito.  
 
@@ -88,6 +89,9 @@ Aprendizagem ativa está desativada por predefinição. A ativá-lo para ver per
 
 1. Selecione **guardar e treinar** para guardar as alterações para a base de dados de conhecimento.
 
+1. Selecione **publicar** para permitir que as alterações estar disponível a partir da API de GenerateAnswer.
+
+    Quando as consultas de 5 ou mais semelhantes são colocados num cluster, cada 30 minutos, a ferramenta QnA Maker sugere perguntas baseada no utilizador para o estruturador de base de dados de conhecimento para aceitar ou rejeitar.
 
 ## <a name="determine-best-choice-when-several-questions-have-similar-scores"></a>Determinar a melhor escolha quando várias perguntas tem pontuações semelhantes
 

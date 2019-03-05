@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 561982f7a7842ed717044c6709085bbd4621206e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ad3b672a2db9bccaf5124d4bc897e85806966255
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868634"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312805"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -128,16 +128,18 @@ Pode transmitir o registo de atividade para um Hub de eventos ou armazená-los n
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Configurar perfis de registo utilizando os Cmdlets do PowerShell do Azure
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 #### <a name="get-existing-log-profile"></a>Obter perfil de registo existente
 
 ```
-Get-AzureRmLogProfile
+Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>Adicionar um perfil de registo
 
 ```
-Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
+Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
 | Propriedade | Necessário | Descrição |
@@ -151,7 +153,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 
 #### <a name="remove-a-log-profile"></a>Remover um perfil de registo
 ```
-Remove-AzureRmLogProfile -name my_log_profile
+Remove-AzLogProfile -name my_log_profile
 ```
 
 ### <a name="configure-log-profiles-using-the-azure-cli"></a>Configurar perfis de registo com a CLI do Azure

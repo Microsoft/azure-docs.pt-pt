@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c8cba4006d1112ccc1529fc1769e046fe45468a7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: f8af115824ec48492d0f53297a6e697f7011ff55
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214185"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316426"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -33,9 +33,9 @@ Para criar uma regra de telemetria, o modelo do dispositivo tem de ter pelo meno
 
     ![Ainda não existem regras](media/howto-create-telemetry-rules-experimental/Rules_Landing_Page.png)
 
-1. Sobre o **regras** separador, clique em **+ nova regra** para ver os tipos de regras, pode criar.
+1. Sobre o **regras** separador, selecione **+ nova regra** para ver os tipos de regras, pode criar.
 
-1. Clique em **telemetria** para criar uma regra para monitorizar a telemetria do dispositivo.
+1. Selecione **telemetria** para criar uma regra para monitorizar a telemetria do dispositivo.
 
     ![Tipos de regra](media/howto-create-telemetry-rules-experimental/Rule_Types.png)
 
@@ -51,7 +51,7 @@ Para criar uma regra de telemetria, o modelo do dispositivo tem de ter pelo meno
 
 Condição define os critérios que é monitorizado pela regra.
 
-1. Clique em **+** junto a **condições** para adicionar uma nova condição.
+1. Selecione **+** junto a **condições** para adicionar uma nova condição.
 
 1. Selecione a telemetria que pretende monitorizar a partir da **medição** lista pendente.
 

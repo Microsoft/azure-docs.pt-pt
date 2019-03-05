@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 5f4589e9423beb932e1192d44291315331884eba
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884786"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314794"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -146,14 +146,16 @@ Para utilizar a análise de SQL do Azure, os utilizadores têm de ser concedida 
 
 ### <a name="creating-a-custom-role-in-portal"></a>Criar uma função personalizada no portal
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 RECONHECENDO que algumas organizações impõem controlos de permissão strict no Azure, localize o seguinte script do PowerShell, permitindo a criação de uma função personalizada "SQL Analytics operador de monitorização" no portal do Azure com o mínimo de leitura e escrita as permissões necessárias para Utilize a análise de SQL do Azure para sua extensão mais completa.
 
 Substitua o "{SubscriptionId}" no script com o seu ID de subscrição do Azure, abaixo e execute o script de logon como uma função de proprietário ou Contribuidor no Azure.
 
    ```powershell
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription {SubscriptionId}
-    $role = Get-AzureRmRoleDefinition -Name Reader
+    Connect-AzAccount
+    Select-AzSubscription {SubscriptionId}
+    $role = Get-AzRoleDefinition -Name Reader
     $role.Name = "SQL Analytics Monitoring Operator"
     $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
     $role.IsCustom = $true
@@ -172,7 +174,7 @@ Substitua o "{SubscriptionId}" no script com o seu ID de subscrição do Azure, 
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Resources/deployments/write");
     $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
-    New-AzureRmRoleDefinition $role
+    New-AzRoleDefinition $role
    ```
 
 Depois de criar a nova função, atribua esta função para cada utilizador que tem de conceder permissões personalizadas para utilizar a análise de SQL do Azure.

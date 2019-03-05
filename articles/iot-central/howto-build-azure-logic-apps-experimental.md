@@ -8,12 +8,12 @@ ms.date: 02/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 47e34596c37463be92b0d995440173f2426a182a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 77737db30c7a2c5c6350e4ae1ab70310036bd0e5
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216616"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311360"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-azure-logic-apps"></a>Criar fluxos de trabalho com o conector do Centro de IoT no Azure Logic Apps
 
@@ -32,13 +32,13 @@ Pode utilizar o conector do Centro de IoT no Microsoft Flow. Azure Logic Apps e 
 
 Esta secção mostra-lhe como publicar uma mensagem no Microsoft Teams quando é acionada uma regra. Pode configurar o fluxo de trabalho utilizar outros conectores para fazer coisas como enviar um evento ao seu hub de eventos, crie um novo item de trabalho de DevOps do Azure ou inserir uma nova linha no SQL server.
 
-1. Comece por [criar uma regra no Centro de IoT](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Depois de guardar as condições de regra, clique nas **do Azure Logic Apps** mosaico como uma nova ação. Clique em **criar no portal do Azure**. Será direcionado para o portal do Azure para criar uma nova aplicação lógica. Terá de iniciar sessão na sua conta do Azure.
+1. Comece por [criar uma regra no Centro de IoT](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Depois de guardar as condições de regra, selecione o **do Azure Logic Apps** mosaico como uma nova ação. Selecione **criar no portal do Azure**. Será direcionado para o portal do Azure para criar uma nova aplicação lógica. Terá de iniciar sessão na sua conta do Azure.
 
-1. Introduza as informações necessárias para criar uma nova aplicação lógica. Pode escolher uma subscrição do Azure para aprovisionar a sua nova aplicação lógica em. Ele não tem de ser a mesma subscrição que a aplicação de IoT Central foi criada no. Clique em **Criar**.
+1. Introduza as informações necessárias para criar uma nova aplicação lógica. Pode escolher uma subscrição do Azure para aprovisionar a sua nova aplicação lógica em. Ele não tem de ser a mesma subscrição que a aplicação de IoT Central foi criada no. Selecione **Criar**.
 
     ![Criar aplicação lógica no portal do Azure](./media/howto-build-azure-logic-apps-experimental/createinazureportal.png)
 
-1. Depois da aplicação lógica foi criada com êxito, são automaticamente direcionado para o estruturador de aplicações lógicas. Clique em **aplicação lógica em branco**. 
+1. Depois da aplicação lógica foi criada com êxito, são automaticamente direcionado para o estruturador de aplicações lógicas. Selecione **aplicação lógica em branco**. 
 
     ![Criar uma aplicação lógica em branco](./media/howto-build-azure-logic-apps-experimental/blanklogicapp.png)
 
@@ -54,11 +54,11 @@ Esta secção mostra-lhe como publicar uma mensagem no Microsoft Teams quando é
 
 1. Na ação, escolha o **equipe** e **canal**. Preencha os **mensagem** campo com o que deseja que cada mensagem a dizer. Pode incluir *conteúdo dinâmico* da sua regra de IoT Central, passando informações importantes, como o nome do dispositivo e timestamp para a notificação.
     > [!NOTE]
-    > Clique em "Ver mais" texto na janela de conteúdo dinâmico para obter a medição e valores de propriedade que disparou a regra.
+    > Selecione o **ver mais** texto na janela de conteúdo dinâmico para obter valores de propriedade e de medição que disparou a regra.
 
     ![Ação edição da aplicação lógica com o painel dinâmico abrir](./media/howto-build-azure-logic-apps-experimental/buildworkflow.png)
 
-1. Quando tiver concluído a ação de edição, clique em **guardar**.
+1. Quando tiver concluído a ação de edição, selecione **guardar**.
 
 1. Se voltar à sua aplicação IoT Central, verá que esta regra tem uma ação do Azure Logic Apps, sob a área de ações.
 

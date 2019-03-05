@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 34e4371902095c5802bf4fc180e09ce189c110fc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: fff4aa947f878974d2d0f18f373b8c0917ed7d70
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214015"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316061"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Resolução de problemas de desempenho de base de dados do Azure SQL com informações inteligentes
 
@@ -73,7 +73,7 @@ O registo de diagnóstico produz hashes de consulta de consultas afetado o desem
 
 Se atingiu os limites de sessão disponíveis, pode otimizar seus aplicativos, reduzindo o número de inícios de sessão feitas no banco de dados. Se não for possível reduzir o número de inícios de sessão das suas aplicações para a base de dados, considere aumentar o escalão de preço da base de dados. Ou pode dividir e mover a base de dados em várias bases de dados para uma distribuição mais com balanceamento de carga de trabalho.
 
-Para obter mais sugestões sobre como resolver os limites de sessão, consulte [como lidar com os limites de inícios de sessão de máximos de base de dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Ver [limita a visão geral dos recursos num servidor de base de dados SQL](sql-database-resource-limits-database-server.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
+Para obter mais sugestões sobre como resolver os limites de sessão, consulte [como lidar com os limites de inícios de sessão de máximos de base de dados SQL](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Ver [limita a visão geral dos recursos num servidor de base de dados SQL](sql-database-resource-limits-database-server.md) para obter informações sobre os limites nos níveis de servidor e de subscrição.
 
 ## <a name="workload-increase"></a>Aumento de carga de trabalho
 
@@ -109,7 +109,7 @@ Pode otimizar ou remover consultas relacionadas com a clerks com o uso de memór
 
 Também pode reduzir a carga de trabalho ao otimizar ou distribuí-lo ao longo de várias bases de dados. Ou pode distribuir a carga de trabalho entre várias bases de dados. Se essas soluções não são possíveis, considere aumentar o escalão de preço da sua subscrição da base de dados SQL para aumentar a quantidade de recursos de memória disponíveis para a base de dados.
 
-Para obter sugestões de resolução de problemas adicionais, consulte [memória concede mediação: O consumidor de memória do SQL Server misterioso com muitos nomes](https://blogs.msdn.microsoft.com/sqlmeditation/2013/01/01/memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
+Para obter sugestões de resolução de problemas adicionais, consulte [memória concede mediação: O consumidor de memória do SQL Server misterioso com muitos nomes](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/).
 
 ## <a name="locking"></a>Bloqueio
 
@@ -259,7 +259,7 @@ Este padrão de desempenho detetável combina três casos diferentes de regress�
 
 A nova condição de regressão do plano de suporte de dados refere-se num Estado em que a base de dados SQL inicia um novo plano de execução da consulta que não seja tão eficiente quanto o plano antigo em execução. A condição de regressão do plano antigo refere-se para o estado para a base de dados SQL muda da utilização de um plano de novo e mais eficiente para o plano antigo, o que não é tão eficiente quanto o novo plano. A regressão de carga de trabalho de planos alterados existente refere-se para o estado em que o antigo e os novos planos continuamente alternam, com o balanço vai mais para o plano de fraco desempenho.
 
-Para obter mais informações sobre regressões de plano, consulte [o que é o plano de regressão no SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/06/09/what-is-plan-regression-in-sql-server/). 
+Para obter mais informações sobre regressões de plano, consulte [o que é o plano de regressão no SQL Server?](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/). 
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
@@ -267,7 +267,7 @@ O registo de diagnóstico devolve o hashes de consulta, o ID do plano bom, a ID 
 
 Pode analisar o plano de onde é melhor efetuar para as suas consultas específicas que possa identificar com os hashes de consulta fornecidos. Depois de determinar que plano funciona melhor para as suas consultas, pode forçá-lo manualmente. 
 
-Para obter mais informações, consulte [Saiba como o SQL Server impede regressões de plano](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/04/25/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
+Para obter mais informações, consulte [Saiba como o SQL Server impede regressões de plano](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/).
 
 > [!TIP]
 > Sabia que os planos de execução de consulta com melhor desempenho para as bases de dados pode gerenciar automaticamente a inteligência incorporada da base de dados SQL?

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 2b528892d2046f590d979d1646583e028fe4a834
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4fc1b4d4d0d7f215f8fee1de01e171c3fdc5aae5
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218078"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308793"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger uma base de dados individual ou agrupada
 
@@ -142,7 +142,7 @@ Para obter informações sobre a configuração do Azure AD, consulte:
 
 - [Integrar as identidades no local com o Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Adicionar o seu próprio nome de domínio para o Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure suporta agora a Federação com o Windows Server AD](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure suporta agora a Federação com o Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administrar o diretório do Azure AD](../active-directory/fundamentals/active-directory-administer.md)
 - [Gerir o Azure AD com o PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Identidade híbrida portas e protocolos necessários](../active-directory/hybrid/reference-connect-ports.md)

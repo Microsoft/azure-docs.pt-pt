@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: c1171a6b118797c2aafda137ec532259921c0713
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ae1e65162ffab35e6d3ef3bf84c1eb6bbe75c65f
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880551"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314301"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -122,7 +122,7 @@ O Site Recovery obtém uma lista das VMs associadas à subscrição e o grupo de
 3. Selecione o destino do Azure para o qual pretende mover as VMs do Azure para testar a configuração de rede virtual. 
 
 > [!IMPORTANT]
-> Recomendamos que utilize uma rede de VM do Azure separada para a falha de teste e não a rede de produção na VM de destino no qual deseja mover as suas VMs no final. que foi configurada quando ativou a replicação.
+> Recomendamos que utilize uma rede de VM do Azure separada para ativação pós-falha de teste e não a rede de produção para o qual pretende mover as suas VMs, eventualmente, que foi configurada quando ativou a replicação.
 
 4. Para começar a testar a mudança, clique em **OK**. Para acompanhar o progresso, clique em VM para abrir as respetivas propriedades. Também pode clicar na tarefa **Ativação Pós-falha de Teste** no nome do cofre > **Definições** > **Tarefas** > **Tarefas do Site Recovery**.
 5. Após a conclusão da ativação pós-falha, a VM do Azure de réplica é apresentada no portal do Azure > **Máquinas Virtuais**. Certifique-se de que a VM está em execução, tem as dimensões adequadas e está ligada à rede devida.

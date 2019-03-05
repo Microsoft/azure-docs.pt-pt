@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1de12f2dd2e31c3f5413424793f3bf78fdc8ff27
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 8218da62eb8c3d8c454ca1dca1bd1071e0de67b0
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300266"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308759"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -118,9 +118,7 @@ Eles poderiam enviar telemetria adicional à sua conta utilizando a chave de ins
 Se compartilhar código com outros projetos, não se esqueça de remover a sua chave de instrumentação.
 
 ## <a name="is-the-data-encrypted"></a>Os dados são encriptados?
-Não dentro de servidores neste momento.
-
-Todos os dados são encriptados quando são transmitidos entre centros de dados.
+Todos os dados são encriptados em descanso e como ele se move entre dados centros.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Os dados são encriptados em trânsito do meu aplicativo para servidores do Application Insights?
 Sim, vamos utilizar https para enviar dados para o portal de quase todos os SDKs, incluindo servidores web, dispositivos e páginas da web HTTPS. A única exceção é os dados enviados a partir de páginas da web HTTP simples.

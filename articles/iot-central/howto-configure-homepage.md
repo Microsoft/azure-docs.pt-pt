@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a42e88de693f93e0407c185efc84d17a03d16116
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 033a7207765f2ee6712f8552d5c1585280250d5e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215868"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312074"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar o dashboard de aplicações
 
@@ -24,15 +24,15 @@ O **Dashboard** é a página que carrega quando os utilizadores que têm acesso 
 
 ## <a name="add-tiles"></a>Adicionar mosaicos
 
-Captura de ecrã seguinte mostra o dashboard numa aplicação criada a partir da **exemplo Contoso** modelo. Para personalizar o dashboard predefinido para a sua aplicação, clique em **editar** na parte superior direita da página.
+Captura de ecrã seguinte mostra o dashboard numa aplicação criada a partir da **exemplo Contoso** modelo. Para personalizar o dashboard predefinido para a sua aplicação, selecione **editar** na parte superior direita da página.
 
 ![Dashboard de aplicações com base no modelo de "Exemplo Contoso"](media/howto-configure-homepage/image1.png)
 
-Clicar **editar**, abre o painel de biblioteca do dashboard. A biblioteca contém os mosaicos e primitivos de dashboard, que pode utilizar para personalizar o dashboard.
+Selecionando **editar**, abre o painel de biblioteca do dashboard. A biblioteca contém os mosaicos e primitivos de dashboard, que pode utilizar para personalizar o dashboard.
 
 ![Biblioteca do dashboard](media/howto-configure-homepage/image2.png)
 
-Por exemplo, pode adicionar um **as definições e propriedades** mosaico para mostrar uma seleção dos valores de propriedades e definições atuais de um dispositivo. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Depois que fornecem o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. A captura de ecrã a seguir mostra a **definir a temperatura** definição selecionada para adicionar ao mosaico. Clique em **feito** para guardar a alteração ao dashboard.
+Por exemplo, pode adicionar um **as definições e propriedades** mosaico para mostrar uma seleção dos valores de propriedades e definições atuais de um dispositivo. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Depois que fornecem o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. A captura de ecrã a seguir mostra a **definir a temperatura** definição selecionada para adicionar ao mosaico. Selecione **feito** para guardar a alteração ao dashboard.
 
 ![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](media/howto-configure-homepage/image3.png)
 

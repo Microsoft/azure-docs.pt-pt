@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
 ms.date: 01/17/2019
-ms.openlocfilehash: c6d0d2eec61375760ee3dc4e4b100b24cef2b405
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: f27a5b0deb0dd446d4f05b0a6d6e96d67d24d9e9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388790"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316001"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrar o certificado de base de dados do TDE protegido para a instância gerida da base de dados SQL do Azure
 
@@ -35,17 +35,19 @@ Para uma opção alternativa através do serviço completamente gerido para uma 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para executar os passos descritos neste artigo, os seguintes requisitos são necessários:
 
 - Ferramenta de linha de comandos [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) instalada no servidor no local ou noutro computador com acesso ao certificado exportado como um ficheiro. A ferramenta Pvk2Pfx faz parte do [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), um ambiente de linha de comandos autónomo.
 - Versão 5.0 ou posterior do [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) instalada.
-- Módulo do AzureRM PowerShell [instalado e atualizado](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- Versão 4.10.0 ou superior do [módulo do AzureRM.Sql](https://www.powershellgallery.com/packages/AzureRM.Sql).
+- Módulo Azure PowerShell [instalado e atualizado](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- [Módulo de Az.Sql](https://www.powershellgallery.com/packages/Az.Sql).
   Execute os seguintes comandos no PowerShell para instalar/atualizar o módulo do PowerShell:
 
    ```powershell
-   Install-Module -Name AzureRM.Sql
-   Update-Module -Name AzureRM.Sql
+   Install-Module -Name Az.Sql
+   Update-Module -Name Az.Sql
    ```
 
 ## <a name="export-tde-certificate-to-a-personal-information-exchange-pfx-file"></a>Exportar o certificado de TDE para um ficheiro Personal Information Exchange (.pfx)
@@ -116,13 +118,13 @@ Se o certificado estiver no arquivo de certificados do computador local do SQL S
 
    ```powershell
    # Import the module into the PowerShell session
-   Import-Module AzureRM
+   Import-Module Az
    # Connect to Azure with an interactive dialog for sign-in
-   Connect-AzureRmAccount
+   Connect-AzAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
-   Get-AzureRmSubscription
+   Get-AzSubscription
    # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
-   Select-AzureRmSubscription Guid_Subscription_Id
+   Select-AzSubscription Guid_Subscription_Id
    ```
 
 2. Depois de concluir todos os passos de preparação, execute os comandos seguintes para carregar o certificado codificado de base 64 para a Instância Gerida de destino:
@@ -133,7 +135,7 @@ Se o certificado estiver no arquivo de certificados do computador local do SQL S
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-   Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
+   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
 O certificado está agora disponível para a Instância Gerida especificada e a cópia de segurança da base de dados protegida de TDE correspondente pode ser restaurada com êxito.

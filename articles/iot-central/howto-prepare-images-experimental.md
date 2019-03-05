@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b0262ecbcc5a7f512c8779c230b2e2d4bb039842
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 29f838637a3881ab36d6edb58c215a55de422d68
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216684"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315015"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a sua aplicação do Azure IoT Central
 
@@ -74,17 +74,17 @@ Para carregar uma imagem a utilizar no **meus aplicativos** página, navegue par
 
 ![Carregar a imagem de aplicação](media/howto-prepare-images-experimental/uploadapplicationmanager.png)
 
-Clique no mosaico de imagem de aplicação para carregar a sua imagem preparada (268 x 160 px) do seu computador local.
+Selecione o mosaico de imagem de aplicação para carregar a sua imagem preparada (268 x 160 px) do seu computador local.
 
 ### <a name="application-dashboard"></a>Dashboard de aplicações
 
-Para carregar uma imagem no dashboard do aplicativo, navegue para o **Dashboard** página da sua aplicação e clique em **editar**. Tem de ser um construtor para concluir essa tarefa:
+Para carregar uma imagem no dashboard do aplicativo, navegue para o **Dashboard** página da sua aplicação e selecione **editar**. Tem de ser um construtor para concluir essa tarefa:
 
 ![Carregar a imagem do dashboard](media/howto-prepare-images-experimental/uploadhomepage.png)
 
-Na imagem de configurar, clique no mosaico de imagem para carregar a sua imagem preparada do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Em configurar a imagem, selecione o mosaico de imagem para carregar a sua imagem preparada do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
-**Guardar** a imagem carregada. Pode redimensioná-la no modo de edição. Clique em **feito** quando terminar.
+**Guardar** a imagem carregada. Pode redimensioná-la no modo de edição. Selecione **feito** quando terminar.
 
 ### <a name="device-template"></a>Modelo de dispositivos
 
@@ -92,7 +92,7 @@ Para carregar uma imagem num modelo de dispositivo, navegue até **modelos de di
 
 ![Carregar a imagem de modelo do dispositivo](media/howto-prepare-images-experimental/uploaddevicetemplate.png)
 
-Clique no mosaico de imagem para carregar a sua imagem preparada (64 x 64 px) do seu computador local.
+Selecione o mosaico de imagem para carregar a sua imagem preparada (64 x 64 px) do seu computador local.
 
 ### <a name="device-dashboard"></a>Dashboard do dispositivo
 
@@ -100,19 +100,19 @@ Para carregar uma imagem num dashboard do dispositivo, navegue até **modelos de
 
 ![Carregar a imagem do dashboard de dispositivo](media/howto-prepare-images-experimental/uploaddevicedashboard.png)
 
-Em configurar a imagem, clique no mosaico de imagem e, em seguida, escolha o ficheiro para carregar a partir do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Em configurar a imagem, selecione o mosaico de imagem e, em seguida, escolha o ficheiro para carregar a partir do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
-**Guardar** a imagem carregada. Pode redimensionar e reposicionar ele enquanto estiver no modo de edição. Clique em **feito** quando terminar.
+**Guardar** a imagem carregada. Pode redimensionar e reposicionar ele enquanto estiver no modo de edição. Selecione **feito** quando terminar.
 
 ### <a name="device-set-dashboard"></a>Dashboard de conjunto de dispositivos
 
-Para carregar uma imagem num dashboard dispositivos conjunto, navegue até **conjuntos de dispositivo** e escolha o conjunto de dispositivo e, em seguida, um dispositivo. Em seguida, escolha o **Dashboard** página e clique em **editar**:
+Para carregar uma imagem num dashboard dispositivos conjunto, navegue até **conjuntos de dispositivo** e escolha o conjunto de dispositivo e, em seguida, um dispositivo. Em seguida, escolha o **Dashboard** página e selecione **editar**:
 
 ![Carregar a imagem do dashboard de conjunto de dispositivo](media/howto-prepare-images-experimental/uploaddevicesetdashboard.png)
 
-Na imagem de configurar, clique no mosaico de imagem para carregar a sua imagem preparada do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Em configurar a imagem, selecione o mosaico de imagem para carregar a sua imagem preparada do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
-**Guardar** a imagem carregada. Pode redimensionar e reposicionar ele enquanto estiver no modo de edição. Clique em **feito** quando terminar.
+**Guardar** a imagem carregada. Pode redimensionar e reposicionar ele enquanto estiver no modo de edição. Selecione **feito** quando terminar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

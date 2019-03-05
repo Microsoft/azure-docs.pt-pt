@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 1eaafd1817264add9b0231ac85feb9a90fccc325
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9b80222acfc1104c184fc9cfb4711c16e7bb8dd2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216650"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312992"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Obtenha respostas a uma pergunta de uma base de dados de conhecimento com Java
 
@@ -71,6 +71,8 @@ O código a seguir faz um pedido HTTPS para a API do QnA Maker para enviar a per
 [!code-java[Add a POST request to send question to knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to knowledge base")]
 
 O `Authorization` valor do cabeçalho inclui a cadeia de caracteres `EndpointKey `. 
+
+Saiba mais sobre o [solicitação](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 ## <a name="build-and-run-the-program"></a>Compilar e executar o programa
 

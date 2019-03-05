@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 02/11/2019
-ms.openlocfilehash: 32cfb108964d67f865b1d03ffa745eb468feeea7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b537dd8360c39a744cf9963376387a4c89e33838
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110154"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311649"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerir o espaço de ficheiro para bases de dados individuais e agrupados na base de dados do Azure SQL
 
@@ -27,6 +27,8 @@ Este artigo descreve os diferentes tipos de espaço de armazenamento para bases 
 > Este artigo não se aplica à opção de implementação de instância gerida na base de dados do Azure SQL.
 
 ## <a name="overview"></a>Descrição geral
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Com o únicos e em pool bases de dados na base de dados do Azure SQL, existem padrões de carga de trabalho em que a alocação de arquivos de dados subjacentes para bases de dados pode tornar-se maior do que a quantidade de páginas de dados utilizados. Esta condição pode ocorrer se o espaço utilizado aumentar e se os dados forem eliminados subsequentemente. O motivo é que o espaço de ficheiro alocado não será recuperado automaticamente quando os dados serão eliminados.
 
@@ -40,7 +42,7 @@ Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encol
 
 A maioria das métricas de espaço de armazenamento apresentadas no portal do Azure e as seguintes APIs apenas medem o tamanho das páginas de dados utilizados:
 
-- O Azure Resource Manager com base em métricas de APIs incluindo PowerShell [get-métricas](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
+- O Azure Resource Manager com base em métricas de APIs incluindo PowerShell [get-métricas](https://docs.microsoft.com/powershell/module/az.insights/get-azmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 No entanto, as seguintes APIs também medem o tamanho do espaço alocado para bases de dados e elastic pools:
@@ -162,7 +164,7 @@ $userName = "name"
 $password = "password"
 
 # Get list of databases in elastic pool
-$databasesInPool = Get-AzureRmSqlElasticPoolDatabase `
+$databasesInPool = Get-AzSqlElasticPoolDatabase `
     -ResourceGroupName $resourceGroupName `
     -ServerName $serverName `
     -ElasticPoolName $poolName

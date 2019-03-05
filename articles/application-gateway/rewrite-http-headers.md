@@ -7,14 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 176e6804e6c98a1b9e9ffe4af04f02748c80928b
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55103433"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310917"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação (pré-visualização pública)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Cabeçalhos HTTP permitem que o cliente e o servidor passar informações adicionais com o pedido ou a resposta. Reescrever essas ajuda de cabeçalhos HTTP é realizar vários cenários importantes, como adicionar cabeçalho relacionadas à segurança campos como HSTS / X-XSS-proteção ou remover campos de cabeçalho de resposta, que pode revelar informações confidenciais, como o nome do servidor de back-end.
 
@@ -27,7 +29,7 @@ Gateway de aplicação suporta agora a capacidade de reescrita de cabeçalhos de
 Suporte de reescrita de cabeçalho de Gateway de aplicação oferece:
 
 - **Cabeçalho global reescrita**: Pode reescrever cabeçalhos específicos para todos os pedidos e respostas relativas ao site.
-- **Baseado no caminho do cabeçalho reescrita**: este tipo de reescrita permite reescrita de cabeçalho para apenas os pedidos e respostas que dizem respeito a apenas numa área de site específico, por exemplo uma área de carrinho de compras indicado pelos/carrinho / *.
+- **Baseado no caminho do cabeçalho reescrita**: este tipo de reescrita permite reescrita de cabeçalho para apenas os pedidos e respostas que dizem respeito a apenas numa área de site específico, por exemplo uma área de carrinho de compras indicado pelos /cart/\*.
 
 Com esta alteração, terá de:
 
@@ -48,7 +50,7 @@ Pode reescrever o valor nos cabeçalhos para:
   *Exemplo:* 
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
+  $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Strict-Transport-Security" -  HeaderValue "max-age=31536000")
   ```
 
 - Valor do cabeçalho de outro. 
@@ -56,7 +58,7 @@ Pode reescrever o valor nos cabeçalhos para:
   *Exemplo 1:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
+  $requestHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-RequestHeader" -HeaderValue {http_req_oldHeader}
   ```
 
   > [!Note] 
@@ -65,7 +67,7 @@ Pode reescrever o valor nos cabeçalhos para:
   *Exemplo 2*:
 
   ```azurepowershell-interactive
-  $responseHeaderConfiguration= New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
+  $responseHeaderConfiguration= New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-New-ResponseHeader" -HeaderValue {http_resp_oldHeader}
   ```
 
   > [!Note] 
@@ -76,7 +78,7 @@ Pode reescrever o valor nos cabeçalhos para:
   *Exemplo:* 
 
   ```azurepowershell-interactive
-  $requestHeaderConfiguration = New-AzureRmApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
+  $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Ciphers-Used" -HeaderValue "{var_ciphers_used}"
   ```
 
   > [!Note] 

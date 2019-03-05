@@ -12,22 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b94136f063f9d4793ce4c8a03c17454df920af26
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 1da3b71cbb809c92ba3228676f8a47235829b499
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117559"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309541"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Pode automatizar a configuração do [alertas](../../azure-monitor/app/alerts.md) na [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 Além disso, pode [definir webhooks para automatizar a sua resposta a um alerta](../../azure-monitor/platform/alerts-webhooks.md).
 
 > [!NOTE]
 > Se quiser criar alertas e recursos ao mesmo tempo, considere [com um modelo Azure Resource Manager](powershell.md).
->
->
 
 ## <a name="one-time-setup"></a>Configuração de uso individual
 Se ainda não utilizou o PowerShell com a sua subscrição do Azure antes de:
@@ -42,15 +43,15 @@ Inicie o Azure PowerShell e [ligar à sua subscrição](/powershell/azure/overvi
 
 ```PowerShell
 
-    Add-AzureRmAccount
+    Add-AzAccount
 ```
 
 
 ## <a name="get-alerts"></a>Obter alertas
-    Get-AzureRmAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## <a name="add-alert"></a>Adicionar alerta
-    Add-AzureRmMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
+    Add-AzMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
      -MetricName "{METRIC NAME}" `
@@ -69,7 +70,7 @@ Enviar-me e-mail se a resposta do servidor para pedidos HTTP, apresentou uma mé
 
 O GUID é o ID de subscrição (não a chave de instrumentação do aplicativo).
 
-    Add-AzureRmMetricAlertRule -Name "slow responses" `
+    Add-AzMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -83,7 +84,7 @@ O GUID é o ID de subscrição (não a chave de instrumentação do aplicativo).
 ## <a name="example-2"></a>Exemplo 2
 Tenho um aplicativo em que uso [trackmetric ()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) para reportar uma métrica com o nome "salesPerHour." Envie que um e-mail para meus colegas se "salesPerHour" cai abaixo de 100, uma média de mais de 24 horas.
 
-    Add-AzureRmMetricAlertRule -Name "poor sales" `
+    Add-AzMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `

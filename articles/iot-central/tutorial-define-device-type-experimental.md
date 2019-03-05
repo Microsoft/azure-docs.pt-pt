@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 2e3e790ac33f7c93bc5fe6deb705425b0e958def
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 894e4c3fb47a8d936c4e27e2c8c164cc43f3d20e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214499"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317242"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Tutorial: Definir um novo tipo de dispositivo na sua aplicação do Azure IoT Central (design de nova interface do Usuário)
 
@@ -55,7 +55,7 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
 
     ![Introduza a sua conta da organização](./media/tutorial-define-device-type-experimental/sign-in.png)
 
-3. Para começar a criar uma nova aplicação do Azure IoT Central, clique em **nova aplicação**:
+3. Para começar a criar uma nova aplicação do Azure IoT Central, selecione **nova aplicação**:
 
     ![Página do Gestor de Aplicações do Azure IoT Central](./media/tutorial-define-device-type-experimental/iotcentralhome.png)
 
@@ -69,7 +69,7 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
     
     * Opcionalmente, pode escolher um nome de aplicação amigável, como **Ares Condicionados Contoso**. O Azure IoT Central gera um prefixo de URL exclusivo para si. Pode alterar este prefixo de URL para algo mais memorável.
     
-    * Clique em **Criar**.
+    * Selecione **Criar**.
 
     ![Página da Aplicação do Azure IoT Central](./media/tutorial-define-device-type-experimental/iotcentralcreate.png)
 
@@ -79,7 +79,7 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
 
 Como construtor, pode criar e editar os modelos de dispositivos na sua aplicação. Quando cria um modelo de dispositivo, o Azure IoT Central gera um dispositivo simulado a partir do modelo. O dispositivo simulado gera telemetria, que permite que teste o comportamento do seu aplicativo antes de ligar um dispositivo real.
 
-Para adicionar um novo modelo de dispositivo para a sua aplicação, terá de ir para o **modelos de dispositivos** página. Portanto, clique em fazer a **modelos de dispositivos** no menu de navegação esquerdo.
+Para adicionar um novo modelo de dispositivo para a sua aplicação, terá de ir para o **modelos de dispositivos** página. Para o fazer por isso, selecione o **modelos de dispositivos** no menu de navegação esquerdo.
 
 ![Página de modelos de dispositivo](./media/tutorial-define-device-type-experimental/devicetemplates.png)
 
@@ -87,11 +87,11 @@ Para adicionar um novo modelo de dispositivo para a sua aplicação, terá de ir
 
 Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Condicionado Ligado** para dispositivos que enviam telemetria de temperatura para a sua aplicação:
 
-1. Sobre o **modelos de dispositivos** página, clique em **+**:
+1. Sobre o **modelos de dispositivos** página, selecione **+**:
 
     ![Página de modelos de dispositivo, criar modelo de dispositivo](./media/tutorial-define-device-type-experimental/newtemplate.png)
 
-3. Sobre o **modelo de dispositivo personalizado** página, introduza **ligado ar-condicionado** como o nome do seu dispositivo e, em seguida, clique **criar**. Também pode carregar uma imagem do seu dispositivo que está visível para os operadores no explorador do dispositivo:
+3. Sobre o **modelo de dispositivo personalizado** página, introduza **ligado ar-condicionado** como o nome do seu dispositivo e, em seguida, selecione **criar**. Também pode carregar uma imagem do seu dispositivo que está visível para os operadores no explorador do dispositivo:
 
     ![Personalizar Dispositivo](./media/tutorial-define-device-type-experimental/createcustomdevice.png)
 
@@ -112,9 +112,9 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
     ![Medidas do ar condicionado](./media/tutorial-define-device-type-experimental/airconmeasurements.png)
 
     > [!NOTE]
-    > Para alterar o nome do modelo de dispositivo, clique no nome do modelo na parte superior da página.
+    > Para alterar o nome do modelo de dispositivo, selecione o nome do modelo na parte superior da página.
 
-5. Para adicionar a medida de telemetria de temperatura, clique em **+ nova medida**. Em seguida, escolha **Telemetria** como o tipo de medida:
+5. Para adicionar a medida de telemetria de temperatura, selecione **+ nova medida**. Em seguida, escolha **Telemetria** como o tipo de medida:
 
     ![Medidas do dispositivo de ar condicionado ligado](./media/tutorial-define-device-type-experimental/airconmeasurementsnew.png)
 
@@ -137,7 +137,7 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
     | Máx.                  | 110           |
     | Casas decimais       | 0             |
 
-    Também pode escolher uma cor para a apresentação de telemetria. Para guardar a definição de telemetria, clique em **guardar**:
+    Também pode escolher uma cor para a apresentação de telemetria. Para guardar a definição de telemetria, selecione **guardar**:
 
     ![Configurar a simulação de Temperatura](./media/tutorial-define-device-type-experimental/temperaturesimulation.png)
 
@@ -153,7 +153,7 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
 
 Use eventos para definir os dados de ponto no tempo que o dispositivo envia quando existe um evento, como um erro ou de uma falha de componente. O Azure IoT Central pode simular eventos de dispositivos para permitir que teste o comportamento do seu aplicativo antes de ligar um dispositivo real. Definir medidas de eventos para o modelo de dispositivo na **medidas** vista.
 
-1. Para adicionar o **erro de Motor de ventoinha** medição de evento, clique em **+ nova medida**. Em seguida, escolha **Evento** como o tipo de medição:
+1. Para adicionar o **erro de Motor de ventoinha** medição de evento, selecione **+ nova medida**. Em seguida, escolha **Evento** como o tipo de medição:
 
     ![Medidas do dispositivo de ar condicionado ligado](./media/tutorial-define-device-type-experimental/eventnew.png)
 
@@ -173,7 +173,7 @@ Use eventos para definir os dados de ponto no tempo que o dispositivo envia quan
     | Nome do Campo           | fanmotorerr       |
     | Gravidade             | Erro             |
 
-    Para guardar a definição de eventos, clique em **guardar**:
+    Para guardar a definição de eventos, selecione **guardar**:
 
     ![Configurar medição de Eventos](./media/tutorial-define-device-type-experimental/eventconfiguration.png)
 
@@ -181,7 +181,7 @@ Use eventos para definir os dados de ponto no tempo que o dispositivo envia quan
 
     ![Ver simulação do evento](./media/tutorial-define-device-type-experimental/eventview.png)
 
-1. Para ver detalhes adicionais sobre o evento, clique no evento no gráfico:
+1. Para ver detalhes adicionais sobre o evento, selecione o evento no gráfico:
 
     ![Ver Detalhes do Evento](./media/tutorial-define-device-type-experimental/eventviewdetail.png)
 
@@ -189,7 +189,7 @@ Use eventos para definir os dados de ponto no tempo que o dispositivo envia quan
 
 Pode usar o estado para definir e visualizar o estado do dispositivo ou o seu componente durante um período de tempo. O Azure IoT Central pode simular o estado do dispositivo para permitir que teste o comportamento do seu aplicativo antes de ligar um dispositivo real. O utilizador define as medições do estado para o tipo de dispositivo na vista **Medidas**.
 
-1. Para adicionar um **ventoinha modo** medição de estado, clique em **+ nova medida**. Em seguida, escolha **Estado** como o tipo de medição:
+1. Para adicionar um **ventoinha modo** medição do Estado, selecione **+ nova medida**. Em seguida, escolha **Estado** como o tipo de medição:
 
     ![Medidas do estado do dispositivo de ar condicionado ligado](./media/tutorial-define-device-type-experimental/statenew.png)
 
@@ -214,7 +214,7 @@ Pode usar o estado para definir e visualizar o estado do dispositivo ou o seu co
     | Value                | 0                 |
     | Etiqueta de apresentação        | Parada           |
 
-    Para guardar a definição de medição do Estado, clique em **guardar**:
+    Para guardar a definição de medição do Estado, selecione **guardar**:
 
     ![Configurar medição de Estado](./media/tutorial-define-device-type-experimental/stateconfiguration.png)
 
@@ -222,7 +222,7 @@ Pode usar o estado para definir e visualizar o estado do dispositivo ou o seu co
 
     ![Ver simulação do estado](./media/tutorial-define-device-type-experimental/stateview.png)
 
-4. Se existirem demasiados pontos de dados enviados pelo dispositivo dentro de um pequeno período de tempo, a medição de estado é apresentada com um elemento visual diferente. Clique no gráfico para ver que todos os pontos de dados dentro desse período de tempo são apresentados por ordem cronológica. Também pode reduzir o intervalo de tempo para ver as medições mais detalhadamente.
+4. Se existirem demasiados pontos de dados enviados pelo dispositivo dentro de um pequeno período de tempo, a medição de estado é apresentada com um elemento visual diferente. Selecione o gráfico para ver que todos os pontos de dados dentro desse período de tempo são apresentados por ordem cronológica. Também pode reduzir o intervalo de tempo para ver as medições mais detalhadamente.
 
 ## <a name="settings-properties-and-commands"></a>Definições, propriedades e comandos
 
@@ -246,7 +246,7 @@ Utilize *definições* para permitir que um operador envie dados de configuraç�
 
 1. Navegue para o **configurações** separador para sua **ligado ar-condicionado** modelo do dispositivo.
 
-2. Pode criar definições de diferentes tipos, como texto ou números. Clique em **número** para adicionar uma definição de número para o seu dispositivo.
+2. Pode criar definições de diferentes tipos, como texto ou números. Selecione **número** para adicionar uma definição de número para o seu dispositivo.
 
 3. Para configurar a definição de **Definir Temperatura**, utilize as informações na tabela seguinte:
 
@@ -261,7 +261,7 @@ Utilize *definições* para permitir que um operador envie dados de configuraç�
     | Valor Inicial        | 80              |
     | Descrição          | Defina a temperatura de destino para o ar condicionado |
 
-    Em seguida, clique em **guardar**:
+    Em seguida, selecione **guardar**:
 
     ![Configure a definição Definir Temperatura](./media/tutorial-define-device-type-experimental/configuresetting.png)
 
@@ -291,7 +291,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
     ![Configurar as propriedades do dispositivo](./media/tutorial-define-device-type-experimental/configureproperties.png)
 
-    Clique em **Guardar**.
+    Selecione **Guardar**.
 
 1. Para adicionar uma propriedade da data da última assistência ao modelo de dispositivo, escolha **Data**.
 
@@ -306,7 +306,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
     ![Configurar as propriedades do dispositivo](./media/tutorial-define-device-type-experimental/configureproperties2.png)
 
-    Clique em **Guardar**.
+    Selecione **Guardar**.
 
 1. Pode personalizar o layout do **propriedades** separador ao mover e redimensionar mosaicos de propriedade.
 
@@ -323,7 +323,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
     ![Configurar a versão de firmware](./media/tutorial-define-device-type-experimental/configureproperties3.png)
 
-    Clique em **Guardar**.
+    Selecione **Guardar**.
 
 1. Para adicionar uma propriedade de dispositivo, como o número de série, ao modelo de dispositivo, selecione **Propriedade do Dispositivo**.
 
@@ -338,7 +338,7 @@ Utilize *propriedades da aplicação* para armazenar informações sobre o seu d
 
     ![Configurar o número de série](./media/tutorial-define-device-type-experimental/configureproperties4.png)
 
-    Clique em **Guardar**.
+    Selecione **Guardar**.
 
     > [!NOTE]
     > A Propriedade do Dispositivo é enviada do dispositivo para a aplicação. Os valores da versão de firmware e do número de série serão atualizados quando o dispositivo real ligar ao IoT Central.
@@ -349,7 +349,7 @@ Pode utilizar _comandos_ para ativar um operador para executar comandos diretame
 
 1. Navegue para o **comandos** separador para sua **ligado ar-condicionado** modelo de dispositivo para editar o modelo.
 
-1. Clique em **+ novo comando** para adicionar um comando para o seu dispositivo e começar a configurar o seu novo comando.
+1. Selecione **+ novo comando** para adicionar um comando para o seu dispositivo e começar a configurar o seu novo comando.
 
 1. Para configurar o novo comando, utilize as informações na tabela seguinte:
 
@@ -361,11 +361,11 @@ Pode utilizar _comandos_ para ativar um operador para executar comandos diretame
     | Tipo a Apresentar         | texto            |
     | Descrição          | Comando do Dispositivo  |  
 
-    Pode adicionar mais entradas ao comando ao clicar em **+** para **Campos de Entrada**.
+    Pode adicionar entradas adicionais para o comando selecionando **+** para **campos de entrada**.
 
     ![Preparar para adicionar uma definição](./media/tutorial-define-device-type-experimental/commandsecho1.png)
 
-     Clique em **Guardar**.
+     Selecione **Guardar**.
 
 1. Pode personalizar o layout do **comandos** separador ao mover e redimensionar mosaicos de comando.
 
@@ -375,7 +375,7 @@ Agora que definiu sua **ligado ar-condicionado** modelo de dispositivo, pode per
 
 1. Escolha o **Dashboard** separador para sua **ligado ar-condicionado** modelo do dispositivo.
 
-1. Clique em **gráfico de linhas** para adicionar o componente para o **Dashboard**.
+1. Selecione **gráfico de linhas** para adicionar o componente para o **Dashboard**.
 
 1. Configure o componente **Gráfico de Linhas** com as informações na tabela seguinte:
 
@@ -383,23 +383,23 @@ Agora que definiu sua **ligado ar-condicionado** modelo de dispositivo, pode per
     | ------------ | ----------- |
     | Título        | Temperatura |
     | Intervalo de Tempo   | Últimos 30 minutos |
-    | Medidas     | Temperatura (clique em **visibilidade** junto a **temperatura**) |
+    | Medidas     | Temperatura (selecione **visibilidade** junto a **temperatura**) |
 
     ![Definições do gráfico de linhas](./media/tutorial-define-device-type-experimental/linechartsettings.png)
 
-    Em seguida, clique em **Guardar**.
+    Em seguida, selecione **Guardar**.
 
-1. Clique nas **histórico de eventos** componente usando as informações na tabela a seguir:
+1. Selecione o **histórico de eventos** componente usando as informações na tabela a seguir:
 
     | Definição      | Value       |
     | ------------ | ----------- |
     | Título        | Ventoinha eventos de Motor |
     | Intervalo de Tempo   | Últimos 30 minutos |
-    | Medidas     | Ventoinha erro entrar (clique em **visibilidade** junto a **erro de Motor de ventoinha**) |
+    | Medidas     | Ventoinha erro entrar (selecione **visibilidade** junto a **erro de Motor de ventoinha**) |
 
     ![Definições de gráfico do evento](./media/tutorial-define-device-type-experimental/dashboardeventchartsetting.png)
 
-    Em seguida, clique em **Guardar**.
+    Em seguida, selecione **Guardar**.
 
 1. Configure o componente **Histórico de Estado** com as informações na tabela seguinte:
 
@@ -407,13 +407,13 @@ Agora que definiu sua **ligado ar-condicionado** modelo de dispositivo, pode per
     | ------------ | ----------- |
     | Título        | Modo da Ventoinha |
     | Intervalo de Tempo   | Últimos 30 minutos |
-    | Medidas | Ventoinha modo (clique em **visibilidade** junto a **modo ventoinha**) |
+    | Medidas | Ventoinha modo (selecione **visibilidade** junto a **modo ventoinha**) |
 
     ![Definições do gráfico de linhas](./media/tutorial-define-device-type-experimental/dashboardstatechartsetting.png)
 
-    Em seguida, clique em **Guardar**.
+    Em seguida, selecione **Guardar**.
 
-1. Para adicionar as definições de dispositivo e propriedades para o dashboard, escolha **definições e propriedades**. Clique em **Adicionar/Remover** para adicionar as definições ou propriedades que gostaria de ver no dashboard.
+1. Para adicionar as definições de dispositivo e propriedades para o dashboard, escolha **definições e propriedades**. Selecione **Adicionar/remover** para adicionar as definições ou propriedades que gostaria de ver no dashboard.
 
 1. Configure o componente **Definições e Propriedades** com as informações na tabela seguinte:
 
@@ -426,7 +426,7 @@ Agora que definiu sua **ligado ar-condicionado** modelo de dispositivo, pode per
 
     ![Definir as propriedades de temperatura](./media/tutorial-define-device-type-experimental/propertysettings4.png)
 
-    Em seguida, clique em **Guardar**.
+    Em seguida, selecione **Guardar**.
 
 1. Agora, pode ver dados simulados para sua ligado ar-condicionado no dashboard. Pode editar os mosaicos e o esquema do dashboard:
 

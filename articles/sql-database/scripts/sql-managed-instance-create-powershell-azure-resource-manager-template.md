@@ -12,21 +12,22 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/17/2019
-ms.openlocfilehash: bbb22f8d5eab3e60eba13bb642edb8f8d190cf67
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: eeceb72ef73b5bbe241835a70b37255c12fc9eee
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54387948"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311403"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-database-managed-instance"></a>Utilizar o PowerShell com o modelo Azure Resource Manager para criar uma instância de gerida de base de dados do Azure SQL
 
 Instância de gerida de base de dados de SQL do Azure podem ser criada usando a biblioteca do PowerShell do Azure e os modelos Azure Resource Manager. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 5.7.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzureRmAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o módulo do Azure PowerShell versão 5.7.0 ou posterior. Executar `Get-Module -ListAvailable AzureRM` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Connect-AzAccount` para criar uma ligação com o Azure.
 
 Comandos do PowerShell do Azure podem começar a implantação usando o modelo predefinido do Azure Resource Manager. As seguintes propriedades podem ser especificadas no modelo:
 - Nome da Instância
@@ -39,7 +40,7 @@ Nome da instância, o nome de utilizador do administrador do SQL, o VNet/sub-red
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este exemplo pressupõe que tenha [criado um ambiente de rede válido](../sql-database-managed-instance-create-vnet-subnet.md) ou [modificado VNet existente](../sql-database-managed-instance-configure-vnet-subnet.md) da sua instância gerida. Este exemplo utiliza os commandlets [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) e [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) por isso, certifique-se de que tem instalado os módulos do PowerShell seguintes:
+Este exemplo pressupõe que tenha [criado um ambiente de rede válido](../sql-database-managed-instance-create-vnet-subnet.md) ou [modificado VNet existente](../sql-database-managed-instance-configure-vnet-subnet.md) da sua instância gerida. Este exemplo utiliza os commandlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) e [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) por isso, certifique-se de que tem instalado os módulos do PowerShell seguintes:
 
 ```
 Install-Module AzureRM.Network
@@ -103,7 +104,7 @@ Guarde o conteúdo deste ficheiro como ficheiro. JSON e colocar o caminho de fic
 
 ```powershell
 $subscriptionId = "ed827499-xxxx-xxxx-xxxx-xxxxxxxxxx"
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Managed Instance properties
 $resourceGroup = "rg_mi"
@@ -116,12 +117,12 @@ $secpasswd = ConvertTo-SecureString "<Put some strong password here>" -AsPlainTe
 $vNetName = "my_vnet"
 $vNetResourceGroup = "rg_mi_vnet"
 $subnetName = "ManagedInstances"
-$vNet = Get-AzureRmVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGroup
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwork $vNet
+$vNet = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGroup
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwork $vNet
 $subnetId = $subnet.Id
 
 # Deploy Instance using Azure Resource Manager template:
-New-AzureRmResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGroup  `
+New-AzResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGroup  `
                                     -TemplateFile 'C:\...\create-managed-instance.json' `
                                     -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
 ```

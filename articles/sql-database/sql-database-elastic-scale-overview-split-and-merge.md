@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 1d350cae379c5ec790413775138225b60b9c5e32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 195b513d7cc878045449ed137a2ea72f291a9f6e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564940"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308164"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 
@@ -216,12 +216,14 @@ O serviço de divisão / intercalação utiliza o diagnóstico do Azure com base
 
 ## <a name="deploy-diagnostics"></a>Implementar o diagnóstico
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para ativar a monitorização e diagnóstico utilizando a configuração de diagnóstico para as funções web e de trabalho fornecidas pelo pacote NuGet, execute os seguintes comandos com o Azure PowerShell:
 
 ```powershell
     $storage_name = "<YourAzureStorageAccount>"
     $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
+    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
     $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
     $service_name = "<YourCloudServiceName>"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: fe4d332859b3ec0ba03e64f9a830b7710586aa17
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158822"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312496"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Descrição geral da solução do StorSimple Data Manager
 
@@ -68,7 +68,9 @@ Recomendamos que:
  - Sua conta de armazenamento de origem (aquele associados com o dispositivo StorSimple) e a conta de armazenamento de destino (onde pretende que os dados no formato nativo) estar na mesma região do Azure.
  - É apresentada a definição da sua Data Manager e o trabalho na região que contém a conta de armazenamento do StorSimple. Se não for possível, trazer até o Gestor de dados na região do Azure mais próxima e, em seguida, crie a definição de tarefa na mesma região que a sua conta de armazenamento StorSimple. 
 
-    Se a sua conta de armazenamento do StorSimple não está a ser as 26 regiões que suportam a criação da definição de tarefa, recomendamos que não execute StorSimple Data Manager como pode ver latências de tempo e custos de saída potencialmente elevado.
+    Se a sua conta de armazenamento do StorSimple não está a ser as 26 regiões que suportam a criação da definição de tarefa, recomendamos que não execute StorSimple Data Manager como pode ver latências longo e potenciais custos de saída.
+    
+A Microsoft está empenhada garantir que os serviços do Azure estão sempre disponíveis em todas as regiões. No entanto, as falhas de serviço não planeada podem ocorrer por curtos períodos numa determinada região. Nesses casos, pode abrir uma definição de Gestor de dados e a tarefa numa região que não é afetada pela falha e executar a tarefa de transformação. Poderá encontrar alguma latência adicional neste cenário, mas isso pode ser a sua estratégia de recuperação na rara eventualidade de uma falha regional.
 
 ## <a name="security-considerations"></a>Considerações de segurança
 

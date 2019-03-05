@@ -9,15 +9,15 @@ ms.assetid: F4FFAE91-A003-4F7C-8E60-83A142485E28
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 18f915b8dfa8159e100d2708ad6ed9c5cf4eee58
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 78391a9892ff568bfa41b16beb4a5b599ceee6c6
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860801"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337384"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Redimensionar e cortar imagens em miniatura
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 0494e9ef2a4f7adddd615dbf7882c9f2b4b81982
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 5fac49c3c1e99421ec3ff25514950d9b9bc3b0bd
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213216"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314692"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Tutorial: Personalizar a vista do operador do Azure IoT Central (design de nova interface do Usuário)
 
@@ -48,7 +48,7 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     ![Página de modelos de dispositivo](media/tutorial-customize-operator-experimental/devicetemplates.png)
 
-2. Para personalizar o dashboard do dispositivo, clique nas **ligado ar-condicionado (1.0.0)** dispositivos do modelo de dispositivo que criou no [definir um novo tipo de dispositivo na sua aplicação](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) tutorial.
+2. Para personalizar o dashboard do dispositivo, selecione o **ligado ar-condicionado (1.0.0)** dispositivos do modelo de dispositivo que criou no [definir um novo tipo de dispositivo na sua aplicação](tutorial-define-device-type-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) tutorial.
 
 3. Para editar o dashboard, selecione o **Dashboard** separador.
 
@@ -67,7 +67,7 @@ Pode definir as informações que são apresentadas num dashboard do dispositivo
 
     ![Adicionar KPI](media/tutorial-customize-operator-experimental/addkpi.png)
 
-5. Clique em **Guardar**. Agora pode ver o mosaico de KPI no dashboard:
+5. Selecione **Guardar**. Agora pode ver o mosaico de KPI no dashboard:
 
     ![Mosaico de KPI](media/tutorial-customize-operator-experimental/temperaturekpi.png)
 
@@ -101,7 +101,7 @@ Utilizar o **modelos de dispositivos** página para personalizar os separadores 
 
     ![Ver e utilizar o modelo de dispositivo](media/tutorial-customize-operator-experimental/usetemplate.png)
 
-2. Para atualizar a localização deste dispositivo, escolha **propriedades** e edite o valor no mosaico de localização. Em seguida, clique em **guardar**:
+2. Para atualizar a localização deste dispositivo, escolha **propriedades** e edite o valor no mosaico de localização. Em seguida, selecione **guardar**:
 
     ![Editar um valor de propriedade](media/tutorial-customize-operator-experimental/editproperty.png)
 
@@ -122,7 +122,7 @@ Quando um construtor ou o operador inicia sessão a uma aplicação do Azure IoT
 > [!NOTE]
 > Os utilizadores também podem criar seus próprios dashboards pessoais e escolher uma como seu padrão.
 
-1. Para personalizar o dashboard de aplicações predefinido, navegue para o **Dashboard** página e clique em **editar** no canto superior direito da página. É apresentado um painel com uma biblioteca de objetos, que pode adicionar ao dashboard.
+1. Para personalizar o dashboard de aplicações predefinido, navegue para o **Dashboard** página e selecione **editar** no canto superior direito da página. É apresentado um painel com uma biblioteca de objetos, que pode adicionar ao dashboard.
 
     ![Página de dashboard](media/tutorial-customize-operator-experimental/builderhome.png)
 
@@ -133,7 +133,7 @@ Quando um construtor ou o operador inicia sessão a uma aplicação do Azure IoT
     > [!NOTE]
     > Também pode adicionar ligações a páginas na sua aplicação do Azure IoT Central. Por exemplo, pode adicionar uma ligação a um dashboard de dispositivo ou à página de definições.
 
-3. Opcionalmente, escolha **imagem** e carregar uma imagem a apresentar no seu dashboard. Uma imagem pode ter um URL para o qual navega, quando clica nele:
+3. Opcionalmente, escolha **imagem** e carregar uma imagem a apresentar no seu dashboard. Uma imagem pode ter um URL para o qual navega, ao selecioná-lo:
 
     ![Adicionar uma imagem ao dashboard](media/tutorial-customize-operator-experimental/addimage.png)
 
@@ -145,7 +145,7 @@ Para pré-visualizar o dashboard de aplicações como um operador, selecione **f
 
 ![Alternar Modo de Estrutura](media/tutorial-customize-operator-experimental/operatorviewhome.png)
 
-Pode clicar nos mosaicos de ligação e imagem para navegar para os URLs definidos como um construtor.
+Pode selecionar os mosaicos de imagem e ligação para navegar para os URLs que definir como um construtor.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3711f2b2901ddbe49b4d6a49cabef12ac5dab3e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f3c1dae656e91fab91878ca2411f6cad0fc0431
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192477"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315151"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>O que é a gestão de dispositivos no Azure Active Directory?
 
@@ -89,7 +89,7 @@ A **Associação do Azure AD** destina-se a organizações que querem ser “clo
 
 A implementação de dispositivos associados ao Azure AD dá-lhe as seguintes vantagens:
 
-- **Início de Sessão Único (SSO)** nos seus serviços e aplicações SaaS geridos pelo Azure. Os utilizadores não veem avisos de autenticação adicionais quando acedem aos recursos do trabalho. A funcionalidade SSO funciona inclusivamente se não estiverem ligados à rede de domínio disponível.
+- **Início de Sessão Único (SSO)** nos seus serviços e aplicações SaaS geridos pelo Azure. Os utilizadores não veem avisos de autenticação adicionais quando acedem aos recursos do trabalho. A funcionalidade SSO está disponível, mesmo quando os utilizadores não estiverem ligados à rede de domínio.
 
 - **Roaming em conformidade com a empresa** das definições de utilizador em todos os dispositivos associados. Os utilizadores não têm de ligar uma conta Microsoft (por exemplo, do Hotmail) para verem definições em vários dispositivos.
 

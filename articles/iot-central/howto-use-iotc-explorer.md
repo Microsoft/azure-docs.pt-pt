@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 962f394607d20869bf00db624533996b0060eaf2
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 39359054818b81c0f5f2cdc9413ae2a0c1dc8c65
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986309"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310272"
 ---
 # <a name="monitor-device-connectivity-using-the-azure-iot-central-explorer"></a>Monitorizar a conectividade do dispositivo com o Azure IoT Central Explorer
 
@@ -46,10 +46,10 @@ Seguem-se alguns comandos e opções comuns que podem ser executadas ao usar `io
 
 Antes de começar, tem de ter um administrador da sua aplicação do Centro de IoT para obter um token de acesso para utilizar. O administrador utiliza os seguintes passos:
 1. Aceda a **Tokens de acesso deadministração/**. 
-1. Clique em **gerar**.
+1. Selecione **gerar**.
 ![Captura de ecrã de página token de acesso](media/howto-use-iotc-explorer/accesstokenspage.png)
 
-1. Introduza um nome de Token, clique em **próxima**, e **copie o valor de Token**.
+1. Introduza um nome de Token, selecione **próxima**, e **copie o valor de Token**.
     > [!NOTE]
     > O valor do token só será apresentado uma vez, para que ele deve ser copiado antes de fechar a caixa de diálogo. Depois de fechar a caixa de diálogo, ele nunca verá novamente.
 

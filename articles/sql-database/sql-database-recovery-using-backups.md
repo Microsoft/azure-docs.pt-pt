@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 27a8e160fc33729c5b5266dffeb346f0296276fd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b4b514350e36e9fe71e7c5cb5cd978764e0108d5
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005289"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317191"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 
@@ -71,7 +71,7 @@ Não é uma funcionalidade incorporada em massa de restauro. O [base de dados SQ
 
 ## <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
-Pode restaurar uma única, agrupada ou de instância da base de dados para um ponto anterior no tempo como uma nova base de dados no mesmo servidor com o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases). Uma base de dados pode ser restaurada a qualquer camada de serviço ou tamanho de computação. Certifique-se de que tem recursos suficientes no servidor ao qual está a restaurar a base de dados. Depois de concluído, a base de dados restaurada é uma base de dados online, normal e totalmente acessível. A base de dados restaurada é cobrada às tarifas normais com base no respetivo escalão de serviço e o tamanho de computação. Que não incorra em custos até que o restauro de base de dados esteja concluído.
+Pode restaurar uma autónoma, agrupada, ou instância de base de dados para um ponto anterior no tempo como uma nova base de dados no mesmo servidor com o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), ou o [REST API](https://docs.microsoft.com/rest/api/sql/databases). Uma base de dados pode ser restaurada a qualquer camada de serviço ou tamanho de computação. Certifique-se de que tem recursos suficientes no servidor ao qual está a restaurar a base de dados. Depois de concluído, a base de dados restaurada é uma base de dados online, normal e totalmente acessível. A base de dados restaurada é cobrada às tarifas normais com base no respetivo escalão de serviço e o tamanho de computação. Que não incorra em custos até que o restauro de base de dados esteja concluído.
 
 Geralmente, restaurar uma base de dados para um ponto anterior para fins de recuperação. Ao fazê-lo, pode tratar a base de dados restaurada como um substituto para a base de dados original ou utilizá-lo a obter dados a partir e, em seguida, atualizar a base de dados original.
 
@@ -92,7 +92,7 @@ Para recuperar uma única, agrupada, ou de instância da base de dados para um p
 
 ## <a name="deleted-database-restore"></a>Restauro de base de dados eliminada
 
-Pode restaurar uma base de dados eliminada para a hora de eliminação de uma base de dados eliminada no mesmo servidor de base de dados SQL com o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), ou o [REST (createMode = restaurar)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Pode [restauro eliminado a base de dados na instância gerida com o PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). Pode restaurar uma base de dados eliminada para um ponto anterior no tempo durante a utilização de retenção [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+Pode restaurar uma base de dados eliminada para a hora de eliminação de uma base de dados eliminada no mesmo servidor de base de dados SQL com o portal do Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), ou o [REST (createMode = restaurar)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Pode [restauro eliminado a base de dados na instância gerida com o PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). Pode restaurar uma base de dados eliminada para um ponto anterior no tempo durante a utilização de retenção [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
 
 > [!TIP]
 > Para um script do PowerShell de exemplo que mostra como restaurar uma base de dados eliminada, consulte [restaurar uma base de dados SQL com o PowerShell](scripts/sql-database-restore-database-powershell.md).
@@ -139,19 +139,21 @@ Como foi discutido anteriormente, além de portal do Azure, a recuperação de b
 
 ### <a name="powershell"></a>PowerShell
 
-- Para restaurar uma base de dados individual ou agrupada, consulte [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase)
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Para restaurar um autónoma ou de bases de dados agrupadas, consulte [AzSqlDatabase de restauro](https://docs.microsoft.com/powershell/module/az.sql/restore-azurermsqldatabase)
 
   | Cmdlet | Descrição |
   | --- | --- |
-  | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) |Obtém uma ou mais bases de dados. |
-  | [Get-AzureRMSqlDeletedDatabaseBackup](/powershell/module/azurerm.sql/get-azurermsqldeleteddatabasebackup) | Obtém uma base de dados eliminada que pode restaurar. |
-  | [Get-AzureRmSqlDatabaseGeoBackup](/powershell/module/azurerm.sql/get-azurermsqldatabasegeobackup) |Obtém uma cópia de segurança georredundante de uma base de dados. |
-  | [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) |Restaura uma base de dados SQL. |
+  | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |Obtém uma ou mais bases de dados. |
+  | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | Obtém uma base de dados eliminada que pode restaurar. |
+  | [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) |Obtém uma cópia de segurança georredundante de uma base de dados. |
+  | [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) |Restaura uma base de dados SQL. |
 
   > [!TIP]
   > Para um script do PowerShell de exemplo que mostra como executar um restauro de ponto no tempo de uma base de dados, consulte [restaurar uma base de dados SQL com o PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-- Para restaurar uma base de dados de instância gerida, consulte [restaurodepontonotempodade uma base de dados do Azure instância gerida SQL biblioteca do PowerShell do azurerm. SQL](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/)
+- Para restaurar uma base de dados de instância gerida, consulte [restaurodepontonotempodade uma base de dados do Azure instância gerida SQL biblioteca do PowerShell do azurerm. SQL](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-Az-sql-powershell-library/)
 
 ### <a name="rest-api"></a>API REST
 

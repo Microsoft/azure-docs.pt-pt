@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55a7a26815dac1140d100c05a47057f8d5000f9d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465246"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317820"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Começar com as funções, permissões e segurança com o Azure Monitor
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Muitas equipes precisam estritamente regular o acesso aos dados e definições de monitorização. Por exemplo, se tiver os membros da Equipe que trabalham exclusivamente em monitorização (engenheiros de suporte, engenheiros de devops) ou se usar um provedor de serviço gerida, pode querer lhes conceder acesso a dados de monitorização apenas ao restringir a capacidade de criar, modificar, ou Elimine recursos. Este artigo mostra como aplicar uma função de monitorização incorporada RBAC a um utilizador no Azure ou criar sua própria função personalizada para um utilizador que tem permissões de monitorização limitadas rapidamente. Em seguida, ele aborda considerações de segurança dos seus recursos relacionados com o Azure Monitor e a forma como pode limitar o acesso aos dados que contêm.
 
 ## <a name="built-in-monitoring-roles"></a>Funções de monitorização incorporadas
@@ -49,8 +52,8 @@ As pessoas atribuídas a função de leitor de monitorização podem ver todos o
 As pessoas atribuídas a função de Contribuidor de monitorização podem ver todos os dados de monitorização numa subscrição e criar ou modificar definições de monitorização, mas não é possível modificar quaisquer outros recursos. Esta função é um superconjunto da função do leitor de monitorização e é adequada para os membros da equipe de monitorização ou fornecedores de serviços geridos que, além das permissões acima, também tem de ser capaz de uma organização:
 
 * Publica dashboards de monitorização como um dashboard partilhado.
-* Definir [das definições de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) para um resource.*
-* Definir o [perfil de registo](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) para uma subscrição. *
+* Definir [das definições de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) para um recurso.\*
+* Definir o [perfil de registo](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) para uma subscrição.\*
 * Defina a atividade de regras de alerta e definições através de [alertas do Azure](../../azure-monitor/platform/alerts-overview.md).
 * Crie testes web do Application Insights e componentes.
 * Listar chaves partilhada da área de trabalho de Log Analytics.
@@ -58,7 +61,7 @@ As pessoas atribuídas a função de Contribuidor de monitorização podem ver t
 * Crie e elimine e executar pesquisas guardadas do Log Analytics.
 * Criar e eliminar a configuração de armazenamento do Log Analytics.
 
-* tem também separadamente ser concedido ao utilizador permissão de ListKeys no recurso de destino (armazenamento conta ou event hub namespace) para definir um perfil de registo ou a definição de diagnóstico.
+\*tem também separadamente ser concedido ao utilizador permissão de ListKeys no recurso de destino (armazenamento conta ou event hub namespace) para definir um perfil de registo ou a definição de diagnóstico.
 
 > [!NOTE]
 > Esta função não dá acesso de leitura para dados de registo que foi transmitidos para um hub de eventos ou armazenados numa conta de armazenamento. [Veja a seguir](#security-considerations-for-monitoring-data) para obter informações sobre como configurar o acesso a esses recursos.
@@ -98,7 +101,7 @@ Se as funções incorporadas acima não atenderem às necessidades exatas de sua
 Por exemplo, utilizando a tabela acima, pode criar uma função RBAC personalizada para um "leitor do registo de atividade" como este:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Activity Log Reader"
 $role.Description = "Can view activity logs."
@@ -106,7 +109,7 @@ $role.Actions.Clear()
 $role.Actions.Add("Microsoft.Insights/eventtypes/*")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 ## <a name="security-considerations-for-monitoring-data"></a>Considerações de segurança para dados de monitorização
@@ -127,8 +130,8 @@ Três desses tipos de dados podem ser armazenados numa conta de armazenamento ou
 Quando um utilizador ou aplicação precisa de aceder a dados numa conta de armazenamento de monitorização, deve [gerar uma SAS de conta](https://msdn.microsoft.com/library/azure/mt584140.aspx) na conta de armazenamento que contém dados de monitorização com o nível de serviço acesso só de leitura para o armazenamento de Blobs. No PowerShell, como seria o resultado:
 
 ```powershell
-$context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
-$token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
+$context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
+$token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
 Pode fornecer o token para a entidade que precisam para ler a partir do que o armazenamento conta e ele pode listar e ler a partir de todos os blobs nessa conta de armazenamento.
@@ -136,7 +139,7 @@ Pode fornecer o token para a entidade que precisam para ler a partir do que o ar
 Em alternativa, se precisar de controlar esta permissão com o RBAC, pode conceder essa entidade a permissão de Microsoft.Storage/storageAccounts/listkeys/action nessa conta de armazenamento específico. Isso é necessário para os utilizadores que têm de ser capaz de configurar uma definição de diagnóstico ou iniciar perfil para arquivar numa conta de armazenamento. Por exemplo, pode criar a seguinte função RBAC personalizada para um usuário ou aplicativo que precisa apenas ler a partir de uma conta de armazenamento:
 
 ```powershell
-$role = Get-AzureRmRoleDefinition "Reader"
+$role = Get-AzRoleDefinition "Reader"
 $role.Id = $null
 $role.Name = "Monitoring Storage Account Reader"
 $role.Description = "Can get the storage account keys for a monitoring storage account."
@@ -145,7 +148,7 @@ $role.Actions.Add("Microsoft.Storage/storageAccounts/listkeys/action")
 $role.Actions.Add("Microsoft.Storage/storageAccounts/Read")
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myMonitoringStorageAccount")
-New-AzureRmRoleDefinition -Role $role 
+New-AzRoleDefinition -Role $role 
 ```
 
 > [!WARNING]
@@ -160,7 +163,7 @@ Pode ser seguido de um padrão semelhante com os hubs de eventos, mas primeiro t
 2. Se o consumidor tem de ser capaz de obter o chave ad-hoc, conceda ao utilizador a ação de ListKeys para esse hub de eventos. Isso também é necessário para os utilizadores que têm de ser capaz de configurar uma definição de diagnóstico ou perfil de registo para o stream para os hubs de eventos. Por exemplo, pode criar uma regra RBAC:
    
    ```powershell
-   $role = Get-AzureRmRoleDefinition "Reader"
+   $role = Get-AzRoleDefinition "Reader"
    $role.Id = $null
    $role.Name = "Monitoring Event Hub Listener"
    $role.Description = "Can get the key to listen to an event hub streaming monitoring data."
@@ -169,7 +172,7 @@ Pode ser seguido de um padrão semelhante com os hubs de eventos, mas primeiro t
    $role.Actions.Add("Microsoft.ServiceBus/namespaces/Read")
    $role.AssignableScopes.Clear()
    $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResourceGroup/providers/Microsoft.ServiceBus/namespaces/mySBNameSpace")
-   New-AzureRmRoleDefinition -Role $role 
+   New-AzRoleDefinition -Role $role 
    ```
 
 ## <a name="monitoring-within-a-secured-virtual-network"></a>Monitorização dentro de uma rede Virtual protegida

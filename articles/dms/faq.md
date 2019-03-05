@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/05/2019
+ms.openlocfilehash: 99200e521ea844d20ef00ef70ad65ac0ab3bcddd
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714700"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337299"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sobre como utilizar o serviço de migração de base de dados do Azure
 Este artigo apresenta uma lista de perguntas frequentes sobre como utilizar o serviço de migração de base de dados do Azure em conjunto com respostas relacionadas.
@@ -90,7 +90,7 @@ Enquanto vários tutoriais de Microsoft que podem ajudá-lo pelo processo de con
 Se o utilizador explicitamente para o Azure Database Migration Service (DMS) ou se o serviço estiver inativo durante um período de 24 horas, o serviço será numa parada ou automaticamente o estado em pausa. Em cada caso, o serviço estará disponível e num estado parado.  Para retomar as migrações de Active Directory, reinicie o serviço.
 
 ### <a name="q-where-can-i-leave-feedback-about-the-azure-database-migration-service"></a>P. Em que pode deixar os comentários sobre o serviço de migração de base de dados do Azure?
-Queremos a sua opinião. Envie quaisquer comentários e / ideias ter sobre o serviço de migração de base de dados do Azure através de voz do utilizador, [aqui](https://feedback.azure.com/forums/906100-azure-database-migration-service).
+Queremos a sua opinião. Envie quaisquer comentários e / ideias ter sobre o serviço de migração de base de dados do Azure através de voz do utilizador, [aqui](https://feedback.azure.com/forums/906100-azure-database-migration-service), ou contacte a equipa através de [faça migrações de base de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para uma descrição geral do serviço de migração de base de dados do Azure e a disponibilidade regional, consulte o artigo [o que é o Azure Database Migration Service](dms-overview.md). 

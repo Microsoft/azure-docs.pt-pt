@@ -13,14 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 82ce7c4d61870a10daad22c61759084c75c3aae6
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 651ae8ae8640a23ecaac734670e97678fe20c64c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318853"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314284"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Criar aplicação Web do Service Manager utilizando o script automatizado
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Utilize o seguinte script para criar a aplicação Web para a sua instância do Service Manager. Obter mais informações sobre a ligação do Service Manager estão aqui: [Aplicação Web do Service Manager](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
@@ -126,18 +128,18 @@ if(!$siteNamePrefix)
     $siteNamePrefix = "smoc"
 }
 
-Connect-AzureRmAccount
+Connect-AzAccount
 
-$context = Set-AzureRmContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
+$context = Set-AzContext -SubscriptionName $azureSubscriptionName -WarningAction SilentlyContinue
 
-$resourceProvider = Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+$resourceProvider = Get-AzResourceProvider -ProviderNamespace Microsoft.Web
 
 if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered")
 {
     try
     {
         Write-Host "Registering Microsoft.Web Resource Provider"
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Web
+        Register-AzResourceProvider -ProviderNamespace Microsoft.Web
     }
     catch
     {
@@ -151,7 +153,7 @@ do
 
     $siteName = $siteNamePrefix + $rand
 
-    $resource = Find-AzureRmResource -ResourceNameContains $siteName -ResourceType Microsoft.Web/sites
+    $resource = Find-AzResource -ResourceNameContains $siteName -ResourceType Microsoft.Web/sites
 
 }while($resource)
 
@@ -172,16 +174,16 @@ if(!$tenant)
 }
 try
 {
-    Get-AzureRmResourceGroup -Name $resourceGroupName
+    Get-AzResourceGroup -Name $resourceGroupName
 }
 catch
 {
-    New-AzureRmResourceGroup -Location $location -Name $resourceGroupName
+    New-AzResourceGroup -Location $location -Name $resourceGroupName
 }
 
 Write-Output "Web App Deployment in progress...."
 
-New-AzureRmResourceGroupDeployment -TemplateUri $templateUri -siteName $siteName -ResourceGroupName $resourceGroupName
+New-AzResourceGroupDeployment -TemplateUri $templateUri -siteName $siteName -ResourceGroupName $resourceGroupName
 
 Write-Output "Web App Deployed successfully!!"
 
@@ -199,14 +201,14 @@ try
 
     Write-Host "Creating AzureAD application..."
 
-    $adApp = New-AzureRmADApplication -DisplayName $siteName -HomePage $azureSite -IdentifierUris $azureSite -Password $clientSecret
+    $adApp = New-AzADApplication -DisplayName $siteName -HomePage $azureSite -IdentifierUris $azureSite -Password $clientSecret
 
     Write-Host "AzureAD application created successfully!!"
 }
 catch
 {
     # Delete the deployed web app if Azure AD application fails
-    Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
+    Remove-AzResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
     Write-Host "Failure occurred in Azure AD application....Try again!!"
 
@@ -216,7 +218,7 @@ catch
 
 $clientId = $adApp.ApplicationId
 
-$servicePrincipal = New-AzureRmADServicePrincipal -ApplicationId $clientId
+$servicePrincipal = New-AzADServicePrincipal -ApplicationId $clientId
 
 # Web App Configuration
 #######################
@@ -224,7 +226,7 @@ try
 {
 
     Write-Host "Configuring deployed Web-App..."
-    $webApp = Get-AzureRMWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -Slot production -WarningAction SilentlyContinue
+    $webApp = Get-AzWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -Slot production -WarningAction SilentlyContinue
 
     $appSettingList = $webApp.SiteConfig.AppSettings
 
@@ -242,7 +244,7 @@ try
     $kvp = @{"Type"="Custom"; "Value"=$password}
     $connStrings['ida:Password'] = $kvp
 
-    Set-AzureRMWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -AppSettings $appSettings -ConnectionStrings $connStrings -Slot production -WarningAction SilentlyContinue
+    Set-AzWebAppSlot -ResourceGroupName $resourceGroupName -Name $siteName -AppSettings $appSettings -ConnectionStrings $connStrings -Slot production -WarningAction SilentlyContinue
 
 }
 catch
@@ -250,10 +252,10 @@ catch
     Write-Host "Web App configuration failed. Please ensure all values are provided in Service Manager Authentication Settings in User Configuration Section"
 
     # Delete the AzureRm AD Application if configuration fails
-    Remove-AzureRmADApplication -ObjectId $adApp.ObjectId -Force
+    Remove-AzADApplication -ObjectId $adApp.ObjectId -Force
 
     # Delete the deployed web app if configuration fails
-    Remove-AzureRmResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
+    Remove-AzResource -ResourceGroupName $resourceGroupName -ResourceName $siteName -ResourceType Microsoft.Web/sites -Force
 
     exit
 }
@@ -267,14 +269,14 @@ if(!$serviceName)
     $serviceName = $siteName + "sbn"
 }
 
-$resourceProvider = Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Relay
+$resourceProvider = Get-AzResourceProvider -ProviderNamespace Microsoft.Relay
 
 if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered")
 {
     try
     {
         Write-Host "Registering Microsoft.Relay Resource Provider"
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Relay
+        Register-AzResourceProvider -ProviderNamespace Microsoft.Relay
     }
     catch
     {
@@ -282,7 +284,7 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
     }   
 }
 
-$resource = Find-AzureRmResource -ResourceNameContains $serviceName -ResourceType Microsoft.Relay/namespaces
+$resource = Find-AzResource -ResourceNameContains $serviceName -ResourceType Microsoft.Relay/namespaces
 
 if(!$resource)
 {
@@ -297,7 +299,7 @@ if(!$resource)
     try
     {
         Write-Host "Creating Service Bus namespace..."
-        New-AzureRmResource -ResourceName $serviceName -Location $location -PropertyObject $properties -ResourceGroupName $resourceGroupName -ResourceType Microsoft.Relay/namespaces -ApiVersion 2016-07-01 -Force
+        New-AzResource -ResourceName $serviceName -Location $location -PropertyObject $properties -ResourceGroupName $resourceGroupName -ResourceType Microsoft.Relay/namespaces -ApiVersion 2016-07-01 -Force
     }
     catch
     {

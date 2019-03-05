@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: e55d0e1566edf8f9d969a16d0ae558b9831920e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 18ec59200d3cf820794ac353e38106ad26aca697
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867703"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337249"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Códigos de resposta de API comuns e o respetivo significado
 

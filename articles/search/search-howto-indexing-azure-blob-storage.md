@@ -1,7 +1,7 @@
 ---
 title: Indexar conteúdo de armazenamento de Blobs do Azure para pesquisa em texto completo - Azure Search
 description: Saiba como indexar o Blob Storage do Azure e extrair texto de documentos com o Azure Search.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 56afc933eff2e06df270b17403b767ebaddd4154
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873003"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310884"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexar documentos no armazenamento de Blobs do Azure com o Azure Search
 Este artigo mostra como utilizar o Azure Search para documentos de índice (como PDFs, documentos do Microsoft Office e diversos outros formatos comuns) armazenados no armazenamento de Blobs do Azure. Em primeiro lugar, ele explica as noções básicas de definir e configurar um indexador de Blobs. Em seguida, ele oferece uma discussão mais aprofundada dos comportamentos e cenários que tem probabilidade de encontrar.
@@ -68,7 +68,7 @@ Para saber mais sobre a API de origem de dados criar, ver [criar origem de dados
 
 Pode fornecer as credenciais para o contentor de BLOBs de uma das seguintes formas:
 
-- **Cadeia de ligação da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`. Pode obter a cadeia de ligação do portal do Azure ao navegar para o painel de conta de armazenamento > Definições > chaves (para contas de armazenamento clássico) ou definições > chaves (para contas de armazenamento do Azure Resource Manager) de acesso.
+- **Cadeia de ligação da conta de armazenamento de acesso total**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Pode obter a cadeia de ligação do portal do Azure ao navegar para o painel de conta de armazenamento > Definições > chaves (para contas de armazenamento clássico) ou definições > chaves (para contas de armazenamento do Azure Resource Manager) de acesso.
 - **Assinatura de acesso partilhado de conta de armazenamento** cadeia de ligação (SAS): `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` A SAS devem ter a lista e permissões de leitura no contentores e objetos (blobs neste caso).
 -  **Assinatura de acesso partilhado do contentor**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` A SAS devem ter a lista e permissões de leitura no contentor.
 

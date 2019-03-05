@@ -57,7 +57,7 @@ items:
     - name: Modelo de estrutura de ficheiros
       href: resource-group-authoring-templates.md
     - name: Parâmetros
-      href: resource-manager-templates-parameters.md
+      href: resource-group-authoring-templates.md#parameters
     - name: Variáveis
       href: resource-group-authoring-templates.md#variables
     - name: Funções
@@ -260,9 +260,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: cb2e9b6d12acfb6fff514fc5e2603d9531acd76f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 60d7bdba8bcaedd229a3ad1170b88906383fb74e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241687"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311666"

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
-ms.openlocfilehash: 5a6f8328f6809a20b821f5b72106fa48fabf0e91
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755157"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316494"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Ligar à base de dados SQL com C e C++
 
@@ -37,7 +37,7 @@ SQL do Azure baseia-se no Microsoft SQL Server e foi concebido para fornecer uma
 O Azure tem atualmente duas opções para alojar cargas de trabalho do SQL server: SQL database do Azure, base de dados como um serviço e o SQL server em máquinas virtuais (VM). Não Abordaremos em detalhes sobre as diferenças entre estes dois exceto pelo fato de base de dados SQL do Azure é sua melhor opção para novas aplicações com base na cloud tirar partido das reduções de custos e otimização de desempenho que os serviços em nuvem proporcionam. Se estiver a considerar migrar ou expandir as suas aplicações no local para a cloud, o SQL server em máquinas virtuais do Azure pode funcionar melhor para. Para simplificar as coisas para este artigo, vamos criar uma base de dados SQL do Azure.
 
 ## <a id="ODBC"></a>Tecnologias de acesso de dados: ODBC e OLE DB
-Ligar-se a BD SQL do Azure não é diferente e, atualmente, existem duas formas de ligar a bases de dados: ODBC (Open Database connectivity) e OLE DB (objeto de ligação e incorporar da base de dados). Nos últimos anos, a Microsoft tem alinhado com [ODBC para acesso a dados relacionais](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC é relativamente simples e também muito mais rápida do que o OLE DB. A única limitação aqui é que o ODBC a usar uma antiga API em estilo C.
+Ligar-se a BD SQL do Azure não é diferente e, atualmente, existem duas formas de ligar a bases de dados: ODBC (Open Database connectivity) e OLE DB (objeto de ligação e incorporar da base de dados). Nos últimos anos, a Microsoft tem alinhado com [ODBC para acesso a dados relacionais](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC é relativamente simples e também muito mais rápida do que o OLE DB. A única limitação aqui é que o ODBC a usar uma antiga API em estilo C.
 
 ## <a id="Create"></a>Passo 1:  Criar base de dados SQL do Azure
 Consulte a [página de introdução](sql-database-single-database-get-started.md) para saber como criar uma base de dados de exemplo.  Em alternativa, pode seguir esta [breve vídeo de dois minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para criar uma base de dados SQL do Azure no portal do Azure.
@@ -78,7 +78,7 @@ Em alternativa, pode criar um ficheiro DSN com o assistente que é iniciado quan
 Parabéns! Agora ligou com êxito para o Azure SQL com o C++ e ODBC no Windows. Pode continuar a ler este artigo para fazer o mesmo para também a plataforma Linux.
 
 ## <a id="Linux"></a>Passo 5: Ligar a partir de um aplicativo Linux C/C++
-Caso ainda não conhece a notícia ainda, o Visual Studio agora permite-lhe desenvolver aplicações do Linux de C++ também. Pode ler sobre este cenário de novo no [Visual C++ para desenvolvimento no Linux](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) blog. Para criar para Linux, tem de um computador remoto onde sua distribuição de Linux está em execução. Se não tiver uma disponível, pode definir um rapidamente usando [máquinas virtuais do Linux do Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Caso ainda não conhece a notícia ainda, o Visual Studio agora permite-lhe desenvolver aplicações do Linux de C++ também. Pode ler sobre este cenário de novo no [Visual C++ para desenvolvimento no Linux](https://blogs.msdn.microsoft.com/vcblog/20../../visual-c-for-linux-development/) blog. Para criar para Linux, tem de um computador remoto onde sua distribuição de Linux está em execução. Se não tiver uma disponível, pode definir um rapidamente usando [máquinas virtuais do Linux do Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Para este tutorial, vamos assuma que tem uma distribuição de Linux do Ubuntu 16.04 configurar. Os passos aqui também devem aplicar Ubuntu 15.10, Red Hat 6 e 7 do Red Hat.
 

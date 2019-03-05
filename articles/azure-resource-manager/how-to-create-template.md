@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: a802b12f34c5fe16202f55416a698823e55c01bb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 67ea9ece7ba0c71484e9117db13fd2c708d87baf
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245903"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312873"
 ---
 # <a name="create-azure-resource-manager-template"></a>Criar o modelo Azure Resource Manager
 
@@ -38,7 +38,7 @@ Para obter um tutorial de instalar a extensão de ferramentas do Resource Manage
 
 Vamos examinar as partes do modelo para compreender como funciona o modelo. O modelo poderá não ter cada secção. As secções a que se pretender focar-se no são:
 
-* O [parâmetros](resource-manager-templates-parameters.md) seção, que mostra os valores que pode especificar durante a implementação para personalizar a infraestrutura que é implementada. 
+* O [parâmetros](resource-group-authoring-templates.md#parameters) seção, que mostra os valores que pode especificar durante a implementação para personalizar a infraestrutura que é implementada. 
 
 * O [variáveis](resource-group-authoring-templates.md#variables) seção, que mostra os valores que são utilizados em todo o modelo.
 

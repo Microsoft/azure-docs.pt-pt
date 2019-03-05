@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: c62581447cd395bd48a787fa7dc89659d5172486
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a1071bb690fc5714890116c757c3036916bf1700
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192250"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314100"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiar ou clonar uma fábrica de dados no Azure Data Factory
 
@@ -35,6 +35,8 @@ Aqui estão algumas das circunstâncias em que talvez ache útil para copiar ou 
 1. IU do Data Factory no portal do Azure permite-lhe exportar a carga inteira fábrica de dados num modelo do Resource Manager, juntamente com um ficheiro de parâmetros que lhe permite alterar quaisquer valores que pretende alterar quando clona sua fábrica.
 
 1. Como pré-requisito, tem de criar a fábrica de dados de destino do portal do Azure.
+
+1. Se tiver um SelfHosted IntegrationRuntime na sua fábrica de origem, terá de precreate-lo com o mesmo nome da fábrica de destino. Se pretender partilhar IRs SelfHosted entre alocadores diferentes, pode usar o padrão publicado [aqui](author-visually.md#best-practices-for-git-integration).
 
 1. Se estiver no modo GIT, sempre que publicar a partir do portal, o modelo do Resource Manager de fábrica é guardado no GIT no ramo adf_publish do repositório.
 

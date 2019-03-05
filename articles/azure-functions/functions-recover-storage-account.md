@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732163"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311904"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Como resolver problemas de "o runtime das funções não está acessível"
 
@@ -66,7 +66,7 @@ No passo anterior, se não tinha uma cadeia de ligação de conta de armazenamen
 ### <a name="guidance"></a>Orientação
 
 * Não verifica "definição de ranhura" para qualquer uma destas definições. Quando trocar as ranhuras de implementação a função será interrompida.
-* Não defina estas definições ao utilizar implementações automatizadas.
+* Não modifique estas definições como parte de Implantações automatizadas.
 * Estas definições tem de ser fornecido e válido no momento da criação. Uma implementação automatizada que não contenha estas definições resultará num aplicativo não funcional, mesmo que as definições são adicionadas após o fato.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenciais da conta de armazenamento inválidas

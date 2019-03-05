@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5d9952581049198131e30cd7d0ba0ebf6a14cc54
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 852f181ff0bb84bc3bcdb6d674ecf72eca900d7d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098873"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312584"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referência da API gerida para instâncias geridas da base de dados SQL do Azure
 
@@ -29,21 +29,23 @@ Para um início rápido mostra-lhe como criar uma instância de gerida de base d
 
 ## <a name="powershell-create-and-manage-managed-instances"></a>PowerShell: Criar e gerir instâncias geridas
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para criar e gerir instâncias geridas com o Azure PowerShell, utilize os seguintes cmdlets do PowerShell. Se precisar de instalar ou atualizar o PowerShell, veja [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> Para scripts de exemplo do PowerShell, consulte [script de início rápido: Criar instância de gerida de SQL em Azure usando a biblioteca do PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/).
+> Para scripts de exemplo do PowerShell, consulte [script de início rápido: Criar instância de gerida de SQL em Azure usando a biblioteca do PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/).
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[New-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Cria uma instância gerida de base de dados SQL do Azure |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Devolve informações sobre a instância gerida do SQL do Azure|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Define as propriedades para uma instância de gerida de base de dados do Azure SQL|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Remove uma instância de base de dados SQL do Azure|
-|[New-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Cria uma base de dados de instância gerida da base de dados SQL do Azure|
-|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Devolve informações sobre a base de dados de instância gerida do SQL do Azure|
-|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Remove uma base de dados de instância de base de dados gerida do Azure SQL|
-|[Restore-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Restaura uma base de dados de instância de base de dados gerida do Azure SQL|
+|[New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)|Cria uma instância gerida de base de dados SQL do Azure |
+|[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Devolve informações sobre a instância gerida do SQL do Azure|
+|[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Define as propriedades para uma instância de gerida de base de dados do Azure SQL|
+|[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Remove uma instância de base de dados SQL do Azure|
+|[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Cria uma base de dados de instância gerida da base de dados SQL do Azure|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Devolve informações sobre a base de dados de instância gerida do SQL do Azure|
+|[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Remove uma base de dados de instância de base de dados gerida do Azure SQL|
+|[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Restaura uma base de dados de instância de base de dados gerida do Azure SQL|
 
 ## <a name="azure-cli-create-and-manage-managed-instances"></a>CLI do Azure: Criar e gerir instâncias geridas
 

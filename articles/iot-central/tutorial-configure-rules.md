@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d7269f61579ce1ffd9a686634effd153837a2f25
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: f6016d594e4d4c869c5b45275c4c0200f7769724
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662994"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317565"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutorial: Configurar regras e ações para o seu dispositivo no Azure IoT Central
 
@@ -46,11 +46,11 @@ Antes de começar, deve concluir o tutorial [Definir um novo tipo de dispositivo
 
     ![Página do dispositivo de ar condicionado ligado](media/tutorial-configure-rules/builderdevicelist1.png)
 
-3. Para começar a adicionar uma regra na vista **Regras**, selecione **Regras** e, em seguida, clique em **Editar Modelo**:
+3. Para começar a adicionar uma regra no **regras** ver, escolha **regras** e, em seguida, selecione **Editar modelo**:
 
     ![Vista de regras](media/tutorial-configure-rules/builderedittemplate.png)
 
-4. Para criar uma regra de telemetria baseada em limiares, clique em **Nova Regra** e, em seguida, **Telemetria**.
+4. Para criar uma regra de telemetria baseados no limiar, selecione **nova regra**e, em seguida **telemetria**.
 
     ![Editar Modelo](media/tutorial-configure-rules/buildernewrule.png)
 

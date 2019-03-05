@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: a03770f58f057fe7cbc2601e400b678c60a19cad
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 6fa22d57a693a9d3dceee5f697f3f4d2eb0e394c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217109"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309660"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Obtenha respostas a uma pergunta de uma base de dados de conhecimento comC#
 
@@ -58,6 +58,8 @@ O código a seguir faz um pedido HTTPS para a API do QnA Maker para enviar a per
 [!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
 
 O `Authorization` valor do cabeçalho inclui a cadeia de caracteres `EndpointKey `. 
+
+Saiba mais sobre o [solicitação](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e [resposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response). 
 
 ## <a name="build-and-run-the-program"></a>Compilar e executar o programa
 
