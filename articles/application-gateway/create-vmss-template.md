@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0f3bdaaa038dcd0ef2a0ad6466cbb7a09ec7c2bc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037417"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312448"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicação com o modelo Azure Resource Manager
 
@@ -27,6 +27,8 @@ O Application Gateway do Azure é um balanceador de carga de 7 camadas. Fornece 
 Este artigo orienta a transferir e modificar um existente [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) partir do GitHub e a implementar o modelo a partir do GitHub, PowerShell e a CLI do Azure.
 
 Se estiver a implementar o modelo diretamente a partir do GitHub sem quaisquer alterações, avance para implementar um modelo a partir do GitHub.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Cenário
 
@@ -123,13 +125,13 @@ Se nunca tiver utilizado o Azure PowerShell, visite: [Como instalar e configurar
 1. Início de sessão para o PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Verifique as subscrições da conta.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Ser-lhe-á solicitado para autenticar com as suas credenciais.
@@ -137,19 +139,19 @@ Se nunca tiver utilizado o Azure PowerShell, visite: [Como instalar e configurar
 1. Escolha qual das subscrições do Azure utilizar.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Se necessário, crie um grupo de recursos com o cmdlet **New-AzureResourceGroup**. No exemplo seguinte, vai criar um grupo de recursos denominado AppgatewayRG na localização E.U.A. Leste.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Execute o cmdlet **New-AzureRmResourceGroupDeployment** para implementar a nova rede virtual com o modelo anterior e os ficheiros de parâmetros transferidos e alterados.
+1. Executar o **New-AzResourceGroupDeployment** cmdlet para implementar a nova rede virtual com o modelo anterior e o parâmetro de ficheiros que transferiu e alterou.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -215,7 +217,7 @@ Para eliminar todos os recursos criados neste artigo, conclua um dos seguintes p
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>CLI do Azure

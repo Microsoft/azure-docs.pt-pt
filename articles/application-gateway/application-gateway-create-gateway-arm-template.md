@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 6a671744944527b64aab9a7b9afe05d6a9f2f27f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b41fbc3e834c7740d435e30a571d2a00671bfa64
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002083"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316409"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicação com o modelo Azure Resource Manager
 
@@ -125,18 +125,20 @@ Pode transferir o modelo Azure Resource Manager existente para criar uma rede vi
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Implementar o modelo Azure Resource Manager com o PowerShell
 
-Se nunca tiver utilizado o Azure PowerShell, visite: [como instalar e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções para iniciar sessão no Azure e selecione a sua subscrição.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Se nunca tiver utilizado o Azure PowerShell, visite: [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções para iniciar sessão no Azure e selecione a sua subscrição.
 
 1. Início de sessão para o PowerShell
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. Verifique as subscrições da conta.
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Ser-lhe-á solicitado para autenticar com as suas credenciais.
@@ -144,19 +146,19 @@ Se nunca tiver utilizado o Azure PowerShell, visite: [como instalar e configurar
 1. Escolha qual das subscrições do Azure utilizar.
 
     ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+    Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
 1. Se necessário, crie um grupo de recursos com o cmdlet **New-AzureResourceGroup**. No exemplo seguinte, vai criar um grupo de recursos denominado AppgatewayRG na localização E.U.A. Leste.
 
     ```powershell
-    New-AzureRmResourceGroup -Name AppgatewayRG -Location "West US"
+    New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. Execute o cmdlet **New-AzureRmResourceGroupDeployment** para implementar a nova rede virtual com o modelo anterior e os ficheiros de parâmetros transferidos e alterados.
+1. Executar o **New-AzResourceGroupDeployment** cmdlet para implementar a nova rede virtual com o modelo anterior e o parâmetro de ficheiros que transferiu e alterou.
     
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
+    New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
@@ -222,7 +224,7 @@ Para eliminar todos os recursos criados neste artigo, conclua um dos seguintes p
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-Remove-AzureRmResourceGroup -Name appgatewayRG
+Remove-AzResourceGroup -Name appgatewayRG
 ```
 
 ### <a name="azure-cli"></a>CLI do Azure
@@ -235,7 +237,7 @@ az group delete --name appgatewayRG
 
 Se quiser configurar a descarga de SSL, visite: [Configurar um gateway de aplicação para descarga de SSL](application-gateway-ssl.md).
 
-Se quiser configurar um gateway de aplicação para utilizar com um balanceador de carga interno, visite: [Criar um gateway de aplicação com um balanceador de carga interno (ILB)](application-gateway-ilb.md).
+Se pretender configurar um gateway de aplicação para utilizar com um balanceador de carga interno, visite: [Criar um gateway de aplicação com um balanceador de carga interno (ILB)](application-gateway-ilb.md).
 
 Se quiser mais informações sobre as opções de balanceamento de carga em geral, visite:
 

@@ -11,18 +11,29 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2e2a388b399ff34e36ab65a734593704cf274dc0
+ms.openlocfilehash: 401cd6b2a78072c8299f32f60f1ac3677f05557c
 ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312091"
+ms.locfileid: "57318748"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
 As ferramentas de núcleo das funções do Azure permite-lhe desenvolver e testar as suas funções no seu computador local a partir da linha de comandos ou terminal. As suas funções locais podem ligar-se ao vivo de serviços do Azure e pode depurar as suas funções no seu computador local com o tempo de execução de funções completo. Pode até mesmo implementar uma aplicação de funções para a sua subscrição do Azure.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Desenvolver funções no seu computador local e publicá-los para o Azure com ferramentas de núcleo segue estas etapas básicas:
+
+> [!div class="checklist"]
+> * [Instale as ferramentas de núcleo e as dependências.](#v2)
+> * [Crie um projeto de aplicação de função a partir de um modelo de idioma específico.](#create-a-local-functions-project)
+> * [Registre-se as extensões de Acionador e vinculação.](#register-extensions)
+> * [Defina o armazenamento e de outras ligações.](#local-settings-file)
+> * [Crie uma função a partir de um acionador e o modelo de idioma específico.](#create-func)
+> * [Executar localmente a função](#start)
+> * [Publicar o projeto no Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Versões de ferramentas de núcleo
 
