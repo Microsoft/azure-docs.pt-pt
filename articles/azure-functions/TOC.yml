@@ -134,10 +134,14 @@ items:
       href: create-function-app-linux-app-service-plan.md
     - name: Gerir ligações
       href: manage-connections.md
+    - name: Processamento de erros
+      href: functions-bindings-error-pages.md
     - name: Executar manualmente uma função não acionada por HTTP
       href: functions-manually-run-non-http.md
     - name: Depurar o acionador do Event Grid localmente
       href: functions-debug-event-grid-trigger-local.md
+    - name: Azure for Students Starter
+      href: functions-create-student-starter.md
   - name: Implementação
     items:
     - name: Implementação contínua
@@ -287,9 +291,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 5f2fee7c298b505977742fd105fe6227fa2c2946
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5519a0d99928bfa1129297f1d88546fd77f7c564
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734613"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342059"

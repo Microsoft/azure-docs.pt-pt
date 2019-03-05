@@ -1314,7 +1314,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>Noções básicas de IoT</p>
+                                                <p>Azure IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3929,12 +3929,12 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/iothub.svg" alt="" />
+                                                        <img src="media/index/question-mark-grey.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Noções básicas de IoT</h3>
-                                                    <p>Introdução à ligação de dispositivos</p>
+                                                    <h3>É novo no Azure IoT?</h3>
+                                                    <p>Comece aqui para saber que serviço corresponde às suas necessidades</p>
                                                 </div>
                                             </div>
                                         </div>

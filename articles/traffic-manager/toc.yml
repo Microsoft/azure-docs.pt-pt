@@ -7,8 +7,10 @@ items:
     href: traffic-manager-overview.md
 - name: Início Rápido
   items:
-  - name: Criar um perfil do Gestor de Tráfego
+  - name: Criar um perfil do Gestor de Tráfego - portal
     href: quickstart-create-traffic-manager-profile.md
+  - name: Criar um perfil do Gestor de Tráfego - PowerShell
+    href: quickstart-create-traffic-manager-profile-powershell.md
 - name: Tutoriais
   items:
   - name: Encaminhar o tráfego de baixa latência
@@ -138,9 +140,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla/traffic-manager/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=traffic-manager
-ms.openlocfilehash: 7d9640cba3e65eacc16fb3de59e3a099aa1926e2
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 7db4f2fd04c11e982adfc5b5813aea8bb684a764
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991103"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342348"

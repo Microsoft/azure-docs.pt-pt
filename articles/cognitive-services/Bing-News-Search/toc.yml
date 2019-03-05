@@ -25,6 +25,8 @@ items:
       href: python.md
     - name: Utilizar o Ruby
       href: ruby.md
+    - name: Utilizar o Go
+      href: go.md
   - name: SDK
     items:
     - name: Utilizar C#
@@ -108,9 +110,9 @@ items:
     href: language-support.md
   - name: Análise da API de Pesquisa de Notícias do Bing
     href: bing-news-stats.md
-ms.openlocfilehash: fc75c7142e737cd9db7662946869aaf0f2ced714
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 2f560504a582de36ccd55c7755d9113e68a8bf4a
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116376"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57306719"

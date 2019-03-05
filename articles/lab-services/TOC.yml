@@ -134,6 +134,8 @@ items:
         href: devtest-lab-create-environment-from-arm.md
       - name: Configurar e utilizar ambientes públicos
         href: devtest-lab-configure-use-public-environments.md
+      - name: Criar um ambiente com o cluster do Service Fabric
+        href: create-environment-service-fabric-cluster.md
     - name: Proteger o acesso aos laboratórios
       items:
       - name: Adicionar proprietários e utilizadores de laboratório
@@ -246,9 +248,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Perguntas mais frequentes
       href: devtest-lab-faq.md
-ms.openlocfilehash: f4a7e26be0bbb15631fd44bf38506d564d27f331
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: b3cdd68b2a2b842da89a9866dc473c6d0c924e26
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805694"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57307943"

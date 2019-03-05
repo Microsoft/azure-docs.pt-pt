@@ -139,7 +139,35 @@ items:
     topicHref: /azure/azure-netapp-files/
   - name: Personalização do portal do Azure
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/
+    topicHref: /azure/azure-portal/\
+  - name: Internet das Coisas
+    tocHref: /azure/iot-fundamentals/
+    topicHref: /azure/iot-fundamentals/
+    items:
+    - name: IoT Hub
+      tocHref: /azure/iot-hub/
+      topicHref: /azure/iot-hub/
+    - name: Centro de IoT
+      tocHref: /azure/iot-central/
+      topicHref: /azure/iot-central/
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
+    - name: Azure Digital Twins
+      tocHref: /azure/digital-twins/
+      topicHref: /azure/digital-twins/
+    - name: Aceleradores de Soluções IoT
+      tocHref: /azure/iot-accelerators/
+      topicHref: /azure/iot-accelerators/
+    - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
+      tocHref: /azure/iot-dps/
+      topicHref: /azure/iot-dps/
+    - name: Time Series Insights
+      tocHref: /azure/time-series-insights/
+      topicHref: /azure/time-series-insights/
+    - name: Azure Maps
+      tocHref: /azure/azure-maps/
+      topicHref: /azure/azure-maps/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -406,34 +434,6 @@ items:
   - name: API do Azure para FHIR
     tocHref: /azure/healthcare-apis
     topicHref: /azure/healthcare-apis
-  - name: Internet das Coisas
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/
-    items:
-    - name: Noções básicas de IoT
-      tocHref: /azure/iot-fundamentals/
-      topicHref: /azure/iot-fundamentals/
-    - name: IoT Edge
-      tocHref: /azure/iot-edge/
-      topicHref: /azure/iot-edge/
-    - name: IoT Hub
-      tocHref: /azure/iot-hub/
-      topicHref: /azure/iot-hub/
-    - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
-      tocHref: /azure/iot-dps/
-      topicHref: /azure/iot-dps/
-    - name: Aceleradores de soluções IoT
-      tocHref: /azure/iot-accelerators/
-      topicHref: /azure/iot-accelerators/
-    - name: Centro de IoT
-      tocHref: /azure/iot-central/
-      topicHref: /azure/iot-central/
-    - name: Maps
-      tocHref: /azure/azure-maps/
-      topicHref: /azure/azure-maps/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
@@ -649,9 +649,9 @@ items:
   - name: Gateway de VPN
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/
-ms.openlocfilehash: 437c5cc70a4325c3911d906c85f7b89407bc1200
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 38927a138c186109532729ba1b7e413644e31019
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011130"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339084"

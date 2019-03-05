@@ -657,9 +657,11 @@ items:
       href: platform/grafana-plugin.md
   - name: Analisar dados
     items:
-    - name: Criar gráficos de métricas no Explorador de Métricas
+    - name: Introdução ao Explorador de Métricas
+      href: platform/metrics-getting-started.md
+    - name: Funcionalidades avançadas do Explorador de Métricas
       href: platform/metrics-charts.md
-    - name: Exemplos de gráfico do Explorador de Métricas
+    - name: Exemplos de gráficos de métricas
       href: platform/metric-chart-samples.md
     - name: Ver eventos no registo de atividades
       href: ../azure-resource-manager/resource-group-audit.md
@@ -1032,9 +1034,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: cd33e8c02f85884bc47fd2db9a0bb626e181d1e3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 84cda925280e7497b2538d958a841bba3fc48d60
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985160"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341311"

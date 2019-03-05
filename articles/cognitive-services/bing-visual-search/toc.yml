@@ -20,6 +20,10 @@ items:
       href: quickstarts/nodejs.md
     - name: Utilizar o Python
       href: quickstarts/python.md
+    - name: Utilizar o Ruby
+      href: quickstarts/ruby.md
+    - name: Utilizar o Go
+      href: quickstarts/go.md
     expanded: true
   - name: SDK
     items:
@@ -87,9 +91,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: Opinião do Utilizador
     href: https://cognitive.uservoice.com/forums/555907-bing-search
-ms.openlocfilehash: 9fa28fc3e8398d6fe3b0253a7d6e146e61b48021
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 13e61130d7cd1225b00251991540a963c61b0b83
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510294"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314896"

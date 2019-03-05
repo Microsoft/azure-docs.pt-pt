@@ -1,30 +1,12 @@
 items:
-- name: Noções básicas do IoT do Azure
-  href: index.yml
+- name: Internet das Coisas do Azure
+  href: index.md
 - name: Descrição geral
   items:
   - name: Introdução
     href: iot-introduction.md
   - name: Serviços e tecnologias do Azure IoT
     href: iot-services-and-technologies.md
-- name: Serviços
-  items:
-  - name: IoT Hub
-    href: /azure/iot-hub
-  - name: Serviço de Aprovisionamento de Dispositivos no Hub IoT
-    href: /azure/iot-dps
-  - name: Aceleradores de soluções IoT
-    href: /azure/iot-suite
-  - name: Centro de IoT
-    href: /azure/iot-central
-  - name: IoT Edge
-    href: /azure/iot-edge
-  - name: Azure Digital Twins
-    href: /azure/digital-twins
-  - name: Azure Maps
-    href: /azure/azure-maps
-  - name: Time Series Insights
-    href: /azure/time-series-insights
 - name: Segurança
   items:
   - name: Arquitetura de segurança
@@ -35,15 +17,9 @@ items:
     href: iot-security-deployment.md
   - name: Segurança desde o início
     href: iot-security-ground-up.md
-- name: SDKs
-  items:
-  - name: SDKs de Serviço
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-  - name: SDKs do Dispositivo IoT
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: 82b04e5f6db3142180b1a10264342862793740eb
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: dc5c08ea2a3376b4213e83495ff1dce697338d82
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287171"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336721"
