@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: 813ec8f74371b6ae76ac306aea2c462f0beea1fb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d6f7a597ff5737bb5e9a3f07122ece313bd432ff
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55774175"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337786"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Utilizar alertas de custo para monitorizar a utilização e gastos
 
@@ -23,7 +23,7 @@ Este artigo ajuda-o a compreender e utilizar os alertas de gestão de custos par
 
 ## <a name="budget-alerts"></a>Alertas de orçamento
 
-Alertas de orçamento notificá-lo quando gastos, com base na utilização ou custo, atingirem ou exceder o montante definido no [condição do orçamento de alerta](tutorial-acm-create-budgets.md). Orçamentos de gestão de custos são criados no portal do Azure ou o [Azure-consumo](https://docs.microsoft.com/rest/api/consumption) API. 
+Alertas de orçamento notificá-lo quando gastos, com base na utilização ou custo, atingirem ou exceder o montante definido no [condição do orçamento de alerta](tutorial-acm-create-budgets.md). Orçamentos de gestão de custos são criados no portal do Azure ou o [Azure-consumo](https://docs.microsoft.com/rest/api/consumption) API.
 
 No portal do Azure, orçamentos são definidos pelo custo. Utilizar a API de consumo do Azure, orçamentos são definidos pelo custo ou pela utilização de consumo. Alertas de orçamento suportam orçamentos baseados em utilização e custos. Alertas de orçamento são gerados automaticamente sempre que estiverem reunidas as condições de alerta de orçamento. Pode ver todos os alertas de custo no portal do Azure. Sempre que é gerado um alerta, é apresentada nos alertas de custo. Um e-mail de alerta também é enviado para as pessoas na lista de destinatários de alertas do orçamento.
 
@@ -34,6 +34,18 @@ Alertas de crédito notificá-lo quando seus compromissos monetários do crédit
 ## <a name="department-spending-quota-alerts"></a>Alertas de quota de gastos departamento
 
 Alertas de quota de gastos departamento notificá-lo quando gastos do departamento atingem um limiar fixo da quota. Quotas de gastos são configuradas no portal do EA. Sempre que um limiar for cumprido gera uma mensagem de e-mail para os proprietários de departamento e é apresentado nos alertas de custo. Por exemplo, 50% ou 75% da quota.
+
+## <a name="supported-alert-features-by-offer-categories"></a>Funcionalidades de alerta de suportadas por categorias da oferta
+
+Suporte para tipos de alertas depende do tipo de conta do Azure que tem (Microsoft oferecem). A tabela seguinte mostra as funcionalidades de alertas que são suportadas por várias ofertas da Microsoft. Pode ver a lista completa de ofertas da Microsoft em [dados de compreender a gestão de custos](understand-cost-mgt-data.md).
+
+| Tipo de alerta | Enterprise Agreement | Contrato de Cliente Microsoft | Web direct/Pay-As-You-Go |
+|---|---|---|---|
+| Orçamento | ✔ | ✔ | ✔ |
+| Crédito | ✔ |✘ | ✘ |
+| Quota de gastos do departamento | ✔ | ✘ | ✘ |
+
+
 
 ## <a name="view-cost-alerts"></a>Alertas da vista de custos
 

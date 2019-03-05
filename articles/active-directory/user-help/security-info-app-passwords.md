@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf0e421572a9a698bcc68af47d8950795ac8791
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456814"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341108"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gerir palavras-passe de aplicação a partir da sua página de informações (pré-visualização) de segurança
 Certas aplicações, como o Outlook 2010, não oferecem suporte a verificação de dois passos. Essa falta de suporte significa que, se estiver usando a verificação de dois passos na sua organização, a aplicação não funcionará. Para resolver este problema, pode criar uma palavra-passe gerada automaticamente para utilizar com cada aplicação de fora do browser separada da sua palavra-passe normal.
@@ -47,11 +47,11 @@ Se usar a verificação de dois passos com a sua conta escolar ou profissional e
 ### <a name="to-create-a-new-app-password"></a>Para criar uma nova palavra-passe de aplicação
 1. Inicie sessão na sua conta escolar ou profissional e, em seguida, aceda ao seu https://myprofile.microsoft.com/ página.
 
-    ![Minha página de perfil, que apresenta ligações de informações de segurança realçadas](media/security-info/securityinfo-myprofile.png)
+    ![Minha página de perfil, que apresenta ligações de informações de segurança realçadas](media/security-info/securityinfo-myprofile-page.png)
 
 2. Selecione **informações de segurança** no painel de navegação esquerdo ou na ligação presente o **informações de segurança** bloquear e, em seguida, selecione **Adicionar método** do **informações de segurança**  página.
 
-    ![Página de informações de segurança com a opção de método adicionar realçada](media/security-info/securityinfo-myprofile-addmethod.png)
+    ![Página de informações de segurança com a opção de método adicionar realçada](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Sobre o **adicione um método** página, selecione **palavra-passe de aplicação** na lista pendente e, em seguida, selecione **Add**.
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: b0bd5c0ba8641bd287951168485be715a0b46224
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.date: 03/04/2019
+ms.openlocfilehash: a372a955578f3621c1b8a9226809671927c9bfd3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328678"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342756"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de recursos para conjuntos elásticos com os limites de compra modelo baseado em vCore
 
@@ -50,7 +50,9 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Destino IOPS (64 KB)|500|1000|1500|2000|2500|3000|
+|Limites de velocidade de registo (MBps)|2.5|5|7.5|10|12.5|15|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) * |210|420|630|840|1050|1260|
+|Inícios de sessão simultâneos máx. por conjunto * |210|420|630|840|1050|1260|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|100|200|300|500|500|500|
 |Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
@@ -76,7 +78,9 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Destino IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
+|Limites de velocidade de registo (MBps)|17.5|20|20|20|20|20|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1470|1680|1890|2100|3360|5040|
+|Conjunto de inícios de sessão simultâneos máx. (pedidos) *|1470|1680|1890|2100|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|200|500|500|500|500|500|
 |Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
@@ -102,7 +106,9 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Destino IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Limites de velocidade de registo (MBps)|2.5|56|7.5|10|12.5|15|17.5|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
+|Inícios de sessão simultâneos máx. por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|200|500|500|500|500|500|500|
 |Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
@@ -128,7 +134,9 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Destino IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
+|Limites de velocidade de registo (MBps)|20|20|20|20|20|20|20|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1680|1890|2100|2520|33600|4200|8400|
+|Inícios de sessão simultâneos máx. por conjunto (pedidos) *|1680|1890|2100|2520|33600|4200|8400|
 |Número de DBs máximo por conjunto|500|500|500|500|500|500|500|
 |Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -146,16 +154,18 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |:--- | --: |--: |--: |--: |--: |--: |
 |Geração de H/W|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
-|Memória (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
-|Suporte de Columnstore|N/A|N/D|N/D|N/D|N/D|N/A|
+|Memória (GB)|7|14|21|28|35|42|
+|Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1|2|3|4|5|6|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
-|Tamanho máximo do registo (GB)|307|307|307|307|307|307|
+|Tamanho máximo de dados (GB)|650|650|650|650|650|650|
+|Tamanho máximo do registo (GB)|195|195|195|195|195|195|
 |TempDB tamanho (GB)|32|64|96|128|160|192|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|
+|Limites de velocidade de registo (MBps)|6|12|18|24|30|36|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|210|420|630|840|1050|1260|
+|Inícios de sessão simultâneos máx. por conjunto (pedidos) *|210|420|630|840|1050|1260|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|Apenas únicos bds são suportadas para este tamanho de computação|50|100|100|100|100|
 |Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1...3|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...5|0, 0.25, 0.5, 1...6|
@@ -176,12 +186,14 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Suporte de Columnstore|N/A|N/D|N/D|N/D|N/D|N/A|
 |Armazenamento em OLTP na memória (GB)|7|8|9.5|11|20|36|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
-|Tamanho máximo do registo (GB)|307|307|307|307|307|307|
+|Tamanho máximo de dados (GB)|650|650|650|650|1024|1024|
+|Tamanho máximo do registo (GB)|195|195|195|195|307|307|
 |TempDB tamanho (GB)|224|256|288|320|384|384|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
+|Limites de velocidade de registo (MBps)|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1470|1680|1890|2100|3360|5040|
+|Inícios de sessão simultâneos máx. por conjunto (pedidos) *|1470|1680|1890|2100|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|100|100|100|100|100|100|
 |Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1...7|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...9|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...10, 16|0, 0.25, 0.5, 1...10, 16, 24|
@@ -201,13 +213,15 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Memória (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Tamanho máximo do registo (GB)|307|307|307|461|461|461|461|
+|Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Tamanho máximo do registo (GB)|307|307|307|461|461|922|922|
 |TempDB tamanho (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|35000|
+|Limites de velocidade de registo (MBps)|48|48|48|48|48|48|48|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
+|Inícios de sessão simultâneos máx. por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|Apenas únicos bds são suportadas para este tamanho de computação|50|100|100|100|100|100|
 |Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|N/A|0, 0.25, 0.5, 1...4|0, 0.25, 0.5, 1...6|0, 0.25, 0.5, 1...8|0, 0.25, 0.5, 1...10|0, 0.25, 0.5, 1...12|0, 0.25, 0.5, 1...14|
@@ -233,12 +247,14 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Limites de velocidade de registo (MBps)|48|48|48|48|48|48|48|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1680|1890|2100|2520|3360|4200|8400|
+|Inícios de sessão simultâneos máx. por conjunto (pedidos) *|1680|1890|2100|2520|3360|4200|8400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de DBs máximo por conjunto|100|100|100|100|100|100|100|
 |Opções de vCore de conjuntos elásticos Mín/Máx por base de dados|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...20, 24, 32, 40|0, 0.25, 0.5, 1...20, 24, 32, 40, 80|
 |Número de réplicas|4|4|4|4|4|4|4|
-|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
+|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Leia o Escalamento horizontal|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 3061ddd2e94fbe6ec97355a42a6319dc1a489095
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: c136967c93a4a3e35adb3b0dac0560255c6daf3f
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213539"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338200"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entidades pré-concebidas preteridas numa aplicação LUIS
 As seguintes entidades pré-criados foram preteridas e não não possível adicionar novas aplicações de LUIS.
@@ -121,7 +121,7 @@ Entidade pré-criados   |   Entidade pré-criados (secundárias tipos)   |   Exp
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.american_football.team  ```| ``` green bay packers  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.ice_hockey.team  ```| ``` hamilton bulldogs  ```|
 ```builtin.encyclopedia.organization.organization```| ```builtin.encyclopedia.soccer.team  ```| ``` fc bayern munich  ```|
-```builtin.encyclopedia.organization.organization |builtin.encyclopedia.government.political_party|pertubuhan kebangsaan melayu singapura```|
+' ' builtin.encyclopedia.organization.organization |Builtin.Encyclopedia.Government.political_party|pertubuhan kebangsaan melayu singapura ' '|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.time.event  ```| ``` 1740 batavia massacre   ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.sports.championship_event  ```| ``` super bowl xxxix  ```|
 ```builtin.encyclopedia.time.event  ```| ``` builtin.encyclopedia.award.competition  ```| ``` eurovision song contest 2003  ```|

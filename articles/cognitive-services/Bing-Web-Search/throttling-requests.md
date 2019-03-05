@@ -9,14 +9,14 @@ ms.assetid: ''
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: ebd754726fcde32ef2eeb8da9edb2d5ff3437ec7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b29e4a52565247080e8be3124bd2a43575ecbf63
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865289"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341720"
 ---
 # <a name="throttling-requests-to-the-bing-web-search-api"></a>Limitar pedidos para a API de pesquisa Web Bing
 

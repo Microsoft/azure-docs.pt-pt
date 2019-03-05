@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 03/05/2019
 ms.author: kuhussai
 ms.subservice: blobs
-ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 4660a45014e6afdb091fb40b8fe7f03fdb647aab
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251899"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339203"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: Premium (pré-visualização), as camadas de armazenamento frequente, esporádico e arquivo
 
@@ -56,16 +56,6 @@ Armazenamento de BLOBs e GPv2 expõem de contas do **camada de acesso** atributo
 Disponível em pré-visualização, é uma camada de acesso de Premium, que torna os dados disponíveis por meio de hardware de elevado desempenho acedidos com frequência. Dados armazenados neste escalão são armazenados em unidades de estado sólidas, que são otimizadas para latência mais baixa e taxas de transacionais mais elevadas em comparação comparadas as unidades de disco rígido tradicionais. A camada de acesso de Premium está disponível via o tipo de conta de armazenamento de Blob de blocos apenas.
 
 Esta camada é ideal para cargas de trabalho que exigem tempos de resposta rápida e consistente. Dados que envolva os utilizadores finais, como edição, estático conteúdo da web, transações online e assim por diante são bons candidatos para a camada de acesso de Premium de vídeo interativo. Esta camada é ideal para cargas de trabalho que realizam muitas pequenas transações, como a captura de dados de telemetria, mensagens e transformação de dados.
-
-Para utilizar este escalão, aprovisionar uma nova conta de armazenamento de Blob de blocos e comece a criar contentores e blobs com o [API de REST do serviço Blob](/rest/api/storageservices/blob-service-rest-api), [AzCopy](/azure/storage/common/storage-use-azcopy), ou [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
-
-Durante a pré-visualização, a camada de acesso de Premium:
-
-- Está disponível como armazenamento localmente redundante (LRS)
-- Só está disponível nas seguintes regiões: E.U.A. Leste 2, E.U.A. Central e E.U.A. oeste
-- Não suporta a criação de camadas ao nível do objeto ou a disposição em camadas automática com a gestão de ciclo de vida de dados
-
-Para saber como se registar na pré-visualização de camada de acesso de Premium, veja [introdução ao armazenamento de Blobs do Azure Premium](https://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Escalão de acesso frequente
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 472c39a7220c4e84bff429097fef6d0ed721fd01
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d59bd14b52124282e1e07d60daa4b891c2bab938
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457682"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337826"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Descrição geral do portal meu perfil (pré-visualização)
 
@@ -26,8 +26,6 @@ ms.locfileid: "56457682"
 Pode utilizar o **meu perfil** portal (pré-visualização) para gerir a sua conta escolar ou profissional para:
 
 - Configurar e gerir as suas informações de segurança para a reposição de verificação e a palavra-passe de dois passos.
-
-- Ver a atividade de início de sessão.
 
 - Gerir os seus dispositivos e as organizações ligadas.
 
@@ -45,7 +43,7 @@ Pode obter para o **meu perfil** portal, acedendo a https://myprofile.microsoft.
 - Firefox
 - Internet Explorer 11
 
-    ![Minha página de descrição geral de portal, do perfil](media/myprofile-portal/myprofile-portal-overview-page.png)
+    ![Minha página de descrição geral de portal, do perfil](media/myprofile-portal/myprofile-portal-overview.png)
 
 ## <a name="in-this-section"></a>Nesta secção
 Pode encontrar mais informações sobre o **meu perfil** portal e suas páginas, nos seguintes artigos.
@@ -53,7 +51,6 @@ Pode encontrar mais informações sobre o **meu perfil** portal e suas páginas,
 |Artigo |Descrição |
 |------|------------|
 |[Gerir as suas informações de segurança (pré-visualização)](user-help-security-info-overview.md)|Descreve como configurar e gerir as suas informações de segurança.|
-|[Ver a atividade de início de sessão recente](myprofile-portal-recent-activity-page.md)|Descreve como visualizar a atividade recente início de sessão para a sua conta escolar ou profissional.|
-|[Gerir a sua organização](myprofile-portal-organizations-page.md)|Descreve como gerir as organizações ligadas à sua conta escolar ou profissional.|
+|[Gerir as suas organizações](myprofile-portal-organizations-page.md)|Descreve como gerir as organizações ligadas à sua conta escolar ou profissional.|
 |[Gerir os seus dispositivos ligados](myprofile-portal-devices-page.md)| Descreve como gerir os dispositivos que se ligar à sua conta escolar ou profissional.|
 |[Ver as suas informações relacionadas com a privacidade](myprofile-portal-privacy-page.md)|Descreve como ver o que sua organização faz com os seus dados.|

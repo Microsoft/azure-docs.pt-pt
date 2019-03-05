@@ -7,6 +7,8 @@ items:
     href: sql-database-technical-overview.md
   - name: Escolha uma versão do Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Notas de versão
+    href: sql-database-release-notes.md
 - name: Inícios rápidos
   items:
   - name: Guia de início rápido da base de dados individual
@@ -632,7 +634,7 @@ items:
 - name: Referência
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.sql/#sql
+    href: /powershell/module/az.sql
   - name: CLI do Azure
     href: /cli/azure/sql
   - name: .NET
@@ -716,9 +718,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar tarefa elástica (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 459ea95c74eedc207b08bda6ece5a27b963d8df7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 02c5f768de9b4e6ef03757c21a0d1188649f1b1d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214032"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338132"

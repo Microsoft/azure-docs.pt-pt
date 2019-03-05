@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: a6fea6962c5e8864398cd80635d997407cf1d22e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 615ce7ca5fbd14ee636a21bfc7184f0f8ccbc9f6
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250304"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341583"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Resolver problemas de validação como um serviço
 
@@ -75,7 +75,7 @@ Pode transferir a imagem do PIR para uma partilha no seu datacenter local. E, em
 
 Pode usar **Get-HashFile** cmdlet para obter o valor de hash para o repositório de imagens públicas transferidos ficheiros de imagem para verificar a integridade das imagens.
 
-| Nome de Ficheiro | SHA256 |
+| Nome do Ficheiro | SHA256 |
 |---------------------------------------|------------------------------------------------------------------|
 | Server2016DatacenterFullBYOL.vhd | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
 | WindowsServer2012R2DatacenterBYOL.vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |

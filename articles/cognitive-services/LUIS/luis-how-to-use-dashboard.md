@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8927213dc4f1cf01eccdd8f54a946f9dbbaaa04d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c173152d0a59e391fe77ee855311a867a1b2b6c0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869964"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338438"
 ---
 # <a name="model-and-usage-statistics-in-the-dashboard"></a>Estatísticas de modelo e a utilização no dashboard
 O dashboard de aplicações permite-lhe monitorizar a sua aplicação única rapidamente. O **Dashboard** apresenta quando abre uma aplicação ao clicar no nome de aplicação no **as minhas aplicações** página em seguida, selecione **Dashboard** do painel superior. 
@@ -69,21 +69,8 @@ O **análise detalhada de intenção** apresenta uma divisão dos objetivos com 
 
 ![Divisão de intenção](./media/luis-how-to-use-dashboard/intent-breakdown.png)
 
-Para controlar se a divisão se baseia em expressões com etiquetadas ou acertos de ponto final:
-
-1. Clique em **definições adicionais** ![botão de configurações adicionais à lista de acesso](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aceder à lista conforme a imagem seguinte:
-
-    ![Lista de divisão de intenção](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
-2. Selecione um valor na lista e, em seguida, clique na seta para trás ![Seta para trás](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para apresentar o gráfico.
-
 ## <a name="entity-breakdown"></a>Divisão de entidade
 O dashboard mostra uma análise detalhada das entidades com base em expressões com etiquetadas ou acertos de ponto final. Este gráfico de resumo mostra a importância relativa de cada entidade na aplicação. Ao pairar o ponteiro do mouse sobre um setor, vê o nome da entidade e a percentagem de acertos de expressões com etiquetadas/ponto de extremidade. 
 
 ![Divisão de entidade](./media/luis-how-to-use-dashboard/entity-breakdown.png)
 
-Para controlar se a divisão se baseia em expressões com etiquetadas ou acertos de ponto final:
-
-1. Clique em **definições adicionais** ![botão de configurações adicionais para obter a lista de](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) aceder à lista conforme a imagem seguinte:
-
-    ![Lista de divisão de entidades](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
-2. Selecione um valor na lista e, em seguida, clique na seta para trás ![Seta para trás](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para apresentar o gráfico em conformidade.

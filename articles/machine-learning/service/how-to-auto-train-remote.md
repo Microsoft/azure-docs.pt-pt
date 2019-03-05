@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95c495bf3a8ad7b82c42d4071899d045cb49f27b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b45f48289eda9096c84537eaaa7bc2df74c9d05d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247549"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341425"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Utilizar modelos com aprendizagem automática na cloud
 
@@ -80,8 +80,8 @@ Também pode anexar uma DSVM do Linux existente como o destino de computação. 
 
 > [!NOTE]
 >
-> O seguinte código utiliza o `RemoteCompute` classe para anexar uma VM existente como o destino de computação de destino.
-> O `DsvmCompute` classe vai ser preterida em versões futuras em favor este padrão de design.
+> O seguinte código utiliza a [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) classe para anexar uma VM existente como o destino de computação de destino.
+> O [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) classe vai ser preterida em versões futuras em favor este padrão de design.
 
 Execute o seguinte código para criar o destino de computação a partir de uma DSVM do Linux já existente.
 

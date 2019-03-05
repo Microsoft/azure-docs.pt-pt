@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 89c2f380fb4007256273b10b1fcc0fc99627ccb4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7c93911ce824bc1111e0c348070cc11817c5b45c
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249237"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341855"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Criar uma subscrição do Azure adicional para o contrato de cliente da Microsoft
 
@@ -27,7 +27,7 @@ Crie subscrições adicionais para sua conta de cobrança para configurar ambien
 
 Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Microsoft. [Verifique se tem acesso a um contrato de cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement). Se quiser criar subscrições para outras contas de faturas, veja [criar uma subscrição adicional no portal do Azure](billing-create-subscription.md).
 
-Para criar uma subscrição, tem de ser um **proprietário da secção de nota fiscal**, **contribuinte da secção de nota fiscal**, ou **criador de subscrição do Azure**. Para obter mais informações, consulte [funções de subscrição e tarefas](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). Para fornecer a outros utilizadores permissão para criar subscrições do Azure para a sua conta de faturação, consulte [conceder a outros utilizadores permissão para criar subscrições do Azure](#give-others-permission-to-create-azure-subscriptions).
+Para criar uma subscrição, tem de ser um **proprietário da secção de nota fiscal**, **contribuinte da secção de nota fiscal**, ou **criador de subscrição do Azure**. Para obter mais informações, consulte [funções de faturas de subscrição e tarefas](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks). Para fornecer a outros utilizadores permissão para criar subscrições do Azure para a sua conta de faturação, consulte [conceder a outros utilizadores permissão para criar subscrições do Azure](#give-others-permission-to-create-azure-subscriptions).
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Criar uma subscrição no portal do Azure
 
@@ -43,9 +43,9 @@ Para criar uma subscrição, tem de ser um **proprietário da secção de nota f
 
    ![Captura de ecrã que mostra criar a página de subscrição](./media/billing-mca-create-subscription/billing-mca-create-azure-subscription.png)
 
-5. Selecione um perfil de faturação. Os encargos para a sua subscrição serão Mostrar na fatura do perfil de faturação e irão ser pagas através de seus métodos de pagamento. Se tiver acesso a apenas um perfil de faturação, a seleção estarão esbatida.
+5. Selecione um perfil de faturação. Os encargos para a sua subscrição, o qual refletirá na fatura do perfil de faturação e irão ser pagas através de seus métodos de pagamento. Se tiver acesso a apenas um perfil de faturação, a seleção estarão esbatida.
 
-6. Selecione uma secção de nota fiscal. Os encargos para a sua subscrição serão mostrar nesta seção de nota fiscal do perfil de faturação. Se tiver acesso a apenas uma secção de nota fiscal, a seleção estarão esbatida.
+6. Selecione uma secção de nota fiscal. Os encargos para a sua subscrição serão refletir sobre esta secção da nota fiscal do perfil de faturação. Se tiver acesso a apenas uma secção de nota fiscal, a seleção estarão esbatida.
 
 7. Selecione um plano para a subscrição. Selecione **plano do Microsoft Azure para Dev/Test**, se planeja usar esta subscrição para o desenvolvimento ou testes cargas de trabalho mais usar **plano do Microsoft Azure**. Se tiver acesso a apenas um plano, a seleção estarão esbatida.
 

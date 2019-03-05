@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 5c33538513388a4093a205b44a1e049072402179
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100711"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337596"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir os dados exportados
 
@@ -30,7 +30,7 @@ Neste tutorial, ficará a saber como:
 > * Verificar se os dados são recolhidos
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Exportação de dados está disponível para uma variedade de tipos de conta do Azure, incluindo [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) os clientes. Para ver a lista completa dos tipos de conta suportados, consulte [dados de compreender a gestão de custos](understand-cost-mgt-data.md). As seguintes permissões do Azure são suportadas por subscrição para a exportação de dados por utilizador e grupo:
+Exportação de dados está disponível para uma variedade de tipos de conta do Azure, incluindo [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) os clientes. Para ver a lista completa dos tipos de conta suportados, consulte [dados de compreender a gestão de custos](understand-cost-mgt-data.md). As seguintes permissões do Azure, ou âmbitos, são suportados por subscrição para exportação de dados por utilizador e grupo. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
 
 - Proprietário – pode criar, modificar ou eliminar exportações agendadas de uma subscrição.
 - Contribuinte – pode criar, modificar ou eliminar as respetivas exportações agendadas. Pode modificar o nome de exportações agendadas criadas por outros utilizadores.
@@ -47,7 +47,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 Cost Management + Faturação &gt; Cost Management &gt; selecione um subscrição ou grupo de recursos numa subscrição &gt; Exportação &gt;  **Adicionar**.
 
-Escreva um nome para a exportação e selecione a opção "Diariamente exportar dos custos de mês até à data". Clique em **Seguinte**.
+Escreva um nome para a exportação e selecione o **exportação diária dos custos de mês até à data** opção. Clique em **Seguinte**.
 
 ![Novo de exportação de exemplo que mostra o tipo de exportação](./media/tutorial-export-acm-data/basics_exports.png)
 

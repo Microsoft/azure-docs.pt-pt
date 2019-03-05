@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 408776b0b0053b2b2d45112568a2e28467123768
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ba59ca4ac9a200c4579a4f71ff94be6bd554f180
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805380"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341566"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -107,12 +107,13 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 | folderPath            | Caminho para a pasta da aplicação personalizada e todas as suas dependências<br/><br/>Se tiver dependências armazenadas em subpastas - ou seja, numa estrutura de hierarquia de pastas sob *folderPath* -a estrutura de pastas atualmente é aplanada quando os ficheiros são copiados para o Azure Batch. Ou seja, todos os ficheiros são copiados para uma única pasta com sem subpastas. Para contornar este comportamento, considere a comprimir os ficheiros, copiar o ficheiro comprimido e, em seguida, descomprimi-la com código personalizado no local desejado. | Não&#42;       |
 | referenceObjects      | Uma matriz de serviços ligados e conjuntos de dados existentes. Os serviços ligados e conjuntos de dados referenciada são transmitidos para o aplicativo personalizado no formato JSON para que seu código personalizado, pode referenciar recursos do Data Factory | Não       |
 | extendedProperties    | Propriedades definidas pelo utilizador, que podem ser transmitidas para o aplicativo personalizado no formato JSON, para que seu código personalizado, pode referenciar propriedades adicionais | Não       |
+| retentionTimeInDays | O período de retenção para os ficheiros submetido para a atividade personalizada. Valor predefinido é 30 dias. | Não |
 
 &#42;As propriedades `resourceLinkedService` e `folderPath` tem de ser especificados, ou ambos ser omitido.
 
 > [!NOTE]
 > Se estiver passando serviços ligados como referenceObjects na atividade personalizada, é uma boa prática de segurança para passar um Azure Key Vault ativado um serviço ligado (uma vez que não contém qualquer cadeia de caracteres segura) e obter as credenciais com o nome do segredo diretamente a partir da chave Cofre do código. Pode encontrar um exemplo [aqui](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) que referências AKV ativado o serviço ligado, obtém as credenciais do Cofre de chaves e, em seguida, acede ao armazenamento no código.  
- 
+
 ## <a name="custom-activity-permissions"></a>Permissões de atividade personalizada
 
 A atividade personalizada define a conta de utilizador automático do Azure Batch para *acesso não-administrador com âmbito de tarefa* (a especificação de auto-utilizador padrão). Não é possível alterar o nível de permissão da conta de utilizador automaticamente. Para obter mais informações, consulte [executar tarefas em contas de utilizador no Batch | Contas de utilizador automático](../batch/batch-user-accounts.md#auto-user-accounts).
@@ -321,7 +322,7 @@ Para propriedades de tipo de acesso *SecureString* de uma atividade personalizad
 
 ## <a name="compare-v2-v1"></a> Comparar a atividade personalizada v2 e a versão 1 (personalizado) atividade DotNet
 
-No Azure Data Factory versão 1, implementa uma atividade de DotNet (personalizado) ao criar um .Net projeto de biblioteca de classes com uma classe que implementa a `Execute` método da `IDotNetActivity` interface. Os serviços ligados, conjuntos de dados e propriedades expandidas no payload de JSON de uma atividade de DotNet (personalizado) são transmitidas para o método de execução, como objetos fortemente tipado. Para obter detalhes sobre o comportamento da versão 1, consulte [DotNet (personalizado) na versão 1](v1/data-factory-use-custom-activities.md). Devido a essa implementação, seu código de atividade DotNet versão 1 deve visar o .net Framework 4.5.2. A versão 1 a atividade DotNet também tem a ser executado em nós do Azure Batch Pool baseados em Windows.
+No Azure Data Factory versão 1, implementa uma atividade de DotNet (personalizado) ao criar um .Net projeto de biblioteca de classes com uma classe que implementa a `Execute` método da `IDotNetActivity` interface. Os serviços ligados, conjuntos de dados e propriedades expandidas no payload de JSON de uma atividade de DotNet (personalizado) são transmitidas para o método de execução, como objetos fortemente tipado. Para obter detalhes sobre o comportamento da versão 1, consulte [DotNet (personalizado) na versão 1](v1/data-factory-use-custom-activities.md). Devido a essa implementação, o seu código de atividade DotNet versão 1 deve visar o .NET Framework 4.5.2. A versão 1 a atividade DotNet também tem a ser executado em nós do Azure Batch Pool baseados em Windows.
 
 Na Azure Data Factory V2 personalizado atividade, não tem de implementar uma interface de .net. Pode agora executar diretamente comandos de scripts e seu próprio código personalizado, compilado como um executável. Para configurar esta implementação, especifique a `Command` propriedade em conjunto com o `folderPath` propriedade. A atividade personalizada carrega o executável e as respetivas dependências para `folderpath` e executa o comando para.
 
@@ -335,7 +336,7 @@ A tabela seguinte descreve as diferenças entre a atividade personalizada do Dat
 |Diferenças      | Atividade personalizada      | versão 1 (personalizado) atividade DotNet      |
 | ---- | ---- | ---- |
 |Como a lógica personalizada está definida      |Ao fornecer um executável      |Implementando uma DLL do .net      |
-|Ambiente de execução da lógica personalizada      |Windows ou Linux      |Windows (.Net Framework 4.5.2)      |
+|Ambiente de execução da lógica personalizada      |Windows ou Linux      |Windows (.NET Framework 4.5.2)      |
 |Executar scripts      |Suporta a execução de scripts diretamente (por exemplo "cmd /c echo hello world" na VM do Windows)      |Requer a implementação no .net DLL      |
 |Conjunto de dados necessário      |Opcional      |Necessário para encadear atividades e transmitem informações      |
 |Transmitir informações de atividade a lógica personalizada      |Por meio de ReferenceObjects (LinkedServices e conjuntos de dados) e ExtendedProperties (propriedades personalizadas)      |Até ExtendedProperties (propriedades personalizadas), a entrada e conjuntos de dados de saída      |

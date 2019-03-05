@@ -2,18 +2,18 @@
 title: 'Recuperação de Site do Azure: Perguntas mais frequentes | Documentos da Microsoft'
 description: Este artigo aborda perguntas comuns sobre o Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: raynew
-ms.openlocfilehash: 1300ac9b6ba0eee8698e268fb9cc613955deb74e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: c63a5205f58d014d06b79b075b3d3d9328502e48
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321927"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338047"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>O Azure Site Recovery: Perguntas mais frequentes (FAQ)
 Este artigo contém perguntas mais frequentes sobre o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique o [fórum de serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -88,10 +88,10 @@ Para máquinas virtuais e servidores físicos, a replicar entre locais sites enc
 ## <a name="replication"></a>Replicação
 
 ### <a name="can-i-replicate-over-a-site-to-site-vpn-to-azure"></a>Pode replicar através de uma VPN de site a site para o Azure?
-O Azure Site Recovery replica os dados para uma conta de armazenamento do Azure, ao longo de um ponto final público. Não é a replicação através de uma VPN de site a site. Pode criar uma VPN de site a site, com uma rede virtual do Azure. Isso não interfere com a replicação do Site Recovery.
+O Azure Site Recovery replica os dados para uma conta de armazenamento do Azure ou discos geridos, ao longo de um ponto final público. Não é a replicação através de uma VPN de site a site. Pode criar uma VPN de site a site, com uma rede virtual do Azure. Isso não interfere com a replicação do Site Recovery.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Posso utilizar o ExpressRoute para replicar máquinas virtuais para o Azure?
-Sim, [pode ser utilizado o ExpressRoute](concepts-expressroute-with-site-recovery.md) para replicar máquinas virtuais no local para o Azure. O Azure Site Recovery replica os dados para uma conta de armazenamento do Azure através de um ponto final público. Terá de configurar [peering público](../expressroute/expressroute-circuit-peerings.md#publicpeering) ou [peering da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) para utilizar o ExpressRoute para replicação do Site Recovery. Peering da Microsoft é o domínio de encaminhamento recomendado para a replicação. Depois das máquinas virtuais têm falhadas a uma rede virtual do Azure pode acessá-los utilizando o [peering privado](../expressroute/expressroute-circuit-peerings.md#privatepeering) configuração com a rede virtual do Azure. Replicação não é suportada por peering privado. No caso de que está a proteger máquinas do VMware ou máquinas físicas, certifique-se de que o [requisitos de sistema de rede](vmware-azure-configuration-server-requirements.md#network-requirements) também foram atendidos para a replicação. 
+Sim, [pode ser utilizado o ExpressRoute](concepts-expressroute-with-site-recovery.md) para replicar máquinas virtuais no local para o Azure. O Azure Site Recovery replica os dados para um armazenamento do Azure através de um ponto final público. Terá de configurar [peering público](../expressroute/expressroute-circuit-peerings.md#publicpeering) ou [peering da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) para utilizar o ExpressRoute para replicação do Site Recovery. Peering da Microsoft é o domínio de encaminhamento recomendado para a replicação. Depois das máquinas virtuais têm falhadas a uma rede virtual do Azure pode acessá-los utilizando o [peering privado](../expressroute/expressroute-circuit-peerings.md#privatepeering) configuração com a rede virtual do Azure. Replicação não é suportada por peering privado. No caso de que está a proteger máquinas do VMware ou máquinas físicas, certifique-se de que o [requisitos de sistema de rede](vmware-azure-configuration-server-requirements.md#network-requirements) também foram atendidos para a replicação. 
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Existem pré-requisitos para replicar máquinas virtuais para o Azure?
 [VMs do VMware](vmware-physical-azure-support-matrix.md#replicated-machines) e [VMs de Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) que pretende replicar para o Azure deve estar em conformidade com os requisitos do Azure.
@@ -111,8 +111,8 @@ Sim. Pode automatizar fluxos de trabalho da Recuperação de Sites utilizando a 
 * [Replicar VMs de Hyper-V sem o VMM para o Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
 * [Replicar o VMware no Azure com o Gestor de recursos do PowerShell](vmware-azure-disaster-recovery-powershell.md)
 
-### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>Se eu replicar para o Azure qual o tipo de conta de armazenamento de que preciso?
-Precisa de uma conta de armazenamento LRS ou GRS. Recomendamos GRS para que os dados sejam resilientes se ocorrer uma falha regional ou se a região primária não pode ser recuperada. A conta tem de ser na mesma região que o cofre de Serviços de Recuperação. Armazenamento Premium é suportado para a VM de VMware, a VM de Hyper-V e replicação do servidor físico, quando implementar o Site Recovery no portal do Azure.
+### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Se replicar para o Azure, que tipo de conta de armazenamento ou disco gerido é necessário?
+Necessita de um armazenamento LRS ou GRS. Recomendamos GRS para que os dados sejam resilientes se ocorrer uma falha regional ou se a região primária não pode ser recuperada. A conta tem de ser na mesma região que o cofre de Serviços de Recuperação. Armazenamento Premium é suportado para a VM de VMware, a VM de Hyper-V e replicação do servidor físico, quando implementar o Site Recovery no portal do Azure. Discos geridos só suportam LRS.
 
 ### <a name="how-often-can-i-replicate-data"></a>Com que frequência posso replicar os dados?
 * **Hyper-v:** VMs de Hyper-V podem ser replicadas cada 30 segundos (exceto para o armazenamento premium), 5 minutos ou 15 minutos. Se tiver configurado a replicação SAN, em seguida, a replicação é síncrona.
@@ -183,7 +183,7 @@ Se está a replicar para o Azure, os dados da aplicação são enviados para arm
 Não. A relação de faturação do Azure é diretamente com o fornecedor de serviços. Os fornecedores de serviços são responsáveis por gerar faturas específicas para os seus inquilinos.
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>Se estiver a replicar para o Azure, necessitamos executar as máquinas virtuais no Azure todo o tempo?
-Não, os dados são replicados para uma conta de armazenamento do Azure na sua subscrição. Quando efetua uma ativação pós-falha de teste (simulação de recuperação após desastre) ou uma ativação pós-falha real, a Recuperação de Sites cria automaticamente máquinas virtuais na sua subscrição.
+Não, os dados são replicados para o armazenamento do Azure na sua subscrição. Quando efetua uma ativação pós-falha de teste (simulação de recuperação após desastre) ou uma ativação pós-falha real, a Recuperação de Sites cria automaticamente máquinas virtuais na sua subscrição.
 
 ### <a name="do-you-ensure-tenant-level-isolation-when-i-replicate-to-azure"></a>Garantem o isolamento de inquilinos quando faço replicação para o Azure?
 Sim.

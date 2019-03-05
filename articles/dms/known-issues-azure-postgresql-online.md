@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 363a4bd4be5e175aad346486b56c4f6efd877143
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724149"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340529"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Limitações de migração/problemas conhecidos com migrações online BD do Azure para PostgreSQL
 
@@ -26,7 +26,7 @@ Problemas conhecidos e limitações associadas a migrações online, do PostgreS
 - A servidor PostgreSQL de origem tem de executar a versão 9.5.11, 9.6.7 ou 10.3 ou posterior. Para obter mais informações, consulte o artigo [versões da base de dados PostgreSQL](../postgresql/concepts-supported-versions.md).
 - Apenas a mesma versão as migrações são suportadas. Por exemplo, PostgreSQL migrar 9.5.11 à base de dados do Azure para PostgreSQL 9.6.7 não é suportada.
 - Para ativar a replicação de lógica na **da origem de PostgreSQL postgresql.conf** de ficheiros, defina os seguintes parâmetros:
-    - **wal_level** = lógico
+    - **wal_level** = logical
     - **max_replication_slots** = [o número máximo de bases de dados para a migração]; se pretender migrar 4 bases de dados, defina o valor como 4
     - **max_wal_senders** = [número de bases de dados em execução em simultâneo]; o valor recomendado é 10
 - Adicionar IP de agente do DMS ao pg_hba de PostgresSQL origem
@@ -97,13 +97,13 @@ Grandes colunas de objeto (LOB) são colunas que podem crescer grandes. Para o P
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Solução**: Se tiver o objeto LOB que é maior do que 32 KB, contacte a equipa de engenharia na [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+    **Solução**: Se tiver o objeto LOB que é maior do que 32 KB, contacte a equipa de engenharia na [faça migrações de base de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitação**: Se não existem colunas LOB na tabela e não existe nenhum conjunto de chaves primário para a tabela, os dados não podem ser migrados para esta tabela.
 
     **Solução**: Defina temporariamente uma chave primária para a tabela para a migração continuar. Pode remover a chave primária após a conclusão da migração de dados.
 
-## <a name="postgresql10-workaround"></a>Solução de PostgreSQL10
+## <a name="postgresql10-workaround"></a>PostgreSQL10 workaround
 PostgreSQL 10.x faz alterações vários nomes de pastas de pg_xlog e, por conseguinte, fazendo com que a migração não está em execução conforme esperado. Se estiver migrando do PostgreSQL 10.x à base de dados do Azure para PostgreSQL 10.3, execute o seguinte script na base de dados do PostgreSQL origem para criar a função de invólucro em torno das funções de pg_xlog.
 
 ```

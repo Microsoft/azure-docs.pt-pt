@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 02ebfb711c5f51c71f42f7b67b8804b91a0be368
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 735be71faecb9882b13f6f536d43715139d0f4db
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329273"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342025"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dinamicamente criar e utilizar um volume persistente com discos do Azure no Azure Kubernetes Service (AKS)
 
@@ -21,13 +21,13 @@ Um volume persistente representa uma parte do armazenamento aprovisionado para u
 > [!NOTE]
 > Um disco do Azure só pode ser montado com *modo de acesso* tipo *ReadWriteOnce*, que torna disponíveis para um único pod no AKS. Se precisar de partilhar um volume persistente entre vários pods, utilize [ficheiros do Azure][azure-files-pvc].
 
-Para obter mais informações sobre volumes persistentes do Kubernetes, consulte [volumes persistentes do Kubernetes][kubernetes-volumes].
+Para obter mais informações sobre volumes do Kubernetes, consulte [opções de armazenamento para aplicações no AKS][concepts-storage].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure] [ aks-quickstart-cli] ou [no portal do Azure][aks-quickstart-portal].
 
-Precisa também da versão 2.0.46 ou posterior da CLI do Azure instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
+Também precisa da versão 2.0.59 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Criado em classes de armazenamento
 
@@ -42,7 +42,7 @@ Cada cluster do AKS inclui duas classes de armazenamento pré-criados, ambos con
 
 Utilize o [kubectl obter sc] [ kubectl-get] comando para ver as classes de armazenamento pré-criados. A exemplo a seguir mostra a pré-criar classes de armazenamento disponíveis dentro de um cluster do AKS:
 
-```
+```console
 $ kubectl get sc
 
 NAME                PROVISIONER                AGE
@@ -51,7 +51,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Volume persistente afirmações são especificadas em GiB mas Azure managed disks são faturados ao SKU para um tamanho específico. Estes intervalo de SKUs de 32GiB para S4 ou P4 discos a 32TiB para S80 ou P80 discos. O débito e o desempenho de IOPS de uma Premium geridos disco depende tanto o SKU e o tamanho das instâncias de nós do cluster do AKS. Para obter mais informações, consulte [preço e desempenho dos Managed Disks][managed-disk-pricing-performance].
+> Volume persistente afirmações são especificadas em GiB mas Azure managed disks são faturados ao SKU para um tamanho específico. Estes intervalo de SKUs de 32GiB para S4 ou P4 discos a 32TiB para discos S80 ou P80 (em pré-visualização). O débito e o desempenho de IOPS de uma Premium geridos disco depende tanto o SKU e o tamanho das instâncias de nós do cluster do AKS. Para obter mais informações, consulte [preço e desempenho dos Managed Disks][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Criar uma afirmação de volume persistente
 
@@ -78,7 +78,7 @@ spec:
 
 Criar a afirmação de volume persistente com o [kubectl aplicam-se] [ kubectl-apply] de comandos e especificar seu *azure-premium.yaml* ficheiro:
 
-```
+```console
 $ kubectl apply -f azure-premium.yaml
 
 persistentvolumeclaim/azure-managed-disk created
@@ -117,7 +117,7 @@ spec:
 
 Criar o pod com o [aplicam-se de kubectl] [ kubectl-apply] de comando, conforme mostrado no exemplo a seguir:
 
-```
+```console
 $ kubectl apply -f azure-pvc-disk.yaml
 
 pod/mypod created
@@ -125,7 +125,7 @@ pod/mypod created
 
 Tem agora um pod em execução com o seu disco do Azure montado no `/mnt/azure` diretório. Esta configuração pode ser vista quando inspecionar o seu pod via `kubectl describe pod mypod`, conforme mostrado no seguinte exemplo condensado:
 
-```
+```console
 $ kubectl describe pod mypod
 
 [...]
@@ -154,7 +154,7 @@ Para fazer backup dos dados no seu volume persistente, tire um instantâneo do d
 
 Em primeiro lugar, obtenha o nome de volume com o `kubectl get pvc` comando, tal como para PVC com o nome *disco do azure gerido*:
 
-```
+```console
 $ kubectl get pvc azure-managed-disk
 
 NAME                 STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
@@ -163,7 +163,7 @@ azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi   
 
 Este nome de volume forma o nome de disco do Azure subjacente. Consulta para o ID de disco com [lista de disco de az] [ az-disk-list] e indique o seu nome de volume PVC, conforme mostrado no exemplo a seguir:
 
-```
+```azurecli-interactive
 $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
 
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
@@ -171,7 +171,7 @@ $ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c
 
 Utilize o ID do disco para criar um disco de instantâneo com [criar instantâneo de az][az-snapshot-create]. O exemplo seguinte cria um instantâneo com o nome *pvcSnapshot* no mesmo grupo de recursos que o cluster do AKS (*MC_myResourceGroup_myAKSCluster_eastus*). Se criar instantâneos e restaurar discos em grupos de recursos que o cluster do AKS não tem acesso a, pode encontrar problemas de permissão.
 
-```azurecli
+```azurecli-interactive
 $ az snapshot create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --name pvcSnapshot \
@@ -184,13 +184,13 @@ Dependendo da quantidade de dados no disco, poderá demorar alguns minutos para 
 
 Para restaurar o disco e utilizá-lo com um pod de Kubernetes, utilize o instantâneo como uma origem ao criar um disco com [criar disco de az][az-disk-create]. Esta operação preserva o recurso original se, em seguida, precisa acessar o instantâneo de dados original. O exemplo seguinte cria um disco chamado *pvcRestored* partir do instantâneo com o nome *pvcSnapshot*:
 
-```azurecli
+```azurecli-interactive
 az disk create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --source pvcSnapshot
 ```
 
 Para utilizar o disco restaurado com um pod, especifica o ID do disco no manifesto. Obter o ID de disco com o [show de disco de az] [ az-disk-show] comando. O exemplo seguinte obtém o ID do disco para *pvcRestored* criado no passo anterior:
 
-```azurecli
+```azurecli-interactive
 az disk show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name pvcRestored --query id -o tsv
 ```
 
@@ -225,7 +225,7 @@ spec:
 
 Criar o pod com o [aplicam-se de kubectl] [ kubectl-apply] de comando, conforme mostrado no exemplo a seguir:
 
-```
+```console
 $ kubectl apply -f azure-restored.yaml
 
 pod/mypodrestored created
@@ -233,7 +233,7 @@ pod/mypodrestored created
 
 Pode usar `kubectl describe pod mypodrestored` para ver os detalhes de pod, como o seguinte exemplo condensado, que mostra as informações de volume:
 
-```
+```console
 $ kubectl describe pod mypodrestored
 
 [...]
@@ -250,6 +250,8 @@ Volumes:
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+Para as práticas recomendadas associadas, consulte [melhores práticas para o armazenamento e cópias de segurança no AKS][operator-best-practices-storage].
 
 Saiba mais sobre os volumes de persistentes Kubernetes com os discos do Azure.
 
@@ -275,3 +277,5 @@ Saiba mais sobre os volumes de persistentes Kubernetes com os discos do Azure.
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[operator-best-practices-storage]: operator-best-practices-storage.md
+[concepts-storage]: concepts-storage.md

@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4f89fab47cf07538d1915d359fc29a21deb1e560
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f402aeb82271d4e0f5023f05b0d61713c4ab73c1
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986095"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338472"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -482,7 +482,7 @@ sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationU
 Em alternativa, pode seguir os passos a [módulos de implementar o Azure IoT Edge do portal do Azure](../../iot-edge/how-to-deploy-modules-portal.md) documento para implementar a imagem no seu dispositivo. Quando configurar o __definições de registo__ para o dispositivo, utilize o __servidor de início de sessão__, __nome de utilizador__, e __palavra-passe__ sua área de trabalho registo de contentor.
 
 > [!NOTE]
-> Se não estiver familiarizado com o Azure IoT, consulte os seguintes documentos para obter informações sobre como começar com o serviço:
+> Se não estiver familiarizado com o Azure IoT Edge, consulte os seguintes documentos para obter informações sobre como começar com o serviço:
 >
 > * [Quickstart: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux](../../iot-edge/quickstart-linux.md)
 > * [Quickstart: Implementar o seu primeiro módulo do IoT Edge num dispositivo Windows](../../iot-edge/quickstart.md)

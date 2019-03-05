@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda3cb2b8d8edd4567440be627a58f576aebcca0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dbfcab7900a1552a46341ec71b8b0ea4b41b0bce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458057"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339170"
 ---
 # <a name="view-your-privacy-related-info-from-the-my-profile-preview-portal"></a>Ver as suas informações relacionadas com a privacidade a partir do portal do meu perfil (pré-visualização)
 Pode ver como a sua organização utiliza seus dados a partir da **privacidade** página do **meu perfil** portal.
@@ -29,7 +29,7 @@ Pode ver como a sua organização utiliza seus dados a partir da **privacidade**
 
 2. Selecione **privacidade** do painel de navegação esquerda ou selecione o **rever privacidade** uma ligação a **privacidade** bloco.
 
-    ![Minha página de perfil, que mostra as ligações de privacidade realçadas](media/myprofile-portal/myprofile-portal-privacy-links.png)
+    ![Minha página de perfil, que mostra as ligações de privacidade realçadas](media/myprofile-portal/myprofile-portal-privacy.png)
 
 3. Reveja as informações, incluindo:
 
@@ -39,4 +39,4 @@ Pode ver como a sua organização utiliza seus dados a partir da **privacidade**
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Depois de visualizar a atividade de início de sessão recente, pode selecionar para ver ou gerir sua [informações de segurança](user-help-security-info-overview.md), [atividade de início de sessão recente](myprofile-portal-recent-activity-page.md)ligados [dispositivos](myprofile-portal-devices-page.md) ou [ as organizações](myprofile-portal-organizations-page.md).
+- Depois de visualizar como sua organização utiliza seus dados, pode selecionar para ver ou gerir sua [informações de segurança](user-help-security-info-overview.md), sua ligados [dispositivos](myprofile-portal-devices-page.md), ou seu [organizações](myprofile-portal-organizations-page.md).

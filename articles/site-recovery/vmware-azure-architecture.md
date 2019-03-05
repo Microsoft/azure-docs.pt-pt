@@ -1,18 +1,18 @@
 ---
 title: VMware para a arquitetura da recuperação após desastre do Azure no Azure Site Recovery | Documentos da Microsoft
 description: Este artigo fornece uma visão geral dos componentes e da arquitetura utilizada ao definir a recuperação após desastre de VMs de VMware no local para o Azure com o Azure Site Recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: raynew
-ms.openlocfilehash: 3d91788544c49c260eff051185950bdfd164b802
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: 5f9ead8df3d0dfb2695def46087d2ea994b8b75b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217956"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340446"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware para a arquitetura da recuperação após desastre do Azure
 
@@ -25,7 +25,7 @@ A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utiliza
 
 **Componente** | **Requisito** | **Detalhes**
 --- | --- | ---
-**Azure** | Uma subscrição do Azure, uma conta de armazenamento do Azure e uma rede do Azure. | Dados replicados de VMs no local são armazenados na conta de armazenamento. VMs do Azure são criadas com os dados replicados quando executar uma ativação pós-falha do local para o Azure. As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
+**Azure** | Uma subscrição do Azure, conta de armazenamento do Azure para a cache, de disco gerido e de rede do Azure. | Dados replicados de VMs no local são armazenados no armazenamento do Azure. VMs do Azure são criadas com os dados replicados quando executar uma ativação pós-falha do local para o Azure. As VMs do Azure ligam-se à rede virtual do Azure quando são criadas.
 **Máquina do servidor de configuração** | Uma única máquina no local. Recomendamos que executá-la como uma VM de VMware que podem ser implementadas a partir de um modelo do OVF transferido.<br/><br/> A máquina é executada todos os componentes do Site Recovery no local, que incluem o servidor de configuração, o servidor de processos e o servidor de destino mestre. | **Servidor de configuração**: Coordena as comunicações entre no local e o Azure e gere a replicação de dados.<br/><br/> **Servidor de processos**: Instalado por predefinição no servidor de configuração. Recebe dados de replicação. otimiza-os com colocação em cache, compressão e encriptação; e envia-os para o armazenamento do Azure. O servidor de processos também instala o serviço de mobilidade de recuperação de sites do Azure nas VMs que pretende replicar, e efetua a deteção automática de máquinas no local. À medida que cresça a implementação, pode adicionar servidores de processo adicionais, em separado para processar maiores volumes de tráfego de replicação.<br/><br/> **Servidor de destino mestre**: Instalado por predefinição no servidor de configuração. Ele processa dados de replicação durante a reativação pós-falha do Azure. Para implementações maiores, pode adicionar um servidor de destino mestre adicionais, em separado para a reativação pós-falha.
 **Servidores de VMware** | VMware VMs são alojadas em servidores do ESXi do vSphere no local. Recomendamos um servidor vCenter para gerir os anfitriões. | Durante a implementação da recuperação de Site, pode adicionar servidores VMware para o Cofre dos serviços de recuperação.
 **Máquinas replicadas** | O serviço de mobilidade está instalado em cada VM de VMware, replicar. | Recomendamos que permite que a instalação automática do servidor de processos. Em alternativa, pode instalar o serviço manualmente ou utilizar um método de implementação automatizada, como o System Center Configuration Manager.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: a8e52af1a1feb8a01ed5556efb6e153c56b25cca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 52058469b531383b32974ccc5bc77b31783583bd
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700592"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339952"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Exemplo de aplicação para utilização com DMZs
 [Regressar à página de práticas recomendada de segurança limites][HOME]
@@ -42,7 +42,7 @@ Se utilizar os seguintes scripts, esta adição da regra de firewall é a primei
 Este script irá:
 
 1. Abrir IMCPv4 (Ping) na firewall do windows local server para fins de teste mais fáceis
-2. Instalar o IIS e o .net Framework v4.5
+2. Instalar o IIS e o .NET Framework v4.5
 3. Criar uma página da web ASP.NET e um arquivo Web. config
 4. Alterar o agrupamento de aplicações predefinido para facilitar o acesso a ficheiros
 5. Defina o utilizador anónimo à sua conta de administrador e a palavra-passe
@@ -152,12 +152,12 @@ Este script configura o back-end para esta aplicação simple. Este script irá:
 2. Criar um diretório para o web site
 3. Criar um ficheiro de texto para ser remotamente acesso pela página da web
 4. Definir as permissões no diretório e arquivo para anónimo para permitir o acesso
-5. Desativar a segurança avançada do IE para permitir a navegação mais fácil partir deste servidor 
+5. Desativar a segurança avançada do IE para permitir a navegação mais fácil partir deste servidor
 
 > [!IMPORTANT]
 > **Melhor prática**: Nunca desativar a segurança avançada do IE num servidor de produção, além disso, geralmente é uma boa idéia para navegar na web a partir de um servidor de produção. Além disso, abrindo as partilhas de ficheiros para acesso anónimo é uma boa idéia, mas done aqui para manter a simplicidade.
-> 
-> 
+>
+>
 
 Este script do PowerShell deve ser executado localmente enquanto RDP tinha em AppVM01. PowerShell é necessário para ser executado como administrador para garantir a execução com êxito.
 

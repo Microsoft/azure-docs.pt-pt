@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a2cf35203c673d6296754360ac4f794241d4c43
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 0fe4da13e8242d858d553e0532b82cf1adca450a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008683"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338764"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de gestão de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, gestão de API do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para fazer a conexão. Gestão de API pode ser implementada em dois modos principais dentro de uma rede virtual:
@@ -59,7 +59,7 @@ O serviço de gestão de API numa rede virtual interna é hospedado por trás de
 
 4. Selecione **Guardar**.
 
-Após a implementação com êxito, deverá ver o endereço IP virtual interno do seu serviço no dashboard.
+Após a implementação com êxito, deverá ver **privada** endereço IP virtual e **público** endereço IP virtual do seu serviço de gestão de API no painel de descrição geral. O **privada** endereço IP virtual é uma carga de endereço IP com balanceamento de dentro da gestão de API delegada sub-rede através do qual `gateway`, `portal`, `management` e `scm` pontos de extremidade podem ser acedidos. O **pública** é utilizado o endereço IP virtual **apenas** para controlar o tráfego de plano de `management` ponto final mais 3443 de porta e pode ser bloqueado para baixo para o [ApiManagement] [ ServiceTags] servicetag.
 
 ![Dashboard de gestão de API com uma rede virtual interna configurada][api-management-internal-vnet-dashboard]
 
@@ -83,25 +83,25 @@ Quando a gestão de API está no modo de rede virtual externa, o DNS é gerido p
 > Serviço de gestão de API não escutar para pedidos provenientes de endereços IP. Ele responde apenas a pedidos para o nome de anfitrião configurado nos seus pontos de extremidade de serviço. Estes pontos finais incluem o gateway, o portal do Azure e o portal do programador, o ponto final de gestão direta e o Git.
 
 ### <a name="access-on-default-host-names"></a>Acesso em nomes de anfitrião predefinido
-Quando cria um serviço de gestão de API, com o nome "contoso", por exemplo, os seguintes pontos finais de serviço são configurados por predefinição:
+Quando cria um serviço de gestão de API, com o nome "contosointernalvnet", por exemplo, os seguintes pontos finais de serviço são configurados por predefinição:
 
-   * Gateway ou proxy: contoso. Azure-api.net
+   * Gateway ou proxy: contosointernalvnet.azure-api.net
 
-   * Portal do Azure e o portal do programador: contoso.portal.azure-api.net
+   * Portal do Azure e o portal do programador: contosointernalvnet.portal.azure-api.net
 
-   * Ponto final de gestão direta: contoso.management.azure-api.net
+   * Ponto final de gestão direta: contosointernalvnet.management.azure-api.net
 
-   * Git: contoso.scm.azure-api.net
+   * Git: contosointernalvnet.scm.azure-api.net
 
-Para aceder a estes pontos finais de serviço de gestão de API, pode criar uma máquina virtual numa sub-rede ligada à rede virtual em que a gestão de API é implementada. Partindo do princípio de que o endereço IP virtual interno para o seu serviço é 10.0.0.5, pode mapear o ficheiro de anfitriões, % SystemDrive%\drivers\etc\hosts, da seguinte forma:
+Para aceder a estes pontos finais de serviço de gestão de API, pode criar uma máquina virtual numa sub-rede ligada à rede virtual em que a gestão de API é implementada. Partindo do princípio de que o endereço IP virtual interno para o seu serviço é 10.1.0.5, pode mapear o ficheiro de anfitriões, % SystemDrive%\drivers\etc\hosts, da seguinte forma:
 
-   * 10.0.0.5     contoso.azure-api.net
+   * 10.1.0.5     contosointernalvnet.azure-api.net
 
-   * 10.0.0.5     contoso.portal.azure-api.net
+   * 10.1.0.5     contosointernalvnet.portal.azure-api.net
 
-   * 10.0.0.5     contoso.management.azure-api.net
+   * 10.1.0.5     contosointernalvnet.management.azure-api.net
 
-   * 10.0.0.5     contoso.scm.azure-api.net
+   * 10.1.0.5     contosointernalvnet.scm.azure-api.net
 
 Em seguida, pode acessar todos os pontos finais do serviço da máquina virtual que criou. Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar registos DNS de um e aceder a estes pontos finais de qualquer lugar na sua rede virtual. 
 
@@ -125,10 +125,12 @@ Para obter mais informações, consulte os artigos seguintes:
 * [FAQs de rede virtual](../virtual-network/virtual-networks-faq.md)
 * [Criar um registo no DNS](https://msdn.microsoft.com/library/bb727018.aspx)
 
-[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-menu.png
+[api-management-using-internal-vnet-menu]: ./media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png
 [api-management-internal-vnet-dashboard]: ./media/api-management-using-with-internal-vnet/api-management-internal-vnet-dashboard.png
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
+
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags
 

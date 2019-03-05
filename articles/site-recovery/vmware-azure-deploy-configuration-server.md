@@ -2,18 +2,18 @@
 title: Implementar o servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo descreve como implementar um servidor de configuração para a recuperação de desastre do VMware com o Azure Site Recovery
 services: site-recovery
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2018
-ms.author: ramamill
-ms.openlocfilehash: 4260aaf814b344c1a30106651959d4e4e9ad2335
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.date: 02/28/2019
+ms.author: mayg
+ms.openlocfilehash: e7ee8f58e42f99ebc087f21837511979c578fb89
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594224"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340087"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -121,7 +121,7 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 
 ### <a name="configure-settings"></a>Configurar definições
 
-1. No assistente de gestão do servidor de configuração, selecione **Configurar a conectividade** e, em seguida, selecione o NIC que o servidor de processos utiliza para receber o tráfego de replicação das VMs. Em seguida, selecione **Guardar**. Não é possível alterar esta definição depois de estar configurada. Recomenda-se vivamente que não altere o endereço IP de um servidor de configuração. Certifique-se de que o IP atribuído ao servidor de configuração é o IP estático e não os IP de DHCP.
+1. No Assistente de gestão do servidor de configuração, selecione **configurar a conectividade**. A partir as listas pendentes, primeiro selecione o NIC que o servidor de processos incorporado utiliza para a instalação de push e de deteção do serviço de mobilidade nas máquinas de origem e, em seguida, selecione o NIC que utiliza o servidor de configuração para a conectividade com o Azure. Em seguida, selecione **Guardar**. Não é possível alterar esta definição depois de estar configurada. Recomenda-se vivamente que não altere o endereço IP de um servidor de configuração. Certifique-se de que o IP atribuído ao servidor de configuração é o IP estático e não os IP de DHCP.
 2. Na **selecionar serviços de recuperação do cofre**, inicie sessão no Microsoft Azure com as credenciais utilizadas na **passo 6** de "[Registre-se o servidor de configuração com os serviços de recuperação de Site do Azure](#register-the-configuration-server-with-azure-site-recovery-services)" .
 3. Após o início de sessão, selecione a sua subscrição do Azure e o grupo de recursos relevantes e o cofre.
 

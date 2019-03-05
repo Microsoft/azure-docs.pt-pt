@@ -1,6 +1,4 @@
 items:
-- name: Noções básicas do IoT do Azure
-  href: /azure/iot-fundamentals
 - name: Documentação do Azure IoT Central
   href: index.yml
 - name: Descrição geral
@@ -145,9 +143,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Browsers suportados
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 4843570f131b06657df1770060b95622fde43cc0
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: c54c627e04dbb825d14cda8af28ebe77636bb785
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216820"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342263"

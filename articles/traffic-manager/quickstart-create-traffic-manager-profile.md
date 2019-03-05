@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 9a7bdb10c43f9192599f8b65be106597b4770e8e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198224"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338302"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Início rápido: Criar um perfil do Gestor de tráfego para uma aplicação web de elevada disponibilidade
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início rápido: Criar um perfil do Gestor de tráfego no portal do Azure
 
 Este início rápido descreve como criar um perfil do Gestor de tráfego que fornece elevada disponibilidade para a sua aplicação web.
 
@@ -37,7 +37,7 @@ Neste início rápido, terá duas instâncias de uma aplicação web implementad
 1. No lado do canto superior esquerdo do ecrã, selecione **criar um recurso** > **Web** > **aplicação Web**.
 2. Na **aplicação Web**, introduza ou selecione estas definições:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ----- |
     | Nome da aplicação | Introduza um nome exclusivo para a sua aplicação web.  |
     | Subscrição | Selecione a subscrição que pretende que a aplicação web aplicada a. |
@@ -49,7 +49,7 @@ Neste início rápido, terá duas instâncias de uma aplicação web implementad
 4. Na **plano do App Service**, selecione **criar nova**.
 5. Na **plano do serviço de aplicações novo**, introduza ou selecione estas definições:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ----- |
     | Plano do App Service | Introduza *myAppServicePlanEastUS*. |
     | Localização | EUA Leste |
@@ -63,7 +63,7 @@ Neste início rápido, terá duas instâncias de uma aplicação web implementad
 
     | Definição | Valor |
     | --------| ----- |
-    | Nome | Introduza um nome exclusivo para a sua aplicação web. |
+    | Name | Introduza um nome exclusivo para a sua aplicação web. |
     | Subscrição | Selecione a subscrição que pretende que a aplicação web aplicada a. |
     | Grupo de recursos | Selecione **criar novo**e, em seguida, introduza *myResourceGroupTM2*. |
     | SO | Selecione **Windows** como seu sistema operativo. |
@@ -81,10 +81,10 @@ Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizador com 
 
     | Definição | Valor |
     | --------| ----- |
-    | Nome | Introduza um nome exclusivo para o seu perfil do Gestor de tráfego.|
+    | Name | Introduza um nome exclusivo para o seu perfil do Gestor de tráfego.|
     | Método de encaminhamento | Selecione **prioridade**.|
     | Subscrição | Selecione a subscrição que pretende que o perfil do Gestor de tráfego aplicado a. |
-    | Grupo de recursos | Selecione *myResourceGroupTM1*.|
+    | Grupo de recursos | Select *myResourceGroupTM1*.|
     | Localização |Esta definição refere-se para a localização do grupo de recursos. Não tem efeito sobre o perfil do Gestor de tráfego que vai ser implementado globalmente.|
 
 3. Selecione **Criar**.
@@ -98,10 +98,10 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
 3. Na **perfil do Gestor de tráfego**, na **definições** secção, selecione **pontos finais**e, em seguida, selecione **adicionar**.
 4. Introduza ou selecione, estas definições:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ------|
-    | Tipo | Selecione **ponto final do Azure**. |
-    | Nome | Introduza *myPrimaryEndpoint*. |
+    | Type | Selecione **ponto final do Azure**. |
+    | Name | Introduza *myPrimaryEndpoint*. |
     | Tipo de recurso de destino | Selecione **serviço de aplicações**. |
     | Recurso de destino | Selecione **escolher um serviço de aplicações** > **E.U.A. Leste**. |
     | Prioridade | Selecione **1**. Quando ele está íntegro, todo o tráfego vai para este ponto final. |
@@ -111,10 +111,10 @@ Adicione o Website em *E.U.A. Leste* como o ponto final principal para encaminha
 5. Selecione **OK**.
 6. Para criar um ponto de extremidade de ativação pós-falha para a sua segunda região do Azure, repita os passos 3 e 4 com estas definições:
 
-    | Definição | Valor |
+    | Definição | Value |
     | ------- | ------|
-    | Tipo | Selecione **ponto final do Azure**. |
-    | Nome | Introduza *myFailoverEndpoint*. |
+    | Type | Selecione **ponto final do Azure**. |
+    | Name | Introduza *myFailoverEndpoint*. |
     | Tipo de recurso de destino | Selecione **serviço de aplicações**. |
     | Recurso de destino | Selecione **escolher um serviço de aplicações** > **Europa Ocidental**. |
     | Prioridade | Selecione **2**. Todo o tráfego vai para este ponto final de ativação pós-falha se o ponto final primário está danificado. |

@@ -1,6 +1,4 @@
 items:
-- name: Noções básicas do IoT do Azure
-  href: /azure/iot-fundamentals
 - name: Azure Digital Twins
   href: index.yml
 - name: Descrição geral
@@ -119,9 +117,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: Vídeos
     href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
-ms.openlocfilehash: 92d60cbe1de8d8f2b36d67e1a7ff2999a45e1a8e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b36b8fb99b4edc932e907c3e978b1b08ef2178d3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102228"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339118"

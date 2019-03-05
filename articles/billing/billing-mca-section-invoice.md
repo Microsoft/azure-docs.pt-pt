@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: a9fa2ed58cbd84c83d3109fe173515b07d93db30
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f903f85dfafb61562698a437465f8421aaf3a3d8
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249147"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339492"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Criar secções na sua fatura para organizar os seus custos
 
-Criar secções na sua fatura para organizar os seus custos por um departamento, ambiente de desenvolvimento, ou com base nas necessidades da sua organização. Em seguida, atribua a outras pessoas permissão para criar subscrições do Azure para a seção. Quaisquer custos de utilização ou compras para as subscrições, em seguida, mostrar na seção de nota fiscal. Ver os gastos totais para a seção na sua fatura, no portal do Azure, ou analise-as em análise de custos do Azure. Para obter mais informações, consulte [exibir transações de secções de nota fiscal](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Criar secções na sua fatura para organizar os seus custos por um departamento, ambiente de desenvolvimento, ou com base nas necessidades da sua organização. Em seguida, atribua a outras pessoas permissão para criar subscrições do Azure para a seção. Quaisquer custos de utilização ou compras para as subscrições refletem sobre a secção de nota fiscal. Ver os gastos totais para a seção na sua fatura, no portal do Azure, ou analise-as em análise de custos do Azure. Para obter mais informações, consulte [exibir transações de secções de nota fiscal](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
 Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Microsoft. [Verifique se tem acesso a um contrato de cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="create-an-invoice-section-in-the-azure-portal"></a>Criar uma seção de nota fiscal no portal do Azure
 
-Para criar uma seção de nota fiscal, tem de ser um **faturação proprietário de perfil** ou uma **Contribuidor de perfil de faturação**. Para obter mais informações, consulte [secções de nota fiscal de gerir para o perfil de faturação](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
+Para criar uma seção de nota fiscal, tem de ser um **faturação proprietário de perfil** ou uma **Contribuidor de perfil de faturação**. Para obter mais informações, consulte [gerir secções de nota fiscal para o perfil de faturação](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
 1. Inicie sessão no [portal do Azure](http://portal.azure.com).
 
@@ -44,7 +44,7 @@ Para criar uma seção de nota fiscal, tem de ser um **faturação proprietário
 
    ![Captura de ecrã que mostra a página de criação de seção de nota fiscal](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 
-6. Selecione um perfil de faturação. Quaisquer custos de utilização ou compras para a secção de fatura irão mostrar na fatura do perfil de faturação.
+6. Selecione um perfil de faturação. Quaisquer custos de utilização ou compras para a secção de fatura irão refletir na fatura do perfil de faturação.
 
 7. Selecione **Criar**.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 2/20/2019
 ms.author: raiye
-ms.openlocfilehash: b39a365e077f8c51b322f0849b373b500cb2d905
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: ff857e2ad454fc8d93ab25e7ceb7b27ea9b3f611
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594292"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342739"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
@@ -717,7 +717,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-060 |[3154846] |Atualização de segurança para o Kernel do Windows |4.32, 3.39, 2.51 |10 de Maio de 2016 |
 | MS16-061 |[3155520] |Atualização de segurança para RPC |4.32, 3.39, 2.51 |10 de Maio de 2016 |
 | MS16-062 |[3158222] |Atualização de segurança para Drivers em modo Kernel |4.32, 3.39, 2.51 |10 de Maio de 2016 |
-| MS16-065 |[3156757] |Atualização de segurança do .net Framework |4.32, 3.39, 2.51 |10 de Maio de 2016 |
+| MS16-065 |[3156757] |Atualização de segurança do .NET Framework |4.32, 3.39, 2.51 |10 de Maio de 2016 |
 | MS16-067 |[3155784] |Atualização de segurança do controlador de Gestor de volumes |4.32, 3.39 |10 de Maio de 2016 |
 | N/A |[3148851] |Alterações de fuso horário para Rússia no Windows  |4.32, 3.39, 2.51 |10 de Maio de 2016 |
 | N/A |[3133977] |O BitLocker não é possível encriptar unidades por serviço falhas no processo de svchost.exe no Windows 7 ou Windows Server 2008 R2  |2.51 |10 de Maio de 2016 |
@@ -1070,7 +1070,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4132216]: http://support.microsoft.com/kb/4132216
 
 [4103721]: http://support.microsoft.com/kb/4103721
-[4103727]: http://support.microsoft.com/kb/4103727 
+[4103727]: http://support.microsoft.com/kb/4103727
 [4103723]: http://support.microsoft.com/kb/4103723
 [4103712]: http://support.microsoft.com/kb/4103712
 [4103726]: http://support.microsoft.com/kb/4103726
@@ -1093,7 +1093,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4093753]: http://support.microsoft.com/kb/4093753
 
 [4093119]: http://support.microsoft.com/kb/4093119
-[4093108]: http://support.microsoft.com/kb/4093108 
+[4093108]: http://support.microsoft.com/kb/4093108
 [4093122]: http://support.microsoft.com/kb/4093122
 [4093115]: http://support.microsoft.com/kb/4093115
 [4092946]: http://support.microsoft.com/kb/4092946
@@ -1104,7 +1104,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4088876]: http://support.microsoft.com/kb/4088876
 
 [4088787]: http://support.microsoft.com/kb/4088787
-[4088776]: http://support.microsoft.com/kb/4088776 
+[4088776]: http://support.microsoft.com/kb/4088776
 [4088878]: http://support.microsoft.com/kb/4088878
 [4088880]: http://support.microsoft.com/kb/4088880
 [4088879]: http://support.microsoft.com/kb/4088879
@@ -1116,7 +1116,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4074837]: http://support.microsoft.com/kb/4074837
 
 [4074590]: http://support.microsoft.com/kb/4074590
-[4074588]: http://support.microsoft.com/kb/4074588 
+[4074588]: http://support.microsoft.com/kb/4074588
 [4074587]: http://support.microsoft.com/kb/4074587
 [4074589]: http://support.microsoft.com/kb/4074589
 [4074597]: http://support.microsoft.com/kb/4074597
@@ -1136,7 +1136,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4056898]: http://support.microsoft.com/kb/4056898
 [4056897]: http://support.microsoft.com/kb/4056897
 [4056899]: http://support.microsoft.com/kb/4056899
-[4056890]: http://support.microsoft.com/kb/4056890 
+[4056890]: http://support.microsoft.com/kb/4056890
 [4056892]: http://support.microsoft.com/kb/4056892
 [4054518]: http://support.microsoft.com/kb/4054518
 [4054520]: http://support.microsoft.com/kb/4054520
@@ -1145,7 +1145,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 
 [4053579]: http://support.microsoft.com/kb/4053579
-[4054517]: http://support.microsoft.com/kb/4054517 
+[4054517]: http://support.microsoft.com/kb/4054517
 [4054521]: http://support.microsoft.com/kb/4054521
 [4054522]: http://support.microsoft.com/kb/4054522
 [4054523]: http://support.microsoft.com/kb/4054523
@@ -1158,7 +1158,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 
 [4048953]: http://support.microsoft.com/kb/4048953
-[4048960]: http://support.microsoft.com/kb/4048960 
+[4048960]: http://support.microsoft.com/kb/4048960
 [4048962]: http://support.microsoft.com/kb/4048962
 [4048961]: http://support.microsoft.com/kb/4048961
 [4047206]: http://support.microsoft.com/kb/4047206
@@ -1171,8 +1171,8 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3191564]: http://support.microsoft.com/kb/3191564
 
 
-[4041691]: http://support.microsoft.com/kb/4041691 
-[4041678]: http://support.microsoft.com/kb/4041678 
+[4041691]: http://support.microsoft.com/kb/4041691
+[4041678]: http://support.microsoft.com/kb/4041678
 [4041679]: http://support.microsoft.com/kb/4041679
 [4041687]: http://support.microsoft.com/kb/4041687
 [4040685]: http://support.microsoft.com/kb/4040685
@@ -1308,55 +1308,55 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4012216]: http://support.microsoft.com/kb/4012216
 
 
-[4013429]: http://support.microsoft.com/kb/4013429 
-[4012212]: http://support.microsoft.com/kb/4012212 
-[4012213]: http://support.microsoft.com/kb/4012213 
-[4012214]: http://support.microsoft.com/kb/4012214 
-[4012204]: http://support.microsoft.com/kb/4012204 
-[4012864]: http://support.microsoft.com/kb/4012864 
-[3212646]: http://support.microsoft.com/kb/3212646 
-[3205409]: http://support.microsoft.com/kb/3205409 
+[4013429]: http://support.microsoft.com/kb/4013429
+[4012212]: http://support.microsoft.com/kb/4012212
+[4012213]: http://support.microsoft.com/kb/4012213
+[4012214]: http://support.microsoft.com/kb/4012214
+[4012204]: http://support.microsoft.com/kb/4012204
+[4012864]: http://support.microsoft.com/kb/4012864
+[3212646]: http://support.microsoft.com/kb/3212646
+[3205409]: http://support.microsoft.com/kb/3205409
 [3205401]: http://support.microsoft.com/kb/3205401
 [3211320]: http://support.microsoft.com/kb/3211320
 
 
 [3216771]: https://technet.microsoft.com/library/security/MS17-004
 
-[3204059]: http://support.microsoft.com/kb/3204059 
-[3204062]: http://support.microsoft.com/kb/3204062 
-[3204066]: http://support.microsoft.com/kb/3204066 
-[3204063]: http://support.microsoft.com/kb/3204063 
-[3205655]: http://support.microsoft.com/kb/3205655 
-[3205642]: http://support.microsoft.com/kb/3205642 
-[3205651]: http://support.microsoft.com/kb/3205651 
-[3199709]: http://support.microsoft.com/kb/3199709 
-[3207328]: http://support.microsoft.com/kb/3207328 
-[3205640]: http://support.microsoft.com/kb/3205640 
-[3197868]: http://support.microsoft.com/kb/3197868 
-[3197877]: http://support.microsoft.com/kb/3197877 
-[3197874]: http://support.microsoft.com/kb/3197874 
+[3204059]: http://support.microsoft.com/kb/3204059
+[3204062]: http://support.microsoft.com/kb/3204062
+[3204066]: http://support.microsoft.com/kb/3204066
+[3204063]: http://support.microsoft.com/kb/3204063
+[3205655]: http://support.microsoft.com/kb/3205655
+[3205642]: http://support.microsoft.com/kb/3205642
+[3205651]: http://support.microsoft.com/kb/3205651
+[3199709]: http://support.microsoft.com/kb/3199709
+[3207328]: http://support.microsoft.com/kb/3207328
+[3205640]: http://support.microsoft.com/kb/3205640
+[3197868]: http://support.microsoft.com/kb/3197868
+[3197877]: http://support.microsoft.com/kb/3197877
+[3197874]: http://support.microsoft.com/kb/3197874
 
-[3199057]: http://support.microsoft.com/kb/3199057 
-[3199172]: http://support.microsoft.com/kb/3199172 
-[3199151]: http://support.microsoft.com/kb/3199151 
-[3193706]: http://support.microsoft.com/kb/3193706 
-[3199120]: http://support.microsoft.com/kb/3199120 
-[3199135]: http://support.microsoft.com/kb/3199135 
-[3199173]: http://support.microsoft.com/kb/3199173 
-[3199647]: http://support.microsoft.com/kb/3199647 
-[3199720]: http://support.microsoft.com/kb/3199720 
-[3193479]: http://support.microsoft.com/kb/3193479 
-[3198467]: http://support.microsoft.com/kb/3198467 
-[3192321]: http://support.microsoft.com/kb/3192321 
-[3185330]: http://support.microsoft.com/kb/3185330 
-[3192403]: http://support.microsoft.com/kb/3192403 
-[3177467]: http://support.microsoft.com/kb/3177467 
-[3185332]: http://support.microsoft.com/kb/3185332 
-[3192406]: http://support.microsoft.com/kb/3192406 
-[3185331]: http://support.microsoft.com/kb/3185331 
-[3192404]: http://support.microsoft.com/kb/3192404 
-[3199986]: http://support.microsoft.com/kb/3199986 
-[3197954]: http://support.microsoft.com/kb/3197954  
+[3199057]: http://support.microsoft.com/kb/3199057
+[3199172]: http://support.microsoft.com/kb/3199172
+[3199151]: http://support.microsoft.com/kb/3199151
+[3193706]: http://support.microsoft.com/kb/3193706
+[3199120]: http://support.microsoft.com/kb/3199120
+[3199135]: http://support.microsoft.com/kb/3199135
+[3199173]: http://support.microsoft.com/kb/3199173
+[3199647]: http://support.microsoft.com/kb/3199647
+[3199720]: http://support.microsoft.com/kb/3199720
+[3193479]: http://support.microsoft.com/kb/3193479
+[3198467]: http://support.microsoft.com/kb/3198467
+[3192321]: http://support.microsoft.com/kb/3192321
+[3185330]: http://support.microsoft.com/kb/3185330
+[3192403]: http://support.microsoft.com/kb/3192403
+[3177467]: http://support.microsoft.com/kb/3177467
+[3185332]: http://support.microsoft.com/kb/3185332
+[3192406]: http://support.microsoft.com/kb/3192406
+[3185331]: http://support.microsoft.com/kb/3185331
+[3192404]: http://support.microsoft.com/kb/3192404
+[3199986]: http://support.microsoft.com/kb/3199986
+[3197954]: http://support.microsoft.com/kb/3197954
 
 [3192887]: http://support.microsoft.com/kb/3192887
 [3192884]: http://support.microsoft.com/kb/3192884
@@ -1461,15 +1461,15 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [3148528]: http://support.microsoft.com/kb/3148528
 
 
-[3142015]: http://support.microsoft.com/kb/3142015  
-[3143148]: http://support.microsoft.com/kb/3143148  
-[3143146]: http://support.microsoft.com/kb/3143146  
-[3143081]: http://support.microsoft.com/kb/3143081  
-[3143136]: http://support.microsoft.com/kb/3143136  
-[3140410]: http://support.microsoft.com/kb/3140410  
-[3143141]: http://support.microsoft.com/kb/3143141  
-[3143142]: http://support.microsoft.com/kb/3143142  
-[3143145]: http://support.microsoft.com/kb/3143145  
+[3142015]: http://support.microsoft.com/kb/3142015
+[3143148]: http://support.microsoft.com/kb/3143148
+[3143146]: http://support.microsoft.com/kb/3143146
+[3143081]: http://support.microsoft.com/kb/3143081
+[3143136]: http://support.microsoft.com/kb/3143136
+[3140410]: http://support.microsoft.com/kb/3140410
+[3143141]: http://support.microsoft.com/kb/3143141
+[3143142]: http://support.microsoft.com/kb/3143142
+[3143145]: http://support.microsoft.com/kb/3143145
 [3141780]: http://support.microsoft.com/kb/3141780
 
 [3134220]: http://support.microsoft.com/kb/3134220

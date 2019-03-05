@@ -9,15 +9,15 @@ ms.assetid: 3C8423F8-41E0-4F89-86B6-697E840610A7
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: e9eb67cff82ce8c52684d523be7c662c5a2cbb40
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 38b2244d68de25f53d59dd4eb0a6beba03f0e51d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160327"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339543"
 ---
 # <a name="page-through-the-images-results"></a>Página através dos resultados de imagens
 

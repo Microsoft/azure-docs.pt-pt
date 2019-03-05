@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: c263669d7f74d8abebcd84e818ae2ccf2dcac0f0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249246"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337418"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Introdução à sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -28,13 +28,13 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 ## <a name="understand-billing-account"></a>Compreender a conta de cobrança
 
-Sua conta de cobrança para o contrato de cliente da Microsoft contém um ou mais perfis de faturas. Cada perfil de Faturação tem seus próprios métodos de pagamentos e notas fiscais. O perfil de faturação contém um ou mais secções de nota fiscal que permitem-lhe organizar os custos de nota fiscal do perfil de faturação.
+Sua conta de cobrança para o contrato de cliente da Microsoft contém um ou mais perfis de faturas que permitem-lhe gerir os seus métodos de pagamento e notas fiscais. Cada perfil de faturação contém um ou mais secções de nota fiscal que permitem-lhe organizar os custos de nota fiscal do perfil de faturação.
 
 O diagrama seguinte mostra a relação entre uma conta de cobrança, os perfis de faturas e seções de nota fiscal.
 
 ![Diagrama que mostra a hierarquia de faturação para o contrato de cliente da Microsoft](./media/billing-mca-overview/mca-billing-hierarchy.png)
 
-Funções na conta de faturação têm o maior nível de permissões. Atribuir essas funções a utilizadores que precisam para ver as notas fiscais e controlar os custos para toda a organização, como o financeiro ou gerentes de TI. Para obter mais informações, consulte [funções de conta e tarefas de faturação](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
+Funções na conta de faturação têm o maior nível de permissões. Por predefinição, apenas os administradores globais no Azure Active Directory da sua organização, obter acesso à conta de faturação. Estas funções devem ser atribuídas a utilizadores que precisam de ver as notas fiscais e controlar os custos para toda a organização, como o financeiro ou gerentes de TI. Para obter mais informações, consulte [funções de conta e tarefas de faturação](billing-understand-mca-roles.md#billing-account-roles-and-tasks).
 
 ## <a name="understand-billing-profiles"></a>Compreender os perfis de faturas
 
@@ -50,7 +50,7 @@ Funções nos perfis de faturas tem permissões para ver e gerir as notas fiscai
 
 Uma nota fiscal mensal é gerada na data da nota fiscal para cada perfil de faturação. A nota fiscal contém todos os encargos do mês anterior.
 
-Pode ver a nota fiscal, transferir os documentos e alterar a definição para obter futuras faturas por e-mail, no portal do Azure. Para obter mais informações, consulte [receber sua fatura no e-mail](billing-download-azure-invoice-daily-usage-date.md#get-your-invoice-in-email-pdf).
+Pode ver a nota fiscal, transferir os documentos e alterar a definição para obter futuras faturas por e-mail, no portal do Azure. Para obter mais informações, consulte [transferência de faturas para um contrato de cliente da Microsoft](billing-download-azure-invoice-daily-usage-date.md#download-invoices-for-a-microsoft-customer-agreement).
 
 ### <a name="invoices-paid-through-payment-methods"></a>Notas fiscais pagos através de métodos de pagamento
 
@@ -58,7 +58,7 @@ Cada perfil de Faturação tem seus próprios métodos de pagamento que são uti
 
 | Type             | Definição  |
 |------------------|-------------|
-|Créditos do Azure    |  Os créditos são aplicados automaticamente para a quantidade total de faturação na sua fatura para calcular a quantidade que terá de pagar. Para obter mais informações, consulte [saldo de crédito do Azure de controle para o seu perfil de faturação](billing-mca-check-azure-credits-balance.md). |
+|Créditos do Azure    |  Os créditos são aplicados automaticamente para a quantidade total de faturação na sua fatura para calcular a quantidade que terá de pagar. Para obter mais informações, consulte [acompanhar o saldo do crédito do Azure para o seu perfil de faturação](billing-mca-check-azure-credits-balance.md). |
 |Cheque ou transferência bancária | Pode pagar a quantia devida obter a fatura por meio de verificação ou durante a transmissão de transferência. As instruções de pagamento recebem da nota fiscal |
 
 ### <a name="control-azure-marketplace-and-reservation-purchases-by-applying-policies"></a>Compras de controlo do Azure Marketplace e reserva ao aplicar políticas
@@ -72,7 +72,7 @@ Os planos do Azure são ativados automaticamente quando cria um perfil de fatura
 | Planear             | Definição  |
 |------------------|-------------|
 |Microsoft Azure Plan   | Permitir aos utilizadores criar subscrições que podem ser executadas quaisquer cargas de trabalho. Para obter mais informações, consulte [plano do Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Plano do Microsoft Azure para programação/teste | Permitir que os subscritores do Visual Studio criar as subscrições que estão limitadas para desenvolvimento ou teste de cargas de trabalho. Estas subscrições obtém benefícios, como as menores taxas e acesso a imagens de máquina de virtual exclusivo no portal do Azure. Para obter mais informações, consulte [plano do Microsoft Azure para Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g/)| <!--- TODO - Add the link to plan details page -->
+|Plano do Microsoft Azure para programação/teste | Permitir que os subscritores do Visual Studio criar as subscrições que estão limitadas para desenvolvimento ou teste de cargas de trabalho. Estas subscrições obtém benefícios, como as menores taxas e acesso a imagens de máquina de virtual exclusivo no portal do Azure. Para obter mais informações, consulte [plano do Microsoft Azure para Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g/)|
 
 ## <a name="understand-invoice-sections"></a>Compreender as secções de nota fiscal
 
@@ -94,5 +94,5 @@ Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Micr
 Consulte os seguintes artigos para saber mais sobre a sua conta de cobrança:
 
 - [Compreender as funções administrativas do contrato de cliente da Microsoft no Azure](billing-understand-mca-roles.md)
-- [Criar uma subscrição do Azure para a sua conta de faturação para o contrato de cliente da Microsoft](billing-mca-create-subscription.md)
-- [Organizar os custos com seções de nota fiscal](billing-mca-section-invoice.md)
+- [Criar uma subscrição do Azure adicional para o contrato de cliente da Microsoft](billing-mca-create-subscription.md)
+- [Criar secções na sua fatura para organizar os seus custos](billing-mca-section-invoice.md)

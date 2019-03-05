@@ -1,6 +1,4 @@
 items:
-- name: Noções básicas do IoT do Azure
-  href: ../iot-fundamentals/index.yml
 - name: Documentação do Azure IoT Edge
   href: index.yml
 - name: Descrição geral
@@ -214,9 +212,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 917d96e24095bef9a6a5d0e12abb7b21a690e0ef
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 2015dedb9c17617a034b1789737e07d9225b9b75
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010604"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338013"

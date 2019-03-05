@@ -52,8 +52,6 @@ items:
     href: myprofile-portal-overview.md
   - name: Gerir as suas informações de segurança
     href: user-help-security-info-overview.md
-  - name: Ver a sua atividade de início de sessão
-    href: myprofile-portal-recent-activity-page.md
   - name: Gerir as suas organizações
     href: myprofile-portal-organizations-page.md
   - name: Gerir os seus dispositivos ligados
@@ -101,9 +99,9 @@ items:
     href: active-directory-saas-access-panel-introduction.md
   - name: Resolver problemas
     href: active-directory-saas-access-panel-user-help.md
-ms.openlocfilehash: b7d8c297559736c9f22b118d50423f980302018d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: ce88ac8f7ca81009f7c28b08408723ac5161eda1
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452579"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340066"

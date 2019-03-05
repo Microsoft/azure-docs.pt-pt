@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: cf8525d4cc829805532210bf09e9ea9da240405d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857754"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338659"
 ---
 # <a name="create-a-visual-search-single-page-web-app"></a>Criar uma aplicação de web de página única de pesquisa Visual 
 
-A API de Pesquisa Visual do Bing proporciona uma experiência semelhante aos detalhes de imagens mostrados em Bing.com/images. Com a Pesquisa Visual, pode especificar uma imagem e receber informações sobre a mesma, como imagens visualmente parecidas, origens de compras, páginas Web que incluem a imagem, entre outras. 
+A API de pesquisa Visual do Bing fornece uma experiência semelhante à apresentada na Bing.com/images os detalhes da imagem. Com a Pesquisa Visual, pode especificar uma imagem e receber informações sobre a mesma, como imagens visualmente parecidas, origens de compras, páginas Web que incluem a imagem, entre outras. 
 
 Este artigo explica como expandir uma aplicação web de página única para a API de pesquisa de imagens do Bing. Para ver esse tutorial ou obter o código-fonte usado aqui, consulte [Tutorial: Criar uma aplicação de página única para a API de pesquisa de imagens do Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). 
 

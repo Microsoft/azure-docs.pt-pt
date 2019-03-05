@@ -1,6 +1,4 @@
 items:
-- name: Noções básicas do IoT do Azure
-  href: ../iot-fundamentals/index.yml
 - name: Documentação do Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
   href: index.yml
 - name: Descrição geral
@@ -226,9 +224,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 2eac27d88f9467d5badf1050d6358af84d9a49d8
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 18d99ceb23b8205de17fed493990615a46a696c1
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009839"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339135"

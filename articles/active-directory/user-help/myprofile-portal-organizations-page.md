@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67a8c4d4fe5476d00677c08bef9668066c4ec4f3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458064"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339747"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Gerir as suas organizações a partir do portal do meu perfil (pré-visualização)
 Pode gerir a sua organização do **organizações** página do **meu perfil** portal.
@@ -35,7 +35,7 @@ Existem dois tipos de organizações mostrados no **organizações** página:
 
 2. Selecione **organizações** do painel de navegação esquerda ou selecione o **gerir as organizações** uma ligação a **organizações** bloco.
 
-    ![Minha página de perfil, que apresenta ligações de organizações realçadas](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![Minha página de perfil, que apresenta ligações de organizações realçadas](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. Reveja as informações de sua **Home organização**. 
 
@@ -57,4 +57,4 @@ Pode deixar qualquer organização que não seja a sua organização de Home.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Depois de visualizar a atividade de início de sessão recente, pode selecionar para ver ou gerir sua [informações de segurança](user-help-security-info-overview.md), [atividade de início de sessão recente](myprofile-portal-recent-activity-page.md)ligados [dispositivos](myprofile-portal-devices-page.md), ou para ver como seu organização [utiliza os dados](myprofile-portal-privacy-page.md).
+- Depois de visualizar a sua organização, pode selecionar para ver ou gerir sua [informações de segurança](user-help-security-info-overview.md)ligados [dispositivos](myprofile-portal-devices-page.md), ou vista como sua organização [utiliza os dados](myprofile-portal-privacy-page.md).

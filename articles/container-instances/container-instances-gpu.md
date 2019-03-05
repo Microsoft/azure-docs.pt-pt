@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: adb893a9d37219409f81b2fb402f2d4afd36aa34
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755024"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338863"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentor que utilizam recursos GPU
 
@@ -63,7 +63,7 @@ Para utilizar GPUs numa instância de contentor, especifique um *recurso GPU* co
 
 Ao implementar recursos GPU, defina os recursos de CPU e memória adequada para a carga de trabalho, até os valores máximos mostrado na seguinte tabela. Estes valores são atualmente maiores do que os limites de CPU e memória em instâncias de contentor sem recursos GPU.  
 
-| SKU DE GPU | Contagem GPU | CPU |  Memória (GB) |
+| GPU SKU | Contagem GPU | CPU |  Memória (GB) |
 | --- | --- | --- | --- |
 | K80 | 1 | 6 | 56 |
 | K80 | 2 | 12 | 112 |
@@ -85,6 +85,10 @@ Ao implementar recursos GPU, defina os recursos de CPU e memória adequada para 
 
 * **Controladores CUDA** - Container instances com recursos GPU são pré-aprovisionados com controladores de NVIDIA CUDA e tempos de execução do contentor, pelo que pode utilizar imagens de contentor desenvolvido para cargas de trabalho CUDA.
 
+  Suportamos CUDA 9.0 nesta fase. Por exemplo, pode utilizar imagens de base para o ficheiro de Docker a seguir:
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## <a name="yaml-example"></a>Exemplo YAML
 
 Uma forma de adicionar recursos GPU é para implementar um grupo de contentores com um [ficheiro YAML](container-instances-multi-container-yaml.md). Copie o YAML seguinte para um novo ficheiro designado *aci.yaml gpu implementar*, em seguida, guarde o ficheiro. Este YAML cria um grupo de contentores com o nome *gpucontainergroup* especificando uma instância de contentor com uma GPU K80. A instância é executada uma aplicação de adição de vetor do exemplo CUDA. As solicitações de recursos são suficientes para executar a carga de trabalho.

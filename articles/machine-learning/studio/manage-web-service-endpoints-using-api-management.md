@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: b15fddcace19abcd1cd08d059c497c1c209f74d0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d4029d7f15918ea75ebcb10bfa8f8f7657eb11ca
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823438"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342586"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Gerir os serviços de web do Azure Machine Learning Studio com a gestão de API
 ## <a name="overview"></a>Descrição geral
@@ -23,9 +23,6 @@ Este guia mostra-lhe como começar a utilizar rapidamente a utilizar a gestão d
 
 ## <a name="what-is-azure-api-management"></a>O que é a API Management do Azure?
 Gestão de API do Azure é um serviço do Azure que lhe permite gerir os pontos finais de REST API com a definição de acesso de utilizador, a otimização do uso e a monitorização do dashboard. Clique em [aqui](https://azure.microsoft.com/services/api-management/) para obter detalhes sobre a gestão de API do Azure. Clique em [aqui](/azure/api-management/import-and-publish) para um guia sobre como começar com a API Management do Azure. Esse outro guia, que baseia-se neste guia, abrange mais tópicos, incluindo configurações de notificação, escalão de preço, manipulação de resposta, autenticação de utilizador, a criação de produtos, as assinaturas de desenvolvedor e vistas de utilização.
-
-## <a name="what-is-azureml"></a>O que é AzureML?
-AzureML é um serviço do Azure Machine learning, que permite-lhe facilmente criar, implementar e partilhar soluções de análise avançada. Clique em [aqui](https://azure.microsoft.com/services/machine-learning/) para obter detalhes sobre AzureML.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia, terá de:

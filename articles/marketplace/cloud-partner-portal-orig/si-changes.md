@@ -12,24 +12,36 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 3/3/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ec3784a91f8aeb7f0fedd13c9ab86a844832a578
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7df96d53b02e80283f263901dc7e26ed4edb947d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810255"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342382"
 ---
-<a name="seller-insights-release-notes"></a>Notas de versão de informações do vendedor 
-===============================
-(Data de lançamento: 28 de Julho de 2018)
+# <a name="seller-insights-release-notes"></a>Notas de versão de informações do vendedor 
+
+(Data de lançamento: 1 de Março de 2019)
 
 Este artigo fornece informações sobre as alterações à funcionalidade do vendedor Insights na [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
+## <a name="release-highlights-for-march-1-2019"></a>Destaques da versão de 1 de Março de 2019
 
-<a name="release-highlights"></a>Destaques da versão
-------------------
+* *Tendência de cliente* adicionado ao resumo
+* *Principais cinco clientes* no resumo refletir todas as subscrições do Azure tem um cliente
+* *Normalizados tendência de utilização e o Active Directory de ordens de tendência* no resumo movido para o nó *ordens mensal rapidamente*
+* *Relatório de reconciliação de dividendos* atualizado
+* *Principais cinco clientes* sobre dividendos refletir todas as subscrições do Azure tem um cliente
+* *Relatório de utilização* atualizado com o ID de cliente
+* *No escritório de cliente* em ordens de & utilização reflete todas as subscrições do Azure tem um cliente
+
+
+(Data de lançamento: 28 de Julho de 2018)
+
+## <a name="release-highlights-for-july-28-2018"></a>Destaques de versão do dia 28 de Julho de 2018
+
 
 -   *Os preços de estimado* fornecer uma vista de custos de cliente de moeda implicações de conversão.
 -   *Previstos dividendos* fornecer uma vista anterior sobre dividendos potenciais.
@@ -37,8 +49,7 @@ Este artigo fornece informações sobre as alterações à funcionalidade do ven
 -   *Utilização num detalhamento diário* fornece mais granularidade e melhores informações sobre a utilização do cliente.
 
 
-<a name="changes-to-data-structure-and-taxonomy"></a>Alterações à estrutura de dados e a taxonomia
---------------------------------------
+### <a name="changes-to-data-structure-and-taxonomy"></a>Alterações à estrutura de dados e a taxonomia
 
 A tabela seguinte lista as métricas que foram adicionadas ou alteradas consideravelmente – com esta versão. 
 

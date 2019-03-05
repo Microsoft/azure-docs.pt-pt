@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efd6db6b8dbbe051dba129b0d9f3e87f293d6706
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: bea9a987078799436c9dcad650ee56d5d6d81512
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458071"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341346"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Gerir dispositivos ligados a partir do portal do meu perfil (pré-visualização)
 Pode gerir os dispositivos que estiver ligado com a sua conta escolar ou profissional, desativar qualquer um que já não é proprietário, do **dispositivos** página do **meu perfil** portal.
@@ -29,7 +29,7 @@ Pode gerir os dispositivos que estiver ligado com a sua conta escolar ou profiss
 
 2. Selecione **dispositivos** do painel de navegação esquerda ou selecione o **gerir dispositivos** uma ligação a **dispositivos** bloco.
 
-    ![Minha página de perfil, que mostra realçado ligações de dispositivos](media/myprofile-portal/myprofile-portal-devices-links.png)
+    ![Minha página de perfil, que mostra realçado ligações de dispositivos](media/myprofile-portal/myprofile-portal-devices.png)
 
 3. Reveja as informações para os seus dispositivos ligados, certificar-se de que reconhecer todos eles. 
 
@@ -49,4 +49,4 @@ Pode desativar qualquer um dos seus dispositivos ligados em qualquer altura. Ist
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Depois de visualizar a atividade de início de sessão recente, pode selecionar para ver ou gerir sua [informações de segurança](user-help-security-info-overview.md), [atividade de início de sessão recente](myprofile-portal-recent-activity-page.md), sua ligada [organizações](myprofile-portal-organizations-page.md), ou para ver como sua organização [utiliza os dados](myprofile-portal-privacy-page.md).
+- Depois de visualizar os seus dispositivos ligados, pode selecionar para ver ou gerir sua [informações de segurança](user-help-security-info-overview.md), o seu [organizações](myprofile-portal-organizations-page.md), ou vista como sua organização [utiliza os dados](myprofile-portal-privacy-page.md).

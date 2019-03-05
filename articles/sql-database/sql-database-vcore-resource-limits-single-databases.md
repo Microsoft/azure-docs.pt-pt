@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 735c3dc4764f45512386a0c53a389f355f069aa3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/04/2019
+ms.openlocfilehash: f4d6826d13f92db7a430f668c56825926d198235
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998168"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340104"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Base de dados do SQL do Azure limites de modelo para uma base de dados de compra baseado em vCore
 
@@ -47,6 +47,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Destino IOPS (64 KB)|500|1000|1500|2000|2500|3000|
+|Limites de velocidade de registo (MBps)|2.5|5|7.5|10|12.5|15|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|600|800|1000|1200|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -69,6 +70,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)
 |Destino IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
+|Limites de velocidade de registo (MBps)|17.5|20|20|20|20|20|
 |Máximo de trabalhadores simultâneos (pedidos)|1400|1600|1800|2000|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -85,12 +87,13 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Memória (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|N/A|N/D|N/D|N/D|N/D|N/D|N/A|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
+|Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Tamanho máximo do registo (GB)|307|307|307|461|461|461|461|
 |TempDB tamanho (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Destino IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
+|Limites de velocidade de registo (MBps)|2.5|56|7.5|10|12.5|15|17.5|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|600|800|1000|1200|1400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -113,6 +116,7 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Destino IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
+|Limites de velocidade de registo (MBps)|20|20|20|20|20|20|20|
 |Máximo de trabalhadores simultâneos (pedidos)|1600|1800|2000|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -129,15 +133,17 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Geração de H/W|4|4|4|4|4|4|
 |vCores|1|2|3|4|5|6|
 |Memória (GB)|7|14|21|28|35|42|
-|Suporte de Columnstore|N/A|N/D|N/D|N/D|N/D|N/A|
+|Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1|2|3|4|5|6|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
-|Tamanho máximo do registo (GB)|307|307|307|307|307|307|
+|Tamanho máximo de dados (GB)|650|650|650|650|650|650|
+|Tamanho máximo do registo (GB)|195|195|195|195|195|195|
 |TempDB tamanho (GB)|32|64|96|128|160|192|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|
+|Limites de velocidade de registo (MBps)|6|12|18|24|30|36|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|600|800|1000|1200|
+|Inícios de sessão simultâneos máx.|200|400|600|800|1000|1200|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -151,15 +157,17 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Geração de H/W|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
 |Memória (GB)|49|56|63|70|112|168|
-|Suporte de Columnstore|N/A|N/D|N/D|N/D|N/D|N/A|
+|Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|7|8|9.5|11|20|36|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1024|1024|1024|
-|Tamanho máximo do registo (GB)|307|307|307|307|307|307|
+|Tamanho máximo de dados (GB)|650|650|650|650|1024|1024|
+|Tamanho máximo do registo (GB)|195|195|195|195|307|307|
 |TempDB tamanho (GB)|224|256|288|320|384|384|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
+|Limites de velocidade de registo (MBps)|42|48|48|48|48|48|
 |Máximo de trabalhadores simultâneos (pedidos)|1400|1600|1800|2000|3200|4800|
+|Inícios de sessão simultâneos do máx. (pedidos)|1400|1600|1800|2000|3200|4800|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -175,13 +183,15 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Memória (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Suporte de Columnstore|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Armazenamento em OLTP na memória (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
-|Tamanho máximo de dados (GB)|1024|1024|1024|1536|1536|1536|1536|
-|Tamanho máximo do registo (GB)|307|307|307|461|461|461|461|
+|Tamanho máximo de dados (GB)|1024|1024|1536|1536|1536|3072|3072|
+|Tamanho máximo do registo (GB)|307|307|307|461|461|922|922|
 |TempDB tamanho (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|35000|
+|Limites de velocidade de registo (MBps)|6|12|18|24|30|36|42|
 |Máximo de trabalhadores simultâneos (pedidos)|200|400|600|800|1000|1200|1400|
+|Inícios de sessão simultâneos máx.|200|400|600|800|1000|1200|1400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
 |Número de réplicas|4|4|4|4|4|4|4|
 |Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
@@ -203,10 +213,12 @@ Pode definir o escalão de serviço, o tamanho de computação e a quantidade de
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
+|Limites de velocidade de registo (MBps)|48|48|48|48|48|48|48|
 |Máximo de trabalhadores simultâneos (pedidos)|1600|1800|2000|2400|3200|4000|8000|
+|Inícios de sessão simultâneos máx.|1600|1800|2000|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
-|Número de réplicas|4|4|4|4|4|4|
-|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|
+|Número de réplicas|4|4|4|4|4|4|4|
+|Multi-AZ|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
 |Leia o Escalamento horizontal|N/A|N/D|N/D|N/D|N/D|N/D|N/A|
 |Armazenamento de cópia de segurança incluído|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|Tamanho de BD de X 1|
 

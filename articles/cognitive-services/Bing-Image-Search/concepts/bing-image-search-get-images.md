@@ -9,14 +9,14 @@ ms.assetid: AB1B9898-C94A-4B59-91A1-8623C94BA3D4
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 8/8/2018
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: e7be29d2a3c41e421c2e98b9d9b19eed375180e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f54003f4e1c60b80b500f49bb83d4b7adf2bc12a
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876662"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340580"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Obter imagens a partir da web com a API de pesquisa de imagens do Bing
 

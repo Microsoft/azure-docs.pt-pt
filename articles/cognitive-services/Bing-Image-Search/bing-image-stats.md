@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: 4e18e21fd10d1da22eb715fac900d41303ce45cc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 43a6c221a08c926243d0fd5cb0ce97d5f0955f97
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862620"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342280"
 ---
 # <a name="add-analytics-to-the-bing-image-search-api"></a>Adicionar análises à API de pesquisa de imagens do Bing
 

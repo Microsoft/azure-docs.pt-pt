@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: a36f20011429ea45fb951e331c5cf3c2bb7209e2
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769856"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342535"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: Explore e analise os custos com a análise de custos
 
@@ -53,7 +53,7 @@ Para obter mais informações sobre a atribuir acesso a dados de gestão de cust
 
 Para rever os custos com a análise de custo, no portal do Azure, navegue até **gestão de custos + faturação** &gt; **análise de custo**. Selecione **âmbito: _ScopeName_**, selecione um âmbito e, em seguida, clique em **selecione**.
 
-O âmbito que selecionar será utilizado em toda a Gestão de Custos para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, selecionar um âmbito maior do que outras pessoas até implementar e, em seguida, filtro pendente para o que deseja. Isso é importante para compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar.
+O âmbito que selecionar será utilizado em toda a Gestão de Custos para fornecer a consolidação de dados e para controlar o acesso às informações relativas aos custos. Quando utiliza âmbitos, não faz uma seleção múltipla dos mesmos. Em vez disso, selecionar um âmbito maior do que outras pessoas até implementar e, em seguida, filtro pendente para o que deseja. Isso é importante para compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
 
 Clique em **Abrir Análise de Custos**.
 

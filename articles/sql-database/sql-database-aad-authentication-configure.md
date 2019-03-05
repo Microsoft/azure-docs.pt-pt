@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: ced83fc31e9e4944f7392169b703056dc5b4fd98
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.date: 03/04/2019
+ms.openlocfilehash: e4ccb9be5d13ea72086fbaae2ffb2ec63ad55786
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454842"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340325"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerir a autenticação do Azure Active Directory com o SQL
 
@@ -28,11 +28,13 @@ Este artigo mostra-lhe como criar e preencher do Azure AD e, em seguida, utiliza
 > [!IMPORTANT]  
 > Ligar ao SQL Server em execução numa VM do Azure não é suportada através de uma conta do Azure Active Directory. Utilize um conta do Active Directory do domínio em vez disso.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-and-populate-an-azure-ad"></a>Criar e preencher um Azure AD
 
 Criar um Azure AD e preenchê-lo com os utilizadores e grupos. O Azure AD pode ser o Azure AD inicial domínio gerido. O Azure AD também pode ser no local Active Directory Domain Services que está Federado com o Azure AD.
 
-Para obter mais informações, veja [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD (Adicionar o seu próprio nome de domínio ao Azure AD)](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory (O Microsoft Azure suporta agora a federação com o Windows Server Active Directory)](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory (Administrar o seu diretório do Azure AD)](../active-directory/fundamentals/active-directory-administer.md), [Manage Azure AD using Windows PowerShell (Gerir o Azure AD com o Windows PowerShell)](/powershell/azure/overview?view=azureadps-2.0) e [Hybrid Identity Required Ports and Protocols (Portas e Protocolos Necessários para a Identidade Híbrida)](../active-directory/hybrid/reference-connect-ports.md).
+Para obter mais informações, veja [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD (Adicionar o seu próprio nome de domínio ao Azure AD)](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory (O Microsoft Azure suporta agora a federação com o Windows Server Active Directory)](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory (Administrar o seu diretório do Azure AD)](../active-directory/fundamentals/active-directory-administer.md), [Manage Azure AD using Windows PowerShell (Gerir o Azure AD com o Windows PowerShell)](/powershell/azure/overview?view=azureadps-2.0) e [Hybrid Identity Required Ports and Protocols (Portas e Protocolos Necessários para a Identidade Híbrida)](../active-directory/hybrid/reference-connect-ports.md).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associar ou adicionar uma subscrição do Azure ao Azure Active Directory
 
@@ -186,35 +188,35 @@ Para mais tarde remover um administrador, na parte superior a **administrador do
 
 Para executar os cmdlets do PowerShell, terá de ter o Azure PowerShell instalada e em execução. Para informações detalhadas, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview). Para aprovisionar um administrador do Azure AD, execute os seguintes comandos do Azure PowerShell:
 
-- Connect-AzureRmAccount
-- Select-AzureRmSubscription
+- Connect-AzAccount
+- Select-AzSubscription
 
 Cmdlets utilizados para aprovisionar e gerir administradores do Azure AD:
 
 | Nome do cmdlet | Descrição |
 | --- | --- |
-| [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Aprovisiona um administrador do Azure Active Directory para o servidor SQL do Azure ou Azure SQL Data Warehouse. (Tem de ser da subscrição atual.) |
-| [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Active Directory para o servidor SQL do Azure ou Azure SQL Data Warehouse. |
-| [Get-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Devolve informações sobre um administrador do Azure Active Directory configurado atualmente para o servidor SQL do Azure ou o Azure SQL Data Warehouse. |
+| [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Aprovisiona um administrador do Azure Active Directory para o servidor SQL do Azure ou Azure SQL Data Warehouse. (Tem de ser da subscrição atual.) |
+| [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Active Directory para o servidor SQL do Azure ou Azure SQL Data Warehouse. |
+| [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |Devolve informações sobre um administrador do Azure Active Directory configurado atualmente para o servidor SQL do Azure ou o Azure SQL Data Warehouse. |
 
-Utilize o comando de PowerShell get-help para obter mais informações para cada um desses comandos, por exemplo ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
+Utilize o comando de PowerShell get-help para obter mais informações para cada um desses comandos, por exemplo ``get-help Set-AzSqlServerActiveDirectoryAdministrator``.
 
 O seguinte script aprovisiona um grupo de administrador do Azure AD com o nome **DBA_Group** (ID de objeto `40b79501-b343-44ed-9ce7-da4c8cc7353f`) para o **demo_server** servidor num grupo de recursos com o nome **grupo-23**:
 
 ```powershell
-Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
+Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
 O **DisplayName** parâmetro de entrada aceita o nome a apresentar do Azure AD ou o nome do Principal de utilizador. Por exemplo, ``DisplayName="John Smith"`` e ``DisplayName="johns@contoso.com"``. Para grupos do Azure AD apenas o Azure AD é suportado o nome a apresentar.
 
 > [!NOTE]
-> O comando do PowerShell do Azure ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` não o impede de aprovisionamento de administradores do Azure AD para utilizadores não suportados. Um utilizador não suportado pode ser aprovisionado, mas não é possível ligar à base de dados.
+> O comando do PowerShell do Azure ```Set-AzSqlServerActiveDirectoryAdministrator``` não o impede de aprovisionamento de administradores do Azure AD para utilizadores não suportados. Um utilizador não suportado pode ser aprovisionado, mas não é possível ligar à base de dados.
 
 O exemplo seguinte utiliza o opcional **ObjectID**:
 
 ```powershell
-Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
+Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 -ServerName "demo_server" -DisplayName "DBA_Group" -ObjectId "40b79501-b343-44ed-9ce7-da4c8cc7353f"
 ```
 
@@ -224,16 +226,16 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 O exemplo seguinte devolve informações sobre o atual administradores do Azure AD para o Azure SQL server:
 
 ```powershell
-Get-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" | Format-List
+Get-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" | Format-List
 ```
 
 O exemplo seguinte remove o administrador do Azure AD:
 
 ```powershell
-Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
+Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-Também pode aprovisionar um administrador do Azure Active Directory com as APIs REST. Para obter mais informações, consulte [referência de API do REST de gestão do serviço e operações para operações de banco de dados SQL do Azure para a base de dados do Azure SQL](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+Também pode aprovisionar um administrador do Azure Active Directory com as APIs REST. Para obter mais informações, consulte [referência de API do REST de gestão do serviço e operações para operações de banco de dados SQL do Azure para a base de dados do Azure SQL](https://docs.microsoft.com/rest/api/sql/)
 
 ### <a name="cli"></a>CLI  
 
@@ -308,7 +310,7 @@ Para obter mais informações sobre a criação de contidos bases de dados de ut
 > [!NOTE]
 > Remover o administrador do Azure Active Directory para o servidor SQL do Azure impede que qualquer utilizador de autenticação do Azure AD ligar ao servidor. Se necessário, inutilizável utilizadores do Azure AD podem ser removidos manualmente por um administrador de base de dados SQL.
 > [!NOTE]
-> Se receber um **o tempo limite da ligação excedido**, poderá ter de definir o `TransparentNetworkIPResolution` parâmetro da cadeia de ligação para false. Para obter mais informações, consulte [problema de tempo limite de ligação com o .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
+> Se receber um **o tempo limite da ligação excedido**, poderá ter de definir o `TransparentNetworkIPResolution` parâmetro da cadeia de ligação para false. Para obter mais informações, consulte [problema de tempo limite de ligação com o .NET Framework 4.6.1 - TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/20../../connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).
 
 Quando cria um base de dados do utilizador, o que o utilizador recebe a **CONNECT** permissão e pode ligar a esse banco de dados como um membro dos **público** função. Inicialmente as permissões apenas disponíveis para o utilizador são todas as permissões concedidas para o **público** de função ou todas as permissões concedidas a todos os grupos do Azure AD, que são membros de. Depois de aprovisionar um utilizador de base de dados contidas com base no AD do Azure, pode conceder ao utilizador permissões adicionais, da mesma forma como pode conceder permissão a qualquer outro tipo de utilizador. Normalmente, conceder permissões a funções de base de dados e adicionar utilizadores às funções. Para obter mais informações, consulte [Noções básicas de permissão do motor de base de dados](https://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Para obter mais informações sobre as funções de base de dados SQL especiais, consulte [gerir bases de dados e inícios de sessão na base de dados do Azure SQL](sql-database-manage-logins.md).
 Uma conta de utilizador de domínio federado que é importada para um domínio gerido como um utilizador externo, tem de utilizar a identidade de domínio gerido.
@@ -403,7 +405,7 @@ conn.AccessToken = "Your JWT token"
 conn.Open();
 ```
 
-Para obter mais informações, consulte [Blog de segurança do SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Para obter informações sobre como adicionar um certificado, consulte [introdução à autenticação baseada em certificados no Azure Active Directory](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
+Para obter mais informações, consulte [Blog de segurança do SQL Server](https://blogs.msdn.microsoft.com/sqlsecurity/20../../token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/). Para obter informações sobre como adicionar um certificado, consulte [introdução à autenticação baseada em certificados no Azure Active Directory](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 ### <a name="sqlcmd"></a>sqlcmd
 

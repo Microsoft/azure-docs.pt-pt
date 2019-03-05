@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: 58a84848c8a0ccfe906cde7027129e2ca022ec0f
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9004802220f6aeb867e8a9880336416573c795fb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244898"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341531"
 ---
 # <a name="view-your-billing-accounts-in-azure-portal"></a>Ver as suas contas de faturas no portal do Azure  
 
-É criada uma conta de faturação para cada contrato que iniciar sessão com a Microsoft a utilizar o Azure. Pode utiliza a sua conta de cobrança para gerir os seus métodos de notas fiscais e pagamentos e controlar os custos para serviços do Azure. Pode ter acesso a várias contas de faturas. Por exemplo, poderá ter inscrito para o Azure para os seus projetos pessoais. Também poderia ter acesso através do Enterprise Agreement ou contrato de cliente da Microsoft da sua organização.
+É criada uma conta de faturação para cada contrato que iniciar sessão com a Microsoft a utilizar o Azure. Pode utiliza a sua conta de cobrança para gerir os seus métodos de notas fiscais e pagamentos e controlar os custos para serviços do Azure. Pode ter acesso a várias contas de faturas. Por exemplo, poderá ter inscrito para o Azure para os seus projetos pessoais. Também poderia ter acesso através do Enterprise Agreement ou contrato de cliente da Microsoft da sua organização. Para cada um destes cenários, teria uma conta de cobrança separada.
 
 Atualmente, o portal do Azure suporta o seguinte tipo de contas de faturas:
 
@@ -33,17 +33,21 @@ Atualmente, o portal do Azure suporta o seguinte tipo de contas de faturas:
 
 - **Contrato de cliente da Microsoft**: Quando a sua organização assina um contrato de cliente da Microsoft para utilizar o Azure, é criada uma conta de faturação para um contrato de cliente da Microsoft. Os administradores na conta de faturação para um contrato de cliente da Microsoft utilizam perfis de faturas e seções âmbitos para gerir e organizar a faturação para a organização de faturação de nota fiscal. Para obter mais informações, consulte [introdução à sua conta de cobrança para o contrato de cliente da Microsoft](billing-mca-overview.md).
 
-## <a name="change-billing-account-view"></a>Alterar a vista de conta de faturação
+## <a name="change-billing-account-view-in-the-azure-portal"></a>Alterar a vista de conta no portal do Azure de faturação
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Um âmbito é um nó dentro de uma conta de cobrança que os utilizadores utilizam para ver e gerir a faturação. Por exemplo, contas de faturação para o programa Microsoft Online Services tem apenas âmbito - conta, de faturação, enquanto que as contas de faturação para contrato Enterprise tem a conta de cobrança, departamento e âmbitos de conta. Se tiver acesso a múltiplos âmbitos de faturas, por predefinição, um dos âmbitos é apresentado no Azure Cost Management + faturação página. Pode alterar o âmbito, seguindo as instruções abaixo:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Pesquisar nos **custo Management + faturação**.
 
-   ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-mca-section-invoice/billing-search-cost-management-billing.png)
+   ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-view-all-accounts/billing-search-cost-management-billing.png)
 
-3. Por predefinição, verá os detalhes de um âmbito faturação como conta de cobrança, departamento no contrato Enterprise ou o perfil de faturação no contrato de cliente da Microsoft.
+3. Selecione **todos os âmbitos de faturas** do lado do lado esquerdo.
 
-4. Pode alterar o âmbito, selecionando **âmbitos de faturação** do lado esquerdo e, em seguida, selecione um âmbito.
+   ![Captura de ecrã que mostra todos os âmbitos de faturas](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+
+4. Selecione um âmbito para ver os detalhes.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 

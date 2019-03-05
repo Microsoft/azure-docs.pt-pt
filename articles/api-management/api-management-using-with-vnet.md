@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 98d8f530b91c2b2483d00838cd4001be88e18a6c
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 6ace19339eb3f89c3b0cde6f5b9b0ecc783e2597
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011216"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341617"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre o início de redes virtuais do Azure com as informações aqui: [Descrição geral da rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -140,26 +140,25 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
-+ **Reencaminhamento de SMTP**: Conectividade de rede de saída para o reencaminhamento de SMTP, o qual resolve em anfitrião `ies.global.microsoft.com`.
++ **Reencaminhamento de SMTP**: Conectividade de rede de saída para o reencaminhamento de SMTP, o qual resolve em anfitrião `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` e `ies.global.microsoft.com`
 
 + **Portal do programador CAPTCHA**: Conectividade de rede de saída para o CAPTCHA do portal do programador, que é resolvido em anfitrião `client.hip.live.com`.
 
 + **Portal do Azure Diagnostics**: Para ativar o fluxo de registos de diagnóstico do portal do Azure ao utilizar a extensão de gestão de API de dentro de uma rede Virtual, o acesso de saída `dc.services.visualstudio.com` na porta 443 é necessária. Isto ajuda a resolução de problemas, que poderá deparar ao utilizar a extensão.
 
-+ **Configuração de rota rápida**: Uma configuração de cliente comum é definir sua própria rota predefinida (0.0.0.0/0) que força o tráfego de Internet de saída para o fluxo em vez disso, no local. Este fluxo de tráfego quebra Invariavelmente conectividade com a API Management do Azure, porque o tráfego de saída está bloqueado no local ou o NAT iria para um conjunto irreconhecível de endereços que já não funcionam com vários pontos de extremidade do Azure. A solução é definir uma (ou mais) rotas definidas pelo utilizador ([UDRs][UDRs]) na sub-rede que contém a gestão de API do Azure. Um UDR define as rotas de sub-rede específica que serão cumpridas em vez da rota predefinida.
++ **Imposição de túnel do tráfego para a Firewall no local com a aplicação Virtual, Expressroute ou rede**: Uma configuração de cliente comum é definir sua própria rota predefinida (0.0.0.0/0) que força todo o tráfego da gestão de API delegada de sub-rede para o fluxo através de uma firewall no local ou para uma aplicação virtual de rede. Este fluxo de tráfego quebra Invariavelmente conectividade com a API Management do Azure, porque o tráfego de saída está bloqueado no local ou o NAT iria para um conjunto irreconhecível de endereços que já não funcionam com vários pontos de extremidade do Azure. A solução requer que faça duas coisas:
 
-    Se possível, é recomendado que utilize a seguinte configuração:
+    * Ative pontos finais de serviço na sub-rede na qual o serviço de gestão de API é implementado. [Pontos finais de serviço] [ ServiceEndpoints] têm de ser ativadas para o Sql do Azure, armazenamento do Azure, Azure EventHub e ServiceBus do Azure. Ativar os pontos finais diretamente a partir de sub-rede delegado para estes serviços permite-lhe utilizar a rede de backbone do Microsoft Azure fornece encaminhamento ideal para o tráfego de serviço de gestão de API. Se utilizar pontos finais de serviço com uma gestão de Api de túnel forçado, os serviços do Azure acima não é forçado o tráfego de túnel. A gestão de API é forçado o tráfego de dependência do serviço de túnel e não pode ser perdida ou o serviço de gestão de API não funcionará corretamente.
+    
+    * Todo o controle plano o tráfego da Internet para o ponto final de gestão do seu serviço de gestão de API são encaminhados através de um conjunto específico de IPs de entrada hospedado pela gestão de API. Quando o tráfego é configurado com túnel forçado as respostas não simetricamente mapeará para estes IPs de origem entrada. Para superar a limitação, precisamos de adicionar as rotas definidas pelo utilizador seguintes ([UDRs][UDRs]) para conduzir o tráfego para o Azure ao definir o destino destas rotas de anfitrião para "Internet". O conjunto de IPs de entrada para o controle de tráfego de plano é o seguinte:
+    
+    > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-     * A configuração de ExpressRoute anuncia 0.0.0.0/0 e por padrão, force túneis de todo o tráfego de saída no local.
-     * O UDR aplicado à sub-rede que contém a gestão de API do Azure define 0.0.0.0/0 com um tipo de próximo salto de Internet.
-
-    O efeito combinado uma dessas etapas é que o nível de sub-rede UDR tem precedência sobre o ExpressRoute imposição de túnel, que garante o acesso de Internet de saída da gestão de API do Azure.
-
-+ **Encaminhamento através de aplicações virtuais de rede**: As configurações que utilizam um UDR com uma rota predefinida (0.0.0.0/0) para encaminhar internet destinado tráfego da gestão de API sub-rede através de uma aplicação virtual de rede em execução no Azure irá bloquear o tráfego de gestão proveniente de Internet para o serviço de gestão de API instância implantada dentro da sub-rede da rede virtual. Esta configuração não é suportada.
-
->[!WARNING]
->Gestão de API do Azure não é suportado com configurações do ExpressRoute que **incorretamente anunciem transversalmente rotas do caminho de peering público para o caminho de peering privado**. Configurações do ExpressRoute com peering público configurado, receberá anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se estes intervalos de endereços forem incorretamente anunciados transversalmente no caminho de peering privado, o resultado final é que todos os pacotes de rede de saída da sub-rede da instância de gestão de API do Azure estão incorretamente imposição de túnel para rede no local de um cliente infraestrutura. Este fluxo de rede quebra a API Management do Azure. A solução para esse problema é parar anunciar transversalmente rotas do caminho de peering público para o caminho de peering privado.
-
+    * Para outros da gestão de API do serviço dependências que são forçado, seus deve ser a forma de resolver o nome de anfitrião e entrar em contacto com o ponto final. Estes incluem
+        - Métricas e monitorização de estado de funcionamento
+        - Portal do Azure Diagnostics
+        - Reencaminhamento de SMTP
+        - Portal do programador CAPTCHA
 
 ## <a name="troubleshooting"> </a>Resolução de problemas
 * **Inicial configuração**: Quando a implementação inicial do serviço de gestão de API numa sub-rede não tiver êxito, recomenda-se primeiro implantem uma máquina virtual na mesma sub-rede. Seguinte ambiente de trabalho remoto à máquina virtual e confirme que existe conectividade a uma de cada recurso abaixo na sua subscrição do azure
@@ -170,7 +169,7 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
  > [!IMPORTANT]
  > Depois de validar a conectividade, certifique-se remover todos os recursos implementados na sub-rede, antes de implementar a gestão de API para a sub-rede.
 
-* **As atualizações incrementais**: Ao fazer alterações à sua rede, consulte [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)para confirmar que o serviço de gestão de API não perdeu acesso a qualquer um dos recursos críticos que ele depende. O estado de conectividade, deverão ser atualizado a cada 15 minutos.
+* **As atualizações incrementais**: Ao fazer alterações à sua rede, consulte [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)para confirmar que o serviço de gestão de API não perdeu o acesso a qualquer um dos recursos críticos, o que ele depende. O estado de conectividade, deverão ser atualizado a cada 15 minutos.
 
 * **Ligações de navegação de recursos**: Ao implementar numa sub-rede de vnet do Resource Manager estilo, gestão de API reserva-se a sub-rede, através da criação de uma ligação de navegação de recursos. Se a sub-rede já contém um recurso de um fornecedor diferente, implementação irá **falhar**. Da mesma forma, quando move um serviço de gestão de API para outra sub-rede ou eliminá-lo, podemos remover essa ligação de navegação de recursos.
 
@@ -179,7 +178,7 @@ O Azure reserva alguns endereços IP em cada sub-rede e não não possível util
 
 Além dos endereços IP usados pela infra-estrutura de VNET do Azure, cada instância de gestão de Api na sub-rede utiliza dois endereços IP por unidade de Premium SKU ou um endereço IP para o SKU de programador. Cada instância de reserva-se um endereço IP adicional para o Balanceador de carga externo. Ao implementar numa vnet interna, requer um endereço IP adicional para o Balanceador de carga interno.
 
-De acordo com o cálculo acima o tamanho mínimo da sub-rede, no qual pode ser implementada a gestão de API é /29 que dá 3 endereços IP.
+De acordo com o cálculo acima o tamanho mínimo da sub-rede, no qual pode ser implementada a gestão de API é /29 que fornece três endereços IP.
 
 ## <a name="routing"> </a> Encaminhamento
 + Será reservado a um endereço IP público com balanceamento de carga (VIP) para fornecer acesso a todos os pontos finais de serviço.
@@ -213,3 +212,5 @@ De acordo com o cálculo acima o tamanho mínimo da sub-rede, no qual pode ser i
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [Network Security Group]: ../virtual-network/security-overview.md
+[ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
+[ServiceTags]: ../virtual-network/security-overview.md#service-tags

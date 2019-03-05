@@ -1,6 +1,4 @@
 items:
-- name: Noções básicas do IoT do Azure
-  href: ../iot-fundamentals/index.yml
 - name: Documentação do Azure Time Series Insights
   href: index.yml
 - name: Descrição geral
@@ -182,9 +180,9 @@ items:
     href: https://azure.microsoft.com/support/options/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
-ms.openlocfilehash: 3ae33ba02eb21c748fcea541f3eecff689fb2e8e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ead0631edf7ed36d7dadf185c49bb0e78bafc9c7
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250642"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341399"

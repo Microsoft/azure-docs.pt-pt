@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: dcd0c7073f2126e001a65e2142ea54a229553ebd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.date: 03/04/2019
+ms.openlocfilehash: 58eb7729dd0d2dda728d2008d5bb674f5222c08e
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894705"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337843"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Regras de firewall de base de dados SQL e o IP de armazém de dados SQL do Azure
 
@@ -82,7 +82,7 @@ Para permitir que as aplicações do Azure se liguem ao servidor do SQL Azure, a
 
 ## <a name="creating-and-managing-ip-firewall-rules"></a>Criar e gerir regras de firewall do IP
 
-A primeira definição de firewall ao nível do servidor pode ser criada com o [portal do Azure](https://portal.azure.com/) ou através de programação utilizando [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [da CLI do Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). As regras de firewall IP ao nível do servidor de subsequentes podem ser criadas e geridas com estes métodos e através de Transact-SQL.
+A primeira definição de firewall ao nível do servidor pode ser criada com o [portal do Azure](https://portal.azure.com/) ou através de programação utilizando [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.sql), [da CLI do Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). As regras de firewall IP ao nível do servidor de subsequentes podem ser criadas e geridas com estes métodos e através de Transact-SQL.
 
 > [!IMPORTANT]
 > Regras de firewall do IP de nível de base de dados só podem ser criadas e geridos com o Transact-SQL.
@@ -149,17 +149,19 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## <a name="manage-server-level-ip-firewall-rules-using-azure-powershell"></a>Gerir regras de firewall ao nível do servidor IP com o Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 | Cmdlet | Nível | Descrição |
 | --- | --- | --- |
-| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Servidor |Devolve as regras de firewall IP ao nível do servidor atuais |
-| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Servidor |Cria uma nova regra de firewall ao nível do servidor IP |
-| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |Servidor |Atualiza as propriedades de uma regra de firewall IP ao nível do servidor existente |
-| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |Servidor |Remove as regras de firewall do IP ao nível do servidor |
+| [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Servidor |Devolve as regras de firewall ao nível do servidor atuais |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Servidor |Cria uma regra de firewall ao nível do servidor nova |
+| [Set-AzSqlServerFirewallRule](/powershell/module/az.sql/set-azsqlserverfirewallrule) |Servidor |Atualiza as propriedades de uma regra de firewall ao nível do servidor existente |
+| [Remove-AzSqlServerFirewallRule](/powershell/module/az.sql/remove-azsqlserverfirewallrule) |Servidor |Remove as regras de firewall ao nível do servidor |
 
 O exemplo seguinte define uma regra de firewall do IP de ao nível do servidor com o PowerShell:
 
 ```powershell
-New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
+New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
     -ServerName $servername `
     -FirewallRuleName "AllowSome" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
 ```

@@ -1,18 +1,18 @@
 ---
 title: Sobre a recuperação após desastre de VMs de VMware para o Azure com o Azure Site Recovery | Documentos da Microsoft
 description: Este artigo fornece uma descrição geral da recuperação após desastre de VMs de VMware para o Azure com o serviço Azure Site Recovery.
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
-ms.author: raynew
-ms.openlocfilehash: 38f344ef9e24816a17975c60a5863be46da1364b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 3/3/2019
+ms.author: mayg
+ms.openlocfilehash: aa7ea43f3c41c6200e4cf796b0f09dca995791df
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210340"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339679"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Sobre a recuperação após desastre de VMs de VMware para o Azure
 
@@ -34,7 +34,7 @@ Uma estratégia de recuperação (BCDR) de desastre e continuidade empresarial a
     - A desagregação ajuda a garantir que a ativação pós-falha irá funcionar conforme esperado quando surge uma necessidade real.
     - A desagregação executa uma ativação pós-falha de teste sem afetar o seu ambiente de produção.
 5. Se ocorrer uma falha, executar uma ativação pós-falha completa para o Azure. Pode efetuar a ativação pós-falha de uma máquina individual ou pode criar um plano de recuperação com ativação pós-falha de várias máquinas ao mesmo tempo.
-6. Na ativação pós-falha, as VMs do Azure são criadas a partir de dados da VM no armazenamento do Azure. Os utilizadores podem continuar a aceder a aplicações e cargas de trabalho da VM do Azure
+6. Na ativação pós-falha, as VMs do Azure são criadas a partir de dados da VM em discos geridos ou contas de armazenamento. Os utilizadores podem continuar a aceder a aplicações e cargas de trabalho da VM do Azure
 7. Quando o seu site no local estiver novamente disponível, efetuar a ativação pós-falha do Azure.
 8. Depois de efetuar a reativação pós-falha e trabalhar a partir do seu site primário mais uma vez, começa a replicar VMs no local para o Azure novamente.
 
@@ -56,13 +56,12 @@ Recuperação de sites pode replicar qualquer carga de trabalho em execução nu
 No Azure, precisa de preparar o seguinte:
 
 1. Certifique-se de que a sua conta do Azure tem permissões para criar VMs no Azure.
-2. Crie uma conta de armazenamento para armazenar imagens de máquinas replicadas.
-3. Crie uma rede do Azure que as VMs do Azure irão aderir quando são criados a partir de armazenamento após a ativação pós-falha.
-4. Configure um cofre de serviços de recuperação do Azure para o Site Recovery. O Cofre reside no portal do Azure e é utilizado para implementar, configurar, orquestrar, monitorizar e resolver problemas relacionados com a implementação da recuperação de sites.
+2. Crie uma rede do Azure que as VMs do Azure irão aderir quando são criados a partir de contas de armazenamento ou discos geridos após a ativação pós-falha.
+3. Configure um cofre de serviços de recuperação do Azure para o Site Recovery. O Cofre reside no portal do Azure e é utilizado para implementar, configurar, orquestrar, monitorizar e resolver problemas relacionados com a implementação da recuperação de sites.
 
 *Precisa de mais ajuda?*
 
-Saiba como configurar o Azure ao [verificação da sua conta](tutorial-prepare-azure.md#verify-account-permissions), criar um [conta de armazenamento](tutorial-prepare-azure.md#create-a-storage-account) e [rede](tutorial-prepare-azure.md#set-up-an-azure-network), e [como configurar um cofre](tutorial-prepare-azure.md#create-a-recovery-services-vault).
+Saiba como configurar o Azure ao [verificação da sua conta](tutorial-prepare-azure.md#verify-account-permissions), criar um [rede](tutorial-prepare-azure.md#set-up-an-azure-network), e [configurar um cofre](tutorial-prepare-azure.md#create-a-recovery-services-vault).
 
 
 
@@ -94,10 +93,10 @@ Depois de ter sua infraestrutura do Azure e no local no local, pode definir a re
     - O servidor de configuração é uma única máquina no local. Para a recuperação de desastre do VMware, recomendamos que a implementá-lo como uma VM de VMware que podem ser implementadas a partir de um modelo do OVF para download.
     - O servidor de configuração coordena as comunicações entre no local e o Azure
     - Alguns outros componentes em execução na máquina do servidor de configuração.
-        - O servidor de processos recebe, otimiza e envia dados de replicação para o armazenamento do Azure. Também processa a instalação automática do serviço de mobilidade nas máquinas que pretende replicar, e efetua a deteção automática de VMs nos servidores de VMware.
+        - O servidor de processos recebe, otimiza e envia dados de replicação para a conta de armazenamento de cache no Azure. Também processa a instalação automática do serviço de mobilidade nas máquinas que pretende replicar, e efetua a deteção automática de VMs nos servidores de VMware.
         - O servidor de destino principal processa dados de replicação durante a reativação pós-falha a partir do Azure.
     - Conjunto de cópia de segurança inclui a registar o servidor de configuração no cofre, transferir o servidor MySQL e o VMware PowerCLI, e especificar as contas criadas para a deteção automática e instalação do serviço de mobilidade.
-4. **Ambiente de destino**: Configurar o destino do ambiente do Azure ao especificar a sua subscrição do Azure, armazenamento e as definições de rede.
+4. **Ambiente de destino**: Configurar o destino do ambiente do Azure ao especificar a sua subscrição do Azure e as definições de rede.
 5. **Política de replicação**: Especificar como os replicação deve ocorrer. As definições incluem a frequência com que os pontos de recuperação são criados e armazenados, e se devem ser criados os instantâneos consistentes com a aplicação.
 6. **Ativar a replicação**. Ativar a replicação para máquinas no local. Se tiver criado uma conta para instalar o serviço de mobilidade, em seguida, esta será instalada quando ativar a replicação para uma máquina. 
 

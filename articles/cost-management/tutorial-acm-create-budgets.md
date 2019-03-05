@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1db3fbbd39418504f98469c7b4999c5a91b5d6de
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814049"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342195"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Crie e gira orçamentos do Azure
 
@@ -39,7 +39,7 @@ Orçamentos são suportados para uma variedade de tipos de conta do Azure. Para 
 
  Para subscrições do EA do Azure, tem de ter acesso de leitura para ver os orçamentos. Para criar e gerir orçamentos, tem de ter permissão de contribuinte. Pode criar orçamentos individuais para as subscrições do EA e grupos de recursos. No entanto, não é possível criar orçamentos para contas de faturação de EA.
 
-As seguintes permissões do Azure são suportadas por subscrição para os orçamentos de por utilizador e grupo:
+As seguintes permissões do Azure, ou âmbitos, são suportados por subscrição para os orçamentos de por utilizador e grupo. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
 
 - Proprietário: pode criar, modificar ou eliminar orçamentos de uma subscrição.
 - Colaborador e contribuinte de gestão de custos – pode criar, modificar ou eliminar os seus próprios orçamentos. Pode modificar a quantidade de orçamento para orçamentos criados por outros utilizadores.
@@ -53,7 +53,7 @@ Para obter mais informações sobre a atribuição de permissão para dados de g
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Criar um orçamento no portal do Azure
 
-Pode criar um orçamento de subscrição do Azure durante um período mensal, trimestral ou anual. O conteúdo de navegação no portal do Azure determina se criar um orçamento para uma subscrição ou para um grupo de recursos. Por exemplo, no portal do Azure, navegue até **subscrições** &gt; Selecione uma subscrição &gt; **orçamentos**. Neste exemplo, é o orçamento que criar para a subscrição que selecionou. Se quiser criar um orçamento para um grupo de recursos, navegue para **grupos de recursos** > selecione um grupo de recursos > **orçamentos**.
+Pode criar um orçamento de subscrição do Azure durante um período mensal, trimestral ou anual. O conteúdo de navegação no portal do Azure determina se criar um orçamento para uma subscrição ou para um grupo de recursos. Por exemplo, no portal do Azure, navegue até **subscrições** &gt; Selecione uma subscrição &gt; **orçamentos**. Neste exemplo, é o orçamento que criar para a subscrição que selecionou. Se quiser criar um orçamento para um grupo de recursos, navegue para **grupos de recursos** > selecione um grupo de recursos > **orçamentos**....
 
 Depois de criar orçamentos, mostram uma simples exibição de seus gastos atual contra eles.
 
@@ -85,6 +85,28 @@ Dependendo do nível de acesso que tem, pode editar um orçamento para alterar a
 
 ![Exemplo de um orçamento para alterar várias propriedades de edição](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## <a name="trigger-an-action-group"></a>Um grupo de ação do acionador
+
+Quando cria ou edita um orçamento para uma subscrição ou o âmbito do grupo de recursos, pode configurar para chamar um grupo de ação. O grupo de ação pode realizar uma variedade de diferentes ações quando é cumprido o limiar de orçamento. Para obter mais informações sobre grupos de ação, veja [criar e gerir grupos de ação no portal do Azure](../azure-monitor/platform/action-groups.md). Para obter mais informações sobre como utilizar a automatização com base no orçamento com grupos de ação, veja [gerir os custos com orçamentos Azure](../billing/billing-cost-management-budget-scenario.md).
+
+Para criar ou atualizar os grupos de ação, clique em **gerir grupos de ação** enquanto estiver a criar ou editar um orçamento.
+
+![Exemplo de criação de um orçamento para mostrar os grupos de ação de gerir](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+Em seguida, clique em **grupo de ação de adicionar** e criar o grupo de ação.
+
+
+![Imagem da caixa de grupo de ação de adicionar](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+Depois da ação de criação do grupo, feche a caixa para retornar ao seu orçamento.
+
+Configure o seu orçamento para utilizar o seu grupo de ação quando um limiar individual é cumprido. São suportados até cinco limiares diferentes.
+
+![Exemplo que mostra a seleção de grupo de ação para uma condição de alerta](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+O exemplo seguinte mostra os limiares de orçamento definidos como 50%, 75% e 100%. Cada um é configurado para acionar as ações específicas dentro do grupo de ação designado.
+
+![Exemplo que mostra a condições de alerta configuradas com vários grupos de ação e o tipo de ações](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

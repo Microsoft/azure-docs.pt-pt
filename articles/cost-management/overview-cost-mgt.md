@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
+ms.date: 02/28/2018
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 6e9eb5709882cc084da8fe02ebb23b70852185d3
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: d5ed8e896034341dcc9a776d722144bb5879568b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240104"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337962"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Azure Cost Management?
 
@@ -41,7 +41,7 @@ Se utilizar sistemas externos para analisar ou aceder a dados de gestão de cust
 
 ## <a name="consider-cloudyn"></a>Considere o Cloudyn
 
-O [Cloudyn](overview.md) é um serviço do Azure relacionado com o Cost Management. No Cloudyn, pode controlar a utilização e os gastos com a cloud para os seus recursos do Azure. O Cloudyn também suporta outros fornecedores de serviços cloud, incluindo a AWS e a Google. Os relatórios do dashboard fáceis de compreender também ajudam na alocação de custos e showbacks/estornos. Atualmente, o Cost Management não suporta a análise de custos/estorno ou outros fornecedores de serviços cloud. No entanto, o Cloudyn é uma opção que _de facto_ os suporta. Atualmente, o Cost Management suporta apenas contas EA do Azure. Embora não suporte contas individuais ou pay as you go, ou contas de Fornecedor de Serviços Cloud da Microsoft, o Cloudyn suporta-as. Se tiver uma destas contas, pode utilizar o Cloudyn para o ajudar a gerir os seus custos.
+O [Cloudyn](overview.md) é um serviço do Azure relacionado com o Cost Management. No Cloudyn, pode controlar a utilização e os gastos com a cloud para os seus recursos do Azure. O Cloudyn também suporta outros fornecedores de serviços cloud, incluindo a AWS e a Google. Os relatórios do dashboard fáceis de compreender também ajudam na alocação de custos e showbacks/estornos. Atualmente, o Cost Management não suporta a análise de custos/estorno ou outros fornecedores de serviços cloud. No entanto, o Cloudyn é uma opção que _de facto_ os suporta. Atualmente, a gestão de custos não suporta contas de fornecedor de serviços Cloud (CSP) da Microsoft, mas faz do Cloudyn. Se tiver contas CSP, ou se pretender utilizar a análise de custos/estorno, pode utilizar o Cloudyn para ajudar a gerir os custos.
 
 ## <a name="additional-azure-tools"></a>Ferramentas do Azure adicionais
 

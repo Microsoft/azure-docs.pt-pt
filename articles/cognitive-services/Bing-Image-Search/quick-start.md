@@ -8,14 +8,14 @@ ms.assetid: BE2B2F8C-20B5-4E0B-AEC8-EAD505BA4C85
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: 76df0b44392a01fb83dfa6cf8075858c5aa560b8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 18d5e17c4d44d396ca0044fbaf023cb4242555b5
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55193085"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341294"
 ---
 # <a name="your-first-images-search-query"></a>Consulta de pesquisa de suas imagens primeiro
 

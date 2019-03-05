@@ -374,6 +374,7 @@ items:
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Suporte de idioma e região
+    displayName: phrase list recommendations, multi-language, translator, locale, language, English, Chinese, Dutch, French, Germain, Italian, Japanese, Korean, Portuguese, Spanish, Turkish, Keigo, informal Japanese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens
     href: luis-language-support.md
   - name: Mapa do Azure
     href: https://aka.ms/luis-roadmap
@@ -393,9 +394,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de Dados de Conhecimento
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 5fc7a290d14ba1de59be758905fdd934ab772745
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 1bc49d2665c143a434f56d9d58bbe3d51cb42404
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340371"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338730"

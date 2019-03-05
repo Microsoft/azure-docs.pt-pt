@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 3b75c2f0ec24fd58527643c8ccfec35f8cdd5914
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c1d8104f94d3f215108000b904848f3b968492ee
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871902"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57341919"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Como gerir as chaves em QnA Maker
 

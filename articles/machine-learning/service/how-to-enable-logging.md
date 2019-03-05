@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: 08e83cdcadabdcf7234d0bbd0fb7e6d103c8369c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 8e39734a6f5fa13240d24eb35c431f746e540484
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447536"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342127"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Ative o registo no serviço Azure Machine Learning
 
@@ -41,7 +41,7 @@ run = exp.start_logging()
 run.log("test-val", 10)
 ```
 
-Consulte a referência [documentação](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) para o `Run` classe para as funções de registo adicional.
+Consulte a documentação de referência para o [executar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) classe para as funções de registo adicional.
 
 Para ativar o registo local do Estado da aplicação durante o curso de treinamento, utilize o `show_output` parâmetro. Ativar registo verboso permite-lhe ver os detalhes do processo de treinamento, bem como informações sobre todos os recursos remotos ou destinos de computação. Utilize o seguinte código para ativar o registo após a submissão de experimentação.
 

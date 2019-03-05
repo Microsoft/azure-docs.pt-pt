@@ -9,14 +9,14 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 8/8/2018
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: dde690cfd6a74c1810e8fa75d0dcc1a88491d357
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b2d142783146edcaf40125ce58e43fe001909412
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864388"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337656"
 ---
 # <a name="send-queries-to-the-bing-image-search-api"></a>Enviar consultas para a API de pesquisa de imagens do Bing
 

@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 47ba057091f0660bf1449f062edfacde710d2f1a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 48002ecb3186218d2cf86e38b43b8e35ae39d240
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428182"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57338387"
 ---
 # <a name="provider-resource-usage-api"></a>API de utilização do recurso do fornecedor
+
 O termo *fornecedor* aplica-se para o administrador de serviços e para quaisquer fornecedores delegados. Operadores do Azure Stack e fornecedores delegados podem utilizar a API de utilização do fornecedor para ver a utilização dos seus inquilinos diretos. Por exemplo, conforme mostrado no diagrama, P0 pode chamar a API para obter informações de utilização do P1 do fornecedor e a utilização de direta do P2 e P1 podem chamar para informações de utilização sobre P3 e P4.
 
 ![Modelo conceitual da hierarquia de fornecedor](media/azure-stack-provider-resource-api/image1.png)
