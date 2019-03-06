@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: d0f22360a36105e5bfb877d7478b58c37fcc4353
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4a1b1a32a488395c6a0b3f19de727802a329930a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213785"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439864"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiar dados do HDFS com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -138,6 +138,7 @@ Para copiar dados do HDFS, defina a propriedade de tipo de conjunto de dados par
         },
         "typeProperties": {
             "folderPath": "folder/subfolder/",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {
@@ -203,7 +204,7 @@ Saiba mais sobre como utilizar o DistCp para copiar dados do HDFS com eficiênci
 
 Copie a utilizar o DistCp para copiar ficheiros como o suporte de atividade-é em BLOBs do Azure (incluindo [cópia faseada](copy-activity-performance.md) ou do Azure Data Lake Store, caso em que ele pode aproveitar totalmente power do seu cluster em vez de em execução no Runtime de integração autoalojado . Irá fornecer um melhor débito de cópia especialmente se o cluster é muito poderoso. Com base na sua configuração no Azure Data Factory, atividade de cópia automaticamente construir um comando distcp, enviar para o seu cluster do Hadoop e monitorizar o estado de cópia.
 
-### <a name="prerequsites"></a>Prerequsites
+### <a name="prerequisites"></a>Pré-requisitos
 
 Utilizar o DistCp para copiar os ficheiros como-é do HDFS para BLOBs do Azure (incluindo a cópia faseada) ou do Azure Data Lake Store, certifique-se o cluster de Hadoop cumpre abaixo requisitos:
 

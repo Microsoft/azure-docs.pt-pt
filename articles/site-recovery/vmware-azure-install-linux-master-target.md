@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 28b28dc15809aa5d37eb9347ff3bc7eecccc9a20
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217990"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452713"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de efetuar a ativação pós-falha de máquinas virtuais para o Azure, pode efetuar a reativação pós-falha as máquinas virtuais para o site no local. Para efetuar a reativação pós-falha, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino mestre no local para receber o tráfego. 
@@ -62,7 +62,7 @@ São suportados os seguintes kernels suportados do Ubuntu.
 
 Realize os seguintes passos para instalar o sistema de operativo de 64 bits do Ubuntu 16.04.2.
 
-1.   Vá para o [ligação de transferência](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), escolha o mais próximo anddownload de espelho de um ISO de 64 bits mínimo do Ubuntu 16.04.2.
+1.   Vá para o [ligação de transferência](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), escolha o mais próximo espelho e Baixe o ISO de 64 bits mínimo um Ubuntu 16.04.2.
 Mantenha um ISO de 64 bits mínimo do Ubuntu 16.04.2 na unidade de DVD e iniciar o sistema.
 
 1.  Selecione **inglês** como sua linguagem preferida e, em seguida, selecione **Enter**.
@@ -287,7 +287,6 @@ Utilize os seguintes passos para criar um disco de retenção:
 2. Tome nota do endereço IP do servidor de configuração. Execute o seguinte comando para instalar o servidor de destino mestre e registar o servidor com o servidor de configuração.
 
     ```
-    ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 

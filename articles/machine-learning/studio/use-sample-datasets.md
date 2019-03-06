@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 22b3480093b85507123cab886340713747433928
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e4e29f4b714fe187622d778db58743ca4f02e84e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818362"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445590"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilizar os conjuntos de dados de exemplo no Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
@@ -233,7 +233,7 @@ Isto é, talvez, a base de dados mais conhecido para ser encontrados na literatu
 <tr>
   <td>Tweets do filme</td>
   <td>
-O conjunto de dados é uma versão expandida do conjunto de dados do filme Tweetings. O conjunto de dados tem classificações de 170K de filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa um tweet e é uma cadeia de identificação: ID de utilizador, ID de filme IMDB, classificação, timestamp, numer dos favoritos para esta tweet e o número de retweets deste tweet. O conjunto de dados foi disponibilizado por disse A., S. Dooms, Loni B. e D. Tikk para sistemas de Recomendador desafio 2014.
+O conjunto de dados é uma versão expandida do conjunto de dados do filme Tweetings. O conjunto de dados tem classificações de 170K de filmes, extraídos de tweets bem estruturados no Twitter. Cada instância representa um tweet e é uma cadeia de identificação: ID de utilizador, ID de filme IMDB, classificação, timestamp, número de Favoritos para esse tweet e número de retweets deste tweet. O conjunto de dados foi disponibilizado por disse A., S. Dooms, Loni B. e D. Tikk para sistemas de Recomendador desafio 2014.
   </td>
 </tr>
 

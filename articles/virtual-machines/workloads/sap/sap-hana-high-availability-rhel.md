@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0bed75090e82287e1239342884b5acea64e69bf0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338527"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444009"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Elevada disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -89,7 +89,7 @@ Utiliza a configuração do SAP HANA System Replication endereços um nome de an
 
 * Configuração de front-end: Endereço IP 10.0.0.13 para hn1-db
 * Configuração de back-end: Ligado a interfaces de rede primário de todas as máquinas virtuais que devem fazer parte do HANA System Replication
-* Porta de pesquisa: Porta 62503
+* Porta de pesquisa: Port 62503
 * Regras de balanceamento de carga: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
 
 ## <a name="deploy-for-linux"></a>Implementar para Linux
@@ -187,9 +187,9 @@ Para obter mais informações sobre as portas necessárias para o SAP HANA, leia
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]** : A etapa se aplica a todos os nós.
-* **[1]** : A etapa se aplica ao nó 1 apenas.
-* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[A]**: A etapa se aplica a todos os nós.
+* **[1]**: A etapa se aplica ao nó 1 apenas.
+* **[2]**: A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[A]**  Configurar o layout de disco: **Gestor de volumes lógicos (LVM)**.
 
@@ -303,8 +303,8 @@ Os passos nesta secção, utilize os prefixos seguintes:
    Para instalar o SAP HANA System Replication, siga <https://access.redhat.com/articles/3004101>.
 
    * Executar o **hdblcm** programa a partir do DVD do HANA. Introduza os seguintes valores na linha de comandos:
-   * Escolha a instalação: Introduza **1**.
-   * Selecione os componentes adicionais para a instalação: Introduza **1**.
+   * Escolha a instalação: Enter **1**.
+   * Selecione os componentes adicionais para a instalação: Enter **1**.
    * Introduza o caminho de instalação [/ hana/partilhado]: Selecione introduzir.
    * Introduza o nome de anfitrião Local [.]: Selecione introduzir.
    * Deseja adicionar anfitriões adicionais no sistema? (y/n) [n]: Selecione introduzir.
@@ -348,9 +348,9 @@ Os passos nesta secção, utilize os prefixos seguintes:
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]** : A etapa se aplica a todos os nós.
-* **[1]** : A etapa se aplica ao nó 1 apenas.
-* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[A]**: A etapa se aplica a todos os nós.
+* **[1]**: A etapa se aplica ao nó 1 apenas.
+* **[2]**: A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[A]**  Configurar a firewall
 
@@ -439,9 +439,9 @@ sudo firewall-cmd --zone=public --add-port=30342/tcp
 
 Os passos nesta secção, utilize os prefixos seguintes:
 
-* **[A]** : A etapa se aplica a todos os nós.
-* **[1]** : A etapa se aplica ao nó 1 apenas.
-* **[2]** : A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
+* **[A]**: A etapa se aplica a todos os nós.
+* **[1]**: A etapa se aplica ao nó 1 apenas.
+* **[2]**: A etapa se aplica a 2 de nó do cluster Pacemaker apenas.
 
 1. **[A]**  Configurar a firewall
 
@@ -643,7 +643,7 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 Pode testar a configuração do agente do Azure de delimitação por barreiras, desativando a interface de rede no nó onde SAP HANA está em execução como modelo.
-Ver [artigo da base de conhecimento do Red Hat 79523](https://access.redhat.com/solutions/79523) para um descricption sobre como simular uma falha de rede. Neste exemplo utilizamos o script de net_breaker para bloquear todo o acesso à rede.
+Ver [artigo da base de conhecimento do Red Hat 79523](https://access.redhat.com/solutions/79523) para obter uma descrição sobre como simular uma falha de rede. Neste exemplo utilizamos o script de net_breaker para bloquear todo o acesso à rede.
 
 <pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>

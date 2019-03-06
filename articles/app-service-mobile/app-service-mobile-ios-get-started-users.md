@@ -1,6 +1,6 @@
 ---
-title: Adicionar autenticação em dispositivos iOS com Mobile Apps do Azure
-description: Saiba como utilizar Mobile Apps do Azure para autenticar os utilizadores da sua aplicação iOS através de vários fornecedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft.
+title: Adicionar a autenticação no iOS com aplicações móveis do Azure
+description: Saiba como utilizar aplicações móveis do Azure para autenticar os utilizadores da sua aplicação iOS através de uma variedade de fornecedores de identidade, incluindo o AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
@@ -14,34 +14,34 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
-ms.openlocfilehash: e0eeee05ebad2e8148752f988bbbc2f6a0d7c296
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592699"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445913"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Adicionar autenticação à sua aplicação iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Neste tutorial, adicionar autenticação para o [iOS rápidos iniciar] utilizando um fornecedor de identidade suportados do projeto. Este tutorial baseia-se no [iOS rápidos iniciar] tutorial, que tem de concluir primeiro.
+Neste tutorial, adicionar autenticação para o [início rápido do iOS] através de um fornecedor de identidade com suporte do projeto. Este tutorial baseia-se no [início rápido do iOS] tutorial, o que tem de concluir primeiro.
 
-## <a name="register"></a>Registar a aplicação para autenticação e configurar o serviço de aplicações
+## <a name="register"></a>Registar a sua aplicação para autenticação e configurar o serviço de aplicações
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar a sua aplicação para os URLs de redirecionamento externo permitido
+## <a name="redirecturl"></a>Adicionar a sua aplicação para os URLs de redirecionamento externo permitidos
 
-Autenticação segura requer que defina um novo esquema de URL para a sua aplicação.  Isto permite que o sistema de autenticação redirecionar para a sua aplicação, depois do processo de autenticação está concluído.  Neste tutorial, utilizamos o esquema de URL _appname_ ao longo.  No entanto, pode utilizar qualquer esquema de URL que escolher.  Deve ser exclusivo para a sua aplicação móvel.  Para ativar o redirecionamento do lado do servidor de ésimo:
+Autenticação segura requer que defina um novo esquema de URL para a sua aplicação.  Isso permite que o sistema de autenticação redirecionar para a sua aplicação, uma vez concluído o processo de autenticação.  Neste tutorial, utilizamos o esquema de URL _appname_ em todo.  No entanto, pode utilizar qualquer esquema de URL que escolher.  Deve ser exclusivo para a sua aplicação móvel.  Para ativar o redirecionamento no lado do servidor de th:
 
-1. No [portal do Azure], selecione o serviço de aplicações.
+1. Na [portal do Azure], selecione o serviço de aplicações.
 
-2. Clique em de **autenticação / autorização** opção do menu.
+2. Clique nas **autenticação / autorização** opção de menu.
 
-3. Clique em **do Azure Active Directory** sob o **fornecedores de autenticação** secção.
+3. Clique em **do Azure Active Directory** sob a **provedores de autenticação** secção.
 
-4. Definir o **modo de gestão** para **avançadas**.
+4. Definir o **modo de gestão** ao **avançadas**.
 
-5. No **permitidos URLs de redirecionamento externos**, introduza `appname://easyauth.callback`.  O _appname_ esta cadeia é o esquema de URL para a sua aplicação móvel.  Deve seguir a especificação de URL normal para um protocolo (utilize letras e números apenas e começar com uma letra).  Deve tome nota da cadeia que escolher, terá de ajustar o código de aplicações móveis com o esquema de URL em vários locais.
+5. Na **permitido URLs de redirecionamento externo**, introduza `appname://easyauth.callback`.  O _appname_ nessa cadeia é o esquema de URL para a sua aplicação móvel.  Deve seguir normal especificação de URL para um protocolo (utilize letras e números apenas e começar com uma letra).  Deve tome nota da cadeia de caracteres que escolha, como precisará ajustar o código da aplicação móvel com o esquema de URL em vários locais.
 
 6. Clique em **OK**.
 
@@ -50,12 +50,12 @@ Autenticação segura requer que defina um novo esquema de URL para a sua aplica
 ## <a name="permissions"></a>Restringir as permissões para utilizadores autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-No Xcode, prima **executar** para iniciar a aplicação. É gerada uma exceção porque a aplicação tenta aceder ao back-end como um utilizador não autorizado, mas o *TodoItem* tabela agora requer autenticação.
+No Xcode, prima **executar** para iniciar a aplicação. Uma exceção ocorre porque a aplicação tenta acessar o back-end como um utilizador não autenticado, mas a *TodoItem* tabela agora requer autenticação.
 
 ## <a name="add-authentication"></a>Adicionar autenticação à aplicação
 **Objective-C**:
 
-1. No Mac, abra *QSTodoListViewController.m* no Xcode e adicione o método seguinte:
+1. No Mac, abra *QSTodoListViewController.m* no Xcode e adicione o seguinte método:
 
     ```Objective-C
     - (void)loginAndGetData
@@ -77,11 +77,11 @@ No Xcode, prima **executar** para iniciar a aplicação. É gerada uma exceção
     }
     ```
 
-    Alteração *google* para *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se utilizar o Facebook, tem de [lista branca Facebook domínios] [ 1] na sua aplicação.
+    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca] [ 1] na sua aplicação.
 
-    Substitua o **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou no **permitidos URLs de redirecionamento externos** campo no portal do Azure. O urlScheme é utilizado pela chamada de retorno de autenticação para mudar para a aplicação após a conclusão do pedido de autenticação.
+    Substitua a **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou na **permitido URLs de redirecionamento externo** campo no portal do Azure. O urlScheme é utilizada pelo retorno de chamada de autenticação para mudar para a sua aplicação depois do pedido de autenticação está concluído.
 
-2. Substitua `[self refresh]` no `viewDidLoad` no *QSTodoListViewController.m* com o seguinte código:
+2. Substitua `[self refresh]` no `viewDidLoad` na *QSTodoListViewController.m* com o código a seguir:
 
     ```Objective-C
     [self loginAndGetData];
@@ -110,9 +110,9 @@ No Xcode, prima **executar** para iniciar a aplicação. É gerada uma exceção
     }
     ```
 
-   Adicione este código imediatamente antes de ler a linha `#pragma mark - Core Data stack`.  Substitua o _appname_ wih o valor de urlScheme que utilizou no passo 1.
+   Adicione este código imediatamente antes da leitura de linha `#pragma mark - Core Data stack`.  Substitua a _appname_ com o valor de urlScheme que utilizou no passo 1.
 
-5. Abra o `AppName-Info.plist` ficheiro (substituindo AppName com o nome da sua aplicação) e adicione o seguinte código:
+5. Abra o `AppName-Info.plist` ficheiro (AppName substituição com o nome da sua aplicação) e adicione o seguinte código:
 
     ```XML
     <key>CFBundleURLTypes</key>
@@ -128,15 +128,15 @@ No Xcode, prima **executar** para iniciar a aplicação. É gerada uma exceção
     </array>
     ```
 
-    Este código deve ser colocado dentro de `<dict>` elemento.  Substitua o _appname_ cadeia (de matriz para **CFBundleURLSchemes**) com o nome da aplicação que selecionou no passo 1.  Pode também efetuar estas alterações no plist editor - clique em de `AppName-Info.plist` ficheiro no XCode para abrir o editor de plist.
+    Esse código deve ser colocado dentro do `<dict>` elemento.  Substitua a _appname_ cadeia de caracteres (dentro da matriz para **CFBundleURLSchemes**) com o nome da aplicação que selecionou no passo 1.  Pode também efetuar estas alterações no ficheiro plist editor - clique no `AppName-Info.plist` ficheiro no XCode para abrir o editor de plist.
 
-    Substitua o `com.microsoft.azure.zumo` cadeia para **CFBundleURLName** com o Apple identificador do pacote.
+    Substitua a `com.microsoft.azure.zumo` para de cadeias de caracteres **CFBundleURLName** com seu Apple identificador do pacote.
 
-6. Prima *executar* para iniciar a aplicação e, em seguida, inicie sessão. Quando tiver iniciado a sessão, deverá conseguir ver a lista de tarefas e fazer atualizações.
+6. Prima *executar* para iniciar a aplicação e, em seguida, iniciar sessão. Quando estiver conectado, deve conseguir ver a lista de tarefas e fazer atualizações.
 
-**SWIFT**:
+**Swift**:
 
-1. No Mac, abra *ToDoTableViewController.swift* no Xcode e adicione o método seguinte:
+1. No Mac, abra *ToDoTableViewController.swift* no Xcode e adicione o seguinte método:
 
     ```swift
     func loginAndGetData() {
@@ -163,11 +163,11 @@ No Xcode, prima **executar** para iniciar a aplicação. É gerada uma exceção
     }
     ```
 
-    Alteração *google* para *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se utilizar o Facebook, tem de [lista branca Facebook domínios] [ 1] na sua aplicação.
+    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca] [ 1] na sua aplicação.
 
-    Substitua o **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou no **permitidos URLs de redirecionamento externos** campo no portal do Azure. O urlScheme é utilizado pela chamada de retorno de autenticação para mudar para a aplicação após a conclusão do pedido de autenticação.
+    Substitua a **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou na **permitido URLs de redirecionamento externo** campo no portal do Azure. O urlScheme é utilizada pelo retorno de chamada de autenticação para mudar para a sua aplicação depois do pedido de autenticação está concluído.
 
-2. Remover as linhas `self.refreshControl?.beginRefreshing()` e `self.onRefresh(self.refreshControl)` no fim do `viewDidLoad()` no *ToDoTableViewController.swift*. Adicione uma chamada para `loginAndGetData()` no respetivo local:
+2. Remover as linhas `self.refreshControl?.beginRefreshing()` e `self.onRefresh(self.refreshControl)` no final do `viewDidLoad()` no *ToDoTableViewController.swift*. Adicione uma chamada para `loginAndGetData()` em seu lugar:
 
     ```swift
     loginAndGetData()
@@ -188,9 +188,9 @@ No Xcode, prima **executar** para iniciar a aplicação. É gerada uma exceção
     }
     ```
 
-    Substitua o _appname_ wih o valor de urlScheme que utilizou no passo 1.
+    Substitua a _appname_ com o valor de urlScheme que utilizou no passo 1.
 
-4. Abra o `AppName-Info.plist` ficheiro (substituindo AppName com o nome da sua aplicação) e adicione o seguinte código:
+4. Abra o `AppName-Info.plist` ficheiro (AppName substituição com o nome da sua aplicação) e adicione o seguinte código:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -206,18 +206,18 @@ No Xcode, prima **executar** para iniciar a aplicação. É gerada uma exceção
     </array>
     ```
 
-    Este código deve ser colocado dentro de `<dict>` elemento.  Substitua o _appname_ cadeia (de matriz para **CFBundleURLSchemes**) com o nome da aplicação que selecionou no passo 1.  Pode também efetuar estas alterações no plist editor - clique em de `AppName-Info.plist` ficheiro no XCode para abrir o editor de plist.
+    Esse código deve ser colocado dentro do `<dict>` elemento.  Substitua a _appname_ cadeia de caracteres (dentro da matriz para **CFBundleURLSchemes**) com o nome da aplicação que selecionou no passo 1.  Pode também efetuar estas alterações no ficheiro plist editor - clique no `AppName-Info.plist` ficheiro no XCode para abrir o editor de plist.
 
-    Substitua o `com.microsoft.azure.zumo` cadeia para **CFBundleURLName** com o Apple identificador do pacote.
+    Substitua a `com.microsoft.azure.zumo` para de cadeias de caracteres **CFBundleURLName** com seu Apple identificador do pacote.
 
-5. Prima *executar* para iniciar a aplicação e, em seguida, inicie sessão. Quando tiver iniciado a sessão, deverá conseguir ver a lista de tarefas e fazer atualizações.
+5. Prima *executar* para iniciar a aplicação e, em seguida, iniciar sessão. Quando estiver conectado, deve conseguir ver a lista de tarefas e fazer atualizações.
 
-Autenticação do serviço de aplicações utiliza maçãs Inter aplicação comunicação.  Para obter mais detalhes sobre este assunto, consulte o [documentação da Apple][2]
+Autenticação do serviço de aplicações utiliza a comunicação de Inter-aplicação de maçãs.  Para obter mais detalhes sobre esse assunto, consulte o [documentação da Apple][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[portal do Azure]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com
 
-[iOS rápidos iniciar]: app-service-mobile-ios-get-started.md
+[início rápido do iOS]: app-service-mobile-ios-get-started.md
 
