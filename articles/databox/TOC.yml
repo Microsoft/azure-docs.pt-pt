@@ -29,6 +29,8 @@ items:
           href: data-box-deploy-copy-data-via-rest.md
         - name: Através do serviço de cópia de dados
           href: data-box-deploy-copy-data-via-copy-service.md
+        - name: Para discos geridos
+          href: data-box-deploy-copy-data-from-vhds.md
       - name: 4 - Devolver, carregar, verificar
         href: data-box-deploy-picked-up.md
     - name: Conceitos
@@ -59,6 +61,14 @@ items:
         href: data-box-cable-options.md
       - name: Contactar o Suporte
         href: data-box-disk-contact-microsoft-support.md
+      - name: Migrar
+        items:
+        - name: Para o SharePoint Online
+          href: https://docs.microsoft.com/sharepointmigration/how-to-migrate-file-share-content-to-spo-using-azuredatabox
+        - name: Para o Azure File Sync
+          href: https://docs.microsoft.com/azure/storage/files/storage-sync-offline-data-transfer
+        - name: Do arquivo do HDFS
+          href: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster
   - name: Data Box Disk
     items:
     - name: Descrição geral
@@ -112,9 +122,9 @@ items:
       href: https://azure.microsoft.com/pricing/details/storage/databox/
     - name: Preços do Data Box Disk
       href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: 3b9479dd43a4d98b5dec28878b16e6c781d39d58
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cd18f6ccbe2115500f19e3bf27e99924c780ccb6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428868"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439303"

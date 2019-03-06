@@ -16,6 +16,12 @@ items:
     displayName: publish, assign, track, unassign, delete
     href: create-blueprint-rest-api.md
   expanded: true
+- name: Tutoriais
+  items:
+  - name: Criar a partir de um exemplo de esquema
+    displayName: template, resource group, rbac, role assignment
+    href: ./tutorials/create-from-sample.md
+  expanded: true
 - name: Conceitos
   items:
   - name: Ciclo de vida de um esquema
@@ -59,9 +65,9 @@ items:
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Azure Friday - Descrição Geral do Azure Blueprints
     href: https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints
-ms.openlocfilehash: b80d3a22f17faf1b5759c603185c71ac17b416cd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: cc616ebfaa3bbde485fefbd6abe4a4b4568a5b96
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996377"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410150"

@@ -9,8 +9,7 @@ items:
     href: deep-learning-dsvm-overview.md
   - name: O que é a VM de Ciência de Dados de IA Geográfica?
     href: geo-ai-dsvm-overview.md
-  expanded: true
-- name: Introdução
+- name: Inícios rápidos
   items:
   - name: Criar uma VM de Ciência de Dados do Windows
     href: provision-vm.md
@@ -22,27 +21,8 @@ items:
     href: provision-deep-learning-dsvm.md
   - name: Criar uma VM de Ciência de Dados de IA Geográfica
     href: provision-geo-ai-dsvm.md
-- name: Procedimento
-  items:
-  - name: Utilizar uma VM de Ciência de Dados do Windows
-    href: vm-do-ten-things.md
-  - name: Utilizar uma VM de Ciência de Dados do Linux
-    href: linux-dsvm-walkthrough.md
-  - name: Utilizar uma VM de Aprendizagem Profunda
-    href: use-deep-learning-dsvm.md
-  - name: Utilizar uma VM de Ciência de Dados de IA Geográfica
-    href: use-geo-ai-dsvm.md
-- name: Diretrizes empresariais
-  items:
-  - name: Descrição geral
-    href: dsvm-enterprise-overview.md
-  - name: Dimensionamento
-    href: dsvm-pools.md
-  - name: Integração do Active Directory
-    href: dsvm-common-identity.md
-  - name: Proteger credenciais de acesso aos recursos
-    href: dsvm-secure-access-keys.md
-- name: Referência
+  expanded: true
+- name: Conceitos
   items:
   - name: Detetar a DSVM
     href: dsvm-tools-overview.md
@@ -62,10 +42,29 @@ items:
     href: dsvm-data-platforms.md
   - name: Exemplos e instruções
     href: dsvm-samples-and-walkthroughs.md
-  expanded: true
+- name: Guias de procedimentos
+  items:
+  - name: Utilizar uma VM de Ciência de Dados do Windows
+    href: vm-do-ten-things.md
+  - name: Utilizar uma VM de Ciência de Dados do Linux
+    href: linux-dsvm-walkthrough.md
+  - name: Utilizar uma VM de Aprendizagem Profunda
+    href: use-deep-learning-dsvm.md
+  - name: Utilizar uma VM de Ciência de Dados de IA Geográfica
+    href: use-geo-ai-dsvm.md
+  - name: Diretrizes empresariais
+    items:
+    - name: Descrição geral
+      href: dsvm-enterprise-overview.md
+    - name: Dimensionamento
+      href: dsvm-pools.md
+    - name: Integração com o Active Directory
+      href: dsvm-common-identity.md
+    - name: Proteger credenciais de acesso aos recursos
+      href: dsvm-secure-access-keys.md
 - name: Recursos
   items:
-  - name: Guia do programador em R
+  - name: Guia para programadores de R
     href: ../r-developers-guide.md
   - name: Blogue
     href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
@@ -73,9 +72,9 @@ items:
     href: https://social.microsoft.com/Forums/en-US/home?forum=dsvm
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=dsvm
-ms.openlocfilehash: e1617f3f5c36a5b006003e2f375dfac4143af7cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: eddadfc7b10cea364f8235bbd8ba378d9aeaf362
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032569"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431636"

@@ -40,6 +40,22 @@ items:
       href: terraform-create-vm-scaleset-network-disks-hcl.md
     - name: Fornecer o conjunto de dimensionamento de VM a partir de uma imagem personalizada Packer
       href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Redes
+    items:
+    - name: Topologia hub-and-spoke
+      items:
+      - name: 1. Criar topologia hub-and-spoke
+        href: terraform-hub-spoke-introduction.md
+      - name: 2. Criar uma rede virtual no local
+        href: terraform-hub-spoke-on-prem.md
+      - name: 3. Criar uma rede virtual em hub
+        href: terraform-hub-spoke-hub-network.md
+      - name: 4. Criar uma aplicação de rede virtual em hub
+        href: terraform-hub-spoke-hub-nva.md
+      - name: 5. Criar rede spoke
+        href: terraform-hub-spoke-spoke-network.md
+      - name: 6. Validar a conectividade da topologia de rede
+        href: terraform-hub-spoke-validation.md
   - name: Ferramentas
     items:
     - name: Instalar a extensão do Terraform no Visual Studio Code
@@ -72,9 +88,9 @@ items:
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 352b6bcf9bbce9e38ba2b048d1b8997896870f24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f37cb15bccf0fe07ace24d3277015a69b9881091
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750244"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404829"

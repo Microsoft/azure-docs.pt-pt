@@ -193,16 +193,12 @@ items:
         href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Efetuar a ativação pós-falha de uma VM para outra região
         href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Mover VMs para outra região
-      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Gerir VMs
     items:
     - name: Utilização de VM
       href: vm-usage.md
     - name: Tarefas comuns do PowerShell
       href: ps-common-ref.md
-    - name: Mover uma VM
-      href: move-vm.md
     - name: Alterar o tamanho da VM
       href: resize-vm.md
     - name: Trocar o disco de SO
@@ -391,8 +387,14 @@ items:
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
   - name: Utilizar extensões de VM
     href: ../extensions/overview.md
-  - name: Migrar VMs
+  - name: Mover e migrar VMs
     items:
+    - name: Alterar subscrição ou grupo de recursos
+      href: move-vm.md
+    - name: Mover regiões
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Mover para uma zona de disponibilidade
+      href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Migrar VMs AWS e VMs no local
       href: on-prem-to-azure.md
       items:
@@ -459,9 +461,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: FAQ
     href: faq.md
-ms.openlocfilehash: 909c367475f5c41f03f7a30bb68bfc365dde581b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 3ddf84852fee0dc30aa9bc7e9d49f06493f6b0cc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889748"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448446"

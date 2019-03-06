@@ -600,6 +600,8 @@ items:
     items:
     - name: Resolver problemas do SDK do Java Async
       href: troubleshoot-java-async-sdk.md
+    - name: Resolver problemas do .NET SDK
+      href: troubleshoot-dot-net-sdk.md
 - name: Referência
   items:
   - name: .NET
@@ -654,9 +656,9 @@ items:
       href: use-cases.md
     - name: Aplicações de redes sociais
       href: social-media-apps.md
-ms.openlocfilehash: f1f36d86466f93c0acac30364ba648391fb03095
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: f42bc31661ecc14fde4d2466ccd89d91dfd5deb5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652523"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406818"

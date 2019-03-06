@@ -25,6 +25,9 @@
 #### [2 - Desenvolvimento de vários serviços](multi-service-nodejs.md)
 #### [3 - Desenvolvimento em equipa](team-development-nodejs.md)
 
+## Conceitos
+### [Como funcionam os Espaços de Desenvolvimento](how-dev-spaces-works.md)
+
 ## Procedimento
 ### [Criar um cluster do Kubernetes com o Azure Cloud Shell](how-to/create-cluster-cloud-shell.md)
 ### [Partilhar os Espaços de Programador do Azure](how-to/share-dev-spaces.md)

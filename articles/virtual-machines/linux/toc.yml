@@ -186,16 +186,12 @@ items:
         href: ../../site-recovery/azure-to-azure-tutorial-dr-drill.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       - name: Efetuar a ativação pós-falha de uma VM para outra região
         href: ../../site-recovery/azure-to-azure-tutorial-failover-failback.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Mover VMs para outra região
-      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Gerir VMs
     items:
     - name: Utilização de VM
       href: vm-usage.md
     - name: Tarefas comuns da CLI
       href: cli-manage.md
-    - name: Mover uma VM
-      href: move-vm.md
     - name: Alterar o tamanho da VM
       href: change-vm-size.md
     - name: Trocar o disco de SO
@@ -491,8 +487,14 @@ items:
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
   - name: Utilizar extensões de VM
     href: ../extensions/overview.md
-  - name: Migrar VMs
+  - name: Mover e migrar VMs
     items:
+    - name: Alterar subscrição ou grupo de recursos
+      href: move-vm.md
+    - name: Mover VMs para outra região
+      href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Mover para uma zona de disponibilidade
+      href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Migrar VMs AWS e VMs no local
       href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
       items:
@@ -557,9 +559,9 @@ items:
     href: faq.md
 - name: Resolução de problemas
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 201f0834f2e2f61d1e6521838add251bc486fc75
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 776adc5310db7c4a7762409a53c57e896cc95360
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429813"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438294"

@@ -205,6 +205,8 @@ items:
       href: ../connectors/connectors-native-http-swagger.md
     - name: Webhook de HTTP
       href: ../connectors/connectors-native-webhook.md
+    - name: IBM 3270
+      href: ../connectors/connectors-run-3270-apps-ibm-mainframe-create-api-3270.md
     - name: Informix
       href: ../connectors/connectors-create-api-informix.md
     - name: Conta de Integração
@@ -375,9 +377,9 @@ items:
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-ms.openlocfilehash: ceb5c51c3cd189da408ce23f0b03babb73f462ef
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 8462370028979fe70ffbc3666489665d375b7b46
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194236"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441462"
