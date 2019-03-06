@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: cb85d09a1d5dee6cb54254baac4698cdad093785
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e6814224827aac0da9c6faf5108ecf585bae7c35
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457671"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445386"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo de consulta no Azure Cosmos DB
 
@@ -53,7 +53,7 @@ while (queryable.HasMoreResults)
 
 ## <a name="factors-influencing-request-unit-charge-for-a-query"></a>Fatores influência de cobranças de unidades de pedido para uma consulta
 
-Unidades de pedido para consultas dependem de vários fatores. Por exemplo, o número de itens de Azure Cosmos carregado/retornado, o número de pesquisas contra o índice, o tempo de compilação de consulta etc detalhes. O Azure Cosmos DB garante que a mesma consulta quando executada nos mesmos dados consumirá sempre o mesmo número de unidades de pedido, mesmo com repetições de execuções. O perfil de consulta com métricas de execução de consulta oferece uma boa idéia de como as unidades de pedido são gasto.  
+Unidades de pedido para consultas dependem de vários fatores. Por exemplo, o número de itens de Azure Cosmos carregado/retornado, o número de pesquisas contra o índice, a compilação de consulta tempo que os detalhes de etc. O Azure Cosmos DB garante que a mesma consulta quando executada nos mesmos dados consumirá sempre o mesmo número de unidades de pedido, mesmo com repetições de execuções. O perfil de consulta com métricas de execução de consulta oferece uma boa idéia de como as unidades de pedido são gasto.  
 
 Em alguns casos, pode ver uma seqüência de 200 429 respostas e unidades de pedido de variável numa execução paginada de consultas, que é porque as consultas posteriores serão executadas mais rapidamente possível com base no RUs disponível. Poderá ver uma execução de consulta dividir em várias páginas/arredondar viagens entre servidor e cliente. Por exemplo, 10 000 itens podem ser devolvidos como várias páginas, cada uma cobrada com base no cálculo realizado para essa página. Quando somar entre essas páginas, obterá o mesmo número de Urs como teria de toda a consulta.  
 
