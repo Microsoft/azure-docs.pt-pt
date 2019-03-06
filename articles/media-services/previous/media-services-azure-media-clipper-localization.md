@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8dab462d5a79b0fe938f08591feff775da64a9b0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bfd27e95ef46fbd8edd35a9e6d39675dc895adde
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240291"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432367"
 ---
 # <a name="configure-localization"></a>Configurar localização 
 

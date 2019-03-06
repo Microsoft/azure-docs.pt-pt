@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 92bd80135d2ce0c72537240a12e6c0788443abe8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 28871e6c594abe83d5071b25e40b533982b9347d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700184"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443135"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar a API REST para criar um pipeline do Azure Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -49,6 +49,9 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
 > O pipeline de dados neste tutorial copia dados a partir de um arquivo de dados de origem para um arquivo de dados de destino. Para obter um tutorial sobre como transformar dados com o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados com o cluster do Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Leia o artigo [Descrição Geral do Tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e conclua os passos de **pré-requisitos**.
 * Instale o [Curl](https://curl.haxx.se/dlwiz/) no seu computador. Utilize a ferramenta Curl com comandos REST para criar uma fábrica de dados. 
 * Siga as instruções [neste artigo](../../active-directory/develop/howto-create-service-principal-portal.md) para: 
@@ -62,22 +65,22 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
   1. Execute o comando seguinte e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no Portal do Azure:
     
     ```PowerShell 
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```   
   2. Execute o comando seguinte para ver todas as subscrições desta conta:
 
     ```PowerShell     
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ``` 
   3. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **&lt;NameOfAzureSubscription**&gt; pelo nome da sua subscrição do Azure. 
      
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
   4. Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** ao executar o comando seguinte no PowerShell:  
 
     ```PowerShell     
-      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+      New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
      
       Se o grupo de recursos já existir, especifique se pretende atualizá-lo (Y) ou mantê-lo como está (N). 
@@ -364,12 +367,12 @@ Tenha em atenção os seguintes pontos:
   * No Azure PowerShell, execute o seguinte comando para registar o fornecedor do Data Factory: 
 
     ```PowerShell    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     Pode executar o seguinte comando para confirmar que o fornecedor do Data Factory está registado. 
     
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Inicie sessão com a subscrição do Azure no [Portal do Azure](https://portal.azure.com) e navegue até um painel do Data Factory (ou) crie uma fábrica de dados no Portal do Azure. Esta ação regista automaticamente o fornecedor por si.
 

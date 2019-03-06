@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 47fde9099ed8172b83f9f12085c5aee219c4716c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 46e8c0185ec94d0ea3429f761b3760dcbccc25aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318024"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432622"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade do dispositivo no Azure IoT Central
 
@@ -33,9 +33,9 @@ A utilização de pontos de distribuição permite:
 Este artigo que mostra como descreve os casos de utilização de quatro seguintes:
 
 1. [Ligue-se rapidamente um único dispositivo através da SAS](#connect-a-single-device)
-1. [Ligar dispositivos à escala através da SAS](#connect-devices-at-scale-using-shared-access-signatures)
+1. Ligar dispositivos à escala através da SAS
 1. [Ligar dispositivos à escala utilizando certificados X.509](#connect-devices-using-x509-certificates) essa é a abordagem recomendada para ambientes de produção.
-1. [Ligar-se sem o registo de dispositivos primeiro](#connect-without-first-registering-devices) 
+1. Ligar-se sem o registo de dispositivos primeiro
 
 ## <a name="connect-a-single-device"></a>Ligar um dispositivo único
 
@@ -69,7 +69,7 @@ Para registar um grande número de dispositivos com a sua aplicação IoT Centra
 Para obter as informações de ligação para os dispositivos importados, [exportar um ficheiro CSV a partir da sua aplicação do Centro de IoT](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json#export-devices).
 
 > [!NOTE]
-> Para saber como pode ligar dispositivos sem Registro primeiro no Centro de IoT, veja [ligar sem o registo de dispositivos primeiro](#connect-without-first-registering-devices).
+> Para saber como pode ligar dispositivos sem Registro primeiro no Centro de IoT, veja o Connect sem o registo de dispositivos primeiro.
 
 ### <a name="set-up-your-devices"></a>Configurar seus dispositivos
 

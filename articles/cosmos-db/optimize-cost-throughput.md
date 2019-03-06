@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 040fac6cd4feb60b6635ba0868634f16dd9f146f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881736"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452195"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado de custo no Azure Cosmos DB
 
@@ -113,7 +113,7 @@ Além disso, se estiver a utilizar o Azure Cosmos DB, e sabe, não vai procurar 
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Otimizar ao alterar a política de indexação 
 
-Por predefinição, o Azure Cosmos DB indexa automaticamente todas as propriedades de cada registo. Isso se destina a facilitar o desenvolvimento e certifique-se excelente desempenho em muitos tipos diferentes de consultas ad-hoc. Se tiver registos grandes com milhares de propriedades, prestar o custo de débito para todas as propriedades de indexação pode não ser útil, especialmente se apenas uma consulta em relação a 10 ou 20 dessas propriedades. À medida que se aproximar-se para obter um identificador de sua carga de trabalho específica, a nossa documentação de orientação é otimizar a sua política de índice. Todos os detalhes sobre a política de indexação do Azure Cosmos DB podem ser encontrados [aqui](indexing-policies.md). 
+Por predefinição, o Azure Cosmos DB indexa automaticamente todas as propriedades de cada registo. Isso se destina a facilitar o desenvolvimento e certifique-se excelente desempenho em muitos tipos diferentes de consultas ad hoc. Se tiver registos grandes com milhares de propriedades, prestar o custo de débito para todas as propriedades de indexação pode não ser útil, especialmente se apenas uma consulta em relação a 10 ou 20 dessas propriedades. À medida que se aproximar-se para obter um identificador de sua carga de trabalho específica, a nossa documentação de orientação é otimizar a sua política de índice. Todos os detalhes sobre a política de indexação do Azure Cosmos DB podem ser encontrados [aqui](indexing-policies.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Monitorização aprovisionado e consumidos débito 
 

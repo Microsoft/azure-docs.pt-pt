@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 53061d4d09ac2769e59269701467a22f292cd919
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959770"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432639"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -89,4 +89,4 @@ Este erro ocorre quando clusters entrar num Estado com falhas por vários motivo
 Operações de cluster estão limitadas quando ocorrem operações de atualização de Active Directory ou uma atualização foi tentada, mas, em seguida, falhou. Para diagnosticar o problema, execute `az aks show -g myResourceGroup -n myAKSCluster -o table` para obter o estado detalhado no seu cluster. Com base no resultado:
 
 * Se o cluster é atualizar de forma ativa, aguarde até concluir a operação. Se tiver êxito, tente a operação que falhou anteriormente novamente.
-* Se a falha na atualização do cluster, siga os passos descritos [acima](#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade-directed-from-httpsakamsaks-pending-upgrade)
+* Se a falha na atualização do cluster, siga os passos descritos acima

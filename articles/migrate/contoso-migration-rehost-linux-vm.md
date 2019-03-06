@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 204898026dc55e7111d3810d4938101ffaddc3f9
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 5f6cb29d8fb3fd1c3b75e18330e3ad2711a61aab
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698331"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444927"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migração de Contoso: Realojar a uma aplicação do Linux no local nas VMS do Azure
 
@@ -408,7 +408,7 @@ Os administradores da Contoso estão agora prontos para executar uma ativação 
 
 ### <a name="connect-the-vm-to-the-database"></a>Ligar a VM para a base de dados
 
-Como a etapa final do processo de migração, a Contoso adins atualizar a cadeia de ligação da aplicação para apontar para a base de dados de aplicação em execução no **OSTICKETMYSQL** VM. 
+Como a etapa final do processo de migração, os administradores da Contoso atualizar a cadeia de ligação da aplicação para apontar para a base de dados de aplicação em execução no **OSTICKETMYSQL** VM. 
 
 1. Eles tornam a uma ligação de SSH para o **OSTICKETWEB** VM com o Putty ou de outro cliente SSH. A VM é privada, de modo que ligar-se com o endereço IP privado.
 

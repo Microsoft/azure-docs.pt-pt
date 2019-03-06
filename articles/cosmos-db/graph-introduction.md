@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: a0d782ac1ba14e58e3cc377bb55ea25bb923c5c4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 10565839148eae0db4bb374939eb3725f6262e60
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038913"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452951"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introdução ao Azure Cosmos DB: API do Gremlin
 
@@ -94,7 +94,7 @@ A seguinte tabela mostra controladores Gremlin populares que pode utilizar com o
 
 ## <a name="graph-database-design-considerations"></a>Considerações de design de bases de dados de gráficos
 
-Durante o design de gráficos, a decisão de modelação de uma entidade como um vértice de si própria, em vez de como uma propriedade de outras entidades de vértice tem implicações em termos de desempenho e custos. O fator que mais contribui para esta decisão depende da forma como os dados vão ser consultados, bem como da escalabilidade do próprio modelo.
+Durante o design de gráfico, a decisão de modelar uma entidade como um vértice do seu próprio, em oposição a como uma propriedade de outras entidades de vértice tem implicações de desempenho e custo. O fator que mais contribui para esta decisão depende da forma como os dados vão ser consultados, bem como da escalabilidade do próprio modelo.
 
 Considere as seguintes perguntas antes de planear sobre como modelar a entidade:
 

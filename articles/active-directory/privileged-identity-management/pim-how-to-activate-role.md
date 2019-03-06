@@ -14,12 +14,12 @@ ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0023ac374ef70593d0ab2d9589c99d0f37e19ff8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc20a3739c7dab68728535cc05db400545fbcdf8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189604"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436396"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Ativar as minhas funções de diretório do Azure AD no PIM
 
@@ -131,7 +131,7 @@ Se não necessitar de ativação de uma função que requer aprovação, pode ca
 
 1. Para a função que pretende cancelar, clique nas **Cancelar** botão.
 
-    Quando clicar em Cancelar, a solicitação será cancelada. Para ativar a função mais uma vez, terá que submeter um novo pedido de ativação.
+    Ao clicar em Cancelar, o pedido será cancelado. Para ativar a função mais uma vez, terá que submeter um novo pedido de ativação.
 
    ![Cancelar pedido pendente](./media/pim-how-to-activate-role/directory-role-cancel.png)
 

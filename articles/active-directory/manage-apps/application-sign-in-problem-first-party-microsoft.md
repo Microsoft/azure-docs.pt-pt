@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bc5143803c7d031071cccbb9c6c3842bbdacd9c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 09f1ef137bbad50e72771c4368346716336c4faf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177194"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447103"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao iniciar sessão para uma aplicação da Microsoft
 
@@ -33,7 +33,7 @@ Existem três formas principais que um utilizador pode obter acesso a uma aplica
 
 -   Para aplicações que a Microsoft ou de uma entidade externa publica livremente para qualquer pessoa a utilizar, podem ser concedido acesso aos utilizadores através de **consentimento do utilizador**. This0 significa que iniciar sessão na aplicação com a respetiva conta escolar ou profissional do Azure AD e permitir que ele tem acesso a um conjunto limitado de dados na respetiva conta.
 
--   Para aplicações que a Microsoft ou um 3rd Party publica livremente para qualquer pessoa a utilizar, podem também ser concedido acesso aos utilizadores através de **consentimento de administrador**. Isso significa que um administrador determinou que a aplicação pode ser utilizada por todas as pessoas na organização, para que inicie sessão para a aplicação com uma conta de Administrador Global e concedem acesso a todas as pessoas na organização.
+-   Para aplicações que a Microsoft ou um 3rd party publica livremente para qualquer pessoa a utilizar, podem também ser concedido acesso aos utilizadores através de **consentimento de administrador**. Isso significa que um administrador determinou que a aplicação pode ser utilizada por todas as pessoas na organização, para que inicie sessão para a aplicação com uma conta de Administrador Global e concedem acesso a todas as pessoas na organização.
 
 Para resolver o seu problema, comece com o [áreas com problemas gerais com acesso a aplicações a serem considerados](#general-problem-areas-with-application-access-to-consider) e, em seguida, leia o passo a passo: Passos para resolver problemas de acesso do Microsoft Application para entrar em detalhes.
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: d2c21e82447c4be8b7e0cfaa023f87547277433a
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 541d431c9387d512374047c4cc004e1a237e1ef1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195205"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406529"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Início rápido: Criar uma aplicação Java no serviço de aplicações no Linux
 
@@ -108,7 +108,6 @@ Uma vez concluída a implementação, navegue para a aplicação implementada co
 Neste início rápido, utilizou Maven para criar uma aplicação de Java, configurada o [Plug-in do Maven para aplicações Web do Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), em seguida, implementou uma aplicação de Java de arquivo morto compactado de web para o serviço de aplicações no Linux. Consulte os seguintes tutoriais e artigos de instruções para obter mais informações, alojamento de aplicações Java no serviço de aplicações no Linux.
 
 - [Tutorial: Implementar um Java aplicação empresarial com PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Configurar uma origem de dados do Tomcat](app-service-linux-java.md#connecting-to-data-sources)
+- [Configurar uma origem de dados do Tomcat](app-service-linux-java.md#tomcat)
 - [CI/CD com Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Configurar as ferramentas de monitorização de desempenho de aplicações](how-to-java-apm-monitoring.md)
-

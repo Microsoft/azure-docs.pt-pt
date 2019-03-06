@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a48fecd910d87af23a9385270878b0d1b6737007
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309646"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452543"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
@@ -238,7 +238,7 @@ Neste exemplo, pode assumir que o seguinte contentor de armazenamento de blobs j
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Repare que poderá demorar 5 a 10 minutos para aprovisionar uma VM temporária para criar o índice. Para criar um protótipo rápido, pode:
+Tenha em atenção que poderá demorar 5 a 10 minutos para Aprovisionar uma VM temporária para criar o índice. Para criar um protótipo rápido, pode:
 - Desenvolver com um conjunto de dados mais pequeno localmente em qualquer máquina.
 - [Crie uma VM do Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) manualmente, [ligue-a](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) por meio do Ambiente de Trabalho Remoto, instale o [SDK do Serviço de Exploração de Conhecimento](https://www.microsoft.com/en-us/download/details.aspx?id=51488) e execute [`kes.exe`](CommandLine.md) a partir de dentro da VM.
 

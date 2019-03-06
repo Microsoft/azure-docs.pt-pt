@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 224939d8-2c9c-4561-968d-62722f5ab5ed
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aa6ee53686c3c132036df6dbbd177f78d28ce95
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a660d99b2df2ce906e41cafca3d53349e2b57ee4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865812"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404404"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aravo"></a>Tutorial: Integração do Active Directory do Azure com Aravo
 

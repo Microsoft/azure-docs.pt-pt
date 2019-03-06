@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 22160a46b0c1d8fe53abe20b3d8a1b83891de5da
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: aa003d5c56e374c99b26beb884fce27b9b16298e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247584"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440068"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas de segurança do Azure
 
@@ -192,7 +192,7 @@ Oferecer suporte a, pelo menos, um dos modelos de criptografia recomendados deta
 | Modelos de encriptação |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
 | Encriptação do servidor | Encriptação do servidor | Encriptação do servidor | Encriptação de cliente
-| Utilizar chaves geridas do serviço de encriptação do lado do servidor | Encriptação do lado do servidor com chaves de Customer-Managed no Azure Key Vault | Encriptação do lado do servidor com chaves de gerida pelo cliente no local |
+| Utilizar chaves geridas do serviço de encriptação do lado do servidor | Encriptação do lado do servidor com chaves de Customer-Managed no Azure Key Vault | Chaves geridas de encriptação do lado do servidor a utilizar no cliente local |
 | • Os fornecedores de recursos do azure realizar as operações de encriptação e desencriptação <br> • Microsoft gerencia as chaves <br>• Funcionalidade de cloud completa | • Os fornecedores de recursos do azure realizar as operações de encriptação e desencriptação<br>• Cliente controla as chaves através do Azure Key Vault<br>• Funcionalidade de cloud completa | • Os fornecedores de recursos do azure realizar as operações de encriptação e desencriptação <br>• Cliente controla as chaves no local <br> • Funcionalidade de cloud completa| • Serviços do azure não podem ver os dados descriptografados <br>• Clientes manter as chaves no local (ou em outras lojas de segurança). As chaves não estão disponíveis para os serviços do Azure <br>• Reduzido funcionalidades da cloud|
 
 ### <a name="enabling-encryption-at-rest"></a>Ativar a encriptação em repouso

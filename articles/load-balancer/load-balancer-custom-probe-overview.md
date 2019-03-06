@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: dc22f1392d14529c2944dde67315a278fca4fa73
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195341"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450452"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
@@ -212,7 +212,7 @@ Não ative [carimbos de data / TCP](https://tools.ietf.org/html/rfc1323).  Ativa
 
 ## <a name="monitoring"></a>Monitorização
 
-Públicas e internas [Balanceador de carga Standard](load-balancer-standard-overview.md) expor por ponto final e de back-end estado de sonda de estado de funcionamento de instância, como métricas multidimensionais através do Azure Monitor. Estas métricas podem ser consumidas por outros serviços do Azure ou aplicações de terceiro arty. 
+Públicas e internas [Balanceador de carga Standard](load-balancer-standard-overview.md) expor por ponto final e de back-end estado de sonda de estado de funcionamento de instância, como métricas multidimensionais através do Azure Monitor. Estas métricas podem ser consumidas por outros serviços do Azure ou aplicações de parceiros. 
 
 Balanceador de carga básico público expõe o estado de sonda de estado de funcionamento resumido por conjunto de back-end através de registos do Azure Monitor.  Registos de Monitor do Azure não estão disponíveis para balanceadores de carga básico interno.  Pode usar [registos do Azure Monitor](load-balancer-monitor-log.md) para verificar o estado de funcionamento de sonda de Balanceador de carga público e a contagem de sonda. O registo pode ser utilizado com o Power BI ou informações operacionais do Azure para fornecer estatísticas sobre o estado de funcionamento do Balanceador de carga.
 

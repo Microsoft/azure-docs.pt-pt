@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f329341b-fb77-42e5-b6a6-0cd641d19670
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce6d6f08cd507f18db1d072984aecae634aab8db
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c11baf10db57b9634711c1b38e5554dc0d2ad8bd
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877134"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Tutorial: Integração do Active Directory do Azure com Appinux
 

@@ -4,14 +4,14 @@ description: Perguntas mais frequentes sobre Avere vFXT para o Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 83229cdca0ccff68dcdd543495a7a19b6e6c4c5b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990056"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404642"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas Frequentes de Avere vFXT para Azure
 
@@ -216,6 +216,10 @@ Em termos gerais, Avere vFXT para o Azure suporta os seguintes sistemas como se 
 
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 e 8.1) 
 * NetApp ontap fornece (em cluster modo 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) e (modo de 7 7.*, 8.0 8.3) 
+
+  > [!NOTE] 
+  > Os ficheiros do Azure NetApp atualmente não é suportado. 
+
 * Contentores de Blobs do Azure (apenas no armazenamento localmente redundante) 
 * Registos de AWS S3 
 * Registos de Google Cloud

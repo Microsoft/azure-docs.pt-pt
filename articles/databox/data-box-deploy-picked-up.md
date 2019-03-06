@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 254ebb9e23a80f71d2c46e6666362d764ff03141
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: e3dc4a3128be7014af0454cf78f2c8c5c86f8d77
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341594"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409748"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -42,10 +42,8 @@ Antes de começar, certifique-se:
 ## <a name="ship-data-box-back"></a>Enviar o Data Box de volta
 
 1. Certifique-se de que o dispositivo está desligado e os cabos são removidos. Coloque em segurança o cabo de alimentação enviado com o dispositivo atrás do mesmo.
-2. Certifique-se de que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se a etiqueta está danificada ou perdida ou não é apresentada no ecrã do E-tinta, contacte o Support da Microsoft. Se o suporte sugere, então pode ir para **descrição geral > Download etiqueta de envio** no portal do Azure. Transfira a etiqueta de envio e affix no dispositivo.
-    
+2. Certifique-se de que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se a etiqueta está danificada ou perdida ou não é apresentada no ecrã do E-tinta, contacte o Support da Microsoft. Se o suporte sugere, em seguida, pode aceder à **descrição geral > Download etiqueta de envio** no portal do Azure. Transfira a etiqueta de envio e affix no dispositivo. 
 3. Agende uma recolha com UPS se retornando o dispositivo. Para agendar uma recolha, chamar no-BREAK local (número gratuito de incidir específico do país) ou entregar a caixa de dados no local de entrega mais próximo.
-
 4. Após a sua transportadora recolher e analisar o Data Box, o estado de encomenda no portal será atualizado para **Picked up (Recolhido)**. É também mostrado um ID de controlo.
 
 ## <a name="verify-data-upload-to-azure"></a>Verificar o carregamento de dados para o Azure
@@ -56,16 +54,30 @@ Depois de a verificação estar concluída, o Data Box é ligado à rede no data
 
 Quando a cópia for concluída, o estado da encomenda será atualizado para **Completed (Concluído)**.
 
-Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de eliminá-los da origem. Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
+Certifique-se de que os seus dados são carregados para o Azure antes de eliminar a partir da origem. Os dados podem estar:
 
-- Para blobs de blocos e blobs de páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
-- Para Ficheiros do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+- Sua conta de armazenamento do Azure (s). Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
 
-Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
+    - Para blobs de blocos e blobs de páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+    - Para Ficheiros do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+    Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
+
+- Os grupos de recursos de disco gerido. Ao criar discos geridos, os VHDs são carregados como blobs de páginas e, em seguida, convertidos em discos geridos. Os discos geridos são anexados aos grupos de recursos especificados no momento da criação de ordem. 
+
+    - Se a sua cópia para os managed disks no Azure foi concluída com êxito, pode ir para o **detalhes de pedidos** no portal do Azure e fazer uma observação dos grupos de recursos especificada para discos geridos.
+
+        ![Identificar os grupos de recursos de disco gerido](media/data-box-deploy-copy-data-from-vhds/order-details-managed-disk-resource-groups.png)
+
+        Vá para o grupo de recursos observado e localize os discos geridos.
+
+        ![Disco ligado a grupos de recursos gerido](media/data-box-deploy-copy-data-from-vhds/managed-disks-resource-group.png)
+
+    - Se tiver copiado um VHDX ou um VHD de diferenciação/dinâmico, o VHD/VHDX é carregado para a conta de armazenamento de teste como um blob de página, mas a conversão de VHD para falha de disco gerido. Aceda a sua transição **conta de armazenamento > Blobs** e, em seguida, selecione o contentor adequado - Standard SSD, Standard HDD ou Premium SSD. Os VHDs são carregados como blobs de páginas na sua conta de armazenamento de teste.
 
 ## <a name="erasure-of-data-from-data-box"></a>Eliminação de dados do Data Box
  
-Após o carregamento para o Azure, o Data Box elimina os dados dos discos de acordo com as [diretrizes SP 800-88 Revision 1 da NIST](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
+Após o carregamento para o Azure, o Data Box elimina os dados dos discos de acordo com as [diretrizes SP 800-88 Revision 1 da NIST](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

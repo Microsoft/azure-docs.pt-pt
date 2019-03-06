@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 03/04/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 1fb9917e30a88cf5a68c9e170d66eeaa1d477deb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877151"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405203"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -303,7 +303,7 @@ Opcionalmente, pode utilizar o cmdlet Get-Content para apontar para um ficheiro 
 
 ## <a name="verify-azure-stack-registration"></a>Verifique se o registo do Azure Stack
 
-Pode utilizar o **gestão da região** mosaico para verificar se o registo do Azure Stack foi concluída com êxito. Este mosaico não está disponível no dashboard predefinido no portal do administrador. O estado pode estar registado ou não registado. Se registrado, ela também mostra o ID de subscrição do Azure que utilizou para registar o Azure Stack, juntamente com o grupo de recursos de registo e o nome.
+Pode utilizar o **gestão da região** mosaico para verificar se o registo do Azure Stack foi concluída com êxito. Este mosaico não está disponível no dashboard predefinido, no portal de administração do. O estado pode estar registado ou não registado. Se registrado, ela também mostra o ID de subscrição do Azure que utilizou para registar o Azure Stack, juntamente com o grupo de recursos de registo e o nome.
 
 1. Inicie sessão para o [portal de administração do Azure Stack](https://adminportal.local.azurestack.external).
 
@@ -325,7 +325,7 @@ Pode utilizar o **gestão da região** mosaico para verificar se o registo do Az
 
     Registos de aplicações do Azure Stack têm o prefixo **do Azure Stack**.
 
-Em alternativa, pode verificar se o registo foi concluída com êxito ao utilizar a funcionalidade de gestão do Marketplace. Se vir uma lista de itens do marketplace no painel de gestão do Marketplace, o registo foi concluída com êxito. No entanto, em ambientes desligados, não será capaz de ver os itens do marketplace no gerenciamento do Marketplace. No entanto, pode utilizar a ferramenta de offline para verificar o registo.
+Em alternativa, pode verificar se o registo foi concluída com êxito ao utilizar a funcionalidade de gestão do Marketplace. Se vir uma lista de itens do marketplace no painel de gestão do Marketplace, o registo foi concluída com êxito. No entanto, em ambientes desligados, não será capaz de ver os itens do marketplace no gerenciamento do Marketplace.
 
 > [!NOTE]
 > Após a conclusão do registo, já não vai aparecer o aviso de Active Directory para não registar. Em cenários desconectados, verá uma mensagem na gestão de mercado que lhe pede para se registrar e ativar o Azure Stack, mesmo que se registrou com êxito.

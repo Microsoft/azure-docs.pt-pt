@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: a0a07a78d36e4c0d11132d0c7d5ff947f7073029
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a48fb0b84e99f01798caabf7e713992af5a04ad9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353571"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441292"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Tutorial: Criar uma aplicação de web de Java com o Spring e o Azure Cosmos DB
 
@@ -45,7 +45,7 @@ Neste tutorial, ficará a saber como:
 Este tutorial utiliza uma aplicação de lista de tarefas de exemplo com uma web da interface do Usuário que chama uma API de REST de Spring alicerçado [Spring dados do Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). O código para a aplicação está disponível [no GitHub](https://github.com/Microsoft/spring-todo-app). Para saber mais sobre como escrever aplicações de Java com o Spring e o Cosmos DB, veja a [Spring Boot Starter com o tutorial do Azure Cosmos DB SQL API](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) e o [início rápido do Spring dados do Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
 
 
-Execute os comandos de folllowing no seu terminal para clonar o repositório de exemplo e configurar o ambiente de aplicação de exemplo.
+Execute os seguintes comandos no seu terminal para clonar o repositório de exemplo e configurar o ambiente de aplicação de exemplo.
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
@@ -171,7 +171,7 @@ Pode aceder a aplicação de tarefas de Spring localmente utilizando esta ligaç
 
  ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Se vir exceções instaead da mensagem "TodoApplication iniciado", verifique se o `bash` script no passo anterior exportado as variáveis de ambiente corretamente e que os valores estão corretos para a base de dados do Azure Cosmos DB que criou.
+Se vir exceções em vez da mensagem "TodoApplication iniciado", verifique se o `bash` script no passo anterior exportado as variáveis de ambiente corretamente e que os valores estão corretos para a base de dados do Azure Cosmos DB que criou.
 
 ## <a name="configure-azure-deployment"></a>Configurar a implementação do Azure
 

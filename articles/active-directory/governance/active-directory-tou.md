@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 02/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987b2b1ca028b816ed6909781f56c0b5174541bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163772"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443458"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com os termos de utilização.
@@ -315,7 +315,7 @@ As políticas de acesso condicional entram imediatamente em vigor. Quando isto a
 
 A maioria das organizações tem um processo para seus funcionários para aceitar os termos de suas organizações de instruções de utilização e a privacidade. Mas como pode impor os consentimentos mesmo para o Azure AD para empresas quando estes forem adicionados por meio do SharePoint ou equipas os convidados (B2B)? Utilizar acesso condicional e os termos de utilização, pode impor uma política diretamente para utilizadores convidados B2B. Durante o fluxo de resgate de convite, é apresentada ao utilizador com os termos de utilização. Este suporte está atualmente em pré-visualização.
 
-Termos de utilização só serão apresentados quando o utilizador tem uma conta de convidado no Azure AD. O SharePoint Online atualmente tem um [experiência de destinatário partilha externa ad-hoc](/sharepoint/what-s-new-in-sharing-in-targeted-release) para partilhar um documento ou uma pasta que não necessita do utilizador tem de ter uma conta de convidado. Neste caso, os termos de utilização não é apresentada.
+Termos de utilização só serão apresentados quando o utilizador tem uma conta de convidado no Azure AD. O SharePoint Online atualmente tem um [ad hoc experiência de destinatário partilha externa](/sharepoint/what-s-new-in-sharing-in-targeted-release) para partilhar um documento ou uma pasta que não necessita do utilizador tem de ter uma conta de convidado. Neste caso, os termos de utilização não é apresentada.
 
 ![Todos os utilizadores convidados](./media/active-directory-tou/b2b-guests.png)
 

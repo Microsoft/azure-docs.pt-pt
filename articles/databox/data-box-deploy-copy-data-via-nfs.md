@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 35a041216bf24a4c6ab73f9d5c3e85dff38a4501
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588114"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404710"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio de NFS
 
@@ -40,7 +40,8 @@ Antes de começar, certifique-se de que:
 
 Data Box com base na conta de armazenamento selecionada, cria até:
 - Três partilhas para cada conta de armazenamento associada de GPv1 e GPv2.
-- Uma partilha para uma conta de armazenamento de blobs ou premium. 
+- Um compartilhamento para armazenamento premium. 
+- Um compartilhamento para conta de armazenamento de Blobs. 
 
 Nas partilhas de blob de blocos e de blob de páginas, as entidades de primeiro nível são os contentores e as de segundo nível são os blobs. Nas partilhas de ficheiros do Azure, as entidades de primeiro nível são as partilhas e as de segundo nível são os ficheiros.
 
@@ -125,6 +126,9 @@ Se estiver a utilizar a opção rsync para uma cópia de múltiplos threads, sig
      em que j especifica o número de paralelização, X = número de cópias paralelas
 
      Recomendamos que comece com 16 cópias paralelas e aumente o número de threads consoante os recursos disponíveis.
+
+> [!IMPORTANT]
+> Os seguintes tipos de ficheiro do Linux não são suportados: links simbólicos, arquivos de caráter, ficheiros de bloco, sockets e pipes. Estes tipos de ficheiro irão resultar em falhas durante o **preparação para envio** passo.
 
 - Para garantir a integridade dos dados, a soma de verificação é calculada inline à medida que os dados são copiados. Quando a cópia estiver concluída, verifique o espaço utilizado e o espaço livre no seu dispositivo.
     

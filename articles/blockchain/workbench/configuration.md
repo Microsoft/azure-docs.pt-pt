@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 6024a11f518432b735ccec6a3d89db687aed8ae6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332596"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452696"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Referência de configuração do Azure Blockchain Workbench
 
@@ -55,7 +55,7 @@ Lógica de negócios de uma aplicação pode ser modelada como uma máquina de E
 
 | Campo | Descrição | Necessário | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | Nome do fluxo de trabalho exclusivo. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a classe de contrato aplicável. | Sim | 50 |
+| Name | Nome do fluxo de trabalho exclusivo. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a classe de contrato aplicável. | Sim | 50 |
 | Nome a Apresentar | Nome a apresentar amigável do fluxo de trabalho. | Sim | 255 |
 | Descrição | Descrição do fluxo de trabalho. | Não | 255 |
 | Iniciadores | Coleção de [ApplicationRoles](#application-roles). Funções que estão atribuídas a utilizadores que estão autorizados a criar contratos no fluxo de trabalho. | Sim | |
@@ -67,21 +67,21 @@ Lógica de negócios de uma aplicação pode ser modelada como uma máquina de E
 
 Por exemplo, veja [exemplo de ficheiro de configuração](#configuration-file-example).
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Tipos de dados suportados.
 
-| Tipo | Descrição |
+| Type | Descrição |
 |-------|-------------|
-| Endereço  | Blockchain como tipo, de endereço *contratos* ou *utilizadores*. |
+| endereço  | Blockchain como tipo, de endereço *contratos* ou *utilizadores*. |
 | array    | Matriz de nível único do tipo número inteiro, booleano, dinheiro ou tempo. As matrizes podem ser estáticos ou dinâmicos. Uso **ElementType** para especificar o tipo de dados de elementos dentro da matriz. Ver [exemplo de configuração](#example-configuration-of-type-array). |
-| Bool     | Tipo de dados booleano. |
+| booleano     | Tipo de dados booleano. |
 | contrato | Endereço do contrato de tipo. |
 | Enum     | Enumerados conjunto de valores nomeados. Ao usar o tipo de enumeração, também especificar uma lista de EnumValues. Cada valor é limitado a 255 carateres. Carateres de valor válido incluem superior e letras minúsculas (A-Z, a-z) as letras e números (0-9). Ver [exemplo de configuração e utilização na solidez](#example-configuration-of-type-enum). |
 | int      | Tipo de dados de número inteiro. |
 | dinheiro    | Tipo de dados de dinheiro. |
 | state    | Estado do fluxo de trabalho. |
-| cadeia  | Tipo de dados de cadeia de caracteres. máximo de caracteres de 4000. Ver [exemplo de configuração](#example-configuration-of-type-string). |
+| string  | Tipo de dados de cadeia de caracteres. máximo de caracteres de 4000. Ver [exemplo de configuração](#example-configuration-of-type-string). |
 | Utilizador     | Endereço do tipo de utilizador. |
 | hora     | Tipo de dados de tempo. |
 |`[ Application Role Name ]`| Qualquer nome especificado na função de aplicação. Limita os utilizadores sejam desse tipo de função. |
@@ -209,7 +209,7 @@ Define as funções que podem ser executadas no fluxo de trabalho.
 
 | Campo | Descrição | Necessário | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | O nome exclusivo da função. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a função aplicável. | Sim | 50 |
+| Name | O nome exclusivo da função. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a função aplicável. | Sim | 50 |
 | Nome a Apresentar | Nome a apresentar amigável da função. | Sim | 255 |
 | Descrição | Descrição da função | Não | 255 |
 | Parâmetros | Coleção de [identificadores](#identifiers) correspondente para os parâmetros da função. | Sim | |
@@ -257,7 +257,7 @@ Uma coleção de Estados exclusivos dentro de um fluxo de trabalho. Cada Estado 
 
 | Campo | Descrição | Necessário | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | Nome exclusivo do Estado. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para o estado de aplicável. | Sim | 50 |
+| Name | Nome exclusivo do Estado. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para o estado de aplicável. | Sim | 50 |
 | Nome a Apresentar | Nome a apresentar amigável do Estado. | Sim | 255 |
 | Descrição | Descrição do Estado. | Não | 255 |
 | PercentComplete | Um valor inteiro exibido na interface de utilizador do Blockchain Workbench para mostrar o progresso do fluxo de controle de lógica comercial. | Sim | |
@@ -312,7 +312,7 @@ Uma coleção de Estados exclusivos dentro de um fluxo de trabalho. Cada Estado 
     {
       "Name": "Terminated",
       "DisplayName": "Terminated",
-      "Description": "Asset transfer has been cancelled",
+      "Description": "Asset transfer has been canceled",
       "PercentComplete": 100,
       "Style": "Failure",
       "Transitions": []
@@ -371,7 +371,7 @@ Funções da aplicação definem um conjunto de funções que podem ser atribuí
 
 | Campo | Descrição | Necessário | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | O nome exclusivo da função de aplicação. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a função aplicável. Nomes de tipo de base são reservados. Não é possível nomear uma função de aplicação com o mesmo nome que [tipo](#type)| Sim | 50 |
+| Name | O nome exclusivo da função de aplicação. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a função aplicável. Nomes de tipo de base são reservados. Não é possível nomear uma função de aplicação com o mesmo nome que [tipo](#type)| Sim | 50 |
 | Descrição | Descrição da função de aplicação. | Não | 255 |
 
 ### <a name="application-roles-example"></a>Exemplo de funções de aplicação
@@ -394,7 +394,7 @@ Identificadores representam uma coleção de informações utilizadas para descr
 
 | Campo | Descrição | Necessário | Comprimento máximo |
 |-------|-------------|:--------:|-----------:|
-| Nome | O nome exclusivo da propriedade ou parâmetro. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a propriedade aplicável ou o parâmetro. | Sim | 50 |
+| Name | O nome exclusivo da propriedade ou parâmetro. O contrato inteligente correspondente tem de utilizar o mesmo **nome** para a propriedade aplicável ou o parâmetro. | Sim | 50 |
 | Nome a Apresentar | Nome a apresentar amigável para a propriedade ou um parâmetro. | Sim | 255 |
 | Descrição | Descrição da propriedade ou parâmetro. | Não | 255 |
 
@@ -988,7 +988,7 @@ Para obter mais informações, incluindo os arquivos de código, consulte [exemp
         {
           "Name": "Terminated",
           "DisplayName": "Terminated",
-          "Description": "Asset transfer has been cancelled",
+          "Description": "Asset transfer has been canceled",
           "PercentComplete": 100,
           "Style": "Failure",
           "Transitions": []

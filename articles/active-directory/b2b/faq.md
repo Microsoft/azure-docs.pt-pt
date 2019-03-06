@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e70a74be372e4374fac5aaa2bfda8ca955e6d305
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1ee08e4dc2f6a4616c4b427ad7d33f56e135b27a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671867"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442500"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Colaboração do Azure Active Directory B2B FAQs
 
@@ -107,7 +107,7 @@ Se o parceiro tem um inquilino do Azure AD que está federado para a infraestrut
 Estamos a remover as diferenças entre o B2B e a colaboração do empresa-consumidor (B2C) em termos de que as identidades são suportadas. A identidade utilizada não é um bom motivo para escolher entre utilizar B2B ou com o B2C. Para obter informações sobre como escolher a opção de colaboração, consulte [colaboração B2B comparar e B2C no Azure Active Directory](compare-with-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Que aplicações e serviços suportam utilizadores convidados B2B do Azure?
-Todas as aplicações do Azure integradas no AD podem suportar utilizadores convidados B2B do Azure, mas tem de utilizar um ponto de final de inquilinos para autenticar os utilizadores convidados. Também poderá ter de [personalizar as declarações](claims-mapping.md) no token SAML emitido quando um utilizador convidado efetua a autenticação à aplicação. 
+Todas as aplicações do Azure integradas no AD podem suportar utilizadores convidados B2B do Azure, mas tem de utilizar um ponto final definido como um inquilino para autenticar os utilizadores convidados. Também poderá ter de [personalizar as declarações](claims-mapping.md) no token SAML emitido quando um utilizador convidado efetua a autenticação à aplicação. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>Podemos forçar autenticação multifator para utilizadores convidados B2B se nossos parceiros não tem a autenticação multifator?
 Sim. Para obter mais informações, consulte [acesso condicional para utilizadores de colaboração B2B](conditional-access.md).

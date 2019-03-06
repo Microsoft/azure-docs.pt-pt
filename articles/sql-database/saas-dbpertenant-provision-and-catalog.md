@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: aa884f2df76c20d3119022069179b08ba2f2a6b7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: ada0a54f014e4e896c0e91d1eeafb94e6d254d5b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565224"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445089"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como aprovisionar novos inquilinos e registá-los no catálogo
 
@@ -46,7 +46,7 @@ O catálogo permite que o nome ou localização da base de dados para serem alte
 
 O catálogo também pode armazenar inquilino adicional ou metadados de base de dados, como a versão de esquema, o plano do serviço ou a SLAs oferecido aos inquilinos. O catálogo pode armazenar outras informações que permitem a gestão de aplicações, o suporte ao cliente ou o DevOps. 
 
-Além da aplicação SaaS, o catálogo pode ativar as ferramentas de base de dados. O Wingtip Tickets SaaS de exemplo de base de dados por inquilino, o catálogo é utilizado para ativar consulta de entre inquilinos, que é explorada a [tutorial de geração de relatórios Ad-hoc](saas-tenancy-cross-tenant-reporting.md). Gestão de tarefas entre bases de dados é explorada a [gestão de esquemas](saas-tenancy-schema-management.md) e [análise de inquilinos](saas-tenancy-tenant-analytics.md) tutoriais. 
+Além da aplicação SaaS, o catálogo pode ativar as ferramentas de base de dados. O Wingtip Tickets SaaS de exemplo de base de dados por inquilino, o catálogo é utilizado para ativar consulta de entre inquilinos, que é explorada a [relatórios Ad hoc tutorial](saas-tenancy-cross-tenant-reporting.md). Gestão de tarefas entre bases de dados é explorada a [gestão de esquemas](saas-tenancy-schema-management.md) e [análise de inquilinos](saas-tenancy-tenant-analytics.md) tutoriais. 
 
 Os exemplos de Wingtip Tickets SaaS, o catálogo é implementado utilizando as funcionalidades de gestão de partições horizontais do [biblioteca de cliente da base de dados elástica (EDCL)](sql-database-elastic-database-client-library.md). A EDCL está disponível em Java e .NET Framework. A EDCL permite que uma aplicação criar, gerir e utilizar um mapa de partições horizontais de base de dados. 
 

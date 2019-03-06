@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 5dc39d2f64aa2cd895cbf57d95100d831a6f4432
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 4e7af92ed0ce04bb14bd49c24de4928baa4f00ec
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159796"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448072"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,16 +70,16 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |json-to-xml|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |aplicar|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> Aplique - sempre - sempre a conversão.<br />converter o - json de tipo de conteúdo - apenas se o cabeçalho de resposta Content-Type indica a presença de JSON.|Sim|N/A|
-|Considere-aceitar-cabeçalho|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> aplica - verdadeiro - conversão se JSON é solicitado no pedido. o cabeçalho Accept.<br />-FALSO - aplique sempre conversão.|Não|true|
+|consider-accept-header|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> aplica - verdadeiro - conversão se JSON é solicitado no pedido. o cabeçalho Accept.<br />-FALSO - aplique sempre conversão.|Não|true|
 |data de análise|Quando definido como `false` valores de data simplesmente são copiados durante a transformação|Não|true|
 
 ### <a name="usage"></a>Utilização
@@ -114,17 +114,17 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
-|XML para json|Elemento raiz.|Sim|
+|xml-to-json|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |tipo|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> javascript-amigável - o JSON convertido tem uma forma amigável aos desenvolvedores JavaScript.<br />-direto - o JSON convertido reflete a estrutura do documento XML original.|Sim|N/A|
 |aplicar|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> -sempre - converta sempre.<br />converter o-conteúdo tipo-xml - apenas se o cabeçalho de resposta Content-Type indica a presença de XML.|Sim|N/A|
-|Considere-aceitar-cabeçalho|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> aplica - verdadeiro - conversão se XML é solicitado no pedido. o cabeçalho Accept.<br />-FALSO - aplique sempre conversão.|Não|true|
+|consider-accept-header|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> aplica - verdadeiro - conversão se XML é solicitado no pedido. o cabeçalho Accept.<br />-FALSO - aplique sempre conversão.|Não|true|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -150,13 +150,13 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |localizar e substituir|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |de|A cadeia a procurar.|Sim|N/A|
 |para|A cadeia de substituição. Especifique uma zero cadeia de substituição de comprimento para remover a cadeia de procura.|Sim|N/A|
@@ -188,7 +188,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |redirect-content-urls|Elemento raiz.|Sim|
 
@@ -252,21 +252,21 @@ Neste exemplo de política encaminha o pedido para um serviço fabric back-end, 
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
-|serviço de back-end de conjunto|Elemento raiz.|Sim|
+|set-backend-service|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|Nome|Descrição|Necessário|Predefinição|
+|Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |base-url|Novo back-end base URL do serviço.|Não|N/A|
 |id de back-end|Identificador do back-end para encaminhar para.|Não|N/A|
-|chave de partição SF|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Utilizado para resolver uma partição específica do serviço de resolução do nome.|Não|N/A|
-|tipo de réplica SF|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Controla se o pedido deve ir para a réplica primária ou secundária de uma partição. |Não|N/A|
+|sf-partition-key|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Utilizado para resolver uma partição específica do serviço de resolução do nome.|Não|N/A|
+|sf-replica-type|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Controla se o pedido deve ir para a réplica primária ou secundária de uma partição. |Não|N/A|
 |sf-resolve-condition|Apenas aplicável quando o back-end é um serviço do Service Fabric. Identificando se a chamada ao back-end do Service Fabric tem de ser repetido com a nova resolução de condição.|Não|N/A|
 |sf-service-instance-name|Apenas aplicável quando o back-end é um serviço do Service Fabric. Permite alterar as instâncias do serviço em tempo de execução. |Não|N/A|
-|nome do serviço de escuta do SF|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Service Fabric Reliable Services permite-lhe criar várias escutas num serviço. Este atributo é utilizado para selecionar um serviço de escuta específico, quando um serviço fiável de back-end tem mais do que um serviço de escuta. Se este atributo não for especificado, a gestão de API irá tentar utilizar um serviço de escuta sem um nome. Sem um nome de um serviço de escuta é normal Reliable Services que ter apenas um serviço de escuta. |Não|N/A|
+|sf-listener-name|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Service Fabric Reliable Services permite-lhe criar várias escutas num serviço. Este atributo é utilizado para selecionar um serviço de escuta específico, quando um serviço fiável de back-end tem mais do que um serviço de escuta. Se este atributo não for especificado, a gestão de API irá tentar utilizar um serviço de escuta sem um nome. Sem um nome de um serviço de escuta é normal Reliable Services que ter apenas um serviço de escuta. |Não|N/A|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -376,7 +376,7 @@ O `set-body` política pode ser configurada para utilizar o [líquidos](https://
 </set-body>
 ```
 
-#### <a name="tranform-json-using-a-liquid-template"></a>JSON Tranform através de um modelo de líquidos
+#### <a name="transform-json-using-a-liquid-template"></a>Transformar JSON através de um modelo de líquidos
 ```xml
 {
 "order": {
@@ -388,13 +388,13 @@ O `set-body` política pode ser configurada para utilizar o [líquidos](https://
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |Definir corpo|Elemento raiz. Contém o texto de corpo ou um expressões que retorna um corpo.|Sim|
 
 ### <a name="properties"></a>Propriedades
 
-|Nome|Descrição|Necessário|Predefinição|
+|Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |modelo|Utilizado para alterar o modo de modelos que a política de corpo de conjunto será executada no. Atualmente o único valor suportado é:<br /><br />-líquidos - definir a política de corpo irá utilizar o mecanismo de modelagem de líquidos |Não|Liquid|
 
@@ -497,14 +497,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
-|definição de cabeçalho|Elemento raiz.|Sim|
+|set-header|Elemento raiz.|Sim|
 |valor|Especifica o valor do cabeçalho de ser definido. Para adicionar vários cabeçalhos com o mesmo nome `value` elementos.|Sim|
 
 ### <a name="properties"></a>Propriedades
 
-|Nome|Descrição|Necessário|Predefinição|
+|Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-skip - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` Transaction múltiplas entradas com o mesmo nome resulta no cabeçalho que está a ser definido de acordo com todas as entradas (que serão listadas várias vezes); apenas valores listados serão definidos no resultado.|Não|substituir|
 |nome|Especifica o nome do cabeçalho de ser definido.|Sim|N/A|
@@ -557,14 +557,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |set-query-parameter|Elemento raiz.|Sim|
 |valor|Especifica o valor do parâmetro de consulta seja definido. Para adicionar vários parâmetros de consulta com o mesmo nome `value` elementos.|Sim|
 
 ### <a name="properties"></a>Propriedades
 
-|Nome|Descrição|Necessário|Predefinição|
+|Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |ação existe|Especifica a ação a tomar quando o parâmetro de consulta já foi especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do parâmetro existente.<br />-skip - não substitui o valor de parâmetro de consulta existente.<br />-Acrescentar - acrescenta o valor para o valor de parâmetro de consulta existente.<br />-delete - remove o parâmetro de consulta no pedido.<br /><br /> Quando definido como `override` Transaction múltiplas entradas com o mesmo nome resulta no parâmetro de consulta que está a ser definido, de acordo com todas as entradas (que serão listadas várias vezes); apenas valores listados serão definidos no resultado.|Não|substituir|
 |nome|Especifica o nome do parâmetro de consulta seja definido.|Sim|N/A|
@@ -636,7 +636,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |rewrite-uri|Elemento raiz.|Sim|
 
@@ -645,7 +645,7 @@ OriginalUrl.
 |Atributo|Descrição|Necessário|Predefinição|
 |---------------|-----------------|--------------|-------------|
 |modelo|O URL do serviço web reais com quaisquer parâmetros de cadeia de caracteres de consulta. Quando utilizar expressões, o valor inteiro tem de ser uma expressão.|Sim|N/A|
-|cópia parâmetros sem correspondência|Especifica se os parâmetros de consulta no pedido de entrada não está presente no modelo de URL original são adicionados para a URL definida pelo modelo de escrever novamente|Não|true|
+|copy-unmatched-params|Especifica se os parâmetros de consulta no pedido de entrada não está presente no modelo de URL original são adicionados para a URL definida pelo modelo de escrever novamente|Não|true|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -705,9 +705,9 @@ OriginalUrl.
 
 ### <a name="elements"></a>Elementos
 
-|Nome|Descrição|Necessário|
+|Name|Descrição|Necessário|
 |----------|-----------------|--------------|
-|transformação XSL|Elemento raiz.|Sim|
+|xsl-transform|Elemento raiz.|Sim|
 |parâmetro|Utilizado para definir variáveis usadas na transformação|Não|
 |xsl:stylesheet|Elemento de folha de estilo de raiz. Todos os elementos e atributos definidos no siga o padrão [especificação XSLT](https://www.w3.org/TR/xslt)|Sim|
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.openlocfilehash: 138df4aa0a0e23bd97bca960573cc0971b66b869
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 778c5c50e2742dd7436f809be06c625254973b49
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041412"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440850"
 ---
 # <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: Desenvolvimento de aplicativos Web com o Azure Cosmos DB
 
@@ -27,7 +27,7 @@ ms.locfileid: "54041412"
 
 Para realçar como pode de forma eficiente tirar partido do Azure Cosmos DB para armazenar e consultar documentos JSON, este artigo serve de orientação ponto a ponto e mostra-lhe como criar uma aplicação de tarefas através do Azure Cosmos DB. As tarefas serão armazenadas como documentos JSON no Azure Cosmos DB.
 
-![Captura de ecrã da aplicação Web MVC de lista de tarefas criada por este tutorial – tutorial ASP NET MVC passo a passo](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
+![Captura de ecrã da todo list criada por este tutorial – tutorial ASP NET MVC passo a passo de aplicativo web do MVC](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
 Esta orientação mostra-lhe como utilizar o serviço do Azure Cosmos DB para armazenar e aceder a dados a partir de uma aplicação Web ASP.NET MVC alojada no Azure. Se estiver à procura de um tutorial que se concentra apenas no Azure Cosmos DB e não nos componentes do ASP.NET MVC, veja [Build an Azure Cosmos DB C# console application](sql-api-get-started.md)(Criar uma aplicação de consola C# do Azure Cosmos DB).
 
@@ -46,7 +46,7 @@ Antes de seguir as instruções deste artigo, deve certificar-se de que tem o se
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
 * SDK do Microsoft Azure para .NET para Visual Studio 2017, disponível através do Instalador do Studio Visual.
 
-Todas as capturas de ecrã deste artigo foram tiradas com o Microsoft Visual Studio Community 2017. Se o sistema estiver configurado com uma versão diferente, é possível que as suas opções e ecrãs não coincidam na totalidade, mas se cumpre os pré-requisitos acima, esta solução deverá funcionar.
+Todas as capturas de ecrã neste artigo foram executadas com o Microsoft Visual Studio Community 2017. Se o sistema estiver configurado com uma versão diferente, é possível que as suas opções e ecrãs não coincidam na totalidade, mas se cumpre os pré-requisitos acima, esta solução deverá funcionar.
 
 ## <a name="_Toc395637761"></a>Passo 1: Criar uma conta de base de dados do Azure Cosmos DB
 Comecemos por criar uma conta do Azure Cosmos DB. Se já tiver uma conta SQL para o Azure Cosmos DB ou se estiver a utilizar o Emulador do Azure Cosmos DB para este tutorial, pode avançar para [Criar uma aplicação ASP.NET MVC nova](#_Toc395637762).
@@ -64,14 +64,14 @@ Agora vamos orientá-lo na criação de uma nova aplicação ASP.NET MVC a parti
 
 2. No painel **Tipos de projetos**, expanda **Modelos**, **Visual C#**, **Web** e, em seguida, selecione **Aplicação Web ASP.NET**.
 
-      ![Captura de ecrã da caixa de diálogo Novo Projeto com o tipo de projeto Aplicação Web ASP.NET realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
+      ![Captura de ecrã da caixa de diálogo novo projeto com o tipo de projeto de aplicação Web ASP.NET realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
 3. Na caixa **Nome**, escreva o nome do projeto. Este tutorial utiliza o nome “todo” (tarefas). Se optar por utilizar algo que não isto, sempre que este tutorial aborda o espaço de nomes de tarefas, terá de ajustar os exemplos de código fornecidos para utilizar o nome que deu à aplicação. 
 4. Clique em **Procurar** para navegar para a pasta onde pretende criar o projeto e, em seguida, clique em **OK**.
    
       A caixa de diálogo **Nova aplicação Web do ASP.NET** é apresentada.
    
-    ![Captura de ecrã da caixa de diálogo Nova aplicação Web do ASP.NET com o modelo da aplicação MVC realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![Captura de ecrã da caixa de diálogo do novo aplicativo Web ASP.NET com o modelo de aplicação MVC realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. No painel de modelos, selecione **MVC**.
 
 6. Clique em **OK** e permita que o Visual Studio estruture o modelo em branco do ASP.NET MVC. 
@@ -86,14 +86,14 @@ Agora que temos a maior parte da estrutura do ASP.NET MVC necessária para esta 
 
 1. O SDK .NET do Azure Cosmos DB é compactado e distribuído como um pacote NuGet. Para colocar o pacote NuGet no Visual Studio, utilize o gestor de pacotes NuGet no Visual Studio ao clicar no projeto no **Explorador de Soluções** e, em seguida, clicar em **Gerir Pacotes NuGet**.
    
-    ![Captura de ecrã das opções de clique com o botão direito do rato para o projeto de aplicações Web no Explorador de Soluções, com Gerir Pacotes NuGet realçado.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
+    ![Captura de ecrã das opções de contexto para o projeto de aplicativo web no Explorador de soluções, com gerir pacotes NuGet realçado.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     A caixa de diálogo **Gerir Pacotes NuGet** aparece.
 2. Na caixa **Procurar** do NuGet, escreva ***Azure DocumentDB***. (O nome do pacote não foi atualizado para o Azure Cosmos DB.)
    
     Nos resultados, instale o pacote **Microsoft.Azure.DocumentDB da Microsoft**. É transferido e instalado o pacote do Azure Cosmos DB, bem como todas as dependências, como Newtonsoft.Json. Clique em **OK** na janela **Pré-visualizar** e em **Aceito** na janela **Aceitação de Licença** para concluir a instalação.
    
-    ![Captura de ecrã da janela Gerir Pacotes NuGet, com a Biblioteca de Clientes do Microsoft Azure Cosmos DB realçada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Sreenshot da janela gerir pacotes NuGet, com o Azure Cosmos DB biblioteca cliente Microsoft realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       Em alternativa, pode utilizar a Consola do Gestor de Pacotes para instalar o pacote. Para tal, clique no menu **Ferramentas**, clique em **Gestor do Pacote NuGet** e, em seguida, clique em **Consola do Gestor de Pacotes**. Na linha de comandos, escreva o seguinte.
    
@@ -101,7 +101,7 @@ Agora que temos a maior parte da estrutura do ASP.NET MVC necessária para esta 
         
 3. Depois de o pacote estar instalado, a sua solução Visual Studio deve assemelhar-se aos seguinte com duas novas referências adicionadas, Microsoft.Azure.Documents.Client e Newtonsoft.Json.
    
-    ![Captura de ecrã das duas referências adicionadas ao projeto de dados JSON no Explorador de Soluções](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
+    ![Captura de ecrã das duas referências adicionadas ao projeto de dados JSON no Explorador de soluções](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
 ## <a name="_Toc395637763"></a>Passo 4: Configurar a aplicação ASP.NET MVC
 Agora vamos adicionar os modelos, as vistas e os controladores a esta aplicação MVC:
@@ -155,14 +155,14 @@ O **M** está resolvido. Agora vamos criar o **C** no MVC, uma classe de control
     A caixa de diálogo **Adicionar Estrutura** é apresentada.
 2. Selecione **Controlador MVC 5 – Vazio** e, em seguida, clique em **Adicionar**.
    
-    ![Captura de ecrã da caixa de diálogo Adicionar Estrutura com a opção Controlador MVC 5 – Vazio realçada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+    ![Captura de ecrã da caixa de diálogo Adicionar estrutura com controlador MVC 5 – opção vazia realçada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. Atribua o nome **ItemController** ao novo Controlador.
    
-    ![Captura de ecrã da caixa de diálogo Adicionar Controlador](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
+    ![Captura de ecrã da caixa de diálogo Adicionar controlador](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-controller.png)
    
     Depois de o ficheiro estar criado, a sua solução do Visual Studio deve assemelhar-se ao seguinte com o novo ficheiro ItemController.cs no **Explorador de Soluções**. Também é apresentado o novo ficheiro Item.cs criado anteriormente.
    
-    ![Captura de ecrã da solução Visual Studio – Explorador de Soluções com o novo ficheiro ItemController.cs e o ficheiro Item.cs realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
+    ![Captura de ecrã da solução do Visual Studio – Explorador de soluções com o novo ficheiro ItemController.cs e o ficheiro Item.cs realçado](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-item-solution-explorer.png)
    
     Pode fechar o ItemController.cs, voltaremos a ele mais tarde. 
 
@@ -176,7 +176,7 @@ Agora, vamos criar o **V** no MVC, as vistas:
 #### <a name="AddItemIndexView"></a>Adicionar uma vista de Índice de Itens
 1. No **Explorador de Soluções**, expanda a pasta **Vistas**, clique com o botão direito do rato na pasta **Item** vazia que o Visual Studio criou para si quando adicionou o **ItemController** anteriormente, clique em **Adicionar** e, em seguida, clique em **Vista**.
    
-    ![Captura de ecrã do Explorador de Soluções a mostrar a pasta Itens que o Visual Studio criou com os comandos Adicionar Vista realçados](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+    ![Captura de ecrã do Explorador de soluções que mostra a pasta de itens que o Visual Studio criou com os comandos Adicionar vista realçados](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
 2. Na caixa de diálogo **Adicionar Vista**, faça o seguinte:
    
    * Na caixa **Nome da vista**, escreva ***Índice***.
@@ -184,7 +184,7 @@ Agora, vamos criar o **V** no MVC, as vistas:
    * Na caixa **Classe de modelo**, selecione ***Item (todo.Models)***.
    * Na caixa da página de esquema, escreva ***~/Views/Shared/_Layout.cshtml***.
      
-   ![Captura de ecrã que mostra a caixa de diálogo Adicionar Vista](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
+   ![Captura de ecrã que mostra a caixa de diálogo Adicionar vista](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
 3. Depois de todos estes valores estarem definidos, clique em **Adicionar** e permita que o Visual Studio crie uma nova vista de modelo. Depois de estar concluído, abrirá o ficheiro cshtml que foi criado. Podemos fechar esse ficheiro no Visual Studio, dado que vamos voltar a ele mais tarde.
 
 #### <a name="AddNewIndexView"></a>Adicionar uma vista de Novo Item
@@ -369,7 +369,7 @@ Agora, se executar a aplicação, esta liga-se ao seu **ItemController** que ir�
 
 Se criar e executar agora este projeto, deverá ver algo semelhante a isto.    
 
-![Captura de ecrã da aplicação Web ToDo List criada por este tutorial de base de dados](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
+![Captura de ecrã da aplicação web da todo list criada por este tutorial de base de dados](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
 ### <a name="_Toc395637771"></a>Adicionar Itens
 Vamos colocar alguns itens na nossa base de dados para que tenhamos algo mais do que uma grelha.
@@ -496,21 +496,21 @@ Para testar a aplicação no seu computador local, faça o seguinte:
 
 1. Prima F5 no Visual Studio para criar a aplicação no modo de depuração. Este deve compilar a aplicação e iniciar um browser com a página de grelha vazia que vimos anteriormente:
    
-    ![Captura de ecrã da aplicação Web ToDo List criada por este tutorial de base de dados](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+    ![Captura de ecrã da aplicação web da todo list criada por este tutorial de base de dados](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
    
      
 2. Clique na ligação **Criar Novo** e adicione valores aos campos **Nome** e **Descrição**. Deixe a caixa de verificação **Concluído** desmarcada, caso contrário, o novo **Item** será adicionado a um estado concluído e não aparece na lista inicial.
    
-    ![Captura de ecrã da vista Criar](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
+    ![Captura de ecrã da vista criar](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-new-item.png)
 3. Clique em **Criar** para ser redirecionado para a vista **Índice** e para que o seu **Item** apareça na lista.
    
-    ![Captura de ecrã da vista Índice](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
+    ![Captura de ecrã da vista índice](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
    
     Pode adicionar mais alguns **Itens** à sua lista de tarefas.
     
 4. Clique em **Editar** junto a um **Item** na lista para ser direcionado para a vista **Editar**, onde pode atualizar qualquer propriedade do seu objeto, incluindo o sinalizador **Concluído**. Se marcar o sinalizador **Concluído** e clicar em **Guardar**, o **Item** é removido da lista de tarefas incompletas.
    
-    ![Captura de ecrã da vista Índice com a caixa de Concluído selecionada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
+    ![Captura de ecrã da vista índice com a caixa de concluído selecionada](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Assim que já tiver testado a aplicação, prima Ctrl+F5 para parar a depuração da aplicação. Está pronto para implementar!
 
 ## <a name="_Toc395637774"></a>Passo 7: Implementar a aplicação no App Service do Azure 
@@ -518,7 +518,7 @@ Agora que a sua aplicação completa funciona corretamente no Azure Cosmos DB, i
 
 1. Para publicar esta aplicação tem apenas de clicar com o botão direito do rato no projeto no **Explorador de Soluções** e clicar em **Publicar**.
    
-    ![Captura de ecrã da opção Publicar no Explorador de Soluções](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
+    ![Captura de ecrã da opção publicar no Explorador de soluções](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
 
 2. Na caixa de diálogo **Publicar**, clique em **Serviço de Aplicações do Microsoft Azure** e, em seguida, selecione **Criar Novo** para criar um perfil do Serviço de Aplicações, ou clique em **Selecionar Existente** para utilizar um perfil existente.
 

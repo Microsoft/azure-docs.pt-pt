@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 8115994d1e4ac116a410cfa69824dc800717ab6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9aebe878be97b489b460fff96001e2908cdb7b87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819256"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432384"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definir módulos R personalizados para o Azure Machine Learning Studio
 
@@ -123,7 +123,7 @@ Regras para limites de carateres nos elementos de módulo:
 * O conteúdo do **Descrição** elemento não pode exceder 128 carateres de comprimento.
 * O conteúdo do **proprietário** elemento não pode exceder 32 carateres de comprimento.
 
-Resultados de um módulo podem ser determinísticos ou nondeterministic.* * por predefinição, todos os módulos são considerados como determinística. Ou seja, devido um conjunto sem alteração de parâmetros de entrada e de dados, o módulo deve devolver a mesma eacRAND de resultados ou functionh vez que for executada. Dado esse comportamento, Azure Machine Learning Studio volta a executar apenas módulos marcados como determinista, se um parâmetro ou os dados de entrada foi alterado. Retornar os resultados em cache igualmente muito execução mais rápida de experimentações.
+Resultados de um módulo podem ser determinísticos ou nondeterministic.* * por predefinição, todos os módulos são considerados como determinística. Ou seja, devido um conjunto sem alteração de parâmetros de entrada e de dados, o módulo deve devolver a mesma eacRAND de resultados ou um tempo de função que for executada. Dado esse comportamento, Azure Machine Learning Studio volta a executar apenas módulos marcados como determinista, se um parâmetro ou os dados de entrada foi alterado. Retornar os resultados em cache igualmente muito execução mais rápida de experimentações.
 
 Existem funções que são não determinística, como o RAND ou uma função que devolve a data atual ou a hora. Se o seu módulo utiliza uma função não determinística, pode especificar que o módulo é determinística ao definir o opcional **campos isDeterministic** para o atributo **falso**. Desta forma, assegura que o módulo será novamente executado sempre que a experimentação é executada, mesmo que o módulo de entrada e os parâmetros não foram alterados. 
 

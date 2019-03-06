@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 1a55a4e3f25bc5afef30e325ccdd38615ba7cc2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: de9c79d09c400aa95775b332580c3658c349ede7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820747"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449092"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API de pesquisa de negócios locais do Bing v7
 
@@ -73,7 +73,7 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna ne
   
 |Name|Value|Type|Necessário|  
 |----------|-----------|----------|--------------|
-|<a name="count" />Contagem|O número de resuts para retornar, começando com o índice especificado pelo `offset` parâmetro.|String|Não|   
+|<a name="count" />Contagem|O número de resultados a devolver, começando com o índice especificado pelo `offset` parâmetro.|String|Não|   
 |<a name="localCategories" />localCategories|Lista de opções que definem a pesquisa por categoria de negócios.  Consulte [Local de negócios de categorias de pesquisa](local-categories.md)|String|Não|  
 |<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de pesquisa de negócios locais atualmente suporta apenas en--nos mercado e a linguagem.<br /><br />|String|Sim|
 |<a name="offset"/>offset|O índice inicial de resultados especificados pelo `count` parâmetro.|Número inteiro|Não|  
@@ -154,7 +154,7 @@ Define as informações sobre o local de uma empresa, como um restaurante ou hot
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que pode ser definida como um dos seguintes:<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurante</ul><li>|String|  
-|Endereço|O endereço postal de onde está localizada a entidade.|PostalAddress|  
+|endereço|O endereço postal de onde está localizada a entidade.|PostalAddress|  
 |entityPresentationInfo|Obter informações adicionais sobre a entidade como sugestões que pode utilizar para determinar o tipo da entidade. Por exemplo, se é um restaurante ou hotel. O `entityScenario` campo é definido como ListItem.|EntityPresentationInfo|  
 |nome|Nome da entidade.|String|  
 |Telefone|Número de telefone da entidade.|String|  

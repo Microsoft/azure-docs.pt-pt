@@ -13,16 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 01ed1b94ffedb273321fa49653a614c659611e6a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024047"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453206"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Fábrica de dados do Azure - perguntas mais frequentes
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [pergunta mais frequente - Data Factory](../frequently-asked-questions.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Perguntas gerais
 ### <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
@@ -69,11 +71,11 @@ A tabela seguinte fornece uma lista dos ambientes de computação suportados pel
 
 | Ambiente de computação | atividades |
 | --- | --- |
-| [Cluster de HDInsight a pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [transmissão em fluxo do Hadoop](data-factory-hadoop-streaming-activity.md) |
-| [O Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
+| [Cluster de HDInsight a pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
+| [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Atividades do Machine Learning: Execução de lotes e atualizar recurso](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
-| [SQL do Azure](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [do SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento Armazenado](data-factory-stored-proc-activity.md) |
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como é que o Azure Data Factory compara com o SQL Server Integration Services (SSIS)? 
 Consulte o [fábrica de dados do Azure vs. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) apresentação de um dos nossos MVPs (Most Valued Professionals): Reza Rad. Algumas das alterações recentes na fábrica de dados não podem estar relacionadas no conjunto de slides. Estamos continuamente a adicionar mais recursos ao Azure Data Factory. Estamos continuamente a adicionar mais recursos ao Azure Data Factory. Podemos irá incorporar essas atualizações a comparação de tecnologias de integração de dados da Microsoft algum tempo ainda este ano.   
@@ -171,12 +173,12 @@ Pode voltar a executar um setor de uma das seguintes formas:
 
 * Utilize Gerir aplicação de monitorização e voltar a executar uma janela de atividade ou do setor. Ver [volte a executar selecionado janelas de atividade](data-factory-monitor-manage-app.md#perform-batch-actions) para obter instruções.   
 * Clique em **execute** na barra de comandos no **SETOR de dados** painel para o setor no portal do Azure.
-* Execute **Set-AzureRmDataFactorySliceStatus** cmdlet com o estado definido como **aguardando** para o setor.   
+* Execute **Set-AzDataFactorySliceStatus** cmdlet com o estado definido como **aguardando** para o setor.   
 
     ```PowerShell
-    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-Ver [Set-AzureRmDataFactorySliceStatus] [ set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
+Ver [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Quanto tempo demorou a processar um setor?
 Utilize o Explorador de janelas de atividade em monitorizar e gerir aplicações para saber quanto tempo demorou a processar um setor de dados. Ver [Explorador de janelas de atividade](data-factory-monitor-manage-app.md#activity-window-explorer) para obter detalhes.
@@ -191,7 +193,7 @@ Também pode fazer o seguinte no portal do Azure:
 6. Deverá ver o **duração** campo com um valor. Este valor é o tempo necessário para processar o setor.   
 
 ### <a name="how-to-stop-a-running-slice"></a>Como parar um setor em execução?
-Se precisar de interromper o pipeline de execução, pode usar [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) cmdlet. Atualmente, suspender o pipeline não a interromperá se o setor de execuções em curso. Depois de concluir as execuções em curso, nenhum setor extra é escolhido.
+Se precisar de interromper o pipeline de execução, pode usar [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet. Atualmente, suspender o pipeline não a interromperá se o setor de execuções em curso. Depois de concluir as execuções em curso, nenhum setor extra é escolhido.
 
 Se realmente desejar parar todas as execuções imediatamente, a única forma seria excluir o pipeline e criá-la novamente. Se optar por eliminar o pipeline, não é necessário eliminar tabelas e serviços ligados, utilizados pelo pipeline.
 
@@ -199,9 +201,9 @@ Se realmente desejar parar todas as execuções imediatamente, a única forma se
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
+[adf-powershell-reference]: /powershell/module/az.datafactory/
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
+[set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

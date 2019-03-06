@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: d103061289991fb149b7c8d76430b37a6b385f80
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064377"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453478"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Execução de pipelines e acionadores no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -94,10 +94,13 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 Para obter um exemplo completo, consulte [início rápido: Criar uma fábrica de dados com a API de REST](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 O comando de exemplo que se segue mostra como executar manualmente o pipeline com o Azure PowerShell:
 
 ```powershell
-Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
+Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
 ```
 
 Transmita os parâmetros no corpo do payload de pedidos. No SDK de .NET, no Azure PowerShell e no SDK de Python, os valores são transmitidos num dicionário que, por sua vez, é transmitido como um argumento para a chamada:
@@ -377,6 +380,6 @@ A tabela que se segue oferece uma comparação entre o acionador de janela em ca
 ## <a name="next-steps"></a>Passos seguintes
 Veja os tutoriais seguintes:
 
-- [Início rápido: Criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md)
+- [Quickstart: Criar uma fábrica de dados com o SDK de .NET](quickstart-create-data-factory-dot-net.md)
 - [Criar um acionador de agenda](how-to-create-schedule-trigger.md)
 - [Criar um acionador de janela em cascata](how-to-create-tumbling-window-trigger.md)

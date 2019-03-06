@@ -1,18 +1,18 @@
 ---
 title: O Azure Key Vault - como utilizar a eliminação de forma recuperável com o PowerShell
 description: Utilize os exemplos de casos de eliminação de forma recuperável com recortes de código do PowerShell
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
-ms.author: bryanla
-ms.openlocfilehash: 70437403d3b78b7f8b9eef921c933a68793450da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mbaldwin
+ms.openlocfilehash: 3d199442564964d4eb70878e7e6460fe550cd4c2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113588"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452493"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como utilizar a eliminação de forma recuperável do Key Vault com o PowerShell
 

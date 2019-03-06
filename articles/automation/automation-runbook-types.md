@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 940a5839fe2c2eea11d9570d3dca48cd514e21af
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417249"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454906"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da automatização do Azure
 
@@ -22,10 +22,10 @@ A automatização do Azure suporta vários tipos de runbooks que são descritos 
 
 | Type | Descrição |
 |:--- |:--- |
-| [Gráficos](#graphical-runbooks) |Com base no Windows PowerShell e criado e editado completamente no editor gráfico no portal do Azure. |
-| [Fluxo de trabalho de PowerShell gráfico](#graphical-runbooks) |Com base no fluxo de trabalho do Windows PowerShell e criados e editados completamente no editor gráfico no portal do Azure. |
+| [Gráficos](#graphical-runbooks)|Com base no Windows PowerShell e criado e editado completamente no editor gráfico no portal do Azure. |
+| [Fluxo de trabalho de PowerShell gráfico](#graphical-runbooks)|Com base no fluxo de trabalho do Windows PowerShell e criados e editados completamente no editor gráfico no portal do Azure. |
 | [PowerShell](#powershell-runbooks) |Runbook de texto com base no script do Windows PowerShell. |
-| [Fluxo de Trabalho do PowerShell](#powershell-workflow-runbooks) |Runbook de texto com base no fluxo de trabalho do Windows PowerShell. |
+| [Fluxo de Trabalho do PowerShell](#powershell-workflow-runbooks)|Runbook de texto com base no fluxo de trabalho do Windows PowerShell. |
 | [Python](#python-runbooks) |Runbook de texto com base em Python. |
 
 ## <a name="graphical-runbooks"></a>Runbooks gráficos
@@ -45,6 +45,7 @@ A automatização do Azure suporta vários tipos de runbooks que são descritos 
 * Não é possível editar o runbook fora do portal do Azure.
 * Pode exigir uma atividade de código que contém o código do PowerShell para executar a lógica complexa.
 * Não é possível ver ou editar diretamente o código do PowerShell que é criado pelo fluxo de trabalho gráfico. Pode ver o código que cria no quaisquer atividades de código.
+* Não pode ser executada numa função de trabalho do Runbook de híbrida do Linux
 
 ## <a name="powershell-runbooks"></a>Runbooks do PowerShell
 
@@ -54,6 +55,7 @@ Os runbooks do PowerShell são baseados no Windows PowerShell.  Editar diretamen
 
 * Implemente toda a lógica complexa com código do PowerShell sem as complexidades adicionais de fluxo de trabalho do PowerShell.
 * Runbook inicia-se mais rapidamente do que os runbooks do fluxo de trabalho do PowerShell, uma vez que ele não precisa ser compilado antes de executar.
+* Pode ser executada no Azure ou no Linux e Windows os de Runbook Workers híbridos
 
 ### <a name="limitations"></a>Limitações
 
@@ -88,6 +90,7 @@ Runbooks de fluxo de trabalho do PowerShell são runbooks de texto com base na [
 * Runbook tem de lidar com a complexidade adicional de fluxo de trabalho do PowerShell, tal como [anular a serialização de objetos](automation-powershell-workflow.md#code-changes).
 * Demora mais tempo a iniciar-se que os runbooks do PowerShell, uma vez que ele precisa ser compilado antes de executar o Runbook.
 * Os runbooks do PowerShell só pode ser incluídos como runbooks subordinados com o cmdlet Start-AzureAutomationRunbook, que cria uma nova tarefa.
+* Não pode ser executada numa função de trabalho do Runbook de híbrida do Linux
 
 ## <a name="python-runbooks"></a>Runbooks de Python
 
@@ -96,6 +99,7 @@ Runbooks de Python compiladas em Python 2.  Pode editar diretamente o código do
 ### <a name="advantages"></a>Vantagens
 
 * Utilize as bibliotecas Python robustas.
+* Pode ser executada no Azure ou em ambas as funções de trabalho do Runbook de híbrida do Linux. Os Runbook Workers híbridos de Windows são suportados com [python2.7](https://www.python.org/downloads/release/latest/python2) instalado.
 
 ### <a name="limitations"></a>Limitações
 

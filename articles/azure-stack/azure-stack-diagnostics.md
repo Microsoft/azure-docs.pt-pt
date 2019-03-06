@@ -11,12 +11,12 @@ ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bd1994aca3dbbc23977b01d3511f87b5ec08b96d
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 41609a75efec6c15d894b61867fb9d3ae727dc8c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251865"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440561"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico do Azure Stack
 
@@ -163,7 +163,7 @@ Utilize estes passos para executar Get-AzureStackLog num computador anfitrião A
     -   Registos de ACS são recolhidos no *armazenamento* e *ACS* funções.
 
 > [!NOTE]
-> Limites de tamanho e age são impostos no registos recolhidos conforme é essencial para garantir uma utilização eficiente do seu espaço de armazenamento para garantir que não obtém inundado de registos. No entanto, quando diagnosticar o problema, às vezes, terá de registos que poderão já não existir devido a estes limites. Portanto, é **altamente recomendado** que descarregar os registos para um espaço de armazenamento externo (uma conta de armazenamento no Azure, um dispositivo de armazenamento adicionais no local etc.) a cada 8 a 12 horas e mantenha-os lá para 1 a 3 meses, dependendo da sua requisitos. Além disso, certifique-se que esta localização de armazenamento está encriptada.
+> Limites de tamanho e age são impostos no registos recolhidos conforme é essencial para garantir uma utilização eficiente do seu espaço de armazenamento para garantir que não obtém inundado de registos. No entanto, quando diagnosticar o problema, às vezes, terá de registos que poderão já não existir devido a estes limites. Portanto, é **vivamente recomendado** que descarregar os registos para um espaço de armazenamento externo (uma conta de armazenamento no Azure, adicional no dispositivo de armazenamento local etc.) a cada 8 a 12 horas e mantenha-os lá para 1 a 3 meses, dependendo da sua requisitos. Além disso, certifique-se que esta localização de armazenamento está encriptada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Resolução de problemas do Microsoft Azure Stack](azure-stack-troubleshooting.md)

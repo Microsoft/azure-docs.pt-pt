@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9122cf5cc908d578d8b781c6fdc49d7b04b0ab58
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 2800385581ea3f08fc1013e980f8c133a2f7241e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990347"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443737"
 ---
 # <a name="azure-automation-integration-modules"></a>Módulos de Integração da Automatização do Azure
 
@@ -227,7 +227,7 @@ Apesar dos módulos de integração são módulos do PowerShell, ainda há uma s
     }
     ```
 
-6. O módulo deve estar totalmente incluído num pacote compatível com Xcopy. Módulos de automatização do Azure são distributd nas sandboxes da automatização quando os runbooks precisam executar. Os módulos tem de funcionar independentemente do anfitrião que estão a executar. Deve ser capaz de zipar e mover de um pacote do módulo e tê-lo a funcionar normalmente quando importados para o ambiente do PowerShell de outro anfitrião. Por ordem para que isso aconteça, o módulo não deve depender de quaisquer ficheiros fora da pasta do módulo. Esta pasta é a pasta que é zipada quando o módulo é importado para a automatização do Azure. O módulo também não deve depender quaisquer definições de registo única num anfitrião, como essas configurações definidas quando um produto é instalado. Se não for seguida esta melhor prática, o módulo não será utilizável na automatização do Azure.  
+6. O módulo deve estar totalmente incluído num pacote compatível com Xcopy. Módulos de automatização do Azure são distribuídos nas sandboxes da automatização quando os runbooks precisam executar. Os módulos tem de funcionar independentemente do anfitrião que estão a executar. Deve ser capaz de zipar e mover de um pacote do módulo e tê-lo a funcionar normalmente quando importados para o ambiente do PowerShell de outro anfitrião. Por ordem para que isso aconteça, o módulo não deve depender de quaisquer ficheiros fora da pasta do módulo. Esta pasta é a pasta que é zipada quando o módulo é importado para a automatização do Azure. O módulo também não deve depender quaisquer definições de registo única num anfitrião, como essas configurações definidas quando um produto é instalado. Se não for seguida esta melhor prática, o módulo não será utilizável na automatização do Azure.  
 
 7. Se a referência à [módulos do Azure Powershell Az](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) no seu módulo, certifique-se de que não está a referenciar também `AzureRM`. O `Az` módulo não pode ser utilizado em conjunto com o `AzureRM` módulos. `Az` é suportado em runbooks, mas não são importados por predefinição. Para saber mais sobre o `Az` módulos e considerações a ter em conta, consulte [suporte de módulo de Az na automatização do Azure](az-modules.md).
 

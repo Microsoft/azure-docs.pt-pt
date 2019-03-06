@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1629e08d4ba1a7fd7cedb40b1e46d1bfd2766497
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 731b87d7958bb461466b16f2ff724ea33f234ba8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215545"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439813"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho da base de SQL do Azure multi-inquilino em partição horizontal em aplicações SaaS multi-inquilino de
 
@@ -78,10 +78,10 @@ O *Demo-PerformanceMonitoringAndManagement.ps1* script é fornecida que simula u
 
 | Demonstração | Cenário |
 |:--|:--|
-| 2 | Gerar carga de intensidade normal (aprox 30 DTU) |
+| 2 | Gerar carga de intensidade normal (aproximadamente 30 DTU) |
 | 3 | Gerar carga com picos mais por inquilino|
-| 4 | Gerar carga com picos de DTU mais altos por inquilino (aprox 70 DTU)|
-| 5 | Gerar uma alta intensidade (aprox 90 DTUS) no inquilino individual, mais uma intensidade normal de carga em todos os outros inquilinos |
+| 4 | Gerar carga com picos de DTU mais altos por inquilino (cerca de 70 DTU)|
+| 5 | Gerar uma alta intensidade (aproximadamente 90 DTUS) num único inquilino mais de uma carga de intensidade normal em todos os outros inquilinos |
 
 O gerador de carga aplica uma carga *sintética* só na CPU para cada base de dados do inquilino. O gerador inicia uma tarefa para cada base de dados de inquilino, que chama um procedimento armazenado que periodicamente gera a carga. Os níveis de carga (em DTUs), a duração e intervalos são diversificados em todas as bases de dados, simulando a atividade imprevisível do inquilino.
 
@@ -168,7 +168,7 @@ Se um único inquilino dentro de uma base de dados do multi-inquilino sofrer uma
 Este exercício simula o efeito de Salix Salsa com uma carga elevada quando os pedidos de suporte, aceda à venda para um evento popular.
 
 1. Abra o... \\ *Demo-PerformanceMonitoringAndManagement.ps1* script.
-1. Definir **$DemoScenario = 5**, _gerar uma carga normal + uma carga elevada num inquilino individual (aprox 90 DTUS)._
+1. Definir **$DemoScenario = 5**, _gerar uma carga normal + uma carga elevada num inquilino individual (aproximadamente 90 DTUS)._
 1. Definir **$SingleTenantName = Salix Salsa**
 1. Execute o script com **F5**.
 

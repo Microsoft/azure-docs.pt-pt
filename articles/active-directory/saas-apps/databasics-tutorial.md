@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a37ded45-84c8-4e88-8d9b-c5b9443eb0d4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d336e7408b31b433338a1e3d5e46f0b4b1b2d9c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d1d35d062b6072f879e13764acdd1ec6308eb8e7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870436"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436617"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>Tutorial: Integração do Active Directory do Azure com DATABASICS
 

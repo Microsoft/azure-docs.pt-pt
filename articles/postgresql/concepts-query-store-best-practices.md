@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c4fcdc43e8c88bf307e4de5727df0641616d7b78
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540746"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448140"
 ---
 # <a name="best-practices-for-query-store"></a>Melhores práticas para Store de consulta
 
@@ -28,8 +28,8 @@ Store de consulta permitem capturar os dados que é importante para si.
 
 |**pg_qs.query_capture_mode** | **Cenário**|
 |---|---|
-|_Todos_  |Analise a carga de trabalho minuciosamente em termos de todas as consultas e respetivas frequências de execução e outras estatísticas. Identifica novas consultas na carga de trabalho. Detete se as consultas ad-hoc são utilizadas para identificar as oportunidades de utilizador ou de parametrização automática. _Todos os_ vem com um consumo de recursos maior de custos. |
-|_parte superior_  |Se concentre sua atenção em consultas principais - os emitidos pelos clientes.
+|_Todos_  |Analise a carga de trabalho minuciosamente em termos de todas as consultas e respetivas frequências de execução e outras estatísticas. Identifica novas consultas na carga de trabalho. Detete se as consultas ad hoc são utilizadas para identificar as oportunidades de utilizador ou de parametrização automática. _Todos os_ vem com um consumo de recursos maior de custos. |
+|_Top_  |Se concentre sua atenção em consultas principais - os emitidos pelos clientes.
 |_Nenhum_ |Já foram capturadas um conjunto de consulta e a janela de tempo que pretende investigar e quiser eliminar as distrações que podem apresentar outras consultas. _Nenhum_ é adequado para teste e avaliar comparativamente ambientes. _Nenhum_ deve ser utilizada com cuidado, pois pode perder a oportunidade de controlar e otimizar as consultas de novo importantes. Não é possível recuperar dados nesses últimos janelas de tempo. |
 
 Consulta Store também inclui um arquivo para estatísticas de espera. Existe uma consulta de modo de captura adicionais que rege as estatísticas de espera: **pgms_wait_sampling.query_capture_mode** pode ser definido como _none_ ou _todos os_. 

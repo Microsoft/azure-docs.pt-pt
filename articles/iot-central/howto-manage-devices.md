@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 21c29d90d8ed149062f24b470603b0e0e03cc6ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 22158d6a5a8c2768ee343f86160f79fc0dbd241b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315610"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456266"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gerir dispositivos na sua aplicação do Azure IoT Central
 
@@ -118,7 +118,7 @@ Em massa dispositivos de exportação da sua aplicação:
 
     [![Sucesso de exportação](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. O ficheiro CSV exportado terá as seguintes informações de colunas: **Id do dispositivo, nome do dispositivo, as chaves de Priamry/secundária de dispositivo e primária/secundária thumbrpints de certificado**
+1. O ficheiro CSV exportado terá as seguintes informações de colunas: **Id do dispositivo, nome do dispositivo, as chaves de Priamry/secundária de dispositivo e primária/secundária de thumbprints de certificado**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: f4559c05a9f3d09feef12b0391e313ecd9a88142
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b03b787e245129e5e51304a2bcc8740ebf3f6196
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241243"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406162"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixe ou exiba sua fatura do Azure e dados de utilização diária
 
@@ -65,7 +65,7 @@ Notas fiscais são gerados para cada [faturação perfil](billing-mca-overview.m
 5. Clique nas reticências (`...`) no final da linha.
 6. No menu de contexto do download, selecione **nota fiscal**.
 
-Se não vir uma nota fiscal para o último período de faturação, consulte [informações adicionais]() <!-- Fix this -->
+Se não vir uma nota fiscal para o último período de faturação, consulte **informações adicionais**. <!-- Fix this -->
 ### <a name="noinvoice"></a> Por que motivo não vejo uma fatura para o último período de faturação?
 
 Pode haver vários motivos para não ver uma fatura:
@@ -100,7 +100,7 @@ Se não receber uma mensagem de e-mail depois de seguir os passos, certifique-se
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>Opção de desativar a obter notas fiscais de sua assinatura no e-mail
 
-Pode optar por obter a fatura por e-mail ao seguir os passos acima e clicando em **recusar faturas por e-mail**. Esta opção remove quaisquer endereços de e-mail definidos para receber faturas por e-mail. Pode reconfigurar os destinatários se optar ativamente por participar de volta.
+Pode optar por obter a fatura por e-mail ao seguir os passos acima e clicando em **recusar faturas por e-mail**. Esta opção remove todos os endereços de e-mail que foram configurados para receber faturas por e-mail. Pode reconfigurar os destinatários se optar ativamente por participar de volta.
 
  ![Captura de ecrã que mostra o fluxo de recusa](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 902fbde0eca8db9113dda51e5d912fa9d94644ee
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df54f9dd4047fffb578a1a95a2edc47cba711ba1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215171"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433523"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorizar e gerir o desempenho de bases de dados SQL do Azure e conjuntos numa aplicação SaaS multi-inquilino
 
@@ -83,10 +83,10 @@ O *Demo-PerformanceMonitoringAndManagement.ps1* script é fornecida que simula u
 
 | Demonstração | Cenário |
 |:--|:--|
-| 2 | Gerar carga de intensidade normal (aprox. 40 DTUs) |
+| 2 | Gerar carga de intensidade normal (aproximadamente 40 DTUS) |
 | 3 | Gerar carga com picos mais demorados e mais frequentes por base de dados|
-| 4 | Gerar carga com picos de DTU mais altos por base de dados (aprox. 80 DTUs)|
-| 5 | Gerar uma carga normal + uma carga elevada num inquilino individual (aprox. 95 DTUs)|
+| 4 | Gerar carga com picos de DTU mais altos por base de dados (aproximadamente 80 DTUS)|
+| 5 | Gerar uma carga normal + uma carga elevada num inquilino individual (aproximadamente 95 DTUS)|
 | 6 | Gerar carga desequilibrada em vários conjuntos|
 
 O gerador de carga aplica uma carga *sintética* só na CPU para cada base de dados do inquilino. O gerador inicia uma tarefa para cada base de dados de inquilino, que chama um procedimento armazenado que periodicamente gera a carga. Os níveis de carga (em eDTUs), a duração e os intervalos são diversificados em todas as bases de dados, o que simula a atividade imprevisível do inquilino.
@@ -196,7 +196,7 @@ Se uma base de dados individual num conjunto sofrer uma carga elevada constante,
 Este exercício simula o efeito de uma carga elevada em Contoso Concert Hall, quando são colocados à venda os bilhetes para um concerto popular.
 
 1. Na **ISE do PowerShell**, abra o... \\ *Demo-PerformanceMonitoringAndManagement.ps1* script.
-1. Defina **$DemoScenario = 5, Gerar uma carga normal mais uma carga elevada num inquilino individual (aprox. 95 DTUs).**
+1. Definir **$DemoScenario = 5, gerar uma carga normal + uma carga elevada num inquilino individual (aproximadamente 95 DTUS).**
 1. Defina **$SingleTenantDatabaseName = contosoconcerthall**
 1. Execute o script com **F5**.
 

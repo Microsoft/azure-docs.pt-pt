@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 3a1edde2f51abbe60370eefee1b0c141f772c547
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815749"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405467"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
@@ -25,7 +25,7 @@ Para este tutorial, crie três redes virtuais:
 
 - **VNet Hub** -a firewall está nesta rede virtual.
 - **VNet-and-Spoke** -a rede virtual do spoke representa a carga de trabalho localizada no Azure.
-- **VNet Onprem** -a rede virtual no local representa uma rede no local. Numa implementação real, ele pode ser conectado por conexão de uma VPN ou de uma rota. Para simplificar, este tutorial utiliza uma ligação de gateway VPN e uma rede virtual do Azure-localizado é utilizada para representar uma rede no local.
+- **VNet Onprem** -a rede virtual no local representa uma rede no local. Numa implementação real, ele pode ser conectado por conexão de uma VPN ou ExpressRoute. Para simplificar, este tutorial utiliza uma ligação de gateway VPN e uma rede virtual do Azure-localizado é utilizada para representar uma rede no local.
 
 ![Firewall numa rede híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 

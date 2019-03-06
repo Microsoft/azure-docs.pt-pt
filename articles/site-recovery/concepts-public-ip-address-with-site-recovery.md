@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: eaf18cf7d7a5f150d3400e133bf0703bb03e7b8f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cba9a334ae014351b1156f34325e9f134b1592a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845982"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439202"
 ---
 # <a name="set-up-public-ip-addresses-after-failover"></a>Configurar endereços IP públicos após a ativação pós-falha
 

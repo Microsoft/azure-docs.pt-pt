@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e02bfb28-b3c9-424c-8c42-0c8dfa12342a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b06acfde4ae9be4ef44efa3a0dec342e8e9e5ca
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 52050efad3fc00459406b10decec3c32f13b5bcd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864758"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutorial: Integração do Active Directory do Azure com Acadia
 

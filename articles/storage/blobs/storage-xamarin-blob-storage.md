@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: b35bec31035c0219bf34a31cb34e20f7dc3a72c5
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cac889b83bb0e7a7aab12ff4097556abf60663b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397034"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449126"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Como utilizar o armazenamento de Blobs do Xamarin
 
@@ -29,7 +29,7 @@ Para este tutorial, criaremos um aplicativo dirigido para Android, iOS e Windows
 Siga estes passos para criar a sua aplicação:
 
 1. Se ainda não o fez, transfira e instale [Xamarin para Visual Studio](https://www.xamarin.com/download).
-2. Abra o Visual Studio e crie uma aplicação em branco (nativo portátil): **ficheiro > novo > projeto > Multiplataforma > App(Native Portable) em branco**.
+2. Abra o Visual Studio e crie uma aplicação em branco (nativo portátil): **Ficheiro > novo > projeto > Multiplataforma > aplicação (nativo portátil) em branco**.
 3. Sua solução no painel do Explorador de soluções com o botão direito e selecione **gerir pacotes NuGet para solução**. Procure **windowsazure. Storage** e instale a versão estável mais recente a todos os projetos na sua solução.
 4. Crie e execute seu projeto.
 
@@ -155,14 +155,14 @@ namespace XamarinApp.iOS
             public override void DidReceiveMemoryWarning ()
             {
                 base.DidReceiveMemoryWarning ();
-                // Release any cached data, images, etc that aren't in use.
+                // Release any cached data, images, etc. that aren't in use.
             }
         }
     }
 }
 ```
 
-### <a name="xamarinappwinphone--mainpagexaml--mainpagexamlcs"></a>XamarinApp.WinPhone > mainpage. XAML > MainPage.xaml.cs
+### <a name="xamarinappwinphone--mainpagexaml--mainpagexamlcs"></a>XamarinApp.WinPhone > MainPage.xaml > MainPage.xaml.cs
 
 ```csharp
 using Windows.UI.Xaml.Controls;

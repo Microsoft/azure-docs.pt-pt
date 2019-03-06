@@ -8,13 +8,13 @@ ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
 manager: barbkess
-ms.date: 10/03/2018
-ms.openlocfilehash: 684d6a87b5cf33a3ebed36381d2db21b285a6f0c
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/01/2019
+ms.openlocfilehash: dc743f7e8ebaebf2b253a1c2c199133bc4266dd5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338812"
+ms.locfileid: "57404372"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault geridos a conta de armazenamento - CLI
 
@@ -24,12 +24,25 @@ ms.locfileid: "57338812"
 > - Utilize um [identidade gerida do Azure AD](/azure/active-directory/managed-identities-azure-resources/) quando em execução no Azure. Gerido identidades remove a necessidade de autenticação de cliente em conjunto e armazenar credenciais no ou com a sua aplicação.
 > - Utilize o controlo de acesso baseado em ' (RBAC) da função para gerir a autorização, que também é suportada pelo Key Vault.
 
-- O Azure Key Vault gere chaves de uma conta de armazenamento do Azure (ASA).
-    - Internamente, o Azure Key Vault pode listar as chaves de (sincronização) com uma conta de armazenamento do Azure.    
-    - O Azure Key Vault gera novamente (roda) as chaves periodicamente.
-    - Valores de chaves nunca são retornados em resposta ao chamador.
-    - O Azure Key Vault gere chaves de contas de armazenamento e as contas de armazenamento clássico.
-    
+Uma [conta de armazenamento do Azure](/azure/storage/storage-create-storage-account) utiliza uma credencial que consiste num nome de conta e uma chave. A chave é gerado automaticamente e serve mais como uma "palavra-passe" em vez de uma chave criptográfica. Cofre de chaves pode gerir estas chaves de conta de armazenamento, armazenando-os como [segredos do Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+
+## <a name="overview"></a>Descrição geral
+
+O Cofre de chaves geridas recurso executa várias funções de gerenciamento em seu nome de conta de armazenamento:
+
+- Chaves de listas (sincronizações) com uma conta de armazenamento do Azure.
+- Regenera (roda) as chaves periodicamente.
+- Gere chaves para contas de armazenamento e as contas de armazenamento clássico.
+- Valores de chaves nunca são retornados em resposta ao chamador.
+
+Quando utiliza a funcionalidade de chave de conta de armazenamento gerido:
+
+- **Permitir apenas o Key Vault para gerir as chaves de conta de armazenamento.** Não tente geri-los por conta própria, pois irá interferir com os processos de Key Vault.
+- **Não permitir que as chaves de conta de armazenamento ser gerido por mais de um objeto do Cofre de chaves**.
+- **Manualmente não voltar a gerar as chaves de conta de armazenamento**. Recomendamos que regenere-los através do Key Vault.
+
+O exemplo seguinte mostra como permitir que o Key Vault para gerir as chaves de conta de armazenamento.
+
 > [!IMPORTANT]
 > Um inquilino do Azure AD fornece cada aplicação registada com um  **[principal de serviço](/azure/active-directory/develop/developer-glossary#service-principal-object)**, que serve como identidade da aplicação. ID da aplicação do principal de serviço é utilizado quando dando a ele autorização para aceder a outros recursos do Azure, através do controlo de acesso baseado em funções (RBAC). Uma vez que o Key Vault é um aplicativo da Microsoft, previamente está registado em todos os inquilinos do Azure AD sob o mesmo ID de aplicação, dentro de cada cloud do Azure:
 > - Utilizam o Azure AD inquilinos na cloud do Azure government ID da aplicação `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.

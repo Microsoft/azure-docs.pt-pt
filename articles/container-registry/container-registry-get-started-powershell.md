@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 23a62a9d8d24bbf2223fb5295190ad9acb39faf0
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 3a702668418ddf17aa9091317393264458ff4f8b
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806601"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408943"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Início rápido: Criar um registo de contentor privado com o Azure PowerShell
 
@@ -101,7 +101,7 @@ Neste início rápido, criou um Azure Container Registry com o Azure PowerShell,
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- Links - internal -->
-[Connect-AzAccount]: /powershell/module/az.profile/connect-azaccount
+[Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
 [Get-AzContainerRegistryCredential]: /powershell/module/az.containerregistry/get-azcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzContainerRegistry]: /powershell/module/az.containerregistry/New-AzContainerRegistry

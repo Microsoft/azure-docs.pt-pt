@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a21e300c2540ddefb79fcaf593f752eef7e2c2e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010196"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450673"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -81,8 +81,8 @@ Seguem-se as propriedades de utilizador que pode utilizar para criar uma única 
 | País |Qualquer valor de cadeia ou *nulo* |(User. Country - eq "value") |
 | companyName | Qualquer valor de cadeia ou *nulo* | (user.companyName -eq "value") |
 | Departamento |Qualquer valor de cadeia ou *nulo* |(user.department -eq "value") |
-| displayName |qualquer valor de cadeia |(user.displayName -eq "value") |
-| employeeId |qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId - ne *nulo*) |
+| displayName |Qualquer valor de cadeia |(user.displayName -eq "value") |
+| employeeId |Qualquer valor de cadeia |(user.employeeId -eq "value")<br>(user.employeeId - ne *nulo*) |
 | facsimileTelephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Qualquer valor de cadeia ou *nulo* |(user.givenName -eq "value") |
 | jobTitle |Qualquer valor de cadeia ou *nulo* |(user.jobTitle -eq "value") |
@@ -101,14 +101,14 @@ Seguem-se as propriedades de utilizador que pode utilizar para criar uma única 
 | Apelido |Qualquer valor de cadeia ou *nulo* |(user.surname -eq "value") |
 | telephoneNumber |Qualquer valor de cadeia ou *nulo* |(user.telephoneNumber -eq "value") |
 | usageLocation |Indicativo de país de letras dois |(user.usageLocation -eq "US") |
-| userPrincipalName |qualquer valor de cadeia |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |Qualquer valor de cadeia |(user.userPrincipalName -eq "alias@domain") |
 | userType |o convidado de membro *nulo* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriedades de coleção de cadeia de caracteres de tipo
 
 | Propriedades | Valores permitidos | Utilização |
 | --- | --- | --- |
-| otherMails |qualquer valor de cadeia |(user.otherMails -contains "alias@domain") |
+| otherMails |Qualquer valor de cadeia |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-contém "SMTP: alias@domain") |
 
 Para as propriedades utilizadas para regras de dispositivo, consulte [regras para dispositivos](#rules-for-devices).
@@ -318,7 +318,7 @@ device.objectid -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Propriedades de extensão e as propriedades de extensão personalizado
 
-Atributos de extensão e propriedades de extenson personalizadas são suportadas como propriedades de cadeia de caracteres em regras de associação dinâmica. Atributos de extensão são sincronizados a partir de locais de Windows Server AD e tirar o formato de "ExtensionAttributeX", onde X é igual a 1 a 15. Eis um exemplo de uma regra que utiliza um atributo de extensão como uma propriedade de:
+Atributos de extensão e as propriedades de extensão personalizadas são suportadas como propriedades de cadeia de caracteres em regras de associação dinâmica. Atributos de extensão são sincronizados a partir de locais de Windows Server AD e tirar o formato de "ExtensionAttributeX", onde X é igual a 1 a 15. Eis um exemplo de uma regra que utiliza um atributo de extensão como uma propriedade de:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")

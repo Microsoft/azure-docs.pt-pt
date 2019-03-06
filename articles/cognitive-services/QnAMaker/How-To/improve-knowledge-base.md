@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: cff4199663bce39353f8c10c68f51f15d6a72a22
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7281fb15e91195e1dd20095d9fdf80d3d9894a26
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314828"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433064"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
@@ -37,6 +37,8 @@ Qualquer um dos métodos fornece o classificador com consultas similares estão 
 Aprendizagem ativa é acionada com base em classificações de melhores respostas alguns devolvidas pelo QnA Maker para qualquer determinada consulta. Se as diferenças de pontuação se situam dentro de um pequeno intervalo, em seguida, a consulta é considerada uma possível _sugestão_ para cada uma das possíveis respostas. 
 
 Todas as sugestões sejam agrupadas por semelhança e sugestões principais para perguntas alternativas são apresentadas com base na frequência das consultas determinadas pelos usuários finais. Aprendizagem ativa fornece as sugestões de possíveis melhor em casos em que os pontos finais estão a obter uma quantidade razoável e a variedade de consultas de utilização.
+
+Quando as consultas de 5 ou mais semelhantes são colocados num cluster, cada 30 minutos, a ferramenta QnA Maker sugere perguntas baseada no utilizador para o estruturador de base de dados de conhecimento para aceitar ou rejeitar.
 
 Assim que as perguntas são sugeridas no portal do QnA Maker, terá de rever e aceitar ou rejeitar essas sugestões. 
 
@@ -162,6 +164,31 @@ Content-Type: application/json
 ```
 
 Saiba mais sobre como utilizar a aprendizagem ativa com um [Bot do Azure C# exemplo](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
+## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>Aprendizagem ativa é guardada no ficheiro de tsv exportado da aplicação
+
+Quando a aplicação tem a aprendizagem ativa ativada e exportar a aplicação, o `SuggestedQuestions` coluna no ficheiro tsv retém os dados de aprendizagem ativa. 
+
+O `SuggestedQuestions` coluna é um objeto JSON de informações de implícito (`autosuggested`) e explícito (`usersuggested`) [comentários](#active-learning). Um exemplo deste objeto JSON para uma utilizador submeteu pergunta de `help` é:
+
+```JSON
+[
+    {
+        "clusterHead": "help",
+        "totalAutoSuggestedCount": 1,
+        "totalUserSuggestedCount": 0,
+        "alternateQuestionList": [
+            {
+                "question": "help",
+                "autoSuggestedCount": 1,
+                "userSuggestedCount": 0
+            }
+        ]
+    }
+]
+```
+
+Quando importe novamente esta aplicação, a aprendizagem ativa continua a recolher informações e recomendar sugestões para a sua base de dados de conhecimento. 
 
 ## <a name="next-steps"></a>Passos Seguintes
  

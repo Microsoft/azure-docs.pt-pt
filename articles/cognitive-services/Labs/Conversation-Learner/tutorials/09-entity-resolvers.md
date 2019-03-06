@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e6a671470a87f4509e466bcdfe7845b7bf7ec8dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ebe555bfd7b34efd87d400d786049964665c76e6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55209168"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451064"
 ---
 # <a name="entity-resolvers"></a>Resoluções de entidade
 
@@ -80,7 +80,7 @@ Este tutorial requer que o bot tutorial geral está em execução
 8. Etiqueta também o texto "Domingo próxima semana" como "return"
 9. Clique no botão "Pontuação ações".
     - Observe como o painel de "Memória" contém as datas de mudança e retorno.
-    - Coloque o cursor sobre cada um deles e observe como as entidades são objetos de data que capturar claramente a data de calandar real em vez de "Domingo" ou "amanhã".
+    - Coloque o cursor sobre cada um deles e observe como as entidades são objetos de data que capturar claramente a data do calendário real em vez de "Domingo" ou "amanhã".
 10. Selecione o "estão a deixar em..." Resposta de bot.
 11. Clique no botão "Guardar".
 

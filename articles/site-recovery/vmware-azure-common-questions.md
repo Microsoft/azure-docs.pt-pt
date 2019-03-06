@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/03/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 038716161845e94011688e8af80a5d4830ac1a5b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9e15f2e1b064ec2e64bfa8254075eac5bc801115
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338149"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442618"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -165,7 +165,7 @@ Sim, pode adicionar novas VMs a um grupo de replicação existente quando ativa 
 
 Para a replicação de VMware para o Azure pode modificar o tamanho do disco. Se pretender adicionar novos discos, que terá de adicionar o disco e reativar a proteção da VM.
 
-### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Posso migrar máquinas no local para um novo Vcenter sem afetar a replicação em curso?
+### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Posso migrar em máquinas no local para um novo Vcenter sem afetar a replicação em curso?
 Não, a alteração do Vcenter ou migração irá afetar a replicação em curso. Terá de configurar a ASR com o novo Vcenter e ativar a replicação para máquinas.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Pode replicar a conta de armazenamento de cache/destino que tem uma Vnet (com firewalls de armazenamento do Azure), configurada no mesmo?

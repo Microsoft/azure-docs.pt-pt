@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 355a144597ce384725d92e64d4a5e4909b18c3d7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 53532a19482a33f8727e71d44ae169225b5b1c98
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246107"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449968"
 ---
 # <a name="how-to-sign-up-for-the-text-analytics-api"></a>Como inscrever-se para a API de análise de texto
 
@@ -25,7 +25,7 @@ Os recursos de análise de texto estão disponíveis permanentemente na cloud. A
 
 + Escolha a **API de Análise de Texto** para criar uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). A chave é gerada quando se inscreve.
 
-A Análise de Texto tem disponível um escalão Gratuito para exploração e avaliação, bem como escalões faturáveis para cargas de trabalho de produção. Pode ter várias inscrições em cada subscrição: uma gratuita, uma paga, e assim sucessivamente. Se o seu volume de pedidos aumentar, pode mudar para um escalão que ofereça mais transações.
+A Análise de Texto tem disponível um escalão Gratuito para exploração e avaliação, bem como escalões faturáveis para cargas de trabalho de produção. Pode ter várias inscrições em cada assinatura: um gratuito, um paga e assim por diante. Se o seu volume de pedidos aumentar, pode mudar para um escalão que ofereça mais transações.
 
 Os serviços em pré-visualização ou no escalão Gratuito não têm contrato de nível de serviço. Para obter mais informações, veja [SLA para Serviços Cognitivos](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/)
 

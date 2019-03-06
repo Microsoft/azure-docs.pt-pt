@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ca9d5e71-e429-4891-8d10-3498e7210e89
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e92d4b66a42592dd06773b3973165ecd064efb4d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 11d7287ca87add611e7fcb6e24491c6c9321f3ad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866119"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Tutorial: Integração do Active Directory do Azure com PPM de AC
 

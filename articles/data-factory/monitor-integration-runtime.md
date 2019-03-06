@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 8c3883ae6dd2928fb6cc4f22510e7992daac7793
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 60d4d9224a6a70c8fa2702dede8721f742fa6256
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015309"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434951"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory  
 **Runtime de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer várias capacidades de integração de dados em diferentes ambientes de rede. Existem três tipos de runtimes de integração oferecidos pelo Data Factory:
@@ -26,23 +26,25 @@ ms.locfileid: "54015309"
 - Runtime de integração autoalojado
 - Runtime de integração de SSIS do Azure
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para obter o estado de uma instância do integration runtime (IR), execute o seguinte comando do PowerShell: 
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName MyDataFactory -ResourceGroupName MyResourceGroup -Name MyAzureIR -Status
 ``` 
 
 O cmdlet retorna informações diferentes para diferentes tipos de runtime de integração. Este artigo explica as propriedades e os Estados para cada tipo de runtime de integração.  
 
 ## <a name="azure-integration-runtime"></a>Runtime de integração do Azure
-O recurso de computação para um runtime de integração do Azure totalmente gerido elástica no Azure. A tabela seguinte fornece descrições das propriedades retornadas pela **Get-AzureRmDataFactoryV2IntegrationRuntime** comando:
+O recurso de computação para um runtime de integração do Azure totalmente gerido elástica no Azure. A tabela seguinte fornece descrições das propriedades retornadas pela **Get-AzDataFactoryV2IntegrationRuntime** comando:
 
 ### <a name="properties"></a>Propriedades
 A tabela seguinte fornece descrições das propriedades devolvidas pelo cmdlet para um runtime de integração do Azure:
 
 | Propriedade | Descrição |
 -------- | ------------- | 
-| Nome | Nome do runtime de integração do Azure. |  
+| Name | Nome do runtime de integração do Azure. |  
 | Estado | Estado do runtime de integração do Azure. | 
 | Localização | Localização do runtime de integração do Azure. Para obter detalhes sobre a localização de um runtime de integração do Azure, consulte [introdução ao runtime de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome da fábrica de dados que pertence o runtime de integração do Azure. | 
@@ -58,7 +60,7 @@ A tabela seguinte fornece os Estados possíveis de um runtime de integração do
 | Offline | O runtime de integração do Azure está offline devido a um erro interno. |
 
 ## <a name="self-hosted-integration-runtime"></a>Runtime de integração autoalojado
-Esta secção fornece descrições para propriedades devolvidas pelo cmdlet Get-AzureRmDataFactoryV2IntegrationRuntime. 
+Esta secção fornece descrições para propriedades devolvidas pelo cmdlet Get-AzDataFactoryV2IntegrationRuntime. 
 
 > [!NOTE] 
 > O estado e propriedades devolvidas contêm informações sobre o runtime de integração autoalojado geral e cada nó no tempo de execução.  
@@ -69,7 +71,7 @@ A tabela seguinte fornece descrições das propriedades de monitorização **cad
 
 | Propriedade | Descrição | 
 | -------- | ----------- | 
-| Nome | Nome do integration runtime autoalojado e nós associados a ele. Nó é uma máquina com Windows no local que tenha o runtime de integração autoalojado instalado no mesmo. |  
+| Name | Nome do integration runtime autoalojado e nós associados a ele. Nó é uma máquina com Windows no local que tenha o runtime de integração autoalojado instalado no mesmo. |  
 | Estado | O estado de cada nó e o runtime de integração autoalojado geral. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte a secção seguinte. | 
 | Versão | A versão do integration runtime autoalojado e cada nó. A versão do runtime de integração autoalojado é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração do runtime de integração autoalojado, apenas os nós com o mesmo número de versão e a lógica autoalojado função do runtime de integração corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática). | 
 | Memória disponível | Memória disponível num nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. | 
@@ -86,7 +88,7 @@ O valor predefinido de tarefas simultâneas, limite está definido com base no t
 
 Aumentar horizontalmente, aumentando o número de nós. Quando aumenta o número de nós, o limite de tarefas simultâneas é a soma dos valores de limite da tarefa em simultâneo de todos os nós disponíveis.  Por exemplo, se um nó permite-lhe executar um máximo de tarefas simultâneas doze, em seguida, adicionar três nós mais semelhantes permite-lhe executar um máximo de tarefas simultâneas 48 (ou seja, 4 x 12). Recomendamos que aumente o limite de tarefas simultâneas apenas quando o vir baixa utilização de recursos com os valores predefinidos em cada nó.
 
-É possível substituir o valor padrão calculado no portal do Azure. Selecione criar > ligações > Runtimes de integração > Editar > nós > modificar o valor de tarefa em simultâneo por nó. Também pode utilizar o PowerShell [azurermdatafactoryv2integrationruntimenode atualização](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) comando.
+É possível substituir o valor padrão calculado no portal do Azure. Selecione criar > ligações > Runtimes de integração > Editar > nós > modificar o valor de tarefa em simultâneo por nó. Também pode utilizar o PowerShell [Azdatafactoryv2integrationruntimenode atualização](https://docs.microsoft.com/powershell/module/az.datafactory/update-Azdatafactoryv2integrationruntimenode#examples) comando.
   
 ### <a name="status-per-node"></a>Estado (por nó)
 A tabela seguinte fornece os Estados possíveis de um nó do runtime de integração autoalojado:
@@ -111,10 +113,10 @@ A tabela seguinte fornece os Estados possíveis de um runtime de integração au
 | Offline | Nenhum nó está online. |
 | Limitado | Nem todos os nós neste Runtime de integração autoalojado estão em bom estado de funcionamento. Este estado é um aviso de que alguns nós podem estar inativa. Este estado pode ser devido a um problema de sincronização de credenciais no nó de distribuidor/trabalhador. |
 
-Utilize o **Get-AzureRmDataFactoryV2IntegrationRuntimeMetric** propriedades de runtime de integração de autoalojado de cmdlet para obter o payload JSON que contém o detalhadas e seus instantâneo valores durante o tempo de execução dos cmdlet.
+Utilize o **Get-AzDataFactoryV2IntegrationRuntimeMetric** propriedades de runtime de integração de autoalojado de cmdlet para obter o payload JSON que contém o detalhadas e seus instantâneo valores durante o tempo de execução do cmdlet.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
+Get-AzDataFactoryV2IntegrationRuntimeMetric -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName  | | ConvertTo-Json 
 ```
 
 Saída de exemplo (parte do princípio de que existem dois nós associados a este runtime de integração autoalojado):
@@ -174,10 +176,10 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | VNetId | O rede virtual ID de recurso para o runtime de integração Azure-SSIS para associar. |
 | Subrede | O nome da sub-rede para o runtime de integração Azure-SSIS associar. |
 | ID | O ID de recurso do Azure-SSIS integration runtime. |
-| Tipo | O tipo (gerida/Self-Hosted) do Azure-SSIS integration runtime. |
+| Type | O tipo (gerida/Self-Hosted) do Azure-SSIS integration runtime. |
 | ResourceGroupName | O nome do seu grupo de recursos do Azure, em que foram criados sua fábrica de dados e o runtime de integração Azure-SSIS. |
 | DataFactoryName | O nome da sua fábrica de dados do Azure. |
-| Nome | O nome do Azure-SSIS integration runtime. |
+| Name | O nome do Azure-SSIS integration runtime. |
 | Descrição | A descrição do Azure-SSIS integration runtime. |
 
   
@@ -188,7 +190,7 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | A iniciar | Este nó está a ser preparado. |
 | Disponível | Este nó está pronto para implementar/executar pacotes SSIS. |
 | Reciclagem | Este nó está a ser reparado/reiniciar. |
-| Não disponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que pode resolver. |
+| Indisponível | Este nó não está pronto para implementar/executar pacotes SSIS e tem acionáveis erros/problemas que pode resolver. |
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Estado (runtime de integração Azure-SSIS geral)
 
@@ -213,7 +215,7 @@ As capturas de ecrã seguintes mostram como selecionar o IR Azure-SSIS para moni
 Utilizar um script semelhante ao seguinte exemplo para verificar o estado do ir Azure-SSIS.
 
 ```powershell
-Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
 ```
 
 ### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Obter mais informações sobre o runtime de integração Azure-SSIS
@@ -222,7 +224,7 @@ Consulte os seguintes artigos para saber mais sobre o runtime de integração Az
 
 - [Runtime de integração Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime). Este artigo fornece informações conceituais sobre runtimes de integração em geral, incluindo o ir Azure-SSIS. 
 - [Tutorial: implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md). Este artigo disponibiliza instruções passo a passo para criar um IR Azure-SSIS e utiliza uma base de dados da Base de Dados SQL do Azure para alojar o catálogo do SSIS. 
-- [Como: Criar um runtime de integração Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo é uma continuação do tutorial e fornece instruções sobre como utilizar a instância gerida da base de dados SQL do Azure e associar o IR a uma rede virtual. 
+- [How to: Criar um runtime de integração Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo é uma continuação do tutorial e fornece instruções sobre como utilizar a instância gerida da base de dados SQL do Azure e associar o IR a uma rede virtual. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gerir um IR Azure-SSIS). Este artigo mostra-lhe como parar, iniciar ou remover um IR Azure-SSIS. Mostra também como aumentá-lo horizontalmente mediante a adição de mais nós ao mesmo. 
 - [Associar um IR Azure-SSIS a uma rede virtual](join-azure-ssis-integration-runtime-virtual-network.md). Este artigo disponibiliza informações concetuais sobre como associar um IR Azure-SSIS a uma rede virtual do Azure. Também descreve os passos para utilizar o portal do Azure para configurar a rede virtual para que o IR Azure-SSIS pode aderir a rede virtual. 
 

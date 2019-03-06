@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037d1de83e34aa8489498c65dbc5fd3423b081b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7475969f3b1437a8d42345f00a974957c15d00fa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162667"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444303"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Aplicação inesperada na minha lista de aplicações
 
@@ -108,7 +108,7 @@ Para **eliminar uma aplicação**, siga estes passos:
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desativar todas as operações de consentimento de utilizador futuras para qualquer aplicação
 
-Desativar o consentimento do utilizador para o diretório completo impedir que os utilizadores finais consentir qualquer aplicação. Os administradores ainda podem consentir em behalves do utilizador. Para saber mais sobre o consentimento da aplicação e, por isso que pode ou não deve consentir, leia [consentimento de administrador e de utilizador de compreensão](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
+Desativar o consentimento do utilizador para o diretório completo impedir que os utilizadores finais consentir qualquer aplicação. Os administradores ainda podem consentir em nome de utilizador. Para saber mais sobre o consentimento da aplicação e, por isso que pode ou não deve consentir, leia [consentimento de administrador e de utilizador de compreensão](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
 
 Para **desativar todas as operações de consentimento de utilizador futuras no seu diretório inteiro**, siga estes passos:
 

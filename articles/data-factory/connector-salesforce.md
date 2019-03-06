@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c4d694621e4ac5428256346e3994bc3233d399a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015088"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441411"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-salesforce-connector.md)
 > * [Versão atual](connector-salesforce.md)
 
@@ -238,7 +238,7 @@ Para copiar dados para o Salesforce, defina o tipo de sink na atividade de cópi
 | WriteBehavior | O comportamento de escrita para a operação.<br/>Valores permitidos são **inserir** e **Upsert**. | Não (a predefinição é Insert) |
 | externalIdFieldName | O nome do campo de ID externo para a operação de upsert. O campo especificado tem de ser definido como "Campo de Id externo" no objeto Salesforce. Ele não pode ter valores nulos os dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados escritos para o Salesforce em cada lote. | Não (a predefinição é 5.000) |
-| ignoreNullValues | Indica se a ignorar valores NULL de dados de entrada durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterado quando faz uma operação de upsert ou atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **FALSO**: Atualize os dados no objeto de destino como NULL quando o fizer uma operação de upsert ou atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
+| ignoreNullValues | Indica se a ignorar valores NULL de dados de entrada durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterado quando faz uma operação de upsert ou atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **False**: Atualize os dados no objeto de destino como NULL quando o fizer uma operação de upsert ou atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
 
 **Exemplo: Salesforce sink na atividade de cópia**
 
@@ -291,7 +291,7 @@ Ao copiar dados do Salesforce, pode utilizar a consulta SOQL ou consulta SQL. Te
 
 | Sintaxe | Modo SOQL | Modo SQL |
 |:--- |:--- |:--- |
-| Seleção de coluna | Tem de enumarate os campos a serem copiadas da consulta, por exemplo `SELECT field1, filed2 FROM objectname` | `SELECT *` é suportada para além de seleção de coluna. |
+| Seleção de coluna | Enumerar os campos a serem copiadas da consulta, por exemplo, é necessário `SELECT field1, filed2 FROM objectname` | `SELECT *` é suportada para além de seleção de coluna. |
 | Entre aspas duplas | Nomes de campo/objeto não podem estar escritos entre aspas. | Nomes de campo/objetos podem estar escritos entre aspas, por exemplo `SELECT "id" FROM "Account"` |
 | Formato DateTime |  Consulte os detalhes [aqui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) e exemplos na secção seguinte. | Consulte os detalhes [aqui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) e exemplos na secção seguinte. |
 | Valores Boolianos | Representados como `False` e `True`, por exemplo, `SELECT … WHERE IsDeleted=True`. | Representados como 0 ou 1, por exemplo, `SELECT … WHERE IsDeleted=1`. |
@@ -311,25 +311,25 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre
 
 | Tipo de dados do Salesforce | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
-| Número de automática |Cadeia |
+| Número de automática |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
 | Date |DateTime |
 | Data/Hora |DateTime |
-| Email |Cadeia |
-| Id |Cadeia |
-| Relação de referência |Cadeia |
-| Lista de opções de seleção múltipla |Cadeia |
+| Email |String |
+| Id |String |
+| Relação de referência |String |
+| Lista de opções de seleção múltipla |String |
 | Number |Decimal |
 | Percentagem |Decimal |
-| Telefone |Cadeia |
-| Lista de opções |Cadeia |
-| Texto |Cadeia |
-| Área de texto |Cadeia |
-| Área de texto (longa) |Cadeia |
-| Área de texto (avançado) |Cadeia |
-| Texto (encriptado) |Cadeia |
-| do IdP |Cadeia |
+| Telefone |String |
+| Lista de opções |String |
+| Texto |String |
+| Área de texto |String |
+| Área de texto (longa) |String |
+| Área de texto (avançado) |String |
+| Texto (encriptado) |String |
+| do IdP |String |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

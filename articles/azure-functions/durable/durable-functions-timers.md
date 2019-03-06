@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e81e842e059e09f24627138ba9fbf6510a603efe
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: d225ece7b8a8841d17f20bc27de3aa640fa7d37b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353299"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436430"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores nas funções duráveis (funções do Azure)
 
@@ -132,7 +132,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> Utilize um `CancellationTokenSource` para cancelar um temporizador durável (c#) ou uma chamada `cancel()` retornado no `TimerTask` (JavaScript), se seu código não aguarda que este seja concluído. A estrutura de tarefa durável não irá alterar o estado de uma orquestração como "concluído" até que todas as tarefas pendentes sejam concluídas ou canceladas.
+> Utilize um `CancellationTokenSource` para cancelar um temporizador durável (c#) ou uma chamada `cancel()` retornado no `TimerTask` (JavaScript), se seu código não aguarda que este seja concluído. A estrutura de tarefa durável não irá alterar o estado de uma orquestração como "concluído" até que todas as tarefas pendentes sejam concluídas ou foi canceladas.
 
 Esse mecanismo não encerra, na verdade, a execução de função da atividade em curso. Em vez disso, ele simplesmente permite que a função de orquestrador ignorar o resultado e avançar. Se a sua aplicação function app utiliza o plano de consumo, ainda será cobrado para qualquer tempo e memória consumida pela função atividade abandonados. Por predefinição, as funções em execução no plano de consumo têm um tempo limite de cinco minutos. Se este limite for excedido, o anfitrião de funções do Azure é reciclado para parar a execução de todas as e impede uma situação de faturação de fuga. O [tempo limite da função é configurável](../functions-host-json.md#functiontimeout).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: a88ea248f1db90916c5dbcaefc24131eb976e2f6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9e36ac41fb42d7c0e00dca6dc82f2f5daee1278b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728347"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435546"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a gestão de API numa VNET interna com o Gateway de aplicação
 
@@ -354,7 +354,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
 ## <a name="summary"> </a> Resumo
-Gestão de API do Azure configurado numa VNET fornece uma interface de gateway único para todas as APIs de configurados, quer estejam alojado no local ou na cloud. Integrar o Gateway de aplicação com a gestão de API fornece a flexibilidade de forma seletiva ativar APIs específicas para ser acessível na Internet, bem como fornecendo uma Firewall de aplicações Web como um front-end para a sua instância de gestão de API.
+Gestão de API do Azure configurado numa VNET fornece uma interface de gateway único para todas as APIs configuradas, se estes estão alojados no local ou na cloud. Integrar o Gateway de aplicação com a gestão de API fornece a flexibilidade de forma seletiva ativar APIs específicas para ser acessível na Internet, bem como fornecendo uma Firewall de aplicações Web como um front-end para a sua instância de gestão de API.
 
 ##<a name="next-steps"> </a> Próximas etapas
 * Saiba mais sobre o Gateway de aplicação do Azure

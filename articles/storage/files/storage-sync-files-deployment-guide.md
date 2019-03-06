@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 23f1f4e8b6a3b71c3792a08645122779e4e629b2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f871174982e965a32d5f2dca5e2e53c5dc436055
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465831"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405492"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar Azure File Sync
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -83,7 +83,7 @@ A implementação do Azure File Sync começa com a colocação de um **serviço 
 > O serviço de sincronização de armazenamento herdadas as permissões de acesso da subscrição e grupo de recursos que tiver sido implementada no. Recomendamos que verifique quem tem acesso a ele. Entidades com acesso de escrita podem começar a sincronizar novos conjuntos de ficheiros a partir de servidores registados para este armazenamento serviço de sincronização e fazer com que dados a ser enviados para o armazenamento do Azure que seja acessível aos mesmos.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Para implementar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *New* e, em seguida, procure a sincronização de ficheiros do Azure. Nos resultados da pesquisa, selecione **do Azure File Sync**e, em seguida, selecione **Create** para abrir o **implementar sincronização de armazenamento** separador.
+Para implementar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *criar um recurso* e, em seguida, procure a sincronização de ficheiros do Azure. Nos resultados da pesquisa, selecione **do Azure File Sync**e, em seguida, selecione **Create** para abrir o **implementar sincronização de armazenamento** separador.
 
 No painel que se abre, introduza as informações seguintes:
 

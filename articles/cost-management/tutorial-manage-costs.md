@@ -10,20 +10,20 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bc1212c7ea7425e59da30478dbd58772fa1b748b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083568"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451021"
 ---
-# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerir os custos através da Cloudyn
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerir os custos através do Cloudyn
 
 Pode gerir os custos e produzir relatórios de análise de custos na Cloudyn ao alocar os custos com base em etiquetas. O processo de alocação de custos atribui os custos aos recursos de cloud consumidos. Os custos estão totalmente alocados quando todos os recursos estiverem categorizados com etiquetas. Após a alocação dos custos, pode fornecer análise de custos ou estorno aos seus utilizadores através de dashboards e relatórios. No entanto, muitos recursos podem não estar marcados ou não poder ser marcados quando começar a utilizar a Cloudyn.
 
 Por exemplo, pode querer ser reembolsado relativamente aos custos de engenharia. Tem de conseguir mostrar à sua equipa de engenharia que precisa de um montante específico, com base nos custos de recursos. Pode mostrar-lhes um relatório para todos os recursos consumidos marcados como *engenharia*.
 
-Neste artigo, as etiquetas e as categorias por vezes são sinónimos. As categorias são coleções alargadas e podem ser muitas coisas. Poderão incluir unidades de negócio, centros, de custos, serviços Web ou qualquer coisa esteja marcada. As etiquetas são pares nome/valor que permitem categorizar recursos, ver e gerir informação de faturação consolidada, aplicando a mesma etiqueta a vários recursos e grupos de recursos. Em versões anteriores do portal do Azure, um *nome da etiqueta* foi referido como uma *chave*. As etiquetas são criadas para e armazenadas por uma única subscrição do Azure. As etiquetas no AWS consistem em pares chave/valor. Uma vez que o Azure e o AWS utilizaram o termo *chave*, a Cloudyn utiliza esse termo. O Category Manager utiliza chaves (nomes da etiqueta) para unir as etiquetas.
+Neste artigo, as etiquetas e as categorias por vezes são sinónimos. As categorias são coleções alargadas e podem ser muitas coisas. Poderão incluir unidades de negócio, centros, de custos, serviços Web ou qualquer coisa esteja marcada. As etiquetas são pares de nome/valor que permitem categorizar recursos e ver e gerir informações de faturação de consolidados aplicando a mesma etiqueta a vários recursos e grupos de recursos. Em versões anteriores do portal do Azure, um *nome da etiqueta* foi referido como uma *chave*. As etiquetas são criadas para e armazenadas por uma única subscrição do Azure. As etiquetas no AWS consistem em pares chave/valor. Uma vez que o Azure e o AWS utilizaram o termo *chave*, a Cloudyn utiliza esse termo. O Category Manager utiliza chaves (nomes da etiqueta) para unir as etiquetas.
 
 Neste tutorial, ficará a saber como:
 

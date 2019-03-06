@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: anuragm
-ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 8bfa9f2fcdc3047ed5541db058f670a4bc464164
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428624"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449908"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Resolver problemas de cópia de segurança do SQL Server no Azure
 
@@ -37,7 +37,7 @@ Utilize as informações nas tabelas seguintes para resolver problemas e erros e
 
 | Gravidade | Descrição | Causas possíveis | Ação recomendada |
 |---|---|---|---|
-| Aviso | As definições atuais desta base de dados não suportam a determinado tipo de tipos de cópia de segurança presentes na política de associados. | <li>**DB de dominar**: Apenas uma operação de cópia de segurança completa da base de dados pode ser executada na base de dados mestra; nem **diferencial** cópia de segurança nem transação **registos** cópia de segurança são possíveis. </li> <li>Qualquer base de dados **modelo de recuperação simples** não permite a transação **registos** cópia de segurança a tomar.</li> | Modifica as definições de base de dados, de modo a que todos os tipos de cópia de segurança na política são suportados. Em alternativa, altere a política atual para incluir apenas os tipos de cópia de segurança suportados. Caso contrário, os tipos de cópia de segurança não suportados serão ignorados durante a cópia de segurança agendada ou a tarefa de cópia de segurança irá falhar para cópia de segurança ad-hoc.
+| Aviso | As definições atuais desta base de dados não suportam a determinado tipo de tipos de cópia de segurança presentes na política de associados. | <li>**DB de dominar**: Apenas uma operação de cópia de segurança completa da base de dados pode ser executada na base de dados mestra; nem **diferencial** cópia de segurança nem transação **registos** cópia de segurança são possíveis. </li> <li>Qualquer base de dados **modelo de recuperação simples** não permite a transação **registos** cópia de segurança a tomar.</li> | Modifica as definições de base de dados, de modo a que todos os tipos de cópia de segurança na política são suportados. Em alternativa, altere a política atual para incluir apenas os tipos de cópia de segurança suportados. Caso contrário, os tipos de cópia de segurança não suportados serão ignorados durante a cópia de segurança agendada ou a tarefa de cópia de segurança irá falhar para cópia de segurança ad hoc.
 
 
 ## <a name="backup-failures"></a>Falhas de cópia de segurança
@@ -61,7 +61,7 @@ As tabelas a seguir são organizadas por código de erro.
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
-| Cadeia de registos está quebrada. | A base de dados ou a VM é feita com a solução de cópia de segurança outro, que trunca a cadeia de registos.|<ul><li>Verifique se a outra solução de cópia de segurança ou de script está a ser utilizado. Se assim for, pare a solução de cópia de segurança. </li><li>Se a cópia de segurança foi uma cópia de segurança do registo do ad-hoc, acione uma cópia de segurança completa para iniciar uma nova cadeia de registos. Para backups de log agendadas, é necessária nenhuma ação como o serviço de cópia de segurança do Azure irá acionar automaticamente uma cópia de segurança completa para corrigir este problema.</li>|
+| Cadeia de registos está quebrada. | A base de dados ou a VM é feita com a solução de cópia de segurança outro, que trunca a cadeia de registos.|<ul><li>Verifique se a outra solução de cópia de segurança ou de script está a ser utilizado. Se assim for, pare a solução de cópia de segurança. </li><li>Se a cópia de segurança foi uma cópia de segurança do registo ad hoc, acione uma cópia de segurança completa para iniciar uma nova cadeia de registos. Para backups de log agendadas, é necessária nenhuma ação como o serviço de cópia de segurança do Azure irá acionar automaticamente uma cópia de segurança completa para corrigir este problema.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -73,14 +73,14 @@ As tabelas a seguir são organizadas por código de erro.
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
-| Primeiro backup completo está em falta para esta origem de dados. | Cópia de segurança completa está em falta para a base de dados. Log e diferenciais principal de cópias de segurança para uma cópia de segurança completa, pelo que devem tomar antes de acionar diferenciais de cópias de segurança completas ou backups de log. | Acione uma cópia de segurança completa de ad-hoc.   |
+| Primeiro backup completo está em falta para esta origem de dados. | Cópia de segurança completa está em falta para a base de dados. Log e diferenciais principal de cópias de segurança para uma cópia de segurança completa, pelo que devem tomar antes de acionar diferenciais de cópias de segurança completas ou backups de log. | Acione uma cópia de segurança completa ad hoc.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
 | Mensagem de erro | Causas possíveis | Ação recomendada |
 |---|---|---|
 | Não é possível efetuar cópia de segurança, como o log de transação para a origem de dados está cheio. | O espaço do registo transacional de base de dados está cheio. | Para corrigir este problema, consulte a [documentação do SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Esta base de dados SQL não suporta o tipo de cópia de segurança solicitado. | Réplicas secundárias do sempre em AG não suportam cópias de segurança completas e diferenciais. | <ul><li>Se acionada uma cópia de segurança ad-hoc, acione as cópias de segurança no nó principal.</li><li>Se a cópia de segurança foi agendada pela política, certifique-se de que o nó principal está registado. Para registar o nó [siga os passos para detetar uma base de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| Esta base de dados SQL não suporta o tipo de cópia de segurança solicitado. | Réplicas secundárias do sempre em AG não suportam cópias de segurança completas e diferenciais. | <ul><li>Se acionada uma cópia de segurança ad hoc, acione as cópias de segurança no nó principal.</li><li>Se a cópia de segurança foi agendada pela política, certifique-se de que o nó principal está registado. Para registar o nó [siga os passos para detetar uma base de dados do SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>As falhas do restauro
 

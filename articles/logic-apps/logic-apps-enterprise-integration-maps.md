@@ -11,16 +11,16 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: da5b099a5574d34c3676819c930f3e89610cf4ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767440"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455807"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas no Azure Logic Apps com o Enterprise Integration Pack
 
-Para transferir dados XML entre formatos para cenários de integração do enterprise no Azure Logic Apps, a aplicação lógica pode utilizar mapas ou, mais especificamente, mapeia o Extensible Stylesheet Language transformações XSLT (). Um mapa é um documento XML que descreve como converter dados de um documento XML em outro formato. 
+Para transferir dados XML entre formatos para cenários de integração do enterprise no Azure Logic Apps, a sua aplicação lógica pode utilizar mapas ou, mais especificamente, os folha de estilos extensível mapeia de transformações de idioma (XSLT). Um mapa é um documento XML que descreve como converter dados de um documento XML em outro formato. 
 
 Por exemplo, suponha que regularmente, receber ordens de B2B ou notas fiscais de um cliente que utiliza o formato de data YYYMMDD. No entanto, a sua organização utiliza o formato de data MMDDYYY. Pode definir e utilizar um mapa que transforma o formato de data no formato de MMDDYYY YYYMMDD antes de armazenar os detalhes da ordem ou por fatura na sua base de dados de atividade do cliente.
 

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cc6e4083ba952eb9799aa91f76cf6e5ab75c7f64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118025"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449585"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Utilizar dados de referência de uma base de dados SQL para uma tarefa do Azure Stream Analytics (pré-visualização)
 
@@ -158,7 +158,7 @@ Existem não adicionais [custo por unidade de transmissão em fluxo](https://azu
 
 **Como posso saber instantâneo de dados de referência está a ser consultadas a partir de BD SQL e utilizados na tarefa do Azure Stream Analytics?**
 
-Existem métricas de duas filtradas por nome lógico (no Portal do Azure de métricas) que pode ser usado para monitorar a integridade dos dados de referência de base de dados SQL de entrada.
+Existem duas métricas filtradas por nome lógico (no Portal do Azure de métricas) que pode ser usado para monitorar a integridade dos dados de referência de base de dados SQL de entrada.
 
    * InputEvents: Esta métrica mede o número de registos carregados no, a partir do conjunto de dados de referência de base de dados SQL.
    * InputEventBytes: Esta métrica mede o tamanho do instantâneo de dados de referência carregado na memória da tarefa do Stream Analytics. 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85edaeab67c7b5164dabbc817429e2ab82f5ea11
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 08c3511b3efc7ee2e21ef5847976357292bf95bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864673"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446865"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um servidor SQL no local para o SQL Azure com o Azure Data Factory
 
@@ -71,7 +71,7 @@ As instruções para criar uma nova fábrica de dados do Azure e o grupo de recu
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Instalar e configurar o Azure Data Factory Integration Runtime
 O Runtime de integração é uma infraestrutura de integração de dados geridos de cliente utilizada pelo Azure Data Factory para fornecer capacidades de integração de dados em ambientes de rede diferentes. Este tempo de execução era anteriormente denominado "Gateway de gestão de dados".
 
-Para configurar, [siga instrutions para criar um pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Para configurar, [siga as instruções para criar um pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>Criar serviços ligados para ligar aos recursos de dados
 Um serviço ligado define as informações necessárias para ligar a um recurso de dados do Azure Data Factory. Temos três recursos neste cenário para o qual os serviços ligados são necessários:

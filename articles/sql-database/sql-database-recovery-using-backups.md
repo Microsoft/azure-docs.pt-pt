@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b4b514350e36e9fe71e7c5cb5cd978764e0108d5
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 90f7ef32a54f257a64942b37938cff5703112d6c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317191"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409871"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 
@@ -141,7 +141,7 @@ Como foi discutido anteriormente, além de portal do Azure, a recuperação de b
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Para restaurar um autónoma ou de bases de dados agrupadas, consulte [AzSqlDatabase de restauro](https://docs.microsoft.com/powershell/module/az.sql/restore-azurermsqldatabase)
+- Para restaurar um autónoma ou de bases de dados agrupadas, consulte [restauro AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Descrição |
   | --- | --- |
@@ -153,7 +153,7 @@ Como foi discutido anteriormente, além de portal do Azure, a recuperação de b
   > [!TIP]
   > Para um script do PowerShell de exemplo que mostra como executar um restauro de ponto no tempo de uma base de dados, consulte [restaurar uma base de dados SQL com o PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-- Para restaurar uma base de dados de instância gerida, consulte [restaurodepontonotempodade uma base de dados do Azure instância gerida SQL biblioteca do PowerShell do azurerm. SQL](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-Az-sql-powershell-library/)
+- Para restaurar uma base de dados de instância gerida, consulte [restaurodepontonotempodade uma base de dados do Azure instância gerida SQL biblioteca do PowerShell do azurerm. SQL](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/).
 
 ### <a name="rest-api"></a>API REST
 

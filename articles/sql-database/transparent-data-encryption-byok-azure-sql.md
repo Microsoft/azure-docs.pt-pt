@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: d7b25b641b91640c72ff6785de1b4bfddac3ea50
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a0f909dcb78a782945517b6691805ea66f2d0cfd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314743"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456385"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>O Azure SQL encriptação de dados transparente com chaves geridas pelo cliente no Azure Key Vault: Oferecer suporte a sua própria chave
 

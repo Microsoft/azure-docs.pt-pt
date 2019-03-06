@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: aschhab
-ms.openlocfilehash: aaa8615c0358b89c02aad8241262320771e426a8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: ea5f0e1ad6af6f301b684337941c7d9bce8590c1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818078"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444485"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
@@ -27,9 +27,9 @@ Não é possível alterar a opção de criação de partições em qualquer fila
 
 ## <a name="how-it-works"></a>Como funciona
 
-Cada particionada fila ou tópico consiste em vários fragmentos. Cada fragmento é armazenado num arquivo de mensagens diferente e manipulado por um mediador de mensagem diferente. Quando uma mensagem é enviada para uma fila particionada ou um tópico, o Service Bus atribui a mensagem a um dos fragmentos. A seleção é feita aleatoriamente ao Service Bus ou ao utilizar uma chave de partição que o remetente pode especificar.
+Cada particionada fila ou tópico consiste em várias partições. Cada partição é armazenada num arquivo de mensagens diferente e manipulada por um mediador de mensagem diferente. Quando uma mensagem é enviada para uma fila particionada ou um tópico, o Service Bus atribui a mensagem a uma das partições. A seleção é feita aleatoriamente ao Service Bus ou ao utilizar uma chave de partição que o remetente pode especificar.
 
-Quando um cliente pretende receber uma mensagem de uma fila particionada, ou a partir de uma subscrição para um tópico particionado, consultas do Service Bus todos os fragmentos para mensagens, em seguida, devolve a primeira mensagem que é obtida a partir de qualquer um dos arquivos de mensagens para o recetor. Pedidos de receção de caches do Service Bus, as outras mensagens e devolve-os ao receber adicionais. Um cliente de receção não está ciente do particionamento; o comportamento com clientes de uma fila particionada ou um tópico (por exemplo, ler, concluir, diferir, mensagens não entregues, pré-busca) é idêntico ao comportamento de uma entidade regular.
+Quando um cliente pretende receber uma mensagem de uma fila particionada, ou a partir de uma subscrição para um tópico particionado, consultas do Service Bus todas as partições para mensagens, em seguida, devolve a primeira mensagem que é obtida a partir de qualquer um dos arquivos de mensagens para o recetor. Pedidos de receção de caches do Service Bus, as outras mensagens e devolve-os ao receber adicionais. Um cliente de receção não está ciente do particionamento; o comportamento com clientes de uma fila particionada ou um tópico (por exemplo, ler, concluir, diferir, mensagens não entregues, pré-busca) é idêntico ao comportamento de uma entidade regular.
 
 Não existe nenhum custo adicional quando uma mensagem a enviar ou receber uma mensagem de uma fila particionada ou tópico.
 
@@ -43,7 +43,7 @@ No escalão mensagens padrão, pode criar filas do Service Bus e tópicos em 1, 
 
 ### <a name="premium"></a>Premium
 
-Um espaço de nomes de escalão Premium, a criação de partições de entidades não é suportada. No entanto, pode ainda criar tópicos e filas do Service Bus em 1, 2, 3, 4, 5, 10, 20, 40 ou tamanhos de 80 GB (a predefinição é 1 GB). Pode ver o tamanho da sua fila ou tópico examinando sua entrada [portal do Azure][Azure portal], no **descrição geral** painel para essa entidade.
+Um espaço de nomes de escalão Premium, as entidades de criação de partições não são suportadas. No entanto, pode ainda criar tópicos e filas do Service Bus em 1, 2, 3, 4, 5, 10, 20, 40 ou tamanhos de 80 GB (a predefinição é 1 GB). Pode ver o tamanho da sua fila ou tópico examinando sua entrada [portal do Azure][Azure portal], no **descrição geral** painel para essa entidade.
 
 ### <a name="create-a-partitioned-entity"></a>Criar uma entidade com partições
 
@@ -61,11 +61,11 @@ Em alternativa, pode criar uma fila particionada ou um tópico no [portal do Azu
 
 ## <a name="use-of-partition-keys"></a>Utilização de chaves de partição
 
-Quando uma mensagem é colocado em fila numa fila particionada ou um tópico, o Service Bus verifica a presença de uma chave de partição. Se ele encontrar um, seleciona o fragmento com base nessa chave. Se não encontrar uma chave de partição, seleciona o fragmento com base num algoritmo interno.
+Quando uma mensagem é colocado em fila numa fila particionada ou um tópico, o Service Bus verifica a presença de uma chave de partição. Se ele encontrar um, seleciona a partição com base nessa chave. Se não encontrar uma chave de partição, seleciona a partição com base num algoritmo interno.
 
 ### <a name="using-a-partition-key"></a>Utilizar uma chave de partição
 
-Alguns cenários, tais como sessões ou de transações, exigem que as mensagens sejam armazenados num fragmento específico. Todos esses cenários requerem a utilização de uma chave de partição. Todas as mensagens que utilizam a mesma chave de partição são atribuídas para o mesmo fragmento. Se o fragmento estiver temporariamente indisponível, o Service Bus devolve um erro.
+Alguns cenários, tais como sessões ou de transações, exigem que as mensagens sejam armazenados numa partição específica. Todos esses cenários requerem a utilização de uma chave de partição. Todas as mensagens que utilizam a mesma chave de partição são atribuídas para a mesma partição. Se a partição está temporariamente indisponível, o Service Bus devolve um erro.
 
 Dependendo do cenário, as propriedades de mensagem diferente são utilizadas como uma chave de partição:
 
@@ -77,13 +77,13 @@ Dependendo do cenário, as propriedades de mensagem diferente são utilizadas co
 
 ### <a name="not-using-a-partition-key"></a>Não utilizar uma chave de partição
 
-Na ausência de uma chave de partição, do Service Bus distribui mensagens de uma forma de rodízio para todos os fragmentos da particionada fila ou tópico. Se o fragmento escolhido não estiver disponível, o Service Bus atribui a mensagem a um fragmento diferente. Dessa forma, a operação de envio for bem-sucedido apesar da indisponibilidade temporária de um arquivo de mensagens. No entanto, não obterá a ordenação garantido que fornece uma chave de partição.
+Na ausência de uma chave de partição, do Service Bus distribui mensagens de uma forma de rodízio para todas as partições da particionada fila ou tópico. Se a partição escolhida não estiver disponível, o Service Bus atribui a mensagem a uma partição diferente. Dessa forma, a operação de envio for bem-sucedido apesar da indisponibilidade temporária de um arquivo de mensagens. No entanto, não obterá a ordenação garantido que fornece uma chave de partição.
 
 Para uma discussão mais aprofundada sobre o compromisso entre disponibilidade (nenhuma chave de partição) e consistência (com uma chave de partição), consulte [este artigo](../event-hubs/event-hubs-availability-and-consistency.md). Estas informações se aplica igualmente a entidades particionadas do Service Bus.
 
-Para dar do Service Bus bastante tempo para colocar em fila a mensagem num fragmento diferente, o [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) valor especificado pelo cliente que envia a mensagem deve ser superior a 15 segundos. É recomendado que defina os [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) propriedade para o valor predefinido de 60 segundos.
+Para dar do Service Bus suficiente tempo para colocar em fila a mensagem numa partição diferente, o [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) valor especificado pelo cliente que envia a mensagem deve ser superior a 15 segundos. É recomendado que defina os [OperationTimeout](/dotnet/api/microsoft.azure.servicebus.queueclient.operationtimeout) propriedade para o valor predefinido de 60 segundos.
 
-Uma chave de partição "fixa" uma mensagem a um fragmento específico. Se o arquivo de mensagens que contém esse fragmento não estiver disponível, o Service Bus devolve um erro. Na ausência de uma chave de partição, do Service Bus pode escolher um fragmento diferente e a operação for concluída com êxito. Por conseguinte, é recomendado que não está a fornecer uma chave de partição, a menos que seja necessário.
+Uma chave de partição "fixa" uma mensagem para uma partição específica. Se o arquivo de mensagens que contém esta partição não estiver disponível, o Service Bus devolve um erro. Na ausência de uma chave de partição, do Service Bus pode escolher uma partição diferente e a operação for concluída com êxito. Por conseguinte, é recomendado que não está a fornecer uma chave de partição, a menos que seja necessário.
 
 ## <a name="advanced-topics-use-transactions-with-partitioned-entities"></a>Tópicos avançados: utilizar transações com entidades particionadas
 
@@ -101,7 +101,7 @@ using (TransactionScope ts = new TransactionScope(committableTransaction))
 committableTransaction.Commit();
 ```
 
-Se qualquer uma das propriedades que servem como uma chave de partição forem definidas, o Service Bus fixa a mensagem para um fragmento específico. Este comportamento ocorre independentemente de uma transação é utilizada. Recomenda-se que não especificar uma chave de partição se não for necessário.
+Se qualquer uma das propriedades que servem como uma chave de partição forem definidas, o Service Bus fixa a mensagem para uma partição específica. Este comportamento ocorre independentemente de uma transação é utilizada. Recomenda-se que não especificar uma chave de partição se não for necessário.
 
 ## <a name="using-sessions-with-partitioned-entities"></a>Utilizar sessões com entidades particionadas
 
@@ -126,9 +126,9 @@ committableTransaction.Commit();
 Service Bus suporta mensagem automática de reencaminhamento de, para ou entre entidades particionadas. Para ativar o reencaminhamento de mensagens automática, defina o [QueueDescription.ForwardTo] [ QueueDescription.ForwardTo] propriedade na fila de origem ou subscrição. Se a mensagem de especificar uma chave de partição ([SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid), [PartitionKey](/dotnet/api/microsoft.azure.servicebus.message.partitionkey), ou [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid)), essa chave de partição é utilizada para a entidade de destino.
 
 ## <a name="considerations-and-guidelines"></a>Considerações e diretrizes
-* **Recursos de uniformização elevada**: Se uma entidade utiliza funcionalidades como sessões, deteção de duplicados ou controle explícito da chave de criação de partições, em seguida, as operações de mensagens são sempre encaminhadas para fragmentos específicos. Se qualquer um dos fragmentos de experiência de tráfego elevado ou o armazenamento subjacente está danificado, essas operações falharem e disponibilidade é reduzida. Em geral, a consistência é ainda muito maior do que as entidades de não-particionada; apenas um subconjunto de tráfego está a ter problemas, em vez de todo o tráfego. Para obter mais informações, consulte esta [discussão sobre disponibilidade e consistência](../event-hubs/event-hubs-availability-and-consistency.md).
-* **Gestão**: Operações, tais como Create, Update e Delete devem ser executadas em todos os fragmentos da entidade. Se qualquer fragmento está danificado, pode resultar em falhas para essas operações. Para a operação de obtenção de informações como mensagem conta tem de ser agregadas de todos os fragmentos. Se qualquer fragmento está danificado, o estado de disponibilidade da entidade é comunicado como limitado.
-* **Cenários de mensagem do volume de baixa**: Para estes cenários, especialmente quando se utilizam o protocolo HTTP, poderá ter de efetuar várias receber operações para obter todas as mensagens. Para pedidos de receção, o front-end executa receber em todos os fragmentos e armazena em cache todas as respostas recebidas. Um pedido de receção subsequentes na mesma conexão seria beneficiar Esta colocação em cache e receber latências será inferiores. No entanto, se tiver várias ligações ou utilizar HTTP, que estabelece uma ligação nova para cada solicitação. Como tal, não é garantido que ele seria apresentado no mesmo nó. Se todas as mensagens existentes são bloqueadas e armazenados em cache no outro front-end, a operação receive devolve **nulo**. As mensagens expiram, eventualmente, e pode recebê-las novamente. Recomenda-se a ligação keep-alive de HTTP.
+* **Recursos de uniformização elevada**: Se uma entidade utiliza funcionalidades como sessões, deteção de duplicados ou controle explícito da chave de criação de partições, em seguida, as operações de mensagens são sempre encaminhadas para a partição específica. Se nenhuma das partições ocorrerem tráfego elevado ou o armazenamento subjacente está danificado, essas operações falharem e disponibilidade é reduzida. Em geral, a consistência é ainda muito maior do que as entidades de não-particionada; apenas um subconjunto de tráfego está a ter problemas, em vez de todo o tráfego. Para obter mais informações, consulte esta [discussão sobre disponibilidade e consistência](../event-hubs/event-hubs-availability-and-consistency.md).
+* **Gestão**: Operações, tais como Create, Update e Delete devem ser executadas em todas as partições da entidade. Se qualquer partição está danificada, pode resultar em falhas para essas operações. Para a operação de obtenção de informações como mensagem conta tem de ser agregadas de todas as partições. Se qualquer partição está danificada, o estado de disponibilidade da entidade é comunicado como limitado.
+* **Cenários de mensagem do volume de baixa**: Para estes cenários, especialmente quando se utilizam o protocolo HTTP, poderá ter de efetuar várias receber operações para obter todas as mensagens. Para pedidos de receção, o front-end executa um receive em todas as partições e armazena em cache todas as respostas recebidas. Um pedido de receção subsequentes na mesma conexão seria beneficiar Esta colocação em cache e receber latências será inferiores. No entanto, se tiver várias ligações ou utilizar HTTP, que estabelece uma ligação nova para cada solicitação. Como tal, não é garantido que ele seria apresentado no mesmo nó. Se todas as mensagens existentes são bloqueadas e armazenados em cache no outro front-end, a operação receive devolve **nulo**. As mensagens expiram, eventualmente, e pode recebê-las novamente. Recomenda-se a ligação keep-alive de HTTP.
 * **Procurar/Peek mensagens**: Disponível apenas no antigo [windowsazure. Servicebus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) biblioteca. [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) não devolve o número de mensagens especificado no sempre o [MessageCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.messagecount) propriedade. Existem dois motivos comuns para esse comportamento. Uma razão é que o tamanho do agregado da coleção de mensagens excede o tamanho máximo de 256 KB. Outro motivo é que, se a fila ou tópico tem o [propriedade EnablePartitioning](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning) definida como **verdadeiro**, uma partição pode não ter suficiente mensagens para concluir o número pedido de mensagens. Em geral, se um aplicativo quiser receber um número específico de mensagens, ela deve chamar [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) repetidamente até que ele obtém esse número de mensagens ou não existirem mais mensagens de olhar. Para obter mais informações, incluindo exemplos de código, consulte a [QueueClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch) ou [SubscriptionClient.PeekBatch](/dotnet/api/microsoft.servicebus.messaging.subscriptionclient.peekbatch) documentação da API.
 
 ## <a name="latest-added-features"></a>Mais recentes recursos adicionais

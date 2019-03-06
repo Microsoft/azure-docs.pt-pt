@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 4e56d22dde5fca50d17c055be93db5b91deeb287
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0a03bfe61da6a1de073401fca9c61f3212b9d0bb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819178"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440102"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -82,9 +82,9 @@ Se preferir utilizar o Azure PowerShell para criar o cluster e a base de dados S
     - **Nome de início de sessão e palavra-passe do cluster**: O nome de início de sessão predefinido é admin.
     - **Nome de utilizador e palavra-passe do SSH**.
     - **Base de dados SQL nome do servidor de início de sessão e palavra-passe**.
-    - **localização de _artifacts**: Utilize o valor predefinido, a menos que desejar usar seu próprio ficheiro backpac numa localização diferente.
+    - **localização de _artifacts**: Utilize o valor predefinido, a menos que desejar usar seu próprio ficheiro bacpac numa localização diferente.
     - **Token de Sas de localização de _artifacts**: Deixe em branco.
-    - **Nome de ficheiro Bacpac**: Utilize o valor predefinido, a menos que queira utilizar o seu próprio ficheiro backpac.
+    - **Nome de ficheiro Bacpac**: Utilize o valor predefinido, a menos que queira utilizar o seu próprio ficheiro bacpac.
      
         Os seguintes valores estão codificados na secção de variáveis:
         

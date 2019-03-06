@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 11b89cd33346c2d6da2269bbc2a4b9550f3120b3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587390"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455773"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Criar uma aplicação de web ASP.NET com a conta do Azure Cosmos DB SQL API
 

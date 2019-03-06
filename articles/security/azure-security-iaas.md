@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: c60022d43af1601359ab5de8b4d3e4eb06dd239a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243232"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409759"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho de IaaS no Azure
 
@@ -153,7 +153,7 @@ Seguem-se melhores práticas para utilizar o Azure Disk Encryption:
 **Detalhe**: O Azure Disk Encryption gera e escreve as chaves de encriptação para o seu Cofre de chaves. A gestão de chaves de encriptação no seu Cofre de chaves requer autenticação do Azure AD. Crie uma aplicação do Azure AD para esta finalidade. Para fins de autenticação, pode utilizar a autenticação com base no segredo do cliente ou [autenticação de cliente baseada em certificado do Azure AD](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
 **Melhor prática**: Utilize uma chave de encriptação de chaves (KEK) para uma camada adicional de segurança para as chaves de encriptação. Adicione um KEK ao seu Cofre de chaves.   
-**Detalhe**: Utilize o [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azurekeyvaultkey) cmdlet para criar uma chave de encriptação de chave no Cofre de chaves. Também pode importar um KEK de seu módulo de segurança de hardware (HSM) de no local para a gestão de chaves. Para obter mais informações, consulte a [documentação do Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quando é especificada uma chave de encriptação de chave, o Azure Disk Encryption utiliza essa chave para encapsular os segredos de encriptação antes de escrever para o Key Vault. Manter uma cópia de caução desta chave num local a gestão de chaves HSM oferece proteção adicional contra a eliminação acidental de chaves.
+**Detalhe**: Utilize o [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet para criar uma chave de encriptação de chave no Cofre de chaves. Também pode importar um KEK de seu módulo de segurança de hardware (HSM) de no local para a gestão de chaves. Para obter mais informações, consulte a [documentação do Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quando é especificada uma chave de encriptação de chave, o Azure Disk Encryption utiliza essa chave para encapsular os segredos de encriptação antes de escrever para o Key Vault. Manter uma cópia de caução desta chave num local a gestão de chaves HSM oferece proteção adicional contra a eliminação acidental de chaves.
 
 **Melhor prática**: Efetuar uma [instantâneo](../virtual-machines/windows/snapshot-copy-managed-disk.md) e/ou criar cópias de segurança antes dos discos são encriptados. As cópias de segurança fornecem uma opção de recuperação se acontecer de uma falha inesperada durante a encriptação.   
 **Detalhe**: As VMs com discos geridos requerem uma cópia de segurança antes de ocorre de encriptação. Depois de uma cópia de segurança é feita, pode utilizar o **conjunto AzVMDiskEncryptionExtension** cmdlet para encriptar discos geridos ao especificar a *- skipVmBackup* parâmetro. Para obter mais informações sobre como criar cópias de segurança e restaurar VMs encriptadas, consulte a [Azure Backup](../backup/backup-azure-vms-encryption.md) artigo.

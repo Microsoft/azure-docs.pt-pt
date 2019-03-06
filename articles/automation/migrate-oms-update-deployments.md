@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9a897cdb10506939232f667250dfb0dbaf196bc0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6c85060e3ca566cbf9fe51904fa9bf62322075a5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822230"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436226"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implementações de atualização do OMS para o Azure
 
@@ -66,7 +66,7 @@ Para as máquinas atualizar, selecione a pesquisa guardada utilizada pela implem
 |Atualizações a excluir|Introduza as atualizações a excluir. Para Windows, introduza o artigo KB sem o **KB** prefixo. Para o Linux, introduza o nome do pacote ou utilizar um caráter universal.  |
 |Definições da agenda|Selecione a hora de começar e, em seguida, selecione **uma vez** ou **periódico** da periodicidade.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou mais de seis horas. |
 | Janela de manutenção |Número de minutos definido para atualizações. O valor pode não ser inferior a 30 minutos e não mais de 6 horas |
-| Controlo de reinício| Detemines como devem ser tratadas reinicializações.</br>As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
+| Controlo de reinício| Determina como devem ser tratadas reinicializações.</br>As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 
 Clique em **implementações de atualização agendada** para ver o estado da implementação da atualização recém-criado.
 

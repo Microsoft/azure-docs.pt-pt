@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 357fa8a34afc8b426d308940462e22895130169f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 4c723ade885474f07d025b10e075edab0383b82e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158776"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439949"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o disco do Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -33,7 +33,7 @@ Antes de começar, certifique-se de que concluiu o [Tutorial: Copiar dados para 
 
 1. Após a validação de dados ser concluída, desligue os discos. Remova os cabos de ligação.
 2. Embrulhe todos os discos e os cabos de ligação em plástico-bolha e coloque-os na caixa de envio.
-3. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se a etiqueta estiver danificada ou perder-se, transfira uma nova etiqueta de envio do portal do Azure e coloque-a no dispositivo. Aceda a **Descrição geral > Transferir etiqueta de envio**. 
+3. Utilize a etiqueta de envio para devolução, na capa de plástico afixada na caixa. Se a etiqueta estiver danificada ou perder-se, transfira uma nova etiqueta de envio do portal do Azure e coloque-a no dispositivo. Aceda a **Descrição geral > Transferir etiqueta de envio**.
 
     ![Transferir etiqueta de envio](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
@@ -44,7 +44,7 @@ Antes de começar, certifique-se de que concluiu o [Tutorial: Copiar dados para 
 4. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
 5. Se estiver a devolver o dispositivo nos EUA, contacte a UPS para agendar uma recolha. Se estiver a devolver o dispositivo na Europa com a DHL, solicite uma recolha à DHL acedendo ao respetivo site e especificando o número de carta de porte aéreo. Aceda ao site da DHL Express do seu país e selecione **Book a Courier Collection (Agendar uma Recolha por Estafeta) > eReturn Shipment (Envio eReturn)**.
 
-    ![Envio eReturn da DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
+    ![Devolução de DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
     Especifique o número de carta de porte aéreo e clique em **Schedule Pickup (Agendar Recolha)** para marcar uma recolha.
 
@@ -66,7 +66,28 @@ Quando a cópia for concluída, o estado da encomenda será atualizado para **Co
 
 ![Cópia de dados concluída](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de eliminá-los da origem. Para garantir que os dados foram carregados para o Azure, execute os seguintes passos:
+Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de eliminá-los da origem. Os dados podem estar:
+
+- Sua conta de armazenamento do Azure (s). Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
+
+    - Para blobs de blocos e blobs de páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+    - Para Ficheiros do Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+    Em alternativa, pode aceder à sua conta de armazenamento do Azure no portal do Azure e navegar a partir daí.
+
+- Os grupos de recursos de disco gerido. Ao criar discos geridos, os VHDs são carregados como blobs de páginas e, em seguida, convertidos em discos geridos. Os discos geridos são anexados aos grupos de recursos especificados no momento da criação de ordem.
+
+    - Se a sua cópia para os managed disks no Azure foi concluída com êxito, pode ir para o **detalhes de pedidos** no portal do Azure e fazer uma observação do grupo de recursos especificada para discos geridos.
+
+        ![Ver detalhes dos pedidos](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+
+    Vá para o grupo de recursos observado e localize os discos geridos.
+
+        ![Resource group for managed disks](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+
+    - Se tiver copiado um VHDX ou um VHD de diferenciação/dinâmico, o VHD/VHDX é carregado para a conta de armazenamento de teste como um blob de blocos. Aceda a sua transição **conta de armazenamento > Blobs** e, em seguida, selecione o contentor - StandardSSD, StandardHDD ou PremiumSSD adequado. O VHD/VHDX deve aparecer como blobs de blocos na conta de armazenamento temporário.
+
+Para garantir que os dados foram carregados para o Azure, execute os seguintes passos:
 
 1. Aceda à conta de armazenamento associada à sua encomenda de disco.
 2. Aceda a **Serviço Blob > Procurar blobs**. É apresentada a lista de contentores. De forma correspondente à subpasta que criou nas pastas *BlockBlob* e *PageBlob*, os contentores com o mesmo nome são criados na sua conta de armazenamento.
@@ -78,7 +99,7 @@ Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de el
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Eliminação de dados do Data Box Disk
 
-Após a cópia ser concluída e se certificar de que os dados estão na conta de armazenamento do Azure, os discos são apagados de forma segura, segundo a norma NIST. 
+Após a cópia ser concluída e se certificar de que os dados estão na conta de armazenamento do Azure, os discos são apagados de forma segura, segundo a norma NIST.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

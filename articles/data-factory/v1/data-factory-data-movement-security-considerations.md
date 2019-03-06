@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0d601df7914b7280de4b3c16c8b00c96cb5427e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015751"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435989"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para movimento de dados
 
@@ -45,6 +45,8 @@ Neste artigo, vamos rever considerações de segurança nos seguintes cenários 
 
 - **Cenário de nuvem**-neste cenário, a origem e de destino são publicamente acessíveis através da internet. Estes incluem os serviços de armazenamento gerida na cloud, como o armazenamento do Azure, Azure SQL Data Warehouse, SQL Database do Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como o Salesforce e protocolos de web, como o FTP e OData. Pode encontrar uma lista completa das origens de dados suportadas [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 - **Cenário híbrido**- neste cenário, a origem ou de destino é protegido por uma firewall ou dentro de uma rede empresarial no local ou os dados de arquivo está numa rede privada / virtual de rede (com mais frequência a origem) e não está acessível ao público. Servidores de base de dados hospedados em máquinas virtuais também abrangidos por este cenário.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Cenários de nuvem
 ### <a name="securing-data-store-credentials"></a>A proteção dos dados armazena credenciais
@@ -93,7 +95,7 @@ As credenciais para os arquivos de dados no local são armazenadas localmente (n
 - Usando **texto sem formatação** (menos seguro) através de HTTPS a partir do Portal do Azure / Assistente para copiar. As credenciais são transmitidas em texto simples para o gateway no local.
 - Usando **biblioteca de criptografia de JavaScript com o Assistente de cópia de**.
 - Usando **clique-uma vez com base na aplicação Gestor de credenciais**. O clique-assim que o aplicativo é executado na máquina no local que tenha acesso ao gateway e define as credenciais para o arquivo de dados. Esta opção e o seguinte são as opções mais seguras. A aplicação do Gestor de credenciais, por predefinição, utiliza a porta 8050 na máquina com o gateway para uma comunicação segura.  
-- Uso [New-AzureRmDataFactoryEncryptValue](/powershell/module/azurerm.datafactories/New-AzureRmDataFactoryEncryptValue) cmdlet do PowerShell para encriptar as credenciais. O cmdlet utiliza o certificado que esse gateway é configurado para utilizar para encriptar as credenciais. Pode utilizar as credenciais encriptadas devolvidas por este cmdlet e adicioná-lo ao **EncryptedCredential** elemento da **connectionString** no ficheiro JSON que utiliza com o [ Novo-AzureRmDataFactoryLinkedService](/powershell/module/azurerm.datafactories/new-azurermdatafactorylinkedservice) cmdlet ou no fragmento JSON no Editor do Data Factory no portal. Esta opção e um simples clique-assim que a aplicação são as opções mais seguras. 
+- Uso [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) cmdlet do PowerShell para encriptar as credenciais. O cmdlet utiliza o certificado que esse gateway é configurado para utilizar para encriptar as credenciais. Pode utilizar as credenciais encriptadas devolvidas por este cmdlet e adicioná-lo ao **EncryptedCredential** elemento da **connectionString** no ficheiro JSON que utiliza com o [ Novo AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet ou no fragmento JSON no Editor do Data Factory no portal. Esta opção e um simples clique-assim que a aplicação são as opções mais seguras. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>Encriptação de baseada na biblioteca de criptografia em JavaScript
 Pode encriptar credenciais de arquivo de dados usando [biblioteca de JavaScript criptografia](https://www.microsoft.com/download/details.aspx?id=52439) da [Assistente de cópia](data-factory-copy-wizard.md). Quando seleciona esta opção, o Assistente para copiar obtém a chave pública do gateway e utiliza-o para encriptar as credenciais de arquivo de dados. As credenciais são desencriptadas pela máquina de gateway e protegidas pelo Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx).

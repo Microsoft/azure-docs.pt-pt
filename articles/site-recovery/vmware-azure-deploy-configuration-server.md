@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/28/2019
-ms.author: mayg
-ms.openlocfilehash: e7ee8f58e42f99ebc087f21837511979c578fb89
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/06/2019
+ms.author: ramamill
+ms.openlocfilehash: 3f500abe0ea37b35236547824c655adc1a4c4d93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340087"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448837"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar um servidor de configuração
 
@@ -113,8 +113,8 @@ Se pretender adicionar outro NIC ao servidor de configuração, adicione-o antes
 3. Após a conclusão da instalação, inicie sessão na VM como administrador.
 4. Na primeira vez que iniciar sessão, dentro de alguns segundos a ferramenta de configuração do Azure Site Recovery é iniciada.
 5. Introduza um nome que será utilizado para registar o servidor de configuração no Site Recovery. Em seguida, selecione **Seguinte**.
-6. A ferramenta verifica se a VM pode ligar ao Azure. Depois de a ligação estar estabelecida, selecione **Iniciar sessão** para iniciar sessão na sua subscrição do Azure.
-    a. As credenciais têm de ter acesso ao cofre no qual pretende registar o servidor de configuração.
+6. A ferramenta verifica se a VM pode ligar ao Azure. Depois de a ligação estar estabelecida, selecione **Iniciar sessão** para iniciar sessão na sua subscrição do Azure.</br>
+    a. As credenciais têm de ter acesso ao cofre no qual pretende registar o servidor de configuração.</br>
     b. Certifique-se de que a conta de utilizador escolhido tem permissões para criar uma aplicação no Azure. Para ativar as permissões necessárias, seguir as diretrizes de dado [aqui](#azure-active-directory-permission-requirements).
 7. A ferramenta executa algumas tarefas de configuração e, em seguida, é reiniciada.
 8. Inicie sessão na máquina novamente. O Assistente de gestão de servidor de configuração é iniciado **automaticamente** em alguns segundos.

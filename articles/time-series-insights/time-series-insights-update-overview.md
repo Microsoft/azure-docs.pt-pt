@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 847eddc78f8abc938e68e6fe383a773dadeaf779
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7f8731f48b96ccbe0e77970af1ccefa1d7a7155f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557840"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438776"
 ---
 # <a name="azure-time-series-insights-preview-overview"></a>Descrição geral de pré-visualização do Time Series Insights do Azure
 
-Pré-visualização de informações de série de tempo do Azure é uma oferta de plataforma-como-serviço de ponto-a-ponto. É utilizado para ingerir, processar, armazenar e consultar contextualizados altamente otimizado de série de tempo, dados de IoT à escala. O Time Series Insights é ideal para exploração de dados ad-hoc e análise operacional. O Time Series Insights é um serviço de forma exclusiva extensível e personalizado oferta que satisfazem amplo precisa de implementações de IoT industriais.
+Pré-visualização de informações de série de tempo do Azure é uma oferta de plataforma-como-serviço de ponto-a-ponto. É utilizado para ingerir, processar, armazenar e consultar contextualizados altamente otimizado de série de tempo, dados de IoT à escala. O Time Series Insights é ideal para exploração de dados ad hoc e análise operacional. O Time Series Insights é um serviço de forma exclusiva extensível e personalizado oferta que satisfazem amplo precisa de implementações de IoT industriais.
 
 ## <a name="video"></a>Vídeo
 
@@ -44,7 +44,7 @@ Um fluxo de dados de IoT típico é mostrado na imagem seguinte.
 
 ## <a name="azure-time-series-insights-for-industrial-iot"></a>O Azure Time Series Insights para o industrial IoT
 
-O atual cenário de IoT é diversificado. Os clientes abrangem o fabrico, automóvel, energia, utilitários, edifícios inteligentes e setores de consultoria. Os cenários incluem a exploração de dados ad-hoc em que a forma dos dados é desconhecida. Os cenários incluem também análise operacional sobre dados esquematizados ou modelados explicitamente, a eficiência operacional da unidade. Esses cenários normalmente existem lado a lado e oferecer suporte a diferentes casos de utilização. Capacidades da plataforma que são fundamentais para o sucesso das empresas de IoT industriais e seus revolução digital incluem:
+O atual cenário de IoT é diversificado. Os clientes abrangem o fabrico, automóvel, energia, utilitários, edifícios inteligentes e setores de consultoria. Os cenários incluem a exploração de dados ad hoc em que a forma dos dados é desconhecida. Os cenários incluem também análise operacional sobre dados esquematizados ou modelados explicitamente, a eficiência operacional da unidade. Esses cenários normalmente existem lado a lado e oferecer suporte a diferentes casos de utilização. Capacidades da plataforma que são fundamentais para o sucesso das empresas de IoT industriais e seus revolução digital incluem:
 
 - Armazenamento em várias camadas, semiativos e amovíveis. 
 - A capacidade de armazenar décadas de dados de séries de tempo. 
@@ -52,13 +52,13 @@ O atual cenário de IoT é diversificado. Os clientes abrangem o fabrico, autom�
 
 O Time Series Insights é uma abrangente e ponto-a-ponto plataforma-como-serviço oferta para exploração de dados de IoT e das informações operacionais. O Time Series Insights oferece um serviço cloud totalmente gerido para análise de dados de séries de tempo de escala de IoT.
 
-Pode armazenar dados não processados num arquivo de esquema, dentro da memória. Pode, em seguida, executar consultas ad-hoc interativa através de um motor de consulta distribuída e API. Tornar a utilização de experiência de usuário avançada para visualizar milhares de milhões de eventos em segundos. Saiba mais sobre o [capacidades de exploração de dados](./time-series-insights-overview.md).
+Pode armazenar dados não processados num arquivo de esquema, dentro da memória. Pode, em seguida, executar consultas ad hoc interativas através de um motor de consulta distribuída e a API. Tornar a utilização de experiência de usuário avançada para visualizar milhares de milhões de eventos em segundos. Saiba mais sobre o [capacidades de exploração de dados](./time-series-insights-overview.md).
 
 O Time Series Insights também oferece recursos de informações operacionais atualmente em pré-visualização. Em conjunto com a exploração interativa de dados e informações operacionais, pode usar o Time Series Insights para obter mais valor dos dados recolhidos a partir de recursos de IoT. Pré-visualização de oferta suporta:
 
 * A armazenam dimensionável, desempenho e dados de séries temporais com otimização de custos. Esta solução de IoT baseado na nuvem pode de tendência valor de anos de dados de séries de tempo em segundos.
 * Suporte de modelo semântico que descreve o domínio e os metadados associados com os sinais derivados e não derivada de ativos e dispositivos.
-* Experiência do usuário que combina informações de dados com base no ativo com avançada, análise de dados ad-hoc. Esta combinação de unidades de negócios e informações operacionais.
+* Experiência do usuário que combina informações de dados com base no ativo com a análise de dados sofisticado e ad hoc. Esta combinação de unidades de negócios e informações operacionais.
 * Integração com ferramentas de análise e aprendizagem automática avançada. As ferramentas incluem o Azure Databricks, Apache Spark, Azure Machine Learning, blocos de notas do Jupyter e Power BI. Essas ferramentas ajudam a enfrentar desafios de dados de séries de tempo e impulsionar a eficiência operacional.
 
 As informações operacionais, em conjunto e exploração de dados são oferecidas com um modelo de preços pay as you go simple para processamento de dados, armazenamento e a consulta. Este modelo de faturação é adequado para suas necessidades empresariais em evolução.

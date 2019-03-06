@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a3687a4b8bb4e0d900ee96f52c40352db4e96df6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 270708496fbe13b9061abe5d64d5577193db4027
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635566"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450656"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analisar dados do Twitter com o Apache Hive e Apache Hadoop no HDInsight
 
@@ -39,7 +39,7 @@ Twitter permite-lhe obter os dados para cada tweet como um documento de JavaScri
 
    | Campo | Valor |
    |:--- |:--- |
-   | Nome |MyHDInsightApp |
+   | Name |MyHDInsightApp |
    | Descrição |MyHDInsightApp |
    | Web site |https://www.myhdinsightapp.com |
 
@@ -70,7 +70,7 @@ O código de Python seguinte transfere 10.000 tweets do Twitter e guardá-los nu
 
     Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Utilize os seguintes comandos para instalar [Tweepy](https://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2)e outros pacotes necessários:
+3. Utilize os seguintes comandos para instalar [Tweepy](https://www.tweepy.org/), [barra de progresso](https://pypi.python.org/pypi/progressbar/2.2)e outros pacotes necessários:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev

@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9e485797dcc40c426b208971c04acffa168e528a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233077"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455909"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Executar ações com base no estado de grupo com âmbitos no Azure Logic Apps
 
@@ -54,7 +54,7 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
 
 1. Inicie sessão para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, se ainda não o fez. Criar uma aplicação lógica em branco.
 
-1. Adicionar a **Schedule - Recurrence** acionador com estas definições: **intervalo** = "1" e **frequência** = "Minuto"
+1. Adicionar a **agenda - periodicidade** acionador com estas definições: **Intervalo** = "1" e **frequência** = "Minuto"
 
    ![Configurar o acionador "– a periodicidade da agenda"](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -80,7 +80,7 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
       | **Waypoint 1** | <*start*> | Introduza a origem do percurso. | 
-      | **Waypoint 2** | <*fim*> | Introduza o destino do percurso. | 
+      | **Waypoint 2** | <*end*> | Introduza o destino do percurso. | 
       | **Avoid** | Nenhuma | Introduza os itens para evitar no percurso, como autoestradas, portagens e assim por diante. Para os valores possíveis, consulte [calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **Optimize** | timeWithTraffic | Selecione um parâmetro para otimizar o percurso, como a distância, tempo com informações de tráfego atuais e assim por diante. Este exemplo utiliza este valor: "timeWithTraffic" | 
       | **Distance unit** | <*your-preference*> | Introduza a unidade de distância para calcular a rota. Este exemplo utiliza este valor: "Milha" | 
@@ -91,7 +91,7 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
 
 1. [Adicionar uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifica se o tempo de deslocação atual com tráfego excede um período de tempo especificado. Neste exemplo, siga estes passos:
 
-   1. Mudar o nome da condição com a descrição: **se o tempo de tráfego é mais do que o período de tempo especificado**
+   1. Mudar o nome da condição com a descrição: **Se o tempo de tráfego é mais do que o período de tempo especificado**
 
    1. Na coluna mais à esquerda, clique no interior da **escolher um valor** caixa para que a lista de conteúdo dinâmico apareça. A partir dessa lista, selecione o **Travel Duration Traffic** campo, o que está em segundos. 
 
@@ -99,7 +99,7 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
 
    1. Na caixa do meio, selecione o operador: **for superior a**
 
-   1. Na coluna mais à direita, introduza o valor de comparação, o que está em segundos e equivlent para 10 minutos: **600**
+   1. Na coluna mais à direita, introduza o valor de comparação, que está em segundos e o equivalente a 10 minutos: **600**
 
       Quando estiver pronto, a condição terá o aspeto deste exemplo:
 
@@ -179,7 +179,7 @@ Em seguida, adicione um âmbito para que possa agrupar ações específicas e av
 
    ![Âmbito adicionado](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. Sob o escopo, adicione uma condição que verifica o estado de âmbito. Mudar o nome da condição com a descrição: **se a falha de âmbito**
+1. Sob o escopo, adicione uma condição que verifica o estado de âmbito. Mudar o nome da condição com a descrição: **Se a falha de âmbito**
 
    ![Adicionar condição para verificar o estado de âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   

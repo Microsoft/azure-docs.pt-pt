@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9914943cc5b3ef9e95f12c6890cb8e1646f7e335
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c60983dbbe72515fd8f0f4860e169ce1ba69ed45
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244240"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407090"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Implementar mais de uma instância de um recurso ou uma propriedade nos modelos do Azure Resource Manager
 
-Este artigo mostra como iterar no modelo do Azure Resource Manager para criar mais de uma instância de um recurso. Se tiver de especificar se um recurso está implementado em todos os, consulte [elemento condition](resource-manager-templates-resources.md#condition).
+Este artigo mostra como iterar no modelo do Azure Resource Manager para criar mais de uma instância de um recurso. Se tiver de especificar se um recurso está implementado em todos os, consulte [elemento condition](resource-group-authoring-templates.md#condition).
 
 Para obter um tutorial, veja [Tutorial: criar várias instâncias de recursos com modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 

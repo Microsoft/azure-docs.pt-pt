@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d8059ac4965ce5582b899ebc0d765e00ae9deb35
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 7e97983e1316476848eb4a051cd636339b8caff7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892801"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440969"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas de suporte do Azure IoT Edge
 
@@ -40,7 +40,7 @@ O Azure IoT Edge é executado na maioria dos sistemas operacionais que possam ex
     * tem este sistema operativo em testes automatizados
     * Fornece os pacotes de instalação das mesmas
 * Os sistemas de camada 2 podem ser considerados como compatível com o Azure IoT Edge e podem ser utilizados com relativa facilidade. Isso significa que:
-    * A Microsoft fez ad-hoc nas plataformas de teste ou sabe-se de um parceiro com êxito com o Azure IoT Edge na plataforma
+    * A Microsoft fez teste ad hoc nas plataformas ou sabe-se de um parceiro com êxito com o Azure IoT Edge na plataforma
     * Pacotes de instalação para outras plataformas podem funcionar nessas plataformas
     
 A família de SO anfitrião tem de corresponder sempre a família de utilizado no interior do contentor de um módulo de SO convidado. Em outras palavras, só pode utilizar contentores do Linux no Linux e contentores do Windows no Windows. Ao utilizar o Windows, apenas os contentores de processo isolado são suportados, não hyper-v contentores isolados.  

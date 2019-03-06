@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 3254b29ed380b526be6d5fe5f671adeccbd8ea46
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4d97803117a875514fb36f770d551204ece0e55c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54196710"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448956"
 ---
 # <a name="reliable-services-lifecycle"></a>Ciclo de vida dos Reliable Services
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Como serviços sem estado, os eventos de ciclo de vida durante o desligamento s�
 
 1. Estes eventos ocorrem em paralelo:
     - Quaisquer serviços de escuta abertos são fechados. `CommunicationListener.closeAsync()` é chamado em cada serviço de escuta.
-    - O token de cancelamento que foi passado para `runAsync()` foi cancelada. Uma chamada para o token de cancelamento `isCancelled()` retorno do método `true`e se chamado, o token `throwIfCancellationRequested()` método lança uma `OperationCanceledException`.
+    - O token de cancelamento que foi passado para `runAsync()` é cancelada. Uma chamada para o token de cancelamento `isCancelled()` retorno do método `true`e se chamado, o token `throwIfCancellationRequested()` método lança uma `OperationCanceledException`.
 2. Após `closeAsync()` termina em cada serviço de escuta e `runAsync()` também estiver concluída, o serviço `StatefulServiceBase.onChangeRoleAsync()` é chamado. Esta chamada não é substituída, geralmente no serviço.
 
    > [!NOTE]  

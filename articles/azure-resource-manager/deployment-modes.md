@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 618412f27efb71caf6e044b4768d7be00f0d0f47
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009245"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407541"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementação do Azure Resource Manager
 
@@ -26,7 +26,7 @@ Em ambos os modos, Gestor de recursos tenta criar todos os recursos especificado
 
 ## <a name="complete-mode"></a>Modo de conclusão
 
-No modo de conclusão, Gestor de recursos **elimina** recursos de que existem no grupo de recursos, mas não estão especificados no modelo. Recursos que são especificados no modelo, mas não implementados porque um [condição](resource-manager-templates-resources.md#condition) for avaliada como falsa, não são eliminados.
+No modo de conclusão, Gestor de recursos **elimina** recursos de que existem no grupo de recursos, mas não estão especificados no modelo. Recursos que são especificados no modelo, mas não implementados porque um [condição](resource-group-authoring-templates.md#condition) for avaliada como falsa, não são eliminados.
 
 Há alguma diferença no como tipos de recurso lidar com as eliminações de modo completa. Recursos de principal são automaticamente eliminados quando não num modelo que é implementada no modo de conclusão. Alguns recursos filho não são automaticamente eliminados quando não estiver no modelo. No entanto, esses recursos subordinados são eliminados se o recurso principal é eliminado. 
 

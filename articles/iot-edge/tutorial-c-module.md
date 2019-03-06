@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 798cf405c222a443dbbd3a316d20c482daf4429f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: b09282d3e897018aa6d5b2561f08d8eee0757d7a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563257"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455433"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um módulo do IoT Edge do C e implementar no seu dispositivo simulado
 
@@ -137,7 +137,7 @@ Adicione o código ao módulo C que permite a leitura de dados do sensor, verifi
 
    4. Guarde o ficheiro **CMakeLists.txt**.
 
-   5. Abra **modules** > **CModule** > **main.c**. Na parte inferior da lista de declarações de inclusão, adicione um novo modelo para incluir `parson.h` no suporte JSON:
+   5. Abra **modules** > **CModule** > **main.c**. Na parte inferior da lista de incluem instruções, adicionar um novo modelo para incluir `parson.h` para suporte JSON:
 
       ```c
       #include "parson.h"

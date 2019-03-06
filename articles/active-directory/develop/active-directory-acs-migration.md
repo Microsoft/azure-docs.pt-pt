@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8667db4ed4777614a8c99c823b833ff673c1e98
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211772"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449143"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrardo Serviço de Controlo de Acesso do Microsoft Azure
 
@@ -148,12 +148,12 @@ Cada serviço cloud da Microsoft que aceita tokens que são emitidos pelo contro
 
 ### <a name="sharepoint-customers"></a>Clientes do SharePoint
 
-2016, do SharePoint 2013 e SharePoint Online clientes há muito tempo usaram ACS para fins de autenticação em cenários de nuvem, no local e híbrido. Alguns recursos do SharePoint e casos de utilização serão afetados pela desativação dos ACS, enquanto outros não irão. A tabela abaixo resume as orientações de migração para algumas das mais popular SharePoint ACS que tire partido de funcionalidades:
+2016, do SharePoint 2013 e SharePoint Online clientes há muito tempo usaram ACS para fins de autenticação na nuvem, no local e cenários híbridos. Alguns recursos do SharePoint e casos de utilização serão afetados pela desativação dos ACS, enquanto outros não irão. A tabela abaixo resume as orientações de migração para algumas das mais popular SharePoint ACS que tire partido de funcionalidades:
 
 | Funcionalidade | Orientação |
 | ------- | -------- |
 | Autenticação de utilizadores do Azure AD | Anteriormente, o Azure AD não oferecia suporte necessários para o SharePoint para a autenticação de tokens de SAML 1.1 e o ACS foi utilizado como um intermediário que efetuou o SharePoint compatíveis com formatos de token do Azure AD. Agora, pode [ligar o SharePoint diretamente ao Azure AD através do SharePoint de Galeria de aplicações do Azure AD na aplicação de local](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
-| [Autenticação da aplicação e a autenticação de servidor para servidor no SharePoint no local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não são afetados pela desativação de ACS; sem alterações necessárias. | 
+| [Autenticação da aplicação e a autenticação de servidor a servidor no SharePoint no local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não são afetados pela desativação de ACS; sem alterações necessárias. | 
 | [Autorização de fidedignidade baixa de SharePoint suplementos (fornecedor alojada e o SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Não são afetados pela desativação de ACS; sem alterações necessárias. |
 | [Pesquisa do SharePoint na cloud híbrida](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Não são afetados pela desativação de ACS; sem alterações necessárias. |
 
@@ -286,7 +286,7 @@ Nestes casos, poderá querer considerar a migração da sua aplicação web para
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de cloud flexíveis que tenha criado [orientação de migração de alto nível para os clientes de controlo de acesso](https://auth0.com/acs)e suporta quase todas as funcionalidades que o ACS faz. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [A ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de cloud que oferece suporte a muitos dos mesmos recursos como o ACS e PingFederate é um produto semelhante de identidade no local que oferece mais flexibilidade. Consulte a [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [A ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de cloud que oferece suporte a muitos dos mesmos recursos como o ACS e PingFederate é semelhante no produto de identidade no local que oferece mais flexibilidade. Consulte a [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo no trabalho com a Ping Identity e Auth0 é garantir que todos os clientes de controlo de acesso tem um caminho de migração das respetivas aplicações e serviços que minimiza a quantidade de trabalho necessário para mover de controlo de acesso.
 
@@ -348,7 +348,7 @@ Nestes casos, pode optar por migrar a sua aplicação web para outro serviço de
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) é um serviço de identidade de cloud flexíveis que tenha criado [orientação de migração de alto nível para os clientes de controlo de acesso](https://auth0.com/acs)e suporta quase todas as funcionalidades que o ACS faz. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [A ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de cloud que oferece suporte a muitos dos mesmos recursos como o ACS e PingFederate é um produto semelhante de identidade no local que oferece mais flexibilidade. Consulte a [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [A ping Identity](https://www.pingidentity.com) oferece duas soluções semelhantes às ACS. PingOne é um serviço de identidade de cloud que oferece suporte a muitos dos mesmos recursos como o ACS e PingFederate é semelhante no produto de identidade no local que oferece mais flexibilidade. Consulte a [orientações de extinção de ACS de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) para obter mais detalhes sobre como usar esses produtos. |
 
 Nosso objetivo no trabalho com a Ping Identity e Auth0 é garantir que todos os clientes de controlo de acesso tem um caminho de migração das respetivas aplicações e serviços que minimiza a quantidade de trabalho necessário para mover de controlo de acesso.
 

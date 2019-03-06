@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: b3855386f89eda71e145df6dd83d1b1e7e093735
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 55e414a35574f8437a30ffb75aebd82eded14fa9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563648"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447928"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerir esquema numa aplicação SaaS que utiliza bases de dados SQL em partição horizontal multi-inquilinos
 
@@ -173,5 +173,5 @@ Neste tutorial, ficou a saber como:
 > * Atualizar os dados de referência de todas as bases de dados de inquilinos
 > * Criar um índice numa tabela em todas as bases de dados de inquilinos
 
-Em seguida, tente o [tutorial de geração de relatórios Ad-hoc](saas-multitenantdb-adhoc-reporting.md) para explorar a execução de consultas distribuídas pelo inquilino bases de dados.
+Em seguida, tente o [relatórios Ad hoc tutorial](saas-multitenantdb-adhoc-reporting.md) para explorar a execução de consultas distribuídas pelo inquilino bases de dados.
 

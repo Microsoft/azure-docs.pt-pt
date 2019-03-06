@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9910155b439b5ee6d0e5abd96d750943605098a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 88839598b3ae11f0041b3451ba5481547c019c9d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211602"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449619"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Servidor MFA do Azure e o Active Directory
 
@@ -61,7 +61,7 @@ O Multi-Factor Authentication do Azure tem as três opções de filtros seguinte
 * **Filtro de utilizador** - Especifique os critérios de filtro utilizados para qualificar registos de utilizadores ao realizar uma pesquisa de diretório.  Para o Active Directory e ADAM, é normalmente utilizado (&(objectClass=user)(objectCategory=person)).  Para outros diretórios LDAP, utilize (objectClass=inetOrgPerson) ou algo semelhante, consoante o esquema do diretório. <br>Nota:  Se deixado em branco, (& (objectCategory é utilizado por predefinição.
 
 ## <a name="attributes"></a>Atributos
-Pode personalizar os atributos conforme necessário para um diretório específico.  Isto permite-lhe adicionar atributos personalizados e ajustar a sincronização para apenas os atributos de que precisa. Utilize o nome do atributo conforme está definido no esquema do diretório como o valor de cada campo de atributo. A tabela seguinte disponibiliza informações adicionais sobre cada funcionalidade.
+Pode personalizar os atributos conforme necessário para um diretório específico.  Isto permite-lhe adicionar atributos personalizados e ajustar a sincronização para apenas os atributos de que precisa. Utilize o nome do atributo conforme definido no esquema do diretório para o valor de cada campo de atributo. A tabela seguinte disponibiliza informações adicionais sobre cada funcionalidade.
 
 Os atributos podem ser introduzidos manualmente e não precisam de corresponder a um atributo da lista de atributos.
 
@@ -71,7 +71,7 @@ Os atributos podem ser introduzidos manualmente e não precisam de corresponder 
 | --- | --- |
 | Identificador exclusivo |Introduza o nome de atributo do atributo que funciona como o identificador exclusivo do contentor, do grupo de segurança e de registos de utilizador.  No Active Directory, normalmente é objectGUID. Outras implementações de LDAP podem utilizar entryUUID ou algo semelhante.  A predefinição é objectGUID. |
 | Tipo de identificador exclusivo |Selecione o tipo do atributo de identificador exclusivo.  No Active Directory, o atributo objectGUID é do tipo GUID. Outras implementações de LDAP podem utilizar o tipo Matriz de Bytes ASCII ou Cadeia.  A predefinição é GUID. <br><br>É importante definir este tipo corretamente, pois os Itens de Sincronização são referenciados pelos Identificadores Exclusivos. O Tipo de Identificador Exclusivo é utilizado para localizar diretamente o objeto no diretório.  Definir este tipo como Cadeia quando, na verdade, o diretório armazena o valor como uma matriz de bytes de carateres ASCII impede que a sincronização funcione corretamente. |
-| Nome único |Introduza o nome de atributo do atributo que contém o nome único para cada registo.  No Active Directory, normalmente é distinguishedName. Outras implementações de LDAP podem utilizar entryDN ou algo semelhante.  A predefinição é distinguishedName. <br><br>Se não existir um atributo que contenha apenas o nome único, pode ser utilizado o atributo adspath.  A parte "LDAP://\<server\>/" do caminho é removida automaticamente, deixando apenas o nome único do objeto. |
+| Nome único |Introduza o nome de atributo do atributo que contém o nome único para cada registo.  No Active Directory, normalmente é distinguishedName. Outras implementações de LDAP podem utilizar entryDN ou algo semelhante.  A predefinição é distinguishedName. <br><br>Se não existir um atributo que contém o nome único, pode ser utilizado o atributo de caminho de anúncios.  A parte "LDAP://\<server\>/" do caminho é removida automaticamente, deixando apenas o nome único do objeto. |
 | Nome do contentor |Introduza o nome de atributo do atributo que contém o nome num registo de contentor.  O valor deste atributo é apresentado na Hierarquia de Contentores ao importar a partir do Active Directory ou ao adicionar itens de sincronização.  A predefinição é name. <br><br>Se contentores diferentes utilizarem atributos diferentes para os respetivos nomes, separe os vários atributos de nomes de contentores por ponto e vírgula.  O primeiro atributo de nome de contentor encontrado num objeto de contentor é utilizado para apresentar o respetivo nome. |
 | Nome do grupo de segurança |Introduza o nome de atributo do atributo que contém o nome num registo de grupo de segurança.  O valor deste atributo é apresentado na lista Grupos de Segurança ao importar a partir do Active Directory ou ao adicionar itens de sincronização.  A predefinição é name. |
 | Nome de utilizador |Introduza o nome de atributo do atributo que contém o nome de utilizador num registo de utilizador.  O valor deste atributo é utilizado como o nome de utilizador do Servidor Multi-Factor Auth.  Um segundo atributo pode ser especificado como cópia de segurança do primeiro.  O segundo atributo só é utilizado se o primeiro não incluir um valor para o utilizador.  As predefinições são userPrincipalName e sAMAccountName. |

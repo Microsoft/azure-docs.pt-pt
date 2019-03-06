@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 8c12190e3c34c3294d2735fdd228aafbf6073f12
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820118"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445641"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Utilizar o PowerShell para Criar uma VM do Azure com um Servidor de Relatórios no Modo Nativo
 > [!IMPORTANT] 
@@ -124,7 +124,7 @@ Um certificado autoassinado foi criado na VM quando a VM foi aprovisionada. O ce
       
        Por exemplo, na imagem seguinte, o nome da VM é **ssrsnativecloud** e o nome de utilizador é **testuser**.
       
-       ![nome da vm inclui início de sessão](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![início de sessão inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Run mmc.exe. Para obter mais informações, consulte [como: Ver os certificados com o Snap-in do MMC](https://msdn.microsoft.com/library/ms788967.aspx).
    3. No aplicativo de console **arquivo** menu, adicione o **certificados** snap-in, selecione **conta de computador** quando lhe for pedido e, em seguida, clique em **próxima**.
    4. Selecione **computador Local** para gerir e, em seguida, clique em **concluir**.
@@ -160,7 +160,7 @@ Para utilizar o script do Windows PowerShell para configurar o servidor de relat
    
     Por exemplo, na imagem seguinte, o nome da VM é **ssrsnativecloud** e o nome de utilizador é **testuser**.
    
-    ![nome da vm inclui início de sessão](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![início de sessão inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Na VM, abra **ISE do Windows PowerShell** com privilégios administrativos. O ISE do PowerShell está instalado por predefinição no servidor do Windows 2012. Recomenda-se que utilizar o ISE em vez de uma janela padrão do Windows PowerShell, para que possa colar o script no ISE, modificar o script e, em seguida, execute o script.
 3. No ISE do Windows PowerShell, clique nas **View** menu e clique em **Mostrar painel de Script**.
 4. Copie o seguinte script e cole o script para o painel de scripts do ISE do Windows PowerShell.
@@ -294,7 +294,7 @@ Para utilizar o Windows PowerShell para configurar o servidor de relatórios, co
    
     Por exemplo, na imagem seguinte, o nome da VM é **ssrsnativecloud** e o nome de utilizador é **testuser**.
    
-    ![nome da vm inclui início de sessão](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![início de sessão inclui o nome da vm](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. Na VM, abra **ISE do Windows PowerShell** com privilégios administrativos. O ISE do PowerShell está instalado por predefinição no servidor do Windows 2012. Recomenda-se que utilizar o ISE em vez de uma janela padrão do Windows PowerShell, para que possa colar o script no ISE, modificar o script e, em seguida, execute o script.
 3. Para ativar a execução de scripts, execute o seguinte comando Windows PowerShell:
    

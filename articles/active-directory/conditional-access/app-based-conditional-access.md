@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3521ea7599aecd20784bd925492649b86921c567
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e6f7765b775706d3bdf09176bc4bfbf18533d054
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182311"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441311"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: Exigir aplicações aprovadas do cliente para o acesso de aplicação de cloud com o acesso condicional 
 
@@ -97,7 +97,7 @@ Este cenário pressupõe que um utilizador:
 
 - É capaz de aceder ao e-mail
 
-Quaisquer políticas de proteção de aplicações do Intune são ativados no momento, os dados empresariais de acesso e pode solicitar ao utilizador para reiniciar a aplicação, utilize um adicionais etc PIN (se configurada para a plataforma e aplicação).
+Quaisquer políticas de proteção de aplicações do Intune são ativados no momento, os dados empresariais de acesso e pode solicitar ao utilizador para reiniciar a aplicação, utilize um adicionais etc. da PIN (se configurada para a plataforma e aplicação).
 
 ### <a name="configuration"></a>Configuração 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: adb9fb649d934d08ea546759bcf4733a1c6d9080
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a0d5f42fa6725ba23a89904779040f379f31e59e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822753"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454158"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]
@@ -26,9 +26,12 @@ ms.locfileid: "55822753"
 
 Este artigo descreve uma arquitetura de uma solução de exemplo que se move e processa grandes conjuntos de dados de maneira automática e agendada. Ele também fornece uma passo a passo-a-ponto para implementar a solução com o Data Factory e o Azure Batch.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Este artigo é a mais de um artigo típico porque contém um passo a passo de uma solução de exemplo completo. Se estiver familiarizado com o Batch e o Data Factory, pode aprender sobre estes serviços, e como eles funcionam em conjunto. Se sabe algo sobre os serviços e é design/arquitetar uma solução, que se possa concentrar na seção de arquitetura do artigo. Se estiver desenvolvendo um protótipo ou uma solução, poderá querer experimentar as instruções passo a passo no passo a passo. Convidamos seus comentários sobre este conteúdo e como usá-lo.
 
 Em primeiro lugar, vamos dar uma olhada em como os serviços de fábrica de dados e em lote podem ajudá-lo a processo grandes conjuntos de dados na cloud.     
+
 
 ## <a name="why-azure-batch"></a>Por que o Azure Batch?
  Pode utilizar o Batch para executar aplicações de computação em larga escala paralela e de alto desempenho (HPC) de forma eficaz na cloud. É um serviço de plataforma que agenda trabalho de computação intensivo para ser executado numa coleção gerida de máquinas virtuais (VMs). Pode dimensionar automaticamente recursos de computação para satisfazer as necessidades das suas tarefas.
@@ -40,7 +43,7 @@ Com o serviço Batch, define os recursos de computação do Azure para executar 
 * [Noções básicas do Batch](../../batch/batch-technical-overview.md)
 * [Descrição geral da funcionalidade do Batch](../../batch/batch-api-basics.md)
 
-Opcionalmente, para saber mais sobre o Batch, veja [documentatnion o Batch](https://docs.microsoft.com/azure/batch/).
+Opcionalmente, para saber mais sobre o Batch, veja [a documentação do Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Porquê o Azure Data Factory?
 Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. Pode utilizar o Data Factory para criar pipelines de dados geridos que mover os dados no local e na cloud armazenamentos de dados para um arquivo de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Pode utilizar o Data Factory para processar/transformar dados com os serviços, como o Azure HDInsight e Azure Machine Learning. Também pode agendar pipelines de dados para executar de forma agendada (por exemplo, hora a hora, diariamente e semanalmente). Pode monitorizar e gerir pipelines de rapidamente identificar problemas e tomar medidas.
@@ -93,7 +96,7 @@ Se não tiver uma subscrição do Azure, pode criar rapidamente uma conta de ava
 Utilize uma conta de armazenamento para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento, consulte [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). A solução de exemplo utiliza o armazenamento de Blobs.
 
 #### <a name="azure-batch-account"></a>Conta de Batch do Azure
-Criar uma conta do Batch com o [portal do Azure](http://portal.azure.com/). Para obter mais informações, consulte [criar e gerir uma conta do Batch](../../batch/batch-account-create-portal.md). Tenha em atenção a chave de conta e o nome da conta de Batch. Também pode utilizar o [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet para criar uma conta do Batch. Para obter instruções sobre como utilizar este cmdlet, consulte [introdução aos cmdlets do PowerShell do Batch](../../batch/batch-powershell-cmdlets-get-started.md).
+Criar uma conta do Batch com o [portal do Azure](http://portal.azure.com/). Para obter mais informações, consulte [criar e gerir uma conta do Batch](../../batch/batch-account-create-portal.md). Tenha em atenção a chave de conta e o nome da conta de Batch. Também pode utilizar o [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet para criar uma conta do Batch. Para obter instruções sobre como utilizar este cmdlet, consulte [introdução aos cmdlets do PowerShell do Batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 A solução de exemplo utiliza o Batch (indiretamente por meio de um pipeline de fábrica de dados) para processar dados de forma paralela num conjunto de nós de computação (uma coleção gerida de VMs).
 
@@ -201,7 +204,7 @@ O método tem alguns componentes principais que precisa entender:
 1. Importar os **armazenamento do Azure** pacote NuGet no projeto. Este pacote é necessário uma vez que usar a API de armazenamento de BLOBs neste exemplo:
 
     ```powershell
-    Install-Package Azure.Storage
+    Install-Package Az.Storage
     ```
 1. Adicione o seguinte usando diretivas para o ficheiro de origem no projeto:
 

@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e69e2ca5ccd8e8edc2f55d74a0cca03eaabc9f49
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9288ea08da6335dd29e7a15a9bc871b76c1ce7e9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884740"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438436"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Trabalhar com valores de chave num arquivo de configuração de aplicações do Azure
 
@@ -70,9 +70,9 @@ Este script utiliza os seguintes comandos para operar em valores de chave num ar
 
 | Comando | Notas |
 |---|---|
-| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-kv-set) | Cria ou atualiza uma chave-valor. |
-| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-kv-list) | Apresenta uma lista de valores de chave num arquivo de configuração de aplicação. |
-| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-kv-delete) | Elimina uma chave-valor. |
+| [az appconfig kv set](/cli/azure/ext/appconfig/appconfig) | Cria ou atualiza uma chave-valor. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig) | Apresenta uma lista de valores de chave num arquivo de configuração de aplicação. |
+| [az appconfig kv delete](/cli/azure/ext/appconfig/appconfig) | Elimina uma chave-valor. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de0e20eb096ba127790019c1c07fbdd504d3a480
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 889cf45a904b98bd4680108d185b3a2e108cd87e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877916"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436486"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Integração do Active Directory do Azure com BlueJeans
 
@@ -252,7 +252,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no BlueJe
 
     i. Clique em **continuar**.
 
-    ![Utilizador Addd](./media/bluejeans-tutorial/IC785887.png "Addd utilizador")
+    ![Adicionar utilizador](./media/bluejeans-tutorial/IC785887.png "adicionar utilizador")
 
     J. Clique em **adicionar utilizador**.
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244884"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431203"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Dimensionar a sua infraestrutura do Azure DevTest Labs
 Antes de implementar o DevTest Labs em dimensão empresarial, existem vários pontos de decisão principais. Noções básicas sobre esses pontos de decisão num alto nível ajuda uma organização com decisões de design no futuro. No entanto, esses pontos devem não conter uma organização de iniciar uma prova de conceito. As áreas de três principais para o planeamento de dimensionamento inicial são:
@@ -46,7 +46,7 @@ Em seguida, podemos destacar os profissionais de TI de cada abordagem.
 Muitas vezes, a abordagem de uma subscrição não é gerenciável numa grande empresa. No entanto, a limitar o número de subscrições fornece as seguintes vantagens:
 
 - **Previsão** custos para a empresa.  Orçamento torna-se muito mais fácil numa única subscrição porque todos os recursos estão num único pool. Esta abordagem permite a mais simples de tomada de decisão em quando exercer controlo de custos mede a qualquer momento num ciclo de faturação.
-- **Capacidade de gerenciamento** de VMs, artefatos, fórmulas, configuração de rede, permissões, as políticas, etc é mais fácil, uma vez que todas as atualizações apenas são necessárias numa subscrição em vez de fazer atualizações entre várias subscrições.
+- **Capacidade de gerenciamento** de VMs, artefatos, fórmulas, configuração de rede, permissões, as políticas, etc. é mais fácil, uma vez que todas as atualizações apenas são necessárias numa subscrição em vez de fazer atualizações entre várias subscrições.
 - **Funcionamento em rede** esforço foi bastante simplificado numa única subscrição para as empresas em que a conectividade no local é um requisito. Ligar redes virtuais entre subscrições (modelo de hub-and-spoke) é necessário com as assinaturas adicionais, que requer configuração adicional, gestão, espaços de endereços IP, etc.
 - **Colaboração da Equipe** é mais fácil quando todas as pessoas está a funcionar na mesma subscrição – por exemplo, é mais fácil reatribuir uma VM para um colega de trabalho, partilhar da equipe de recursos, etc.
 

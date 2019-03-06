@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: d40fcacc4612761b2c43b0dd3658042c38a0df75
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309524"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440477"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure práticas recomendadas de modelo do Resource Manager
 
@@ -26,7 +26,25 @@ Para obter recomendações sobre como regular as suas subscrições do Azure, ve
 
 Para obter recomendações sobre como criar modelos que funcionam em todos os ambientes de cloud do Azure, veja [modelos de desenvolver o Azure Resource Manager para manter a consistência na cloud](templates-cloud-consistency.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="template-limits"></a>Limites do modelo
+
+Limite o tamanho do seu modelo para 1 MB e cada ficheiro de parâmetros a 64 KB. O limite de 1 MB aplica-se para o estado final do modelo depois foi expandido com definições de recursos iterativo e valores de variáveis e parâmetros. 
+
+Também está limitado a:
+
+* 256 parâmetros
+* 256 variáveis
+* 800 recursos (incluindo o número de cópias)
+* 64 valores de saída
+* 24,576 caracteres numa expressão de modelo
+
+Pode exceder alguns limites de modelo ao utilizar um modelo aninhado. Para obter mais informações, consulte [utilizar modelos ligados durante a implantação de recursos do Azure](resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar diversos valores num objeto. Para obter mais informações, consulte [objetos como parâmetros](resource-manager-objects-as-parameters.md).
+
+## <a name="resource-group"></a>Grupo de recursos
+
+Ao implementar recursos para um grupo de recursos, o grupo de recursos armazena metadados sobre os recursos. Os metadados são armazenados na localização do grupo de recursos.
+
+Se a região do grupo de recursos está temporariamente indisponível, não é possível atualizar recursos no grupo de recursos, porque os metadados não estão disponível. Os recursos noutras regiões continuarão a funcionar conforme esperado, mas não é possível atualizá-los. Para minimizar o risco, localize o seu grupo de recursos e recursos na mesma região.
 
 ## <a name="parameters"></a>Parâmetros
 As informações nesta secção podem ser úteis quando trabalha com [parâmetros](resource-group-authoring-templates.md#parameters).
@@ -155,7 +173,7 @@ Ao decidir o que [dependências](resource-group-define-dependencies.md) para def
 
 * Defina um recurso de subordinado como dependente de seu recurso principal.
 
-* Recursos com o [elemento condition](resource-manager-templates-resources.md#condition) definido como false são automaticamente removidos da ordem de dependência. Defina as dependências como se o recurso está implementado sempre.
+* Recursos com o [elemento condition](resource-group-authoring-templates.md#condition) definido como false são automaticamente removidos da ordem de dependência. Defina as dependências como se o recurso está implementado sempre.
 
 * Permitir que as dependências cascata sem definir explicitamente. Por exemplo, sua máquina virtual depende de uma interface de rede virtual e a interface de rede virtual depende de uma rede virtual e endereços IP públicos. Por conseguinte, a máquina virtual está implementados Afinal de contas três recursos, mas não for definida explicitamente a máquina virtual como dependentes em todos os recursos de três. Esta abordagem esclarece a ordem de dependência e torna mais fácil de alterar o modelo mais tarde.
 
@@ -163,7 +181,7 @@ Ao decidir o que [dependências](resource-group-define-dependencies.md) para def
 
 ## <a name="resources"></a>Recursos
 
-As seguintes informações podem ser úteis quando trabalha com [recursos](resource-manager-templates-resources.md):
+As seguintes informações podem ser úteis quando trabalha com [recursos](resource-group-authoring-templates.md#resources):
 
 * Para ajudar a outros contribuintes compreender a finalidade do recurso, especifique **comentários** para cada recurso do modelo:
    

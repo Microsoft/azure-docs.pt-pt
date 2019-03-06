@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 03/05/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 430aa6e60efe63e6741436e53152126bc15798fc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c95fcd2e6369fae920481db2623124342c34a730
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327855"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447635"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -60,11 +60,9 @@ Embora as contas para fins gerais v2 são recomendadas na maioria dos casos, con
 
 * Utiliza uma versão da [API REST dos Serviços do Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior a 14/02/2014 ou uma biblioteca de cliente com uma versão inferior à 4.x e não pode atualizar a sua aplicação.
 
-### <a name="blob-storage-accounts"></a>Contas do Blob Storage
+### <a name="block-blob-storage-accounts"></a>Contas de armazenamento de BLOBs de bloco
 
-Uma conta de armazenamento de BLOBs é uma conta de armazenamento especializada para armazenar dados de objetos não estruturados como blobs de blocos. Contas de armazenamento de BLOBs fornecem o mesmo durabilidade, disponibilidade, escalabilidade e funcionalidades de desempenho que estão disponíveis com contas de armazenamento para fins gerais v2. Contas de armazenamento de BLOBs suportam armazenamento de blobs de blocos e blobs, mas não os blobs de páginas de acréscimo.
-
-Contas do blob storage oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [camadas de acesso para o bloco de dados de BLOBs](#access-tiers-for-block-blob-data).
+Uma conta de armazenamento de BLOBs de bloco é uma conta de armazenamento especializada para armazenar dados de objetos não estruturados como blobs de blocos ou blobs de acréscimo. Contas de armazenamento de BLOBs de bloco oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [camadas de acesso para o bloco de dados de BLOBs](#access-tiers-for-block-blob-data).
 
 ## <a name="naming-storage-accounts"></a>Nomenclatura de contas de armazenamento
 

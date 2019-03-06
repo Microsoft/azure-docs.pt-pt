@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ba332bb0f77dc198abdd76ccf024336788a77a33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385436"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435039"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Otimizar as consultas do Apache Hive no HDInsight do Azure
 
 No Azure HDInsight, existem vários tipos de clusters e tecnologias que podem executar consultas do Apache Hive. Ao criar o cluster do HDInsight, escolha o tipo de cluster adequado para o ajudar a otimizar o desempenho para as suas necessidades de carga de trabalho. 
 
-Por exemplo, escolha **Interactive Query** tipo para otimizar o ad-hoc, consultas interativas de cluster. Escolha Apache **Hadoop** tipo para otimizar consultas do Hive utilizadas como um processo em lotes de cluster. **Spark** e **HBase** tipos de cluster também podem executar consultas do Hive. Para obter mais informações sobre como executar consultas do Hive em vários tipos de cluster do HDInsight, consulte [o que é o Apache Hive e o HiveQL no HDInsight do Azure?](hadoop/hdinsight-use-hive.md).
+Por exemplo, escolha **Interactive Query** tipo para otimizar consultas ad hoc e interativas de cluster. Escolha Apache **Hadoop** tipo para otimizar consultas do Hive utilizadas como um processo em lotes de cluster. **Spark** e **HBase** tipos de cluster também podem executar consultas do Hive. Para obter mais informações sobre como executar consultas do Hive em vários tipos de cluster do HDInsight, consulte [o que é o Apache Hive e o HiveQL no HDInsight do Azure?](hadoop/hdinsight-use-hive.md).
 
 Clusters do HDInsight do tipo de cluster de Hadoop não estão otimizados para desempenho por predefinição. Este artigo descreve alguns dos métodos mais comuns do Hive desempenho otimização que pode aplicar às suas consultas.
 

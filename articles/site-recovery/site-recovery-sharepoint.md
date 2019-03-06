@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1f3168cef503fed0aea09228c9bc11dfb456f2ab
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848481"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443492"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação após desastre para uma aplicação do SharePoint de várias camadas para recuperação após desastre com o Azure Site Recovery
 
@@ -29,7 +29,7 @@ Uma solução de recuperação após desastre boa deve permitir que a Modelagem 
 
 Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando [do Azure Site Recovery](site-recovery-overview.md). Este artigo abordará as práticas recomendadas para replicar um três de camada aplicativo do SharePoint para o Azure, como pode fazer um teste de recuperação após desastre e como pode de ativação pós-falha, a aplicação no Azure.
 
-Pode ver o abaixo vídeo sobre como recuperar um aplicativo de várias camadas para o Azure.
+Pode ver o abaixo vídeo sobre como recuperar uma aplicação multicamada no Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -70,7 +70,7 @@ Para a criação deste artigo, máquinas virtuais VMware com o Windows Server 20
 ### <a name="sharepoint-versions"></a>Versões do SharePoint
 São suportadas as seguintes versões de servidor do SharePoint.
 
-* SharePoint server 2013 padrão
+* SharePoint server 2013 Standard
 * SharePoint server 2013 Enterprise
 * SharePoint server 2016 Standard
 * SharePoint server 2016 Enterprise
@@ -93,7 +93,7 @@ Siga [esta orientação](site-recovery-vmware-to-azure.md) para iniciar a replic
 
 ## <a name="networking-configuration"></a>Configuração de rede
 
-### <a name="network-properties"></a>Propriedades de rede
+### <a name="network-properties"></a>Propriedades da rede
 
 * Para a aplicação e as VMs de camada Web, configure as definições de rede no portal do Azure para que as VMs são anexadas à rede certa DR após a ativação pós-falha.
 
@@ -109,7 +109,7 @@ Siga [esta orientação](site-recovery-vmware-to-azure.md) para iniciar a replic
 Para sites, de acesso à internet [criar um perfil do Gestor de tráfego do tipo 'Priority'](../traffic-manager/traffic-manager-create-profile.md) na subscrição do Azure. E, em seguida, configure o seu perfil de DNS e o Gestor de tráfego da seguinte forma.
 
 
-| **onde** | **Origem** | **Target**|
+| **Where** | **Origem** | **Target**|
 | --- | --- | --- |
 | DNS público | DNS público para sites do SharePoint <br/><br/> Por exemplo: sharepoint.contoso.com | Gestor de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
 | DNS no local | sharepointonprem.contoso.com | IP público no farm de no local |

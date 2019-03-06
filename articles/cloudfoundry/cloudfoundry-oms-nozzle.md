@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 6f23b103f1715d567792e162d62d69f13fc08968
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 468de59408ae3403fb16e6272bb2f7517e0c2190
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243880"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445505"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar Nozzle do Azure Log Analytics para o monitoramento de sistema do Cloud Foundry
 
@@ -49,7 +49,7 @@ O Nozzle também necessita da permissão de acesso para o firehose loggregator e
 
 * [Instalar o cliente de linha de comandos do Cloud Foundry UAA](https://github.com/cloudfoundry/cf-uaac/blob/master/README.md)
 
-Antes de configurar o cliente de linha de comando UAA, certifique-se de que o Rubygems está instalada.
+Antes de configurar o cliente de linha de comando UAA, certifique-se de que o RubyGems está instalada.
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Criar uma área de trabalho do Log Analytics no Azure
 

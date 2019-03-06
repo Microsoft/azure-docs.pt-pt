@@ -9,14 +9,14 @@ ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
 ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 08/25/2018
-ms.openlocfilehash: 69a4e4c59038599a7375466c46878bdd017582fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3a72689be1902a05a2df409366bc5caba94d6a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231615"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436107"
 ---
-# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Cenário: Acionar aplicações lógicas com funções do Azure e o Azure Service Bus
+# <a name="scenario-trigger-logic-apps-with-azure-functions-and-azure-service-bus"></a>Cenário: Acionador logic apps com as funções do Azure e o Azure Service Bus
 
 Pode usar as funções do Azure para criar um acionador para uma aplicação lógica, quando precisa implantar uma longa serviço de escuta ou a tarefa. Por exemplo, pode criar uma função que fica à escuta fila e, em seguida, acionar imediatamente uma aplicação lógica como um acionador de push.
 
@@ -34,9 +34,9 @@ Neste exemplo, tem uma função em execução para cada aplicação de lógica q
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e criar a aplicação lógica em branco. 
 
-   Se estiver familiarizado com aplicações lógicas, reveja [início rápido: criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Se estiver familiarizado com aplicações lógicas, reveja [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na caixa de pesquisa, introduza "pedido de http". Abaixo da lista de disparadores, selecione este acionador: **pedido de HTTP de quando é recebido**
+1. Na caixa de pesquisa, introduza "pedido de http". Abaixo da lista de disparadores, selecione este acionador: **Quando é recebido um pedido HTTP**
 
    ![Selecionar acionador](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
@@ -98,7 +98,7 @@ Em seguida, crie a função que age como o acionador e escuta para a fila.
 
 1. No portal do Azure, abra e expanda a sua aplicação function app, se não estiver aberto. 
 
-1. No nome da aplicação de função, expanda **funções**. Sobre o **funções** painel, escolha **nova função**. Selecione este modelo: **acionador de fila do Service Bus - c#**
+1. No nome da aplicação de função, expanda **funções**. Sobre o **funções** painel, escolha **nova função**. Selecione este modelo: **Acionador de fila do Service Bus-C#**
    
    ![Selecione o portal de funções do Azure](./media/logic-apps-scenario-function-sb-trigger/newqueuetriggerfunction.png)
 
@@ -114,14 +114,14 @@ Em seguida, crie a função que age como o acionador e escuta para a fila.
    
    private static string logicAppUri = @"https://prod-05.westus.logic.azure.com:443/.........";
    
+   // Re-use instance of http clients if possible - https://docs.microsoft.com/en-us/azure/azure-functions/manage-connections
+   private static HttpClient httpClient = new HttpClient();
+   
    public static void Run(string myQueueItem, TraceWriter log)
    {
        log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 
-       using (var client = new HttpClient())
-       {
-           var response = client.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
-       }
+       var response = httpClient.PostAsync(logicAppUri, new StringContent(myQueueItem, Encoding.UTF8, "application/json")).Result;
    }
    ```
 

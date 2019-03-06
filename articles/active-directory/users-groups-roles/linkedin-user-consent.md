@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e96c7da9ac53927ed48003370f40f5861f48d3d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 71eeed62c6de2a3771909e8489ca816930993435
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204781"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442227"
 ---
 # <a name="linkedin-integration-data-sharing-and-consent"></a>Partilha de dados de integração do LinkedIn e consentimento
 
@@ -76,7 +76,7 @@ Quando se liga as suas contas Microsoft e LinkedIn, permite que a Microsoft forn
 
 Dados que são acedidos da Microsoft não estão armazenados permanentemente com o LinkedIn, exceto para contatos. Microsoft Contacts são armazenadas no LinkedIn, até que os utilizadores removê-los. Saiba mais sobre [eliminar contactos importados do LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).
 
-Para obter mais informações sobre a utilização do LinkedIn dos dados pessoais, consulte a [política de privacidade do LinkedIn](https://www.linkedin.com/legal/privacy-policy). Para serviços, transferência de dados e armazenamento do LinkedIn, podem fluxo de dados provenientes da União Europeia para os Estados Unidos e vice-versa, e sua privacidade é protegida como descritas [as transferências de dados da União Europeia](https://www.linkedin.com/help/linkedin/answer/62533).
+Para obter mais informações sobre a utilização do LinkedIn dos dados pessoais, consulte a [política de privacidade do LinkedIn](https://www.linkedin.com/legal/privacy-policy). Para serviços, transferência de dados e armazenamento do LinkedIn, podem fluxo de dados provenientes da União Europeia para os Estados Unidos e vice-versa, e sua privacidade é protegida, conforme descrito em [as transferências de dados da União Europeia](https://www.linkedin.com/help/linkedin/answer/62533).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

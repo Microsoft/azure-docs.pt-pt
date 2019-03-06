@@ -9,12 +9,12 @@ ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 6444a49a95ee53fb624501bc464f6378423e6e26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2f7de10eeb65b36823d6c4cc84b0032913638889
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863028"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444604"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Tutorial: Recortar uma imagem com o SDK de pesquisa Visual do Bing paraC#
 
@@ -28,7 +28,7 @@ Este tutorial ilustra como:
 > * Enviar um pedido com o SDK de pesquisa Visual do Bing
 > * Cortar uma área da imagem para pesquisar com pesquisa Visual do Bing
 > * Receber e tratar da resposta
-> * Encontrar os URLs de itens de ação no resposne
+> * Encontre os URLs de itens de ação na resposta
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

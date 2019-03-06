@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 514242eb759a2349d96b38ebe54bb98cf0e83423
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6838f4db240a0712eece7a97bc2cfe99efb87215
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468823"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454957"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários de análises avançadas no Azure Machine Learning
 Este artigo descreve a variedade de origens de dados de exemplo e cenários de destino que podem ser processados pela [Team Data Science Process (TDSP)](overview.md). O TDSP fornece uma abordagem sistemática para as equipas colaborarem na criação de aplicações inteligentes. Os cenários apresentados aqui ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem as características dos dados, localizações de origem e repositórios de destino no Azure.
@@ -146,7 +146,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 1. Ler os dados diretamente a partir do SQL Server a utilizar o [importar dados] [ import-data] módulo. Cole a consulta necessária que extrai os campos, cria os recursos e dados de exemplo, se for necessário diretamente na [importar dados] [ import-data] consulta.
 1. Fluxo de experimentação do Azure Machine Learning simples a partir do conjunto de dados carregado
 
-## <a name="largedbtodb"></a>Cenário \#6: Conjunto de dados grandes num SQL Server da base de dados no local, visando o SQL Server na máquina Virtual do Azure
+## <a name="largedbtodb"></a>Cenário \#6: Conjunto de dados grande numa base de dados SQL no local, visando o SQL Server na máquina Virtual do Azure
 ![Grandes SQL DB local para a BD do SQL no Azure][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Recursos do Azure adicionais: Máquina Virtual do Azure (SQL Server / servidor IPython Notebook)
@@ -154,7 +154,7 @@ Cada uma das seções a seguir apresenta um cenário de exemplo. Para cada cená
 1. Utilize um dos dados exportar métodos para exportar os dados do SQL Server para ficheiros de informação.
    
    > [!NOTE]
-   > Se optar por mover todos os dados da base de dados no local, um método alternativo (mais rápido) para mover a base de dados completa para a instância do SQL Server no Azure. Ignore os passos para exportar dados, criar a base de dados e carga/importar dados para a base de dados de destino e siga o método alternativo.
+   > Se optar por mover todos os dados do banco no local, um método alternativo (mais rápido) para mover a base de dados completa para a instância do SQL Server no Azure. Ignore os passos para exportar dados, criar a base de dados e carga/importar dados para a base de dados de destino e siga o método alternativo.
    > 
    > 
 1. Carregar ficheiros de informação para o contentor de armazenamento do Azure.

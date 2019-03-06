@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 12589d9fa4623dbb6ebfd12d2e007eb9303ecdbf
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4f06af8044a79a7dc54d6fde55992111d24d22a7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008329"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441565"
 ---
 # <a name="simple-query-syntax-in-azure-search"></a>Sintaxe de consulta simples no Azure Search
 O Azure Search implementa duas linguagens de consulta Lucene com base em: [Analisador de consultas simples](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) e o [analisador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). No Azure Search, a sintaxe de consulta simples exclui as opções de difusa/slop.  
@@ -46,7 +46,7 @@ Normalmente, está mais probabilidades de ver esses comportamentos em padrões d
 
 ## <a name="operators-in-simple-search"></a>Operadores de pesquisa simples
 
-Pode incorporar operadores numa cadeia de consulta para criar um conjunto de riche de critérios em relação aos quais se encontram documentos correspondentes. 
+Pode incorporar operadores numa cadeia de consulta para criar um conjunto avançado de critérios em relação aos quais se encontram documentos correspondentes. 
 
 ## <a name="and-operator-"></a>E o operador `+`
 

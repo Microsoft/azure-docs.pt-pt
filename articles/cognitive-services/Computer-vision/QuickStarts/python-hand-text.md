@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: defe3bb47ad6e6d6f8a7095f7020ad11266cfa23
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 78dfb6a78bff8aaf4fe3cc316a6614c3c4af65d2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649106"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433540"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Extrair texto manuscrito usando a REST API e Python em de imagem digitalizada
 
-Neste guia de início rápido, irá extrair texto manuscrito de uma imagem através da API REST de Imagem Digitalizada. Com os métodos [Reconhecimento de Texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) e [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Obter Resultado da Operação de Reconhecimento de Texto), pode detetar texto manuscrito numa imagem e, em seguida, extrair os carateres reconhecidos para um fluxo de carateres que podem ser utilizados por um computador.
+Neste guia de início rápido, irá extrair texto manuscrito de uma imagem através da API REST de Imagem Digitalizada. Com o [leitura do lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API e o [resultado da operação de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, pode detetar texto manuscrito numa imagem e, em seguida, extrair reconhecido carateres para um fluxo de carateres máquina utilizável.
 
 > [!IMPORTANT]
-> Ao contrário do método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), o método [Reconhecimento de Texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) é executado de forma assíncrona. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em alternativa, o método Reconhecimento de Texto devolve um URI no valor do campo de cabeçalho de resposta `Operation-Content`. Em seguida, pode chamar este URI, que representa o método [Get Recognize Text Operation Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (Obter Resultado da Operação de Reconhecimento de Texto), para verificar o estado e devolver os resultados da chamada do método Reconhecimento de Texto.
+> Ao contrário do [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) método, o [leitura do lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) método é executado de forma assíncrona. Este método não devolve quaisquer informações no corpo de uma resposta de êxito. Em vez disso, o método Read do Batch devolve um URI no valor do `Operation-Content` campo de cabeçalho de resposta. Em seguida, pode chamar este URI, que representa a [resultado da operação de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API, ao verificar o estado e devolver os resultados da chamada do método de leitura do lote.
 
 Pode executar este início rápido passo a passo com um bloco de notas do Jupyter no [MyBinder](https://mybinder.org). Para iniciar o Binder, selecione o botão seguinte:
 
@@ -72,7 +72,7 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-text_recognition_url = vision_base_url + "recognizeText"
+text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \

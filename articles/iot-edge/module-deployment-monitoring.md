@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 72238db8322132f42e14656c106b82d8604af21f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100111"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435104"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Compreender as implementações automáticas do IoT Edge para dispositivos individuais ou em escala
 
@@ -62,7 +62,7 @@ Se a imagem do módulo é armazenada no registo de contentor privado, o agente d
 
 ### <a name="target-condition"></a>Condição de destino
 
-A condição de destino é avaliada continuamente throughtout o tempo de vida da implementação. Novos dispositivos que cumprem os requisitos são incluídos, e todos os dispositivos existentes que deixaram de exigi são removidos. A implementação for reativada se o serviço Deteta qualquer alteração de condição de destino. 
+A condição de destino é avaliada continuamente ao longo da duração da implementação. Novos dispositivos que cumprem os requisitos são incluídos, e todos os dispositivos existentes que deixaram de exigi são removidos. A implementação for reativada se o serviço Deteta qualquer alteração de condição de destino. 
 
 Por exemplo, tem uma implementação de um com um tags.environment de condição de destino = 'prod'. Quando iniciar a implementação, há 10 dispositivos de produção. Os módulos são instalados com êxito nesses 10 dispositivos. O estado do agente do IoT Edge é mostrado como 10 dispositivos total, 10 respostas com êxito, 0 respostas de falhas e 0 respostas pendentes. Agora, adicionar cinco dispositivos mais com tags.environment = 'prod'. O serviço Deteta a alteração e o estado do agente do IoT Edge torna-se 15 dispositivos total, 10 respostas com êxito, respostas de falhas de 0 e 5 respostas pendentes ao tentar implementar a cinco novos dispositivos.
 

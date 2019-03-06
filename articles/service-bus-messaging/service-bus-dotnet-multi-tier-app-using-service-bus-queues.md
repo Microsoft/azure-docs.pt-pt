@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: aaec8fd245c507e83967aa76f3e2f9d72b052cb1
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: d4d837bb49e4ce80340d59f8a01334f3c80ff413
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849741"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435529"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicação .NET multicamadas que utiliza as filas do Service Bus do Azure
 
@@ -33,7 +33,7 @@ Aprenderá o seguinte:
 
 Neste tutorial, compilará e executará a aplicação multicamadas num serviço em nuvem do Azure. O front-end é uma função da Web de MVC do ASP.NET e o back-end é uma função de trabalho que utiliza uma fila do Service Bus. Pode criar a mesma aplicação multicamadas com o front-end como um projeto Web implementado num site do Azure em vez de num serviço cloud. Pode também experimentar o tutorial [Aplicação .NET híbrida no local/nuvem](../service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md).
 
-A seguinte captura de ecrã mostra a aplicação concluída.
+Captura de ecrã seguinte mostra o aplicativo concluído.
 
 ![][0]
 

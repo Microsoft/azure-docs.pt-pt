@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: decc63ad7ce0b35de41ec53e6b5e02276aa33705
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811210"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456079"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
 
@@ -101,7 +101,7 @@ Pode utilizar o serviço de Gestor de dispositivos do StorSimple em execução n
 ![Gestão de armazenamento baseado na nuvem](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Cópia de segurança independente do local
-Com a matriz virtual, instantâneos de cloud fornecem uma cópia independentemente da localização, o ponto no tempo de um volume ou partilha. Instantâneos de cloud estão ativados por predefinição e não podem ser desativados. Todos os volumes e partilhas são cópia de segurança ao mesmo tempo por meio de uma única política de cópia de segurança diária, e pode efetuar cópias de segurança ad-hoc adicionais sempre que necessário.
+Com a matriz virtual, instantâneos de cloud fornecem uma cópia independentemente da localização, o ponto no tempo de um volume ou partilha. Instantâneos de cloud estão ativados por predefinição e não podem ser desativados. Todos os volumes e partilhas são cópia de segurança ao mesmo tempo por meio de uma única política de cópia de segurança diária, e que pode realizar backups ad hoc adicionais sempre que necessário.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Recuperação após desastre e de proteção de dados
 A matriz virtual suporta os seguintes de proteção de dados e cenários de recuperação de desastres:

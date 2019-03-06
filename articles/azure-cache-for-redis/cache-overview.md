@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5b2b3a3ec0e9aec603a69211a7493afc31e83283
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236554"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433812"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>O que é a Cache de Redis do Azure
 
@@ -57,7 +57,7 @@ Básica | Uma cache de nó único. Este escalão suporta vários tamanhos de mem
 
 Pode dimensionar a sua cache para um escalão superior depois de esta ter sido criada. A diminuição para um escalão inferior não é suportada. Para obter instruções passo a passo do dimensionamento, veja [como dimensionar a cache do Azure para Redis](cache-how-to-scale.md) e [como automatizar uma operação de dimensionamento](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### <a name="feature-comparision"></a>Comparação das Funcionalidades
+### <a name="feature-comparison"></a>Comparação de Funcionalidades
 
 O [do Azure na Cache de Redis preços](https://azure.microsoft.com/pricing/details/cache/) página fornece uma comparação detalhada de cada escalão. A tabela seguinte ajuda a descrever algumas das funcionalidades suportadas pelo escalão:
 

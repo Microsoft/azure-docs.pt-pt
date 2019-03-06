@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fb63ae141665dbeb64ee7046427098d4482aa55
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 904b5db35281ed07745b33c364c03e3f4c4bfd2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111327"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449211"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Utilizar modelos para criar entidades do Azure Data Factory
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "56111327"
 ## <a name="overview"></a>Descrição geral
 Ao utilizar o Azure Data Factory para as suas necessidades de integração de dados, talvez tenha reutilizar o mesmo padrão em ambientes diferentes ou implementar a mesma tarefa repetidamente dentro da mesma solução. Os modelos ajudam-na implementar e gerir estes cenários de uma forma fácil. Modelos no Azure Data Factory são ideais para cenários que envolvem a capacidade de reutilização e repetição.
 
-Considere a situação em que uma organização tiver as fábricas a 10 em todo o mundo. Os registos de cada fábrica são armazenados numa base de dados do SQL Server no local independente. A empresa quer criar um armazém de dados única na cloud para análises ad hoc. Também quer ter a mesma lógica, mas diferentes configurações para ambientes de desenvolvimento, teste e produção.
+Considere a situação em que uma organização tiver as fábricas a 10 em todo o mundo. Os registos de cada fábrica são armazenados numa base de dados do SQL Server no local independente. A empresa quer criar um armazém de dados única na cloud para análise ad hoc. Também quer ter a mesma lógica, mas diferentes configurações para ambientes de desenvolvimento, teste e produção.
 
 Neste caso, uma tarefa tem de ser repetido no mesmo ambiente, mas com valores diferentes entre as fábricas de dados de 10 para cada fábrica de produção. Na verdade, **repetição** está presente. Para modelos permite a abstração deste fluxo genérico (ou seja, pipelines ter iguais às atividades em cada fábrica de dados), mas utiliza um ficheiro de parâmetro separado para cada fábrica de produção.
 

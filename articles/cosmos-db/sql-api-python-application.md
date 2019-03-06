@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037162"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431211"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Criar uma aplicação Web Python Flask com o Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Este tutorial de base de dados abrange:
 
 Ao seguir este tutorial, irá criar uma aplicação de voto simples que lhe permite votar num inquérito.
 
-![Captura de ecrã da aplicação de votação criada pelo tutorial desta base de dados](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+![Captura de ecrã da aplicação de voto criada por este tutorial de base de dados](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>Pré-requisitos do tutorial da base de dados
 Antes de seguir as instruções deste artigo, deve certificar-se de que os seguintes elementos estão instalados:
@@ -52,7 +52,7 @@ Antes de seguir as instruções deste artigo, deve certificar-se de que os segui
 > [!IMPORTANT]
 > Se estiver a instalar o Python 2.7 pela primeira vez, certifique-se de que selecionou **Add python.exe to Path** (Adicionar python.exe ao Caminho) no ecrã Personalizar Python 2.7.13.
 > 
-> ![Captura de ecrã do ecrã Personalizar Python 2.7.11, onde tem de selecionar Adicionar python.exe ao Caminho](./media/sql-api-python-application/cosmos-db-python-install.png)
+> ![Captura de ecrã do ecrã Personalizar Python 2.7.11, onde tem de selecionar adicionar python.exe ao caminho](./media/sql-api-python-application/cosmos-db-python-install.png)
 > 
 > 
 
@@ -75,13 +75,13 @@ Agora, vamos guiá-lo pela criação de uma nova aplicação Web Python Flask a 
    
     Para aqueles que dão os primeiros passos com o Python Flask, trata-se de uma estrutura de desenvolvimento de aplicações Web que o ajuda a criar rapidamente aplicações Web no Python.
    
-    ![Captura de ecrã da janela Novo Projeto no Visual Studio com o Python realçado à esquerda, Projeto Web do Python Flask selecionado na parte central e o tutorial de nome na caixa Nome](./media/sql-api-python-application/image9.png)
+    ![Captura de ecrã da janela novo projeto no Visual Studio com o Python realçado à esquerda, projeto da Web Python Flask selecionado no meio e o tutorial de nome na caixa Nome](./media/sql-api-python-application/image9.png)
 4. Na janela **Ferramentas do Python para o Visual Studio**, clique em **Instalar num ambiente virtual**. 
    
-    ![Captura de ecrã do tutorial da base de dados - Janela Ferramentas do Python para o Visual Studio](./media/sql-api-python-application/python-install-virtual-environment.png)
+    ![Captura de ecrã do tutorial da base de dados - ferramentas do Python para a janela do Visual Studio](./media/sql-api-python-application/python-install-virtual-environment.png)
 5. Na janela **Adicionar Ambiente Virtual**, selecione Python 2.7 ou Python 3.5 na caixa “Selecionar um interpretador”, aceite as outras predefinições e clique em **Criar**. Esta ação configura o ambiente virtual do Python necessário para o seu projeto.
    
-    ![Captura de ecrã do tutorial da base de dados - Janela Ferramentas do Python para o Visual Studio](./media/sql-api-python-application/image10_A.png)
+    ![Captura de ecrã do tutorial da base de dados - ferramentas do Python para a janela do Visual Studio](./media/sql-api-python-application/image10_A.png)
    
     A janela de saída apresenta `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` quando o ambiente tiver sido instalado com êxito.
 
@@ -105,7 +105,7 @@ Depois de configurar o seu projeto, terá de adicionar os pacotes Flask necessá
 2. Guarde o ficheiro **requirements.txt**. 
 3. No Explorador de Soluções, clique com o botão direito do rato em **env** e clique em **Instalar a partir do requirements.txt**.
    
-    ![Captura de ecrã que ilustra o env (Python 2.7) selecionado com Instalar a partir do requirements.txt realçado na lista](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
+    ![Captura de ecrã que ilustra o env (Python 2.7) selecionado com instalar a partir do Requirements. txt realçado na lista](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
    
     Após a instalação com êxito, a janela de saída apresenta o seguinte:
    
@@ -350,16 +350,16 @@ def vote():
 1. Compile a solução ao premir **Ctrl**+**Shift**+**B**.
 2. Assim que a compilação for concluída com êxito, inicie o Web site premindo **F5**. No seu ecrã, deverá ver o seguinte.
    
-    ![Captura de ecrã do Python + Aplicação de Voto do Azure Cosmos DB apresentada num browser](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
+    ![Captura de ecrã do Python + aplicação do Azure Cosmos DB votação apresentada num browser](./media/sql-api-python-application/cosmos-db-pythonr-run-application.png)
 3. Clique em **Criar/Limpar a Base de dados de Voto** para gerar a base de dados.
    
-    ![Captura de ecrã da Página Criar da aplicação Web – detalhes de programação](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
+    ![Captura de ecrã da página Criar da aplicação web – detalhes de desenvolvimento](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
 4. Em seguida, clique em **Votar** e selecione a sua opção.
    
-    ![Captura de ecrã da aplicação Web com uma pergunta de voto colocada](./media/sql-api-python-application/cosmos-db-vote.png)
+    ![Captura de ecrã da aplicação web com uma pergunta de voto colocada](./media/sql-api-python-application/cosmos-db-vote.png)
 5. Cada voto que transmitir será contado no contador adequado.
    
-    ![Captura de ecrã dos Resultados da página de votos apresentada](./media/sql-api-python-application/cosmos-db-voting-results.png)
+    ![Captura de ecrã dos resultados da página de voto exibida](./media/sql-api-python-application/cosmos-db-voting-results.png)
 6. Interrompa a depuração do projeto premindo Shift+F5.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>Passo 5: Implementar a aplicação web no Azure
@@ -388,13 +388,13 @@ Agora que já tem a aplicação completa a funcionar corretamente no Azure Cosmo
 
 5. Guarde os ficheiros e clique com o botão direito do rato no Explorador de Soluções (confirme que já não está a executá-lo localmente) e selecione **Publicar**.  
    
-     ![Captura de ecrã do tutorial selecionado no Explorador de Soluções com a opção Publicar realçada.](./media/sql-api-python-application/image20.png)
+     ![Captura de ecrã do tutorial selecionado no Explorador de soluções, com a opção publicar realçada](./media/sql-api-python-application/image20.png)
 6. Na caixa de diálogo **Publicar**, selecione **Serviço de Aplicações do Microsoft Azure**, selecione **Criar nova** e clique em **Publicar**.
    
-    ![Captura de ecrã da janela Publicar na Web com o Serviço de Aplicações do Microsoft Azure destacado](./media/sql-api-python-application/cosmos-db-python-publish.png)
+    ![Captura de ecrã da janela Publicar na Web com o serviço de aplicações do Microsoft Azure realçadas](./media/sql-api-python-application/cosmos-db-python-publish.png)
 7. Na caixa de diálogo **Criar Serviço de Aplicações**, introduza o nome da sua aplicação Web e a **Subscrição**, o **Grupo de Recursos** e o **Plano do Serviço de Aplicações** e clique em **Criar**.
    
-    ![Captura de ecrã da Janela Web das Web Apps do Microsoft Azure](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
+    ![Captura de ecrã da janela da janela de aplicações Web do Microsoft Azure](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
 8. Em alguns segundos, o Visual Studio termina a cópia dos ficheiros para o servidor e apresenta “Não é possível apresentar a página porque ocorreu um erro de servidor interno” na página `http://<your app service>.azurewebsites.net/`.
 
 9. No portal do Azure, abra a sua conta nova do Serviço de Aplicações e, no menu de navegação, desloque-se para baixo para a secção **Ferramentas de programação**, selecione **Extensões** e clique em **+ Adicionar**.

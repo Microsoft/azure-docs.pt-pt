@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 87afdd9e949ec866c6ee962c2b68af42590bee67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 62388d50bdf112562b75830f092e10ffdb4e847e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878719"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450214"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com node. js
 
@@ -74,7 +74,7 @@ Embora esse aplicativo é escrito em JavaScript, a API é um serviço RESTful We
         });
         ```
 
-    3. Quando um **final** sinalizador é assinalado, analisar o JSON e imprimi-lo.
+    3. Quando um **final** sinalizador é sinalizado, analisar o JSON e imprimi-lo.
 
         ```javascript
         response.on ('end', function () {

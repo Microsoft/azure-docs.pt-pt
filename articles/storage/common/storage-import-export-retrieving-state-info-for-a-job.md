@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e40d8e7c05213e99fc2ef65f5dc05f17ba0d185e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890540"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437247"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Obter informações de estado para uma tarefa de importação/exportação
 Pode chamar o [Get Job de](/rest/api/storageimportexport/jobs) operação para obter informações sobre ambos, importar e exportar tarefas. As informações devolvidas incluem:
@@ -45,7 +45,7 @@ A tabela seguinte descreve cada Estado em que uma tarefa pode pass-through.
 |`Completed`|Depois de todas as unidades têm foi enviadas para o customer, se a tarefa for concluído sem erros, em seguida, a tarefa será definida como o `Completed` estado. A tarefa sejam eliminada automaticamente após 90 dias no `Completed` estado.|
 |`Closed`|Depois de todas as unidades têm foi enviadas para o customer, se tiverem sido quaisquer erros durante o processamento da tarefa, em seguida, a tarefa será definida como o `Closed` estado. A tarefa sejam eliminada automaticamente após 90 dias no `Closed` estado.|
 
-Pode cancelar uma tarefa apenas em determinados Estados. Uma tarefa cancelada ignora o passo de cópia de dados, mas caso contrário, ela segue as mesmo transições de estado como uma tarefa que não foi cancelada.
+Pode cancelar uma tarefa apenas em determinados Estados. Uma tarefa foi cancelada ignora o passo de cópia de dados, mas caso contrário, ela segue as mesmo transições de estado como uma tarefa que não foi cancelada.
 
 A tabela seguinte descreve os erros que podem ocorrer para cada Estado de tarefa, bem como o efeito sobre o trabalho quando ocorre um erro.
 

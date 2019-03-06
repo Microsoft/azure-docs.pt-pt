@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: kasinh
-ms.openlocfilehash: b94d6bd9cc129d80f3ece82c13df375abecafd26
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: f81e7a0008c015c033d30045970fe1bd67597ff9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493444"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452203"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar o servidor de cópia de segurança do Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Este artigo explica como preparar o ambiente para fazer cópias de segurança de
 >
 >
 
-MABS implementado na VM do Azure pode criar cópias de segurança da VM no Azure, mas eles devem estar no mesmo domínio para permitir a operação de cópia de segurança. O processo para criar uma VM do Azure permanece o mesmo que o backup de VMs no local, no entanto, implementar MABS no Azure tem algumas limitações. Para obter mais informações sobre limitação consulte [DPM como máquina virtual do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+MABS implementado na VM do Azure pode criar cópias de segurança da VM no Azure, mas eles devem estar no mesmo domínio para permitir a operação de cópia de segurança. O processo para criar uma VM do Azure permanece o mesmo que o backup das VMs no local, no entanto, implementar MABS no Azure tem algumas limitações. Para obter mais informações sobre limitação consulte [DPM como máquina virtual do Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > O Azure tem dois modelos de implementação para criar e trabalhar com recursos: [Resource Manager e clássica](../azure-resource-manager/resource-manager-deployment-model.md). Este artigo fornece as informações e procedimentos para restaurar VMs implementadas com o modelo do Resource Manager.

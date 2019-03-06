@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: f7bf5d521f4bcb5672ff1d710a08bed2e0872545
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 45e6de347cbb3ecfcc45ca20ab03805359207565
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974408"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444672"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Parceiros de monitorização de recursos de infraestrutura do serviço do Azure
 

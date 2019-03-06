@@ -7,16 +7,17 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 348cb6a451f15ddec6b7ee013832ad6c563bb2da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bc1099603114d6191c41a71230a856a7a5c7c497
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874958"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57402160"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Utilizar o C#, dados de conhecimento base, em seguida, responder a pergunta
 

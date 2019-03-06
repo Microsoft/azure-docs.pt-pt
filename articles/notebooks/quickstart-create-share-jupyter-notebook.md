@@ -1,5 +1,5 @@
 ---
-title: Criar e partilhar um bloco de notas do Jupyter no Azure | Documentos da Microsoft
+title: Criar e partilhar um bloco de notas do Jupyter no Azure
 description: Rapidamente criar e executar um bloco de notas do Jupyter nos blocos de notas do Azure, em seguida, partilhar o bloco de anotações com outras pessoas.
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: eddeb251bac3cc0d02573c4c0b3047a2eafd8237
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
-ms.translationtype: HT
+ms.openlocfilehash: 3e9850a40d949ce09e9c44a6b4b63a1f58259e7a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865128"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447137"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Início rápido: Criar e partilhar um bloco de notas
 
@@ -34,7 +34,7 @@ ms.locfileid: "52865128"
 
 1. Na **criar novo projeto** pop-up apresentado, introduza ou defina os seguintes detalhes, em seguida, selecione **criar**:
 
-    - **Nome do projeto**: Hello World no Python
+    - **Nome do projeto**: Olá, mundo no Python
     - **ID do projeto**: hello-world-python
     - **Projeto público**: (limpo)
     - **Criar um README.md**: (limpo)
@@ -93,7 +93,7 @@ ms.locfileid: "52865128"
 
     ![Guardar o ícone na barra de ferramentas de bloco de notas do Jupyter](media/quickstarts/hello-results-save-icon.png)
 
-1. Selecione o **arquivo** > **interrompido e fechar** comando de menu para parar o servidor e fechar a janela do browser.
+1. Selecione o **arquivo** > **fechar e parar** comando de menu para parar o servidor e fechar a janela do browser.
 
 ## <a name="share-the-notebook"></a>Partilhar o bloco de notas
 

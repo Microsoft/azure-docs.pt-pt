@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c6918126c36e1940daf564ee7eae562e31b280c3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285451"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449109"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>Não é possível ligar remotamente a um Windows 10 ou VM do Windows Server 2016 no Azure, devido a netvsc.sys
 
@@ -26,7 +26,7 @@ Este artigo explica como solucionar um problema no qual não haja nenhuma ligaç
 
 ## <a name="symptoms"></a>Sintomas
 
-É possível ligar a um Azure Windows 10 ou VM do Windows Server 2016 utilizando o protocolo de ambiente de trabalho de Rmote (RDP). Na [diagnósticos de arranque](boot-diagnostics.md), o ecrã mostra uma cruz vermelha sobre a placa de interface de rede (NIC). Isto indica que a VM não tem conectividade depois do sistema operacional está totalmente carregado.
+É possível ligar a um Azure Windows 10 ou VM do Windows Server 2016 utilizando o protocolo RDP (Remote Desktop). Na [diagnósticos de arranque](boot-diagnostics.md), o ecrã mostra uma cruz vermelha sobre a placa de interface de rede (NIC). Isto indica que a VM não tem conectividade depois do sistema operacional está totalmente carregado.
 
 Normalmente, este problema ocorre no Windows [criar 14393](http://support.microsoft.com/help/4093120/) e [criar 15063](http://support.microsoft.com/help/4015583/). Se a versão do seu sistema operativo for posterior a essas versões, este artigo não é aplicável ao seu cenário. Para verificar a versão do sistema, abra uma sessão CMD na [a funcionalidade de consola de acesso de série](serial-console-windows.md)e, em seguida, execute **vidor**.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4be483994bd7bc5bd97b1e59df230f66e9b4e24e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 034f7f6d8636ced748987c9b0e584790205c0083
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430351"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435308"
 ---
 # <a name="azure-backup-architecture"></a>Arquitetura de cópia de segurança do Azure
 
@@ -138,7 +138,7 @@ Tenha em atenção que as VMs do Azure tem acesso à internet para comandos de c
     - O agente de MARS utiliza apenas escrever de sistema do Windows para capturar o instantâneo.
     - O agente não usa qualquer escritores VSS do aplicativo e, portanto, não captura instantâneos consistentes com a aplicação.
 3. Depois de criar o instantâneo com o VSS, o agente de MARS cria um VHD na pasta de cache que especificou quando configurou a cópia de segurança, e armazena as somas de verificação para cada blocos de dados. 
-4. Cópias de segurança incrementais executam em conformidade com o agendamento que especificar, a menos que executar uma cópia de segurança ad-hoc.
+4. Cópias de segurança incrementais executam em conformidade com o agendamento que especificar, a menos que executar um backup ad hoc.
 5. Cópias de segurança incrementais, os ficheiros alterados são identificados e é criado um novo VHD. Ele tem comprimidos e encriptados e enviadas para o cofre.
 6. Após a conclusão da cópia de segurança incremental, o novo VHD é mesclado com o VHD criado após a replicação inicial, fornecendo o estado mais recente a ser utilizado para comparação para cópia de segurança em curso. 
 

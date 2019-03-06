@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 0246b19c0155fe2707ac780c7acb61be424d2caf
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 1ff7d430edd3f638ad5efcc5a89604e4ed732211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008936"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450996"
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia de programador do IoT Hub do Azure
 
@@ -55,7 +55,7 @@ Este guia de programador do IoT Hub inclui os seguintes artigos:
 
 * [Controlar o acesso ao IoT Hub](iot-hub-devguide-security.md) descreve o modelo de segurança utilizado para conceder acesso à funcionalidade do IoT Hub para ambos os dispositivos e componentes da cloud. O artigo inclui informações sobre como utilizar tokens e certificados X.509 e os detalhes de permissões que pode conceder.
 
-* [Utilizar dispositivos duplos para sincronizar o estado e configurações](iot-hub-devguide-device-twins.md) descreve a *dispositivo duplo* conceito. O artigo também descibes dispositivos duplos a funcionalidade expor, tais como sincronizar um dispositivo com o seu dispositivo duplo. O artigo inclui informações sobre os dados armazenados num dispositivo duplo.
+* [Utilizar dispositivos duplos para sincronizar o estado e configurações](iot-hub-devguide-device-twins.md) descreve a *dispositivo duplo* conceito. O artigo também descreve o dispositivo de funcionalidade expõem duplos, tais como sincronizar um dispositivo com o seu dispositivo duplo. O artigo inclui informações sobre os dados armazenados num dispositivo duplo.
 
 * [Invocar um método direto num dispositivo](iot-hub-devguide-direct-methods.md) descreve o ciclo de vida de um método direto. O artigo descreve como invocar métodos num dispositivo da sua aplicação de back-end e manipular o método direto no seu dispositivo.
 

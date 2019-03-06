@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: fe1993a914ea4d3bd8ab9116748198cbb0c1c43c
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d43424e1377f7fa9cb8b272cc4ffbf3e5323f2ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55905140"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457896"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -23,7 +23,7 @@ ms.locfileid: "55905140"
 | Sites de rede local |20 |contactar o suporte |
 | Servidores de DNS por rede virtual |20 |20 |
 | Endereços de IP privados por rede virtual |4096 |4096 |
-| Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 K |500 K |
+| Em simultâneo TCP ou UDP flui por NIC de uma máquina virtual ou instância de função |500 mil, até 1000 K para dois ou mais NICs |500 mil, até 1000 K para dois ou mais NICs |
 | Grupos de Segurança de Rede (NSG) |100 |200 |
 | Regras do NSG por NSG |200 |1000 |
 | Tabelas da rota definida pelo utilizador |100 |200 |

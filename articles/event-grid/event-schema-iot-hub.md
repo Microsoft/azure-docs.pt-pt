@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5fcd7c10002e7e1ae9683fdd89d3af14a1500050
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475208"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449194"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos do Azure Event Grid para o IoT Hub
 
@@ -113,51 +113,51 @@ Todos os eventos contêm os mesmos dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| ID | cadeia | Identificador exclusivo para o evento. |
-| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| ID | string | Identificador exclusivo para o evento. |
+| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | dados | objeto | Dados de eventos do IoT Hub.  |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 Para todos os eventos do IoT Hub, o objeto de dados contém as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| hubName | cadeia | Nome do IoT Hub em que o dispositivo foi criado ou eliminado. |
-| deviceId | cadeia | O identificador exclusivo do dispositivo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres de alfanuméricos ASCII de 7 bits, bem como os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| hubName | string | Nome do IoT Hub em que o dispositivo foi criado ou eliminado. |
+| deviceId | string | O identificador exclusivo do dispositivo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres de alfanuméricos ASCII de 7 bits, bem como os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 
 O conteúdo do objeto de dados é diferente para cada editor de eventos. Para **dispositivo ligado** e **dispositivo desligado** eventos do IoT Hub, o objeto de dados contém as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| moduleId | cadeia | O identificador exclusivo do módulo. Este campo é de saída apenas para dispositivos de módulo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres de alfanuméricos ASCII de 7 bits, bem como os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| moduleId | string | O identificador exclusivo do módulo. Este campo é de saída apenas para dispositivos de módulo. Esta cadeia de maiúsculas e minúsculas pode ter até 128 carateres e suporta carateres de alfanuméricos ASCII de 7 bits, bem como os seguintes carateres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | deviceConnectionStateEventInfo | objeto | Informações de eventos de estado de ligação do dispositivo
-| sequenceNumber | cadeia | Um número que ajuda a indica a ordem de dispositivo ligado ou dispositivo desligado eventos. Evento mais recente terá um número de sequência é maior do que o evento anterior. Este número pode ser alterada por mais de 1, mas está estritamente aumentando. Ver [como utilizar o número de sequência](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+| sequenceNumber | string | Um número que ajuda a indica a ordem de dispositivo ligado ou dispositivo desligado eventos. Evento mais recente terá um número de sequência é maior do que o evento anterior. Este número pode ser alterada por mais de 1, mas está estritamente aumentando. Ver [como utilizar o número de sequência](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
 
 O conteúdo do objeto de dados é diferente para cada editor de eventos. Para **dispositivo criado** e **dispositivo eliminado** eventos do IoT Hub, o objeto de dados contém as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| duplo | objeto | Informações sobre o dispositivo duplo, que é o represenation de cloud de metadados de dispositivo do aplicativo. | 
-| deviceID | cadeia | O identificador exclusivo do dispositivo duplo. | 
-| etag | cadeia | Um validador para garantir a consistência das atualizações para um dispositivo duplo. Cada etag é garantido que seja exclusivo por dispositivo duplo. |  
-| deviceEtag| cadeia | Um validador para garantir a consistência das atualizações para um registo do dispositivo. Cada deviceEtag é a garantia de ser exclusivo por registo de dispositivo. |
-| status | cadeia | Se o dispositivo duplo está ativado ou desativado. | 
-| statusUpdateTime | cadeia | Atualizar o carimbo de hora ISO8601 do último Estado de twin do dispositivo. |
-| connectionState | cadeia | Se o dispositivo está ligado ou desligado. | 
-| lastActivityTime | cadeia | O carimbo de hora ISO8601 da última atividade. | 
+| duplo | objeto | Informações sobre o dispositivo duplo, que é a representação de cloud de metadados de dispositivo do aplicativo. | 
+| deviceID | string | O identificador exclusivo do dispositivo duplo. | 
+| etag | string | Um validador para garantir a consistência das atualizações para um dispositivo duplo. Cada etag é garantido que seja exclusivo por dispositivo duplo. |  
+| deviceEtag| string | Um validador para garantir a consistência das atualizações para um registo do dispositivo. Cada deviceEtag é a garantia de ser exclusivo por registo de dispositivo. |
+| status | string | Se o dispositivo duplo está ativado ou desativado. | 
+| statusUpdateTime | string | Atualizar o carimbo de hora ISO8601 do último Estado de twin do dispositivo. |
+| connectionState | string | Se o dispositivo está ligado ou desligado. | 
+| lastActivityTime | string | O carimbo de hora ISO8601 da última atividade. | 
 | cloudToDeviceMessageCount | inteiro | Contagem da cloud para mensagens de dispositivo enviadas para este dispositivo. | 
-| authenticationType | cadeia | Tipo de autenticação utilizado para este dispositivo: ambos `SAS`, `SelfSigned`, ou `CertificateAuthority`. |
-| x509Thumbprint | cadeia | O thumbprint é um valor exclusivo para o x509 certificado, frequentemente utilizado para localizar um determinado certificado num arquivo de certificados. O thumbprint é gerado dinamicamente usando o algoritmo SHA1 e não existem fisicamente no certificado. | 
-| primaryThumbprint | cadeia | Thumbprint primário para o x509 certificado. |
-| secondaryThumbprint | cadeia | Thumbprint secundário para o x509 certificado. | 
+| authenticationType | string | Tipo de autenticação utilizado para este dispositivo: ambos `SAS`, `SelfSigned`, ou `CertificateAuthority`. |
+| x509Thumbprint | string | O thumbprint é um valor exclusivo para o x509 certificado, frequentemente utilizado para localizar um determinado certificado num arquivo de certificados. O thumbprint é gerado dinamicamente usando o algoritmo SHA1 e não existem fisicamente no certificado. | 
+| primaryThumbprint | string | Thumbprint primário para o x509 certificado. |
+| secondaryThumbprint | string | Thumbprint secundário para o x509 certificado. | 
 | versão | inteiro | Um número inteiro que é incrementado em um cada vez que o dispositivo duplo é atualizado. |
 | pretendido | objeto | Uma parte das propriedades que podem ser gravados apenas pelo back-end da aplicação e ler pelo dispositivo. | 
 | comunicado | objeto | Uma parte das propriedades que pode ser escrito apenas pelo dispositivo e ler o back-end da aplicação. |
-| lastUpdated | cadeia | Atualizar o carimbo de hora ISO8601 da última propriedade de twin do dispositivo. | 
+| lastUpdated | string | Atualizar o carimbo de hora ISO8601 da última propriedade de twin do dispositivo. | 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

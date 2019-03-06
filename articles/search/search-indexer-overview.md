@@ -7,21 +7,21 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2017
+ms.date: 03/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0a6c894b08fd76a018035a824b463e41e31c2f2f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b485b6b7f6ddbdb45d3ca6170c29a9af3c5b63dc
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310204"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407991"
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores na Pesquisa do Azure
 
-Uma *indexador* no Azure Search é um crawler que extrai dados pesquisáveis e metadados de uma origem de dados do Azure externa e preenche um índice com base nos mapeamentos campo a campo entre o índice e sua origem de dados. Esta abordagem é por vezes referida como 'modelo de extração' porque o serviço obtém dados sem precisar de escrever qualquer código que envia dados para um índice.
+Uma *indexador* no Azure Search é um crawler que extrai dados pesquisáveis e metadados de uma origem de dados do Azure externa e preenche um índice com base nos mapeamentos campo a campo entre o índice e sua origem de dados. Essa abordagem é por vezes, referida como 'modelo de extração' porque o serviço obtém dados sem a necessidade de escrever qualquer código que adiciona dados a um índice.
 
-Os indexadores baseiam-se em tipos de origens de dados ou plataformas, com indexadores individuais para o SQL Server no Azure, o Cosmos DB, o Armazenamento de Tabelas do Azure e o Armazenamento de Blobs, etc.
+Indexadores baseiam-se em tipos de origens de dados ou plataformas, com indexadores individuais para o SQL Server no Azure, o Cosmos DB, o armazenamento de tabelas do Azure e o armazenamento de Blobs. Os indexadores de armazenamento de BLOBs tem as propriedades adicionais específicas para tipos de conteúdo do blob.
 
 Pode utilizar um indexador como único meio para ingestão de dados ou utilizar uma combinação de técnicas que incluem a utilização de um indexador para carregar apenas alguns dos campos no seu índice.
 
@@ -37,6 +37,9 @@ Pode criar e gerir indexadores com estas abordagens:
 
 Inicialmente, um indexador novo é anunciado como uma funcionalidade de pré-visualização. As funcionalidades de pré-visualização são introduzidas em APIs (REST e .NET) e, em seguida, são integradas no portal, após passarem para disponibilidade geral. Se estiver a avaliar um indexador novo, deverá planear sobre como escrever código.
 
+## <a name="permissions"></a>Permissões
+
+Todas as operações relacionadas com indexadores, incluindo os pedidos GET para o estado ou de definições, exigirem um [chave de api de administrador](search-security-api-keys.md). 
 
 <a name="supported-data-sources"></a>
 
@@ -62,19 +65,19 @@ Um indexador obtém a ligação à origem de dados de um *origem de dados* objet
 As origens de dados são configuradas e geridas independentemente dos indexadores que as utilizam, o que significa que uma origem de dados pode ser utilizada por vários indexadores para carregar mais de um índice de cada vez.
 
 ### <a name="step-2-create-an-index"></a>Passo 2: Criar um índice
-Um indexador irá automatizar algumas tarefas relacionadas com a ingestão de dados, mas geralmente a criação de um índice não é uma delas. Como pré-requisito, tem de ter um índice predefinido com campos que correspondam aos existentes na origem de dados externa. Para obter mais informações sobre a estruturação de um índice, consulte [criar um índice (API REST da Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) ou [indexar classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Para obter ajuda com associações de campo, veja [Mapeamentos de campo em indexadores do Azure Search](search-indexer-field-mappings.md).
+Um indexador irá automatizar algumas tarefas relacionadas com a ingestão de dados, mas geralmente a criação de um índice não é uma delas. Como pré-requisito, tem de ter um índice predefinido com campos que correspondam aos existentes na origem de dados externa. Campos têm de corresponder ao nome e tipo de dados. Para obter mais informações sobre a estruturação de um índice, consulte [criar um índice (API REST da Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Index) ou [indexar classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index). Para obter ajuda com associações de campo, veja [Mapeamentos de campo em indexadores do Azure Search](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Apesar de os indexadores não poderem gerar um índice para si, o assistente **Importar dados** do portal pode ser útil. Na maioria dos casos, o assistente pode inferir um esquema de índice a partir dos metadados existentes na origem, apresentando um esquema de índice preliminar que pode editar em linha enquanto o assistente está ativo. Assim que o índice é criado no serviço, as outras edições no portal são limitadas principalmente à adição de novos campos. Considere o assistente para criar, mas não para rever um índice. Para aprendizagem prática, siga os passos no [portal de instruções](search-get-started-portal.md).
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>Passo 3: Criar e agendar o indexador
-A definição de indexador é uma construção que especifica o índice, a origem de dados e uma agenda. Um indexador pode fazer referência a uma origem de dados de outro serviço, desde que essa origem de dados seja da mesma subscrição. Para mais informações sobre a estruturação de um indexador, consulte o artigo [Create Indexer (Azure Search REST API) (Criar um indexador (API REST do Azure Search))](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
+A definição de indexador é uma construção que reúne todos os elementos relacionados com a ingestão de dados. Elementos necessários incluem uma origem de dados e um índice. Elementos opcionais incluem uma agenda e campo mapeamentos. Mapeamento de campo apenas são opcionais, se os campos de origem e de campos de índice claramente correspondem. Um indexador pode fazer referência a uma origem de dados de outro serviço, desde que essa origem de dados seja da mesma subscrição. Para mais informações sobre a estruturação de um indexador, consulte o artigo [Create Indexer (Azure Search REST API) (Criar um indexador (API REST do Azure Search))](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>
 
 ## <a name="run-indexers-on-demand"></a>Executar os indexadores a pedido
 
-Embora seja comum para agendar a indexação, um indexador também pode ser chamado a pedido com o comando executar:
+Embora seja comum para agendar a indexação, um indexador também pode ser chamado a pedido através da [execute o comando](https://docs.microsoft.com/rest/api/searchservice/run-indexer):
 
     POST https://[service name].search.windows.net/indexers/[indexer name]/run?api-version=2017-11-11
     api-key: [Search service admin key]
@@ -82,13 +85,14 @@ Embora seja comum para agendar a indexação, um indexador também pode ser cham
 > [!NOTE]
 > Quando executar a API devolve com êxito, a invocação de indexador foi agendada, mas o processamento real acontece de forma assíncrona. 
 
-Pode monitorizar o estado do indexador no portal ou através de obter indexador Estado API, que descrevemos, em seguida. 
+Pode monitorizar o estado do indexador no portal ou através da API de estado de indexador obter. 
 
 <a name="GetIndexerStatus"></a>
 
 ## <a name="get-indexer-status"></a>Obter estado do indexador
 
-Pode recuperar o histórico de estado e a execução de um indexador através da API REST:
+Pode recuperar o histórico de estado e a execução de um indexador através do [comando do obter estado do indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+
 
     GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2017-11-11
     api-key: [Search service admin key]
@@ -100,8 +104,8 @@ A resposta contém o estado geral do indexador, a invocação de indexador últi
         "lastResult": {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
+            "startTime":"2018-11-26T03:37:18.853Z",
+            "endTime":"2018-11-26T03:37:19.012Z",
             "errors":[],
             "itemsProcessed":11,
             "itemsFailed":0,
@@ -111,8 +115,8 @@ A resposta contém o estado geral do indexador, a invocação de indexador últi
         "executionHistory":[ {
             "status":"success",
              "errorMessage":null,
-            "startTime":"2014-11-26T03:37:18.853Z",
-            "endTime":"2014-11-26T03:37:19.012Z",
+            "startTime":"2018-11-26T03:37:18.853Z",
+            "endTime":"2018-11-26T03:37:19.012Z",
             "errors":[],
             "itemsProcessed":11,
             "itemsFailed":0,

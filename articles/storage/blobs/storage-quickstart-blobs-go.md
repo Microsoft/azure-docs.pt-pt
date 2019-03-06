@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 5bafceca09cfe5a981365a39e4f3803b5865ce73
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: abe3d79f352ef04abf8f90f50824b6426457c2a1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754820"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445471"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Início rápido: Carregar, transferir e listar blobs através de Go
 
@@ -208,7 +208,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Transferir o blob
 
-Transfira blobs com a função de baixo nível **Download** num BlobURL. Isto irá devolver uma estrutura **DownloadResponse**. Para executar a função **Body** na estrutura para obter uma transmissão **RetryReader** para a leitura de dados. Se ocorrer uma falha ao ler a ligação, ela fará com que os pedidos adicionais voltem a estabelecer uma ligação e continuem a ler. Se especificar um RetryReaderOption com MaxRetryRequests definido como 0 (a predefinição), o corpo da resposta original é devolvido e não serão realizadas repetições. Em alternativa, utilize as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar o seu código.
+Transfira blobs com a função de baixo nível **Download** num BlobURL. Isto irá devolver uma estrutura **DownloadResponse**. Para executar a função **Body** na estrutura para obter uma transmissão **RetryReader** para a leitura de dados. Se uma ligação falhar ao ler, ele fará com que as solicitações adicionais para voltar a estabelecer uma ligação e continue a ler. Se especificar um RetryReaderOption com MaxRetryRequests definido como 0 (a predefinição), o corpo da resposta original é devolvido e não serão realizadas repetições. Em alternativa, utilize as APIs de alto nível **DownloadBlobToBuffer** ou **DownloadBlobToFile** para simplificar o seu código.
 
 O código seguinte transfere o blob com a função **Download**. O conteúdo do blob é escrito numa memória intermédia e apresentado na consola.
 

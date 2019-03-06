@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: da615d76e9efa0ad8d0952a6d75bc341336a6596
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 264f10be1ecb22b6261a14f7185f88b101242d36
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312975"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440782"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -157,8 +157,8 @@ Fazer uma cópia de segurança de VMs que são migradas para o Azure  | Suportad
 **Componente** | **Suporte**
 --- | ---
 Discos de dados VM do Azure | Fazer uma cópia de segurança de uma VM com discos de dados ou inferior a 16.
-Tamanho do disco de dados | Disco individual pode ser até 4095 GB.<br/><br/> Se estiver a executar a versão mais recente da cópia de segurança de VM do Azure (conhecida como restaurar instantânea), tamanhos até 4 TB de disco são suportadas. [Saiba mais](backup-instant-restore-capability.md).
-Tipo de armazenamento | Premium HDD, standard SSD, Standard SSD. <br/><br/> Standard SSD é suportada se estiver a executar a versão mais recente da cópia de segurança de VM do Azure (também conhecida como restaurar instantânea). [Saiba mais](backup-instant-restore-capability.md).
+Tamanho do disco de dados | Disco individual pode ser até 4095 GB.<br/><br/> Se os cofres estiver executando a versão mais recente do Azure Backup (conhecido como restaurar instantânea), tamanhos até 4 TB de disco são suportadas. [Saiba mais](backup-instant-restore-capability.md).
+Tipo de armazenamento | Premium HDD, standard SSD, Standard SSD. <br/><br/> Standard SSD é suportada se os cofres estão atualizados para a versão mais recente da cópia de segurança de VM do Azure (também conhecida como restaurar instantânea). [Saiba mais](backup-instant-restore-capability.md).
 Managed disks | Suportado.
 Discos encriptados | Suportado.<br/><br/> VMs do Azure ativadas com encriptação de disco do Azure podem ser uma cópia de segurança (com ou sem a aplicação do Azure AD).<br/><br/> VMs encriptadas não não possível recuperar ao nível do ficheiro/pasta. Tem de recuperar toda a VM.<br/><br/> Pode ativar a encriptação em VMs que já estão protegidas pelo Azure Backup.
 Discos com acelerador de escrita ativados | Não suportado.<br/><br/> Se estiver a executar a versão mais recente da cópia de segurança de VM do Azure (conhecido como [restaurar instantâneas](backup-instant-restore-capability.md)), pode excluir discos com acelerador de escrita ativado a partir de cópia de segurança.

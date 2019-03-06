@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e7b1b3e3fba04276fc284fd71adabedc01185251
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7daf76605d40495d6c9cb5076f0403a78819adfc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984820"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439168"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitorização em escala com o Azure Monitor
 
@@ -254,7 +254,7 @@ Eis o recurso cofre RS em si e, por conseguinte, terá de repetir a mesma ação
 
 ***Todos os alertas criados a partir de registos de atividades e áreas de trabalho LA podem ser visualizadas no Azure Monitor no painel de "Alertas" para a esquerda.***
 
-Embora possa utilizar a notificação através de registos de atividades, ***serviço de cópia de segurança do Azure recomenda vivamente que [utilizá-la para a monitorização em escala](#monitoring-at-scale) e não os registos de atividades pelos seguintes motivos***.
+Embora possa utilizar a notificação através de registos de atividades, ***serviço de cópia de segurança do Azure recomenda vivamente que utilize LA para a monitorização em escala e não registos de atividades pelos seguintes motivos***.
 
 - **Cenários limitados:** Aplicável apenas para cópias de segurança de VM do Azure e deve ser repetido para cada cofre RS.
 - **Definição de acordo com:** A atividade de cópia de segurança agendada não se ajusta com a definição mais recente de registos de atividade e se alinha com [registos de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-are-azure-monitor-diagnostic-logs). Isso levava a inesperado impacto quando os dados bombeando através do canal de registo de atividade são alterados conforme indicado abaixo.

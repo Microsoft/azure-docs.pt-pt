@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 67d86ca7ed79f431bf762d4a3679e18a7b4bc373
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 7fa2dad124b5ef9e93402d6d4c03d956b00184af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990228"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442381"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>A transmissão em fluxo em direto com codificadores no local que criam transmissões em fluxo
 
@@ -45,7 +45,7 @@ Começando com o lançamento de 2.10 de serviços de multimédia, quando cria um
 > [!NOTE]
 > Este artigo aborda os atributos de canais que não estão ativados para realizar live encoding. Para obter informações sobre como trabalhar com canais ativados para realizar live encoding, consulte [transmissão em direto através dos serviços de multimédia do Azure para criar transmissões em fluxo](media-services-manage-live-encoder-enabled-channels.md).
 >
->Para obter informações sobre recomendada codificadores no local, consulte [recomendado codificadores no local](media-services-recommended-encoders.md).
+>Para obter informações sobre recomendado no codificadores locais, consulte [recomendado no codificadores locais](media-services-recommended-encoders.md).
 
 O diagrama abaixo representa um fluxo de trabalho por transmissão em direto, que usa um codificador em direto no local para que a velocidade de transmissão RTMP ou MP4 fragmentado (Smooth Streaming) fluxos como saída.
 
@@ -229,7 +229,7 @@ Seguem-se outras considerações relacionadas com a trabalhar com canais e compo
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Tópicos relacionados
-[Recomendado codificadores no local](media-services-recommended-encoders.md)
+[Recomendado no codificadores locais](media-services-recommended-encoders.md)
 
 [Especificação de ingestão de Azure vidas MP4 fragmentadas dos serviços de multimédia](media-services-fmp4-live-ingest-overview.md)
 

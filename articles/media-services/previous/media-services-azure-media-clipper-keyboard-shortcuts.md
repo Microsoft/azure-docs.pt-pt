@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6d50c99b64442bf009707b7619ec19f3d40e604e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 352ed070e36d1a98806b074108f8115b7d1b8c94
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992505"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454464"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Configurar atalhos de teclado do Azure Media Clipper 
 

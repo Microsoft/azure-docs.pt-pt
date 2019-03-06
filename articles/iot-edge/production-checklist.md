@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652627"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433455"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparar para implantar sua solução de IoT Edge em produção
 
@@ -167,11 +167,11 @@ Esta lista de verificação é um ponto de partida para as regras de firewall:
 
    | URL (\* = carateres universais) | Portas TCP de saída | Utilização |
    | ----- | ----- | ----- |
-   | MCR.microsoft.com  | 443 | Registo de contentor da Microsoft |
-   | global.Azure-dispositivos-provisioning.net  | 443 | Acesso de pontos de distribuição (opcional) |
-   | \*. azurecr.io | 443 | Registos de contentores de pessoal e 3rd party |
+   | mcr.microsoft.com  | 443 | Registo de contentor da Microsoft |
+   | global.azure-devices-provisioning.net  | 443 | Acesso de pontos de distribuição (opcional) |
+   | \*.azurecr.io | 443 | Registos de contentores de pessoal e 3rd party |
    | \*.blob.core.windows.net | 443 | Transferência de deltas de imagem | 
-   | \*. Azure-Devices.NET | 5671, 8883, 443 | Acesso do IoT Hub |
+   | \*.azure-devices.net | 5671, 8883, 443 | Acesso do IoT Hub |
    | \*. docker.io  | 443 | Acesso de docker (opcional) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurar a comunicação através de um proxy
@@ -186,7 +186,7 @@ Se os dispositivos estão a ser implementado numa rede que utiliza um servidor p
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurar os registos e diagnósticos
 
-No Linux, o daemon de IoT Edge utiliza journald como o driver de registo predefinido. Pode usar a ferramenta de linha de comando `journalctl` para consultar o daemon de registos. No Windows, o daemon de IoT Edge usa o diagnóstico do PowerShell. Utilize `Get-WinEvent` para registos de consulta a partir do daemon. Módulos do IoT Edge utilizam o controlador JSON para o registo, o que é o padrão de Docker.  
+No Linux, o daemon de IoT Edge utiliza diários como sendo o padrão de registo de controlador. Pode usar a ferramenta de linha de comando `journalctl` para consultar o daemon de registos. No Windows, o daemon de IoT Edge usa o diagnóstico do PowerShell. Utilize `Get-WinEvent` para registos de consulta a partir do daemon. Módulos do IoT Edge utilizam o controlador JSON para o registo, o que é o padrão de Docker.  
 
 Quando estiver a testar uma implementação de IoT Edge, normalmente, pode acessar seus dispositivos para obter os registos e resolver problemas. Num cenário de implementação, pode não ter essa opção. Considere como vai para reunir informações sobre os seus dispositivos em produção. Uma opção é utilizar um módulo de registo que recolhe informações de outros módulos e envia-os para a cloud. Um exemplo de um módulo de registo é [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics), ou pode desenhar sua própria. 
 
@@ -194,7 +194,7 @@ Se estiver preocupado com registos fique demasiado grande num dispositivo de res
 
 * Especificamente pode limitar o tamanho de todos os logfiles de docker no daemon do Docker em si. Para o Linux, configure o daemon no `/etc/docker/daemon.json`. Para Windows, `C:\ProgramData\docker\confige\daemon.json`. 
 * Se quiser ajustar o tamanho de ficheiro de registo para cada contentor, pode fazê-lo no CreateOptions de cada módulo. 
-* Configure Docker para gerir automaticamente os registos por definição journald como predefinição o registo de controlador do Docker. 
+* Configure Docker para gerir automaticamente os registos ao definir diários como o driver de registo predefinido para o Docker. 
 * Remova periodicamente registos antigos do seu dispositivo ao instalar uma ferramenta de logrotate do Docker. Utilize a especificação do ficheiro seguinte: 
 
    ```

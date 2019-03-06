@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 84c37927eda65be71eb837aef2cb4968a121ee29
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71ffcc420372215a393f560d01d6c08dee03dfbd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426898"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433676"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Como fazer uma chamada telefónica, utilizar o Twilio numa aplicação de Java no Azure
 O exemplo seguinte mostra como pode utilizar o Twilio para fazer uma chamada de uma página da web alojadas no Azure. O aplicativo resultante pedirá ao utilizador para os valores de chamada telefónica, conforme mostrado na captura de ecrã seguinte.
@@ -162,7 +162,7 @@ O código a seguir, que é chamado quando o utilizador concluir o formulário ex
     </body>
     </html>
 
-Além de tornar a chamada, makecall.jsp apresenta o ponto de extremidade do Twilio, a versão de API e o estado da chamada. Um exemplo é a captura de ecrã seguinte:
+Além de tornar a chamada, makecall.jsp apresenta o ponto de extremidade do Twilio, a versão de API e o estado da chamada. Um exemplo é a seguinte captura de ecrã:
 
 ![Resposta de chamada do Azure com o Twilio e Java][twilio_java_response]
 

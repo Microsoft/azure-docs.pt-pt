@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/27/2018
+ms.date: 02/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6df44afee26570dbdc5d64b449c4e33d6a0956ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885715"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404047"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Utilizar a IU da Web local para administrar o seu Azure Data Box
 
@@ -25,6 +25,7 @@ Este artigo inclui os seguintes tutoriais:
 
 - Gerar um pacote de Suporte
 - Encerrar ou reiniciar o dispositivo
+- Baixe o BOM ou os arquivos de manifesto
 - Ver a capacidade disponível do dispositivo
 - Ignorar a validação da soma de verificação 
 
@@ -104,6 +105,8 @@ Antes de começar, certifique-se de que o Data Box foi concluída **preparação
     |databoxe2etest_AzFile-BOM.txt    |Ficheiros do Azure         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |Blobs de páginas         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |Blobs de bloco         |REST         |
+    |mydbmdrg1_MDisk-BOM.txt    |Disco gerido         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |Disco gerido         |SMB/NFS         |
 
 Utilize esta lista para verificar os ficheiros carregados para a conta de armazenamento do Azure, após o Data Box devolve para o datacenter do Azure. Um arquivo de manifesto de exemplo é mostrado abaixo.
 

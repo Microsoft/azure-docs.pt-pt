@@ -16,12 +16,12 @@ ms.date: 1/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 1/09/2019
-ms.openlocfilehash: aaa4dc48f237a4647cfde330e40eda91eeb1388d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 176cf22957725927f9705985bf5471a1c5e4caad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768737"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436328"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>Notas de versão do fornecedor 1.1.30.0 de recursos do SQL
 
@@ -49,7 +49,7 @@ Esta versão do fornecedor de recursos de SQL do Azure Stack inclui as seguintes
 
 ### <a name="fixes"></a>Correções
 
-- **Compatibilidade de Azure Stack do PowerShell de fornecedor de recursos SQL**. O fornecedor de recursos do SQL foi atualizado para trabalho com o perfil de PowerShell híbrido do Azure Stack 2018-03-01- e para proporcionar compatibilidade com o AzureRM 1.3.0 e posterior.
+- **Fornecedor de recursos do SQL do Azure Stack do PowerShell compatibilidade**. O fornecedor de recursos do SQL foi atualizado para trabalho com o perfil de PowerShell híbrido do Azure Stack 2018-03-01- e para proporcionar compatibilidade com o AzureRM 1.3.0 e posterior.
 
 - **Painel de palavra-passe de alteração de início de sessão SQL**. Foi corrigido um problema em que a palavra-passe não pode ser alterada no painel de palavra-passe de alteração. Notificações de alteração de links removidos da palavra-passe.
 

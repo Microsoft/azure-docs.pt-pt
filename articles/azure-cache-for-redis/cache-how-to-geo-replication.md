@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: yegu
-ms.openlocfilehash: e5e60e3370cc813685403cc979e6ef8dc043b7ac
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 383ea07005d7dae47cd0ef1da8a4a57d8b20d613
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233273"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435818"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-cache-for-redis"></a>Como configurar a georreplicação para a Cache do Azure para Redis
 
@@ -175,7 +175,7 @@ Em geral, recomenda-se para a sua cache de existir na mesma região do Azure que
 
 ### <a name="how-does-failing-over-to-the-secondary-linked-cache-work"></a>Como funciona a ativação pós-falha para a cache secundária ligado?
 
-Na versão inicial da georreplicação, a Cache de Redis do Azure não suporta a ativação pós-falha automática em regiões do Azure. Replicação geográfica é utilizada principalmente num cenário de recuperação após desastre. Num cenário de recuperação distater, os clientes devem apresentada a pilha de todo o aplicativo numa região de cópia de segurança na forma coordenada, em vez de deixar os componentes de aplicações individuais decidir quando mudar para as suas cópias de segurança por conta própria. Isto é especialmente relevante ao Redis. Um dos principais benefícios de Redis é o que é um arquivo de latência muito baixa. Se Redis utilizada por uma aplicação realiza a ativação pós-falha para uma região do Azure diferente, mas a escala de computação não, o tempo de ida adicionado seria ter um impacto considerável no desempenho. Por esse motivo, gostaríamos de evitar a falha de Redis através de automaticamente devido a problemas de disponibilidade transitório.
+Na versão inicial da georreplicação, a Cache de Redis do Azure não suporta a ativação pós-falha automática em regiões do Azure. Replicação geográfica é utilizada principalmente num cenário de recuperação após desastre. Num cenário de recuperação após desastre, os clientes devem apresentada a pilha de todo o aplicativo numa região de cópia de segurança na forma coordenada, em vez de deixar os componentes de aplicações individuais decidir quando mudar para as suas cópias de segurança por conta própria. Isto é especialmente relevante ao Redis. Um dos principais benefícios de Redis é o que é um arquivo de latência muito baixa. Se Redis utilizada por uma aplicação realiza a ativação pós-falha para uma região do Azure diferente, mas a escala de computação não, o tempo de ida adicionado seria ter um impacto considerável no desempenho. Por esse motivo, gostaríamos de evitar a falha de Redis através de automaticamente devido a problemas de disponibilidade transitório.
 
 Atualmente, para iniciar a ativação pós-falha, terá de remover a ligação de replicação geográfica no portal do Azure e, em seguida, alterar o ponto final de ligação no cliente do Redis da cache primária ligado para a cache secundária (anteriormente conhecido como ligada). Quando os dois caches são desassociar, a réplica se tornar uma cache de leitura / escrita regular novamente e aceita os pedidos diretamente a partir de clientes Redis.
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955172"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456351"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integração contínua nos serviços de DevOps do Azure com projetos de implantação do grupo de recursos do Azure
-Para implementar um modelo do Azure, executar tarefas em vários estágios: cópia de compilação, teste, para o Azure (também denominado "Teste") e para implementar o modelo. Existem duas formas diferentes de implementar modelos de serviços de DevOps do Azure. Ambos os métodos fornece os mesmos resultados, pelo que deve escolher aquele que melhor se adequa a seu fluxo de trabalho.
+Para implementar um modelo do Azure, executar tarefas em várias etapas: Cópia de compilação, teste, para o Azure (também denominado "Teste") e para implementar o modelo. Existem duas formas diferentes de implementar modelos de serviços de DevOps do Azure. Ambos os métodos fornece os mesmos resultados, pelo que deve escolher aquele que melhor se adequa a seu fluxo de trabalho.
 
 1. Adicione um único passo para o seu pipeline de compilação que executa o script do PowerShell que está incluído no projeto de implantação de grupo de recursos do Azure (Deploy-AzureResourceGroup.ps1). O script copia artefactos e, em seguida, implementa o modelo.
 2. Adicione que vários serviços do Azure DevOps criar passos, cada um, executar uma tarefa de fase.
@@ -78,7 +78,7 @@ Os procedimentos seguintes explicam as etapas necessárias para configurar a imp
       
       * ID da subscrição
       * Nome da Subscrição
-      * Id de Principal de serviço
+      * ID do Principal de Serviço
       * Chave de Principal de serviço
       * Id de Inquilino
    6. Adicionar um nome à sua escolha para o **subscrição** caixa nome. Este valor aparece mais adiante no **subscrição do Azure** na lista pendente nos serviços de DevOps do Azure. 

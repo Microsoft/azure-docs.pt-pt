@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 094f706878b82956398cd08100b3daf76b9f6cbc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ddde1570534801d394ace23973e4d755a1af7017
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203798"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443220"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Criar a sua primeira aplicação Java Reliable Actors do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -243,7 +243,7 @@ Os atores não fazem nada sozinhos, precisam de outro serviço ou cliente que lh
     watch -n 1 ./testclient.sh
     ```
 
-2. No Service Fabric Explorer, localize o nó que aloja a réplica primária do serviço de ator. Na captura de ecrã, é o nó 3. A réplica do principal de serviço gere as operações de escrita e leitura.  As alterações ao estado do serviço são então replicadas para as réplicas secundárias, em execução nos nós 0 e 1 da captura de ecrã abaixo.
+2. No Service Fabric Explorer, localize o nó que aloja a réplica primária do serviço de ator. Na captura de ecrã, é o nó 3. A réplica do principal de serviço gere as operações de escrita e leitura.  Alterações no estado de serviço são então replicadas para as réplicas secundárias, em execução em nós 0 e 1 da captura de ecrã abaixo.
 
     ![Localizar a réplica primária no Service Fabric Explorer][sfx-primary]
 

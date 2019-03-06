@@ -12,19 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 938392cea3e6fe001e662a60e17b936415e7e4f2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022806"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439286"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Por meio de programação monitorizar uma fábrica de dados do Azure
 Este artigo descreve como monitorizar um pipeline na fábrica de dados com os kits de desenvolvimento de software diferente (SDKs). 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="data-range"></a>Intervalo de dados
 
-Fábrica de dados só armazena a execução do pipeline dados para 45 dias. Quando consulta por meio de programação para dados sobre execuções de pipeline do Data Factory - por exemplo, com o comando do PowerShell `Get-AzureRmDataFactoryV2PipelineRun` -não existem nenhum datas máximas para o opcional `LastUpdatedAfter` e `LastUpdatedBefore` parâmetros. Mas se consultar os dados do ano passado, por exemplo, a consulta não devolveu um erro, mas só devolve pipeline de execução de dados dos últimos 45 dias.
+Fábrica de dados só armazena a execução do pipeline dados para 45 dias. Quando consulta por meio de programação para dados sobre execuções de pipeline do Data Factory - por exemplo, com o comando do PowerShell `Get-AzDataFactoryV2PipelineRun` -não existem nenhum datas máximas para o opcional `LastUpdatedAfter` e `LastUpdatedBefore` parâmetros. Mas se consultar os dados do ano passado, por exemplo, a consulta não devolveu um erro, mas só devolve pipeline de execução de dados dos últimos 45 dias.
 
 Se pretender manter os dados por mais de 45 dias de execução do pipeline, configurar o seu próprio log de diagnóstico com [do Azure Monitor](monitor-using-azure-monitor.md).
 
@@ -119,7 +121,7 @@ Para obter instruções completas de criar e monitorizar um pipeline com o Power
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
@@ -137,7 +139,7 @@ Para obter instruções completas de criar e monitorizar um pipeline com o Power
 
     ```powershell
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result
     
     Write-Host "Activity 'Output' section:" -foregroundcolor "Yellow"
@@ -147,7 +149,7 @@ Para obter instruções completas de criar e monitorizar um pipeline com o Power
     $result.Error -join "`r`n"
     ```
 
-Para obter documentação completa sobre os cmdlets do PowerShell, consulte [referência de cmdlets do PowerShell da fábrica de dados](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+Para obter documentação completa sobre os cmdlets do PowerShell, consulte [referência de cmdlets do PowerShell da fábrica de dados](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Passos Seguintes
 Ver [monitorizar pipelines com o Azure Monitor](monitor-using-azure-monitor.md) artigo para saber como utilizar o Azure Monitor para monitorizar os pipelines do Data Factory. 

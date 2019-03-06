@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4f6d49a60df09e78c3cbeee22d43827ecc9f9f64
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ac9abaaea7f33627332a9bc7563745b5efdf3d12
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118426"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436253"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnósticos no funções duráveis no Azure
 
-Existem várias opções para diagnosticar problemas com [funções duráveis](durable-functions-overview.md). Algumas dessas opções são os mesmos para funções regulares e alguns deles são exclusivos de funções duráveis.
+Existem várias opções para diagnosticar problemas com [funções duráveis](durable-functions-overview.md). Algumas destas opções são iguais às das funções normais e outras são exclusivas do Durable Functions.
 
 ## <a name="application-insights"></a>Application Insights
 
@@ -36,15 +36,15 @@ Cada evento de ciclo de vida de uma instância da orquestração faz com que um 
 * **slotName**: O [bloco de implementação](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/) no qual a aplicação de função atual está em execução. Isto é útil quando utilizar blocos de implementação para a versão suas orquestrações.
 * **functionName**: O nome da função de orquestrador ou atividade.
 * **functionType**: O tipo de função, como **Orchestrator** ou **atividade**.
-* **InstanceId**: O ID exclusivo da instância de orquestração.
-* **estado**: O estado de execução do ciclo de vida da instância. Valores válidos incluem:
+* **instanceId**: O ID exclusivo da instância de orquestração.
+* **state**: O estado de execução do ciclo de vida da instância. Valores válidos incluem:
   * **Agendado**: A função foi agendada para execução, mas ainda não começou ainda em execução.
   * **Iniciado**: A função foi iniciada em execução, mas não tem ainda aguardada ou concluída.
   * **Aguardada**: O orchestrator tem agendada algum trabalho e está a aguardar conclusão da mesma.
   * **A escutar**: O orchestrator está à escuta de uma notificação de evento externo.
   * **Concluído**: A função foi concluída com êxito.
   * **Falha ao**: A função falhou com um erro.
-* **motivo**: Dados adicionais associados com o evento de controlo. Por exemplo, se uma instância está a aguardar uma notificação de evento externo, este campo indica o nome do evento que está a aguardar. Se uma função falhou, isso irá conter os detalhes do erro.
+* **reason**: Dados adicionais associados com o evento de controlo. Por exemplo, se uma instância está a aguardar uma notificação de evento externo, este campo indica o nome do evento que está a aguardar. Se uma função falhou, isso irá conter os detalhes do erro.
 * **isReplay**: Valor booleano que indica se o evento de controlo é para execução repetida.
 * **extensionVersion**: A versão da extensão de tarefas durável. São dados especialmente importantes quando possíveis erros na extensão de geração de relatórios. Instâncias de execução longa podem comunicar várias versões, se uma atualização ocorre durante a execução.
 * **sequenceNumber**: Número de sequência de execução de um evento. Combinado com a ajuda de timestamp a ordenar os eventos por tempo de execução. *Observe que esse número será repor para zero se o anfitrião reinicia enquanto a instância está em execução, pelo que é importante sempre ordenar por timestamp pela primeira vez, em seguida, sequenceNumber.*

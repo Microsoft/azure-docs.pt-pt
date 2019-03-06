@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085842"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447279"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Resolver problemas de implementação do OpenShift no Azure
 
 Se o cluster do OpenShift não implantar com êxito, o portal do Azure irá fornecer a saída de erro. A saída pode ser difícil de ler o que torna difícil identificar o problema. Analise rapidamente esta saída para o código de saída, 3, 4 ou 5. O seguinte fornece informações sobre esses códigos de saída de três:
 
-- 3 de código de saída: O nome de utilizador de subscrição do Red Hat / ID de organização ou de palavra-passe / chave de ativação está incorreto
-- 4 de código de saída: O ID de conjunto de Red Hat estão incorreto ou existem não elegibilidades disponíveis
-- 5 de código de saída: não é possível aprovisionar o Volume do agrupamento dinâmico de Docker
+- Código de saída 3: O nome de utilizador de subscrição do Red Hat / ID de organização ou de palavra-passe / chave de ativação está incorreto
+- Código de saída 4: O ID de agrupamento do Red Hat estão incorreto ou existem não elegibilidades disponíveis
+- Código de saída 5: Não é possível aprovisionar o Volume do agrupamento dinâmico de Docker
 
 Para todos os outros códigos de saída, ligar para anfitriões de através de ssh para ver os ficheiros de registo.
 

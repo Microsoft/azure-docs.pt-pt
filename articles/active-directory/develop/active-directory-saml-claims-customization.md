@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9396fbc470f25e3cf6fad883ab525af1f96e96a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 23ce02bd35d9cd4afd881ec276fabb0720b61c09
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188754"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444043"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar afirmações emitidas no token SAML para aplicações empresariais
 
@@ -82,7 +82,7 @@ Também pode utilizar as funções de transformações de afirmações especial.
 
 ## <a name="adding-claims"></a>Adicionar afirmações
 
-Quando adicionar uma afirmação, pode especificar o nome de atributo (o que não seja estritamente necessário seguem um padrão URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de utilizador que é armazenado no diretório ou utilize um valor de contant como uma entrada de estática para todos os utilizadores na sua organização.
+Quando adicionar uma afirmação, pode especificar o nome de atributo (o que não seja estritamente necessário seguem um padrão URI de acordo com a especificação SAML). Defina o valor para qualquer atributo de utilizador que é armazenado no diretório ou utilize um valor constante como uma entrada de estática para todos os utilizadores na sua organização.
 
 ![Adicionar o atributo de utilizador][7]
 

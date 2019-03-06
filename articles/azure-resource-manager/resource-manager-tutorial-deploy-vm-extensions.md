@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9361c8b17d1b43b4ef63aca6ab4660571efddcde
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a1df94c7157823a4d7dcdcf652b1c7c926f4dbba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492807"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406512"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implementar extensões de máquina virtual com modelos Azure Resource Manager
 
@@ -108,7 +108,7 @@ Adicione um recurso de extensão de máquina virtual ao modelo existente com o s
 
 Para obter mais informações sobre esta definição do recurso, consulte a [referência de extensão](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Seguem alguns elementos importantes:
 
-* **name**: Como o recurso de extensão é um recurso filho do objeto de máquina virtual, o nome tem de ter o prefixo de nome de máquina virtual. Veja [Recursos subordinados](./resource-manager-templates-resources.md#child-resources).
+* **name**: Como o recurso de extensão é um recurso filho do objeto de máquina virtual, o nome tem de ter o prefixo de nome de máquina virtual. Veja [Recursos subordinados](./resource-group-authoring-templates.md#child-resources).
 * **dependsOn**: Crie o recurso de extensão depois de criar a máquina virtual.
 * **fileUris**: As localizações onde os ficheiros de script são armazenados. Se optar por não utilizar a localização fornecida, tem de atualizar os valores.
 * **commandToExecute**: Este comando invoca o script.  

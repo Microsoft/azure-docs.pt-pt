@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d3a02a850059dc96e4e4ba306fed7cded2f7dd7d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259756"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454192"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Ver a tendência de custo mensal estimado laboratório no Azure DevTest Labs
 A funcionalidade de gestão de custos do DevTest Labs ajuda-o a controlar o custo do seu laboratório. Este artigo ilustra como utilizar o **tendência de custo mensal estimado** gráfico para ver estimado custo até à data o calendário do mês atual e o custo previsto do mês final para o mês de calendário atual. Este artigo também mostra como gerenciar melhor os custos de laboratório, definindo gastos metas e limiares que, quando alcançado, o acionador DevTest Labs para relatar os resultados para.
@@ -33,7 +33,7 @@ Para ver o gráfico de tendência de custo estimado mensal, siga estes passos:
 1. O laboratório **descrição geral** área, selecione **Konfigurace a zásady**.   
 1. À esquerda sob **custo de controlo**, selecione **tendência de custo**.
 
-   A seguinte captura de ecrã mostra um exemplo de um gráfico de custo. 
+   Captura de ecrã seguinte mostra um exemplo de um gráfico de custo. 
    
     ![Gráfico de custo](./media/devtest-lab-configure-cost-management/graph.png)
 
@@ -76,8 +76,8 @@ DevTest Labs permite que a gerenciar melhor os custos em seu laboratório, defin
       - **Foi corrigido**: destinos de custo são registados para o intervalo de data que especificar na data de início e campos de data de fim. Normalmente, isso pode corresponder com o tempo que o seu projeto é agendado para ser executada.
    - Especifique um **custo de destino**. Por exemplo, pode ser quanto planeja gastar neste laboratório, no período de tempo que definiu.
    - Selecione para ativar ou desativar qualquer limiar que pretende comunicado – em incrementos de 25% – até 125% do seu especificado **custo de destino**.
-      - **Notificar**: quando este limiar for cumprido, será notificado por um URL de webhook especificado.
-      - **Vykreslit v grafu**: quando este limiar for cumprido, os resultados são desenhados no gráfico de tendência de custo, pode ver, conforme descrito na [visualizar o gráfico de tendência de custo estimado mensal](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Notificar**: Quando esse limiar for cumprido, será notificado por um URL de webhook especificado.
+      - **Vykreslit v grafu**: Quando esse limiar for cumprido, os resultados são desenhados no gráfico de tendência de custo, pode ver, conforme descrito em [visualizar o gráfico de tendência de custo estimado mensal](#viewing-the-monthly-estimated-cost-trend-chart).
    - Se optar por **notificar** quando o limiar for cumprido, tem de especificar um URL do webhook. Na área de integrações de custo, selecione **clique aqui para adicionar uma integração**.
 
       Introduza um URL do Webhook no painel de notificação de configurar e, em seguida, selecione **OK**.

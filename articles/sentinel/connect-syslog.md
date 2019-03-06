@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: ec23d4cec5ec1dbcaba5eca73ae6aba8391f2742
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 55949da97f58f1d8c1670f69d25e92d6bb4e9eef
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242144"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447307"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Ligue a sua solução externa com o Syslog
 
@@ -27,7 +27,7 @@ ms.locfileid: "57242144"
 > Sentinel do Azure está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Pode ligar-se a qualquer aplicação no local com suporte para Syslog para sentinela do Azure. Isso é feito através de um agente com base numa máquina Linux entre a aplicação e, em seguida, sentinela do Azure. Se a sua máquina Linux encontra-se no Azure, pode transmitir os registos da sua aplicação ou para uma área de trabalho dedicada que cria no Azure e ligá-la. Se não for sua máquina Linux no Azure, pode transmitir os registos da sua aplicação a uma VM dedicada no local ou o computador em que instala o agente para Linux. 
+Pode ligar-se a qualquer aplicação no local com suporte para Syslog para sentinela do Azure. Isso é feito através de um agente com base numa máquina Linux entre a aplicação e, em seguida, sentinela do Azure. Se a sua máquina Linux encontra-se no Azure, pode transmitir os registos da sua aplicação ou para uma área de trabalho dedicada que cria no Azure e ligá-la. Se não for sua máquina Linux no Azure, pode transmitir os registos da sua aplicação para um dedicado no local, VM ou numa máquina em que instalar o agente para Linux. 
 
 > [!NOTE]
 > Se a aplicação da suporte CEF de Syslog, a ligação é mais completa e deve escolher esta opção e siga as instruções em [recolha de dados CEF](connect-common-event-format.md).

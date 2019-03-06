@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 305a5c5d4f82c732dd796f5c5140c0da04fe7b13
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 14804de1d8507a49cda2ce1dd8ee97dc56c0223b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245221"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439558"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption para VMs de IaaS FAQ
 
@@ -145,7 +145,7 @@ Se este fluxo de trabalho não for possível, contando [Storage Service Encrypti
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Que método de encriptação utilizar o Azure Disk Encryption?
 
-No Windows, ADE utiliza o método de encriptação BitLocker AES256 (AES256WithDiffuser em versões anteriores ao Windows Server 2012). No Linux, ADE utiliza a predefinição de dmcrypt de xts-aes-plain64 com uma chave mestra de volume de 256 bits.
+No Windows, ADE utiliza o método de encriptação BitLocker AES256 (AES256WithDiffuser em versões anteriores ao Windows Server 2012). No Linux, ADE utiliza a predefinição de desencriptação de xts-aes-plain64 com uma chave mestra de volume de 256 bits.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se eu utilizar EncryptFormatAll e especifique todos os tipos de volume, irá apagar os dados em unidades de dados que nós já de ser encriptados?
 Não, os dados não ser apagados da unidades de dados que já são encriptadas com o Azure Disk Encryption. Semelhante a como EncryptFormatAll não voltar a encriptar a unidade do SO, ele não criptografa novamente a unidade de dados já encriptados. Para obter mais informações, consulte a [EncryptFormatAll critérios](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
