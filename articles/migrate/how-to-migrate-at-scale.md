@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: snehaa
-ms.openlocfilehash: c0fc4fa0bdd58b8ecdf4f26051d60324118c4b21
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 74dabc49dd3d0e38f43dc758204c35ea1c0efd99
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55896689"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438487"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Migração de dimensionamento de VMs com o Azure Site Recovery
 
@@ -30,7 +30,7 @@ Antes de começar, terá de efetuar os passos seguintes:
 - Certifique-se de que o Cofre de recuperação de Site é criado na sua subscrição do Azure
 - Certifique-se de que o servidor de configuração e o servidor de processos são instalados no ambiente de origem e o Cofre é capaz de detetar o ambiente
 - Certifique-se de que uma política de replicação é criada e associada ao servidor de configuração
-- Certifique-se de que adicionou a conta de administrador da VM para o servidor de configuração (que será utilizado para replicar as VMs no local)
+- Certifique-se de que adicionou a conta de administrador da VM para o servidor de configuração (que será utilizado para replicar no local, VMs)
 - Certifique-se de que os artefactos de destino no Azure são criados
     - Grupo de Recursos de Destino
     - Conta de armazenamento (e o respetivo grupo de recursos)
@@ -59,7 +59,7 @@ Depois do CSV está pronto, pode executar os seguintes passos para efetuar a mig
 4 | asr_propertiescheck.ps1 | Verificar se as propriedades são corretamente atualizadas
 5 | asr_testmigration.ps1 |  Iniciar ativação pós-falha de teste das VMs listadas no csv, o script cria uma saída CSV com os detalhes da tarefa para cada VM
 6 | asr_cleanuptestmigration.ps1 | Depois de validar manualmente as VMs que foram com ativação pós-falha de teste, pode utilizar este script para limpar ativação pós-falha de teste VMs
-7 | asr_migration.ps1 | Executar uma ativação pós-falha não planeada para as VMs listadas no csv, o script cria uma saída CSV com os detalhes da tarefa para cada VM. O script faz não encerrar as VMs no local antes de acionar a ativação pós-falha, para obter consistência de aplicação, é recomendável que encerrado manualmente as VMs antes de executar o script.
+7 | asr_migration.ps1 | Executar uma ativação pós-falha não planeada para as VMs listadas no csv, o script cria uma saída CSV com os detalhes da tarefa para cada VM. O script faz não encerramento no local, VMs antes de acionar a ativação pós-falha, para obter consistência de aplicação, é recomendável que encerrado manualmente as VMs antes de executar o script.
 8 | asr_completemigration.ps1 | Executar a operação de consolidação nas VMs e eliminar as entidades de ASR
 9 | asr_postmigration.ps1 | Se pretender atribuir grupos de segurança de rede para ativação de pós-falha NICs, pode utilizar este script para fazer isso. Atribui um NSG a qualquer uma NIC na VM de destino.
 

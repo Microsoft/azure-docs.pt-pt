@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 34555ec3315c1fd7322c249e59744cb512ac2d37
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885026"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437485"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Início rápido: Executar uma pesquisa de vídeos com o SDK de pesquisa de vídeos do Bing para Java
 
@@ -41,7 +41,7 @@ Instale as dependências de SDK de Pesquisa de Vídeos do Bing com o Maven, Grad
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>Criar e inicializar um projeto
+## <a name="create-and-initialize-a-project"></a>Criar e inicializar um projeto
 
 
 Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes bibliotecas.
@@ -115,7 +115,7 @@ Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes b
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>Enviar um pedido de pesquisa e receber a resposta 
+## <a name="send-a-search-request-and-receive-the-response"></a>Enviar um pedido de pesquisa e receber a resposta 
 
 1. Criar uma função chamada `VideoSearch()` que usa a chave de subscrição como uma cadeia de caracteres. Criar uma instância do cliente de pesquisa que criou anteriormente.
     

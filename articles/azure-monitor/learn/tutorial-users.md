@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f5d75e817da843e0b6a8e86fb055cc723e45a2bb
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109105"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449602"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utilize o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação
 
@@ -86,7 +86,7 @@ O painel **Sessions** (Sessões) é semelhante ao painel **Users** (Utilizadores
     ![Linha Cronológica das Sessões](media/tutorial-users/SessionsTimeline.png)
 
 ## <a name="group-together-similar-users"></a>Agrupar utilizadores semelhantes
-Um **coorte** é um conjunto de utilizadores agrupados com base em características semelhantes.  Pode utilizar coortes para filtrar os dados de outros painéis, o que lhe permite analisar grupos específicos de utilizadores.  Por exemplo, poderá querer analisar apenas utilizadores que tenham concluído uma compra.
+R **coorte** é um conjunto de utilizadores agrupados nas características semelhantes.  Pode utilizar coortes para filtrar os dados de outros painéis, o que lhe permite analisar grupos específicos de utilizadores.  Por exemplo, poderá querer analisar apenas utilizadores que tenham concluído uma compra.
 
 1.  Selecione **Cohorts** (Coortes), no menu.
 2.  Clique em **New** (Novo) para criar um coorte novo.

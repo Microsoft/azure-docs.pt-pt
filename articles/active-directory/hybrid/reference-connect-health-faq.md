@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bf1dc33276c10a9b7fe7c7ebb6619b8c47d66bfb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167614"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447834"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas mais frequentes do Azure AD Connect Health
 Este artigo contém respostas para perguntas mais frequentes (FAQ) sobre o Azure Active Directory (Azure AD) Connect Health. Estas FAQ sobre perguntas sobre como utilizar o serviço, que inclui a faturação modelo, capacidades, limitações e suporte.
@@ -155,7 +155,7 @@ O Azure AD Connect Health para AD FS gera este alerta quando o agente de estado 
 
 Frequentemente este teste falha porque o agente de estado de funcionamento não consegue resolver o nome do farm do AD FS. Isto pode acontecer se os servidores AD FS estão por trás de um balanceadores de carga de rede e o pedido obtém iniciado a partir de um nó que está por detrás do Balanceador de carga (ao contrário de um cliente regular que está à frente do Balanceador de carga). Isso pode ser corrigido ao atualizar o ficheiro "hosts" localizado em "C:\Windows\System32\drivers\etc" para incluir o endereço IP do servidor do AD FS ou um endereço IP de loopback (127.0.0.1) para o nome do farm do AD FS (por exemplo, sts.contoso.com). Adicionar o ficheiro do anfitrião serão cortar a chamada de rede, permitindo assim que o agente de estado de funcionamento obter o token.
 
-**P: Recebi uma mensagem de e-mail com a indicação de que minhas máquinas não sejam corrigidas para os recentes ataques de ransomeware. Por que recebeu este e-mail?**
+**P: Recebi uma mensagem de e-mail com a indicação de que minhas máquinas não sejam corrigidas para os recentes ataques de ransomware. Por que recebeu este e-mail?**
 
 O serviço do Azure AD Connect Health analisados todas as máquinas que monitoriza para garantir que os patches necessários foram instaladas. O e-mail foi enviado para os administradores do inquilino se pelo menos uma máquina não tinha os patches críticos. A seguinte lógica foi utilizada para efetuar este determinação.
 1. Encontre todos os hotfixes instalados na máquina.

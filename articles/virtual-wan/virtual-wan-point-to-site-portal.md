@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/07/2019
 ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 87b8543d8cb658b46ab5e589a310a17a69508a47
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 38ef2d9e95bda21b1b348d996b8856213c657fd7
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411395"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410184"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Criar uma ligação de ponto a Site com a Azure Virtual WAN (pré-visualização)
 
@@ -38,11 +38,13 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Registar esta funcionalidade
 
-Clique em **TryIt** para registar facilmente esta funcionalidade com o Azure Cloud Shell. Se em vez disso, deverá executar PowerShell localmente, certifique-se de que tem a versão mais recente e inicie sessão com o **Connect-AzureRmAccount** e **Select-AzureRmSubscription** comandos.
+Clique em **TryIt** para registar facilmente esta funcionalidade com o Azure Cloud Shell. Se em vez disso, deverá executar PowerShell localmente, certifique-se de que tem a versão mais recente e inicie sessão com o **Connect-AzAccount** e **selecione AzSubscription** comandos.
 
 >[!NOTE]
 >Se não registar esta funcionalidade, não poderá utilizá-la nem vê-la no portal.
@@ -52,25 +54,25 @@ Clique em **TryIt** para registar facilmente esta funcionalidade com o Azure Clo
 Depois de clicar em **TryIt** para abrir o Azure Cloud Shell, copie e cole os seguintes comandos:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
  
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 Assim que a funcionalidade for apresentada como estando registada, volte a registar a subscrição no espaço de nomes do Microsoft.Network.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. Criar uma rede virtual
@@ -149,7 +151,7 @@ Utilize o perfil transferido para configurar os clientes de acesso remoto. O pro
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Transfira e instale o cliente OpenVPN a partir do site oficial.
-2.  Transfira o perfil VPN para o gateway. Isso pode ser feito a partir do separador de configurações de ponto a site no portal do Azure, ou New-AzureRmVpnClientConfiguration no PowerShell.
+2.  Transfira o perfil VPN para o gateway. Isso pode ser feito a partir do separador de configurações de ponto a site no portal do Azure, ou New-AzVpnClientConfiguration no PowerShell.
 3.  Deszipe o perfil. Abra o ficheiro de configuração vpnconfig.ovpn na pasta OpenVPN no bloco de notas.
 4.  Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Veja aqui como exportar um certificado para obter a chave pública codificada.
 5.  Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Veja aqui como extrair a chave privada.
@@ -168,7 +170,7 @@ Utilize o perfil transferido para configurar os clientes de acesso remoto. O pro
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Transfira e instale um cliente OpenVPN, como o TunnelBlik, a partir de https://tunnelblick.net/downloads.html 
-2.  Transfira o perfil VPN para o gateway. Isso pode ser feito a partir do separador de configuração de ponto a site no portal do Azure ou New-AzureRmVpnClientConfiguration no PowerShell.
+2.  Transfira o perfil VPN para o gateway. Isso pode ser feito a partir do separador de configuração de ponto a site no portal do Azure ou New-AzVpnClientConfiguration no PowerShell.
 3.  Deszipe o perfil. Abra o ficheiro de configuração vpnconfig.ovpn na pasta OpenVPN no bloco de notas.
 4.  Preencha a secção de certificado de cliente P2S com a chave pública do certificado de cliente P2S em base64. Num certificado com o formato PEM, basta abrir o ficheiro .cer e copiar a chave base64 entre os cabeçalhos do certificado. Veja aqui como exportar um certificado para obter a chave pública codificada.
 5.  Preencha a secção de chave privada com a chave privada do certificado cliente P2S em base64. Veja aqui como extrair a chave privada.
@@ -201,10 +203,10 @@ Crie uma ligação para monitorizar a comunicação entre uma VM do Azure e um s
 
 ## <a name="cleanup"></a>12. Limpar recursos
 
-Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que o mesmo contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
+Quando já não precisa destes recursos, pode utilizar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos nele contidos. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

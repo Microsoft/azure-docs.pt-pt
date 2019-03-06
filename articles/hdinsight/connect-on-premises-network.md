@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 59d32657b3f65ee3e087ea8da3b95fff8a79a6fd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3041fba89ef29cb40cbdfdf9cd3d261ffeae816f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975428"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450010"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ligar o HDInsight à sua rede no local
 
@@ -69,7 +69,7 @@ Estes passos utilizam o [portal do Azure](https://portal.azure.com) para criar u
 
 1. Partir do __Noções básicas__ separador, introduza as seguintes informações:  
   
-    | Campo | Valor |
+    | Campo | Value |
     | --- | --- |
     |Subscrição |Selecione a subscrição adequada.|
     |Grupo de recursos |Selecione o grupo de recursos que contém a rede virtual que criou anteriormente.|
@@ -88,7 +88,7 @@ Estes passos utilizam o [portal do Azure](https://portal.azure.com) para criar u
 
 1. Partir do **redes** separador, introduza as seguintes informações: 
 
-    | Campo | Valor |
+    | Campo | Value |
     | --- | --- |
     |Rede virtual | Selecione a rede virtual que criou anteriormente.|
     |Subrede | Selecione a sub-rede de predefinição para a rede virtual que criou anteriormente. Fazer __não__ selecione a sub-rede utilizada pelo gateway de VPN.|

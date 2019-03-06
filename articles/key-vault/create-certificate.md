@@ -3,7 +3,7 @@ title: Métodos de criação de certificados
 description: Formas de criar um certificado no Cofre de chaves.
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: f0f18347c5a297b0f15478c3a96a126c1036f8b1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: mbaldwin
+ms.openlocfilehash: 50306ab4dee13f772c2c34b3c3a8f13d07861fc0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737421"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410269"
 ---
 # <a name="certificate-creation-methods"></a>Métodos de criação de certificados
 

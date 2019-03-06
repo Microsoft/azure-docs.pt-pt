@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3bfc3d0f444bece0afe7b7f5bcdac343a693a13
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: fa10ff14bf893c268d6b6b1a0d181d11a3f27dc4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243708"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451880"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure Security and Compliance Blueprint: Análise para FedRAMP
 
@@ -140,7 +140,7 @@ Para saber mais sobre como utilizar os recursos de segurança da base de dados d
 [O Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é essencial para a gestão da implementação e aprovisionamento do acesso ao pessoal de interação com o ambiente. Um Windows Server Active Directory existente pode ser integrado com o AAD no [quatro cliques](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Os clientes podem associar a infraestrutura de Active Directory implementada (controladores de domínio) para um AAD existente, tornando a infraestrutura de Active Directory implementada um subdomínio de uma floresta do AAD.
 
 ### <a name="additional-services"></a>Serviços adicionais
-#### <a name="iaas---vm-vonsiderations"></a>IaaS - vonsiderations VM
+#### <a name="iaas---vm-considerations"></a>IaaS - considerações sobre VM
 Esta solução de PaaS não incorpora a quaisquer VMs de IaaS do Azure. Um cliente pode criar uma VM do Azure para executar muitos destes serviços PaaS. Neste caso, funcionalidades específicas e serviços para continuidade do negócio e registos do Azure Monitor podem ser aproveitados:
 
 ##### <a name="business-continuity"></a>Continuidade do negócio

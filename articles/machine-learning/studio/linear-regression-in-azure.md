@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 2c295981621913dc9e744fa7dcb45aa8e5a5f556
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 706fe0afb004109ee591eab0efe99cadf9045d33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870725"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447659"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrar analytics a partir do Excel para o Azure Machine Learning Studio
 
@@ -109,7 +109,7 @@ Com o livro aberto, copie os parâmetros predefinidos para a secção de parâme
 ![](./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png)
 
 ### <a name="optimization-and-further-experiments"></a>Otimização e ainda mais experimentações
-Agora que tivéssemos uma linha de base com o nosso modelo do Excel, passamos em frente otimizar o nosso modelo de regressão Linear do Machine Learning. Usamos o módulo [seleção de funcionalidades com base no filtro] [ filter-based-feature-selection] para melhorar a nossa seleção de dados iniciais elementos e ele ajudaram-na alcançar uma melhoria de desempenho de 4.6% significa erro absoluto. Para projetos futuros utilizaremos esta funcionalidade que foi possível guardar nos semanas de iterar por meio de atributos de dados para localizar o conjunto certo de recursos para utilizar para a modelação de chegar. 
+Agora que tivéssemos uma linha de base com o nosso modelo do Excel, passamos em frente otimizar o nosso modelo de regressão Linear do Machine Learning. Usamos o módulo [seleção de funcionalidades com base no filtro] [ filter-based-feature-selection] para melhorar a nossa seleção de dados iniciais elementos e ele ajudaram-na alcançar uma melhoria de desempenho de 4.6% significa erro absoluto. Para projetos futuros utilizaremos esta funcionalidade que foi possível guardar nos semanas de iterar por meio de atributos de dados para localizar o conjunto certo de recursos para utilizar para a Modelagem de chegar. 
 
 Em seguida, planejamos incluir algoritmos adicionais, como [Bayesianos] [ bayesian-linear-regression] ou [árvores de decisões elevada] [ boosted-decision-tree-regression] na nossa experiência para comparar desempenho. 
 

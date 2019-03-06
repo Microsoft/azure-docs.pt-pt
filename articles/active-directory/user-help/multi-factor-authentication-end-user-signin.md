@@ -1,5 +1,5 @@
 ---
-title: Azure MFA início de sessão com a verificação de dois passos | Documentos da Microsoft
+title: Azure MFA início de sessão com a verificação de dois passos - Azure Active Directory | Documentos da Microsoft
 description: Esta página irá fornecer orientações sobre onde ir para ver os vários início de sessão métodos disponíveis com o MFA do Azure.
 keywords: autenticação de utilizador, início de sessão experiência, inicie sessão com o número de telemóvel, inicie sessão com o telefone do escritório
 services: active-directory
@@ -13,13 +13,14 @@ ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
+ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 153b3d61324d504fe260b104bf412913f9692627
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cd109637379f1fd2cdb108fbbb6c6c47224e00a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957543"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431772"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>A experiência de início de sessão com o Azure multi-factor Authentication
 > [!NOTE]
@@ -32,8 +33,8 @@ Sua experiência de início de sessão é diferente consoante aquilo que escolhe
 | --- |
 | [Com uma chamada telefónica para meu telefone mobile ou o office](#signing-in-with-a-phone-call) |
 | [Com uma mensagem de texto para o meu telemóvel](#signing-in-with-a-text-message)
-| Com as notificações a partir da aplicação Microsoft Authenticator |
-| Com os códigos de verificação a partir da aplicação Microsoft Authenticator |
+| [Com as notificações a partir da aplicação Microsoft Authenticator](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
+| [Com os códigos de verificação a partir da aplicação Microsoft Authenticator](#to-sign-in-using-a-verification-with-the-microsoft-authenticator-app) |
 | [Com um método alternativo, porque eu não é possível utilizar o meu método preferido de neste momento](#signing-in-with-an-alternate-method) |
 
 ## <a name="signing-in-with-a-phone-call"></a>Iniciar sessão com uma chamada telefónica

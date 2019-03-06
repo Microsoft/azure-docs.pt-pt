@@ -8,18 +8,18 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/05/2019
 ms.author: carlrab
-ms.openlocfilehash: af0fd591393f9f187a75f79fea980d41085df5cb
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9bd330c2be2b543bd7238dd1641df0d092a8a17d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342450"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434910"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão da base de dados SQL
 
-Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL e na documentação de base de dados SQL. Para aprimoramentos a outros serviços do Azure, consulte [as atualizações de serviço](https://azure.microsoft.com/updates).
+Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL e na documentação de base de dados SQL. Aprimoramentos do serviço de base de dados SQL, consulte também [atualizações de serviço de base de dados SQL](https://azure.microsoft.com/updates/?product=sql-database). Para aprimoramentos a outros serviços do Azure, consulte [as atualizações de serviço](https://azure.microsoft.com/updates).
 
 ## <a name="march-2019"></a>Março de 2019
 
@@ -27,15 +27,17 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 
 | Melhorias de serviço | Detalhes |
 | --- | --- |
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Melhorias de documentação
 
 | Melhorias de documentação | Detalhes |
 | --- | --- |
-| Limites de registo foi adicionado para bases de dados individuais|Para obter mais informações, consulte [único limites de recursos de vCore da base de dados](sql-database-vcore-resource-limits-single-databases.md)|
-| Limites de registo foi adicionado para conjuntos elásticos e bases de dados agrupadas|Para obter mais informações, consulte [limites dos recursos de vCore conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md)|
-| Governação de taxa de registo de transação foi adicionada| Adicionados novos conteúdos [governação de taxa de registo de transação](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)|
-| Exemplos de PowerShell atualizados para bases de dados individuais e conjuntos elásticos para utilizar o módulo de az.sql | Para obter mais informações, consulte [exemplos do PowerShell para conjuntos elásticos e bases de dados individuais](sql-database-powershell-samples.md#single-database-and-elastic-pools).
+| Limites de registo foi adicionado para bases de dados individuais|Para obter mais informações, consulte [único limites de recursos do banco de dados vCore](sql-database-vcore-resource-limits-single-databases.md).|
+| Limites de registo foi adicionado para conjuntos elásticos e bases de dados agrupadas|Para obter mais informações, consulte [limites dos recursos de vCore conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).|
+| Governação de taxa de registo de transação foi adicionada| Adicionados novos conteúdos [governação de taxa de registo de transação](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|
+| Exemplos de PowerShell atualizados para bases de dados individuais e conjuntos elásticos para utilizar o módulo de az.sql | Para obter mais informações, consulte [exemplos do PowerShell para conjuntos elásticos e bases de dados individuais](sql-database-powershell-samples.md#single-database-and-elastic-pools).|
+| &nbsp; |
 
 ## <a name="february-2019"></a>Fevereiro de 2019
 
@@ -43,16 +45,24 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 
 | Melhorias de serviço | Detalhes |
 | --- | --- |
-|Criar uma recriação de índices online está agora em disponibilidade geral| Para obter mais informações, consulte [criar índice](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql)|
-|Instância gerida de suporte para tabelas de rota melhorada| Para obter mais informações, consulte [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements)|
+|Criar uma recriação de índices online está agora em disponibilidade geral| Para obter mais informações, consulte [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
+|Instância gerida de suporte para tabelas de rota melhorada| Para obter mais informações, consulte [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
+|Mudar o nome de base de dados suportado na instância gerida | Para obter mais detalhes, consulte a [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) e [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) sintaxe.|
+|Base de dados SQL como uma origem de dados de referência para o Stream Analytics. | Para obter mais informações, consulte [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
+|Assistência de migração de dados adiciona suporte para a instância gerida. |Para obter mais informações, consulte [o que há de novo no DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew?view=sql-server-2017).|
+|SQL Server Migration Assistant-adiciona suporte para avaliação de preparação do destino para a instância gerida. | Para obter mais informações, consulte [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
+|Serviço de migração de dados suporta a migração do Amazon RDS para instância gerida | Para obter mais informações, consulte [Tutorial: Migrar o servidor de SQL de RDS para a base de dados do Azure SQL ou uma base de dados do Azure SQL instância gerida online com o DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Melhorias de documentação
 
 | Melhorias de documentação | Detalhes |
 | --- | --- |
-|Adicionar geridos esclarecimentos de opção de implementação de instância|Atualizado muitos artigos para esclarecer a aplicabilidade da base de dados, o conjunto elástico e opções de implementação de instância gerida |
-|Tamanhos de tempdb atualizado para o modelo de compra baseado em DTU | Para obter mais informações, consulte [base de dados Tempdb na base de dados SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)|
-|Atualizada a importação e exportação com o ficheiro bacpac para o suporte de instância gerida| Para obter mais informações, consulte [importação de BACPAC](sql-database-import.md) e [exportar para BACPAC](sql-database-export.md) |
+|Adicionar geridos esclarecimentos de opção de implementação de instância|Atualizar vários artigos para esclarecer a aplicabilidade da base de dados, o conjunto elástico e opções de implementação de instância gerida. |
+|Tamanhos de tempdb atualizado para o modelo de compra baseado em DTU | Para obter mais informações, consulte [base de dados Tempdb na base de dados SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).|
+|Atualizada a importação e exportação com o ficheiro bacpac para o suporte de instância gerida| Para obter mais informações, consulte [importação de BACPAC](sql-database-import.md) e [exportar para BACPAC](sql-database-export.md). |
+| &nbsp; |
+
 
 ## <a name="january-2019"></a>Janeiro de 2019
 
@@ -62,7 +72,7 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 | --- | --- |
 | Opções de granularidade adicionais para recursos de computação | Os fins gerais e crítico para a empresa escalões para [bases de dados únicas](sql-database-vcore-resource-limits-single-databases.md) e [conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md) agora tem mais opções de computação refinado.|
 | Visualização de registos de auditoria para a instância gerida no portal do Azure | Visualizar [registos para instâncias geridas de auditoria](sql-database-managed-instance-auditing.md) no Azure portal é agora suportado.|
-| Funcionalidade de deteção de ameaças avançadas mudada para segurança de dados avançada | Funcionalidade de deteção de ameaças avançadas mudado para [segurança de dados avançada](sql-advanced-threat-protection.md) para bases de dados individuais, conjuntos elásticos e instâncias geridas |
+| Funcionalidade de deteção de ameaças avançadas mudada para segurança de dados avançada | Funcionalidade de deteção de ameaças avançadas mudado para [segurança de dados avançada](sql-advanced-threat-protection.md) para instâncias geridas, os conjuntos elásticos e bases de dados individuais. |
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Melhorias de documentação

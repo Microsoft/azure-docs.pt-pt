@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: dc9f24f948e32d1b87745016852a875d440323de
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55493597"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443703"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -25,11 +25,13 @@ Um runtime de integração autoalojado pode executar atividades de cópia entre 
 
 Este documento descreve como pode criar e configurar um ir autoalojado.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="high-level-steps-to-install-a-self-hosted-ir"></a>Passos de alto nível para instalar um runtime de integração autoalojado
 1. Criar um integration runtime autoalojado. Pode utilizar a IU do Azure Data Factory para esta tarefa. Eis um exemplo do PowerShell:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
   
 2. [Transferir](https://www.microsoft.com/download/details.aspx?id=39717) e instalar o runtime de integração autoalojado num computador local.
@@ -37,7 +39,7 @@ Este documento descreve como pode criar e configurar um ir autoalojado.
 3. Obter a chave de autenticação e registar o runtime de integração autoalojado com a chave. Eis um exemplo do PowerShell:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configurar um runtime de integração autoalojado numa VM do Azure com um modelo Azure Resource Manager (automatização)
@@ -96,7 +98,7 @@ Pode instalar o runtime de integração autoalojado ao transferir um pacote de i
 9. Obtenha a chave de autenticação com o Azure PowerShell. Eis um exemplo do PowerShell para obter a chave de autenticação:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
     ```
 11. Sobre o **registar o Integration Runtime (autoalojado)** página do Microsoft Integration Runtime Configuration Manager em execução no seu computador, siga os passos seguintes:
 
@@ -112,7 +114,7 @@ Um runtime de integração autoalojado pode ser associado a várias máquinas no
 * Disponibilidade mais elevada do runtime de integração autoalojado, de modo que ele 's já não é o ponto único de falha na sua integração de dados de grandes volumes de dados solução ou na cloud, Azure Data Factory, garantindo a continuidade com até quatro nós.
 * Melhorou o desempenho e a produtividade durante o movimento de dados entre aplicações no local e na cloud arquivos de dados. Obtenha mais informações sobre [comparações de desempenho](copy-activity-performance.md).
 
-Pode associar vários nós ao instalar o software de runtime de integração autoalojado do [Centro de transferências](https://www.microsoft.com/download/details.aspx?id=39717). Em seguida, registre-se com uma das chaves de autenticação obtido do **New-AzureRmDataFactoryV2IntegrationRuntimeKey** cmdlet, conforme descrito no [tutorial](tutorial-hybrid-copy-powershell.md).
+Pode associar vários nós ao instalar o software de runtime de integração autoalojado do [Centro de transferências](https://www.microsoft.com/download/details.aspx?id=39717). Em seguida, registre-se com uma das chaves de autenticação obtido do **New-AzDataFactoryV2IntegrationRuntimeKey** cmdlet, conforme descrito no [tutorial](tutorial-hybrid-copy-powershell.md).
 
 > [!NOTE]
 > Não precisa de criar o novo runtime de integração autoalojado para associar a cada nó. Pode instalar o runtime de integração autoalojado em outra máquina e registá-lo com a mesma chave de autenticação. 
@@ -197,8 +199,6 @@ Para obter uma introdução de doze minutos e demonstração desta funcionalidad
 * A fábrica de dados no qual será criado um runtime de integração ligado tem de ter uma [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Por predefinição, as fábricas de dados criada no portal do Azure ou cmdlets do PowerShell tem um MSI criado implicitamente. Mas quando uma fábrica de dados é criada através de um modelo Azure Resource Manager ou o SDK, o **identidade** propriedade deve ser explicitamente definida para se certificar de que o Azure Resource Manager cria uma fábrica de dados que contém um MSI. 
 
 * O SDK .NET do Azure Data Factory que suporte esta funcionalidade é a versão 1.1.0 ou posterior.
-
-* A Azure PowerShell versão que suporte esta funcionalidade é 6.6.0 ou posterior (AzureRM.DataFactoryV2, 0.5.7 ou posterior).
 
 * Para conceder permissão, o utilizador tem a função de proprietário ou a função de proprietário herdada da fábrica de dados, onde existe o IR partilhado.
 
@@ -343,7 +343,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > A aplicação do Gestor de credenciais ainda não está disponível para encriptar as credenciais no Azure Data Factory V2.  
 
-Se optar por não abrir a porta 8060 na máquina de runtime de integração autoalojado, utilize mecanismos que não seja o aplicativo de credenciais de definição para configurar as credenciais do arquivo de dados. Por exemplo, pode utilizar o **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** cmdlet do PowerShell.
+Se optar por não abrir a porta 8060 na máquina de runtime de integração autoalojado, utilize mecanismos que não seja o aplicativo de credenciais de definição para configurar as credenciais do arquivo de dados. Por exemplo, pode utilizar o **New-AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet do PowerShell.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

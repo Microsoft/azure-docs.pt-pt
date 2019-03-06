@@ -16,12 +16,12 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419a07ff6d423f363d6973da3df00fd4aa3f6278
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d5fa81e564cf28f8b5478abe9ec5bb63d0f11bd3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727269"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449670"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Quais são as revisões de acesso do Azure AD?
 
@@ -42,12 +42,12 @@ O Azure AD permite-lhe colaborar internamente dentro da sua organização e com 
 
 ## <a name="when-to-use-access-reviews"></a>Quando utilizar o acesso a revisões?
 
-- **Demasiados utilizadores nas funções privilegiadas:** Ele é uma boa idéia para verificar quantos utilizadores têm acesso administrativo, quantos deles não estão Admininistradores Global, e se houver qualquer convidado convidados ou parceiros que não foram removidos depois de serem atribuídas a fazer uma tarefa administrativa. Pode voltar a certificar os utilizadores de atribuição de função no [funções de diretório do Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) por exemplo, os administradores globais, ou [funções de recursos do Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) como administrador de acesso de utilizador no [do Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) experiência.
+- **Demasiados utilizadores nas funções privilegiadas:** Ele é uma boa idéia para verificar quantos utilizadores têm acesso administrativo, quantos deles não estão os administradores globais, e se houver qualquer convidado convidados ou parceiros que não foram removidos depois de serem atribuídas a fazer uma tarefa administrativa. Pode voltar a certificar os utilizadores de atribuição de função no [funções de diretório do Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) por exemplo, os administradores globais, ou [funções de recursos do Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) como administrador de acesso de utilizador no [do Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) experiência.
 - **Quando a automação é inviável:** Pode criar regras de associação de grupo dinâmica em grupos de segurança ou grupos do Office 365, mas e se os dados de RH não estiver no Azure AD ou se os usuários ainda precisam de acesso após a deixar o grupo para preparar a sua substituição? Em seguida, pode criar uma revisão nesse grupo para garantir que aqueles que ainda precisam de acesso devem ter acesso contínuo.
 - **Quando um grupo é utilizado para uma nova finalidade:** Se tiver um grupo que vai ser sincronizado com o Azure AD, ou se pretender ativar a aplicação Salesforce para todos os utilizadores no grupo de equipa de vendas, seria útil fazer o proprietário do grupo para rever a associação de grupo antes do grupo que está a ser utilizado num co de risco diferentes nteúdos.
 - **Acesso de dados críticos de negócio:** para determinados recursos, poderá ser necessário para pedir às pessoas fora do departamento de TI regularmente termine a sessão e dar uma justificativa sobre por que eles precisarem de acesso para fins de auditoria.
 - **Para manter a lista de exceções de uma política:** Num mundo ideal, todos os utilizadores seguir o acesso políticas para proteger o acesso aos recursos da sua organização. No entanto, às vezes, existem casos comerciais que exigem que crie exceções. O administrador de TI, pode gerir esta tarefa, evitar supervisão de exceções da política e fornecer auditores prova que essas exceções são revisadas regularmente.
-- **Faça os proprietários do grupo para confirmar que ainda precisam convidados nos respetivos grupos:** Acesso dos funcionários pode ser automatizado com alguns IAM no local, mas não convidados convidados. Se um grupo fornece acesso de convidados para conteúdo confidencial da empresa, em seguida, é responsabilidade do proprietário do grupo para confirmar se os convidados ainda terá uma necessidade legítima de negócios para acesso.
+- **Faça os proprietários do grupo para confirmar que ainda precisam convidados nos respetivos grupos:** Acesso do funcionário pode ser automatizado com alguns no local IAM, mas não convidados convidados. Se um grupo fornece acesso de convidados para conteúdo confidencial da empresa, em seguida, é responsabilidade do proprietário do grupo para confirmar se os convidados ainda terá uma necessidade legítima de negócios para acesso.
 - **Repetir periodicamente as revisões de ter:** Pode configurar recorrentes revisões de acesso dos utilizadores em frequências de conjunto como semanalmente, mensalmente, trimestralmente ou anualmente, e serão notificados os revisores no início de cada revisão. Os revisores podem aprovar ou negar o acesso com uma interface amigável e com a ajuda de recomendações inteligentes.
 
 ## <a name="where-do-you-create-reviews"></a>Onde criar revisões?

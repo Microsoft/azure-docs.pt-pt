@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 1345a5814faefd4074e7d9548d374bd79d977514
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e704a2595130a2a815388447ac482ab96789d64a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015590"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453988"
 ---
-# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Eventos entre os consumidores e produtores que utilizam os protocolos diferentes do Exchange: AMQP, Kafka e HTTPS
+# <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Eventos de Exchange entre os consumidores e produtores que utilizam os protocolos diferentes: AMQP, Kafka e HTTPS
 Os Hubs de eventos do Azure oferece suporte a três protocolos para consumidores e produtores: AMQP, Kafka e HTTPS. Cada um desses protocolos tem sua própria maneira de representar uma mensagem, naturalmente a seguinte questão é: se uma aplicação para enviar eventos para um Hub de eventos com um protocolo e consome-los com um protocolo diferente, o que fazer as várias partes e valores do evento aspeto quando chegam ao consumidor? Este artigo discute as práticas recomendadas para o produtor e consumidor garantir que os valores dentro de um evento corretamente são interpretados pela aplicação de consumo.
 
 O Conselho neste artigo aborda especificamente estes clientes, com as versões listadas usadas no desenvolvimento os trechos de código:
@@ -38,7 +38,7 @@ Todos os clientes Microsoft AMQP representam o corpo de evento como uma matriz d
 
 Ao enviar um evento através de HTTPS, o corpo de evento é o conteúdo de lançado, que também é tratado como bytes não interpretados. É fácil alcançar o mesmo Estado num consumidor ou produtor do Kafka com o fornecido ByteArraySerializer e ByteArrayDeserializer conforme mostrado no seguinte código:
 
-### <a name="kafka-byte-producer"></a>Produtor do Kafka byte]
+### <a name="kafka-byte-producer"></a>Kafka byte[] producer
 
 ```java
 final Properties properties = new Properties();
@@ -52,7 +52,7 @@ ProducerRecord<Long, byte[]> pr =
     new ProducerRecord<Long, byte[]>(myTopic, myPartitionId, myTimeStamp, eventBody);
 ```
 
-### <a name="kafka-byte-consumer"></a>Consumidor do Kafka byte]
+### <a name="kafka-byte-consumer"></a>Kafka byte[] consumer
 ```java
 final Properties properties = new Properties();
 // add other properties
@@ -344,5 +344,5 @@ Neste artigo, aprendeu a transmitir para os Hubs de Eventos ativados para Kafka,
 * [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Saiba mais sobre Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Explore mais exemplos sobre os Hubs de Eventos do GitHub do Kafka](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Utilize o [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos do Kafka no local para Hubs de Eventos ativados pelo Kafka na cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Uso [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [eventos de fluxo do Kafka no local para o Kafka ativado os Hubs de eventos na cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Aprenda a transmitir para o Kafka através de Hubs de eventos ativados [aplicativos nativos do Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), ou [Akka fluxos](event-hubs-kafka-akka-streams-tutorial.md)

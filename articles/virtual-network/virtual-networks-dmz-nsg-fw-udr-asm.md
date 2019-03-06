@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c3a5cb540843c5ec4ceaf8522e9148cc7171149c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965261"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456470"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exemplo 3 – criar uma rede de Perímetro para proteger redes com uma Firewall, UDR e NSG
 [Regressar à página de práticas recomendada de segurança limites][HOME]
@@ -356,7 +356,7 @@ As especificidades de cada regra necessário para concluir este exemplo são des
   
     Esta regra de aprovação permite que qualquer servidor IIS na sub-rede de front-end para alcançar o AppVM01 (endereço IP 10.0.2.5) em qualquer porta, usando todos os protocolos para aceder a dados necessários para o aplicativo web.
   
-    Esta captura de tela um "\<explícita-dest\>" é usado no campo de destino para indicar 10.0.2.5 como o destino. Isso poderia ser explícito conforme mostrado, ou uma com o nome o objeto de rede (como foi feito nos pré-requisitos para o servidor DNS). Isso fica a cargo do administrador do firewall em relação ao que será utilizado o método. Para adicionar 10.0.2.5 como um destino de explícito, faça duplo clique na primeira linha em branco sob \<explícita-dest\> e introduza o endereço na janela que aparece.
+    Nesta captura de ecrã um "\<explícita-dest\>" é usado no campo de destino para indicar 10.0.2.5 como o destino. Isso poderia ser explícito conforme mostrado, ou uma com o nome o objeto de rede (como foi feito nos pré-requisitos para o servidor DNS). Isso fica a cargo do administrador do firewall em relação ao que será utilizado o método. Para adicionar 10.0.2.5 como um destino explícita, faça duplo clique na primeira linha em branco sob \<explícita-dest\> e introduza o endereço na janela que aparece.
   
     Com esta regra de passar nenhuma NAT é necessária uma vez que este é o tráfego interno, pelo que o método de conexão pode ser definido como "Não SNAT".
   
@@ -381,7 +381,7 @@ As especificidades de cada regra necessário para concluir este exemplo são des
   
     ![Regra de firewall DNS][15]
   
-    **Nota**: Nessa tela, captura o método de ligação está incluída. Uma vez que esta regra destina-se um IP interno para tráfego de endereço IP interno, sem NATing é necessária, o método de ligação está definido como "Não SNAT" para esta regra de Pass.
+    **Nota**: Nesta captura de ecrã, o método de ligação está incluído. Uma vez que esta regra destina-se um IP interno para tráfego de endereço IP interno, sem NATing é necessária, o método de ligação está definido como "Não SNAT" para esta regra de Pass.
 * **Regra de sub-rede para sub-rede**: Esta regra de Pass é uma regra predefinida que foi ativada e modificada para permitir que qualquer servidor na sub-rede de back-end para ligar a qualquer servidor na sub-rede de front-end. Esta regra é o tráfego interno tudo para que o método de conexão pode ser definido para não SNAT.
   
     ![Regra de VNet de dentro do firewall][16]

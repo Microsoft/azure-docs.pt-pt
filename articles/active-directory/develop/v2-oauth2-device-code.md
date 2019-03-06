@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f1f34796a98acb3ed4241edff57e506990479d1a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170199"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443271"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>O Azure Active Directory v 2.0 e o fluxo de código de dispositivo do OAuth 2.0
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170199"
 O Azure AD suporta o [concessão do código de dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), que permite aos utilizadores iniciar sessão dispositivos de restrição de entrada, como uma smart TV, o dispositivo de IoT ou impressora.  Para ativar este fluxo, o dispositivo tem a visita de utilizador uma página Web no browser noutro dispositivo para iniciar sessão.  Assim que o utilizador inicia sessão, o dispositivo é capaz de obter os tokens de acesso e tokens de atualização, conforme necessário.  
 
 > [!Important] 
-> Neste momento, o ponto final v2.0 só suporta o fluxo de dispositivo para inquilinos do Azure AD, mas as contas pessoais não.  Isso significa que tem de utilizar um ponto de final de inquilinos ou o ponto final de organizações.  
+> Neste momento, o ponto final v2.0 só suporta o fluxo de dispositivo para inquilinos do Azure AD, mas as contas pessoais não.  Isso significa que tem de utilizar um ponto final definido como um inquilino ou o ponto final de organizações.  
 >
 > Contas pessoais que estão convidadas a um inquilino do Azure AD será capazes de usar a concessão de fluxo de dispositivo, mas somente no contexto do inquilino.
 

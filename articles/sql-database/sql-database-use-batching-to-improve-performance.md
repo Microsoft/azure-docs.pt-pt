@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b94c5f712469183d64704307316f8bbdaa3d5a11
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0ef6d258be0165c7a73ce060879f55f1c7f404f9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751638"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453529"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
 
@@ -94,7 +94,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Transações, na verdade, estão a ser utilizadas em ambos estes exemplos. No primeiro exemplo, cada chamada individual é uma transação implícita. No segundo exemplo, uma transação explícita encapsula todas as chamadas. Pela documentação para o [registo de transações de escrita-ahead](https://msdn.microsoft.com/library/ms186259.aspx), registros de log são libertados para o disco quando a transação seja confirmada. Portanto, ao incluir mais chamadas numa transação, a gravação no log de transação pode atrasar até que a transação será confirmada. Na verdade, pretende ativar a criação de batches das escritas para o log de transação do servidor.
 
-A tabela seguinte mostra alguns resultados de teste ad hoc. Os testes de efetuar as inserções sequenciais mesmo com e sem transações. Para o ponto de vista mais, o primeiro conjunto de testes foi executada remotamente de um laptop para a base de dados no Microsoft Azure. O segundo conjunto de testes foi executada a partir de um serviço em nuvem e a base de dados que ambos residia no mesmo datacenter do Microsoft Azure (E.U.A. oeste). A tabela seguinte mostra a duração em milissegundos de inserções seqüenciais com e sem transações.
+A tabela seguinte mostra alguns resultados de testes ad hoc. Os testes de efetuar as inserções sequenciais mesmo com e sem transações. Para o ponto de vista mais, o primeiro conjunto de testes foi executada remotamente de um laptop para a base de dados no Microsoft Azure. O segundo conjunto de testes foi executada a partir de um serviço em nuvem e a base de dados que ambos residia no mesmo datacenter do Microsoft Azure (E.U.A. oeste). A tabela seguinte mostra a duração em milissegundos de inserções seqüenciais com e sem transações.
 
 **No local para o Azure**:
 
@@ -232,7 +232,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Existem alguns casos em que a cópia em massa é preferencial através de parâmetros de valor de tabela. Consulte a tabela de comparação de parâmetros de valor de tabela de mensagens em fila em relação a operações de inserção em massa no artigo [Table-Valued parâmetros](https://msdn.microsoft.com/library/bb510489.aspx).
 
-Os resultados do teste ad hoc seguintes mostram o desempenho de processamento em lote com **SqlBulkCopy** em milissegundos.
+Os resultados de teste ad hoc seguintes mostram o desempenho de processamento em lote com **SqlBulkCopy** em milissegundos.
 
 | Operações | No local para o Azure (ms) | Mesmo de datacenter do Azure (ms) |
 | --- | --- | --- |
@@ -277,7 +277,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 Este exemplo destina-se para mostrar o conceito básico. Um cenário mais realista seria fazer um loop por entidades necessárias para construir a cadeia de consulta e os parâmetros de comando em simultâneo. Está limitado a um total de parâmetros de consulta de 2100, portanto, isso limita o número total de linhas que pode ser processado dessa maneira.
 
-Os resultados do teste ad hoc seguintes mostram o desempenho deste tipo de instrução insert em milissegundos.
+Os resultados de teste ad hoc seguintes mostram o desempenho deste tipo de instrução insert em milissegundos.
 
 | Operações | Parâmetros de valor de tabela de mensagens em fila (ms) | INSERÇÃO de declaração única (ms) |
 | --- | --- | --- |

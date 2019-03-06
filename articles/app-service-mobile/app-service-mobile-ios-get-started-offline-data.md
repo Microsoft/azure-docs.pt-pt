@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956879"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435138"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Ativar a sincronização offline com aplicações móveis iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -48,7 +48,7 @@ Antes de quaisquer operações de tabela podem ser realizadas, o arquivo local t
    MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
-* **SWIFT**. Na **ToDoTableViewController.viewDidLoad** método:
+* **Swift**. Na **ToDoTableViewController.viewDidLoad** método:
 
    ```swift
    let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
@@ -89,7 +89,7 @@ Agora, vamos executar a operação de sincronização real e obter dados de back
        }];
    }
    ```
-* **SWIFT**:
+* **Swift**:
    ```swift
    func onRefresh(sender: UIRefreshControl!) {
       UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -101,7 +101,7 @@ Agora, vamos executar a operação de sincronização real e obter dados de back
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity
@@ -159,12 +159,12 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
 ![Atributos da tabela de MS_TableOperations][defining-core-data-tableoperations-entity]
 
-| Atributo | Tipo |
+| Atributo | Type |
 | --- | --- |
 | ID | Número inteiro de 64 |
-| itemId | Cadeia |
+| itemId | String |
 | propriedades | Dados binários |
-| tabela | Cadeia |
+| tabela | String |
 | tableKind | Número inteiro de 16 |
 
 
@@ -172,9 +172,9 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
  ![Atributos da tabela de MS_TableOperationErrors][defining-core-data-tableoperationerrors-entity]
 
-| Atributo | Tipo |
+| Atributo | Type |
 | --- | --- |
-| ID |Cadeia |
+| ID |String |
 | operationId |Número inteiro de 64 |
 | propriedades |Dados binários |
 | tableKind |Número inteiro de 16 |
@@ -183,26 +183,26 @@ Quando utiliza a funcionalidade de sincronização offline, defina as tabelas de
 
  ![][defining-core-data-tableconfig-entity]
 
-| Atributo | Tipo |
+| Atributo | Type |
 | --- | --- |
-| ID |Cadeia |
-| key |Cadeia |
-| KeyType |Número inteiro de 64 |
-| tabela |Cadeia |
-| valor |Cadeia |
+| ID |String |
+| key |String |
+| keyType |Número inteiro de 64 |
+| tabela |String |
+| valor |String |
 
 ### <a name="data-table"></a>Tabela de dados
 
 **TodoItem**
 
-| Atributo | Tipo | Nota |
+| Atributo | Type | Nota |
 | --- | --- | --- |
 | ID | Cadeia de caracteres, marcada como necessária |chave primária no arquivo remoto |
 | Concluir | Booleano | Campo de item de tarefas pendentes |
-| texto |Cadeia |Campo de item de tarefas pendentes |
+| texto |String |Campo de item de tarefas pendentes |
 | createdAt | Date | (opcional) É mapeado para **createdAt** propriedade do sistema |
 | updatedAt | Date | (opcional) É mapeado para **updatedAt** propriedade do sistema |
-| versão | Cadeia | (opcional) Usado para detectar conflitos, mapas para a versão |
+| versão | String | (opcional) Usado para detectar conflitos, mapas para a versão |
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização da aplicação
 Nesta secção, modifique a aplicação para que ele não sincroniza no início da aplicação ou quando insere e atualizar itens. Ele sincroniza apenas quando o botão de gesto de atualização é executado.
@@ -224,7 +224,7 @@ Nesta secção, modifique a aplicação para que ele não sincroniza no início 
    }
    ```
 
-**SWIFT**:
+**Swift**:
 
 Na `viewDidLoad`, na **ToDoTableViewController.swift**, comente as duas linhas mostrado aqui, para parar a sincronização no início da aplicação. No momento da redação deste artigo, a aplicação Swift fazer não atualizar o serviço quando alguém adiciona ou concluir um item. Atualiza o serviço só no início da aplicação.
 
@@ -238,11 +238,11 @@ Nesta secção, vai ligar a uma URL inválida para simular o cenário offline. A
 
 1. Altere o URL de aplicações móveis no **QSTodoService.m** para uma URL inválido e execute novamente a aplicação:
 
-   **Objective-C**. No QSTodoService.m:
+   **Objective-C**. In QSTodoService.m:
    ```objc
    self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
    ```
-   **SWIFT**. No ToDoTableViewController.swift:
+   **Swift**. No ToDoTableViewController.swift:
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```
@@ -272,7 +272,7 @@ Quando o armazenamento local, sincronizados com o servidor, usamos o **MSSyncTab
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Sincronização de dados offline em aplicações móveis]
-* [Cloud Cover: Sincronização Offline nos serviços móveis do Azure] \(o vídeo é sobre os serviços móveis, mas Mobile Apps offline sincroniza funciona de forma semelhante.\)
+* [Cloud Cover: Sincronização offline nos serviços móveis do Azure] \(o vídeo é sobre os serviços móveis, mas Mobile Apps offline sincroniza funciona de forma semelhante.\)
 
 <!-- URLs. -->
 
@@ -285,5 +285,5 @@ Quando o armazenamento local, sincronizados com o servidor, usamos o **MSSyncTab
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Cloud Cover: Sincronização Offline nos serviços móveis do Azure]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Sincronização offline nos serviços móveis do Azure]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 2bba5d54c2b6298c2dd8059d47e5975ad3f176c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264765"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453776"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Tutorial: Implementar a aplicação de ASP.NET Core no Azure Service Fabric usando os projetos de DevOps do Azure
 
@@ -39,7 +39,7 @@ Neste tutorial, irá:
 
 * Uma subscrição do Azure. Pode obter uma subscrição gratuita através do [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabricc"></a>Utilizar projetos de DevOps para criar uma aplicação ASP.NET Core e implementá-la Fabricc de serviço
+## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabric"></a>Utilizar projetos de DevOps para criar uma aplicação ASP.NET Core e implementá-lo para o Service Fabric
 
 Projetos de DevOps cria um pipeline CI/CD em Pipelines do Azure. Pode criar uma nova organização de DevOps do Azure ou utilizar uma organização existente. Projetos de DevOps também cria os recursos do Azure, como um cluster do Service Fabric, na subscrição do Azure à sua escolha.
 
@@ -79,7 +79,7 @@ Projetos de DevOps cria um pipeline CI/CD em Pipelines do Azure. Pode criar uma 
 
 Projetos de DevOps configura automaticamente um pipeline CI/CD em Pipelines do Azure. Pode explorar e personalizar o pipeline. Para se familiarizar com ele, faça o seguinte:
 
-1. Aceda ao dashboard Projectss de DevOps.
+1. Aceda ao dashboard do projeto de DevOps.
 
 1. Na parte superior do dashboard de projetos de DevOps, selecione **Criar pipelines**.  
     Um separador do browser apresenta o pipeline de compilação para o novo projeto.

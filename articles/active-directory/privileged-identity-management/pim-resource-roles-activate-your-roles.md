@@ -15,12 +15,12 @@ ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07d9d6eaf0426512e93574d733e7daee1cab1ddb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b02b0d36c6d7f5ddabae7a0e1d27dcca811fe56
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183518"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447783"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Ativar as minhas funções de recursos do Azure no PIM
 
@@ -110,7 +110,7 @@ Se não necessitar de ativação de uma função que requer aprovação, pode ca
 
 1. Para a função que pretende cancelar, clique nas **Cancelar** ligação.
 
-    Quando clicar em Cancelar, a solicitação será cancelada. Para ativar a função mais uma vez, terá que submeter um novo pedido de ativação.
+    Ao clicar em Cancelar, o pedido será cancelado. Para ativar a função mais uma vez, terá que submeter um novo pedido de ativação.
 
    ![Cancelar pedido pendente](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 

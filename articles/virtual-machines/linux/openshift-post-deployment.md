@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 8436b530ac01f03e071604e5023b50f8de6989fd
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b2a2e0ed48004a731ca15b3fb1d985bbee7e0c29
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034812"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440664"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implementação
 
@@ -39,9 +39,9 @@ Para utilizar o Azure Active Directory para autenticação, primeiro terá de cr
 
 Estes passos utilizam a CLI do Azure para criar o registo de aplicações e a GUI (portal) para definir as permissões. Para criar o registo de aplicações, terá das seguintes cinco partes de informações:
 
-- Nome a apresentar: o nome de registo de aplicação (por exemplo, OCPAzureAD)
-- Home page: OpenShift URL da consola (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- URI identificador: OpenShift o URL da consola (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Nome a apresentar: Nome de registo de aplicação (por exemplo, OCPAzureAD)
+- Home page do: URL da consola OpenShift (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- URI identificador: URL da consola OpenShift (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
 - URL de resposta: Principal do URL público e o nome do registo de aplicação (por exemplo, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Palavra-passe: Palavra-passe segura (utilize uma palavra-passe segura)
 
@@ -83,7 +83,7 @@ No portal do Azure:
 
   ![Registo de aplicações](media/openshift-post-deployment/app-registration.png)
 
-6.  Clique no passo 1: Selecione a API e, em seguida, clique em **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Clique em **selecione** na parte inferior.
+6.  Clique em passo 1: Selecione a API e, em seguida, clique em **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Clique em **selecione** na parte inferior.
 
   ![API de selecione registo de aplicações](media/openshift-post-deployment/app-registration-select-api.png)
 

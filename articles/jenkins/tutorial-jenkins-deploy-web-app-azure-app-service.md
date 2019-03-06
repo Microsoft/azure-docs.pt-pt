@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: d59a811b09d2c60627f7d506f1f5fd3513c914e8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821308"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408025"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementar a partir do GitHub App Service do Azure com a integração contínua Jenkins e implementação
 
@@ -193,7 +193,7 @@ No Jenkins, crie a tarefa de pipeline para criar e implementar a sua aplicação
 
    1. Na **propriedades conteúdo** caixa apresentada, adicione estas variáveis de ambiente e os respetivos valores. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
@@ -212,7 +212,7 @@ Agora, crie os ficheiros que utiliza o Jenkins para criar e implementar a sua ap
 1. Do seu fork GitHub `src/main/resources/` pasta, criar este ficheiro de configuração de aplicação com o nome `web.config`, que contém esse XML, mas substitua `$(JAR_FILE_NAME)` com `gs-spring-boot-0.1.0.jar`:
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -225,7 +225,7 @@ Agora, crie os ficheiros que utiliza o Jenkins para criar e implementar a sua ap
 
 1. Na pasta de raiz do seu fork GitHub, crie este script de compilação e implementação com o nome `Jenkinsfile`, que contém este texto ([origem no GitHub aqui](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a80ed6af005f04ec48729e918543b2de67810eba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 16f7dc81d8174e3d8da39d3af95b945f8034cecd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738594"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452034"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -68,7 +68,7 @@ ms.locfileid: "56738594"
 | AADSTS50032 | WeakRsaKey - indica a tentativa de utilizador incorretas que tenham para utilizar uma chave RSA fraca. |
 | AADSTS50033 | RetryableError - indica um erro transitório não relacionadas com as operações de base de dados. |
 | AADSTS50034 | UserAccountNotFound - para iniciar sessão nesta aplicação, a conta tem de ser adicionada ao diretório. |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - salt necessário para gerar um identificador pairwise está em falta no principal. Contacte o administrador do inquilino. |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - salt necessário para gerar um identificador pairwise está em falta no princípio. Contacte o administrador do inquilino. |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - incompatibilidades de assunto emissor de afirmações na asserção de cliente. Contacte o administrador do inquilino. |
 | AADSTS50049 | NoSuchInstanceForDiscovery - desconhecido ou inválido instância. |
@@ -140,7 +140,7 @@ ms.locfileid: "56738594"
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. envie um pedido de autorização interativo para este utilizador e o recurso. |
 | AADSTS65004 | UserDeclinedConsent - o utilizador recusou-se dar consentimento para aceder à aplicação. Pedir ao utilizador que repita o início de sessão e que autorize o acesso à aplicação|
-| AADSTS65005 | MisconfiguredApplication - a aplicação é necessário lista de acesso de recursos não contém aplicações Detetáveis pelo recurso ou a aplicação cliente pediu acesso a recursos, o que não foi especificado na sua lista de acesso de recurso necessário ou o serviço Graph devolvida incorreto pedido ou recurso não foi encontrado. Se a aplicação suporta SAML, poderá ter configurado a aplicação com o identificador (entidade) errado. Experimente a resolução indicada para SAML através da ligação abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list) |
+| AADSTS65005 | MisconfiguredApplication - a aplicação é necessário lista de acesso de recursos não contém aplicações Detetáveis pelo recurso ou a aplicação cliente pediu acesso a recursos, o que não foi especificado na sua lista de acesso de recurso necessário ou o serviço Graph devolvida incorreto pedido ou recurso não foi encontrado. Se a aplicação suporta SAML, poderá ter configurado a aplicação com o identificador (entidade) errado. Experimente a resolução indicada para SAML através da ligação abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant - falha na autenticação. O token de atualização não é válido. Erro pode ser devido ao seguinte:<ul><li>Cabeçalho de associação de token está vazio</li><li>Não corresponde ao hash de token de enlace</li></ul> |
 | AADSTS70001 | UnauthorizedClient - a aplicação está desativada. |

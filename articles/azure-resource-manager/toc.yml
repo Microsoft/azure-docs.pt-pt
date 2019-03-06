@@ -52,20 +52,9 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Conceitos
   items:
-  - name: Modelos
-    items:
-    - name: Modelo de estrutura de ficheiros
-      href: resource-group-authoring-templates.md
-    - name: Parâmetros
-      href: resource-group-authoring-templates.md#parameters
-    - name: Variáveis
-      href: resource-group-authoring-templates.md#variables
-    - name: Funções
-      href: resource-group-authoring-templates.md#functions
-    - name: Recursos
-      href: resource-manager-templates-resources.md
-    - name: Saídas
-      href: resource-group-authoring-templates.md#outputs
+  - name: Modelo de estrutura de ficheiros
+    displayName: parameters,variables,resources,outputs
+    href: resource-group-authoring-templates.md
   - name: Modelo de melhores práticas
     href: template-best-practices.md
   - name: Modelos para a consistência de cloud
@@ -260,9 +249,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 60d7bdba8bcaedd229a3ad1170b88906383fb74e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5fe3392efaab14730468841e078c73b13040594d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311666"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404608"

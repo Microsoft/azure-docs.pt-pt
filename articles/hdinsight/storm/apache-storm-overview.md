@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: ce458328967337976ed713f78ead24e2f1fcdb96
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635464"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451286"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
@@ -48,7 +48,7 @@ O Storm no HDInsight oferece as funcionalidades seguintes:
 
 Para obter uma lista de empresas que utiliza o Apache Storm como solução de análise em tempo real, veja [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) (Empresas que Utilizam o Apache Storm).
 
-Para começar a utilizar o Storm, veja [introdução ao Storm no HDInsight de pache][gettingstarted].
+Para começar a utilizar o Storm, veja [introdução ao Apache Storm no HDInsight][gettingstarted].
 
 ## <a name="how-does-apache-storm-work"></a>Como funciona o Apache Storm
 
@@ -142,7 +142,7 @@ Para obter mais informações, consulte o artigo [Garantias no processamento de 
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-O padrão de ler uma tupla de entrada, emitir zero ou várias tuplas e, em seguida, confirmar a tupla de entrada imediatamente no final do método de execução é muito comum. O Storm fornece a interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar este padrão.
+O padrão de ler uma tupla entrada, emitir zero ou mais cadeias de identificação e, em seguida, confirmar a tupla entrada imediatamente no final do método execute é comum. O Storm fornece a interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar este padrão.
 
 ### <a name="joins"></a>Associações
 

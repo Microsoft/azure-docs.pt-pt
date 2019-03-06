@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ac36502a67f9deddf14b5eeae64df6f799d25e97
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250820"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446083"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao armazenamento de filas do Azure e o Visual Studio ligado serviços (ASP.NET)
 
@@ -83,7 +83,7 @@ Os passos seguintes mostram como criar uma fila:
     }
     ```
 
-1. Dentro de **CreateQueue** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
+1. Dentro de **CreateQueue** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (Alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -137,7 +137,7 @@ Os passos seguintes mostram como criar uma fila:
     <li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Executar a aplicação e selecione **criar fila** para ver os resultados semelhantes à captura de ecrã seguinte:
+1. Executar a aplicação e selecione **criar fila** para ver os resultados semelhantes à seguinte captura de ecrã:
   
     ![Criar fila](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
@@ -164,7 +164,7 @@ Assim que tiver [criar uma fila](#create-a-queue), pode adicionar mensagens para
     }
     ```
  
-1. Dentro de **AddMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
+1. Dentro de **AddMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (Alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -226,7 +226,7 @@ Assim que tiver [criar uma fila](#create-a-queue), pode adicionar mensagens para
     <li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Executar a aplicação e selecione **Adicionar mensagem** para ver os resultados semelhantes à captura de ecrã seguinte:
+1. Executar a aplicação e selecione **Adicionar mensagem** para ver os resultados semelhantes à seguinte captura de ecrã:
   
     ![Adicionar mensagem](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
@@ -253,7 +253,7 @@ Esta secção ilustra como uma olhada numa mensagem em fila (ler a primeira mens
     }
     ```
  
-1. Dentro de **PeekMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
+1. Dentro de **PeekMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (Alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -312,7 +312,7 @@ Esta secção ilustra como uma olhada numa mensagem em fila (ler a primeira mens
     <li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Executar a aplicação e selecione **Peek message** para ver os resultados semelhantes à captura de ecrã seguinte:
+1. Executar a aplicação e selecione **Peek message** para ver os resultados semelhantes à seguinte captura de ecrã:
   
     ![Observar mensagem](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -337,7 +337,7 @@ Nesta secção, saiba como ler e remover uma mensagem de uma fila.
     }
     ```
  
-1. Dentro de **ReadMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
+1. Dentro de **ReadMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (Alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -403,7 +403,7 @@ Nesta secção, saiba como ler e remover uma mensagem de uma fila.
     <li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Executar a aplicação e selecione **ler/Eliminar mensagem** para ver os resultados semelhantes à captura de ecrã seguinte:
+1. Executar a aplicação e selecione **ler/Eliminar mensagem** para ver os resultados semelhantes à seguinte captura de ecrã:
   
     ![Ler e eliminar mensagem](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -428,7 +428,7 @@ Esta secção ilustra como obter o comprimento da fila (número de mensagens).
     }
     ```
  
-1. Dentro de **ReadMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
+1. Dentro de **ReadMessage** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (Alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -490,7 +490,7 @@ Esta secção ilustra como obter o comprimento da fila (número de mensagens).
     <li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Executar a aplicação e selecione **obter o comprimento da fila** para ver os resultados semelhantes à captura de ecrã seguinte:
+1. Executar a aplicação e selecione **obter o comprimento da fila** para ver os resultados semelhantes à seguinte captura de ecrã:
   
     ![Obter o comprimento da fila](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -515,7 +515,7 @@ Esta secção ilustra como eliminar uma fila.
     }
     ```
  
-1. Dentro de **DeleteQueue** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure estiver aceder ao.)
+1. Dentro de **DeleteQueue** método, obter um **CloudStorageAccount** objeto que representa as suas informações de conta de armazenamento. Utilize o seguinte código para obter a cadeia de ligação de armazenamento e as informações de conta de armazenamento da configuração do serviço do Azure: (Alteração  *&lt;nome da conta de armazenamento >* para o nome da conta do storage do Azure que está a aceder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -570,7 +570,7 @@ Esta secção ilustra como eliminar uma fila.
     <li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Executar a aplicação e selecione **obter o comprimento da fila** para ver os resultados semelhantes à captura de ecrã seguinte:
+1. Executar a aplicação e selecione **obter o comprimento da fila** para ver os resultados semelhantes à seguinte captura de ecrã:
   
     ![Eliminar fila](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

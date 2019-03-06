@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588947"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457981"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Criar um espaço de nomes no portal do Azure
 Para começar a utilizar as entidades de mensagens do Service Bus no Azure, tem de, primeiro, criar um espaço de nomes que seja exclusivo em todo o Azure. Um espaço de nomes fornece um contentor de âmbito para abordar os recursos do Service Bus na sua aplicação.
@@ -25,7 +25,7 @@ Para criar um espaço de nomes:
 
     ![Criar um recurso -> integração -> do Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. Na **criar espaço de nomes** caixa de diálogo, siga os passos abaixo: 
-    1. Introduza um **nome para o espaço de nomes**. O sistema verifica imediatamente a disponibilidade do nome.
+    1. Introduza um **nome para o espaço de nomes**. O sistema verifica imediatamente a disponibilidade do nome. Para obter uma lista de regras de nomenclatura de espaços de nomes, consulte [criar API REST do espaço de nomes](/rest/api/servicebus/create-namespace).
     2. Selecione o escalão de preço (básico, Standard ou Premium) para o espaço de nomes. Se quiser usar [tópicos e subscrições](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), escolha o Standard ou Premium. Os tópicos/subscrições não são suportadas no escalão de preço Básico.
     3. Se tiver selecionado o **Premium** escalão de preço siga estes passos: 
         1. Especifique o número de **unidades de mensagens**. O escalão premium fornece isolamento de recursos ao nível da CPU e memória para que cada carga de trabalho seja executado de forma isolada. Este contentor de recurso é chamado de uma unidade de mensagens. Um espaço de nomes premium tem, pelo menos, uma unidade de mensagens. Pode selecionar 1, 2 ou 4 unidades de mensagens para cada espaço de nomes Premium do Service Bus. Para obter mais informações, consulte [mensagens do Service Bus Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).

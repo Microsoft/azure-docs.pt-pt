@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 5ade16bbd45203892cd9a3117dd52471884cf700
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098736"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455824"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a configuração para o runtime de integração Azure-SSIS
 
@@ -42,6 +42,8 @@ Pode instalar componentes gratuitos ou não licenciados e componentes pagas ou l
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
 -   [Subscrição do Azure](https://azure.microsoft.com/)
@@ -54,7 +56,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
 ## <a name="instructions"></a>Instruções
 
-1.  Transfira e instale [do Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) (versão 5.4 ou posterior).
+1.  Transfira e instale [do Azure PowerShell](/powershell/azure/install-az-ps).
 
 1.  Prepare o seu script de configuração personalizada e os ficheiros associados (por exemplo, ficheiros. bat,. cmd, .exe,. dll,. msi ou. ps1).
 
@@ -103,15 +105,15 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
        ![Introduza a assinatura de acesso partilhado](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
-       Quando aprovisionar ou reconfigurar o runtime de integração Azure-SSIS com o PowerShell, antes de iniciar o runtime de integração Azure-SSIS, execute o `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet com o URI de SAS do seu contentor, como o valor para a nova `SetupScriptContainerSasUri` parâmetro. Por exemplo:
+       Quando aprovisionar ou reconfigurar o runtime de integração Azure-SSIS com o PowerShell, antes de iniciar o runtime de integração Azure-SSIS, execute o `Set-AzDataFactoryV2IntegrationRuntime` cmdlet com o URI de SAS do seu contentor, como o valor para a nova `SetupScriptContainerSasUri` parâmetro. Por exemplo:
 
        ```powershell
-       Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                   -Name $MyAzureSsisIrName `
                                                   -ResourceGroupName $MyResourceGroupName `
                                                   -SetupScriptContainerSasUri $MySetupScriptContainerSasUri
 
-       Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
+       Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
                                                     -Name $MyAzureSsisIrName `
                                                     -ResourceGroupName $MyResourceGroupName
        ```
@@ -160,7 +162,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
     ![Pastas na pasta de cenários de utilizador](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-    e. Para experimentar esses exemplos de configuração personalizada, copie e cole o conteúdo da pasta selecionada no seu contentor. Quando aprovisionar ou reconfigurar o runtime de integração Azure-SSIS com o PowerShell, execute o `Set-AzureRmDataFactoryV2IntegrationRuntime` cmdlet com o URI de SAS do seu contentor, como o valor para a nova `SetupScriptContainerSasUri` parâmetro.
+    e. Para experimentar esses exemplos de configuração personalizada, copie e cole o conteúdo da pasta selecionada no seu contentor. Quando aprovisionar ou reconfigurar o runtime de integração Azure-SSIS com o PowerShell, execute o `Set-AzDataFactoryV2IntegrationRuntime` cmdlet com o URI de SAS do seu contentor, como o valor para a nova `SetupScriptContainerSasUri` parâmetro.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

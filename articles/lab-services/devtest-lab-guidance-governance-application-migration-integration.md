@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: c57385bc398544e786aec77dae9886784e3a0b3c
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 75ce5d6a88b5398bd010cc363b4241bc90068f55
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243625"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436583"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Governação da infraestrutura do Azure DevTest Labs - integração e migração de aplicativos
 Assim que o seu ambiente de laboratório de desenvolvimento/teste tiver sido estabelecida, precisa pensar sobre as seguintes perguntas:
@@ -117,7 +117,7 @@ Existe uma regra em termos de número de máquinas virtuais que deve ser definid
 Ao considerar o número de máquinas virtuais por utilizador ou por laboratório, existem três preocupações principais:
 
 - O **custo global** que a equipe pode gastar em recursos no laboratório. É fácil criar várias máquinas. Para controlar os custos, é um mecanismo para limitar o número de VMs por utilizador e/ou por laboratório
-- O número total de máquinas virtuais num laboratório é afetado pela [quotas de nível de subscrição](../azure-subscription-service-limits.md) disponíveis. É um dos limites superiores 800 grupos de recursos por subscrição. DevTest Labs atualmente cria um novo grupo de recursos para cada VM (a menos que são utilizados os IPs públicos partilhado). Se existirem 10 laboratórios numa subscrição, laboratórios poderiam caber aprox. 79 máquinas de virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os 10 laboratórios propriamente ditos) = 79 máquinas virtuais por laboratório.
+- O número total de máquinas virtuais num laboratório é afetado pela [quotas de nível de subscrição](../azure-subscription-service-limits.md) disponíveis. É um dos limites superiores 800 grupos de recursos por subscrição. DevTest Labs atualmente cria um novo grupo de recursos para cada VM (a menos que são utilizados os IPs públicos partilhado). Se existirem 10 laboratórios numa subscrição, laboratórios poderiam caber aproximadamente 79 máquinas de virtuais em cada laboratório (800 limite superior – 10 grupos de recursos para os 10 laboratórios propriamente ditos) = 79 máquinas virtuais por laboratório.
 - Se o laboratório estiver ligado a no local através de Express Route (por exemplo), existem **definidos espaços de endereços IP disponíveis** para VNet/subrede. Para garantir que as VMs no laboratório não não possível criar (erro: não é possível obter o endereço IP), os proprietários de laboratório, podem especificar as máximas VMs por laboratório alinhado com o espaço de endereço IP disponível.
 
 ## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager

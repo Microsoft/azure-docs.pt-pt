@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 434a22c56e0ac6476138ef258e7d83a2bfecb63f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: df7860361bb785e0f16947a29d25c43fc02f126b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871252"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456130"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integração do Active Directory do Azure com o SAML SSO para Jira pela resolução GmbH
 
@@ -206,7 +206,7 @@ Para configurar o Azure AD início de sessão único, com o SAML SSO para Jira, 
     
     ![Configurar o início de sessão único](./media/samlssojira-tutorial/addon6b.png)
     
-16. Na leitura de caixa de diálogo apprearing **a ignorar os meios de teste...** , clique em **OK**.
+16. Na leitura de caixa de diálogo appearing **a ignorar os meios de teste...** , clique em **OK**.
     
     ![Configurar o início de sessão único](./media/samlssojira-tutorial/addon6c.png)
 

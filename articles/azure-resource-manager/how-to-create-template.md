@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67ea9ece7ba0c71484e9117db13fd2c708d87baf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b198f860c10bd207a191057e21a8a159c5ebde26
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312873"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403520"
 ---
 # <a name="create-azure-resource-manager-template"></a>Criar o modelo Azure Resource Manager
 
@@ -44,7 +44,7 @@ Vamos examinar as partes do modelo para compreender como funciona o modelo. O mo
 
 * O [funções](resource-group-authoring-templates.md#functions) seção, que mostra expressões de modelo que são utilizadas no seu modelo de personalizado.
 
-* O [recursos](resource-manager-templates-resources.md) seção, que mostra os recursos do Azure que são implementados na sua subscrição.
+* O [recursos](resource-group-authoring-templates.md#resources) seção, que mostra os recursos do Azure que são implementados na sua subscrição.
 
 * O [produz](resource-group-authoring-templates.md#outputs) seção, que mostra os valores que são devolvidos após a implementação estiver concluída.
 
@@ -98,7 +98,7 @@ Pode adicionar etiquetas aos seus recursos para as organizar por categorias e di
 }
 ```
 
-Também pode aplicar etiquetas dinamicamente de parâmetros. Para obter mais informações, consulte [etiquetas num modelo](resource-manager-templates-resources.md#tags).
+Também pode aplicar etiquetas dinamicamente de parâmetros. Para obter mais informações, consulte [etiquetas num modelo](resource-group-using-tags.md#templates).
 
 ## <a name="review-template-functions"></a>Reveja as funções de modelo
 
@@ -176,7 +176,7 @@ O exemplo seguinte implementa condicionalmente uma conta de armazenamento:
 }
 ```
 
-Para obter mais informações, consulte a [elemento condition](resource-manager-templates-resources.md#condition).
+Para obter mais informações, consulte a [elemento condition](resource-group-authoring-templates.md#condition).
 
 ## <a name="review-dependencies"></a>Dependências de revisão
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 2e6540dd88c2ae3f841aa4cb0d7529b29e28ef14
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 808a423ae6657e560f500611c21bc84d47086b6e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311278"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454481"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Tutorial: Autenticação de serviço SignalR do Azure
 
@@ -378,7 +378,7 @@ Nesta secção, vai ativar a autenticação real ao adicionar o atributo `Author
 
 ## <a name="deploy-the-app-to-azure"></a>Implementar a aplicação no Azure
 
-Nesta secção, irá utilizar a interface de linha de comandos do Azure (CLI) do Azure Cloud Shell para criar uma nova aplicação de wev no [App Service do Azure](https://docs.microsoft.com/azure/app-service/) para alojar a sua aplicação ASP.NET no Azure. A aplicação Web será configurada para utilizar a implementação de Git local. A aplicação Web também vai ser configurada com a sua cadeia de ligação do SignalR, os segredos da aplicação de OAuth do GitHub e um utilizador de implementação.
+Nesta secção, irá utilizar a interface de linha de comandos do Azure (CLI) do Azure Cloud Shell para criar uma nova aplicação web no [App Service do Azure](https://docs.microsoft.com/azure/app-service/) para alojar a sua aplicação ASP.NET no Azure. A aplicação Web será configurada para utilizar a implementação de Git local. A aplicação Web também vai ser configurada com a sua cadeia de ligação do SignalR, os segredos da aplicação de OAuth do GitHub e um utilizador de implementação.
 
 Os passos nesta secção utilizam a extensão *signalr* da CLI do Azure. Execute o seguinte comando para instalar a extensão *signalr* da CLI do Azure:
 

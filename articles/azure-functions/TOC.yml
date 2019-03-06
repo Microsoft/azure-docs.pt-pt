@@ -234,6 +234,8 @@ items:
       href: functions-bindings-event-grid.md
     - name: Hubs de Eventos
       href: functions-bindings-event-hubs.md
+    - name: IoT Hub
+      href: functions-bindings-event-iot.md
     - name: HTTP e webhooks
       href: functions-bindings-http-webhook.md
     - name: Microsoft Graph
@@ -291,9 +293,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 5519a0d99928bfa1129297f1d88546fd77f7c564
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: adc910de92bb5500f219b4f373735f2fb9f7eb48
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342059"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442193"

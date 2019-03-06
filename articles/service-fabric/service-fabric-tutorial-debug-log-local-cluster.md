@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: abcc317233d7304365f8687de3c9bec2d09f7b33
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247414"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444264"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Tutorial: Depurar uma aplicação Java implementada num cluster do Service Fabric local
 
@@ -55,7 +55,7 @@ Se não conseguiu criar a aplicação de votação de exemplo na [primeira parte
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[Crie e implemente](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) a aplicação no cluster de desenvolvimento local.
+[Criar e implementar](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster) a aplicação no cluster de desenvolvimento local.
 
 ## <a name="debug-java-application-using-eclipse"></a>Implementar a aplicação Java com o Eclipse
 

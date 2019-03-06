@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c62560d2f80375a725464607f38b9e8adf221d16
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 530bb83d753d27db4869b5725bc6d4c4e020e179
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875604"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446610"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -229,14 +229,14 @@ Concluir estes passos, faz com que a extensão de ser reinstalados durante a pr�
 
 ### <a name="clean_up_restore_point_collection"></a> Limpar a coleção de ponto de restauro
 Depois de remover o bloqueio, os pontos de restauro têm ser limpos. Para limpar os pontos de restauro, siga qualquer um dos métodos:<br>
-* [Limpar a coleção de ponto de restauro pela cópia de segurança ad-hoc em execução](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Limpeza do wsu restauro coleção de ponto ao executar a cópia de segurança ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Limpeza do wsu restauro do ponto de coleção a partir do portal do Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpar a coleção de ponto de restauro pela cópia de segurança ad-hoc em execução
-Depois de remover o bloqueio, acione uma cópia de segurança ad-hoc/manual. Isto irá garantir que os pontos de restauro são limpas automaticamente. Esperar que esta operação de ad-hoc/manual para efetuar a ativação pela primeira vez; No entanto, ele garantirá a limpeza automática em vez de eliminação manual de pontos de restauro. Após a limpeza deve ter êxito a cópia de segurança agendada seguinte.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpeza do wsu restauro coleção de ponto ao executar a cópia de segurança ad hoc
+Depois de remover o bloqueio, acione uma cópia de segurança do ad hoc/manual. Isto irá garantir que os pontos de restauro são limpas automaticamente. Esperar que esta operação ad hoc/manual falhar pela primeira vez; No entanto, ele garantirá a limpeza automática em vez de eliminação manual de pontos de restauro. Após a limpeza deve ter êxito a cópia de segurança agendada seguinte.
 
 > [!NOTE]
-    > A limpeza automática irão ocorrer após algumas horas de acionar a cópia de segurança ad-hoc/manual. Se continuar a falhar a cópia de segurança agendada, em seguida, tente eliminar manualmente a coleção do ponto de restauro utilizando os passos listados [aqui](#clean-up-restore-point-collection-from-azure-portal).
+    > A limpeza automática irão ocorrer após algumas horas de acionar a cópia de segurança do ad hoc/manual. Se continuar a falhar a cópia de segurança agendada, em seguida, tente eliminar manualmente a coleção do ponto de restauro utilizando os passos listados [aqui](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Limpeza do wsu restauro do ponto de coleção a partir do portal do Azure <br>
 

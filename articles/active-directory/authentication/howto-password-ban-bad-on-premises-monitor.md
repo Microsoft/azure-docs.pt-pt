@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a3127cde66ce7de9a3920d238193a3a3b2225be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: f1f946eceab68b0fe49ea67dc33a7094458cd14c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195792"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451491"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-and-logging"></a>Pré-visualização: Proteção de palavra-passe do Azure AD monitorização e registo
 
@@ -317,7 +317,7 @@ O registo de texto é desativado por predefinição. Reiniciar o serviço de Pro
 
 Cmdlets do PowerShell que resultam numa alteração de estado (por exemplo, registre-se-AzureADPasswordProtectionProxy) normalmente irá registrar um evento de resultado para o registo operacional.
 
-Em adicionais, a maioria dos cmdlets do PowerShell de proteção de palavra-passe do Azure AD irá criar um registo de texto localizado em:
+Além disso, a maioria dos cmdlets do PowerShell de proteção de palavra-passe do Azure AD irá escrever para um registo de texto localizado em:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 

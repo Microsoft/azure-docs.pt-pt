@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252316"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456215"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Descrição geral dos blobs de páginas do Azure
 
@@ -29,7 +29,7 @@ Vamos discutir alguns casos de utilização para blobs de páginas, começando c
 
 Microsoft serviços proprietários, como o Azure Site Recovery, cópia de segurança do Azure, bem como muitos desenvolvedores de terceiros implementaram inovações líderes da indústria, usando a interface REST do blob de páginas. Seguem-se alguns dos cenários exclusivos implementados no Azure: 
 * Gestão de aplicações direcionadas instantâneo incremental: Aplicativos podem tirar partido dos instantâneos de blob de página e REST APIs para salvar os pontos de verificação do aplicativo sem incorrer em duplicação dispendiosa de dados. O armazenamento do Azure suporta os instantâneos locais para blobs de páginas, que não necessitam de copiar o blob inteiro. Estes instantâneos pública APIs também permitem aceder e copiar de deltas entre os instantâneos.
-* Migração em direto da aplicação e dados do local para a cloud: Copiar os dados no local e utilizar REST APIs para escrever diretamente para um blob de página do Azure, enquanto a VM no local continua a ser executado. Assim que o destino detetou, pode rapidamente ativação pós-falha para VM do Azure com esses dados. Dessa forma, pode migrar as suas VMs e discos virtuais do local para a cloud com o tempo de inatividade mínimo, uma vez que a migração de dados ocorre em segundo plano enquanto continua a utilizar a VM e o tempo de inatividade necessário para a ativação pós-falha será curtos (em minutos).
+* Migração de aplicativos e dados de em direto no local para a cloud: Copiar dados no local e utilizar REST APIs para gravar diretamente num blob de página do Azure ao mesmo tempo no local que VM continua a ser executado. Assim que o destino detetou, pode rapidamente ativação pós-falha para VM do Azure com esses dados. Dessa forma, pode migrar as suas VMs e discos virtuais a partir no local para a cloud com o tempo de inatividade mínimo, uma vez que a migração de dados ocorre em segundo plano enquanto continua a utilizar a VM e o tempo de inatividade necessário para a ativação pós-falha será curtos (em minutos).
 * [Baseado em SAS](../common/storage-dotnet-shared-access-signature-part-1.md) acesso, o que permite cenários como vários leitores e único e redator com suporte para controlo de simultaneidade partilhado.
 
 ## <a name="page-blob-features"></a>Funcionalidades de blob de página

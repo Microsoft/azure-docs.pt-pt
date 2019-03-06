@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 45f0b7deb0e14a398c4f1220e66239c3727e46e1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816944"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444231"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: Comunicar com aplicações de dispositivo no C# através de fluxos de dispositivo do IoT Hub (pré-visualização)
 
@@ -140,7 +140,7 @@ dotnet run "<DeviceConnectionString>"
 dotnet run <DeviceConnectionString>
 ```
 
-No final do último passo, o programa do lado do serviço irá iniciar um fluxo para o seu dispositivo e depois de estabelecido irá enviar um buffer de cadeia de caracteres para o serviço sobre o fluxo. Neste exemplo, do lado do serviço de programa simplesmente ecoa novamente os mesmos dados para o dispositivo, demonstrando a comunicação bidirecional bem-sucedida entre as duas aplicações. Veja a figura abaixo.
+No final do último passo, o programa do lado do serviço irá iniciar um fluxo para o seu dispositivo e depois de estabelecido irá enviar um buffer de cadeia de caracteres para o serviço sobre o fluxo. Neste exemplo, o programa do lado do serviço simplesmente ecoa de volta os mesmos dados para o dispositivo, demonstrando a comunicação bidirecional bem-sucedida entre as duas aplicações. Veja a figura abaixo.
 
 Saída do lado do dispositivo da consola: ![texto alternativo](./media/quickstart-device-streams-echo-csharp/device-console-output.png "saída no lado do dispositivo da consola")
 

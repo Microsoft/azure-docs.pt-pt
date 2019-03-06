@@ -16,12 +16,12 @@ ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 1bfdaef4523a714aed0f1b7bbdb5a600f7775ffb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5934d075378df9f04130b79eb43131d71eaa25af
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244815"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449466"
 ---
 # <a name="mysql-resource-provider-11300--release-notes"></a>Notas de versão do fornecedor 1.1.30.0 de recursos do MySQL
 
@@ -49,7 +49,7 @@ Esta versão do fornecedor de recursos do MySQL do Azure Stack inclui as seguint
 
 ### <a name="fixes"></a>Correções
 
-- **Compatibilidade de Azure Stack do PowerShell de fornecedor de recursos MySQL**. O fornecedor de recursos do MySQL foi atualizado para trabalho com o perfil de PowerShell híbrido do Azure Stack 2018-03-01- e para proporcionar compatibilidade com o AzureRM 1.3.0 e posterior.
+- **Fornecedor de recursos do MySQL do Azure Stack do PowerShell compatibilidade**. O fornecedor de recursos do MySQL foi atualizado para trabalho com o perfil de PowerShell híbrido do Azure Stack 2018-03-01- e para proporcionar compatibilidade com o AzureRM 1.3.0 e posterior.
 
 - **Painel de palavra-passe de alteração de início de sessão de MySQL**. Foi corrigido um problema em que a palavra-passe não pode ser alterada no painel de palavra-passe de alteração. Notificações de alteração de links removidos da palavra-passe.
 

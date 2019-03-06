@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118980"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437603"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Compreender as mensagens de erro comuns na gestão de máquinas virtuais no Azure
 
@@ -99,8 +99,8 @@ Esta secção lista as mensagens de erro comuns que poderá encontrar ao gerir V
 |  InvalidParameter  |  "A palavra-passe fornecida tem de estar entre {0}-{1} carateres de comprimento e cumprir, pelo menos, {2} dos requisitos de complexidade de palavra-passe entre as seguintes opções: <ol><li> Contém um caráter em maiúsculas</li><li>Contém um caráter em minúsculas</li><li>Contém um dígito numérico</li><li>Contém um caráter especial.</li></ol>  |
 |  InvalidParameter  |  O Nome de Utilizador de Admin especificado não é permitido.  |
 |  InvalidParameter  |  Não é possível anexar um disco de SO existente quando a VM é criada a partir de uma imagem de plataforma ou de utilizador.  |
-|  InvalidParameter  |  Nome do contentor {0} é inválido. Os nomes de contentor tem de ter entre 3 a 63 carateres de comprimento e podem conter apenas carateres alfanuméricos minúsculos e hífenes. Hífen tem de ser antecedido e seguido por um caráter alfanumérico.  |
-|  InvalidParameter  |  Nome do contentor {0} no URL {1} é inválido. Os nomes de contentor tem de ter entre 3 a 63 carateres de comprimento e podem conter apenas carateres alfanuméricos minúsculos e hífenes. Hífen tem de ser antecedido e seguido por um caráter alfanumérico.  |
+|  InvalidParameter  |  Nome do contentor {0} é inválido. Os nomes de contentor tem de ter entre 3 a 63 carateres de comprimento e podem conter apenas carateres alfanuméricos minúsculos e hífenes. Hífen tem de ser precedido e seguido por um caráter alfanumérico.  |
+|  InvalidParameter  |  Nome do contentor {0} no URL {1} é inválido. Os nomes de contentor tem de ter entre 3 a 63 carateres de comprimento e podem conter apenas carateres alfanuméricos minúsculos e hífenes. Hífen tem de ser precedido e seguido por um caráter alfanumérico.  |
 |  InvalidParameter  |  O nome do blob no URL {0} contém uma barra. Isto atualmente não é suportado para discos.  |
 |  InvalidParameter  |  O URI {0} não parece para ser um URI de blob correto.  |
 |  InvalidParameter  |  Um disco com o nome '{0}"já utiliza o mesmo LUN: {1}.  |

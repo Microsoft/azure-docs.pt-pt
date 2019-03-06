@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 44c818cba760fb5cd7d496fd45ea321ef38248f3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632947"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445097"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Tutorial: Pesquisar dados semiestruturados no armazenamento na cloud do Azure
 
 Numa série de tutoriais de duas partes, vai aprender a pesquisar dados semiestruturados e não estruturados com o Azure Search. A [Parte 1](../storage/blobs/storage-unstructured-search.md) explicou a pesquisa de dados não estruturados, mas também incluiu pré-requisitos importantes para este tutorial, como criar a conta de armazenamento. 
 
-Na Parte 2, o foco muda para os dados semiestruturados, tais como JSON, armazenados nos blobs do Azure. Os dados semiestruturados contêm etiquetas ou marcações que separam o conteúdo dentro dos dados. São o meio-termo entre os dados não estruturados, que têm de ser indexados holisticamente, e os dados estruturados formalmente, que seguem um modelo de dados, como um esquema de base de dados relacional, que pode ser pesquisado por campo.
+Na Parte 2, o foco muda para os dados semiestruturados, tais como JSON, armazenados nos blobs do Azure. Os dados semiestruturados contêm etiquetas ou marcações que separam o conteúdo dentro dos dados. Ele divide a diferença entre dados não estruturados que têm de ser indexados totalmente e estruturados formalmente dados que seguem um modelo de dados, como um esquema de banco de dados relacional, que pode ser pesquisado numa base por campo.
 
 Na Parte 2, saiba como:
 

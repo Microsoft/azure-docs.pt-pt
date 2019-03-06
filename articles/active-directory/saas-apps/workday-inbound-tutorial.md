@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722fc5366d8f6863d19d09bd6e555fcc9a73d570
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 73c921df493eeda25c50047e861d3d30e6dc52a8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868124"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456487"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o dia de trabalho para aprovisionamento automático de utilizadores
 
@@ -858,7 +858,7 @@ Também pode verificar se tem todas as portas necessárias abrir abrindo o [ferr
 Para certificar-se de que a ferramenta dá-lhe os resultados certos, certifique-se de que para:
 
 * Abra a ferramenta num browser a partir do servidor onde instalou o agente de aprovisionamento.
-* Certifique-se de que quaisquer proxies ou firewalls aplicáveis ao seu agente de aprovisionamento também são aplicadas a esta página. Isso pode ser feito no Internet Explorer, acedendo a **definições -> Opções da Internet -> ligações -> definições de Lan**. Nesta página, verá o campo "Utilização de Proxy de servidor para sua LAN". Selecione esta caixa e colocar o endereço de proxy no campo "Address".
+* Certifique-se de que quaisquer proxies ou firewalls aplicáveis ao seu agente de aprovisionamento também são aplicadas a esta página. Isso pode ser feito no Internet Explorer, acedendo a **definições -> Opções da Internet -> ligações -> definições de LAN**. Nesta página, verá o campo "Utilização de Proxy de servidor para sua LAN". Selecione esta caixa e colocar o endereço de proxy no campo "Address".
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Um agente de aprovisionamento pode ser configurado para aprovisionar vários domínios de AD?
 

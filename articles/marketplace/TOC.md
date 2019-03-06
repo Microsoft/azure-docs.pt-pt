@@ -99,12 +99,12 @@
 #### [Eliminar oferta](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
 
 ### Versão de Teste
-#### [O que é a Versão de Teste?](./cloud-partner-portal-orig/what-is-test-drive.md)
-#### [Versão de Teste do Azure Resource Manager](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
-#### [Versão de Teste Alojada](./cloud-partner-portal-orig/hosted-test-drive.md)
-#### [Versão de Teste de Aplicação Lógica](./cloud-partner-portal-orig/logic-app-test-drive.md)
-#### [Transformar exemplos para a Versão de Teste](./cloud-partner-portal-orig/transforming-examples-for-test-drive.md)
-#### [Marketing e melhores práticas](./cloud-partner-portal-orig/marketing-and-best-practices.md)
+#### [O que é a Versão de Teste?](./cloud-partner-portal/test-drive/what-is-test-drive.md)
+#### [Versão de Teste do Azure Resource Manager](./cloud-partner-portal/test-drive/azure-resource-manager-test-drive.md)
+#### [Versão de Teste Alojada](./cloud-partner-portal/test-drive/hosted-test-drive.md)
+#### [Versão de Teste de Aplicação Lógica](./cloud-partner-portal/test-drive/logic-app-test-drive.md)
+#### [Transformar exemplos para a Versão de Teste](./cloud-partner-portal/test-drive/transforming-examples-for-test-drive.md)
+#### [Marketing e melhores práticas](./cloud-partner-portal/test-drive/marketing-and-best-practices.md)
 
 ### [Oferta da aplicação do Azure](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 #### [Pré-requisitos](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)

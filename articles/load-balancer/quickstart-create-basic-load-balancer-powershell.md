@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 6b27c21944131d01254e75c7120520a119998132
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 39bfea8e3b04be2a5444945356f2c487ea2423e3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673773"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443305"
 ---
 # <a name="get-started"></a>Início rápido: Criar um balanceador de carga público com o Azure PowerShell
 
@@ -229,7 +229,7 @@ Criar NICs virtuais criados com [New-AzNetworkInterface](/powershell/module/az.n
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -239,7 +239,7 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
@@ -268,7 +268,7 @@ Defina um nome de utilizador e palavra-passe para as VMs com [Get-Credential](ht
 $cred = Get-Credential
 ```
 
-Agora, pode criar as VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo seguinte cria duas VMs e os componentes de rede virtual necessários, se eles ainda não existir. Durante a criação de VM exemplo abaixo, os NICs criados anteriormente estão associados com as VMs, uma vez que são atribuídas da mesma rede virtual (*myVnet*) e a sub-rede (*mySubnet*):
+Agora, pode criar as VMs com [New-AzVM](/powershell/module/az.compute/new-azvm). O exemplo seguinte cria duas VMs e os componentes de rede virtual necessários, se eles ainda não existir. Neste exemplo, os NICs (*VM1* e *VM2*) criado no passo anterior são automaticamente atribuídos a máquinas virtuais *VM1* e *VM2*uma vez que eles têm nomes idênticos e que são atribuídos da mesma rede virtual (*myVnet*) e a sub-rede (*mySubnet*). Além disso, uma vez que as NICs estão associadas ao conjunto de back-end do Balanceador de carga, as VMs são automaticamente adicionadas ao agrupamento de back-end.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)

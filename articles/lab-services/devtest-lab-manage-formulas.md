@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076439"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452662"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir fórmulas de Azure DevTest Labs
 
@@ -69,7 +69,7 @@ Os seguintes passos guiá-lo pelo processo de criação de uma fórmula de uma i
     - **Configuração do endereço IP** -Especifique se pretende que os endereços público, privado ou IP partilhados. Para obter mais informações sobre endereços IP partilhados, consulte [compreender partilhado endereços IP no Azure DevTest Labs](./devtest-lab-shared-ip.md).
     - **Data de expiração e hora** - especifique a data de expiração e hora para a VM para que a VM é eliminada automaticamente. 
     - **Tornar esta máquina reclamáveis** -tornar uma máquina "reclamáveis" significa que ele não será atribuído propriedade no momento da criação. Em vez disso, os utilizadores de laboratório poderá assumir a propriedade ("declaração") a máquina na página do laboratório.     
-    - **Número de instâncias reclamáveis** -especifique o número de instacnes reclamáveis que pretende criar. 
+    - **Número de instâncias reclamáveis** -especifique o número de instâncias reclamáveis que pretende criar. 
 8. Selecione **submeter** para criar a fórmula.
 
 9. Quando tiver sido criada a fórmula, será apresentada na lista na **fórmulas** página.

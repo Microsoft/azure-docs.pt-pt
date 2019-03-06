@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 43d28cde7e4287b5394087000b5e730a94748713
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 8edbfd118bd6ec2641372ce69fdff475f8376948
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010638"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407022"
 documentType: LandingData
 title: Documentação da Sugestão Automática do Bing
 metadata:
@@ -30,7 +30,7 @@ sections:
     className: cardsM
     columns: 3
     items:
-    - href: /azure/cognitive-services/bing-autosuggest/overview
+    - href: /azure/cognitive-services/bing-autosuggest/get-suggested-search-terms
       html: <p>Saiba mais sobre a API de Sugestão Automática do Bing</p>
       image:
         src: ../media/index/i_overview.svg

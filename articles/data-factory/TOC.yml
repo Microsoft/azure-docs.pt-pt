@@ -555,7 +555,7 @@ items:
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/module/azurerm.datafactoryv2/
+    href: /powershell/module/az.datafactory/
   - name: API REST
     href: /rest/api/datafactory
   - name: Modelo do Resource Manager
@@ -580,9 +580,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: ce54fab37477f288a1cba0ce7aaf7a98f158c946
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9aeca35dbd68a5707725f9720495f090950d735c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959787"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456300"

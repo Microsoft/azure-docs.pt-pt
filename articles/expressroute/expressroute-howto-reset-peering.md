@@ -1,5 +1,5 @@
 ---
-title: 'Repor o peering de circuito - ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Repor o peering de circuito - ExpressRoute:  Azure | Microsoft Docs'
 description: Como desactivar e activar peerings de circuito do ExpressRoute.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f856753ae74b43e257cb222422f4d4eb27ee099c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132596"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404880"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Repor peerings de circuito do ExpressRoute
 
@@ -25,6 +25,8 @@ Existem alguns cenários em que talvez ache útil a repor o seu peerings do Expr
 
 ### <a name="working-with-azure-powershell"></a>Trabalhar com o Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="reset-a-peering"></a>Repor um peering
@@ -32,22 +34,22 @@ Existem alguns cenários em que talvez ache útil a repor o seu peerings do Expr
 1. Se estiver a executar o PowerShell localmente, abra a consola do PowerShell com privilégios elevados e ligue à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
 
   ```azurepowershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 2. Se tiver múltiplas subscrições do Azure, verifique as subscrições da conta.
 
   ```azurepowershell-interactive
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
 3. Especifique a subscrição que pretende utilizar.
 
   ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 4. Execute os seguintes comandos para recuperar o seu circuito do ExpressRoute.
 
   ```azurepowershell-interactive
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+  $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 5. Identifique o peering que pretende desactivar ou activar. *Peerings* é uma matriz. No exemplo a seguir, Peerings [0] é o Peering privado do Azure e Peering da Microsoft Peerings [1].
 
@@ -136,7 +138,7 @@ GatewayManagerEtag               :
 
   ```azurepowershell-interactive
   $ckt.Peerings[0].State = "Disabled"
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 O peering deve estar num Estado que definir. 
 

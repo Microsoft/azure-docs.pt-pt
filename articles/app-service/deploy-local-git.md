@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c547eba931e23b6ffc7cae176e19959d43bcf5e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602499"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405033"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementação de Git Local no Serviço de Aplicações do Azure
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>Implementar a partir do Git local, com compilações de Kudu
+## <a name="deploy-with-kudu-builds"></a>Implementar com compilações de Kudu
 
 A maneira mais fácil para ativar a implementação de Git local para a sua aplicação com o servidor de compilação Kudu é utilizar o Cloud Shell.
 
@@ -102,7 +102,7 @@ Poderá ver a automatização de tempo de execução específica na saída, como
 
 Navegue para a sua aplicação para verificar se o conteúdo está implementado.
 
-## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Implementar a partir do Git local, com compilações de serviços do Azure DevOps
+## <a name="deploy-with-azure-devops-builds"></a>Implementar com compilações de DevOps do Azure
 
 > [!NOTE]
 > Para o serviço de aplicações para criar Pipelines do Azure necessários na sua organização de serviços do Azure DevOps, sua conta do Azure tem de ter a função de **proprietário** na sua subscrição do Azure.
@@ -110,20 +110,18 @@ Navegue para a sua aplicação para verificar se o conteúdo está implementado.
 
 Para ativar a implementação de Git local para a sua aplicação com o servidor de compilação Kudu, navegue até à sua aplicação no [portal do Azure](https://portal.azure.com).
 
-No painel de navegação esquerdo da página da aplicação, clique em **Deployment Center** > **Local Git** > **continuar**. 
+No painel de navegação esquerdo da página da aplicação, clique em **Deployment Center** > **Local Git** > **continuar**.
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Clique em **entrega contínua de serviços do Azure DevOps** > **continuar**.
+Clique em **Pipelines do Azure (pré-visualização)** > **continuar**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-Na **configurar** página, configurar uma nova organização de serviços de DevOps do Azure ou especificar uma organização existente. Quando terminar, clique em **continuar**.
+Na **configurar** página, configurar uma nova organização do Azure DevOps ou especificar uma organização existente. Quando terminar, clique em **continuar**.
 
 > [!NOTE]
-> Se pretender utilizar uma organização de serviços de DevOps do Azure existente que não esteja listada, terá [associar a organização de serviços de DevOps do Azure à sua subscrição do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-Na **teste** página, escolha se pretende ativar a testes de carga, em seguida, clique em **continuar**.
+> Se pretender utilizar uma organização de DevOps do Azure existente que não esteja listada, terá [associar a organização de serviços de DevOps do Azure à sua subscrição do Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Consoante a [escalão de preço](https://azure.microsoft.com/pricing/details/app-service/plans/) do seu plano do serviço de aplicações, também poderá ver um **implementar na transição** página. Escolha se pretende ativar ranhuras de implementação, em seguida, clique em **continuar**.
 
@@ -158,21 +156,21 @@ Seguem-se erros ou problemas comuns com o Git para publicar uma aplicação de s
 ---
 **Sintoma**: `Unable to access '[siteURL]': Failed to connect to [scmAddress]`
 
-**Causa**: Este erro pode acontecer se a aplicação não estiver em execução.
+**Motivo**: Este erro pode acontecer se a aplicação não estiver em execução.
 
 **Resolução**: Inicie a aplicação no portal do Azure. Implementação de Git não está disponível quando a aplicação Web está parada.
 
 ---
 **Sintoma**: `Couldn't resolve host 'hostname'`
 
-**Causa**: Este erro pode acontecer se as informações de endereço que introduziu durante a criação de "azure" remoto estavam incorretas.
+**Motivo**: Este erro pode acontecer se as informações de endereço que introduziu durante a criação de "azure" remoto estavam incorretas.
 
 **Resolução**: Utilize o `git remote -v` command para listar todos os remotas, juntamente com o URL associado. Certifique-se de que o URL para o "azure" remoto está correto. Se for necessário, remova e recrie esta remoto utilizando o URL correto.
 
 ---
 **Sintoma**: `No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`
 
-**Causa**: Este erro pode acontecer se não especificar um ramo durante `git push`, ou se não tiver definido a `push.default` valor em `.gitconfig`.
+**Motivo**: Este erro pode acontecer se não especificar um ramo durante `git push`, ou se não tiver definido a `push.default` valor em `.gitconfig`.
 
 **Resolução**: Executar `git push` novamente, especificando o ramo principal. Por exemplo:
 
@@ -183,7 +181,7 @@ git push azure master
 ---
 **Sintoma**: `src refspec [branchname] does not match any.`
 
-**Causa**: Este erro pode ocorrer se tentar push para um ramo que não seja o mestre no "azure" remoto.
+**Motivo**: Este erro pode ocorrer se tentar push para um ramo que não seja o mestre no "azure" remoto.
 
 **Resolução**: Executar `git push` novamente, especificando o ramo principal. Por exemplo:
 
@@ -194,7 +192,7 @@ git push azure master
 ---
 **Sintoma**: `RPC failed; result=22, HTTP code = 5xx.`
 
-**Causa**: Este erro pode ocorrer se tentar enviar um repositório de git de grandes dimensões através de HTTPS.
+**Motivo**: Este erro pode ocorrer se tentar enviar um repositório de git de grandes dimensões através de HTTPS.
 
 **Resolução**: Alterar a configuração do git no computador local para tornar o postBuffer maiores
 
@@ -205,7 +203,7 @@ git config --global http.postBuffer 524288000
 ---
 **Sintoma**: `Error - Changes committed to remote repository but your web app not updated.`
 
-**Causa**: Este erro pode acontecer se implementar uma aplicação node. js com um _Package. JSON_ ficheiro que especifica os módulos necessários adicionais.
+**Motivo**: Este erro pode acontecer se implementar uma aplicação node. js com um _Package. JSON_ ficheiro que especifica os módulos necessários adicionais.
 
 **Resolução**: Mensagens adicionais com "npm ERR!" deve ter sessão iniciada antes deste erro e pode fornecer contexto adicional sobre a falha. Os seguintes são conhecidos causas de erro e o correspondente 'npm ERR!" mensagem:
 

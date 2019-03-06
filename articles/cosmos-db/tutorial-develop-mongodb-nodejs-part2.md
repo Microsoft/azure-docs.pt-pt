@@ -11,12 +11,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: bcc0d69024954b0b8cbf58fb3eac938ff3e1b0e6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8dd725bed6364979a9388d5741bf17f667bda0b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039865"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435274"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Criar uma aplicação Angular com a API do Azure Cosmos DB para o MongoDB - criar uma aplicação node. js Express
 
@@ -103,7 +103,7 @@ Este tutorial também requer:
     * Serve tudo o que está na pasta dist, que será o conteúdo estático
     * Serve a aplicação e index.html para os pedidos GET que não forem encontrados no servidor (para ligações avançadas)
     * Inicia o servidor com app.listen
-    * Utiliza uma função arow para registar que a porta está ativada
+    * Utiliza uma função de seta para iniciar sessão a que a porta está ativada
     
    ```node
    const express = require('express');

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1f9ea2fd1e9a346046c55db451bc333373896db5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6bd05a417bfb011dd86b61d654be836ef76099b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118093"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439688"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Compreender os alertas de segurança no Centro de Segurança do Azure
 Este artigo ajuda-o a compreender os vários tipos de alertas de segurança e informações relacionadas que estão disponíveis no Centro de Segurança do Azure. Para obter mais informações sobre como gerir alertas e incidentes, veja [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md).
@@ -96,7 +96,7 @@ O Centro de Segurança utiliza análises avançadas para identificar recursos co
 * **Todas as cópias de sombra do ficheiro tem sido eliminadas**: Este alerta indica que as cópias de sombra tem sido eliminadas.
 * **Comandos de limpeza do ficheiro suspeito**: Este alerta indica uma combinação de comandos systeminfo utilizada para executar a atividade de limpeza de reposição personalizada de pós-comprometimento.  Enquanto o *systeminfo.exe* é uma ferramenta Windows legítima, executá-la duas vezes sucessivamente, seguida de um comando de eliminação da forma que ocorreu aqui é incomum.
 * **Criação de contas suspeitas**: Este alerta indica que foi criada uma conta com um semelhança elevada de uma conta com privilégios administrativos incorporada existente. Esta técnica pode ser utilizada por atacantes para criar uma conta de adesão sem ser detetado.
-* **Atividade de cópia de sombra de volume suspeita**: Este alerta indica atividade de eliminação de cópia de sombra no recurso. A Cópia Sombra de Volume (VSC) é um artefacto importante que armazena os instantâneos de dados. Esta atividade é associada a Ransowmare, mas também poderia ser legítima.
+* **Atividade de cópia de sombra de volume suspeita**: Este alerta indica atividade de eliminação de cópia de sombra no recurso. A Cópia Sombra de Volume (VSC) é um artefacto importante que armazena os instantâneos de dados. Esta atividade é associada a Ransomware, mas também poderia ser legítima.
 * **Método de persistência de registo do Windows**: Este alerta indica uma tentativa de manter um executável no registo do Windows. O software maligno, muitas vezes, utiliza esta técnica para continuam a vigorar após um arranque.
 * **Nova regra de firewall suspeita**: Este alerta indica que foi adicionada uma nova regra de Firewall via *netsh.exe* para permitir tráfego a partir de um executável numa localização suspeita.
 * **Execuções de XCOPY suspeitas**: Este alerta indica uma série de execuções de XCOPY que podem assinalar que uma das suas máquinas foi comprometida e foi usada para propagar software maligno.

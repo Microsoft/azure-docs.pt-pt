@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 5547186d314f0c8cebf9f08463e4953f9f20ad3c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 80c35d8417fefa2873cbef9886f56ccfa3920624
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957985"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409470"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com capacidade de reserva no Azure Cosmos DB
 
@@ -55,7 +55,7 @@ O tamanho da reserva deve basear-se na quantidade total de débito que irão uti
    |Name   |    Nome da reserva. Este campo é preenchido automaticamente com `CosmosDB_Reservation_<timeStamp>`. Pode fornecer um nome diferente ao criar a reserva. Ou pode alterá-lo Depois da reserva é criada.      |
    |Subscrição  |   Capacidade de reserva de subscrição que é utilizada para pagar o Azure Cosmos DB. O método de pagamento na subscrição selecionada é utilizado na cobrar os custos à cabeça. O tipo de subscrição tem de ser um dos seguintes procedimentos: <br/><br/>  Contrato Enterprise (números da oferta: MS-AZR-0017P ou MS-AZR - 0148 P): Para uma subscrição Enterprise, os encargos são deduzidos da saldo de alocação monetária a inscrição ou cobrados como utilização excedente. <br/><br/> Pay as you go (números da oferta: MS-AZR-0003P or MS-AZR-0023P): Para obter uma subscrição pay as you go, os custos são faturados para o método de pagamento do cartão de crédito ou por fatura na subscrição.    |
    |Âmbito   |   Opção que controla o número de subscrições, pode utilizar o benefício de faturação associado com a reserva. Este também controla a forma como a reserva se aplica às subscrições específicas.   <br/><br/>  Se selecionou **subscrição individual**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB na subscrição selecionada. <br/><br/>  Se selecionou **partilhado**, o desconto de reserva é aplicado às instâncias do Azure Cosmos DB, que são executados em qualquer subscrição com o contexto de faturação. O contexto de faturação é baseado na forma como se inscreveu no Azure. Para os clientes empresariais, o escopo compartilhado é a inscrição e inclui todas as subscrições na inscrição. Para clientes pay as you go, o âmbito partilhado é todas as subscrições pay as you go a criada pelo administrador de conta.  <br/><br/> Pode alterar o âmbito de reserva depois de comprar a capacidade de reserva.  |
-   |Tipo de capacidade reservada   |  Débito aprovisionado como unidades de pedido.|
+   |Tipo de capacidade reservada   |  Débito aprovisionado como unidades de pedido. Pode comprar uma reserva para o débito aprovisionado para ambas as configurações - região única escreve, bem como vários de região de escrita.|
    |Unidades de capacidade reservadas  |      Quantidade de débito que pretende reservar. Pode calcular esse valor por determinar o débito necessário para todos os seus recursos de Cosmos DB (por exemplo, bancos de dados ou contentores) por região. , Em seguida, multiplique isso pelo número de regiões que irá associar-se a sua base de dados do Cosmos DB.  <br/><br/> Por exemplo: Se tiver cinco regiões com 1 milhão RU/seg em cada região, selecione 5 milhões de RU/seg para a compra de capacidade de reserva.    |
    |Termo  |   Um ano ou três anos.   |
 

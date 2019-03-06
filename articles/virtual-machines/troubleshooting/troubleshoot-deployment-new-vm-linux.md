@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: 08009ca7f9faaa75e593670c22cf864c12236e8b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9fea914fdf9b025fd5d38219a6bfc81b4a9cc584
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414709"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450308"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Resolver problemas de implementação do Resource Manager com a criação de uma nova máquina virtual do Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -43,13 +43,13 @@ Para iniciar a resolução de problemas, recolha os registos de atividade para i
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**Y** se o sistema operacional seja Linux generalizada, ele é carregado e/ou capturado com a definição generalizada, e não haverá quaisquer erros. Da mesma forma, se for o sistema operacional Linux especializada, ele é carregado e/ou capturado com a definição especializada, e não haverá quaisquer erros.
+**Y** Se o sistema operacional seja Linux generalizada, e ele é carregado e/ou capturado com a definição generalizada, em seguida, não haverá quaisquer erros. Da mesma forma, se for o sistema operacional Linux especializada, ele é carregado e/ou capturado com a definição especializada, e não haverá quaisquer erros.
 
 **Erros de carregamento:**
 
-**N<sup>1</sup>:** se o sistema operacional seja Linux generalizado e ser carregado como especializada, obterá um erro de tempo limite de aprovisionamento porque a VM está bloqueada na fase de aprovisionamento.
+**N<sup>1</sup>:** Se o sistema operacional seja Linux generalizado e ser carregado como especializada, obterá um erro de tempo limite de aprovisionamento porque a VM está bloqueada na fase de aprovisionamento.
 
-**N<sup>2</sup>:** se o sistema operacional é especializada de Linux, e ele é carregado como generalizada, obterá um erro de falha de aprovisionamento porque a nova VM está em execução com o nome do computador, nome de utilizador e palavra-passe original.
+**N<sup>2</sup>:** Se o sistema operacional é especializada de Linux, e ele é carregado como generalizada, obterá um erro de falha de aprovisionamento, porque a nova VM está em execução com o nome do computador, nome de utilizador e palavra-passe original.
 
 **Resolução:**
 
@@ -57,18 +57,18 @@ Para resolver os dois desses erros, carregar o VHD original, disponível no loca
 
 **Capture erros:**
 
-**N<sup>3</sup>:** se o sistema operacional seja Linux generalizado e, em que é capturado como especializada, obterá um erro de tempo limite de aprovisionamento porque a VM original não é utilizável porque está marcada como generalizada.
+**N<sup>3</sup>:** Se o sistema operacional seja Linux generalizado e, em que é capturado como especializada, obterá um erro de tempo limite de aprovisionamento porque a VM original não é utilizável porque está marcada como generalizada.
 
-**N<sup>4</sup>:** se o sistema operacional é especializada de Linux e, em que é capturado como generalizada, obterá um erro de falha de aprovisionamento porque a nova VM está em execução com o nome do computador, nome de utilizador e palavra-passe original. Além disso, o original VM não é utilizável porque está marcado como especializada.
+**N<sup>4</sup>:** Se o sistema operacional é especializada de Linux e, em que é capturado como generalizada, obterá um erro de falha de aprovisionamento, porque a nova VM está em execução com o nome do computador, nome de utilizador e palavra-passe original. Além disso, o original VM não é utilizável porque está marcado como especializada.
 
 **Resolução:**
 
 Para resolver os dois desses erros, eliminar a imagem atual do portal, e [recapturá-lo a partir dos VHD atual](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) com a mesma definição que para o sistema operacional (generalizado/especializado).
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Personalizado / Galeria / imagem do marketplace; Falha de alocação
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problema: Custom / Galeria / imagem do marketplace; Falha de alocação
 Este erro surge em situações quando o novo pedido VM está afixado a um cluster que não suporta o tamanho da VM que está a ser solicitado ou não tem espaço livre disponível para acomodar o pedido.
 
-**Causa 1:** o cluster não suporta o tamanho da VM pedida.
+**Fazer com que 1:** O cluster não suporta o tamanho da VM pedida.
 
 **Resolução 1:**
 
@@ -79,7 +79,7 @@ Este erro surge em situações quando o novo pedido VM está afixado a um cluste
   * Depois de parar todas as VMs, crie a nova VM no tamanho pretendido.
   * Em primeiro lugar, a iniciar a nova VM e, em seguida, selecione cada uma das VMs paradas e clique em **iniciar**.
 
-**Causa 2:** o cluster não tem recursos gratuitos.
+**Causa 2:** O cluster não tem recursos gratuitos.
 
 **Resolução 2:**
 

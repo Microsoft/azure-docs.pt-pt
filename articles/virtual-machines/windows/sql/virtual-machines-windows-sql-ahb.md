@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c3f67cbe422ffe839018f0682fa2de6440de773
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8578cd24b585bb5f0ba4930f005d8d2b2fece7f7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823370"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449687"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Como alterar o modelo de licenciamento para uma máquina virtual do SQL Server no Azure
 Este artigo descreve como alterar o modelo de licenciamento para uma máquina virtual do SQL Server no Azure com o novo fornecedor de recursos de VM do SQL - **Microsoft.SqlVirtualMachine**. Há dois modelos para uma máquina virtual (VM) a alojar o SQL Server - pay as you go, de licenciamento e traga a sua própria licença (BYOL). E agora, com o PowerShell ou a CLI do Azure, pode modificar o modelo de licenciamento sua VM do SQL Server utiliza. 
@@ -32,7 +32,7 @@ O **bring-your-own-license** modelo (BYOL) também é conhecido como o [Azure h�
 Alternar entre os dois modelos de licença incorre **sem tempo de inatividade**, não reinicia a VM, adiciona **sem custos adicionais** (na verdade, ativar AHB *reduz* custo) e é **em vigor imediatamente**. 
 
   >[!NOTE]
-  > - A capacidade de converter o modelo de licenciamento atualmente só está disponível ao iniciar com uma imagem de VM do SQL Server pay as you go. Se iniciar com uma imagem de bring-your-own-license a partir do portal, não será capaz de converter essa imagem para pay as you go.
+  > - Neste momento, a capacidade de converter o modelo de licenciamento só está disponível ao iniciar com uma imagem de VM do SQL Server pay as you go. Se iniciar com uma imagem de traga a sua própria licença a partir do portal, não será capaz de converter essa imagem em pay as you go.
   > - Clientes CSP podem utilizar o benefício AHB, primeiro a implementar uma VM de pay as you go e, em seguida, convertê-las bring-your-own-license. 
   > - Atualmente, esta capacidade só está ativada para instalações de Cloud pública.
 
@@ -65,7 +65,7 @@ Os passos seguintes irão registar o fornecedor de recursos do SQL com a sua sub
   ![Modificar o fornecedor](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 ### <a name="with-azure-cli"></a>Com a CLI do Azure
-O fragmento de código seguinte irá registar o fornecedor de recursos do SQL com seu susbcription do Azure. 
+O fragmento de código seguinte irá registar o fornecedor de recursos do SQL com a sua subscrição do Azure. 
 
 ```cli
 # Register the new SQL resource provider for your subscription 
@@ -109,7 +109,7 @@ Assim que a sua VM do SQL Server foi registado com o fornecedor de recursos, pod
 
 
   >[!NOTE]
-  >  A capacidade de converter o modelo de licenciamento atualmente só está disponível ao iniciar com uma imagem de VM do SQL Server pay as you go. Se iniciar com uma imagem de bring-your-own-license a partir do portal, não será capaz de converter essa imagem para pay as you go. 
+  >  Neste momento, a capacidade de converter o modelo de licenciamento só está disponível ao iniciar com uma imagem de VM do SQL Server pay as you go. Se iniciar com uma imagem de traga a sua própria licença a partir do portal, não será capaz de converter essa imagem em pay as you go. 
 
 ### <a name="with-the-azure-portal"></a>Com o portal do Azure
 Pode modificar o modelo de licenciamento diretamente no portal. 

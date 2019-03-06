@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: bfc1c419d5d58b4528b76dbed6fd0060f6b2833d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 914dcd02f2d35d56b50169967ca1f5c251a6e6f3
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446669"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408620"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
@@ -101,7 +101,8 @@ Windows 8.1 de 64 bits | Enterprise, Pro | Máquinas devem estar a executar os p
 Windows 8 64 bits | Enterprise, Pro | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Servidor | |
-Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | O serviço mais recente do wit pacotes/atualizações.
+Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Com as atualizações/mais recentes service packs.
+Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com as atualizações/mais recentes service packs.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com as atualizações/mais recentes service packs.
 Windows Server 2012 de 64 bits | Datacenter, Foundation, Standard | Com as atualizações/mais recentes service packs.
 Windows Storage Server 2016 de 64 bits | Standard, Workgroup | Com as atualizações/mais recentes service packs.

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 72a666db6157300942b966b88d9c3369495b9fd4
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 4c431b149edb0677585da3c84e37d64873478ccf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331239"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432741"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiar dados de e para o Azure SQL Data Warehouse com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -228,7 +228,7 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
 Quando os dados de origem não cumprem os critérios introduzidos na secção anterior, pode ativar a cópia de dados por meio de um armazenamento de Blobs do Azure teste provisória (não pode ser o armazenamento Premium). Neste caso, Azure Data Factory realiza automaticamente transformações nos dados para atender aos requisitos de formato de dados do PolyBase, em seguida, utilize o PolyBase para carregar dados para o SQL Data Warehouse e em limpeza última seus dados temporários do armazenamento de Blobs. Ver [cópia faseada](data-factory-copy-activity-performance.md#staged-copy) para obter detalhes sobre como copiar dados através de um teste Blob do Azure funciona em geral.
 
 > [!NOTE]
-> Quando a cópia de dados de um local de dados armazenar no Azure SQL Data Warehouse com o PolyBase e de teste, se a sua versão do Gateway de gestão de dados for inferior 2.4, JRE (Java Runtime Environment) é necessária no seu computador de gateway que é utilizada para transformar os seus dados de origem no formato correto. Que Atualize o gateway para a versão mais recente para evitar essa dependência.
+> Quando copiar dados a partir de no local do arquivo de dados no Azure SQL Data Warehouse com o PolyBase e de teste, se a sua versão do Gateway de gestão de dados for inferior 2.4, JRE (Java Runtime Environment) é necessária no seu computador de gateway que é utilizada para transformar a sua origem dados no formato correto. Que Atualize o gateway para a versão mais recente para evitar essa dependência.
 >
 
 Para utilizar esta funcionalidade, crie uma [serviço ligado do armazenamento do Azure](data-factory-azure-blob-connector.md#azure-storage-linked-service) que se refere à conta de armazenamento do Azure com o armazenamento de BLOBs intermediária, em seguida, especifique a `enableStaging` e `stagingSettings` propriedades para a atividade de cópia conforme mostrado na o código a seguir:

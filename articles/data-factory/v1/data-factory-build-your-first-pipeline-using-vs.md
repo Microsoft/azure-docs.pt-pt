@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ceaabdd9aa15e5979d8ab163a9b64986a03c8332
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2e91a1e81c3a9906b004047d68c1048f4ba3276a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023099"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445012"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Criar uma fábrica de dados com o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -60,6 +60,9 @@ Veja a seguir os passos que deve executar como parte destas instruções:
 5. Depois de publicar, utilize os painéis do portal do Azure e a Aplicação de Monitorização & Gestão para monitorizar o pipeline. 
   
 ### <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Leia o artigo [Descrição Geral do Tutorial](data-factory-build-your-first-pipeline.md) e conclua os passos de **pré-requisitos**. Também pode selecionar a opção **Overview and prerequisites (Descrição geral e pré-requisitos)** na lista pendente na parte superior para mudar para o artigo. Depois de concluir os pré-requisitos, regresse a este artigo ao selecionar a opção **Visual Studio** na lista pendente.
 2. Para criar instâncias do Data Factory, tem de ser um membro da função [Contribuinte do Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) ao nível do grupo de recursos/subscrição.  
 3. Tem de ter o seguinte instalado no computador:
@@ -326,12 +329,12 @@ Pontos importantes para ter em atenção:
 - Se receber o erro: **Esta subscrição não está registada para utilizar o espaço de nomes DataFactory**, efetue um dos seguintes procedimentos e tente publicar novamente:
     - No Azure PowerShell, execute o seguinte comando para registar o fornecedor do Data Factory.
         ```PowerShell   
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+        Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         Pode executar o seguinte comando para confirmar que o fornecedor do Data Factory está registado.
 
         ```PowerShell
-        Get-AzureRmResourceProvider
+        Get-AzResourceProvider
         ```
     - Inicie sessão com a subscrição do Azure no [Portal do Azure](https://portal.azure.com) e navegue até um painel do Data Factory ou crie uma fábrica de dados no Portal do Azure. Esta ação regista automaticamente o fornecedor por si.
 - O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.

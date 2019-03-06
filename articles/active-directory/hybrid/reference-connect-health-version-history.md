@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37d34d6df23b22466f3016841685ec2797a5c9ea
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 45983a4aecd61babf4e4262d708ac323f9773546
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177965"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443958"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico de Versões
 A equipa do Azure Active Directory atualiza regularmente o Azure AD Connect Health com novos recursos e funcionalidades. Este artigo lista as versões e funcionalidades que foram lançadas.
@@ -39,7 +39,7 @@ O Azure AD Connect Health para sincronização está integrado com a instalaçã
 *   Agente do Azure AD Connect Health para AD FS (versão 3.1.24.0)
 1. Conformidade de versão 1.2 do protocolo TLS (Transport Layer Security) e imposição de transporte
 2. Suporte de ADFSRequestToken de teste para o sistema operacional localizado
-3. Resolvido o problema de bloqueio do agente disgnostic EventHandler
+3. Resolvido o problema de bloqueio de EventHandler do agente de diagnóstico
 4. Correções de erros de registo de agente de estado de funcionamento
 
 ## <a name="august-2018"></a>Agosto de 2018 

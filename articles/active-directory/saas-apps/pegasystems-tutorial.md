@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a6fd51ad14395b3c195ae1ceb5a188dd2c708c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fa3a3dbda3f184b0c2541dc9df6c39afa86458e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162514"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437637"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Tutorial: Integração do Active Directory do Azure com sistemas de Pega
 
@@ -170,7 +170,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
     ![Configurar o botão único início de sessão em Guardar](./media/pegasystems-tutorial/tutorial_pegasystems_admin.png)
     
-1. Execute as ações seguintes no **criar serviço Aauthentication** ecrã:
+1. Execute as ações seguintes no **criar serviço de autenticação** ecrã:
 
     ![Configurar o botão único início de sessão em Guardar](./media/pegasystems-tutorial/tutorial_pegasystems_admin1.png)
 

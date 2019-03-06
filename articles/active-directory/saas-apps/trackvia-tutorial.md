@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e4c90b6f9fd8b968ceb0e241649ddbcf1c2e1cb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a15284b0176b7148055812ce5a642ec38e67d53b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189125"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Tutorial: Integração do Active Directory do Azure com TrackVia
 
@@ -136,7 +136,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
 1. Na janela de browser diferente, inicie sessão site da sua empresa TrackVia como um administrador.
 
-1. Clique em Trackvia **minha conta** definições e, em seguida, selecione **início de sessão único** separador, execute os seguintes passos:
+1. Clique no caminho certo através de **minha conta** definições e, em seguida, selecione **início de sessão único** separador, execute os seguintes passos:
 
     ![Configuração de TrackVia](./media/trackvia-tutorial/configure1.png)
 

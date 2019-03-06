@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: ce377234cceb22bc2c6979bedd92d800355e75da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f567e66a1e84dccaa18db550f30d6bb34ad8162
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872089"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442941"
 ---
 # <a name="bake-acoustics"></a>Inserir acoustics
 
@@ -243,7 +243,7 @@ Por exemplo, numa máquina de 8 núcleos com o Intel Xeon E5-1660 @ 3 GHz e 32 G
 ### <a name="setup-docker"></a>Configurar Docker
 Instalar e configurar o Docker no PC que irá processar a simulação-
 1. Instalar o [conjunto de ferramentas do Docker](https://www.docker.com/products/docker-desktop).
-2. Inicie as definições do Docker, navegue para as opções "Avançadas" e configurar recursos de ter ao leat 8 GB de RAM. As CPUs mais pode alocar a Docker, mais rapidamente a criar irá concluir. ![Definições de Docker de exemplo](media/DockerSettings.png)
+2. Inicie as definições do Docker, navegue para as opções de "Advanced" e configurar recursos de ter, pelo menos, 8GB de RAM. As CPUs mais pode alocar a Docker, mais rapidamente a criar irá concluir. ![Definições de Docker de exemplo](media/DockerSettings.png)
 3. Navegue para "Unidades partilhadas" e ativar partilha para a unidade utilizada para processamento.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### <a name="run-local-bake"></a>Executar criar local

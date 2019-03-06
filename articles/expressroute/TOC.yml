@@ -175,7 +175,7 @@ items:
 - name: Referência
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network#expressroute
+    href: /powershell/module/az.network#expressroute
   - name: CLI do Azure
     href: /cli/azure/network/express-route
   - name: REST
@@ -225,9 +225,9 @@ items:
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Configurar o Peering Público para o seu circuito
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: 9980b405670b3fee0d1aa47c746e8f33001ba335
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d856b744fb835d6193d7f48deda718bd85cc9a34
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448075"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408936"

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 650696d1eb3979447bffa7312e91b4fe1a57652c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e5124b07a5aff67d53213149565ddae4ea6dda33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865017"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448004"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Utilizar imagem digitalizada para gerar metadados de imagem no armazenamento do Azure
 
@@ -48,7 +48,7 @@ Terá de criar um recurso de imagem digitalizada para a sua conta do Azure; Este
 
 1. Na janela da caixa de diálogo, introduza "chave de api de imagem digitalizada" no **Name** campo e selecione **F0** como o **escalão de preço**. Selecione o mesmo **localização** que selecionou quando configurou a sua conta de armazenamento do Azure. Sob **grupo de recursos**, selecione **utilizar existente** e selecione o mesmo grupo de recursos também. Verifique os **confirmo** caixa e, em seguida, clique em **criar**.
 
-    ![Subcribing para a API de imagem digitalizada](../Images/create-vision-api.png)
+    ![Subscrever a API de imagem digitalizada](../Images/create-vision-api.png)
 
 1. Regresse ao menu de grupo de recursos e clique na subscrição de API de imagem digitalizada que acabou de criar. Copie o URL sob **ponto final** para algum lugar pode facilmente recuperá-lo em breve. Em seguida, clique em **Mostrar chaves de acesso**.
 

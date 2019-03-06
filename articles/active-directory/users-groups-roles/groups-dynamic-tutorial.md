@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3883ddcad1c41e131d52016e4fa94a3e668adcd1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 564cfe0bb0b95d12d91b7d8d4e3f1f0549ec73e4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209732"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451761"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Tutorial: Adicionar ou remover membros do grupo automaticamente
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esta funcionalidade requer uma licença do Azure AD Premium para si, enquanto administrador global do inquilino. Se não tiver essa licença, no Azure AD, selecione **Licenças** > **Produtos** > **Experimentar/Comprar**.
+Esta funcionalidade requer uma licença do Azure AD Premium para como administrador global do inquilino. Se não tiver essa licença, no Azure AD, selecione **Licenças** > **Produtos** > **Experimentar/Comprar**.
 
 Não é obrigatório atribuir licenças aos utilizadores para que os mesmos possam ser membros de grupos dinâmicos. Só precisa do número mínimo de licenças do Azure AD Premium P1 disponíveis no inquilino para abranger todos esses utilizadores. 
 
@@ -44,7 +44,7 @@ Não é obrigatório atribuir licenças aos utilizadores para que os mesmos poss
 
 Primeiro, vai criar um grupo para os utilizadores convidados que pertençam todos à mesma empresa parceira. Esses utilizadores precisam de um licenciamento especial, pelo que, regra geral, é mais eficiente criar um grupo para este fim.
 
-1. Inicie sessão no portal do Azure (https://portal.azure.com)) com uma conta que seja a administradora global do seu inquilino.
+1. Inicie sessão no portal do Azure (https://portal.azure.com) com uma conta que o administrador global do seu inquilino.
 2. Selecione **Azure Active Directory** > **Grupos** > **Novo grupo**.
   ![comando Selecionar novo grupo](./media/groups-dynamic-tutorial/new-group.png)
 3. No painel **Grupo**:

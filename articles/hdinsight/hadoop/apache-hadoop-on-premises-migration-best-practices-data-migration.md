@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 488e1adb6d533dc88994e1dc08513870f56bd9c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433428"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433047"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - práticas recomendadas de migração de dados
 
@@ -94,7 +94,7 @@ O metastore hive pode ser migrado usando os scripts ou utilizando a replicação
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Migração de metastore Hive através de scripts
 
-1. Gere o DDLs do Hive a partir de metastore de Hive no local. Este passo pode ser feito usando uma [script de bash de wrapper](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Gere DDLs do Hive no metastore de Hive local. Este passo pode ser feito usando uma [script de bash de wrapper](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
 1. Edite a DDL gerada para substituir o url HDFS pelo ADLS/WASB/ABFS URLs.
 1. Execute a DDL atualizada no metastore do HDInsight cluster.
 1. Certifique-se de que a versão de metastore Hive é compatível entre no local e na cloud.
@@ -111,7 +111,7 @@ O metastore hive pode ser migrado usando os scripts ou utilizando a replicação
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - Exporte políticas do Ranger no local para arquivos xml.
-- Transforme no local com base no HDFS caminhos específicos para WASB/ADLS usando uma ferramenta como XSLT.
+- Transforme no local em caminhos específicos com base no HDFS para WASB/ADLS usando uma ferramenta como XSLT.
 - Importe as políticas de sessão no Ranger em execução no HDInsight.
 
 ## <a name="next-steps"></a>Passos Seguintes

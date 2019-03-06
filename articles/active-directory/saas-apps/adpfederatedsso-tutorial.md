@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb6943ef6c75f634cdb68557ed2339574bdc2602
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c2c3318d5c8a2cf25db129cac8587bb424707ddf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878290"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Tutorial: Integração do Active Directory do Azure com ADP
 
@@ -187,7 +187,7 @@ Após a receção de confirmação do seu representante de ADP, configure os uti
 
 5. No portal do Azure, no seu **ADP** página de integração de aplicação, clique em **separador Propriedades** e execute os seguintes passos:  
 
-    ![Linkedproperties de início de sessão único](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Início de sessão ligadas propriedades único](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  Definir o **ativada para os utilizadores para início de sessão** campo valor a **Sim**.
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 9577e2c8eea153b38475bf5126a41641b3642ae9
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 26992cfe1c6cb8555a7084075fed4d9c8daed031
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991330"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444384"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -104,7 +104,7 @@ A deteção com base na aplicação recolhe metadados sobre as VMs no local, a l
   - Entrada de rede
   - Saída de rede
 
-A deteção com base no agente é uma opção disponível além da deteção com base na aplicação e ajuda os clientes a [visualizarem as dependências](how-to-create-group-machine-dependencies.md) das VMs no local. Os agentes de dependência recolhem detalhes como FQDN, SO, endereço IP, endereço MAC, processos em execução dentro da VM e as ligações de TCP de entrada/saída da VM. A deteção baseada em agente é opcional e pode optar por não instalar os agentes se não pretender visualizar as dependências das VMs.
+A deteção baseada em agente é uma opção disponível sobre a deteção com base na aplicação e ajuda os clientes [visualize as dependências](how-to-create-group-machine-dependencies.md) do no local, VMs. Os agentes de dependência recolhem detalhes como FQDN, SO, endereço IP, endereço MAC, processos em execução dentro da VM e as ligações de TCP de entrada/saída da VM. A deteção baseada em agente é opcional e pode optar por não instalar os agentes se não pretender visualizar as dependências das VMs.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Deve haver nenhum impacto no desempenho no ambiente de anfitrião do ESXi analisado?
 
@@ -217,7 +217,7 @@ A lista de sistemas de operativos do Windows suportados pelo agente de dependên
 A lista dos sistemas de operativos Linux suportados pelo agente de dependência é [aqui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Posso visualizar dependências no Azure Migrate para obter mais informações à duração de uma hora?
-Não, a Azure Migrate permite que visualize as dependências de duração do até uma hora. O Azure Migrate permite-lhe voltar atrás para uma data específica na história para até o último mês, mas a duração máxima para o qual é possível visualizar as dependências é até uma hora. Por exemplo, pode usar a funcionalidade de duração de tempo do mapa de dependência, para ver as dependências de ontem, mas pode apenas visualizá-lo para uma janela de uma hora. No entanto, pode utilizar os registos do Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) ao longo de um período mais longo.
+Não, a Azure Migrate permite que visualize as dependências de duração do até uma hora. O Azure Migrate permite-lhe voltar atrás para uma data específica na história para até o último mês, mas a duração máxima para o qual é possível visualizar as dependências é até uma hora. Por exemplo, pode usar a funcionalidade de duração de tempo do mapa de dependência, para ver as dependências de ontem, mas pode apenas visualizá-lo para uma janela de uma hora. No entanto, pode utilizar os registos do Azure Monitor para [consultar os dados de dependência](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) ao longo de um período mais longo.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Visualização de dependência é suportada para grupos com mais de 10 VMs?
 Pode [visualize as dependências para grupos](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) que tenham até 10 VMs. Se tiver um grupo com mais de 10 VMs, recomendamos que dividir o grupo em grupos mais pequenos e visualize as dependências.

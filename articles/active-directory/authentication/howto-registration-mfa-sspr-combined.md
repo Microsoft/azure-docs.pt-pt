@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9623cf727998348c313b7184c29e968afd33c6cc
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d9d7e6f7505b8af76ff6c42c040918a274d89c3c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214151"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407950"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registo de informações de segurança para ativar combinado (pré-visualização)
 
@@ -43,7 +43,7 @@ Conclua os seguintes passos para ativar o registo combinado:
 > A partir de Março de 2019 as opções de chamada telefónica não estarão disponível para os utilizadores do MFA e o SSPR em inquilinos gratuitos/avaliação do Azure AD. Mensagens SMS não são afetadas por esta alteração. Chamada telefónica continuará a estar disponíveis para os utilizadores na pago inquilinos do Azure AD. Esta alteração só afeta o inquilinos gratuitos/avaliação do Azure AD.
 
 > [!NOTE]
-> Uma vez ativar registo combinado, os utilizadores que registar ou confirmar o que seu número de telefone ou a aplicação móvel através da nova experiência pode utilizá-los para a MFA e o SSPR, se esses métodos estão ativados nas políticas do MFA e o SSPR. Se, em seguida, desativa essa experiência, os utilizadores que vão para o registo SSPR anterior página em [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) terão de efetuar a autenticação multifator para poderem aceder a página.
+> Uma vez ativar registo combinado, os utilizadores que registar ou confirmar o que seu número de telefone ou a aplicação móvel através da nova experiência pode utilizá-los para a MFA e o SSPR, se esses métodos estão ativados nas políticas do MFA e o SSPR. Se, em seguida, desativa essa experiência, os utilizadores que vão para o registo SSPR anterior página em `https:/aka.ms/ssprsetup` terão de efetuar a autenticação multifator para poderem aceder a página.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

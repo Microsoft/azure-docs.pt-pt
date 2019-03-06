@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b76162606c4d21cb6979d410fbaaaafc539cf403
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: b53e052182e3d775bdd3309bfd1e986c4f5896ed
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668659"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432265"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar o ADFS como um fornecedor de identidade com as políticas personalizadas no Azure Active Directory B2C
 
@@ -167,7 +167,7 @@ Abra um browser e navegue para o URL. Certifique-se de que digite a URL correta 
 10. Na **modelo de regra de afirmação**, selecione **enviar atributos LDAP como afirmações**.
 11. Fornecer um **nome da regra de afirmação**. Para o **arquivo de atributos**, selecione **selecione Active Directory**, adicione as seguintes declarações, em seguida, clique em **concluir** e **OK**.
 
-    | Attrubute LDAP | Tipo de afirmação de saída |
+    | Atributo LDAP | Tipo de afirmação de saída |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
     | Apelido | family_name |

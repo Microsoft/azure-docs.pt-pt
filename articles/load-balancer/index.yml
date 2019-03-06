@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 533ef6f8c238ef0d6d80ae2c94e3a823bda6521f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 80ead4921ac13117bbbcbfadfc1b58753759375e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700405"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404744"
 documentType: LandingData
 title: Load balancer
 metadata:
@@ -61,10 +61,10 @@ sections:
     className: cardsFTitle
     items:
     - title: Torne as suas máquinas virtuais altamente disponíveis
-      href: /learn/modules/make-your-virtual-machines-highly-available/
+      href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
       image:
         src: /learn/achievements/make-your-virtual-machines-highly-available.svg
-        href: /learn/modules/make-your-virtual-machines-highly-available/
+        href: /learn/modules/intro-to-azure-virtual-machines/5-high-availability
   - type: paragraph
     text: <a href="/learn/browse/?products=azure-virtual-machines">Mais aprendizagem interativa...</a>
 - title: Vídeo de Formação Gratuita da PluralSight

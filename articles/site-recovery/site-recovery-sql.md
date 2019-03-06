@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: e84c33b35ef7828cc16be4b532ab8406e0236ee3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2d141a330b6b6c5fc102dd70ae1d6b3b01283d19
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876675"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444876"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Configurar a recuperação após desastre para SQL Server 
 
@@ -70,7 +70,7 @@ Recuperação de sites pode ser integrada com as tecnologias de SQL Server BCDR 
 
 A tabela seguinte resume as nossas recomendações para a integração de tecnologias BCDR do SQL Server com o Site Recovery.
 
-| **Versão** | **Edição** | **Implementação** | **Do local para local** | **No local para o Azure** |
+| **Versão** | **Edição** | **Implementação** | **Local para a no local** | **No local para o Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2012, 2014 ou 2016 |Enterprise |Instância de cluster de ativação pós-falha |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On |
 || Enterprise |Always On grupos de disponibilidade para elevada disponibilidade |Grupos de disponibilidade Always On |Grupos de disponibilidade Always On | |

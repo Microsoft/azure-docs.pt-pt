@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.date: 3/3/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 043a49e679f2b8ec48213e28d229121d3f0e070d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 47cd1c8e7a8ea02175f1f35eaf8c1658e03a2a53
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338642"
+ms.locfileid: "57403316"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para VMs de VMware
 
@@ -51,12 +51,15 @@ Ao replicar máquinas virtuais VMware:
 
 7. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure estabelecerão uma ligação quando se puserem em marcha após a ativação pós-falha. A rede tem de estar na mesma região que o cofre de Serviços de Recuperação. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as máquinas selecionadas para proteção. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina. Se não tiver uma rede, terá de criar uma. Para criar uma rede utilizando o Gestor de recursos, clique em **criar novo**. Selecione uma sub-rede, se aplicável e, em seguida, clique em **OK**.
 
-    ![Ativar a definição de destino de replicação](./media/vmware-azure-enable-replication/enable-rep3.png)
+>[!NOTE]
+>O Azure Site Recovery replica agora diretamente para os Managed Disks para todas as replicações de novo. Replicações existentes não serão afetadas. A replicação para contas de armazenamento para uma nova máquina só está disponível por meio da REST API e Powershell. 
+
+    ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 8. Em **Máquinas Virtuais** > **Selecionar máquinas virtuais**, selecione cada máquina que pretende replicar. Só pode selecionar máquinas para as quais a replicação pode ser ativada. Em seguida, clique em **OK**. Se não é possível ver/selecionar qualquer máquina virtual específica, clique em [aqui](https://aka.ms/doc-plugin-VM-not-showing) para resolver o problema.
 
     ![Ativar replicação selecione máquinas de virtuais](./media/vmware-azure-enable-replication/enable-replication5.png)
-9. Na **propriedades** > **configurar propriedades**, selecione a conta utilizada pelo servidor de processos para instalar automaticamente o serviço de mobilidade na máquina.  
-10. Por predefinição, todos os discos são replicados. Para excluir discos da replicação, clique em **todos os discos** e desmarque quaisquer discos que não pretende replicar.  Em seguida, clique em **OK**. Pode definir as propriedades adicionais mais tarde. [Saiba mais](vmware-azure-exclude-disk.md) informações sobre como excluir discos.
+9. Na **propriedades** > **configurar propriedades**, selecione a conta utilizada pelo servidor de processos para instalar automaticamente o serviço de mobilidade na máquina. Além disso, escolha o tipo de disco gerido de destino que pretende replicar para com base nos seus dados de alterações a padrões.
+10. Por predefinição, todos os discos de uma máquina de origem são replicados. Para excluir discos da replicação, desmarque **inclusão** caixa de verificação em relação a todos os discos que não pretende replicar.  Em seguida, clique em **OK**. Pode definir as propriedades adicionais mais tarde. [Saiba mais](vmware-azure-exclude-disk.md) informações sobre como excluir discos.
 
     ![Ativar a replicação de configurar as propriedades](./media/vmware-azure-enable-replication/enable-replication6.png)
 

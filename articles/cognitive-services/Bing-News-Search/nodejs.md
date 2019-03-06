@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 287a82292994a629bde8255321c7f603fdf00b67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 09e7ea73bc17e3fae97cb83765ee0b6469ba6f9f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869284"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454090"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Início rápido: Execute uma pesquisa de notícias utilizando node. js e a API de REST de pesquisa do Bing notícias
 
@@ -71,7 +71,7 @@ Consulte também [dos serviços cognitivos preços - API de pesquisa Bing](https
         });
         ```
 
-    3. Quando um **final** sinalizador é assinalado, o JSON e cabeçalhos podem ser visualizados.
+    3. Quando um **final** sinalizador é sinalizado, o JSON e cabeçalhos podem ser visualizados.
 
         ```javascript
         response.on('end', function () {

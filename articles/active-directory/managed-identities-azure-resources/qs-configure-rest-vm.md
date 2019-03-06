@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3933f10a777a1aa10a4e04f8901e7fd1af5c48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 09bdffbceafc11d99889cbda1461e4af4d89168e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195639"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444621"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurar identidades gerida para recursos do Azure numa VM do Azure através de chamadas à REST API
 
@@ -294,7 +294,7 @@ Para desativar a identidade gerida atribuído de sistema numa VM, a conta tem do
 
    Para remover o sistema atribuído a identidade gerida de uma máquina virtual que tenha atribuído ao utilizador identidades geridas, remova `SystemAssigned` partir a `{"identity":{"type:" "}}` valor ao manter o `UserAssigned` valor e o `userAssignedIdentities` dicionário de valores se estiver a utilizar **2018-01 06 de versão de API**. Se estiver a utilizar **API versão 2017-12-01** ou anterior, mantenha o `identityIds` matriz.
 
-## <a name="user-assigned-managed-identity"></a>Atribuído ao utilizador a identidade gerida
+## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
 Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao utilizador na VM do Azure com o CURL para fazer chamadas para o ponto de extremidade REST do Azure Resource Manager.
 
@@ -511,7 +511,7 @@ Para atribuir uma identidade de utilizador atribuído a uma VM, a conta tem do [
    |---------|---------|
    |*Autorização*     | Necessário. Definido como válido `Bearer` token de acesso.
 
-    Se tiver qualquer utilizador ou atribuído de sistema de identidades geridas atribuídas à VM, conforme indicado no `identity` valor na resposta, avance para o passo 5, que mostra como reter a identidade gerida de sistema atribuído thr ao adicionar uma identidade gerida atribuído ao utilizador no a VM.
+    Se tiver qualquer utilizador ou atribuído de sistema de identidades geridas atribuídas à VM, conforme indicado no `identity` valor na resposta, avance para o passo 5, que mostra como reter a identidade gerida atribuído de sistema ao adicionar uma identidade gerida atribuído ao utilizador no a VM.
 
 4. Se não tiver quaisquer identidades geridas atribuído ao utilizador atribuídas à sua VM, utilize o seguinte comando CURL para chamar o ponto de extremidade REST do Azure Resource Manager para atribuir a primeira identidade gerida atribuído ao utilizador para a VM.
 

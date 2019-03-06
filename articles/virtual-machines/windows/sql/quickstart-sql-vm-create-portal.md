@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0a583a75b72286718b34b84e67ee5aff34726be0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 13049018042183a4960c81af65b35fcfa6d4c50d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818243"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447031"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início rápido: Crie uma máquina virtual do SQL Server 2017 Windows no portal do Azure
 
@@ -100,7 +100,7 @@ Na janela **Definições do SQL Server**, configure as seguintes opções.
 
 1. Na lista pendente de **Conectividade de SQL**, selecione **Pública (Internet)**. Isto permite as ligações do SQL Server pela internet.
 
-1. Altere a **Porta** para **1401** para evitar um nome de porta conhecido no cenário público.
+1. Alteração da **porta** ao **1401** para evitar o uso de um nome de porta conhecido no cenário público.
 
 1. Em **Autenticação SQL**, clique em **Ativar**. O Início de Sessão de SQL está definido para o mesmo nome de utilizador e palavra-passe que configurou para a VM.
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/17/2019
 ms.author: juliako
-ms.openlocfilehash: 657b726dc3724637a3099e95d4974840fbb0cc8c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ddf090664b1e5197603dadc26da92a0a1da1a63d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316341"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404948"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -31,8 +31,9 @@ Assim que o seu vídeo foi carregado, o indexador de vídeos, codifica opcionalm
 ## <a name="uploading-considerations"></a>Considerações de carregamento
 
 - Ao carregar o seu vídeo com base no URL (preferencial), o ponto final tem de estar protegido por TLS 1.2 (ou posterior)
-- O tamanho de carregamento com a opção de URL está limitado a 30 GB
-- O tamanho de carregamento com a opção de matriz de bytes é limitado a 2 GB
+- O tamanho de carregamento com a opção de URL está limitado a 30GB
+- Na maioria dos navegadores, o comprimento de URL está limitado a 2.000 caracteres
+- O tamanho de carregamento com a opção de matriz de bytes é limitado a 2GB
 - A opção de matriz de bytes expira após 30 minutos
 - O URL fornecido no parâmetro `videoURL` tem de ser codificado
 

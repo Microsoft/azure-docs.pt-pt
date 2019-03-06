@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2804ebdbeb72bd35c7e63553184157066f9cfd32
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93e33ea311a064058e739bfcf6d63dc2d5462110
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177323"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435070"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurar o início de sessão único para aplicações externas à galeria no Azure Active Directory
 
@@ -60,7 +60,7 @@ Para configurar o Azure AD, introduza a configuração básica de SAML. Pode int
 
   ![Litware domínio e URLs](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **URL de início de sessão (iniciado por SP apenas)** – onde o utilizador acede para iniciar sessão nesta aplicação. Se a aplicação está configurada para executar o serviço inicializado pelo fornecedor início de sessão único, em seguida, quando um utilizador navega para este URL, o fornecedor de serviço fará o redirecionamento necessário para o Azure AD para autenticar e iniciar sessão do utilizador no. Se este campo é preenchido, Azure AD irá utilizar este URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se este campo for omitido, o Azure AD em vez disso, executará o fornecedor de identidade-iniciada pelo início de sessão quando a aplicação é iniciada a partir do Office 365, o painel de acesso do Azure AD, ou a partir do URL do Azure AD único início de sessão (copiável do separador Dashboard).
+- **URL de início de sessão (iniciado por SP apenas)** – onde o utilizador acede para iniciar sessão nesta aplicação. Se a aplicação está configurada para executar o serviço inicializado pelo fornecedor início de sessão único, em seguida, quando um utilizador navega para este URL, o fornecedor de serviço fará o redirecionamento necessário para o Azure AD para autenticar e iniciar sessão do utilizador no. Se este campo é preenchido, Azure AD irá utilizar este URL para iniciar o aplicativo do Office 365 e o painel de acesso do Azure AD. Se este campo for omitido, o Azure AD em vez disso, executará o fornecedor de identidade-iniciada pelo início de sessão quando a aplicação é iniciada a partir do Office 365, o painel de acesso do Azure AD, ou a partir do URL do Azure AD único início de sessão (podem ser copiados do separador Dashboard).
 - **Identificador** -deve identificar exclusivamente o aplicativo para o qual o início de sessão único está a ser configurado. Pode encontrar este valor como o elemento de emissor no AuthRequest (pedido SAML) enviado pela aplicação. Este valor também aparece como o **ID de entidade** em quaisquer metadados SAML fornecido pela aplicação. Verifique a documentação de SAML da aplicação para obter detalhes sobre o que é o seu valor de ID de entidade ou audiência. 
 
     Segue-se um exemplo de como o identificador ou o emissor é apresentado no pedido SAML enviado pela aplicação para o Azure AD:

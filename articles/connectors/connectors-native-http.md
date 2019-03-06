@@ -11,12 +11,12 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1c30f77c061ec25c88186caee3f60e65f3afb3de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232873"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442210"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chamar pontos finais HTTP ou HTTPS com o Azure Logic Apps
 
@@ -46,7 +46,7 @@ Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Log
 
    ![Selecione o acionador HTTP](./media/connectors-native-http/select-http-trigger.png)
 
-1. Forneça o [parâmetros e valores de Acionador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que pretende incluir na chamada para o ponto de extremidade de destino. Configure periodicidade para a frequência com que pretende que o acionador para verificar o endpont de destino.
+1. Forneça o [parâmetros e valores de Acionador HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que pretende incluir na chamada para o ponto de extremidade de destino. Configure periodicidade para a frequência com que pretende que o acionador para verificar o ponto de extremidade de destino.
 
    ![Introduza os parâmetros de Acionador HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -77,7 +77,7 @@ Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Log
 
 1. Quando tiver terminado, certifique-se de que guardar a aplicação lógica. Na barra de ferramentas do estruturador, escolha **Guardar**. 
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Para configurar a autenticação, escolha **Mostrar opções avançadas** dentro da ação ou acionador. Para obter mais informações sobre os tipos de autenticação disponíveis para ações e acionadores HTTP, consulte [referência de tipos de Acionador e ação](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 

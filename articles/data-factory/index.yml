@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ad96d08c4922f56a51fdcef78c9ca07b7aa0fd78
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8a1f9967b51d3655c962620b9436dfe4f9ffd521
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023823"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442533"
 documentType: LandingData
 title: Documentação do Azure Data Factory
 metadata:
@@ -96,7 +96,7 @@ sections:
     className: cardsD
     items:
     - title: Linha de Comandos
-      html: <p><a href="/powershell/module/azurerm.datafactoryv2/">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/az.datafactory/">Azure PowerShell</a></p>
     - title: Linguagens
       html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">.NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
     - title: REST

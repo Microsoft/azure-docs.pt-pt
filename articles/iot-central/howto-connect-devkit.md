@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 5412e0a7bae3667ceb29085da566ef3b73c82c35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6c9f128a046904eb8df90625ce1043b3d42e8be4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316630"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448548"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ligar um dispositivo de MXChip IoT DevKit a sua aplicação do Azure IoT Central
 
@@ -31,7 +31,7 @@ Para executar os passos descritos neste artigo é necessário o seguinte:
 
 Um aplicativo criado a partir da **Devkits de exemplo** inclui o modelo de aplicativo um **MXChip** modelo de dispositivo com as seguintes características: 
 
-- Telemetria que contém as medidas para o dispositivo **humidade**, **temperatura**, **pressão**, **Magnometer** (medida ao longo de X Y, o eixo Z), **Accelorometer** (medido ao longo de X, Y, eixo Z) e **Gyroscope** (medido ao longo de X, Y, eixo Z).
+- Telemetria que contém as medidas para o dispositivo **humidade**, **temperatura**, **pressão**, **Magnometer** (medida ao longo de X Y, o eixo Z), **Acelerômetro** (medido ao longo de X, Y, eixo Z) e **Gyroscope** (medido ao longo de X, Y, eixo Z).
 - Estado que contém uma medida de exemplo para **estado do dispositivo**.
 - Medida de eventos com um **premido do botão B** eventos. 
 - As definições que mostra **tensão**, **atual**, **ventoinha velocidade**e um **IR** Ativar/desativar.
@@ -56,7 +56,7 @@ Na aplicação do Azure IoT Central, adicionar um dispositivo real a partir do *
  
     ![Detalhes da ligação](media/concepts-connectivity/device-connect.PNG)
 
-3. Certifique-se guardar estes detalhes, como irá temporaritly obter desligado da internet para preparar o dispositivo DevKit. 
+3. Certifique-se guardar estes detalhes, conforme temporariamente irá obter desligado da internet para preparar o dispositivo DevKit. 
 
 
 ### <a name="prepare-the-devkit-device"></a>Preparar o dispositivo DevKit

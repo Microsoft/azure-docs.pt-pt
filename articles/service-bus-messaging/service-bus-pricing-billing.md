@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 859add6c9310cf5f18ed7090c8e93d4896b59a0b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852937"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433387"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus, preços e faturação
 
@@ -74,7 +74,7 @@ O escalão Standard remove o limite de ligações mediadas por espaço de nomes 
 <br />
 
 > [!NOTE]
-> A faturação baseia-se no número máximo de ligações simultâneas e é calculada pro rata à hora com base em 744 horas por mês.
+> A faturação baseia-se no número máximo de ligações simultâneas e é rateada por hora com base em 730 horas por mês.
 >
 >
 
@@ -91,12 +91,12 @@ Uma ligação mediada é definida de uma das seguintes formas:
 1. Uma ligação AMQP de um cliente para uma fila do Service Bus ou tópico/subscrição.
 2. Uma chamada HTTP para receber uma mensagem de um tópico ou fila do Service Bus com um valor de tempo limite superior a zero.
 
-Custos do Service Bus para o número máximo de ligações mediadas simultâneas que excedam a quantidade incluída (1000 no escalão Standard). Os picos são medidos por hora, calculados pro rata (proporcionalmente) dividindo pelas 744 horas de um mês, e somados ao longo do período de faturação mensal. A quantidade incluída (1000 ligações mediadas por mês) é aplicada no final do período de faturação relativamente à soma dos picos calculados pro rata à hora.
+Custos do Service Bus para o número máximo de ligações mediadas simultâneas que excedam a quantidade incluída (1000 no escalão Standard). Os picos são medidos numa base horária, calculados dividindo pelas 730 horas por mês e somados ao longo do período de faturação mensal. A quantidade incluída (1000 ligações mediadas por mês) é aplicada no final do período de faturação relativamente à soma dos picos calculados pro rata à hora.
 
 Por exemplo:
 
-1. Cada 10 000 dispositivos se liga através de uma única ligação AMQP e recebe comandos de um tópico do Service Bus. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos se ligarem durante 12 horas por dia, aplicam as seguintes cobranças de ligação (acrescidos de quaisquer outros custos do Service Bus tópico): 10.000 ligações * 12 horas * 31 dias / dias/744 = 5000 ligações mediadas. Depois do montante mensal de 1000 ligações mediadas, ser--ão cobradas 4000 ligações mediadas, à taxa de US $0.03 por ligação mediada, para um total de US $120.
-2. 10.000 dispositivos recebem mensagens de uma fila do Service Bus por HTTP, especificando um tempo limite de diferente de zero. Se todos os dispositivos se ligarem durante 12 horas por dia, verá os seguintes custos de ligação (acrescidos de quaisquer outros custos do Service Bus): 10.000 ligações de receção HTTP * 12 horas por dia * 31 dias / 744 horas = 5000 ligações mediadas.
+1. Cada 10 000 dispositivos se liga através de uma única ligação AMQP e recebe comandos de um tópico do Service Bus. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos se ligarem durante 12 horas por dia, aplicam as seguintes cobranças de ligação (acrescidos de quaisquer outros custos do Service Bus tópico): 10.000 ligações * 12 horas * 30 dias 730 = 4,931 de ligações mediadas. Depois do montante mensal de 1000 ligações mediadas, ser--ão cobradas 4000 ligações mediadas, à taxa de US $0.03 por ligação mediada, para um total de US $120.
+2. 10.000 dispositivos recebem mensagens de uma fila do Service Bus por HTTP, especificando um tempo limite de diferente de zero. Se todos os dispositivos se ligarem durante 12 horas por dia, verá os seguintes custos de ligação (acrescidos de quaisquer outros custos do Service Bus): 10.000 ligações de receção HTTP * 12 horas por dia * 30 dias / 730 horas = 4,931 de ligações mediadas.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Aplicam-se custos de ligações mediadas a filas e tópicos/subscrições?
 

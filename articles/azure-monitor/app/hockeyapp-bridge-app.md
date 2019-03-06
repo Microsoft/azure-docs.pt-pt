@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4115ec5add9ac523852b4c60c4f9d750bc430a37
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 79adfbfde25903bfe92c94507071c9d0fe303ef1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121452"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448395"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Explorar os dados do HockeyApp no Application Insights
 
@@ -56,7 +56,7 @@ Já está! Dados personalizados e de rastreio recolhidos na sua aplicação de H
 Vamos revisar rapidamente cada uma destas funcionalidades agora disponíveis para si.
 
 ## <a name="analytics"></a>Análise
-A análise é uma poderosa ferramenta de consulta ad hoc dos seus dados, permitindo-lhe diagnosticar e analisar a sua telemetria e descobrir rapidamente as causas raiz e padrões.
+A análise é uma ferramenta poderosa para consultas ad hoc dos seus dados, permitindo-lhe diagnosticar e analisar a sua telemetria e descobrir rapidamente as causas raiz e padrões.
 
 ![Análise](./media/hockeyapp-bridge-app/05.png)
 

@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 44dad6d0a6f11b84c4cd2a4470e9a286e1a9ea36
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a2bf7d018712d311545422b91eac0c6ca4912960
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866088"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439383"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Início Rápido da API de Pesquisa de Entidades do Bing com Ruby
 
@@ -65,7 +65,7 @@ Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful c
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. Enviar o pedido e imprimir o resposne
+3. Enviar a solicitação e resposta de impressão
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|

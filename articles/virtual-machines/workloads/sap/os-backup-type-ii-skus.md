@@ -1,6 +1,6 @@
 ---
-title: Cópia de segurança do sistema operativo e o restauro de SAP HANA no Azure (instâncias de grande) escreva II SKUs | Microsoft Docs
-description: Efetuar cópia de segurança do Operatign sistema e restauro de SAP HANA no Azure (instâncias de grande) tipo II SKUs
+title: II SKUs de tipo de cópia de segurança do sistema operativo e o restauro de SAP HANA no Azure (instâncias grandes) | Documentos da Microsoft
+description: Efetuar cópia de segurança do sistema operativo e o restauro para o SAP HANA no Azure (instâncias grandes) tipo II SKUs
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
@@ -14,21 +14,21 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c82c5c74fe13bad99528486be69089df5f477457
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063279"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436345"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus"></a>Cópia de segurança do SO e restauro para o tipo II SKUs
+# <a name="os-backup-and-restore-for-type-ii-skus"></a>Cópia de segurança do sistema operacional e de restauro para SKUs do tipo II
 
-Este documento descreve os passos para efetuar uma cópia de nível de ficheiro de sistema operativo e o restauro para o **tipo II SKUs** das instâncias grande HANA. 
+Este documento descreve os passos para executar um backup de nível de ficheiro de sistema operativo e o restauro para o **SKUs do tipo II** das instâncias grandes do HANA. 
 
 >[!NOTE]
->Os scripts de cópia de segurança de SO utiliza o software de ReaR, que é previamente instalado no servidor.  
+>Os scripts de cópia de segurança do sistema operacional utiliza o software de trás, que é previamente instalado no servidor.  
 
-Após o aprovisionamento estiver concluído, a equipa de gestão do serviço Microsoft, por predefinição, o servidor está configurado com base numa agenda para fazer cópias de segurança do sistema de ficheiros duas cópias de segurança ao nível do cópia de segurança do sistema operativo. Pode verificar o agendamento da tarefa de cópia de segurança utilizando o seguinte comando:
+Após o aprovisionamento estiver concluído, a equipe de gerenciamento de serviços da Microsoft, por predefinição, o servidor está configurado com a agenda de duas cópias de segurança para criar cópias de segurança do sistema de ficheiros ao nível de cópia de segurança do sistema operativo. Pode verificar o agendamento da tarefa de cópia de segurança utilizando o seguinte comando:
 ```
 #crontab –l
 ```
@@ -38,42 +38,42 @@ Pode alterar a agenda de cópia de segurança qualquer altura utilizando o segui
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Como efetuar uma cópia de segurança manual?
 
-A cópia de segurança do sistema de ficheiros do sistema operativo está agendada utilizando um **cron tarefa** já. No entanto, pode executar a sistema operativo nível cópia de segurança ficheiros manualmente, bem como. Para efetuar uma cópia de segurança manual, execute o seguinte comando:
+A cópia de segurança do sistema de ficheiros do sistema operativo é programada com uma **tarefa cron** já. No entanto, pode executar o sistema operativo ao nível backup de arquivos manualmente também. Para efetuar uma cópia de segurança manual, execute o seguinte comando:
 
 ```
 #rear -v mkbackup
 ```
-Mostrar de ecrã seguinte mostra a cópia de segurança manual de exemplo:
+O seguir mostram de ecrã mostra a cópia de segurança manual do exemplo:
 
-![como](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![Como](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
 ## <a name="how-to-restore-a-backup"></a>Como restaurar uma cópia de segurança?
 
-Pode restaurar uma cópia de segurança completa ou de um ficheiro individual da cópia de segurança. Para restaurar, utilize o seguinte comando:
+Pode restaurar uma cópia de segurança completa ou de um arquivo individual a partir da cópia de segurança. Para restaurar, utilize o seguinte comando:
 
 ```
 #tar  -xvf  <backup file>  [Optional <file to restore>]
 ```
-Após o restauro, o ficheiro de recuperação no diretório de trabalho atual.
+Após o restauro, é recuperar o ficheiro no diretório de trabalho atual.
 
-O comando seguinte mostra o restauro de um ficheiro *etc/fstabfrom* o ficheiro de cópia de segurança *backup.tar.gz*
+O comando seguinte mostra o restauro de um arquivo *nomedeanfitrião fstabfrom* o arquivo de backup *backup.tar.gz*
 ```
 #tar  -xvf  /osbackups/hostname/backup.tar.gz  etc/fstab 
 ```
 >[!NOTE] 
->Tem de copiar o ficheiro para a localização pretendida, após o restauro da cópia de segurança.
+>Precisa copiar o ficheiro para a localização pretendida, após o restauro da cópia de segurança.
 
-A seguinte captura de ecrã mostra o restauro de uma cópia de segurança completa:
+Captura de ecrã seguinte mostra o restauro de uma cópia de segurança completa:
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
-## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Como instalar a ferramenta de ReaR e alterar a configuração? 
+## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Como instalar a ferramenta de atrás e alterar a configuração? 
 
-Os pacotes de Relax-e-recuperar (ReaR) estão **pré-instalado** no **tipo II SKUs** de instâncias de grande HANA e nenhuma ação necessária da. Diretamente pode começar a utilizar o ReaR a cópia de segurança do sistema operativo.
-No entanto, as circunstâncias em que tem de instalar os pacotes na sua própria, pode seguir os passos para instalar e configurar a ferramenta de ReaR listados.
+Os pacotes de Relax-e-recuperação (traseiro) estão **pré-instalado** no **tipo II SKUs** de instâncias grandes do HANA e nenhuma ação necessária da sua. Diretamente pode começar a utilizar o traseiro para a cópia de segurança do sistema operativo.
+No entanto, nas circunstâncias em que tem de instalar os pacotes no seu próprio, pode seguir os passos indicados para instalar e configurar a ferramenta de trás.
 
-Para instalar o **ReaR** pacotes de cópia de segurança, utilize os seguintes comandos:
+Para instalar o **traseiro** pacotes de cópia de segurança, utilize os seguintes comandos:
 
 Para **SLES** sistema operativo, utilize o seguinte comando:
 ```
@@ -83,7 +83,7 @@ Para **RHEL** sistema operativo, utilize o seguinte comando:
 ```
 #yum install rear -y
 ```
-Para configurar a ferramenta de ReaR, tem de atualizar parâmetros **OUTPUT_URL** e **BACKUP_URL** no *ficheiro /etc/rear/local.conf*.
+Para configurar a ferramenta de trás, tem de atualizar os parâmetros **OUTPUT_URL** e **BACKUP_URL** no *ficheiro /etc/rear/local.conf*.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -96,4 +96,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-A seguinte captura de ecrã mostra o restauro de uma cópia de segurança completa: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+Captura de ecrã seguinte mostra o restauro de uma cópia de segurança completa: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

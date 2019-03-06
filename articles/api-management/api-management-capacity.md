@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 31959cc1bef6b6434f6d3f586052a845837aa438
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442596"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454512"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidade de uma instância de gestão de API do Azure
 
@@ -78,7 +78,7 @@ As operações mais complexas nas solicitações são, mais alto a **capacidade*
 4. Na secção de verde, selecione **localização** para dividir a métrica por dimensão.
 5. Escolha um período de tempo pretendido da barra superior da seção.
 
-    Pode definir um alerta de métrica para informá-lo quando algo inesperado está a acontecer. Por exemplo, obter notificações quando a instância APIM foi excedeu a capacidade máxima esperada durante mais de 20 minutos.
+    Pode definir um alerta de métrica para informá-lo quando algo inesperado está a acontecer. Por exemplo, obter notificações quando a instância APIM tem sido a exceder a sua capacidade máxima esperada durante mais de 20 minutos.
 
     >[!TIP]
     > Pode configurar alertas para permitem-lhe saber quando seu serviço está a esgotar na capacidade ou utilizar a funcionalidade de dimensionamento automático do Azure Monitor para adicionar automaticamente uma unidade de API Management do Azure. Operação de dimensionamento, pode demorar cerca de 30 minutos, para que deve planejar suas regras em conformidade.  

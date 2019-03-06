@@ -17,7 +17,7 @@ items:
   - name: Tutoriais
     items:
     - name: Convidar utilizadores convidados B2B em massa
-      href: b2b-tutorial-bulk-invite.md
+      href: tutorial-bulk-invite.md
     - name: Reforçar autenticação multifator
       href: b2b-tutorial-require-mfa.md
   - name: Amostras
@@ -118,9 +118,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/azure-active-directory
     - name: Vídeos
       href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: cfd81ad86e90583e828762709e0f99e374cddf03
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: cbd7c39f4c44675896075068697da79643174be4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074961"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407839"

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 135b684c67776da7d722074abe185b5ed2a860fa
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5e614d7fc1b45e5a1e1c11d04ed80fbb66bfbd28
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889414"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441615"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto (pré-visualização)
 
@@ -23,7 +23,7 @@ O [a API de reconhecimento de entidades](https://westus.dev.cognitive.microsoft.
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Ligação de entidades e o reconhecimento de entidades
 
-Análise de texto `entities` supprts ponto final com o nome de reconhecimento de entidades (NER) e ligação de entidades.
+Análise de texto `entities` suporta de ponto final, ambos com o nome o reconhecimento de entidades (NER) e a entidade de ligação.
 
 ### <a name="entity-linking"></a>Ligar à Entidade
 Ligação de entidades é a capacidade de identificar e desambiguar a identidade de uma entidade encontrada no texto (por exemplo, que determina se o "Mars" está a ser utilizado como o planeta ou como o Deus Roman da war). Este processo requer a presença de um conhecimento base para a qual reconhecido entidades são vinculadas - Wikipedia é utilizada como a base de dados de conhecimento para o `entities` ponto final de análise de texto.

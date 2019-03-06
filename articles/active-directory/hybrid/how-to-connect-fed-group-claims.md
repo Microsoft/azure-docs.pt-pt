@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 8e4f9e76baf07e6ea2cb4cccb63ed0a9add5d767
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 12ccb4978a8cfbaa7dede8d0093c78da05295fec
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57012050"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410014"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Configurar afirmações de grupo para aplicações com o Azure Active Directory (pré-visualização pública)
 
@@ -26,8 +26,8 @@ O Azure Active Directory pode fornecer um informações de associação de grupo
 - Grupos identificados pelo respetivo identificador de objeto (OID) (disponível em geral) do Azure Active Directory
 - Grupos identificados pelo SAMAccountName ou GroupSID para Active Directory (AD) sincronizado a grupos e utilizadores (pré-visualização pública)
 
->[!Note]
->Suporte para utilização de nomes e os identificadores de segurança (SIDs) foi concebido para permitir a mover aplicativos existentes do AD FS.    Grupos geridos no Azure AD não contêm os atributos necessários para emitir essas declarações.
+> [!Note]
+> Suporte para utilização de nomes e os identificadores de segurança (SIDs) foi concebido para permitir a mover aplicativos existentes do AD FS.    Grupos geridos no Azure AD não contêm os atributos necessários para emitir essas declarações.
 
 ## <a name="group-claims-for-applications-migrating-from-ad-fs-and-other-idps"></a>Afirmações de grupo para aplicações de migrar do AD FS e outros IDPs
 
@@ -42,8 +42,8 @@ Formatos com suporte para afirmações de grupo são:
 - **NetbiosDomain\samAccountName** (disponível para grupos sincronizados a partir do Active Directory)
 - **DNSDomainName\samAccountName** (disponível para grupos sincronizados a partir do Active Directory)
 
->[!NOTE]
->Atributos SAMAccountName e OnPremisesGroupSID só estão disponíveis em objetos de grupo sincronizados a partir do Active Directory.   Não estão disponíveis em grupos criados no Azure Active Directory ou Office 365.   Aplicativos que dependem de atributos de grupo locais obtém-los para apenas grupos sincronizados.
+> [!NOTE]
+> Atributos SAMAccountName e OnPremisesGroupSID só estão disponíveis em objetos de grupo sincronizados a partir do Active Directory.   Não estão disponíveis em grupos criados no Azure Active Directory ou Office 365.   Aplicativos que dependem de atributos de grupo locais obtém-los para apenas grupos sincronizados.
 
 ## <a name="options-for-applications-to-consume-group-information"></a>Opções para aplicações consumir informações do grupo
 
@@ -57,7 +57,7 @@ No entanto, se um aplicativo existente já espera usar informações de grupo at
 - Se a aplicação está configurada para obter os atributos de grupo que são sincronizados a partir do Active Directory e um grupo não contém esses atributos que não ser incluído nas afirmações.
 - Afirmações de grupo nos tokens incluem grupos aninhados.   Se um utilizador é membro de GroupB e GroupB é um membro de GroupA, as afirmações de grupo para o utilizador irão conter GroupA e GroupB. Para organizações com uso intensivo de grupos aninhados e os utilizadores com um grande número de associações de grupo, o número de grupos listados no token pode aumentar o tamanho do token.   O Azure Active Directory limita o número de grupos, que ele emite um token de 150 para asserções SAML e 200 para JWT.
 
->Pré-requisitos para a utilização de atributos de grupo sincronizados do Active Directory:   Os grupos têm de ser sincronizados a partir do Active Directory com o Azure AD Connect.
+> Pré-requisitos para a utilização de atributos de grupo sincronizados do Active Directory:   Os grupos têm de ser sincronizados a partir do Active Directory com o Azure AD Connect.
 
 Existem dois passos para configurar o Azure Active Directory para emitir nomes de grupo para grupos do Active Directory.
 
@@ -100,21 +100,21 @@ Para emitir os grupos do Active Directory a utilizar atributos em vez do Azure A
 
 ![afirmações da interface do Usuário](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
-Algumas aplicações necessitam das informações de associação de grupo apareça na afirmação "função". Opcionalmente, pode emitir grupos do utilizador como funções marcando a caixa "Emitir afirmações de uma função de grupos".  
+Algumas aplicações necessitam das informações de associação de grupo apareça na afirmação "função". Opcionalmente, pode emitir grupos do utilizador como funções marcando a caixa "Emitir afirmações de uma função de grupos".
 
 ![afirmações da interface do Usuário](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
->[!NOTE]
->Se for utilizada a opção para emitir dados de grupo como funções, grupos só serão apresentada na declaração de função.  Quaisquer funções de aplicação que é atribuída ao utilizador não aparecerão na declaração de função.
+> [!NOTE]
+> Se for utilizada a opção para emitir dados de grupo como funções, grupos só serão apresentada na declaração de função.  Quaisquer funções de aplicação que é atribuída ao utilizador não aparecerão na declaração de função.
 
-## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Configurar o registo de aplicação do AD do Azure para atributos de grupo  
+## <a name="configure-the-azure-ad-application-registration-for-group-attributes"></a>Configurar o registo de aplicação do AD do Azure para atributos de grupo
 
 Afirmações de grupo também podem ser configuradas no [afirmações opcionais](../../active-directory/develop/active-directory-optional-claims.md) secção a [manifesto de aplicativo](../../active-directory/develop/reference-app-manifest.md).
 
  1. No portal -> Azure Active Directory -> aplicação registos -> selecione aplicação -> manifesto
 
  2. Ativar afirmações de associação de grupo, alterando o groupMembershipClaim
- 
+
     Os valores válidos são:
 
     - "Tudo"
@@ -124,10 +124,10 @@ Afirmações de grupo também podem ser configuradas no [afirmações opcionais]
 
     Por exemplo:
 
-    ```
+    ```json
     "groupMembershipClaims": "SecurityGroup"
     ```
- 
+
     Por predefinição que ObjectIds grupo será emitido no grupo de valor de afirmação.  Para modificar o valor de afirmação para conter nos atributos de grupo local ou para alterar o tipo de afirmação a função, utilize a configuração de OptionalClaims da seguinte forma:
 
  3. Conjunto de afirmações opcionais de configuração do nome de grupo.
@@ -138,12 +138,12 @@ Afirmações de grupo também podem ser configuradas no [afirmações opcionais]
     - accessToken para o token de acesso de OAuth/OIDC
     - Saml2Token para SAML tokens.
 
-    >[!NOTE]
-    >O tipo de Saml2Token aplica-se a SAML1.1 e SAML2.0 tokens de formato  
+    > [!NOTE]
+    > O tipo de Saml2Token aplica-se a SAML1.1 e SAML2.0 tokens de formato
 
-    Para cada tipo de token relevante, modificar os grupos de afirmação utilizar a secção de OptionalClaims no manifesto. O esquema de OptionalClaims é o seguinte:
+    Para cada tipo de token relevante, modifique a declaração de grupos para utilizar a secção de OptionalClaims no manifesto. O esquema de OptionalClaims é o seguinte:
 
- ```
+ ```json
  {
     "name": "groups",
     "source": null,
@@ -163,14 +163,14 @@ Afirmações de grupo também podem ser configuradas no [afirmações opcionais]
 
  Algumas aplicações necessitam de informações do grupo sobre o utilizador na declaração de função.  Para alterar o tipo de afirmação a partir de um grupo de afirmação para uma declaração role, adicione "emit_as_roles" às propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
 
- >[!NOTE]
- >Se for utilizado "emit_as_roles" quaisquer funções de aplicação configurado que é atribuída ao utilizador irá não aparecem na declaração de função
+ > [!NOTE]
+ > Se for utilizado "emit_as_roles" quaisquer funções de aplicação configurado que é atribuída ao utilizador irá não aparecem na declaração de função
 
 ### <a name="examples"></a>Exemplos
 
 Emitir grupos como nomes de grupo nos tokens de acesso de OAuth no formato de dnsDomainName\SAMAccountName
 
-```
+```json
 "optionalClaims": {
     "accessToken": [{
         "name": "groups",
@@ -181,7 +181,7 @@ Emitir grupos como nomes de grupo nos tokens de acesso de OAuth no formato de dn
 
 Emitir nomes de grupo seja retornado em formato de netbiosDomain\samAccountName como as funções de afirmações no SAML e Tokens de ID de OIDC:
 
-```
+```json
 "optionalClaims": {
     "saml2Token": [{
         "name": "groups",

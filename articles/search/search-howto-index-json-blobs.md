@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: acbd3c9ed55556ac792c3a98e6dbc1e4f7455fe1
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311309"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405118"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Como indexar blobs JSON com o indexador Blob do Azure Search
 Este artigo mostra-lhe como configurar um blob do Azure Search [indexador](search-indexer-overview.md) para extrair conteúdo estruturado de documentos JSON no armazenamento de Blobs do Azure e permitir pesquisável no Azure Search. Este fluxo de trabalho cria um índice da Azure Search e carrega-os com existente textos extraídos dos JSON blobs. 
@@ -288,7 +288,7 @@ O SDK de .NET totalmente tem paridade com a API REST. Recomendamos que reveja a 
 
 <a name="parsing-modes"></a>
 
-### <a name="parsing-modes"></a>Modos de análise
+## <a name="parsing-modes"></a>Modos de análise
 
 JSON blobs podem assumir várias formas. O **parsingMode** parâmetro no indexador JSON determina como o conteúdo do blob JSON é analisado e estruturado no índice da Azure Search:
 

@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: hning86
-ms.author: haining
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 513df9f68fdd54b5dc90e57bd8389688c46bf615
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 950ea04addb0c88d4c745d2de3d95df787885137
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804251"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403435"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o Python SDK para começar a utilizar com o Azure Machine Learning
 
@@ -94,9 +94,9 @@ As instruções neste guia de introdução irão instalar todos os pacotes que n
 
 ### <a name="install-the-sdk"></a>Instalar o SDK
 
-1. No ambiente de conda ativados, instale os componentes principais do SDK do Aprendizado de máquina com capacidades de bloco de notas do Jupyter.  A instalação demora alguns minutos para concluir com base na configuração do seu computador.
+1. No ambiente de conda ativados, instale os componentes principais do SDK do Aprendizado de máquina com capacidades de bloco de notas do Jupyter. A instalação demora alguns minutos para concluir com base na configuração do seu computador.
 
-  ```shell
+    ```shell
     pip install --upgrade azureml-sdk[notebooks]
     ```
 
@@ -111,6 +111,11 @@ As instruções neste guia de introdução irão instalar todos os pacotes que n
     ```shell
     pip install --upgrade azureml-sdk[automl]
     ```
+
+> [!IMPORTANT]
+> Em algumas ferramentas de linha de comando, poderá ter de adicionar o entre aspas duplas da seguinte forma: * 'azureml-sdk [blocos de notas]' * "azureml-sdk [automl]"
+>
+
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 

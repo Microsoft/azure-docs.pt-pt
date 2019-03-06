@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: cd84607f426d8a54ca21302b9a612f5ec09c9a1e
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2c77f5abac69a1bade523d2a4b6793c2a9df8cf2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670388"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447868"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -164,7 +164,7 @@ Sim. Pode enviar registos a partir da aplicação do HSM para um servidor syslog
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>P: É possível configurar a elevada disponibilidade na mesma região ou em várias regiões?
 
-Sim. Configuração de elevada disponibilidade e o programa de configuração são executadas no software de cliente HSM fornecido pelo Gemalto. HSMs da mesma VNET ou de outras VNETs na mesma região ou em várias regiões, ou no local HSMs ligado a uma VNET com o site a site ou VPN de ponto a ponto pode ser adicionado a mesma configuração de elevada disponibilidade.
+Sim. Configuração de elevada disponibilidade e o programa de configuração são executadas no software de cliente HSM fornecido pelo Gemalto. HSMs da mesma VNET ou de outras VNETs na mesma região ou em várias regiões ou no local HSMs ligado a uma VNET com o site a site ou VPN de ponto a ponto pode ser adicionado a mesma configuração de elevada disponibilidade.
 
 ### <a name="can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>Posso adicionar HSMs de minha rede no local para um grupo de elevada disponibilidade com o HSM do Azure dedicado?
 

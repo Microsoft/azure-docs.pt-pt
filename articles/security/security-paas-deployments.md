@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 03/05/2019
 ms.author: terrylan
-ms.openlocfilehash: 497fc1dd5691b5aa33207c6a3943a51c473d2f6c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247210"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404812"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações de PaaS
 
@@ -85,7 +85,7 @@ Princípios e padrões para o perímetro da rede estão disponíveis há década
 Seguem-se as práticas recomendadas para gerenciamento do perímetro de identidade.
 
 **Melhor prática**: Proteja as chaves e as credenciais para proteger a sua implementação de PaaS.   
-**Detalhe**: Perda de chaves e as credenciais é um problema comum. Pode utilizar uma solução centralizada onde podem ser armazenados chaves e segredos em módulos de segurança de hardware. O Azure disponibiliza um HSM na cloud com o [do Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Detalhe**: Perda de chaves e as credenciais é um problema comum. Pode utilizar uma solução centralizada em que podem ser armazenados chaves e segredos em módulos de segurança de hardware (HSMs). [O Azure Key Vault](../key-vault/key-vault-whatis.md) salvaguarda as chaves e segredos ao encriptar as chaves de autenticação, chaves de conta de armazenamento, chaves de encriptação de dados, ficheiros. pfx e palavras-passe utilizando chaves protegidas por HSM.
 
 **Melhor prática**: Não coloque as credenciais e outros segredos no código-fonte ou o GitHub.   
 **Detalhe**: A única coisa que pior do que perder as chaves e as credenciais é fazer com que uma entidade não autorizada obter acesso aos mesmos. Os atacantes podem aproveitar bot tecnologias para localizar as chaves e segredos armazenados nos repositórios de código, como o GitHub. Não coloque chaves e segredos nestes repositórios de código público.

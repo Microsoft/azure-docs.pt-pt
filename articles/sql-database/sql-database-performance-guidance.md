@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461598"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438623"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Manual otimizar o desempenho de consulta na base de dados do Azure SQL
 

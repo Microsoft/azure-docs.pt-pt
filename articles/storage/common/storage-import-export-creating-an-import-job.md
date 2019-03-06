@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 42246a5d2c8515c26ed399f041476c8ad70decfe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729409"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442142"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criar uma tarefa de importação para o serviço importar/exportar do Azure
 
@@ -33,7 +33,7 @@ A criação de uma tarefa de importação para o serviço de importação/export
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Preparar as unidades com a ferramenta de importação/exportação do Azure
 
-Os passos para preparar unidades para uma tarefa de importação são os mesmos, se criar o jobvia o portal ou através da API REST.
+Os passos para preparar unidades para uma tarefa de importação são os mesmos, se criar a tarefa através do portal ou através da API REST.
 
 Segue-se uma breve descrição geral da preparação da unidade. Consulte a [referência de ExportTool de importação de Azure](storage-import-export-tool-how-to-v1.md) para obter instruções completas. Pode baixar a ferramenta de importação/exportação do Azure [aqui](https://go.microsoft.com/fwlink/?LinkID=301900).
 

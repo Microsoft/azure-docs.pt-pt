@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewers: billgib,ayolubek
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ccf6ff75cb041c7d9998f67d579d1b392f83cee9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 39ff70670d628ca672022b84e59ed3cc8a17d925
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476252"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447042"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Consultas de distribuídas de relatórios usando entre inquilinos
 
@@ -61,7 +61,7 @@ Para executar consultas em relação a um conjunto de dados mais interessante, c
 
 1. Na *ISE do PowerShell*, abra o... \\Módulos de aprendizagem\\análise operacional\\relatórios ad hoc\\*demonstração AdhocReporting.ps1* do script e defina o valor seguinte:
    * **$DemoScenario** = 1, **comprar bilhetes para eventos em todos os locais**.
-2. Prima **F5** para executar o script e gerar vendas de bilhetes. Enquanto estiver a executar o script, continue os passos neste tutorial. Os dados de pedido de suporte são consultados no *executar consultas ad-hoc distribuído* secção, por isso, aguarde que o gerador de pedido de suporte concluir.
+2. Prima **F5** para executar o script e gerar vendas de bilhetes. Enquanto estiver a executar o script, continue os passos neste tutorial. Os dados de pedido de suporte são consultados no *execução ad hoc distribuído consultas* secção, por isso, aguarde que o gerador de pedido de suporte concluir.
 
 ## <a name="explore-the-global-views"></a>Explore as vistas globais
 
@@ -106,7 +106,7 @@ Este exercício implementa a _adhocreporting_ base de dados. Esta é a base de d
 
 1. na *ISE do PowerShell*, abra... \\Módulos de aprendizagem\\análise operacional\\relatórios ad hoc\\*demonstração AdhocReporting.ps1*. 
 
-1. Definir **$DemoScenario = 2**, _banco de dados de relatório de implementar Ad-hoc_.
+1. Definir **$DemoScenario = 2**, _hoc Ad implementar base de dados relatórios_.
 
 1. Prima **F5** para executar o script e criar o *adhocreporting* base de dados.
 

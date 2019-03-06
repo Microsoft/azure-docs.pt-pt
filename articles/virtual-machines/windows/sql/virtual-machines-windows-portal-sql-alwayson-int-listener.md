@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 43f2694f597d99edaf127a6afd64376cca33dad2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248316"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448157"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurar um balanceador de carga para um grupo de disponibilidade Always On no Azure
 Este artigo explica como criar um balanceador de carga para um grupo de disponibilidade Always On do SQL Server em máquinas virtuais do Azure que estejam a executar com o Azure Resource Manager. Um grupo de disponibilidade necessita de um balanceador de carga quando são de instâncias do SQL Server em máquinas virtuais do Azure. O Balanceador de carga armazena o endereço IP para o serviço de escuta do grupo de disponibilidade. Se a um grupo de disponibilidade se estende por várias regiões, cada região tem um balanceador de carga.
@@ -63,11 +63,11 @@ Primeiro, crie o Balanceador de carga.
 
 5. Na **criar Balanceador de carga** diálogo caixa, configurar o Balanceador de carga da seguinte forma:
 
-   | Definição | Valor |
+   | Definição | Value |
    | --- | --- |
    | **Nome** |Um nome de texto que representa o Balanceador de carga. Por exemplo, **sqlLB**. |
-   | **Tipo** |**Interno**: a maioria das implementações utilizar um balanceador de carga interno, que permite que aplicativos dentro da mesma rede virtual ligar ao grupo de disponibilidade.  </br> **Externo**: permite que os aplicativos para se ligar ao grupo de disponibilidade por meio de uma ligação de Internet pública. |
-   | **Rede virtual** |Selecione a rede virtual que estão as intances do SQL Server. |
+   | **Tipo** |**Interno**: A maioria das implementações utilizar um balanceador de carga interno, que permite que aplicativos dentro da mesma rede virtual ligar ao grupo de disponibilidade.  </br> **Externo**: Permite que os aplicativos para se ligar ao grupo de disponibilidade por meio de uma ligação de Internet pública. |
+   | **Rede virtual** |Selecione a rede virtual que as instâncias do SQL Server estão em. |
    | **Sub-rede** |Selecione a sub-rede que instâncias do SQL Server estão em. |
    | **Atribuição de endereços IP** |**Estático** |
    | **Endereço IP privado** |Especifique um endereço IP disponível na sub-rede. Utilize este endereço IP quando criar um serviço de escuta no cluster. Num script do PowerShell, neste artigo, utilize este endereço para o `$ILBIP` variável. |
@@ -109,7 +109,7 @@ A sonda define como o Azure verifica quais das instâncias do SQL Server atualme
 
 3. Configurar a sonda no **adicionar sonda** painel. Utilize os seguintes valores para configurar a sonda:
 
-   | Definição | Valor |
+   | Definição | Value |
    | --- | --- |
    | **Nome** |Um nome de texto que representa a sonda. Por exemplo, **SQLAlwaysOnEndPointProbe**. |
    | **Protocolo** |**TCP** |
@@ -135,7 +135,7 @@ As regras de balanceamento de carga configurar como o Balanceador de carga encam
 
 3. Sobre o **adicionar regras de balanceamento de carga** painel, configurar regra de balanceamento de carga. Utilize as seguintes definições: 
 
-   | Definição | Valor |
+   | Definição | Value |
    | --- | --- |
    | **Nome** |Um nome de texto que representa a regras de balanceamento de carga. Por exemplo, **SQLAlwaysOnEndPointListener**. |
    | **Protocolo** |**TCP** |
@@ -221,12 +221,12 @@ Para adicionar um endereço IP a um balanceador de carga com o portal do Azure, 
 
 7. Adicione uma sonda de estado de funcionamento, utilizando as seguintes definições:
 
-   |Definição |Valor
+   |Definição |Value
    |:-----|:----
    |**Nome** |Um nome para identificar a sonda.
    |**Protocolo** |TCP
    |**Porta** |Uma porta não utilizada TCP, que tem de estar disponível em todas as máquinas virtuais. Ele não pode ser usado para qualquer outra finalidade. Não existem dois serviços de escuta podem utilizar a mesma porta de sonda. 
-   |**Intervalo** |A quantidade de tempo entre tentativas da sonda. Utilize a predefinição (5).
+   |**Intervalo** |O período de tempo entre tentativas da sonda. Utilize a predefinição (5).
    |**Limiar de mau estado de funcionamento** |O número de limiares consecutivas que devem falhar antes de uma máquina virtual é considerada em mau estado de funcionamento.
 
 8. Clique em **OK** para guardar a sonda. 
@@ -235,7 +235,7 @@ Para adicionar um endereço IP a um balanceador de carga com o portal do Azure, 
 
 10. Configure a carga de nova regra de balanceamento utilizando as seguintes definições:
 
-   |Definição |Valor
+   |Definição |Value
    |:-----|:----
    |**Nome** |Um nome para identificar a regra de balanceamento de carga. 
    |**Endereço IP de front-end** |Selecione o endereço IP que criou. 
@@ -284,7 +284,7 @@ Se um grupo de disponibilidade participa de um grupo de disponibilidade distribu
 
 1. Crie a balanceamento de carga regra com as seguintes definições:
 
-   |Definição |Valor
+   |Definição |Value
    |:-----|:----
    |**Nome** |Um nome para identificar a regra para o grupo de disponibilidade distribuída de balanceamento de carga. 
    |**Endereço IP de front-end** |Utilize o mesmo endereço IP de front-end como o grupo de disponibilidade.

@@ -38,9 +38,11 @@ items:
   href: concepts-overview.md
   items:
   - name: Carregamento e armazenamento na cloud
-    href: storage-account-concept.md
-  - name: Elementos
-    href: assets-concept.md
+    items:
+    - name: Armazenamento
+      href: storage-account-concept.md
+    - name: Elementos
+      href: assets-concept.md
   - name: Codificação
     items:
     - name: Descrição geral
@@ -244,9 +246,9 @@ items:
     href: frequently-asked-questions.md
   - name: Regiões e clouds do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 726c49754b1e04be8a9f03cc754c067994b98565
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 72f2ea0935d8a766edd1ae87b41d6b16b8ea28f1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958420"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446857"

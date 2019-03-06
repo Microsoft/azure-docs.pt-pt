@@ -1,5 +1,5 @@
 ---
-title: 'Ligar uma rede virtual a um circuito do ExpressRoute: PowerShell: clássico: Azure | Documentos da Microsoft'
+title: 'Ligar uma rede virtual a um circuito do ExpressRoute: PowerShell: clássico: Azure | Microsoft Docs'
 description: Este documento fornece uma descrição geral de como ligar redes virtuais (VNets) para circuitos do ExpressRoute com o modelo de implementação clássica e o PowerShell.
 services: expressroute
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 008d1dca14f6d1850d7fe13d2e21948c4cd5b4e2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c3b96904a2a6016b7080bba68d098212cefd89a0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245194"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405951"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ligar uma rede virtual a um circuito do ExpressRoute com o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Pode ligar até 10 redes virtuais a um circuito do ExpressRoute. Tem de ser toda
 
 **Acerca dos modelos de implementação do Azure**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
 

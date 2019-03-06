@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 01c4bcfcea038f3e69620cdce78719c8c5128faf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6ad8079985925d4b9bf74b22971ca3c387af199a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964802"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455620"
 ---
 # <a name="sql-database-application-development-overview"></a>Descrição geral da programação de aplicativo da linha de base de dados SQL
 
@@ -58,7 +58,7 @@ Para obter mais informações sobre como preparar para eventos de manutenção p
 - No computador que aloja o seu programa cliente, certifique-se de que a firewall permite a comunicação TCP de saída na porta 1433.  Mais informações: [Configurar uma firewall de base de dados do Azure SQL](sql-database-configure-firewall-settings.md).
 - Se o seu programa cliente se liga à base de dados do SQL, enquanto o cliente executa numa máquina virtual do Azure (VM), tem de abrir determinados intervalos de portas na VM. Mais informações: [Portas para além do 1433 para ADO.NET 4.5 e base de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Ligações de cliente para a base de dados do Azure SQL, às vezes, ignoram o proxy e interagem diretamente com a base de dados. As portas que não sejam 1433 tornam-se importantes. Para obter mais informações, [arquitetura de conectividade do Azure SQL Database](sql-database-connectivity-architecture.md) e [portas para além do 1433 para ADO.NET 4.5 e base de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Para obter configation funcionamento em rede para uma instância gerida, veja [configuração de rede para instâncias geridas](sql-database-howto-managed-instance.md#network-configuration).
+- Para a configuração de rede para uma instância gerida, veja [configuração de rede para instâncias geridas](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

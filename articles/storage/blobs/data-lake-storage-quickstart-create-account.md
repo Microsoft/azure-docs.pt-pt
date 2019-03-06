@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 1af6214833109ad89e8b5f27eefc0c99cdaf2496
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 2eb57268aece081423b6b0beaa314a244b6fdd8f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984191"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456011"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake
 
@@ -76,7 +76,7 @@ Para criar um grupo de recursos no portal do Azure, siga estes passos:
 5. Escolha a localização para o grupo de recursos.
 6. Clique no botão **Criar**.  
 
-   ![A captura de ecrã mostra a criação do grupo de recursos no portal do Azure](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
+   ![Captura de ecrã que mostra a criação do grupo de recursos no portal do Azure](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Criar uma conta de armazenamento v2 para fins gerais
 
@@ -96,7 +96,7 @@ Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, si
 9. Na **geração 2 de armazenamento do Data Lake** secção conjunto **espaço de nomes hierárquico** para **ativado**.
 10. Clique em **rever + criar** para criar a conta de armazenamento.
 
-    ![A captura de ecrã mostra a criação da conta de armazenamento no portal do Azure](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+    ![Captura de ecrã que mostra a criação da conta de armazenamento no portal do Azure](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
 A conta de armazenamento está agora criada através do portal.
 

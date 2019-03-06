@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5cb3a029795dd69c80cfa580aa1bd135c67e609e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477221"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451957"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados de equipa em ação – usando um Cluster de Hadoop do HDInsight do Azure num conjunto de dados de 1 TB
 
@@ -417,7 +417,7 @@ Para criar tabelas de contagem dos dados de contagem, utilize os dados na pasta 
 O nosso modelo de criação de processo no Azure Machine Learning segue estes passos:
 
 1. [Obter os dados de tabelas do Hive no Azure Machine Learning](#step1)
-2. [Criar a experimentação: limpar os dados e a caracterização com tabelas de contagem](#step2)
+2. [Criar a experimentação: limpar os dados e torná-lo um recurso com tabelas de contagem](#step2)
 3. [Criar, dar formação e Pontuar o modelo](#step3)
 4. [Avaliar o modelo](#step4)
 5. [Publique o modelo como um serviço web](#step5)
@@ -451,7 +451,7 @@ A porta de saída com o botão direito a **importar dados** módulo. Isso revela
 
 Para selecionar o conjunto de dados guardado para uso numa experimentação do machine learning, localize os conjuntos de dados com o **pesquisa** caixa mostrada na figura a seguir. Em seguida, basta digitar o nome que deu o conjunto de dados parcialmente para acessá-lo e arrastar o conjunto de dados para o painel principal. Soltando-o para o painel principal, seleciona-o para utilização na modelagem do machine learning.
 
-![Drage conjunto de dados para o painel principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Arraste o conjunto de dados para o painel principal](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Fazê-lo para a formação e os conjuntos de dados de teste. Além disso, lembre-se utilizar o nome de base de dados e os nomes das tabelas que deu para esta finalidade. Os valores utilizados na figura são apenas para ilustração purposes.* *

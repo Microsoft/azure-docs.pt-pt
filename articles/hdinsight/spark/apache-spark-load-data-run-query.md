@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 4dd9634d5d5e6ce749a4ee563903b07e22bc45ee
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652337"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448991"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight
 
@@ -83,7 +83,7 @@ Após a criação da tabela, pode executar uma consulta interativa nos dados.
 
 10. No menu **File (Ficheiro)** do bloco de notas, selecione **Save and Checkpoint (Guardar e Ponto de Verificação)**. 
 
-11. Se tenciona iniciar o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de notas aberto. Caso contrário, encerre o bloco de notas para libertar os recursos do cluster: no menu **File (Ficheiro)** do bloco de notas, selecione **Close and Halt (Fechar e Parar)**.
+11. Se tenciona iniciar o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de notas aberto. Se não estiver, encerrar o bloco de notas para libertar os recursos de cluster: do **arquivo** menu no bloco de notas, selecione **fechar e parar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

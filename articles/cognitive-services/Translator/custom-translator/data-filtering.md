@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: 5fab0446fe28cc279a732f48ca7560792f611e86
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 46af936cc479770fe5db8085106c9da310a9717e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731485"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452407"
 ---
 # <a name="data-filtering"></a>Filtragem de dados
 
@@ -23,7 +23,7 @@ Quando submete documentos a ser utilizado para um sistema personalizado de forma
 ## <a name="sentence-alignment"></a>Alinhamento de frases
 Se o seu documento não está no formato XLIFF, TMX ou ALIGN, Translator personalizado se Alinha as frases de seus documentos de origem e destino entre si, frase por frase. Tradutor não executa o alinhamento de documento – ela segue a nomenclatura dos documentos para o documento correspondente do outro idioma. Dentro do documento, personalizado Translator tenta encontrar a frase correspondente no outro idioma. Ele usa o documento de etiquetas de marcação como HTML incorporado para ajudar com o alinhamento.  
 
-Se vir uma grande discrepância entre o número de frases na origem e documentos de lado de destino, o documento pode não ter sido paralelo em primeiro lugar, ou por outros motivos alignable não bem. O documento combinada com uma grande diferença (> 10%) das sentenças em cada lado garante uma olhada segundo para se certificar de que eles são realmente paralelos. Tradutor personalizada mostra um aviso junto ao documento se a contagem de frase diferente com o nome.  
+Se vir uma grande discrepância entre o número de frases na origem e documentos de lado de destino, o seu documento pode não ter sido paralelo em primeiro lugar, ou por outros motivos não foi possível ser alinhado. O documento combinada com uma grande diferença (> 10%) das sentenças em cada lado garante uma olhada segundo para se certificar de que eles são realmente paralelos. Tradutor personalizada mostra um aviso junto ao documento se a contagem de frase diferente com o nome.  
 
 
 ## <a name="deduplication"></a>Eliminação de duplicados

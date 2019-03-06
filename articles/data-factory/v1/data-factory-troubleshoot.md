@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: c41f03494720c9283bb3ce91fda6e3981f305084
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 053cabfa29bd5e436fecd922e4bcdbca9483d25a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023027"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455688"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Azure Data Factory. 
 
 Este artigo fornece sugestões de resolução de problemas para problemas ao utilizar o Azure Data Factory. Este artigo não lista os possíveis problemas ao utilizar o serviço, mas abrange alguns problemas e sugestões de resolução de problemas gerais.   
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Erro: A subscrição não está registada para utilizar o espaço de nomes 'Microsoft. DataFactory'
@@ -34,20 +36,20 @@ Se aparecer este erro, o fornecedor de recursos do Azure Data Factory não foi r
 2. Inicie sessão na sua conta do Azure com o seguinte comando.
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Execute o seguinte comando para registar o fornecedor do Azure Data Factory.
 
     ```powershell        
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: Erro não autorizado ao executar um cmdlet do Data Factory
 Provavelmente não está a utilizar a conta ou a subscrição do Azure adequada com o Azure PowerShell. Utilize os seguintes cmdlets para selecionar a conta e a subscrição do Azure adequadas que devem ser utilizadas com o Azure PowerShell.
 
-1. Connect-AzureRmAccount - utilize o ID de utilizador certo e a palavra-passe
-2. Get-AzureRmSubscription - ver todas as subscrições para a conta.
-3. SELECT-AzureRmSubscription &lt;nome da subscrição&gt; -selecione a subscrição correta. Utilize a mesma que utiliza para criar uma fábrica de dados no portal do Azure.
+1. Ligar-AzAccount - utilize o ID de utilizador certo e a palavra-passe
+2. Get-AzSubscription - ver todas as subscrições para a conta.
+3. Selecione AzSubscription &lt;nome da subscrição&gt; -selecione a subscrição correta. Utilize a mesma que utiliza para criar uma fábrica de dados no portal do Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: Falha ao iniciar a configuração de Express do Data Management Gateway no portal do Azure
 A configuração rápida para o Data Management Gateway necessita do Internet Explorer ou de um browser compatível com o Microsoft ClickOnce. Se não for possível iniciar a Configuração Rápida, faça o seguinte:

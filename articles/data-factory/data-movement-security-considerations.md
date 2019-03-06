@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a996703f3719c2be90851241c1fe23c89f24e606
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55498078"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447953"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,6 +51,8 @@ Neste artigo, vamos rever considerações de segurança nos seguintes cenários 
 
 - **Cenário de nuvem**: Neste cenário, a origem e destino estão publicamente acessíveis pela internet. Estes incluem os serviços de armazenamento gerida na cloud, como o armazenamento do Azure, Azure SQL Data Warehouse, SQL Database do Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, serviços SaaS como o Salesforce e protocolos de web, como o FTP e OData. Encontrar uma lista completa das origens de dados suportados no [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 - **Cenário híbrido**: Neste cenário, a origem ou de destino é protegido por uma firewall ou dentro de uma rede empresarial no local. Em alternativa, o arquivo de dados está numa privada, rede ou de rede virtual (com mais frequência a origem) e não está acessível ao público. Servidores de base de dados hospedados em máquinas virtuais também abrangidos por este cenário.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cloud-scenarios"></a>Cenários de nuvem
 
@@ -109,9 +111,9 @@ As credenciais para os arquivos de dados no local são sempre encriptadas e arma
 
 - **Store credenciais localmente**. Se pretende encriptar e armazenar credenciais localmente no runtime de integração autoalojado, siga os passos em [encriptar as credenciais para arquivos de dados no local no Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos os conectores de suportar esta opção. O runtime de integração autoalojado utiliza o Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para encriptar as informações de dados e as credenciais confidenciais. 
 
-   Utilize o **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** cmdlet para encriptar as credenciais do serviço ligado e detalhes confidenciais no serviço ligado. Em seguida, pode utilizar o JSON devolvido (com o **EncryptedCredential** elemento na cadeia de ligação) para criar um serviço ligado com o **Set-AzureRmDataFactoryV2LinkedService** cmdlet.  
+   Utilize o **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet para encriptar as credenciais do serviço ligado e detalhes confidenciais no serviço ligado. Em seguida, pode utilizar o JSON devolvido (com o **EncryptedCredential** elemento na cadeia de ligação) para criar um serviço ligado com o **conjunto AzDataFactoryV2LinkedService** cmdlet.  
 
-- **Store no armazenamento do Azure Data Factory geridos**. Se usar diretamente o **Set-AzureRmDataFactoryV2LinkedService** cmdlet com a ligação de cadeias de caracteres e credenciais inline no JSON, o serviço ligado é encriptado e armazenado no armazenamento do Azure Data Factory geridos. As informações confidenciais ainda são encriptadas pelo certificado e Microsoft gere estes certificados.
+- **Store no armazenamento do Azure Data Factory geridos**. Se usar diretamente o **Set-AzDataFactoryV2LinkedService** cmdlet com a ligação de cadeias de caracteres e credenciais inline no JSON, o serviço ligado é encriptado e armazenado no armazenamento do Azure Data Factory geridos. As informações confidenciais ainda são encriptadas pelo certificado e Microsoft gere estes certificados.
 
 
 

@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: 240541dd76221ee19c96b162da02ced90fb0ad90
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873092"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437467"
 ---
 # <a name="paper-entity"></a>Entidade de documento
 
@@ -61,7 +61,7 @@ VSN     | Nome abreviado do local - nome abreviado do diário ou conferência
 V       | Volume - volume diário
 BV      | Nome do diário
 BT      | 
-PB      | Abreviations de diário
+PB      | Abreviações de diário
 I       | Problema – edição de diário
 FP      | FirstPage - primeira página do documento
 LP      | LastPage - última página do documento

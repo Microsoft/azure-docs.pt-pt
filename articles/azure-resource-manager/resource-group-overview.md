@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: d275455f502cf20eaa573c1716c38023f8e7236e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821905"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409860"
 ---
 # <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
 
@@ -51,7 +51,16 @@ O Resource Manager oferece várias vantagens:
 * Pode aplicar etiquetas a recursos para organizar logicamente todos os recursos na sua subscrição.
 * Pode clarificar a faturação da sua organização visualizando os custos de um grupo de recursos partilhando a mesma etiqueta.
 
+## <a name="understand-management-scope"></a>Compreender o âmbito de gestão
+
+O Azure fornece quatro níveis de âmbito de gestão: grupos de gestão, subscrições, grupos de recursos e recursos. Os [Grupos de gestão](../governance/management-groups/index.md) estão numa versão de pré-visualização. A imagem seguinte mostra um exemplo destas camadas.
+
+![Âmbito](./media/resource-group-overview/scope-levels.png)
+
+Pode aplicar as definições de gestão em qualquer um destes níveis de âmbito. O nível que selecionar determina o quanto a definição é aplicada. Os níveis inferiores herdam as definições de níveis mais altos. Por exemplo, quando aplica um [política](../governance/policy/overview.md) para a subscrição, a política é aplicada a todos os grupos de recursos e recursos na sua subscrição. Ao aplicar uma política no grupo de recursos, o que a política é aplicada o grupo de recursos e todos os recursos. No entanto, outro grupo de recursos não tem essa atribuição de política.
+
 ## <a name="guidance"></a>Orientação
+
 As seguintes sugestões ajudam a tirar o máximo partido do Resource Manager ao trabalhar com as suas soluções.
 
 * Defina e implemente a infraestrutura através da sintaxe declarativa nos modelos do Resource Manager, em vez de utilizar comandos imperativos.

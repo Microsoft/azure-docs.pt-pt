@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: e08b38fcea152489455eb4b4f66e56bc609a09db
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 725580a01c8dd60003cfc11910a3e5183624b1b1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251729"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437548"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que pode fazer na máquina Virtual Windows dados ciência
 
@@ -262,7 +262,7 @@ Para transferir o código a partir de um repositório do GitHub, utilize o ```gi
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-No Visual Studio, pode fazer a mesma operação de clonagem. A captura de ecrã seguinte mostra como acessar o Git e GitHub ferramentas do Visual Studio.
+No Visual Studio, pode fazer a mesma operação de clonagem. Captura de ecrã seguinte mostra como acessar o Git e GitHub ferramentas do Visual Studio.
 
 ![Captura de ecrã do Visual Studio com a ligação de GitHub apresentada](./media/vm-do-ten-things/VSGit.PNG)
 

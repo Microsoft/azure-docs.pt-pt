@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 3/3/2019
 ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: 45a0a70aa42449895c5a7e0aba2963e928a4b6f2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 5b3dca8bd5135581afc12303ed9fa8c532c56258
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340733"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438895"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
 
@@ -84,7 +84,7 @@ Para configurar o servidor de configuração como uma VM VMware de elevada dispo
  >Pode transferir a versão mais recente do modelo do servidor de configuração diretamente do [Centro de Transferências da Microsoft](https://aka.ms/asrconfigurationserver).
 
 >[!NOTE]
-A licença disponibilizada com o modelo OVF é uma licença de avaliação válida por 180 dias. O cliente precisa de ativar as janelas com uma licença comprada.
+A licença fornecida com o modelo OVF é uma licença de avaliação válida por 180 dias. Cliente tem de ativar o windows com uma licença procured.
 
 ## <a name="import-the-template-in-vmware"></a>Importar o modelo no VMware
 

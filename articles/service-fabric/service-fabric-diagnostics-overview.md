@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: bb4ffe959fd3b973f55b08908ea603839222365d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 71bff5473abe9f53804d702625b871f41309a787
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243267"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441836"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitorização e diagnóstico para o Azure Service Fabric
 
@@ -73,7 +73,7 @@ Agora que já abordamos os diagnósticos no seu aplicativo e a plataforma, como 
 
 Uma lista de contadores de desempenho que devem ser recolhidos no nível de infraestrutura pode ser encontrada em [métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md). 
 
-Alsp do Service Fabric fornece um conjunto de contadores de desempenho para os modelos de programação Reliable Services e Atores. Se estiver a utilizar qualquer um desses modelos, estes contadores de desempenho podem informações para garantir que seus atores são girando corretamente e reduzir verticalmente, de que os pedidos de serviço fiável estão a ser processados rápido o bastante. Para obter mais informações, consulte [monitorização para Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) e [monitorização de desempenho para Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
+Service Fabric também fornece um conjunto de contadores de desempenho para os modelos de programação Reliable Services e Atores. Se estiver a utilizar qualquer um desses modelos, estes contadores de desempenho podem informações para garantir que seus atores são girando corretamente e reduzir verticalmente, de que os pedidos de serviço fiável estão a ser processados rápido o bastante. Para obter mais informações, consulte [monitorização para Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) e [monitorização de desempenho para Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). 
 
 A solução de Azure Monitor para recolher estas é logs de Monitor do Azure como plataforma de monitorização de nível. Deve utilizar o [agente do Log Analytics](service-fabric-diagnostics-oms-agent.md) para recolher os contadores de desempenho adequado e visualizá-los nos registos do Azure Monitor.
 

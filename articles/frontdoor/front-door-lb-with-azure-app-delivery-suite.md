@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820836"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439031"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Balanceamento de carga com o conjunto de entrega de aplicações do Azure
 
@@ -59,7 +59,7 @@ Ao escolher um balanceador de carga global entre o Gestor de tráfego e a porta 
 | Gestor de Tráfego | Azure Front Door Service |
 | --------------- | ------------------------ |
 |**Qualquer protocolo:** Como o Gestor de tráfego funciona na camada DNS, pode encaminhar qualquer tipo de tráfego de rede: HTTP, TCP, UDP, etc. | **Aceleração de HTTP:** Com a porta de entrada, o tráfego é transmitidas por proxy na rede do Edge da Microsoft.  Por este motivo, os pedidos de HTTP (S) veja melhorias de latência e débito, reduzindo a latência para negociação de SSL e usando conexões de acesso frequente do AFD para seu aplicativo.|
-|**No local encaminhamento:** Com o encaminhamento numa camada DNS, o tráfego segue sempre de ponto a ponto.  Encaminhamento da sua sucursal para o seu datacenter no local, pode demorar um caminho direto; mesmo em sua própria rede utilizando o Gestor de tráfego. | **Escalabilidade independente:** Porque a porta da frente funciona com o pedido HTTP, os pedidos para diferentes caminhos de URL podem ser roteados para back-end diferente / regional conjuntos (microsserviços) com base em regras e o estado de funcionamento de cada microsserviço de aplicação de serviço.|
+|**No local encaminhamento:** Com o encaminhamento numa camada DNS, o tráfego segue sempre de ponto a ponto.  Encaminhamento da sua sucursal para o seu datacenter no local no pode demorar um caminho direto; mesmo em sua própria rede utilizando o Gestor de tráfego. | **Escalabilidade independente:** Porque a porta da frente funciona com o pedido HTTP, os pedidos para diferentes caminhos de URL podem ser roteados para back-end diferente / regional conjuntos (microsserviços) com base em regras e o estado de funcionamento de cada microsserviço de aplicação de serviço.|
 |**Formato de faturação:** Faturação baseada no DNS dimensiona com os seus utilizadores e serviços com mais usuários, plateaus para reduzir custos, em utilização superior. |**Segurança de inline:** Porta de entrada ativa regras, como a limitação de velocidade e a ACL, ing IP para permitem-lhe proteger o seu back-ends antes do tráfego chega a sua aplicação. 
 
 </br>Por causa do desempenho, capacidade de operação e benefícios de segurança para cargas de trabalho HTTP com a porta da frente, recomendamos que os clientes utilizam a porta de entrada para as cargas de trabalho HTTP.    Gestor de tráfego e a porta de entrada podem ser utilizada em paralelo para servir de todo o tráfego para a sua aplicação. 

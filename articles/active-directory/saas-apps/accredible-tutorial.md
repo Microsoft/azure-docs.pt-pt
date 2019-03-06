@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f816a6629ef561067f5a40ba15064b98b34c99
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8e588dc0e2821a1dcc3e6bb424752b5ce4d7a176
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871439"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448061"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>Tutorial: Integração do Active Directory do Azure com Accredible
 
@@ -51,7 +51,7 @@ Neste tutorial, configure e teste do Azure AD início de sessão único num ambi
 
 Para configurar a integração do Accredible com o Azure AD, terá de adicionar Accredible a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar Accredible a partir da galeria, execute os seguintes passos:**
+**Para adicionar Accredible a partir da galeria, siga os passos abaixo:**
 
 1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
@@ -189,7 +189,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-accredible-test-user"></a>Criar utilizador de teste Accredible
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Accredible. Terá de enviar emailid do usuário para [Accredible a equipa de suporte](mailto:support@accredible.com), em seguida, eles Verifique se o e-mail e enviar o e-mail de convite para que possa adicionar o utilizador na plataforma de accredible.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Accredible. Tiver de enviar o id de e-mail do utilizador para [equipa de suporte de Accredible](mailto:support@accredible.com), em seguida, eles Verifique se o e-mail e enviar o e-mail de convite para que possa adicionar o utilizador na plataforma de accredible.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
