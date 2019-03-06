@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 1/29/2019
+ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 811d75ec2246199662a25afd6b96b23035444211
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207501"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436039"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Resolver erros ao efetuar a ativação pós-falha da VM de VMware ou máquina física para o Azure
 
@@ -110,7 +110,50 @@ Se o **Connect** botão na ativação pós-falha VM no Azure está disponível (
 
 Quando a arrancar, uma VM do Windows após a ativação pós-falha, se receber uma mensagem de encerramento inesperado na VM recuperada, ele indica que um Estado de encerramento VM não foi capturado no ponto de recuperação utilizado para a ativação pós-falha. Isto acontece quando recuperar para um ponto quando a VM tinha não foi totalmente encerrada.
 
-Isso normalmente não é preocupante e geralmente pode ser ignorado para ativações pós-falha não planeadas. No caso de uma ativação pós-falha, certifique-se de que a VM está corretamente encerrada antes da ativação pós-falha e fornecer tempo suficiente para pendentes replicação dados no local a serem enviados para o Azure. Em seguida, utilize o **mais recente** opção a [ecrã de ativação pós-falha](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure são processados num ponto de recuperação, que, em seguida, é utilizado para a ativação pós-falha da VM.
+Isso normalmente não é preocupante e geralmente pode ser ignorado para ativações pós-falha não planeadas. Se está prevista a ativação pós-falha, certifique-se de que a VM está corretamente encerrada antes da ativação pós-falha e fornecer tempo suficiente para pendentes replicação dados no local a serem enviados para o Azure. Em seguida, utilize o **mais recente** opção a [ecrã de ativação pós-falha](site-recovery-failover.md#run-a-failover) para que todos os dados pendentes no Azure são processados num ponto de recuperação, que, em seguida, é utilizado para a ativação pós-falha da VM.
+
+## <a name="unable-to-select-the-datastore"></a>Não é possível selecionar o arquivo de dados
+
+Este problema é indicado quando não é possível ver o arquivo de dados no Azure portal ao tentar voltar a proteger a máquina virtual que sofreu uma ativação pós-falha. Isto acontece porque o mestre de destino não é reconhecido como uma máquina virtual ao abrigo vCenters adicionado ao Azure Site Recovery.
+
+Para obter mais informações sobre como proteger novamente uma máquina virtual, consulte [voltar a proteger e efetuar a ativação de back-computadores para um site no local após a ativação pós-falha para o Azure](vmware-azure-reprotect.md).
+
+Para resolver o problema:
+
+Criar manualmente o mestre de destino no vCenter que gere a sua máquina de origem. O arquivo de dados estarão disponível após as próxima vCenter deteção e de atualização de recursos de infraestrutura operações.
+
+> [!Note]
+> 
+> As operações de recursos de infraestrutura de deteção e a atualização podem demorar até 30 minutos a concluir. 
+
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Registo de destino principal do Linux com o CS falha com um erro SSL 35 
+
+Falhar o registo de destino de mestre de recuperação de Site do Azure com o servidor de configuração devido ao Proxy autenticado, a ser ativada no destino mestre. 
+ 
+Este erro é indicado pelas seguintes cadeias de caracteres no registo de instalação: 
+
+RegisterHostStaticInfo encontrou exceção config/talwrapper.cpp(107) [postagem] CurlWrapper Post falhou: servidor: 10.38.229.221, porta: phpUrl 443,: request_handler.php, seguro: true, ignoreCurlPartialError: false com o erro: [em curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] Falha ao publicar o pedido: (35) - erro de ligação de SSL. 
+ 
+Para resolver o problema:
+ 
+1. No servidor de configuração VM, abra um prompt de comando e verifique as definições de proxy através dos seguintes comandos:
+
+    cat /etc/environment  echo $http_proxy  echo $https_proxy 
+
+2. Se o resultado dos comandos anteriores mostra que o http_proxy ou https_proxy definições são definidas, utilize um dos seguintes métodos para desbloquear as comunicações de destino principal com o servidor de configuração:
+   
+   - Transfira o [PsExec ferramenta](https://aka.ms/PsExec).
+   - Utilize a ferramenta para acessar o contexto de utilizador do sistema e determinar se o endereço de proxy está configurado. 
+   - Se o proxy está configurado, abra o IE num contexto de utilizador do sistema usando a ferramenta PsExec.
+  
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+
+   - Para se certificar de que o servidor de destino mestre consegue comunicar com o servidor de configuração:
+  
+     - Modifica as definições de proxy no Internet Explorer para ignorar o endereço IP do servidor de destino principal através do proxy.   
+     Ou
+     - Desative o proxy no servidor de destino principal. 
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Resolver problemas de [ligação de RDP à VM do Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)

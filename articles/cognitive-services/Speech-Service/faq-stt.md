@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 5c5a42908198b3a8f473efbe4f54bc481e250efa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875999"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431993"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Conversão de voz em texto perguntas mais frequentes
 
@@ -63,7 +63,7 @@ O conjunto de dados antigo e novo conjunto de dados devem ser combinadas num ún
 
 **A**: As implementações não serão atualizadas automaticamente.
 
-Se tiver adaptada e implementado um modelo com a linha de base V1.0, essa implementação permanecerá como está. Os clientes podem decommision modelo implementado, adaptar voltar a utilizar a versão mais recente da linha de base e voltar a implementar.
+Se tiver adaptada e implementado um modelo com a linha de base V1.0, essa implementação permanecerá como está. Os clientes podem desativar o modelo implementado, novamente se adaptar a utilizar a versão mais recente da linha de base e voltar a implementar.
 
 **P: E se eu precisar uma simultaneidade mais elevada para meu modelo implementado que o que está disponível no portal?**
 

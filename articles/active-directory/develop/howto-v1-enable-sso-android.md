@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e27ecc73c19b92f8dcf77849c2f91a5eb57ac8e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168051"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442176"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: Ativar a SSO em vária aplicações em dispositivos Android através da ADAL
 
@@ -119,7 +119,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Passo 2: Estabelecer um novo URI com o esquema de URL de redirecionamento
 
-Para garantir que o aplicativo certo recevies retornado a credencial de tokens, existe uma necessidade de fazer-se de que a chamada para a sua aplicação de uma forma que pode verificar o sistema operativo Android. O sistema operativo Android utiliza o hash do certificado na Google Play store. Este hash do certificado não pode ser falsificada por um aplicativo de adesão. Juntamente com o URI da aplicação de Mediador, a Microsoft garante que os tokens são devolvidos para a aplicação correta. Um redirecionamento exclusivo URI é necessário a registar no aplicativo.
+Para garantir que o aplicativo certo recebe retornado a credencial de tokens, existe uma necessidade de fazer-se de que a chamada para a sua aplicação de uma forma que pode verificar o sistema operativo Android. O sistema operativo Android utiliza o hash do certificado na Google Play store. Este hash do certificado não pode ser falsificada por um aplicativo de adesão. Juntamente com o URI da aplicação de Mediador, a Microsoft garante que os tokens são devolvidos para a aplicação correta. Um redirecionamento exclusivo URI é necessário a registar no aplicativo.
 
 Seu URI de redirecionamento tem de ser no formato adequado:
 

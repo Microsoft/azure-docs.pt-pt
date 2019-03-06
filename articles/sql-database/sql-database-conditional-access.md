@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 95103ec7438a01e73617587bf919404e2bdcc686
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8e7e72236abdaeb77a6bfe3dd85c9ab0c8fbe40e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567201"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442703"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Acesso condicional (MFA) com a base de dados SQL do Azure e o armazém de dados  
 
@@ -42,7 +42,7 @@ Os passos seguintes mostram como configurar a base de dados SQL para impor uma p
 
 4.  Selecione **aplicações na Cloud**, clique em **selecionar aplicações**. Ver todas as aplicações disponíveis para o acesso condicional. Selecione **Azure SQL Database**, na parte inferior, clique em **selecione**e, em seguida, clique em **feito**.  
   ![Selecione a base de dados SQL](./media/sql-database-conditional-access/select-sql-database.png)  
-  Se não conseguir encontrar **base de dados do Azure SQL** listado no terceiro captura de ecrã seguinte, conclua os seguintes passos:   
+  Se não conseguir encontrar **base de dados do Azure SQL** listados na seguinte captura de ecrã terceiro, conclua os seguintes passos:   
   - Inicie sessão na sua instância do Azure SQL DB/armazém de dados com o SSMS com uma conta de administrador do AAD.  
   - Executar `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
   - Inicie sessão no AAD e certifique-se de que a base de dados do Azure SQL e o armazém de dados estão listados nos aplicativos no seu AAD.  

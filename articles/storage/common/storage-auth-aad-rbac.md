@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 19a4f8fc41ed4d6850f114e19f49f239befe08d0
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242654"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431861"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Conceder acesso a contentores do Azure e filas com RBAC no portal do Azure (pré-visualização)
 
@@ -62,7 +62,7 @@ O procedimento apresentado aqui atribui uma função no âmbito de um contentor,
 1. Localizar o contentor para o qual pretende atribuir uma função e apresentar as definições do contentor. 
 1. Selecione **controlo de acesso (IAM)** para apresentar as definições de controlo de acesso para o contentor. Selecione o **atribuições de funções** separador para ver a lista de atribuições de funções.
 
-    ![Captura de ecrã que mostra definições de controlo de acesso de contentor](media/storage-auth-aad-rbac/portal-access-control-container.png)
+    ![Captura de ecrã que mostra as definições de controlo de acesso do contentor](media/storage-auth-aad-rbac/portal-access-control-container.png)
 
 1. Clique nas **adicionar atribuição de função** botão para adicionar uma nova função.
 1. Na **adicionar atribuição de função** janela, selecione a função de armazenamento do Azure que pretende atribuir. Procure para localizar a entidade de segurança para o qual pretende atribuir essa função.

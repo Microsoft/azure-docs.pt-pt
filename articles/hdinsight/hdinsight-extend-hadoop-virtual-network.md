@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bf9d8e6d3aa8d1995c705ecdec95b6f3dea028ff
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8a67b94c7f2355872b243a05a7908604e88cf778
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242348"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433795"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -235,7 +235,7 @@ Se pretender utilizar **grupos de segurança de rede** ou **rotas definidas pelo
 3. Criar ou modificar os grupos de segurança de rede ou rotas definidas pelo utilizador para a sub-rede que planeia instalar HDInsight numa.
 
     * __Grupos de segurança de rede__: permitir __entrada__ tráfego na porta __443__ de IP endereços. Isto irá garantir que os serviços de gestão de HDI contactar o cluster de VNET fora.
-    * __Rotas definidas pelo utilizador__: Se planeia utilizar UDRs, criar uma rota para cada endereço IP e definir o __tipo de próximo salto__ ao __Internet__. Também deve permitir que qualquer outro tráfego de saída da VNET sem restrição. Por exemplo, pode encaminhar todos os outros tráfegos para sua do Azure firwall ou rede virtual da aplicação (alojada no Azure) para efeitos de monitorização, mas o tráfego de saída não deve ser bloqueado.
+    * __Rotas definidas pelo utilizador__: Se planeia utilizar UDRs, criar uma rota para cada endereço IP e definir o __tipo de próximo salto__ ao __Internet__. Também deve permitir que qualquer outro tráfego de saída da VNET sem restrição. Por exemplo, pode encaminhar todos os outros tráfegos à sua do Azure rede ou firewall de aplicação virtual (alojado no Azure) para efeitos de monitorização, mas o tráfego de saída não deve ser bloqueado.
 
 Para obter mais informações sobre grupos de segurança de rede ou rotas definidas pelo utilizador, consulte a seguinte documentação:
 
@@ -245,7 +245,7 @@ Para obter mais informações sobre grupos de segurança de rede ou rotas defini
 
 #### <a name="forced-tunneling-to-on-premise"></a>O túnel forçado para no local
 
-O túnel forçado é uma configuração de encaminhamento definido pelo utilizador em que todo o tráfego de uma sub-rede é forçado a uma rede específica ou local, como a sua rede no local. HDInsight faz __não__ suporte o túnel forçado para as redes no local. Se estiver a utilizar a Firewall do Azure ou uma aplicação de virtual netwrok alojados no Azure, pode utilizar as UDRs para encaminhar o tráfego para o mesmo para efeitos de monitorização e permitir todo tráfego de saída.
+O túnel forçado é uma configuração de encaminhamento definido pelo utilizador em que todo o tráfego de uma sub-rede é forçado a uma rede específica ou local, como a sua rede no local. HDInsight faz __não__ suporte o túnel forçado para as redes no local. Se estiver a utilizar a Firewall do Azure ou uma aplicação virtual de rede alojadas no Azure, pode utilizar as UDRs para encaminhar o tráfego para o mesmo para efeitos de monitorização e permitir todo tráfego de saída.
 
 ## <a id="hdinsight-ip"></a> Endereços IP necessários
 

@@ -17,12 +17,12 @@ ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66506a8abf130f27950fd958ba1a7c291e55a5a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8b113dd3e354e778d2cf16182665afff5440d2e5
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674264"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408535"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Controlar a associação híbrida do Azure AD dos seus dispositivos
 
@@ -99,16 +99,16 @@ Pode controlar o comportamento de registro de dispositivo dos seus dispositivos 
 
 Para configurar a definição de cliente:
 
-1.  Open **Configuration Manager**e, em seguida, aceda à **serviços Cloud**.
+1.  Open **Configuration Manager**, selecione **administração**e, em seguida, aceda a **definições de cliente**.
 
-2.  Sob **definições do dispositivo**, selecione uma das seguintes definições para **automaticamente registar novos dispositivos associados a um domínio do Windows 10 com o Azure Active Directory**:
+2.  Abra as propriedades **predefinições de cliente** e selecione **serviços Cloud**.
+
+3.  Sob **definições do dispositivo**, selecione uma das seguintes definições para **automaticamente registar novos dispositivos associados a um domínio do Windows 10 com o Azure Active Directory**:
 
     - **Não**: Para impedir que o registo automático de dispositivos.
     - **Sim**: Para ativar o registo automático de dispositivos.
 
-
-3.  Selecione **OK**.
-    
+4.  Selecione **OK**.
 
 Precisa de associar esta definição de cliente para um local de sua preferência. Por exemplo, para configurar esta definição de cliente para todos os dispositivos atuais de Windows na sua organização, ligar o definição de cliente para o domínio. Para fazer uma implantação controlada, pode configurar o definição de cliente para Windows associados a um domínio atuais dispositivos que pertencem a uma unidade organizacional ou um grupo de segurança.
 

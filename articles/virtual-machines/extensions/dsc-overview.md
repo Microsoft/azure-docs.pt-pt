@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: a002c4ff843ad1e0bc48d490132d7499526f4d7b
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ba5baa928e60729aa128ca5097646768cf5656e8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958767"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441923"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão Azure Desired State Configuration
 
@@ -161,7 +161,7 @@ az vm extension set \
   --settings '{}'
 ```
 
-Para um mchine virtual em execução no Linux:
+Para uma máquina virtual em execução no Linux:
 
 ```azurecli
 az vm extension set \

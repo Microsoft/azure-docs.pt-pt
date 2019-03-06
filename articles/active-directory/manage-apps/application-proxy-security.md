@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef9dbe1bb0ed9e5aad545453c409b0959bdd3fd4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7bb9fc806779565581fa7667749402f5608edd80
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207233"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438079"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder a aplicações remotamente com o Proxy de aplicações do Azure AD
 
@@ -69,7 +69,7 @@ Para obter mais informações sobre conectores, consulte [conectores de Proxy de
 
 Obtenha proteção de segurança de vanguarda.
 
-Porque faz parte do Azure Active Directory, o Proxy de aplicações podem tirar partido [do Azure AD Identity Protection](../active-directory-identityprotection.md), com dados do Microsoft Security Response Center e da unidade de Crimes digitais. Em conjunto, proativamente identificar contas comprometidas e oferecer proteção contra inícios de sessão de alto risco. Vamos levar em conta vários fatores para determinar quais cujo início de sessão é de alto risco. Estes fatores incluem dispositivos de sinalização infectado, redes anonymizing e localizações atípicas ou improvável.
+Porque faz parte do Azure Active Directory, o Proxy de aplicações podem tirar partido [do Azure AD Identity Protection](../active-directory-identityprotection.md), com dados do Microsoft Security Response Center e da unidade de Crimes digitais. Em conjunto, proativamente identificar contas comprometidas e oferecer proteção contra inícios de sessão de alto risco. Vamos levar em conta vários fatores para determinar quais tentativas de início de sessão são de alto risco. Estes fatores incluem dispositivos de sinalização infectado, redes anonymizing e localizações atípicas ou improvável.
 
 Muitos desses relatórios e eventos já estão disponíveis através de uma API para a integração com suas informações de segurança e sistemas de gestão (SIEM) de eventos.
 

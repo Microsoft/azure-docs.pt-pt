@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014901"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432707"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory ao Data Factory versão 1
 Este artigo compara o Data Factory ao Data Factory versão 1. Para obter uma introdução ao Data Factory, veja [Introdução ao Data Factory](introduction.md). Para obter uma introdução ao Data Factory versão 1, veja [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). 
@@ -118,7 +118,7 @@ Para mais informações, veja [Diferença entre a atividade personalizada no Dat
 
 - **SDK DE .NET**: O SDK do .NET é atualizado na versão atual.
 
-- **PowerShell**: Os cmdlets do PowerShell são atualizados na versão atual. Os cmdlets para a versão atual têm **DataFactoryV2** o nome, por exemplo: Get-AzureRmDataFactoryV2. 
+- **PowerShell**: Os cmdlets do PowerShell são atualizados na versão atual. Os cmdlets para a versão atual têm **DataFactoryV2** o nome, por exemplo: Get-AzDataFactoryV2. 
 
 - **Python SDK**: Este SDK é novo na versão atual.
 

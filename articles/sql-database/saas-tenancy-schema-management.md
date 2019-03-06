@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 39c4884fcca2b041603305d73526e3310ab99a21
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054851"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441887"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerir esquema de uma aplicação SaaS com o padrão de base de dados por inquilino com a base de dados do Azure SQL
  
@@ -73,7 +73,7 @@ O *Demo-SchemaManagement.ps1* chamadas de script a *Deploy-SchemaManagement.ps1*
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Criar uma tarefa para implementar novos dados de referência para todos os inquilinos
 
-Na aplicação Wingtip Tickets, cada base de dados de inquilinos inclui um conjunto de tipos de suporte local. Cada local é de um tipo de local específico, que define o tipo de eventos que podem ser hospedados e determina a imagem de fundo utilizada na aplicação. Para o aplicativo oferecer suporte a novos tipos de eventos, estes dados de referência tem de ser adicionados de tipos de local de novos e atualizados.  Neste exercício, vai implementar uma atualização para todas as bases de dados de inquilinos para adicionar dois tipos de local adicionais: *Corrida de Motos* e *Clube de Natação*.
+Na aplicação Wingtip Tickets, cada base de dados de inquilinos inclui um conjunto de tipos de suporte local. Cada local é de um tipo de local específico, que define o tipo de eventos que podem ser hospedados e determina a imagem de fundo utilizada na aplicação. Para o aplicativo oferecer suporte a novos tipos de eventos, estes dados de referência tem de ser adicionados de tipos de local de novos e atualizados.  Neste exercício, vai implementar uma atualização para todas as bases de dados inquilinas para adicionar dois tipos de local adicionais: *Corrida de motos* e *natação*.
 
 Em primeiro lugar, reveja os tipos de local incluídos em cada base de dados do inquilino. Ligar a uma das bases de dados do inquilino no SQL Server Management Studio (SSMS) e inspecionar a tabela de VenueTypes.  Também pode consultar essa tabela no editor de consultas no portal do Azure, acedido a partir da página base de dados. 
 
@@ -86,8 +86,8 @@ Para criar uma nova tarefa, utilize um conjunto de sistema de tarefas que criar 
 
 1. No SSMS, ligue ao servidor de catálogo: *catálogo-dpt -&lt;usuário&gt;. database.windows.net* server 
 1. No SSMS, abra o ficheiro... \\Módulos de aprendizagem\\gestão de esquemas\\deployreferencedata. SQL
-1. Modificar a instrução: DEFINA @wtpUser = &lt;utilizador&gt; e substitua o valor de utilizador que usou quando implementou a aplicação Wingtip Tickets SaaS da base de dados por inquilino
-1. Certifique-se de que está ligado para o _jobagent_ base de dados e prima **F5** para executar o script
+1. Modifique a instrução: DEFINIR @wtpUser = &lt;utilizador&gt; e substitua o valor de utilizador que usou quando implementou a aplicação Wingtip Tickets SaaS da base de dados por inquilino
+1. Certifique-se de que está ligado para o _jobagent_ base de dados e prima **F5** para executar o script
 
 Observe os elementos seguintes a *deployreferencedata. SQL* script:
 * **SP\_adicione\_destino\_grupo** cria o nome do grupo DemoServerGroup.
@@ -127,7 +127,7 @@ Neste tutorial, ficou a saber como:
 > * Atualizar os dados de referência de todas as bases de dados de inquilinos
 > * Criar um índice numa tabela em todas as bases de dados de inquilinos
 
-Em seguida, tente o [tutorial de geração de relatórios Ad-hoc](saas-tenancy-cross-tenant-reporting.md) para explorar a execução de consultas distribuídas pelo inquilino bases de dados.
+Em seguida, tente o [relatórios Ad hoc tutorial](saas-tenancy-cross-tenant-reporting.md) para explorar a execução de consultas distribuídas pelo inquilino bases de dados.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

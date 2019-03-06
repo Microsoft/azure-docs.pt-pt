@@ -1,5 +1,5 @@
 ---
-title: 'Obter ARP ExpressRoute de resolução de problemas do tabelas -: clássico: Azure | Documentos da Microsoft'
+title: 'Obter ARP ExpressRoute de resolução de problemas do tabelas -: clássico: Azure| Microsoft Docs'
 description: Esta página fornece instruções para obter tabelas ARP de um circuito do ExpressRoute - modelo de implementação clássica.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 367a79b04a8736e2eafb6851b682f2c244e80522
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3e49a1da0e8ea83faf5fc5a10d4c01a41d62fa88
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272291"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439643"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obter tabelas ARP no modelo de implementação clássica
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ A secção seguinte fornece informações sobre como ver as tabelas de ARP são 
 Certifique-se de que tem o seguinte antes de continuar:
 
 * Um circuito do ExpressRoute válido que esteja configurado com, pelo menos, um peering. O circuito deve ser totalmente configurado pelo fornecedor de conectividade. Utilizador (ou o fornecedor de conectividade) tem de configurar, pelo menos, um dos peerings (Azure privado, Azure público ou Microsoft) neste circuito.
-* Intervalos de endereços IP que são utilizados para configurar os peerings (Azure privado, Azure público e Microsoft). Reveja os exemplos de atribuição de endereço IP no [página de requisitos de encaminhamento ExpressRoute](expressroute-routing.md) para obter uma compreensão de como os endereços IP são mapeados para interfaces em seus aise e no lado do ExpressRoute. Pode obter informações sobre a configuração do peering ao rever o [página de configuração de peering de ExpressRoute](expressroute-howto-routing-classic.md).
+* Intervalos de endereços IP que são utilizados para configurar os peerings (Azure privado, Azure público e Microsoft). Reveja os exemplos de atribuição de endereço IP no [página de requisitos de encaminhamento ExpressRoute](expressroute-routing.md) para obter uma compreensão de como os endereços IP são mapeados para interfaces do seu lado e no lado do ExpressRoute. Pode obter informações sobre a configuração do peering ao rever o [página de configuração de peering de ExpressRoute](expressroute-howto-routing-classic.md).
 * Informações do fornecedor de equipa ou conectividade de rede sobre os endereços MAC das interfaces que são utilizadas com estes endereços IP.
 * O módulo Windows PowerShell mais recente para o Azure (versão 1.50 ou posterior).
 

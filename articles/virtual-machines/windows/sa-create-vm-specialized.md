@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3465a891d91bc54bfe39b9501a7ad0e970932860
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 62d8236abb2b5f21bdb4111480d95376faa2e379
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309629"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432605"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD especializado numa conta de armazenamento
 
@@ -271,7 +271,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     ```powershell
     $osDiskUri = "https://myStorageAccount.blob.core.windows.net/myContainer/myOsDisk.vhd"
     ```
-2. Adicione o disco do SO. Neste exemplo, quando o disco do SO é criado, o termo "osDisk" é appened para o nome da VM para criar o nome do disco de SO. Este exemplo também especifica que este VHD baseado em Windows deve ser anexado à VM como o disco do SO.
+2. Adicione o disco do SO. Neste exemplo, quando o disco do SO é criado, o termo "osDisk" é acrescentado ao nome da VM para criar o nome do disco de SO. Este exemplo também especifica que este VHD baseado em Windows deve ser anexado à VM como o disco do SO.
     
     ```powershell
     $osDiskName = $vmName + "osDisk"

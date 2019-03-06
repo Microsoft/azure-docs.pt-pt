@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: c8cfa0174d3e3300bdc3cfbc68ca416d9b736300
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cefdc8819162a19a9b73b99a38f7028aa5fbacac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674910"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438147"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalize as configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de recursos de infraestrutura para o seu cluster do Service Fabric que pode personalizar. Para clusters alojados no Azure, pode personalizar as definições através da [portal do Azure](https://portal.azure.com) ou utilizando um modelo Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autónomos, personalizar as definições ao atualizar o *ClusterConfig.json* de atualização de ficheiro e efetuar uma configuração no seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -327,7 +327,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |EndpointProviderEnabled| bool, a predefinição é falso|Estático| Ativa a gestão de recursos de ponto final por recursos de infraestrutura. Requer a especificação de início e de fim intervalo de portas de aplicação no FabricNode. |
 |FabricContainerAppsEnabled| bool, a predefinição é falso|Estático| |
 |FirewallPolicyEnabled|bool, a predefinição é falso|Estático| Permite a abertura de portas de firewall para recursos de ponto final com portas explícitas especificadas no ServiceManifest |
-|GetCodePackageActivationContextTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica|Especifique o período de tempo em segundos. O valor de tempo limite para as chamadas de CodePackageActivationContext. Não se aplica aos serviços do ad-hoc. |
+|GetCodePackageActivationContextTimeout|Período de tempo, a predefinição é Common::TimeSpan::FromSeconds(120)|Dinâmica|Especifique o período de tempo em segundos. O valor de tempo limite para as chamadas de CodePackageActivationContext. Não se aplica aos serviços ad hoc. |
 |GovernOnlyMainMemoryForProcesses|bool, a predefinição é falso|Estático|Comportamento predefinido de governação de recursos é colocar o limite especificado na MemoryInMB na quantidade de total de memória (RAM + comutação) que processam o utiliza. Se o limite for excedido; o processo receberá OutOfMemory exceção. Se este parâmetro estiver definido como true; limite será aplicado apenas a quantidade de memória RAM que irá utilizar um processo. Se este limite for excedido; e se esta definição for true; em seguida, sistema operacional será trocar a memória principal para o disco. |
 |IPProviderEnabled|bool, a predefinição é falso|Estático|Ativa a gestão de endereços IP. |
 |IsDefaultContainerRepositoryPasswordEncrypted|bool, a predefinição é falso|Estático|Se o DefaultContainerRepositoryPassword está ou não ser encriptada.|
@@ -374,7 +374,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |SharedLogId |cadeia de caracteres, a predefinição é "" |Estático|Guid exclusivo para o contentor de registo partilhado. Utilize "" se utilizar o caminho predefinido na raiz de dados de recursos de infraestrutura. |
 |SharedLogPath |cadeia de caracteres, a predefinição é "" |Estático|Nome de ficheiro e caminho para a localização para colocar o contentor de registo partilhado. Utilize "" para utilizar o caminho predefinido na raiz de dados de recursos de infraestrutura. |
 |SharedLogSizeInMB |Int, a predefinição é 8192 |Estático|O número de MB para alocar no contentor de registo partilhado. |
-|SharedLogThrottleLimitInPercentUsed|int, a predefinição é 0 | Estático | A percentagem de utilização do registo partilhado que será induza limitação. Valor deve ser entre 0 e 100. Um valor de 0 indica que o valor de percentagem de predefinido a utilizar. Um valor de 100 implica sem limitação de todo. Um valor entre 1 e 99 Especifica a percentagem de utilização do log acima ocorre que qualquer limitação; para o exemplo, se o registo partilhado é 10GB e o valor é 90 throttleing irá ocorrer depois de 9GB está em utilização. É recomendado utilizar o valor predefinido.|
+|SharedLogThrottleLimitInPercentUsed|int, a predefinição é 0 | Estático | A percentagem de utilização do registo partilhado que será induza limitação. Valor deve ser entre 0 e 100. Um valor de 0 indica que o valor de percentagem de predefinido a utilizar. Um valor de 100 implica sem limitação de todo. Um valor entre 1 e 99 Especifica a percentagem de utilização do log acima ocorre que qualquer limitação; para o exemplo se o registo partilhado é 10GB e o valor é 90, em seguida, ocorre qualquer limitação depois de 9GB está em utilização. É recomendado utilizar o valor predefinido.|
 |WriteBufferMemoryPoolMaximumInKB | int, a predefinição é 0 |Dinâmica|O número de KB para permitir que o conjunto de memória de memória intermédia de escrita para crescer até. Utilize 0 para indicar sem limite. |
 |WriteBufferMemoryPoolMinimumInKB |Int, a predefinição é 8388608 |Dinâmica|O número de KB para alocar inicialmente para o conjunto de memória de memória intermédia de escrita. Utilize 0 para indicar sem limite predefinido deve ser consistente com SharedLogSizeInMB abaixo. |
 
@@ -671,7 +671,7 @@ Segue-se uma lista dos recursos de infraestrutura, as definições que pode pers
 |InvokeInfrastructureCommand |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para comandos de gestão de tarefas de infraestrutura. |
 |InvokeInfrastructureQuery |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Configuração de segurança para consultar tarefas de infraestrutura. |
 |Lista |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Operação de lista de ficheiros de cliente do arquivo de configuração de segurança para a imagem. |
-|MoveNextFabricUpgradeDomain |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para retomar as atualizações de cluster com um domínio de atualização de explicity. |
+|MoveNextFabricUpgradeDomain |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para retomar as atualizações de cluster com um domínio de atualização de mensagens em fila explícita. |
 |MoveNextUpgradeDomain |cadeia de caracteres, predefinido for "Admin" |Dinâmica| Configuração de segurança para retomar as atualizações de aplicações com um domínio de atualização de mensagens em fila explícita. |
 |MoveReplicaControl |cadeia de caracteres, predefinido for "Admin" | Dinâmica|Mova a réplica. |
 |NameExists |cadeia de caracteres, a predefinição é "administrador\|\|utilizador" | Dinâmica|Configuração de segurança para as verificações de existência do URI de nomenclatura. |

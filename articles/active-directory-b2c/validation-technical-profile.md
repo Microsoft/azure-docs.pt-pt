@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 4652f23bdf30e1b9e582cd1e83dc95f7716c8394
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175099"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436413"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir um perfil de técnicas de validação numa política personalizada do Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ O **ValidationTechnicalProfile** elemento contém o atributo seguinte:
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | ReferenceId | Sim | Um identificador de um perfil técnico já definido a política ou a política de principal. |
-|ContinueOnError|Não| Que indica se a validação de todos os perfis técnicas de validação subsequentes deve continuar se este perfil técnico validaiton gera um erro. Valores possíveis: `true` ou `false` (o padrão, deixará de processamento de ainda mais os perfis de validação e devolvido um erro). |
+|ContinueOnError|Não| Que indica se a validação de todos os perfis técnicas de validação subsequentes deve continuar se este perfil de técnicas de validação gera um erro. Valores possíveis: `true` ou `false` (o padrão, deixará de processamento de ainda mais os perfis de validação e devolvido um erro). |
 |ContinueOnSuccess | Não | Que indica se a validação de todos os perfis de validação subsequentes deve continuar se este perfil de técnicas de validação é bem-sucedida. Valores possíveis: `true` ou `false`. A predefinição é `true`, que significa que o processamento de ainda mais os perfis de validação irá continuar. |
 
 O **ValidationTechnicalProfile** elemento contém o seguinte elemento:
@@ -65,14 +65,14 @@ O **pré-condição** elemento contém o atributo seguinte:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Tipo | Sim | O tipo de verificação ou a consulta para efetuar durante a pré-condição. Qualquer um dos `ClaimsExist` for especificado, para garantir que ações devem ser realizadas se as afirmações especificadas existem no conjunto de afirmações atual do usuário, ou `ClaimEquals` é especificada a que as ações devem ser efetuadas se a afirmação especificado existe e o valor é igual à valor especificado. |
+| Type | Sim | O tipo de verificação ou a consulta para efetuar durante a pré-condição. Qualquer um dos `ClaimsExist` for especificado, para garantir que ações devem ser realizadas se as afirmações especificadas existem no conjunto de afirmações atual do usuário, ou `ClaimEquals` é especificada a que as ações devem ser efetuadas se a afirmação especificado existe e o valor é igual à valor especificado. |
 | ExecuteActionsIf | Sim | Indica se as ações na pré-condição devem ser efetuadas se o teste for VERDADEIRO ou FALSO. |
 
 O **pré-condição** elemento contém seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Valor | 1:n | Os dados que são utilizados pela verificação. Se o tipo desta verificação é `ClaimsExist`, este campo especifica um ClaimTypeReferenceId para consultar. Se o tipo de verificação é `ClaimEquals`, este campo especifica um ClaimTypeReferenceId para consultar. Enquanto outro elemento de valor contém o valor a ser verificado.|
+| Value | 1:n | Os dados que são utilizados pela verificação. Se o tipo desta verificação é `ClaimsExist`, este campo especifica um ClaimTypeReferenceId para consultar. Se o tipo de verificação é `ClaimEquals`, este campo especifica um ClaimTypeReferenceId para consultar. Enquanto outro elemento de valor contém o valor a ser verificado.|
 | Ação | 1:1 | A ação que deve ser tomada caso a verificação de pré-condição dentro de um passo de orquestração é verdadeira. O valor do **ação** está definida como `SkipThisValidationTechnicalProfile`. Especifica que o perfil técnico de validação associados não deve ser executado. |
 
 ### <a name="example"></a>Exemplo

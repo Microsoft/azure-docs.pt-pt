@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de0f05a2f3609a522b7f400ca94ffcd41b83751
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 81ed78c2877f56f96ef9b16f502afadefa3f6917
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867903"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435013"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Tutorial: Integração do Active Directory do Azure com Domo
 

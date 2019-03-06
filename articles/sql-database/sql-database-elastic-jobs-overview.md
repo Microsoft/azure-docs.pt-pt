@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 396e8a487feb2f7a7cb45f3713e641b5ebc6abcd
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8abb2e3ac4f62a3ea51cc686bbf23260fccc4077
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565246"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441377"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gerir bases de dados de cloud escaladas horizontalmente
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Tarefas de base de dados elásticas** é um hospedado pelo cliente do Azure serviço Cloud que permite a execução do ad-hoc e agendadas tarefas administrativas, que são chamadas **tarefas**. Com tarefas, pode facilmente e gerir com fiabilidade grandes grupos de bases de dados SQL do Azure através da execução de scripts do Transact-SQL para realizar operações administrativas.
+**Tarefas de base de dados elásticas** é um hospedado pelo cliente do Azure serviço Cloud que permite a execução das tarefas administrativas ad hoc e agendadas, que são chamados **tarefas**. Com tarefas, pode facilmente e gerir com fiabilidade grandes grupos de bases de dados SQL do Azure através da execução de scripts do Transact-SQL para realizar operações administrativas.
 
 Para gerir bases de dados em partição horizontal de escalamento horizontal, o **tarefas de bases de dados elásticas** funcionalidade (pré-visualização) permite-lhe uma forma fiável, executar um script de Transact-SQL (T-SQL) num grupo de bases de dados, incluindo:
 

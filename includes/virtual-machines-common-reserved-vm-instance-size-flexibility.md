@@ -1,15 +1,15 @@
 ---
-author: manish-shukla01
+author: yashar
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: 83b29aa1f0c12661eb1724eb505ad46987ed1019
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 6517aec56839295af30d251f4cb5d3bb9426282c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906338"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57457833"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flexibilidade de tamanho de máquina virtual com as instâncias de VM reservadas
 
@@ -194,12 +194,13 @@ Para obter mais informações, consulte [tamanhos de máquinas virtuais de fins 
 |Standard_E16s_v3|8|
 |Standard_E16-4s_v3|8|
 |Standard_E16-8s_v3|8|
+|Standard_E20s_v3|10|
 |Standard_E32s_v3|16|
 |Standard_E32-8s_v3|16|
 |Standard_E32-16s_v3|16|
-|Standard_E64s_v3|32|
-|Standard_E64-16s_v3|32|
-|Standard_E64-32s_v3|32|
+|Standard_E64s_v3|28.8|
+|Standard_E64-16s_v3|28.8|
+|Standard_E64-32s_v3|28.8|
 
 Para obter mais informações, consulte [tamanhos de máquinas virtuais com otimização de memória](../articles/virtual-machines/windows/sizes-memory.md#esv3-series).
 
@@ -211,6 +212,7 @@ Para obter mais informações, consulte [tamanhos de máquinas virtuais com otim
 |Standard_E4_v3|2|
 |Standard_E8_v3|4|
 |Standard_E16_v3|8|
+|Standard_E20_v3|10|
 |Standard_E32_v3|16|
 |Standard_E64_v3|32|
 

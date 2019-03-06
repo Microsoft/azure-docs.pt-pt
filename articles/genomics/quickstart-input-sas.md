@@ -1,24 +1,26 @@
 ---
-title: Submeter um fluxo de trabalho com uma SAS em vez de uma chave de conta de armazenamento – Microsoft Genomics
+title: Submeter um fluxo de trabalho utilizar assinaturas de acesso partilhado - Microsoft Genomics
 titleSuffix: Azure
-description: O início rápido pressupõe que tem o cliente msgen instalado e os dados de exemplo foram executados com êxito através do serviço.
+description: O artigo pressupõe que o cliente msgen instalado e foram executados com êxito os dados de exemplo através do serviço.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: db0f18f0e7028f01044cdba8a5d7b719d3fb9e23
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7c51a0934457a2fcc03f9be1535712e97ac91a1e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749026"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451387"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Submeter um fluxo de trabalho ao Microsoft Genomics com uma SAS em vez de uma chave de conta de armazenamento 
 
-Este início rápido demonstra como submeter um fluxo de trabalho para o serviço Microsoft Genomics com um ficheiro config.txt que contém [assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) em vez de chaves de conta de armazenamento. Esta funcionalidade pode ser útil se existirem problemas de segurança relacionados com a chave da conta de armazenamento visível no ficheiro config.txt. Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se tiver submetido um fluxo de trabalho com êxito com os dados de exemplo fornecidos, está pronto para continuar este início rápido. 
+Este artigo demonstra como submeter um fluxo de trabalho para o serviço Microsoft Genomics através de um ficheiro txt que contenha [assinaturas de acesso (SAS) partilhado](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) em vez de chaves de conta de armazenamento. Esta funcionalidade pode ser útil se existirem problemas de segurança relacionados com a chave da conta de armazenamento visível no ficheiro config.txt. 
+
+Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se tiver submetido com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, está pronto para continuar com este artigo. 
 
 ## <a name="what-is-a-sas"></a>O que é uma SAS?
 As [assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) disponibilizam acesso delegado a recursos na sua conta de armazenamento. Com uma SAS, pode conceder acesso a recursos na sua conta de armazenamento sem partilhar as chaves da conta. Este é o ponto fundamental da utilização de assinaturas de acesso partilhado nas suas aplicações – uma SAS é uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da conta.
@@ -54,7 +56,7 @@ A SAS para os ficheiros de entrada deve ser confinada ao ficheiro de entrada esp
  ![Explorador de Armazenamento da SAS do Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorador de Armazenamento da SAS do Genomics")
 
 
-### <a name="set-up-create-a-sas-programattically"></a>Configure: Criar uma SAS através de programas
+### <a name="set-up-create-a-sas-programmatically"></a>Configure: Criar uma SAS através de programação
 
 Para criar uma SAS com o SDK do Armazenamento do Azure, consulte a documentação existente em várias linguagens, incluindo [.NET](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2#generate-a-shared-access-signature-uri-for-a-blob), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 

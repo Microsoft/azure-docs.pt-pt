@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 3eff78aa6b13c48868b95bae03a8406a550a42c9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: c17f16ce796c9f296facd69c18de4effc7ff5258
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243878"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440986"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Segurança do Azure e o esquema de conformidade - aplicação Web de PaaS para a Austrália protegida
 
@@ -30,7 +30,7 @@ Esta solução fornece uma arquitetura de referência para um aplicativo da web 
 
 A arquitetura pode fornecer um ambiente de híbrida segura que expande uma rede no local para o Azure, permitindo que cargas de trabalho baseadas na web ser acedida em segurança por utilizadores da empresa de rede de área local privada de uma organização ou da internet. Para soluções no local, o cliente é responsável e responsável por todos os aspectos de segurança, as operações e conformidade.
 
-Os recursos do Azure incluídos nesta solução, podem ligar-se para um local rede ou Datacenter instalações de colocação (por exemplo, CDC em Canberra) por meio de uma VPN IPSec com um Gateway de VPN e ExpressRoute. A decisão de utilise uma VPN deve ser feita com a classificação dos dados transmitidos e o caminho de rede em mente. Os clientes em execução em grande escala, as cargas de trabalho críticas de missão requisitos de grandes volumes de dados devem considerar uma arquitetura de rede híbrida com o ExpressRoute para conectividade de rede privada aos serviços do Azure. Consulte a [orientações e recomendações](#guidance-and-recommendations) secção para obter mais detalhes sobre os mecanismos de ligação para o Azure.
+Os recursos do Azure incluídos nesta solução, podem ligar-se para um local rede ou Datacenter instalações de colocação (por exemplo, CDC em Canberra) por meio de uma VPN IPSec com um Gateway de VPN e ExpressRoute. A decisão de utilizar uma VPN deve ser feita com a classificação dos dados transmitidos e o caminho de rede em mente. Os clientes em execução em grande escala, as cargas de trabalho críticas de missão requisitos de grandes volumes de dados devem considerar uma arquitetura de rede híbrida com o ExpressRoute para conectividade de rede privada aos serviços do Azure. Consulte a [orientações e recomendações](#guidance-and-recommendations) secção para obter mais detalhes sobre os mecanismos de ligação para o Azure.
 
 Federação com o Azure Active Directory deve ser usada para permitir que os utilizadores para se autenticar com as credenciais no local e aceder a todos os recursos na cloud ao utilizar uma infraestrutura de serviços de Federação do Active Directory no local. Serviços de Federação do Active Directory pode fornecer identidade simplificada segura web e de Federação únicos início de sessão em recursos para este ambiente híbrido. Consulte a [orientações e recomendações](#guidance-and-recommendations) secção para ainda mais a configuração do Azure Active Directory para obter detalhes.
 
@@ -123,11 +123,11 @@ Cada um dos grupos de segurança de rede têm portas específicas e protocolos a
 **Balanceador de carga do Azure**: [O Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) permite aos clientes Dimensionar seus aplicativos e criar disponibilidade elevada para serviços. Balanceador de carga dá suporte a cenários de entrada e de saída e fornece um débito elevado, de baixa latência e aumenta até milhões de fluxos para todas as aplicações TCP e UDP.
 
 ### <a name="data-in-transit"></a>Dados em trânsito
-Azure encripta todas as comunicações para e a partir do Azure como, por predefinição. 
+Azure encripta todas as comunicações de e para os datacenters do Azure por predefinição. 
 
 Para dados protegidos em trânsito de redes de clientes, a arquitetura utiliza o Azure da Internet ou o ExpressRoute com um Gateway de VPN configurado com o IPSEC.
 
-Além disso, todas as transações para o Azure através do portal de gestão do Azure ocorrem através de HTTPS utilizando TLS versão 1.2.
+Além disso, todas as transações para o Azure através do portal de gestão do Azure ocorrem através de HTTPS utilizando a versão do TLS 1.2.
 
 ### <a name="data-at-rest"></a>Dados inativos
 A arquitetura protege os dados em descanso através da encriptação, a auditoria de base de dados e outras medidas.
@@ -189,7 +189,7 @@ Serviços do Azure extensivamente de registo do sistema e a atividade do utiliza
 - **Registos de atividades**: [Registos de atividades](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fornecem informações sobre as operações executadas em recursos numa subscrição. Registos de atividades podem ajudar a determinar o iniciador de uma operação, hora da ocorrência e o estado.
 - **Os registos de diagnóstico**: [Os registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluem todos os registos emitidos por cada recurso. Estes registos incluem registos de sistema de eventos do Windows, registos de armazenamento do Azure, registos de auditoria do Cofre de chaves e os registos de acesso e de firewall do Gateway de aplicação. Todos os registos de diagnóstico escrevem para uma conta de armazenamento do Azure centralizado e criptografado para arquivamento. O período de retenção é configurável pelo utilizador, cópia de segurança e 730 dias, para atender aos requisitos de retenção de específicas da organização.
 
-**Registos de Monitor do Azure**: Estes registos são consolidados no [registos do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios do dashboard. Depois de recolhidos, os dados são organizados em tabelas separadas para cada tipo de dados, que permite que todos os dados a ser analisados em conjunto, independentemente de sua fonte original. Além disso, o Centro de segurança do Azure integra-se com os registos do Azure Monitor permitindo que os clientes utilizar consultas de Kusto para aceder aos respetivos dados de eventos de segurança e combiná-los com dados de outros serviços.
+**Registos de Monitor do Azure**: Estes registos são consolidados no [registos do Azure Monitor](https://azure.microsoft.com/services/log-analytics/) para processamento, armazenamento e relatórios do dashboard. Depois de recolhidos, os dados são organizados em tabelas separadas para cada tipo de dados, que permite que todos os dados sejam analisados em conjunto, independentemente da respetiva origem. Além disso, o Centro de segurança do Azure integra-se com os registos do Azure Monitor permitindo que os clientes utilizar consultas de Kusto para aceder aos respetivos dados de eventos de segurança e combiná-los com dados de outros serviços.
 
 O Azure seguinte [soluções de monitorização](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) são incluídos como parte desta arquitetura:
 -   [Avaliação do Active Directory](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): A solução de verificação de estado de funcionamento do Active Directory avalia o risco e estado de funcionamento dos ambientes de servidor num intervalo regular e fornece uma lista prioritária de recomendações específicas para a infraestrutura de servidor implementado.

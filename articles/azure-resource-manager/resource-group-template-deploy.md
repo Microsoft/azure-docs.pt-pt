@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 18dc82880830b6f8d14a7fc01930f75e9e61e5b0
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300555"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405407"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
@@ -34,7 +34,7 @@ Este método de implementação de dois passos é utilizado neste artigo.  A out
 
 A menos que utilize o [do Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) para implementar modelos, tem de instalar o Azure PowerShell e ligue-se para o Azure:
 - **Instale cmdlets Azure PowerShell no seu computador local.** Para obter mais informações, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Ligar ao Azure, utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount.md)**. Se tiver várias subscrições do Azure, também poderá ter de ser executado [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext.md). Para obter mais informações, consulte [utilizar várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
+- **Ligar ao Azure, utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Se tiver várias subscrições do Azure, também poderá ter de ser executado [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para obter mais informações, consulte [utilizar várias subscrições do Azure](/powershell/azure/manage-subscriptions-azureps).
 - * A transferir e guardar um [modelo de início rápido](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . O nome de ficheiro local utilizado neste artigo é **c:\MyTemplates\azuredeploy.json**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

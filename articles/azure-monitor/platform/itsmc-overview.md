@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: f0d3641800d8ec2f9fd403b006e81af04444c143
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a6e4f816d3c5be9d3a4f4824ad7ed26d48763034
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813131"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433277"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure para ferramentas ITSM com o conector de gestão do serviço de TI
 
@@ -289,7 +289,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - Certifique-se de que introduziu corretamente o nome de utilizador, palavra-passe, ID de cliente e segredo do cliente para cada uma das ligações.  
     - Verifique se tem privilégios suficientes no produto ITSM correspondente para fazer a conexão.  
  - Para as ligações do Service Manager,  
-    - Certifique-se de que a aplicação Web é implementada com êxito e ligação híbrida é criada. Para verificar a ligação é estabelecida com êxito com a máquina do Service Manager no local, visite o URL da aplicação Web conforme detalhado na documentação de fazer a [ligação híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+    - Certifique-se de que a aplicação Web é implementada com êxito e ligação híbrida é criada. Para verificar a ligação é estabelecida com êxito com a máquina de Service Manager no local, visite o URL da aplicação Web conforme detalhado na documentação de fazer a [ligação híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Se não estiver a obter sincronizados dados a partir de ServiceNow para o Log Analytics, certifique-se de que o ServiceNow instância não está a ser suspenso. Instâncias de desenvolvimento do ServiceNow, às vezes, vá em suspensão quando está ocioso por um longo período. Caso contrário, relate o problema.
 3.  Se os alertas do Log Analytics são disparados, mas funcionam itens não são criados no produto ITSM ou itens de configuração não são criados/ligados a itens de trabalho ou para quaisquer outras informações genéricas, procure nos seguintes locais:

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5220c5f28505bd83110705e08a6b1c7fb12529
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b2346c0631bb4540aef27623f82f72f4eabd0d23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210701"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433557"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>Resolução de problemas de atividade do Active Directory do Azure regista erros de pacote de conteúdos 
 
@@ -71,6 +71,6 @@ Este artigo fornece informações sobre as possíveis causas e como corrigir est
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Instalar o pacote de contect do Power BI para relatórios do Azure AD](quickstart-install-power-bi-content-pack.md).
+* [Instalar o pacote de conteúdos do Power BI para relatórios do Azure AD](quickstart-install-power-bi-content-pack.md).
 * [Utilizar o conteúdo de pacote para o Azure AD relatórios para visualizar os seus dados do Power BI](howto-power-bi-content-pack.md)
 * [Como obter apoio para o Azure Active Directory](../fundamentals/active-directory-troubleshooting-support-howto.md)

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 848663c509fd3635b33b8e7735feb940da215bfa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332103"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441819"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 SCP é uma plataforma para criar em tempo real, fiável e consistente e o aplicativo de processamento de dados de elevado desempenho. Ele é criado por cima de [Apache Storm](https://storm.incubator.apache.org/) – um sistema criado por Comunidades de sistemas operacionais de processamento em fluxo. Storm destina-se por Nathan Marz e foi aberto é obtido ao Twitter. Ela aproveita [Apache ZooKeeper](https://zookeeper.apache.org/), outro projeto do Apache para ativar altamente fiável distribuído de gerenciamento de estado e de coordenação. 
@@ -71,7 +71,7 @@ ISCPSpout é a interface de spout não transacional.
 
 Quando `NextTuple()` é chamado, o C\# código do usuário pode emitir um ou mais cadeias de identificação. Se não houver nada para emitir, esse método deve retornar sem emitir nada. É importante observar que `NextTuple()`, `Ack()`, e `Fail()` são chamados num loop estreito num único thread em C\# processo. Quando não há nenhum tuplas para emitir, é educada ter NextTuple suspensão por um curto período de tempo (por exemplo, 10 milissegundos), portanto, não para o lixo muita CPU.
 
-`Ack()` e `Fail()` são chamados apenas quando o mecanismo de confirmação estiver ativado no ficheiro de especificação. O `seqId` é utilizado para identificar a tupla que seja confirmado ou falha. Portanto, se ack estiver ativada numa topologia não transacional, a seguinte função emit deve ser utilizada em Spout:
+`Ack()` e `Fail()` são chamados apenas quando o mecanismo de confirmação estiver ativado no ficheiro de especificação. O `seqId` é utilizado para identificar a tupla que é confirmada ou falha. Portanto, se ack estiver ativada numa topologia não transacional, a seguinte função emit deve ser utilizada em Spout:
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -431,7 +431,7 @@ Foram adicionados dois métodos no objeto de contexto SCP.NET. Elas são usadas 
 A emissão de um fluxo não existente faz com que exceções de tempo de execução.
 
 ### <a name="fields-grouping"></a>Agrupamento de campos
-O agrupamento de campos incorporados em Strom não está a funcionar corretamente no SCP.NET. No lado do Proxy de Java, todos os tipos de dados de campos são, na verdade, byte [] e os campos de agrupamento usa o código de hash de objeto do byte [] para executar o agrupamento. O código de hash de objeto do byte [] é o endereço desse objeto na memória. Assim, o agrupamento será errado para objetos de [] de dois bytes que partilham o mesmo conteúdo mas não o mesmo endereço.
+O agrupamento de campos incorporados no Storm não está a funcionar corretamente no SCP.NET. No lado do Proxy de Java, todos os tipos de dados de campos são, na verdade, byte [] e os campos de agrupamento usa o código de hash de objeto do byte [] para executar o agrupamento. O código de hash de objeto do byte [] é o endereço desse objeto na memória. Assim, o agrupamento será errado para objetos de [] de dois bytes que partilham o mesmo conteúdo mas não o mesmo endereço.
 
 SCP.NET adiciona um método de agrupamento personalizados, e utiliza o conteúdo do byte [] para fazer o agrupamento. Na **SPEC** ficheiro, a sintaxe é parecida com:
 
@@ -573,7 +573,7 @@ Existem dois ficheiros spec, **HelloWorld.spec** e **HelloWorld\_EnableAck.spec*
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-Spout, se ack estiver ativada, um dicionário é utilizado para colocar em cache as tuplas que não tenham sido confirmado. Se Fail() for chamado, a tupla com falha é reproduzida:
+Spout, se ack estiver ativada, um dicionário é utilizado para colocar em cache as tuplas que não terem sido confirmadas. Se Fail() for chamado, a tupla com falha é reproduzida:
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

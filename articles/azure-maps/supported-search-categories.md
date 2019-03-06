@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968452"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437350"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorias de suporte do Azure Maps
 
@@ -42,10 +42,10 @@ Ao efetuar uma [pesquisa de categoria](https://docs.microsoft.com/rest/api/maps/
 | CINEMA | Drive-in cinema, cinema |
 | CIDADE\_CENTER | vizinhança, área administrativa, centro da cidade, center |
 | CLUBES\_ASSOCIAÇÃO | praia clubes, clubes de hóquei, associação de clubes |
-| FACULDADE\_UNIVERSIDADE | junior faculdade/comunitárias, faculdade/universidade, faculdade, universidade prep escola, universidade |
+| COLLEGE\_UNIVERSITY | junior faculdade/comunitárias, faculdade/universidade, faculdade, universidade prep escola, universidade |
 | COMERCIAL\_MODULARES | criação de criação, sede park, comercial do Office |
 | COMUNIDADE\_CENTER | Community center |
-| EMPRESA | imposto sobre vendas eletrônica, fabrico, serviços de dados do computador, tecnologias de saúde pública, financeiro diversificado, acolherem animal, companhia aérea, aluguel de equipamento, serviço, entrega de correio/pacote/prestadores, linhas de barramento, reparação da aplicação principal, serviços, oem, de limpeza serviços, petróleo gás natural, serviços de legais, construção, comunicações tele, transporte, fabrico automóvel, compostos químicos, necrotérios de serviço funeral, operações de túnel de ponte, automóvel, mecânica de engenharia, serviços, consultores de investimento, publicidade/marketing, mover o armazenamento, instituição de economia, seguro, software de computador, farmacêutica, fornecendo, serviços de casamento, tecnologia agricultural, imóveis, táxi, serviço de shuttle limousine, barramento alugueres de responsabilidade, de extração, publicação tecnologias, telefone de cabo, distribuição de importação/exportação, empresa, asylum, coal mine(s), estate(s) brewery, gold mine(s) |
+| EMPRESA | imposto sobre vendas eletrônica, fabrico, serviços de dados do computador, tecnologias de saúde pública, financeiro diversificado, acolherem animal, companhia aérea, aluguel de equipamento, serviço, entrega de correio/pacote/prestadores, linhas de barramento, reparação da aplicação principal, serviços, oem, de limpeza serviços, petróleo gás natural, serviços de legais, construção, telecomunicações, transporte, fabrico automóvel, compostos químicos, necrotérios de serviço funeral, operações de túnel de ponte, automóvel, mecânica de engenharia, serviços, consultores de investimento, publicidade/marketing, mover o armazenamento, instituição de economia, seguro, software de computador, farmacêutica, fornecendo, serviços de casamento, tecnologia agricultural, imóveis, táxi, serviço de shuttle limousine, barramento alugueres de responsabilidade, de extração, publicação tecnologias, telefone de cabo, distribuição de importação/exportação, empresa, asylum, coal mine(s), estate(s) brewery, gold mine(s) |
 | COURTHOUSE | courthouse |
 | CULTURAIS\_CENTER | Centro de cultura |
 | NO DENTISTA | no dentista |
@@ -81,33 +81,33 @@ Ao efetuar uma [pesquisa de categoria](https://docs.microsoft.com/rest/api/maps/
 | MILITARES\_INSTALAÇÃO | base de militar, Costa guard estação, instalação militar, naval base |
 | MOTORING\_ORGANIZAÇÃO\_OFFICE | office de organização motoring |
 | HORA DAS REGIÕES\_PASSAR | pass das regiões montanhosas |
-| MUSEU | Museu |
+| MUSEU | museum |
 | NATIVO\_RESERVA | reserva nativa, reserva |
 | NIGHTLIFE | barra, karaoke club, clubes de jazz, club privada, barra de vinhos, club comédia, coquetel barra, discotheque, nightlife |
 | NÃO\_GOVERNMENTAL\_ORGANIZAÇÃO | organização não-governamentais |
-| OPEN\_ESTACIONAMENTO\_ÁREA | Abra a área de estacionamento, área de estacionamento |
+| OPEN\_PARKING\_AREA | Abra a área de estacionamento, área de estacionamento |
 | OUTROS | Localidade, fuso de comércio livre, o círculo de tráfego, desconhecido |
 | ESTACIONAMENTO\_GARAGEM | garagem de estacionamento |
 | PARK\_RECRIAÇÃO\_ÁREA | site históricas, lakeshore, seashore, área scenic do rio, área de buscar pesca, campo de batalha, desporto de Inverno, ramp de início de barco, preserve, área de floresta, área de recriação, recurso de esqui, cemetery, park histórico, parkway, memorial, fairground, área piquenique, área na selva, área de recriação de park, floresta ou florestas, floresta fossilized, garden(s), reserva da vida selvagem, reserva de natureza, estação de floresta, caçar reserva, reserva de floresta, park |
 | PETROL\_ESTAÇÃO | petrol estação |
-| FARMÁCIA | farmácia, dispensary |
+| PHARMACY | farmácia, dispensary |
 | LUGAR\_OF\_WORSHIP | ashram, synagogue, mosque, gurudwara, church, temple, local de cultos, missão, em retirada, temple(s), site religiosa, center religiosa, monastery, convent |
 | POLÍCIA\_ESTAÇÃO | ordem 1 área, estação de polícia, postagem de polícia |
 | PORTA\_ARMAZÉM\_INSTALAÇÕES | Harbor(s), encaixe basin, a porta, a instalação de porta/armazém, dock(s) dockyard, |
 | POST\_OFFICE | escritório do local, post |
 | PRIMÁRIO\_RECURSOS\_UTILITÁRIO | utilitário/recursos principal, estação de energia, fábrica de separador de petróleo gás |
-| PRISON\_CORRECTIONAL\_INSTALAÇÕES | prison, recurso prison/correctional |
+| PRISON\_CORRECTIONAL\_FACILITY | prison, recurso prison/correctional |
 | PÚBLICO\_AMENITY | metrô simplificado, toilet, entra em ação de estrada, office de pedido de suporte de transporte de passageiros, pública chamada caixa, amenity pública, o Centro de comunicação |
 | PÚBLICO\_TRANSPORTE\_PARAR | Coach stop, bus stop, reserva de táxis, tram stop, pare de transporte público, estação metro, estação ferroviários, estação de barramento, stop ferroviários |
 | EMPRESA FERROVIÁRIA\_ESTAÇÃO | National, siding empresa ferroviária, metro, estação de empresa ferroviária urbanas, de (sub) |
 | ALUGUEL\_UMA\_CARRO\_INSTALAÇÕES | recurso de Rent-a-Car |
-| ALUGUEL\_UMA\_CARRO\_DE ESTACIONAMENTO | Rent-a-car-estacionamento |
+| ALUGUEL\_UMA\_CARRO\_DE ESTACIONAMENTO | rent-a-car-parking |
 | REPARAÇÃO\_INSTALAÇÕES | bodyshops, serviços de tyre (tire), lojas de reparação, lojas de substituição de vidro do carro, reparação de carro gerais de manutenção, instalação de venda de acessórios de carro, o reparo motociclo, o serviço de reparação de camião, reparar instalação |
 | PESQUISA\_INSTALAÇÕES | recurso de pesquisa |
 | RESIDÊNCIA\_ACCOMMODATION | Comunidade de extinção, townhouse complexa, complexo de flats/apartamento, património de complexos, residencial condominium, accommodation residencial |
 | RESTAURANTE | Alemão, creole Cajun, Holandês, salas de banquet, bistro, Israel, eslovaco, Jamaican, vegetariano, seafood, vietnamita, Maltês, Sichuan, welsh, chinês, japonês, Argelino, Californian, fusion, Shandong, barra salad, Savoy um, espanhol, Birr, Taiwanês, doughnuts, iraniano, Canadá, América, norueguês, francês, Hunan, Polynesian, afghan, escolha, oriental, Suíça, erotic, crêperie, Surinamese, Egyptian, húngaro, Nepalese, barbecue, pot de acesso frequente, o hambúrguer, Mediterrâneo, América Latina, tapas, British, México, Guangdong, asiático (outro), buffet, internacional de Mongol, estragado, mussels, tailandês, Bolívar, Rumanian, galinha, letrinhas, limpo, a casa steak, a barra de yogurt/Juice (suco), italiano, coreano, Cypriot, Bósnio, boliviano, Dominicana, Bélgica, tunisino, Gaélico, Inglês, Pakistani, checo, havaiano, Maghrib, Tibetano, Abu Dhabi, intermédia leste, chileno, Xangai, polonês, Filipino, Sudanese, Armênio, Birmanês, português (Brasil), Scandinavian, búlgaro, alma comida, colombiano, Jewish, pizza, Sicilian, orgânica, grego, basco, Uruguaio, cafeterias, finlandês, Centro-Africana, Corso, Síria, Caribe, Dongbei, russo, grill, retire, fast-food, pub irlandês, da Austrália, comida, fondue, Lebanese, indonésio, dinamarquês, Provençal, teppanyaki, território continental Rupia da Mauritânia, Ocidental, Novo, Riel, dicas, sueco, macrobiotic, sorvete parlor, Slavic, turco, Argentinean, como, exóticos, português, Luxembourgian, Maroko, restaurante de sanduíche, nos EUA, |
-| RESTAURANTE\_ÁREA | área de restaurante |
-| REST\_ÁREA | área de REST, interrompendo a local |
+| RESTAURANT\_AREA | área de restaurante |
+| REST\_AREA | área de REST, interrompendo a local |
 | SCENIC\_PANORAMIC\_VISTA | exibição scenic/Panorâmica, ponto de observação |
 | INSTITUIÇÃO DE ENSINO | culinary instituição de ensino, ensino primário, escola de arte, escola sênior, orientando instituição de ensino, escola de idioma, desporto instituição de ensino, preschool, ensino, instituição de ensino médio, treinamento baseado, escola especial, instalações de cuidados de saúde do filho, instituição de ensino, instituição de ensino técnica, militar escola, Agricultural instituição de ensino |
 | SHOP | saída de fábrica, produtos de segurança, arquivo de Natal/feriado, opticians, garden de casa: iluminação, o departamento de loteria, instrumentos musicais, procure salon, hospedar garden: decoração de pintura, tempo de entusiastas/free, newsagents tobacconists, acessórios de vestuário: especialidade, cleaners de dry, leatherwear de matrizes, pet suprimentos, clothing acessórios: relógios de crianças, equipamentos de material de construção, joias, observa, clothing acessórios: calçado calçado reparos, garden de casa: office elétrica, de cortinas/textiles, ele: consumidor office elétrica, da eletrônica, ele: câmara&#39;fotografia s, cd&#39;s, vídeos de DVD, lavanderia, acessórios de vestuário: homens, florists, pawn shop, lojas do livro, equipamentos náuticos de eletrônicos, comida drinks: mercados de comida, garden de casa: alcatifa/piso coverings , photocopy, barco acessórios de equipamentos, oficina de telefonia móvel, jogos toys, foods de especialidade, acessórios de vestuário: geral, a food drinks: bakers, melhor shop, presentes, cartões, novelties souvenirs, serviços animais, vestuário de equipamentos de esportes, loja de carimbo, office elétrica, da aplicação elétrica,-lo: equipamentos para escritório, fotografia laboratório/desenvolvimento, paus por atacado, garden de casa: fittings mobiliário, locais especialidades, comida drinks: butchers, a loja de variedade, a food drinks: lojas de comida, comida drinks: spirits vinhos, drogas store , office elétrica, do mobiliário/home furnishings, ele: suprimentos de computador, aluguel de cd/vídeo, equipamentos médicos suprimentos, suprimentos agricultural, salon beleza, garden de casa: garden centros de serviços, comida drinks: fishmongers, suprimentos de beleza, clothing acessórios: mulheres, agentes de viagens, saída de varejo, oficina de reciclagem, garden de casa: glass do windows, hardware, real estate agentes, glassware/ceramic, delicatessen, garden de casa: Revise kitchens, estação, a apostar hairdressers barbers, comida drinks: grocers, comida drinks: grocers verde, arquivos de conveniência, unidade através da loja de bottle, garden de casa: centros de tipo faça mesmo, antique/arte, oficina, loja |
@@ -115,7 +115,7 @@ Ao efetuar uma [pesquisa de categoria](https://docs.microsoft.com/rest/api/maps/
 | DESPORTO\_CENTER | desporto temática, restringi tribunal, centro do clube de adequação, centro do desporto |
 | ESTÁDIO | netball, futebol americano, beisebol, track de corrida, multiuso, desporto entrar, zero críquete, zero rugby, hóquei de gelo, atleta, carruagem motos, basquete, futebol, estádio, campo atleta, racetrack |
 | SWIMMING\_CONJUNTO | Piscina |
-| TÊNIS\_TRIBUNAL | judicial de tênis |
+| TENNIS\_COURT | judicial de tênis |
 | CINEMA | amphitheater, hall de conjunto, jantar cinema, Centro de música, opera, cabaret, cinema, casa |
 | TOURIST\_INFORMAÇÕES\_OFFICE | office de informações de tourist |
 | TRÁFEGO\_LIGHT | Semáforo |
@@ -129,4 +129,4 @@ Ao efetuar uma [pesquisa de categoria](https://docs.microsoft.com/rest/api/maps/
 | PONDERE\_ESTAÇÃO | Pondere escalas, pondere estação |
 | AO BOM FUNCIONAMENTO\_ORGANIZAÇÃO | organização ao bom funcionamento |
 | WINERY | Winery |
-| OS JARDINS ZOOLÓGICOS\_ARBORETA\_BOTANICAL\_GARDEN | park da vida selvagem, park marine do aquatic zoo, arboreta botanical jardins, zoo, os jardins zoológicos, arboreta mallards |
+| ZOOS\_ARBORETA\_BOTANICAL\_GARDEN | park da vida selvagem, park marine do aquatic zoo, arboreta botanical jardins, zoo, os jardins zoológicos, arboreta mallards |

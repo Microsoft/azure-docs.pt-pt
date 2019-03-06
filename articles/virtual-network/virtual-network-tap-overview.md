@@ -13,35 +13,36 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/04/2019
 ms.author: kaanan
-ms.openlocfilehash: 7270ab6203cfa3602fc36bc6fa7d30cd622ce3a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5532174b6fc72f51e7ba7a946e601e7d97c7808e
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946600"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408450"
 ---
-# <a name="virtual-network-tap"></a>TESTE de rede virtual
+# <a name="virtual-network-tap"></a>TAP de rede virtual
 
 TOQUE (ponto de acesso de Terminal) de rede virtual do Azure permite-lhe para o stream continuamente o tráfego de rede de máquina virtual para uma ferramenta de recoletor ou análise da pacotes de rede. A ferramenta de recoletor ou análise é fornecida por um [aplicação de rede virtual](https://azure.microsoft.com/solutions/network-appliances/) parceiro. Para obter uma lista das soluções de parceiros são validadas para trabalhar com o teste de rede virtual, consulte [soluções de parceiros](#virtual-network-tap-partner-solutions).
 
 > [!IMPORTANT]
-> Rede virtual TOQUE são está atualmente em pré-visualização de desenvolvedor na região do Azure de WestCentralUS. Para usar o teste de rede virtual, tem de se inscrever na pré-visualização, enviando um e-mail para <azurevnettap@microsoft.com> com o ID da subscrição. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Não possa utilizar a capacidade de até receber um e-mail de confirmação. Este developer preview é fornecido sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
+> Rede virtual TOQUE são está atualmente em pré-visualização de desenvolvedor na região do Azure de WestCentralUS. Para usar o teste de rede virtual, tem de se inscrever na pré-visualização, enviando um e-mail para <azurevnettap@microsoft.com> com o ID da subscrição. Receberá um e-mail assim que a sua subscrição tiver sido inscrita. Não possa utilizar a capacidade de até receber um e-mail de confirmação. Este developer preview é fornecido sem um contrato de nível de serviço e não deve ser utilizada para cargas de trabalho de produção. Algumas funcionalidades podem não ser suportadas, podem ter capacidades restringidas ou podem não estar disponíveis em todas as localizações do Azure. Consulte a [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
 
 ## <a name="virtual-network-tap-partner-solutions"></a>Soluções de parceiros de TOQUE de rede virtual
 
 ### <a name="network-packet-brokers"></a>Mediadores de pacotes de rede
 
 - [Grande comutador de grandes volumes de monitorização de recursos de infraestrutura](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
-- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Análise de segurança, gestão de desempenho de rede/aplicação
 
+- [Segurança ativo](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cibersegurança](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [Plataforma de NetWitness® RSA](https://www.rsa.com/azure)
@@ -59,7 +60,7 @@ Antes de criar um teste de rede virtual, deve receber um e-mail de confirmação
 
 As contas que utilizar para aplicar a configuração de TOQUE em interfaces de rede tem de ser atribuídas para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atribuída as ações necessárias a partir da seguinte tabela:
 
-| Ação | Nome |
+| Ação | Name |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | Necessário para criar, atualizar, ler e eliminar uma rede virtual do recurso de TOQUE |
 | Microsoft.Network/networkInterfaces/read | Necessário para o recurso de interface de rede em que será configurado o TOQUE de leitura |

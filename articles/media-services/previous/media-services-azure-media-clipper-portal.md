@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 02/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 510176331a1b79a1069b42afabb63b6b326951cc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 253b4fa511ec3efed2fb94c02ed4c4686d7a4549
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992325"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438453"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Crie clips com o Azure Media Clipper no portal  
 

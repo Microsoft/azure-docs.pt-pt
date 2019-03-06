@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: ba59ca4ac9a200c4579a4f71ff94be6bd554f180
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 6947ac5819a8e096f3be4edf6f2891974829e422
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341566"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440460"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,11 +30,13 @@ Existem dois tipos de atividades que podem ser usados num pipeline do Azure Data
 
 Para mover dados em dados de um arquivo que não suporta a fábrica de dados ou para transformar/processar dados de uma forma que não é suportado pelo Data Factory, pode criar uma **atividade personalizada** com seus próprios movimento de dados ou a lógica de transformação e a utilização a atividade num pipeline. A atividade personalizada sua lógica de código personalizado é executado num **do Azure Batch** conjunto de máquinas virtuais.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Consulte o seguinte artigos se estiver familiarizado com o serviço Azure Batch:
 
 * [Noções básicas do Azure Batch](../batch/batch-technical-overview.md) para uma descrição geral do serviço Azure Batch.
-* [New-AzureRmBatchAccount](/powershell/module/azurerm.batch/New-AzureRmBatchAccount?view=azurermps-4.3.1) cmdlet para criar uma conta do Azure Batch (ou) [portal do Azure](../batch/batch-account-create-portal.md) para criar a conta do Azure Batch com portal do Azure. Ver [utilizar o PowerShell para gerir a conta do Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) artigo para obter instruções detalhadas sobre como utilizar o cmdlet.
-* [Novo-AzureBatchPool](/powershell/module/azurerm.batch/New-AzureBatchPool?view=azurermps-4.3.1) cmdlet para criar um conjunto do Batch do Azure.
+* [Novo AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet para criar uma conta do Azure Batch (ou) [portal do Azure](../batch/batch-account-create-portal.md) para criar a conta do Azure Batch com portal do Azure. Ver [utilizar o PowerShell para gerir a conta do Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) artigo para obter instruções detalhadas sobre como utilizar o cmdlet.
+* [Novo AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet para criar um conjunto do Batch do Azure.
 
 ## <a name="azure-batch-linked-service"></a>Serviço Azure Batch ligado
 O seguinte JSON define um serviço ligado do Azure Batch de exemplo. Para obter detalhes, consulte [suportados pelo Azure Data Factory de ambientes de computação](compute-linked-services.md)
@@ -231,13 +233,13 @@ namespace SampleApp
 Pode iniciar uma execução de pipeline com o seguinte comando do PowerShell:
 
 ```.powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
 Quando o pipeline está em execução, pode verificar o resultado da execução com os comandos seguintes:
 
 ```.powershell
 while ($True) {
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
     if(!$result) {
         Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"

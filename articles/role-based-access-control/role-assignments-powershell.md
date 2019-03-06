@@ -1,6 +1,6 @@
 ---
 title: Gerir o acesso aos recursos do Azure através do RBAC e o Azure PowerShell | Documentos da Microsoft
-description: Saiba como gerir o acesso ao resoruces do Azure para utilizadores, grupos e aplicações com o controlo de acesso baseado em funções (RBAC) e o Azure PowerShell. Isto inclui como listar, conceder e remover acesso.
+description: Saiba como gerir o acesso aos recursos do Azure para utilizadores, grupos e aplicações com o controlo de acesso baseado em funções (RBAC) e o Azure PowerShell. Isto inclui como listar, conceder e remover acesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7e7d92b2995d8d68b08b78ee02549fe5e713c4dd
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ace70dea5277b4e9d8c8b0e6e0cdc49da0b674e0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817172"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432231"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gerir o acesso aos recursos do Azure através do RBAC e o Azure PowerShell
 

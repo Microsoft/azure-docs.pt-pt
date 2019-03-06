@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 951bb978ac78529959acbf878a72c22573400f11
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7d93e5777e3456098e1282fd70da55e85e1f80d0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822791"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438250"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>Utilizar o Data Lake Tools para Visual Studio para ligar ao Azure HDInsight e executar consultas do Apache Hive
 
@@ -113,7 +113,7 @@ Depois de abrir um contentor, pode utilizar os botões seguintes para carregar, 
 ## <a name="run-interactive-apache-hive-queries"></a>Executar consultas interativas do Apache Hive
 O [Apache Hive](https://hive.apache.org) é uma infraestrutura de armazém de dados que está incorporada no Hadoop. O Hive é utilizado para resumo de dados, consultas e análises. Pode utilizar o Data Lake Tools para Visual Studio para executar consultas do Hive a partir do Visual Studio. Para obter mais informações sobre o Hive, consulte [utilizar o Apache Hive com HDInsight](hdinsight-use-hive.md).
 
-A [Consulta Interativa](../interactive-query/apache-interactive-query-get-started.md) utiliza o [Hive no LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) no Apache Hive 2.1. A Consulta Interativa traz interatividade a consultas complexas de estilo do armazém de dados em conjuntos de dados grandes e armazenados. Executar consultas do Hive no Interactive Query é muito mais rápido em comparação com as tradicionais tarefas de lote do Hive. Para obter mais informações, consulte [tarefas de lote de executar o Apache Hive](#run-hive-batch-jobs).
+A [Consulta Interativa](../interactive-query/apache-interactive-query-get-started.md) utiliza o [Hive no LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) no Apache Hive 2.1. A Consulta Interativa traz interatividade a consultas complexas de estilo do armazém de dados em conjuntos de dados grandes e armazenados. Executar consultas do Hive no Interactive Query é muito mais rápido em comparação com as tradicionais tarefas de lote do Hive. Para obter mais informações, consulte Apache Hive executar tarefas de lote.
 
 > [!NOTE]  
 > Pode executar consultas interativas do Hive apenas quando ligar a um cluster do [HDInsight Interactive Query](../interactive-query/apache-interactive-query-get-started.md).
@@ -155,10 +155,10 @@ Para criar uma tabela do Hive, pode utilizar a GUI ou utilizar consultas do Hive
 ### <a name="run.queries"></a>Criar e executar consultas do Hive
 Tem duas opções para criar e executar consultas do Hive:
 
-* Criar consultas ad-hoc
+* Criar consultas ad hoc
 * Criar uma aplicação do Hive
 
-Para criar e executar consultas ad-hoc:
+Para criar e executar consultas ad hoc:
 
 1. Com o botão direito do cluster para executar a consulta e selecione onde pretende **escrever uma consulta do Hive**.  
 

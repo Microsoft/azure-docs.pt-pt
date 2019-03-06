@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0699686338a14ed6cc1ddcb076e14de86d0249d9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584399"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438615"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gerir o cluster de serviços de ML no Azure HDInsight
 
-Neste artigo, irá aprender a gerir um cluster existente de serviços de ML no Azure HDInsight para executar tarefas como adicionar utilizadores em simultâneo de mulitiple, ligar remotamente a um cluster de serviços de ML, alterar o contexto de cálculo, etc.
+Neste artigo, irá aprender a gerir um cluster existente de serviços de ML no Azure HDInsight para executar tarefas como adicionar vários utilizadores em simultâneo, ligar remotamente a um cluster de serviços de ML, alterar o contexto de cálculo, etc.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

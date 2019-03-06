@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: e8af73c955305c54efc478290608e627acb431ea
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: ad164e150b22af7d5a0c91fa0a8a80156952cfd0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099331"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431120"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>O que é uma base de dados na base de dados do Azure SQL
 
@@ -28,7 +28,7 @@ A opção de implementação de base de dados cria uma base de dados na base de 
 > [!NOTE]
 > Para obter um glossário dos termos na base de dados do Azure SQL, consulte [Glossário de termos de base de dados SQL](sql-database-glossary-terms.md)
 
-## <a name="dynamic-scalabilty"></a>Scalabilty dinâmico
+## <a name="dynamic-scalability"></a>Escalabilidade dinâmica
 
 Pode criar sua primeira aplicação numa base de dados pequena e individual a um custo reduzido por mês no escalão de serviço de preço/desempenho fraco e, em seguida [alterar o escalão de serviço](sql-database-single-database-scale.md) manual ou programaticamente em qualquer altura para o serviço de preço/desempenho thehigher escalão para satisfazer as necessidades da sua solução. Pode ajustar o desempenho sem provocar tempos de inatividade na aplicação ou nos clientes. A escalabilidade dinâmica permite que a base de dados responda de forma transparente a requisitos de recursos em rápida mutação e permite-lhe pagar apenas pelos recursos de que precisa, quando precisa.
 
@@ -42,7 +42,7 @@ Utilizar o incorporado [monitorização de desempenho](sql-database-performance.
 
 ## <a name="availability-capabilities"></a>Capacidades de disponibilidade
 
-Bases de dados individuais, conjuntos elásticos e instâncias geridas fornecem muitos characterics de disponibilidade. Para obter informações, consulte [características de disponibilidade](sql-database-technical-overview.md#availability-capabilities).
+Bases de dados individuais, conjuntos elásticos e instâncias geridas fornecem muitas características de disponibilidade. Para obter informações, consulte [características de disponibilidade](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Diferenças do Transact-SQL
 

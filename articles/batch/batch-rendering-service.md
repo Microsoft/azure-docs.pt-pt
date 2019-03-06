@@ -6,18 +6,18 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc8c96345aeb1886696326edd230666ac8b6c41d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: dbe3fe59fd2674cf3475fc5b589a2c938e706ab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542216"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441343"
 ---
 # <a name="rendering-using-azure"></a>Composição com o Azure
 
 O processamento é o processo de colocar modelos 3D e convertê-los em imagens 2D. Ficheiros de cenas 3D são criados nos aplicativos como o Autodesk 3ds Max e Blender Autodesk Maya.  Aplicações de composição, como o Autodesk Maya, Autodesk Arnold, V-Ray da Chaos Group e ciclos de Blender produzem imagens 2D.  Imagens única, às vezes, são criadas a partir os ficheiros de cenas. No entanto, é comum para modelar e compor várias imagens e, em seguida, combiná-los numa animação.
 
-A carga de trabalho de composição é muito usada para efeitos especiais (VFX) no setor de mídia e entretenimento. Composição também é utilizada em muitos outros industires como publicidade, de varejo, petróleo e gás e produção.
+A carga de trabalho de composição é muito usada para efeitos especiais (VFX) no setor de mídia e entretenimento. Composição também é utilizada em vários outros setores, tais como a publicidade, de varejo, petróleo e gás e produção.
 
 O processo de renderização é computacionalmente intensivo; Pode haver vários quadros/imagens para produzir e cada imagem pode demorar várias horas para processar.  O processamento, portanto, é uma carga de trabalho de processamento de batch perfeito que pode tirar partido do Azure e o Azure Batch para executar várias composições em paralelo.
 

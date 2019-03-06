@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c15b42572648f875ac4bda2eae5813f0cf6b17ef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 11ebb8bbeb2a58cad41294b6bba805585127844a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187190"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442398"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>O Azure Active Directory totalmente integrada início de sessão único: Perguntas mais frequentes
 
@@ -49,7 +49,7 @@ Abaixo encontra uma lista parcial das aplicações que pode enviar estes parâme
 | Outlook na Web | https://outlook.office365.com/contoso.com |
 | Portais do Office 365 | https://portal.office.com?domain_hint=contoso.com, https://www.office.com?domain_hint=contoso.com |
 
-Além disso, os utilizadores obtêm uma experiência de início de sessão silenciosa se uma aplicação envia pedidos de início de sessão para pontos finais de inquilinos do Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez ponto de extremidade comum do Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo encontra uma lista parcial de aplicativos que realizar estes tipos de pedidos de início de sessão.
+Além disso, os utilizadores obtêm uma experiência de início de sessão silenciosa se uma aplicação envia pedidos de início de sessão para os pontos finais do Azure AD configurar como os inquilinos - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez ponto de extremidade comum do Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo encontra uma lista parcial de aplicativos que realizar estes tipos de pedidos de início de sessão.
 
 | Nome da aplicação | URL da aplicação a ser utilizado |
 | -- | -- |

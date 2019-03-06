@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6eb0ce9098b5cc5f66035851c6837e9e46fcf2df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 69aecf3d107000408f98f8ae53968355943c2881
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414883"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440816"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos do Windows - CMD e o PowerShell
 
@@ -118,7 +118,7 @@ Quando limitado aos métodos disponíveis no Windows, por predefinição, o Powe
 ### <a name="disable-windows-firewall"></a>Desativar a Firewall do Windows
 `netsh advfirewall set allprofiles state off`
 
-Pode utilizar este comando quando a resolução de problemas temporariamente descartar o Firewall do Windows. Este irá ser ativar na próxima reinicialização ou quando enaable-la utilizando o comando abaixo. Não pare o serviço de Firewall do Windows (MPSSVC) ou o serviço de motor de filtragem Base (BFE) como forma de descartar o Firewall do Windows. Parar MPSSVC ou BFE resultará em toda a conectividade a ser bloqueada.
+Pode utilizar este comando quando a resolução de problemas temporariamente descartar o Firewall do Windows. É ativar na próxima reinicialização ou se a ativar com o comando abaixo. Não pare o serviço de Firewall do Windows (MPSSVC) ou o serviço de motor de filtragem Base (BFE) como forma de descartar o Firewall do Windows. Parar MPSSVC ou BFE resultará em toda a conectividade a ser bloqueada.
 ### <a name="enable-windows-firewall"></a>Ativar a Firewall do Windows
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Gerir utilizadores e grupos

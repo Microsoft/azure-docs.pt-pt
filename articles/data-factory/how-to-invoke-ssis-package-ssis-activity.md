@@ -13,17 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2a948a75ce3f6c21d7e92e3e1ccb1ef98dbe2ea0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 846fc5de6470326fbd51d19397503e4eee2ee15b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114388"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436090"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote do SSIS com a atividade de executar o pacote do SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote do SSIS no pipeline do Azure Data Factory (ADF) através da atividade de executar o pacote do SSIS. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Criar um Azure-SSIS Integration Runtime (IR) se não tiver uma já ao seguir as instruções passo a passo o [Tutorial: Implementar pacotes do SSIS no Azure](tutorial-create-azure-ssis-runtime-portal.md).
 
@@ -111,7 +113,7 @@ Também pode criar um acionador agendado para o seu pipeline, para que o pipelin
 ## <a name="run-a-package-with-powershell"></a>Executar um pacote com o PowerShell
 Nesta secção, utilizar o Azure PowerShell para criar um pipeline do ADF com atividade de executar o pacote do SSIS que executa o pacote do SSIS. 
 
-Instalar os módulos Azure PowerShell mais recentes ao seguir as instruções passo a passo [como instalar e configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+Instalar os módulos Azure PowerShell mais recentes ao seguir as instruções passo a passo [como instalar e configurar o Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="create-an-adf-with-azure-ssis-ir"></a>Criar um ADF com o runtime de integração Azure-SSIS
 Pode utilizar um ADF existente que já tenha o IR Azure-SSIS aprovisionado ou criar um ADF novo com o IR Azure-SSIS, siga as instruções passo a passo o [Tutorial: Implementar pacotes do SSIS no Azure através do PowerShell](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell).
@@ -198,10 +200,10 @@ Neste passo, vai criar um pipeline com uma atividade de executar o pacote do SSI
 
 2. No Azure PowerShell, mude para o `C:\ADF\RunSSISPackage` pasta.
 
-3. Para criar o pipeline **RunSSISPackagePipeline**, execute o **Set-AzureRmDataFactoryV2Pipeline** cmdlet.
+3. Para criar o pipeline **RunSSISPackagePipeline**, execute o **conjunto AzDataFactoryV2Pipeline** cmdlet.
 
    ```powershell
-   $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+   $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                                   -ResourceGroupName $ResGrp.ResourceGroupName `
                                                   -Name "RunSSISPackagePipeline"
                                                   -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -218,10 +220,10 @@ Neste passo, vai criar um pipeline com uma atividade de executar o pacote do SSI
    ```
 
 ### <a name="run-the-pipeline"></a>Executar o pipeline
-Utilize o **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet para executar o pipeline. O cmdlet devolve o ID de execução do pipeline para monitorização futura.
+Utilize o **Invoke-AzDataFactoryV2Pipeline** cmdlet para executar o pipeline. O cmdlet devolve o ID de execução do pipeline para monitorização futura.
 
 ```powershell
-$RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
+$RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
                                              -ResourceGroupName $ResGrp.ResourceGroupName `
                                              -PipelineName $DFPipeLine.Name
 ```
@@ -232,7 +234,7 @@ Execute o seguinte script do PowerShell para verificar continuamente o estado de
 
 ```powershell
 while ($True) {
-    $Run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
+    $Run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
                                                -DataFactoryName $DataFactory.DataFactoryName `
                                                -PipelineRunId $RunId
 
@@ -280,31 +282,31 @@ No passo anterior, executou a pipeline a pedido. Também pode criar um acionador
    }    
    ```
 2. Na **do Azure PowerShell**, mude para o **C:\ADF\RunSSISPackage** pasta.
-3. Executar o **Set-AzureRmDataFactoryV2Trigger** cmdlet, que cria o acionador. 
+3. Executar o **Set-AzDataFactoryV2Trigger** cmdlet, que cria o acionador. 
 
    ```powershell
-   Set-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                    -DataFactoryName $DataFactory.DataFactoryName `
                                    -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
    ```
-4. Por predefinição, o acionador está no estado parado. Inicie o acionador ao executar o **Start-AzureRmDataFactoryV2Trigger** cmdlet. 
+4. Por predefinição, o acionador está no estado parado. Inicie o acionador ao executar o **Start-AzDataFactoryV2Trigger** cmdlet. 
 
    ```powershell
-   Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
+   Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
                                      -DataFactoryName $DataFactory.DataFactoryName `
                                      -Name "MyTrigger" 
    ```
-5. Confirme que o acionador é iniciado ao executar o **Get-AzureRmDataFactoryV2Trigger** cmdlet. 
+5. Confirme que o acionador é iniciado ao executar o **Get-AzDataFactoryV2Trigger** cmdlet. 
 
    ```powershell
-   Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
                                    -DataFactoryName $DataFactoryName `
                                    -Name "MyTrigger"     
    ```    
 6. Após a hora seguinte, execute o seguinte comando. Por exemplo, se a hora atual é de 3:25 PM UTC, execute o comando 4 PM UTC. 
     
    ```powershell
-   Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
+   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
                                       -DataFactoryName $DataFactoryName `
                                       -TriggerName "MyTrigger" `
                                       -TriggerRunStartedAfter "2017-12-06" `

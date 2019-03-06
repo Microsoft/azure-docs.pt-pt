@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4b04a1a5805ff11ad51cec53cdcccf2ea34f1c65
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043452"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443254"
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>o Azure Cosmos DB: API de SQL tutorial de introdução
 
@@ -62,14 +62,14 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
 1. Abra o **Visual Studio 2017** no seu computador.
 2. No menu **Ficheiro**, selecione **Novo**, e, em seguida, escolha **Projeto**.
 3. Na caixa de diálogo **Novo projeto**, selecione **Modelos** / **Visual C#** / **Aplicação de Consola**, atribua um nome ao projeto e, em seguida, clique em **OK**.
-   ![Captura de ecrã da janela Novo Projeto](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
+   ![Captura de ecrã da janela novo projeto](./media/sql-api-get-started/nosql-tutorial-new-project-2.png)
 4. No **Explorador de Soluções**, clique com o botão direito do rato na sua nova aplicação de consola, que está sob a sua solução Visual Studio e, em seguida, clique em **Gerir Pacotes NuGet...**
     
     ![Captura de ecrã do Menu com Botão do Lado Direito para o Projeto](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 5. No separador **NuGet**, clique em **Procurar** e escreva **azure documentdb** na caixa de pesquisa.
 6. Nos resultados, localize **Microsoft.Azure.DocumentDB** e clique em **Instalar**.
    O ID do pacote para a Biblioteca de Cliente da API SQL do Azure Cosmos DB é [Biblioteca de Cliente do Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   ![Captura de ecrã do Menu NuGet para encontrar o SDK de Cliente do Azure Cosmos DB](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   ![Captura de ecrã do NuGet Menu para encontrar o SDK de cliente do Azure Cosmos DB](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Se obtiver uma mensagem sobre a revisão das alterações para a solução, clique em **OK**. Se obtiver uma mensagem sobre a aceitação de licença, clique em **Aceito**.
 
@@ -108,7 +108,7 @@ No portal do Azure, navegue até à sua conta do Azure Cosmos DB e, em seguida, 
 
 Copie o URI do portal e cole-o em `<your endpoint URL>`, no ficheiro program.cs. Em seguida, copie A CHAVE PRIMÁRIA do portal e cole-a em `<your primary key>`.
 
-![Captura de ecrã do Portal do Azure utilizado pelo tutorial NoSQL para criar uma aplicação de consola C#. Mostra uma conta do Azure Cosmos DB, com o ACTIVE hub realçado, o botão CHAVES realçado na página de conta do Azure Cosmos DB e os valores URI, CHAVE PRIMÁRIA e CHAVE SECUNDÁRIA realçados na página Chaves][keys]
+![Captura de ecrã do portal do Azure utilizado pelo NoSQL tutorial para criar um C# aplicação de consola. Mostra uma conta do Azure Cosmos DB, com o ACTIVE hub realçado, o botão CHAVES realçado na página de conta do Azure Cosmos DB e os valores URI, CHAVE PRIMÁRIA e CHAVE SECUNDÁRIA realçados na página Chaves][keys]
 
 Em seguida, iremos começar a aplicação pela criação de uma nova instância do **DocumentClient**.
 

@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 250c4fc6e51bacc68c965394b9fd430b1b75a52c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d7d23300936cd512466e5c4b18f1f0922c81ceff
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447179"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408195"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre pods através de políticas de rede no Azure Kubernetes Service (AKS)
 
 Ao executar aplicações modernas e baseadas em microsserviços no Kubernetes, muitas vezes deseja controlar quais componentes podem comunicar entre si. O princípio de privilégio mínimo deve ser aplicado a forma como o tráfego pode fluir entre pods num cluster do AKS. Por exemplo, provavelmente desejará bloquear o tráfego diretamente para aplicações de back-end. No Kubernetes, o *política de rede* funcionalidade permite-lhe definir regras para o tráfego de entrada e saída entre pods num cluster.
 
-Este artigo mostra-lhe como utilizar políticas de rede para controlar o fluxo de tráfego entre pods no AKS.
+Calico, um sistema de rede do código-fonte aberto e solução de segurança de rede fundada por Tigera, oferece um mecanismo de políticas de rede que pode implementar as regras de política de rede do Kubernetes. Este artigo mostra-lhe como instalar o motor de política de rede Calico e criar políticas de rede do Kubernetes para controlar o fluxo de tráfego entre pods no AKS.
 
 > [!IMPORTANT]
 > Esta funcionalidade encontra-se em pré-visualização. As pré-visualizações ser-lhe-ão disponibilizadas na condição de concordar com os [termos suplementares de utilização][terms-of-use]. Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).

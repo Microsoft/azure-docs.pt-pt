@@ -9,12 +9,12 @@ ms.subservice: custom-translator
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6cab76a1169469853a4eb82a934bdc665e07ef8d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 3442e322ac75f7757d7a59f6035fc35d77e70702
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217517"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431585"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar os projetos de área de trabalho de Hub e ao Translator personalizado
 
@@ -31,7 +31,7 @@ Para um treinamento tenha êxito, o Translator personalizado requer um mínimo d
 
 ## <a name="enable-account-migration"></a>Ativar a migração de contas
 
-Para usar a ferramenta de migração, terá de ter a sua migração de contas de Hub ativada. Para tal, envie um e-mail [ custommt@microsoft.com ](mailto:custommt@microsoft.com) com uma lista de todas as liveid contas que gostaria de ter ativado. Estas contas devem ser os endereços de e-mail que inicie sessão com.
+Para usar a ferramenta de migração, terá de ter a sua migração de contas de Hub ativada. Para tal, envie um e-mail [ custommt@microsoft.com ](mailto:custommt@microsoft.com) com uma lista de todos os live id contas que gostaria de ter ativado. Estas contas devem ser os endereços de e-mail que inicie sessão com.
 
 ## <a name="find-custom-translator-workspace-id"></a>Localizar o ID de área de trabalho do Microsoft Translator personalizado
 
@@ -141,6 +141,10 @@ Esta tabela compara as funcionalidades entre o Microsoft Translator Hub e o Tran
 | Personalização de NMT | Não    | Sim |
 | Nova personalização de serviços de voz unificada | Não    | Sim |
 | Sem Rastreio | Sim | Sim |
+
+## <a name="new-languages"></a>Novos idiomas
+
+Se for uma Comunidade ou organização trabalhar sobre como criar um novo sistema de idioma para o Microsoft Translator, entrar em contacto para [ custommt@microsoft.com ](mailto:custommt@microsoft.com) para obter mais informações.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

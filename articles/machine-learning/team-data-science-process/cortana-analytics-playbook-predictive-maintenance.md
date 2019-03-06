@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ebf376f0bdba8c41f88d6f97cef2c17ecd259022
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 046d00eec9fd5a406a1e8bf78e48d4dd913b83fd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816650"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437573"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -432,7 +432,7 @@ O Microsoft Azure oferece os percursos de aprendizagem para os conceitos básico
 | [Instituição de ensino do Microsoft AI](https://aischool.microsoft.com/learning-paths) | Público |
 | [Aprendizagem de IA do Azure do GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Público |
 | [Aprendizagem do LinkedIn](http://www.linkedin.com/learning) | Público |
-| [Webinars do Youtube de IA da Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
+| [Webinars do YouTube de IA da Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Público |
 | [Show de IA da Microsoft](http://channel9.msdn.com/Shows/AI-Show) | Público |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Parceiros |
 | [Rede de parceiros da Microsoft](https://learningportal.microsoft.com) | Parceiros |

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: f80142fa1733f91bbe0b854798999d67bdb565c6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 895499865fb1d47669fcca2aeaa571b2fb79237b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650468"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438725"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
@@ -57,7 +57,7 @@ A conta iniciar sessão no, ou ligar ao Azure, tem de ser atribuída para o [con
 
 **Comandos**
 
-- CLI do Azure: [criar sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
+- CLI do Azure: [criar sub-rede de vnet de rede de az](/cli/azure/network/vnet/subnet)
 - PowerShell: [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)
 
 ## <a name="change-subnet-settings"></a>Alterar as definições de sub-rede

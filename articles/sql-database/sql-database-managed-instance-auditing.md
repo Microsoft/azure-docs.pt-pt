@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 28891c103df91baa16b895ece7909658fede3b91
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: ff29d60715001ddb98ffb7424784ae0b81cfbb3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213318"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437688"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria da instância de base de dados do SQL do Azure gerido
 
@@ -135,7 +135,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
 
      1. Selecione uma subscrição, a conta de armazenamento e o contentor de BLOBs as listas pendentes ou criar seu próprio contentor ao clicar em **criar**. Quando terminar de clique **OK**:
 
-        ![Selecione a subscrição do Azure, conta de armazenamento e contentor de blobl](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
+        ![Selecione a subscrição do Azure, conta de armazenamento e contentor de BLOBs](./media/sql-managed-instance-auditing/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Clique em **OK** na caixa de diálogo "Create Audit".
 

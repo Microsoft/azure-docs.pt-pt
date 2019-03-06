@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
-ms.translationtype: HT
+ms.openlocfilehash: ce18d773d55495a215b9cef9183b497c55976e15
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616194"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453759"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 
@@ -26,7 +26,7 @@ Pode utilizar o Azure Backup para proteger o Windows Server de danos, ataques e 
 > [!div class="checklist"]
 > * Transferir e configurar o Agente MARS
 > * Configurar horas de cópia de segurança e agenda de retenção para as cópias de segurança do servidor
-> * Efetuar uma cópia de segurança ad-hoc
+> * Efetuar um ad hoc a cópia de segurança
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -128,7 +128,7 @@ Utilize o agente dos Serviços de Recuperação do Microsoft Azure para agendar 
 
 11. Depois de o assistente ter criado a agenda da cópia de segurança, clique em **Fechar**.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Efetuar uma cópia de segurança ad-hoc
+## <a name="perform-an-ad-hoc-back-up"></a>Efetuar um ad hoc a cópia de segurança
 
 Tem de estabelecer o agendamento quando forem executadas tarefas de cópia de segurança. No entanto, não terá efetuado cópia de segurança do servidor. É uma prática de melhor de recuperação após desastre executar uma cópia de segurança a pedido para se certificar da resiliência de dados para o servidor.
 
@@ -142,7 +142,7 @@ Tem de estabelecer o agendamento quando forem executadas tarefas de cópia de se
 4.  Depois de concluída a cópia de segurança inicial, o estado **Tarefa concluída** é apresentado no painel da consola do agente MARS **Tarefas**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, utilizou o portal do Azure para: 
  

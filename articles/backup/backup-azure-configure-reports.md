@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: 945d8690ccb61916455ba4137f59c67c9a3d9f76
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237693"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441003"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 Este artigo mostra os passos a seguir para configurar relatórios para o Azure Backup com um cofre dos serviços de recuperação. Ela também mostra como acessar relatórios com o Power BI. Depois de concluir estes passos, pode aceder diretamente ao Power BI para visualizar, personalizar e criar relatórios.
@@ -29,7 +29,7 @@ Transfira a aplicação mais recente (versão 1.8) para evitar este problema.
 - Relatórios de cópia de segurança do Azure são suportados para a cópia de segurança da máquina virtual do Azure e arquivo e pasta cópia de segurança para a cloud utilizando o agente de serviços de recuperação do Azure.
 - Relatórios para a base de dados do Azure SQL, o partilhas de ficheiros do Azure, o Data Protection Manager e o servidor de cópia de segurança do Azure não são suportados neste momento.
 - Pode visualizar relatórios em cofres e subscrições, se a mesma conta de armazenamento está configurada para cada um dos cofres de. A conta de armazenamento selecionada tem de ser na mesma região que o Cofre de serviços de recuperação.
-- A frequência de atualização agendada para os relatórios é 24 horas no Power BI. Também pode efetuar uma atualização do ad-hoc dos relatórios no Power BI. Neste caso, os dados mais recentes na conta de armazenamento de cliente são utilizados para renderizar relatórios.
+- A frequência de atualização agendada para os relatórios é 24 horas no Power BI. Também pode efetuar uma atualização ad hoc dos relatórios no Power BI. Neste caso, os dados mais recentes na conta de armazenamento de cliente são utilizados para renderizar relatórios.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Criar uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md) para configurá-lo para relatórios. Esta conta de armazenamento é utilizada para armazenar dados relacionados com relatórios.

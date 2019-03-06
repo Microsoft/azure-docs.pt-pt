@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 964a0e0d4dd7ebae9f2881230fec921c3740ac39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340597"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433778"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-criado para a sua aplicação LUIS
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
@@ -62,7 +62,7 @@ O domínio de calendário fornece intenções e entidades relacionadas às entra
 | Adicionar | Adicione um novo item de uso individual para o calendário.| Agende um compromisso com Lisa em 2 pm, aos domingos <br/><br/>Desejo agendar uma reunião<br/><br/>Preciso configurar uma reunião|
 | CheckAvailability | Conheça a disponibilidade para um compromisso ou reunião no calendário do usuário ou o calendário de outra pessoa.| Quando é Jim disponível para corresponder às? <br/><br/>Mostrar quando Carol está disponível amanhã<br/><br/>Chris é gratuito no Sábado?|
 | Eliminar | Pedido para eliminar uma entrada no calendário.| Cancele a minha marcação com Carol. <br/><br/>Eliminar a minha reunião 9h<br/>|
-| Editar | O pedido para alterar uma reunião existente ou a entrada no calendário.| Mova a minha reunião 9h para 10 am.<br/><br/>Eu quero atualizar a minha agenda.<br/><br/>Reschdule minha reunião com Ryan.|
+| Editar | O pedido para alterar uma reunião existente ou a entrada no calendário.| Mova a minha reunião 9h para 10 am.<br/><br/>Eu quero atualizar a minha agenda.<br/><br/>Reagende minha reunião com Ryan.|
 | Localizar | Exiba meu calendário semanal.| Encontre no dentista rever compromisso. <br/><br/>Mostrar Calendário<br/>|
 
 ### <a name="entities"></a>Entidades
@@ -106,7 +106,7 @@ O domínio de comunicação fornece intenções e entidades relacionadas ao e-ma
 | Confirmar| Certifique-se uma ação.|Sim<br/>Okay<br/>Tudo bem<br/>Confirmo que eu queira envie este e-mail.<br/>|
 | Acesso telefónico| Fazer uma chamada telefónica.|Jim de chamada<br/>Marque o 311<br/>|
 | FindContact| Localize informações de contacto por nome.|Localizar o número de Carol<br/>Mostre-me o número de Carol<br/>|
-| FindSpeedDial| Determinar o número de speedial que um número de telefone está definido para e vice-versa.|O que é o meu número de acesso telefónico 5?<br/>É necessário aumentar o conjunto de velocidade?<br/>O que é o número de marcação para 941-5555-333?|
+| FindSpeedDial| Determinar o número de acesso telefónico de velocidade que um número de telefone está definido para e vice-versa.|O que é o meu número de acesso telefónico 5?<br/>É necessário aumentar o conjunto de velocidade?<br/>O que é o número de marcação para 941-5555-333?|
 | GetForwardingsStatus| Obter o estado atual de encaminhamento de chamada.|Meu encaminhamento de chamada é ativado?<br/>Diga-me se o meu estado de chamada está ativada ou desativada<br/>|
 | GoBack| Volte ao passo anterior.|Voltar ao twitter<br/>Volte uma etapa<br/>Retroceder|
 | Ignorar| Ignore uma chamada de entrada.|Não responder<br/>Ignorar chamada|
@@ -252,7 +252,7 @@ O domínio de MovieTickets fornece intenções e entidades relacionadas com pedi
 ### <a name="intents"></a>Intenções
 | Nome de intenção | Descrição | Exemplos |
 | ---------------- |-----------------------|----|
-| Livro | Comprar ingressos de filme.|Reservar me dois pedidos de suporte para Captain Omar e os dois musketeers<br/>Quero comprar um pedido de suporte para o filme de amanhã<br/>Eu quero um pedido de suporte para a parte 2 de Omar Captian quarta-feira seguinte|
+| Livro | Comprar ingressos de filme.|Reservar me dois pedidos de suporte para Captain Omar e os dois musketeers<br/>Quero comprar um pedido de suporte para o filme de amanhã<br/>Quero um pedido de suporte para Captain Omar parte 2 quarta-feira seguinte|
 |GetShowTime| Obtenha o showtime de um filme.|Quando está a mostrar Captain Omar?|
 
 
@@ -412,7 +412,7 @@ O domínio de lugares fornece objetivos para processar consultas relacionadas co
 |GetMenu|Peça para os itens de menu de um restaurante.|Zucca serve nada vegan?<br/>O que há no menu na Sizzler<br/>Mostrar menu do Applebee|
 |GetPhoneNumber| Pedir o número de telefone de um local.|O que é o número de telefone da Starbucks mais próximo?<br/>Atribua o número para a home page de depósito| 
 |GetPriceRange| Pede para o intervalo de preço de um local.|Zucca é barato?<br/>É a metade do preço Cineplex às quartas-feiras?<br/>Qual é um custo de jantar lobster todo em Sizzler?|
-|GetReviews|Pedir revisões de um local.|Mostre-me a revisões para Cheesecase Factory<br/>Leia críticas Cineplex no Yelp|
+|GetReviews|Pedir revisões de um local.|Mostre-me as revisões da fábrica de bolos<br/>Leia críticas Cineplex no Yelp|
 |GetRoute|Pedir as direções para um local.|Como ir Bellevue quadrado<br/>Mostre-me a maneira mais curta para 8 e 59th a partir daqui<br/>-Me obter direções da AC de modo de exibição das regiões montanhosas|
 |GetStarRating|Pedir a classificação em estrelas de um local.|Como é classificado Zucca, de acordo com Yelp?<br/>Quantas estrelas tem o Lavanderia francês?<br/>É bom aquarium no Monterrey?|
 |GetTransportationSchedule|Obtenha o agendamento de barramento para um local.|O tempo é o barramento seguinte para Moro?<br/>Mostre-me os barramentos em King County|

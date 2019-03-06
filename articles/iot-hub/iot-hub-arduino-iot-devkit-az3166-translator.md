@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
-ms.openlocfilehash: 038b1d9fa319837f3877c20c9fc3b1b83970e7b4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: b072efbbf02528a3c62662c5543007ef3332d434
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158623"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440717"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Utilizar o IoT DevKit AZ3166 com as funções do Azure e os serviços cognitivos para tornar um tradutor lingüístico
 
@@ -54,7 +54,7 @@ Para concluir os passos neste tutorial, primeiro faça as seguintes tarefas:
 
   Tome nota do nome de dispositivo do IoT Hub do Azure que criou.
 
-1. Abra `Functions\DevKitTranslatorFunction.cs` e Atualize as seguintes linhas de código com o nome de devce e a chave de serviço de voz que anotou para baixo.
+1. Abra `Functions\DevKitTranslatorFunction.cs` e Atualize as seguintes linhas de código com o nome do dispositivo e a chave de serviço de voz que anotou para baixo.
   ```csharp
   // Subscription Key of Speech Service
   const string speechSubscriptionKey = "";
@@ -76,7 +76,7 @@ Para concluir os passos neste tutorial, primeiro faça as seguintes tarefas:
   ![Copie o URL da função](media/iot-hub-arduino-iot-devkit-az3166-translator/get-function-url.png)
 
 1. Cole o URL em `azure_config.h` ficheiro.
-  ![Configuração do Azure](media/iot-hub-arduino-iot-devkit-az3166-translator/azure-config.png)
+  ![Azure config](media/iot-hub-arduino-iot-devkit-az3166-translator/azure-config.png)
 
   > [!NOTE]
   > Se a aplicação de funções não funcionar corretamente, verifique isso [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq#compilation-error-for-azure-function) secção para resolvê-lo.

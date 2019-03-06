@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 024a622484a83957c9ab5f4a684a346a55787ccf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f67741417c6d31c4adf1d063aac3bd3ccc310fde
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313366"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440255"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
@@ -33,6 +33,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "",
+  "apiProfile": "",
   "parameters": {  },
   "variables": {  },
   "functions": [  ],
@@ -45,120 +46,14 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 |:--- |:--- |:--- |
 | $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão da linguagem do modelo.<br><br> Para implementações do grupo de recursos, utilize: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Sim |Versão do modelo (por exemplo, 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao implementar recursos com o modelo, este valor pode ser usado para se certificar de que o modelo certo está a ser utilizado. |
-| parâmetros |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
-| Variáveis |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
-| functions |Não |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
-| recursos |Sim |Tipos de recursos que são implementados ou atualizados num grupo de recursos ou subscrição. |
-| saídas |Não |Valores que são devolvidos após a implementação. |
+| apiProfile |Não | Uma versão de API que funciona como uma coleção de versões de API para tipos de recursos. Utilize este valor para evitar ter de especificar as versões de API para cada recurso no modelo. Quando especificar uma versão de perfil de API e não especificar uma versão de API para o tipo de recurso, o Resource Manager utiliza a versão de API do perfil para esse tipo de recurso. Para obter mais informações, consulte [controlar versões através de perfis de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| [parameters](#parameters) |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
+| [Variáveis](#variables) |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
+| [functions](#functions) |Não |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
+| [resources](#resources) |Sim |Tipos de recursos que são implementados ou atualizados num grupo de recursos ou subscrição. |
+| [outputs](#outputs) |Não |Valores que são devolvidos após a implementação. |
 
-Cada elemento tem propriedades que pode definir. O exemplo seguinte mostra a sintaxe completa para um modelo:
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "",
-  "parameters": {  
-    "<parameter-name>" : {
-      "type" : "<type-of-parameter-value>",
-      "defaultValue": "<default-value-of-parameter>",
-      "allowedValues": [ "<array-of-allowed-values>" ],
-      "minValue": <minimum-value-for-int>,
-      "maxValue": <maximum-value-for-int>,
-      "minLength": <minimum-length-for-string-or-array>,
-      "maxLength": <maximum-length-for-string-or-array-parameters>,
-      "metadata": {
-        "description": "<description-of-the parameter>" 
-      }
-    }
-  },
-  "variables": {
-    "<variable-name>": "<variable-value>",
-    "<variable-object-name>": {
-      <variable-complex-type-value>
-    },
-    "<variable-object-name>": {
-      "copy": [
-        {
-          "name": "<name-of-array-property>",
-          "count": <number-of-iterations>,
-          "input": <object-or-value-to-repeat>
-        }
-      ]
-    },
-    "copy": [
-      {
-        "name": "<variable-array-name>",
-        "count": <number-of-iterations>,
-        "input": <object-or-value-to-repeat>
-      }
-    ]
-  },
-  "functions": [
-    {
-      "namespace": "<namespace-for-your-function>",
-      "members": {
-        "<function-name>": {
-          "parameters": [
-            {
-              "name": "<parameter-name>",
-              "type": "<type-of-parameter-value>"
-            }
-          ],
-          "output": {
-            "type": "<type-of-output-value>",
-            "value": "<function-expression>"
-          }
-        }
-      }
-    }
-  ],
-  "resources": [
-    {
-      "condition": "<boolean-value-whether-to-deploy>",
-      "apiVersion": "<api-version-of-resource>",
-      "type": "<resource-provider-namespace/resource-type-name>",
-      "name": "<name-of-the-resource>",
-      "location": "<location-of-resource>",
-        "tags": {
-          "<tag-name1>": "<tag-value1>",
-          "<tag-name2>": "<tag-value2>"
-        },
-        "comments": "<your-reference-notes>",
-        "copy": {
-          "name": "<name-of-copy-loop>",
-          "count": "<number-of-iterations>",
-          "mode": "<serial-or-parallel>",
-          "batchSize": "<number-to-deploy-serially>"
-        },
-        "dependsOn": [
-          "<array-of-related-resource-names>"
-        ],
-        "properties": {
-          "<settings-for-the-resource>",
-          "copy": [
-            {
-              "name": ,
-              "count": ,
-              "input": {}
-            }
-          ]
-        },
-        "resources": [
-          "<array-of-child-resources>"
-        ]
-    }
-  ],
-  "outputs": {
-    "<outputName>" : {
-      "condition": "<boolean-value-whether-to-output-value>",
-      "type" : "<type-of-output-value>",
-      "value": "<output-value-expression>"
-    }
-  }
-}
-```
-
-Este artigo descreve as seções do modelo em mais detalhes.
+Cada elemento tem propriedades que pode definir. Este artigo descreve as seções do modelo em mais detalhes.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -515,23 +410,274 @@ Chamar a função com:
 ```
 
 ## <a name="resources"></a>Recursos
-A seção de recursos, vai definir os recursos que são implementados ou atualizados. Esta secção pode são complicada, uma vez que deve compreender os tipos que estiver a implementar para fornecer os valores de certos.
+A seção de recursos, vai definir os recursos que são implementados ou atualizados.
+
+### <a name="available-properties"></a>Propriedades disponíveis
+
+Define os recursos com a seguinte estrutura:
 
 ```json
 "resources": [
   {
-    "apiVersion": "2016-08-01",
-    "name": "[variables('webSiteName')]",
-    "type": "Microsoft.Web/sites",
-    "location": "[resourceGroup().location]",
-    "properties": {
-      "serverFarmId": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Web/serverFarms/<plan-name>"
-    }
+      "condition": "<true-to-deploy-this-resource>",
+      "apiVersion": "<api-version-of-resource>",
+      "type": "<resource-provider-namespace/resource-type-name>",
+      "name": "<name-of-the-resource>",
+      "location": "<location-of-resource>",
+      "tags": {
+          "<tag-name1>": "<tag-value1>",
+          "<tag-name2>": "<tag-value2>"
+      },
+      "comments": "<your-reference-notes>",
+      "copy": {
+          "name": "<name-of-copy-loop>",
+          "count": <number-of-iterations>,
+          "mode": "<serial-or-parallel>",
+          "batchSize": <number-to-deploy-serially>
+      },
+      "dependsOn": [
+          "<array-of-related-resource-names>"
+      ],
+      "properties": {
+          "<settings-for-the-resource>",
+          "copy": [
+              {
+                  "name": ,
+                  "count": ,
+                  "input": {}
+              }
+          ]
+      },
+      "sku": {
+          "name": "<sku-name>",
+          "tier": "<sku-tier>",
+          "size": "<sku-size>",
+          "family": "<sku-family>",
+          "capacity": <sku-capacity>
+      },
+      "kind": "<type-of-resource>",
+      "plan": {
+          "name": "<plan-name>",
+          "promotionCode": "<plan-promotion-code>",
+          "publisher": "<plan-publisher>",
+          "product": "<plan-product>",
+          "version": "<plan-version>"
+      },
+      "resources": [
+          "<array-of-child-resources>"
+      ]
   }
-],
+]
 ```
 
-Para condicionalmente incluir ou excluir um recurso durante a implementação, utilize o [elemento Condition](resource-manager-templates-resources.md#condition). Para obter mais informações sobre a seção de recursos, consulte [seção de recursos de modelos Azure Resource Manager](resource-manager-templates-resources.md).
+| Nome do elemento | Necessário | Descrição |
+|:--- |:--- |:--- |
+| condition | Não | Valor booleano que indica se o recurso será provisionado durante esta implementação. Quando `true`, o recurso é criado durante a implementação. Quando `false`, o recurso é ignorado para esta implementação. |
+| apiVersion |Sim |Versão da API REST para utilizar para criar o recurso. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
+| tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nomes do fornecedor de recursos e o tipo de recurso (por exemplo, **Storage/storageaccounts**). Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
+| nome |Sim |Nome do recurso. O nome tem de seguir restrições de componente URI definidas na RFC3986. Além disso, os serviços do Azure que expõem o nome do recurso fora partes validar o nome para garantir que ela não é uma tentativa para falsificar a identidade de outra. |
+| localização |Varia |Georreplicação-localizações suportadas do recurso fornecido. Pode selecionar qualquer uma das localizações disponíveis, mas geralmente faz sentido escolher um que está perto dos seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem entre si na mesma região. A maioria dos tipos de recursos exigem uma localização, mas alguns tipos (por exemplo, uma atribuição de função) não precisam de uma localização. |
+| etiquetas |Não |Etiquetas de associado ao recurso. Aplica etiquetas para organizar logicamente os recursos na sua subscrição. |
+| comentários |Não |Suas anotações para documentar os recursos no seu modelo. Para obter mais informações, consulte [comentários em modelos](resource-group-authoring-templates.md#comments). |
+| copiar |Não |Se for necessário mais de uma instância, o número de recursos para criar. O modo predefinido é paralelo. Especifique o modo serial quando não quiser que todos os ou os recursos necessários para implementar ao mesmo tempo. Para obter mais informações, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md). |
+| dependsOn |Não |Recursos que devem ser implementados para que este recurso está implementado. Resource Manager avalia as dependências entre os recursos e implementa-as na ordem correta. Quando os recursos não são dependentes entre si, serem implementadas em paralelo. O valor pode ser uma lista separada por vírgulas de um recurso nomes ou identificadores exclusivos de recursos. Lista apenas os recursos que são implementados neste modelo. Recursos que não sejam definidos neste modelo tem de existir. Evite a adição de dependências desnecessárias como podem atrasar a implantação e criar dependências circulares. Para obter orientações sobre as dependências de definição, consulte [definir dependências nos modelos Azure Resource Manager](resource-group-define-dependencies.md). |
+| propriedades |Não |Definições de configuração de recursos específicos. Os valores para as propriedades são os mesmos que os valores que fornecer no corpo do pedido para a operação de REST API (método PUT) criar o recurso. Também pode especificar uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, veja [referência de modelo](/azure/templates/). |
+| sku | Não | Alguns recursos permitem que os valores que definem o SKU para implementar. Por exemplo, pode especificar o tipo de redundância para uma conta de armazenamento. |
+| tipo | Não | Alguns recursos permitem que um valor que define o tipo de recurso que implementa. Por exemplo, pode especificar o tipo do Cosmos DB para criar. |
+| plano | Não | Alguns recursos permitem que os valores que definem o plano de implementar. Por exemplo, pode especificar a imagem do marketplace para uma máquina virtual. | 
+| recursos |Não |Recursos de subordinados que dependem do recurso que está a ser definido. Fornece apenas os tipos de recursos que são permitidos pelo esquema do recurso principal. O tipo totalmente qualificado do recurso subordinado inclui o tipo de recurso principal, como **Microsoft.Web/sites/extensions**. Dependência do recurso principal não está implícita. Tem de definir explicitamente essa dependência. |
+
+### <a name="condition"></a>Condição
+
+Quando tem de decidir durante a implementação se deve ou não criar um recurso, utilize o `condition` elemento. O valor para este elemento é resolvido para true ou false. Quando o valor for VERDADEIRO, o recurso é criado. Quando o valor for FALSO, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
+
+Normalmente, utiliza este valor quando pretender criar um novo recurso ou utilize um já existente. Por exemplo, para especificar se é implementada uma nova conta de armazenamento ou uma conta de armazenamento existente, utilize:
+
+```json
+{
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[variables('storageAccountName')]",
+    "apiVersion": "2017-06-01",
+    "location": "[resourceGroup().location]",
+    "sku": {
+        "name": "[variables('storageAccountType')]"
+    },
+    "kind": "Storage",
+    "properties": {}
+}
+```
+
+Para um modelo de exemplo completo que utilize o `condition` elemento, consulte [VM com uma rede Virtual nova ou existente, o armazenamento e o IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+
+### <a name="resource-names"></a>Nomes de recursos
+
+Em geral, trabalha com três tipos de nomes de recursos no Gestor de recursos:
+
+* Nomes de recursos tem de ser exclusivos.
+* Os nomes de recursos que não são necessárias para que seja exclusivo, mas optar por fornecer um nome que pode ajudá-lo a identificar o recurso.
+* Nomes de recursos que podem ser genéricos.
+
+Fornecer um **nome de recurso exclusiva** para qualquer tipo de recurso que tem um ponto de final de acesso de dados. Alguns tipos de recursos comuns que necessitam de um nome exclusivo incluem:
+
+* O armazenamento do Azure<sup>1</sup> 
+* Funcionalidade de Aplicações Web no Serviço de Aplicações do Azure
+* SQL Server
+* Azure Key Vault
+* Cache do Azure para Redis
+* Azure Batch
+* Traffic Manager do Azure
+* Azure Search
+* Azure HDInsight
+
+<sup>1</sup> nomes de conta de armazenamento também tem de estar em minúsculas, 24 carateres ou menos, e não tem qualquer hífenes.
+
+Ao definir o nome, pode manualmente criar um nome exclusivo ou utilizar o [uniqueString()](resource-group-template-functions-string.md#uniquestring) função para gerar um nome. Pode também querer adicionar um prefixo ou sufixo para a **uniqueString** resultado. Modificar o nome exclusivo pode ajudá-lo a mais fácil identificar o tipo de recurso do nome. Por exemplo, pode gerar um nome exclusivo para uma conta de armazenamento ao utilizar a seguinte variável:
+
+```json
+"variables": {
+  "storageAccountName": "[concat(uniqueString(resourceGroup().id),'storage')]"
+}
+```
+
+Para alguns tipos de recursos, pode querer fornecer uma **nome para a identificação**, mas o nome não tem de ser exclusivo. Para estes tipos de recursos, forneça um nome que a descreve ou características de utilização.
+
+```json
+"parameters": {
+  "vmName": { 
+    "type": "string",
+    "defaultValue": "demoLinuxVM",
+    "metadata": {
+      "description": "The name of the VM to create."
+    }
+  }
+}
+```
+
+Para tipos de recursos que principalmente acesso por meio de um recurso diferente, pode utilizar um **nome genérico** que está hard-coded no modelo. Por exemplo, pode definir um nome padrão, genérico para regras de firewall num SQL server:
+
+```json
+{
+  "type": "firewallrules",
+  "name": "AllowAllWindowsAzureIps",
+  ...
+}
+```
+
+### <a name="resource-location"></a>Localização do recurso
+
+Quando implementar um modelo, tem de fornecer uma localização de cada recurso. Diferentes tipos de recursos são suportados em localizações diferentes. Para obter as localizações suportadas para um tipo de recurso, consulte [fornecedores de recursos do Azure e tipos de](resource-manager-supported-services.md).
+
+Utilizar um parâmetro para especificar a localização para os recursos e defina o valor predefinido `resourceGroup().location`.
+
+O exemplo seguinte mostra uma conta de armazenamento que é implementada para uma localização especificada como um parâmetro:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "[parameters('storageAccountType')]"
+      },
+      "kind": "StorageV2",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('storageAccountName')]"
+    }
+  }
+}
+```
+
+### <a name="child-resources"></a>Recursos subordinados
+
+Dentro de alguns tipos de recursos, também pode definir uma matriz de recursos subordinados. Recursos subordinados são recursos que existem apenas dentro do contexto de outro recurso. Por exemplo, uma base de dados SQL não pode existir sem um SQL server para a base de dados é um filho do servidor. Pode definir a base de dados dentro da definição do servidor.
+
+```json
+{
+  "name": "exampleserver",
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2014-04-01",
+  ...
+  "resources": [
+    {
+      "name": "exampledatabase",
+      "type": "databases",
+      "apiVersion": "2014-04-01",
+      ...
+    }
+  ]
+}
+```
+
+Quando forem aninhadas, o tipo está definido como `databases` mas o tipo de recurso completo é `Microsoft.Sql/servers/databases`. Não fornecer `Microsoft.Sql/servers/` porque é suposto o pai do tipo de recurso. O nome do recurso subordinado está definido como `exampledatabase` , mas o nome completo inclui o nome do principal. Não fornecer `exampleserver` porque é suposto do recurso principal.
+
+O formato do tipo de recurso subordinado é: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+
+O formato do nome do recurso subordinado é: `{parent-resource-name}/{child-resource-name}`
+
+No entanto, não precisa de definir a base de dados no servidor. Pode definir os recursos filho no nível superior. Pode usar essa abordagem se o recurso de principal não está implementado no mesmo modelo, ou se pretende utilizar `copy` para criar mais do que um recurso de subordinados. Com esta abordagem, tem de fornecer o tipo de recurso completo e incluir o nome do recurso principal no nome do recurso subordinado.
+
+```json
+{
+  "name": "exampleserver",
+  "type": "Microsoft.Sql/servers",
+  "apiVersion": "2014-04-01",
+  "resources": [ 
+  ],
+  ...
+},
+{
+  "name": "exampleserver/exampledatabase",
+  "type": "Microsoft.Sql/servers/databases",
+  "apiVersion": "2014-04-01",
+  ...
+}
+```
+
+Ao construir uma referência completamente qualificada para um recurso, a ordem para combinar os segmentos do tipo e o nome não é simplesmente uma concatenação das duas. Em vez disso, depois do espaço de nomes, utilize uma seqüência de *nome do tipo* pares de menos específicos para a mais específica:
+
+```json
+{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]*
+```
+
+Por exemplo:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` está correto `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` não está correto
 
 ## <a name="outputs"></a>Saídas
 
@@ -716,20 +862,6 @@ No VS Code, pode definir o modo de idioma para JSON com comentários. Os coment�
 1. Selecione **JSON com comentários**.
 
    ![Selecione o modo de idioma](./media/resource-group-authoring-templates/select-json-comments.png)
-
-## <a name="template-limits"></a>Limites do modelo
-
-Limite o tamanho do seu modelo para 1 MB e cada ficheiro de parâmetros a 64 KB. O limite de 1 MB aplica-se para o estado final do modelo depois foi expandido com definições de recursos iterativo e valores de variáveis e parâmetros. 
-
-Também está limitado a:
-
-* 256 parâmetros
-* 256 variáveis
-* 800 recursos (incluindo o número de cópias)
-* 64 valores de saída
-* 24,576 caracteres numa expressão de modelo
-
-Pode exceder alguns limites de modelo ao utilizar um modelo aninhado. Para obter mais informações, consulte [utilizar modelos ligados durante a implantação de recursos do Azure](resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, pode combinar diversos valores num objeto. Para obter mais informações, consulte [objetos como parâmetros](resource-manager-objects-as-parameters.md).
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

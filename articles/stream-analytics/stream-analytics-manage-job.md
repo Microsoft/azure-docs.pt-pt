@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: dfdccaf929aa382c8003bc4c3cc0988a7123bf2d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7f3d5caf1d8fb03e989181bb13bcce274816baa7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316017"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441548"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analisar dados de chamada telefónica com o Stream Analytics e visualizar os resultados num dashboard do Power BI
 
@@ -236,7 +236,7 @@ Pode testar uma consulta do editor de consultas com dados de exemplo. Execute os
 
 4. Selecione **Testar** para testar a consulta. Deverá ver os seguintes resultados:
 
-   ![O put de teste de consulta do Stream Analytics](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Resultado do teste de consulta do Stream Analytics](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>Iniciar a tarefa e visualizar a saída
 

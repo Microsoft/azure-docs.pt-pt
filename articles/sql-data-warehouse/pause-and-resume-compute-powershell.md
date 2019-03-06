@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: aefb9b9f5da0f8fef5295b49fe0ee1431556e89f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6dd378f69dbf0c7cffe04d4b6a18fd3e6cda6b8b
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308878"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409980"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início rápido: Colocar em pausa e retomar a computação do Azure SQL Data Warehouse com o PowerShell
 Utilize o PowerShell para colocar em pausa a computação do Azure SQL Data Warehouse para reduzir os custos. [Retomar a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para utilizar o armazém de dados.
@@ -30,7 +30,7 @@ Este guia de introdução pressupõe que já tiver um armazém de dados SQL que 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão na sua subscrição do Azure com o [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) de comando e siga na tela as direções.
+Inicie sessão na sua subscrição do Azure com o [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) de comando e siga na tela as direções.
 
 ```powershell
 Connect-AzAccount

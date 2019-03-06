@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 2e0dc5c69a6cc875f4e673a494387db79c1dd1fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 718a519786f31d796b0cb2e3924c9361ebd65fbc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672557"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433251"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Criar uma aplicação de consola .NET para gerir dados na conta do Azure Cosmos DB SQL API (SDK versão 3 pré-visualização)
 
@@ -61,14 +61,14 @@ Vamos criar uma conta do Azure Cosmos DB. Se já tiver uma conta que pretende ut
 1. Abra o **Visual Studio 2017** no seu computador.
 1. No menu **Ficheiro**, selecione **Novo**, e, em seguida, escolha **Projeto**.
 1. Na **novo projeto** caixa de diálogo, selecione **Visual C#**   /  **aplicação de consola (.NET Framework)**, nomeie o projeto e, em seguida, clique em **OK** .
-    ![Captura de ecrã da janela Novo Projeto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
+    ![Captura de ecrã da janela novo projeto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. No **Explorador de Soluções**, clique com o botão direito do rato na sua nova aplicação de consola, que está sob a sua solução Visual Studio e, em seguida, clique em **Gerir Pacotes NuGet...**
     
     ![Captura de ecrã do Menu com Botão do Lado Direito para o Projeto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
 1. Na **NuGet** separador, clique em **procurar**e o tipo **Microsoft.Azure.Cosmos** na caixa de pesquisa. Certifique-se de que verifique *inclusão prelease* para localizar a pré-visualização.
 1. Nos resultados, localize **Microsoft.Azure.Cosmos** e clique em **instalar**.
    O ID do pacote para a Biblioteca de Cliente da API SQL do Azure Cosmos DB é [Biblioteca de Cliente do Microsoft Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Captura de ecrã do Menu NuGet para encontrar o SDK de Cliente do Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Captura de ecrã do NuGet Menu para encontrar o SDK de cliente do Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     Se obtiver uma mensagem sobre a revisão das alterações para a solução, clique em **OK**. Se obtiver uma mensagem sobre a aceitação de licença, clique em **Aceito**.
 

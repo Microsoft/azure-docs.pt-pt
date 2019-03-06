@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c0caece57885dfa3c26d368990a6af8e5b14eed6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823999"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441394"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerir uma máquina virtual do Azure com a recolha de inventário
 
@@ -105,7 +105,7 @@ Selecionar um grupo de máquina da lista abre a página de grupos de máquina. E
 
 Clique nas **+ Clone** botão para clonar o grupo de máquina. Aqui tem de dar o grupo de um novo nome e o alias para o grupo. A definição pode ser alterada neste momento. Depois de alterar o press de consulta **consulta para validar** para pré-visualizar as máquinas que seriam selecionadas. Quando estiver satisfeito com o grupo de clique **criar** para criar o grupo de máquina
 
-Se quiser criar um novo grupo de mchine, selecione **+ criar um grupo de máquina**. Este botão abre o **criar uma página do grupo de máquina** onde pode definir seu novo grupo. Clique em **criar** para criar o grupo.
+Se quiser criar um novo grupo de máquina, selecione **+ criar um grupo de máquina**. Este botão abre o **criar uma página do grupo de máquina** onde pode definir seu novo grupo. Clique em **criar** para criar o grupo.
 
 ![Criar novo grupo de máquina](./media/automation-vm-inventory/create-new-group.png)
 
