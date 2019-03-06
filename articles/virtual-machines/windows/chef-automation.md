@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 5378151d01418a81977f2fc2f562a6540bbb665d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6659b49ecfbcb6bf571fccc258a65aa547f72f86
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55663201"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453818"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatizar a implementação de máquinas virtuais do Azure com o Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -175,7 +175,7 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 Em seguida, [transferir e instalar](https://downloads.chef.io/chef-workstation/) Chef estação de trabalho.
 Instale a estação de trabalho do Chef a localização predefinida. Esta instalação pode demorar alguns minutos.
 
-Na área de trabalho, verá uma "PowerShell CW", o que é um ambiente carregado com a ferramenta, que precisará para interagir com os produtos da Chef. O PowerShell CW faz com que os novos comandos ad-hoc disponíveis, como `chef-run` comandos CLI do Chef, bem como tradicionais, como `chef`. Consulte a versão instalada do Chef estação de trabalho e as ferramentas do Chef com `chef -v`. Também pode verificar a sua versão de estação de trabalho ao selecionar "Sobre o Chef estação de trabalho" a partir da aplicação de estação de trabalho do Chef.
+Na área de trabalho, verá uma "PowerShell CW", o que é um ambiente carregado com a ferramenta, que precisará para interagir com os produtos da Chef. O PowerShell CW faz com que os novos comandos ad hoc disponíveis, como `chef-run` comandos CLI do Chef, bem como tradicionais, como `chef`. Consulte a versão instalada do Chef estação de trabalho e as ferramentas do Chef com `chef -v`. Também pode verificar a sua versão de estação de trabalho ao selecionar "Sobre o Chef estação de trabalho" a partir da aplicação de estação de trabalho do Chef.
 
 `chef --version` deverá devolver algo como:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 55a7a26815dac1140d100c05a47057f8d5000f9d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317820"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445488"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Começar com as funções, permissões e segurança com o Azure Monitor
 
@@ -160,7 +160,7 @@ New-AzRoleDefinition -Role $role
 Pode ser seguido de um padrão semelhante com os hubs de eventos, mas primeiro tem de criar uma regra de autorização de escutar dedicada. Se quiser conceder, acesso a um aplicativo que precisa apenas de ouvir os hubs de eventos relacionados com a monitorização, efetue o seguinte:
 
 1. Crie uma política de acesso partilhado no no hub de ou de event hubs que foram criadas para dados de monitorização com apenas afirmações de escuta de transmissão em fluxo. Isso pode ser feito no portal. Por exemplo, poderá chamar "monitoringReadOnly." Se possível, desejará dar essa chave diretamente para o consumidor e ignore o passo seguinte.
-2. Se o consumidor tem de ser capaz de obter o chave ad-hoc, conceda ao utilizador a ação de ListKeys para esse hub de eventos. Isso também é necessário para os utilizadores que têm de ser capaz de configurar uma definição de diagnóstico ou perfil de registo para o stream para os hubs de eventos. Por exemplo, pode criar uma regra RBAC:
+2. Se o consumidor tem de ser capaz de obter a chave de ad hoc, conceda ao utilizador a ação de ListKeys para esse hub de eventos. Isso também é necessário para os utilizadores que têm de ser capaz de configurar uma definição de diagnóstico ou perfil de registo para o stream para os hubs de eventos. Por exemplo, pode criar uma regra RBAC:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"

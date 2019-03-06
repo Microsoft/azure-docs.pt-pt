@@ -1,5 +1,5 @@
 ---
-title: Como iniciar sessão utilizando as duas etapas a verificação ou a segurança informações - Azure Active Directory | Documentos da Microsoft
+title: Inicie sessão com a validação em dois passos a verificação ou a segurança info - Azure Active Directory | Documentos da Microsoft
 description: Saiba mais sobre como iniciar sessão com os vários métodos de verificação de identidade das informações de segurança.
 services: active-directory
 author: eross-msft
@@ -11,13 +11,14 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aca321ac0902d115f4fc7622992d29183c1d35c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: c892d616609151b5ad6025b4d0b535c494e6af82
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452604"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454226"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicie sessão utilizando as informações de segurança ou de verificação de dois passos
 Depois de configurar a verificação de dois passos ou informações de segurança, poderá iniciar sessão na sua conta com o seu método de autenticação especificado.

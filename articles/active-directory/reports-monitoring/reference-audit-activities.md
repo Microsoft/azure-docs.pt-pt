@@ -17,12 +17,12 @@ ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a60f95bc8a98ea15c174f48bc3c3e63eae534d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 88fc78a1263ac4587a98288dc71df26385bc81ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164062"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453648"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referência da atividade de auditoria do Azure AD
 
@@ -66,10 +66,10 @@ Este artigo lista as atividades de auditoria que podem ser registadas nos seus r
 |Revisões de Acesso|Atualizar Revisão de Acesso|
 |Revisões de Acesso|Atualizar estado da inclusão de revisões de acesso do Azure AD|
 |Revisões de Acesso|Atualizar definições de notificação de correio da revisão de acesso|
-|Revisões de Acesso|Atualizar definição da contagem de recorrências da revisão de acesso|
-|Revisões de Acesso|Atualizar definição da duração de dias das recorrências da revisão de acesso|
-|Revisões de Acesso|Atualizar definição do tipo de fim das recorrências da revisão de acesso|
-|Revisões de Acesso|Atualizar definição do tipo de recorrência da revisão de acesso|
+|Revisões de Acesso|Atualizar a definição de contagem de periodicidade de revisões de acesso|
+|Revisões de Acesso|Atualizar a definição de duração em dias de periodicidade de revisões de acesso|
+|Revisões de Acesso|Atualizar a definição de tipo de fim de periodicidade de revisões de acesso|
+|Revisões de Acesso|Atualizar definição de tipo de periodicidade de revisões de acesso|
 |Revisões de Acesso|Atualizar definições de lembrete da revisão de acesso|
 |Revisões de Acesso|Atualizar programa|
 |Revisões de Acesso|Atualizar aprovação de pedidos|

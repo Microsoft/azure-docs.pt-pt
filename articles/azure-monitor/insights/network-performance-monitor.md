@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: cff96ecb4f4b20e7e3542f6ae6e3e7740b750235
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729800"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452135"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -119,19 +119,13 @@ Monitor de desempenho de rede utiliza transações sintéticas para monitorar o 
 
    **Monitor do ExpressRoute**: Selecione **detetar agora** para detetar todos os ExpressRoute peerings privados que estão ligados a redes virtuais na subscrição do Azure associado a esta área de trabalho do Log Analytics. 
 
-   >[!NOTE] 
-   > A solução atualmente Deteta apenas peerings privada do ExpressRoute. 
-
-   >[!NOTE] 
-   > Apenas são detetados peerings privados que estão ligados a redes virtuais associadas à subscrição que está associada a esta área de trabalho do Log Analytics. Se o ExpressRoute é ligado a redes virtuais fora da subscrição ligada a esta área de trabalho, crie uma área de trabalho do Log Analytics nessas subscrições. Utilize o Monitor de desempenho de rede para monitorizar os peerings.
-
    ![Modo de exibição de Monitor do ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
-   Depois de concluída a deteção, são listados os peerings privados detetados numa tabela. 
+   Depois de concluída a deteção, os circuitos detetados e peerings estão listados numa tabela. 
 
    ![Página de configuração de Monitor de desempenho de rede](media/network-performance-monitor/npm-private-peerings.png)
     
-A monitorização para estes peerings é inicialmente desabilitado. Selecione cada peering que pretende monitorizar e configurar a monitorização para os mesmos a partir da vista de detalhes à direita. Selecione **guardar** para guardar a configuração. Para obter mais informações, consulte o artigo "Configurar a monitorização de ExpressRoute". 
+A monitorização para estes peerings e circuitos está inicialmente desabilitado. Selecione cada recurso que pretende monitorizar e configurar a monitorização para os mesmos a partir da vista de detalhes à direita. Selecione **guardar** para guardar a configuração. Para obter mais informações, consulte o artigo "Configurar a monitorização de ExpressRoute". 
 
 Depois de concluída a configuração, que demora 30 minutos para uma hora para que os dados preencher. Embora a solução agrega dados de sua rede, verá a mensagem *solução requer configuração adicional* no Monitor de desempenho de rede **descrição geral** mosaico. Depois dos dados são recolhidos e indexados, a **descrição geral** mosaico é alterado e informa-o estado de funcionamento de rede num resumo. Em seguida, pode editar a monitorização de nós no qual o Log Analytics os agentes estiverem instalados, bem como as sub-redes detetadas a partir do seu ambiente.
 
@@ -269,7 +263,7 @@ Se for um utilizador NPM, criação de um alerta através do Portal do Azure:
 3. Se optar por utilizar grupos de ação, terá de selecionar um grupo de ação criado anteriormente. Pode saber como criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Depois do alerta for criado com êxito, pode utilizar o link de gerir alertas para gerir os alertas. 
 
-Sempre que cria um alerta, o NPM cria uma regra de alerta de registo de consulta com base no Azure Monitor. Esta consulta é triggerred cada 5 minutos por predefinição. Monitor do Azure não cobra para a 250 primeira registar regras de alerta criadas e quaisquer regras de alerta acima limitam de 250 regras de alerta de registo serão cobradas como [preço na página de preços do Azure Monitor de alertas](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Sempre que cria um alerta, o NPM cria uma regra de alerta de registo de consulta com base no Azure Monitor. Esta consulta é acionada cada 5 minutos por predefinição. Monitor do Azure não cobra para a 250 primeira registar regras de alerta criadas e quaisquer regras de alerta acima limitam de 250 regras de alerta de registo serão cobradas como [preço na página de preços do Azure Monitor de alertas](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 Notificações são cobradas em separado, de acordo [notificações de preço na página de preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
 
 

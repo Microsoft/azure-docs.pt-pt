@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d385fd8c8388e3ce54b89ff2ac863cd5a1aa0df
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 5cd3f7f1f1f17d6dedea0157760b03c7e55e3d8a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216140"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410099"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento de funções do Azure e alojamento
 
@@ -43,9 +43,6 @@ Num plano do serviço de aplicações, pode dimensionar entre camadas para aloca
 
 Quando estiver a utilizar um plano de consumo, instâncias do anfitrião de funções do Azure dinamicamente são adicionadas e removidas com base no número de eventos de entrada. Este plano sem servidor é dimensionado automaticamente e que lhe é cobrada para recursos de computação apenas quando as suas funções estão em execução. No plano de consumo, uma execução de função exceder o tempo limite após um período de tempo configurável.
 
-> [!NOTE]
-> O tempo limite predefinido para funções num plano de consumo é de 5 minutos. O valor pode ser aumentado para a aplicação de funções até um máximo de 10 minutos, alterando a propriedade `functionTimeout` no [Host. JSON](functions-host-json.md#functiontimeout) arquivo de projeto.
-
 A faturação baseia-se no número de execuções, tempo de execução e a memória utilizada. A faturação é agregada entre todas as funções dentro de uma aplicação de funções. Para obter mais informações, consulte a [funções do Azure, página de preços].
 
 O plano de consumo é o padrão de plano de alojamento e oferece as seguintes vantagens:
@@ -62,7 +59,7 @@ Considere um plano do serviço de aplicações nos seguintes casos:
 * Tem as VMs existentes, subutilizadas que já estejam a executar outras instâncias de serviço de aplicações.
 * As suas aplicações de função executam continuamente, ou quase contínua. Neste caso, um plano do serviço de aplicações pode ser mais económico.
 * Precisa de mais opções de CPU ou memória que o que é fornecido no plano de consumo.
-* O código precisa ser executado mais do que o tempo de execução máximo permitido no plano de consumo, o que é até 10 minutos.
+* O seu código precisa para ser executada mais do que o [tempo de execução máximo permitido](#timeout) no plano de consumo.
 * Precisa de funcionalidades que só estão disponíveis num plano do serviço de aplicações, como o suporte para o ambiente de serviço de aplicações, conectividade VPN da VNET/e tamanhos de VM maiores.
 * Pretende executar a aplicação de funções no Linux ou pretender fornecer uma imagem personalizada para executar as suas funções.
 
@@ -77,6 +74,8 @@ Ao executar as funções JavaScript num plano do serviço de aplicações, deve 
 ###<a name="always-on"></a> Always On
 
 Se executar num plano do serviço de aplicações, deve ativar os **sempre no** definição para que a aplicação function app é executada corretamente. Num plano do serviço de aplicações, o runtime das funções fica inativo após alguns minutos de inatividade, para que os acionadores HTTP só serão "despertar" as suas funções. Sempre está disponível apenas num plano do serviço de aplicações. No plano de consumo, a plataforma ativa aplicações function App automaticamente.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>O que é o meu plano de alojamento
 

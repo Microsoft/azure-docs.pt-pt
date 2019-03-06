@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: fff484f2ee6722083a34383b8960931cb37b8316
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 206cca95c590a01f69d3664fb87398bc2fcb4ad9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700451"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445794"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autorização e autenticação de reencaminhamento do Azure
 
@@ -29,7 +29,7 @@ Aplicativos podem ser autenticado no reencaminhamento do Azure através da auten
 
 [Autenticação de SAS](../service-bus-messaging/service-bus-sas.md) permite-lhe conceder um acesso de utilizador aos recursos de reencaminhamento do Azure com direitos específicos. Autenticação de SAS envolve a configuração de uma chave criptográfica com direitos associados de um recurso. Os clientes, em seguida, podem obter acesso a esse recurso através da apresentação de um token SAS, que consiste o URI que está sendo acessado do recurso e uma expiração assinada com a chave configurada.
 
-Pode configurar as chaves SAs num espaço de nomes do reencaminhamento. Ao contrário das mensagens do Service Bus, [ligações híbridas de reencaminhamento](relay-hybrid-connections-protocol.md) suporta remetentes não autorizadas ou anónimos. Pode ativar o acesso anónimo para a entidade aquando da criação, conforme mostrado na captura a partir do portal de ecrã seguinte:
+Pode configurar as chaves SAs num espaço de nomes do reencaminhamento. Ao contrário das mensagens do Service Bus, [ligações híbridas de reencaminhamento](relay-hybrid-connections-protocol.md) suporta remetentes não autorizadas ou anónimos. Pode ativar o acesso anónimo para a entidade aquando da criação, conforme mostrado na seguinte captura de ecrã do portal:
 
 ![][0]
 

@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 7ec99a79bd1c054c89dffcf7a179725929b89360
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 0c43c81528c2de656e1d788f6af6ba337d7aacb8
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805608"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403027"
 ---
 # <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
@@ -254,7 +254,7 @@ Cenários de baseado em tarefas, como um grande conjunto de dados com vários co
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
-[azure-instance-log]: /powershell/module/azurerm.containerinstance/get-Azcontainerinstancelog
+[azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
 [azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
-[new-Azcontainergroup]: /powershell/module/azurerm.containerinstance/new-Azcontainergroup
+[new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com

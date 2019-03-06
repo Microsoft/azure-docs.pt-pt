@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7403d4f791151b167f03ee79c30623bbd644008
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a82c3b3aef59ef53e5054f2beb2880e8a01dc8fa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100724"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448665"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementar um modelo como um serviço web num FPGA com o serviço Azure Machine Learning
 
@@ -51,7 +51,7 @@ Pode implementar um modelo como um serviço web no [campo matrizes de porta prog
 Para sua comodidade, este tutorial está disponível como bloco de notas do Jupyter. Siga o código aqui ou execute o [bloco de notas do guia de introdução](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Criar e implementar o seu modelo
-Criar um pipeline para pré-processar a imagem de entrada, caracterização usando 50 de utilizar o ResNet num FPGA e, em seguida, execute os recursos através de um classificador com base em com o conjunto de dados ImageNet.
+Criar um pipeline para pré-processar a imagem de entrada, torná-lo um recurso usando 50 de utilizar o ResNet num FPGA e, em seguida, execute os recursos através de um classificador com base em com o conjunto de dados ImageNet.
 
 Siga as instruções para:
 

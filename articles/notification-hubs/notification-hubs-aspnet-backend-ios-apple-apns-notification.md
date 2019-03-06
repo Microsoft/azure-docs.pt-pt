@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 23c532f6c344f8be37c3bf3d77f30effa4ec17e8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: d69a2a26fb0b487a3efa4b5376ca6480569aa846
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227714"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450894"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Notificações push para utilizadores específicos com os Hubs de notificação do Azure
 
@@ -54,7 +54,7 @@ Se pretender utilizar aplicações móveis que o seu serviço de back-end, consu
 
 2. Na `Main.storyboard` de ficheiros, adicione os componentes mostrados na captura de ecrã da biblioteca do objeto.
 
-    ![Editar storybard no construtor de interface do Xcode][1]
+    ![Editar o storyboard no construtor de interface do Xcode][1]
 
    * **Nome de utilizador**: Um UITextField com texto de marcador de posição *introduza o nome de utilizador*, imediatamente abaixo do envio resultados Etiquetar e restrita para as margens esquerdas e direita e sob a etiqueta de resultados de envio.
    * **palavra-passe**: Um UITextField com texto de marcador de posição *introduza a palavra-passe*, imediatamente abaixo do nome de utilizador restrito para as margens esquerdas e direita e sob o campo de texto do nome de utilizador e de campo de texto. Verifique a **Secure entrada de texto** opção o Inspetor de atributo, em *devolver chave*.

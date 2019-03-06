@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/05/2019
 ms.author: jowargo
-ms.openlocfilehash: d2de4a4be8838cf696d2d3ed6589e8f154a6ca05
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: c4932bcb890770ac3914198e511c3890e29b26cb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959851"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449925"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>Tutorial: Notificações push para dispositivos Android com Notification Hubs do Azure e o Google Firebase Cloud Messaging
 
@@ -74,7 +74,7 @@ Para concluir este tutorial, tem de ter uma conta ativa do Azure. Se não tiver 
 
 1. Selecione **Google (GCM/FCM)** sob **definições** no menu da esquerda. 
 2. Colar o **chave de servidor** para o projeto do FCM que guardou anteriormente. 
-3. Selct **guardar** na barra de ferramentas. 
+3. Selecione **Guardar** na barra de ferramentas. 
 
     ![Hubs de notificação do Azure – Google (FCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)
 4. Verá uma mensagem nos alertas que o hubs de notificação foi atualizada com êxito. O **guardar** botão está desativado. 
@@ -531,7 +531,7 @@ Pode enviar notificações push a partir do [portal do Azure] ao efetuar as segu
 5. Veja o **resultado** da operação na lista na parte inferior.
 
     ![Notification Hubs do Azure – Teste de Envio](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
-6. Ver a mensagem de notificaiton no seu dispositivo. 
+6. Ver a mensagem de notificação no seu dispositivo. 
 
     ![Mensagem de notificação no dispositivo](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-on-device.png)
     

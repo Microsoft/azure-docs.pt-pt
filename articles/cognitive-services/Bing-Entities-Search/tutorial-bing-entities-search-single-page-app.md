@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: eb1784374914846229b18fd6ee92068b4e8a7589
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 569ec697738860dc339a270d828c8908c31ac157
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858762"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454532"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
@@ -422,7 +422,7 @@ function renderSearchResults(results) {
     if (results.queryContext.alteredQuery) 
         document.forms.bing.query.value = results.queryContext.alteredQuery;
 
-    // for each possible section, render the resuts from that section
+    // for each possible section, render the results from that section
     for (section in {pole: 0, mainline: 0, sidebar: 0}) {
         if (results.rankingResponse[section])
             showDiv(section, renderResultsItems(section, results));

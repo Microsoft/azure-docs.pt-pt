@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/28/2019
+ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 60d004413fbdf01b271231f754aef5aa46b48763
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: a65f326498427f5180baa677ea3a22d1f5207e36
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196256"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-excelityglobal"></a>Tutorial: Integração do Active Directory do Azure com ExcelityGlobal
 
@@ -106,19 +106,19 @@ Para configurar o Azure AD início de sessão único com ExcelityGlobal, execute
 
     a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
 
-    **Para produção Envoronment** : `https://ess.excelityglobal.com`
+    **Para o ambiente de produção** : `https://ess.excelityglobal.com`
 
-    **Para Sandbox Envoronment** : `https://s6.excelityglobal.com`
+    **Para o ambiente de Sandbox** : `https://s6.excelityglobal.com`
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
 
-    **Para produção Envoronment** : `https://ess.excelityglobal.com/ACS`
+    **Para o ambiente de produção** : `https://ess.excelityglobal.com/ACS`
 
-    **Para Sandbox Envoronment** : `https://s6.excelityglobal.com/ACS`
+    **Para o ambiente de Sandbox** : `https://s6.excelityglobal.com/ACS`
 
 5. Seu aplicativo ExcelityGlobal espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Aplicação ExcelityGlobal espera **nameidentifier** seja mapeado com **user.mail**, por isso terá de editar o mapeamento do atributo clicando no **editar** ícone e alterar o mapeamento do atributo.
  
-    ![image](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. Na **certificado de assinatura SAML** secção, clique em **editar** botão para abrir **certificado de assinatura SAML** caixa de diálogo.
 
@@ -140,7 +140,7 @@ Para configurar o Azure AD início de sessão único com ExcelityGlobal, execute
 
 ### <a name="configure-excelityglobal-single-sign-on"></a>Configurar ExcelityGlobal Single Sign-On
 
-Para configurar o início de sessão único num **ExcelityGlobal** lado, terá de enviar o **valor do Thumbprint** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de ExcelityGlobal](mailto:yashwanths@quinnox.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **ExcelityGlobal** lado, terá de enviar o **valor do Thumbprint** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -195,7 +195,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-excelityglobal-test-user"></a>Criar utilizador de teste ExcelityGlobal
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no ExcelityGlobal. Trabalhar com [equipa de suporte de ExcelityGlobal](mailto:yashwanths@quinnox.com) para adicionar os utilizadores na plataforma ExcelityGlobal. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no ExcelityGlobal. Trabalhar com [equipa de suporte de ExcelityGlobal](https://www.excelityglobal.com/contact-us/our-locations/) para adicionar os utilizadores na plataforma ExcelityGlobal. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

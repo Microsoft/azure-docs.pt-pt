@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: e0c1ec55a7f21ad223629d6d478cbd97c7974abb
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237982"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448890"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chamar a sua instância de pesquisa personalizada do Bing do Portal
 
 Após configurar a sua experiência de pesquisa personalizada, pode testá-lo de dentro da pesquisa personalizada do Bing [portal](https://customsearch.ai). 
 
-![uma captura de ecrã do portal de pesquisa personalizada do bing](media/portal-search-screen.png)
+![uma captura de ecrã do portal de pesquisa personalizada do Bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Criar uma consulta de pesquisa 
 
 Depois de se para a pesquisa personalizada do Bing [portal](https://customsearch.ai), selecione a sua instância de pesquisa e clique nas **produção** separador. Sob **pontos de extremidade**, selecione um ponto final de API (por exemplo, API Web). A subscrição determina quais pontos de extremidade são exibidos.

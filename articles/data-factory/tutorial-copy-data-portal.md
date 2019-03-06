@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 1aca53c876b6cc982c141d74cdf727f9c966adfe
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0ca4b3b353dd3985680fbf71afbf5ba6a35644fa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233868"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456283"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de blobs do Azure para a base de dados SQL com o Azure Data Factory
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O pipeline nesta fábrica de dados copia os dados do Armazenamento de blobs do Azure para uma base de dados SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -176,7 +176,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 1. Vá para o separador **Sink** e selecione **+ Novo** para criar um conjunto de dados sink. 
 
     ![Conjunto de dados sink](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. Na janela **Novo Conjunto de Dados**, introduza "SQL" na caixa de pesquisa para filtrar os conectores e, em seguida, selecione **Base de Dados SQL do Azure** e **Concluir**. Neste tutorial, vai copiar dados para uma base de dados SQL. 
+1. Na **novo conjunto de dados** "SQL" de entrada de janela, na caixa de pesquisa para filtrar os conectores, em seguida, selecione **base de dados do Azure SQL**e, em seguida, selecione **concluir**. Neste tutorial, vai copiar dados para uma base de dados SQL. 
 
     ![Seleção de base de dados SQL](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
 1. No separador **Geral** da janela **Propriedades**, em **Nome**, introduza **OutputSqlDataset**. 
@@ -232,7 +232,7 @@ Pode depurar um pipeline antes de publicar artefactos (serviços ligados, conjun
 
 1. Para depurar o pipeline, selecione **Depurar** na barra de ferramentas. Verá o estado da execução do pipeline no separador **Saída**, na parte inferior da janela. 
 
-1. Assim que o pipeline puder ser executado com êxito, na barra de ferramentas superior, selecione **Publicar Tudo**. Esta ação publica as entidades (conjuntos de dados e pipeline) que criou no Data Factory.
+1. Assim que o pipeline pode executar com êxito, na barra de ferramentas superior, selecione **publicar tudo**. Esta ação publica as entidades (conjuntos de dados e pipeline) que criou no Data Factory.
 
     ![Publicar](./media/tutorial-copy-data-portal/publish-button.png)
 

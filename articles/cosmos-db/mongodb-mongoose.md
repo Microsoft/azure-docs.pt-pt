@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 26eccfd2a144d5bfcb285e6b52af246c3eefde75
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: c1343326b6db18608eb6a8994957d560124116ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822039"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450707"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ligar uma aplicação Mongoose node. js ao Azure Cosmos DB
 
@@ -183,7 +183,7 @@ O comportamento predefinido do Mongoose é criar uma coleção MongoDB sempre qu
 
 1. Agora, vai no portal do Azure, para que o nas duas coleções criadas no Cosmos DB.
 
-    ![Tutorial Node.js - Captura de ecrã do portal do Azure, que mostra uma conta do Azure Cosmos DB, com vários nomes de coleções realçados - base de dados Node][multiple-coll]
+    ![NODE. js tutorial nó - captura de ecrã do portal do Azure, com uma conta do Azure Cosmos DB, com vários nomes de coleções realçados - base de dados][multiple-coll]
 
 1. Por fim, vamos ler os dados do Cosmos DB. Uma vez que estamos a utilizar o modelo operativo Mongoose predefinido, as leituras são idênticas a quaisquer outras leituras com o Mongoose.
 
@@ -288,7 +288,7 @@ Aqui, vamos criar um modelo de objeto base, definir uma chave diferenciadora e a
 
 1. Agora, se voltar ao portal do Azure, poderá notar que tem apenas uma coleção chamada ```alldata``` com os dados de «Family» e «VacationDestinations».
 
-    ![Tutorial Node.js - Captura de ecrã do portal do Azure, que mostra uma conta do Azure Cosmos DB, com o nome da coleção realçado - base de dados Node][alldata]
+    ![NODE. js tutorial nó - captura de ecrã do portal do Azure, com uma conta do Azure Cosmos DB, com o nome da coleção realçado - base de dados][alldata]
 
 1. Além disso, repare que cada objeto tem outro atributo denominado ```__type```, que ajuda a diferenciar entre os dois modelos de objeto diferentes.
 

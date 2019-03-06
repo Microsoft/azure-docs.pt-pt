@@ -1,5 +1,5 @@
 ---
-title: 'Ligar uma rede virtual a um circuito do ExpressRoute: CLI: Azure | Documentos da Microsoft'
+title: 'Ligar uma rede virtual a um circuito do ExpressRoute: CLI: Azure| Microsoft Docs'
 description: Este artigo mostra-lhe como ligar redes virtuais (VNets) para circuitos do ExpressRoute com o modelo de implementação do Resource Manager e a CLI.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman,cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ae97fff6a81f437510def1141dd226ad4e67209a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5ddcfe14873d13384b043f7a977dc4f069dbe8dd
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074048"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408263"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Ligar uma rede virtual a um circuito do ExpressRoute com a CLI
 
@@ -125,7 +125,7 @@ az network express-route auth delete --circuit-name MyCircuit -g ExpressRouteRes
 O utilizador de circuito tem o ID de elemento de rede e uma chave de autorização do proprietário do circuito. A chave de autorização é um GUID.
 
 ```azurecli
-Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 ```
 
 **Para resgatar uma autorização de conexão**

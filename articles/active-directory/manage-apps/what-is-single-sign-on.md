@@ -12,12 +12,12 @@ ms.date: 02/21/2019
 ms.author: celested
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93d5a08d08a67a14d2e78f414fc40e7391653951
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 186bc220778ed669672bfbc689dad6471195f4ce
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593697"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448565"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 Início de sessão único (SSO) adiciona segurança e conveniência, quando os utilizadores início de sessão em aplicações no Azure Active Directory (Azure AD). Este artigo descreve os métodos de início de sessão únicos e ajuda a escolher o método mais apropriado de SSO quando configurar as suas aplicações.
@@ -153,11 +153,11 @@ Este diagrama explica o fluxo quando um utilizador acede a uma aplicação no lo
 
 ![Diagrama de fluxo de autenticação do Microsoft AAD](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. O utilizador introduz o URL para aceder a aplicações no local através do Proxy de aplicações.
+1. O utilizador introduz o URL para aceder à aplicação de local no através do Proxy de aplicações.
 2. Proxy da aplicação redireciona o pedido para serviços de autenticação do Azure AD para preauthenticate. Neste momento, aplica-se do Azure AD qualquer autenticação aplicável e políticas de autorização, como a autenticação multifator. Se o utilizador for validado, o Azure AD cria um token e envia-os para o utilizador.
 3. O utilizador passa o token para o Proxy de aplicações.
 4. Proxy da aplicação valida o token e recupera o nome Principal de utilizador (UPN) do token. -Lo, em seguida, envia o pedido, o UPN e o nome Principal do serviço (SPN) para o conector através de um canal seguro dually autenticado.
-5. O conector utiliza a negociação de Kerberos Constrained Delegation (KCD) com o local AD, representar o utilizador para obter um token de Kerberos para o aplicativo.
+5. O conector utiliza a negociação de Kerberos Constrained Delegation (KCD) com o AD, representar o utilizador para obter um token de Kerberos para o aplicativo de no local.
 6. Do Active Directory envia o token de Kerberos para a aplicação para o conector.
 7. O conector envia a solicitação original para o servidor de aplicações, com o token Kerberos que recebeu do AD.
 8. A aplicação envia a resposta para o conector, que, em seguida, é devolvido para o serviço de Proxy da aplicação e, finalmente, para o usuário.

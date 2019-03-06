@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 0cc9c8dc214589e03e5a6a5405c07c9f6b3e53e6
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 373d7d4b421b3e679a5bb0f843db47e28eebbcc1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895844"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451931"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação após desastre de máquinas de virtuais de VMware no local ou servidores físicos para um site secundário
 
@@ -159,7 +159,7 @@ Atualização do Scout 7 é um instalador completo que pode ser utilizado para a
 #### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>Atualização manual para PHP e MySQL no CS, PS e RX
 A plataforma de script PHP deve ser atualizada para a versão 7.2.10 no servidor de configuração, o servidor de processos e o servidor RX.
 O sistema de gestão de base de dados MySQL deve ser atualizado para a versão 5.7.23 no servidor de configuração, o servidor de processos e o servidor RX.
-Siga os passos manaual fornecidos na [guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide) para atualizar as versões do PHP e MySQL.
+Siga os passos manuais fornecidos na [guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide) para atualizar as versões do PHP e MySQL.
 
 ### <a name="site-recovery-scout-801-update-6"></a>Atualização do Scout 8.0.1 de recuperação de sites 6 
 Atualizado: 12 de Outubro de 2017

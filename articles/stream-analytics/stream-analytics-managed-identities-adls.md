@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4537d15f88732d4b0c3c3cf514d6b8528af10f81
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8b8d56befa49b74ba123ff250720ac581604bbd6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737472"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452331"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticar o Stream Analytics para geração 1 de armazenamento do Azure Data Lake com identidades geridas (pré-visualização)
 
@@ -172,14 +172,14 @@ Este artigo mostra três formas de ativar a identidade gerida para uma tarefa do
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   Para saber mais sobre o comando acima do PowerShell, consulte a [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry#optional-parameters) documentação.
+   Para saber mais sobre o comando acima do PowerShell, consulte a [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) documentação.
 
 ## <a name="limitations"></a>Limitações
 Esta funcionalidade não suporta o seguinte:
 
 1.  **Acesso de multi-inquilino**: O principal de serviço criado para uma determinada tarefa do Stream Analytics irão residir no inquilino do Azure Active Directory no qual a tarefa foi criada e não pode ser utilizada em relação a um recurso que reside num inquilino do Azure Active Directory diferente. Por conseguinte, só pode utilizar o MSI nos recursos do ADLS Gen 1 que estão no mesmo inquilino do Azure Active Directory como a tarefa do Azure Stream Analytics. 
 
-2.  **[Identidade de utilizador atribuída](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka/)**: não é suportado isso significa que o utilizador não é capaz de introduzir as suas próprias principal de serviço a ser utilizado pelo seu trabalho do Stream Analytics. O principal de serviço é gerado pelo Azure Stream Analytics. 
+2.  **[Identidade de utilizador atribuída](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**: não é suportado isso significa que o utilizador não é capaz de introduzir as suas próprias principal de serviço a ser utilizado pelo seu trabalho do Stream Analytics. O principal de serviço é gerado pelo Azure Stream Analytics. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

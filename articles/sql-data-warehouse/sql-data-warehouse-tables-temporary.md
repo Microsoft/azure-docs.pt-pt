@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: db13064c93381f87f82959ed3386abfc0a8e4593
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c989e53113557219e13dd730ac43621d3824baac
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238667"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434764"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelas temporárias no SQL Data Warehouse
 Este artigo contém orientações essenciais para a utilização de tabelas temporárias e realça os princípios de tabelas temporárias ao nível de sessão. Usando as informações deste artigo pode ajudá-lo a modulariza o código, melhorando a capacidade de reutilização e facilidade de manutenção do seu código.
@@ -193,7 +193,7 @@ FROM    t1
 GO
 ```
 
-Nesta fase, a única ação que tenha ocorrido é a criação de um procedimento armazenado que generatess uma tabela temporária, stats_ddl #, com instruções DDL.  Este procedimento armazenado ignora #stats_ddl se já existe para garantir que ele não falha se mais de uma vez executado dentro de uma sessão.  No entanto, uma vez que não existe nenhum `DROP TABLE` no final do procedimento armazenado, quando o procedimento armazenado é concluído, ele deixa a tabela criada para que possa ser lido fora o procedimento armazenado.  No SQL Data Warehouse, ao contrário de outras bases de dados do SQL Server, é possível utilizar a tabela temporária fora o procedimento que o criou.  Tabelas temporárias do SQL Data Warehouse podem ser utilizadas **em qualquer lugar** dentro da sessão. Isso pode levar a mais modular e gerenciável de código como no exemplo seguinte:
+Nesta fase, a única ação que tenha ocorrido é a criação de um procedimento armazenado que gera uma tabela temporária, stats_ddl #, com instruções DDL.  Este procedimento armazenado ignora #stats_ddl se já existe para garantir que ele não falha se mais de uma vez executado dentro de uma sessão.  No entanto, uma vez que não existe nenhum `DROP TABLE` no final do procedimento armazenado, quando o procedimento armazenado é concluído, ele deixa a tabela criada para que possa ser lido fora o procedimento armazenado.  No SQL Data Warehouse, ao contrário de outras bases de dados do SQL Server, é possível utilizar a tabela temporária fora o procedimento que o criou.  Tabelas temporárias do SQL Data Warehouse podem ser utilizadas **em qualquer lugar** dentro da sessão. Isso pode levar a mais modular e gerenciável de código como no exemplo seguinte:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;

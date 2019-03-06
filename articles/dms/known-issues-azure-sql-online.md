@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/11/2019
-ms.openlocfilehash: b066c7f6c32b6e9fe1c1f63b5db88b4deaa2edae
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.date: 03/05/2019
+ms.openlocfilehash: a5f44e5f7f19507723eeb75518a9a573d6563e2b
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231823"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337214"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>Limitações de migração/problemas conhecidos com as migrações de online para a BD SQL do Azure
 
@@ -28,7 +28,7 @@ Problemas conhecidos e limitações associadas a migrações online do SQL Serve
 
 Se a sua base de dados de origem é composta por um ou mais tabelas temporais, a migração de base de dados falha durante a operação de "carregamento de dados completa" e pode ver a seguinte mensagem:
 
-{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Erro de migração de base de dados", "errorEvents": "[" funcionalidades de captura não foi possível definir. RetCode: SQL_ERROR SqlState: 42000 NativeError: Mensagem 13570: [Microsoft] [SQL Server Native Client 11.0][SQL] [SQL Server] a utilização da replicação não é suportado com a tabela temporal com versão do sistema "[aplicativo. Cidades] "linha: 1 coluna: -1 "]"}
+{"resourceId": "/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType": "Erro de migração de base de dados", "errorEvents": "[" funcionalidades de captura não foi possível definir. RetCode: SQL_ERROR SqlState: 42000 NativeError: Mensagem 13570: [Microsoft] [SQL Server Native Client 11.0][SQL] [SQL Server] a utilização da replicação não é suportado com a tabela temporal com versão do sistema "[aplicativo. Cidades] "linha: 1 Column: -1 "]" }
  
  ![Exemplo de erros de tabela temporal](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
@@ -89,7 +89,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 **Solução**
 
-Se tiver uma coluna de LOB que é maior do que 32 KB, contacte a equipa de engenharia em [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+Se tiver uma coluna de LOB que é maior do que 32 KB, contacte a equipa de engenharia em [faça migrações de base de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="issues-with-timestamp-columns"></a>Problemas com as colunas timestamp
 
@@ -99,7 +99,7 @@ O DMS não migrar o valor da origem timestamp; em vez disso, o DMS gera um novo 
 
 **Solução**
 
-Se precisar de DMS para migrar o valor exato timestamp armazenado na tabela de origem, contacte a equipa de engenharia em [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
+Se precisar de DMS para migrar o valor exato timestamp armazenado na tabela de origem, contacte a equipa de engenharia em [faça migrações de base de dados do Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 ### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>Erros de migração de dados não fornecem detalhes adicionais no painel de estado detalhado da base de dados.
 

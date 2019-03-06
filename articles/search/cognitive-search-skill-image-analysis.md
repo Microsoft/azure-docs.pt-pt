@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1ebe600a305e6dbc2790d50c6e1eafcfda19c9b8
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 75c453c9ac501eea681af32643a40e941555ffbd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749448"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454923"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Habilidade de cognitiva de análise de imagem
 
@@ -37,7 +37,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
 | defaultLanguageCode   |  Uma cadeia que indica o idioma para retornar. O serviço retorna resultados de reconhecimento num idioma especificado. Se este parâmetro não for especificado, o valor predefinido é "en". <br/><br/>Idiomas suportados são: <br/>*EN* -inglês (predefinição) <br/> *zh* -chinês simplificado|
-|visualFeatures |   Uma matriz de cadeias que indica os tipos de recurso visual para retornar. Os tipos de recurso visual válidos incluem:  <ul><li> *categorias* -categoriza o conteúdo da imagem de acordo com uma taxonomia definido nos serviços cognitivos [documentação](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *etiquetas* -marca a imagem com uma lista detalhada das palavras relacionadas com o conteúdo de imagem.</li><li>*Descrição* -descreve a imagem de conteúdo com uma sentença em inglês completa.</li><li>*Rostos* -Deteta se os rostos estão presentes. Se estiver presente, gera as coordenadas, sexo e idade.</li><li> *ImageType* -Deteta se a imagem é clipart ou um desenho de linha.</li><li>   *Cor* -determina a cor de destaque, a cor dominante, e se uma imagem é preta e branco.</li><li>*Para adultos* -Deteta se a imagem é pornográfico por natureza (ilustra nudez ou um ato de sexo). Conteúdo sexualmente suggestive também é detetado.</li></ul> Nomes dos recursos do visual diferenciam maiúsculas de minúsculas.|
+|visualFeatures |   Uma matriz de cadeias que indica os tipos de recurso visual para retornar. Os tipos de recurso visual válidos incluem:  <ul><li> *categorias* -categoriza o conteúdo da imagem de acordo com uma taxonomia definido nos serviços cognitivos [documentação](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *etiquetas* -marca a imagem com uma lista detalhada das palavras relacionadas com o conteúdo de imagem.</li><li>*Descrição* -descreve a imagem de conteúdo com uma sentença em inglês completa.</li><li>*Rostos* -Deteta se os rostos estão presentes. Se estiver presente, gera as coordenadas, sexo e idade.</li><li> *ImageType* -Deteta se a imagem é clip-art ou um desenho de linha.</li><li>  *Cor* -determina a cor de destaque, a cor dominante, e se uma imagem é preta e branco.</li><li>*Para adultos* -Deteta se a imagem é pornográfico por natureza (ilustra nudez ou um ato de sexo). Conteúdo sexualmente suggestive também é detetado.</li></ul> Nomes dos recursos do visual diferenciam maiúsculas de minúsculas.|
 | detalhes   | Uma matriz de cadeias que indica quais específicas do domínio fornece detalhes sobre a devolver. Os tipos de recurso visual válidos incluem: <ul><li>*Celebridades* -identifica celebridades detetada na imagem.</li><li>*Pontos de referência* -identifica pontos de referência detetada na imagem.</li></ul>
  |
 

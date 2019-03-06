@@ -9,15 +9,15 @@ ms.author: johndeu
 ms.date: 02/09/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f07b2d128bd770854b7c240fd3c964d880029d3c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 76c5c5d90045e1697f698895e522ffda47d47565
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999016"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447726"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locais recomendados
-Quando em direto de transmissão em fluxo com os serviços de multimédia do Azure, pode especificar como pretende que o canal para receber o fluxo de entrada. Se optar por utilizar um codificador no local com um canal de codificação em direto, o seu codificador deve enviar um fluxo de velocidade única de alta qualidade como saída. Se optar por utilizar um codificador no local com um pass-through canal, seu codificador deve enviar um fluxo de velocidade de transmissão como saída com todas as qualidades de saída desejada. Para obter mais informações, consulte [transmissão em fluxo com codificadores no local do Live](media-services-live-streaming-with-onprem-encoders.md).
+Quando em direto de transmissão em fluxo com os serviços de multimédia do Azure, pode especificar como pretende que o canal para receber o fluxo de entrada. Se optar por utilizar um codificador de locais com um canal de codificação em direto, o seu codificador deve enviar um fluxo de velocidade única de alta qualidade como saída. Se optar por utilizar um codificador de locais com um pass-through canal, seu codificador deve enviar um fluxo de velocidade de transmissão como saída com todas as qualidades de saída desejada. Para obter mais informações, consulte [transmissão em fluxo em direto com no local codificadores](media-services-live-streaming-with-onprem-encoders.md).
 
 Serviços de multimédia do Azure recomenda a utilização de um dos seguintes codificadores em direto que tenham RTMP como saída:
 - Suporte de dados de Adobe Flash Live Encoder 3.2
@@ -44,8 +44,8 @@ Serviços de multimédia do Azure recomenda a utilização de um dos seguintes c
 > [!NOTE]
 > Um codificador em direto pode enviar um fluxo de velocidade de transmissão única para um pass-through canal, mas esta configuração não é recomendada porque ele não permite que a velocidade de transmissão adaptável de transmissão em fluxo para o cliente.
 
-## <a name="how-to-become-an-on-prem-encoder-partner"></a>Como se tornar um parceiro de codificador no local
-Como parceiro de codificador de serviços de multimédia do Azure no local, serviços de multimédia promove seu produto ao recomendar seu codificador para os clientes empresariais. Para se tornar um parceiro de codificador no local, tem de verificar a compatibilidade de seu codificador no local com os Media Services. Para fazê-lo, conclua as seguintes verificações:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Como se tornar um parceiro de codificador no local
+Como um Media Services do Azure no parceiro de codificador no local, serviços de multimédia promove seu produto ao recomendar seu codificador para os clientes empresariais. Para se tornar um parceiro de codificador no local, tem de verificar a compatibilidade de seu codificador no local em serviços de multimédia. Para fazê-lo, conclua as seguintes verificações:
 
 Passar a verificação de canal
 1. Criar ou visite a sua conta de Media Services do Azure

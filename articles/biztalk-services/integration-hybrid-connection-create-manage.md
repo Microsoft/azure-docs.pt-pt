@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0a9197c8c46cc480f5f096f1d2ef98c0d5823f35
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232985"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455790"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Criar e Gerir Ligações Híbridas
 
@@ -42,7 +42,7 @@ Este tópico lista estes passos.
 > Por exemplo (pseudocódigo), define **10.4.5.6** como seu host de locais:
 > 
 > **O seguinte cenário funciona:**  
-> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on-prem host`
+> `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
 > **O seguinte cenário não funciona:**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
@@ -55,8 +55,8 @@ Pode ser criada uma ligação híbrida [ligações híbridas do Azure App Servic
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 #### <a name="additional"></a>Adicionais
-* É possível criar várias ligações híbridas. Consulte a [os serviços BizTalk: gráfico de edições](biztalk-editions-feature-chart.md) para o número de ligações permitido. 
-* Cada ligação híbrida é criada com um par de cadeias de ligação: esse chaves de envio e no local que ESCUTAM as chaves de aplicação. Cada par tem um site primário e uma chave secundária. 
+* É possível criar várias ligações híbridas. Consulte o [os serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md) para o número de ligações permitido. 
+* Cada ligação híbrida é criada com um par de cadeias de ligação: Chaves da aplicação que envie e chaves que ESCUTAM locais. Cada par tem um site primário e uma chave secundária. 
 
 ## <a name="LinkWebSite"></a>Ligue a sua aplicação Web do serviço de aplicações do Azure ou a aplicação móvel
 Para ligar uma aplicação Web ou aplicação móvel no serviço de aplicações do Azure a uma ligação híbrida existente, selecione **utilizar uma ligação híbrida existente** no painel de ligações híbridas. 
@@ -119,9 +119,9 @@ Depois de o copiar, pode utilizar o Editor de diretiva de grupo para alterar a p
 
 ## <a name="see-also"></a>Consultar Também
 [API REST para Gerir os BizTalk Services no Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[Serviços BizTalk: Gráfico de Edições](biztalk-editions-feature-chart.md)  
+[Serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md)  
 [Criar um Serviço BizTalk](biztalk-provision-services.md)  
-[Serviços BizTalk: Separadores Dashboard, Monitorizar e Dimensionar](biztalk-dashboard-monitor-scale-tabs.md)
+[Serviços BizTalk: Separadores dashboard, monitorizar e dimensionar](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png

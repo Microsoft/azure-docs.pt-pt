@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2465dd6c22567a3d8b50a7cfad4e26491bbe773e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 10d97b71ca0b52674ccf349f445f5397a08e4c4d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885205"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453104"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar a primeira fábrica de dados do Azure com a API REST do Data Factory
 > [!div class="op_single_selector"]
@@ -46,6 +46,9 @@ O pipeline neste tutorial tem uma atividade: **Atividade do Hive do HDInsight**.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Leia o artigo [Descrição Geral do Tutorial](data-factory-build-your-first-pipeline.md) e conclua os passos de **pré-requisitos**.
 * Instale o [Curl](https://curl.haxx.se/dlwiz/) no seu computador. Utilize a ferramenta CURL com comandos REST para criar uma fábrica de dados.
 * Siga as instruções [neste artigo](../../active-directory/develop/howto-create-service-principal-portal.md) para:
@@ -55,13 +58,13 @@ O pipeline neste tutorial tem uma atividade: **Atividade do Hive do HDInsight**.
   4. Atribuir a aplicação **ADFGetStartedApp** à função para o **Contribuinte do Data Factory**.
 * Instale o [Azure PowerShell](/powershell/azure/overview).
 * Inicie o **PowerShell** e execute o seguinte comando. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
-  1. Execute **Connect-AzureRmAccount** e introduza o nome de utilizador e a palavra-passe que utiliza para iniciar sessão no portal do Azure.
-  2. Execute **Get-AzureRmSubscription** para ver todas as subscrições para esta conta.
-  3. Execute **Get AzureRmSubscription - SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** para selecionar a subscrição com a qual pretende trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua subscrição do Azure.
+  1. Execute **Connect-AzAccount** e introduza o nome de utilizador e palavra-passe que utiliza para iniciar sessão no portal do Azure.
+  2. Execute **Get-AzSubscription** para ver todas as subscrições para esta conta.
+  3. Executar **Get AzSubscription - SubscriptionName NameOfAzureSubscription | Conjunto AzContext** para selecionar a subscrição que pretende trabalhar com. Substitua **NameOfAzureSubscription** pelo nome da sua subscrição do Azure.
 * Crie um grupo de recursos do Azure denominado **ADFTutorialResourceGroup** ao executar o comando seguinte no PowerShell:
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
    Alguns dos passos deste tutorial pressupõe que utiliza o grupo de recursos com o nome ADFTutorialResourceGroup. Se utilizar um grupo de recursos diferente, terá de utilizar o nome do grupo de recursos em vez de ADFTutorialResourceGroup neste tutorial.
@@ -325,12 +328,12 @@ Tenha em atenção os seguintes pontos:
   * No Azure PowerShell, execute o seguinte comando para registar o fornecedor do Data Factory:
 
     ```PowerShell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
       Pode executar o seguinte comando para confirmar que o fornecedor do Data Factory está registado:
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Inicie sessão com a subscrição do Azure no [Portal do Azure](https://portal.azure.com) e navegue até um painel do Data Factory (ou) crie uma fábrica de dados no Portal do Azure. Esta ação regista automaticamente o fornecedor por si.
 

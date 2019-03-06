@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: 5814c3f386ed31d8804469fa1a261ab9bda6b8f8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9400753d50eff84512448b3d46b50c924d00d182
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865863"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446066"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure com o modelo do Resource Manager
 
@@ -121,7 +121,7 @@ Para saber como obter as Ferramentas do HDInsight no Visual Studio, veja [Utiliz
 
 Tem duas opções para criar e executar consultas do Hive:
 
-* Criar consultas ad-hoc
+* Criar consultas ad hoc
 * Criar uma aplicação do Hive
 
 Para criar e executar consultas ad hoc:

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5ea510d8335437cb43f3e8824ec73175c35dcd03
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454679"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452373"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparar as unidades de disco rígido para uma tarefa de importação
 Para preparar um ou mais unidades de disco rígido para uma tarefa de importação, siga estes passos:
@@ -108,7 +108,7 @@ Para preparar um ou mais unidades de disco rígido para uma tarefa de importaç�
 |**/csas:**<ContainerSas\>|`Optional`. O contentor de SAS para utilizar para importar dados para a conta de armazenamento. Tem de incluir qualquer um **/sk:**< StorageAccountKey\> ou **/csas:**< ContainerSas\> no comando.<br /><br /> O valor para este parâmetro tem de começar com o nome do contentor, seguido de um ponto de interrogação (?) e o token SAS. Por exemplo:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> As permissões, se especificado no URL ou de uma política de acesso armazenadas, tem de incluir leitura, escrita e eliminação para tarefas de importação e leitura, escrita e lista para tarefas de exportação.<br /><br /> Quando este parâmetro for especificado, todos os blobs para ser importado ou exportado tem de estar dentro do contentor especificado na assinatura de acesso partilhado.|
 |**/t:**<TargetDriveLetter\>|`Required.` A letra de unidade de disco de rígido de destino para a sessão de cópia atual, sem os dois pontos à direita.|
 |**/format**|`Optional.` Especificar este parâmetro quando a unidade tem de ser formatado; caso contrário, omita. Antes da ferramenta formata o disco, irá solicitar a confirmação da consola. Para suprimir a confirmação, especifique o parâmetro de /silentmode.|
-|**/silentmode**|`Optional.` Especifica este parâmetro para suprimir a confirmação para formatar a unidade de targert.|
+|**/silentmode**|`Optional.` Especifica este parâmetro para suprimir a confirmação para formatar a unidade de destino.|
 |**/encrypt**|`Optional.` Especificar este parâmetro quando a unidade não tenha sido criptografada com BitLocker e tem de ser encriptados pela ferramenta. Se a unidade já foi criptografada com BitLocker, em seguida, se omitir este parâmetro e especificar o `/bk` parâmetro, fornecendo a chave do BitLocker existente.<br /><br /> Se especificar a `/format` parâmetro, em seguida, também tem de especificar o `/encrypt` parâmetro.|
 |**/bk:**<BitLockerKey\>|`Optional.` Se `/encrypt` é especificado, omitir este parâmetro. Se `/encrypt` é omitido, é necessário ter já encriptou a unidade com o BitLocker. Utilize este parâmetro para especificar a chave do BitLocker. Criptografia de disco BitLocker é necessária para todos os discos rígidos para tarefas de importação.|
 |**/logdir:**<LogDirectory\>|`Optional.` O diretório de registo Especifica um diretório a ser utilizado para armazenar registos verbosos, bem como arquivos de manifesto temporários. Se não for especificado, será utilizado o diretório atual como o diretório de registo.|

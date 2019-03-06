@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: xpouyat
-ms.openlocfilehash: 1954ccf07badbd4632c653bb1af4d6e96153e1fb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6aefa6b8745d14f59981520660b1f4c1323f8617
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000085"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456164"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento Microsoft® Smooth Streaming cliente Kit de migração 
 ## <a name="overview"></a>Descrição geral
@@ -125,7 +125,7 @@ Até lá e Final SSPK licenciados podem enviar perguntas técnicas para [ smooth
 * Dongguan Digital AV Technology Corp., Ltd.
 * EchoStar Purchasing Corporation
 * Enseo, Inc.
-* Filmflex filmes limitado
+* FilmFlex Movies Limited
 * Fluendo S.A.
 * Gibson inovações limitado
 * Haier Information Applicantion S.R.L

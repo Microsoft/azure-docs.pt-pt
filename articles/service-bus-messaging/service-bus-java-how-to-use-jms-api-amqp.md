@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 23a0c731eea22a772d7423bc3047af1183d55b7f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 2cba3744180a257638aca202d44fa433a5e1a2bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312894"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453410"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como utilizar o Java Message Service (JMS) API com do Service Bus e AMQP 1.0
 O Advanced Message colocação Protocol (AMQP) 1.0 é um protocolo de mensagens eficiente, fiável e ao nível da transmissão que pode utilizar para criar aplicativos de mensagens robustos e para várias plataformas.
@@ -341,6 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
+## <a name="jms-topics-vs-service-bus-topics"></a>Tópicos de JMS vs. Tópicos de Service Bus
+Utilizar tópicos de Service bus do Azure e subscrições através de Java Message Service (JMS) API fornece básica enviar e receber recursos. É uma opção conveniente ao portar aplicativos a partir de outros mediadores de mensagens com as APIs em conformidade JMS, apesar de tópicos do Service Bus diferem dos tópicos de JMS e exigem alguns ajustes. 
+
+Tópicos de Service Bus do Azure rotear mensagens para subscrições com nome, partilhadas, duráveis, que são geridas através da interface de gestão de recursos do Azure, as ferramentas de linha de comandos do Azure, ou através do portal do Azure. Cada subscrição permite até 2000 regras de seleção, cada um dos quais podem ter uma condição de filtro e, para filtros do SQL, também uma ação de transformação de metadados. Cada correspondência de condição de filtro seleciona a mensagem de entrada seja copiado para a subscrição da tehj.  
+
+Receber mensagens de subscrições é idêntico a receção de mensagens de filas. Cada subscrição tem uma fila de mensagens não entregues associada, bem como a capacidade para encaminhar automaticamente a mensagens a outra fila ou tópicos. 
+
+Tópicos de JMS permitir aos clientes criar dinamicamente os assinantes nondurable duráveis e de que, opcionalmente, permitem a filtragem de mensagens com os seletores de mensagem. Estas entidades partilhadas não são suportadas pelo Service Bus. No entanto, a sintaxe de regra de filtro do SQL Server para o Service Bus é muito semelhante à sintaxe de Seletor de mensagem suportados pelo JMS. 
+
+O lado de publicador do tópico JMS é compatível com o Service Bus, conforme mostrado neste exemplo, mas os assinantes dinâmicos não são. As APIs de JMS relacionados com a topologia seguintes não são suportadas com o Service Bus. 
 
 ## <a name="unsupported-features-and-restrictions"></a>Funcionalidades não suportadas e restrições
 As seguintes restrições existem ao utilizar JMS através do AMQP 1.0 com o Service Bus, ou seja:

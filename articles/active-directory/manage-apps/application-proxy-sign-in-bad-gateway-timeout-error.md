@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc032a15a2938333cd25d05c271187f218f9be4d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 995f9d2bc0ad0a6b985790d75a63866a3a2d55bc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206808"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445369"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 
@@ -69,7 +69,7 @@ Se confirmar que é atribuída ao utilizador para a aplicação no Azure, verifi
 
 ## <a name="check-the-applications-internal-url"></a>Verifique o URL interno do aplicativo
 
-Como primeiro passo rápido, confirme e corrigir a URL interna ao abrir a aplicação através de **aplicações empresariais**, em seguida, selecionar o **Proxy de aplicações** menu. Certifique-se de que o URL interno é utilizada a partir da sua rede no local para aceder à aplicação.
+Como primeiro passo rápido, confirme e corrigir a URL interna ao abrir a aplicação através de **aplicações empresariais**, em seguida, selecionar o **Proxy de aplicações** menu. Verifique se que o URL interno é a utilizada a partir de sua rede no local para aceder à aplicação.
 
 ## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>Verifique a aplicação é atribuída a um grupo de conectores em funcionamento
 
@@ -85,7 +85,7 @@ Para verificar a aplicação é atribuído a um grupo de conectores em funcionam
 
   * Mova um conector do Active Directory para o grupo: Se tiver um conector do Active Directory deve pertencer a este grupo e com a linha de visão para a aplicação de back-end de destino, pode mover o conector para o grupo atribuído. Para tal, clique o conector. No campo do "Grupo de conectores", use a menu pendente para selecionar o grupo correto e clique em Guardar.
 
-  * Transferir um novo conector para esse grupo: Nesta página, pode obter a ligação para [transferir um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Typicall, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
+  * Transferir um novo conector para esse grupo: Nesta página, pode obter a ligação para [transferir um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Normalmente, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
 
   * Investigar um conector inativo: Se um conector mostra como inativo, não consegue contactar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver este problema, passarei para "Verifique se todas as portas necessárias estão na lista de permissões".
 

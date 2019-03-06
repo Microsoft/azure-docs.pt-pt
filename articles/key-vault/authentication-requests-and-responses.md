@@ -3,7 +3,7 @@ title: Autenticação, Pedidos e Respostas
 description: Autenticar com o AD para utilizar o Key Vault
 services: key-vault
 documentationcenter: ''
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
-ms.openlocfilehash: 57f04a79396cd286ea87e6a8cc7b37f5459fa14c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.author: mbaldwin
+ms.openlocfilehash: defb351f0efa5264e21928ab90a0dca12454e074
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111531"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404345"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
 

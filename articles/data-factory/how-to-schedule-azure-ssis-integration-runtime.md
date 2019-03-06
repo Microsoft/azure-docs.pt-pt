@@ -13,17 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2f08d5b8548b8b7af282356d41c26442edd145b0
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fe38ffd5e9e57c0357417144e733311f3b14ea83
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669586"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448344"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Runtime de integração Azure-SSIS com base numa agenda
 Este artigo descreve como agendar a iniciar e parar do Azure-SSIS Integration Runtime (IR) com o Azure Data Factory (ADF). Runtime de integração Azure-SSIS é dedicado para a execução de pacotes do SQL Server Integration Services (SSIS) de recurso de computação do ADF. Executar o IR Azure-SSIS tem um custo associado ele. Portanto, normalmente pretende executar o runtime de integração apenas quando tiver de executar pacotes do SSIS no Azure e parar o runtime de integração, quando não precisa mais. Pode usar a Interface de utilizador do ADF (IU) / aplicação ou o Azure PowerShell para [manualmente iniciar ou parar o runtime de integração](manage-azure-ssis-integration-runtime.md)).
 
 Em alternativa, pode criar atividades Web no ADF pipelines para iniciar/parar o runtime de integração numa agenda, por exemplo, a partir da manhã antes de executar as suas cargas de trabalho ETL diárias e pará-la à tarde depois que elas são feitas.  Também pode encadear uma atividade de executar o pacote do SSIS entre duas atividades Web que iniciar e parar o runtime de integração, para que o runtime de integração irá iniciar/parar a pedido e just-in-time anteriores e posteriores a execução do pacote. Para mais informações sobre a atividade de executar o pacote do SSIS, veja [executar um pacote do SSIS com a atividade de executar o pacote do SSIS no pipeline do ADF](how-to-invoke-ssis-package-ssis-activity.md) artigo.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Se não aprovisionou o runtime de integração Azure-SSIS já, aprovisioná-lo ao seguir as instruções no [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
@@ -188,19 +190,19 @@ Utilize scripts como nos exemplos seguintes para monitorizar os pipelines e acio
 1. Obtenha o estado de uma execução de pipeline.
 
   ```powershell
-  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
   ```
 
 2. Obter informações sobre um acionador.
 
   ```powershell
-  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
   ```
 
 3. Obtenha o estado de uma execução de Acionador.
 
   ```powershell
-  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
   ```
 
 ## <a name="create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir"></a>Criar e agendar o runbook de automatização do Azure que é iniciada/interrompida IR Azure-SSIS
@@ -292,7 +294,7 @@ A secção seguinte fornece passos para criar um runbook do PowerShell. O script
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
     
         "Logging in to Azure..."
-        Connect-AzureRmAccount `
+        Connect-AzAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -312,12 +314,12 @@ A secção seguinte fornece passos para criar um runbook do PowerShell. O script
     if($Operation -eq "START" -or $operation -eq "start")
     {
         "##### Starting #####"
-        Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $AzureSSISName -Force
+        Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $AzureSSISName -Force
     }
     elseif($Operation -eq "STOP" -or $operation -eq "stop")
     {
         "##### Stopping #####"
-        Stop-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
+        Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Force
     }  
     "##### Completed #####"    
     ```
@@ -328,7 +330,7 @@ A secção seguinte fornece passos para criar um runbook do PowerShell. O script
 
    ![Botão de runbook de iniciar](./media/how-to-schedule-azure-ssis-integration-runtime/start-runbook-button.png)
     
-5. Na **iniciar Runbook** painel, faça o seguinte ations: 
+5. Na **iniciar Runbook** painel, fazer as seguintes ações: 
 
     1. Para **nome do grupo de recursos**, introduza o nome do grupo de recursos com o ADF com o ir Azure-SSIS. 
     2. Para **nome da fábrica de dados**, introduza o nome do seu ADF com o ir Azure-SSIS. 

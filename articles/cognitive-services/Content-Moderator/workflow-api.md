@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56b3bffc7aca1ace4dfae78cdcd4394daae9360e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0a13d86afe3d395cb34f592b03c1eb9daa18076b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872799"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454861"
 ---
 # <a name="automate-moderation-reviews-with-workflows"></a>Automatizar as revisões de moderação com fluxos de trabalho
 
@@ -243,4 +243,4 @@ Para saber como criar fluxos de trabalho personalizados, consulte a [reveja o tu
 
 Faça o test drive da [consola de API de fluxo de trabalho](try-review-api-job.md) e utilize os exemplos de código da REST API. 
 
-Por último, utilize os fluxos de trabalho personalizados com o **tarefa** operações como shon na [consola de API de tarefa](try-review-api-job.md) e o [início rápido para trabalhos .NET](moderation-jobs-quickstart-dotnet.md).
+Por último, utilize os fluxos de trabalho personalizados com o **tarefa** operações, conforme mostrado na [consola de API de tarefa](try-review-api-job.md) e o [início rápido para trabalhos .NET](moderation-jobs-quickstart-dotnet.md).

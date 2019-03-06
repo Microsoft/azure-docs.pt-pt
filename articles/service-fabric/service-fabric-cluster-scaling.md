@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: d93ebb01c905be6bf799ed6e4a037e3ddfdc2430
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 527ab4ee0edaf3ac2048403d7063edef8fc58ae8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094177"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451982"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Clusters de dimensionamento do Azure Service Fabric
 Um cluster do Service Fabric é um conjunto ligado à rede de máquinas virtuais ou físicas, no qual os microsserviços são implementados e geridos. Uma máquina ou VM que faça parte de um cluster é chamado de nó. Clusters podem conter potencialmente milhares de nós. Depois de criar um cluster do Service Fabric, pode dimensionar o cluster horizontalmente (alterar o número de nós) ou na vertical (alterar os recursos de nós).  Pode dimensionar o cluster em qualquer altura, mesmo quando as cargas de trabalho em execução no cluster.  Como dimensiona o cluster, as aplicações são dimensionadas automaticamente também.
@@ -81,7 +81,7 @@ Quando dimensionar um cluster do Azure, considere a diretriz seguinte:
 O processo de aumentando ou reduzindo, um tipo de nó é diferente consoante seja um tipo de nó não principal ou primária.
 
 ### <a name="scaling-non-primary-node-types"></a>Tipos de nós não primário de dimensionamento
-Crie um novo tipo de nó com os recursos que necessários.  Atualize as restrições de posicionamento de serviços para incluir o novo tipo de nó em execução.  Gradualmente (um por vez), reduzir a contagem de instâncias de contagem de instâncias de tipo de nó antigo para zero, para que a confiabilidade do cluster não é afetada.  Serviços gradualmente serão migrados para o novo tipo de nó, como o tipo de nó antigo é decommisioned.
+Crie um novo tipo de nó com os recursos que necessários.  Atualize as restrições de posicionamento de serviços para incluir o novo tipo de nó em execução.  Gradualmente (um por vez), reduzir a contagem de instâncias de contagem de instâncias de tipo de nó antigo para zero, para que a confiabilidade do cluster não é afetada.  Serviços gradualmente serão migrados para o novo tipo de nó, como o tipo de nó antigo está desativado.
 
 ### <a name="scaling-the-primary-node-type"></a>Dimensionar o tipo de nó primário
 Recomendamos que não altere o SKU de VM do tipo de nó primário. Se precisar de mais capacidade de cluster, recomendamos que adicione mais instâncias. 

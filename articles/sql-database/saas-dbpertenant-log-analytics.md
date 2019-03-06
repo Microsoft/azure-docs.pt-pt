@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b283f2691d2cb3135007a752348a8d9759e870f5
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 6380488faa9a4554df5df5ea67e11dbeb8853fff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214168"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455926"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>Configurar e utilizar os registos do Azure Monitor com uma aplicação de SQL da base de dados SaaS multi-inquilino
 
@@ -57,7 +57,7 @@ As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log
 
 1. Agora, inicie o gerador de carga para executar uma carga simulada em todos os inquilinos.
 
-    a. Definir **$DemoScenario = 2**, _gerar carga de intensidade normal (aprox. 30 DTU)_.
+    a. Definir **$DemoScenario = 2**, _gerar carga de intensidade normal (aproximadamente 30 DTU)_.
 
     b. Para executar o script, pressione F5.
 

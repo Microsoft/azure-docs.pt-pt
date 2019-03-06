@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f65b9904b15815c997c1608940109ad296ee6007
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7b32a493dc7dc8aa3ac2bbf1f195a43621c7449a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822872"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447188"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Fábrica de dados do Azure - referência de scripts JSON
 > [!NOTE]
@@ -26,6 +26,8 @@ ms.locfileid: "55822872"
 
 
 Este artigo fornece os esquemas JSON e exemplos para definir entidades do Azure Data Factory (pipeline, atividade, conjunto de dados e serviço ligado).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="pipeline"></a>Pipeline
 Segue-se a estrutura de alto nível para uma definição de pipeline:
@@ -50,7 +52,7 @@ A tabela seguinte descreve as propriedades no pipeline definição JSON:
 | nome | Nome do pipeline. Especifique um nome que represente a ação que a atividade ou o pipeline está configurado para fazer<br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
 | descrição |Texto que descreve o que a atividade ou o pipeline é utilizado para | Não |
 | atividades | Contém uma lista de atividades. | Sim |
-| start |Data-hora de início para o pipeline. Tem de estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41. <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM estimativa<br/><br/>As propriedades de início e de fim especificam em conjunto o período ativo do pipeline. Apenas os setores de saída são produzidos neste período de Active Directory. |Não<br/><br/>Se especificar um valor para a propriedade final, tem de especificar o valor da propriedade de início.<br/><br/>As horas de início e de fim podem de estar vazias para criar um pipeline. Tem de especificar ambos os valores para definir um período de Active Directory para o execução do pipeline. Se não especificar horários de início e fim quando criar um pipeline, pode configurá-los usando o cmdlet Set-AzureRmDataFactoryPipelineActivePeriod mais tarde. |
+| start |Data-hora de início para o pipeline. Tem de estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41. <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM estimativa<br/><br/>As propriedades de início e de fim especificam em conjunto o período ativo do pipeline. Apenas os setores de saída são produzidos neste período de Active Directory. |Não<br/><br/>Se especificar um valor para a propriedade final, tem de especificar o valor da propriedade de início.<br/><br/>As horas de início e de fim podem de estar vazias para criar um pipeline. Tem de especificar ambos os valores para definir um período de Active Directory para o execução do pipeline. Se não especificar horários de início e fim quando criar um pipeline, pode configurá-los usando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
 | end |Data / hora de fim do pipeline. Se for especificado tem de estar no formato ISO. Por exemplo: 2014-10-14T17:32:41 <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM estimativa<br/><br/>Para executar o pipeline de forma indefinida, especifique a 9999-09-09 como o valor para a propriedade final. |Não <br/><br/>Se especificar um valor para a propriedade de início, tem de especificar o valor da propriedade end.<br/><br/>Consulte as notas para o **iniciar** propriedade. |
 | isPaused |Se definido como true, o pipeline não é executado. Valor predefinido = false. Pode utilizar esta propriedade para ativar ou desativar. |Não |
 | pipelineMode |O método para agendar execuções do pipeline. Valores permitidos são: agendada (predefinição), onetime.<br/><br/>"Agendada" indica que o pipeline é executado num intervalo de tempo especificado, de acordo com o período ativo (hora de início e de fim). "Única" indica que o pipeline é executado apenas uma vez. Pipelines onetime, uma vez criadas não podem ser modificado/atualizado atualmente. Ver [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) para obter detalhes sobre a definição de onetime. |Não |
@@ -2230,13 +2232,13 @@ Para definir um SAP Business Warehouse (BW) serviço de ligado, defina o **tipo*
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância do SAP BW. | cadeia | Sim
+servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
 systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
 clientId | ID de cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
-o nome de utilizador | Nome de utilizador que tem acesso ao servidor SAP | cadeia | Sim
-palavra-passe | A palavra-passe do utilizador. | cadeia | Sim
-gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP BW no local. | cadeia | Sim
-encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
+o nome de utilizador | Nome de utilizador que tem acesso ao servidor SAP | string | Sim
+palavra-passe | A palavra-passe do utilizador. | string | Sim
+gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP BW no local. | string | Sim
+encryptedCredential | A cadeia de credencial encriptada. | string | Não
 
 #### <a name="example"></a>Exemplo
 
@@ -2340,12 +2342,12 @@ Para definir um SAP HANA de serviço ligado, defina o **tipo** do serviço ligad
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | cadeia | Sim
+servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | string | Sim
 authenticationType | Tipo de autenticação. | cadeia de caracteres. "Básico" ou "Windows" | Sim
-o nome de utilizador | Nome de utilizador que tem acesso ao servidor SAP | cadeia | Sim
-palavra-passe | A palavra-passe do utilizador. | cadeia | Sim
-gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP HANA no local. | cadeia | Sim
-encryptedCredential | A cadeia de credencial encriptada. | cadeia | Não
+o nome de utilizador | Nome de utilizador que tem acesso ao servidor SAP | string | Sim
+palavra-passe | A palavra-passe do utilizador. | string | Sim
+gatewayName | Nome do gateway que o serviço Data Factory deve utilizar para ligar à instância de SAP HANA no local. | string | Sim
+encryptedCredential | A cadeia de credencial encriptada. | string | Não
 
 #### <a name="example"></a>Exemplo
 
@@ -2458,7 +2460,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\nome de utilizador**. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 
-Pode criptografar as credenciais com o **New-AzureRmDataFactoryEncryptValue** cmdlet e utilizá-los na cadeia de ligação, conforme mostrado no exemplo a seguir (**EncryptedCredential** propriedade):
+Pode criptografar as credenciais com o **New-AzDataFactoryEncryptValue** cmdlet e utilizá-los na cadeia de ligação, conforme mostrado no exemplo a seguir (**EncryptedCredential** propriedade):
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -3151,7 +3153,7 @@ Para definir um Amazon S3 serviço ligado, defina o **tipo** do serviço ligado 
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso a segredos. |cadeia |Sim |
+| accessKeyID |ID da chave de acesso a segredos. |string |Sim |
 | secretAccessKey |A chave de acesso a segredos em si. |Cadeia secreta encriptada |Sim |
 
 #### <a name="example"></a>Exemplo
@@ -3319,7 +3321,7 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados do Azure com
 | anfitrião |Especifica o caminho de raiz da pasta que pretende copiar. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver definições de serviço e o conjunto de dados de exemplo ligada para obter exemplos. |Sim |
 | ID de utilizador |Especifica o ID de utilizador que tem acesso ao servidor. |Não (se escolher encryptedCredential) |
 | palavra-passe |Especifique a palavra-passe para o utilizador (ID de utilizador). |Não (se escolher encryptedCredential |
-| encryptedCredential |Especifique as credenciais encriptadas que pode obter ao executar o cmdlet New-AzureRmDataFactoryEncryptValue. |Não (se optar por especificar o ID de utilizador e palavra-passe em texto simples) |
+| encryptedCredential |Especifique as credenciais encriptadas que pode obter ao executar o cmdlet New-AzDataFactoryEncryptValue. |Não (se optar por especificar o ID de utilizador e palavra-passe em texto simples) |
 | gatewayName |Especifica o nome do gateway que o Data Factory deve utilizar para ligar ao servidor de ficheiros no local. |Sim |
 
 #### <a name="sample-folder-path-definitions"></a>Definições de caminho de pasta de exemplo
@@ -3732,7 +3734,7 @@ Para definir um HDFS serviço ligado, defina o **tipo** do serviço ligado para 
 | userName |Autenticação de nome de utilizador para Windows. |Sim (para autenticação do Windows) |
 | palavra-passe |Palavra-passe para a autenticação do Windows. |Sim (para autenticação do Windows) |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar para o HDFS. |Sim |
-| encryptedCredential |[Novo AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) saída da credencial de acesso. |Não |
+| encryptedCredential |[Novo AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) saída da credencial de acesso. |Não |
 
 #### <a name="example-using-anonymous-authentication"></a>Exemplo: Utilizar a autenticação anónima
 
@@ -4462,7 +4464,7 @@ Para definir um ODBC serviço ligado, defina o **tipo** do serviço ligado para 
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Exemplo - usando a autenticação básica com as credenciais encriptadas
-Pode criptografar as credenciais a utilizar o [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) cmdlet (1.0 versão do Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 ou anterior versão do Azure PowerShell).
+Pode criptografar as credenciais a utilizar o [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
 
 ```json
 {
@@ -5062,7 +5064,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | o nome de utilizador |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\nome de utilizador**. |Não |
 | palavra-passe |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 
-Pode criptografar as credenciais com o **New-AzureRmDataFactoryEncryptValue** cmdlet e utilizá-los na cadeia de ligação, conforme mostrado no exemplo a seguir (**EncryptedCredential** propriedade):
+Pode criptografar as credenciais com o **New-AzDataFactoryEncryptValue** cmdlet e utilizá-los na cadeia de ligação, conforme mostrado no exemplo a seguir (**EncryptedCredential** propriedade):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5125,7 +5127,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| script |Especifique o inline de script do Hive |Não |
+| Script |Especifique o inline de script do Hive |Não |
 | caminho do script |Store o script do Hive num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
 | Define |Especifique parâmetros como pares chave/valor para a referenciar dentro do script do Hive com o 'hiveconf' |Não |
 
@@ -5171,7 +5173,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| script |Especifique o inline de script Pig |Não |
+| Script |Especifique o inline de script Pig |Não |
 | caminho do script |Store o script Pig num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
 | Define |Especifique parâmetros como pares chave/valor para fazer referência no Pig script |Não |
 
@@ -5525,7 +5527,7 @@ Pode especificar as seguintes propriedades numa definição de JSON de atividade
 |:--- |:--- |:--- |
 | scriptPath |Caminho para a pasta que contém o script de U-SQL. Nome do ficheiro diferencia maiúsculas de minúsculas. |Não (se usar o script) |
 | scriptLinkedService |Serviço ligado que liga o armazenamento que contém o script para a fábrica de dados |Não (se usar o script) |
-| script |Especifique o script inline em vez de especificar scriptPath e scriptLinkedService. Por exemplo: "script": "Teste de criar o banco de dados". |Não (se usar scriptPath e scriptLinkedService) |
+| Script |Especifique o script inline em vez de especificar scriptPath e scriptLinkedService. Por exemplo: "script": "Teste de criar o banco de dados". |Não (se usar scriptPath e scriptLinkedService) |
 | degreeOfParallelism |O número máximo de nós em simultâneo utilizada para executar a tarefa. |Não |
 | prioridade |Determina quais os trabalhos em fila de espera devem ser selecionados para executar primeiro. Menor o número, maior será a prioridade. |Não |
 | parâmetros |Parâmetros para o script de U-SQL |Não |

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 03/01/2019
-ms.openlocfilehash: 00b20b3f144a2e98fb028e3db7c50af61330d721
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 801b7de4b82c37503f2a14619112cbf46ca60a43
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316460"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447086"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de base de dados SQL para o servidor de base de dados do Azure SQL
 
@@ -96,6 +96,11 @@ Formação de tráfego do registo taxa Governador é exibida por meio dos seguin
 | HADR_THROTTLE_LOG_RATE_SEND_RECV_QUEUE_SIZE | Controlo de comentários, replicação física do grupo de disponibilidade no Premium/críticas para a empresa não manter atualizado |  
 | HADR_THROTTLE_LOG_RATE_LOG_SIZE | Controlo de comentários, limitação de taxas para evitar um fora de condição de espaço de registo |
 ||||
+
+Ao se deparar com um limite de taxa de registo é hampering escalabilidade desejada, considere as seguintes opções:
+- Aumentar verticalmente para um escalão superior, para que a velocidade máxima de log MB/s 48. 
+- Se os dados a serem carregados são transitórios, ou seja, testar dados num processo de ETL, que pode ser carregado para a tempdb (que é registado no mínimo). 
+- Para cenários de análise, carregar para uma tabela columnstore em cluster abordado. Isso reduz a taxa de registo necessário devido à compactação. Essa técnica aumente a utilização da CPU e só é aplicável a conjuntos de dados que tiram partido de índices columnstore em cluster. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

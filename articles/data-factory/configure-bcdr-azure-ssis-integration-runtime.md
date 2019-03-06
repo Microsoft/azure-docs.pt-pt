@@ -13,18 +13,20 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2012ccf4d9fd3e62ba248f29f922f868077e4061
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055196"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453036"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurar o Runtime de integração Azure-SSIS com georreplicação de base de dados do Azure SQL e ativação pós-falha
 
 Este artigo descreve como configurar o Runtime de integração Azure-SSIS com georreplicação SQL Database do Azure para a base de dados SSISDB. Quando ocorre uma ativação pós-falha, pode certificar-se de que o IR Azure-SSIS mantém trabalhar com a base de dados secundário.
 
-Para mais informações sobre a georreplicação e ativação pós-falha para a base de dados SQL, veja [descrição geral: grupos de georreplicação e ativação pós-falha automática Active Directory](../sql-database/sql-database-geo-replication-overview.md).
+Para mais informações sobre a georreplicação e ativação pós-falha para a base de dados SQL, veja [descrição geral: Grupos de georreplicação e ativação pós-falha automática Active Directory](../sql-database/sql-database-geo-replication-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Cenário 1 - IR Azure-SSIS está a apontar para o ponto final de escuta de leitura / escrita
 
@@ -87,7 +89,7 @@ Siga estes passos para parar o runtime de integração Azure-SSIS, mude o IR par
 2. Chame o seguinte comando no PowerShell para atualizar o runtime de integração com as novas definições.
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `
+    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
                     -CatalogServerEndpoint "Azure SQL Database server endpoint" `
                     -CatalogAdminCredential "Azure SQL Database server admin credentials" `
                     -VNetId "new VNet" `

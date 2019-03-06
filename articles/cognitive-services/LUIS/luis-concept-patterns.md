@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1c408a77f0bdd097db1fb462fa06245133773b71
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: af73d78b911d59f68c5e824931b5634d8c69f309
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195392"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449007"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
 Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe obter maior exatidão para um objetivo sem fornecer expressões de com muitos mais. 
@@ -62,7 +62,7 @@ Entidades em padrões são rodeadas por chavetas, `{}`. Padrões podem incluir e
 
 Sintaxe do padrão dá suporte a seguinte sintaxe:
 
-|Função|Sintaxe|[Nível de aninhamento](#nesting-syntax)|Exemplo|
+|Função|Sintaxe|Nível de aninhamento|Exemplo|
 |--|--|--|--|
 |entidade| {} -chaves de saída|2|Onde está o formulário {nome da entidade}?|
 |opcional|[] - Parênteses Retos<BR><BR>Existe um limite de 3 em níveis de aninhamento de qualquer combinação de opcional e agrupamentos |2|O ponto de interrogação é opcional [?]|
@@ -167,7 +167,7 @@ Marcar o texto opcional na expressão usando a sintaxe de colchete de expressão
 |Padrão com o texto opcional|Significado|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` e `from {person}` são opcionais|
-|' Pode me ajudar a [?] | A marca de pontuação é opcional|
+|' Pode me ajudar a [?]|A marca de pontuação é opcional|
 
 Marcas de pontuação (`?`, `!`, `.`) devem ser ignorados e terá de ignorá-los usando a sintaxe de colchete em padrões. 
 

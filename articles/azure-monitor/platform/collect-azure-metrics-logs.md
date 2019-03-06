@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 2137a2e1d7cea9f2a2dbf565295323cb133513ee
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ae4e4487b3d9df4b2cf756174f0a56e721af91c4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315797"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406915"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recolher registos de serviço do Azure e as métricas de utilização do Log Analytics
 
@@ -84,7 +84,7 @@ Recursos do Azure que suportam [o Azure monitor](../../azure-monitor/overview.md
 
 Tem de Novembro de 2016 (v2.3.0) ou versão posterior do [do Azure PowerShell](/powershell/azure/overview).
 
-O exemplo de PowerShell seguinte mostra como usar [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting) para ativar o diagnóstico num grupo de segurança de rede. A mesma abordagem funciona para todos os recursos suportados - definir `$resourceId` para o id de recurso do recurso que pretende ativar o diagnóstico para.
+O exemplo de PowerShell seguinte mostra como usar [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) para ativar o diagnóstico num grupo de segurança de rede. A mesma abordagem funciona para todos os recursos suportados - definir `$resourceId` para o id de recurso do recurso que pretende ativar o diagnóstico para.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

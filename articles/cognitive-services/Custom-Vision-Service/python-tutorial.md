@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/2/2018
 ms.author: areddish
-ms.openlocfilehash: 551d713d6cc5c6ae8024d4784dbc3a8cca79b401
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 66fc773dd354f80428d6fd65906610b901260a59
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854834"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407039"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>Início rápido: Criar um projeto de classificação de imagem com o SDK de Python de visão personalizada
 
@@ -49,7 +49,7 @@ Adicione o código seguinte ao seu script para criar um novo projeto do serviço
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
+from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry
 
 ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 
@@ -84,14 +84,28 @@ Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após
 ```Python
 base_image_url = "<path to project>"
 
-print ("Adding images...")
-for image_num in range(1,10):
-    image_url = base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ hemlock_tag.id ] ) ])
+print("Adding images...")
 
-for image_num in range(1,10):
-    image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ cherry_tag.id ] ) ])
+image_entry = lambda image_path, tag_id: ImageFileCreateEntry(
+    name=image_path.split("/")[-1], contents=image_path, tag_ids=[tag_id]
+)
+
+image_list = [
+    image_entry(
+        base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num),
+        hemlock_tag.id,
+    )
+    for image_num in range(1, 10)
+] + [
+    image_entry(
+        base_image_url
+        + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num),
+        cherry_tag.id,
+    )
+    for image_num in range(1, 10)
+]
+
+trainer.create_images_from_files(project.id, images=image_list)
 ```
 
 ### <a name="train-the-classifier"></a>Preparar o classificador

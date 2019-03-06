@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 108045c691d711dfdd12df39fe72e536f842f68f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5d9f973926a46e61d83cba6fb52a543bddf26f99
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993216"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315865"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicação com o caminho com base em regras de encaminhamento com o portal do Azure
 
@@ -33,6 +33,8 @@ Neste artigo, vai aprender a:
 ![Exemplo de encaminhamento de URL](./media/application-gateway-create-url-route-portal/scenario.png)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -104,7 +106,7 @@ Neste exemplo, vai criar três máquinas virtuais para serem utilizadas como ser
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -115,7 +117,7 @@ Neste exemplo, vai criar três máquinas virtuais para serem utilizadas como ser
       -Settings $publicSettings
     ```
 
-3. Criar duas máquinas virtuais mais e instalar o IIS com os passos que acabou de concluir. Introduza os nomes dos *myVM2* e *myVM3* para os nomes e valores de VMName em Set-AzureRmVMExtension.
+3. Criar duas máquinas virtuais mais e instalar o IIS com os passos que acabou de concluir. Introduza os nomes dos *myVM2* e *myVM3* para os nomes e valores de VMName no conjunto AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Criar conjuntos de back-end com as máquinas virtuais
 

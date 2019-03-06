@@ -18,12 +18,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a45d776ea241e04aacf39e45f7bf6d2cc58c689
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172170"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446644"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerir a confiança do AD FS com o Azure AD com o Azure AD Connect
 
@@ -105,7 +105,7 @@ O Azure AD Connect certifica-se de que a fidedignidade do Azure AD é sempre con
 
 A versão do Azure AD Connect 1.1.873.0 ou posterior faz uma cópia de segurança do Azure AD configurações de confiança sempre que uma atualização é feita para as definições de fidedignidade do Azure AD. As definições de fidedignidade do Azure AD são uma cópia de segurança **%ProgramData%\AADConnect\ADFS**. O nome do ficheiro está no formato seguinte AadTrust -&lt;data&gt;-&lt;tempo&gt;. txt, por exemplo, - AadTrust-20180710-150216.txt
 
-![Um sanpshot do exemplo de cópia de segurança de confiança do Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
+![Uma captura de ecrã do exemplo de cópia de segurança de confiança do Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
 
 Pode restaurar as regras de transformação de emissão utilizando os passos sugeridos abaixo
 

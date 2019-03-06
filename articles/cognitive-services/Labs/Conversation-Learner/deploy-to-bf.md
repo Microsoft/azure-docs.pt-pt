@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bc04afead8742c9f384287ecb8d33c54770456b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55237936"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447392"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Como implementar um bot de aprendiz de conversação
 
@@ -94,7 +94,7 @@ O bot está agora em execução localmente.  Pode acessá-lo com o emulador de B
 
 Publica o seu bot de aprendiz de conversação semelhante da mesma forma que pretende publicar quaisquer outros bot. Num alto nível, carregue seu código para um Web site alojado, definir os valores de configuração apropriada e, em seguida, registe o bot com vários canais. Instruções detalhadas são neste vídeo que mostra como publicar o seu bot com o Azure Bot Service.
 
-Depois do bot é implementado e em execução pode ligar-se diferentes canais ao mesmo, como o Facebook, Teams, Skype etc usando um registo de canal de Bot do Azure. Para obter a documentação sobre esse processo, veja: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
+Depois do bot é implementado e em execução pode ligar-se diferentes canais ao mesmo, como o Facebook, Teams, Skype etc. utilizar um registo de canal de Bot do Azure. Para obter a documentação sobre esse processo, veja: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Seguem-se as instruções passo a passo para implementar um Bot de aprendiz de conversação para o Azure.  Estas instruções partem do princípio de que a sua origem de bot está disponível a partir de uma origem com base na cloud, como os serviços do Azure DevOps, GitHub, BitBucket ou o OneDrive e irá configurar o seu bot para a implementação contínua.
 

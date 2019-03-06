@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: magoedte
-ms.openlocfilehash: b42eb963e33c14b003c053bb0f7fca6361dbd555
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: d09ce810605055b5be53219f254beb6660addbee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985109"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445709"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerir dados de registo e áreas de trabalho no Azure Monitor
 Arquivos de Monitor do Azure registos de dados numa área de trabalho do Log Analytics, que é essencialmente um contentor que inclui informações de configuração e dados. Para gerir o acesso aos registos de dados, realizar diversas tarefas administrativas relacionadas com a áreas de trabalho. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
@@ -153,7 +153,7 @@ Para configurar o modo de acesso num modelo Azure Resource Manager, defina o **e
 
 
 ## <a name="manage-accounts-and-users"></a>Gerir contas e utilizadores
-As permissões para a área de trabalho que são aplicadas a um utilizador específico são definidas pelo respetivo [modo de acesso](#access-mode) e o [modo de controlo de acesso](#access-control-mode) da área de trabalho. **Permissões de área de trabalho** são aplicadas quando um utilizador acede a qualquer área de trabalho utilizar **voltada para a área de trabalho** no [modo voltada para a área de trabalho](#access-modes). **Permissões de recursos** são aplicadas quando um utilizador acede a uma área de trabalho com **utilizar permissões de recursos ou a área de trabalho** [modo de controlo de acesso](#access-control-mode) usando [modo centrada no recurso ](#access-modes).
+As permissões para a área de trabalho que são aplicadas a um utilizador específico são definidas pelo seu modo de acesso e o [modo de controlo de acesso](#access-control-mode) da área de trabalho. **Permissões de área de trabalho** são aplicadas quando um utilizador acede a qualquer área de trabalho utilizar **voltada para a área de trabalho** no [modo voltada para a área de trabalho](#access-modes). **Permissões de recursos** são aplicadas quando um utilizador acede a uma área de trabalho com **utilizar permissões de recursos ou a área de trabalho** [modo de controlo de acesso](#access-control-mode) usando [modo centrada no recurso ](#access-modes).
 
 ### <a name="workspace-permissions"></a>Permissões de área de trabalho
 Cada área de trabalho pode ter múltiplas contas associadas e cada conta pode ter acesso a várias áreas de trabalho. O acesso é gerido através de [acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md). 

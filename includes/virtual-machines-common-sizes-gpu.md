@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 8967e4b2cce052044abf2e2b0925f162478428d1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: bbf619f27c9239ea1b42287c7e81f23da1d43fcb
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57203911"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57350470"
 ---
 VM com otimização de GPU são de tamanhos de máquinas virtuais especializadas disponíveis com GPUs NVIDIA únicas ou múltiplas. Estes tamanhos foram concebidos para cargas de trabalho de computação intensiva, grande intensidade de gráficos e visualização. Este artigo fornece informações sobre o número e tipo de GPUs, vCPUs, discos de dados e NICs. Largura de banda de armazenamento, débito e de rede também estão incluídos para cada tamanho neste agrupamento. 
 
@@ -52,7 +52,7 @@ Armazenamento Premium:  Suportadas
 
 Cache de armazenamento Premium:  Suportadas
 
-As VMs da série NCv2 têm a tecnologia [NVIDIA Tesla P100](http://images.nvidia.com/content/tesla/pdf/nvidia-tesla-p100-datasheet.pdf) GPUs. Essas GPUs podem proporcionar 2x mais do que o desempenho computacional da série NC. Os clientes podem tirar partido destas GPUs atualizadas para cargas de trabalho HPC tradicionais, tais como modelação de reservatórios, DNA sequenciamento, análise de proteínas, simulações Monte Carlo e outras pessoas. A configuração de v2 NC24rs fornece uma baixa latência, otimizado para cargas de trabalho de computação paralela fortemente interligadas de interface de rede de alto débito.
+As VMs da série NCv2 têm a tecnologia [NVIDIA Tesla P100](https://www.nvidia.com/data-center/tesla-p100/) GPUs. Essas GPUs podem proporcionar 2x mais do que o desempenho computacional da série NC. Os clientes podem tirar partido destas GPUs atualizadas para cargas de trabalho HPC tradicionais, tais como modelação de reservatórios, DNA sequenciamento, análise de proteínas, simulações Monte Carlo e outras pessoas. A configuração de v2 NC24rs fornece uma baixa latência, otimizado para cargas de trabalho de computação paralela fortemente interligadas de interface de rede de alto débito.
 
 > [!IMPORTANT]
 > Para esta família de tamanho, a quota de vCPU (núcleo) na sua subscrição inicialmente é definida como 0 em cada região. [Pedir um aumento de quota de vCPU](../articles/azure-supportability/resource-manager-core-quotas-request.md) para esta família num [região disponível](https://azure.microsoft.com/regions/services/).

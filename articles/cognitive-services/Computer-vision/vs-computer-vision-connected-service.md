@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 4911a872a4b5479abe84c2e06573256092185cf2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669706"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450951"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Utilizar os Serviços Ligados no Visual Studio para estabelecer ligação à API de Imagem Digitalizada
 
@@ -92,7 +92,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
       }
    ```
 
-1. Na pasta wwwroot do seu projeto, adicione uma pasta de imagens e um ficheiro de imagem. Por exemplo, pode utilizar uma das imagens desta [página de API de Imagem Digitalizada](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Clique com o botão direito do rato numa das imagens, guarde-a no disco rígido local e, em seguida, no Explorador, de Soluções, clique com o botão direito do rato na pasta de imagens e escolha **Adicionar** > **Item Existente** para o adicionar ao seu projeto. O seu projeto deve ter um aspeto semelhante ao seguinte no Explorador de Soluções: 
+1. Na pasta wwwroot do seu projeto, adicione uma pasta de imagens e um ficheiro de imagem. Por exemplo, pode utilizar uma das imagens desta [página de API de Imagem Digitalizada](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Com o botão direito em uma das imagens, guardar para o disco rígido local, em seguida, no Explorador de soluções, clique com o botão direito na pasta de imagens e escolha **Add** > **Item existente** para adicioná-lo ao seu projeto. O seu projeto deve ter um aspeto semelhante ao seguinte no Explorador de Soluções: 
   
    ![Captura de ecrã da vista do Explorador de soluções com um ficheiro de imagem selecionada](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 

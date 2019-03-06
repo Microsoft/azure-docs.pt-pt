@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 492afcdd5143aa5a6597ba8c296d15059f9c7d64
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198219"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453274"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Serviços de partição fiáveis do Service Fabric
 Este artigo fornece uma introdução para os conceitos básicos da criação de partições do reliable services do Azure Service Fabric. O código-fonte usado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -59,7 +59,7 @@ Antes de implementar um serviço, deve sempre considerar a estratégia de partic
 
 Uma boa abordagem é pensar sobre a estrutura do Estado que tem de ser particionados, como a primeira etapa.
 
-Vamos dar um exemplo simples. Se fosse criar um serviço num inquérito countywide, pode criar uma partição para cada cidade no CONDADO. Em seguida, pode armazenar os votos de cada pessoa na cidade na partição que corresponde à temperatura nessa cidade. Figura 3 ilustra um conjunto de pessoas e a cidade onde residem.
+Vamos dar um exemplo simples. Se fosse criar um serviço num inquérito de todo o condado, pode criar uma partição para cada cidade no CONDADO. Em seguida, pode armazenar os votos de cada pessoa na cidade na partição que corresponde à temperatura nessa cidade. Figura 3 ilustra um conjunto de pessoas e a cidade onde residem.
 
 ![Partição Simple](./media/service-fabric-concepts-partitioning/cities.png)
 

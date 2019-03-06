@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 9c307bbbef7b9eecc980dc6013c317f1ee231a0c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034306"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448243"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Monitorizar as métricas de desempenho e armazenamento no Azure Cosmos DB
 
@@ -50,7 +50,7 @@ As métricas podem ser examinadas na página de conta, a nova página de métric
 ## <a name="set-up-alerts-in-the-portal"></a>Configurar alertas no portal
 1. Na [portal do Azure](https://portal.azure.com/), clique em **todos os serviços**, clique em **do Azure Cosmos DB**e, em seguida, clique no nome da conta do Azure Cosmos DB para o qual pretende configurar desempenho alertas de métricas.
 2. No menu de recursos, clique em **regras de alerta** para abrir a página de regras de alerta.  
-   ![Captura de ecrã do alerta selecionado de parte de regras](./media/monitor-accounts/madocdb10.5.png)
+   ![Captura de ecrã a parte de regras de alerta selecionado](./media/monitor-accounts/madocdb10.5.png)
 3. Na **regras de alerta** página, clique em **Adicionar alerta**.  
    ![Captura de ecrã da página de regras de alerta, com o botão Adicionar alerta realçado](./media/monitor-accounts/madocdb11.png)
 4. Na **adicionar uma regra de alerta** , especifique:

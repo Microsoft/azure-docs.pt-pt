@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: 99200e521ea844d20ef00ef70ad65ac0ab3bcddd
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f66babf5ee72876692a5ae1b371f811534db6875
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337299"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452339"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sobre como utilizar o serviço de migração de base de dados do Azure
 Este artigo apresenta uma lista de perguntas frequentes sobre como utilizar o serviço de migração de base de dados do Azure em conjunto com respostas relacionadas.
@@ -28,7 +28,7 @@ O serviço de migração de base de dados do Azure é um serviço completamente 
 - Contínuo investimento em migrações sem obstáculos.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>P. Os pares de origem-destino o serviço de migração de base de dados do Azure suporta atualmente?
-Atualmente, o serviço suporta uma variedade de cenários de migração. Para obter uma listagem completa do Estado de cada cenário de migração disponíveis, consulte o artigo [estado de cenários de migração suportados pelo serviço de migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/resource-scenario-status). Outros cenários de migração estão em pré-visualização limitada e exigem submeter uma nomeação através do site de pré-visualização do DMS. Para obter uma lista completa dos cenários em pré-visualização limitada e para se inscrever para particpate em uma dessas ofertas, consulte a [site de pré-visualização do DMS](https://aka.ms/dms-preview/).
+Atualmente, o serviço suporta uma variedade de cenários de migração. Para obter uma listagem completa do Estado de cada cenário de migração disponíveis, consulte o artigo [estado de cenários de migração suportados pelo serviço de migração de base de dados do Azure](https://docs.microsoft.com/azure/dms/resource-scenario-status). Outros cenários de migração estão em pré-visualização limitada e exigem submeter uma nomeação através do site de pré-visualização do DMS. Para obter uma lista completa dos cenários em pré-visualização limitada e para se inscrever para participar de uma dessas ofertas, consulte a [site de pré-visualização do DMS](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>P. Como o serviço de migração de base de dados do Azure se compara a outras ferramentas de migração de base de dados do Microsoft como o Assistente de migração de base de dados (DMA) ou o SQL Server Migration Assistant (SSMA)?
 O serviço de migração de base de dados do Azure é o método preferencial para a migração de base de dados para o Microsoft Azure em escala. Para obter mais detalhes sobre como o serviço de migração de base de dados do Azure se compara à outra Microsoft ferramentas de migração de base de dados e para obter recomendações sobre como utilizar o serviço para vários cenários, consulte a postagem de blog [base de dados da diferenciar Microsoft Ferramentas de migração e serviços](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).

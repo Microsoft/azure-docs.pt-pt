@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602fba95b3cc69521fe3fe17d8c89cc332131566
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190233"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448684"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Ativar a SSO em vária aplicações em dispositivos iOS através da ADAL
 
@@ -231,7 +231,7 @@ Quando tiver elegibilidades configuradas corretamente, deverá ver um ficheiro n
 </plist>
 ```
 
-Assim que tiver a elegibilidade de keychain ativada em cada uma das suas aplicações e está pronto para utilizar o SSO, conte-na odentity SDK keychain utilizando o seguinte no seu `ADAuthenticationSettings` com a definição seguinte:
+Assim que tiver a elegibilidade de keychain ativada em cada uma das suas aplicações e está pronto para utilizar o SSO, conte-na identidade do SDK keychain utilizando o seguinte no seu `ADAuthenticationSettings` com a definição seguinte:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";

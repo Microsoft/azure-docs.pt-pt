@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 88ea0fee73441f98734058391e0599cf8e1142a3
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750009"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403877"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
@@ -41,7 +41,8 @@ Antes de começar, certifique-se de que:
 
 Data Box com base na conta de armazenamento selecionada, cria até:
 - Três partilhas para cada conta de armazenamento associada de GPv1 e GPv2.
-- Uma partilha para uma conta de armazenamento de blobs ou premium.
+- Um compartilhamento para armazenamento premium. 
+- Um compartilhamento para conta de armazenamento de Blobs. 
 
 Nas partilhas de blob de blocos e de blob de páginas, as entidades de primeiro nível são os contentores e as de segundo nível são os blobs. Nas partilhas de ficheiros do Azure, as entidades de primeiro nível são as partilhas e as de segundo nível são os ficheiros.
 

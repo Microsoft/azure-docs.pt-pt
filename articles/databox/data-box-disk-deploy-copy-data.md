@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6a008072fc88b9dc800b792c13a6c77c31b31e51
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868192"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410031"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o disco do Azure Data Box e certifique-se
 
@@ -32,35 +32,53 @@ Antes de começar, certifique-se de que:
 - Concluiu o [Tutorial: Instalar e configurar o seu disco do Azure Data Box](data-box-disk-deploy-set-up.md).
 - Os discos são desbloqueados e ligados a um computador cliente.
 - O computador cliente que é utilizado para copiar dados para os discos tem de executar um [Sistema operativo suportado](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
-- Certifique-se de que o tipo de armazenamento pretendido para os seus dados corresponde aos [Tipos de armazenamento suportados](data-box-disk-system-requirements.md#supported-storage-types).
+- Certifique-se de que o tipo de armazenamento pretendido para os seus dados corresponde aos [Tipos de armazenamento suportados](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
+- Revisão [geridos limites de disco em limites de tamanho de objeto do Azure](data-box-disk-limits.md#azure-object-size-limits).
 
 
 ## <a name="copy-data-to-disks"></a>Copiar dados para discos
 
+Antes de copiar os dados para os discos, reveja as seguintes considerações:
+
+- É da sua responsabilidade assegurar que copia os dados para pastas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados de blobs de blocos para a pasta de blobs de blocos. Se o formato de dados não corresponder à pasta apropriada (tipo de armazenamento), num passo posterior, o carregamento de dados para o Azure falhará.
+- Ao copiar os dados, certifique-se de que o respetivo tamanho está em conformidade com os limites descritos em [Limites de armazenamento do Azure e do Data Box Disk](data-box-disk-limits.md).
+- Se os dados, que estão a ser carregados pelo Data Box Disk, forem carregados em simultâneo por outras aplicações fora do Data Box Disk, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
+
+Se tiver especificado os discos geridos na ordem, reveja as seguintes considerações adicionais:
+
+- Só pode ter um disco gerido com um determinado nome num grupo de recursos em todas as pastas pré-criada e em todo o disco de caixa de dados. Isso implica que os VHDs carregados para as pastas pré-criada devem ter nomes exclusivos. Certifique-se de que o nome fornecido não corresponde a um disco gerido já existente num grupo de recursos. Se os VHDs têm os mesmos nomes, em seguida, apenas um VHD é convertido para disco gerido com esse nome. Os outros VHDs são carregados como blobs de páginas a conta de armazenamento de teste.
+- Copie sempre os VHDs a uma das pastas pré-criada. Se copiar os VHDs fora essas pastas ou numa pasta que criou, os VHDs são carregados para a conta de armazenamento do Azure, como blobs de páginas e discos não geridos.
+- Apenas os VHDs fixos podem ser carregados para criar discos geridos. VHDs dinâmicos, VHDs diferenciais ou VHDX não são suportados ficheiros.
+
+
 Execute os seguintes passos para ligar e copiar dados do seu computador para o Data Box Disk.
 
-1. Veja o conteúdo da unidade desbloqueada.
+1. Veja o conteúdo da unidade desbloqueada. A lista de pré-criada pastas e subpastas na unidade é diferente de acordo com as opções selecionadas ao colocar a ordem de disco Data Box.
 
-    ![Ver o conteúdo da unidade](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
+    |Destino de armazenamento selecionada  |Tipo de conta de armazenamento|Tipo de conta de armazenamento de teste |Pastas e subpastas  |
+    |---------|---------|---------|------------------|
+    |Conta de armazenamento     |Contas GPv1 ou GPv2                 | ND | BlockBlob <br> PageBlob <br> AzureFile        |
+    |Conta de armazenamento     |Conta de armazenamento de BLOBs         | ND | BlockBlob        |
+    |Managed disks     |ND | Contas GPv1 ou GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |Conta de armazenamento <br> Managed disks     |Contas GPv1 ou GPv2 | Contas GPv1 ou GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |Conta de armazenamento <br> Managed disks    |Conta de armazenamento de BLOBs | Contas GPv1 ou GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+
+    Uma captura de ecrã do exemplo de um pedido onde foi especificada uma conta de armazenamento GPv2 é mostrada abaixo:
+
+    ![Conteúdo da unidade de disco](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
-2. Copie os dados que têm de ser importados como blobs de blocos para a pasta BlockBlob. Da mesma forma, copie dados como VHD/VHDX para a pasta PageBlob. 
+2. Copiar os dados que precisam de ser importados como blobs de blocos para *BlockBlob* pasta. Da mesma forma, copiar os dados como VHD/VHDX *PageBlob* pasta e os dados para *AzureFile* pasta.
 
     É criado um contentor na conta de armazenamento do Azure para cada subpasta nas pastas BlockBlob e PageBlob. Todos os ficheiros nas pastas BlockBlob e PageBlob são copiados para um contentor `$root` predefinido na conta de armazenamento do Azure. Quaisquer ficheiros no contentor `$root` são sempre carregados como blobs de blocos.
 
+   Copiar ficheiros para uma pasta dentro *AzureFile* pasta. Uma sub-pasta dentro *AzureFile* pasta cria uma partilha de ficheiros. Ficheiros copiados diretamente para o *AzureFile* falharão de pasta e são carregados como blobs de blocos.
+
     Se existirem ficheiros e pastas no diretório de raiz, tem de movê-los para uma pasta diferente antes de iniciar a cópia de dados.
 
-    Siga os requisitos de nomenclatura do Azure para nomes de contentores e blobs.
+    > [!IMPORTANT]
+    > Todos os contentores, blobs e nomes de ficheiros deverá obedecer [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Se estas regras não forem seguidas, o carregamento de dados para o Azure falhará.
 
-    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>Convenções de nomenclatura do Azure para nomes de contentores e blobs
-    |Entidade   |Convenções  |
-    |---------|---------|
-    |Nomes de contentores para blob de blocos e blob de páginas     |Têm de começar com uma letra ou um número e só podem conter letras minúsculas, números e o caráter de hífen (-). Cada hífen (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. Não são permitidos hífenes consecutivos em nomes. <br>Tem de ser um nome DNS válido, ou seja, entre 3 e 63 carateres de comprimento.          |
-    |Nomes de blobs para blob de blocos e blob de páginas    |Os nomes de blobs são sensíveis a maiúsculas e minúsculas e podem conter qualquer combinação de carateres. <br>Um nome de blob tem de ter entre 1 e 1024 carateres de comprimento.<br>Os carateres de URL reservados devem ser escritos corretamente.<br>O número de segmentos de linha que inclui o nome do blob não pode exceder 254. Um segmento de linha é a cadeia de carateres entre os carateres delimitadores consecutivos (por exemplo, uma barra "/") que corresponde ao nome de um diretório virtual.         |
-
-    > [!IMPORTANT] 
-    > Todos os contentores e blobs devem cumprir as [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Se estas regras não forem seguidas, o carregamento de dados para o Azure falhará.
-
-3. Ao copiar ficheiros, certifique-se de que não excedem ~4,7 TiB para blobs de blocos e ~ 8 TiB para blobs de páginas. 
+3. Ao copiar arquivos, certifique-se de que arquivos excede ~4.7 TiB para blobs de blocos, TiB de cerca de 8 para blobs de páginas e ~ 1 TiB para ficheiros do Azure. 
 4. Pode utilizar a funcionalidade de arrastar e largar no Explorador de Ficheiros para copiar os dados. Também pode utilizar qualquer ferramenta de cópia de ficheiros compatível SMB, por exemplo, o Robocopy para copiar os dados. É possível iniciar várias tarefas de cópia com o seguinte comando do Robocopy:
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt` 
@@ -80,7 +98,7 @@ Execute os seguintes passos para ligar e copiar dados do seu computador para o D
     |/FFT                | Assume as horas dos ficheiros FAT (precisão de dois segundos).        |
     |/Log:<Log File>     | Escreve a saída do estado no ficheiro de registo (substitui o ficheiro de registo existente).         |
 
-    É possível utilizar vários discos em paralelo com várias tarefas em execução em cada disco. 
+    É possível utilizar vários discos em paralelo com várias tarefas em execução em cada disco.
 
 6. Verifique o estado de cópia quando a tarefa está em curso. O exemplo seguinte mostra a saída do comando do Robocopy para copiar ficheiros para o Data Box Disk.
 
@@ -163,17 +181,13 @@ Execute os seguintes passos para ligar e copiar dados do seu computador para o D
 
 6. Abra a pasta de destino para ver e verificar os ficheiros copiados. Se ocorrerem erros durante o processo de cópia, transfira os ficheiros de registo para resolução de problemas. Os ficheiros de registo estão localizados como especificado no comando robocopy.
  
-> [!IMPORTANT]
-> - É da sua responsabilidade assegurar que copia os dados para pastas que correspondem ao formato de dados apropriado. Por exemplo, copie os dados de blobs de blocos para a pasta de blobs de blocos. Se o formato de dados não corresponder à pasta apropriada (tipo de armazenamento), num passo posterior, o carregamento de dados para o Azure falhará.
-> -  Ao copiar os dados, certifique-se de que o respetivo tamanho está em conformidade com os limites descritos em [Limites de armazenamento do Azure e do Data Box Disk](data-box-disk-limits.md).
-> - Se os dados, que estão a ser carregados pelo Data Box Disk, forem carregados em simultâneo por outras aplicações fora do Data Box Disk, isto pode resultar em falhas da tarefa de carregamento e danos nos dados.
-
 ### <a name="split-and-copy-data-to-disks"></a>Dividir e copiar dados para discos
 
 Este procedimento opcional pode ser utilizado quando utilizar vários discos e dispuser de um grande conjunto de dados que tenha de ser dividido e copiado para todos os discos. A ferramenta de Cópia Dividida do Data Box ajuda a dividir e a copiar os dados num computador Windows.
 
 >[!IMPORTANT]
 > Ferramenta de cópia de divisão de caixa de dados também valida os seus dados. Se usar a ferramenta de cópia de divisão de caixa de dados para copiar dados, pode ignorar o [etapa de validação](#validate-data).
+> Ferramenta de cópia de divisão não é suportada com discos geridos.
 
 1. No seu computador Windows, certifique-se de que tem a ferramenta de Cópia Dividida do Data Box transferida e extraída numa pasta local. Esta ferramenta foi transferida quando transferiu o conjunto de ferramentas do Data Box Disk para Windows.
 2. Abra o Explorador de Ficheiros. Tome nota da unidade de origem de dados e das letras de unidade atribuídas ao Data Box Disk. 

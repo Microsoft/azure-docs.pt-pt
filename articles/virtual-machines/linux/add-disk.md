@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 453cb838792ff5e80b0dbbe8e90f96792f9c5484
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 81805188c72bce6a7ea89496c8036743b29e9075
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890135"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452764"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar.
@@ -122,6 +122,10 @@ The partition table has been altered!
 
 Calling ioctl() to re-read partition table.
 Syncing disks.
+```
+Utilize o comando para atualizar o kernel abaixo:
+```
+partprobe 
 ```
 
 Agora, escrever um sistema de ficheiros para a partição com o `mkfs` comando. Especifique o tipo de sistema de ficheiros e o nome do dispositivo. O exemplo seguinte cria um *ext4* no sistema de ficheiros a */desenvolvimento/sdc1* partição que foi criada nos passos anteriores:

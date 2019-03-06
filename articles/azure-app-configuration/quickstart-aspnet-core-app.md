@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ce19041b29d567f061dde59fbe041adf61f889a0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 850bb044e5ab9e653bf343b4f222cf21b159bd5d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961487"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446763"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar uma aplicação ASP.NET Core com a configuração de aplicações do Azure
 
@@ -89,7 +89,7 @@ Adicionará a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/asp
 
     Gestor de segredo só serão utilizadas para testar a aplicação web localmente. Quando a aplicação é implementada (por exemplo, para [App Service do Azure](https://azure.microsoft.com/services/app-service/web)), que irá utilizar uma definição da aplicação (por exemplo, **cadeias de ligação** no serviço de aplicações) em vez de armazenar a cadeia de ligação com o segredo Gestor.
 
-    Este segredo é acedidos com a API de configuração. Os dois pontos (:) funcionam no nome da configuração com a API de configuração nas plataformas suportadas, veja [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment).
+    Este segredo é acedidos com a API de configuração. Os dois pontos (:) funcionam no nome da configuração com a API de configuração nas plataformas suportadas, veja [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
 4. Open *Program.cs* e atualizar a `CreateWebHostBuilder` método a utilizar a configuração de aplicações ao chamar o `config.AddAzureAppConfiguration()` método.
 

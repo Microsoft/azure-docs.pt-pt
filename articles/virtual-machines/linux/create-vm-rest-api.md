@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412194"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447851"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que utiliza autenticação SSH com a API REST
 
@@ -63,10 +63,10 @@ Para obter informações gerais sobre como trabalhar com pedidos de REST API, co
 
 As seguintes definições comuns são utilizadas para criar um corpo de pedido:
 
-| Nome                       | Necessário | Tipo                                                                                | Descrição  |
+| Name                       | Necessário | Tipo                                                                                | Descrição  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| localização                   | Verdadeiro     | cadeia                                                                              | Localização do recurso. |
-| nome                       |          | cadeia                                                                              | Nome da máquina virtual. |
+| localização                   | Verdadeiro     | string                                                                              | Localização do recurso. |
+| nome                       |          | string                                                                              | Nome da máquina virtual. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as definições de hardware para a máquina virtual. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as definições de armazenamento para os discos da máquina virtual. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Especifica as definições de sistema operativo da máquina virtual. |
@@ -127,7 +127,7 @@ As seguintes definições comuns são utilizadas para criar um corpo de pedido:
 }
 ```
 
-Para obter uma lista completa das definições de disponíveis no corpo do pedido, consulte [máquinas virtuais criar ou atualizar as definições de corpo de pedido](/rest/api/compute/virtualmachines/createorupdate#definitions).
+Para obter uma lista completa das definições de disponíveis no corpo do pedido, consulte [máquinas virtuais, criar ou atualizar as definições de corpo de pedido](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## <a name="sending-the-request"></a>Enviar o pedido
 
@@ -137,7 +137,7 @@ Pode utilizar o cliente de sua preferência para enviar este pedido HTTP. També
 
 Existem duas respostas com êxito para a operação criar ou atualizar uma máquina virtual:
 
-| Nome        | Tipo                                                                              | Descrição |
+| Name        | Tipo                                                                              | Descrição |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |

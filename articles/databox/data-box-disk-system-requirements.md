@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 0effc6af1ddc3273f0c6e2bf9cbfd0f2ecadf0a2
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747327"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407634"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Requisitos de sistema de disco de caixa de dados do Azure
 
@@ -52,7 +52,7 @@ Para o cliente de Linux, o conjunto de ferramentas de disco Data Box instala o s
 
 ## <a name="supported-connection"></a>Ligação suportados
 
-O computador cliente que contém os dados tem de ter um USB 3.0 ou posterior porta. Ligue os discos para este cliente utilizando o cabo fornecido. 
+O computador cliente que contém os dados tem de ter um USB 3.0 ou posterior porta. Ligue os discos para este cliente utilizando o cabo fornecido.
 
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento suportadas
 
@@ -62,19 +62,22 @@ Aqui está uma lista dos tipos de armazenamento suportadas para o disco do Data 
 | --- | --- |
 | Clássica | Standard |
 | Fins Gerais  |Standard; ambos o V1 e V2 são suportadas. São suportadas camadas frequentes e esporádica. |
+| Conta de armazenamento de BLOBs | |
 
 >[!NOTE]
 > Contas de armazenamento Gen 2 do Azure Data Lake não são suportadas.
 
 
-## <a name="supported-storage-types"></a>Tipos de armazenamento suportadas
+## <a name="supported-storage-types-for-upload"></a>Tipos de armazenamento suportadas para carregamento
 
-Aqui está uma lista dos tipos de armazenamento suportadas para o disco do Data Box.
+Aqui está uma lista dos tipos de armazenamento suportado para carregado para o Azure com o disco Data Box.
 
 | **Formato de ficheiro** | **Notas** |
 | --- | --- |
 | Blob de blocos do Azure | |
 | BLOBs de páginas do Azure  | |
+| Ficheiros do Azure  | |
+| Managed Disks | |
 
 
 ## <a name="next-step"></a>Passo seguinte
