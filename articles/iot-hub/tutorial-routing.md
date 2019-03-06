@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: df98be4dbb65088951968a16198b41d3d6d0bb67
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728731"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410218"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o encaminhamento de mensagens com o IoT Hub
 
@@ -276,7 +276,7 @@ Vai encaminhar mensagens para diferentes recursos com base nas propriedades anex
 
 Agora configure o encaminhamento para a conta de armazenamento. Vá para o painel Encaminhamento de Mensagens e, em seguida, adicione uma rota. Ao adicionar a rota, defina um novo ponto final para a rota. Depois de o configurar, as mensagens com a propriedade **nível** definida como **armazenamento** são automaticamente escritas para uma conta de armazenamento. 
 
-Os dados são escritos no blob de armazenamento no formato Avro.
+Por predefinição, os dados são escritos para o blob de armazenamento no formato Avro.
 
 1. No [portal do Azure](https://portal.azure.com), clique em**Grupos de Recursos** e selecione o grupo de recursos. Este tutorial utiliza **ContosoResources**. 
 
@@ -301,7 +301,9 @@ Os dados são escritos no blob de armazenamento no formato Avro.
    > 
    > Por exemplo, ao utilizar o formato de nome de ficheiro blob predefinido, se o nome do hub for ContosoTestHub e a data/hora for 30 de outubro de 2018 à 10:56, o nome do blob ficará assim: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Os blobs são escritos no formato Avro.
+   > Por predefinição, os blobs são escritos no formato Avro. Pode optar por gravar arquivos no formato JSON. A capacidade de codificar o formato JSON está em pré-visualização em todas as regiões que IOT Hub está disponível, exceto E.U.A. leste, E.U.A. oeste e Europa Ocidental. Veja [documentação de orientação sobre o encaminhamento para o armazenamento de BLOBs] (iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > 
+   > Quando o encaminhamento para o armazenamento de BLOBs, recomendamos que inscrever os blobs e, em seguida, iterar sobre os mesmos, para garantir que todos os contentores são lidas sem fazer suposições de partição. O intervalo de partição pode potencialmente alterar durante um [iniciada pelo Microsoft ativação pós-falha](iot-hub-ha-dr.md#microsoft-initiated-failover) ou o IoT Hub [ativação pós-falha manual](iot-hub-ha-dr.md#manual-failover-preview). Para saber como enumere a lista de blobs consulte [encaminhamento para o armazenamento de BLOBs](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
    >
 
 8. Clique em **Criar** para criar o ponto final de armazenamento e adicioná-lo à rota. Volta ao painel **Adicionar uma rota**.

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 045b010736f8cecf877408f23530022af1f94f14
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0fedfdbb04dd7aa3ff077c13653a22ed710aff9f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991427"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405322"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparar para criar o vFXT Avere
 
@@ -152,7 +152,7 @@ Tem de criar a função de nó de cluster antes de poder criar o vFXT Avere para
 
 O nome da função é utilizado ao criar o cluster. Neste exemplo, o nome é ``avere-operator``.
 
-## <a name="optional-create-a-storage-service-endpoint-in-your-virtual-network"></a>(Opcional) Criar um ponto de extremidade do serviço de armazenamento na sua rede virtual
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Criar um ponto de extremidade do serviço de armazenamento na sua rede virtual (se necessário)
 
 R [ponto final de serviço](../virtual-network/virtual-network-service-endpoints-overview.md) mantém o tráfego de Blobs do Azure local em vez de encaminhá-lo fora da rede virtual. Recomenda-se para qualquer vFXT Avere para cluster do Azure que utiliza o Blob do Azure para o armazenamento de dados back-end. 
 

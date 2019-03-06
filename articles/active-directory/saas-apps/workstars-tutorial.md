@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2650bdf70c160e848703daca824bf54e897a64e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0a9c1d13c1d51eeadae3ef9dad71e64618d1a5fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161394"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444706"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Tutorial: Integração do Active Directory do Azure com Workstars
 
@@ -134,7 +134,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
 
 1. Na barra de ferramentas principal, clique em **definições**.
 
-    ![Def Workstars](./media/workstars-tutorial/tutorial_workstars_sett.png)
+    ![Definições de Workstars](./media/workstars-tutorial/tutorial_workstars_sett.png)
 
 1. Aceda a **iniciar sessão** > **definições**.
 

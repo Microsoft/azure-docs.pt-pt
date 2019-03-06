@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d980bf28fb9248cc88c4b0802817e85992ef9ee
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4091b20e97ca76629260a7420beecb77412b0d39
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869705"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Tutorial: Integração do Active Directory do Azure com Shmoop para escolas
 
@@ -47,7 +47,7 @@ Para configurar a integração do Azure AD com Shmoop para instituições de ens
 
 Para testar os passos neste tutorial, recomendamos:
 
-- Usando sua evironment de produção apenas se for necessário.
+- Utilizar o seu ambiente de produção apenas se for necessário.
 - Obter um [durante um mês avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) se ainda não tiver um ambiente de avaliação do Azure AD.
 
 ## <a name="scenario-description"></a>Descrição do cenário

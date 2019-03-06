@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: fab5d69239c420c394645cef632d119848d0f4c4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818838"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404778"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Eliminar a atividade de Azure Data Factory
 
@@ -313,7 +313,7 @@ Pode criar um pipeline para limpar os arquivos antigos ou expirados ao tirar par
         },
         "type": "AzureBlob",
         "typeProperties": {
-            "fileName": "",
+            "fileName": "*",
             "folderPath": "mycontainer",
             "modifiedDatetimeEnd": "2018-01-01T00:00:00.000Z"
         }
@@ -563,6 +563,11 @@ Conjunto de dados para o destino dos dados utilizado pela atividade de cópia.
     }
 }
 ```
+## <a name="known-limitation"></a>Limitação conhecida
+
+-   Eliminar atividade não suporta a eliminar a lista de pastas descrito pelo caráter universal.
+
+-   Ao utilizar o filtro de atributo de ficheiro: modifiedDatetimeStart e modifiedDatetimeEnd para selecionar ficheiros para ser eliminadas, certifique-se de definir "fileName": "*" no conjunto de dados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

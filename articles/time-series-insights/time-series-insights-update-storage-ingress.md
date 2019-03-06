@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f0002c6aa98aaaddf50e4aac8929e8ddd379fd8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: eba4c70a25cba2e456ed418a98b938f2029c4c1f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301677"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438368"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights
 
@@ -116,7 +116,7 @@ Pré-visualização do Time Series Insights fornece consultas de elevado desempe
 
 Quando cria um ambiente de pay as you go do Time Series Insights, crie dois recursos: um ambiente de Time Series Insights e uma conta de fins gerais de armazenamento do Azure da V1 onde serão armazenados os dados. Podemos optar por criar o recurso de padrão de armazenamento do Azure para fins gerais V1 devido à sua interoperabilidade, preço e desempenho. 
 
-O Time Series Insights publica até duas cópias de cada evento na sua conta de armazenamento do Azure. A cópia inicial sempre é preservada para que pode consultá-lo performantly com os outros serviços. Que pode facilmente utilizar Spark, Hadoop e outras ferramentas familiares em IDs de série de tempo com ficheiros Parquet não processados, porque estes mecanismos suportam a filtragem básica de nome de ficheiro. Blobs de agrupamento por ano e mês é uma forma útil de listar os blobs dentro de um intervalo de tempo específico para uma tarefa personalizada. 
+O Time Series Insights publica até duas cópias de cada evento na sua conta de armazenamento do Azure. A cópia inicial sempre é preservada para que rapidamente pode consultá-lo ao utilizar outros serviços. Que pode facilmente utilizar Spark, Hadoop e outras ferramentas familiares em IDs de série de tempo com ficheiros Parquet não processados, porque estes mecanismos suportam a filtragem básica de nome de ficheiro. Blobs de agrupamento por ano e mês é uma forma útil de listar os blobs dentro de um intervalo de tempo específico para uma tarefa personalizada. 
 
 Além disso, o Time Series Insights reparticiona os ficheiros Parquet para otimizar as APIs de informações de série de tempo. O ficheiro mais recentemente repartitioned também é guardado.
 

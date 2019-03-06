@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 33b3ed52d198d162af666e0f38066ba936d7874f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7eb841a0f4a34e708734cf433fac82ab35ef35b6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819825"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451302"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Reencaminhar a configuração de estado de automatização do Azure a comunicar dados aos registos do Azure Monitor
 
@@ -97,7 +97,7 @@ Para criar uma regra de alerta, começa criando uma pesquisa de registos para os
 
    Se tiver configurado registos de mais do que uma subscrição ou conta de automatização à área de trabalho, pode agrupar os alertas por conta de automatização e subscrição.  
    Nome da conta de automatização pode derivar do campo de recurso na pesquisa de DscNodeStatusData.  
-1. Para abrir o **criar regra** ecrã, clique em **+ nova regra de alerta** na parte superior da página. Para obter mais informações sobre as opções de configuração do alerta, consulte [criar um alerta rulelert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+1. Para abrir o **criar regra** ecrã, clique em **+ nova regra de alerta** na parte superior da página. Para obter mais informações sobre as opções de configuração do alerta, consulte [criar uma regra de alerta](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Encontre os recursos de DSC com falhas em todos os nós
 

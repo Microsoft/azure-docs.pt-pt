@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d770e091c8786972e3f15a03fc5af9ec9445002
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: da9aec6c449802ee9296ea4e60efe47650176212
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327805"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433353"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>SAP MaxDB liveCache e implementação de servidor de conteúdo em VMs do Azure
 
@@ -440,7 +440,7 @@ Para obter uma versão suportada do Windows para o servidor de conteúdo de SAP 
 É altamente recomendado para utilizar a versão mais recente do Microsoft Windows Server.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Diretrizes de configuração do servidor de conteúdo de SAP para instalações de SAP em VMs do Azure
-#### <a name="storage-configuration-foir-content-server-in-azure"></a>Configuração de armazenamento foir servidor de conteúdo no Azure
+#### <a name="storage-configuration-for-content-server-in-azure"></a>Configuração de armazenamento do servidor de conteúdo no Azure
 Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros da base de dados do SAP MaxDB, todo o armazenamento do Azure práticas recomendação ideal para SAP MaxDB mencionada neste documento também são válidos para o cenário de servidor de conteúdo de SAP. 
 
 Se configurar o servidor de conteúdo do SAP para armazenar os ficheiros no sistema de arquivos, recomenda-se para utilizar uma unidade lógica dedicada. Utilizar espaços de armazenamento do Windows permite-lhe também aumentar o tamanho de disco lógico e o débito IOPS, conforme descrito em [considerações para a implementação de DBMS de máquinas virtuais do Azure para a carga de trabalho do SAP](dbms_guide_general.md). 

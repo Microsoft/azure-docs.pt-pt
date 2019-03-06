@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: orspod
-ms.openlocfilehash: 41cdae310fb9c2fc66ec9ed78ddc21596c9a5ba9
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 94cf153d7d88e0589edfb3c126c18e04e25e2ef2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317854"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431925"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para ou a partir do Explorador de dados do Azure com o Azure Data Factory
 
@@ -29,7 +29,7 @@ Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory p
 Pode copiar dados de qualquer arquivo de dados de origem suportada para o Explorador de dados do Azure. Também pode copiar dados a partir do Explorador de dados do Azure para qualquer arquivo de dados de sink suportados. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md) tabela.
 
 >[!NOTE]
->Copiar dados de/para o Explorador de dados do Azure de/para o arquivo de dados no local com o Runtime de integração autoalojado é suportada desde a versão 3.14.
+>Copiar dados de/para Explorador de dados do Azure de/para no arquivo de dados no local com o Runtime de integração autoalojado é suportada desde a versão 3.14.
 
 O conector do Explorador de dados do Azure permite-lhe efetuar o seguinte:
 
@@ -181,7 +181,7 @@ Para copiar dados para o Explorador de dados do Azure, definir a propriedade de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como: **AzureDataExplorerSink** | Sim |
-| ingestionMappingName | Nome de uma pré-criada **[mapeamento de CSV](/azure/kusto/management/mappings#csv-mapping)** numa tabela de Kusto. Para mapear as colunas de origem para o Explorador de dados do Azure – o que se aplica ao **[suportadas/formatos de arquivos de origem](copy-activity-overview.md#supported-data-stores-and-formats)** incluindo CSV/JSON/Avro formatos etc., pode utilizar a atividade de cópia [coluna mapeamento](copy-activity-schema-and-type-mapping.md) (implicitamente por nome ou explicitamente configurado) e/ou mapeamentos de CSV de Explorador de dados do Azure. | Não |
+| ingestionMappingName | Nome de uma pré-criada **[mapeamento](/azure/kusto/management/mappings#csv-mapping)** numa tabela de Kusto. Para mapear as colunas de origem para o Explorador de dados do Azure – o que se aplica ao **[suportadas/formatos de arquivos de origem](copy-activity-overview.md#supported-data-stores-and-formats)** incluindo CSV/JSON/Avro formatos etc., pode utilizar a atividade de cópia [coluna mapeamento](copy-activity-schema-and-type-mapping.md) (implicitamente por nome ou explicitamente configurado) e/ou mapeamentos de Explorador de dados do Azure. | Não |
 
 **Exemplo:**
 
@@ -196,7 +196,7 @@ Para copiar dados para o Explorador de dados do Azure, definir a propriedade de 
             },
             "sink": {
                 "type": "AzureDataExplorerSink",
-                "ingestionMappingName": "<optional csv mapping name>"
+                "ingestionMappingName": "<optional Azure Data Explorer mapping name>"
             }
         },
         "inputs": [

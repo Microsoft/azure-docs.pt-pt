@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c07fbccdcf77e68f497fe940fa730f294b5c34a1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 67f1488af330ac666aa3f9fe83e5b5ee42e6df2f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727868"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57410048"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption para IaaS VMs
 
@@ -72,7 +72,7 @@ A solução suporta os seguintes cenários para IaaS VMs quando estão ativadas 
    > [!NOTE]
    > Criptografia de unidade de sistema operacional para algumas distribuições do Linux não é suportada. Para obter mais informações, consulte a [FAQ de encriptação de disco do Azure](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artigo.
    
-* Ative a encriptação em VMs do Windows que estão configurados com espaços de armazenamento do Windows.
+* Ative a encriptação em VMs que estão configurados com início de espaços de armazenamento do Windows no Windows Server 2016.
 * Atualize definições de encriptação para uma Premium encriptado existente e não - VM do Premium Storage.
 * Criar cópias de segurança e restauro de VMs encriptadas para a chave de encriptação de chaves (KEK) e cenários de não-KEK.
 * Todos os públicos do Azure e o Azure Government regiões são suportadas.

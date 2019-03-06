@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: 06c74aa85bda13ccd6849056ccc031ae6f1c12c2
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/05/2019
+ms.openlocfilehash: 09ee74ef661a3c60ecb617e14b4b05365298a93c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315559"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407481"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Início rápido: Importar um ficheiro BACPAC para uma base de dados na base de dados do Azure SQL
 
@@ -79,7 +79,7 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 ## <a name="import-into-a-single-database-from-a-bacpac-file-using-powershell"></a>Importar para uma base de dados de um ficheiro BACPAC, com o PowerShell
 
 > [!NOTE]
-> [Uma instância gerida](sql-database-managed-instance.md) não suporta atualmente a migrar uma base de dados num banco de dados de instância de um ficheiro BACPAC, com o Azure PowerShell]. Para importar para uma instância gerida, utilize o SQL Server Management Studio ou SQLPackage.
+> [Uma instância gerida](sql-database-managed-instance.md) não suporta atualmente a migrar uma base de dados num banco de dados de instância de um ficheiro BACPAC, com o Azure PowerShell. Para importar para uma instância gerida, utilize o SQL Server Management Studio ou SQLPackage.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 997727acd1bbaf17577160bb996aad7e21d49c86
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 2ebc0c90d62d1299c076f8d91ba9fed1998a20e5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810399"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450197"
 ---
 <a name="get-customer-leads"></a>Obter oportunidades potenciais
 ==================
@@ -72,7 +72,7 @@ Cada oportunidade potencial que receberá durante o processo de aquisição do c
 
 O formato de uma origem de oportunidade potencial é **origem**-**ação** |  **oferecem**
 
-**Origens**: "AzureMarketplace", "Portal do Azure", "Test-Drive do" e "AppSource (SPZA)"
+**Origens**: "AzureMarketplace", "AzurePortal", "TestDrive", and "AppSource (SPZA)"
 
 **Ações**:
 - "INS" – instalação. Esta ação está no Azure Marketplace ou AppSource quando um cliente compra seu produto.
@@ -83,17 +83,17 @@ O formato de uma origem de oportunidade potencial é **origem**-**ação** |  **
 
 **Ofertas**
 
-Os exemplos seguintes mostram identifers exclusivo que estão atribuídos a um fabricante e uma oferta específica: checkpoint.check-ponto-r77-10sg-byol, bitnami.openedxcypress e docusign.3701c77e-1cfa - 4C 56-91e6-3ed0b622145a.
+Os exemplos seguintes mostram os identificadores exclusivos que estão atribuídos a um fabricante e uma oferta específica: checkpoint.check-ponto-r77-10sg-byol, bitnami.openedxcypress e docusign.3701c77e-1cfa - 4C 56-91e6-3ed0b622145a.
 
 
 ### <a name="customer-info"></a>Informações de clientes
 
 Os campos no exemplo a seguir mostram as informações do cliente que estão contidas numa oportunidade potencial.
-- FirstName: João
+- FirstName: John
 - Apelido: Smith
 - E-mail: jsmith\@microsoft.com
 - Telefone: 1234567890
-- País: E.U.A.
+- País: EUA
 - Empresa: Microsoft
 - Título: CTO
 

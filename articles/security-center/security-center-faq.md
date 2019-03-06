@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2019
 ms.author: monhaber
-ms.openlocfilehash: 312e6c3c102946bcd19247f0730369dc7d0c8aba
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e42deed992496cc28bdf92c01934d74361f2de6f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247431"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444026"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -42,7 +42,7 @@ Centro de segurança é disponibilizado em dois escalões:
 
 O **escalão gratuito** fornece visibilidade sobre o estado de segurança dos seus recursos do Azure, política de segurança básica, recomendações de segurança e integração com produtos de segurança e serviços de parceiros.
 
-O **escalão Standard** adiciona ameaças avançadas capacidades de deteção, incluindo ameaças inteligência, análise comportamental, deteção de anomalias, incidentes de segurança e relatórios de atribuição de ameaças. Pode iniciar uma versão de avaliação do tierfree padrão. Para atualizar, selecione [escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+O **escalão Standard** adiciona ameaças avançadas capacidades de deteção, incluindo ameaças inteligência, análise comportamental, deteção de anomalias, incidentes de segurança e relatórios de atribuição de ameaças. Pode iniciar uma avaliação gratuita do escalão Standard. Para atualizar, selecione [escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="permissions"></a>Permissões
 O Centro de Segurança do Azure utiliza o [Controlo de Acesso Baseado em Funções (RBAC)](../role-based-access-control/role-assignments-portal.md), que fornece [funções incorporadas](../role-based-access-control/built-in-roles.md) que podem ser atribuídas a utilizadores, grupos e serviços no Azure.

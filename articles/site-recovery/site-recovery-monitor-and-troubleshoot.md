@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7deea91a016616d9015004857ad9e5ae70e24111
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210425"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432877"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorizar e resolver problemas de recuperação de sites
 
@@ -84,7 +84,7 @@ O **resumo de erro** secção mostra os sintomas de erro atualmente ativos que p
 O **vista de infraestrutura** mostra os componentes da infra-estrutura envolvido na replicação e estado de funcionamento de conectividade entre servidores e os serviços do Azure.
 
 - Uma linha verde indica que a ligação está em bom estada.
-- Uma linha vermelha com o ícone de erro verlaid indica a existência de um ou mais sintomas de erro que afetar a conectividade.
+- Uma linha vermelha com o ícone de erro por cima indica a existência de um ou mais sintomas de erro que afetar a conectividade.
 -  Paire o ponteiro do mouse sobre o ícone de erro para mostrar o erro e o número de entidades afetados. Clique no ícone para uma lista filtrada de entidades afetadas.
 
     ![Vista de infraestrutura de recuperação do site (cofre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)

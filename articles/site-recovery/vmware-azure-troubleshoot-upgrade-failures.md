@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
 ms.author: v-doglov
-ms.openlocfilehash: 9423fc844e766129ad81a8a286cb5bbdc722e2ca
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3a3e9da66cf9ca6e08bb25b4f4b9d09aa0c5b6e7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989326"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431942"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Resolver problemas de falhas de atualização do Fornecedor do Microsoft Azure Site Recovery
 
@@ -42,9 +42,9 @@ Para atualizar, utilize os seguintes passos:
 
 1. Voltar para a pasta para o qual transferiu a configuração unificada e execute MicrosoftAzureSiteRecoveryUnifiedSetup.exe para concluir a atualização. 
 
-## <a name="upgrade-failure-due-to-the-thirdparty-folder-being-renamed"></a>Atualizar falha devido a pasta de thirdparty a ser renomeada
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Falha da atualização devido a pasta de 3rd party a ser renomeada
 
-Para a atualização com êxito, a pasta de thirdparty não deve ser renomeada.
+Para a atualização com êxito, a pasta de 3rd party não deve ser renomeada.
 
 Para resolver o problema.
 

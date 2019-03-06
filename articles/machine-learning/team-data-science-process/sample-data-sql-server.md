@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2c556fe3cc27e68d591c0f513dcfbe525e868b2c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4be3787df0c914762e02a2fa7ead870cbf945452
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470727"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455501"
 ---
 # <a name="heading"></a>Dados de exemplo no SQL Server no Azure
 

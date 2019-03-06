@@ -7,18 +7,18 @@ author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: ''
-ms.service: ''
+ms.service: key-vault
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: df6330827a4fb8bb8e80af89855c3ea104584295
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 206804ede429e8a9ace75c16b8f0ac4a8d3f49f7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662308"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443603"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar em segurança as definições da aplicação secreta para uma aplicação web
 

@@ -1,19 +1,19 @@
 ---
-title: 'Mova circuitos de clássico para Resource Manager - ExpressRoute: PowerShell: Azure | Documentos da Microsoft'
+title: 'Mova circuitos de clássico para Resource Manager - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: Esta página descreve como mover um circuito de clássico para o modelo de implementação do Resource Manager com o PowerShell.
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: ganesr;cherylmc
+ms.date: 02/25/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 984ccfa9bad99281418ba891ce188536ae13d8e5
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a561ae5d46222ed9da75d0d32948ee3f0b66658d
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106771"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57408416"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Mover circuitos do ExpressRoute do clássico para o modelo de implementação do Resource Manager com o PowerShell
 
@@ -21,7 +21,9 @@ Para utilizar um circuito do ExpressRoute para o clássico e modelos de implemen
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Certifique-se de que tem a versão mais recente dos módulos do Azure PowerShell (pelo menos a versão 1.0). Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* Certifique-se de que tem instalado o clássicas e de módulos do PowerShell do Azure de Az localmente no seu computador. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
 * Certifique-se de que consultou os [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md), e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
 * Reveja as informações que são fornecidas através de [mover um circuito do ExpressRoute do clássico para Resource Manager](expressroute-move.md). Certifique-se de que compreende totalmente os limites e limitações.
 * Certifique-se de que o circuito é totalmente operacional no modelo de implementação clássica.
@@ -65,19 +67,19 @@ Inicie sessão no ambiente do Resource Manager e crie um novo grupo de recursos.
 1. Inicie sessão no seu ambiente do Azure Resource Manager.
 
   ```powershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
 2. Selecione a subscrição do Azure adequada.
 
   ```powershell
-  Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription
+  Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription
   ```
 
 3. Modificar o fragmento abaixo para criar um novo grupo de recursos, se ainda não tiver um grupo de recursos.
 
   ```powershell
-  New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
+  New-AzResourceGroup -Name "DemoRG" -Location "West US"
   ```
 
 ### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Passo 3: Mover o circuito do ExpressRoute para o modelo de implementação do Resource Manager
@@ -87,10 +89,10 @@ Está agora pronto para mudar o seu circuito do ExpressRoute do modelo de implem
 Para mover o seu circuito, modificar e execute o seguinte fragmento:
 
 ```powershell
-Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
+Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-No modo clássico, um circuito do ExpressRoute não tem o conceito de que está a ser ligados a uma região. No entanto, no Gestor de recursos, cada recurso tem de ser mapeada para uma região do Azure. A região especificada no cmdlet Move-AzureRmExpressRouteCircuit tecnicamente pode ser qualquer região. Para fins de organização, poderá escolher uma região que se representa a localização de peering.
+No modo clássico, um circuito do ExpressRoute não tem o conceito de que está a ser ligados a uma região. No entanto, no Gestor de recursos, cada recurso tem de ser mapeada para uma região do Azure. A região especificada no cmdlet Move-AzExpressRouteCircuit tecnicamente pode ser qualquer região. Para fins de organização, poderá escolher uma região que se representa a localização de peering.
 
 > [!NOTE]
 > Após concluir a movimentação, o novo nome listado no cmdlet anterior será utilizado para resolver o recurso. O circuito, essencialmente, será possível mudar o nome.
@@ -105,7 +107,7 @@ Depois de mover o seu circuito de ExpressRoute clássico ao modelo de implementa
 1. Obtenha os detalhes do circuito.
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
 2. Definir "Permitir operações clássicas" como TRUE.
@@ -117,7 +119,7 @@ Depois de mover o seu circuito de ExpressRoute clássico ao modelo de implementa
 3. Atualize o circuito. Depois desta operação foi concluída com êxito, poderá ver o circuito no modelo de implementação clássica.
 
   ```powershell
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 4. Execute o seguinte cmdlet para obter os detalhes do circuito ExpressRoute. Tem de ser capaz de ver a chave de serviço listada.
@@ -138,7 +140,7 @@ Execute os seguintes cmdlets para desativar o acesso ao modelo de implementaçã
 1. Obter os detalhes do circuito ExpressRoute.
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
 2. Definir "Permitir operações clássicas" para FALSO.
@@ -150,7 +152,7 @@ Execute os seguintes cmdlets para desativar o acesso ao modelo de implementaçã
 3. Atualize o circuito. Depois desta operação foi concluída com êxito, não será capaz de ver o circuito no modelo de implementação clássica.
 
   ```powershell
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 ## <a name="next-steps"></a>Passos Seguintes

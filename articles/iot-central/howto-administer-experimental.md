@@ -1,6 +1,6 @@
 ---
 title: Administrar uma aplicação do Azure IoT Central | Documentos da Microsoft
-description: Como um administrador, como administrar a sua aplicação do Azure IoT Central
+description: Como administrador, como administrar a sua aplicação do Azure IoT Central
 author: viv-liu
 ms.author: viviali
 ms.date: 02/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a3e90488558335ca5d186e6ff1dbab6abf5aaee
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d9b4779ed6c0e59de3b85560a4236528385a3849
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313179"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445046"
 ---
 # <a name="administer-your-iot-central-application"></a>Administrar a sua aplicação do Centro de IoT
 
@@ -148,7 +148,7 @@ Ligar dispositivos à escala em seu aplicativo usando aqui as chaves e certifica
 
 ## <a name="use-access-tokens"></a>Utilizar tokens de acesso
 
-Gere tokens de acesso para utilizá-los em ferramentas de desenvolvimento. Atualmente, existe uma ferramenta de desenvolvedor disponível que é o Explorador de IoT Central para monitorizar mensagens do dispositivo e alterações nas definições e propreties. Saiba mais sobre o Explorador de IoT Central. 
+Gere tokens de acesso para utilizá-los em ferramentas de desenvolvimento. Atualmente, existe uma ferramenta de desenvolvedor disponível que é o Explorador de IoT Central para monitorizar mensagens do dispositivo e alterações nas definições e propriedades. Saiba mais sobre o Explorador de IoT Central. 
 
 ## <a name="use-the-azure-sdks-for-control-plane-operations"></a>Utilizar os SDKs do Azure para operações do painel de controlo
 

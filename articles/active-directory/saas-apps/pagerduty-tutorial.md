@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c68fdadcf115f57ba524b1b4dc8a2c800cbfaf8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a48b9e70fe3373b9bc87788ff11fc0a8edc7bdf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177925"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Tutorial: Integração do Active Directory do Azure com PagerDuty
 
@@ -252,7 +252,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica em mosaico do PagerDuty no Panelyou acesso deve obter automaticamente com sessão iniciada para a sua aplicação do PagerDuty.
+Ao clicar no mosaico do PagerDuty no painel de acesso, deve obter automaticamente com sessão iniciada para a sua aplicação do PagerDuty.
 
 Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 

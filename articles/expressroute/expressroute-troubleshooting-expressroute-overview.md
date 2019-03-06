@@ -1,5 +1,5 @@
 ---
-title: 'Verificar a conectividade - guia de resolução de problemas do ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Verificar a conectividade - guia de resolução de problemas do ExpressRoute: Azure| Microsoft Docs'
 description: Esta página fornece instruções sobre solução de problemas e validar a conectividade de ponto a ponto de um circuito do ExpressRoute.
 services: expressroute
 author: rambk
@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c4b20b4007a4824ee2dea0e1b22f1ea886218885
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272818"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453614"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
 Este artigo ajuda-o a verificar e resolver problemas de conectividade do ExpressRoute. ExpressRoute, que expande uma rede no local para a cloud da Microsoft ao longo de uma ligação privada que é facilitada por um fornecedor de conectividade, envolve as seguintes três zonas de rede distintos:
 
--   Rede de cliente
+-   Rede de Cliente
 -   Rede de fornecedor
--   Data Center da Microsoft
+-   Microsoft Datacenter
 
 O objetivo deste documento é ajudar o utilizador identifique onde (ou mesmo) existe um problema de conectividade e em qual zona, assim, para obter a ajuda de equipe apropriados para resolver o problema. Se necessitar de suporte da Microsoft para resolver um problema, abra um pedido de suporte [Support da Microsoft][Support].
 
@@ -28,6 +28,8 @@ O objetivo deste documento é ajudar o utilizador identifique onde (ou mesmo) ex
 > Este documento destina-se para o ajudar a diagnosticar e corrigir problemas simples. Não se destina a ser uma substituição para o suporte da Microsoft. Abra um pedido de suporte [Support da Microsoft] [ Support] se não conseguir resolver o problema através da orientação fornecida.
 >
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Descrição geral
 O diagrama seguinte mostra a conectividade de lógica de uma rede de cliente à rede da Microsoft através do ExpressRoute.
@@ -88,7 +90,7 @@ Para um circuito de ExpressRoute fique operacional, o *circuito status* tem de s
 ### <a name="verification-via-powershell"></a>Verificação através do PowerShell
 Para listar todos os circuitos de ExpressRoute num grupo de recursos, utilize o seguinte comando:
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
 >Pode obter o nome do grupo de recursos através do Azure. Veja a subsecção anterior deste documento e tenha em atenção que o nome do grupo de recursos está listado na captura de ecrã de exemplo.
@@ -97,7 +99,7 @@ Para listar todos os circuitos de ExpressRoute num grupo de recursos, utilize o 
 
 Para selecionar um determinado circuito de ExpressRoute num grupo de recursos, utilize o seguinte comando:
 
-    Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
 
 Uma resposta de exemplo é:
 
@@ -155,7 +157,7 @@ Uma resposta de exemplo é:
     Sku                              : Standard
     Status                           : Enabled
 
-Para confirmar se um circuito do ExpressRoute está operacional, preste especial atenção para os seguintes campos: ServiceProviderProvisioningState: Estado de aprovisionamento: Ativado
+Para confirmar se um circuito do ExpressRoute está operacional, preste especial atenção para os seguintes campos: ServiceProviderProvisioningState : Estado de aprovisionamento: Ativado
 
 >[!NOTE]
 >Se o *Status* não é ativada, entre em contato com [Support da Microsoft][Support]. Se o *ServiceProviderProvisioningState* não é aprovisionado, contacte o seu fornecedor de serviços.
@@ -186,8 +188,8 @@ No exemplo anterior, como observado Azure contexto de encaminhamento de peering 
 ### <a name="verification-via-powershell"></a>Verificação através do PowerShell
 Para obter os detalhes de configuração de peering de privado do Azure, utilize os seguintes comandos:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 Uma resposta de exemplo, para um foi configurado com êxito peering privado, é:
 
@@ -210,21 +212,21 @@ Uma resposta de exemplo, para um foi configurado com êxito peering privado, é:
 
 Para obter os detalhes de configuração de peering de público do Azure, utilize os seguintes comandos:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-    Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+    Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
 Para obter os detalhes de configuração de peering do Microsoft, utilize os seguintes comandos:
 
-    $ckt = Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
-     Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
+    $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
+     Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Se não estiver configurado um peering, deveria haver uma mensagem de erro. Uma resposta de exemplo, quando o declarado peering (pública do Azure peering neste exemplo) não é configurada no circuito:
 
-    Get-AzureRmExpressRouteCircuitPeeringConfig : Sequence contains no matching element
+    Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
     At line:1 char:1
-        + Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
+        + Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering ...
         + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            + CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
+            + CategoryInfo          : CloseError: (:) [Get-AzExpr...itPeeringConfig], InvalidOperationException
             + FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
 

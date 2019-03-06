@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: cf258637311cd22964723da6bad3451dff6cccf6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1bcb50829dca59f8a467c2c1d2381b5463ef9471
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632019"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437399"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias c# para Apache Storm, utilizando as ferramentas do Data Lake para Visual Studio
 
@@ -433,7 +433,7 @@ Topologias de transacionais implementam o seguinte para suportar a repetição d
 
 * **Colocação em cache de metadados**: O spout tem de armazenar metadados sobre os dados emitidos, para que os dados possam ser recuperados e emitidos novamente se ocorrer uma falha. Uma vez que os dados emitidos pelo exemplo forem pequenos, os dados não processados para cada tupla são armazenados num dicionário para repetição.
 
-* **ACK**: Pode chamar cada bolt na topologia `this.ctx.Ack(tuple)` para confirmar que foi processado com êxito uma cadeia de identificação. Quando todos os bolts tem confirmado a cadeia de identificação, a `Ack` método da spout é invocado. O `Ack` método permite que o spout remover os dados que foi colocado em cache para repetição.
+* **Ack**: Pode chamar cada bolt na topologia `this.ctx.Ack(tuple)` para confirmar que foi processado com êxito uma cadeia de identificação. Quando todos os bolts confirmar a tupla, o `Ack` método da spout é invocado. O `Ack` método permite que o spout remover os dados que foi colocado em cache para repetição.
 
 * **Falhar**: Pode chamar cada bolt `this.ctx.Fail(tuple)` para indicar que o processamento falhou para uma cadeia de identificação. A falha é propagada para o `Fail` método de spout, onde a cadeia de identificação pode ser repetida usando armazenados em cache de metadados.
 

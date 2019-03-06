@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d65704f7037eb4152b4f91d4cbe68ceaad2cea48
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650229"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444502"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Aquisição de dados e o estágio de compreensão do processo de ciência de dados de equipa
 
@@ -68,7 +68,7 @@ Seguem-se os resultados finais neste estágio:
 
    * [Relatório de qualidade de dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Este relatório inclui resumos de dados, as relações entre cada atributo e de destino, classificação de variável e muito mais. O [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) ferramenta fornecida como parte do TDSP rapidamente pode gerar este relatório em qualquer conjunto de dados em tabela, como um ficheiro CSV ou uma tabela relacional. 
    * **Arquitetura da solução**: A arquitetura da solução pode ser um diagrama ou a descrição do seu pipeline de dados que utiliza para executar a classificação ou as previsões de indisponibilidade de novos dados depois de criar um modelo. Também contém o pipeline para voltar a preparar seu modelo com base nos dados de novo. Store o documento no [projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) diretório quando utilizar o modelo de estrutura de diretório do TDSP.
-   * **Decisão de ponto de verificação**: Antes de iniciar a engenharia de funcionalidades completo e criação de modelo, pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a pursing-lo. Pode, por exemplo, estar pronto para continuar, tem de recolher mais dados, ou abandonar o projeto, como os dados não existem para responder à pergunta.
+   * **Decisão de ponto de verificação**: Antes de iniciar a engenharia de funcionalidades completo e criação de modelo, pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a ir em busca de-lo. Pode, por exemplo, estar pronto para continuar, tem de recolher mais dados, ou abandonar o projeto, como os dados não existem para responder à pergunta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f3c50a272ef5cc0d4980cb4a623ac043d764dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f1ce786b748fedd1ec4c722b28bc11c28672c2f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190913"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443407"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro de relatório de atividades de início de sessão 
 
@@ -79,7 +79,7 @@ Pode também acessar programaticamente os dados de início de sessão com o [rep
 |50027|Token JWT inválido devido aos seguintes motivos:<ul><li>Não contém a afirmação nonce, subafirmação</li><li>erro de correspondência do identificador de requerente</li><li>afirmação duplicada nas afirmações idToken</li><li>emissor inesperado</li><li>audiência inesperada</li><li>não está dentro do intervalo de tempo válido </li><li>o formato do token não é adequado</li><li>a verificação de assinatura falhou no token de ID externo do emissor</li></ul>Contacte o proprietário da aplicação.|
 |50029|URI inválido: o nome de domínio contém carateres inválidos. Contacte o administrador de inquilino.|
 |50034|O utilizador não existe no diretório. Contacte o administrador de inquilino.|
-|50042|O salt necessário para gerar um identificador em pares está em falta no principal. Contacte o administrador de inquilino.|
+|50042|O salt necessário para gerar um identificador pairwise está em falta no princípio. Contacte o administrador de inquilino.|
 |50048|O requerente não corresponde à afirmação do Emissor na asserção do cliente. Contacte o administrador de inquilino.|
 |50050|O formato do pedido é incorreto. Contacte o proprietário da aplicação.|
 |50053|Conta foi bloqueada porque o utilizador tentou iniciar sessão demasiadas vezes com um ID de utilizador incorretas ou a palavra-passe.|
@@ -129,7 +129,7 @@ Pode também acessar programaticamente os dados de início de sessão com o [rep
 |50180|É necessária a Autenticação Integrada do Windows Ativar o inquilino para SSO Totalmente Integrado.|
 |51001|Sugestão de domínio não está presente com o identificador de segurança no local - UPN no local.|
 |51004|A conta de utilizador não existe no diretório.|
-|51006|É necessária a Autenticação Integrada do Windows O utilizador iniciou sessão com um token de sessão no qual a afirmação wia está em falta. Pedir ao utilizador que volte a iniciar sessão.|
+|51006|É necessária a Autenticação Integrada do Windows Utilizador iniciado sessão com o token de sessão que está em falta por meio de afirmação. Pedir ao utilizador que volte a iniciar sessão.|
 |52004|O utilizador não deu consentimento de acesso a recursos do LinkedIn. |
 |53000|A política de acesso condicional requer um dispositivo em conformidade e o dispositivo não está em conformidade. Peça ao utilizador inscrever o dispositivo com um fornecedor de MDM aprovado, como o Intune.|
 |53001|A política de acesso condicional requer um dispositivo associado a um domínio, o que não é o caso deste dispositivo. Tem do utilizador utilize um domínio associado ao dispositivo.|
@@ -138,7 +138,7 @@ Pode também acessar programaticamente os dados de início de sessão com o [rep
 |53004|O utilizador tem de concluir o processo de registo na autenticação multifator antes de aceder a este conteúdo. O utilizador deve registar-se na autenticação multifator.|
 |65001|A aplicação X não tem permissão para aceder à aplicação Y ou a permissão foi revogada. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização interativo para este utilizador e este recurso. Ou o utilizador ou administrador não permitiu utilizar a aplicação com o ID X. envie um pedido de autorização para o seu administrador de inquilino para agir em nome da aplicação: Y para o recurso: Z.|
 |65004|O utilizador recusou dar autorização para aceder à aplicação. Pedir ao utilizador que repita o início de sessão e que autorize o acesso à aplicação|
-|65005|A lista de acesso a recursos necessária para a aplicação não contém aplicações detetáveis pelo recurso ou a aplicação cliente pediu acesso a um recurso que não foi especificado nesta lista de acesso a recursos necessária ou o serviço Graph devolveu um pedido inválido ou o recurso não foi encontrado. Se a aplicação suportar SAML, poderá ter configurado a aplicação com o identificador (Entidade) incorreto. Experimente a resolução indicada para SAML através da ligação abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
+|65005|A lista de acesso a recursos necessária para a aplicação não contém aplicações detetáveis pelo recurso ou a aplicação cliente pediu acesso a um recurso que não foi especificado nesta lista de acesso a recursos necessária ou o serviço Graph devolveu um pedido inválido ou o recurso não foi encontrado. Se a aplicação suportar SAML, poderá ter configurado a aplicação com o identificador (Entidade) incorreto. Experimente a resolução indicada para SAML através da ligação abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Concessão inválida devido aos seguintes motivos:<ul><li>A asserção de SAML 2.0 pedida tem um Método de Confirmação de Requerente inválido</li><li>O fluxo OnBehalfOf da aplicação não é suportado em V2</li><li>O token de atualização principal não está assinado com a chave de sessão</li><li>Token de atualização externo inválido</li><li>A concessão de acesso foi obtida para outro inquilino.</li></ul>|
 |70001|A aplicação com o nome X não foi encontrada no inquilino com o nome Y. Este erro pode acontecer se a aplicação com o identificador X não tiver sido instalada pelo administrador do inquilino ou não tiver sido permitida por qualquer utilizador do inquilino. Poderá ter configurado incorretamente o valor do identificador para a aplicação ou enviado o pedido de autenticação para o inquilino errado.|
 |70002|A aplicação devolveu credenciais de cliente inválidas. Contacte o proprietário da aplicação.|

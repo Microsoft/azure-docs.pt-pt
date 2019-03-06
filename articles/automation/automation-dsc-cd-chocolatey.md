@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3eb68c4394afeb4719d92fb56d3ae9028d8566c9
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456117"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451200"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemplo de utilização: Implementação contínua para máquinas virtuais com a configuração de estado de automatização e Chocolatey
 
@@ -51,7 +51,7 @@ Uma funcionalidade-chave de um modelo do Resource Manager é a possibilidade de 
 ## <a name="quick-trip-around-the-diagram"></a>Rápido viagem ao redor de diagrama
 
 A partir de na parte superior, escrever seu código, criar e testar, em seguida, criar um pacote de instalação.
-O Chocolatey pode processar vários tipos de pacotes de instalação, por exemplo, o MSI, MSU, ZIP. E tem todo o potencial do PowerShell para fazer a instalação real se recursos nativos de Chocolateys não são bem até ele. Coloca o pacote em algum lugar acessível – um repositório de pacotes. Este exemplo de utilização utiliza uma pasta pública numa conta de armazenamento de Blobs do Azure, mas pode ser em qualquer lugar. O Chocolatey nativamente funciona com servidores NuGet e alguns outros para a gestão de metadados do pacote. [Este artigo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descreve as opções. Este exemplo de utilização utiliza NuGet. Um Nuspec é metadados sobre os pacotes. O Nuspec é "compilado" em do NuPkg e armazenado num servidor do NuGet. Quando a configuração solicita um pacote por nome e faz referência a um servidor do NuGet, o recurso de DSC Chocolatey (agora na VM) captura o pacote e instala por si. Também pode solicitar uma versão específica de um pacote.
+O Chocolatey pode processar vários tipos de pacotes de instalação, por exemplo, o MSI, MSU, ZIP. E tem todo o potencial do PowerShell para fazer a instalação real se recursos nativos de Chocolateys não são bem até ele. Coloque o pacote em algum lugar acessível – um repositório de pacotes. Este exemplo de utilização utiliza uma pasta pública numa conta de armazenamento de Blobs do Azure, mas pode ser em qualquer lugar. O Chocolatey nativamente funciona com servidores NuGet e alguns outros para a gestão de metadados do pacote. [Este artigo](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) descreve as opções. Este exemplo de utilização utiliza NuGet. Um Nuspec é metadados sobre os pacotes. O Nuspec é "compilado" em do NuPkg e armazenado num servidor do NuGet. Quando a configuração solicita um pacote por nome e faz referência a um servidor do NuGet, o recurso de DSC Chocolatey (agora na VM) captura o pacote e instala por si. Também pode solicitar uma versão específica de um pacote.
 
 Na parte inferior esquerda da imagem, há um modelo Azure Resource Manager. Neste exemplo de utilização, a extensão de VM registra a VM com o servidor de solicitação de configuração de estado de automatização do Azure (ou seja, um servidor de solicitação) como um nó. A configuração é armazenada no servidor de solicitação.
 Na verdade, é armazenada duas vezes: uma vez como texto simples e uma vez que compilado como um ficheiro MOF (para aqueles que precisa saber sobre assuntos.) No portal, o MOF é uma "configuração de nó" (em vez de simplesmente "configuração"). É o artefacto que está associado um nó para que o nó saberá a respetiva configuração. Detalhes abaixo mostram como atribuir a configuração do nó a nó.

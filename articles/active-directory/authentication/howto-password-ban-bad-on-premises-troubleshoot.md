@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e3632fdb3b4d5c1d2b5465671f36a201c5ff990
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 63fdd60c4c462626cc43a7a453bddc0b020b92cf
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193301"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409895"
 ---
 # <a name="preview-azure-ad-password-protection-troubleshooting"></a>Pré-visualização: Resolução de problemas de proteção de palavra-passe do AD do Azure
 
@@ -55,13 +55,13 @@ Certifique-se de que a máquina de proxy tem conectividade aos pontos finais lis
 
 Esse problema pode se manifestar com uma variedade de sintomas, mas normalmente tem uma causa comum.
 
-Proteção de palavra-passe do AD do Azure tem uma dependência essencial sobre a funcionalidade de criptografia e descriptografia fornecida pelo serviço de distribuição de chaves Microsoft, que está disponível nos controladores de domínio com o Windows Server 2012 e posterior. O serviço KDS tem de ser ativado e funcional em todos os Windows Server 2012 e posteriores controladores de domínio num domínio.  
+Proteção de palavra-passe do AD do Azure tem uma dependência essencial sobre a funcionalidade de criptografia e descriptografia fornecida pelo serviço de distribuição de chaves Microsoft, que está disponível nos controladores de domínio com o Windows Server 2012 e posterior. O serviço KDS tem de ser ativado e funcional em todos os Windows Server 2012 e posteriores controladores de domínio num domínio.
 
-Por predefinição o KDS o modo de início de serviço do serviço está configurado como Manual (acionador de início). Esta configuração significa que a primeira vez que um cliente tenta utilizar o serviço, é iniciada a pedido. Este modo de início de serviço predefinida é aceitável para a proteção de palavra-passe do Azure AD trabalhar. 
+Por predefinição o KDS o modo de início de serviço do serviço está configurado como Manual (acionador de início). Esta configuração significa que a primeira vez que um cliente tenta utilizar o serviço, é iniciada a pedido. Este modo de início de serviço predefinida é aceitável para a proteção de palavra-passe do Azure AD trabalhar.
 
 Se o modo de início de serviço KDS tiver sido configurado para desativado, esta configuração tem de ser corrigida antes de proteção de palavra-passe do Azure AD funcionem corretamente.
 
-Um teste simples para este problema é iniciar manualmente o serviço KDS, através da consola do MMC de gestão do serviço ou com outras ferramentas de gestão de serviço (por exemplo, execute "net start kdssvc" partir de uma consola de linha de comandos). O serviço KDS é esperado para iniciar com êxito e se manter em execução.
+Um teste simples para este problema é iniciar manualmente o serviço KDS, seja por meio do console MMC de gestão de serviço, ou com outras ferramentas de gestão de serviço (por exemplo, execute "net start kdssvc" partir de uma consola de linha de comandos). O serviço KDS é esperado para iniciar com êxito e se manter em execução.
 
 A causa mais comum é que o objeto de controlador de domínio do Active Directory está localizado fora a UO de controladores de domínio predefinida. Esta configuração não é suportada pelo serviço KDS e não é uma limitação imposta pela proteção de palavra-passe do Azure AD. A correção para esta condição é mover o objeto de controlador de domínio para uma localização em que a UO de controladores de domínio predefinida.
 
@@ -118,7 +118,7 @@ Se é decidido para desinstalar o software de pré-visualização pública e a l
 
    Não é omitir o asterisco ("*") no final o valor da variável $keywords.
 
-   O objeto resultante (s) encontrada por meio da `Get-ADObject` comando, em seguida, pode ser enviado por pipe para `Remove-ADObject`, ou eliminada manualmente. 
+   O objeto resultante (s) encontrada por meio da `Get-ADObject` comando, em seguida, pode ser enviado por pipe para `Remove-ADObject`, ou eliminada manualmente.
 
 4. Remova manualmente todos os pontos de ligação do agente de controlador de domínio em cada contexto de nomenclatura de domínio. Pode haver um desses objetos por controlador de domínio na floresta, dependendo de quão amplamente foi implementado o software de pré-visualização pública. A localização desse objeto pode ser detetada com o seguinte comando do PowerShell do Active Directory:
 

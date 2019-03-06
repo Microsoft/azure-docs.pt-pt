@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6cb9de466410ee2f8bf311183f389c5c86148a8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6e98327fbb0f2d10774b6ccb757a4d7c655031ff
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873207"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Active Directory do Azure com o SAML SSO para confluência pela resolução GmbH
 
@@ -204,7 +204,7 @@ Para configurar o Azure AD início de sessão único com o SAML SSO para conflu�
     
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon6b.png)
     
-17. Na leitura de caixa de diálogo apprearing **a ignorar os meios de teste...** , clique em **OK**.
+17. Na leitura de caixa de diálogo appearing **a ignorar os meios de teste...** , clique em **OK**.
     
     ![Configurar o início de sessão único](./media/samlssoconfluence-tutorial/addon6c.png)
 

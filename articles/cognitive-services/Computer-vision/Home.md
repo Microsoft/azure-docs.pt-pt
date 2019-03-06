@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453057"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432112"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -42,12 +42,11 @@ Pode analisar imagens para detetar e fornecem informações sobre seus recursos 
 |**[Gerar uma miniatura](concept-generating-thumbnails.md)**|Analise o conteúdo de uma imagem para gerar uma miniatura adequada dessa imagem. Imagem digitalizada primeiro gera uma miniatura de alta qualidade e, em seguida, analisa os objetos na imagem para determinar a *área de interesse*. Imagem digitalizada, em seguida, recorta a imagem de acordo com os requisitos da área de interesse. A miniatura gerada pode ser apresentada com uma proporção diferente da proporção da imagem original, consoante as suas necessidades.|
 |**[Obter a área de interesse](concept-generating-thumbnails.md#area-of-interest)**|Analisar o conteúdo de uma imagem para retornar as coordenadas do *área de interesse*. Esta é a mesma função que é utilizada para gerar uma miniatura, mas em vez de corte a imagem, de imagem digitalizada devolve as coordenadas da caixa delimitadora da região, para que o aplicativo de chamada pode modificar a imagem original, conforme desejado.|
 
-
 ## <a name="extract-text-from-images"></a>Extrair texto de imagens
 
-Pode usar para imagem digitalizada [extrair texto usando o reconhecimento ótico de carateres (OCR)](concept-extracting-text-ocr.md) partir de uma imagem para um fluxo de carateres legível por máquina. Se for necessário, OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. OCR suporta 25 idiomas e Deteta automaticamente o idioma do texto reconhecido.
+Pode usar de imagem digitalizada para extrair texto de uma imagem num meio de fluxo de carateres legível por máquina [reconhecimento ótico de carateres (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Se for necessário, OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. OCR suporta 25 idiomas e Deteta automaticamente o idioma do texto reconhecido.
 
-Também pode [reconhecer texto impresso e manuscritos](concept-recognizing-text.md) numa imagem. A Imagem Digitalizada pode detetar e extrair texto impresso e manuscrito de imagens de vários objetos com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, cartas e quadros. Atualmente, o reconhecimento de manuscrito e impressas texto está em pré-visualização e o inglês é o único idioma suportado. 
+Também pode utilizar o [leitura API](concept-recognizing-text.md#read-api) para extrair texto de impresso e manuscrito de imagens e documentos de muito texto. A API de leitura utiliza modelos atualizados e funciona para objetos uma variedade com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, letras e quadros de comunicações. Atualmente, a API de leitura está em pré-visualização e o inglês é o único idioma suportado.
 
 ## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 

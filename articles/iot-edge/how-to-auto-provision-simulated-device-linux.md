@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 72d6784eec847d610c4dfecea2f73953a9ed8615
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5e53c427564e37e04045d59d35c0d5d5ff285d05
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312669"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403956"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Criar e aprovisionar um dispositivo IoT Edge com um TPM virtual numa máquina virtual Linux
 
@@ -95,7 +95,7 @@ Na máquina virtual, criar uma ferramenta de SDK de C que pode usar para recuper
 3. Inicie sessão na sua VM, em seguida, siga os passos em [configurar um ambiente de desenvolvimento do Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) para instalar e criar o Azure IoT device SDK para C. 
 
    >[!TIP]
-   >No decorrer deste artigo, irá copiar para e colar a partir da máquina virtual, que não é fácil através do aplicativo de ligação de Gestor de Hyper-V. Pode querer ligar à máquina virtual através do Gestor de Hyper-V uma vez foi possível obter o endereço IP: `ifconfig`. Em seguida, pode utilizar o endereço IP para ligar através de SSH: `ssh <username>@<ipaddress>`.
+   >No decorrer deste artigo, irá copiar para e colar a partir da máquina virtual, que não é fácil através do aplicativo de ligação de Gestor de Hyper-V. Talvez queira ligar à máquina virtual através do Gestor de Hyper-V uma vez para obter o respetivo endereço IP: `ifconfig`. Em seguida, pode utilizar o endereço IP para ligar através de SSH: `ssh <username>@<ipaddress>`.
 
 4. Execute os seguintes comandos para criar uma ferramenta do SDK de C que obtém as informações de aprovisionamento de dispositivo. 
 

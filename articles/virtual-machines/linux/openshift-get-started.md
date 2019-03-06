@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 03/01/2019
 ms.author: haroldw
-ms.openlocfilehash: b1a39016907e697ab03a8a6962fb1e75e4433675
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 826377f7ae4803818fab22e333f7b9b89caf67cb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57218044"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444893"
 ---
 # <a name="openshift-in-azure"></a>OpenShift no Azure
 

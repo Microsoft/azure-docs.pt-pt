@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: bd1cb101a3bf9a4da9c681169d2a5c999e56b1b3
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340183"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438419"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestão de dados do Azure Data Explorer
 
@@ -81,7 +81,7 @@ Kusto oferece o cliente SDK que pode ser utilizado para ingerir e consultar dado
 
 * Ingestão de dados diretamente para o mecanismo de Explorador de dados do Azure (mais adequado para a exploração e a criação de protótipos):
 
-  * **Ingestão de inline**: controlo de comando (.ingest inline) que contém os dados em banda destina-se a fins de teste ad hoc.
+  * **Ingestão de inline**: controlo de comando (.ingest inline) que contém os dados em banda servem para fins de testes ad hoc.
 
   * **Ingestão de consulta**: comandos de controle (.set, .set ou acrescentar, .set ou substituir) que aponta para os resultados da consulta é utilizado para a geração de relatórios ou pequenas tabelas temporárias.
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
-ms.date: 12/18/2017
-ms.openlocfilehash: 8d0b123045ace223dbea6c8fa98980091cfe73e1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.date: 03/04/2019
+ms.openlocfilehash: 4adcef601ca84b94d88ed65278310a94c7273353
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819995"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433328"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning cábula do algoritmo para o Azure Machine Learning Studio
 
@@ -36,7 +36,7 @@ Transferir e imprimir o Machine Learning Studio Trapacear algoritmos no tamanho 
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Notas e de definições terminológicas para o algoritmo de Machine Learning Studio referência rápida
 
-* As sugestões disponibilizadas neste cábula do algoritmo são aproximadas regras de bolso. Alguns podem ser vinculada e algumas podem ser flagrantly violadas. Isso se destina a sugerir um ponto de partida. Não tenha medo de executar uma competição de cabeça a cabeça entre vários algoritmos nos seus dados. Há simplesmente nenhum substituto para entender os princípios de cada algoritmo e entender o sistema que gerou os seus dados.
+* As sugestões disponibilizadas neste cábula do algoritmo são aproximadas regras de bolso. Alguns podem ser vinculada e algumas podem ser flagrantly violadas. Isso se destina a sugerir um ponto de partida. Não tenha medo de executar uma competição de cabeça a cabeça entre vários algoritmos nos seus dados. Há simplesmente nenhum substituto para entender os princípios de cada algoritmo e do sistema que gerou os seus dados.
 
 * Cada algoritmo de machine learning tem seu próprio estilo ou *tendência inductive*. Para um problema específico, vários algoritmos podem ser adequados e um algoritmo pode ser uma opção melhor do que outras pessoas. Mas nem sempre é possível saber de antemão qual é a melhor opção. Em casos como esses, vários algoritmos estão listados em conjunto na folha de referência rápida. Uma estratégia apropriada seria tentar um algoritmo e se os resultados ainda não forem satisfatórios, experimente os outros. Eis um exemplo do [Galeria de IA do Azure](http://gallery.azure.ai/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [Compare classificadores de Roc: Reconhecimento de letra](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
@@ -69,7 +69,7 @@ Transferir e imprimir o Machine Learning Studio Trapacear algoritmos no tamanho 
 
 
 <!-- Module References -->
-[a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list
-[initialize-model]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model
-[k-means-clustering]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/k-means-clustering
-[one-vs-all-multiclass]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/one-vs-all-multiclass
+[a-z-list]: /azure/machine-learning/studio-module-reference/a-z-module-list
+[initialize-model]: /azure/machine-learning/studio-module-reference/machine-learning-initialize-model
+[k-means-clustering]: /azure/machine-learning/studio-module-reference/k-means-clustering
+[one-vs-all-multiclass]: /azure/machine-learning/studio-module-reference/one-vs-all-multiclass

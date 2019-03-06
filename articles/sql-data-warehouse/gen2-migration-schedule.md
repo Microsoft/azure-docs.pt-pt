@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: ddc363e6dd9fda1c8c97a0dd89bf3764c48bf06d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: dea0a38b1f543fbb17cb0cd98ee4f96144d07f4e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195309"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432911"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 
@@ -69,7 +69,7 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 
 Com base no gráfico de disponibilidade acima, vai ser agendamento de atualizações automáticas para as suas instâncias de geração 1. Para evitar qualquer interrupção inesperada na disponibilidade do armazém de dados, as atualizações automáticas serão agendadas durante a sua agenda de manutenção. Para obter mais informações sobre agendas, consulte [ver um agendamento de manutenção](viewing-maintenance-schedule.md)
 
-O processo de atualização envolverá uma breve queda da conectividade (aprox. 5 min) como vamos reiniciar o seu armazém de dados.  Assim que o seu armazém de dados foi reiniciado, ele será totalmente disponível para utilização. No entanto, pode ocorrer uma degradação do desempenho enquanto o processo de atualização continua a atualizar os ficheiros de dados em segundo plano. O tempo total para a degradação do desempenho irá variar depende do tamanho dos ficheiros de dados.
+O processo de atualização envolverá uma breve queda da conectividade (aproximadamente 5 min) como vamos reiniciar o seu armazém de dados.  Assim que o seu armazém de dados foi reiniciado, ele será totalmente disponível para utilização. No entanto, pode ocorrer uma degradação do desempenho enquanto o processo de atualização continua a atualizar os ficheiros de dados em segundo plano. O tempo total para a degradação do desempenho irá variar depende do tamanho dos ficheiros de dados.
 
 Também pode agilizar o processo de atualização de ficheiro de dados, executando [recompilação de índice Alter](sql-data-warehouse-tables-index.md) em todas as tabelas de columnstore primário com uma classe de recursos e SLO maior após o reinício.
 
@@ -82,7 +82,7 @@ Pode optar por Self-atualização ao seguir estes passos num armazém de dados d
 
 Existem duas opções ao conduzir uma atualização automática.  Pode optar por atualizar o atual data warehouse no local ou pode restaurar um armazém de dados de geração 1 para uma instância de geração 2.
 
-- [Atualização in-loco](upgrade-to-latest-generation.md) -esta opção irá atualizar o seu armazém de dados de geração 1 existente para geração 2. O processo de atualização envolverá uma breve queda da conectividade (aprox. 5 min) como vamos reiniciar o seu armazém de dados.  Assim que o seu armazém de dados foi reiniciado, ele será totalmente disponível para utilização. Se ocorrerem problemas durante a atualização, abra um [pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e fazer referência a "Atualização de geração 2" como a causa possível.
+- [Atualização in-loco](upgrade-to-latest-generation.md) -esta opção irá atualizar o seu armazém de dados de geração 1 existente para geração 2. O processo de atualização envolverá uma breve queda da conectividade (aproximadamente 5 min) como vamos reiniciar o seu armazém de dados.  Assim que o seu armazém de dados foi reiniciado, ele será totalmente disponível para utilização. Se ocorrerem problemas durante a atualização, abra um [pedido de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e fazer referência a "Atualização de geração 2" como a causa possível.
 - [Atualizar a partir do ponto de restauro](sql-data-warehouse-restore.md) - criar um ponto de restauro definidas pelo utilizador no seu armazém de dados de geração 1 atual e, em seguida, restaurar diretamente para uma instância de geração 2. O armazém de dados de geração 1 existente permanecerão em vigor. Quando o restauro estiver concluído, o armazém de dados de geração 2 será totalmente disponível para utilização.  Depois de executar todos os processos de teste e validação na instância de geração 2 restaurada, a instância de geração 1 original pode ser eliminada.
 
    - Passo 1: No portal do Azure, [criar um ponto de restauro definidas pelo utilizador](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).

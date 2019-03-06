@@ -1,5 +1,5 @@
 ---
-title: Store-sendgrid-Java-How-to-send-email-example
+title: store-sendgrid-java-how-to-send-email-example
 description: Como enviar e-mails com o SendGrid de Java numa implementação do Azure
 services: ''
 documentationcenter: java
@@ -14,19 +14,19 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: c2f2a6e5f2dd551cfb300d333081874fef2f405c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fecc3b411211ceb8aa6db5a0e0c0c6b07f19a63f
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421952"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442466"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Como enviar E-mails com o SendGrid de Java numa implementação do Azure
 O exemplo seguinte mostra como pode utilizar o SendGrid para enviar e-mails a partir de uma página da web alojadas no Azure. O aplicativo resultante pedirá ao utilizador para os valores de e-mail, conforme mostrado na captura de ecrã seguinte.
 
 ![Formulário de e-mail][emailform]
 
-O e-mail resultante terá um aspeto semelhante à captura de ecrã seguinte.
+O e-mail resultante terá um aspeto semelhante à seguinte captura de ecrã.
 
 ![Mensagem de e-mail][emailsent]
 
@@ -204,7 +204,7 @@ O código a seguir, que é chamado quando concluir o formulário no emailform.js
     </body>
     </html>
 
-Para além de enviar o e-mail, emailform.jsp fornece um resultado para o usuário; um exemplo é a captura de ecrã seguinte:
+Para além de enviar o e-mail, emailform.jsp fornece um resultado para o usuário; um exemplo é a seguinte captura de ecrã:
 
 ![Enviar o resultado de correio][emailresult]
 

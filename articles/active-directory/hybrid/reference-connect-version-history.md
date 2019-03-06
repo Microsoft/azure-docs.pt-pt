@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca5dc106d3a524f9bdd6f2d989ef1189032cd60f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: fd90cd18be1fdbac5948fb076a3358b070bad8eb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195528"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455077"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -154,7 +154,7 @@ O Azure AD Connect atualizar falhará se sempre na disponibilidade do SQL está 
 - Corrigidos vários problemas de acessibilidade para Editor de regras de sincronização e o Gestor do serviço de sincronização  
 - Foi corrigido um erro em que o Azure AD Connect não é possível obter as informações de definição de registo
 - Foi corrigido um erro que criar problemas quando o utilizador acede a partir de agora/voltar no Assistente
-- Foi corrigido um erro para impedir que um erro ocorre devido a thread de várias incorreto no Assistente de processamento
+- Foi corrigido um erro para impedir que um erro ocorre devido a thread multi incorreto no Assistente de processamento
 - Quando a página de filtragem de sincronização de grupo encontra um erro LDAP ao resolver a grupos de segurança, o Azure AD Connect, agora, retorna a exceção com total fidelidade.  A causa de raiz para a exceção de referência é ainda desconhecida e será resolvida por um bug diferente.
 -  Foi corrigido um erro em que as permissões para chaves STK e NGC (ms-DS-KeyCredentialLink atributo em objetos de dispositivo/utilizador para WHfB) não foram corretamente definidas.     
 - Foi corrigido um erro em que 'Set-ADSyncRestrictedPermissions' não foi chamado corretamente
@@ -833,7 +833,7 @@ Data da versão: Março de 2017
 Sincronização do Azure AD Connect
 * Foi corrigido um problema que faz com que o Assistente do Azure AD Connect falhar caso o nome a apresentar do conector do Azure AD não contém o domínio onmicrosoft.com inicial atribuído ao inquilino do Azure AD.
 * Foi corrigido um problema que faz com que o Assistente do Azure AD Connect falhar ao efetuar a ligação à base de dados SQL quando a palavra-passe da conta de serviço de sincronização contém carateres especiais, como o apóstrofe, dois pontos e espaço.
-* Foi corrigido um problema que faz o erro "o dimage tem uma âncora de que é diferente do que a imagem" ocorra num servidor do Azure AD Connect no modo de teste depois excluiu temporariamente uma local do AD de objeto de sincronização e, em seguida, incluído-a novamente para a sincronização.
+* Foi corrigido um problema que faz com que o erro o "a imagem tem uma âncora de que é diferente do que a imagem" ocorra num servidor do Azure AD Connect no modo de teste depois excluiu temporariamente uma local do AD de objeto de sincronização e, em seguida, incluído-a novamente para a sincronização.
 * Foi corrigido um problema que faz o erro "o objeto localizado por DN é um fantasma" ocorra num servidor do Azure AD Connect no modo de teste depois excluiu temporariamente uma local do AD de objeto de sincronização e, em seguida, incluído-a novamente para a sincronização.
 
 Gestão do AD FS

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0d42ff70bfaebf4d544fd81e6767592198ccef
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205601"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431177"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Azure AD Connect sincronização o Service Manager
 
@@ -86,7 +86,7 @@ Para resolver o problema, atualize a conta de utilizador do AD DS utilizando o s
 3. Selecione o conector do AD que está configurado para utilizar a conta do AD DS.
 4. Em ações, selecione **propriedades**.
 5. Na caixa de diálogo pop-up, selecione ligar à floresta do Active Directory:
-6. O nome da floresta indica o correspondente no local AD.
+6. O nome da floresta indica o correspondente AD no local.
 7. O nome de utilizador indica a conta do AD DS utilizada para sincronização.
 8. Introduza a nova palavra-passe da conta do AD DS na caixa de texto palavra-passe ![do Azure AD Connect Sync encriptação chave utilitário](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Clique em OK para guardar a nova palavra-passe e reinicie o serviço de sincronização para remover a palavra-passe antiga da cache de memória.

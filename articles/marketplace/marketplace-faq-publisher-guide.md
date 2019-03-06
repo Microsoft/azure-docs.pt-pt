@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: 25349593bd45949f662581160fa23d30b4682710
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 3ad38b215cf33bda0c9f9d0bcd7403b6201282ee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214202"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437161"
 ---
 # <a name="marketplace-faqs"></a>FAQs do Marketplace
 
@@ -114,7 +114,7 @@ Para migrar uma subscrição do Azure Marketplace Máquina Virtual (VM) para um 
 
 **Como são cobradas as subscrições do Azure Marketplace?**
 
-Os preços variam com base no tipo de produto e especificações do publicador. Os encargos com licenças de software e  custos de utilização do Azure são cobrados separadamente através da subscrição do Azure.
+Os preços variam com base nos tipos de produtos e especificações do publicador. Os encargos com licenças de software e  custos de utilização do Azure são cobrados separadamente através da subscrição do Azure.
 
 *Unbundled:*
 
@@ -541,7 +541,7 @@ Para migrar VMs com BYOL para a subscrição EA, não terá de recriá-los. O MO
 
 **Como são cobradas as subscrições do Azure Marketplace?**
 
-Os preços variam com base no tipo de produto e especificações do publicador. Os encargos com licenças de software e  custos de utilização do Azure são cobrados separadamente através da subscrição do Azure. Os modelos de preço incluem:
+Os preços variam com base nos tipos de produtos e especificações do publicador. Os encargos com licenças de software e  custos de utilização do Azure são cobrados separadamente através da subscrição do Azure. Os modelos de preço incluem:
 
 * **Modelo BYOL**: Traga a sua própria licença. Quando obter uma licença de software para utilização no Azure Marketplace diretamente a partir do publicador ou de um revendedor, não são cobradas quaisquer encargos adicionais relacionados com o software para utilização.
 

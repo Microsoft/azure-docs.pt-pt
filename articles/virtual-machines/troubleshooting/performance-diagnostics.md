@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387397"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441071"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnóstico de desempenho para máquinas virtuais do Azure
 
@@ -42,7 +42,7 @@ Diagnóstico de desempenho instala uma extensão de VM que executa uma ferrament
     ![Captura de ecrã do portal do Azure, com o botão de diagnóstico de desempenho de instalação realçado](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
-    > Esta captura de tela, está oculta o painel de nomes VM.
+    > Nesta captura de ecrã, está oculta o painel de nomes VM.
 1. Selecione uma conta de armazenamento (opcional)
 
     Se pretender utilizar uma única conta de armazenamento para armazenar os resultados de diagnóstico de desempenho de várias VMs, pode selecionar uma conta de armazenamento ao clicar o **definições** botão na barra de ferramentas. Clique nas **OK** botão depois de selecionar a conta de armazenamento.
@@ -143,10 +143,10 @@ Pode ver as informações de conta de armazenamento através do botão definiç�
 ### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Como posso partilhar estes dados com o suporte técnico da Microsoft? 
 Existem várias formas de partilhar o relatório de diagnóstico com a Microsoft.
 
-**Opção 1:** partilham automaticamente o relatório mais recente  
+**Opção 1:** Partilhar o relatório mais recente automaticamente  
 Quando abrir um pedido de suporte com a Microsoft, é importante partilhar o relatório de diagnóstico de desempenho. Se tiver optado por partilhar estas informações com a Microsoft enquanto executa o diagnóstico (ao selecionar a "**concordo partilhar informações de diagnóstico com a Microsoft**" caixa de verificação), Microsoft será capaz de aceder ao relatório do seu armazenamento conta com uma ligação SAS para o ficheiro zip de saída durante 30 dias a contar da data de execução. Apenas o relatório mais recente está disponível para o engenheiro de suporte. 
 
-**Opção 2:** gerar uma assinatura de acesso partilhado para o diagnóstico reportar o ficheiro comprimido  
+**Opção 2:** Gerar uma assinatura de acesso partilhado para o ficheiro comprimido do relatório de diagnóstico  
 Pode partilhar uma ligação para o ficheiro comprimido relatórios através da utilização de assinaturas de acesso partilhado. Para tal, siga estes passos: 
 1.  No portal do Azure, navegue para a conta de armazenamento na qual os dados de diagnóstico são armazenados.
 1.  Selecione **Blobs** sob a **serviço Blob** secção. 
@@ -156,7 +156,7 @@ Pode partilhar uma ligação para o ficheiro comprimido relatórios através da 
 1.  Clique em **gerar o token SAS do blob e o URL**.
 1.  Copiar o **URL de SAS do Blob**e partilhá-lo com o engenheiro de suporte. 
 
-**Opção 3:** transferir o relatório da conta de armazenamento
+**Opção 3:** Transferir o relatório da conta de armazenamento
 
 Também pode localizar o ficheiro comprimido de relatório de diagnóstico do desempenho, utilizando os passos 1 a 4 na opção 2. Selecione esta opção para transferir o ficheiro e, em seguida, partilhá-lo por e-mail ou peça o engenheiro de suporte para obter instruções carregar o ficheiro.  
 

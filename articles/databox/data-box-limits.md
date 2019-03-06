@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 5849611ad346fc5ef1f0efd1e262d2ace8097520
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2776433f01cae6c32eddc262ab9d42dad1c3936f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723457"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407260"
 ---
 # <a name="azure-data-box-limits"></a>Limites do Azure Data Box
 
@@ -22,8 +22,8 @@ Considere estes limites, como implantar e operar o Microsoft Azure Data Box. A t
 
 ## <a name="data-box-service-limits"></a>Limites do serviço de caixa de dados
 
- - Se utilizar várias contas de armazenamento com o serviço do Data Box, todas as contas de armazenamento têm de pertencer à mesma região do Azure apenas.
- - Recomendamos que utilize mais do que três contas de armazenamento. Utilizar contas de armazenamento mais potencialmente poderá afetar o desempenho.
+ - Se utilizar várias contas de armazenamento com o serviço do Data Box, todas as contas de armazenamento devem pertencer à mesma região do Azure.
+ - Recomendamos que utilize mais do que três contas de armazenamento. Utilizar contas de armazenamento mais pode vir a afetar o desempenho.
 
 ## <a name="data-box-limits"></a>Limites da caixa de dados
 
@@ -44,7 +44,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 ## <a name="data-upload-caveats"></a>Limitações de carregamento de dados
 
-- Não copie dados diretamente em qualquer uma das partilhas de pré-criada. Terá de criar uma pasta sob a partilha e, em seguida, copiar dados para essa pasta.
+- Não copie os ficheiros diretamente a qualquer uma das partilhas de pré-criada. Precisa criar uma pasta sob a partilha e, em seguida, copiar ficheiros para essa pasta.
 - Uma pasta sob o *StorageAccount_BlockBlob* e *StorageAccount_PageBlob* é um contentor. Por exemplo, os contentores são criados como *StorageAccount_BlockBlob/contentores* e *StorageAccount_PageBlob/contentor*.
 - Cada pasta criada diretamente sob *StorageAccount_AzureFiles* é convertida numa partilha de ficheiros do Azure.
 - Se tiver um objeto do Azure existente (como um blob ou um arquivo) na cloud com o mesmo nome que o objeto que está a ser copiado, o Data Box irá substituir o ficheiro na cloud.
@@ -69,14 +69,15 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Certifique-
 | Tipo de objeto do Azure | Limite Predefinido                                             |
 |-------------------|-----------------------------------------------------------|
 | Blob de bloco        | ~ 4.75 TiB                                                 |
-| BLOBs de páginas         | 8 de TiB <br> Todos os ficheiros carregados no formato de blob de página tem de ser 512 bytes alinhados (um múltiplo de integral), caso contrário o carregamento falha. <br> VHD e VHDX são alinhadas de 512 bytes. |
+| BLOBs de páginas         | 8 TiB <br> Todos os ficheiros carregados no formato de blob de página tem de ser 512 bytes alinhados (um múltiplo de integral), caso contrário o carregamento falha. <br> VHD e VHDX são alinhadas de 512 bytes. |
 | Ficheiros do Azure        | 1 TiB                                                      |
+| Managed disks     | 4 TiB <br> Para obter mais informações sobre o tamanho e limites, consulte: <li>[Destinos de escalabilidade do SSDs padrão](../virtual-machines/windows/disks-types.md#standard-ssd)</li><li>[Destinos de escalabilidade do Premium SSDs](../virtual-machines/windows/disks-types.md#standard-hdd)</li><li>[Destinos de escalabilidade de HDDs padrão](../virtual-machines/windows/disks-types.md#premium-ssd)</li><li>[Preços e faturação de discos geridos](../virtual-machines/windows/disks-types.md#billing)</li>                                                     |
 
 ## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Blob de blocos do Azure, BLOBs de páginas e convenções de nomenclatura de ficheiro
 
 | Entidade                                       | Convenções                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Os nomes dos contentores de blob de blocos e BLOBs de páginas | Tem de ser um nome DNS válido é entre 3 e 63 carateres de comprimento. <br>  Tem de começar com uma letra ou um número. <br> Pode conter apenas letras minúsculas, números e hífen (-). <br> Cada hífen (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. <br> Não são permitidos hífenes consecutivos em nomes. |
+| Os nomes dos contentores de blob de blocos e BLOBs de páginas | Tem de ser um nome DNS válido é entre 3 e 63 carateres de comprimento. <br>  Tem de começar com uma letra ou um número. <br> Pode conter apenas letras minúsculas, números e hífen (-). <br> Cada hífen (-) tem de ser imediatamente precedido e seguido por uma letra ou um número. <br> Hífenes consecutivos não são permitidos em nomes. |
 | Os nomes das partilhas de ficheiros do Azure                  | Mesmo que acima                                                                                                                                                                                                                                                                                                             |
-| Nomes de diretórios e arquivos para os ficheiros do Azure     |<li> Preservação de caso, maiúsculas e minúsculas e não pode exceder os 255 carateres de comprimento. </li><li> Não pode terminar com a barra (/). </li><li>Se for fornecido, será automaticamente removido. </li><li> Os carateres seguintes não são permitidos: "" \ /: | < > *? "</li><li> Os carateres de URL reservados devem ser escritos corretamente. </li><li> Não são permitidos carateres ilegais de caminho de URL. Pontos de código, como \uE000 não são carateres válidos do Unicode. Alguns caracteres ASCII ou Unicode, como carateres de controlo (0x00 para 0x1F \u0081, etc.), não também são permitidas. Para regras para Unicode cadeias de caracteres no HTTP/1.1, consulte RFC 2616, secção 2.2: Regras básicas e RFC 3987. </li><li> Os nomes de ficheiros seguintes não são permitidos: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, caráter de ponto (.) e dois pontos carateres (.).</li>|
+| Nomes de diretórios e arquivos para os ficheiros do Azure     |<li> Preservação de caso, maiúsculas e minúsculas e não pode exceder os 255 carateres de comprimento. </li><li> Não pode terminar com a barra (/). </li><li>Se for fornecido, será automaticamente removido. </li><li> Os carateres seguintes não são permitidos: "" \ /: | < > * ?`</li><li> Os carateres de URL reservados devem ser escritos corretamente. </li><li> Não são permitidos carateres ilegais de caminho de URL. Pontos de código, como \uE000 não são carateres válidos do Unicode. Alguns caracteres ASCII ou Unicode, como carateres de controlo (0x00 para 0x1F \u0081, etc.), não também são permitidas. Para regras para Unicode cadeias de caracteres no HTTP/1.1, consulte RFC 2616, secção 2.2: Regras básicas e RFC 3987. </li><li> Não são permitidos os seguintes nomes de ficheiros: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, caráter de ponto (.) e dois pontos carateres (.).</li>|
 | Nomes de blobs para blob de blocos e blob de páginas      | </li><li>Os nomes de blobs são sensíveis a maiúsculas e minúsculas e podem conter qualquer combinação de carateres. </li><li>Um nome de blob tem de ter entre 1 e 1024 carateres de comprimento. </li><li>Os carateres de URL reservados devem ser escritos corretamente. </li><li>O número de segmentos de linha que inclui o nome do blob não pode exceder 254. Um segmento de linha é a cadeia de carateres entre os carateres delimitadores consecutivos (por exemplo, uma barra "/") que corresponde ao nome de um diretório virtual.</li> |

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: a4e5087e53d4505d54b5ff4b8d17ad6166c6174b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c0e953434e947703308ff8d796107838df8cc979
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002506"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437319"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migração de Contoso: Recriar uma aplicação no local para o Azure
 
@@ -154,7 +154,7 @@ Os administradores da Contoso executam um script de implementação para criar o
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Antes de começaram a eles, os administradores da Contoso Certifique-se de que todo o software prerequisitie instalado na máquina de desenvolvimento estiver a utilizar para a implementação.
+1. Antes de começaram a eles, os administradores da Contoso Certifique-se de que todos os pré-requisitos de software no instalados na máquina de desenvolvimento estiver a utilizar para a implementação.
 2. Eles clonagem o repositório local para a máquina de desenvolvimento com o Git: **clone de git https://github.com/Microsoft/SmartHotel360-Azure-backend.git**
 
 
@@ -204,7 +204,7 @@ Os administradores de Contoso Aprovisione da seguinte forma:
 
 11. Eles executam o seguinte comando para iniciar o Dashboard do Kubernetes: 
 
-    **procurar o AZ aks – ContosoRG do grupo de recursos – smarthotelakseus2 de nome**
+    **az aks browse --resource-group ContosoRG --name smarthotelakseus2**
 
 12. É aberto um separador do browser para o Dashboard. Esta é uma ligação de túnel com a CLI do Azure. 
 
@@ -291,7 +291,7 @@ Que implementam da seguinte forma:
 1. Abra uma linha de comandos do programador e utilizar o início de sessão do comando az para a subscrição do Azure.
 2. Utilizam o ficheiro cmd para implementar os recursos do Azure no grupo de recursos de ContosoRG e região EUS2, digitando o seguinte comando:
 
-    **.\deploy.cmd azuredeploy eualeste2 - c do ContosoRG**
+    **.\deploy.cmd azuredeploy ContosoRG -c eastus2**
 
     ![Implementar back-end](./media/contoso-migration-rebuild/backend1.png)
 
@@ -527,7 +527,7 @@ Os administradores da Contoso agora podem publicar o Web site.
 7. Após a compilação for concluída, configure um pipeline de versões com o **implementação de serviço de aplicações do Azure**.
 8. Eles fornecem um nome de fase **teste**.
 
-    ![Nome de ambiente](./media/contoso-migration-rebuild/vsts-publishfront4.png)
+    ![Nome do ambiente](./media/contoso-migration-rebuild/vsts-publishfront4.png)
 
 9. Se adicionar um artefato e selecione a compilação que acabou de configurar.
 
@@ -548,7 +548,7 @@ Os administradores da Contoso agora podem publicar o Web site.
 14. Eles selecionam **implementação de serviço de aplicações do Azure com a ranhura**e dê o nome do ambiente **Prod**.
 15. Clicarem na **1 e 2 tarefas**e selecione a subscrição, o nome do serviço de aplicações e o **teste** ranhura.
 
-    ![Nome de ambiente](./media/contoso-migration-rebuild/vsts-publishfront10.png)
+    ![Nome do ambiente](./media/contoso-migration-rebuild/vsts-publishfront10.png)
 
 16. Remova os **implementar serviço de aplicações do Azure para o bloco de** do pipeline. Foi colocada lá pelos passos anteriores.
 

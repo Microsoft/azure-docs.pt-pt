@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 403e126795a877be018cf4f4eb42581dee080e9c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 59524a9a08b16100598b7713cb0507646245d90b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163165"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57445828"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -33,7 +33,7 @@ Para incluir a lista de funções de transformação de afirmações que podem s
 </ClaimsTransformations>
 ```
 
-O **ClaimsTransformation** elemento conatains os seguintes atributos:
+O **ClaimsTransformation** elemento contém os seguintes atributos:
 
 | Atributo |Necessário | Descrição |
 | --------- |-------- | ----------- |
@@ -96,7 +96,7 @@ O **InputParameters** elemento contém o seguinte elemento:
 | --------- | ----------- |----------- |
 | Id | Sim | Um identificador que é uma referência a um parâmetro do método de transformação de afirmações. Cada método de transformação de afirmações tem seus próprios valores. Consulte a tabela de transformação de afirmações para uma lista completa dos valores disponíveis. |
 | Tipo de dados | Sim | O tipo de dados do parâmetro, como cadeia, booleano, Int ou DateTime de acordo com a enumeração de tipo de dados no esquema XML de política personalizada. Este tipo é utilizado para efetuar operações aritméticas corretamente. Cada transformação de afirmações tem seus próprios valores. Consulte a [referência de transformação de afirmações](#Claims-transformations-reference) para obter uma lista completa dos valores disponíveis. |
-| Valor | Sim | Um valor que é passado textual para a transformação. Alguns dos valores são arbitrárias, alguns deles é selecionar o método de transformação de afirmações. |
+| Value | Sim | Um valor que é passado textual para a transformação. Alguns dos valores são arbitrárias, alguns deles é selecionar o método de transformação de afirmações. |
 
 ### <a name="outputclaims"></a>OutputClaims
 

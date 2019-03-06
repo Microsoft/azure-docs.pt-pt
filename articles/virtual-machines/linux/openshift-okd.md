@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 571190324c5a0844624bd8a838cd103317fb53ca
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5856d8747cfdb61af247ff90bec84461cdc431f2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729154"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438521"
 ---
 # <a name="deploy-okd-in-azure"></a>Implementar OKD no Azure
 

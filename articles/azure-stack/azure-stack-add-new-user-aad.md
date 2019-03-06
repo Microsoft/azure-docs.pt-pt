@@ -16,16 +16,16 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 40b26429cf4e7f218c2b5a276ae936f60bd6abe4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163228"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453240"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Adicionar uma nova conta de inquilino do Azure Stack no Azure Active Directory
 
-Após [implementar o Development Kit do Azure Stack](azure-stack-run-powershell-script.md), terá de uma conta de utilizador do inquilino para que possa explorar o portal de inquilinos e suas ofertas e planos de teste. Pode criar uma conta de inquilino por [com o portal do Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) ou pelo [com o PowerShell](#create-an-azure-stack-tenant-account-using-powershell).
+Após [implementar o Development Kit do Azure Stack](azure-stack-run-powershell-script.md), terá de uma conta de utilizador do inquilino para que possa explorar o portal de inquilinos e suas ofertas e planos de teste. Pode criar uma conta de inquilino por [com o portal do Azure](#create-an-azure-stack-tenant-account-using-the-azure-portal) ou com o PowerShell.
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Criar uma conta de inquilino do Azure Stack com o portal do Azure
 

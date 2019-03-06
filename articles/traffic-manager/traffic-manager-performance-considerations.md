@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 454d06912c34a07b0b2617936769888e92adaba1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257702"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453665"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerações de desempenho para o Gestor de Tráfego
 
@@ -28,7 +28,7 @@ Tem instâncias do seu Web site nas regiões WestUS e Sudeste asiático. Uma das
 
 O impacto no desempenho apenas que o Gestor de tráfego pode ter no seu Web site é a pesquisa DNS inicial. Um pedido DNS para o nome do perfil do Gestor de tráfego é processado pelo servidor de raiz de DNS da Microsoft que aloja a zona trafficmanager.net. O Gestor de tráfego preenche e atualiza regularmente, servidores de raiz DNS da Microsoft com base na política de Gestor de tráfego e os resultados de pesquisa. Portanto, mesmo durante a pesquisa DNS inicial, não existem consultas DNS são enviadas para o Gestor de tráfego.
 
-O Gestor de tráfego é constituído por vários componentes: nome de DNS, servidores, um serviço de API, a camada de armazenamento e um ponto final de serviço de monitorização. Se um componente de serviço do Gestor de tráfego falhar, não há nenhum efeito sobre o nome DNS associado de perfil do Traffic Manager. Os registos nos servidores Microsoft DNS permanecem inalterados. No entanto, a monitorização de ponto final e a atualizar o DNS não acontecem. Por conseguinte, o Gestor de tráfego não é possível atualizar o DNS para apontar para o seu site de ativação pós-falha quando o site primário fica inativo.
+O Gestor de tráfego é constituído por vários componentes: Servidores, um serviço de API, a camada de armazenamento e um ponto final de serviço de monitorização de nomes DNS. Se um componente de serviço do Gestor de tráfego falhar, não há nenhum efeito sobre o nome DNS associado de perfil do Traffic Manager. Os registos nos servidores Microsoft DNS permanecem inalterados. No entanto, a monitorização de ponto final e a atualizar o DNS não acontecem. Por conseguinte, o Gestor de tráfego não é possível atualizar o DNS para apontar para o seu site de ativação pós-falha quando o site primário fica inativo.
 
 Resolução de nomes DNS é rápida e os resultados são armazenados em cache. A velocidade da pesquisa de DNS inicial depende dos servidores DNS, que o cliente utiliza para resolução de nomes. Normalmente, um cliente pode realizar uma pesquisa de DNS dentro de ~ 50 ms. Os resultados da pesquisa são colocadas em cache durante o DNS Time-to-live (TTL). O Gestor de tráfego do TTL predefinido é de 300 segundos.
 
@@ -58,7 +58,7 @@ As ferramentas sobre esses sites medida DNS latências e apresentar os resolver 
 
 * [Monitor de aplicação Synthetic de AC](https://asm.ca.com/en/checkit.php)
 
-    Anteriormente conhecido como a ferramenta Web site de verificação de Watchmouse, este site mostram-lhe o tempo de resolução de DNS de várias regiões geográficas em simultâneo. Introduza o URL para ver o tempo de resolução DNS, o tempo de ligação e velocidade de várias localizações geográficas. Utilize este teste para ver qual serviço alojado é devolvido para diferentes localizações em todo o mundo.
+    Anteriormente conhecido como a ferramenta Web site de verificação de Watch mouse, este site mostram-lhe o tempo de resolução de DNS de várias regiões geográficas em simultâneo. Introduza o URL para ver o tempo de resolução DNS, o tempo de ligação e velocidade de várias localizações geográficas. Utilize este teste para ver qual serviço alojado é devolvido para diferentes localizações em todo o mundo.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 6ca5ac013716db9712063e8efc0e2116570008a9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: db6e2ad41c842e9118b2c004f8024afd894347b4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455614"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453257"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Começar com dados encriptação transparente (TDE) no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "55455614"
 > 
 > 
 
-## <a name="required-permssions"></a>Permissões necessárias
+## <a name="required-permissions"></a>Permissões obrigatórias
 Para ativar a encriptação de dados transparente (TDE), tem de ser um administrador ou membro da função dbmanager.
 
 ## <a name="enabling-encryption"></a>Ativar a encriptação

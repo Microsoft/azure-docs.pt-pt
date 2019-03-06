@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 1f6ce2e51255ddf43b6c123585866117d76f8d0b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d5d7f45b4833bb535e98542ee513e9ea8bf0f9e5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313655"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432996"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
 
@@ -418,4 +418,4 @@ Um administrador deve intervir e determinar por que a aplicação ou o cluster s
 - Alterar o valor predefinido de InstallWindowsOSOnlyUpdates como False.
 
 ### <a name="version-132"></a>Versão 1.3.2
-- Corrigir um problema que afetado o ciclo de vida de aplicação de patches num nó, caso haja nós com o nome que é o subconjunto do nome do nó atual. Para esses nós, sua possível, aplicação de patches está em falta ou o reinício está pendente. 
+- Corrigir um problema que afetado a aplicação de patches cyle de vida num nó, caso haja nós com o nome que é o subconjunto do nome do nó atual. Para esses nós, sua possível, aplicação de patches está em falta ou o reinício está pendente. 

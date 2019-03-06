@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 87c624e0fc5eac60b309a2535afc7508f1b6b3ac
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 946af124c5e16620c5052ac32d47ddb5fe4537d2
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986112"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406032"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Perguntas mais frequentes sobre a análise de tráfego
 
@@ -83,6 +83,7 @@ Pode utilizar a análise de tráfego para NSGs em qualquer uma das seguintes reg
 - Índia Central
 - Sul da Índia
 - Leste do Japão
+- Gov (US) - Virginia
 
 A área de trabalho do Log Analytics têm de existir nas seguintes regiões:
 - Canadá Central
@@ -94,6 +95,7 @@ A área de trabalho do Log Analytics têm de existir nas seguintes regiões:
 - Sudeste Asiático 
 - Índia Central
 - Leste do Japão
+- Gov (US) - Virginia
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Pode os NSGs habilitar o fluxo de registos para estar em regiões diferentes do que a minha área de trabalho?
 

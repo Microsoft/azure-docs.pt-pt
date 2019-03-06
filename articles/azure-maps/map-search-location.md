@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c68b4bdffde5f987fe07d50d76fa83e7bdfa5235
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0db64916ca84737a6a713c3d2544b2f48c3682c0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755060"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403096"
 ---
 # <a name="show-search-results-on-the-map"></a>Mostrar resultados da pesquisa no mapa
 
@@ -29,7 +29,7 @@ Existem duas formas de procurar uma localização de interesse. Uma forma é uti
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa e inicializa o serviço de cliente. Pode ver [criar um mapa](./map-create.md) para obter instruções.
 
-O segundo bloco de código utiliza a [getSearchFuzzy](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.search?view=azure-iot-typescript-latest#getsearchfuzzy-string--searchgetsearchfuzzyoptionalparams-) método na [módulo do serviço](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Permite-lhe executar uma pesquisa de texto de forma livre através da [API do rest de pesquisa difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar o ponto de interesse. API de pesquisa difusa pode lidar com qualquer combinação de entradas difusas. A resposta do serviço de pesquisa difusa, em seguida, é analisada para utilizar o formato GeoJSON a [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest) método. 
+O segundo bloco de código utiliza a `getSearchFuzzy` método na [módulo do serviço](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1). Permite-lhe executar uma pesquisa de texto de forma livre através da [API do rest de pesquisa difusa](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) para procurar o ponto de interesse. API de pesquisa difusa pode lidar com qualquer combinação de entradas difusas. A resposta do serviço de pesquisa difusa, em seguida, é analisada para utilizar o formato GeoJSON o `getGeoJsonSearchResponse` método. 
 
 O terceiro bloco de código cria uma origem de dados objeto utilizando a [origem de dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) de classe e adicionar-lhe os resultados da pesquisa. Uma [camada de símbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa ou ícones de texto para processar dados com base no ponto encapsulados no [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos no mapa.  Uma camada de símbolo, em seguida, é criada e a origem de dados é adicionada para a camada de símbolo, o que é então adicionada ao mapa.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: a94e53644b2032af7be1575cd13807e0484eb182
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 9d23d4b30ca4d394fb4afd0bb6620be6df179600
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344876"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444944"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Explorador de métricas do Azure
 
@@ -26,7 +26,7 @@ Utilize o Explorador de métricas para investigar o estado de funcionamento e a 
 
 1. Comece por [escolher um recurso e uma métrica](#creating-your-first-metric-chart) e verá um gráfico básico. Em seguida, [selecionar um intervalo de tempo](#picking-time-range) que é relevante para a sua investigação.
 
-1. Após a aprendizagem sobre gráficos básicas, poderá querer experimentar [aplicar os filtros de dimensão e divisão](#applying-dimension-filters-and-splitting). Os filtros e divisão permitem-lhe analisar quais segmentos da métrica contribuem para o valor da métrica geral e identificar valores atípicos possíveis.
+1. Tente [aplicar os filtros de dimensão e divisão](#applying-dimension-filters-and-splitting). Os filtros e divisão permitem-lhe analisar quais segmentos da métrica contribuem para o valor da métrica geral e identificar valores atípicos possíveis.
 
 1. Uso [definições avançadas](#advanced-chart-settings-and-next-steps) para personalizar o gráfico antes de afixar nos dashboards. [Configurar alertas](alerts-metric-overview.md) para receber notificações quando o valor da métrica excede ou cai abaixo de um limiar.
 
@@ -59,7 +59,7 @@ Por predefinição, o gráfico mostra as mais recentes 24 horas de dados de mét
 
 [Filtragem](metrics-charts.md#apply-filters-to-charts) e [divisão](metrics-charts.md#apply-splitting-to-a-chart) são poderosas ferramentas de diagnóstico para as métricas que têm dimensões. Esses recursos mostram como vários segmentos de métrica ("valores de dimensão") afetam o valor geral da métrica e permitem-lhe identificar valores atípicos possíveis.
 
-- **Filtragem** permite-lhe escolher quais valores de dimensão estão incluídos no gráfico. Por exemplo, pode querer mostrar pedidos com êxito quando a criação de gráficos a *tempo de resposta do servidor* métrica. Terá de aplicar o filtro do *sucesso de pedido* dimensão. 
+- **Filtragem** permite-lhe escolher quais valores de dimensão estão incluídos no gráfico. Por exemplo, pode querer mostrar pedidos com êxito quando a criação de gráficos a *tempo de resposta do servidor* métrica. Precisaria aplicar o filtro no *sucesso de pedido* dimensão. 
 
 - **A divisão** controles se o gráfico exibe separado para cada valor de uma dimensão as linhas ou agrega os valores numa única linha. Por exemplo, pode ver uma linha para um tempo de resposta médio em todas as instâncias de servidor ou ver linhas separadas para cada servidor. Precisaria aplicam-se de que a divisão no *instância de servidor* dimensão para ver as linhas separadas.
 

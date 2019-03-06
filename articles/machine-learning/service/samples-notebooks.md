@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 12da1b20c5e4e6299445b8ec8ec90eeec6711e2c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805523"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451795"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Utilizar blocos de notas do Jupyter para explorar o serviço Azure Machine Learning
 
@@ -82,7 +82,7 @@ Embora seja possível usar qualquer uma das opções acima, também pode instala
       + Inicia um bloco de notas do jupyter
       
    >[!NOTE]
-   > O script aceita o nome do ambiente de conda como um parâmetro opcional. O nome de ambiente de conda predefinido é `azure_automl`. O comando exato depende do sistema operativo. Isto é útil se estiver a criar um novo ambiente ou a atualização para uma nova versão. Por exemplo pode utilizar "automl_setup.cmd azure_automl_sandbox" para criar um azure_automl_sandbox de nome de evironment. 
+   > O script aceita o nome do ambiente de conda como um parâmetro opcional. O nome de ambiente de conda predefinido é `azure_automl`. O comando exato depende do sistema operativo. Isto é útil se estiver a criar um novo ambiente ou a atualização para uma nova versão. Por exemplo pode utilizar "automl_setup.cmd azure_automl_sandbox" para criar um azure_automl_sandbox de nome de ambiente. 
       
 1. Assim que o script tiver concluído, verá uma home page de bloco de notas do Jupyter no seu browser.
 

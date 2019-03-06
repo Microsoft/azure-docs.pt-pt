@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: b9c39b1f6987db045669c821416312f88a590cbb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: f489abeab0e1374d2d40ade79c4eb55fd633b909
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982865"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443288"
 ---
 # <a name="access-data-from-your-datastores"></a>Aceder a dados a partir de seus arquivos de dados
 Neste artigo, irá aprender diferentes formas de aceder e interagir com os seus dados em fluxos de trabalho do Azure Machine Learning por meio de arquivos de dados.
@@ -25,7 +25,7 @@ Nesta explicação de procedimento mostra exemplos para as seguintes tarefas:
 * [Escolha um arquivo de dados](#access)
 * [Obter um arquivo de dados](#get)
 * [Carregar e transferir dados para arquivos de dados](#upload-and-download-data)
-* [Arquivo de dados de acesso durante o treinamento](#access-datastores-for-training)
+* Arquivo de dados de acesso durante o treinamento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,7 +62,7 @@ Se tiver de armazenamento do Azure existente, pode registá-lo como um arquivo d
 
 Os exemplos seguintes mostram-lhe para registar um contentor de Blobs do Azure ou uma partilha de ficheiros do Azure como um arquivo de dados.
 
-+ Para uma **o arquivo de dados do Azure Blob contentor**, utilize [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-:)
++ Para uma **o arquivo de dados do Azure Blob contentor**, utilize [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py)
 
   ```Python
   ds = Datastore.register_azure_blob_container(workspace=ws, 

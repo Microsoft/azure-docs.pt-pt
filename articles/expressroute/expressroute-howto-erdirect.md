@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 9157466f0768b052f55f6d225e72ae7a036f8b9c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c5bae17008e2d664a09999daf3244213dfa2364f
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822177"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57406750"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
@@ -24,14 +24,14 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
 1. Inicie sessão no Azure e selecione a subscrição. O recurso direto do ExpressRoute e circuitos do ExpressRoute tem de ser na mesma subscrição.
 
   ```powershell
-  Connect-AzureRMAccount 
+  Connect-AzAccount 
 
-  Select-AzureRMSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+  Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
   ```
 2. Liste todas as localizações onde ExpressRoute direta é suportada.
   
   ```powershell
-  Get-AzureRmExpressRoutePortsLocation
+  Get-AzExpressRoutePortsLocation
   ```
 
   **Exemplo de saída**
@@ -64,7 +64,7 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
 3. Determinar se uma localização listada acima tem largura de banda disponível
 
   ```powershell
-  Get-AzureRmExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
+  Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
   ```
 
   **Exemplo de saída**
@@ -94,7 +94,7 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
   > 
  
   ```powershell 
-  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
+  $ERDirect = New-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
   ```
 
   > [!NOTE]
@@ -156,7 +156,7 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
 1. Obter os detalhes da direta do ExpressRoute.
 
   ```powershell
-  $ERDirect = Get-AzureRmExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+  $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
   ```
 2. Defina o Link para ativado. Repita este passo para definir cada ligação ativada.
 
@@ -164,10 +164,10 @@ ExpressRoute Direct dá-lhe a capacidade de ligar diretamente para a rede global
 
   ```powershell
   $ERDirect.Links[0].AdminState = “Enabled”
-  Set-AzureRmExpressRoutePort -ExpressRoutePort $ERDirect
-  $ERDirect = Get-AzureRmExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+  Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
+  $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
   $ERDirect.Links[1].AdminState = “Enabled”
-  Set-AzureRmExpressRoutePort -ExpressRoutePort $ERDirect
+  Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
   ```
   **Exemplo de saída:**
 
@@ -231,7 +231,7 @@ Circuitos do Standard ou premium podem ser criados. Circuitos padrão são inclu
 Crie um circuito no recurso direto do ExpressRoute.
 
   ```powershell
-  New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
+  New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
   Outras larguras de banda incluem: 5.0, 10.0 e 40.0

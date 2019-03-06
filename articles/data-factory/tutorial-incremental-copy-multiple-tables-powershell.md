@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 3902e6ae93159266de9f9e9cc0f355a37976a8ed
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2df8b8f201d4d028ac388556a830135f52ead845
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425667"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439456"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -222,7 +222,10 @@ END
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Siga as instruções em [Instalar e Configurar o Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) para instalar os módulos mais recentes do Azure PowerShell.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Siga as instruções em [Instalar e Configurar o Azure PowerShell](/powershell/azure/install-Az-ps) para instalar os módulos mais recentes do Azure PowerShell.
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 1. Defina uma variável para o nome do grupo de recursos que vai utilizar nos comandos do PowerShell mais tarde. Copie o texto do comando seguinte para o PowerShell, especifique um nome para o [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) com aspas duplas e execute o comando. Um exemplo é `"adfrg"`. 
@@ -241,7 +244,7 @@ Siga as instruções em [Instalar e Configurar o Azure PowerShell](/powershell/a
 1. Para criar o grupo de recursos do Azure, execute o comando abaixo: 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
     Se o grupo de recursos já existir, é possível que não queira substituí-lo. Atribua outro valor à variável `$resourceGroupName` e execute novamente o comando.
 
@@ -253,10 +256,10 @@ Siga as instruções em [Instalar e Configurar o Azure PowerShell](/powershell/a
     ```powershell
     $dataFactoryName = "ADFIncMultiCopyTutorialFactory";
     ```
-1. Para criar a fábrica de dados, execute o cmdlet **Set-AzureRmDataFactoryV2**: 
+1. Para criar a fábrica de dados, execute o seguinte procedimento **Set-AzDataFactoryV2** cmdlet: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 Tenha em atenção os seguintes pontos:
@@ -337,10 +340,10 @@ Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dad
 
 1. No PowerShell, mude para a pasta C:\ADFTutorials\IncCopyMultiTableTutorial.
 
-1. Execute o cmdlet **Set-AzureRmDataFactoryV2LinkedService** para criar o serviço ligado, AzureStorageLinkedService. No exemplo seguinte, vai transmitir os valores para os parâmetros *ResourceGroupName* e *DataFactoryName*: 
+1. Executar o **Set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado AzureStorageLinkedService. No exemplo seguinte, vai transmitir os valores para os parâmetros *ResourceGroupName* e *DataFactoryName*: 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerLinkedService" -File ".\SqlServerLinkedService.json"
     ```
 
     Segue-se o resultado do exemplo:
@@ -369,10 +372,10 @@ Neste passo, vai ligar a base de dados do SQL Server no local à fábrica de dad
         }
     }
     ```
-1. No PowerShell, execute o cmdlet **Set-AzureRmDataFactoryV2LinkedService** para criar o serviço ligado AzureSQLDatabaseLinkedService. 
+1. No PowerShell, execute o **Set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado AzureSQLDatabaseLinkedService. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     Segue-se o resultado do exemplo:
@@ -410,10 +413,10 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
 
     o nome da tabela é um nome fictício. A atividade Cópia no pipeline utiliza uma consulta SQL para carregar os dados em vez de carregar a tabela inteira.
 
-1. Execute o cmdlet **Set-AzureRmDataFactoryV2Dataset** para criar o conjunto de dados SourceDataset.
+1. Executar o **Set-AzDataFactoryV2Dataset** cmdlet para criar o conjunto de dados SourceDataset.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Eis a saída de exemplo do cmdlet:
@@ -454,10 +457,10 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
     }
     ```
 
-1. Execute o cmdlet **Set-AzureRmDataFactoryV2Dataset** para criar o conjunto de dados SinkDataset.
+1. Executar o **Set-AzDataFactoryV2Dataset** cmdlet para criar o conjunto de dados SinkDataset.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Eis a saída de exemplo do cmdlet:
@@ -490,10 +493,10 @@ Neste passo, vai criar um conjunto de dados para armazenar um valor de limite su
         }
     }    
     ```
-1. Execute o cmdlet **Set-AzureRmDataFactoryV2Dataset** para criar o conjunto de dados WatermarkDataset.
+1. Executar o **Set-AzDataFactoryV2Dataset** cmdlet para criar o conjunto de dados WatermarkDataset.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Eis a saída de exemplo do cmdlet:
@@ -652,10 +655,10 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
         }
     }
     ```
-1. Execute o cmdlet **Set-AzureRmDataFactoryV2Pipeline** para criar o pipeline IncrementalCopyPipeline.
+1. Executar o **Set-AzDataFactoryV2Pipeline** cmdlet para criar o pipeline IncrementalCopyPipeline.
     
    ```powershell
-   Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+   Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    Segue-se o resultado do exemplo: 
@@ -691,10 +694,10 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
         ]
     }
     ```
-1. Execute o pipeline IncrementalCopyPipeline com o cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Substitua os marcadores de posição pelos nomes do seu grupo de recursos e da sua fábrica de dados.
+1. Execute o pipeline IncrementalCopyPipeline com o **Invoke-AzDataFactoryV2Pipeline** cmdlet. Substitua os marcadores de posição pelos nomes do seu grupo de recursos e da sua fábrica de dados.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
     ``` 
 
 ## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
@@ -796,7 +799,7 @@ VALUES
 1. Agora, execute novamente o pipeline executando o seguinte comando do PowerShell:
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupname -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"
     ```
 1. Siga as instruções na secção [Monitorizar o pipeline](#monitor-the-pipeline) para monitorizar as execuções do pipeline. Dado que o estado do pipeline é **Em Curso**, verá outra ligação de ação em **Ações** para cancelar a execução do pipeline. 
 

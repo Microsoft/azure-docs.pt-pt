@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3aa3bbfc0a79e4923f66cc73817ecae1723621eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9033276c7f3469c356c55fde8861bda2c15ca2d6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872765"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452849"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Active Directory do Azure com o SAP NetWeaver
 
@@ -147,7 +147,7 @@ Para configurar o Azure AD início de sessão único com o SAP NetWeaver, execut
 
     b. Clique em **metadados**.
 
-    c. Guardar o gerado **arquivo XML de metadados** no seu computador e carregá-la na **configuração básica de SAML** secção automaticamente polulate o **identificador** e  **URL de resposta** valores no portal do Azure.
+    c. Guardar o gerado **arquivo XML de metadados** no seu computador e carregá-la na **configuração básica de SAML** secção para preencher o automática a **identificador** e  **URL de resposta** valores no portal do Azure.
 
 8. Na [portal do Azure](https://portal.azure.com/), na **SAP NetWeaver** página de integração de aplicações, selecione **início de sessão único**.
 

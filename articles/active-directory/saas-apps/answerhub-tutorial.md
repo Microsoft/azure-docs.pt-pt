@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d6ff44a8d760150df491b67ee56d62c4daff31
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e05f865f0fd76e93b92f3bb09f1babd780074065
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882795"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442584"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Active Directory do Azure com AnswerHub
 
@@ -80,7 +80,7 @@ Para configurar e testar o Azure AD início de sessão único com AnswerHub, pre
 2. [Configurar AnswerHub início de sessão único](#configure-answerhub-single-sign-on) para configurar as definições únicas início de sessão no lado do aplicativo.
 3. [Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user) Eduarda Almeida com o nome.
 4. [Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user) para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. [Criar um utilizador de teste AnswerHub](#create-answerhub-test-user) que corresponde ao e está associado ao utilizador de teste do Azure AD.
+5. Crie um utilizador de teste de AnswerHub que corresponde ao e está associado ao utilizador de teste do Azure AD.
 6. [Testar início de sessão único](#test-single-sign-on) para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único

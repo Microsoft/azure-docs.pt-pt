@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861685"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431143"
 ---
 # <a name="analyze-method"></a>Analisar método
 
@@ -24,7 +24,7 @@ ms.locfileid: "55861685"
 > A pré-visualização da API de Análise Linguística foi desativada no dia 9 de agosto de 2018. Recomendamos que utilize os [módulos de análise de texto do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) para o processamento e a análise de texto.
 
 O **analisar** REST API é usada para analisar a entrada de um determinado idioma natural.
-Que pode envolver a localização a [frases e tokens](Sentences-and-Tokens.md) dentro do que a entrada, localizar o [etiquetas de parte da voz](POS-tagging.md), ou ao localizar o [constitutency árvore](Constituency-Parsing.md).
+Que pode envolver a localização a [frases e tokens](Sentences-and-Tokens.md) dentro do que a entrada, localizar o [etiquetas de parte da voz](POS-tagging.md), ou ao localizar o [árvore de constituintes](Constituency-Parsing.md).
 Pode especificar quais os resultados que pretende ao escolher os analisadores relevantes.
 Para listar todos os analisadores disponíveis, veja a  **[analisadores](AnalyzersMethod.md)**.
 
@@ -40,9 +40,9 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 Name | Type | Necessário | Descrição
 -----|-------|----------|------------
-**language**    | cadeia | Sim | As duas letras o código de idioma do ISO a ser utilizado para análise. Por exemplo, o inglês é "en".
+**language**    | string | Sim | As duas letras o código de idioma do ISO a ser utilizado para análise. Por exemplo, o inglês é "en".
 **analyzerIds** | lista de cadeias de caracteres | Sim | Lista de GUIDs de analisadores de aplicar. Consulte a documentação de analisadores para obter mais informações.
-**text**        | cadeia | Sim | Dados brutos para ser analisado. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, uma frase completa, ou um parágrafo inteiro ou discourse.
+**text**        | string | Sim | Dados brutos para ser analisado. Isso pode ser uma cadeia de caracteres curta, como uma palavra ou frase, uma frase completa, ou um parágrafo inteiro ou discourse.
 
 ## <a name="response-json"></a>Resposta (JSON)
 
@@ -52,7 +52,7 @@ Os resultados semelhante ao seguinte:
 
 Name | Tipo | Descrição
 -----|------|--------------
-analyzerId | cadeia | GUID do analyzer especificado
+analyzerId | string | GUID do analyzer especificado
 Resultado | objeto | resultado de analisador
 
 Tenha em atenção que o tipo de resultado depende do tipo de analisador de entrada.
@@ -67,8 +67,8 @@ result[x].Len | int | comprimento em carateres de cada sentença |
 result[x].Tokens | lista de objetos de token | limites de token identificados a frase |
 result[x].Tokens[y].Offset | int | deslocamento inicial de caráter do token |
 result[x].Tokens[y].Len | int | comprimento em carateres do token |
-result[x].Tokens[y].RawToken | cadeia | os carateres dentro do token, antes de normalização |
-result[x].Tokens[y].NormalizedToken | cadeia | um formato normalizado do caráter, seguro para uso num [analisar árvore](Constituency-Parsing.md); por exemplo, um caráter de Parêntese aberto "(" torna-se - LRB - |
+result[x].Tokens[y].RawToken | string | os carateres dentro do token, antes de normalização |
+result[x].Tokens[y].NormalizedToken | string | um formato normalizado do caráter, seguro para uso num [analisar árvore](Constituency-Parsing.md); por exemplo, um caráter de Parêntese aberto "(" torna-se - LRB - |
 
 Entrada de exemplo: "Este é um teste. Hello. "
 Resposta JSON de exemplo:

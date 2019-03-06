@@ -1,5 +1,5 @@
 ---
-title: Restaurar um grupo eliminado do Office 365 no Azure AD | Microsoft Docs
+title: Restaurar um grupo eliminado do Office 365 - Azure AD | Documentos da Microsoft
 description: Como restaurar um grupo eliminado, ver grupos restaurável e eliminar permanentemente um grupo no Azure Active Directory
 services: active-directory
 author: curtand
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cacd4a24becab1dfe797fe29aea125c016527192
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fee8604bece0ae7249b0735f6952bfa35a4590fb
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734392"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443169"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restaurar um grupo eliminado do Office 365 no Azure Active Directory
 Quando elimina um grupo do Office 365 no Azure Active Directory (Azure AD), o grupo eliminado é retido, mas não é visível durante 30 dias a contar da data de eliminação. Este comportamento é assim para que o grupo e o respetivo conteúdo possam ser restaurados, se necessário. Esta funcionalidade está restringida exclusivamente a grupos do Office 365 no Azure AD. Não está disponível para grupos de segurança e grupos de distribuição.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 1534a3f010183cd91c444b577d26e3f21e296d27
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016883"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57434324"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para recursos do agendador avançadas no Azure Kubernetes Service (AKS)
 
@@ -151,12 +151,12 @@ Para obter mais informações, consulte [afinidade e a antiafinidade][k8s-affini
 
 Uma abordagem final para o agendador de Kubernetes para isolar logicamente cargas de trabalho está a utilizar a afinidade de pod entre ou antiafinidade. As definições de definem esse pods *não deve* agendado num nó que tem um pod correspondente existente ou que eles *deve* ser agendada. Por predefinição, o agendador de Kubernetes tenta agendar vários pods numa réplica definida em todos os nós. Pode definir regras mais específicas sobre este comportamento.
 
-Um bom exemplo é uma aplicação web que também utiliza uma Cache do Azure para Redis. Pode utilizar regras de antiafinidade pod para solicitar que o agendador de Kubernetes distribui réplicas em todos os nós. Pode, em seguida, as regras de afinidade de ise para se certificar de que cada componente da aplicação web está agendada no mesmo anfitrião como uma cache correspondente. A distribuição de pods em todos os nós terá um aspeto semelhante ao seguinte exemplo:
+Um bom exemplo é uma aplicação web que também utiliza uma Cache do Azure para Redis. Pode utilizar regras de antiafinidade pod para solicitar que o agendador de Kubernetes distribui réplicas em todos os nós. Em seguida, pode utilizar regras de afinidade para se certificar de que cada componente da aplicação web está agendada no mesmo anfitrião como uma cache correspondente. A distribuição de pods em todos os nós terá um aspeto semelhante ao seguinte exemplo:
 
 | **Nó 1** | **Nó 2** | **Nó 3** |
 |------------|------------|------------|
-| aplicação Web-1   | aplicação Web-2   | aplicação Web-3   |
-| cache de-1    | 2 de cache    | 3 de cache    |
+| webapp-1   | webapp-2   | webapp-3   |
+| cache-1    | cache-2    | cache-3    |
 
 Neste exemplo é uma implementação mais complexa que a utilização de seletores de nó ou de afinidade de nó. A oferece implantação controlo sobre como o Kubernetes agenda pods em nós e logicamente pode isolar os recursos. Para obter um exemplo completo desta aplicação web com Cache do Azure para o exemplo de Redis, consulte [Colocalizar pods no mesmo nó][k8s-pod-affinity].
 

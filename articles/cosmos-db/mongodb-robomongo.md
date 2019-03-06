@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5696c376ad64df01d7f9d43ff59c87402c334c52
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ab066fef4bffe35408fdc5f3ad6d66796b4d0818
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034816"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443975"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar Robo 3T com a API do Azure Cosmos DB para o MongoDB
 
@@ -33,14 +33,14 @@ Para adicionar a sua conta do Cosmos para o Gerenciador de conexões de 3T Robo,
 
 4. Na **definições de ligação** janela, escolha um nome. Em seguida, procure o **Host** e **porta** do suas informações de ligação no passo 1 e introduza-os em **endereço** e **porta**, respectivamente.
 
-    ![Captura de ecrã da Robomongo gerir ligações](./media/mongodb-robomongo/manageconnections.png)
+    ![Captura de ecrã do Robomongo gerir ligações](./media/mongodb-robomongo/manageconnections.png)
 5. Sobre o **autenticação** separador, clique em **executar autenticação**. Em seguida, introduza a sua base de dados (a predefinição é *administrador*), **nome de utilizador** e **palavra-passe**.
 Ambos **nome de utilizador** e **palavra-passe** podem ser encontrados nas informações de ligação no passo 1.
 
     ![Captura de ecrã do separador autenticação Robomongo](./media/mongodb-robomongo/authentication.png)
 6. Na **SSL** separador, verificação **utilizar o protocolo SSL**, em seguida, altere o **método de autenticação** para **certificado autoassinado**.
 
-    ![Captura de ecrã do separador de SSL Robomongo](./media/mongodb-robomongo/SSL.png)
+    ![Captura de ecrã do separador de Robomongo SSL](./media/mongodb-robomongo/SSL.png)
 7. Por fim, clique em **teste** para verificar a capacidade de ligar, em seguida, **guardar**.
 
 ## <a name="next-steps"></a>Passos Seguintes

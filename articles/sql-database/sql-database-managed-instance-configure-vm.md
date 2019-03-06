@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 640182b50492ed21cd604423fe1cef7301095941
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 66ac3cf786abeebc2579a937d8670d639c1af270
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408804"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447001"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Início rápido: Configurar a VM do Azure para ligar a uma instância de gerida de base de dados do Azure SQL
 
@@ -84,7 +84,7 @@ Uma vez que a instância gerida SQL é colocada na sua rede Virtual privada, tem
    |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Utilizar esta palavra-passe sempre que [ligar à VM](#connect-to-virtual-machine).|
    | **Tamanho da máquina virtual** | Qualquer tamanho válido | A predefinição neste modelo de **Standard_B2s** é suficiente para este início rápido. |
    | **Localização**|[resourceGroup (). location].| Não altere este valor. |
-   | **Nome da rede virtual**|O netword virtual em que criou a instância gerida.|
+   | **Nome da rede virtual**|A rede virtual em que criou a instância gerida.|
    | **Nome da sub-rede**|O nome da sub-rede que criou no procedimento anterior| Não escolha a sub-rede na qual criou a instância gerida.|
    | **artefactos de localização** | [implementação ().properties.templateLink.uri] | Não altere este valor. |
    | **token de Sas de localização de artefactos** | Deixe em branco | Não altere este valor. |
