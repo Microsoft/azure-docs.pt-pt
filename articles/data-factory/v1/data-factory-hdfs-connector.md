@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e8af817c942a28cfd28d1b13303aebfcc10d31ba
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 45b3149c0d546be201412567041ab1c5a86036e6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016059"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455977"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS no local com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,6 +34,8 @@ Pode copiar dados do HDFS para qualquer arquivo de dados de sink suportados. Par
 
 > [!NOTE]
 > Atividade de cópia não elimina o ficheiro de origem após ser copiada com êxito para o destino. Se tiver de eliminar o ficheiro de origem depois de uma cópia com êxito, crie uma atividade personalizada para excluir o arquivo e usar a atividade no pipeline. 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enabling-connectivity"></a>Ativar a conectividade
 Serviço do Data Factory suporta a ligar ao HDFS no local com o Data Management Gateway. Ver [mover dados entre localizações no local e na cloud](data-factory-move-data-between-onprem-and-cloud.md) artigo para saber mais sobre o Gateway de gestão de dados e instruções passo a passo sobre como configurar o gateway. Utilize o gateway para ligar ao HDFS, mesmo que ele está hospedado numa VM de IaaS do Azure.
@@ -71,7 +73,7 @@ Os serviços ligados ligam um arquivo de dados para uma fábrica de dados. Vai c
 | userName |Autenticação de nome de utilizador para Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para autenticação do Windows) |
 | palavra-passe |Palavra-passe para a autenticação do Windows. |Sim (para autenticação do Windows) |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar para o HDFS. |Sim |
-| encryptedCredential |[Novo AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) saída da credencial de acesso. |Não |
+| encryptedCredential |[Novo AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) saída da credencial de acesso. |Não |
 
 ### <a name="using-anonymous-authentication"></a>Utilizar a autenticação anónima
 
