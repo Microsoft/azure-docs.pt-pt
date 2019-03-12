@@ -11,15 +11,15 @@ ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 2972d04d1617b755bb6c2ff60d9922accdd09f2a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0dc50da5eb302e2f1b24c265b4675d93f0a2e849
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614842"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768370"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expõe um serviço do WCF no local a uma aplicação web na cloud utilizando o reencaminhamento do Azure 
 Este artigo mostra como compilar uma aplicação híbrida na cloud com o Microsoft Azure e o Visual Studio. Criar uma aplicação que utiliza vários recursos do Azure backup e em execução na cloud.
@@ -185,7 +185,7 @@ Em primeiro lugar, criar um sistema de catálogo de produtos no local simulado. 
         }
     }
     ```
-12. No Explorador de Soluções, faça duplo clique no ficheiro **App.config** para abri-lo no editor do Visual Studio. Na parte inferior a `<system.ServiceModel>` elemento (mas ainda dentro `<system.ServiceModel>`), adicione o seguinte código XML: Certifique-se de que substitua *yourServiceNamespace* com o nome do seu espaço de nomes, e *yourKey* com a chave SAS obtida anteriormente a partir do portal:
+12. No Explorador de Soluções, faça duplo clique no ficheiro **App.config** para abri-lo no editor do Visual Studio. Na parte inferior a `<system.ServiceModel>` elemento (mas ainda dentro `<system.ServiceModel>`), adicione o seguinte código XML: Certifique-se de que substitui *yourServiceNamespace* pelo nome do espaço de nomes e *yourKey* pela chave SAS obtida anteriormente a partir do portal:
 
     ```xml
     <system.serviceModel>
@@ -350,7 +350,7 @@ O passo seguinte consiste em ligar o servidor de produtos no local à aplicaçã
 
    ![Adicionar como uma ligação][24]
 
-6. Agora, abra a **HomeController.cs** do ficheiro no editor do Visual Studio e substitua a definição de espaço de nomes com o seguinte código: Certifique-se de que substitua *yourServiceNamespace* com o nome do seu serviço espaço de nomes, e *yourKey* com a sua chave SAS. Isto permite ao cliente chamar o serviço no local, retornando o resultado da chamada.
+6. Agora, abra a **HomeController.cs** do ficheiro no editor do Visual Studio e substitua a definição de espaço de nomes pelo código seguinte: Certifique-se de que substitui *yourServiceNamespace* pelo nome do espaço de nomes de serviço e *yourKey* pela chave SAS. Isto permite ao cliente chamar o serviço no local, retornando o resultado da chamada.
 
    ```csharp
    namespace ProductsWeb.Controllers
@@ -448,7 +448,7 @@ Antes de executar a aplicação na nuvem, deve garantir que o **ProductsPortal**
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-1. Prima F5 para compilar e executar a aplicação. O servidor no local (a **ProductsServer** aplicação de consola) deverá iniciar primeiro e, em seguida, o **ProductsPortal** aplicação deverá iniciar numa janela do browser, conforme mostrado na seguinte captura de ecrã: Observe novamente que o inventário de produtos lista os dados obtidos a partir do serviço de produtos no sistema local e exibe esses dados na aplicação web. Verifique o URL para certificar-se de que o **ProductsPortal** está em execução na nuvem, como uma aplicação Web do Azure.
+1. Prima F5 para compilar e executar a aplicação. O servidor no local (a **ProductsServer** aplicação de consola) deverá iniciar primeiro e, em seguida, o **ProductsPortal** aplicação deverá iniciar numa janela do browser, conforme mostrado na seguinte captura de ecrã: Tenha novamente em atenção que o inventário de produtos lista os dados obtidos a partir do sistema de serviço de produtos no local e apresenta esses dados na aplicação Web. Verifique o URL para certificar-se de que o **ProductsPortal** está em execução na nuvem, como uma aplicação Web do Azure.
 
    ![Executar a aplicação web no Azure][1]
 

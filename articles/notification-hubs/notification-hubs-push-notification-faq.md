@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: f2f11abcb3290e1d9459c26167706abc79c1b7fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 863b380d4f36e24119e64fbd4a59e8cd66c911e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670337"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779424"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Enviar notificações push com Notification Hubs do Azure: Perguntas mais frequentes
 
@@ -205,6 +205,13 @@ Os Hubs de notificação do Azure fornece vários recursos de resolução de pro
 ### <a name="what-telemetry-features-are-available"></a>Quais recursos de telemetria estão disponíveis?
 
 Do Azure de Hubs de notificação de permite ver dados de telemetria na [portal do Azure]. Detalhes das métricas estão disponíveis na [métricas de Hubs de notificação] página.
+
+Pode também acessar programaticamente métricas. Para obter mais informações, veja os artigos seguintes:
+
+- [Obter métricas do Azure Monitor com o .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Este exemplo utiliza o nome de utilizador e palavra-passe. Para utilizar um certificado, sobrecarregar o método FromServicePrincipal para fornecer um certificado, conforme mostrado na [neste exemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
+- [Obter métricas e registos de atividades para um recurso](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
+- [Instruções de API do REST de monitorização do Azure](../azure-monitor/platform/rest-api-walkthrough.md)
+
 
 > [!NOTE]
 > Notificações com êxito significam simplesmente que as notificações push tem sido disponibilizadas para o PNS externo (por exemplo, o APNS da Apple) ou FCM para o Google. É da responsabilidade do PNS para entregar as notificações para dispositivos de destino. Normalmente, o PNS não expõe as métricas de entrega a terceiros.  

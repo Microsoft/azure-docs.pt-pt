@@ -1,18 +1,18 @@
 ---
 title: Voltar a proteger VMs do Azure para um site no local durante a recuperação após desastre de VMs de VMware e servidores físicos | Documentos da Microsoft
 description: Após a ativação pós-falha para o Azure durante a recuperação após desastre de VMs de VMware e servidores físicos, Aprenda a reativação pós-falha do Azure para o site no local.
-author: rajani-janaki-ram
-manager: gauravd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2018
-ms.author: rajanaki
-ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 3/12/2019
+ms.author: mayg
+ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791885"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771822"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Voltar a proteger e efetuar a ativação de back-computadores para um site no local após a ativação pós-falha para o Azure
 
@@ -114,7 +114,6 @@ Tenha em atenção as seguintes informações:
 
 ## <a name="common-issues"></a>Problemas comuns
 
-- Atualmente, o Site Recovery suporta reativação pós-falha apenas para um arquivo de dados VMFS ou vSAN. Um arquivo de dados NFS não é suportado. Devido a essa limitação, a entrada de seleção de arquivo de dados no ecrã de reproteção está vazia para arquivos de dados NFS, ou ele mostra o arquivo de dados de vSAN, mas ocorre uma falha durante a tarefa. Se pretende efetuar a reativação pós-falha, pode criar um arquivo de dados VMFS no local e fazer a reativação pós-falha. Este reativação pós-falha faz com que uma transferência completa do VMDK.
 - Se executar uma deteção do vCenter de utilizador só de leitura e protege as máquinas virtuais, proteção com êxito e a ativação pós-falha funciona. Durante a nova proteção, a ativação pós-falha não consegue porque os arquivos de dados não puderem ser detetados. Um sintoma é que os arquivos de dados não estão listados durante a nova proteção. Para resolver este problema, pode atualizar as credenciais do vCenter com uma conta apropriada que tenha permissões e, em seguida, repita a tarefa. 
 - Quando uma máquina virtual Linux a reativação pós-falha e a executa no local, pode ver que o pacote do Gestor de rede foi desinstalado da máquina. Esta desinstalação ocorre porque o pacote do Gestor de rede é removido quando a máquina virtual é recuperada no Azure.
 - Quando uma máquina virtual Linux está configurada com um endereço IP estático e é a ativação pós-falha para o Azure, o endereço IP é obtido do DHCP. Quando efetuar a ativação pós-falha no local, a máquina virtual continua a utilizar DHCP para adquirir o endereço IP. Iniciar sessão manualmente máquina e, em seguida, defina o endereço IP para um endereço estático, se necessário. Uma máquina virtual do Windows pode adquirir novamente o seu endereço IP estático.
