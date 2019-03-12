@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 3cf43de73fd06da6965d0baf17878c5fb10d7caf
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587179"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778013"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
 

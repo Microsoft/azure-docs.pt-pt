@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 61b3c01683318ff1c686ad9e96a420f8ae5e245e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d7513c4b8ea52b28d138032879f16e5a331853d2
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306668"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574452"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino de ficheiro de evento para eventos expandidos na base de dados SQL
 
@@ -70,7 +70,7 @@ O script começa com os comandos a limpeza depois de executar uma possível ante
 
 ### <a name="powershell-code"></a>Código do PowerShell
 
-Este script do PowerShell pressupõe que já tem de executar o cmdlet Import-Module para o módulo AzureRm. Para obter documentação de referência, consulte [Browser de módulos do PowerShell](https://docs.microsoft.com/powershell/module/).
+Este script do PowerShell pressupõe que já instalou o módulo de Az. Para obter informações, consulte [instalar o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -459,7 +459,7 @@ GO
 ```
 
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Resultado
 
 Quando tiver concluído o script de Transact-SQL, clique numa célula sob o **event_data_XML** cabeçalho da coluna. Um **<event>** elemento é apresentado o que mostra uma instrução de ATUALIZAÇÃO.
 

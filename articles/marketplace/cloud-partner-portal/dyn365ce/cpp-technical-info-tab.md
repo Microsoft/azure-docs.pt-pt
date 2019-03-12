@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/05/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 214abd64232130dd3fd5fdde510f7545732ac82e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083194"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731476"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dynamics 365 para o separador de informações de técnicas de envolvimento do cliente
 
@@ -58,7 +58,7 @@ A tabela seguinte descreve estes campos.
 |  Nome de ficheiro do pacote     |  Nome de ficheiro do pacote (. zip).  Este nome é *não* pública e será usado internamente pela equipe de certificação do Dynamics 365.  |
 |  Url                          |  URL de uma conta de armazenamento do Azure que contém o ficheiro de pacote. Este URL deve incluir uma chave SAS só de leitura para permitir que a nossa equipa de retirada do seu pacote para a verificação.  |
 | Mais do que um pacote de crm     | Selecione Sim apenas se estiver dando suporte a várias versões do crm com diferentes pacotes.  Cada versão terão um tht correspondente do ficheiro de pacote que tem de criar individualmente.  |
-| Recurso de caso de cenário e a utilização   | Permite o carregamento de um documento de especificação funcional para a sua aplicação, para utilização pela equipe de validação do Dynamics 365.  O formato preferencial para essa especificação é o [modelo de cenário de utilizador de E2E](http://download.microsoft.com/download/5/1/8/51812AC9-BCD8-489F-937C-5D439C494EC1/E2E%20User%20Scenario%20Template.docx).  |
+| Recurso de caso de cenário e a utilização   | Permite o carregamento de um documento de especificação funcional para a sua aplicação, para utilização pela equipe de validação do Dynamics 365.  O formato preferencial para essa especificação é o [modelo de cenário de utilizador de E2E](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

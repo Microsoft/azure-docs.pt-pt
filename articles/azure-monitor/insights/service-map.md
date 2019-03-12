@@ -1,24 +1,24 @@
 ---
 title: Utilizar a solução mapa de serviço no Azure | Documentos da Microsoft
 description: O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para implementar o mapa de serviço no seu ambiente e utilizá-lo numa variedade de cenários.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 041cc302f05b109de2b79697dd048a6bc0752a4f
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232928"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731088"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o mapa de serviço, pode ver os servidores da forma que considerá-los: como sistemas interconectados que fornecem serviços críticos. Mapa de serviço mostra ligações entre servidores, processos, latência de ligação de entrada e saída e as portas em qualquer arquitetura ligado a TCP, sem qualquer configuração necessária que a instalação de um agente.
@@ -29,7 +29,7 @@ Este artigo descreve os detalhes de integração e a utilizar o mapa de serviço
 >Se já tiver implementado o mapa de serviço, agora também pode ver seus mapas no Azure Monitor para as VMs, que inclui recursos adicionais para monitorizar o estado de funcionamento da VM e o desempenho. Para obter mais informações, consulte [do Azure Monitor para descrição geral de VMs](../../azure-monitor/insights/vminsights-overview.md).
 
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Ativar o mapa de serviço
@@ -54,7 +54,7 @@ Mapa de serviço ajuda a eliminar as suposições de isolamento de problema, que
 ### <a name="migration-assurance"></a>Garantia de migração
 Ao utilizar o mapa de serviço, pode efetivamente planear, acelerar e validar as migrações do Azure, que ajuda a garantir que nada seja deixado e não ocorrerem falhas de surpresa. Pode descobrir todos os sistemas interdependentes, que têm de migrar em conjunto, avaliar a configuração do sistema e a capacidade e identificar se um sistema em execução ainda está a servir os utilizadores ou é uma candidata para desativar em vez de migração. Após a migração estiver concluída, pode verificar a de carga de cliente e de identidade para verificar que os clientes e sistemas de teste estão a ligar. Se as definições de firewall e de planejamento de sub-rede tem problemas, ligações falhadas no mapa de serviço maps ponto para os sistemas que necessitam de conectividade.
 
-### <a name="business-continuity"></a>Continuidade do negócio
+### <a name="business-continuity"></a>Continuidade de negócio
 Se estiver a utilizar o Azure Site Recovery e precisa de ajuda a definir a sequência de recuperação para o seu ambiente de aplicativo, o mapa de serviço pode automaticamente mostram-lhe como sistemas dependem uns dos outros para assegurar que o seu plano de recuperação é confiável. Escolhendo um servidor crítico ou de grupo e visualizar os seus clientes, é possível identificar os sistemas de front-end para recuperar após o servidor é restaurado e está disponível. Por outro lado, ao examinar as dependências de back-end de servidores críticos, pode identificar quais os sistemas para recuperar antes de seus sistemas de foco são restaurados.
 
 ### <a name="patch-management"></a>Gerenciamento de patches
@@ -91,7 +91,7 @@ Os utilizadores selecionar quais os servidores pertencem um grupo em conjunto e 
 ### <a name="creating-a-machine-group"></a>Criação de um grupo de máquina
 Para criar um grupo, selecione a máquina ou máquinas que pretende nas máquinas lista e clique em **adicionar ao grupo**.
 
-![Criar Grupo](media/service-map/machine-groups-create.png)
+![Create Group](media/service-map/machine-groups-create.png)
 
 Aqui, pode escolher **criar novo** e dê um nome de grupo.
 
@@ -174,7 +174,7 @@ Grupos de portas de servidor são caixas que representam as portas de servidor n
 
 ![Grupos de portas de servidor](media/service-map/server-port-groups.png)
 
-## <a name="context-menu"></a>Menu Contexto
+## <a name="context-menu"></a>Menu de contexto
 Ao clicar no botão de reticências (...) na parte superior direita de qualquer servidor apresenta o menu de contexto para esse servidor.
 
 ![Ligações com falhas](media/service-map/context-menu.png)
@@ -300,7 +300,7 @@ Para gerir o custo e a complexidade, registos de ligação não representam cone
 | Propriedade | Descrição |
 |:--|:--|
 |Direção |Direção da conexão, o valor é *entrada* ou *saída* |
-|Máquina |O FQDN do computador |
+|Computador |O FQDN do computador |
 |Processo |Identidade de processo ou grupos de processos, iniciar/aceitar a ligação |
 |SourceIp |Endereço IP de origem |
 |DestinationIp |Endereço IP de destino |
@@ -374,7 +374,7 @@ Registos com um tipo de *ServiceMapComputer_CL* tiver dados de inventário para 
 
 | Propriedade | Descrição |
 |:--|:--|
-| Tipo | *ServiceMapComputer_CL* |
+| Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para o computador da área de trabalho |
 | ResourceName_s | O identificador exclusivo para o computador da área de trabalho |
@@ -388,7 +388,7 @@ Registos com um tipo de *ServiceMapComputer_CL* tiver dados de inventário para 
 | PhysicalMemory_d | A memória física em MB |
 | Cpus_d | O número de CPUs |
 | CpuSpeed_d | A velocidade de CPU em MHz|
-| VirtualizationState_s | *desconhecido*, *físico*, *virtual*, *hipervisor* |
+| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
 | VirtualMachineType_s | *Hyper-v*, *vmware*e assim por diante |
 | VirtualMachineNativeMachineId_g | O ID da VM como atribuído pelo seu hipervisor |
 | VirtualMachineName_s | O nome da VM |
@@ -399,7 +399,7 @@ Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para p
 
 | Propriedade | Descrição |
 |:--|:--|
-| Tipo | *ServiceMapProcess_CL* |
+| Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
 | ResourceId | O identificador exclusivo para um processo dentro da área de trabalho |
 | ResourceName_s | O identificador exclusivo para um processo na máquina em que está em execução|
@@ -428,7 +428,7 @@ ServiceMapComputer_CL | resumir arg_max(TimeGenerated, *) por ResourceId
 ServiceMapComputer_CL | resumir arg_max(TimeGenerated, *) por ResourceId | projeto PhysicalMemory_d, ComputerName_s
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Nome de computador da lista, o DNS, o IP e o sistema operacional.
-ServiceMapComputer_CL | resumir arg_max(TimeGenerated, *) por ResourceId | projeto ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Localizar todos os processos com "sql" na linha de comandos
 ServiceMapProcess_CL | onde CommandLine_s contains_cs "sql" | resumir arg_max(TimeGenerated, *) por ResourceId
@@ -440,16 +440,16 @@ pesquisa no "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" (ServiceMapComputer_CL) | r
 pesquisa no "10.229.243.232" (ServiceMapComputer_CL) | resumir arg_max(TimeGenerated, *) por ResourceId
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Lista de todos os processos num computador especificado
-ServiceMapProcess_CL | onde MachineResourceName_s = = "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | resumir arg_max(TimeGenerated, *) por ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### <a name="list-all-computers-running-sql"></a>Lista de todos os computadores que executam o SQL
 ServiceMapComputer_CL | onde ResourceName_s no ((pesquisa no (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | ComputerName_s distintos
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Listar todas as versões de produto exclusiva de curl em meu datacenter
-ServiceMapProcess_CL | onde ExecutableName_s = = "curl" | ProductVersion_s distintos
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computadores de todos os computadores em execução no CentOS
-ServiceMapComputer_CL | onde OperatingSystemFullName_s contains_cs "CentOS" | ComputerName_s distintos
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir as ligações de saída de um grupo de máquinas
 ```

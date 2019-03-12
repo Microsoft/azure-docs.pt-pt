@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 644a2279f555af05d711e1455923795b5271e159
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 97e5976603ee1574e8410702069b97a9f0ef6198
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191627"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768759"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Autenticação de legado de bloco para o Azure AD com o acesso condicional   
 
@@ -114,6 +114,8 @@ Para obter mais informações, consulte [como deve implementar uma nova polític
 
 
 ## <a name="what-you-should-know"></a>O que deve saber
+
+Bloquear o acesso à através de **outros clientes** também bloqueia o Exchange Online PowerShell usando autenticação básica
 
 Configurar uma política para **outros clientes** bloqueia toda a organização de determinados clientes, como SPConnect. Este bloco acontece porque os clientes antigos autenticar-se de maneiras inesperadas. O problema não se aplica a aplicativos do Office principais, como os clientes do Office mais antigos.
 

@@ -4,36 +4,36 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 5ac7982d306125804fc5b7873e537f9381f717cb
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279867"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553938"
 ---
-**Discos da máquina virtual não geridos premium: por limites de conta**
+**Discos de máquinas de virtuais não geridos Premium: Limites de por conta**
 
-| Recurso | Limite Predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
 | Capacidade total do disco por conta |35 TB |
 | Capacidade total do instantâneo por conta |10 TB |
-| Largura de banda máxima por conta (entrada + saída<sup>1</sup>) |<=50 Gbps |
+| Largura de banda máxima por conta (entrada + saída)<sup>1</sup> |<=50 Gbps |
 
-<sup>1</sup>*Entrada* refere-se a todos os dados (pedidos) enviados para uma conta de armazenamento. *Entrada* refere-se a todos os dados (respostas) recebidas de uma conta de armazenamento.
+<sup>1</sup>*entrada* refere-se a todos os dados de pedidos que são enviados para uma conta de armazenamento. *Saída* refere-se a todos os dados a partir de respostas de que são recebidas a partir de uma conta de armazenamento.
 
-**Discos da máquina virtual não geridos premium: por limites de disco**
+**Discos de máquinas de virtuais não geridos Premium: Limites de por disco**
 
-| Tipo de Disco de Armazenamento Premium | P10 | P20 | P30 | P40 | P50 |
+| Tipo de disco de armazenamento Premium | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
-| Tamanho do disco |128 GiB |512 GiB |1024 GiB (1 TB) |2048 GiB (2 TB)|4095 giB (4 TB)|
-| IOPs Máx por disco |500 |2300 |5000 |7500 |7500 |
-| Débito máx por disco |100 MB/s | 150 MB/s |200 MB/s |250 MB/s |250 MB/s |
-| Número máx. de discos por conta de armazenamento |280 |70 |35 | 17 | 8 |
+| Tamanho do disco |128 GiB |512 GiB |1.024 giB (1 TB) |2048 giB (2 TB)|4095 giB (4 TB)|
+| IOPS máximo por disco |500 |2,300 |5.000 |7.500 |7,500 |
+| Débito máximo por disco |100 MB/seg | 150 MB/seg |200 MB/sec |250 MB/sec |250 MB/sec |
+| Número máximo de discos por conta de armazenamento |280 |70 |35 | 17 | 8 |
 
-**Discos da máquina virtual não geridos premium: por limites de VM**
+**Discos de máquinas de virtuais não geridos Premium: Limites de por VM**
 
-| Recurso | Limite Predefinido |
+| Recurso | Limite predefinido |
 | --- | --- |
-| IOPs Máx Por VM |80.000 IOPS com GS5 VM |
-| Débito máx por VM |2.000 MB/s com GS5 VM |
+| IOPS máximo por VM |80.000 IOPS com GS5 VM |
+| Débito máximo por VM |2.000 MB/s com GS5 VM |
 

@@ -5,19 +5,19 @@ services: active-directory
 author: markwahl-msft
 ms.author: curtand
 ms.date: 12/21/2018
-ms.topic: article-type-from-white-list
+ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 974e00ce877dcf3b15dc7ce6d73f7d1331e20bb5
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 0bd08f9414353eb6d458494d76654dae7262c524
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429133"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769204"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência no Azure AD
 

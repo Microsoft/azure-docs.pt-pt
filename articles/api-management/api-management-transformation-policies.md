@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 4e7af92ed0ce04bb14bd49c24de4928baa4f00ec
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5962ec097c5cd72693530328b710af915054d0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448072"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768917"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -208,6 +208,15 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 <set-backend-service base-url="base URL of the backend service" />
 ```
 
+ou
+
+```xml
+<set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
+```
+
+> [!NOTE]
+> Entidades de back-end podem ser geridas através da gestão [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+
 ### <a name="example"></a>Exemplo
 
 ```xml
@@ -260,8 +269,8 @@ Neste exemplo de política encaminha o pedido para um serviço fabric back-end, 
 
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|base-url|Novo back-end base URL do serviço.|Não|N/A|
-|id de back-end|Identificador do back-end para encaminhar para.|Não|N/A|
+|base-url|Novo back-end base URL do serviço.|Um dos `base-url` ou `backend-id` tem de estar presente.|N/A|
+|id de back-end|Identificador do back-end para encaminhar para. (Geridas através de entidades de back-end [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um dos `base-url` ou `backend-id` tem de estar presente.|N/A|
 |sf-partition-key|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Utilizado para resolver uma partição específica do serviço de resolução do nome.|Não|N/A|
 |sf-replica-type|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Controla se o pedido deve ir para a réplica primária ou secundária de uma partição. |Não|N/A|
 |sf-resolve-condition|Apenas aplicável quando o back-end é um serviço do Service Fabric. Identificando se a chamada ao back-end do Service Fabric tem de ser repetido com a nova resolução de condição.|Não|N/A|
@@ -482,17 +491,15 @@ OriginalUrl.
  Para obter mais informações, consulte [expressões de diretriz](api-management-policy-expressions.md) e [variável de contexto](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Vários valores de um cabeçalho são concatenados numa cadeia CSV, por exemplo:  
-> `headerName: value1,value2,value3`
+> Vários valores de um cabeçalho são concatenados numa cadeia CSV, por exemplo: `headerName: value1,value2,value3`
 >
 > As exceções incluem cabeçalhos padronizados, quais valores:
 > - pode conter vírgulas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
 > - pode conter data (`Cookie`, `Set-Cookie`, `Warning`),
 > - conter data (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> Em caso dessas exceções, vários valores de cabeçalho não vão ser concatenados numa cadeia e serão passados como cabeçalhos separados, por exemplo:  
->`User-Agent: value1`  
->`User-Agent: value2`  
+> Em caso dessas exceções, vários valores de cabeçalho não vão ser concatenados numa cadeia e serão passados como cabeçalhos separados, por exemplo: `User-Agent: value1`
+>`User-Agent: value2`
 >`User-Agent: value3`
 
 ### <a name="elements"></a>Elementos
@@ -507,7 +514,7 @@ OriginalUrl.
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-skip - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` Transaction múltiplas entradas com o mesmo nome resulta no cabeçalho que está a ser definido de acordo com todas as entradas (que serão listadas várias vezes); apenas valores listados serão definidos no resultado.|Não|substituir|
-|nome|Especifica o nome do cabeçalho de ser definido.|Sim|N/A|
+|name|Especifica o nome do cabeçalho de ser definido.|Sim|N/A|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -567,7 +574,7 @@ OriginalUrl.
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |ação existe|Especifica a ação a tomar quando o parâmetro de consulta já foi especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do parâmetro existente.<br />-skip - não substitui o valor de parâmetro de consulta existente.<br />-Acrescentar - acrescenta o valor para o valor de parâmetro de consulta existente.<br />-delete - remove o parâmetro de consulta no pedido.<br /><br /> Quando definido como `override` Transaction múltiplas entradas com o mesmo nome resulta no parâmetro de consulta que está a ser definido, de acordo com todas as entradas (que serão listadas várias vezes); apenas valores listados serão definidos no resultado.|Não|substituir|
-|nome|Especifica o nome do parâmetro de consulta seja definido.|Sim|N/A|
+|name|Especifica o nome do parâmetro de consulta seja definido.|Sim|N/A|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).

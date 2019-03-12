@@ -1,23 +1,23 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8a1f9967b51d3655c962620b9436dfe4f9ffd521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2179b212dbbc7891b003664f4bea3d47cbb3a34e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442533"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575397"
 documentType: LandingData
 title: Documentação do Azure Data Factory
 metadata:
   title: Documentação do Azure Data Factory - Tutoriais, Referência da API | Microsoft Docs
   description: Saiba como utilizar o Data Factory para configurar pipelines de dados automatizados para origens no local e na a cloud de modo a mover e a processar dados para análise.
   services: data-factory
-  author: douglaslMS
+  author: sharonlo101
+  ms.author: shlo
   manager: craigg
   ms.service: data-factory
   ms.tgt_pltfrm: na
   ms.topic: overview
   ms.date: 08/06/2018
-  ms.author: douglasl
 abstract:
   description: Saiba como utilizar o Data Factory, um serviço de integração de dados na cloud para compor o armazenamento de dados, a movimentação e serviços de processamento em pipelines de dados automatizados. Os tutoriais e outra documentação mostram-lhe como configurar e gerir pipelines de dados, bem como mover e transformar dados para análise. <p>Se estiver a utilizar a V1 do serviço Data Factory, veja a <a href=/azure/data-factory/v1/data-factory-introduction>documentação da V1</a>.</p>
   aside:

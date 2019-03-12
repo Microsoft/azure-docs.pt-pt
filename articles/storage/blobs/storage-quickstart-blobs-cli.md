@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 11bd639d86c6ad9a9f373ac26dc271817bc46b08
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749240"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773091"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Início rápido: Carregar, transferir e listar os blobs com a CLI do Azure
 
@@ -60,7 +60,7 @@ Se utilizou o método descrito anteriormente para criar um ficheiro no seu Azure
 ```azurecli-interactive
 az storage blob upload \
     --container-name mystoragecontainer \
-    --name helloworld
+    --name helloworld \
     --file helloworld
 ```
 

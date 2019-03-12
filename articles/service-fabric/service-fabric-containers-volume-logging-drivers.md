@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 5d44904d6210dbc9520ae735605699b197f38bef
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f92c8a7cca70dd9de6389c201d9589c7a31ce25f
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804135"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726996"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Controlador de Volume de ficheiros do Azure do serviço Fabric (pré-visualização)
 O plug-in de volume de ficheiros do Azure é um [Plug-in de volume do Docker](https://docs.docker.com/engine/extend/plugins_volume/) que fornece [ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) com base em volumes para contentores do Docker. Este plug-in de volume do Docker é empacotado como uma aplicação do Service Fabric que pode ser implementada em clusters do Service Fabric. Seu objetivo é fornecer a ficheiros do Azure com base em volumes para outras aplicações de contentor do Service Fabric que são implementadas para o cluster.
 
 > [!NOTE]
-> Versão 6.4.571.9494 do plug-in de volume de ficheiros do Azure é uma versão de pré-lançamento que estão disponível neste documento. Como uma versão de pré-visualização, é **não** suportados para utilização em ambientes de produção.
+> Versão 6.4.571.9590 do plug-in de volume de ficheiros do Azure é uma versão de pré-lançamento que estão disponível neste documento. Como uma versão de pré-visualização, é **não** suportados para utilização em ambientes de produção.
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -39,11 +39,11 @@ O plug-in de volume de ficheiros do Azure é um [Plug-in de volume do Docker](ht
 
 * Se estiver a utilizar contentores de Hyper-v, os fragmentos seguintes tem de ser adicionada na secção de fabricSettings no seu modelo ARM (cluster do Azure) ou ClusterConfig.json (cluster autónomo) ou ClusterManifest (local cluster). Terá o nome do volume e a porta que o volume de escuta no cluster. 
 
-Em ClusterManifest, a seguinte tem de ser adicionada na secção de alojamento. Neste exemplo, é o nome do volume **sfazurefile** e a porta de escuta para o cluster é **19300**.  
+Em ClusterManifest, a seguinte tem de ser adicionada na secção de alojamento. Neste exemplo, é o nome do volume **sfazurefile** e a porta de escuta para o cluster é **19100**.  
 
 ``` xml 
 <Section Name="Hosting">
-  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19100" />
 </Section>
 ```
 
@@ -56,7 +56,7 @@ Na secção fabricSettings no seu modelo ARM (para implementações do Azure) ou
     "parameters": [
       {
           "name": "VolumePluginPorts",
-          "value": "sfazurefile:19300"
+          "value": "sfazurefile:19100"
       }
     ]
   }
@@ -66,7 +66,7 @@ Na secção fabricSettings no seu modelo ARM (para implementações do Azure) ou
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Implementar a aplicação de serviço ficheiros do Azure Service Fabric
 
-A aplicação do Service Fabric que fornece os volumes para os seus contentores pode ser baixada em seguintes [link](https://aka.ms/sfvolume6.4). O aplicativo pode ser implementado no cluster através de [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) ou [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+A aplicação do Service Fabric que fornece os volumes para os seus contentores pode ser baixada em seguintes [link](http://download.microsoft.com/download/C/0/3/C0373AA9-DEFA-48CF-9EBE-994CA2A5FA2F/AzureFilesVolumePlugin.6.4.571.9590.zip). O aplicativo pode ser implementado no cluster através de [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) ou [FabricClient APIs](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. Com a linha de comandos, altere o diretório para o diretório de raiz do pacote do aplicativo transferido.
 
@@ -99,14 +99,14 @@ A aplicação do Service Fabric que fornece os volumes para os seus contentores 
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Criar a aplicação no comando para criar a aplicação abaixo, tenha em conta a **ListenPort** parametr aplikace. O valor especificado para este parâmetro de aplicação é a porta em que o plug-in de volume de ficheiros do Azure escuta pedidos do daemon do Docker. É importante certificar-se de que a porta fornecida para a aplicação não entram em conflito com qualquer outra porta que utilizam o cluster ou das suas aplicações.
+4. Criar a aplicação no comando para criar a aplicação abaixo, tenha em conta a **ListenPort** parametr aplikace. O valor especificado para este parâmetro de aplicação é a porta em que o plug-in de volume de ficheiros do Azure escuta pedidos do daemon do Docker. É importante certificar-se de que a porta fornecidas para a correspondência de aplicativo VolumePluginPorts no ClusterManifest e não entram em conflito com qualquer outra porta que utilizam o cluster ou das suas aplicações.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -118,11 +118,11 @@ A aplicação do Service Fabric que fornece os volumes para os seus contentores 
 A contagem de instâncias de serviço padrão para a aplicação de plug-in do volume de ficheiros do Azure é -1, o que significa que existe uma instância do serviço implementado em cada nó no cluster. No entanto, quando implementar a aplicação de plug-in do volume de ficheiros do Azure num cluster de desenvolvimento local, a contagem de instâncias de serviço deve ser especificada como 1. Isso pode ser feito através da **InstanceCount** parametr aplikace. Por conseguinte, o comando para implementar a aplicação de plug-in do volume de ficheiros do Azure num cluster de desenvolvimento local é:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9590 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9590 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 ## <a name="configure-your-applications-to-use-the-volume"></a>Configurar as suas aplicações utilizem o volume
 O fragmento seguinte mostra como um volume de ficheiros do Azure com base pode ser especificado no manifesto da aplicação da sua aplicação. O elemento específico de interesse é o **Volume** etiqueta:

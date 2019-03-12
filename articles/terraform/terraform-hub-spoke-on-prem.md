@@ -2,19 +2,19 @@
 title: Criar rede virtual no local com o Terraform no Azure
 description: Tutorial que ilustra como implementar uma VNet no local no Azure que hospeda a recursos locais
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, hub- and -spoke, redes, redes de híbridas, devops, máquina virtual, do azure, o VNet peering, no local
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: d8b6142514808213553ba602c8ff6b3af1e4e972
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: fedd83276a0182ecf2d39e43382bc264c6f88de5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411414"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761690"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-with-terraform-in-azure"></a>Tutorial: Criar rede virtual no local com o Terraform no Azure
 

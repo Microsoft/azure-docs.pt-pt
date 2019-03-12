@@ -3,17 +3,17 @@ title: Gerir o escalão de preço da sua conta do Azure Maps | Documentos da Mic
 description: Pode utilizar o portal do Azure para gerir a sua conta do Azure Maps e das respetivas camadas de preços.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 02/12/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: b87fa166f82e4302b5430064d41c293731c60470
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 43f5c6ea42464a83d070775fae8c5befe35bf60d
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107706"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569927"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gerir o escalão de preço da sua conta do Azure Maps
 

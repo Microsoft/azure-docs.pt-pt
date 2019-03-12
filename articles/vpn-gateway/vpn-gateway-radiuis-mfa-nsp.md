@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: fec5ef3ef190270d22e9a7d0306eb9477b39a8c8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4e11b1bc16f874f892288f9677a71023f483de7c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095241"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769979"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrar a autenticação de RADIUS do gateway de VPN do Azure com o servidor NPS para multi-factor Authentication 
 
@@ -40,10 +40,10 @@ Para ativar a MFA, os utilizadores tem de ser no Azure Active Directory (Azure A
     ![A imagem sobre como adicionar a sub-rede do gateway](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
 3. Crie um gateway de rede virtual ao especificar as seguintes definições:
 
-    - **Tipo de gateway**: selecione **VPN**.
-    - **Tipo de VPN**: selecione **baseado na rota**.
-    - **SKU**: selecionar um tipo de SKU com base nos seus requisitos.
-    - **Rede virtual**: selecione a rede virtual em que criou a sub-rede do gateway.
+    - **Tipo de gateway**: Selecione **VPN**.
+    - **Tipo de VPN**: Selecione **baseado na rota**.
+    - **SKU**: Selecione um tipo SKU com base nos seus requisitos.
+    - **Rede virtual**: Selecione a rede virtual em que criou a sub-rede do gateway.
 
         ![A imagem sobre as definições do gateway de rede virtual](./media/vpn-gateway-radiuis-mfa-nsp/create-vpn-gateway.png)
 
@@ -54,8 +54,8 @@ Para ativar a MFA, os utilizadores tem de ser no Azure Active Directory (Azure A
 1. No servidor NPS, [instalar a extensão NPS da MFA do Azure](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
 2. Abra a consola do NSP, com o botão direito **clientes RADUIS**e, em seguida, selecione **New**. Crie o cliente RADUIS ao especificar as seguintes definições:
 
-    - **Nome amigável**: escreva um nome.
-    - **Endereço (IP ou DNS)**: escreva a sub-rede do gateway que criou no passo 1.
+    - **Nome amigável**: Escreva um nome.
+    - **Endereço (IP ou DNS)**: Escreva a sub-rede do gateway que criou no passo 1.
     - **Segredo partilhado**: escreva qualquer chave secreta e não se esqueça dela para utilização posterior.
 
       ![A imagem sobre definições de cliente RADUIS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
@@ -73,9 +73,9 @@ Para ativar a MFA, os utilizadores tem de ser no Azure Active Directory (Azure A
 2. Abra o gateway de rede virtual que criou. Certifique-se de que o tipo de gateway está definido como **VPN** e o tipo VPN está **baseado na rota**.
 3. Clique em **apontar para a configuração do site** > **configurar agora**e, em seguida, especifique as seguintes definições:
 
-    - **Conjunto de endereços**: escreva a sub-rede do gateway que criou no passo 1.
-    - **Tipo de autenticação**: selecione **autenticação RADIUS**.
-    - **Endereço IP do servidor**: escreva o endereço IP do servidor NPS.
+    - **Conjunto de endereços**: Escreva a sub-rede do gateway que criou no passo 1.
+    - **Tipo de autenticação**: Selecione **autenticação RADIUS**.
+    - **Endereço IP do servidor**: Escreva o endereço IP do servidor NPS.
 
       ![A imagem sobre ponto para as definições do site](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 

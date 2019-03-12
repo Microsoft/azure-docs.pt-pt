@@ -4,16 +4,16 @@ description: Saiba como escolher uma solução do Azure para a transferência de
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 271be60bc26cf6bc9a64c459d030818d9e493a22
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ba6d5e20f0d6a004fd85d7e9dc57584547d52ba3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158453"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772862"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para a transferência de dados periódica
  
@@ -55,7 +55,7 @@ A tabela seguinte resume as diferenças nas capacidades principais.
 | Funcionalidade                                       | Gateway de caixa de dados (pré-visualização) | Edge de caixa de dados (pré-visualização)  | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Fator de formulário                                   | Dispositivo virtual             | Dispositivo físico          | Serviço no portal do Azure, o agente no local                                                            |
-| Hardware                                      | O hipervisor            | Fornecido pela Microsoft    | ND                                                            |
+| Hardware                                      | O hipervisor            | Fornecido pela Microsoft    | N/D                                                            |
 | Esforço de configuração inicial                          | Baixa (< 30 min.)            | Moderado (~ acoplar horas) | Grande (~ dias)                                                 |
 | Formato de dados                                   | Blobs do Azure, os ficheiros do Azure   | Blobs do Azure, os ficheiros do Azure | [Suporta 70 conectores de dados para arquivos de dados e formatos](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Processamento prévio de dados                           | Não                         | Sim, através de computação do Edge    | Sim                                                           |

@@ -11,21 +11,22 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f489abeab0e1374d2d40ade79c4eb55fd633b909
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a7c29d1bfcc0737f76afc43cb8997d6a1d16c82b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443288"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731353"
 ---
 # <a name="access-data-from-your-datastores"></a>Aceder a dados a partir de seus arquivos de dados
-Neste artigo, irá aprender diferentes formas de aceder e interagir com os seus dados em fluxos de trabalho do Azure Machine Learning por meio de arquivos de dados.
 
-Nesta explicação de procedimento mostra exemplos para as seguintes tarefas: 
+Arquivos de dados permitem-lhe interagir com e aceder aos seus dados se estiver a executar o código localmente, num cluster de cálculo ou numa máquina virtual. Neste artigo, saiba que os fluxos de trabalho do Azure Machine Learning que garantem que os arquivos de dados estão acessíveis e disponibilizados para seu contexto de cálculo.
+
+Nesta explicação de procedimento mostra exemplos para as seguintes tarefas:
 * [Escolha um arquivo de dados](#access)
-* [Obter um arquivo de dados](#get)
-* [Carregar e transferir dados para arquivos de dados](#upload-and-download-data)
-* Arquivo de dados de acesso durante o treinamento
+* [Obter dados](#get)
+* [Carregar e transferir dados para arquivos de dados](#up-and-down)
+* [Arquivo de dados de acesso durante o treinamento](#train)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -85,7 +86,7 @@ Os exemplos seguintes mostram-lhe para registar um contentor de Blobs do Azure o
 
 <a name="get"></a>
 
-## <a name="get-data-in-your-datastore"></a>Obter dados no seu arquivo de dados
+## <a name="find--define-datastores"></a>Localizar e definir os arquivos de dados
 
 Para obter um arquivo de dados especificado registado na área de trabalho atual, utilize [ `get()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#get-workspace--datastore-name-) :
 
@@ -110,7 +111,8 @@ Para definir um arquivo de dados predefinido diferente para a área de trabalho 
 ws.set_default_datastore('your datastore name')
 ```
 
-## <a name="upload-and-download-data"></a>Carregar e transferir dados
+<a name="up-and-down"></a>
+## <a name="upload--download-data"></a>Carregar e transferir dados
 O [ `upload()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) e [ `download()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) métodos descritos nos exemplos seguintes são específicos e operar de maneira idêntica para o [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) e [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) classes.
 
 ### <a name="upload"></a>Carregar
@@ -142,6 +144,7 @@ ds.download(target_path='your target path',
 ```
 `target_path` é a localização do diretório local para transferir os dados. Para especificar um caminho para a pasta na partilha de ficheiros (ou contentor de BLOBs) para transferir, fornecer esse caminho em `prefix`. Se `prefix` é `None`, todo o conteúdo da sua partilha de ficheiros (ou o contentor de BLOBs) que irá ser descarregado.
 
+<a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Acesso a arquivos de dados durante o treinamento
 Pode acessar um arquivo de dados durante um treinamento ser executado (por exemplo, para dados de treinamento ou validação) num destino de computação remota através do SDK de Python com o [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) classe.
 
@@ -150,7 +153,7 @@ Existem várias formas de tornar o seu arquivo de dados disponíveis na computa�
 Forma|Método|Descrição
 ----|-----|--------
 Montar| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Utilize para montar um arquivo de dados na computação remota.
-Transferência|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Utilize para transferir dados da localização especificada pela `path_on_compute` no seu arquivo de dados para a computação remoto.
+Transferir|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Utilize para transferir dados da localização especificada pela `path_on_compute` no seu arquivo de dados para a computação remoto.
 Carregar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Utilizar para carregar dados para a raiz do seu arquivo de dados a partir da localização especificada pela `path_on_compute`.
 
 ```Python

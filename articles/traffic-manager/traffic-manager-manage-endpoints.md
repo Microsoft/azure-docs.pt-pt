@@ -6,17 +6,17 @@ documentationcenter: ''
 author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ea7b5b087a5cfb2a3eefaef7336de4a6acf7f116
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245013"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777537"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desativar, ativar ou eliminar pontos finais
 
@@ -74,7 +74,7 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
 5. No painel **Ponto final**, altere o estado do ponto final para **Ativado** e, em seguida, clique em **Guardar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [Gerir perfis do Gestor de Tráfego](traffic-manager-manage-profiles.md)
 * [Configurar métodos de encaminhamento](traffic-manager-configure-routing-method.md)

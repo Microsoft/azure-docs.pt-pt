@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 569ec697738860dc339a270d828c8908c31ac157
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe1e56d2975c219a56d41102c728b7873f9f4f62
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454532"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538175"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
@@ -96,7 +96,7 @@ CLIENT_ID_COOKIE      = "bing-search-client-id";
 
 // API endpoints
 SEARCH_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/entities";
-MAPS_ENDPOINT   = "http://dev.virtualearth.net/REST/v1/Locations";
+MAPS_ENDPOINT   = "https://dev.virtualearth.net/REST/v1/Locations";
 
 // ... omitted definitions of storeValue() and retrieveValue()
 

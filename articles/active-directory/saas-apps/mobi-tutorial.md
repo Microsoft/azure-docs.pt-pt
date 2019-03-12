@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a410cabf-a47b-43fb-8c88-d45f5911e148
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 34e740794021608ed96a63ab70220d8d961d8e58
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 0637168ab1bc6d90cd7915845f19270b0d209854
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992520"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779934"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobi"></a>Tutorial: Integração do Active Directory do Azure com MOBI
 
@@ -190,7 +190,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no MOBI. Trabalhar com [equipa de suporte de MOBI](mailto:sso@mobiwm.com) para adicionar os utilizadores na plataforma MOBI. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

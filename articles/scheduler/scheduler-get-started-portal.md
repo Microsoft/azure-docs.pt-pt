@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7e5abf1100c09f8f28d268b3f2defe953c5f36f0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949592"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770140"
 ---
 # <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Criar e agendar a primeira tarefa com o Microsoft Azure Scheduler – portal do Azure
 
@@ -49,7 +49,7 @@ Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/fr
 
    | Propriedade | Valor de exemplo | Descrição |
    |----------|---------------|-------------| 
-   | **Ação** | **Http** | O tipo de ação a executar | 
+   | **ação** | **Http** | O tipo de ação a executar | 
    | **Método** | **Get** | O método a chamar | 
    | **URL** | **http://www.microsoft.com** | O URL de destino | 
    |||| 
@@ -144,7 +144,7 @@ Para ver os detalhes do histórico de cada execução, tal como a resposta compl
 
 Pode gerir o acesso ao Azure Scheduler para cada utilizador num nível granular com o Controlo de Acesso Baseado em Funções (RBAC). Para saber como configurar o acesso baseado em funções, veja [Gerir o acesso através do RBAC](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * Saiba mais sobre [conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
 * [Criar agendas complexas e periodicidade avançada](scheduler-advanced-complexity.md)

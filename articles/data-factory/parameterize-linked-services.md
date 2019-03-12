@@ -3,20 +3,20 @@ title: Parametrizar os serviços ligados no Azure Data Factory | Documentos da M
 description: Saiba como parametrizar serviços ligados no Azure Data Factory e passar valores dinâmicos em tempo de execução.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/18/2018
-ms.author: douglasl
-ms.openlocfilehash: af06be520b10184c1e96bdb27d0b8b648cde84a2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 0239c53f98fba201b6d70e1e2212eea36134e30d
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018458"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574632"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar os serviços ligados no Azure Data Factory
 
@@ -35,10 +35,10 @@ Para obter uma introdução de sete minutos e demonstração desta funcionalidad
 
 Neste momento, a parametrização de serviço ligado é suportada na IU do Data Factory no portal do Azure para os seguintes arquivos de dados. Para todos os outros arquivos de dados, é possível parametrizar o serviço ligado ao selecionar o **código** ícone na **ligações** guia e utilizar o editor de JSON.
 - Base de Dados SQL do Azure
-- Azure SQL Data Warehouse
+- Armazém de Dados SQL do Azure
 - SQL Server
 - Oracle
-- BD do Cosmos
+- Cosmos DB
 - Amazon Redshift
 - MySQL
 - Base de Dados do Azure para MySQL

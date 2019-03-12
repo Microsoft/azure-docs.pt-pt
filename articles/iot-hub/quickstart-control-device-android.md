@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/19/2018
 ms.author: wesmc
-ms.openlocfilehash: b8623acc9d29f083e34c7fa7494e866317146802
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d42bf11f97d7ba532ea41350522e3a8c71ff7f86
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252563"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727115"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Início rápido: Controlar um dispositivo ligado a um IoT hub (Android)
 
@@ -116,11 +116,18 @@ O aplicativo de exemplo do SDK de dispositivo pode ser executado num dispositivo
 
 3. No Android Studio, clique em **arquivo** > **sincronizar projeto com os ficheiros Gradle**. Certifique-se de que a compilação for concluída.
 
+   > [!NOTE]
+   > Se a sincronização de projeto falhar, pode ser para um dos seguintes motivos:
+   >
+   > * As versões do plug-in do Android Gradle e referenciado no projeto do Gradle estão Desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para referenciar e instalar as versões corretas do plug-in e Gradle para a sua instalação.
+   > * O contrato de licença para o Android SDK não assinado. Siga as instruções na saída da compilação para assinar o contrato de licença e transferir o SDK.
+
+
 4. Depois de concluída a compilação, clique em **execute** > **executar "aplicação"**. Configure a aplicação seja executada num dispositivo Android físico ou o emulador do Android. Para obter mais informações sobre como executar uma aplicação Android num dispositivo físico ou o emulador, consulte [executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Assim que a aplicação for carregada, clique nas **iniciar** botão para começar a enviar telemetria ao seu IoT Hub:
 
-    ![Aplicação](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![Candidatura](media/quickstart-send-telemetry-android/sample-screenshot.png)
 
 Esta aplicação tem de ser deixada em execução num phycial dispositivo ou emulador enquanto executar o exemplo de SDK do serviço para atualizar o intervalo de telemetria durante o tempo de execução.
 
@@ -163,6 +170,13 @@ Normalmente, executa uma aplicação de serviço de back-end do IoT Hub na cloud
     ```
 
 3. No Android Studio, clique em **arquivo** > **sincronizar projeto com os ficheiros Gradle**. Certifique-se de que a compilação for concluída.
+
+   > [!NOTE]
+   > Se a sincronização de projeto falhar, pode ser para um dos seguintes motivos:
+   >
+   > * As versões do plug-in do Android Gradle e referenciado no projeto do Gradle estão Desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para referenciar e instalar as versões corretas do plug-in e Gradle para a sua instalação.
+   > * O contrato de licença para o Android SDK não assinado. Siga as instruções na saída da compilação para assinar o contrato de licença e transferir o SDK.
+
 
 4. Depois de concluída a compilação, clique em **execute** > **executar "aplicação"**. Configure a aplicação seja executada num dispositivo Android físico separado ou um emulador Android. Para obter mais informações sobre como executar uma aplicação Android num dispositivo físico ou o emulador, consulte [executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
 

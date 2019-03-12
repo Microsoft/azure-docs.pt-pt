@@ -2,19 +2,19 @@
 title: Utilizar o Terraform com blocos de implementação de fornecedor do Azure
 description: Tutorial sobre como utilizar o Terraform com os blocos de implementação de fornecedor do Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, máquina virtual, Azure, blocos de implementação
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c1ff166431ed75ade1192cdefadb7928943ab2b2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074823"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771298"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utilizar o Terraform para aprovisionar infraestruturas com os blocos de implementação do Azure
 

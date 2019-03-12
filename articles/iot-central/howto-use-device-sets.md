@@ -3,17 +3,17 @@ title: Conjuntos de dispositivos de utilização na sua aplicação do Azure IoT
 description: Como um operador, como utilizar o dispositivo define na sua aplicação do Azure IoT Central.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: b24c7c6d08b7d7914c7bdef6d2a55eb88689b6ad
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315202"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759820"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utilize conjuntos de dispositivo na aplicação do Azure IoT Central
 
@@ -48,9 +48,11 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
 
 1. Escolher **conjuntos de dispositivo** no menu de navegação esquerdo.
 
-1. Escolha o **Dashboard** separador.
+1. Selecione o seu conjunto de dispositivos.
 
-1. Selecione **Editar modelo**.
+1. Selecione o separador **Dashboard** .
+
+1. Selecione **Editar**.
 
     ![Modo de design no](media/howto-use-device-sets/image3.png)
 
@@ -69,9 +71,6 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
 
 1. Adicione uma grade. Uma grade é uma tabela de dispositivos em dispositivos conjunto com as colunas que escolher.
     1. Escolher **Grid** no painel direito.
-
-        ![Escolha a grelha](media/howto-use-device-sets/image8.png)
-
     1. Dê sua grelha de um **Title**.
     1. Selecione as colunas a serem apresentados ao escolher **Adicionar/remover**. No painel que aparece, escolha a coluna que apresentar e selecione a seta para a direita para selecioná-lo.
     1. Escolha **OK**.
@@ -81,31 +80,24 @@ Depois de criar o conjunto de dispositivos, pode configurar seus **Dashboard**. 
 
     1. Arraste e largue a grade colocá-lo na **Dashboard**.
 
-    > [!NOTE]
-    > Pode adicionar várias imagens, ligações e grades.
+        > [!NOTE]
+        > Pode adicionar várias imagens, ligações e grades.
   
     1. Selecione **Done** (Concluído).
 
-    ![Modo de design desativado](media/howto-use-device-sets/image10.png)
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurar o mapa de localização no seu dispositivo define o dashboard
 
-
-### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurar o mapa de localização no seu dispositivo define o dashboard 
 Pode adicionar um mapa de localização para visualizar a localização dos seus dispositivos define num mapa.
 
 Para adicionar um mapa de localização para o dispositivo define dashboard tem de ter a propriedade de localização configurada no seu modelo de dispositivo, consulte [criar uma propriedade de localização com tecnologia do Azure Maps](howto-set-up-template.md).
 
-
 1. No seu Dashboard de conjunto de dispositivos, selecione o mapa da biblioteca.
-
-    ![Dispositivo define os mapas de Dashboard](media/howto-use-device-sets/LocationMaps1.png)
-
 2. Atribua um título e escolha a propriedade de localização que tenha configurado anteriormente como parte de sua propriedade do dispositivo.
 3. Guardar e verá o mapa de mosaico a apresentar a localização dos seus dispositivos no conjunto de dispositivos.
-4. Agora quando um operador vê o dispositivo define o dashboard, o operador pode ver todos os mosaicos que configurou, incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante! 
-    
-> [!NOTE] 
-> Será capaz de redimensionar o mapa para seu tamanho desejado. A seleção de um pin no mapa irá apresentar as informações do dispositivo, o nome e a localização. Pode selecionar o pop-up para ir para a página de propriedades do dispositivo.  
+4. Agora quando um operador vê o dispositivo define o dashboard, o operador pode ver todos os mosaicos que configurou, incluindo a localização do mapa para visualizar todos os a localização de dispositivos num instante!
 
+> [!NOTE]
+> Pode redimensionar o mapa para seu tamanho desejado. A seleção de um pin no mapa apresenta as informações do dispositivo, o nome e a localização. Pode selecionar o pop-up para ir para a página de propriedades do dispositivo.
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o seu conjunto de dispositivos
 
@@ -127,7 +119,7 @@ Depois de criar o conjunto de dispositivos, pode configurar o **lista**. O **lis
 
 ## <a name="analytics"></a>Análise
 
-A análise em conjuntos de dispositivo é o mesmo que o principal do separador análise no menu de navegação esquerdo. Pode saber mais sobre a análise no artigo na [como criar análises](howto-create-analytics.md).
+A análise em conjuntos de dispositivo é o mesmo que o principal do separador análise no menu de navegação esquerdo. Pode saber mais sobre a análise no artigo na [como criar análises](howto-use-device-sets.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

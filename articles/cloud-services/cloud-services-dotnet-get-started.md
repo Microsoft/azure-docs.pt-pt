@@ -11,20 +11,20 @@ ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332069"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762615"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução ao Cloud Services do Azure e ao ASP.NET
 
 ## <a name="overview"></a>Descrição geral
-Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [SQL Database](https://msdn.microsoft.com/library/azure/ee336279), o [serviço Blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
+Este tutorial mostra como criar uma aplicação do .NET de várias camadas com um front-end do MVC do ASP.NET e como implementá-lo num [serviço em nuvem do Azure](cloud-services-choose-me.md). A aplicação utiliza a [SQL Database](https://msdn.microsoft.com/library/azure/ee336279), o [serviço Blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e o [serviço Fila do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Pode [transferir o projeto do Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da Galeria de Códigos do MSDN.
 
 O tutorial mostra como compilar e executar a aplicação localmente, como implementá-la no Azure e executá-la na cloud e como compilá-la do zero. Pode começar por compilar do zero e, posteriormente, realizar os passos de teste e implementação, se preferir.
 
@@ -33,7 +33,7 @@ A aplicação é um BBS de publicidade. Os utilizadores criam um anúncio atrav�
 
 ![Lista de Anúncios](./media/cloud-services-dotnet-get-started/list.png)
 
-A aplicação utiliza o [padrão de trabalho centrado em filas](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
+A aplicação utiliza o [padrão de trabalho centrado em filas](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) para transferir o trabalho intensivo da CPU de criar miniaturas para um processo de back-end.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Arquitetura alternativa: Serviço de aplicações e WebJobs
 Este tutorial mostra como executar front-end e back-end num serviço em nuvem do Azure. Uma alternativa é executar o front-end no [App Service do Azure](/azure/app-service/) e utilizar os [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) funcionalidade para o back-end. Para obter um tutorial que utiliza WebJobs, consulte [Introdução ao SDK de WebJobs do Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Para obter informações sobre como escolher os serviços que melhor se adequam ao seu cenário, consulte [comparação do serviço de aplicações do Azure, serviços Cloud e máquinas virtuais](../app-service/overview-compare.md).
@@ -47,7 +47,7 @@ Este tutorial mostra como executar front-end e back-end num serviço em nuvem do
 * Como utilizar o serviço Fila do Azure para a comunicação entre camadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-O tutorial parte do princípio de que compreende os [conceitos básicos dos Cloud Services do Azure](cloud-services-choose-me.md) como a terminologia *função da Web* e *função de trabalho*.  Também parte do princípio de que sabe como trabalhar com o [MVC do ASP.NET](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou com projetos de [Formulários Web](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. A aplicação de exemplo utiliza o MVC, mas a maioria do tutorial também se aplica aos Formulários Web.
+O tutorial parte do princípio de que compreende os [conceitos básicos dos Cloud Services do Azure](cloud-services-choose-me.md) como a terminologia *função da Web* e *função de trabalho*.  Também parte do princípio de que sabe como trabalhar com o [MVC do ASP.NET](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou com projetos de [Formulários Web](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) no Visual Studio. A aplicação de exemplo utiliza o MVC, mas a maioria do tutorial também se aplica aos Formulários Web.
 
 Pode executar a aplicação localmente sem precisar de uma subscrição do Azure, mas necessitará de uma para implementar a aplicação na cloud. Se não tiver uma conta, pode [ativar os seus benefícios de subscritor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [inscrever-se numa avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
@@ -64,7 +64,7 @@ A aplicação armazena anúncios numa SQL Database, utilizando o Entity Framewor
 
 ![Tabela de anúncios](./media/cloud-services-dotnet-get-started/adtable.png)
 
-Quando um utilizador carrega uma imagem, o front-end em execução numa função da Web armazena a imagem num [blob do Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e armazena as informações do anúncio na base de dados com um URL que aponta para o blob. Ao mesmo tempo, escreve uma mensagem para uma fila do Azure. Um processo de back-end em execução numa função de trabalho consulta periodicamente a fila para verificar se existem novas mensagens. Quando for apresentada uma nova mensagem, a função de trabalho cria uma miniatura dessa imagem e atualiza o campo da base de dados de URLs de miniaturas desse anúncio. O diagrama seguinte mostra como interagem as partes da aplicação.
+Quando um utilizador carrega uma imagem, o front-end em execução numa função da Web armazena a imagem num [blob do Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e armazena as informações do anúncio na base de dados com um URL que aponta para o blob. Ao mesmo tempo, escreve uma mensagem para uma fila do Azure. Um processo de back-end em execução numa função de trabalho consulta periodicamente a fila para verificar se existem novas mensagens. Quando for apresentada uma nova mensagem, a função de trabalho cria uma miniatura dessa imagem e atualiza o campo da base de dados de URLs de miniaturas desse anúncio. O diagrama seguinte mostra como interagem as partes da aplicação.
 
 ![Arquitetura dos Anúncios da Contoso](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
@@ -188,10 +188,10 @@ Numa aplicação real, normalmente criaria contas separadas para os dados da apl
 ### <a name="configure-the-solution-to-use-your-azure-sql-database-when-it-runs-in-azure"></a>Configurar a solução para utilizar a SQL Database do Azure quando for executada no Azure
 O projeto Web e o projeto de função de trabalho têm a sua própria cadeia de ligação de base de dados, e cada uma tem de apontar para a SQL Database do Azure quando a aplicação for executada no Azure.
 
-Utilizará uma [transformação Web.config](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) para a função da Web e uma definição de ambiente de serviço em nuvem para a função de trabalho.
+Utilizará uma [transformação Web.config](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) para a função da Web e uma definição de ambiente de serviço em nuvem para a função de trabalho.
 
 > [!NOTE]
-> Nesta secção e na secção seguinte, as credenciais serão armazenadas nos ficheiros de projeto. [Não armazene dados confidenciais em repositórios de código-fonte públicos](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
+> Nesta secção e na secção seguinte, as credenciais serão armazenadas nos ficheiros de projeto. [Não armazene dados confidenciais em repositórios de código-fonte públicos](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control#secrets).
 >
 >
 
@@ -391,7 +391,7 @@ Nesta secção, deverá configurar o Armazenamento do Azure e as cadeias de liga
 8. Ainda na janela de propriedades **ContosoAdsWorker [Função]**, adicione outra cadeia de ligação:
 
    * Nome: ContosoAdsDbConnectionString
-   * Escreva: Cadeia
+   * Tipo: String
    * Valor: Cole a mesma cadeia de ligação utilizada para o projeto de função da web. (O exemplo seguinte é para o Visual Studio 2013. Não se esqueça de alterar a Origem de Dados se copiar este exemplo e estiver a utilizar o Visual Studio 2015 ou superior.)
 
        ```
@@ -417,9 +417,9 @@ Agora pode compilar e executar a aplicação conforme instruído anteriormente n
 
 As secções seguintes explicam o código relacionado para trabalhar com o ambiente, blobs e filas do Azure. Este tutorial não explica como criar controladores do MVC e vistas utilizando andaimes, como escrever código do Entity Framework que funcione com bases de dados do SQL Server nem as noções básicas de programação assíncrona no ASP.NET 4.5. Para obter informações sobre estes tópicos, consulte os recursos seguintes:
 
-* [Introdução ao MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
-* [Introdução ao EF 6 e ao MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
-* [Introdução à programação assíncrona no .NET 4.5](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
+* [Introdução ao MVC 5](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
+* [Introdução ao EF 6 e ao MVC 5](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
+* [Introdução à programação assíncrona no .NET 4.5](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
 ### <a name="contosoadscommon---adcs"></a>ContosoAdsCommon – Ad.cs
 O ficheiro Ad.cs define uma enumeração de categorias de anúncio e uma classe de entidade POCO para as informações do anúncio.
@@ -533,7 +533,7 @@ O ficheiro *Views\Home\Index.cshtml* apresenta ligações das categorias na pág
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb – AdController.cs
 No ficheiro *AdController.cs*, o construtor chama o método `InitializeStorage` para criar objetos de Biblioteca de Clientes do Armazenamento do Azure que fornecem uma API para trabalhar com blobs e filas.
 
-Em seguida, o código obtém uma referência para o contentor de blob de *imagens*, conforme mostrado anteriormente no *Global.asax.cs*. Ao fazer isso, define uma [política de repetição](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) predefinida adequada para uma aplicação Web. A política de repetição de término exponencial predefinida poderá suspender a aplicação Web durante mais de um minuto em tentativas repetidas quando ocorrer um erro transitório. A política de repetição especificada aqui aguarda três segundos após cada tentativa (até três tentativas).
+Em seguida, o código obtém uma referência para o contentor de blob de *imagens*, conforme mostrado anteriormente no *Global.asax.cs*. Ao fazer isso, define uma [política de repetição](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) predefinida adequada para uma aplicação Web. A política de repetição de término exponencial predefinida poderá suspender a aplicação Web durante mais de um minuto em tentativas repetidas quando ocorrer um erro transitório. A política de repetição especificada aqui aguarda três segundos após cada tentativa (até três tentativas).
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -737,7 +737,7 @@ private void ProcessQueueMessage(CloudQueueMessage msg)
 Este código lê a base de dados para obter o URL da imagem, converte a imagem numa miniatura, guarda a miniatura num blob, atualiza a base de dados com o URL do blob de miniaturas e elimina a mensagem da fila.
 
 > [!NOTE]
-> O código no método `ConvertImageToThumbnailJPG` utiliza classes no espaço de nomes System.Drawing por uma questão de simplicidade. No entanto, as classes neste espaço de nomes foram concebidas para utilização com o Windows Forms. Não são suportadas para utilização num serviço Windows ou ASP.NET. Para obter mais informações sobre as opções de processamento de imagens, consulte [Geração de Imagens Dinâmicas](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Redimensionamento de Imagens Profundas](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
+> O código no método `ConvertImageToThumbnailJPG` utiliza classes no espaço de nomes System.Drawing por uma questão de simplicidade. No entanto, as classes neste espaço de nomes foram concebidas para utilização com o Windows Forms. Não são suportadas para utilização num serviço Windows ou ASP.NET. Para obter mais informações sobre as opções de processamento de imagens, consulte [Geração de Imagens Dinâmicas](https://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) e [Redimensionamento de Imagens Profundas](https://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na).
 >
 >
 
@@ -762,20 +762,20 @@ Para alterar o projeto para utilizar o emulador completo, clique com o botão di
 Para executar a aplicação com o emulador completo, terá de abrir o Visual Studio com privilégios de administrador.
 
 ## <a name="next-steps"></a>Passos seguintes
-A aplicação Anúncios da Contoso foi intencionalmente mantida simples para um tutorial de introdução. Por exemplo, não implementa a [inserção de dependências](http://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) nem o [repositório e unidade de padrões de trabalho](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), não [utiliza uma interface para registo](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não utiliza as [Migrações do EF Code First](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir as alterações dos modelos de dados nem [Resiliência da Ligação do EF](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir erros de rede transitórios e etc.
+A aplicação Anúncios da Contoso foi intencionalmente mantida simples para um tutorial de introdução. Por exemplo, não implementa a [inserção de dependências](https://www.asp.net/mvc/tutorials/hands-on-labs/aspnet-mvc-4-dependency-injection) nem o [repositório e unidade de padrões de trabalho](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/advanced-entity-framework-scenarios-for-an-mvc-web-application#repo), não [utiliza uma interface para registo](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry#log), não utiliza as [Migrações do EF Code First](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir as alterações dos modelos de dados nem [Resiliência da Ligação do EF](https://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application) para gerir erros de rede transitórios e etc.
 
 Apresentamos a seguir algumas aplicações de exemplo do serviço em nuvem que demonstram mais práticas de codificação do mundo real, das menos complexas à mais complexas:
 
 * [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). É semelhante no conceito aos Anúncios da Contoso, mas implementa mais funcionalidades e mais práticas de codificação do mundo real.
 * [Aplicação de Várias Camadas do Serviço em Nuvem do Azure com Tabelas, Filas e Blobs](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Apresenta as tabelas do Storage do Azure, bem como os blobs e as filas. Com base na versão anterior do Azure SDK para .NET, serão necessárias algumas modificações para trabalhar com a versão atual.
 
-Para obter informações gerais sobre como desenvolver para a nuvem, consulte [Compilar Aplicações na Nuvem Reais com o Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
+Para obter informações gerais sobre como desenvolver para a nuvem, consulte [Compilar Aplicações na Nuvem Reais com o Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 
-Para obter uma introdução em vídeo aos padrões e melhores práticas do Storage do Azure, consulte [Armazenamento do Microsoft Azure – Novidades, Melhores Práticas e Padrões](http://channel9.msdn.com/Events/Build/2014/3-628).
+Para obter uma introdução em vídeo aos padrões e melhores práticas do Storage do Azure, consulte [Armazenamento do Microsoft Azure – Novidades, Melhores Práticas e Padrões](https://channel9.msdn.com/Events/Build/2014/3-628).
 
 Para obter mais informações, consulte os seguintes recursos:
 
-* [Parte de serviços Cloud do Azure 1: Introdução](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Parte de serviços Cloud do Azure 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)
 * [Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
 * [Como escolher um fornecedor de serviços cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

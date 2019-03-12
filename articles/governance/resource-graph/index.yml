@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e437d1767fba01a75852bedc5a89de94c222d4f5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: b79f900c9d1fa78c131b132975f9352c4696b201
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195069"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726911"
 documentType: LandingData
 title: Documentação do Azure Resource Graph
 metadata:
@@ -15,7 +15,7 @@ metadata:
   manager: carmonm
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.date: 02/15/2019
+  ms.date: 03/11/2019
   ms.author: dacoulte
 abstract:
   description: A documentação do Azure Resource Graph ajuda-o a configurar e aprender a linguagem de consulta para detetar e explorar os seus recursos à escala.
@@ -50,6 +50,6 @@ sections:
     - title: Linha de Comandos
       html: <p><a href="/cli/azure/ext/resource-graph/graph">CLI do Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
     - title: Linguagens
-      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK for .NET</a> (Azure SDK para .NET)</p>
+      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK for .NET</a> (Azure SDK para .NET)</p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure SDK for Python</a> (Azure SDK para Python)</p>
     - title: REST
       html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Referência da API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>

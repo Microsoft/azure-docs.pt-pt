@@ -10,16 +10,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d1baeb5ff32fcadaeca25244ce3167fe3fe4477a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d31066e52e8c8f7856cce5651ae7e491029f328b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249719"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782467"
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Introdução ao armazenamento do Azure Stack
 
@@ -76,7 +76,7 @@ Armazenamento de BLOBs oferece três tipos de blobs:
 
     Blobs de páginas são otimizados para representar discos IaaS e suportar aleatório escreve é até 1 TB de tamanho. IaaS disco é um VHD armazenado como um blob de página de anexado a uma máquina virtual do Azure Stack.
 
-### <a name="table-storage"></a>Table Storage
+### <a name="table-storage"></a>Armazenamento de tabela
 
 As aplicações modernas exigem frequentemente arquivos de dados com maior escalabilidade e flexibilidade do que as gerações anteriores do software necessário. O Table Storage oferece um armazenamento de elevada disponibilidade e extremamente dimensionável para que a aplicação possa ser automaticamente dimensionada para satisfazer o pedido do utilizador. O Table storage é o arquivo de chaves/atributos NoSQL da Microsoft – tem um design sem esquemas, que o diferencia das tradicionais bases de dados relacionais. Com um arquivo de dados sem esquemas, é fácil adaptar os seus dados à medida que as necessidades da sua aplicação evoluem. O Table Storage é fácil de utilizar para que os programadores possam criar aplicações rapidamente.
 

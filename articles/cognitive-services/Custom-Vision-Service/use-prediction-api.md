@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: sample
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 0758670f4b20df7a3147dd7ecbc21b92209c148f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a285bc4c6eecf1a8cdda758af9df1a697c374b5a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869658"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533974"
 ---
 # <a name="use-the-prediction-endpoint-to-test-images-programmatically-with-a-custom-vision-service-classifier"></a>Utilizar o ponto final de predição para testar imagens de forma programática com o classificador Serviço de Visão Personalizada
 
@@ -86,7 +86,7 @@ Na [página Web do Serviço de Visão Personalizada](https://customvision.ai), s
                 client.DefaultRequestHeaders.Add("Prediction-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
 
                 // Prediction URL - replace this example URL with your valid prediction URL.
-                string url = "http://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?iterationId=f4e573f6-9843-46db-8018-b01d034fd0f2";
+                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?iterationId=f4e573f6-9843-46db-8018-b01d034fd0f2";
 
                 HttpResponseMessage response;
 

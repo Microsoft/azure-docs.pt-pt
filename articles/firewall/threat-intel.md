@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 3/2/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 38b60536a05fc726ddcd06b631078c0a5f3d89ce
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249153"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730524"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Filtragem de baseados em inteligência contra ameaças de Firewall do Azure - pré-visualização pública
 
@@ -22,8 +22,6 @@ Filtragem de baseada em inteligência de ameaças pode ser ativada para a firewa
 
 > [!IMPORTANT]
 > Threat intelligence filtragem com base em está atualmente em pré-visualização pública e é fornecido com um contrato de nível de serviço de pré-visualização. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.  Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
->
->Filtragem de inteligência de ameaças está disponível em todas as regiões públicas. A interface do usuário de configuração do portal associado está a ser adicionada para as regiões de forma incremental e estará disponível em todas as regiões num futuro próximo.
 
 Se a filtragem de baseada em inteligência de ameaças estiver ativada, as regras associadas são processadas antes de qualquer um dos regras NAT, regras de rede ou regras de aplicações. Durante a pré-visualização, apenas registos de confiança de mais altos são incluídos.
 

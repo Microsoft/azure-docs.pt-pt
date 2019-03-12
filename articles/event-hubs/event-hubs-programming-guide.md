@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: ab067d09d1e161e463922eeae90fe3b46e887150
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401406"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544295"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guia de programação do Event Hubs do Azure
 Este artigo aborda alguns cenários comuns em escrever código usando o Event Hubs do Azure. Parte do princípio de que possui compreensão preliminar dos Event Hubs. Para obter uma descrição geral conceptual dos Event Hubs, consulte [Descrição geral dos Event Hubs](event-hubs-what-is-event-hubs.md).
@@ -27,7 +27,7 @@ Quando utilizar as APIs .NET geridas, as construções primárias para publicar 
 
 ## <a name="get-started"></a>Introdução
 
-O .NET classes que suportam os Hubs de eventos são fornecidos na [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) pacote NuGet. Pode ser instalada utilizando o Explorador de soluções do Visual Studio, ou o [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) no Visual Studio. Para fazê-lo, emita o comando seguinte na janela da [Consola do Gestor de Pacotes](http://docs.nuget.org/docs/start-here/using-the-package-manager-console):
+O .NET classes que suportam os Hubs de eventos são fornecidos na [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) pacote NuGet. Pode ser instalada utilizando o Explorador de soluções do Visual Studio, ou o [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) no Visual Studio. Para fazê-lo, emita o comando seguinte na janela da [Consola do Gestor de Pacotes](https://docs.nuget.org/docs/start-here/using-the-package-manager-console):
 
 ```shell
 Install-Package Microsoft.Azure.EventHubs

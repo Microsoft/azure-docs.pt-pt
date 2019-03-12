@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e2f6a8bd8bc8e6f0dd8ba1ec642bff50c9a7977
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 298bf10cf07467de897c7e38af9539fc71375eab
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984038"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776653"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um ficheiro de solução de gestão no Azure (pré-visualização)
 > [!NOTE]
@@ -219,12 +219,12 @@ O recurso de solução tem as propriedades na tabela seguinte.  Isto inclui os r
 
 O exemplo acima é uma solução com um runbook, uma agenda e o modo de exibição.  A agenda e um runbook são *referenciado* no **propriedades** , de modo que eles não são removidos quando a solução é removida.  A visualização é *contidos* para que este é removido quando a solução é removida.
 
-### <a name="plan"></a>Planear
+### <a name="plan"></a>Plano
 O **plano** entidade do recurso de solução tem as propriedades na tabela seguinte.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| nome |Nome da solução. |
+| name |Nome da solução. |
 | versão |Versão da solução conforme determinado pelo autor. |
 | produto |Cadeia de caracteres exclusiva para identificar a solução. |
 | publicador |Editor da solução. |

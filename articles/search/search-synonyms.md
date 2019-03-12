@@ -10,12 +10,12 @@ ms.date: 04/20/2018
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: cea95756f115e9efd6dc184fc85a0485ab49d1b9
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634665"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570441"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinónimos no Azure Search
 
@@ -23,7 +23,7 @@ Sinónimos em mecanismos de pesquisa associam termos equivalentes que implicitam
 
 No Azure Search, expansão de sinónimos é feita no momento da consulta. Pode adicionar mapas de sinónimos a um serviço com nenhuma interrupção para operações existentes. Pode adicionar um **synonymMaps** propriedade a uma definição de campo sem ter de recriar o índice.
 
-## <a name="feature-availability"></a>Disponibilidade de funcionalidades
+## <a name="feature-availability"></a>Funcionalidades disponíveis
 
 A funcionalidade de sinónimos é suportada na versão da api mais recente (api-version = 2017-11-11). Não existe suporte do portal do Azure neste momento.
 
@@ -52,7 +52,7 @@ Pode criar um novo mapa de sinónimos utilizando o HTTP POST, como no exemplo se
     POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
     api-key: [admin key]
 
-    {  
+    {
        "name":"mysynonymmap",
        "format":"solr",
        "synonyms": "
@@ -65,7 +65,7 @@ Em alternativa, pode utilizar PUT e especifique o nome do mapa de sinónimos no 
     PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
     api-key: [admin key]
 
-    {  
+    {
        "format":"solr",
        "synonyms": "
           USA, United States, United States of America\n

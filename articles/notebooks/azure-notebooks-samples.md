@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: f71f1e086e584d1d26b067de001bf83d15bf7961
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 86821e2082deb500f050eeab827dcee593082661
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243683"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776364"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detetar e utilizar blocos de notas de exemplo
 
@@ -41,7 +41,7 @@ Depois de identificar um bloco de notas que gostaria de explorar, aqui estão al
 
 ## <a name="next-steps"></a>Passos Seguintes  
 
-- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [Como: Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [How to: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [How to: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [How to: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [How to: Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

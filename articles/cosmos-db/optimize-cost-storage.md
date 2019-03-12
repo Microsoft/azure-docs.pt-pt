@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 6a6f8b47044d36d767721e2d3503d11518dbf5a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 34b151c14323e7ee22c31f22a63b07a0fb18671e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036125"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536220"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Otimizar o custo de armazenamento no Azure Cosmos DB
 
@@ -27,7 +27,7 @@ O Azure Cosmos DB espera que o tamanho do item a ser 2 MB ou menos para otimizar
 
 ## <a name="optimize-cost-with-indexing"></a>Otimizar o custo de indexação
 
-Por predefinição, os dados são indexados automaticamente, que pode aumentar o armazenamento total consumido. No entanto, pode aplicar políticas de índice personalizado para reduzir esta sobrecarga. Indexação automática que não foi ajustado por meio da diretiva é cerca de 10 a 20% do tamanho do item. Ao remover ou personalizar as políticas de índice, não tenha despesas extra para escritas de custos e não exigem a capacidade de débito adicionais. Ver [indexação no Azure Cosmos DB](indexing-policies.md) para configurar políticas de indexação personalizadas. Se já trabalhou com bases de dados relacionais antes, pode imaginar que "indexar tudo" significa a duplicação de armazenamento ou superior. No entanto, no Azure Cosmos DB, no caso do mediano, é muito inferior. No Azure Cosmos DB, a sobrecarga de armazenamento de índice é normalmente baixa (10 a 20%), mesmo com o serviço de indexação automática, como ele foi projetado para um espaço de armazenamento reduzido. Ao gerir a política de indexação, pode controlar o compromisso do desempenho de requisitos de espaço e consulta de índice de uma maneira mais refinada.
+Por predefinição, os dados são indexados automaticamente, que pode aumentar o armazenamento total consumido. No entanto, pode aplicar políticas de índice personalizado para reduzir esta sobrecarga. Indexação automática que não foi ajustado por meio da diretiva é cerca de 10 a 20% do tamanho do item. Ao remover ou personalizar as políticas de índice, não tenha despesas extra para escritas de custos e não exigem a capacidade de débito adicionais. Ver [indexação no Azure Cosmos DB](indexing-policies.md) para configurar políticas de indexação personalizadas. Se já trabalhou com bases de dados relacionais antes, pode imaginar que "indexar tudo" significa a duplicação de armazenamento ou superior. No entanto, no Azure Cosmos DB, no caso do mediano, é muito inferior. No Azure Cosmos DB, a sobrecarga de armazenamento de índice é normalmente baixa (10 a 20%) mesmo com indexação automática, como ele foi projetado para um espaço de armazenamento reduzido. Ao gerir a política de indexação, pode controlar o compromisso do desempenho de requisitos de espaço e consulta de índice de uma maneira mais refinada.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Otimizar o custo com a hora em direto e alterar feed
 
@@ -39,7 +39,7 @@ Se quiser armazenar tipos de mídia avançada, por exemplo, vídeos, imagens, et
 
 ## <a name="check-storage-consumed"></a>Verificar o armazenamento consumido
 
-Para verificar o consumo de armazenamento de um contentor do Cosmos do Azure, pode executar um pedido HEAD ou GET no contentor e inspecionar os `x-ms-request-quota` e o `x-ms-request-usage` cabeçalhos. Em alternativa, ao trabalhar com o SDK do .net, pode utilizar o [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), e [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) propriedades para obter o armazenamento consumido.
+Para verificar o consumo de armazenamento de um contentor do Cosmos do Azure, pode executar um pedido HEAD ou GET no contentor e inspecionar os `x-ms-request-quota` e o `x-ms-request-usage` cabeçalhos. Em alternativa, ao trabalhar com o SDK do .net, pode utilizar o [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) propriedades para obter o armazenamento consumido.
 
 ## <a name="using-sdk"></a>Com o SDK
 

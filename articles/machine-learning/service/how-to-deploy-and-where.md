@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: f402aeb82271d4e0f5023f05b0d61713c4ab73c1
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2a88781e17313557438e64492ab84f59018f9914
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338472"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730183"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -30,7 +30,7 @@ Pode implementar modelos para os seguintes destinos de computação:
 | Destino de computação | Tipo de implementação | Descrição |
 | ----- | ----- | ----- |
 | [Serviço Kubernetes do Azure (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
-| Computação do Azure ML | Inferência de tipos do batch | Execute a predição de batch de computação sem servidor. Suporta VMs de prioridade normal e baixa. |
+| [Computação do Azure ML](#azuremlcompute) | Inferência de tipos do batch | Execute a predição de batch de computação sem servidor. Suporta VMs de prioridade normal e baixa. |
 | [Azure Container Instances (ACI)](#aci) | Testes | Bom para desenvolvimento ou teste. **Não é adequado para cargas de trabalho de produção.** |
 | [Azure IoT Edge](#iotedge) | (Pré-visualização) Módulo de IoT | Implemente modelos em dispositivos IoT. Inferência acontece no dispositivo. |
 | [Matriz de porta de campos programáveis (FPGA)](#fpga) | (Pré-visualização) Serviço Web | Latência ultrabaixa para inferência em tempo real. |
@@ -328,7 +328,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>Utilizar um cluster existente
 
-Se já tiver um cluster do AKS na sua subscrição do Azure e é a versão 1.11. *, pode usá-lo para implementar a imagem. O código a seguir demonstra como anexar um cluster existente para a área de trabalho:
+Se já tiver um cluster do AKS na sua subscrição do Azure e é a versão 1.11. # # e tem, pelo menos, 12 CPUs virtuais, pode usá-lo para implementar a imagem. O código a seguir demonstra como anexar um 1.11 existente do AKS. # # cluster para a área de trabalho:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -346,6 +346,11 @@ aks_target.wait_for_completion(True)
 ```
 
 **Estimativa de tempo**: Aproximadamente 3 minutos.
+
+Para obter mais informações sobre como criar um cluster do AKS fora do SDK do Azure Machine Learning, consulte os artigos seguintes:
+
+* [Criar um clsuter AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Criar um cluster do AKS (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>Implementar a imagem
 
@@ -372,7 +377,7 @@ print(service.state)
 
 Para obter mais informações, consulte a documentação de referência para o [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) e [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) classes.
 
-### <a id="fpga"></a> Inferência de tipos com a computação do Azure ML
+### <a id="azuremlcompute"></a> Inferência de tipos com a computação do Azure ML
 
 Destinos de computação do Azure ML são criados e geridos pelo serviço Azure Machine Learning. Eles podem ser usados para predição de batch de Pipelines do Azure ML.
 
@@ -387,9 +392,14 @@ Para obter instruções de implantação de um modelo com o Project Brainwave, c
 
 ### <a id="iotedge"></a> Implementar o Azure IoT Edge
 
-Um dispositivo Azure IoT Edge é um Linux ou um dispositivo baseado em Windows que executa o tempo de execução do Azure IoT Edge. Modelos de aprendizagem automática podem ser implementados para estes dispositivos, como módulos do IoT Edge. Implementar um modelo para um dispositivo IoT Edge permite ao dispositivo utilizar o modelo diretamente, em vez de precisar enviar dados para a cloud para processamento. Obtém os tempos de resposta mais rápidos e menos transferência de dados.
+Um dispositivo Azure IoT Edge é um Linux ou um dispositivo baseado em Windows que executa o tempo de execução do Azure IoT Edge. Utilizar o IoT Hub do Azure, pode implementar modelos de aprendizagem automática para estes dispositivos como módulos do IoT Edge. Implementar um modelo para um dispositivo IoT Edge permite ao dispositivo utilizar o modelo diretamente, em vez de precisar enviar dados para a cloud para processamento. Obtém os tempos de resposta mais rápidos e menos transferência de dados.
 
 Módulos do IoT Edge do Azure são implementados para o seu dispositivo a partir de um registo de contentor. Quando cria uma imagem do seu modelo, são armazenado no registo de contentor para a área de trabalho.
+
+> [!IMPORTANT]
+> As informações nesta secção assume que já está familiarizado com os módulos do IoT Hub do Azure e Azure IoT Edge. Embora algumas das informações nesta secção é específico do serviço Azure Machine Learning, ocorre a maior parte do processo de implantar num dispositivo do edge no serviço do Azure IoT.
+>
+> Se não estiver familiarizado com o Azure IoT, veja [Noções básicas do IoT do Azure](https://docs.microsoft.com/azure/iot-fundamentals/) e [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) para obter informações básicas. Em seguida, utilize as outras ligações nesta secção para saber mais sobre operações específicas.
 
 #### <a name="set-up-your-environment"></a>Configurar o ambiente
 
@@ -399,36 +409,11 @@ Módulos do IoT Edge do Azure são implementados para o seu dispositivo a partir
 
 * Um modelo preparado. Para obter um exemplo de como preparar um modelo, consulte a [preparar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md) documento. Um modelo com formação prévia está disponível na [ferramentas de ia para o repositório do GitHub do Azure IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-#### <a name="prepare-the-iot-device"></a>Preparar o dispositivo de IoT
-Tem de criar um hub IoT e registar um dispositivo ou reutilizá-lo com [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister).
+#### <a id="getcontainer"></a> Obter as credenciais do registo de contentor
 
-``` bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
-sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
-```
-
-Guarde a cadeia de ligação resultante após "cs": "{copiar essa cadeia de caracteres}".
-
-Inicializar o seu dispositivo baixando [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) num nó de extremidade de IoT UbuntuX64 ou DSVM para executar os comandos seguintes:
-
-```bash
-ssh <yourusername>@<yourdeviceip>
-sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
-sudo chmod +x installIoTEdge
-sudo ./installIoTEdge
-```
-
-O nó do IoT Edge está pronto para receber a cadeia de ligação do hub IoT. Procure a linha ```device_connection_string:``` e cole a cadeia de ligação acima entre aspas.
-
-Também pode saber como registar o seu dispositivo e instalar o runtime do IoT, seguindo o [início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64](../../iot-edge/quickstart-linux.md) documento.
-
-
-#### <a name="get-the-container-registry-credentials"></a>Obter as credenciais do registo de contentor
 Para implementar um módulo do IoT Edge para o seu dispositivo, o IoT do Azure tem as credenciais para que o serviço Azure Machine Learning armazena imagens do docker no registo de contentor.
 
-Pode obter facilmente as credenciais de registo de contentor necessário de duas formas:
+Pode obter as credenciais de duas formas:
 
 + **No portal do Azure**:
 
@@ -469,24 +454,21 @@ Pode obter facilmente as credenciais de registo de contentor necessário de duas
 
      Estas credenciais são necessárias para fornecer o IoT Edge acesso de dispositivo a imagens no seu registo de contentor privado.
 
+#### <a name="prepare-the-iot-device"></a>Preparar o dispositivo de IoT
+
+Tem de registar o seu dispositivo hub IoT do Azure e, em seguida, instale o runtime do IoT Edge no dispositivo. Se não estiver familiarizado com esse processo, consulte o artigo [início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux x64](../../iot-edge/quickstart-linux.md).
+
+Outros métodos de registo de um dispositivo são:
+
+* [Portal do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [CLI do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
+
 #### <a name="deploy-the-model-to-the-device"></a>Implementar o modelo para o dispositivo
 
-Pode facilmente implementar um modelo, executando [este script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel) e fornecer as seguintes informações nos passos anteriores: registo de contentor Name, nome de utilizador, palavra-passe, url de localização da imagem, nome da implementação pretendida, nome do IoT Hub e o ID de dispositivo que criou. Pode fazê-lo na VM, seguindo estes passos: 
+Para implementar o modelo para o dispositivo, utilize as informações de registo coletadas a [obter as credenciais do registo de contentor](#getcontainer) seção com a implementação do módulo de passos para módulos do IoT Edge. Por exemplo, quando [módulos de implementar o Azure IoT Edge do portal do Azure](../../iot-edge/how-to-deploy-modules-portal.md), tem de configurar o __definições de registo__ para o dispositivo. Utilize o __servidor de início de sessão__, __nome de utilizador__, e __palavra-passe__ para o seu registo de contentor de área de trabalho.
 
-```bash 
-wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
-sudo chmod +x deploymodel
-sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
-```
-
-Em alternativa, pode seguir os passos a [módulos de implementar o Azure IoT Edge do portal do Azure](../../iot-edge/how-to-deploy-modules-portal.md) documento para implementar a imagem no seu dispositivo. Quando configurar o __definições de registo__ para o dispositivo, utilize o __servidor de início de sessão__, __nome de utilizador__, e __palavra-passe__ sua área de trabalho registo de contentor.
-
-> [!NOTE]
-> Se não estiver familiarizado com o Azure IoT Edge, consulte os seguintes documentos para obter informações sobre como começar com o serviço:
->
-> * [Quickstart: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux](../../iot-edge/quickstart-linux.md)
-> * [Quickstart: Implementar o seu primeiro módulo do IoT Edge num dispositivo Windows](../../iot-edge/quickstart.md)
-
+Também pode implementar utilizando [CLI do Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) e [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
 
 ## <a name="testing-web-service-deployments"></a>Implementações de serviço web de teste
 

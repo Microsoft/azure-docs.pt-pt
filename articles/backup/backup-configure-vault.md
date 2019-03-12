@@ -8,24 +8,23 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: raynew
-ms.openlocfilehash: 5558fbc3ecaad2ae3ca7fce7da57b1f0fed9081b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3700ffe0a2b0e0d3ec69bce3a11cdc36d28d9145
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451812"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569115"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Fazer uma cópia de segurança de máquinas do Windows com o agente MARS de cópia de segurança do Azure
 
 Este artigo explica como fazer uma cópia de segurança de máquinas do Windows com o [Azure Backup](backup-overview.md) serviço e o agente dos serviços de recuperação do Azure (MARS) da Microsoft, também conhecido como o agente de cópia de segurança do Azure.
 
-Neste artigo, vai aprender a: 
-
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Verifique os pré-requisitos e crie um cofre dos serviços de recuperação.
 > * Transferir e configurar o Agente MARS
-> * Crie uma política de cópia de segurança e a agenda. 
+> * Crie uma política de cópia de segurança e a agenda.
 > * Efetue um ad-hoc cópia de segurança.
 
 ## <a name="about-the-mars-agent"></a>Sobre o agente MARS
@@ -34,13 +33,11 @@ O agente de MARS é utilizado pela cópia de segurança do Azure para fazer uma 
 
 - Execute o agente diretamente em máquinas do Windows no local para que eles podem criar cópias de segurança diretamente para um cofre de serviços de recuperação de cópia de segurança no Azure.
 - Execute as VMs do Azure de agente com o Windows (lado a lado com a extensão de cópia de segurança de VM do Azure) para criar cópias de segurança específicos ficheiros e pastas na VM.
-- Execute o agente num Microsoft Azure Backup Server (MABS) ou uma proteção de dados no System Center - server Manager (DPM). Neste cenário, as máquinas e cargas de trabalho de cópia de segurança MABS/DPM e, em seguida, o MABS/DPM faz uma cópia de segurança até um cofre no Azure com o agente MARS.
+- Execute o agente num Microsoft Azure Backup Server (MABS) ou uma proteção de dados no System Center - server Manager (DPM). Neste cenário, as máquinas e cargas de trabalho de cópia de segurança para o MABS/DPM e, em seguida, MABS/DPM cria cópias de segurança para um cofre no Azure com o agente MARS.
 O que pode criar cópias de segurança depende de onde o agente está instalado.
 
 > [!NOTE]
 > O método primário de backup das VMs do Azure é usar uma extensão de cópia de segurança do Azure na VM. Isso faz o backup de toda a VM. Pode querer instalar e utilizar o agente de MARS juntamente com a extensão, se pretender criar cópias de segurança específicos ficheiros e pastas na VM. [Saiba mais](backup-architecture.md#architecture-direct-backup-of-azure-vms).
-
-
 
 ![Passos do processo de cópia de segurança](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -52,17 +49,15 @@ O que pode criar cópias de segurança depende de onde o agente está instalado.
 - Verificar o acesso de internet nas máquinas que pretende criar cópias de segurança.
 - Para fazer uma cópia de segurança de um servidor ou cliente para o Azure, precisa de uma conta do Azure. Se não tiver uma, pode criar uma [conta gratuita](https://azure.microsoft.com/free/) em apenas alguns minutos.
 
-
 ### <a name="verify-internet-access"></a>Verifique se o acesso à internet
 
-Se a sua máquina limitou o acesso à internet, certifique-se de que as definições da firewall na máquina ou proxy permitem estes URLs: 
+Se a sua máquina limitou o acesso à internet, certifique-se de que as definições da firewall na máquina ou proxy permitem estes URLs:
 
 - www.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - \*.windows.net
-
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -83,58 +78,52 @@ Um cofre dos serviços de recuperação armazena todas as cópias de segurança 
 
     ![Passo 3 da Criação de um Cofre dos Serviços de Recuperação](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-  Pode demorar alguns minutos a criar o cofre. Monitorizar notificações de estado no portal. Depois do cofre for criado, aparece na lista de cofres dos serviços de recuperação. Se após vários minutos não vir o cofre, clique em **atualizar**.
+Pode demorar alguns minutos a criar o cofre. Monitorizar notificações de estado no portal. Depois do cofre for criado, aparece na lista de cofres dos serviços de recuperação. Se após vários minutos não vir o cofre, clique em **atualizar**.
 
-      ![Clique no botão Atualizar](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
-
-  
+![Clique no botão Atualizar](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
 ### <a name="set-storage-redundancy"></a>Redundância de armazenamento do conjunto
 
-Armazenamento para o Cofre lida automaticamente com o Azure Backup. Tem de especificar a forma como os que o armazenamento é replicado. 
+Armazenamento para o Cofre lida automaticamente com o Azure Backup. Tem de especificar a forma como os que o armazenamento é replicado.
 
 1. No painel **Cofres dos Serviços de Recuperação**, clique em novo cofre. Sob o **configurações** secção, clique em **propriedades**.
 2. Na **propriedades**, em **configuração de cópia de segurança**, clique em **atualização**.
 
-  
-4. Selecione o tipo de replicação de armazenamento e clique em **guardar**.
+3. Selecione o tipo de replicação de armazenamento e clique em **guardar**.
 
-  ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+      ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-  - Recomendamos que se estiver a utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continuar a utilizar a predefinição **georredundante** definição.
-  - Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure.
-  - Saiba mais sobre [geo](../storage/common/storage-redundancy-grs.md) e [local](../storage/common/storage-redundancy-lrs.md) redundância.
+- Recomendamos que se estiver a utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continuar a utilizar a predefinição **georredundante** definição.
+- Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure.
+- Saiba mais sobre [geo](../storage/common/storage-redundancy-grs.md) e [local](../storage/common/storage-redundancy-lrs.md) redundância.
 
 ## <a name="download-the-mars-agent"></a>Transferir o agente de MARS
 
 Transferir o agente de MARS para instalação nos computadores que pretende criar cópias de segurança.
 
-- Se já tiver instalado o agente em qualquer máquinas, certifique-se de que está a executar a versão mais recente. 
+- Se já tiver instalado o agente em qualquer máquinas, certifique-se de que está a executar a versão mais recente.
 - A versão mais recente está disponível no portal ou utilizando um [transferência direta](https://aka.ms/azurebackup_agent)
 
 1. No cofre, sob **introdução**, clique em **cópia de segurança**.
 
-  ![Painel Abrir objetivo de cópia de segurança](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
-
+    ![Painel Abrir objetivo de cópia de segurança](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
 2. Na **em que a sua carga de trabalho é executado?**, selecione **locais**. Deve selecionar esta opção, mesmo que deseja instalar o agente de MARS numa VM do Azure.
 3. Na **o que fazer quiser a cópia de segurança?**, selecione **ficheiros e pastas** e/ou **estado do sistema**. Há várias outras opções disponíveis, mas estas só são suportadas caso esteja a executar um servidor secundário de cópia de segurança. Clique em **preparar infraestrutura**.
 
-  ![Configurar ficheiros e pastas](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
-
+      ![Configurar ficheiros e pastas](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
 4. Sobre o **preparar a infraestrutura**, em **agente dos serviços de recuperação instalar**, transferir o agente de MARS.
 
-  ![preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
+    ![preparar infraestrutura](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
-5. No menu de pop-up de transferência, clique em **Guardar**. Por predefinição, o ficheiro **MARSagentinstaller.exe** é guardado na pasta Transferências. 
-  
-6. Agora, verifique **já está download ou ao utilizar o agente de serviços de recuperação mais recente**e, em seguida, transferir as credenciais do cofre. 
-  ![transferir as credenciais do Cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
+5. No menu de pop-up de transferência, clique em **Guardar**. Por predefinição, o ficheiro **MARSagentinstaller.exe** é guardado na pasta Transferências.
 
-7. Clique em **Guardar**. O ficheiro é transferido para a pasta de transferência. Não é possível abrir o ficheiro de credenciais do cofre. 
-    
-  
+6. Agora, verifique **já está download ou ao utilizar o agente de serviços de recuperação mais recente**e, em seguida, transferir as credenciais do cofre.
+
+    ![transferir as credenciais do cofre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
+
+7. Clique em **Guardar**. O ficheiro é transferido para a pasta de transferência. Não é possível abrir o ficheiro de credenciais do cofre.
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registar o agente
 
@@ -147,7 +136,7 @@ Transferir o agente de MARS para instalação nos computadores que pretende cria
 
 2. Na **configuração do Proxy**, especifique a forma do agente em execução na máquina do Windows se vai ligar à internet. Clique depois em **Seguinte**.
 
-    - Se estiver a utilizar com um personalizado proxy especificar as definições de proxy e as credenciais se necessário.
+    - Se estiver a utilizar um personalizado proxy especificar as definições de proxy e as credenciais se necessário.
     - Lembre-se de que o agente tem acesso ao [estes URLs](#verify-internet-access).
 
     ![Acesso à internet do MARS Assistente](./media/backup-configure-vault/mars2.png)
@@ -158,19 +147,19 @@ Transferir o agente de MARS para instalação nos computadores que pretende cria
 
     ![Registre-se - as credenciais do Cofre](./media/backup-configure-vault/register1.png)
 
-6. Na **definição de encriptação**, especifique uma frase de acesso que será utilizada para encriptar e desencriptar as cópias de segurança para a máquina. 
-    
+6. Na **definição de encriptação**, especifique uma frase de acesso que será utilizada para encriptar e desencriptar as cópias de segurança para a máquina.
+
     - Guarde a frase de acesso de encriptação numa localização segura.
     - Se perder ou se esqueça a frase de acesso, Microsoft não pode ajudar a recuperar os dados de cópia de segurança. Guarde o ficheiro numa localização segura. Que é necessária para restaurar uma cópia de segurança.
 
 7. Clique em **concluir**. O agente está agora instalado e a máquina está registada no cofre. Está pronto para configurar e agendar a cópia de segurança.
 
-
 ## <a name="create-a-backup-policy"></a>Criar uma política de cópia de segurança
-A política de cópia de segurança especifica quando deve criar instantâneos dos dados para criar pontos de recuperação e durante quanto tempo para manter os pontos de recuperação. 
+
+A política de cópia de segurança especifica quando deve criar instantâneos dos dados para criar pontos de recuperação e durante quanto tempo para manter os pontos de recuperação.
 
 - Configurar uma política de cópia de segurança com o agente MARS.
-- Cópia de segurança do Azure automaticamente não tem o horário de Verão (horário de Verão) em conta. Isso poderia causar alguma discrepância entre a hora real e a hora de cópia de segurança agendada. 
+- Cópia de segurança do Azure automaticamente não tem o horário de Verão (horário de Verão) em conta. Isso poderia causar alguma discrepância entre a hora real e a hora de cópia de segurança agendada.
 
 Crie uma política da seguinte forma:
 
@@ -183,7 +172,7 @@ Crie uma política da seguinte forma:
 4. Na **selecionar itens para cópia de segurança**, clique em **adicionar itens**.
 5. Na **selecionar itens**, selecione o que pretende criar cópias de segurança. Em seguida, clique em **OK**.
 6. Na **selecionar itens para cópia de segurança** página, clique em **próxima**.
-7. Na **Especificar agenda de cópia de segurança** , especifique quando pretender efetuar cópias de segurança diárias ou semanais. Clique depois em **Seguinte**. 
+7. Na **Especificar agenda de cópia de segurança** , especifique quando pretender efetuar cópias de segurança diárias ou semanais. Clique depois em **Seguinte**.
 
     - Um ponto de recuperação é criado quando é feita uma cópia de segurança.
     - O número de pontos de recuperação criados no seu ambiente é depende da sua agenda de cópia de segurança.
@@ -194,23 +183,21 @@ Crie uma política da seguinte forma:
 
 9. Também pode executar cópias de segurança semanais. Por exemplo, a captura de ecrã mostra as cópias de segurança criadas todas as alternativas Domingo & quarta-feira às 9:30h e 1:00.
 
-    ![Agendamento semanal](./media/backup-configure-vault/week-schedule.png)  
+    ![Agendamento semanal](./media/backup-configure-vault/week-schedule.png)
 
 8. Sobre o **selecionar política de retenção** , especifique como armazenar cópias históricas de seus dados. Clique depois em **Seguinte**.
 
+   - Definições de retenção de especificam quais os pontos de recuperação devem ser armazenados e o tempo que devem ser armazenados para.
+   - Por exemplo, ao definir uma definição de retenção diárias, indica que no momento especificado para o período de retenção diário, o ponto de recuperação mais recente será retido durante o número especificado de dias. Ou, como outro exemplo, pode especificar uma política de retenção mensais para indicar que o ponto de recuperação criado em 30th de cada mês deve ser armazenado durante 12 meses.
+   - Retenção do ponto de recuperação diária e semanal geralmente coincide com a agenda de cópia de segurança. O que significa que, quando a cópia de segurança é acionada de acordo com a agenda, o ponto de recuperação criado pela cópia de segurança é armazenado durante o período indicado na diária ou semanalmente política de retenção.
+   - Por exemplo, na seguinte captura de ecrã:
+     - Cópias de segurança diárias em meia-noite e 18:00 são mantidas durante sete dias.
+     - Cópias de segurança criadas num sábado à meia-noite e 18:00 são mantidas durante 4 semanas.
+     - Cópias de segurança criadas no Sábado na última semana do mês em meia-noite e 18:00 são mantidas durante 12 meses. -Cópias de segurança criadas num Sábado na última semana de Março são mantidas há 10 anos.
 
-    - Definições de retenção de especificam quais os pontos de recuperação devem ser armazenados e o tempo que devem ser armazenados para.
-    - Por exemplo, ao definir uma definição de retenção diárias, indica que no momento especificado para o período de retenção diário, o ponto de recuperação mais recente será retido durante o número especificado de dias. Ou, como outro exemplo, pode especificar uma política de retenção mensais para indicar que o ponto de recuperação criado em 30th de cada mês deve ser armazenado durante 12 meses.
-    - Retenção do ponto de recuperação diária e semanal geralmente coincide com a agenda de cópia de segurança. O que significa que, quando a cópia de segurança é acionada de acordo com a agenda, o ponto de recuperação criado pela cópia de segurança é armazenado durante o período indicado na diária ou semanalmente política de retenção.
-    - Por exemplo, na seguinte captura de ecrã:
-        - Cópias de segurança diárias em meia-noite e 18:00 são mantidas durante sete dias.
-        - Cópias de segurança criadas num sábado à meia-noite e 18:00 são mantidas durante 4 semanas.
-        - Cópias de segurança criadas no Sábado na última semana do mês em meia-noite e 18:00 são mantidas durante 12 meses. -Cópias de segurança criadas num Sábado na última semana de Março são mantidas há 10 anos. 
-
-        ![Exemplo de retenção](./media/backup-configure-vault/retention-example.png)  
+   ![Exemplo de retenção](./media/backup-configure-vault/retention-example.png)
 
 11. Na **Escolher tipo de cópia de segurança inicial** especificar como tirar inicial, cópia de segurança, através da rede ou offline. Clique depois em **Seguinte**.
-
 
 10. Na **confirmação**, reveja as informações e, em seguida, clique em **concluir**.
 11. Depois de o assistente ter criado a agenda da cópia de segurança, clique em **Fechar**.
@@ -230,7 +217,7 @@ Pode executar um inicial de cópia de segurança automaticamente através da red
 
 ### <a name="enable-network-throttling"></a>Ativar a limitação de rede
 
-Pode controlar como a largura de banda de rede é utilizada pelo agente de MARS ao ativar a limitação de rede. A limitação é útil se precisar de criar cópias de segurança durante as horas de trabalho, mas se quiser controlar a largura de banda é utilizada para cópia de segurança e restaurar a atividade. 
+Pode controlar como a largura de banda de rede é utilizada pelo agente de MARS ao ativar a limitação de rede. A limitação é útil se precisar de criar cópias de segurança durante as horas de trabalho, mas se quiser controlar a largura de banda é utilizada para cópia de segurança e restaurar a atividade.
 
 - Rede de cópia de segurança do Azure utiliza a limitação [Quality of Service (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top) no sistema operativo local.
 - Limitação para cópia de segurança de rede está disponível no Windows Server 2008 R2 e posteriores e, o seu Windows 7 e posteriores. Sistemas operativos devem estar a executar os service packs mais recentes.
@@ -243,11 +230,12 @@ Ative a limitação de rede da seguinte forma:
     ![Limitação de rede](./media/backup-configure-vault/throttling-dialog.png)
 3. Especifique a largura de banda permitida durante o trabalho e fora do horário de trabalho. Valores de largura de banda começam no 512 Kbps e ir até 1,023 MBps. Em seguida, clique em **OK**.
 
-## <a name="run-an-ad-hoc-backup"></a>Executar cópias de segurança ad hoc 
+## <a name="run-an-ad-hoc-backup"></a>Executar cópias de segurança ad hoc
 
 1. No agente de MARS, clique em **cópia de segurança agora**. Isso ativa a replicação inicial através da rede.
 
     ![Efetuar a cópia de segurança do Windows Server agora](./media/backup-configure-vault/backup-now.png)
+
 2. Na **confirmação**, reveja as definições e clique em **cópia de segurança**.
 3. Clique em **Fechar** para fechar o assistente. Se fizer isso, antes da cópia de segurança estar concluído, o assistente continua em execução em segundo plano.
 

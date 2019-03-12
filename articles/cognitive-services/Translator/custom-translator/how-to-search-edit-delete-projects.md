@@ -5,16 +5,16 @@ description: Tradutor personalizado fornece várias maneiras de gerenciar os pro
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: c6f97e3b88d1819be42dcf4dfc14e52b4117bfd8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a4277e8bbd130588e343019a8b02221593efad52
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726402"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772641"
 ---
 # <a name="search-edit-and-delete-projects"></a>Pesquisar, editar e eliminar projetos
 

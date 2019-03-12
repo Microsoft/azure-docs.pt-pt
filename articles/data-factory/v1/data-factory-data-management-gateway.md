@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 28796c753e32a3c3b18052190618152c7669c93d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6bb37008b6a8b37e575dcf83dffcf57ab08996fd
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437076"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539999"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -263,7 +263,7 @@ Ver a hora da atualização agendada nos seguintes locais:
 
 Separador base do Data Management Gateway Configuration Manager apresenta o agendamento de atualização e a última vez que o gateway foi instalado/atualizado.
 
-![Agendar atualizações](media/data-factory-data-management-gateway/UpdateSection.png)
+![Atualizações agendadas](media/data-factory-data-management-gateway/UpdateSection.png)
 
 Pode instalar a atualização imediatamente ou aguarde que o gateway sejam atualizadas automaticamente na hora agendada. Por exemplo, a imagem seguinte mostra a mensagem de notificação mostrada no Gestor de configuração do Gateway, juntamente com o botão de atualização que pode clicar para instalá-lo imediatamente.
 
@@ -312,7 +312,7 @@ Depois de instalar o gateway, pode iniciar o Gestor de configuração de Gateway
 1. Na **pesquisa** janela, escreva **Data Management Gateway** para acessar esse utilitário.
 2. Execute o ficheiro executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-### <a name="home-page"></a>Página de boas-vindas
+### <a name="home-page"></a>Home page
 A Home page permite-lhe efetuar as seguintes ações:
 
 * Ver o estado do gateway (ligado ao serviço cloud etc.).
@@ -439,7 +439,7 @@ Esta secção fornece os passos para mover cliente de gateway de um computador p
 ## <a name="encrypting-credentials"></a>Encriptar credenciais
 Para encriptar as credenciais no Editor do Data Factory, siga os passos abaixo:
 
-1. Iniciar o navegador da web do **computador gateway**, navegue até à [portal do Azure](http://portal.azure.com). Procure a fábrica de dados, se necessário, abra a fábrica de dados no **DATA FACTORY** página e, em seguida, clique em **criar e implementar** para iniciar o Editor do Data Factory.
+1. Iniciar o navegador da web do **computador gateway**, navegue até à [portal do Azure](https://portal.azure.com). Procure a fábrica de dados, se necessário, abra a fábrica de dados no **DATA FACTORY** página e, em seguida, clique em **criar e implementar** para iniciar o Editor do Data Factory.
 2. Clique num existente **serviço ligado** na vista de árvore para ver a sua definição de JSON ou criar um serviço ligado que requer um gateway de gestão de dados (por exemplo: SQL Server ou Oracle).
 3. No editor de JSON, para o **gatewayName** propriedade, introduza o nome do gateway.
 4. Introduza o nome de servidor para o **origem de dados** propriedade na **connectionString**.
@@ -479,7 +479,7 @@ Se estiver procurando por uma abordagem baseada em API para encriptar as credenc
 
 Há uma abordagem mais para a definição de credenciais utilizando o Editor do Data Factory. Se criar um serviço ligado do SQL Server com o editor e introduza as credenciais em texto simples, as credenciais são encriptadas utilizando um certificado que o serviço Data Factory é proprietário. Não utilize o certificado que esse gateway é configurado para utilizar. Embora esta abordagem poderá ser um pouco mais rápida em alguns casos, é menos seguro. Por conseguinte, recomendamos que siga esta abordagem apenas para fins de desenvolvimento/teste.
 
-## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
+## <a name="powershell-cmdlets"></a>Cmdlets Powershell
 Esta secção descreve como criar e registar um gateway com cmdlets do PowerShell do Azure.
 
 1. Inicie **do Azure PowerShell** no modo de administrador.

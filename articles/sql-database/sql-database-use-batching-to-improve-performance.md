@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 0ef6d258be0165c7a73ce060879f55f1c7f404f9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76b53132cca536f66aa2f739b27d74b08a3f16cf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453529"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781396"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Como utilizar a criação de batches de mensagens em fila para melhorar o desempenho de aplicações de base de dados SQL
 
@@ -168,7 +168,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o **SqlCommand** objeto insere linhas de um parâmetro de valor de tabela **@TestTvp**. Criado anteriormente **DataTable** será atribuído para este parâmetro com o **SqlCommand.Parameters.Add** método. Criação de batches significativamente as inserções numa chamada aumenta o desempenho ao longo de inserções seqüenciais.
+No exemplo anterior, o **SqlCommand** objeto insere linhas de um parâmetro de valor de tabela  **\@TestTvp**. Criado anteriormente **DataTable** será atribuído para este parâmetro com o **SqlCommand.Parameters.Add** método. Criação de batches significativamente as inserções numa chamada aumenta o desempenho ao longo de inserções seqüenciais.
 
 Para melhorar ainda mais o exemplo anterior, utilize um procedimento armazenado em vez de um comando baseado em texto. O seguinte comando do Transact-SQL cria um procedimento armazenado que demora a **SimpleTestTableType** parâmetro de valor de tabela.
 

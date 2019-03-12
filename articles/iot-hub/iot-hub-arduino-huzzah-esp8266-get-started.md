@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e49a3063d6314947c59c5ae863077748d997f2b5
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ae123638e26c9fb6c82666efddabf06874c7b7a8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515476"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539965"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Ligar o Adafruit Feather HUZZAH ESP8266 ao IoT Hub do Azure na cloud
 
@@ -27,7 +27,7 @@ ms.locfileid: "51515476"
 Ligar o Adafruit Feather HUZZAH ESP8266 para um hub IoT que criou. Em seguida, execute um aplicativo de exemplo no ESP8266 para recolher os dados de temperatura e humidade a partir de um sensor DHT22. Por fim, que envia os dados de sensor ao seu hub IoT.
 
 > [!NOTE]
-> Se estiver a utilizar outros quadros ESP8266, ainda pode seguir estes passos para ligá-lo ao seu hub IoT. Dependendo do quadro de ESP8266 estiver a utilizar, poderá ter de reconfigurar o `LED_PIN`. Por exemplo, se estiver a utilizar ESP8266 de IA Thinker, pode alterá-lo partir `0` para `2`. Não tem ainda um kit? Obtenha-o a partir da [Web site do Azure](http://azure.com/iotstarterkits).
+> Se estiver a utilizar outros quadros ESP8266, ainda pode seguir estes passos para ligá-lo ao seu hub IoT. Dependendo do quadro de ESP8266 estiver a utilizar, poderá ter de reconfigurar o `LED_PIN`. Por exemplo, se estiver a utilizar ESP8266 de IA Thinker, pode alterá-lo partir `0` para `2`. Não tem ainda um kit? Obtenha-o a partir da [Web site do Azure](https://azure.com/iotstarterkits).
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
@@ -118,7 +118,7 @@ Se usar o Ubuntu, certifique-se de que tem as permissões para operar no USB por
    Obtém uma os seguintes resultados:
 
    * crw-rw---1 raiz uucp xxxxxxxx
-   * crw-rw---1 raiz dialout xxxxxxxx
+   * crw-rw---- 1 root dialout xxxxxxxx
 
    Na saída, tenha em atenção que `uucp` ou `dialout` é o nome do grupo proprietário da porta USB.
 
@@ -184,7 +184,7 @@ O aplicativo de exemplo está alojado no GitHub. Clone o repositório de exemplo
 
    ![O pacote de esp8266 está instalado](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-13. Introduza `F1`, em seguida, escreva **Arduino** e selecione **Arduino: configuração de quadro**.
+13. Introduza `F1`, em seguida, escreva **Arduino** e selecione **Arduino: Configuração de quadro**.
 
 14. Clique em caixa de **quadro selecionado:** e escreva **esp8266**, em seguida, selecione **Adafruit HUZZAH ESP8266 (esp8266)**.
 
@@ -222,7 +222,7 @@ O aplicativo de exemplo pode simular dados de temperatura e humidade no caso de 
 
 1. No Visual Studio Code, clique em **<Select Serial Port>** o estado da barra e, em seguida, clique na porta de série para Feather HUZZAH ESP8266.
 
-2. Introduza `F1`, em seguida, escreva **Arduino** e selecione **Arduino: carregar** para criar e implementar a aplicação de exemplo para Feather HUZZAH ESP8266.
+2. Introduza `F1`, em seguida, escreva **Arduino** e selecione **Arduino: Carregar** para criar e implementar a aplicação de exemplo para Feather HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Introduza as suas credenciais
 
@@ -238,7 +238,7 @@ Depois do carregamento for concluída com êxito, siga estes passos para introdu
 
 5. Na caixa de entrada na parte superior da janela serial monitor, introduza as seguintes informações se for solicitado a fornecê-los e, em seguida, clique em **enviar**.
 
-   * SSID de Wi-Fi
+   * Wi-Fi SSID
    * Palavra-passe do Wi-Fi
    * Cadeia de ligação do dispositivo
 

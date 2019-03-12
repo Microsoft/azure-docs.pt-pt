@@ -11,27 +11,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 64d96d54b323d634703301e48cdaa28fa875fbbc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 14cc87e8691c859274495a13cc0b73fa29ad22df
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958803"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726894"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Conjuntos de back-ends e back-end no serviço de porta de entrada do Azure
-Este artigo explica os conceitos diferentes em relação a como pode mapear a sua implementação de aplicações com a porta de entrada. Irá também Explicamos o que os termos diferentes na frente configuração de porta de entrada em torno de back-end de aplicação significa.
+Este artigo explica os conceitos diferentes em relação a como pode mapear a sua implementação de aplicações com a porta de entrada. Também Explicaremos o que os termos diferentes na frente configuração de porta de entrada em torno de back-end de aplicação significa.
 
 ## <a name="backend-pool"></a>Conjunto back-end
-Um conjunto de back-end na frente porta refere-se para o conjunto de back-ends equivalentes que podem receber o mesmo tipo de tráfego da respetiva aplicação. Em outras palavras, é um agrupamento lógico das suas instâncias de aplicativos em todo o mundo que podem receber o mesmo tráfego e pode responder com o comportamento esperado. Estes back-ends, normalmente, são implementadas em diferentes regiões ou na mesma região. Além disso, estas back-ends podem estar no modo de implementação de ativo-ativo ou caso contrário, podem ser definidas como uma configuração de ativo/passivo.
+No Front Door, os conjuntos de back-ends são back-ends equivalentes que podem receber o mesmo tipo de tráfego para a respetiva aplicação. Por outras palavras, são um agrupamento lógico das instâncias da sua aplicação em todo o mundo que podem receber o mesmo tráfego e responder com o comportamento esperado. Estes back-ends, normalmente, são implementadas em diferentes regiões ou na mesma região. Além disso, estas back-ends podem estar no modo de implementação de ativo-ativo ou caso contrário, podem ser definidas como uma configuração de ativo/passivo.
 
 Conjunto back-end também define como os back-ends diferentes devem todos ser avaliados para a integridade dos mesmos através de sondas de estado de funcionamento e do mesmo modo como a balanceamento de carga entre os back-ends deve ocorrer.
 
-### <a name="health-probes"></a>Sondas do estado de funcionamento
+### <a name="health-probes"></a>Sondas de estado de funcionamento
 Porta de entrada envia pedidos periódicos de sonda HTTP/HTTPS para cada um dos seus back-ends configurado para determinar o estado de funcionamento de cada back-end para carregar e proximidade equilibrar os pedidos de utilizador final. Definições de sonda de estado de funcionamento para um conjunto de back-end definem como podemos consultar o estado de funcionamento para o seu back-ends de aplicação. As seguintes definições estão disponíveis para configuração de balanceamento de carga:
 
-1. **Caminho**: caminho de URL em que os pedidos de pesquisa serão enviados para todos os o back-ends no conjunto de back-end. Por exemplo, se um dos seus back-ends for `contoso-westus.azurewebsites.net` e o caminho é definido como `/probe/test.aspx`, em seguida, ambientes de porta de entrada, partindo do princípio de protocolo está definido como HTTP, irão enviar os pedidos de sonda de estado de funcionamento para http://contoso-westus.azurewebsites.net/probe/test.aspx. 
-2. **Protocolo**: define se os pedidos de sonda de estado de funcionamento da porta de entrada para o seu back-ends serão enviados através do protocolo HTTP ou HTTPS.
-3. **Intervalo (segundos)**: Este campo define a frequência das sondas de estado de funcionamento para o seu back-ends, ou seja, os intervalos em que cada os ambientes de porta de entrada enviará uma sonda. Nota - se que está procurando as ativações pós-falha mais rápidas, defina este campo para um valor inferior. No entanto, quanto mais baixo for o valor mais o estado de funcionamento de sonda volume que irão receber o seu back-ends. Para obter uma idéia da sonda volume irá gerar a porta de entrada no seu back-ends, vejamos um exemplo. Vamos dizer, o intervalo está definido para 30 segundos, e existem cerca de 90 ambientes de porta de entrada ou POPs globalmente. Portanto, cada um dos seus back-ends aproximadamente receberá sobre pedidos de sonda de 3 a 5 por segundo.
+1. **Caminho**: Caminho de URL em que os pedidos de pesquisa serão enviados para todos os o back-ends no conjunto de back-end. Por exemplo, se um dos seus back-ends for `contoso-westus.azurewebsites.net` e o caminho é definido como `/probe/test.aspx`, em seguida, ambientes de porta de entrada, partindo do princípio de protocolo está definido como HTTP, irão enviar os pedidos de sonda de estado de funcionamento para http://contoso-westus.azurewebsites.net/probe/test.aspx. 
+2. **Protocolo**: Define se os pedidos de sonda de estado de funcionamento da porta de entrada para o seu back-ends serão enviados através do protocolo HTTP ou HTTPS.
+3. **Intervalo (segundos)**: Este campo define a frequência de sondas de estado de funcionamento para o seu back-ends, ou seja, os intervalos em que cada um dos ambientes de porta de entrada enviará uma sonda. Nota - se que está procurando as ativações pós-falha mais rápidas, defina este campo para um valor inferior. No entanto, quanto mais baixo for o valor mais o estado de funcionamento de sonda volume que irão receber o seu back-ends. Para obter uma idéia da sonda volume irá gerar a porta de entrada no seu back-ends, vejamos um exemplo. Vamos dizer, o intervalo está definido para 30 segundos, e existem cerca de 90 ambientes de porta de entrada ou POPs globalmente. Portanto, cada um dos seus back-ends aproximadamente receberá sobre pedidos de sonda de 3 a 5 por segundo.
 
 Leia [sondas de estado de funcionamento](front-door-health-probes.md) para obter detalhes.
 
@@ -51,10 +51,10 @@ Back-ends, no contexto de portas de frente, refere-se para o nome de anfitrião 
 Ao adicionar um back-end num conjunto de back-end da sua porta de entrada, terá de preencher os seguintes detalhes:
 
 1. **Tipo de anfitrião de back-end**: O tipo de recurso que pretende adicionar. Porta de entrada suporta a deteção automática do seu back-ends de aplicação se partir do serviço de aplicações, serviço cloud ou armazenamento. Se pretender que um recurso diferente no Azure ou até mesmo um backend não pertencente ao Azure, selecione "Anfitrião personalizado". Tenha em atenção - durante a configuração, que as APIs não validam se o back-end é acessível a partir de ambientes de porta de entrada, em vez disso, que certifique-se de que o seu back-end pode ser contatado por porta de entrada. 
-2. **Nome de anfitrião de subscrição e o back-end**: Se não tiver selecionado "Host personalizada" para o tipo de anfitrião de back-end, em seguida, terá de definir o âmbito para baixo e selecione o seu back-end ao escolher a subscrição adequada e o nome de anfitrião correspondente do back-end do usuário interface.
-3. **Cabeçalho de anfitrião de back-end**: valor de cabeçalho de anfitrião a enviados para o back-end para cada solicitação. Leia [cabeçalho de anfitrião de back-end](#hostheader) para obter detalhes.
-4. **Prioridade**: pode atribuir prioridades ao seu back-ends diferentes quando pretender utilizar um back-end de serviço principal para todo o tráfego e fornecer cópias de segurança no caso da primária ou os back-ends de cópia de segurança não estão disponíveis. Leia mais sobre [prioridade](front-door-routing-methods.md#priority).
-5. **Peso**: pode atribuir pesos ao seu back-ends diferentes quando deseja distribuir o tráfego por um conjunto de back-ends, uniformemente ou, de acordo com os coeficientes de peso. Leia mais sobre [pesos](front-door-routing-methods.md#weighted).
+2. **Nome de anfitrião de subscrição e o back-end**: Se não tiver selecionado o tipo de "Anfitrião personalizado" para o anfitrião de back-end, em seguida, terá de definir o âmbito para baixo e selecione o seu back-end ao escolher a subscrição adequada e o nome de anfitrião correspondente do back-end a partir da interface de utilizador.
+3. **Cabeçalho de anfitrião de back-end**: O valor de cabeçalho de anfitrião enviado para o back-end para cada solicitação. Leia [cabeçalho de anfitrião de back-end](#hostheader) para obter detalhes.
+4. **Prioridade**: Pode atribuir prioridades ao seu back-ends diferentes quando pretender utilizar um back-end de serviço principal para todo o tráfego e fornecer cópias de segurança no caso de principal ou os back-ends de cópia de segurança não estão disponíveis. Leia mais sobre [prioridade](front-door-routing-methods.md#priority).
+5. **Peso**: Pode atribuir pesos ao seu back-ends diferentes quando deseja distribuir o tráfego por um conjunto de back-ends, uniformemente ou, de acordo com os coeficientes de peso. Leia mais sobre [pesos](front-door-routing-methods.md#weighted).
 
 
 ### <a name = "hostheader"></a>Cabeçalho de anfitrião de back-end
@@ -75,5 +75,5 @@ O campo de "Cabeçalho de anfitrião de back-end" pode ser configurado para um b
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [criar uma porta de entrada](quickstart-create-front-door.md).
-- Saiba mais [como funciona a porta da frente](front-door-routing-architecture.md).
+- Saiba como [criar um Front Door](quickstart-create-front-door.md).
+- Saiba [como funciona o Front Door](front-door-routing-architecture.md).

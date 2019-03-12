@@ -6,17 +6,17 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a5df9215aec0b6c774b37f17b699e91ef813754d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812349"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771078"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Políticas de ponto final de serviço de rede virtual (pré-visualização)
 
@@ -113,7 +113,7 @@ As políticas de ponto final de serviço da rede virtual oferecem as seguintes v
 
      - Ambiente de Serviço de Aplicações
      - Azure Rediscache
-     - API Management do Azure
+     - Gestão de API do Azure
      - Instância Gerida do Azure SQL
      - Azure Active Directory Domain Services
      - Gateway de Aplicação do Azure (Clássica)

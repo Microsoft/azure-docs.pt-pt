@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1ee3b3cccd01e4a767a8d1212967b57ff29bea62
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015428"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548103"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade Copy tiver êxito, o pipeline envia detalhes da operação Copy bem-sucedida (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade Copy falhar, o pipeline envia detalhes da falha da cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
 
-Uma visão geral do cenário: ![Descrição geral](media/tutorial-control-flow-portal/overview.png)
+Uma visão geral do cenário: ![Descrição Geral](media/tutorial-control-flow-portal/overview.png)
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -52,7 +52,7 @@ Este tutorial utiliza o portal do Azure. Pode utilizar outros mecanismos para in
     John,Doe
     Jane,Doe
     ```
-2. Utilize ferramentas como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/) e siga os passos abaixo: 
+2. Utilize ferramentas como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/) e siga os passos abaixo: 
     1. Crie o contentor **adfv2branch** .
     2. Crie a pasta **input** no contentor **adfv2branch**.
     3. Carregue o ficheiro **input.txt** para o contentor.

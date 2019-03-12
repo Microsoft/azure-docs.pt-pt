@@ -12,12 +12,12 @@ ms.date: 12/06/2018
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b04831790083f9ba41f20719a7d8ffddc35348b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 037f5b554889d89fc0b50983d3d85d38f4345311
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210412"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571410"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configurar baseado em SAML início de sessão único para uma aplicação com o Azure Active Directory
 
@@ -148,7 +148,7 @@ Está quase concluído.  Como último passo, tem de configurar a aplicação par
 2. Clique em **Configurar aplicação**, no portal, e siga as instruções.
 3. Crie manualmente contas de utilizador na aplicação para testar o início de sessão único. Crie as contas de utilizador que atribuiu à aplicação na [secção anterior](#assign-users-to-the-application). 
 
-## <a name="test-single-sign-on"></a>Testar o início de sessão único
+## <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Está pronto para testar as suas definições.  
 
@@ -189,6 +189,6 @@ Fez tudo isto:
 Para implementar a aplicação a mais utilizadores na sua organização, recomendamos que utilize o aprovisionamento automático de utilizadores.
 
 > [!div class="nextstepaction"]
->[Saiba como como iniciar sessão dos utilizadores com o aprovisionamento automático](configure-automatic-user-provisioning-portal.md)
+> [Learn how to assign users with automatic provisioning](configure-automatic-user-provisioning-portal.md) Saiba como atribuir utilizadores com o aprovisionamento automático)
 
 

@@ -2,19 +2,19 @@
 title: Criar uma rede virtual do concentrador com o Terraform no Azure
 description: Tutorial que ilustra como criar uma VNet do hub do Azure que age como um ponto de ligação comum entre outras redes
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, hub- and -spoke, redes, redes de híbridas, devops, máquina virtual, do azure, o VNet peering, hub-and-spoke, hub.
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: 11603a2863ea9d9a2f5e790a64b1cafef5fc1087
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 52eb6615442618893741f507d9cae6bd31d5f558
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411402"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774579"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-with-terraform-in-azure"></a>Tutorial: Criar uma rede virtual do concentrador com o Terraform no Azure
 

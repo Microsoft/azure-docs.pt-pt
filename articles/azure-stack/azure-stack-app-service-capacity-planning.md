@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 20b79b3c2581db94627746f52ed6837aa80b6be5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447750"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774604"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamento da capacidade para funções de servidor do App Service do Azure no Azure Stack
 
@@ -52,7 +52,7 @@ O controlador de serviço de aplicações do Azure, normalmente, experiências d
 
 **Mínima recomendada**: Duas instâncias do A1 Standard
 
-O front-end encaminha os pedidos para funções de web, dependendo da disponibilidade da função de trabalho web. Para elevada disponibilidade, deve ter mais de um front-end e pode ter mais de dois. Para fins de planejamento de capacidade, considere o que cada núcleo consegue processar cerca de 100 pedidos por segundo.
+Os pedidos de front-end de rotas para funções de web, dependendo da disponibilidade da função de trabalho web. Para elevada disponibilidade, deve ter mais de um front-end e pode ter mais de dois. Para fins de planejamento de capacidade, considere o que cada núcleo consegue processar cerca de 100 pedidos por segundo.
 
 ## <a name="management-role"></a>Função de gestão
 

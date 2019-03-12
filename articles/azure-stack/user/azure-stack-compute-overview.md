@@ -5,17 +5,17 @@ services: azure-stack
 author: sethmanheim
 manager: femila
 ms.service: azure-stack
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: cd42a347de236de2e3374d7ac854779f4c222a00
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: bf075372da4cd23c89c24dcb30ffbcfac6775fe4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768151"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775089"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introdução às Máquinas Virtuais para o Azure Stack
 
@@ -55,7 +55,7 @@ Uma máquina virtual tem um nome atribuído à mesma e ter um nome de computador
 
 Se utilizar o Azure Stack para criar o disco do sistema operativo, o nome do computador e o nome da máquina virtual são os mesmos. Se carrega e usar sua própria imagem que contém um sistema de operativo configurado anteriormente e utilizá-lo para criar uma máquina virtual, os nomes podem ser diferentes. Ao carregar o seu próprio ficheiro de imagem, como melhor prática, certifique-se o nome do computador do sistema operativo e o nome de máquina virtual são os mesmos.
 
-### <a name="vm-size"></a>Tamanho da VM
+### <a name="vm-size"></a>Tamanhos de VM
 
 O tamanho da VM que utiliza é determinado pela carga de trabalho que pretende executar. O tamanho que escolher determina fatores como o poder de processamento, a memória e capacidade de armazenamento. O Azure Stack oferece uma variedade de tamanhos para suportar muitos tipos de utilizações.
 

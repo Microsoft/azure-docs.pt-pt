@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 04a82d1ed8735954072f9549f3b2676df0935449
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269302"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762845"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos Azure Resource Manager
 
@@ -40,11 +40,12 @@ O Resource Manager fornece as seguintes funções para trabalhar com cadeias de 
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [Comprimento](#length)
+* [newGuid](#newguid)
 * [padLeft](#padleft)
 * [replace](#replace)
 * [skip](#skip)
 * [dividir](#split)
-* [startsWith](resource-group-template-functions-string.md#startswith)
+* [startsWith](#startswith)
 * [string](#string)
 * [substring](#substring)
 * [take](#take)
@@ -53,14 +54,12 @@ O Resource Manager fornece as seguintes funções para trabalhar com cadeias de 
 * [trim](#trim)
 * [uniqueString](#uniquestring)
 * [uri](#uri)
-* [uriComponent](resource-group-template-functions-string.md#uricomponent)
-* [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
-
-<a id="base64" />
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* [uriComponent](#uricomponent)
+* [uriComponentToString](#uricomponenttostring)
+* [utcNow](#utcnow)
 
 ## <a name="base64"></a>base64
+
 `base64(inputString)`
 
 Devolve a representação base64 de cadeia de entrada.
@@ -69,7 +68,7 @@ Devolve a representação base64 de cadeia de entrada.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |cadeia |O valor a devolver como representação base64. |
+| inputString |Sim |string |O valor a devolver como representação base64. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -122,23 +121,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
-| toJsonOutput | Object | {"one": "a", "two": "b"} |
-
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a id="base64tojson" />
+| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
+
 `base64tojson`
 
 Converte uma representação base64 para um objeto JSON.
@@ -147,7 +133,7 @@ Converte uma representação base64 para um objeto JSON.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |cadeia |A representação base64 para converter um objeto JSON. |
+| base64Value |Sim |string |A representação base64 para converter um objeto JSON. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -200,23 +186,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
-| toJsonOutput | Object | {"one": "a", "two": "b"} |
-
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a id="base64tostring" />
+| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
+
 `base64ToString(base64Value)`
 
 Converte uma representação base64 numa cadeia.
@@ -225,7 +198,7 @@ Converte uma representação base64 numa cadeia.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sim |cadeia |A representação base64 para converter uma cadeia de caracteres. |
+| base64Value |Sim |string |A representação base64 para converter uma cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -278,23 +251,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | um, dois, três |
-| toJsonOutput | Object | {"one": "a", "two": "b"} |
-
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
-```
-
-<a id="concat" />
+| toJsonOutput | Objeto | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
+
 `concat (arg1, arg2, arg3, ...)`
 
 Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres concatenada, ou combina várias matrizes e retorna a matriz concatenada.
@@ -304,7 +264,7 @@ Combina vários valores de cadeia de caracteres e retorna a cadeia de caracteres
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou matriz |O primeiro valor para concatenação. |
-| argumentos adicionais |Não |cadeia |Valores adicionais na ordem sequencial, de concatenação. |
+| argumentos adicionais |Não |string |Valores adicionais na ordem sequencial, de concatenação. |
 
 ### <a name="return-value"></a>Valor de retorno
 Uma cadeia ou matriz de valores concatenados.
@@ -338,18 +298,6 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
-
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
 
 O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) mostra como combinar duas matrizes.
 
@@ -390,23 +338,10 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| devolver | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
-
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-<a id="contains" />
+| devolver | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>contém
+
 `contains (container, itemToFind)`
 
 Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cadeia de caracteres contém uma subcadeia. A comparação de cadeia de caracteres diferencia maiúsculas de minúsculas. No entanto, ao testar se um objeto contém uma chave, a comparação diferencia maiúsculas de minúsculas.
@@ -486,21 +421,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | arrayTrue | Bool | Verdadeiro |
 | arrayFalse | Bool | Falso |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-<a id="datauri" />
-
 ## <a name="datauri"></a>dataUri
+
 `dataUri(stringToConvert)`
 
 Converte um valor para um URI de dados.
@@ -509,7 +431,7 @@ Converte um valor para um URI de dados.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sim |cadeia |O valor a converter para um URI de dados. |
+| stringToConvert |Sim |string |O valor a converter para um URI de dados. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -554,21 +476,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Olá, mundo! |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-<a id="datauritostring" />
-
 ## <a name="datauritostring"></a>dataUriToString
+
 `dataUriToString(dataUriToConvert)`
 
 Converte um URI de dados formatado valor numa cadeia.
@@ -577,7 +486,7 @@ Converte um URI de dados formatado valor numa cadeia.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sim |cadeia |Os valor do URI a converter os dados. |
+| dataUriToConvert |Sim |string |Os valor do URI a converter os dados. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -622,21 +531,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Olá, mundo! |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
-```
-
-<a id="empty" /> 
-
 ## <a name="empty"></a>Vazio
+
 `empty(itemToTest)`
 
 Determina se uma matriz, um objeto ou uma cadeia vazia.
@@ -700,21 +596,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | objectEmpty | Bool | Verdadeiro |
 | stringEmpty | Bool | Verdadeiro |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-<a id="endswith" />
-
 ## <a name="endswith"></a>endsWith
+
 `endsWith(stringToSearch, stringToFind)`
 
 Determina se uma cadeia de caracteres termina com um valor. A comparação diferencia maiúsculas de minúsculas.
@@ -723,8 +606,8 @@ Determina se uma cadeia de caracteres termina com um valor. A comparação difer
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia |O valor que contém o item para localizar. |
-| stringToFind |Sim |cadeia |O valor a localizar. |
+| stringToSearch |Sim |string |O valor que contém o item para localizar. |
+| stringToFind |Sim |string |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -779,21 +662,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | endsCapTrue | Bool | Verdadeiro |
 | endsFalse | Bool | Falso |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-<a id="first" />
-
 ## <a name="first"></a>primeiro
+
 `first(arg1)`
 
 Devolve o primeiro caráter da cadeia de caracteres ou primeiro elemento da matriz.
@@ -844,18 +714,6 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | arrayOutput | String | um |
 | stringOutput | String | O |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
 ## <a name="guid"></a>GUID
 
 `guid (baseString, ...)`
@@ -866,14 +724,14 @@ Cria um valor no formato de um identificador exclusivo global com base nos valor
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |cadeia |O valor utilizado na função de hash para criar o GUID. |
-| parâmetros adicionais conforme necessário |Não |cadeia |Pode adicionar tantos cadeias de caracteres conforme necessário para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |string |O valor utilizado na função de hash para criar o GUID. |
+| parâmetros adicionais conforme necessário |Não |string |Pode adicionar tantos cadeias de caracteres conforme necessário para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Observações
 
 Esta função é útil quando precisa criar um valor no formato de um identificador exclusivo global. Fornecer valores de parâmetro que limitam o âmbito de exclusividade para o resultado. Pode especificar se o nome é exclusivo para baixo para a subscrição, grupo de recursos ou a implementação.
 
-O valor devolvido não é uma cadeia de caracteres aleatória, mas em vez disso, o resultado de uma função de hash. O valor retornado é 36 carateres de comprimento. Não é exclusivo globalmente.
+O valor devolvido não é uma cadeia de caracteres aleatória, mas em vez disso, o resultado de uma função de hash nos parâmetros. O valor retornado é 36 carateres de comprimento. Não é exclusivo globalmente. Para criar um novo GUID que não se baseia nesse valor de hash dos parâmetros, utilize o [Novo_guid](#newguid) função.
 
 Os exemplos seguintes mostram como utilizar o guid para criar um valor exclusivo para níveis mais usados.
 
@@ -927,21 +785,8 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ```
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
-```
-
-<a id="indexof" />
-
 ## <a name="indexof"></a>indexOf
+
 `indexOf(stringToSearch, stringToFind)`
 
 Devolve a primeira posição de um valor numa cadeia. A comparação diferencia maiúsculas de minúsculas.
@@ -950,8 +795,8 @@ Devolve a primeira posição de um valor numa cadeia. A comparação diferencia 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia |O valor que contém o item para localizar. |
-| stringToFind |Sim |cadeia |O valor a localizar. |
+| stringToSearch |Sim |string |O valor que contém o item para localizar. |
+| stringToFind |Sim |string |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1001,21 +846,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-<a id="last" />
-
 ## <a name="last"></a>última
+
 `last (arg1)`
 
 Devolve a última caráter da cadeia ou o último elemento da matriz.
@@ -1066,21 +898,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | arrayOutput | String | três |
 | stringOutput | String | e |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-<a id="lastindexof" />
-
 ## <a name="lastindexof"></a>lastIndexOf
+
 `lastIndexOf(stringToSearch, stringToFind)`
 
 Devolve a última posição de um valor numa cadeia. A comparação diferencia maiúsculas de minúsculas.
@@ -1089,8 +908,8 @@ Devolve a última posição de um valor numa cadeia. A comparação diferencia m
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia |O valor que contém o item para localizar. |
-| stringToFind |Sim |cadeia |O valor a localizar. |
+| stringToSearch |Sim |string |O valor que contém o item para localizar. |
+| stringToFind |Sim |string |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1140,21 +959,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | lastString | Int | 0 |
 | notFound | Int | -1 |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
-```
-
-<a id="length" />
-
 ## <a name="length"></a>Comprimento
+
 `length(string)`
 
 Devolve o número de carateres numa cadeia de caracteres ou elementos numa matriz.
@@ -1212,21 +1018,105 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
+## <a name="newguid"></a>newGuid
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+`newGuid()`
+
+Devolve um valor no formato de um identificador exclusivo global. **Esta função só pode ser utilizada no valor predefinido para um parâmetro.**
+
+### <a name="remarks"></a>Observações
+
+Só pode utilizar esta função dentro de uma expressão para o valor predefinido de um parâmetro. Usando essa função em qualquer parte num modelo devolve um erro. A função não é permitida em outras partes do modelo, porque retorna um valor diferente cada vez que for chamado. Implementar o mesmo modelo com os mesmos parâmetros não produzir de forma fiável os mesmos resultados.
+
+A função de Novo_guid difere do [guid](#guid) porque ele não tem nenhum parâmetro de função. Quando chama o guid com o mesmo parâmetro, ele retorna o mesmo identificador de cada vez. Utilize o guid quando precisar de forma fiável gerar o mesmo GUID de um ambiente específico. Utilize Novo_guid quando precisar de um identificador de diferente cada vez, como a implementação de recursos para um ambiente de teste.
+
+Se utilizar o [opção para voltar a implementar uma implementação com êxito anteriormente](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e a implementação anterior inclui um parâmetro que utiliza Novo_guid, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado a implementação de reversão.
+
+Num ambiente de teste, terá de implementar repetidamente a recursos apenas em direto para um curto período de tempo. Em vez de construir nomes exclusivos, pode usar Novo_guid com [uniqueString](#uniquestring) criar nomes exclusivos.
+
+Cuidado-se de que a Reimplementar um modelo que se baseia na função Novo_guid para um valor predefinido. Quando voltar a implementar e não fornecer um valor para o parâmetro, a função é reavaliada. Se quiser atualizar um recurso existente, em vez de criar um novo, passe o valor do parâmetro da implementação anterior.
+
+### <a name="return-value"></a>Valor de retorno
+
+Uma cadeia de caracteres contendo 36 caracteres no formato de um identificador exclusivo global.
+
+### <a name="examples"></a>Exemplos
+
+O modelo de exemplo seguinte mostra um parâmetro com um novo identificador.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "guidOutput": {
+            "type": "string",
+            "value": "[parameters('guidValue')]"
+        }
+    }
+}
 ```
 
-Para implementar este modelo de exemplo com o PowerShell, utilize:
+A saída do exemplo anterior varia para cada implementação, mas será semelhante a:
 
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+| Name | Tipo | Value |
+| ---- | ---- | ----- |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+
+O exemplo seguinte utiliza a função de Novo_guid para criar um nome exclusivo para uma conta de armazenamento. Este modelo pode funcionar para o ambiente de teste em que a conta de armazenamento existe para um curto período de tempo e não está implementada novamente.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "guidValue": {
+            "type": "string",
+            "defaultValue": "[newGuid()]"
+        }
+    },
+    "variables": {
+        "storageName": "[concat('storage', uniqueString(parameters('guidValue')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageName')]",
+            "location": "West US",
+            "apiVersion": "2018-07-01",
+            "sku":{
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+        }
+    ],
+    "outputs": {
+        "nameOutput": {
+            "type": "string",
+            "value": "[variables('storageName')]"
+        }
+    }
+}
 ```
 
-<a id="padleft" />
+A saída do exemplo anterior varia para cada implementação, mas será semelhante a:
+
+| Name | Tipo | Value |
+| ---- | ---- | ----- |
+| nameOutput | string | storagenziwvyru7uxie |
+
 
 ## <a name="padleft"></a>padLeft
+
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
 Devolve uma cadeia alinhada à direita através da adição de carateres para a esquerda até alcançar o comprimento especificado total.
@@ -1275,21 +1165,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
-```
-
-<a id="replace" />
-
 ## <a name="replace"></a>substituir
+
 `replace(originalString, oldString, newString)`
 
 Devolve uma nova cadeia com todas as instâncias de uma cadeia substituída por outra cadeia.
@@ -1298,9 +1175,9 @@ Devolve uma nova cadeia com todas as instâncias de uma cadeia substituída por 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| originalString |Sim |cadeia |O valor que tem todas as instâncias de uma cadeia substituída por outra cadeia. |
-| oldString |Sim |cadeia |A cadeia de caracteres a serem removidos da cadeia de caracteres original. |
-| newString |Sim |cadeia |A cadeia de caracteres para adicionar no lugar a cadeia de caracteres foi removida. |
+| originalString |Sim |string |O valor que tem todas as instâncias de uma cadeia substituída por outra cadeia. |
+| oldString |Sim |string |A cadeia de caracteres a serem removidos da cadeia de caracteres original. |
+| newString |Sim |string |A cadeia de caracteres para adicionar no lugar a cadeia de caracteres foi removida. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1341,21 +1218,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | firstOutput | String | 1231231234 |
 | secodeOutput | String | 123-123-xxxx |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
-```
-
-<a id="skip" />
-
 ## <a name="skip"></a>ignorar
+
 `skip(originalValue, numberToSkip)`
 
 Devolve uma cadeia de caracteres com todos os carateres após o número especificado de carateres, ou uma matriz com todos os elementos após o número especificado de elementos.
@@ -1419,24 +1283,11 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["three"] |
+| arrayOutput | Matriz | ["three"] |
 | stringOutput | String | dois três |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-<a id="split" />
-
 ## <a name="split"></a>dividir
+
 `split(inputString, delimiter)`
 
 Devolve uma matriz de cadeias de caracteres que contém as subcadeias de carateres da cadeia de entrada são delimitadas por delimitadores especificados.
@@ -1445,7 +1296,7 @@ Devolve uma matriz de cadeias de caracteres que contém as subcadeias de carater
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| inputString |Sim |cadeia |A cadeia a dividir. |
+| inputString |Sim |string |A cadeia a dividir. |
 | delimitador |Sim |cadeia de caracteres ou matriz de cadeias de caracteres |O delimitador a utilizar para dividir a cadeia. |
 
 ### <a name="return-value"></a>Valor de retorno
@@ -1491,24 +1342,11 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| firstOutput | Array | ["one", "two", "three"] |
-| secondOutput | Array | ["one", "two", "three"] |
-
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
-```
-
-<a id="startswith" />
+| firstOutput | Matriz | ["one", "two", "three"] |
+| secondOutput | Matriz | ["one", "two", "three"] |
 
 ## <a name="startswith"></a>startsWith
+
 `startsWith(stringToSearch, stringToFind)`
 
 Determina se uma cadeia de caracteres começa com um valor. A comparação diferencia maiúsculas de minúsculas.
@@ -1517,8 +1355,8 @@ Determina se uma cadeia de caracteres começa com um valor. A comparação difer
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sim |cadeia |O valor que contém o item para localizar. |
-| stringToFind |Sim |cadeia |O valor a localizar. |
+| stringToSearch |Sim |string |O valor que contém o item para localizar. |
+| stringToFind |Sim |string |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1573,21 +1411,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | endsCapTrue | Bool | Verdadeiro |
 | endsFalse | Bool | Falso |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
+## <a name="string"></a>string
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
-```
-
-<a id="string" />
-
-## <a name="string"></a>cadeia
 `string(valueToConvert)`
 
 Converte o valor especificado para uma cadeia de caracteres.
@@ -1657,21 +1482,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | arrayOutput | String | ["a","b","c"] |
 | intOutput | String | 5 |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
-```
-
-<a id="substring" />
-
 ## <a name="substring"></a>subcadeia
+
 `substring(stringToParse, startIndex, length)`
 
 Devolve uma subcadeia que começa com a posição do caráter especificado e contém o número especificado de carateres.
@@ -1680,7 +1492,7 @@ Devolve uma subcadeia que começa com a posição do caráter especificado e con
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sim |cadeia |A cadeia de caracteres original do qual a subcadeia é extraída. |
+| stringToParse |Sim |string |A cadeia de caracteres original do qual a subcadeia é extraída. |
 | startIndex |Não |int |A baseado em zero caractere posição inicial para a subcadeia. |
 | Comprimento |Não |int |O número de carateres para a subcadeia. Deve referir-se para uma localização na cadeia. Tem de ser zero ou superior. |
 
@@ -1731,21 +1543,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | substringOutput | String | dois |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
-```
-
-<a id="take" />
-
 ## <a name="take"></a>tirar
+
 `take(originalValue, numberToTake)`
 
 Devolve uma cadeia com o número especificado de carateres desde o início da cadeia de caracteres ou uma matriz com o número especificado de elementos desde o início da matriz.
@@ -1809,24 +1608,11 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["one", "two"] |
+| arrayOutput | Matriz | ["one", "two"] |
 | stringOutput | String | em |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-<a id="tolower" />
-
 ## <a name="tolower"></a>toLower
+
 `toLower(stringToChange)`
 
 Converte a cadeia especificada em minúsculas.
@@ -1835,7 +1621,7 @@ Converte a cadeia especificada em minúsculas.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |cadeia |O valor a converter em minúsculas. |
+| stringToChange |Sim |string |O valor a converter em minúsculas. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1876,21 +1662,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | toLowerOutput | String | um dois três |
 | toUpperOutput | String | UM DOIS TRÊS |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-<a id="toupper" />
-
 ## <a name="toupper"></a>toUpper
+
 `toUpper(stringToChange)`
 
 Converte a cadeia especificada em maiúsculas.
@@ -1899,7 +1672,7 @@ Converte a cadeia especificada em maiúsculas.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sim |cadeia |O valor a converter em maiúsculas. |
+| stringToChange |Sim |string |O valor a converter em maiúsculas. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1940,21 +1713,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | toLowerOutput | String | um dois três |
 | toUpperOutput | String | UM DOIS TRÊS |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
-```
-
-<a id="trim" />
-
 ## <a name="trim"></a>Cortar
+
 `trim (stringToTrim)`
 
 Remove todos os caracteres de espaço em branco à esquerda e à direita da cadeia de caracteres especificada.
@@ -1963,7 +1723,7 @@ Remove todos os caracteres de espaço em branco à esquerda e à direita da cade
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sim |cadeia |O valor para cortar. |
+| stringToTrim |Sim |string |O valor para cortar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1999,21 +1759,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | devolver | String | um dois três |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
-```
-
-<a id="uniquestring" />
-
 ## <a name="uniquestring"></a>uniqueString
+
 `uniqueString (baseString, ...)`
 
 Cria uma cadeia de hash determinístico com base nos valores fornecidos como parâmetros. 
@@ -2022,8 +1769,8 @@ Cria uma cadeia de hash determinístico com base nos valores fornecidos como par
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseString |Sim |cadeia |O valor usado na função de hash para criar uma cadeia exclusiva. |
-| parâmetros adicionais conforme necessário |Não |cadeia |Pode adicionar tantos cadeias de caracteres conforme necessário para criar o valor que especifica o nível de exclusividade. |
+| baseString |Sim |string |O valor usado na função de hash para criar uma cadeia exclusiva. |
+| parâmetros adicionais conforme necessário |Não |string |Pode adicionar tantos cadeias de caracteres conforme necessário para criar o valor que especifica o nível de exclusividade. |
 
 ### <a name="remarks"></a>Observações
 
@@ -2062,6 +1809,8 @@ O exemplo seguinte mostra como criar um nome exclusivo para uma conta de armazen
     ...
 ```
 
+Se precisar de criar um novo nome exclusivo sempre que implementar um modelo e não a intenção de atualizar o recurso, pode utilizar o [utcNow](#utcnow) função com uniqueString. Poderia usar essa abordagem num ambiente de teste. Por exemplo, veja [utcNow](#utcNow).
+
 ### <a name="return-value"></a>Valor de retorno
 
 Uma cadeia de caracteres contendo 13 carateres.
@@ -2088,21 +1837,8 @@ O seguinte procedimento [modelo de exemplo](https://github.com/Azure/azure-docs-
 }
 ```
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
-```
-
-<a id="uri" />
-
 ## <a name="uri"></a>uri
+
 `uri (baseUri, relativeUri)`
 
 Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
@@ -2111,8 +1847,8 @@ Cria um URI absoluto, combinando o baseUri e a cadeia de caracteres relativeUri.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |cadeia |A cadeia de caracteres do uri de base. |
-| relativeUri |Sim |cadeia |A cadeia uri relativo para adicionar na cadeia de caracteres do uri de base. |
+| baseUri |Sim |string |A cadeia de caracteres do uri de base. |
+| relativeUri |Sim |string |A cadeia uri relativo para adicionar na cadeia de caracteres do uri de base. |
 
 O valor para o **baseUri** parâmetro pode incluir um ficheiro específico, mas apenas o caminho de base é utilizado ao construir o URI. Por exemplo, passando `http://contoso.com/resources/azuredeploy.json` como os resultados de parâmetro baseUri num URI de base de `http://contoso.com/resources/`.
 
@@ -2165,21 +1901,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-<a id="uricomponent" />
-
 ## <a name="uricomponent"></a>uriComponent
+
 `uricomponent(stringToEncode)`
 
 Codifica um URI.
@@ -2188,7 +1911,7 @@ Codifica um URI.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sim |cadeia |O valor a codificar. |
+| stringToEncode |Sim |string |O valor a codificar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -2233,21 +1956,8 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-Para implementar este modelo de exemplo com o PowerShell, utilize:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
-```
-
-<a id="uricomponenttostring" />
-
 ## <a name="uricomponenttostring"></a>uriComponentToString
+
 `uriComponentToString(uriEncodedString)`
 
 Devolve uma cadeia de caracteres de um URI codificado em valor.
@@ -2256,7 +1966,7 @@ Devolve uma cadeia de caracteres de um URI codificado em valor.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sim |cadeia |O URI codificado valor a converter numa cadeia. |
+| uriEncodedString |Sim |string |O URI codificado valor a converter numa cadeia. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -2301,16 +2011,113 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
-Para implementar este modelo de exemplo com a CLI do Azure, utilize:
+## <a name="utcnow"></a>utcNow
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+`utcNow(format)`
+
+Devolve o valor de datetime (UTC) atual no formato especificado. Se não for fornecido nenhum formato, é utilizado o formato ISO 8601 (yyyyMMddTHHmmssZ). **Esta função só pode ser utilizada no valor predefinido para um parâmetro.**
+
+### <a name="parameters"></a>Parâmetros
+
+| Parâmetro | Necessário | Tipo | Descrição |
+|:--- |:--- |:--- |:--- |
+| Formato |Não |string |O URI codificado valor a converter numa cadeia. A utilização de uma [cadeias de caracteres de formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+
+### <a name="remarks"></a>Observações
+
+Só pode utilizar esta função dentro de uma expressão para o valor predefinido de um parâmetro. Usando essa função em qualquer parte num modelo devolve um erro. A função não é permitida em outras partes do modelo, porque retorna um valor diferente cada vez que for chamado. Implementar o mesmo modelo com os mesmos parâmetros não produzir de forma fiável os mesmos resultados.
+
+Se utilizar o [opção para voltar a implementar uma implementação com êxito anteriormente](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e a implementação anterior inclui um parâmetro que utiliza utcNow, o parâmetro não é reavaliado. Em vez disso, o valor do parâmetro da implementação anterior é automaticamente reutilizado a implementação de reversão.
+
+Cuidado-se de que a Reimplementar um modelo que se baseia na função utcNow para um valor predefinido. Quando voltar a implementar e não fornecer um valor para o parâmetro, a função é reavaliada. Se quiser atualizar um recurso existente, em vez de criar um novo, passe o valor do parâmetro da implementação anterior.
+
+### <a name="return-value"></a>Valor de retorno
+
+O valor de datetime UTC atual.
+
+### <a name="examples"></a>Exemplos
+
+O modelo de exemplo seguinte mostra os diferentes formatos para o valor de datetime.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "utcValue": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
+        },
+        "utcShortValue": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
+        "utcCustomValue": {
+            "type": "string",
+            "defaultValue": "[utcNow('M d')]"
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "utcOutput": {
+            "type": "string",
+            "value": "[parameters('utcValue')]"
+        },
+        "utcShortOutput": {
+            "type": "string",
+            "value": "[parameters('utcShortValue')]"
+        },
+        "utcCustomOutput": {
+            "type": "string",
+            "value": "[parameters('utcCustomValue')]"
+        }
+    }
+}
 ```
 
-Para implementar este modelo de exemplo com o PowerShell, utilize:
+A saída do exemplo anterior varia para cada implementação, mas será semelhante a:
 
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+| Name | Tipo | Value |
+| ---- | ---- | ----- |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 03/05/2019 |
+| utcCustomOutput | string | 3 5 |
+
+O exemplo seguinte mostra como utilizar um valor da função, ao definir um valor de etiqueta.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "utcShort": {
+            "type": "string",
+            "defaultValue": "[utcNow('d')]"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "name": "[parameters('rgName')]",
+            "location": "westeurope",
+            "tags":{
+                "createdDate": "[parameters('utcShort')]"
+            },
+            "properties":{}
+        }
+    ],
+    "outputs": {
+        "utcShort": {
+            "type": "string",
+            "value": "[parameters('utcShort')]"
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

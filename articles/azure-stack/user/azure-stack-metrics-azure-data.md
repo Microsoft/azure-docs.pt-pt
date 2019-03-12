@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: b8df87e5d5091219b9b44a6b957250e254c97fec
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: fd4c1220d0652139c247ffed80e995a90a93c5b1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341817"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780848"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Monitor do Azure no Azure Stack
 
@@ -55,7 +55,7 @@ Como o Azure Monitor, no Azure, o Azure Monitor no Azure Stack fornece registos 
 ![Monitor do Azure no Azure Stack origens - subconjunto de computação](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 O **Microsoft. Compute** fornecedor de recursos no Azure Stack inclui:
- - Virtual Machines 
+ - Máquinas Virtuais 
  - Conjuntos de dimensionamento de máquinas virtuais
 
 ### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Aplicação – registos de diagnóstico, registos de aplicações e métricas
@@ -67,9 +67,9 @@ Os tipos de medidas incluem:
  - Registos de aplicações
  - Registos de eventos do Windows
  - Origem de evento do .NET
- - Registos do IIS
+ - Registos IIS
  - ETW baseado no manifesto
- - Informações de falha de sistema
+ - Informações de falhas de sistema
  - Registos de erros do cliente
 
 > [!Note]  

@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17f832947e289933fb7cde9513bc6e091aec30ae
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6bf55cef00c0600963f8363e617c24fdc9113eae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206383"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543870"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: Fazer uma alteração na configuração predefinida
 O objetivo deste artigo é para orientá-lo como fazer alterações à configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece passos para alguns cenários comuns. Com esse conhecimento, deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócio.
@@ -294,7 +294,7 @@ A regra de sincronização de entrada que permite que o valor do atributo para o
 
     | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de intercalação |
     | --- | --- | --- | --- | --- |
-    | Direto | UserType | IIf(IsPresent([userPrincipalName]),IIF(CBool(Instr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Membro", "Convidado"), erro ("UserPrincipalName não está presente para determinar o UserType")) | Desmarcada | Atualizar |
+    | Expressão | UserType | IIf(IsPresent([userPrincipalName]),IIF(CBool(Instr(LCase([userPrincipalName]),"@partners.fabrikam123.org")=0), "Membro", "Convidado"), erro ("UserPrincipalName não está presente para determinar o UserType")) | Desmarcada | Atualizar |
 
 7. Clique em **adicionar** para criar a regra de entrada.
 

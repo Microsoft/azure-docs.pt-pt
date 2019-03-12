@@ -10,23 +10,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d4854bd623bb11d50a712be3a5aea07db24c2951
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432248"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761179"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorizar e gerir os testes no portal do VaaS
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Depois de agendar os testes em sua solução do Azure Stack, validação como um serviço (VaaS) começará a comunicar o estado de execução de teste. Essas informações estão disponíveis no portal do VaaS juntamente com as ações, como o valor do reagendamento e o cancelamento de testes.
+Depois de agendar os testes em sua solução do Azure Stack, validação como um serviço (VaaS) começará a comunicar o estado de execução de teste. Essas informações estão disponíveis no portal do VaaS juntamente com as ações, como o valor do reagendamento e cancelamento de testes.
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>Navegue para a página de resumo de testes de fluxo de trabalho
 
@@ -40,7 +40,7 @@ Depois de agendar os testes em sua solução do Azure Stack, validação como um
 
 ## <a name="change-workflow-parameters"></a>Parâmetros de fluxo de trabalho de alteração
 
-Cada tipo de fluxo de trabalho permite-lhe editar a [testar parâmetros](azure-stack-vaas-parameters.md#test-parameters) especificado durante a criação de fluxo de trabalho.
+Pode editar a [testar parâmetros](azure-stack-vaas-parameters.md#test-parameters) especificado durante a criação de fluxo de trabalho para qualquer tipo de fluxo de trabalho.
 
 1. Na página de resumo de testes, selecione o **editar** botão.
 
@@ -66,7 +66,7 @@ Para execuções de oficiais (ou seja, o **validação** fluxos de trabalho), a 
 
 Cada instância de teste agendada mostra as seguintes informações:
 
-| Coluna | Descrição |
+| colunas | Descrição |
 | --- | --- |
 | Nome do teste | O nome e versão do teste. |
 | Categoria | O objetivo do teste. |
@@ -77,11 +77,11 @@ Cada instância de teste agendada mostra as seguintes informações:
 | Nome do agente | O nome do agente que executou o teste. |
 | Total de operações | O número total de operações tentada durante o teste. |
 | Operações com êxito | O número de operações que foi concluída com êxito durante o teste. |
-|  Operações com falhas | O número de operações que falharam durante o teste. |
+|  Operações com Falhas | O número de operações que falharam durante o teste. |
 
 ### <a name="actions"></a>Ações
 
-Cada instância de teste apresenta uma lista de ações disponíveis que pode tomar ao clicar no menu de contexto **[...]**  na tabela de instâncias de teste.
+Cada instância de teste apresenta uma lista de ações disponíveis que pode tomar quando seleciona o menu de contexto **[...]**  na tabela de instâncias de teste.
 
 #### <a name="view-information-about-the-test-definition"></a>Ver informações sobre a definição de teste
 

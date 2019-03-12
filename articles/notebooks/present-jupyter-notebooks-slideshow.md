@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: d29aac52948cddf9d7e274d28735e2c12143b5ca
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d36cbe50ab040549353efd19dd794ec7fab51b7b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081426"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774409"
 ---
 # <a name="run-a-notebook-slideshow"></a>Executar uma apresentação de slides do bloco de notas
 
@@ -102,7 +102,7 @@ Uma vez que a apresentação de slides renderiza fragmentos com mais vertical es
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Como: configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
-- [Como: trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [Como: aceder aos recursos de dados](access-data-resources-jupyter-notebooks.md)
+- [How to: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [How to: Instalar pacotes a partir de um bloco de notas](install-packages-jupyter-notebook.md)
+- [How to: Trabalhar com arquivos de dados](work-with-project-data-files.md)
+- [How to: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)

@@ -3,23 +3,23 @@ title: Transformar dados com atividade Pig do Hadoop no Azure Data Factory | Doc
 description: Saiba como pode utilizar a atividade Pig de uma fábrica de dados do Azure para executar Pig scripts num cluster do HDInsight no, a pedido/suas próprio.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: a29bd64c6b18d41028c8952f531698bbfa9e01e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 914bc37552a80886df16ed69fba4e31b3f22ac22
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014714"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574921"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformar dados com atividade Pig do Hadoop no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-pig-activity.md)
 > * [Versão atual](transform-data-using-hadoop-pig.md)
 
@@ -58,7 +58,7 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 
 | Propriedade            | Descrição                              | Necessário |
 | ------------------- | ---------------------------------------- | -------- |
-| nome                | Nome da atividade                     | Sim      |
+| name                | Nome da atividade                     | Sim      |
 | descrição         | Texto que descreve o que a atividade é utilizada para | Não       |
 | tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightPig | Sim      |
 | linkedServiceName   | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |

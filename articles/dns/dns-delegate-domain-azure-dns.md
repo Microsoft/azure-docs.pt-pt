@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a952eb679810f36008425ae5daacc4261db50c77
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999622"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779781"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Aloje o seu domínio no DNS do Azure
 
-Pode utilizar o DNS do Azure para alojar o seu domínio DNS e gerir os registos DNS. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure. 
+Pode utilizar o DNS do Azure para alojar o seu domínio DNS e gerir os registos DNS. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
 Suponha que compra o domínio contoso.net a partir de uma entidade de registo de domínios e cria uma zona com o nome contoso.net no DNS do Azure. Na qualidade de proprietário do domínio, a sua entidade de registo de domínios oferece-lhe a opção de configurar os registos do servidor de nomes (NS) para o seu domínio. A entidade de registo de domínios armazena os registos NS na zona principal .net. Os usuários da Internet em todo o mundo, em seguida, são direcionados para o seu domínio na sua zona DNS do Azure quando tentam resolver os registos DNS em contoso.net.
 
@@ -32,6 +32,12 @@ Neste tutorial, ficará a saber como:
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Tem de ter um nome de domínio disponível para testar com o que pode alojar no DNS do Azure. Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
+
+O domínio de exemplo utilizado para este tutorial é contoso.net, mas utilizar o seu próprio nome de domínio.
+
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Inicie sessão no Portal do Azure.
@@ -46,7 +52,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
    |**Nome**|[o seu nome de domínio] |O nome de domínio que comprou. Este tutorial utiliza contoso.net como exemplo.|
    |**Subscrição**|[A sua subscrição]|Selecione uma subscrição na que vai criar a zona.|
    |**Grupo de recursos**|**Criar novo:** contosoRG|Crie um grupo de recursos. O nome do grupo de recursos tem de ser exclusivo dentro da subscrição que selecionou.<br>A localização do grupo de recursos não tem qualquer impacto na zona DNS. A localização da zona DNS é sempre "global" e não é mostrada.|
-   |**Localização**|EUA Leste||
+   |**Localização**|E.U.A. Leste||
 
 ## <a name="retrieve-name-servers"></a>Obter servidores de nomes
 

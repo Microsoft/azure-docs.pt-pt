@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1be098bb098befecf29863bfe2d0d5220edddb01
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 11d07f33a4f5e268ff2f0ac2966bde40a63a7529
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52852429"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776822"
 documentType: LandingData
 title: Documentação do Azure Notebooks
 metadata:
@@ -13,7 +13,7 @@ metadata:
   services: notebooks
   author: kraigb
   manager: douge
-  ms.service: notebooks
+  ms.service: azure
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

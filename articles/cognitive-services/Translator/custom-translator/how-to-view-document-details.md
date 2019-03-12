@@ -5,16 +5,16 @@ description: A página de lista de documento mostra as primeiras 10 documento na
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: ed872a00cd35fcef74ab0b578a86cdb6cd2ec8c7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d380c8bcdcb4954901df0b460269493c5be0a6de
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727575"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777393"
 ---
 # <a name="view-document-details"></a>Ver detalhes do documento
 

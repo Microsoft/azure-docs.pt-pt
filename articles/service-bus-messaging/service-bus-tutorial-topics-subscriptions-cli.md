@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: fbfb6a030d4979f9bd6a27f4c5b6908e62ffd9ab
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a75f3f2b1cc6d352afdf366d17c78e95420184cd
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001758"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571240"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Atualizar inventário utilizando a CLI e tópicos/subscrições
 
@@ -50,7 +50,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 Cada [subscrição de um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos são totalmente compatíveis no que diz respeito a protocolo e semântica com as filas do Service Bus. Os tópicos do Service Bus suportam uma vasta gama de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam propriedades de mensagem. Sempre que uma regra tem correspondência, é criada uma mensagem. Para saber mais sobre regras, filtros e ações, clique nesta [hiperligação](topic-filters.md).
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Assim que a CLI estiver instalada, abra uma linha de comandos e indique os seguintes comandos para iniciar sessão no Azure. Estes passos não serão necessários se estiver a utilizar a Cloud Shell:
 
@@ -177,7 +177,7 @@ Primeiro, o código declara um conjunto de variáveis, que aciona a execução r
     static final String[] Subscriptions = {"S1","S2","S3"};
     static final String[] Store = {"Store1","Store2","Store3","Store4","Store5","Store6","Store7","Store8","Store9","Store10"};
     static final String SysField = "sys.To";
-    static final String CustomField = "StoreId";    
+    static final String CustomField = "StoreId";
     int NrOfMessagesPerStore = 1; // Send at least 1.
 ```
 
@@ -185,7 +185,7 @@ A cadeia de ligação e o nome do tópico são os únicos valores adicionados at
 
 ```java
 public static void main(String[] args) {
-        TutorialTopicsSubscriptionsFilters app = new TutorialTopicsSubscriptionsFilters();
+    TutorialTopicsSubscriptionsFilters app = new TutorialTopicsSubscriptionsFilters();
         try {
             app.runApp(args);
             app.run();
@@ -197,11 +197,11 @@ public static void main(String[] args) {
 }
 
 public void run() throws Exception {
-        // Send sample messages.
-        this.sendMessagesToTopic();
+    // Send sample messages.
+    this.sendMessagesToTopic();
 
-        // Receive messages from subscriptions.
-        this.receiveAllMessages();
+    // Receive messages from subscriptions.
+    this.receiveAllMessages();
 }
 ```
 
@@ -211,43 +211,43 @@ Para enviar e receber mensagens, o método `sendMessagesToTopic()` cria uma inst
 
 ```java
 public void sendMessagesToTopic() throws Exception, ServiceBusException {
-         // Create client for the topic.
-        TopicClient topicClient = new TopicClient(new ConnectionStringBuilder(ConnectionString, TopicName));
+    // Create client for the topic.
+    TopicClient topicClient = new TopicClient(new ConnectionStringBuilder(ConnectionString, TopicName));
 
-        // Create a message sender from the topic client.
+    // Create a message sender from the topic client.
 
-        System.out.printf("\nSending orders to topic.\n");
+    System.out.printf("\nSending orders to topic.\n");
 
-        // Now we can start sending orders.
-        CompletableFuture.allOf(
-                SendOrders(topicClient,Store[0]),
-                SendOrders(topicClient,Store[1]),
-                SendOrders(topicClient,Store[2]),
-                SendOrders(topicClient,Store[3]),
-                SendOrders(topicClient,Store[4]),
-                SendOrders(topicClient,Store[5]),
-                SendOrders(topicClient,Store[6]),
-                SendOrders(topicClient,Store[7]),
-                SendOrders(topicClient,Store[8]),
-                SendOrders(topicClient,Store[9])                
-        ).join();
+    // Now we can start sending orders.
+    CompletableFuture.allOf(
+            SendOrders(topicClient,Store[0]),
+            SendOrders(topicClient,Store[1]),
+            SendOrders(topicClient,Store[2]),
+            SendOrders(topicClient,Store[3]),
+            SendOrders(topicClient,Store[4]),
+            SendOrders(topicClient,Store[5]),
+            SendOrders(topicClient,Store[6]),
+            SendOrders(topicClient,Store[7]),
+            SendOrders(topicClient,Store[8]),
+            SendOrders(topicClient,Store[9])
+    ).join();
 
-        System.out.printf("\nAll messages sent.\n");
-    }
+    System.out.printf("\nAll messages sent.\n");
+}
 
-     public CompletableFuture<Void> SendOrders(TopicClient topicClient, String store) throws Exception {
+    public CompletableFuture<Void> SendOrders(TopicClient topicClient, String store) throws Exception {
 
         for(int i = 0;i<NrOfMessagesPerStore;i++) {
             Random r = new Random();
-            final Item item = new Item(r.nextInt(5),r.nextInt(5),r.nextInt(5));         
-            IMessage message = new Message(GSON.toJson(item,Item.class).getBytes(UTF_8)); 
+            final Item item = new Item(r.nextInt(5),r.nextInt(5),r.nextInt(5));
+            IMessage message = new Message(GSON.toJson(item,Item.class).getBytes(UTF_8));
             // We always set the Sent to field
-            message.setTo(store);    
+            message.setTo(store);
             final String StoreId = store;
             Double priceToString = item.getPrice();
             final String priceForPut = priceToString.toString();
             message.setProperties(new HashMap<String, String>() {{
-                // Additionally we add a customer store field. In reality you would use sys.To or a customer property but not both. 
+                // Additionally we add a customer store field. In reality you would use sys.To or a customer property but not both.
                 // This is just for demo purposes.
                 put("StoreId", StoreId);
                 // Adding more potential filter / rule and action able fields
@@ -255,12 +255,12 @@ public void sendMessagesToTopic() throws Exception, ServiceBusException {
                 put("Color", item.getColor());
                 put("Category", item.getItemCategory());
             }});
-                        
-            System.out.printf("Sent order to Store %s. Price=%f, Color=%s, Category=%s\n", StoreId, item.getPrice(), item.getColor(), item.getItemCategory());            
+
+            System.out.printf("Sent order to Store %s. Price=%f, Color=%s, Category=%s\n", StoreId, item.getPrice(), item.getColor(), item.getItemCategory());
             topicClient.sendAsync(message);
         }
-               
-        return new CompletableFuture().completedFuture(null);         
+
+        return new CompletableFuture().completedFuture(null);
     }
 ```
 
@@ -269,59 +269,59 @@ public void sendMessagesToTopic() throws Exception, ServiceBusException {
 O método `receiveAllMessages()` invoca o método `receiveAllMessageFromSubscription()`, que cria um cliente de subscrição por chamada e recebe mensagens das subscrições individuais:
 
 ```java
-public void receiveAllMessages() throws Exception {     
+public void receiveAllMessages() throws Exception {
     System.out.printf("\nStart Receiving Messages.\n");
-    
+
     CompletableFuture.allOf(
             receiveAllMessageFromSubscription(Subscriptions[0]),
             receiveAllMessageFromSubscription(Subscriptions[1]),
-            receiveAllMessageFromSubscription(Subscriptions[2]) 
+            receiveAllMessageFromSubscription(Subscriptions[2])
             ).join();
 }
 
 public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscription) throws Exception {
-        
-        int receivedMessages = 0;
 
-        // Create subscription client.
-        IMessageReceiver subscriptionClient = ClientFactory.createMessageReceiverFromConnectionStringBuilder(new ConnectionStringBuilder(ConnectionString, TopicName+"/subscriptions/"+ subscription), ReceiveMode.PEEKLOCK);
+    int receivedMessages = 0;
 
-        // Create a receiver from the subscription client and receive all messages.
-        System.out.printf("\nReceiving messages from subscription %s.\n\n", subscription);
+    // Create subscription client.
+    IMessageReceiver subscriptionClient = ClientFactory.createMessageReceiverFromConnectionStringBuilder(new ConnectionStringBuilder(ConnectionString, TopicName+"/subscriptions/"+ subscription), ReceiveMode.PEEKLOCK);
 
-        while (true)
+    // Create a receiver from the subscription client and receive all messages.
+    System.out.printf("\nReceiving messages from subscription %s.\n\n", subscription);
+
+    while (true)
+    {
+        // This will make the connection wait for N seconds if new messages are available.
+        // If no additional messages come we close the connection. This can also be used to realize long polling.
+        // In case of long polling you would obviously set it more to e.g. 60 seconds.
+        IMessage receivedMessage = subscriptionClient.receive(Duration.ofSeconds(1));
+        if (receivedMessage != null)
         {
-            // This will make the connection wait for N seconds if new messages are available. 
-            // If no additional messages come we close the connection. This can also be used to realize long polling.
-            // In case of long polling you would obviously set it more to e.g. 60 seconds.
-            IMessage receivedMessage = subscriptionClient.receive(Duration.ofSeconds(1));
-            if (receivedMessage != null)
-            {
-                if ( receivedMessage.getProperties() != null ) {                                                                                
-                    System.out.printf("StoreId=%s\n", receivedMessage.getProperties().get("StoreId"));                                                                                          
-                    
-                    // Show the label modified by the rule action
-                    if(receivedMessage.getLabel() != null)
-                        System.out.printf("Label=%s\n", receivedMessage.getLabel());   
-                }
+            if ( receivedMessage.getProperties() != null ) {
+                System.out.printf("StoreId=%s\n", receivedMessage.getProperties().get("StoreId"));
                 
-                byte[] body = receivedMessage.getBody();
-                Item theItem = GSON.fromJson(new String(body, UTF_8), Item.class);
-                System.out.printf("Item data. Price=%f, Color=%s, Category=%s\n", theItem.getPrice(), theItem.getColor(), theItem.getItemCategory());                          
-                
-                subscriptionClient.complete(receivedMessage.getLockToken());
-                receivedMessages++;
+                // Show the label modified by the rule action
+                if(receivedMessage.getLabel() != null)
+                    System.out.printf("Label=%s\n", receivedMessage.getLabel());
             }
-            else
-            {
-                // No more messages to receive.
-                subscriptionClient.close();
-                break;
-            }
+            
+            byte[] body = receivedMessage.getBody();
+            Item theItem = GSON.fromJson(new String(body, UTF_8), Item.class);
+            System.out.printf("Item data. Price=%f, Color=%s, Category=%s\n", theItem.getPrice(), theItem.getColor(), theItem.getItemCategory());
+            
+            subscriptionClient.complete(receivedMessage.getLockToken());
+            receivedMessages++;
         }
-        System.out.printf("\nReceived %s messages from subscription %s.\n", receivedMessages, subscription);
-        
-        return new CompletableFuture().completedFuture(null);
+        else
+        {
+            // No more messages to receive.
+            subscriptionClient.close();
+            break;
+        }
+    }
+    System.out.printf("\nReceived %s messages from subscription %s.\n", receivedMessages, subscription);
+    
+    return new CompletableFuture().completedFuture(null);
 }
 ```
 

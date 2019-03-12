@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a00ecf6e-917a-4284-b998-41506931585e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5523394387802e895c487ed1a7df2e4e28125d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a0eb51180dc8f5d0091e24d993a64599151e02fd
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869195"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>Tutorial: Integração do Active Directory do Azure com EmpCenter
 
@@ -191,7 +191,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no EmpCenter, tem de 
 > Pode utilizar quaisquer outras EmpCenter utilizador conta criação ferramentas ou APIs fornecidas pelo EmpCenter para aprovisionar o Azure Active Directory contas de utilizador.
 >
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

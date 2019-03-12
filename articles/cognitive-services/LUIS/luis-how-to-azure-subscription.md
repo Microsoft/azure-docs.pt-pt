@@ -9,43 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 7c9f3c72d94955286d05cf68dbe698a46df3cdf3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867036"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781702"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>A utilizar chaves de subscrição com a sua aplicação LUIS
 
-Não é necessário criar chaves de subscrição para utilizar as suas consultas de ponto final de 1000 primeiro gratuito. Assim que as consultas de ponto de extremidade são usadas, criar um recurso do Azure no [portal do Azure](http://portal.azure.com), em seguida, atribuir esse recurso para uma aplicação LUIS no [portal de LUIS](https://www.luis.ai).
+Não é necessário criar chaves de subscrição para utilizar as suas consultas de ponto final de 1000 primeiro gratuito. Assim que as consultas de ponto de extremidade são usadas, criar um recurso do Azure no [portal do Azure](https://portal.azure.com), em seguida, atribuir esse recurso para uma aplicação LUIS no [portal de LUIS](https://www.luis.ai).
 
 Se receber um _fora da quota_ erro na forma de um HTTP 403 ou 429, terá de criar uma chave e atribuí-la à sua aplicação. 
 
 Para teste e apenas o protótipo, utilize o escalão gratuito do (F0). Para os sistemas de produção, utilize um [pago](https://aka.ms/luis-price-tier) escalão. Não utilize o [chave de criação](luis-concept-keys.md#authoring-key) para consultas de ponto final na produção.
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>Criar chave de ponto final de compreensão de idiomas no portal do Azure
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Criar o recurso de tempo de execução do ponto final de predição no portal do Azure
 
-Este procedimento cria um **compreensão de idiomas** recursos. Se pretender que um recurso que pode ser utilizado em todos os serviços cognitivos, crie a chave de tudo-em-um **[serviço cognitivo](../cognitive-services-apis-create-account.md)** em vez do recurso de compreensão de idiomas. 
-
-Esta chave só deve ser utilizada para consultas de previsão de ponto final. Não utilize esta chave para que as alterações ao modelo ou a aplicação. 
-
-1. Inicie sessão para o  **[portal do Azure](https://ms.portal.azure.com/)**. 
-1. Selecione o verde **+** iniciar sessão no painel superior esquerdo e procure `Language Understanding` no marketplace, em seguida, selecione no **compreensão de idiomas** e siga o  **criar a experiência** para criar uma conta de subscrição do LUIS. 
-
-    ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
-
-1. Configure a subscrição com as definições, incluindo o nome da conta, preços escalões, etc. 
-
-    ![Escolha de API do Azure](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. Depois de criar o recurso de compreensão de idiomas, pode ver as teclas de acesso geradas em **gestão de recursos -> chaves**. A próxima seção mostrará como ligar esse novo recurso a uma aplicação LUIS no portal do LUIS. É necessário o nome do recurso LUIS do passo 3.
-
-    ![Chaves do Azure](./media/luis-azure-subscription/azure-keys.png)
+Saiba mais com o [criar uma aplicação](get-started-portal-build-app.md) início rápido.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,23 +49,7 @@ Esta chave só deve ser utilizada para consultas de previsão de ponto final. N�
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Atribuir a chave de recurso a aplicação do LUIS no Portal do LUIS
 
-1. Inicie sessão portal do LUIS, escolha uma aplicação para adicionar a nova chave para, em seguida, selecione **Manage** no menu superior direito, em seguida, selecione **chaves e os pontos finais**.
-
-    [![Página de chaves e os pontos finais](./media/luis-manage-keys/keys-and-endpoints.png)](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. Para adicionar o LUIS, selecione **atribuir recursos +**.
-
-    ![Atribuir um recurso à sua aplicação](./media/luis-manage-keys/assign-key.png)
-
-1. Selecione um inquilino na caixa de diálogo associada com a mensagem de e-mail de endereços sua utilizado para iniciar sessão no Web site do LUIS.  
-
-1. Escolha o **nome da subscrição** associados com o recurso do Azure que pretende adicionar.
-
-1. Selecione o **nome do recurso de LUIS**. 
-
-1. Selecione **atribuir recursos**. 
-
-1. Localize a nova linha na tabela e copie o URL de ponto final. Ele é corretamente construído para fazer uma solicitação de HTTP GET para o ponto de final do LUIS para uma predição. 
+Saiba mais com o [implementação](get-started-portal-deploy-app.md) início rápido.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

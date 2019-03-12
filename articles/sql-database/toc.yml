@@ -383,8 +383,6 @@ items:
       href: sql-database-insights-alerts-portal.md
     - name: Resolver problemas de conectividade
       href: sql-database-troubleshoot-common-connection-issues.md
-    - name: Configurar a retenção de cópia de segurança com o cofre do Azure (preterido)
-      href: sql-database-long-term-backup-retention-configure-vault.md
     - name: Gerir o espaço de ficheiros
       href: sql-database-file-space-management.md
     - name: Utilizar o Resource Health para problemas de conectividade
@@ -718,9 +716,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar tarefa elástica (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 02c5f768de9b4e6ef03757c21a0d1188649f1b1d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: fabc468e22f1df077e9350873d084bc7e26252b6
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338132"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576451"

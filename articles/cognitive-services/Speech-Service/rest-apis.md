@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ce33f20d44ac284655569ff66825533650b9d9c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 83e613616c37272ed2fdd42288678a57c520b8fa
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998958"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532461"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do serviço de voz
 
@@ -154,7 +154,7 @@ Content-type: application/ssml+xml
 Content-Length: 199
 Connection: Keep-Alive
 
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
     Hello, world!
 </voice></speak>

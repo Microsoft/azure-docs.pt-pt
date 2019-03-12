@@ -4,16 +4,16 @@ description: Saiba como escolher uma solução do Azure para a transferência de
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 54a51f5f124857419727ed7ca574f717e17b125a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263805"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776670"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com baixa ou não largura de banda de rede
  
@@ -50,12 +50,12 @@ A tabela seguinte resume as diferenças nas capacidades principais.
 |    Tamanho dos dados                        |    Até 35 TB                 |    Até 80 TB por dispositivo                       |    Até 800 TB por dispositivo               |    Variável                            |
 |    Tipo de dados                        |    Blobs do Azure                  |    Blobs do Azure<br>Ficheiros do Azure                    |    Blobs do Azure<br>Ficheiros do Azure            |    Blobs do Azure<br>Ficheiros do Azure          |
 |    Fator de formulário                      |    5 SSDs por ordem             |    1 x 50-lbs. dispositivo de porte no ambiente de trabalho de mensagens em fila por ordem    |    1 X ~ 500-lbs. dispositivo grandes por ordem    |    Até 10 HDDs/SSDs por ordem        |
-|    Tempo de configuração inicial               |    Baixa <br>(15 min)            |    Baixo a moderado <br> (< 30 minutos)               |    Moderado<br>(1 a 2 horas)               |    Moderar a difícil<br>(variável) |
+|    Tempo de configuração inicial               |    Baixo <br>(15 min)            |    Baixo a moderado <br> (< 30 minutos)               |    Moderado<br>(1 a 2 horas)               |    Moderar a difícil<br>(variável) |
 |    Enviar dados para o Azure               |    Sim                          |    Sim                                           |    Sim                                   |    Sim                                 |
 |    Exportar dados do Azure           |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
 |    Encriptação                       |    AES 128 bits                  |    AES de 256 bits                                   |    AES de 256 bits                           |    AES 128 bits                         |
 |    Hardware                         |     Microsoft fornecido          |    Microsoft fornecido                            |    Microsoft fornecido                    |    Cliente fornecido                   |
-|    Interface de rede                |    3.1/SATA DE USB                 |    RJ 45, SFP +                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
+|    Interface de rede                |    3.1/SATA DE USB                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
 |    Integração de parceiros              |    Alguns                         |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Alguns                                |
 |    Envio                         |    Gerida pela Microsoft            |    Gerida pela Microsoft                             |    Gerida pela Microsoft                     |    Gerida pelo cliente                    |
 | Quando move os dados de utilização         |Num limite de comércio|Num limite de comércio|Num limite de comércio|Através das fronteiras geográficas, por exemplo, da UE|

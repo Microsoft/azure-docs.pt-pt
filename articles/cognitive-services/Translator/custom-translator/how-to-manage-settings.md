@@ -5,16 +5,16 @@ description: Como gerir as definições, criar área de trabalho, Compartilhe a 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: bbec2205fc6b29476cf531c071b5c2ac4c014bcb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732529"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766806"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
 

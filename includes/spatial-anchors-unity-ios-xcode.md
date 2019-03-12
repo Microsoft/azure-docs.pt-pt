@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: b802c9dbd0cef65325cb03538b68b49c57b85bb3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8047ed27c732cabf92f53b4b70c22471ecb848aa
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56890940"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57588164"
 ---
 Selecione **criar** para abrir uma caixa de diálogo. Em seguida, selecione uma pasta para exportar o projeto Xcode.
 
@@ -17,7 +17,7 @@ Quando a exportação for concluída, uma pasta será apresentada que contém o 
 
 ### <a name="open-the-xcode-project"></a>Abra o projeto Xcode
 
-Na pasta de projeto Xcode exportada, execute o seguinte comando para instalar os CocoaPods necessários para o projeto:
+Na pasta de projeto Xcode exportada, execute o comando seguinte no Terminal para instalar os CocoaPods necessários para o projeto:
 
 ```bash
 pod install --repo-update

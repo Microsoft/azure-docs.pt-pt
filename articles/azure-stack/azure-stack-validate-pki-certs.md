@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 9300e60902b9234af01a64173eefcfb1bc033c61
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410201"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769384"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validar certificados PKI de pilha do Azure
 
@@ -75,7 +75,7 @@ Utilize estes passos para preparar e para validar os certificados de PKI do Azur
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     
     $destination = 'c:\certificates'
     
@@ -86,7 +86,7 @@ Utilize estes passos para preparar e para validar os certificados de PKI do Azur
     > AD FS e o gráfico são necessários se estiver a utilizar o AD FS como seu sistema de identidade. Por exemplo:
     >
     > ```PowerShell  
-    > $directories = 'ADFS','Graph','ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     > ```
     
      - Coloque o seu certificado (s) nos diretórios apropriados criados no passo anterior. Por exemplo:  
@@ -254,17 +254,17 @@ Utilize estes passos para preparar e validar os certificados PKI de pilha do Azu
 
 | Diretório | Certificado |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\< região >\< externalFQDN > |
-| ACSQueue  |  wildcard_queue\< região >\< externalFQDN > |
-| ACSTable  |  wildcard_table\< região >\< externalFQDN > |
-| Anfitrião de extensão de administração  |  wildcard_adminhosting\< região >\< externalFQDN > |
-| Portal de administração  |  adminportal\< region>\< externalFQDN> |
-| Administrador ARM  |  adminmanagement\< região >\< externalFQDN > |
-| Público ARM  |  gerenciamento\< região >\< externalFQDN > |
-| KeyVault  |  wildcard_vault\< região >\< externalFQDN > |
-| KeyVaultInternal  |  wildcard_adminvault\< região >\< externalFQDN > |
-| Anfitrião de pública de extensão  |  wildcard_hosting\< região >\< externalFQDN > |
-| Portal público  |  portal\< region>_\< externalFQDN> |
+| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
+| Anfitrião de extensão de administração  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
+| Portal de administração  |  adminportal_\<region>_\<externalFQDN> |
+| Administrador ARM  |  adminmanagement_\<region>_\<externalFQDN> |
+| Público ARM  |  management_\<region>_\<externalFQDN> |
+| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
+| Anfitrião de pública de extensão  |  wildcard_hosting_\<region>_\<externalFQDN> |
+| Portal público  |  portal_\<region>_\<externalFQDN> |
 
 ## <a name="using-validated-certificates"></a>Utilização de certificados validados
 

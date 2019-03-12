@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 72a23617440e26c9dca69cab2a06370427c49768
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 50d766eed5800c58d0b0258b2be6637f139c542a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404727"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730964"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Cargas de trabalho de cópia de segurança do Azure
 
@@ -71,7 +71,7 @@ As exceções acima sejam criadas, desde a compreensão que o resultado destas o
 > [!NOTE]
 > Os alertas do System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) não são apresentados aqui.
 
-### <a name="alert-types"></a>Tipos de alerta
+### <a name="alert-types"></a>Tipos de alertas
 Com base na gravidade do alerta, alertas podem ser definidos em três tipos:
 
   - **Crítico**: Em princípio, qualquer cópia de segurança ou recuperação de falha (agendadas ou acionadas de usuário) poderia levar à geração de um alerta e seria mostrada como um alerta crítico e também operações destrutivas como eliminar cópia de segurança.
@@ -94,7 +94,7 @@ Se a frequência foi definida para um resumo de hora a hora e um alerta foi emit
 > [!NOTE]
 >
 * Se uma operação destrutiva, tal como **parar a proteção com eliminação de dados** é executada, é gerado um alerta e é enviado um e-mail para proprietários de subscrições, os administradores e coadministradores, mesmo que não as notificações estão configuradas para o serviço de recuperação cofre.
-* Não são gerados alertas para cópia de segurança bem-sucedida, por conseguinte, notificação será não ser acionada. Para configurar a notificação para tarefas concluídas com êxito de utilização [registo de atividades](backup-azure-monitoring-use-azuremonitor.md#using-rs-vaults-activity-logs) ou [do Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+* Para configurar a notificação para tarefas concluídas com êxito de utilização [do Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

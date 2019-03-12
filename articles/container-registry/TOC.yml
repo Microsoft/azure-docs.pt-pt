@@ -134,12 +134,12 @@ items:
   - name: Fornecer comentários sobre o produto
     href: https://feedback.azure.com/forums/903958-azure-container-registry
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-registry
+    href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: bce8a055a537a1ac147e2779a891b0ae64b9a3c8
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: ef8f6b64129f9dd2f2959c89e93c34b9d90a62f7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652166"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541954"

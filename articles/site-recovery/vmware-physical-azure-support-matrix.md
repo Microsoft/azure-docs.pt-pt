@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: raynew
-ms.openlocfilehash: c869a341ac098ab2250bb8d9452b465a54ebeda3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 637a8e91ba03240cd4c2c530ae2c982d2115c81d
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448599"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569829"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -30,7 +30,7 @@ Servidores físicos | Replicação de servidores físicos de Windows/Linux no lo
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização no local
 
-**Servidor** | **Requisitos** | **Detalhes**
+**servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 VMware | o vCenter Server 6.7, 6.5, 6.0, ou 5.5 ou vSphere 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter.<br/><br/> Recomendamos que os anfitriões vSphere e servidores vCenter estão localizados na mesma rede que o servidor de processos. Por predefinição os componentes de servidor de processo é executado no servidor de configuração,, esta será a rede na qual configurou o servidor de configuração, a menos que configurar um servidor de processos dedicados.
 Físico | N/A
@@ -121,7 +121,7 @@ Libertar os requisitos de espaço | 2 GB na partição /root <br/><br/> 250 MB n
 
 ## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
 
-**Ação** | **Detalhes**
+**ação** | **Detalhes**
 --- | ---
 Redimensionar disco numa VM replicada | Suportado.
 Adicionar o disco na VM replicada | Desative a replicação para a VM, adicione o disco e, em seguida, reativar a replicação. Adicionar um disco numa VM de replicação não é atualmente suportada.
@@ -149,7 +149,7 @@ Várias NICs de rede de convidado/servidor | Sim.
 Azure ExpressRoute | Sim
 ILB | Sim
 ELB | Sim
-Traffic Manager do Azure | Sim
+Gestor de Tráfego do Azure | Sim
 Multi-NIC | Sim
 Endereço IP reservado | Sim
 IPv4 | Sim
@@ -190,7 +190,7 @@ Multipath i de convidado/servidor (o MPIO) | Não
 > - O servidor não deve ter mais de quatro partições no disco do SO.
 > - Requer a versão de serviço de mobilidade 9.13 ou posterior.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 **Componente** | **Suportado**
 --- | ---
@@ -211,8 +211,9 @@ Contas de armazenamento para fins gerais v2 (escalões esporádico e frequentes)
 **Funcionalidade** | **Suportado**
 --- | ---
 Conjuntos de disponibilidade | Sim
+Zonas de disponibilidade | Não
 HUB | Sim
-Managed disks | Sim
+Managed Disks | Sim
 
 ## <a name="azure-vm-requirements"></a>Requisitos de VM do Azure
 
@@ -230,7 +231,7 @@ Placas de rede | São suportados vários adaptadores. |
 VHD partilhado | Não suportado. | Falha na verificação se não suportado.
 Disco FC | Não suportado. | Falha na verificação se não suportado.
 BitLocker | Não suportado. | O BitLocker tem de ser desativado antes de ativar a replicação para uma máquina. |
-o nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
+Nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
 
 ## <a name="azure-site-recovery-churn-limits"></a>Limites de alterações a dados do Azure Site Recovery
 
@@ -255,7 +256,7 @@ Estes são números médios, que pressupõem uma sobreposição de 30 por cento 
 
 ## <a name="vault-tasks"></a>Tarefas de cofre
 
-**Ação** | **Suportado**
+**ação** | **Suportado**
 --- | ---
 Mover o Cofre entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não

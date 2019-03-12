@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 18853d10c4acf1573772d72a8fb2c347cce545df
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 9992faa11585d49d3024e00338b4c1dc09da9195
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730174"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726673"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrar dados de séries StorSimple 5000 a 7000 para o Azure File Sync
 
@@ -87,7 +87,7 @@ Execute os seguintes passos para migrar a partilha de ficheiros do Windows confi
     Ignore este passo e vá para o passo seguinte, se estiver a utilizar outro anfitrião Windows Server. Se estiver a utilizar o mesmo servidor de ficheiros do Windows para AFS, agora terá alguns minutos de tempo de inatividade. 
     - **Período de indisponibilidade começa** -eliminar o ponto final de servidor que criou no *passo 1F*. 
     - Crie um novo ponto de final de servidor com o caminho onde pretende que os dados residam daqui para frente.
-    - Assim que o ponto final do servidor é apresentado como bom estado de funcionamento (pode demorar alguns minutos), verá os dados nesta localização nova. Agora pode configurar o anfitrião do Windows Server para servir ficheiros a partir desta localização nova. -  **Período de indisponibilidade termina**.
+    - Assim que o ponto final do servidor é apresentado como bom estado de funcionamento (pode demorar alguns minutos), verá os dados nesta localização nova. Agora pode configurar o anfitrião do Windows Server para servir ficheiros a partir desta localização nova. - **Período de indisponibilidade termina**.
 5.  Se estiver a utilizar outro servidor de ficheiros do Windows para o Azure File Sync, em seguida, não ocorrerá qualquer período de inatividade. 
     - Adicione outro ponto final do servidor com o caminho do armazenamento local que está preparado para usar como um cache em vez do dispositivo StorSimple. 
     - Será capaz de ver os arquivos no novo servidor dentro de alguns minutos. É livre para a transição do seu dispositivo StorSimple para esta nova localização no anfitrião em qualquer altura.

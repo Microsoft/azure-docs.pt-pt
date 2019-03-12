@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: 8c118092409ad1bc361255b05ff0b07719bd77ce
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f8c5f3ae48d0695f19699a5dfd1c956492bb128d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977291"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534706"
 ---
 # <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Início rápido: Traduzir texto com a API de REST de texto de tradutor (PHP)
 
@@ -23,7 +23,7 @@ Neste guia de introdução, irá traduzir texto de um idioma para outro através
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Irá precisar do [PHP 5.6.x](http://php.net/downloads.php) para executar este código.
+Irá precisar do [PHP 5.6.x](https://php.net/downloads.php) para executar este código.
 
 Para utilizar a API de Texto do Microsoft Translator também precisa de uma chave de subscrição; veja [How to sign up for the Translator Text API (Como inscrever-se na API de Texto do Microsoft Translator)](translator-text-how-to-signup.md).
 
@@ -77,7 +77,7 @@ function Translate ($host, $path, $key, $params, $content) {
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -101,7 +101,7 @@ $result = Translate ($host, $path, $key, $params, $content);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
-// http://php.net/manual/en/function.json-encode.php
+// https://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 echo $json;
 ?>

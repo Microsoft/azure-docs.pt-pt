@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: e26ae189b6b0bdcbfdcf225772cb3fd0361abca2
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 75f7a77ae41127fbb8b41876ee21dcc99c63cb74
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698994"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769987"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma ligação de gateway de VPN de VNet a VNet com a CLI do Azure
 
@@ -50,7 +50,7 @@ Configurar uma ligação VNet a VNet é uma boa forma de ligar facilmente as VNe
 
 Se estiver a trabalhar com uma configuração de rede mais complicada, poderá preferir ligar as VNets utilizando os passos [Site a Site](vpn-gateway-howto-site-to-site-resource-manager-cli.md), em vez de utilizar os passos de VNet a VNet. Quando utilizar os passos de Site a Site, pode criar e configurar manualmente os gateways de rede local. O gateway de rede local para cada VNet trata a outra VNet como um site local. Desta forma, pode especificar um espaço de endereços adicional para o gateway de rede local, de modo a encaminhar o tráfego. Se o espaço de endereço para uma VNet for alterado, terá de atualizar manualmente o gateway de rede local correspondente para refletir a alteração. Não será atualizado automaticamente.
 
-### <a name="vnet-peering"></a>VNet peering
+### <a name="vnet-peering"></a>VNet Peering
 
 Poderá querer considerar ligar às VNets utilização o VNet Peering. O VNet peering não utiliza um gateway de VPN e tem restrições de diferentes. Além disso, o [preço do VNet peering](https://azure.microsoft.com/pricing/details/virtual-network) é calculado de forma diferente que os [preços dos Gateways VPN de VNet a VNet](https://azure.microsoft.com/pricing/details/vpn-gateway). Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
@@ -99,7 +99,7 @@ Utilizamos os seguintes valores nos exemplos:
 
 * Nome da VNet: TestVNet1
 * Grupo de Recursos: TestRG1
-* Localização: EUA Leste
+* Localização: E.U.A. Leste
 * TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
@@ -118,7 +118,7 @@ Utilizamos os seguintes valores nos exemplos:
 * BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Grupo de Recursos: TestRG4
-* Localização: EUA Oeste
+* Localização: E.U.A. Oeste
 * GatewayName: VNet4GW
 * IP público: VNet4GWIP
 * VPNType: RouteBased
@@ -286,7 +286,7 @@ Ao criar ligações adicionais, é importante garantir que o espaço de endereç
 
 * Nome da VNet: TestVNet5
 * Grupo de Recursos: TestRG5
-* Localização: Leste do Japão
+* Localização: Este do Japão
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24

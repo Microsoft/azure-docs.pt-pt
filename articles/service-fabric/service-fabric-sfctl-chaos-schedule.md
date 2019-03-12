@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f955ed63af221a08313042fcc8373b179ecbc120
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276456"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569387"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obter e definir a agenda de caos.
@@ -48,9 +48,9 @@ Obtém a versão da agenda de Chaos em utilização e a agenda de Chaos que defi
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>conjunto de agenda de chaos sfctl
 Defina a agenda utilizada pelo caos.
@@ -61,12 +61,12 @@ Chaos será automaticamente agendar execuções com base na agenda caos. A vers�
 
 |Argumento|Descrição|
 | --- | --- |
-| – o dicionário de parâmetros de chaos | JSON codificado lista que representa um mapeamento de nomes de cadeia de caracteres para ChaosParameters a ser utilizado pelas tarefas. |
-| -Data-utc de expiração | A data e hora parar de utilizar a agenda para agendar o caos.  Predefinido\: 9999-12-31T23\:59\:59.999Z. |
-| – tarefas | Lista JSON com codificação de ChaosScheduleJobs representando quando executar o Chaos e com os quais os parâmetros para executar o Chaos com. |
-| – início-data-utc | A data e hora começar a utilizar a agenda para agendar o caos.  Predefinido\: 1601-01-01T00\:00\:00.000Z. |
+| --chaos-parameters-dictionary | JSON codificado lista que representa um mapeamento de nomes de cadeia de caracteres para ChaosParameters a ser utilizado pelas tarefas. |
+| --expiry-date-utc | A data e hora parar de utilizar a agenda para agendar o caos.  Default\: 9999-12-31T23\:59\:59.999Z. |
+| --jobs | Lista JSON com codificação de ChaosScheduleJobs representando quando executar o Chaos e com os quais os parâmetros para executar o Chaos com. |
+| --start-date-utc | A data e hora começar a utilizar a agenda para agendar o caos.  Default\: 1601-01-01T00\:00\:00.000Z. |
 | – tempo limite -t | Tempo limite do servidor em segundos.  Predefinido\: 60. |
-| – versão | O número de versão da agenda. |
+| --version | O número de versão da agenda. |
 
 ### <a name="global-arguments"></a>Argumentos global
 
@@ -74,24 +74,24 @@ Chaos será automaticamente agendar execuções com base na agenda caos. A vers�
 | --- | --- |
 | – depuração | Aumenta a verbosidade de registo para mostrar que todos os registos de depuração. |
 | – ajudar -h | Mostre esta mensagem de ajuda e saída. |
-| --o de saída | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
-| – consulta | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
-| -verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
+| --output -o | Formato de saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Predefinido\: json. |
+| --query | Cadeia de consulta do JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --verbose | Aumenta a verbosidade do registo. Utilize--debug para os registos de depuração completa. |
 
 ### <a name="examples"></a>Exemplos
 
 O comando a seguir define uma agenda (supondo que a agenda atual tem uma versão 0), que é iniciada no 2016-01-01 e expira em 2038-01-01, que executa o Chaos 24 horas do dia, 7 dias por semana. Chaos será agendada no cluster para essa hora.
 
     sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
-    --chaos-parameters-dictionary 
-    [  
-    {  
+    --chaos-parameters-dictionary
+    [
+    {
         "Key":"adhoc",
-        "Value":{  
+        "Value":{
             "MaxConcurrentFaults":3,
             "EnableMoveReplicaFaults":true,
-            "ChaosTargetFilter":{  
-                "NodeTypeInclusionList":[  
+            "ChaosTargetFilter":{
+                "NodeTypeInclusionList":[
                 "N0010Ref",
                 "N0020Ref",
                 "N0030Ref",
@@ -103,12 +103,12 @@ O comando a seguir define uma agenda (supondo que a agenda atual tem uma versão
             "WaitTimeBetweenIterationsInSeconds":15,
             "WaitTimeBetweenFaultsInSeconds":30,
             "TimeToRunInSeconds":"600",
-            "Context":{  
-                "Map":{  
+            "Context":{
+                "Map":{
                 "test":"value"
                 }
             },
-            "ClusterHealthPolicy":{  
+            "ClusterHealthPolicy":{
                 "MaxPercentUnhealthyNodes":0,
                 "ConsiderWarningAsError":true,
                 "MaxPercentUnhealthyApplications":0
@@ -116,11 +116,11 @@ O comando a seguir define uma agenda (supondo que a agenda atual tem uma versão
         }
     }
     ]
-    --jobs 
-    [  
-    {  
+    --jobs
+    [
+    {
         "ChaosParameters":"adhoc",
-        "Days":{  
+        "Days":{
             "Sunday":true,
             "Monday":true,
             "Tuesday":true,
@@ -129,13 +129,13 @@ O comando a seguir define uma agenda (supondo que a agenda atual tem uma versão
             "Friday":true,
             "Saturday":true
         },
-        "Times":[  
-            {  
-                "StartTime":{  
+        "Times":[
+            {
+                "StartTime":{
                 "Hour":0,
                 "Minute":0
                 },
-                "EndTime":{  
+                "EndTime":{
                 "Hour":23,
                 "Minute":59
                 }

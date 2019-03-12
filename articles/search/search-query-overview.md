@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: d2f3eb25c2193ad94098acd714d934795d007e98
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300880"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543921"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Como compor uma consulta no Azure Search
 
@@ -38,15 +38,15 @@ A tabela seguinte lista as APIs e as abordagens baseadas em ferramenta para o en
 Os exemplos são úteis para introduzindo novos conceitos. Como uma consulta representativa construídos a [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), este destinos de exemplo a [índice de demonstração de imóveis](search-get-started-portal.md) e inclui os parâmetros comuns.
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** Define o analisador, que, no Azure Search, pode ser o [predefinido o analisador de consultas simples](search-query-simple-examples.md) (ideal para pesquisa em texto completo), ou o [completa de analisador de consultas de Lucene](search-query-lucene-examples.md) utilizado para construções de consulta avançada, como as expressões regulares , difusa, pesquisa de proximidade e pesquisa com carateres universais, para citar alguns.
@@ -162,7 +162,7 @@ Se pretender que o Azure Search devolva os resultados ordenados por um valor dif
 ### <a name="hit-highlighting"></a>Detetor de ocorrências
 No Azure Search, realce da parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitado através da **`highlight`**, **`highlightPreTag`**, e **`highlightPostTag`** parâmetros. Pode especificar os campos *pesquisáveis* que devem ter o respetivo texto com correspondência realçado, bem como especificar as etiquetas de cadeias exatas a adicionar no início e no fim do texto com correspondência devolvido pela Azure Search.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Completa como funciona a pesquisa de texto no Azure Search (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Explorador de pesquisa](search-explorer.md)

@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: e7a22e6699a69bf89a9c3828433affa0a212116f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ac713e4abacc8cece1b14972ddf3a1f3fe2f1cdf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240782"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770191"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Definições de configuração do gateway VPN para o Azure Stack
 
@@ -52,9 +52,9 @@ O Azure Stack oferece o gateway de VPN SKUs mostrados na tabela seguinte.
 
 |   | Débito do gateway VPN |Gateway de VPN de túneis IPsec do máximo |
 |-------|-------|-------|
-|**SKU básico**  | 100 Mbps  | 20    |
+|**SKU básico**  | 100 Mbps  | 20    |
 |**Standard SKU**           | 100 Mbps  | 20    |
-|**SKU de elevado desempenho** | 200 Mbps    | 10    |
+|**SKU de elevado desempenho** | 200 Mbps    | 10    |
 
 ### <a name="resizing-gateway-skus"></a>Redimensionamento de SKUs de gateway
 
@@ -127,7 +127,7 @@ A tabela seguinte lista os requisitos para gateways de VPN.
 | **Número máximo de ligações S2S**  | Não suportado | 20 | 20| 10|
 |**Suporte de encaminhamento ativo (BGP)** | Não suportado | Não suportado | Suportadas | Suportadas |
 
-### <a name="gateway-subnet"></a>Sub-rede de gateway
+### <a name="gateway-subnet"></a>Sub-rede do gateway
 
 Antes de criar um gateway de VPN, tem de criar uma sub-rede de gateway. A sub-rede do gateway tem os endereços IP que utilizam os serviços e VMs de gateway de rede virtual. Ao criar o gateway de rede virtual, VMs de gateway são implementadas na sub-rede de gateway e configuradas com as definições do gateway VPN necessárias. Não implementa qualquer outra coisa (por exemplo, VMs adicionais) para a sub-rede do gateway.
 

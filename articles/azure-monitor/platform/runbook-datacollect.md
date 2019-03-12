@@ -7,18 +7,18 @@ author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: monitoring
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 5de5191ee616f38404e2423c23f4e8b363240b0e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4f6076407ea4745556e59d44bd37ab85288e6bd2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308334"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772940"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Recolher dados no Log Analytics com um runbook da automatização do Azure
 
@@ -68,7 +68,7 @@ A galeria do PowerShell entanto dá-lhe uma opção rápida para implementar um 
 | Name | WorkspaceId | WorkspaceKey |
 | Type | String | String |
 | Value | Cole o ID de área de trabalho de sua área de trabalho do Log Analytics. | Colar com a primária ou uma chave secundária da sua área de trabalho do Log Analytics. |
-| Encriptados | Não | Sim |
+| Encriptada | Não | Sim |
 
 ## <a name="3-create-runbook"></a>3. Criar runbook
 
@@ -183,7 +183,7 @@ A forma mais comum para iniciar um runbook que recolhe dados de monitorização 
 |:--|:--|
 | Name | AutomationJobs-Hourly |
 | Inicia | Selecione a que qualquer altura, pelo menos, 5 minutos posterior à hora atual. |
-| Recorrência | Periódico |
+| Periodicidade | Periódico |
 | Repetir a cada | 1 hora |
 | Definir expiração | Não |
 

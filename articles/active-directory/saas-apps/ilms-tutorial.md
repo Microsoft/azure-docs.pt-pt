@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d6e11639-6cea-48c9-b008-246cf686e726
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d528195161b987dda783c4b22721e950f702f94
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: c9b4b8fd4dfc53bc71975d85cecb32586b74349d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984463"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Tutorial: Integração do Active Directory do Azure com iLMS
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD início de sessão único com iLMS, execute os seguin
 
 6. Para ativar o aprovisionamento de JIT, o seu aplicativo iLMS espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir a caixa de diálogo de atributos do utilizador.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
     > [!NOTE]
     > Tem de ativar **criar conta de utilizador de Un-recognized** no iLMS para mapear esses atributos. Siga as instruções [aqui](http://support.inspiredelearning.com/customer/portal/articles/2204526) para ter uma idéia sobre a configuração de atributos.
@@ -132,9 +132,9 @@ Para configurar o Azure AD início de sessão único com iLMS, execute os seguin
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![image](common/new-save-attribute.png)
+    ![imagem](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![imagem](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -288,7 +288,7 @@ Se precisar de criar manualmente um utilizador, em seguida, siga os passos abaix
     > [!NOTE]
     > Pode enviar email de Registro para o utilizador selecionando **enviar email de Registro** caixa de verificação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

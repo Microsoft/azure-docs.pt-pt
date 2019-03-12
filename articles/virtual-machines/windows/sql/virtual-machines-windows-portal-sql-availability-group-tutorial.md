@@ -3,7 +3,7 @@ title: Tutorial - máquinas virtuais do Azure - de grupos de disponibilidade do 
 description: Este tutorial mostra como criar um SQL Server grupo de Disponibilidade AlwaysOn em máquinas de virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 61a05f912e8b8e0b954dc43faeb7d6e35a08b657
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 9242edb8ea08b858ae6ad092f4d855483e72d0bf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820149"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777469"
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutorial: Configurar grupo de Disponibilidade AlwaysOn na VM do Azure manualmente
 
 Este tutorial mostra como criar um SQL Server grupo de Disponibilidade AlwaysOn em máquinas de virtuais do Azure. O tutorial completo cria um grupo de disponibilidade com uma réplica de base de dados em dois servidores SQL.
 
@@ -359,7 +359,7 @@ Um balanceador de carga do Azure pode ser um balanceador de carga Standard ou um
    | Definição | Campo |
    | --- | --- |
    | **Nome** |Utilizar um nome de texto para o Balanceador de carga, por exemplo **sqlLB**. |
-   | **Tipo** |Interno |
+   | **Tipo** |Interna |
    | **Rede virtual** |Utilize o nome da rede virtual do Azure. |
    | **Sub-rede** |Utilize o nome da sub-rede que a máquina virtual está no.  |
    | **Atribuição de endereços IP** |Estático |
@@ -425,7 +425,7 @@ Para configurar o Balanceador de carga, terá de criar um conjunto de back-end, 
    | **Sonda** |O nome que especificou para a sonda | SQLAlwaysOnEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
+   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Activado |
 
    > [!WARNING]
    > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.
@@ -465,7 +465,7 @@ O endereço IP do WSFC também tem de ser no balanceador de carga.
    | **Sonda** |O nome que especificou para a sonda | WSFCEndPointProbe |
    | **Persistência da sessão** | Na lista pendente | **Nenhum** |
    | **Tempo limite de inatividade** | Minutos para manter uma conexão TCP aberta | 4 |
-   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Ativado |
+   | **Vírgula flutuante (devolução direta do servidor) de IP** | |Activado |
 
    > [!WARNING]
    > Devolução direta do servidor é definida durante a criação. Não pode ser alterado.

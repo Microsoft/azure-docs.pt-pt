@@ -3,21 +3,21 @@ title: Transformar dados com a atividade de Hive do Hadoop no Azure Data Factory
 description: Saiba como pode utilizar a atividade de ramo de registo de uma fábrica de dados do Azure para executar consultas do Hive num cluster do HDInsight no, a pedido/suas próprio.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: douglasl
-ms.openlocfilehash: e77b8c89954064fb143f04f0f901d1512d4fc50d
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 3852b2d18b48be63cbc612159facb6273f23dc2b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491013"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575584"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformar dados com a atividade de Hive do Hadoop no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Se estiver familiarizado com o Azure Data Factory, leia [introdução ao Azure D
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade            | Descrição                                                  | Necessário |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| nome                | Nome da atividade                                         | Sim      |
+| name                | Nome da atividade                                         | Sim      |
 | descrição         | Texto que descreve o que a atividade é utilizada para                | Não       |
 | tipo                | Para a atividade do Hive, o tipo de atividade é HDinsightHive        | Sim      |
 | linkedServiceName   | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |

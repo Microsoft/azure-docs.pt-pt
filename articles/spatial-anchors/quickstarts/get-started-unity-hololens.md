@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b2bfec47bc92ebf5db1561d8fca33940dc376866
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: ede1f031c3c38e714d076b861ba2abdad81c6702
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752333"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726860"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-using-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação de HoloLens Unity com âncoras espaciais do Azure
 
@@ -35,7 +35,7 @@ Vai aprender a:
 Para concluir este início rápido, certifique-se de que tem:
 
 - Uma máquina Windows com <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a> e <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> instalado com o **desenvolvimento da plataforma Universal do Windows** carga de trabalho.
-- Um dispositivo de HoloLens com [modo de programador](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ativada.
+- Um dispositivo de HoloLens com [modo de programador](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ativada. Este artigo requer um dispositivo de HoloLens com o [atualização do Windows 10 de Outubro de 2018](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (também conhecido como RS5). Para atualizar para a versão mais recente no HoloLens, abra a **definições** aplicação, aceda à **atualização e segurança**, em seguida, selecione o **procurar atualizações** botão.
 - A aplicação tem de definir o **SpatialPerception** capacidade sob **definições de criação**->**as definições do leitor**->**publicação As definições**->**capacidades**.
 - Tem de ativar a sua aplicação **suportado de realidade Virtual** com **SDK de realidade mista do Windows** sob **definições de criação**->**asdefiniçõesdoleitor** -> **XR definições**.
 
@@ -51,7 +51,7 @@ Open **definições de criação** ao selecionar **ficheiro** -> **definições 
 
 Na **plataforma** secção, selecione **plataforma Universal do Windows**. Em seguida, altere a **dispositivo de destino** ao **HoloLens**.
 
-Selecione **plataforma de comutador** para alterar a plataforma para **plataforma Universal do Windows**.
+Selecione **plataforma de comutador** para alterar a plataforma para **plataforma Universal do Windows**. Unity poderá pedir-lhe para instalar os componentes de suporte do UWP se estiverem em falta.
 
 ![Definições de compilação do Unity](./media/get-started-unity-hololens/unity-build-settings.png)
 

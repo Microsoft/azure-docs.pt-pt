@@ -6,18 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 28f7e64a0482c180422bc12eb6d1c3545d3540a9
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 972a3f86e08d60db5a16ea505cb3fe446516c87e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195324"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770123"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Início rápido: Criar um espaço de desenvolvimento de Kubernetes com espaços de desenvolvimento do Azure (.NET Core e o Visual Studio)
 
@@ -44,7 +43,7 @@ Instale as [Ferramentas do Visual Studio para Kubernetes](https://aka.ms/get-vsk
 
 Em seguida, vai criar e configurar um projeto para Espaços de Programador do Azure.
 
-### <a name="create-an-aspnet-web-app"></a>Criar uma aplicação Web ASP.NET
+### <a name="create-an-aspnet-web-app"></a>Criar uma aplicação Web em ASP.NET
 
 No Visual Studio 2017, crie um projeto novo. Atualmente, o projeto tem de ser uma **aplicação Web ASP.NET Core**. Atribua o nome **webfrontend** ao projeto.
 

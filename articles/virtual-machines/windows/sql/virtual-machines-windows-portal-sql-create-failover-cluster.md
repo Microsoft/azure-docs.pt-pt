@@ -3,7 +3,7 @@ title: SQL Server FCI – máquinas virtuais do Azure | Documentos da Microsoft
 description: Este artigo explica como criar instância de Cluster de ativação pós-falha do SQL Server em máquinas de virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 778984d4d34d3b63d92378781d377fee557c7148
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7e0dea82614363883bbfb4a34894a2248faeb176
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821922"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769664"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de ativação pós-falha do SQL Server em máquinas virtuais do Azure
 
@@ -421,7 +421,7 @@ Para criar o Balanceador de carga:
    - **Sonda de estado de funcionamento**: Utilize a sonda de estado de funcionamento que configurou anteriormente.
    - **Persistência da sessão**: Nenhum.
    - **Tempo limite (minutos) de inatividade**: 4.
-   - **Vírgula flutuante (devolução direta do servidor) de IP**: Ativado
+   - **Vírgula flutuante (devolução direta do servidor) de IP**: Activado
 
 1. Clique em **OK**.
 
@@ -475,7 +475,7 @@ Ativação pós-falha de teste da FCI para validar a funcionalidade de cluster. 
 
 **Gestor de clusters de ativação pós-falha** mostra a função e os respetivos recursos ficam offline. Os recursos, em seguida, moverem e ficam online no outro nó.
 
-### <a name="test-connectivity"></a>Testar conectividade
+### <a name="test-connectivity"></a>Testar a conectividade
 
 Para testar a conectividade, inicie sessão outra máquina virtual na mesma rede virtual. Open **SQL Server Management Studio** e ligue-se ao nome do SQL Server FCI.
 

@@ -15,12 +15,12 @@ ms.date: 07/30/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e8b099f845df66dfe8c43bc6f968fd63b30d09d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 198f32b5f3d7572807b6af3e41ccf8085d9cbc0b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186357"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576944"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 
@@ -108,11 +108,11 @@ No ecrã de gestão de aplicações, aprovisionamento está configurado no **apr
 
 ![Definições](./media/user-provisioning/provisioning_settings1.PNG)
 
-* **Filtros de âmbito** indicar ao serviço de aprovisionamento que utilizadores e grupos no sistema de origem devem ser aprovisionados e/ou desaprovisionados ao sistema de destino. Há dois aspectos para filtros que são avaliados em conjunto de âmbito que determinar quem está no âmbito de aprovisionamento:
+* Os **filtros de âmbito** dizem ao serviço de aprovisionamento que utilizadores e grupos no sistema de origem devem ser aprovisionados e/ou desaprovisionados no sistema de destino. Os filtros de âmbito têm dois aspetos que são avaliados em conjunto para determinar quem está dentro do âmbito do aprovisionamento:
 
-    * **Filtre os valores de atributo** -no menu "Âmbito de objeto de origem" os mapeamentos de atributos permite a filtragem de valores de atributo específico. Por exemplo, pode especificar que apenas os utilizadores com um atributo de "Departamento" de "Sales" devem estar no âmbito de aprovisionamento. Para obter mais informações, consulte [com filtros de âmbito](define-conditional-rules-for-provisioning-user-accounts.md).
+    * **Filtrar por valores de atributos** - o menu “Âmbito do Objeto de Origem” nos mapeamentos de atributos permitem filtrar por valores de atributos específicos. Por exemplo, pode especificar que apenas os utilizadores com o atributo “Department” de “Sales” devem estar no âmbito do aprovisionamento. Para obter mais informações, veja [Using scoping filters](define-conditional-rules-for-provisioning-user-accounts.md) (Utilizar filtros de âmbito).
 
-    * **Filtro em atribuições** -o menu de "Escopo" no aprovisionamento > da secção definições do portal permite-lhe especificar se devem ser apenas "" utilizadores e grupos atribuídos no âmbito de aprovisionamento ou se devem ser a todos os utilizadores no diretório do Azure AD aprovisionada. Para obter informações sobre "atribuir" utilizadores e grupos, consulte [atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Active Directory](assign-user-or-group-access-portal.md).
+    * **Filtro em atribuições** -o menu de "Escopo" no aprovisionamento > da secção definições do portal permite-lhe especificar se devem ser apenas "" utilizadores e grupos atribuídos no âmbito de aprovisionamento ou se devem ser a todos os utilizadores no diretório do Azure AD aprovisionada. Para obter informações sobre como “atribuir” utilizadores e grupos, veja [Assign a user or group to an enterprise app in Azure Active Directory](assign-user-or-group-access-portal.md) (Atribuir utilizadores ou grupos a uma aplicação empresarial no Azure Active Directory).
     
 * **Definições** controlam o funcionamento do serviço de aprovisionamento de um aplicativo, incluindo se está em execução ou não.
 
@@ -260,7 +260,7 @@ Sim. Quando configurado para "utilizadores da sincronização só atribuído e g
 
 No entanto, a utilização de grupos dinâmicos pode afetar o desempenho geral do aprovisionamento do Azure AD para aplicações SaaS de utilizadores de ponto-a-ponto. Quando utilizar grupos dinâmicos, mantenha estas limitações e recomendações em mente:
 
-* Como o fast um usuário num grupo dinâmico é provisionada ou desprovisionada numa aplicação SaaS depende da rapidez o grupo dinâmico pode avaliar as alterações na associação. Para obter informações sobre como verificar o estado de processamento de um grupo dinâmico, consulte [verificar o estado de processamento para uma regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+* Como o fast um usuário num grupo dinâmico é provisionada ou desprovisionada numa aplicação SaaS depende da rapidez o grupo dinâmico pode avaliar as alterações na associação. Para obter informações sobre como verificar o estado de processamento de um grupo dinâmico, consulte [verificar o estado de processamento para uma regra de associação](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
 
 * Quando utilizar grupos dinâmicos, as regras devem ser seriamente consideradas com utilizador provisionamento e desprovisionamento em mente, como a perda de associação resultará num evento de desaprovisionamento.
 

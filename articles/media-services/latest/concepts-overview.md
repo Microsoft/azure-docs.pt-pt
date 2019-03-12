@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f9d431fe0ee76edf5d41c1ce7831f335128402a8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b346ac0ac456b7f6af078496e8dd1cb738caab67
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244745"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530199"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de multimédia
 
@@ -30,7 +30,7 @@ Para começar a gerir, encriptar, codificar, analisar e transmissão em fluxo co
 - [Carregamento na cloud e armazenamento](storage-account-concept.md)
 - [Conceito de ativos](assets-concept.md)
 
-## <a name="encoding"></a>Codificação
+## <a name="encoding"></a>Encoding
 
 Depois de carregar os ficheiros de multimédia digital de alta qualidade nos ativos, pode codificá-los em formatos que podem ser jogados numa grande variedade de navegadores e dispositivos. 
 
@@ -65,7 +65,7 @@ A imagem seguinte ilustra o fluxo de trabalho de proteção de conteúdo de serv
 
 ![Proteger conteúdo](./media/content-protection/content-protection.svg)
 
-&#42;* encriptação dinâmica suporta AES-128 "chave não encriptada", CBCS e CENC. 
+&#42;a encriptação dinâmica suporta AES-128 "chave não encriptada", CBCS e CENC. 
 
 Pode utilizar os serviços de multimédia **manifestos dinâmica** transmitir apenas uma representação em específica ou subclips do seu vídeo. No exemplo a seguir, um codificador foi utilizado para codificar um recurso de mezanino em sete representações de vídeo de MP4s de ISO (a partir de 180p para 1080p). O elemento codificado pode ser empacotado dinamicamente em qualquer um dos seguintes protocolos de transmissão em fluxo: HLS, MPEG DASH e Smooth.  Na parte superior do diagrama, é mostrado o manifesto HLS para o elemento com sem filtros (que contém todas as representações de sete).  Na parte inferior esquerda, é mostrado o manifesto HLS ao qual foi aplicado um filtro com o nome "ott". Especifica o filtro de "ott" para remover todas as velocidades de transmissão abaixo 1 Mbps, o que resultou nos níveis de qualidade dois na parte inferior a ser eliminados na resposta. Na parte inferior direita, é mostrado o manifesto HLS ao qual foi aplicado um filtro com o nome "móvel". O filtro "móvel" Especifica a remover representações em que a resolução é maior do que 720p, o que resultou em duas representações de 1080p a ser suprimidas.
 
@@ -80,7 +80,7 @@ Pode utilizar os serviços de multimédia **manifestos dinâmica** transmitir ap
 - [Manifestos dinâmicos](filters-dynamic-manifest-overview.md)
 - [Filtros](filters-concept.md)
 
-## <a name="live-streaming"></a>Transmissão em direto
+## <a name="live-streaming"></a>Transmissão em fluxo em direto
 
 Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. **Eventos em direto** são responsáveis por ingerir e processar os feeds de vídeo em direto. Quando cria um **evento em direto**, é criado um ponto de final de entrada que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. Assim que tiver o fluxo a ser encaminhados para o **evento em direto**, pode começar o evento de transmissão em fluxo através da criação de um **Asset**, **Live saída**, e **localizador de transmissão em fluxo** . **Live saída** irá arquivar a transmissão no **Asset** e disponibilizá-la para os espetadores através da **Endpoid de transmissão em fluxo**. R **evento em direto** pode ser um dos dois tipos: **pass-through** e **codificação em direto**.
 

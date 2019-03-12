@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: fd7308e7ecb6e086dffb4bae0cc99c57dd699861
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5548a62218aaac2e4da3853e8e5d43a584922bc0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729827"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569897"
 ---
 # <a name="azure-data-factory-mapping-data-flow-pivot-transformation"></a>Mapeamento de transformação de dinâmica de fluxo de dados de fábrica de dados do Azure
 
@@ -22,7 +22,7 @@ Utilize Pivot no fluxo de dados do ADF como uma agregação em que uma ou mais c
 
 ![Dinamizar opções](media/data-flow/pivot1.png "dinamizar 1")
 
-## <a name="group-by"></a>Agrupar por
+## <a name="group-by"></a>Agrupar Por
 
 ![Dinamizar opções](media/data-flow/pivot2.png "dinamizar 2")
 
@@ -42,7 +42,7 @@ Por último, irá escolher a agregação de que deseja usar para os valores arti
 
 (Opcional) Pode definir um padrão de nomenclatura com um prefixo, intermediária e sufixo para ser adicionado a cada novo nome de coluna de entre os valores de linha.
 
-Por exemplo, dinamização "Vendas" por "Região" resultaria em novos valores de coluna de cada valor de vendas, ou seja "25", "50", "1000", etc. No entanto, se definir um valor de prefixo de "Sales" 
+Por exemplo, dinamização "Vendas" por "Região" resultaria em novos valores de coluna de cada valor de vendas, ou seja "25", "50", "1000", etc. No entanto, se definir um valor de prefixo de "Vendas-", cada valor de coluna adicionaria "Vendas-" no início do valor.
 
 ![Dinamizar opções](media/data-flow/pivot5.png "dinamizar 5")
 
@@ -56,4 +56,8 @@ Utilizar a linguagem de expressão de fluxo do ADF dados para descrever as trans
 
 ### <a name="how-to-rejoin-original-fields"></a>Como reintegrado campos originais
 > [!NOTE]
-> A transformação de Pivot será o projeto apenas as colunas utilizadas na agregação, o agrupamento e a ação de pivot. Se deseja incluir as outras colunas do passo anterior no seu fluxo, utilize um novo ramo do passo anterior e usar o padrão de associação automática para ligar o fluxo com os metadados originais
+> A transformação de Pivot será o projeto apenas as colunas utilizadas na agregação, o agrupamento e a ação de pivot. Se deseja incluir as outras colunas do passo anterior no seu fluxo, utilize um novo ramo do passo anterior e usar o padrão de associação automática para ligar o fluxo com os metadados do original.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Experimente o [anular dinamização de transformação](data-flow-unpivot.md) para transformar valores de coluna em valores de linha. 

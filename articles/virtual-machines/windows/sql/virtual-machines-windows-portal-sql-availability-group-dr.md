@@ -3,7 +3,7 @@ title: Grupos de disponibilidade do SQL Server - máquinas virtuais do Azure - r
 description: Este artigo explica como configurar um grupo de disponibilidade do SQL Server em máquinas virtuais do Azure com uma réplica numa região diferente.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5e4b63d4fc8b437bd4d476c72d23f9dbf5242d5b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972384"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780563"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurar um grupo de disponibilidade Always On em máquinas virtuais do Azure em regiões diferentes
 
@@ -167,9 +167,9 @@ Depois de testar a conectividade, regresse a réplica primária para o seu Datac
 
 | Localização | Instância de servidor | Função | Modo de disponibilidade | Modo de ativação pós-falha
 | ----- | ----- | ----- | ----- | -----
-| Centro de dados primária | SQL-1 | Primária | Síncrona | Automático
-| Centro de dados primária | SQL-2 | Secundária | Síncrona | Automático
-| Centro de dados secundário ou remoto | SQL-3 | Secundária | Assíncrona | Manual
+| Centro de dados primária | SQL-1 | Primário | Síncrona | Automático
+| Centro de dados primária | SQL-2 | Secundário | Síncrona | Automático
+| Centro de dados secundário ou remoto | SQL-3 | Secundário | Assíncrona | Manual
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Obter mais informações sobre a ativação pós-falha manual de forçado e não planeado

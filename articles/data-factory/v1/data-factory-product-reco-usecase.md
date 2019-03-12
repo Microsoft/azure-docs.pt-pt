@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8ff100cd3fc1c9def10b4e585119414281b90d92
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4a3d1c513bcfb6449ca73d873c0dd9831c6fe01d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017383"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540135"
 ---
 # <a name="use-case---product-recommendations"></a>Caso de Utilização - Recomendações do Produto
 O Azure Data Factory é um dos vários serviços utilizados para implementar o Cortana Intelligence Suite de Aceleradores de solução.  Ver [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) página para obter detalhes sobre este conjunto. Neste documento, descrevemos um caso de utilização comuns que os utilizadores do Azure já resolvido e implementadas com o Azure Data Factory e outros serviços de componentes do Cortana Intelligence.
@@ -50,7 +50,7 @@ Todos os dados são combinados e inseridos num sistema de recomendação de prod
 
 Gigabytes de ficheiros de registo de web não processados são gerados diariamente partir do site do varejista online, como ficheiros semiestruturados. Os ficheiros de registo não processados da web e as informações do catálogo de produto e de cliente são ingeridos regularmente num armazenamento de Blobs do Azure com o movimento de dados implementados globalmente do Data Factory como um serviço. Os ficheiros de registo não processados para o dia são particionados (por ano e mês) no armazenamento de BLOBs para o armazenamento de longo prazo.  [O Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) é utilizado para particionar os ficheiros de registo não processados no armazenamento de BLOBs e processar os registos ingeridos em escala com scripts Pig e Hive. Particionada web regista os dados são processados, em seguida, para extrair as entradas necessárias para um sistema de recomendação para gerar as recomendações de produtos personalizadas de aprendizagem automática.
 
-O sistema de recomendação utilizado para o machine learning neste exemplo é uma máquina de código-fonte aberto, plataforma de recomendação a partir de aprendizagem [Apache Mahout](http://mahout.apache.org/).  Qualquer [do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ou um modelo personalizado pode ser aplicado para o cenário.  O modelo de Mahout é usado para prever a semelhança entre os itens no Web site com base nos padrões de utilização geral e para gerar as recomendações personalizadas com base no utilizador individual.
+O sistema de recomendação utilizado para o machine learning neste exemplo é uma máquina de código-fonte aberto, plataforma de recomendação a partir de aprendizagem [Apache Mahout](https://mahout.apache.org/).  Qualquer [do Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ou um modelo personalizado pode ser aplicado para o cenário.  O modelo de Mahout é usado para prever a semelhança entre os itens no Web site com base nos padrões de utilização geral e para gerar as recomendações personalizadas com base no utilizador individual.
 
 Por fim, o conjunto de resultados de recomendações de produtos personalizadas é movido para um data mart relacional para consumo pelo Web site varejista.  O conjunto de resultados também poderia ser aceder diretamente a partir do armazenamento de BLOBs por outra aplicação ou movido para arquivos adicionais para outros consumidores e casos de utilização.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/14/2018
 ms.author: mjbrown
-ms.openlocfilehash: c9437f69bf337f79c9531a12af6ac7868261f5b1
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a7fedf0907ecc4c8ced4c5bfe30bb30aeb8f4aca
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992442"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570900"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar o TTL no Azure Cosmos DB
 
@@ -70,6 +70,20 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     UriFactory.CreateDatabaseUri("myDatabaseName"),
     collectionDefinition,
     new RequestOptions { OfferThroughput = 20000 });
+```
+
+### <a id="nodejs-enable-withexpiry"></a>NodeJS SDK
+
+```javascript
+const containerDefinition = {
+          id: "sample container1",
+        };
+
+async function createcontainerWithTTL(db: Database, containerDefinition: ContainerDefinition, collId: any, defaultTtl: number) {
+      containerDefinition.id = collId;
+      containerDefinition.defaultTtl = defaultTtl;
+      await db.containers.create(containerDefinition);
+}
 ```
 
 ## <a name="set-time-to-live-on-an-item"></a>Definir o tempo de duração num item
@@ -138,6 +152,19 @@ SalesOrder salesOrder = new SalesOrder
 };
 ```
 
+### <a id="nodejs-set-ttl-item"></a>NodeJS SDK
+
+```javascript
+const itemDefinition = {
+          id: "doc",
+          name: "sample Item",
+          key: "value", 
+          ttl: 2
+        };
+}
+```
+
+
 ## <a name="reset-time-to-live"></a>Repor o TTL
 
 Pode repor a hora em direto de um item, efetuando uma gravação ou atualizar a operação no item. A operação de escrita ou de atualização irá definir o `_ts` para a hora atual, e o valor de TTL para o item para expirar começarão de novo. Se pretender alterar o TTL de um item, pode atualizar o campo apenas quando atualiza qualquer outro campo.
@@ -177,7 +204,7 @@ response = await client.ReplaceDocumentAsync(readDocument);
 
 ## <a name="disable-time-to-live"></a>Desativar o TTL
 
-Para desativar o tempo em direto de um contentor e parar o processo em segundo plano da verificação para itens expiradas, o `DefaultTimeToLive` propriedade no contentor deve ser eliminada. A eliminar esta propriedade é diferente de defini-la como -1. Ao definir como -1, novos itens adicionados ao contêiner irão durar para sempre, no entanto, pode substituir este valor em itens específicos no contentor. Ao remover a propriedade TTL do contêiner os itens irão expirar, mesmo se existirem que explicitamente que eles tenham substituído o valor TTL predefinido anterior.
+Para desativar o tempo em direto de um contentor e parar o processo em segundo plano da verificação para itens expiradas, o `DefaultTimeToLive` propriedade no contentor deve ser eliminada. A eliminar esta propriedade é diferente de defini-la como -1. Ao definir como -1, novos itens adicionados ao contêiner irão durar para sempre, no entanto, pode substituir este valor em itens específicos no contentor. Ao remover a propriedade TTL do contêiner os itens nunca irão expirar, mesmo se existirem que explicitamente que eles tenham substituído o valor TTL predefinido anterior.
 
 ### <a id="dotnet-disable-ttl"></a>SDK do .NET
 

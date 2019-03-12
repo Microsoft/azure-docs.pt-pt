@@ -3,7 +3,6 @@ title: Principais diferenças para serviços de aprendizagem de máquina de base
 description: Este tópico descreve as principais diferenças entre serviços do Azure SQL Database Machine Learning (com R) e serviços de Machine Learning do SQL Server.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: c750942f8f0f2727d1d11945a84bffb434a01193
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242127"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771855"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Principais diferenças entre os serviços do Machine Learning no Azure SQL Database (pré-visualização) e o SQL Server
 
@@ -59,10 +58,6 @@ Se existir memória suficiente disponível para R, receberá uma mensagem de err
 - Ocorreu um erro de script externo: Erro: não é possível alocar o vetor de tamanho.
 
 Utilização depende da quantidade de memória é utilizada nos scripts R e o número de consultas paralelas que está sendo executada. Se receber os erros acima, pode dimensionar a base de dados para um escalão de serviço mais elevado para resolver este problema.
-
-## <a name="security-isolation"></a>Isolamento de segurança
-
-Na base de dados SQL do Azure, a camada de Abstração de plataforma de SQL (SQLPAL) fornece isolamento de processos externos. Esse isolamento proporciona uma camada extra de segurança para executar R scripts.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

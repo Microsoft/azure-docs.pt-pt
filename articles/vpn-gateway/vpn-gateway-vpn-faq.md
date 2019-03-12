@@ -5,16 +5,16 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/11/2019
 ms.author: yushwang
-ms.openlocfilehash: 7545000e0dda959195d3669da877a77c5bedea40
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 98252f7faf7a456edae71dda5fda44850eef74dc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002064"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766993"
 ---
-# <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
+# <a name="vpn-gateway-faq"></a>FAQ do Gateway de VPN
 
 ## <a name="connecting"></a>Ligar às redes virtuais
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre as ligações do gateway de VPN, veja [About
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>Qual é a diferença entre uma ligação Site a Site e Ponto a Site?
 
-As configurações de **Site a Site** (tunel IPsec/IKE VPN) são entre a localização no local e o Azure. O que significa que pode estabelecer uma ligação a partir de qualquer um dos computadores localizados no local para qualquer máquina virtual ou instância de função na sua rede virtual, dependendo de como escolher configurar o encaminhamento e as permissões. É uma excelente opção para uma ligação em vários locais sempre disponível e é adequada para configurações híbridas. Este tipo de ligação depende de uma aplicação VPN IPsec (dispositivo de hardware ou aplicação de software), que tem de ser implementada na periferia da sua rede. Para criar este tipo de ligação, terá de ter um endereço IPv4 com acesso exterior que não esteja por trás de um NAT.
+As configurações de **Site a Site** (tunel IPsec/IKE VPN) são entre a localização no local e o Azure. O que significa que pode estabelecer uma ligação a partir de qualquer um dos computadores localizados no local para qualquer máquina virtual ou instância de função na sua rede virtual, dependendo de como escolher configurar o encaminhamento e as permissões. É uma excelente opção para uma ligação em vários locais sempre disponível e é adequada para configurações híbridas. Este tipo de ligação depende de uma aplicação VPN IPsec (dispositivo de hardware ou aplicação de software), que tem de ser implementada na periferia da sua rede. Para criar este tipo de ligação, tem de ter um endereço IPv4 com acesso exterior.
 
 As configurações **Ponto a Site** (VPN sobre SSTP) permitem ligar a partir de um único computador em qualquer lugar a qualquer destino localizado na sua rede virtual. Utiliza o cliente VPN fornecido pelo Windows. Como parte da configuração Ponto a Site, instale um certificado e um pacote de configuração do cliente VPN, que contém as definições que permitem que o computador estabeleça ligação a qualquer máquina virtual ou instância de função na rede virtual. É ótimo quando pretende estabelecer ligação a uma rede virtual, mas não está no local. Também é uma boa opção quando não tiver acesso ao hardware VPN ou a um endereço IPv4 com acesso exterior, que são necessários para uma ligação Site a Site.
 

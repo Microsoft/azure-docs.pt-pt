@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a978e1054367620f25043ab810c3fb78c45d9f72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb7fe0689ce54031880565c0c6409afeab2ff523
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310680"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777896"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade de cognitiva OCR
 
@@ -33,6 +33,7 @@ O **OCR** habilidade extrai o texto de arquivos de imagem. Formatos de ficheiro 
 + .PNG
 + .BMP
 + .GIF
++ .TIFF
 
 > [!NOTE]
 > A partir de 21 de Dezembro de 2018, pode [anexar um recurso dos serviços cognitivos](cognitive-search-attach-cognitive-services.md) com um conjunto de capacidades do Azure Search. Isso permite que iniciemos a cobrança de consumo para a execução do conjunto de capacidades. Esta data, também Começámos a cobrar para extração de imagem como parte da fase de aberturas de documentos. Extração de texto de documentos continua a ser disponibilizado sem custos adicionais.
@@ -53,7 +54,7 @@ Parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
-| image         | Tipo complexo. Atualmente, só funciona com o campo de "/ documento/normalized_images", produzido pelo indexador Blob do Azure quando ```imageAction``` está definido como um valor diferente de ```none```. Consulte a [exemplo](#sample-output) para obter mais informações.|
+| imagem         | Tipo complexo. Atualmente, só funciona com o campo de "/ documento/normalized_images", produzido pelo indexador Blob do Azure quando ```imageAction``` está definido como um valor diferente de ```none```. Consulte a [exemplo](#sample-output) para obter mais informações.|
 
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
@@ -204,7 +205,7 @@ O exemplo de conjunto de capacidades acima parte do princípio de que existe um 
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 + [Competências predefinidas](cognitive-search-predefined-skills.md)
 + [Habilidade de TextMerger](cognitive-search-skill-textmerger.md)
 + [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)

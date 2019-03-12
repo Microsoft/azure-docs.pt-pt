@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 84e0d02f2608a6ee94ee409345e530357d394671
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bd085804f532811e71d421e3f683c50c1c3416cb
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233189"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575487"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Criar um VHD compatível com o Azure
 
@@ -35,7 +35,7 @@ Para começar, crie uma VM a partir de um dos seguintes imagens, localizadas no 
 
 -   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/), [2012 Datacenter](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/), [2008 R2 SP1](https://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/))
 -   [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
--   [O SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
+-   [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, Standard, Web)
 
 > [!TIP]
 > Se estiver a utilizar o portal do Azure atual ou o PowerShell, as imagens do Windows Server publicadas a 8 de Setembro de 2014 e versões posteriores são aprovadas.
@@ -48,7 +48,7 @@ Em alternativa, o Azure oferece uma gama de distribuições do Linux aprovadas. 
 No Microsoft [portal do Azure](https://ms.portal.azure.com/), criar a imagem base através dos seguintes passos.
 
 1. Inicie sessão no portal com a conta Microsoft para a subscrição do Azure que pretende publicar a sua oferta VM.
-2. Criar um novo grupo de recursos e fornecer sua **nome do grupo de recursos**, **subscrição**, e **localização do grupo de recursos**.  Para obter mais orientações, veja [gerir grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal#manage-resource-groups).
+2. Criar um novo grupo de recursos e fornecer sua **nome do grupo de recursos**, **subscrição**, e **localização do grupo de recursos**.  Para obter mais orientações, veja [gerir grupos de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 3. Clique em **máquinas virtuais** na barra de menus esquerda para exibir a página de detalhes de máquinas virtuais. 
 4. Nesta página nova, clique em **+ adicionar** para apresentar o **computação** painel.  Se não vir o tipo de VM na tela inicial, pode procurar o nome da sua VM base, por exemplo:
 
