@@ -74,7 +74,7 @@ items:
       href: search-sku-tier.md
     - name: Limites do serviço
       href: search-limits-quotas-capacity.md
-    - name: Alocar partições e réplicas
+    - name: Dimensionar partições e réplicas
       href: search-capacity-planning.md
     - name: Estratégias e melhores práticas de implementação
       href: search-performance-optimization.md
@@ -150,7 +150,7 @@ items:
       href: search-howto-large-index.md
     - name: Processar atualizações em simultâneo
       href: search-howto-concurrency.md
-    - name: Indexadores (crawlers)
+    - name: Indexadores
       items:
       - name: Descrição geral de indexadores
         href: search-indexer-overview.md
@@ -309,9 +309,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: ca754d1244a207fc4c18122e5624af218e6ef04f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1d181caf4728f35d3cfcf68c968b4fbedd85a4e8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404846"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764614"

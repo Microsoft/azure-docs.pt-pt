@@ -208,8 +208,8 @@ items:
     href: https://github.com/Azure/batch-shipyard
   - name: Blogue
     href: https://blogs.technet.microsoft.com/windowshpc/
-  - name: Soluções HPC no Azure
-    href: ../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json
+  - name: HPC no Azure
+    href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/batch/
   - name: Calculadora de preços
@@ -219,12 +219,12 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-batch
+    href: https://stackoverflow.com/questions/tagged/azure-batch
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=batch
-ms.openlocfilehash: 52f663620afe5a2e36e37dca14778a9737aadacd
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: c3a3bdf7de26fca6a7a4b4b54102621ec46ce9dc
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594411"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729161"

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7c3de22c536aeebe90417625df763ba6dd15f823
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 2b7bbac4de56bce7696b543c07bd40028db5e7a0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106788"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533073"
 documentType: LandingData
 title: Documentação do Serviço Azure SignalR
 metadata:
@@ -34,18 +34,22 @@ sections:
       text: Núcleo de ASP.NET
       href: /azure/azure-signalr/signalr-quickstart-dotnet-core
     - image:
-        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+        src: https://docs.microsoft.com/media/logos/logo_js.svg
       text: JavaScript
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-javascript
     - image:
-        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+        src: https://docs.microsoft.com/media/logos/logo_Csharp.svg
       text: C#
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
+    - image:
+        src: https://docs.microsoft.com/azure/media/index/logo_java.svg
+      text: Java
+      href: /azure/azure-signalr/signalr-quickstart-azure-functions-java
     - image:
         src: https://docs.microsoft.com/media/logos/logo_REST.svg
       text: API REST
       href: /azure/azure-signalr/signalr-quickstart-rest-api
-- title: Tutoriais Passo-a-Passo
+- title: Tutoriais passo-a-passo
   items:
   - type: paragraph
     text: Aprenda a criar aplicações do Serviço Azure SignalR
@@ -53,25 +57,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Integrar o Serviço do Azure SignalR com o ASP.NET Core Identity</a>
-    - html: <a href="/azure/azure-signalr/signalr-authenticate-azure-functions">Criar uma Aplicação sem Servidor em Tempo Real com a Autenticação</a>
-- title: Referência
-  items:
-  - type: paragraph
-    text: Programa Azure SignalR
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://docs.microsoft.com/aspnet/core">SDK de ASP.NET Core</a>
-    - html: <a href="/azure/azure-functions/functions-bindings-signalr-service">Enlaces das Funções do Azure</a>
-    - html: <a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">API REST</a>
-  - type: paragraph
-    text: Ligar ao Azure SignalR com SDKs de Clientes
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">JavaScript</a>
-    - html: <a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">.NET Standard</a>
-    - html: <a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Java</a>
+    - html: <a href="/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions">Criar uma Aplicação sem Servidor em Tempo Real com a Autenticação</a>
 - title: Amostras
   items:
   - type: list
@@ -80,3 +66,16 @@ sections:
     items:
     - html: <a href="https://github.com/aspnet/AzureSignalR-samples">Exemplos de Código do Azure SignalR</a>
     - html: <a href="/azure/azure-signalr/signalr-cli-samples">CLI do Azure</a>
+- title: Referência
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Linha de Comandos
+      html: <p><a href="signalr-reference-cli.md">CLI do Azure</a></p>
+    - title: Linguagens
+      html: >
+        <p><a href="https://docs.microsoft.com/aspnet/core">SDK do servidor ASP.NET Core</a></p> <p><a href="/azure/azure-functions/functions-bindings-signalr-service">Enlaces das Funções do Azure</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">Cliente JavaScript</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">Cliente .NET Standard</a></p> <p><a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Cliente Java</a></p>
+    - title: REST
+      html: <p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">API REST</a></p>

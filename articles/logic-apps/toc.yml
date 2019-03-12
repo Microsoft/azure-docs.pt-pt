@@ -285,6 +285,10 @@ items:
       href: logic-apps-enterprise-integration-accounts.md
     - name: Migrar para o esquema mais recente
       href: ../connectors/connectors-schema-migration.md
+  - name: Teste
+    items:
+    - name: Testar aplicações lógicas com dados fictícios
+      href: test-logic-apps-mock-data-static-results.md
   - name: Implementação
     items:
     - name: Definir e implementar as aplicações lógicas
@@ -377,9 +381,9 @@ items:
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-ms.openlocfilehash: 8462370028979fe70ffbc3666489665d375b7b46
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5332674f8e31a210c5d018c9b9747fe756c0b236
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441462"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771366"

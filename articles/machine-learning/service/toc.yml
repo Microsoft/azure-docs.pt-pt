@@ -53,8 +53,16 @@ items:
     href: concept-accelerate-with-fpgas.md
   - name: Pipelines de aprendizagem automática
     href: concept-ml-pipelines.md
-  - name: Segurança empresarial
-    href: concept-enterprise-security.md
+  - name: Segurança
+    items:
+    - name: Descrição geral da segurança empresarial
+      displayName: authorization authentication encryption
+      href: concept-enterprise-security.md
+    - name: Utilizar redes virtuais
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: Proteja os serviços Web com SSL
+      href: how-to-secure-web-service.md
 - name: Guias de procedimentos
   items:
   - name: Gerir áreas de trabalho
@@ -113,6 +121,8 @@ items:
     - name: Utilizar destinos de computação remota
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
+    - name: Preparar automaticamente modelos de previsão
+      href: how-to-auto-train-forecast.md
   - name: Modelos ONNX
     href: how-to-build-deploy-onnx.md
   - name: Implementar modelos
@@ -139,13 +149,6 @@ items:
       href: how-to-enable-data-collection.md
     - name: Monitorizar com o Application Insights
       href: how-to-enable-app-insights.md
-  - name: Segurança
-    items:
-    - name: Utilizar redes virtuais
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: Proteja os serviços Web com SSL
-      href: how-to-secure-web-service.md
   - name: Criar o seu primeiro pipeline
     href: how-to-create-your-first-pipeline.md
   - name: Ativar registo
@@ -189,9 +192,9 @@ items:
     href: support-for-aml-services.md
   - name: Comparar os nossos produtos de ML
     href: overview-more-machine-learning.md
-ms.openlocfilehash: 5d7cdcec4e0b855f509539a1fc79015793efc404
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 19a26ea88ba8c8e820e838a7c96a802180129dd7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192136"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766271"

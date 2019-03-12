@@ -124,8 +124,6 @@ items:
     href: monitor.md
   - name: Cópia de segurança e recuperação
     href: backup-recovery.md
-  - name: Computação de alto desempenho
-    href: high-performance-computing.md
   - name: Considerações sobre implementação
     items:
     - name: Diretrizes de infraestruturas
@@ -398,7 +396,7 @@ items:
       - name: MS SQL no Linux
         href: /sql/linux/sql-server-linux-azure-virtual-machine
     - name: Computação de Alto Desempenho (HPC)
-      href: https://docs.microsoft.com/powershell/high-performance-computing/overview
+      href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
     - name: IBM Db2 pureScale
       items:
       - name: Arquitetura
@@ -407,49 +405,52 @@ items:
         href: deploy-ibm-db2-purescale-azure.md
   - name: Gerir o armazenamento
     items:
-    - name: FAQ sobre discos
-      href: faq-for-disks.md
     - name: Adicionar um disco
       items:
       - name: CLI do Azure
         href: add-disk.md
       - name: Portal do Azure
         href: attach-disk-portal.md
-    - name: Criar um disco de referência
-      href: disks-benchmarks.md
     - name: Desligar um disco
       href: detach-disk.md
+    - name: Implementar discos com modelo
+      href: using-managed-disks-template-deployments.md
     - name: Redimensionar um disco
       href: expand-disks.md
     - name: Tirar um instantâneo de um disco
       href: snapshot-copy-managed-disk.md
     - name: Fazer cópia de segurança de discos não geridos
       href: incremental-snapshots.md
-    - name: Converter para o Managed Disks
-      href: convert-unmanaged-to-managed-disks.md
-    - name: Converter o disco entre Standard e Premium
-      href: convert-disk-storage.md
+    - name: Migração e conversão
+      items:
+      - name: Migrar para o armazenamento Premium com o Azure Site Recovery
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Converter para o Managed Disks
+        href: convert-unmanaged-to-managed-disks.md
+      - name: Converter o disco entre Standard e Premium
+        href: convert-disk-storage.md
     - name: Copiar ficheiros para uma VM
       href: copy-files-to-linux-vm-using-scp.md
-    - name: Migrar para o armazenamento Premium com o Azure Site Recovery
-      href: migrate-to-premium-storage-using-azure-site-recovery.md
-    - name: Encontrar discos desanexados
-      href: find-unattached-disks.md
-    - name: Utilizar o Armazenamento de Ficheiros
-      href: mount-azure-file-storage-on-linux-using-smb.md
-    - name: Implementar discos com modelo
-      href: using-managed-disks-template-deployments.md
-    - name: Utilizar o acelerador de escrita
-      href: how-to-enable-write-accelerator.md
-    - name: Ativar o SSD Ultra
-      href: disks-enable-ultra-ssd.md
-    - name: Otimizar o desempenho
-      href: optimization.md
+    - name: Desempenho
       items:
+      - name: Utilizar o acelerador de escrita
+        href: how-to-enable-write-accelerator.md
+      - name: Ativar o SSD Ultra
+        href: disks-enable-ultra-ssd.md
+      - name: Criar um disco de referência
+        href: disks-benchmarks.md
+      - name: Otimizar o desempenho
+        href: optimization.md
       - name: Configurar o RAID de software
         href: configure-raid.md
       - name: Configurar LVM
         href: configure-lvm.md
+    - name: Encontrar discos desanexados
+      href: find-unattached-disks.md
+    - name: Utilizar o Armazenamento de Ficheiros
+      href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: FAQ sobre discos
+      href: faq-for-disks.md
   - name: Gerir redes
     items:
     - name: Criar a rede virtual
@@ -559,9 +560,9 @@ items:
     href: faq.md
 - name: Resolução de problemas
   href: ../troubleshooting/index.md
-ms.openlocfilehash: 776adc5310db7c4a7762409a53c57e896cc95360
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ade43488288949aa22942c8df2d6900e4522615a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438294"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732021"

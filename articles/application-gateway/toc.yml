@@ -44,6 +44,8 @@ items:
     href: how-application-gateway-works.md
   - name: Componentes do Gateway de Aplicação
     href: application-gateway-components.md
+  - name: Descrição geral da configuração
+    href: configuration-overview.md
   - name: SSL
     items:
     - name: Descrição geral da política SSL
@@ -78,12 +80,14 @@ items:
   items:
   - name: Gerir o tráfego da web
     items:
-    - name: Azure PowerShell
+    - name: Portal do Azure
       href: tutorial-manage-web-traffic-powershell.md
     - name: Modelo
       href: create-vmss-template.md
   - name: Configurar o balanceador de carga interno
     items:
+    - name: Portal do Azure
+      href: configure-application-gateway-with-private-frontend-ip.md
     - name: Azure PowerShell
       href: application-gateway-ilb-arm.md
   - name: Configurar a terminação de SSL
@@ -212,9 +216,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 7fe790e7b75e3cf6bead50635b7be690b1b7eeb7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 57ae904b8bc65ef9b249b055d8f1abb3b25c4752
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309048"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729964"

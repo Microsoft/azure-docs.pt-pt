@@ -20,7 +20,7 @@ items:
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
-  - name: Log Analytics
+  - name: Registos do Azure Monitor
     href: log-analytics-samples.md
 - name: Conceitos
   items:
@@ -74,9 +74,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/azure-firewall/
   - name: Disponibilidade regional
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 00f15dafcf5db5ee2e5e488b1a7d806308caea96
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 27b1a3e3b6bc0b030d1cb559dc7543edc984c191
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243113"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543649"

@@ -118,6 +118,10 @@ items:
       href: reacting-to-media-services-events.md
     - name: Esquemas do Event Grid
       href: media-services-event-schemas.md
+    - name: Métricas e registos de diagnósticos
+      href: media-services-metrics-diagnostic-logs.md
+    - name: Esquemas dos registos de diagnósticos
+      href: media-services-diagnostic-logs-schema.md
   - name: Clientes de leitores
     items:
     - name: Media Player do Azure
@@ -246,9 +250,9 @@ items:
     href: frequently-asked-questions.md
   - name: Regiões e clouds do Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 72f2ea0935d8a766edd1ae87b41d6b16b8ea28f1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5a25312b9a66bcde3523735046ed1df6661f7c61
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446857"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532813"

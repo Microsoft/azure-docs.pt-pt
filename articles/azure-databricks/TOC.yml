@@ -43,6 +43,8 @@ items:
     href: https://docs.azuredatabricks.net/user-guide/bi/index.html
   - name: Planear recuperação após desastre
     href: howto-regional-disaster-recovery.md
+  - name: Guia de MLflow
+    href: https://docs.azuredatabricks.net/applications/mlflow/index.html
 - name: Referência
   items:
   - name: API REST
@@ -69,9 +71,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 2281004f4528101d99a3214f440c96e9071ce1d0
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d35ad21cf21b273bb36fa933dac779baf4a5a965
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117304"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551556"

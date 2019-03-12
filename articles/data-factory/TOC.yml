@@ -304,6 +304,9 @@ items:
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
       href: connector-sap-business-warehouse-open-hub.md
+      items:
+      - name: Carregar dados do SAP BW
+        href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
@@ -353,6 +356,8 @@ items:
       href: load-azure-sql-data-warehouse.md
     - name: Carregar o Armazenamento do Data Lake Ger1
       href: load-azure-data-lake-store.md
+    - name: Carregar dados do SAP BW
+      href: load-sap-bw-data.md
     - name: Carregar dados do Office 365
       href: load-office-365-data.md
     - name: Ler ou escrever dados particionados
@@ -580,9 +585,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 9aeca35dbd68a5707725f9720495f090950d735c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8c724971db16381bb327cca6a30c5b8d63cac2bc
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456300"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730756"
