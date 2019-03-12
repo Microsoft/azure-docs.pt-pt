@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: e33606e0b5be0db5306cfd42f87baf59671eb2a8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451734"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569030"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Transformação de origem de fluxo de dados de mapeamento
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-A transformação de origem configura uma origem de dados que deseja usar para trazer dados para o seu fluxo de dados. Talvez tenha mais do que uma transformação de origem num único fluxo de dados. Sempre comece criando seus fluxos de dados com uma origem.
+A transformação de origem configura uma origem de dados que deseja usar para trazer dados para o seu fluxo de dados. Talvez tenha mais do que uma transformação de origem num único fluxo de dados. Sempre comece criando a seus fluxos de dados com uma transformação de origem.
 
 > [!NOTE]
-> Cada fluxo de dados requer, pelo menos, uma transformação de origem. Adicione tantas outras fontes que forem necessárias para concluir as transformações de dados. Pode associar essas origens em conjunto com uma associação ou transformação Union.
+> Cada fluxo de dados requer, pelo menos, uma transformação de origem. Adicione tantas outras fontes que forem necessárias para concluir as transformações de dados. Pode associar essas origens em conjunto com uma associação ou transformação Union. Ao depurar o fluxo de dados em sessões de depuração, os dados serão lidos a partir da origem através da definição de amostragem ou limites de origem de depuração. No entanto, não existem dados serão escritos para um Sink até que executar o fluxo de dados de uma atividade de fluxo de dados do pipeline. 
 
 ![Opções de transformação de origem](media/data-flow/source.png "origem")
 
-Cada transformação de origem do fluxo de dados tem de estar associada a exatamente um Dataset de fábrica de dados, que define a forma e a localização dos seus dados para escrever ou ler a partir do. Pode utilizar listas de carateres universais e os ficheiros na sua origem para trabalhar com mais de um arquivo cada vez.
+Cada transformação de origem do fluxo de dados tem de estar associada a exatamente um conjunto de dados do Data Factory. O conjunto de dados define a forma e a localização dos seus dados para escrever ou ler a partir de. Pode utilizar carateres universais e ficheiro de lista na sua origem para trabalhar com mais de um arquivo cada vez ao utilizar origens de ficheiros.
 
 ## <a name="data-flow-staging-areas"></a>Áreas de preparo de fluxo de dados
 
@@ -43,7 +43,7 @@ Selecione permitir Descompassos de esquema se as colunas de origem serão altera
 Em seguida, se a versão de entrada dos dados de origem não corresponde um esquema definido, a execução de fluxo de dados irá falhar.
 
 ### <a name="sampling"></a>Amostragem
-Utilize amostragem para limitar o número de linhas da sua origem.  Isto é útil quando precisa apenas uma amostra dos seus dados de origem para teste e fins de depuração.
+Utilize amostragem para limitar o número de linhas da sua origem.  Isto é útil quando o teste ou de dados da sua origem para fins de depuração de amostragem.
 
 ## <a name="define-schema"></a>Definir esquema
 
@@ -63,7 +63,7 @@ No separador de otimização para a transformação de origem, verá um tipo de 
 
 A criação de partições de dados na sua origem de BD SQL é opcional, mas é útil para consultas grandes. Tem duas opções:
 
-### <a name="column"></a>Coluna
+### <a name="column"></a>colunas
 
 Selecione uma coluna para a partição da sua tabela de origem. Também tem de definir o número máximo de ligações.
 

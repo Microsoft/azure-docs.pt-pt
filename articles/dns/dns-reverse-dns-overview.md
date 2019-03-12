@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: victorh
-ms.openlocfilehash: fa3798a35804998936e0ac166fceff02b01231a0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 9d3a62ec1c9ede1f25f2b53f800642a792b3aa28
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171515"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534400"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Descrição geral do DNS inverso e de suporte no Azure
 
@@ -48,9 +48,9 @@ Por exemplo, ao criar uma zona inversa para registos de anfitrião para anfitri�
 
 |Classe de sub-rede|Prefixo de rede  |Prefixo de rede invertido  |Sufixo padrão  |Nome de zona inversa |
 |-------|----------------|------------|-----------------|---------------------------|
-|Classe A|203.0.0.0/8     | 203        | addr. in   | `203.in-addr.arpa`        |
-|Classe B|198.51.0.0/16   | 51.198     | addr. in   | `51.198.in-addr.arpa`     |
-|Classe C|192.0.2.0/24    | 2.0.192    | addr. in   | `2.0.192.in-addr.arpa`    |
+|Classe A|203.0.0.0/8     | 203        | .in-addr.arpa   | `203.in-addr.arpa`        |
+|Classe B|198.51.0.0/16   | 51.198     | .in-addr.arpa   | `51.198.in-addr.arpa`     |
+|Classe C|192.0.2.0/24    | 2.0.192    | .in-addr.arpa   | `2.0.192.in-addr.arpa`    |
 
 ### <a name="classless-ipv4-delegation"></a>Classless delegação de IPv4
 
@@ -94,8 +94,8 @@ Por exemplo. Se criar uma zona inversa para registos de anfitrião para anfitri�
 
 |Prefixo de rede  |Prefixo de rede expandida e invertido |Sufixo padrão |Nome de zona inversa  |
 |---------|---------|---------|---------|
-|2001:DB8:abdc:: / 64    | 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2        | . ip6.arpa        | `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa`       |
-|2001:DB8:1000:9102:: / 64    | 2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2        | . ip6.arpa        | `2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2.ip6.arpa`        |
+|2001:db8:abdc::/64    | 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2        | .ip6.arpa        | `0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa`       |
+|2001:db8:1000:9102::/64    | 2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2        | .ip6.arpa        | `2.0.1.9.0.0.0.1.8.b.d.0.1.0.0.2.ip6.arpa`        |
 
 
 ## <a name="azure-support-for-reverse-dns"></a>Suporte do Azure para DNS inverso
@@ -109,7 +109,7 @@ O DNS do Azure podem ser utilizado para [alojar zonas de pesquisa inversa e geri
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre DNS inverso, consulte [pesquisa reversa de DNS na Wikipédia](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
+Para obter mais informações sobre DNS inverso, consulte [pesquisa reversa de DNS na Wikipédia](https://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
 Saiba como [alojam a zona de pesquisa inversa para o seu intervalo IP atribuído por ISP no DNS do Azure](dns-reverse-dns-for-azure-services.md).
 <br>

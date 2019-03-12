@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 5e614d7fc1b45e5a1e1c11d04ed80fbb66bfbd28
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bb315ff19aedd839c2b0638726be84343dcf4ec3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441615"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545367"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Como utilizar o reconhecimento de entidades com o nome na análise de texto (pré-visualização)
 
@@ -62,7 +62,7 @@ Através do entity linking em várias linguagens requer a utilização de uma ba
 | DateTime      | Duração      | "1 minuto e 45 segundos"   | 
 | DateTime      | Definir           | "cada terça-feira"     | 
 | DateTime      | TimeZone      |    | 
-| do IdP           | N/A\*         | "http://www.bing.com"    |
+| do IdP           | N/A\*         | "https://www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 \* Consoante as entidades de entrada e extraídas, determinadas entidades podem omitir o `SubType`.
 

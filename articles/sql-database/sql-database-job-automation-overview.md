@@ -3,7 +3,6 @@ title: Automatização de tarefa SQL do Azure | Documentos da Microsoft
 description: Utilizar a automatização de tarefas para executar scripts do Transact-SQL (T-SQL) num conjunto de um ou mais bases de dados de SQL do Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 090c3919bcaee98f5ef398cd581bbf9070f5e87a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457212"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765341"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão com tarefas de base de dados
 
@@ -78,7 +77,7 @@ Outros tipos de passos da tarefa não são atualmente suportados, incluindo:
 - Leitor de fila não é suportada.
 - Não é suportado do Analysis Services
 
-### <a name="job-schedules"></a>Agendas de tarefas
+### <a name="job-schedules"></a>Agendas de trabalhos
 
 Uma agenda Especifica quando é executada uma tarefa. Mais do que uma tarefa pode ser executado na agenda mesmo e, mais do que uma agenda pode aplicar a mesma tarefa.
 Uma agenda pode definir as seguintes condições para a hora quando uma tarefa é executada:

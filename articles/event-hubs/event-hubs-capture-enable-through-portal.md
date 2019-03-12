@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 2cfd984129097b598c08e53b3698dc32ed616cca
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 6d307111d8c19324cb6daf82a234ff9128103fd2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810672"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763440"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Ativar a captura de eventos de transmissão em fluxo através dos Hubs de eventos do Azure
 

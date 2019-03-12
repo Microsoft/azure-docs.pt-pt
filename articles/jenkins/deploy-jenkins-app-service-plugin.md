@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 0ecd0603a5750b6d03da7cf2c577c668482048aa
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 98e1f982eb627db2a7d2126109e5897c45649ce9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077322"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545129"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar no Serviço de Aplicações do Azure com o plug-in Jenkins 
 
@@ -77,7 +77,7 @@ Antes de configurar o trabalho no Jenkins, precisa de um plano do Serviço de Ap
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. Configure a configuração do runtime de Java de que a sua aplicação precisa. O seguinte comando da CLI do Azure configura a aplicação Web para ser executada num JDK 8 recente e no [Apache Tomcat](http://tomcat.apache.org/) versão 8.0:
+3. Configure a configuração do runtime de Java de que a sua aplicação precisa. O seguinte comando da CLI do Azure configura a aplicação Web para ser executada num JDK 8 recente e no [Apache Tomcat](https://tomcat.apache.org/) versão 8.0:
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \

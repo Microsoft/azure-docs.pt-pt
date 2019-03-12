@@ -7,19 +7,19 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c24d8bd382dc57a8a354b61252d7a5e16640436f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864652"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763611"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>A adição de recursos de automatização do Azure para uma solução de gestão (pré-visualização)
 > [!NOTE]
@@ -213,7 +213,7 @@ Utilize uma das seguintes duas estratégias ao usar recursos de agendamento numa
 - Crie os agendamentos com um runbook que é iniciado quando a solução está instalada.  Esta ação remove o requisito do utilizador para especificar uma hora, mas não pode conter a agenda na sua solução para que esta será removida quando a solução é removida.
 
 
-### <a name="job-schedules"></a>Agendas de tarefas
+### <a name="job-schedules"></a>Agendas de trabalhos
 Recursos de agendamento de tarefa ligar um runbook com base numa agenda.  Eles têm um tipo de **Microsoft.Automation/automationAccounts/jobSchedules** e ter a seguinte estrutura.  Isto inclui as variáveis e parâmetros comuns, para que pode copiar e cole este fragmento de código no seu ficheiro de solução e alterar os nomes de parâmetro. 
 
     {
@@ -283,7 +283,7 @@ Se definir o valor inicial para a variável, tem de ser configurado como o tipo 
 |:--|:--|:--|:--|
 | string   | Coloque o valor entre aspas duplas.  | "\"Olá, mundo\"" | "Hello world" |
 | numérico  | Valor numérico com aspas simples.| "64" | 64 |
-| boolean  | **TRUE** ou **false** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
+| booleano  | **TRUE** ou **false** aspas.  Tenha em atenção que este valor tem de estar em minúsculo. | "true" | true |
 | datetime | Valor de data serializada.<br>Pode utilizar o cmdlet ConvertTo-Json no PowerShell para gerar este valor para uma data específica.<br>Exemplo: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Módulos
@@ -322,7 +322,7 @@ Se atualizar uma solução de gestão que inclui um runbook que utilize uma agen
 
 
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Exemplo
 Segue-se um exemplo de uma solução que incluem o que inclui os seguintes recursos:
 
 - Runbook.  Trata-se de um runbook de exemplo armazenado num repositório do GitHub público.

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e7efe1a8632643e2a299b6c9a1b1407414deee4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436930"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542952"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Compreender os modelos de objeto de duplos Digital e gráfico de inteligência espaciais
 
@@ -82,7 +82,7 @@ Depois de implementar duplos Digital do [portal do Azure](https://portal.azure.c
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nome | Substituir |
+| Name | Substituir |
 | --- | --- |
 | YOUR_INSTANCE_NAME | O nome da sua instância de duplos Digital |
 | YOUR_LOCATION | Qual sua instância estiver alojada num servidor a região |
@@ -99,7 +99,7 @@ Para obter mais detalhes sobre como utilizar gráficos de inteligência espaciai
 
 Saiba mais sobre [como utilizar o Swagger](how-to-use-swagger.md).
 
-Todas as chamadas de API tem de ser autenticadas utilizando [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). Siga as APIs [convenções de diretrizes do Microsoft REST API](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que retornam coleções suporta [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) opções de consulta do sistema.
+Todas as chamadas de API tem de ser autenticadas utilizando [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). Siga as APIs [convenções de diretrizes do Microsoft REST API](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). A maioria das APIs que retornam coleções suporta [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) opções de consulta do sistema.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

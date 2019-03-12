@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/12/2018
-ms.openlocfilehash: 4a3677dc5402948fc0105190d1891d709291d0f7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: a5b544db713f671230e4a226b1e0bdcfa77fbb2b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317735"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575244"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remover um protetor de encriptação de dados transparente (TDE) com o PowerShell
 
@@ -46,7 +46,7 @@ Este guia de procedimentos é feito por duas abordagens consoante o resultado pr
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Para manter os recursos encriptados acessível
 
-1. Criar uma [nova chave no Cofre de chaves](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Certifique-se de que esta chave nova é criada num cofre de chaves separado do protetor de TDE potencialmente comprometido, uma vez que o controlo de acesso é aprovisionado num nível de cofre. 
+1. Criar uma [nova chave no Cofre de chaves](/powershell/module/az.keyvault/add-azkeyvaultkey). Certifique-se de que esta chave nova é criada num cofre de chaves separado do protetor de TDE potencialmente comprometido, uma vez que o controlo de acesso é aprovisionado num nível de cofre.
 2. Adicionar a nova chave para o servidor utilizando o [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) e [conjunto AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets e atualizá-lo como protetor de TDE novo do servidor.
 
    ```powershell
@@ -74,12 +74,12 @@ Este guia de procedimentos é feito por duas abordagens consoante o resultado pr
    -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
-4. Efetuar uma [cópia de segurança da chave nova](/powershell/module/az.keyvault/backup-azurekeyvaultkey) no Cofre de chaves.
+4. Efetuar uma [cópia de segurança da chave nova](/powershell/module/az.keyvault/backup-azkeyvaultkey) no Cofre de chaves.
 
    ```powershell
    <# -OutputFile parameter is optional; 
    if removed, a file name is automatically generated. #>
-   Backup-AzureKeyVaultKey `
+   Backup-AzKeyVaultKey `
    -VaultName <KeyVaultName> `
    -Name <KeyVaultKeyName> `
    -OutputFile <DesiredBackupFilePath>
@@ -93,7 +93,7 @@ Este guia de procedimentos é feito por duas abordagens consoante o resultado pr
    -Name <KeyVaultKeyName>
    ```
  
-6. Para restaurar uma chave para o Cofre de chaves no futuro com o [restauro AzKeyVaultKey](/powershell/module/az.keyvault/restore-azurekeyvaultkey) cmdlet:
+6. Para restaurar uma chave para o Cofre de chaves no futuro com o [restauro AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet:
    ```powershell
    Restore-AzKeyVaultKey `
    -VaultName <KeyVaultName> `

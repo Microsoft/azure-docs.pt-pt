@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f47de0544d6d708d3c8b104be4edada86c11551
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 993a8ca48df40b400c21852d3d28941d9d62affb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190369"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549022"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -97,10 +97,10 @@ Selecione um item na vista de lista para obter informações mais detalhadas.
 Para limitar os dados comunicados para um nível que funcione para si, pode filtrar os dados dos inícios de sessão através dos seguintes campos predefinidos:
 
 - Utilizador
-- Aplicação
+- Candidatura
 - Estado de início de sessão
 - Acesso Condicional
-- Date
+- Data
 
 ![Atividade de início de sessão](./media/concept-sign-ins/04.png "Atividade de início de sessão")
 
@@ -110,15 +110,15 @@ O filtro **Aplicação** permite-lhe especificar o nome da aplicação que mais 
 
 O filtro **Estado do início de sessão** permite-lhe selecionar:
 
-- Todos
+- Tudo
 - Êxito
 - Falha
 
 O **acesso condicional** filtro permite-lhe selecionar o estado de política de AC para o início de sessão:
 
-- Todos
+- Tudo
 - Não Aplicado
-- Êxito
+- Com êxito
 - Falha
 
 O filtro **Data** permite-lhe definir um período de tempo para os dados devolvidos.  
@@ -127,7 +127,7 @@ Os valores possíveis são:
 - 1 mês
 - 7 dias
 - 24 horas
-- Intervalo de tempo personalizado
+- Intervalo de Tempo Personalizado
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 
@@ -149,23 +149,13 @@ Se adicionar mais campos à vista de inícios de sessão, estes campos são adic
 
 ## <a name="download-sign-in-activities"></a>Transferir atividades de início de sessão
 
-Pode [transferir os dados de inícios de sessão](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure. Ao clicar em **Transferir** cria um ficheiro CSV dos 5000 registos mais recentes.  Além de um botão de transferência, o portal do Azure também fornece uma opção para [gerar um script para transferir os seus dados](tutorial-signin-logs-download-script.md).  
+Pode [transferir os dados de inícios de sessão](quickstart-download-sign-in-report.md) se quiser trabalhar com eles fora do portal do Azure. Clicar **transferir** lhe dá a opção para criar um ficheiro CSV ou JSCON dos 250 000 registos mais recentes.  
 
 ![Transferir](./media/concept-sign-ins/71.png "Transferir")
-
-Se necessita de mais flexibilidade, pode utilizar a solução de script. Clicar **Script** cria um script do PowerShell que inclui todos os filtros que definiu. Transfira e execute este script numa **modo de administrador** para gerar o ficheiro CSV. 
 
 > [!IMPORTANT]
 > O número de registos, pode transferir é restrita pela [políticas de retenção de relatórios do Azure Active Directory](reference-reports-data-retention.md).  
 
-### <a name="running-the-script-on-a-windows-10-machine"></a>Executar o script num computador Windows 10
-
-Se quiser executar o script num **Windows 10** máquina, precisa executar algumas etapas adicionais primeiro. 
-
-1. Instalar o [módulo Az](/powershell/azure/install-az-ps).
-2. Importe o módulo ao abrir uma linha de comandos do PowerShell e executar o comando **Import-Module Az**.
-3. Execute **Set-ExecutionPolicy irrestrito** e escolha **Sim para todos**. 
-4. Agora pode executar o script do PowerShell transferido no modo de administrador para gerar o ficheiro CSV.
 
 ## <a name="sign-ins-data-shortcuts"></a>Atalhos de dados de inícios de sessão
 
@@ -174,7 +164,7 @@ Para além do Azure AD, o portal do Azure fornece pontos de entrada adicionais p
 - A descrição de geral de proteção de segurança de identidade
 - Utilizadores
 - Grupos
-- Aplicações Empresariais
+- Aplicações empresariais
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de inícios de sessão de utilizadores na proteção de segurança de identidade
 
@@ -196,12 +186,12 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - ID de Utilizador
 - Utilizador
 - Nome de utilizador
-- ID da aplicação
-- Aplicação
+- ID da Aplicação
+- Candidatura
 - Cliente
 - Localização
 - Endereço IP
-- Date
+- Data
 - MFA Necessário
 - Estado de início de sessão
 

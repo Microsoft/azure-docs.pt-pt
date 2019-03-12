@@ -14,14 +14,14 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bc579cd372616563b61e5ba04fe32612f3efb1c7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474349"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541252"
 ---
-# <a name="persist-job-and-task-output"></a>Manter saída de trabalhos e tarefas
+# <a name="persist-job-and-task-output"></a>Saída persistente de função e tarefa
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
@@ -93,5 +93,5 @@ Ao criar a sua solução do Batch, considere os seguintes fatores relacionados c
 
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
-[storage_explorer]: http://storageexplorer.com/
+[storage_explorer]: https://storageexplorer.com/
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 

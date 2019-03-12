@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092799"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531594"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Linux no Azure
 
@@ -177,7 +177,7 @@ Para executar ações adicionais em VMs que necessitam de atualizações, a Auto
 
 O processo de validação também verifica se a VM está aprovisionada com o agente do Log Analytics e o trabalho de runbook híbrida de automatização. Este agente serve para comunicar com a VM e obter informações sobre o estado de atualização.
 
-Escolha a área de trabalho da Análise de registo e a conta de automatização e selecione **Ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
+Escolha a conta de área de trabalho e a automatização do Log Analytics e selecione **ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
 
 Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a inclusão, estes serão adicionados automaticamente:
 
@@ -185,11 +185,11 @@ Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a i
 * [Conta de automatização](../../automation/automation-offering-get-started.md)
 * Uma [Função de trabalho de runbook híbrida](../../automation/automation-hybrid-runbook-worker.md) está ativada na VM
 
-O ecrã **Gestão de Atualizações** é apresentado. Configure a localização, a área de trabalho da Análise de registos e a Conta de automatização a utilizar e selecione **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
+O ecrã **Gestão de Atualizações** é apresentado. Configurar a localização, a área de trabalho do Log Analytics e a conta de automatização para utilizar e selecione **ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
 
 ![Ativar a solução de Gestão de atualizações](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
-A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser. Após a ativação da solução, as informações sobre atualizações em falta na VM são transmitidas ao Log Analytics. Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
+A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser. Após a solução está ativada, informações sobre atualizações em falta na VM são transmitidas para registos do Azure Monitor. Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
 
 ### <a name="view-update-assessment"></a>Ver avaliação de atualizações
 
@@ -258,7 +258,7 @@ Ativar a Gestão de alterações e de inventário na VM:
 2. Na lista, selecione uma VM.
 3. No ecrã da VM, na secção **Operações**, selecione **Inventário** ou **Controlo de alterações**. É aberto o ecrã **Ativar o Controlo de Alterações e Inventário**.
 
-Configure a localização, a área de trabalho da Análise de registos e a Conta de automatização a utilizar e selecione **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
+Configurar a localização, a área de trabalho do Log Analytics e a conta de automatização para utilizar e selecione **ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
 
 ![Ativar o Controlo de Alterações e Inventário](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -294,7 +294,7 @@ Pode fazer mais avançadas de monitorização da sua VM, com uma solução como 
 
 Do espaço de trabalho do Log Analytics a VM está ligada, também pode obter, consolidar e analisar os dados recolhidos com o [linguagem de consulta avançada](../../azure-monitor/log-query/log-query-overview.md). 
 
-![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Área de trabalho do Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

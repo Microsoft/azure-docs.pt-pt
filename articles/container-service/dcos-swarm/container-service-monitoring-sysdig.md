@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 3b6781a6b87f9f11b341cf3cf2bcf6668b640c2b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 39cd5a3fe7db0c442608e7943e7cbd6e3198edfb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992183"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547797"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(PRETERIDO) Monitorizar um cluster do Azure Container Service com o Sysdig
 
@@ -23,7 +23,7 @@ ms.locfileid: "52992183"
 Neste artigo, vamos implementar agentes do Sysdig em todos os nós de agentes no seu cluster do Azure Container Service. Para esta configuração, é necessária uma conta do Sysdig. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-[Implemente](container-service-deployment.md) e [ligue](../container-service-connect.md) um cluster configurado pelo Azure Container Service. Explore a [IU do Marathon](container-service-mesos-marathon-ui.md). Aceda a [ http://app.sysdigcloud.com ](http://app.sysdigcloud.com) para configurar uma conta do Sysdig na nuvem. 
+[Implemente](container-service-deployment.md) e [ligue](../container-service-connect.md) um cluster configurado pelo Azure Container Service. Explore a [IU do Marathon](container-service-mesos-marathon-ui.md). Aceda a [ https://app.sysdigcloud.com ](https://app.sysdigcloud.com) para configurar uma conta do Sysdig na nuvem. 
 
 ## <a name="sysdig"></a>Sysdig
 O Sysdig é um serviço de monitorização que lhe permite monitorizar os seus contentores no cluster. O Sysdig é conhecido por ajudá-lo em resolução de problemas, mas também tem as suas métricas de monitorização básicas para CPU, Redes, Memória e I/O. O Sysdig torna mais fácil ver que contentores se esforçam mais ou utilizam mais memória e CPU. Esta vista encontra-se na secção "Descrição Geral", que atualmente se encontra em fase beta. 

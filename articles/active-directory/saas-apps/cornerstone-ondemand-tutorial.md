@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f57c5fef-49b0-4591-91ef-fc0de6d654ab
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e7301d0ecff3ae2c3156ba827ef16fbe40b89a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 83b95dd108e278cebde3bda2db5211d8f99e384f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877185"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730214"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>Tutorial: Integração do Active Directory do Azure com o fundamento OnDemand
 
@@ -193,7 +193,7 @@ Para configurar o aprovisionamento de utilizadores, enviar as informações (p. 
 >[!NOTE]
 >Pode utilizar quaisquer outras fundamento OnDemand utilizador conta criação ferramentas ou APIs fornecidas pelo OnDemand de alicerce para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

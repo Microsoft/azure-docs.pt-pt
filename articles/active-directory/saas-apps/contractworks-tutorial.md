@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e7b269d6-3c4e-4bc4-a55f-5071d1f52591
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f943c33c6aebf8c477b15bef2c1ed55ae60ee0ef
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9ea7811b2d380790de23b4534873d37d642df886
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866424"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Tutorial: Integração do Active Directory do Azure com ContractWorks
 

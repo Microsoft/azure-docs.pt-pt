@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: ''
-ms.date: 02/22/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
+ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: e843e09bf3a70f6deaa406642e33acc88f2b0189
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808596"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760278"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Gerir a infraestrutura de armazenamento para o Azure Stack
 
@@ -198,7 +199,7 @@ Uma unidade de estado de funcionamento incorreto atualmente não pode ser escrit
 | Mídia com falha | A unidade de falha e não será utilizada pelos espaços de armazenamento mais.<br> <br>**Ação:** Substitua a unidade logo que possível para garantir a resiliência completa. |
 | Falha de hardware do dispositivo | Ocorreu uma falha de hardware nesta unidade. <br> <br>**Ação:** Substitua a unidade logo que possível para garantir a resiliência completa. |
 | Atualizar o firmware | O Azure Stack está a atualizar o firmware da unidade. Este é um estado temporário que, normalmente, dura menos de um minuto e durante o qual o tempo outras unidades no agrupamento de lidar com todas as leituras e escritas.<br> <br>**Ação:** Aguarde para o Azure Stack concluir a atualização e verificar o estado mais tarde. |
-| A iniciar | A unidade está a preparar para a operação. Deve ser um estado temporário - quando tiver terminado, que a unidade deve fazer a transição para um Estado operacional diferente.<br> <br>**Ação:** Aguarde para o Azure Stack concluir a operação e verifique o estado mais tarde. |
+| A Iniciar | A unidade está a preparar para a operação. Deve ser um estado temporário - quando tiver terminado, que a unidade deve fazer a transição para um Estado operacional diferente.<br> <br>**Ação:** Aguarde para o Azure Stack concluir a operação e verifique o estado mais tarde. |
  
 
 ## <a name="reasons-a-drive-cant-be-pooled"></a>Motivos de que uma unidade não pode ser agrupada

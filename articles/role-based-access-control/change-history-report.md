@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a06b7f66742ad7e97e4ae2ab57aabf15f21faf3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: cab5b9317102a86dd75d2cb7e5a820cf64d2e831
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957743"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535553"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Ver registos de atividade para alterações RBAC para recursos do Azure
 
@@ -43,7 +43,7 @@ Seguem-se as operações relacionadas com o RBAC que estão registadas no regist
 
 O registo de atividades no portal do tem vários filtros. Seguem-se os filtros de RBAC:
 
-|Filtro  |Value  |
+|Filtrar  |Value  |
 |---------|---------|
 |Categoria de eventos     | <ul><li>Administrativa</li></ul>         |
 |Operação     | <ul><li>Criar atribuição de função</li> <li>Eliminar atribuição de função</li> <li>Criar ou atualizar uma definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
@@ -123,9 +123,9 @@ Aqui estão as etapas básicas para começar a utilizar:
 
 1. [Configurar a solução Log Analytics da atividade](../azure-monitor/platform/collect-activity-logs.md#configuration) sua área de trabalho.
 
-1. [Ver os registos de atividade](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Uma forma rápida de navegar para a página de descrição geral da análise de registo de atividade é clicar o **do Log Analytics** opção.
+1. [Ver os registos de atividade](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Uma forma rápida de navegar para a página de descrição geral de solução do Log Analytics da atividade é clicar o **do Log Analytics** opção.
 
-   ![Opção de análise de registo no portal](./media/change-history-report/azure-log-analytics-option.png)
+   ![Opção de registos de Monitor do Azure no portal](./media/change-history-report/azure-log-analytics-option.png)
 
 1. Opcionalmente, utilize o [pesquisa de registos](../log-analytics/log-analytics-log-search.md) página ou o [portal da análise avançada](../azure-monitor/log-query/get-started-portal.md) para consultar e ver os registos. Para obter mais informações sobre estas duas opções, consulte [página de pesquisa de registos ou o portal da análise avançada](../azure-monitor/log-query/portals.md).
 

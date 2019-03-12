@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: daafac3cd89b2af7f6d7fa9a8ae28eecd334b623
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438471"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549152"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerida do Data Factory
 
@@ -121,7 +121,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "resources": [{
         "name": "<dataFactoryName>",
         "apiVersion": "2018-06-01",

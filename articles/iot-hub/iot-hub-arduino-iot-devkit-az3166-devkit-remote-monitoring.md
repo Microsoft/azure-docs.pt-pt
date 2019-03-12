@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 954a57bb9253e4f18d61c3a699b6e721568da292
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5a36a1e955bf79654ae9e5cc01564a47e1a13a05
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157416"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545046"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Ligar o MXChip IoT DevKit ao solution accelerator do monitoramento remoto do Azure IoT
 
@@ -54,7 +54,7 @@ Uma subscrição ativa do Azure. Se não tiver um, pode registrar-se através de
 
    ![Dashboard](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
   
-   ![Consola](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+   ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
 
 5. Clique em **adicionar um dispositivo**.
 
@@ -126,7 +126,7 @@ Se pretender alterar o codificado **AZ3166** para um ID de dispositivo personali
 
 Se tiver problemas, consulte [o kit de programadores de IoT FAQs](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contacte-nos com os seguintes canais:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Passos Seguintes

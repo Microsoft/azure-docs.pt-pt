@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 829b566469e5fd61460c1451b196eec24fd4e3f8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e46237117ae3e4a2879947be2c065bba5e720fb8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882931"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570985"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure no portal do Azure
 
@@ -117,11 +117,7 @@ O [Apache Hive](hdinsight-use-hive.md) é o componente mais popular utilizado no
    
         SHOW TABLES;
 
-    ![Vistas do Hive do HDInsight](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "Editor de Consulta do Hive View do HDInsight")
-   
-   > [!NOTE]  
-   > O Hive requer a utilização do ponto e vírgula.       
-
+    ![Vistas do Hive do HDInsight](./media/apache-hadoop-linux-tutorial-get-started/hiveview-1.png "Editor de Consulta do Hive View do HDInsight")     
 
 5. Selecione **Executar**. O separador **RESULTADOS** aparece por baixo do separador **CONSULTA** e apresenta informações sobre a tarefa. 
    

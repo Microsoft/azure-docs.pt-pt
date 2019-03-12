@@ -4,30 +4,30 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 62f5c1a1f6184feddad7f2b57bcfc1c4bb5bc339
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 1ae6c6ee59b66e6c61714c0ece9f306f1a885096
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279851"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553810"
 ---
-A tabela seguinte lista os limites que se aplicam aos recursos de serviço de aprovisionamento de dispositivos IoT Hub:
+A tabela seguinte lista os limites que se aplicam aos recursos de serviço de aprovisionamento de dispositivos do Azure IoT Hub.
 
 | Recurso | Limite |
 | --- | --- |
-| Máximo grupos de serviços de aprovisionamento de dispositivos por subscrição do Azure | 10 |
+| Serviços por subscrição do Azure de aprovisionamento de dispositivos no máximo | 10 |
 | Número máximo de inscrições | 500,000 |
 | Número máximo de registos | 500,000 |
 | Número máximo de grupos de inscrição | 100 |
 | Número máximo de CAs | 25 |
 
 > [!NOTE]
-> Pode contactar [Support da Microsoft](https://azure.microsoft.com/support/options/) para aumentar o número de instâncias na sua subscrição.
+> Para aumentar o número de instâncias na sua subscrição, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
-> Pode contactar [Support da Microsoft](https://azure.microsoft.com/support/options/) para aumentar o número de inscrições e registos no seu serviço de aprovisionamento.
+> Para aumentar o número de inscrições e registos no seu serviço de aprovisionamento, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).
 
-O serviço de aprovisionamento de dispositivos limita os pedidos quando as quotas seguintes são ultrapassadas:
+O serviço de aprovisionamento de dispositivos limita os pedidos quando as quotas seguintes são ultrapassadas.
 
 | Limitação | Valor por unidade |
 | --- | --- |

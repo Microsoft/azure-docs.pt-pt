@@ -1,26 +1,26 @@
 ---
 title: Preparar para o anfitrião de extensão para o Azure Stack | Documentos da Microsoft
-description: Aprenda a preparar para o anfitrião de extensão, o que é ativada automaticamente por meio de um pacote de atualização de pilha do Azure de futuro.
+description: Aprenda a preparar para o anfitrião de extensão, ativada automaticamente com um pacote de atualização futuro do Azure Stack.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962371"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731918"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparar para o anfitrião de extensão para o Azure Stack
 
-O anfitrião de extensão protege o Azure Stack, reduzindo o número de portas de TCP/IP necessárias. Este artigo analisa a preparação do Azure Stack para o anfitrião de extensão, o que é ativado automaticamente por meio de um pacote de atualização de pilha do Azure após a atualização 1808. Este artigo aplica-se para as atualizações do Azure Stack 1808 1809 e 1811.
+O anfitrião de extensão protege o Azure Stack, reduzindo o número de portas de TCP/IP necessárias. Este artigo analisa a preparar o Azure Stack para o anfitrião de extensão é ativado automaticamente por meio de um pacote de atualização do Azure Stack após a atualização 1808. Este artigo aplica-se para as atualizações do Azure Stack 1808 1809 e 1811.
 
 ## <a name="certificate-requirements"></a>Requisitos de certificado
 
@@ -66,15 +66,14 @@ A ferramenta de verificação da preparação do Azure Stack fornece a capacidad
     > [!Note]  
     > Se implementar com o Azure Active Directory Federated Services (AD FS) os seguintes diretórios tem de ser adicionados ao **$directories** no script: `ADFS`, `Graph`.
 
-4. Execute os seguintes cmdlets para iniciar a verificação de certificado:
+4. Coloque os certificados existentes, o que estiver a utilizar no Azure Stack, nos diretórios apropriados. Por exemplo, colocar o **ARM de administrador** in de certificado a `Arm Admin` pasta. E, em seguida, colocar os certificados de alojamento recém-criado a `Admin extension host` e `Public extension host` diretórios.
+5. Execute o seguinte cmdlet para iniciar a verificação de certificado:
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. Coloque o seu certificado (s) nos diretórios apropriados.
 
 6. Verificar a saída e todos os certificados passam todos os testes.
 
@@ -128,7 +127,7 @@ Utilize um computador que pode ligar-se ao ponto final do Azure Stack com privil
 > Este passo não é necessário se tiver utilizado a delegação de zona de DNS para a integração do DNS.
 Se os registos anfitriões individuais tenham sido configurados para publicar os pontos finais do Azure Stack, terá de criar dois registos de um anfitrião adicional:
 
-| IP | Nome de anfitrião | Type |
+| IP | Nome de Anfitrião | Type |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
@@ -141,7 +140,7 @@ O artigo [integração no datacenter do Azure Stack - publicar pontos de extremi
 
 ### <a name="publish-new-endpoints"></a>Publicar novos pontos de extremidade
 
-Existem dois novos pontos de extremidade devem ser publicado através da firewall. Os IPs alocado do conjunto VIP público pode ser obtido com o seguinte código que têm de ser executado através do Azure Stack [ambiente do privilegiado do ponto de extremidade](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+Existem dois novos pontos de extremidade devem ser publicado através da firewall. Os IPs alocado do conjunto VIP público pode ser obtido com o seguinte código que deve ser executado a partir do Azure Stack [ambiente do privilegiado do ponto de extremidade](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session

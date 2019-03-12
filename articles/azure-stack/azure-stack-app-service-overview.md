@@ -11,16 +11,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: cbdf864c2c10d5eb1c0f9a903bd186370b96a72f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ba2a322cdbcf929bef586f9f35ec2dc394f7af53
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879643"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778523"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Descrição geral do Serviço de Aplicações no Azure Stack
 
