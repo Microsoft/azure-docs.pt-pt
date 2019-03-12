@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4a3b48be893c596f1a86bbf308a97868ed546006
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fcd1868c1b17d6c1ad895757b32293d0abc79a24
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313927"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731559"
 ---
 # <a name="automated-backups"></a>Cópias de segurança automatizadas
 
@@ -42,7 +42,7 @@ Pode utilizar estas cópias de segurança para:
 
 ## <a name="how-long-are-backups-kept"></a>Quanto tempo as cópias de segurança permanecem
 
-Cada base de dados do SQL tem um período de retenção de cópia de segurança padrão entre 7 e 35 dias que depende do modelo de compra e a camada de serviços. Pode atualizar a cópia de segurança) período de retenção para uma base de dados no servidor de base de dados SQL. Para obter mais informações, consulte [período de retenção de cópia de segurança de alteração](#how-to-change-the-pitr-backup-retention-period).
+Cada base de dados do SQL tem um período de retenção de cópia de segurança padrão entre 7 e 35 dias que depende do modelo de compra e a camada de serviços. Pode atualizar o período de retenção de cópia de segurança para uma base de dados no servidor de base de dados SQL. Para obter mais informações, consulte [período de retenção de cópia de segurança de alteração](#how-to-change-the-pitr-backup-retention-period).
 
 Se eliminar uma base de dados, base de dados SQL manterá as cópias de segurança da mesma forma que faria para uma base de dados online. Por exemplo, se eliminar uma base de dados básico que tem um período de retenção de sete dias, é guardada uma cópia de segurança que é de quatro dias de antiguidade por três dias mais.
 
@@ -66,7 +66,7 @@ O período de retenção predefinido para uma base de dados criada com o modelo 
 Se estiver a utilizar o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md), o período de retenção de cópia de segurança predefinido é de 7 dias (para único, agrupados e bases de dados de instância). Para todas as bases de dados SQL do Azure (único, agrupados, e bases de dados de instância, pode [alterar o período de retenção de cópia de segurança 35 dias](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
-> Se reduzir o período de retenção atual, todas as cópias de segurança existentes mais antigas do que o período de retenção do novo período são já não estar disponível. Se aumentar o período de retenção atual, base de dados SQL manterá as cópias de segurança existentes até que o período de retenção mais longo for atingido.
+> Se reduzir o período de retenção atual, todas as cópias de segurança existentes mais antigas do que o novo período de retenção não estão mais disponíveis. Se aumentar o período de retenção atual, base de dados SQL manterá as cópias de segurança existentes até que o período de retenção mais longo for atingido.
 
 ## <a name="how-often-do-backups-happen"></a>Com que frequência as cópias de segurança acontecem
 
@@ -144,9 +144,9 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 
 ```json
 {
-  "properties":{  
-      "retentionDays":28
-   }
+  "properties":{
+    "retentionDays":28
+  }
 }
 ```
 

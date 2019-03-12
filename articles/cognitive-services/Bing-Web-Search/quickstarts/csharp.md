@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 08e2ef1b219ed66a39d38c08be80df89814afbaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 20416a4b761496ec65c6911f3e4de18111b663a1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180492"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551281"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Início rápido: Pesquisar a web com a API de REST de pesquisa de Web do Bing eC#
 
@@ -27,7 +27,7 @@ Utilize este guia de introdução para efetuar a primeira chamada à API de pesq
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
 * Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](http://www.mono-project.com/)  
+* Linux/macOS: [Mono](https://www.mono-project.com/)  
 * Uma chave de subscrição
 
 Este programa de exemplo utiliza apenas as classes do .NET Core.

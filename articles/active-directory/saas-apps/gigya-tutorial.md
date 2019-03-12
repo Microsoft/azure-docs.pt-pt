@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: ac3242725438a7d5eaa6b93cb1f86f9344b59c1f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b62883b4e8a62b59bc6aa8d4823a3297e621b67e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864996"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: Integração do Active Directory do Azure com Gigya
 

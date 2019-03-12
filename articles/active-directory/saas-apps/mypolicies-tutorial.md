@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bf79e858-1dfb-4ab3-a6df-74b2d5a878d2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: f91433153a07bacbbb13e167adcdeb46e51cad6f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: ed26bb5a082cbb1a973c2e91a0e23470b2ef15c1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403809"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778387"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Tutorial: Integração do Active Directory do Azure com myPolicies
 

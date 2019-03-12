@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 10/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c0da70426d8962999fd8d2cf2852a9bd8d255fc8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 98ea4d78a473123708be6e371587252acad6ffcd
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55735960"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554788"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
-A WAN Virtual oferece conectividade site a site em grande escala e foi criada para débito, escalabilidade e facilidade de utilização. As funcionalidades de conectividade do ExpressRoute e de ponto a site estão atualmente em Pré-visualização. Os dispositivos de ramo CPE fazem o aprovisionamento automático e ligam numa WAN Virtual do Azure. Estes dispositivos estão disponíveis num ecossistema crescente de parceiros de SD-WAN e de VPN. Consulte a [preferencial a lista de parceiros](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+A WAN Virtual oferece conectividade site a site em grande escala e foi criada para débito, escalabilidade e facilidade de utilização. As funcionalidades de conectividade do ExpressRoute e de ponto a site estão atualmente em Pré-visualização. Os dispositivos de ramo CPE fazem o aprovisionamento automático e ligam numa WAN Virtual do Azure. Estes dispositivos estão disponíveis num ecossistema crescente de parceiros de SD-WAN e de VPN. Veja a [Lista de Parceiros Preferenciais](https://go.microsoft.com/fwlink/p/?linkid=2019615).
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Que fornecedores de dispositivos (parceiros de WAN Virtual) são suportados na altura do lançamento? 
 

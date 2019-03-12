@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: ramankum
 ms.subservice: disks
-ms.openlocfilehash: 5b9ab1c2735bd92855c032fe2eff17b804636e18
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: cb52956afe085c076f0a9a7c2d6810f3def32e3f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983358"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568962"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Localize e elimine desanexados discos geridos e não geridos do Azure
 
@@ -83,7 +83,7 @@ foreach($storageAccount in $storageAccounts){
                     if($deleteUnattachedVHDs -eq 1){
                         Write-Host "Deleting unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
                         $_ | Remove-AzStorageBlob -Force
-                        Write-Host "Deleted unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)
+                        Write-Host "Deleted unattached VHD with Uri: $($_.ICloudBlob.Uri.AbsoluteUri)"
                     }
                     else{
                         $_.ICloudBlob.Uri.AbsoluteUri

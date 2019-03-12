@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.openlocfilehash: 75acacdd36b7e0829f347f23652128ed07544eff
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 53eed3148483285bbcbc1e66edea5f2b189624c8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011080"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530557"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introdução aos dispositivos duplos (Java)
 
@@ -74,7 +74,7 @@ Nesta secção, vai criar uma aplicação Java que adiciona os metadados de loca
     ```
 
     > [!NOTE]
-    > Pode verificar a versão mais recente do **cliente do serviço iot** usando [pesquisa Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **cliente do serviço iot** usando [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 5. Adicione as seguintes **crie** nó após a **dependências** nó. Esta configuração instrui o Maven para utilizar o Java 1.8 para criar a aplicação:
 
@@ -234,7 +234,7 @@ Nesta secção, vai criar uma aplicação de consola do Java que define um valor
     ```
 
     > [!NOTE]
-    > Pode verificar a versão mais recente do **cliente do dispositivo iot** usando [pesquisa Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **cliente do dispositivo iot** usando [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Adicione as seguintes **crie** nó após a **dependências** nó. Esta configuração instrui o Maven para utilizar o Java 1.8 para criar a aplicação:
 

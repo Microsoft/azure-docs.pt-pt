@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: aahi
-ms.openlocfilehash: 7051c8e6cc6464e8ff274e92bdb543638c9af46a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b48d9a9d8c28173de90ed3d27bc67a383563550d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238197"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551242"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Início rápido: Pesquisa de imagens usando a API de REST de pesquisa de imagens do Bing eC#
 
@@ -26,7 +26,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 ## <a name="prerequisites"></a>Pré-requisitos
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
-* Se estiver a utilizar Linux/MacOS, esta aplicação pode ser executada usando [Mono](http://www.mono-project.com/).
+* Se estiver a utilizar Linux/MacOS, esta aplicação pode ser executada usando [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

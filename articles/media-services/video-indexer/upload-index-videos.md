@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: ddf090664b1e5197603dadc26da92a0a1da1a63d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c11a206316cfb7b2d9e96b631fce01701da93565
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404948"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550487"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -36,6 +36,7 @@ Assim que o seu vídeo foi carregado, o indexador de vídeos, codifica opcionalm
 - O tamanho de carregamento com a opção de matriz de bytes é limitado a 2GB
 - A opção de matriz de bytes expira após 30 minutos
 - O URL fornecido no parâmetro `videoURL` tem de ser codificado
+- Indexação de recursos dos serviços de suporte de dados tem a limitação de mesma como indexação a partir do URL
 
 > [!Tip]
 > Recomenda-se a utilização da versão 4.6.2 do .NET Framework ou superior porque as versões .NET Framework mais antigas não têm como predefinição o TLS 1.2.

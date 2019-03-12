@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09151dee2d458e2ff4fae8a8a3bc93fa466e4efc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7b82c2261e949c724b1310ee43c6f3fe29766945
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167801"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531016"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilize um fornecedor de identidade 2.0 (IdP) para início de sessão único no
 
@@ -196,7 +196,7 @@ Para obter mais informações sobre "Set-MsolDomainAuthentication", consulte: [ 
 >[!NOTE]
 >Tem de executar a utilização "$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"" apenas se configurar uma extensão ECP para o seu fornecedor de identidade. Os clientes Exchange Online, excluindo a aplicação OWA (Outlook Web), dependem uma publicação com base em ponto final de Active Directory. Se o seu STS do SAML 2.0 implementa um ponto de final Active Directory semelhante à implementação de ECP do Shibboleth de um ponto final de Active Directory pode ser possível que estes clientes avançados interagir com o serviço Exchange Online.
 
-Depois de configurar a Federação pode voltar a mudar para "não federadas" (ou "gerido"), no entanto esta alteração demora duas horas a concluir e requer que a atribuição de novas palavras-passe aleatórias com base na cloud para início de sessão a cada utilizador. Mudar para "gerido" poderá ser necessário em alguns cenários para repor um erro nas definições do. Para obter mais informações sobre a conversão de domínio, consulte: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](httpss://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Depois de configurar a Federação pode voltar a mudar para "não federadas" (ou "gerido"), no entanto esta alteração demora duas horas a concluir e requer que a atribuição de novas palavras-passe aleatórias com base na cloud para início de sessão a cada utilizador. Mudar para "gerido" poderá ser necessário em alguns cenários para repor um erro nas definições do. Para obter mais informações sobre a conversão de domínio, consulte: [ https://msdn.microsoft.com/library/windowsazure/dn194122.aspx ](https://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
 ## <a name="provision-user-principals-to-azure-ad--office-365"></a>Aprovisionar principais de utilizador para o Azure AD / Office 365
 Pode autenticar os utilizadores do Office 365, terá de aprovisionar o Azure AD com entidades de utilizador que correspondem a asserção no afirmações de SAML 2.0. Se essas entidades de utilizador não são conhecidas para o Azure AD com antecedência, em seguida, eles não podem ser usados para o início de sessão federado. O Azure AD Connect ou o Windows PowerShell pode ser utilizado para aprovisionar principais de utilizador.

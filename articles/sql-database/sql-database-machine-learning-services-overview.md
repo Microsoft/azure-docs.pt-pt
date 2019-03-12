@@ -3,7 +3,6 @@ title: Serviços do Azure SQL da base de dados Machine Learning com visão geral
 description: Este tópico descreve os serviços do Azure SQL Database Machine Learning (com R) e explica como funciona.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: 5f876deef4c92c0d678380a49aa38628e0afa660
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e6d6250da4df6ab267ef28f8f15a73c8cbc68618
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240309"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762064"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços do Azure SQL da base de dados Machine Learning com R (pré-visualização)
 

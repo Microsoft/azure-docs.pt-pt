@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: b28316242f608fcfc2b368170190a771c4abbc8e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 698e6fb861ab891a84aa43ca94769099a5c76943
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456113"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766823"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guia de programação Java para o serviço de aplicações no Linux
 
@@ -158,9 +158,6 @@ Siga as instruções no [vincular um certificado SSL personalizado existente](/a
 ## <a name="data-sources"></a>Origens de dados
 
 ### <a name="tomcat"></a>Tomcat
-
->[!NOTE]
-> Se a sua aplicação utilizar o Spring Framework ou o Spring Boot, pode definir as informações de ligação de base de dados para a Primavera dados JPA como variáveis de ambiente [em seu arquivo de propriedades da aplicação]. Em seguida, utilize [as definições da aplicação](/azure/app-service/web-sites-configure#app-settings) para definir esses valores para a sua aplicação no portal do Azure ou na CLI.
 
 Estas instruções aplicam-se a todas as ligações de base de dados. Precisará preencher espaços reservados com um nome de classe do controlador da base de dados escolhido e JAR do ficheiro. Fornecida é uma tabela com nomes de classes e downloads de driver para bases de dados comuns.
 

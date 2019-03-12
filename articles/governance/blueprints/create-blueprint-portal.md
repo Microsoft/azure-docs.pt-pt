@@ -4,17 +4,17 @@ description: Utilize planos gráficos do Azure para criar, definir e implementar
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 845d200238c276be3f0d64afb3127864d8d9ae19
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818668"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729914"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definir e atribuir um esquema de Azure no portal
 
@@ -42,7 +42,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
 
    ![Criar esquema](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Fornecer um **nome do esquema** como "MyBlueprint' (letras e números – até 48 carateres, mas sem espaços ou carateres especiais) para o plano gráfico, mas deixe **esquema Descrição** em branco por agora.  Na **localização da definição** caixa, clique nas reticências à direita, selecione a [grupo de gestão](../management-groups/overview.md) ou uma subscrição onde pretende guardar o plano gráfico e clique em **selecionar**.
+1. Fornecer um **nome do esquema** como "MyBlueprint' (letras e números – até 48 carateres, mas sem espaços ou carateres especiais) para o plano gráfico, mas deixe **esquema Descrição** em branco por agora. Na **localização da definição** caixa, clique nas reticências à direita, selecione a [grupo de gestão](../management-groups/overview.md) ou uma subscrição onde pretende guardar o plano gráfico e clique em **selecionar**.
 
 1. Certifique-se de que as informações estão corretas (a **nome do esquema** e **localização da definição** campos não não possível alterar mais tarde) e clique em **seguinte: Artefactos** na parte inferior da página ou o **artefactos** separador na parte superior da página.
 
@@ -84,7 +84,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
            },
            "location": {
                "type": "string",
-               "defaultValue": "[resourceGroup().location]",
+               "defaultValue": "[resourceGroups('ResourceGroup').location]",
                "metadata": {
                    "description": "Location for all resources."
                }
@@ -129,7 +129,7 @@ Em [Criar um esquema](#create-a-blueprint), não foi fornecida uma Descrição n
 
 1. Na lista de esquemas, faça duplo clique num que criou anteriormente e selecione **esquema de edição**.
 
-1. Na **esquema Descrição**, fornecer algumas informações sobre o esquema e os artefatos que compõem ele.  Neste caso, insira algo parecido com: "Este esquema define a atribuição de política e a função de etiquetas na subscrição, cria um ResourceGroup e implementa uma atribuição de função e o modelo de recurso para esse ResourceGroup."
+1. Na **esquema Descrição**, fornecer algumas informações sobre o esquema e os artefatos que compõem ele. Neste caso, insira algo parecido com: "Este esquema define a atribuição de política e a função de etiquetas na subscrição, cria um ResourceGroup e implementa uma atribuição de função e o modelo de recurso para esse ResourceGroup."
 
 1. Clique em **seguinte: Artefactos** na parte inferior da página ou o **artefactos** separador na parte superior da página.
 
@@ -186,13 +186,17 @@ Após a publicação de um esquema, poderá atribuí-lo a uma subscrição. Atri
    > [!NOTE]
    > É criada uma atribuição para cada subscrição selecionada, o que permite fazer alterações posteriormente numa atribuição de subscrição individual, sem forçar alterações nas restantes subscrições selecionadas.
 
-1. Para **nome atribuído**, forneça um nome exclusivo para esta atribuição.
+1. Para **nome da atribuição**, forneça um nome exclusivo para esta atribuição.
 
-1. Em **Localização**, selecione uma região para criar a identidade gerida. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+1. Na **localização**, selecione uma região para o objeto de implementação de identidade e subscrição gerenciado a ser criada no. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Deixe o menu pendente **Versão da definição de esquema** das versões **Publicadas** na entrada “v1” (predefinida como a última versão **Publicada**).
+1. Deixe o **versão da definição do esquema** pendente de **publicado** versões na entrada "v1" (a predefinição é o último **publicada** versão).
 
 1. Em **Atribuição de Bloqueio**, deixe a predefinição **Não Bloquear**. Para obter mais informações, veja [bloqueio de recurso em esquemas](./concepts/resource-locking.md).
+
+   ![Atribuição - identidades de bloqueio e geridas](./media/create-blueprint-portal/assignment-locking-mi.png)
+
+1. Sob **identidade gerido**, deixe a predefinição **sistema atribuído**.
 
 1. Para a atribuição de função de nível de subscrição **[grupo de utilizadores ou o nome da aplicação]: Contribuinte**, procure e selecione um utilizador, aplicação ou grupo.
 

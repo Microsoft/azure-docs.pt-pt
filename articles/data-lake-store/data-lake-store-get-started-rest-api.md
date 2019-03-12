@@ -1,5 +1,5 @@
 ---
-title: 'REST API: Conta operações de gestão no Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
+title: 'REST API: Conta de gestão de operações em Gen1 de armazenamento do Azure Data Lake | Documentos da Microsoft'
 description: Utilize Gen1 de armazenamento do Azure Data Lake e WebHDFS REST API para efetuar operações de gestão de contas na conta de geração 1 de armazenamento do Data Lake
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7f22fe7d1c3962e59922bc4e2795ed4f899e3eca
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b2c4d38462cf617d8417b269d47a8c1bb0c266c3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121673"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530131"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operações de gestão de conta na geração 1 de armazenamento do Azure Data Lake com a REST API
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Neste artigo, aprenderá a efetuar operações de gestão de conta na geração 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](http://curl.haxx.se/)**. Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a uma conta de geração 1 de armazenamento do Data Lake.
+* **[cURL](https://curl.haxx.se/)**. Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a uma conta de geração 1 de armazenamento do Data Lake.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Como posso autenticar com o Azure Active Directory?
 Pode utilizar duas abordagens para autenticar com o Azure Active Directory.

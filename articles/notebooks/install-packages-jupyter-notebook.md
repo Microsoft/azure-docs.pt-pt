@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 6f089c12-128b-4dbd-96e3-1320d37eeba4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 5baa392d098b0b0e40986bc426c88785db025a29
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d18a33b7eeb1e3708b4e657180421bd97dc268b3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255300"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764342"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Instalar pacotes a partir de um bloco de notas
 
@@ -73,5 +73,5 @@ Paket.Package
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Como: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [Como: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)
+- [How to: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
+- [How to: Apresentar uma apresentação de diapositivos](present-jupyter-notebooks-slideshow.md)

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/03/2019
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 364b0bf611581f88fc87f163acbbb7529862d096
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5c5f1d8d7a9c84d807db53933f0cbb176f9fb7f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309575"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551973"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Arquitetura de armazenamento do SAP HANA (instâncias grandes)
 
@@ -95,7 +95,7 @@ O armazenamento utilizado para a instância grande do HANA permite a criptografi
 Com o tipo de a classe de SKUs, o volume de arranque LUN é armazenado, são encriptados. Para a classe de tipo II de SKUs de instância grande do HANA, tem de encriptar o arranque LUN com métodos de SO. Para obter mais informações, contacte a equipa de gestão de serviço da Microsoft.
 
 ## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>Definições necessárias para as instâncias grandes do HANA nas instâncias grandes do HANA
-O armazenamento utilizado nas instâncias grandes do HANA tem uma limitação de tamanho de ficheiro. O [limitação de tamanho é 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por ficheiro. Ao contrário de casos de limitações de tamanho de ficheiro, como em sistemas de ficheiros de EXT3, HANA não é implicitamente atento a limitação de armazenamento imposta pelo armazenamento de instâncias grandes do HANA. como resultado HANA não criará automaticamente um novo ficheiro de dados quando é atingido o limite de tamanho de ficheiro de 16TB. Como HANA tenta aumentar o arquivo para além dos 16TB, o HANA relatório de erros e o servidor de índices falhará no final.
+O armazenamento utilizado nas instâncias grandes do HANA tem uma limitação de tamanho de ficheiro. O [limitação de tamanho é 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por ficheiro. Ao contrário das limitações de tamanho de ficheiro em sistemas de ficheiros EXT3, HANA není implicitamente atento a limitação de armazenamento imposta pelo armazenamento de instâncias grandes do HANA. como resultado HANA não criará automaticamente um novo ficheiro de dados quando é atingido o limite de tamanho de ficheiro de 16TB. Como HANA tenta aumentar o arquivo para além dos 16 TB, o HANA relatório de erros e o servidor de índices falhará no final.
 
 > [!IMPORTANT]
 > Para impedir que o HANA tentando aumentar os arquivos de dados além do limite de tamanho de ficheiro de 16 TB de armazenamento de instâncias grandes do HANA, tem de definir os seguintes parâmetros no ficheiro de configuração global.ini do HANA
@@ -103,6 +103,7 @@ O armazenamento utilizado nas instâncias grandes do HANA tem uma limitação de
 - datavolume_striping=true
 - datavolume_striping_size_gb = 15000
 - Consulte também a SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- Tenha em atenção a nota SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 

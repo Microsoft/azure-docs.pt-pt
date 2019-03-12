@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 0797a8a2d5633a30dcb2099ea475e4daae026686
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4186abd215509e0ae9ced50340fb1f3d3b5f9676
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874040"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765922"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>O ID de utilizador e de perfil para blocos de notas do Azure
 

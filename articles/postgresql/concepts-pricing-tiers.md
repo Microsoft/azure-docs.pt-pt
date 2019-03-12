@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 0df36f4c939ed9bd7bb6a134a356b37d699abc1d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586348"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532053"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Base de dados do Azure para PostgreSQL escalões de preço
 
@@ -51,30 +51,30 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 |:---|:----------:|:--------------------:|
 | EUA Central |  | X |
 | EUA Leste |  | X |
-| EUA Leste 2 | X | X |
-| EUA Centro-Norte | X | X |
+| EUA Leste 2 |  | X |
+| EUA Centro-Norte |  | X |
 | EUA Centro-Sul | X | X |
-| EUA Oeste | X | X |
+| EUA Oeste |  | X |
 | EUA Oeste 2 |  | X |
-| Sul do Brasil | X | X |
-| Canadá Central | X | X |
-| Leste do Canadá | X | X |
+| Sul do Brasil |  | X |
+| Canadá Central |  | X |
+| Leste do Canadá |  | X |
 | Europa do Norte | X | X |
 | Europa Ocidental |  | X |
 | França Central |  | X |
 | Reino Unido Sul |  | X |
 | Reino Unido Oeste |  | X |
-| Ásia Oriental | X | X |
+| Ásia Oriental |  | X |
 | Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
 | Austrália Central |  | X |
 | Austrália Central 2 |  | X |
 | Sudeste da Austrália |  | X |
-| Índia Central | X | X |
+| Índia Central |  | X |
 | Sul da Índia |  | X |
-| Oeste da Índia | X | X |
+| Oeste da Índia |  | X |
 | Leste do Japão | X | X |
-| Oeste do Japão | X | X |
+| Oeste do Japão |  | X |
 | Coreia do Sul Central |  | X |
 | Coreia do Sul |  | X |
 | Leste da China 1 | X |  |

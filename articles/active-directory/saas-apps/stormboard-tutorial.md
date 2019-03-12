@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 46780ebd-bbfe-4ddc-bf50-22052321026c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6f7fd4b4a28421a7a19c8d9c46f06164535145d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f515e07dbd91ca9d43f976599d2c7c6f739b4031
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871560"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>Tutorial: Integração do Active Directory do Azure com Stormboard
 

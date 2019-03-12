@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 051c34c631795479cb5e5d0f67209bae89e82940
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: c4a00d62cc9ab049ed3c647e9d1e2ed1e5a28329
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766747"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760010"
 ---
 # <a name="update-the-sql-resource-provider"></a>Atualizar o fornecedor de recursos do SQL
 
@@ -114,7 +114,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -PrivilegedEndpoint $privilegedEndpoint `
   -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert `
+  -DependencyFilesLocalPath $tempDir\cert 
 
  ```
 

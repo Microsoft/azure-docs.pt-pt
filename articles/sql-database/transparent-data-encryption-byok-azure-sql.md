@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: a0f909dcb78a782945517b6691805ea66f2d0cfd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 03/07/2019
+ms.openlocfilehash: 13642827a6a0f6524a1f9222b72e75f51a5442a3
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456385"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576910"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>O Azure SQL encriptação de dados transparente com chaves geridas pelo cliente no Azure Key Vault: Oferecer suporte a sua própria chave
 
@@ -88,11 +88,11 @@ Quando a TDE primeiro estiver configurado para utilizar um protetor de TDE do Ke
 
 - Utilizar uma chave sem data de expiração – e não definir uma data de expiração numa chave já em utilização: **assim que a chave expira, as bases de dados encriptados perder o acesso ao respetivo Protetor de TDE e estão inacessíveis dentro de 24 horas**.
 - Certifique-se de que a chave está ativada e tem permissões para efetuar *Obtenha*, *moldar chave*, e *anular a moldagem de chave* operações.
-- Crie uma cópia de segurança de chave do Azure Key Vault antes de utilizar a chave no Cofre de chaves do Azure pela primeira vez. Saiba mais sobre o [AzKeyVaultKey de cópia de segurança](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) comando.
+- Crie uma cópia de segurança de chave do Azure Key Vault antes de utilizar a chave no Cofre de chaves do Azure pela primeira vez. Saiba mais sobre o [AzKeyVaultKey de cópia de segurança](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) comando.
 - Criar uma nova cópia de segurança, sempre que são efetuadas quaisquer alterações à chave (por exemplo, adicionar ACLs, adicionar etiquetas, adicionar atributos principais).
 - **Manter versões anteriores** da chave no Cofre de chaves quando alternar chaves, portanto, mais antigos backups de banco de dados podem ser restauradas. Quando o Protetor de TDE for alterado para uma base de dados, cópias de segurança antigas da base de dados **não são atualizadas** para utilizar o Protetor de TDE mais recente.  Cada cópia de segurança tem do Protetor de TDE foi criado com durante o restauro. Rotações de chave podem ser efetuadas a seguir as instruções em [girar o Protetor de encriptação de dados usando o PowerShell transparente](transparent-data-encryption-byok-azure-sql-key-rotation.md).
 - Mantenha todas as chaves utilizadas anteriormente no Azure Key Vault após a alteração novamente para chaves geridas pelo serviço.  Isto garante que cópias de segurança da base de dados podem ser restauradas com os protetores de TDE armazenados no Azure Key Vault.  Protetores de TDE criados com o Azure Key Vault tem de ser mantidos até que todas as cópias de segurança armazenadas foram criadas com chaves geridas pelo serviço.  
-- Fazer cópias de segurança recuperáveis destas chaves utilizando [AzKeyVaultKey de cópia de segurança](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1).
+- Fazer cópias de segurança recuperáveis destas chaves utilizando [AzKeyVaultKey de cópia de segurança](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey).
 - Para remover uma chave potencialmente comprometida durante um incidente de segurança sem o risco de perda de dados, siga os passos indicados em [remover uma chave potencialmente comprometida](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 ## <a name="high-availability-geo-replication-and-backup--restore"></a>Elevada disponibilidade, Georreplicação e cópia de segurança / restauro
@@ -126,7 +126,7 @@ A secção seguinte irá abordar os passos de instalação e configuração mais
   - RSA/RSA-HSA 2048 key
   - Sem data de validade
   - Chave está ativada e tem permissões para executar o get, moldar chave e anular a moldagem de operações de chave
-- Criar cópias de segurança a chave primária e restaurar a chave para o Cofre de chaves segundo.  Ver [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-5.1.1) e [restauro AzKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-5.5.0).
+- Criar cópias de segurança a chave primária e restaurar a chave para o Cofre de chaves segundo.  Ver [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) e [restauro AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 ### <a name="azure-sql-database-configuration-steps"></a>Passos de configuração de base de dados SQL do Azure
 

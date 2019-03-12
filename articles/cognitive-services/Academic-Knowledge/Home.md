@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: 975c36451f0f00ce374a0bbf0a6dd87ec39eb912
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b15ed5e2b31ed817d3f6558858e2b7285f98a70f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871562"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551726"
 ---
 # <a name="academic-knowledge-api"></a>API de Conhecimento Académico
 
@@ -23,7 +23,7 @@ Bem-vindo à API de Conhecimento Académico. Com este serviço, poderá interpre
 
 Os dados MAG são extraídos do índice Web do Bing, bem como uma base de dados de conhecimento interna do Bing. Como resultado da indexação em curso do Bing, esta API irá conter informações novas da Web após deteção e indexação pelo Bing. Com base neste conjunto de dados, as API de Conhecimento Académico permitem um diálogo condicionado por conhecimentos e interativo que combina na perfeição a pesquisa reativa com experiências de sugestão proativa, resultados de pesquisa de gráfico de documento de pesquisa detalhada e distribuições de histograma dos valores de atributo para um conjunto de documentos e entidades relacionadas.
 
-Para obter mais informações sobre o Microsoft Academic Graph, consulte [ http://aka.ms/academicgraph ](https://aka.ms/academicgraph).
+Para obter mais informações sobre o Microsoft Academic Graph, consulte [ https://aka.ms/academicgraph ](https://aka.ms/academicgraph).
 
 A API de Conhecimento Académico foi movida da Pré-visualização de Serviços Cognitivos para os Laboratórios dos Serviços Cognitivos. A nova Home Page do projeto é: [ https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge ](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). A sua chave de API existente irá continuar a funcionar até 24 de maio de 2018. Após esta data, gere uma nova chave de API. Tenha em atenção que a pré-visualização paga deixará de estar disponível quando a chave existente expirar. Entre em contato com a nossa equipa, se o escalão gratuito da API não for suficiente para os fins pretendidos. 
 

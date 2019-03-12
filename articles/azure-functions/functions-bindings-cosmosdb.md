@@ -6,16 +6,16 @@ author: craigshoemaker
 ms.author: cshoe
 manager: jeconnoc
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 7194c28e4e0620afb2ab6e5c817b2f9b322248a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0421ec62d25bbfaba2909d16498cac5afd038a53
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728068"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776330"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB enlaces das funções do Azure 1.x
 
@@ -33,7 +33,7 @@ Este artigo explica como trabalhar com [do Azure Cosmos DB](../cosmos-db/serverl
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Os enlaces do Cosmos DB do Azure só são suportados para utilização com a API de SQL. Para todas as outras APIs do Azure Cosmos DB, deve acessar o banco de dados da sua função com o cliente de estático para a sua API, incluindo [API do Azure Cosmos DB para o MongoDB](../cosmos-db/mongodb-introduction.md)] (... /cosmos-DB/mongodb-Introduction.MD), [API para Cassandra](../cosmos-db/cassandra-introduction.md), [API do Gremlin](../cosmos-db/graph-introduction.md), e [API de tabela](../cosmos-db/table-introduction.md).
+> Os enlaces do Cosmos DB do Azure só são suportados para utilização com a API de SQL. Para todas as outras APIs do Azure Cosmos DB, deve acessar o banco de dados da sua função com o cliente de estático para a sua API, incluindo [API do Azure Cosmos DB para o MongoDB](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [ API do gremlin](../cosmos-db/graph-introduction.md), e [API de tabela](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Pacotes - funções 1.x
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268101"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760975"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados ao executar scripts U-SQL no Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-No acima do exemplo de script, a entrada e saída para o script é definido no **@in** e **@out** parâmetros. Os valores para **@in** e **@out** parâmetros do script de U-SQL são transmitidos dinamicamente pelo Data Factory com a secção "parameters". 
+No acima do exemplo de script, a entrada e saída para o script é definido no  **\@na** e  **\@horizontalmente** parâmetros. Os valores para  **\@na** e  **\@horizontalmente** parâmetros do script de U-SQL são transmitidos dinamicamente pelo Data Factory com a secção "parameters". 
 
 Também pode especificar outras propriedades como degreeOfParallelism e prioridade na sua definição de pipeline para as tarefas que são executados no serviço Azure Data Lake Analytics.
 

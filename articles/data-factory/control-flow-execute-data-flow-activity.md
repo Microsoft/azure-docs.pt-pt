@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 17bcb9efbf28901f241d44231bc5c71ae20380b5
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 4e661f838cc0b8e52ff72e4e44a43d611fa3355f
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241617"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727387"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Executar a atividade de fluxo de dados no Azure Data Factory
 Utilize a atividade de fluxo de dados de execução para executar o fluxo de dados do ADF nas execuções do pipeline debug (área de segurança) e nas execuções de pipeline acionada.
@@ -54,8 +54,6 @@ Utilize a atividade de fluxo de dados de execução para executar o fluxo de dad
 ### <a name="run-on"></a>Executar em
 
 Escolha o ambiente de computação para esta execução de seu fluxo de dados. A predefinição é o Runtime de integração do padrão de resolução automática do Azure. Esta opção irá executar o fluxo de dados no ambiente do Spark na mesma região que a fábrica de dados. O tipo de computação será um cluster de tarefa, o que significa que o ambiente de computação demorará alguns minutos para inicialização.
-
-Se optar por um runtime de integração dedicado, pode criar um novo Runtime de integração do Azure com uma região afixada e tamanhos que satisfazem os requisitos de fluxo de dados de computação. Esta opção irá girar-up clusters interativos, que serão arranque imediatamente após a tarefa inicial é distribuída. Este cluster permanecerá ativo até que o valor de TTL expire após a última tarefa foi executada.
 
 ### <a name="compute-type"></a>Tipo de computação
 

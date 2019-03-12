@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47d28eb63ffb700dc0f20020ac4007c5485b0edb
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589107"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550195"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registo de informações de segurança combinados (pré-visualização)
 
@@ -33,6 +33,8 @@ Antes de ativar a nova experiência, reveja esta documentação voltada para o a
 
 > [!IMPORTANT]
 > Se um utilizador está ativado para a pré-visualização original e a experiência melhorada de registo combinado, verão a nova experiência. Os utilizadores que estão ativados para ambas as experiências só irão ver a nova experiência de meu perfil. O novo perfil de meus se alinha com o aspeto e funcionalidade de registo combinado e fornece uma experiência totalmente integrada para os usuários. Os utilizadores podem ver meu perfil ao aceder [ https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
+
+As páginas de MyProfile são localizadas com base nas configurações de idioma atual na máquina de aceder à página. Microsoft armazena o mais recente idioma utilizado na cache do browser, para que tentativas subseqüentes de acesso a irão continuar a processar no último idioma utilizado. Limpar a cache fará com que as páginas para compor novamente. Se deseja forçar um idioma específico, adicionando um `?lng=de-DE` ao final do URL onde `de-DE` está definido para o idioma apropriado código irá forçar as páginas para renderizar nesse idioma.
 
 ![Minha interface de perfil que mostra informações de segurança e a capacidade de utilizador para SSPR ou outros métodos de verificação de segurança adicionais de configuração.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 

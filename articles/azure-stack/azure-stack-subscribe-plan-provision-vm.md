@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: efemmano
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 6f91d011e9f15b80c2efd6ad1c6bbcd549786882
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ba1232bc28d638d1e4293b5e6bf30b84b23e4951
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976848"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761128"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Criar subscrições de ofertas no Azure Stack
 

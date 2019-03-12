@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be5023696d6aa937672482d618294102505f9f91
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a12b8457be70a8821d34575a082a421d2ba3a715
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881214"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Active Directory do Azure com o G Suite
 
@@ -154,8 +154,8 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do G Suite](https://www.google.com/contact/) obter esses valores.
@@ -171,8 +171,8 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
     
     > [!NOTE] 
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o identificador real. Contacte [equipa de suporte de cliente do G Suite](https://www.google.com/contact/) obter esses valores.
@@ -221,7 +221,7 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
 
 ### <a name="configure-g-suite-single-sign-on"></a>Configurar o G Suite início de sessão único
 
-1. Abra um novo separador no seu browser e inicie sessão no [consola de administração do G Suite](http://admin.google.com/) com a sua conta de administrador.
+1. Abra um novo separador no seu browser e inicie sessão no [consola de administração do G Suite](https://admin.google.com/) com a sua conta de administrador.
 
 2. Clique em **segurança**. Se não vir a ligação, podem estar ocultos sob o **More Controls** menu na parte inferior do ecrã.
 

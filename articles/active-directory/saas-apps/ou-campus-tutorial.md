@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 09315212-3731-4ae1-bcc2-b8b5f2ac6087
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 16fb5b9e988030ee6dd8d7bd57d559aaaefc1faa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 988a7dc7e739207f21c955c65db15569c93a2969
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881163"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772828"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ou-campus"></a>Tutorial: Integração do Active Directory do Azure com o Campus de UO
 

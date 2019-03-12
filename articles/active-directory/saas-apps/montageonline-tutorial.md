@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5c5e8c6f-e4fb-43fe-8841-e371f568ebed
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a36a5b0e932321d3a7a27cbe580a2544b2cb9b63
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 0d27490fc1748b03bb056c8c0d66ddfa9832740e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243181"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>Tutorial: Integração do Active Directory do Azure com o Montage Online
 

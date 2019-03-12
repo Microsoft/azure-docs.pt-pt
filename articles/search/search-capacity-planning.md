@@ -1,22 +1,22 @@
 ---
-title: Faça a alocação de partições e réplicas para consulta e indexação - Azure Search
+title: Dimensionamento partições e réplicas para consulta e indexação - pesquisa do Azure
 description: Ajuste os recursos de computador de partição e réplica no Azure Search, onde cada recurso é cobrado em unidades de pesquisa faturável.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316119"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775327"
 ---
-# <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Faça a alocação de partições e réplicas para consulta e indexação de cargas de trabalho no Azure Search
+# <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Dimensionar partições e réplicas para consulta e indexação de cargas de trabalho no Azure Search
 Depois de [escolher um escalão de preço](search-sku-tier.md) e [aprovisionar um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é para, opcionalmente, aumentar o número de réplicas ou partições utilizadas pelo seu serviço. Cada escalão oferece um número fixo de unidades de faturação. Este artigo explica como alocar essas unidades para obter uma configuração ideal, que equilibra a seus requisitos para a execução da consulta, indexação e armazenamento.
 
 Configuração do recurso está disponível quando configurar um serviço à [escalão básico](https://aka.ms/azuresearchbasic) ou uma da [escalões Standard](search-limits-quotas-capacity.md). Para os serviços nestas camadas, a capacidade é comprada em incrementos de *unidades de pesquisa* (SUs) em que cada partição e réplica contam como um SU. 
@@ -26,8 +26,8 @@ Usando menos SUs resultados numa fatura proporcionalmente inferior. A faturaçã
 > [!Note]
 > Eliminar um serviço elimina tudo no mesmo. Há um recurso no Azure Search para criar cópias de segurança e restaurar dados de pesquisa de persistentes. Para Reimplementar um índice existente num novo serviço, deve executar o programa utilizado para criar e carregá-lo originalmente. 
 
-## <a name="terminology-partitions-and-replicas"></a>Terminologia: réplicas e partições
-As partições e réplicas são os recursos principais que fazer uma cópia de um serviço de pesquisa.
+## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e partições
+Réplicas e partições são os recursos principais que fazer uma cópia de um serviço de pesquisa.
 
 | Recurso | Definição |
 |----------|------------|
@@ -38,22 +38,67 @@ As partições e réplicas são os recursos principais que fazer uma cópia de u
 > Não é possível diretamente manipular ou gerir a quais índices executam numa réplica. Uma cópia de cada índice em cada réplica faz parte da arquitetura do serviço.
 >
 
-## <a name="how-to-allocate-partitions-and-replicas"></a>Como alocar réplicas e partições
+
+## <a name="how-to-allocate-replicas-and-partitions"></a>Como alocar réplicas e partições
 No Azure Search, um serviço inicialmente é atribuído um nível mínimo de recursos consiste numa partição e uma réplica. Para os escalões que o suportam, pode ajustar incrementalmente recursos informáticos, aumentando as partições, se precisar de mais armazenamento e e/s ou adicionar mais réplicas de volumes maiores de consulta ou um melhor desempenho. Um único serviço tem de ter recursos suficientes para processar todas as cargas de trabalho (de indexação e de consultas). Não pode subdividir cargas de trabalho entre vários serviços.
 
-Para aumentar ou alterar a alocação das réplicas e partições, recomendamos que utilize o portal do Azure. O portal impõe limites em combinações permitidas que fique abaixo limites máximos:
-
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) e selecione o serviço de pesquisa.
-2. Na **configurações**, abra o **dimensionamento** painel e utilizar os controlos de deslize para aumentar ou diminuir o número de partições e réplicas.
-
-Se necessitar de uma abordagem de aprovisionamento baseado em script ou código, o [API REST da gestão](https://docs.microsoft.com/rest/api/searchmanagement/services) é uma alternativa para o portal.
+Para aumentar ou alterar a alocação das réplicas e partições, recomendamos que utilize o portal do Azure. O portal impõe limites em combinações permitidas que fique abaixo limites máximos. Se necessitar de uma abordagem de aprovisionamento baseado em script ou código, o [do Azure PowerShell](search-manage-powershell.md) ou o [API de REST de gestão](https://docs.microsoft.com/rest/api/searchmanagement/services) são soluções alternativas.
 
 Geralmente, procurar aplicações precisam de mais réplicas de partições, especialmente quando as operações de serviço são inclinadas em direção à cargas de trabalho de consulta. A seção sobre [elevada disponibilidade](#HA) explica o motivo.
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com/) e selecione o serviço de pesquisa.
+2. Na **configurações**, abra o **dimensionamento** para modificar as réplicas e partições. 
+
+   Captura de ecrã seguinte mostra um serviço padrão aprovisionado com uma réplica e a partição. A fórmula na parte inferior indica quantas unidades de pesquisa estão a ser utilizado (1). Se o preço unitário de US $100 (não um preço real), o custo mensal de executar este serviço seria US $100 em média.
+
+   ![Página de escala que mostra os valores atuais](media/search-capacity-planning/1-initial-values.png "página de escala que mostra os valores atuais")
+
+3. Utilize o controlo de deslize para aumentar ou diminuir o número de partições. A fórmula na parte inferior indica quantas unidades de pesquisa estão sendo usadas.
+
+   Este exemplo dobra a capacidade, com duas réplicas e partições a cada um. Observe que a contagem de unidades de pesquisa; Agora, é quatro porque a fórmula de faturação é réplicas multiplicadas por partição (2 x 2). Mais do que dobra a capacidade duplica o custo de executar o serviço. Se o custo da unidade de pesquisa foi de US $100, a fatura mensal novo agora seria us $400.
+
+   Para o atual por custos de unidade de cada escalão, visite o [página de preços](https://azure.microsoft.com/pricing/details/search/).
+
+   ![Adicionar réplicas e partições](media/search-capacity-planning/2-add-2-each.png "adicionar réplicas e partições")
+
+3. Clique em **guardar** para confirmar as alterações.
+
+   ![Confirmar alterações à escala e faturação](media/search-capacity-planning/3-save-confirm.png "Confirmar alterações à escala e de faturação")
+
+   As alterações na capacidade demorar várias horas a concluir. Não é possível cancelar uma vez que iniciou o processo e não existe nenhum monitorização em tempo real para a réplica e a partição de ajustes. No entanto, a seguinte mensagem permanece visível enquanto as alterações estão em curso.
+
+   ![Mensagem de estado no portal](media/search-capacity-planning/4-updating.png "mensagem de estado no portal")
+
 
 > [!NOTE]
 > Depois de um serviço é aprovisionado, não é possível atualizar para um SKU superior. Tem de criar um serviço de pesquisa na camada de novo e volte a carregar índices. Ver [criar um serviço Azure Search no portal do](search-create-service-portal.md) para obter ajuda com o serviço de aprovisionamento.
 >
 >
+
+<a id="chart"></a>
+
+## <a name="partition-and-replica-combinations"></a>Combinações de partição e réplica
+
+Um serviço básico pode ter exatamente uma partição e até três réplicas, para um máximo limite de três SUs. O recurso apenas ajustável está réplicas. É necessário um mínimo de duas réplicas para elevada disponibilidade em consultas.
+
+Todos os serviços padrão podem assumir as seguintes combinações das réplicas e partições, sujeita o limite de 36 SU. 
+
+|   | **1 partição** | **2 partições** | **3 partições** | **4 partições** | **6 partições** | **12 partições** |
+| --- | --- | --- | --- | --- | --- | --- |
+| **1 réplica** |1 SU |2 SU |3 SU |4 SU |6 SU |12 DE SU |
+| **2 réplicas** |2 SU |4 SU |6 SU |8 SU |12 DE SU |24 DE SU |
+| **3 réplicas** |3 SU |6 SU |9 SU |12 DE SU |18 DE SU |36 SU |
+| **4 réplicas** |4 SU |8 SU |12 DE SU |16 DE SU |24 DE SU |N/A |
+| **5 réplicas** |5 SU |10 SU |15 DE SU |20 DE SU |30 SU |N/A |
+| **6 réplicas** |6 SU |12 DE SU |18 DE SU |24 DE SU |36 SU |N/A |
+| **12 réplicas** |12 DE SU |24 DE SU |36 SU |N/A |N/D |N/A |
+
+SUs, preços e a capacidade são explicados em detalhe no site do Azure. Para obter mais informações, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/search/).
+
+> [!NOTE]
+> O número de réplicas e partições divide-se uniformemente em 12 (especificamente, 1, 2, 3, 4, 6, 12). Isto acontece porque o Azure Search divide previamente cada índice em partições 12 horizontais para que possam ser distribuído em partes iguais em todas as partições. Por exemplo, se o seu serviço tem três partições e criar um índice, cada partição contém quatro partições horizontais do índice. Como as partições horizontais de Azure Search um índice é um detalhe de implementação, sujeitas a alterações em versões futuras. Embora o número é 12 hoje em dia, não deve esperar que esse número para estar sempre 12 no futuro.
+>
+
 
 <a id="HA"></a>
 
@@ -93,32 +138,7 @@ Procurar aplicações que necessitam de perto a atualização de dados em tempo 
 
 Os índices maiores demoram mais tempo a consulta. Assim, pode achar que cada aumento incremental em partições requer um aumento de menor mas proporcional em réplicas. A complexidade de suas consultas e o volume de consultas será fatorar em quão rapidamente a execução da consulta é se viraram.
 
-## <a name="basic-tier-partition-and-replica-combinations"></a>Escalão básico: Combinações de partição e réplica
-Um serviço básico pode ter exatamente uma partição e até três réplicas, para um máximo limite de três SUs. O recurso apenas ajustável está réplicas. É necessário um mínimo de duas réplicas para elevada disponibilidade em consultas.
 
-<a id="chart"></a>
+## <a name="next-steps"></a>Passos Seguintes
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>Escalões Standard: Combinações de partição e réplica
-Esta tabela mostra os SUs necessárias para suportar as combinações de réplicas e partições, sujeita o limite de 36 SU, para todos os escalões Standard.
-
-|   | **1 partição** | **2 partições** | **3 partições** | **4 partições** | **6 partições** | **12 partições** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **1 réplica** |1 SU |2 SU |3 SU |4 SU |6 SU |12 DE SU |
-| **2 réplicas** |2 SU |4 SU |6 SU |8 SU |12 DE SU |24 DE SU |
-| **3 réplicas** |3 SU |6 SU |9 SU |12 DE SU |18 DE SU |36 SU |
-| **4 réplicas** |4 SU |8 SU |12 DE SU |16 DE SU |24 DE SU |N/A |
-| **5 réplicas** |5 SU |10 SU |15 DE SU |20 DE SU |30 SU |N/A |
-| **6 réplicas** |6 SU |12 DE SU |18 DE SU |24 DE SU |36 SU |N/A |
-| **12 réplicas** |12 DE SU |24 DE SU |36 SU |N/A |N/D |N/A |
-
-SUs, preços e a capacidade são explicados em detalhe no site do Azure. Para obter mais informações, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/search/).
-
-> [!NOTE]
-> O número de réplicas e partições divide-se uniformemente em 12 (especificamente, 1, 2, 3, 4, 6, 12). Isto acontece porque o Azure Search divide previamente cada índice em partições 12 horizontais para que possam ser distribuído em partes iguais em todas as partições. Por exemplo, se o seu serviço tem três partições e criar um índice, cada partição contém quatro partições horizontais do índice. Como as partições horizontais de Azure Search um índice é um detalhe de implementação, sujeitas a alterações em versões futuras. Embora o número é 12 hoje em dia, não deve esperar que esse número para estar sempre 12 no futuro.
->
->
-
-## <a name="billing-formula-for-replica-and-partition-resources"></a>Fórmula para recursos de réplica e a partição de faturação
-A fórmula para calcular a quantidade de SUs é utilizados para combinações específicas é o produto das réplicas e partições, ou (R X P = SU). Por exemplo, três réplicas multiplicadas por três partições é faturada como nove SUs.
-
-Custo por SU é determinado pelo escalão, com uma taxa de faturação por unidade inferior para Basic, que, para o Standard. As tarifas baixas para cada camada pode ser encontrada no [detalhes de preços](https://azure.microsoft.com/pricing/details/search/).
+[Escolha um escalão de preço para o Azure Search](search-sku-tier.md)

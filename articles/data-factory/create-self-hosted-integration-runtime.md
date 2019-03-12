@@ -3,20 +3,20 @@ title: Criar um runtime de integração autoalojado no Azure Data Factory | Docu
 description: Saiba como criar um runtime de integração autoalojado no Azure Data Factory, que permite que as fábricas de dados acessar arquivos de dados de uma rede privada.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-ms.openlocfilehash: dc9f24f948e32d1b87745016852a875d440323de
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+manager: craigg
+ms.openlocfilehash: d1e43924634e3c4543c244043cb06d965a4d14e0
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443703"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576842"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).

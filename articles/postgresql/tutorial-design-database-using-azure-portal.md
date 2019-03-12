@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 869bee8fcd0d1c2876ac7317fb239a1d5c61cb87
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2c613319e635cf83b171da4975fe384b2ea80a2c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864554"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534928"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure para PostgreSQL com o portal do Azure
 
@@ -57,7 +57,7 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
    > [!IMPORTANT]
    > O início de sessão e a palavra-passe de administrador de servidor que especificar aqui serão necessários para iniciar sessão no servidor e nas respetivas bases de dados mais adiante neste tutorial. Lembre-se ou grave estas informações para utilização posterior.
 
-4.  Clique em **Escalão de preço** para especificar o escalão de preço do seu novo servidor. Neste tutorial, selecione **Fins Gerais**, a geração de computação de **Geração 4**, 2 **vCores**, 5 GB de **armazenamento** e 7 dias de **período de retenção da cópia de segurança**. Selecione a opção de redundância da cópia de segurança **Geograficamente Redundante** para que as cópias de segurança automáticas do seu servidor sejam armazenadas no armazenamento georredundante.
+4.  Clique em **Escalão de preço** para especificar o escalão de preço do seu novo servidor. Neste tutorial, selecione **fins gerais**, **fins 5** geração de computação e 2 **vCores**, 5 GB de **armazenamento** e 7 dias  **período de retenção de cópia de segurança**. Selecione a opção de redundância da cópia de segurança **Geograficamente Redundante** para que as cópias de segurança automáticas do seu servidor sejam armazenadas no armazenamento georredundante.
  ![Base de Dados do Azure para PostgreSQL – escolher o escalão de preço](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
 
 5.  Clique em **OK**.

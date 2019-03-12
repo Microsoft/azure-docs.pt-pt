@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cb763327eb292feb9d58fb21b1ca808a3f2909aa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e4a86585fbf1e00512e9e8e111a9a259663f8a26
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054203"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536783"
 ---
 # <a name="tpm-attestation"></a>Atestado de TPM
 
 Serviço de aprovisionamento de dispositivo IoT Hub é um serviço auxiliar para o IoT Hub que utiliza para configurar dispositivos sem toques de aprovisionamento para um hub IoT especificado. Com o serviço de aprovisionamento de dispositivos, pode aprovisionar milhões de dispositivos de forma segura.
 
-Este artigo descreve o processo de atestado de identidade, ao utilizar um [TPM](./concepts-device.md). TPM significa Trusted Platform Module e é um tipo de módulo de segurança de hardware (HSM). Este artigo pressupõe que está a utilizar um firmware discreto, ou integrado TPM. Software TPMs emulados são adequadas para criar protótipos ou testar, mas eles não fornecer o mesmo nível de segurança do que o firmware discreto, ou não TPMs integrados. Recomendamos que não utilize o software TPMs na produção. Para obter mais informações sobre os tipos de TPMs, consulte [uma breve introdução ao TPM](http://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
+Este artigo descreve o processo de atestado de identidade, ao utilizar um [TPM](./concepts-device.md). TPM significa Trusted Platform Module e é um tipo de módulo de segurança de hardware (HSM). Este artigo pressupõe que está a utilizar um firmware discreto, ou integrado TPM. Software TPMs emulados são adequadas para criar protótipos ou testar, mas eles não fornecer o mesmo nível de segurança do que o firmware discreto, ou não TPMs integrados. Recomendamos que não utilize o software TPMs na produção. Para obter mais informações sobre os tipos de TPMs, consulte [uma breve introdução ao TPM](https://trustedcomputinggroup.org/wp-content/uploads/TPM-2.0-A-Brief-Introduction.pdf).
 
 Este artigo é relevante apenas para dispositivos com o TPM 2.0 com suporte de chave do HMAC e as chaves de endossamento. Não é para utilizar certificados X.509 para autenticação de dispositivos. TPM é um nível da indústria, a norma ISO do Trusted Computing Group e pode ler mais sobre TPM no [especificação do TPM 2.0 completa](https://trustedcomputinggroup.org/tpm-library-specification/) ou o [especificação ISO/IEC 11889](https://www.iso.org/standard/66510.html). Este artigo também pressupõe que está familiarizado com pares de chaves públicas e privadas e como elas são usadas para a encriptação.
 

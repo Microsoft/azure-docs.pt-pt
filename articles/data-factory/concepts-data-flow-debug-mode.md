@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 6bde6e74279fc16237c0c0436296e2d21c3a57c7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 82559c89094649b377dc2a898798ce6aad5fbcc7
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736622"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570492"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuração de fluxo de dados de mapeamento
 
@@ -36,7 +36,7 @@ Quando mudar no modo de depuração, será solicitado um formulário de painel l
 >Quando em execução no modo de depuração no fluxo de dados, os dados não serão escritos para o Sink de transformação. Uma sessão de depuração deve ser usado como um teste > equipamento para as transformações. Coletores de não serem necessários durante a depuração e são ignoradas no seu fluxo de dados. Se pretender testar a gravação dos dados > no seu coletor, executar o fluxo de dados a partir de um Pipeline de fábrica de dados do Azure e utilizar a execução de depuração a partir de um pipeline.
 
 ## <a name="debug-settings"></a>Configurações de depuração
-Configurações de depuração podem ser aparecerá no painel do lado de cada origem a partir do seu fluxo de dados e também pode ser editada, selecionando "definições da origem" no fluxo de dados a barra de ferramentas de design. Pode selecionar os limites de e/ou a origem de ficheiros a utilizar para cada aqui sua transformação de origem. Também pode selecionar qual cluster do Databricks que deseja usar para depuração.
+Configurações de depuração podem ser aparecerá no painel do lado de cada origem a partir do seu fluxo de dados e também pode ser editada, selecionando "definições da origem" no fluxo de dados designer barra de ferramentas. Pode selecionar os limites de e/ou a origem de ficheiros a utilizar para cada aqui sua transformação de origem. Os limites de linha nesta definição são apenas para a atual sessão de depuração. Também pode utilizar a definição de amostragem na origem para limitar as linhas para o transforamtion de origem.
 
 ## <a name="cluster-status"></a>Estado do cluster
 Há um indicador de estado do cluster na parte superior da superfície de design que fica verde quando o cluster estiver pronto para depuração. Se o cluster já está quente, em seguida, o indicador de verde aparecerá quase instantaneamente. Se o seu cluster não foi já em execução ao introduzir o modo de depuração, em seguida, terá de aguardar 5 a 7 minutos para o cluster acelerar. A luz indicadora será amarela até que ele está pronto. Assim que o cluster estiver pronto para depuração de fluxo de dados, a luz indicadora fica verde.

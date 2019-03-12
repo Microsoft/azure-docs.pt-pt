@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: c7586369-c1d6-4e83-a33e-5e87a68a7722
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d070b9f473c4e1622c0c9a524cd053a6f21edabf
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7209c79c763726a32b4e7ec6bd214e9b532a2261
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873785"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oracle-fusion-erp"></a>Tutorial: Integração do Active Directory do Azure com o Oracle Fusion ERP
 

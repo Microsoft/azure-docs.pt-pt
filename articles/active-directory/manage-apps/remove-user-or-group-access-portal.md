@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c622b95572a078d3f5a3e4791f959fd264eddc3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4aac24072bcebb0095c12cee1cfa21cfb9868dc5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182175"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548597"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remover uma atribuição de utilizador ou grupo a partir de uma aplicação empresarial no Azure Active Directory
 É fácil remover um utilizador ou um grupo de que está a ser atribuído o acesso a uma das suas aplicações empresariais no Azure Active Directory (Azure AD). Tem de ter as permissões adequadas para gerir a aplicação da empresa e tem de ser administrador global do diretório.
@@ -51,7 +51,7 @@ ms.locfileid: "56182175"
     > Tem de instalar o módulo AzureAD (utilize o comando `Install-Module -Name AzureAD`). Se lhe for pedido para instalar um módulo de NuGet ou o novo módulo do Azure Active Directory V2 PowerShell, digite s e pressione ENTER.
 
 2. Executar `Connect-AzureAD` e inicie sessão com uma conta de utilizador de Administrador Global.
-3. Utilize o seguinte script para atribuir um utilizador e a função a uma aplicação:
+3. Utilize o seguinte script para remover um utilizador e a função de um aplicativo:
 
     ```powershell
     # Store the proper parameters

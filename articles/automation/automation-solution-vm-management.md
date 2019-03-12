@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 991a50828059d850627e1f8f3f34f65a55fdf3f6
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 22347ce7296dc55d98f1ee6d4458fa6d7c5a21e6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890237"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551294"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -289,8 +289,8 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 
 |Consulta | Descrição|
 |----------|----------|
-|Localizar trabalhos para o runbook ScheduledStartStop_Parent que tiver concluído com êxito | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
-|Localizar trabalhos para o runbook SequencedStartStop_Parent que tiver concluído com êxito | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | summarize |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | sort by TimeGenerated desc```|
+|Localizar trabalhos para o runbook ScheduledStartStop_Parent que tiver concluído com êxito | ```search Category == "JobLogs" | where ( RunbookName_s == "ScheduledStartStop_Parent" ) | where ( ResultType == "Completed" )  | resumir |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Ordenar por TimeGenerated desc ' '|
+|Localizar trabalhos para o runbook SequencedStartStop_Parent que tiver concluído com êxito | ```search Category == "JobLogs" | where ( RunbookName_s == "SequencedStartStop_Parent" ) | where ( ResultType == "Completed" ) | resumir |AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) | Ordenar por TimeGenerated desc ' '|
 
 ## <a name="viewing-the-solution"></a>Visualizar a solução
 
@@ -300,7 +300,7 @@ Selecionar a solução apresenta os **Start-Stop-VM [workspace]** página de sol
 
 ![Página de solução de gestão de atualizações de automatização](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
-A partir daqui, pode efetuar a análise dos registos de tarefa ao clicar no mosaico de anel. O dashboard de solução mostra o histórico de tarefas e predefinidas consultas de pesquisa de registo. Mude para o portal avançado do Log Analytics para pesquisar com base em suas consultas de pesquisa.
+A partir daqui, pode efetuar a análise dos registos de tarefa ao clicar no mosaico de anel. O dashboard de solução mostra o histórico de tarefas e predefinidas consultas de pesquisa de registo. Mude para o portal do log analytics avançadas para pesquisar com base em suas consultas de pesquisa.
 
 ## <a name="configure-email-notifications"></a>Configurar notificações por e-mail
 

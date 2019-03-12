@@ -3,7 +3,7 @@ title: -Máquinas virtuais do Azure - descrição-geral de grupos de disponibili
 description: Este artigo apresenta os grupos de disponibilidade do SQL Server em máquinas virtuais do Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: 728d73ee954a6ddebf80c6a9c466784c9c79bd53
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e11e8c6dbad049b7efea373944155748b9703d57
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819161"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781141"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introdução ao SQL Server Always On grupos de disponibilidade em máquinas virtuais do Azure #
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: cbdc57489eb7ebd50e3ce7e2b4e0e4081aef8e27
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 2b30d047d499e7b5ee1011bc0a023b8e0010a129
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770389"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730437"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilizar o Emulador do Azure Cosmos DB para desenvolvimento e teste locais
 
@@ -266,13 +266,13 @@ Para iniciar a imagem, execute os seguintes comandos.
 Na linha de comandos:
 ```cmd
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\bind-mount -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 Do PowerShell:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\bind-mount -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 A resposta é semelhante à seguinte:

@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e649fc4e-3e15-4948-b977-00bfe9f7db13
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 0fc775262f33acde065c17541d48df35231586df
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 4d6019ac1ddea166c3946452f0eb485b2c3472c2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991874"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778693"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutorial: Integração do Active Directory do Azure com o Mobile Xpense
 

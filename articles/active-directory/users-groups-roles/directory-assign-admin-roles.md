@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31b65dc7a73d24066bee8088b3177a1300186eba
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 98330152d8d88d538424c52b1bc5f49462010302
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316664"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727251"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -155,6 +155,10 @@ As seguintes funções de administrador estão disponíveis:
 * **[Administrador do Power BI](#power-bi-service-administrator)**: Os utilizadores com esta função possuem permissões globais dentro do Microsoft Power BI, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [compreender a função de administrador do Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "administrador do Power BI". Se "administrador do Power BI" a [portal do Azure](https://portal.azure.com).
+
+* **[Com privilégios administrador de autenticação](#privileged-authentication-administrator)**: Os utilizadores com esta função podem definir ou repor as credenciais de palavra-passe para todos os utilizadores, incluindo os administradores globais. Os administradores com privilégios de autenticação pode forçar os utilizadores para voltar a registar contra credenciais de palavra-passe existente (por exemplo, MFA, FIDO) e revogar "memorizar MFA no dispositivo", solicitar a MFA no próximo início de sessão de todos os utilizadores. Os administradores com privilégios de autenticação pode:
+  * Forçar os usuários para voltar a registar contra credenciais de palavra-passe existente (por exemplo, MFA, FIDO)
+  * Revogar "memorizar MFA no dispositivo", solicitar a MFA no próximo início de sessão
 
 * **[Com privilégios administrador de função](#privileged-role-administrator)**: Os utilizadores com esta função podem gerir atribuições de funções no Azure Active Directory, assim como no Azure AD Privileged Identity Management. Além disso, esta função permite a gestão de todos os aspetos do Privileged Identity Management.
 
@@ -322,7 +326,6 @@ Pode executar tarefas de faturação comuns, como atualizar as informações de 
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/organization/basic/update | Atualizar as propriedades básicas na organização no Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Atualizar a propriedade organization.trustedCAsForPasswordlessAuth no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
 | microsoft.commerce.billing/allEntities/allTasks | Gerir todos os aspetos da faturação do Office 365. |
@@ -451,14 +454,12 @@ Pode gerir todos os aspetos dos serviços Microsoft e Azure AD que utilizam iden
 | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
 | microsoft.commerce.billing/allEntities/allTasks | Gerir todos os aspetos da faturação do Office 365. |
 | microsoft.intune/allEntities/allTasks | Gerir todos os aspetos do Intune. |
-| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gerir todos os aspetos do Gestor de Conformidade do Office 365 |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerir todos os aspetos da Análise de Computadores. |
 | microsoft.office365.exchange/allEntities/allTasks | Gerir todos os aspetos do Exchange Online. |
 | microsoft.office365.lockbox/allEntities/allTasks | Gerir todos os aspetos do Sistema de Proteção de Dados do Cliente do Office 365 |
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read | Leia securityMessages no microsoft.office365.messageCenter. |
-| microsoft.powerApps.powerBI/allEntities/allTasks | Gerir todos os aspetos do Power BI. |
 | microsoft.office365.protectionCenter/allEntities/allTasks | Gerir todos os aspetos do Centro de Proteção do Office 365. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Criar e eliminar todos os recursos e ler e atualizar propriedades padrão em microsoft.office365.securityComplianceCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
@@ -466,7 +467,9 @@ Pode gerir todos os aspetos dos serviços Microsoft e Azure AD que utilizam iden
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerir todos os aspetos do Skype para Empresas Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Ler relatórios de utilização do Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Gerir todos os aspetos do Dynamics 365. |
+| microsoft.powerApps.powerBI/allEntities/allTasks | Gerir todos os aspetos do Power BI. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Ler todos os recursos em microsoft.windows.defenderAdvancedThreatProtection. |
 
 ### <a name="compliance-administrator"></a>Administrador de Conformidade
@@ -520,8 +523,8 @@ Pode gerir todos os aspetos do produto Dynamics 365.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
-### <a name="customer-lockbox-access-approver"></a>Aprovador de acesso do Cofre de cliente
-Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizacionais do cliente. Esta função não tem acesso para ver, criar ou gerir pedidos de suporte.
+### <a name="customer-lockbox-access-approver"></a>Aprovador de Acesso ao Cofre de Cliente
+Pode aprovar pedidos de suporte da Microsoft para aceder aos dados organizacionais do cliente.
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -785,7 +788,7 @@ Pode gerir todos os aspetos do produto Skype para Empresas.
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
 ### <a name="message-center-reader"></a>Leitor do Centro de Mensagens
-Pode ler as mensagens e atualizações para a sua organização apenas no Centro de Mensagem do Office 365. Esta função não tem acesso para ver, criar ou gerir pedidos de suporte.
+Pode ler as mensagens e atualizações para a sua organização apenas no Centro de Mensagem do Office 365. 
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -848,7 +851,6 @@ Não utilize – não se destina a utilização geral.
 | microsoft.aad.directory/groups/members/update | Atualizar a propriedade groups.members no Azure Active Directory. |
 | microsoft.aad.directory/groups/restore | Restaurar grupos no Azure Active Directory. |
 | microsoft.aad.directory/organization/basic/update | Atualizar as propriedades básicas na organização no Azure Active Directory. |
-| microsoft.aad.directory/organization/trustedCAsForPasswordlessAuth/update | Atualizar a propriedade organization.trustedCAsForPasswordlessAuth no Azure Active Directory. |
 | microsoft.aad.directory/users/appRoleAssignments/update | Atualizar a propriedade users.appRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/users/assignLicense | Gerir licenças em utilizadores no Azure Active Directory. |
 | microsoft.aad.directory/users/basic/update | Atualizar propriedades básicas em utilizadores no Azure Active Directory. |
@@ -877,6 +879,19 @@ Pode gerir todos os aspetos do produto Power BI.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Gerir todos os aspetos do Power BI. |
+| microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
+
+### <a name="privileged-authentication-administrator"></a>Administrador de Autenticação Privilegiada
+Pode visualizar, definir e repor as informações do método de autenticação para qualquer utilizador (administrador ou não administrador).
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalide todos os tokens de atualização de utilizador no Azure Active Directory. |
+| microsoft.aad.directory/users/strongAuthentication/update | Atualizar as propriedades fortes de autenticação, incluindo as informações de credenciais MFA. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar o Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Criar e gerir pedidos de suporte do Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
@@ -1044,7 +1059,7 @@ Pode resolver problemas de comunicação no Teams com ferramentas básicas.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 
 ### <a name="teams-service-administrator"></a>Administrador de Serviço do Teams
-Pode gerir o serviço Microsoft Teams. 
+Pode gerir o serviço Microsoft Teams.
 
   > [!NOTE]
   > Esta função tem permissões de adicional fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.

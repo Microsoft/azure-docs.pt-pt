@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 12edea505ba3b0c8009512a52e3eea9ecea5bb26
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2ed9598ecfb45323505e8527cfb3ab9fe7d8b58e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405203"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764732"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registar o Azure Stack com o Azure
 
@@ -321,7 +321,7 @@ Pode utilizar o **gestão da região** mosaico para verificar se o registo do Az
 4. Utilize o portal do Azure para ver os registos de aplicações do Azure Stack. Inicie sessão no portal do Azure com uma conta associada à subscrição utilizada para registar o Azure Stack. Mudar para o inquilino associado com o Azure Stack.
 5. Navegue para **do Azure Active Directory > registos de aplicações > ver todas as aplicações**.
 
-    ![Registos de aplicações](media/azure-stack-registration/app-registrations.png)
+    ![Registos das aplicações](media/azure-stack-registration/app-registrations.png)
 
     Registos de aplicações do Azure Stack têm o prefixo **do Azure Stack**.
 
@@ -485,9 +485,16 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 Poderá ver um dos erros abaixo ao tentar o registo do seu Azure Stack:
 1. Não foi possível obter as informações de hardware obrigatório para $hostName. . Verifique o anfitrião físico e conectividade em seguida, tente executar novamente o registo.
+
 2. Não é possível ligar ao $hostName para obter informações de hardware –. Verifique o anfitrião físico e conectividade em seguida, tente executar novamente o registo.
 
-Causa: Normalmente, é porque estamos a tentar obter os detalhes de hardware, como o UUID, Bios e CPU dos anfitriões para tentar a ativação e não foi possível devido à incapacidade de ligar ao anfitrião físico.
+> Causa: Isto é, normalmente, porque estamos a tentar obter os detalhes de hardware, como o UUID, Bios e CPU dos anfitriões para tentar a ativação e não foi possível devido à incapacidade de ligar ao anfitrião físico.
+
+Ao tentar aceder à gestão do Marketplace, ocorrerá um erro ao tentar agregar produtos. 
+> Causa: Isto acontece normalmente quando o Azure Stack não consegue aceder ao recurso de Registro. Uma das razões comuns para isso é que, quando muda de inquilino do diretório de uma subscrição do Azure ele redefine o registo. Não é possível aceder a utilização de marketplace ou do relatório do Azure Stack, se tiver alterado o inquilino do diretório da subscrição. Terá de voltar a registar para corrigir este problema.
+
+Gestão de Marketplace ainda solicita que Registre-se e ativar o Azure Stack, mesmo quando que já registou o carimbo de data / usando o processo desligado. 
+> Causa: Este é um problema conhecido para ambientes desligados. Pode verificar o seu estado de registo ao seguir [essas etapas](azure-stack-registration.md#verify-azure-stack-registration). Para utilizar a gestão do Marketplace, precisará usar [a ferramenta offline](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

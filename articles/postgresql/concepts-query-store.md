@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
-ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 03/12/2019
+ms.openlocfilehash: 8cd4cf12390ff29754b55d2827ea4750e7123a27
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660736"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730493"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorizar o desempenho com o Store de consulta
 
@@ -32,12 +32,18 @@ Consulta Store é um recurso opcional, para que ele não estará ativo por prede
 ### <a name="enable-query-store-using-the-azure-portal"></a>Ativar Store de consulta com o portal do Azure
 1. Inicie sessão no portal do Azure e selecione a sua base de dados do Azure para o servidor PostgreSQL.
 2. Selecione **parâmetros do servidor** no **definições** secção do menu.
-3. Procure o **pg_qs.query_capture_mode** parâmetro.
-4. Atualize o valor de NONE para a parte superior e guardar.
+3. Procure o `pg_qs.query_capture_mode` parâmetro.
+4. Defina o valor como `TOP` e **guardar**.
 
-Em alternativa pode definir este parâmetro com a CLI do Azure.
+Para ativar as estatísticas de espera no seu Store de consulta: 
+5. Procure o `pgms_wait_sampling.query_capture_mode` parâmetro.
+6. Defina o valor como `ALL` e **guardar**.
+
+
+Em alternativa pode definir estes parâmetros com a CLI do Azure.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 Permitir que até 20 minutos para que o primeiro grupo de dados para se manter na base de dados do azure_sys.
@@ -71,7 +77,7 @@ Tipos de eventos de espera combinam diferentes de espera eventos em buckets por 
 
 Aqui estão alguns exemplos de como pode obter mais informações sobre sua carga de trabalho com as estatísticas de espera no Query Store:
 
-| **Observação** | **Ação** |
+| **Observação** | **ação** |
 |---|---|
 |Esperas de bloqueio elevado | Verifique os textos de consulta para consultas afetadas e identificar as entidades de destino. Procure no Query Store outras consultas modificar a mesma entidade, o que é executada com frequência e/ou tem alta duração. Depois de identificar estas consultas, considere alterar a lógica do aplicativo para aprimorar a simultaneidade ou utilizar um nível de isolamento menos restritivo.|
 | Esperas de alto de memória intermédia de e/s | Determinar as consultas com um elevado número de leituras físicas na Store de consulta. Se coincidirem as consultas com alta esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de análises. Isso seria minimizar a sobrecarga de e/s das consultas. Verifique os **recomendações de desempenho** para o seu servidor no portal para ver se existem recomendações de índice para este servidor que seria otimizar as consultas.|
@@ -156,7 +162,7 @@ Esta vista devolve os dados de eventos na consulta Store de espera. Há uma linh
 |query_id   |bigint     ||Código de hash interna, calculado a partir da árvore de análise a instrução|
 |event_type |texto       ||O tipo de evento para o qual está aguardando o back-end|
 |event  |texto       ||O nome do evento espera se back-end está atualmente a aguardar|
-|chamadas  |Número inteiro        ||Número do mesmo evento capturado|
+|chamadas  |Número Inteiro        ||Número do mesmo evento capturado|
 
 
 ### <a name="functions"></a>Funções

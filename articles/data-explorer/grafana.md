@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 5a9684605de9af1cd9006810d595ae846db01661
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975159"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531957"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizar dados do Azure Data Explorer no Grafana
 
@@ -23,11 +23,11 @@ O Grafana é uma plataforma de análise que permite-lhe consultar e visualizar d
 
 É necessário o seguinte para concluir este como:
 
-* [O Grafana versão 5.3.0 ou posterior](http://docs.grafana.org/installation/) do seu sistema operativo
+* [O Grafana versão 5.3.0 ou posterior](https://docs.grafana.org/installation/) do seu sistema operativo
 
 * O [Plug-in do Explorador de dados do Azure](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) para o Grafana
 
-* Um cluster que inclui os dados de exemplo StormEvents. Para obter mais informações, consulte [início rápido: criar um cluster do Explorador de dados do Azure e a base de dados](create-cluster-database-portal.md) e [ingerir dados de exemplo no Explorador de dados do Azure](ingest-sample-data.md).
+* Um cluster que inclui os dados de exemplo StormEvents. Para obter mais informações, consulte [início rápido: Criar um cluster do Explorador de dados do Azure e a base de dados](create-cluster-database-portal.md) e [ingerir dados de exemplo no Explorador de dados do Azure](ingest-sample-data.md).
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
@@ -51,7 +51,7 @@ Pode criar o principal de serviço no [portal do Azure](#azure-portal) ou utiliz
 
     1. Na [atribuir a aplicação a uma função](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) secção, atribuir um tipo de função de **leitor** ao seu cluster do Explorador de dados do Azure.
 
-    1. Na [obter os valores para iniciar sessão](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção, copie os valores de três propriedade abrangidos nos passos: **ID do diretório** (ID de inquilino), **ID de aplicação**, e  **Palavra-passe**.
+    1. Na [obter os valores para iniciar sessão](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção, copie os valores de três propriedade abrangidos nos passos: **ID do diretório** (ID de inquilino), **ID da aplicação**, e **palavra-passe**.
 
 1. No portal do Azure, selecione **subscrições** , em seguida, copie o ID da subscrição na qual criou o principal de serviço.
 

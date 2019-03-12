@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: adb893a9d37219409f81b2fb402f2d4afd36aa34
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338863"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533600"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentor que utilizam recursos GPU
 
@@ -28,15 +28,7 @@ Como é mostrado neste artigo, pode adicionar recursos GPU quando implementar um
 
 Em pré-visualização, as seguintes limitações aplicam-se ao usar os recursos GPU em grupos de contentores. 
 
-**Regiões suportadas**:
-
-* Este dos E.U.A. (eastus)
-* E.U.A. oeste 2 (westus2)
-* Sul E.u.a. (southcentralus)
-* Europa Ocidental (westeurope)
-* Europa do Norte (northeurope)
-* Ásia Oriental (Sudeste asiático)
-* Índia central (centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 Será adicionado suporte para regiões adicionais ao longo do tempo.
 
@@ -59,21 +51,9 @@ Para utilizar GPUs numa instância de contentor, especifique um *recurso GPU* co
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### <a name="cpu-and-memory"></a>CPU e memória
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-Ao implementar recursos GPU, defina os recursos de CPU e memória adequada para a carga de trabalho, até os valores máximos mostrado na seguinte tabela. Estes valores são atualmente maiores do que os limites de CPU e memória em instâncias de contentor sem recursos GPU.  
-
-| GPU SKU | Contagem GPU | CPU |  Memória (GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+Ao implementar recursos GPU, defina os recursos de CPU e memória adequado para a carga de trabalho, até os valores máximos mostrado na tabela anterior. Estes valores são atualmente maiores do que os recursos de CPU e memória disponíveis em grupos de contentores sem recursos GPU.  
 
 ### <a name="things-to-know"></a>Que precisa saber
 

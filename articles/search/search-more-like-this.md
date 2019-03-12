@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 1b91fbbcc025456b48ac8fcfcb3f286ede893541
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d55a6d883e0dcd5ad4b1c1584b76bae06e6c742a
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314504"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569047"
 ---
 # <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis no Azure Search (pré-visualização)
 
@@ -25,17 +25,17 @@ ms.locfileid: "53314504"
 
 Segue-se um exemplo de uma consulta de moreLikeThis. A consulta localizar documentos cujos campos de descrição são mais semelhantes para o campo do documento de origem, tal como especificado pelo `moreLikeThis` parâmetro.
 
-```  
+```
 Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2016-09-01-Preview
-```  
+```
 
-```  
+```
 POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
-    {  
-      "moreLikeThis": "1002",  
-      "searchFields": "description"  
-    }  
-```  
+    {
+      "moreLikeThis": "1002",
+      "searchFields": "description"
+    }
+```
 
 ## <a name="feature-availability"></a>Disponibilidade de funcionalidades
 

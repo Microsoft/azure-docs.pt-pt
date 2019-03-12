@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 0fe4da13e8242d858d553e0532b82cf1adca450a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 04712b1ba1eccd71dcfcc9012ebcbdfcbdcd2404
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338764"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773689"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço de gestão de API do Azure com uma rede virtual interna
 Com as redes virtuais do Azure, gestão de API do Azure pode gerir APIs não está acessíveis na internet. Um número de tecnologias VPN está disponível para fazer a conexão. Gestão de API pode ser implementada em dois modos principais dentro de uma rede virtual:
@@ -32,7 +32,7 @@ Utilizar a gestão de API no modo interno, é possível obter os seguintes cená
 
 * Tornar APIs alojadas no seu datacenter privada acessível de forma segura por terceiros fora dele com o site a site ou ligações de VPN do Azure ExpressRoute.
 * Ative cenários de nuvem híbrida, expondo as suas APIs com base na cloud e APIs no local através de um gateway comum.
-* Gerir as suas APIs alojados em várias localizações geográficas utilizando um ponto de final de gateway único. 
+* Gerir as suas APIs alojados em várias localizações geográficas utilizando um ponto de final de gateway único.
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
@@ -47,7 +47,7 @@ Para efetuar os passos descritos neste artigo, tem de ter:
 + **Uma instância de gestão de API do Azure**. Para obter mais informações, consulte [criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
 
 ## <a name="enable-vpn"> </a>Criação de uma gestão de API numa rede virtual interna
-O serviço de gestão de API numa rede virtual interna é hospedado por trás de um balanceador de carga interno (ILB).
+O serviço de gestão de API numa rede virtual interna é hospedado por trás de um [Balanceador de carga interno (clássico)](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). Esta é a única opção disponível e não pode ser alterada.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Ativar uma ligação de rede virtual com o portal do Azure
 
@@ -103,11 +103,12 @@ Para aceder a estes pontos finais de serviço de gestão de API, pode criar uma 
 
    * 10.1.0.5     contosointernalvnet.scm.azure-api.net
 
-Em seguida, pode acessar todos os pontos finais do serviço da máquina virtual que criou. Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar registos DNS de um e aceder a estes pontos finais de qualquer lugar na sua rede virtual. 
+Em seguida, pode acessar todos os pontos finais do serviço da máquina virtual que criou.
+Se utilizar um servidor DNS personalizado numa rede virtual, também pode criar registos DNS de um e aceder a estes pontos finais de qualquer lugar na sua rede virtual.
 
 ### <a name="access-on-custom-domain-names"></a>Acesso em nomes de domínio personalizados
 
-   1. Se não quiser aceder ao serviço de gestão de API com os nomes de anfitrião predefinido, pode configurar nomes de domínio personalizados para todos os seus pontos finais de serviço conforme mostrado na imagem seguinte: 
+   1. Se não quiser aceder ao serviço de gestão de API com os nomes de anfitrião predefinido, pode configurar nomes de domínio personalizados para todos os seus pontos finais de serviço conforme mostrado na imagem seguinte:
 
    ![Configurar um domínio personalizado para gestão de API][api-management-custom-domain-name]
 

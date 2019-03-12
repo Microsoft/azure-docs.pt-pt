@@ -3,7 +3,6 @@ title: Como atualizar as ferramentas de espaços de desenvolvimento do Azure
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/03/2018
@@ -11,12 +10,12 @@ ms.topic: conceptual
 ms.technology: azds-kubernetes
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-ms.openlocfilehash: b56c6069c255984e480b3e6b0e673d89e6c0ee3d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 5bf85fe36b5c59574a8e12f76aaa44ebe2d85711
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194136"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781617"
 ---
 # <a name="how-to-upgrade-azure-dev-spaces-tools"></a>Como atualizar as ferramentas de espaços de desenvolvimento do Azure
 

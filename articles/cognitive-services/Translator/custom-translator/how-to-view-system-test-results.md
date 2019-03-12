@@ -5,16 +5,16 @@ description: Quando seu treinamento é efetuada com êxito, reveja os testes de 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 912d62796074c6841d8fb99801bd6ce1f54c7fcf
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d06b4a0a9823871ffc14d7cfa7148f6e335835d6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726589"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762675"
 ---
 # <a name="view-system-test-results"></a>Viver resultados do teste do sistema
 

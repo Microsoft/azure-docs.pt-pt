@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: fdeef8be1cfaabde326f68a1207f7c38d037a502
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b4359a90bb511b538499848effea7be22a23fac0
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313301"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570628"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VMS do Azure para o Azure
 
@@ -173,7 +173,9 @@ Para replicação do Site Recovery para o trabalho, a conectividade de saída pa
   - O Azure Site Recovery necessário acesso aos intervalos de IPs do Office 365 para a autenticação.
     Se estiver a utilizar o proxy de firewall/regras de grupo (NSG) de segurança de rede do Azure para controlar a conectividade de rede de saída na VM, certifique-se de que permite a comunicação com IPranges do Office 365. Criar uma [etiquetas de serviço do Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) com base em regras NSG para permitir o acesso a todos os endereços IP correspondente para o AAD
         - Se novos endereços são adicionados ao Azure Active Directory (AAD) no futuro, terá de criar novas regras NSG.
-
+>[!NOTE]
+> Se as máquinas virtuais estão por trás **padrão** Balanceador de carga interno, em seguida, ele não terá acesso a IPs do Office 365 como login.micorsoftonline.com por predefinição. Altere-o para **básica** interno tipo de Balanceador de carga ou criar acesso por vinculada, conforme mencionado no [artigo] (https://aka.ms/lboutboundrulescli).
+>
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: Configuração de recuperação de sites falhou (151197)
 - **Causa possível** </br>

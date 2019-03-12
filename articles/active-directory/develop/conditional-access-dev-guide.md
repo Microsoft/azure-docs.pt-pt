@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.author: celested
 ms.reviewer: dadobali
-ms.date: 09/24/2018
+ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2be77cdc4a5ad38a7d8c125fd95256e77cd92019
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c02f094def3828d0839025f4b7dea48ee64adcc8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202949"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543191"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Orientação para programadores de acesso condicional do Azure Active Directory
 
@@ -44,7 +44,6 @@ Na maioria dos casos, o acesso condicional não altera o comportamento de uma ap
 
 Os seguintes cenários requerem especificamente, o código para lidar com acesso condicional "desafios":
 
-* Aplicações acedam aos Microsoft Graph
 * Aplicações a executar o fluxo em-nome-de
 * Aplicações acedam aos vários serviços/recursos
 * Aplicações de página única com ADAL.js
@@ -58,15 +57,28 @@ Dependendo do cenário, um cliente empresarial pode aplicar e remover as políti
 
 Alguns cenários requerem alterações de código para lidar com acesso condicional, ao passo que outras pessoas são compatíveis. Seguem-se alguns cenários, usando o acesso condicional para fazer a autenticação multifator que fornece algum esclarecimento sobre a diferença.
 
-* Estão a criar uma aplicação iOS de inquilino único e aplicar uma política de acesso condicional. A aplicação inicia sessão um utilizador e não pedir o acesso a uma API. Quando o utilizador inicia sessão, a política é invocada automaticamente e o utilizador precisa de realizar a autenticação multifator (MFA).
-* Está criando uma aplicação web do multi-inquilino que utiliza o Microsoft Graph para aceder ao Exchange, entre outros serviços. Um cliente empresarial que adota esta aplicação define uma política de Exchange. Quando a aplicação web solicita um token para MS Graph, a aplicação não será desafiada para estar em conformidade com a política. O utilizador final é a sessão iniciado com tokens válidos. Quando a aplicação tenta utilizar este token com o Microsoft Graph para aceder a dados do Exchange, um desafio"afirmações" é retornado para a aplicação web através do ```WWW-Authenticate``` cabeçalho. A aplicação, em seguida, pode utilizar o ```claims``` num novo pedido, e será pedido ao utilizador final para estar em conformidade com as condições.
+* Estão a criar uma aplicação iOS de inquilino único e aplicar uma política de acesso condicional. A aplicação inicia sessão um utilizador e não pedir o acesso a uma API. Quando o utilizador inicia sessão, a política é invocada automaticamente e o utilizador precisa de realizar a autenticação multifator (MFA). 
 * Está criando um aplicativo nativo que usa um serviço de camada intermediária para aceder a uma API de downstream. Um cliente empresarial na empresa utilizar esta aplicação aplica-se uma política para a API de downstream. Quando um utilizador final inicia sessão, a aplicação nativa pede acesso para a camada intermediária e envia o token. A camada média executa em-nome-de fluxo para pedir acesso para a API de downstream. Neste momento, um desafio"afirmações" é apresentado para a camada intermediária. A camada média envia o desafio para a aplicação nativa, o que tem de estar em conformidade com a política de acesso condicional.
+
+#### <a name="microsoft-graph"></a>Microsoft Graph
+
+Microsoft Graph tem considerações especiais ao construir aplicativos em ambientes de acesso condicional. Em geral, a mecânica do acesso condicional se comportam da mesma, mas as políticas, que veja os seus utilizadores irão basear-se nos dados subjacentes que a aplicação está a solicitar do gráfico. 
+
+Especificamente, todos os âmbitos do Microsoft Graph representam um conjunto de dados individualmente pode ter políticas aplicadas. Uma vez que as políticas de acesso condicional são atribuídas os conjuntos de dados específicos, do Azure AD irá impor políticas de acesso condicional com base nos dados por trás do gráfico: em vez de criar um gráfico em si.
+
+Por exemplo, se um aplicativo solicita os seguintes âmbitos do Microsoft Graph,
+
+```
+scopes="Bookings.Read.All Mail.Read"
+```
+
+Uma aplicação pode esperar que seus usuários para atender a todas as diretivas definidas no Bookings e o Exchange. Alguns âmbitos podem mapear para vários conjuntos de dados, se ele concede acesso. 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Conformidade com uma política de acesso condicional
 
 Para várias topologias de aplicação diferente, uma política de acesso condicional é avaliada quando a sessão for estabelecida. Como uma política de acesso condicional funciona numa granularidade de aplicações e serviços, o ponto em que é invocado depende muito o cenário que está tentando realizar.
 
-Quando a aplicação tenta acessar um serviço com uma política de acesso condicional, pode encontrar um desafio de acesso condicional. Esse desafio está codificado no `claims` parâmetro que é fornecido numa resposta do Azure AD ou Microsoft Graph. Eis um exemplo deste parâmetro desafio:
+Quando a aplicação tenta acessar um serviço com uma política de acesso condicional, pode encontrar um desafio de acesso condicional. Esse desafio está codificado no `claims` parâmetro que é fornecido numa resposta do Azure AD. Eis um exemplo deste parâmetro desafio: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
@@ -84,70 +96,15 @@ Acesso condicional do Azure AD é uma funcionalidade incluída no [do Azure AD P
 
 As seguintes informações aplicam-se apenas nos seguintes cenários de acesso condicional:
 
-* Aplicações acedam aos Microsoft Graph
 * Aplicações a executar o fluxo em-nome-de
 * Aplicações acedam aos vários serviços/recursos
 * Aplicações de página única com ADAL.js
 
-As secções seguintes abordam cenários comuns que são mais complexos. Centro operacional princípio é o acesso condicional, as políticas são avaliadas no momento que o token é solicitado para o serviço que tem uma política de acesso condicional aplicada, a menos que está sendo acessado através do Microsoft Graph.
-
-## <a name="scenario-app-accessing-microsoft-graph"></a>Cenário: Aplicação aceder ao Microsoft Graph
-
-Neste cenário, saiba como uma aplicação web pedidos de acesso para o Microsoft Graph. A política de acesso condicional neste caso poderia ser atribuída para o SharePoint, Exchange ou algum outro serviço que é acessado como uma carga de trabalho através do Microsoft Graph. Neste exemplo, suponhamos que haja uma política de acesso condicional no SharePoint Online.
-
-![Aplicação aceder ao diagrama de fluxo do Microsoft Graph](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
-
-A aplicação primeiro solicita autorização para o Microsoft Graph, o que necessita de aceder a uma carga de trabalho jusante sem acesso condicional. O pedido for bem-sucedida sem invocar qualquer política e a aplicação recebe tokens para o Microsoft Graph. Neste momento, a aplicação pode utilizar o token de acesso numa solicitação de portador para o ponto final do pedido. Agora, a aplicação tem de aceder a um ponto final do SharePoint Online do Microsoft Graph, por exemplo: `https://graph.microsoft.com/v1.0/me/mySite`
-
-A aplicação já tem um token válido para o Microsoft Graph, para que ele pode executar o novo pedido sem que está a ser emitido um novo token. Este pedido falha e um desafio de afirmações é emitido a partir do Microsoft Graph, na forma de um HTTP 403 Proibido com um ```WWW-Authenticate``` desafio.
-
-Eis um exemplo da resposta:
-
-```
-HTTP 403; Forbidden
-error=insufficient_claims
-www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
-```
-
-O desafio de afirmações é dentro do ```WWW-Authenticate``` cabeçalho, que pode ser analisado para extrair o parâmetro de afirmações para a próxima solicitação. Assim que ele é acrescentado ao novo pedido, do Azure AD sabe-se para avaliar a política de acesso condicional ao iniciar sessão do utilizador e a aplicação está agora em conformidade com a política de acesso condicional. Repetir o pedido para o ponto final do SharePoint Online for concluída com êxito.
-
-O ```WWW-Authenticate``` cabeçalho têm uma estrutura de exclusiva e não é trivial para analisar para extrair valores. Eis um método curto para o ajudar a.
-
-```csharp
-        /// <summary>
-        /// This method extracts the claims value from the 403 error response from MS Graph.
-        /// </summary>
-        /// <param name="wwwAuthHeader"></param>
-        /// <returns>Value of the claims entry. This should be considered an opaque string.
-        /// Returns null if the wwwAuthheader does not contain the claims value. </returns>
-        private String extractClaims(String wwwAuthHeader)
-        {
-            String ClaimsKey = "claims=";
-            String ClaimsSubstring = "";
-            if (wwwAuthHeader.Contains(ClaimsKey))
-            {
-                int Index = wwwAuthHeader.IndexOf(ClaimsKey);
-                ClaimsSubstring = wwwAuthHeader.Substring(Index, wwwAuthHeader.Length - Index);
-                string ClaimsChallenge;
-                if (Regex.Match(ClaimsSubstring, @"}$").Success)
-                {
-                    ClaimsChallenge = ClaimsSubstring.Split('=')[1];
-                }
-                else
-                {
-                    ClaimsChallenge = ClaimsSubstring.Substring(0, ClaimsSubstring.IndexOf("},") + 1);
-                }
-                return ClaimsChallenge;
-            }
-            return null;
-        }
-```
-
-Para exemplos de código que demonstram como lidar com o desafio de afirmações, consulte a [exemplo de código em-nome-de](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) para .NET da ADAL.
+As secções seguintes abordam cenários comuns que são mais complexos. Centro operacional princípio é o acesso condicional, as políticas são avaliadas no momento que o token é solicitado para o serviço que tem uma política de acesso condicional aplicada.
 
 ## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Cenário: Executar o fluxo em-nome-de aplicação
 
-Neste cenário, vamos analisar o caso em que uma aplicação nativa chama uma serviço/API web. Por sua vez, esse serviço faz [he "fluxo em-nome-de" para chamar um serviço downstream. No nosso caso, estamos aplicou a nossa política de acesso condicional para o serviço downstream (Web API 2) e estiver a utilizar uma aplicação nativa, em vez de uma aplicação de servidor/daemon.
+Neste cenário, vamos analisar o caso em que uma aplicação nativa chama uma serviço/API web. Por sua vez, esse serviço faz [he "fluxo em-nome-de" para chamar um serviço downstream. No nosso caso, estamos aplicou a nossa política de acesso condicional para o serviço downstream (Web API 2) e estiver a utilizar uma aplicação nativa, em vez de uma aplicação de servidor/daemon. 
 
 ![Aplicação efetuar o diagrama de fluxo em-nome-de](./media/conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
@@ -217,7 +174,6 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 A nossa aplicação tem de capturar o `error=interaction_required`. O aplicativo, em seguida, pode utilizar tanto `acquireTokenPopup()` ou `acquireTokenRedirect()` no mesmo recurso. O utilizador é forçado a fazer uma autenticação multifator. Depois do utilizador conclui a autenticação multifator, a aplicação é emitida um token de acesso de novo para o recurso pedido.
 
 Para experimentar este cenário, consulte nosso [exemplo de código em-nome-de JS SPA](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca). Este exemplo de código utiliza a política de acesso condicional e a web API registada anteriormente com um JS SPA para demonstrar este cenário. Ele mostra como lidar com o desafio de afirmações e obter um token de acesso que pode ser utilizado para a API Web adequadamente. Em alternativa, Check-out gerais [exemplo de código do angular](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) para obter orientações sobre um SPA Angular
-
 
 ## <a name="see-also"></a>Consulte também
 

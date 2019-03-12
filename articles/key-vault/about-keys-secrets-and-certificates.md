@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dccd685c240d6e007486be6a4f73e0fce0129a82
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: cb18b9063599520ccc6caec44053dc9780969f74
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405237"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532341"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
@@ -39,7 +39,7 @@ As seções a seguir oferecem informações gerais aplicável em toda a implemen
 
 O JavaScript Object Notation (JSON) e especificações de assinatura de objeto de JavaScript e a encriptação (JOSE) são informações gerais importantes.  
 
--   [Chave do JSON Web (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
+-   [Chave do JSON Web (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [Encriptação de Web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
 -   [Algoritmos de Web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [Assinatura de Web JSON (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
@@ -166,7 +166,7 @@ Cofre de chaves não suporta operações de exportação. Assim que uma chave é
 
 Os utilizadores podem restringir qualquer uma das operações criptográficas que suporte o Cofre de chaves numa base por chave usando a propriedade key_ops do objeto JWK.  
 
-Para obter mais informações sobre objetos JWK, consulte [chave de Web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+Para obter mais informações sobre objetos JWK, consulte [chave de Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
 ###  <a name="key-attributes"></a>Atributos principais
 
@@ -189,7 +189,7 @@ Não, mas válido e de fora a expirou chaves, o *nbf* / *exp* janela, funcionar�
 
 Para obter mais informações sobre os tipos de dados, consulte [tipos de dados](#data-types).
 
-Para obter mais informações sobre outros atributos possíveis, consulte a [chave de Web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Para obter mais informações sobre outros atributos possíveis, consulte a [chave de Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
 ### <a name="key-tags"></a>Principais etiquetas
 
@@ -208,7 +208,7 @@ As seguintes permissões podem ser concedidas, num por utilizador / serviço pri
   - *get*: Ler a parte pública de uma chave, juntamente com seus atributos
   - *list*: Listar as chaves ou versões de uma chave armazenada num cofre de chaves
   - *update*: Atualize os atributos de uma chave
-  - *Criar*: Criar chaves novas
+  - *criar*: Criar chaves novas
   - *import*: Importar uma chave para um cofre de chaves
   - *delete*: Eliminar o objeto de chave
   - *recover*: Recuperar uma chave eliminada
@@ -424,7 +424,7 @@ Se a política de um certificado estiver definida para renovação automática, 
   - *get*: Obter a versão atual do certificado ou qualquer versão de um certificado 
   - *list*: Listar os certificados atuais ou versões de um certificado  
   - *update*: Atualizar um certificado
-  - *Criar*: Criar um certificado do Key Vault
+  - *criar*: Criar um certificado do Key Vault
   - *import*: Importar o material de certificado para um certificado do Key Vault
   - *delete*: Eliminar um certificado, a política e todas as suas versões  
   - *recover*: Recuperar um certificado eliminado

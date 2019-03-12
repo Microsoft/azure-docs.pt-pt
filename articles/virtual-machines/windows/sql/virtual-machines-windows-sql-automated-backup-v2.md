@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e20599833d3073e4819dbc974d4b2afe962ba18a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 540acd1735eb539ecaac468e74511ba5f751278f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984312"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780019"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>V2 de cópia de segurança automatizada para máquinas virtuais do Azure (Resource Manager)
 
@@ -52,7 +52,7 @@ Para utilizar a cópia de segurança automatizada v2, reveja os seguintes pré-r
 
 - Bases de dados de destino tem de utilizar o modelo de recuperação completo. Para obter mais informações sobre o impacto do modelo de recuperação completo sobre as cópias de segurança, consulte [cópia de segurança sob a recuperação modelo completo](https://technet.microsoft.com/library/ms190217.aspx).
 - Bases de dados do sistema não é necessário que utilizar o modelo de recuperação completo. No entanto, se necessitar de backups de log Ir para o modelo ou MSDB, tem de utilizar o modelo de recuperação completo.
-- Bases de dados de destino tem de ser na instância predefinida do SQL Server. A extensão de IaaS do SQL Server não suporta a instâncias nomeadas.
+- Bases de dados de destino tem de estar em qualquer um da padrão instância do SQL Server, ou uma [corretamente instalados](virtual-machines-windows-sql-server-iaas-faq.md#administration) instância nomeada. 
 
 > [!NOTE]
 > Depende de cópia de segurança automatizada as **extensão de agente IaaS do SQL Server**. Imagens de Galeria de máquinas virtuais SQL atuais adicione esta extensão por predefinição. Para obter mais informações, consulte [extensão de agente IaaS do SQL Server](virtual-machines-windows-sql-server-agent-extension.md).

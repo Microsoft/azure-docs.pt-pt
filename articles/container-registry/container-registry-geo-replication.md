@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: d65267992876b3b3255a5eea22ff827522ddcdf1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2dc314dd1d1e728f03c1d0c660d9339254ddc462
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674706"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541864"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Georreplicação no Azure Container Registry
 
@@ -69,7 +69,7 @@ Replicação geográfica é uma funcionalidade do [registos Premium](container-r
 
 ![Mudar a SKUs no portal do Azure](media/container-registry-skus/update-registry-sku.png)
 
-Para configurar a georreplicação para o seu registo Premium, inicie sessão no portal do Azure em http://portal.azure.com.
+Para configurar a georreplicação para o seu registo Premium, inicie sessão no portal do Azure em https://portal.azure.com.
 
 Navegue para o seu registo de contentor do Azure e selecione **replicações**:
 

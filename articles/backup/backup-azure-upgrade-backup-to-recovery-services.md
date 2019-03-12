@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: efd069b90e2f085b7bacf4dfa72478e1232554bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: b4ecebc6bef7f49a23455c7a85f25680df087a95
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313365"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530761"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de cópia de segurança para um cofre dos serviços de recuperação
 
@@ -80,7 +80,7 @@ O script do PowerShell pede-lhe para introduzir as suas credenciais. Introduza a
 ### <a name="pre-requisites-checking"></a>A verificação de pré-requisitos
 Depois de introduzir as credenciais do Azure, Azure verifica se o seu ambiente cumpre os seguintes pré-requisitos:
 
-- **Versão de agente mínima** -atualizar os cofres de cópia de segurança para cofres dos serviços de recuperação requer que o agente de MARS ser, pelo menos, versão 2.0.9083.0. Se tiver registados para um cofre de cópia de segurança com um agente anteriores ao 2.0.9083.0 de itens, a verificação de pré-requisitos falha. Se falhar a verificação de pré-requisitos, atualize o agente e tente atualizar novamente o cofre. Pode baixar a versão mais recente do agente do [ http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versão de agente mínima** -atualizar os cofres de cópia de segurança para cofres dos serviços de recuperação requer que o agente de MARS ser, pelo menos, versão 2.0.9083.0. Se tiver registados para um cofre de cópia de segurança com um agente anteriores ao 2.0.9083.0 de itens, a verificação de pré-requisitos falha. Se falhar a verificação de pré-requisitos, atualize o agente e tente atualizar novamente o cofre. Pode baixar a versão mais recente do agente do [ https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe ](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Tarefas de configuração em curso**: Se alguém está a configurar as tarefas de um cofre de cópia de segurança definido para ser atualizado ou registrar-se um item, a verificação de pré-requisitos falha. Concluir a configuração, ou concluir a registar o item e, em seguida, inicie o processo de atualização do cofre.
 - **Modelo de faturação baseada no armazenamento**: Os cofres dos serviços de recuperação suportam o modelo de faturação com base na instância. Se executar a atualização do cofre num cofre de cópia de segurança que utiliza o modelo de faturação baseada no armazenamento, lhe for pedido para atualizar o modelo de faturação, juntamente com o cofre. Caso contrário, pode atualizar o modelo de faturação em primeiro lugar, e, em seguida, executar a atualização do cofre.
 - Identifica um grupo de recursos para o Cofre dos serviços de recuperação. Para tirar partido das funcionalidades de implementação do Resource Manager, tem de colocar um cofre dos serviços de recuperação num grupo de recursos. Se não sabe qual grupo de recursos para utilizar, indique um nome e o processo de atualização cria o grupo de recursos para. O processo de atualização também associa o Cofre novo grupo de recursos.

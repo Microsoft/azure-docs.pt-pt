@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: b13becf8530f478a5e58b46a1b422593051c95cf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 03/06/2019
+ms.openlocfilehash: e872c29712c3fadca676ec87870bcc5c4eb58565
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478173"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727404"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>A otimização automática na base de dados do Azure SQL
 
@@ -66,11 +66,13 @@ Para uma visão geral de como automática funciona de Otimização e para cenár
 
 Opções de otimização automática disponíveis no banco de dados do Azure SQL são:
 
- 1. **Criar índice** -identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente que melhorou o desempenho de consultas.
- 2. **DROP INDEX** -identifica os índices redundantes e duplicados diariamente, exceto para índices exclusivos e os que não foram utilizados por um longo tempo (> 90 dias). Tenha em atenção que, de momento a opção não é compatível com aplicativos utilizar sugestões de índice e de alternância de partição.
- 3. **FORÇAR último plano bom** -identifica as consultas SQL com o plano de execução que é mais lento do que o plano de boa anterior e consulta com o último plano bom conhecido em vez do plano regredido.
+| Opção de otimização automática | Base de dados e suporte de bases de dados agrupadas | Suporte de base de dados de instância |
+| :----------------------------- | ----- | ----- |
+| **Criar índice** -identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente que melhorou o desempenho de consultas. | Sim | Não | 
+| **DROP INDEX** -identifica os índices redundantes e duplicados diariamente, exceto para índices exclusivos e os que não foram utilizados por um longo tempo (> 90 dias). Tenha em atenção que, de momento a opção não é compatível com aplicativos utilizar sugestões de índice e de alternância de partição. | Sim | Não |
+| **FORÇAR último plano bom** - consultas de SQL identifica com o plano de execução que é mais lento do que o plano de boa anterior e consulta com o último plano bom conhecido em vez do plano regredido. | Sim | Sim |
 
-A otimização automática identifica **CREATE INDEX**, **DROP INDEX**, e **força última boa planear** recomendações que podem otimizar o desempenho da sua base de dados e mostram os mesmos em [Portal do azure](sql-database-advisor-portal.md)e as expõe por meio [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+A otimização automática identifica **CREATE INDEX**, **DROP INDEX**, e **força última boa planear** recomendações que podem otimizar o desempenho da sua base de dados e mostram os mesmos em [Portal do azure](sql-database-advisor-portal.md)e as expõe por meio [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
 
 Pode optar por manualmente aplicar recomendações de otimização com o portal ou pode permitir que a otimização automática forma autónoma aplicar recomendações de otimização para. Os benefícios de deixar o sistema de forma autónoma aplicar recomendações de otimização para si é que ele valida automaticamente lá existe um ganho de positivo para o desempenho da carga de trabalho e, se não houver nenhuma melhora no desempenho significativo detetada, será reverta automaticamente a recomendação de otimização. Tenha em atenção que no caso de consultas afetadas por recomendações que não são executadas com maior freqüência de otimização, a fase de validação pode demorar até 72 horas por predefinição. No caso de está aplicando manualmente o ajuste de recomendações, a validação de desempenho automática e mecanismos de reversão não estão disponíveis.
 

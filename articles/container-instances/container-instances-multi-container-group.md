@@ -1,6 +1,6 @@
 ---
 title: Implementar grupos de vários contentores no Azure Container Instances
-description: Saiba como implementar um grupo de contentores com vários contentores no Azure Container Instances.
+description: Saiba como implementar um grupo de contentores com vários contentores no Azure Container Instances com um modelo Azure Resource Manager.
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856484"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729508"
 ---
-# <a name="deploy-a-container-group"></a>Implementar um grupo de contentores
+# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>Implementar um grupo de vários contentor com um modelo do Resource Manager
 
 O Azure Container Instances suporta a implementação de vários contentores num anfitrião único com uma [grupo de contentores](container-instances-container-groups.md). Isto é útil ao criar um sidecar de aplicativo para o registo, monitorização ou qualquer outra configuração em que um serviço precisa de um segundo processo anexado.
 
@@ -28,6 +28,8 @@ Implementação com um modelo do Resource Manager é recomendada quando precisar
 
 > [!NOTE]
 > Grupos com vários contentores estão atualmente restritos para contentores do Linux. Enquanto estamos a trabalhar para colocar todas as funcionalidades de contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
+
+Para exemplos de modelos adicionais, consulte [modelos do Azure Resource Manager do Azure Container Instances](container-instances-samples-rm.md). 
 
 ## <a name="configure-the-template"></a>Configurar o modelo
 

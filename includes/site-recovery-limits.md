@@ -13,16 +13,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: 639faef9d95a6ff3ba307290add3bee73904fee0
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 3da48fb07a144b360861244026e5b8d5fcea53b1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52271669"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553954"
 ---
-Os limites seguintes aplicam-se ao Azure Site Recovery:
+Os limites seguintes aplicam-se ao Azure Site Recovery.
 
-| IDENTIFICADOR DE LIMITE | LIMITE PREDEFINIDO |
+| Identificador de limite | Limite predefinido |
 | --- | --- | --- | --- |
 | Número de cofres por subscrição |500 |     
 | Número de servidores por cofre do Azure |250 |

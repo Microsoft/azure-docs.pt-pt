@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4a3da9e2ad4d5ab83c1e906b3ab43540e819b48c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 94e9a70707472eb94109ebcc404fd7a1a3074135
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342016"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575751"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utilizar um Java UDF com o Apache Hive no HDInsight
 
@@ -176,7 +176,7 @@ Saiba como criar uma com base em Java definidas pelo utilizador função (UDF) q
 2. Utilize o `scp` comandos para copiar o ficheiro para o cluster do HDInsight.
 
     ```bash
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight.net
     ```
 
     Substitua `myuser` com a conta de utilizador SSH para o seu cluster. Substitua `mycluster` com o nome do cluster. Se utilizou uma palavra-passe para proteger a conta SSH, lhe for pedido para introduzir a palavra-passe. Se utilizou um certificado, poderá ter de utilizar o `-i` parâmetro para especificar o ficheiro de chave privada.

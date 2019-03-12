@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: f67741417c6d31c4adf1d063aac3bd3ccc310fde
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c8ec54df0d578c6d12524a4128b9cc54e6464a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440255"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781906"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Compreender a estrutura e a sintaxe de modelos Azure Resource Manager
 
@@ -46,7 +46,7 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 |:--- |:--- |:--- |
 | $schema |Sim |Localização do ficheiro de esquema JSON que descreve a versão da linguagem do modelo.<br><br> Para implementações do grupo de recursos, utilize: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Sim |Versão do modelo (por exemplo, 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao implementar recursos com o modelo, este valor pode ser usado para se certificar de que o modelo certo está a ser utilizado. |
-| apiProfile |Não | Uma versão de API que funciona como uma coleção de versões de API para tipos de recursos. Utilize este valor para evitar ter de especificar as versões de API para cada recurso no modelo. Quando especificar uma versão de perfil de API e não especificar uma versão de API para o tipo de recurso, o Resource Manager utiliza a versão de API do perfil para esse tipo de recurso. Para obter mais informações, consulte [controlar versões através de perfis de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| apiProfile |Não | Uma versão de API que funciona como uma coleção de versões de API para tipos de recursos. Utilize este valor para evitar ter de especificar as versões de API para cada recurso no modelo. Quando especificar uma versão de perfil de API e não especificar uma versão de API para o tipo de recurso, o Resource Manager utiliza a versão de API para esse tipo de recurso que está definido no perfil.<br><br>A propriedade de perfil de API é especialmente útil quando implementar um modelo para ambientes diferentes, como o Azure Stack e o global Azure. Utilize a versão de perfil de API para se certificar de que o modelo utiliza automaticamente as versões que são suportadas nos dois ambientes. Para obter uma lista de versões de perfil de API atuais e os recursos definidos no perfil de versões de API, consulte [perfil de API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [controlar versões através de perfis de API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
 | [Variáveis](#variables) |Não |Valores que são utilizados como fragmentos JSON no modelo para simplificar as expressões de linguagem de modelo. |
 | [functions](#functions) |Não |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
@@ -57,17 +57,38 @@ Cada elemento tem propriedades que pode definir. Este artigo descreve as seçõe
 
 ## <a name="syntax"></a>Sintaxe
 
-A sintaxe básica do modelo é um JSON. No entanto, expressões e funções estendem os valores JSON disponíveis dentro do modelo.  Expressões são escritas dentro de literais de cadeia de caracteres do JSON cujo primeiro e último carateres são os colchetes: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implementado. Embora escrito como um literal de cadeia, o resultado da avaliação da expressão pode ser de um tipo diferente do JSON, como uma matriz ou um número inteiro, consoante a expressão real.  Ter uma cadeia literal, comece com um colchete `[`, mas não o tiver interpretada como uma expressão, adicione um parêntesis extra para iniciar a cadeia de caracteres com `[[`.
-
-Normalmente, usar expressões com as funções para executar operações para configurar a implantação. Da mesma forma que no JavaScript, chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. Referenciar propriedades utilizando os operadores de pontos e [Índice].
-
-O exemplo seguinte mostra como utilizar várias funções ao construir um valor:
+A sintaxe básica do modelo é um JSON. No entanto, pode utilizar expressões para estender os valores JSON disponíveis dentro do modelo.  Expressões de começar e terminar com Parênteses Retos: `[` e `]`, respectivamente. O valor da expressão é avaliado quando o modelo é implementado. Uma expressão pode retornar uma cadeia de caracteres, número inteiro, booleano, matriz ou objeto. O exemplo seguinte mostra uma expressão no valor predefinido de um parâmetro:
 
 ```json
-"variables": {
-  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
-}
+"parameters": {
+  "location": {
+    "type": "string",
+    "defaultValue": "[resourceGroup().location]"
+  }
+},
 ```
+
+Na expressão, a sintaxe `resourceGroup()` chama uma das funções que o Resource Manager fornece para uso dentro de um modelo. Da mesma forma que no JavaScript, chamadas de função são formatadas como `functionName(arg1,arg2,arg3)`. A sintaxe `.location` obtém uma propriedade do objeto retornado por essa função.
+
+Funções de modelo e os respetivos parâmetros diferenciam maiúsculas de minúsculas. Por exemplo, o Gestor de recursos é resolvido **variables('var1')** e **VARIABLES('VAR1')** da mesma. Quando avaliadas, a menos que a função expressamente modifica caso (como toUpper ou toLower), a função preserva o caso. Determinados tipos de recursos podem ter requisitos de casos, independentemente de como são avaliadas as funções.
+
+Ter uma cadeia literal, comece com um colchete `[`, mas não o tiver interpretada como uma expressão, adicione um parêntesis extra para iniciar a cadeia de caracteres com `[[`.
+
+Transmita um valor de cadeia de caracteres como um parâmetro para uma função, utilize plicas.
+
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]"
+```
+
+Para o escape aspas duplas numa expressão, como adicionar um objeto JSON no modelo, utilize a barra invertida.
+
+```json
+"tags": {
+    "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+},
+```
+
+Uma expressão de modelo não pode exceder 24,576 carateres.
 
 Para obter a lista completa de funções de modelo, consulte [funções de modelo do Azure Resource Manager](resource-group-template-functions.md). 
 

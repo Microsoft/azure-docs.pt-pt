@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.subservice: qnamaker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1c1e638972f5ed9c6d860685ad0c0010d95d4e88
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ef3d50a9d31f86f646ccaea1edaaf46171f174a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224603"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781872"
 ---
 # <a name="supported-languages"></a>Linguagens suportadas
 

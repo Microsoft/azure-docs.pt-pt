@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: 937f57190236e3b5d3c92df5f50167880fef4bb4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 56589df6a0135f15eb1b74708a47829e6fec3299
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756721"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546998"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Conceber uma base de dados do Azure para PostgreSQL com a CLI do Azure 
 Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
@@ -46,12 +46,12 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar uma Base de Dados do Azure para o servidor PostgreSQL
 Crie uma [Base de Dados do Azure para o servidor PostgreSQL](overview.md) com o comando [az postgres server create](/cli/azure/postgres/server). Os servidores contêm um grupo de bases de dados geridas como um grupo. 
 
-O exemplo seguinte cria um servidor com o nome `mydemoserver` no seu grupo de recursos `myresourcegroup` com o início de sessão `myadmin` de administrador do servidor. O nome de um servidor mapeia para o nome DNS e, por conseguinte, é necessário para ser globalmente exclusivo no Azure. Substitua `<server_admin_password>` pelo seu próprio valor. É para Fins Gerais, servidor de Gen 4 com 2 vCores.
+O exemplo seguinte cria um servidor com o nome `mydemoserver` no seu grupo de recursos `myresourcegroup` com o início de sessão `myadmin` de administrador do servidor. O nome de um servidor mapeia para o nome DNS e, por conseguinte, é necessário para ser globalmente exclusivo no Azure. Substitua `<server_admin_password>` pelo seu próprio valor. É para fins gerais, servidor de geração 5 com 2 vCores.
 ```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen4_4` mapeia para Básico, Ger 4 e 4 vCores.
++ `--sku-name B_Gen5_2` é mapeado para básico, fins 5 e 2 vCores.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -98,8 +98,8 @@ O resultado está no formato JSON. Aponte o **administratorLogin** e o **fullyQu
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

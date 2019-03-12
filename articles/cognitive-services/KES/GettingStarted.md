@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: a48fecd910d87af23a9385270878b0d1b6737007
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ded681b8776343a778f3e9704fe05d43e8d74774
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452543"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550533"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introdução ao Serviço de Exploração de Conhecimento
 
@@ -64,7 +64,7 @@ Para obter mais informações sobre a definição de esquema, veja [Formato de E
 
 ## <a name="generate-data"></a>Gerar dados
 
-O ficheiro de dados descreve a lista de publicações a indexar, com cada linha a especificar os valores dos atributos de um documento no [formato JSON](http://json.org/).  O exemplo seguinte é uma única linha do ficheiro de dados *Academic.data*, formatado para legibilidade:
+O ficheiro de dados descreve a lista de publicações a indexar, com cada linha a especificar os valores dos atributos de um documento no [formato JSON](https://json.org/).  O exemplo seguinte é uma única linha do ficheiro de dados *Academic.data*, formatado para legibilidade:
 
 ```
 ...

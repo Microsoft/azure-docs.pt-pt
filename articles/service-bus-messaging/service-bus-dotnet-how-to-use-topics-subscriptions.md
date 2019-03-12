@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 28b15e950aa4ebbfcb1b04bfd495b3accf13528e
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586907"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766952"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Service Bus
 

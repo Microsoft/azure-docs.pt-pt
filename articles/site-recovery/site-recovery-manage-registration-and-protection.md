@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9aaa5dd2c636f9b5d92e949e1af71eda809cdac7
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 20d5c4628d729b8dff8b1d72f80beac0ec2e8f67
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810325"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569753"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
 
@@ -55,18 +55,18 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
         pushd .
         try
         {
-             $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
-             $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
-             $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
-             $isAdmin=$principal.IsInRole($administrators)
-             if (!$isAdmin)
-             {
+            $windowsIdentity=[System.Security.Principal.WindowsIdentity]::GetCurrent()
+            $principal=new-object System.Security.Principal.WindowsPrincipal($windowsIdentity)
+            $administrators=[System.Security.Principal.WindowsBuiltInRole]::Administrator
+            $isAdmin=$principal.IsInRole($administrators)
+            if (!$isAdmin)
+            {
                 "Please run the script as an administrator in elevated mode."
                 $choice = Read-Host
-                return;       
-             }
+                return;
+            }
 
-            $error.Clear()    
+            $error.Clear()
             "This script will remove the old Azure Site Recovery Provider related properties. Do you want to continue (Y/N) ?"
             $choice =  Read-Host
 
@@ -95,24 +95,24 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
             {
                 if (Test-Path $registrationPath)
                 {
-                    "Removing registration related registry keys."    
+                    "Removing registration related registry keys."
                     Remove-Item -Recurse -Path $registrationPath
                 }
 
                 if (Test-Path $proxySettingsPath)
-            {
+                {
                     "Removing proxy settings"
                     Remove-Item -Recurse -Path $proxySettingsPath
                 }
 
                 $regNode = Get-ItemProperty -Path $asrHivePath
                 if($regNode.DraID -ne $null)
-                {            
+                {
                     "Removing DraId"
                     Remove-ItemProperty -Path $asrHivePath -Name $draIdValue
                 }
                 if($regNode.IdMgmtCloudContainerId -ne $null)
-                {            
+                {
                     "Removing IdMgmtCloudContainerId"
                     Remove-ItemProperty -Path $asrHivePath -Name $idMgmtCloudContainerId
                 }
@@ -131,7 +131,7 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
                 $store.Remove($cert)
             }
         }catch
-        {    
+        {
             [system.exception]
             Write-Host "Error occurred" -ForegroundColor "Red"
             $error[0]
@@ -158,7 +158,7 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
 
 1. Na **itens protegidos** > **itens replicados**, clique com o botão direito a máquina > **desative a replicação**.
 2. Na **desative a replicação**, pode selecionar as seguintes opções:
-     - **Desativar a replicação e remover (recomendado)** - esta opção Remover o item replicado do Azure Site Recovery e a replicação para a máquina está parada. Configuração de replicação na máquina virtual no local serão limpos e faturação do Site Recovery para este servidor protegido é interrompida.
+    - **Desativar a replicação e remover (recomendado)** - esta opção Remover o item replicado do Azure Site Recovery e a replicação para a máquina está parada. Configuração de replicação na máquina virtual no local serão limpos e faturação do Site Recovery para este servidor protegido é interrompida.
     - **Remover** -esta opção deve ser utilizada apenas se o ambiente de origem for eliminada ou não está acessível (não ligado). Esta ação remove o item replicado do Azure Site Recovery (a faturação é interrompida). Configuração de replicação na máquina virtual no local **não irá** ser limpos. 
 
     > [!NOTE]
@@ -208,8 +208,8 @@ Anfitriões de Hyper-V que não são geridos pelo VMM são reunidos num site de 
 
 3. Execute este script no servidor do VMM de origem, com o PowerShell (privilégios de administrador necessários) a partir da consola do VMM. Substitua o marcador de posição **SQLVM1** com o nome da sua máquina virtual.
 
-         $vm = get-scvirtualmachine -Name "SQLVM1"
-         Set-SCVirtualMachine -VM $vm -ClearDRProtection
+        $vm = get-scvirtualmachine -Name "SQLVM1"
+        Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. No servidor secundário do VMM, execute este script para limpar as definições para a máquina virtual secundária:
 
         $vm = get-scvirtualmachine -Name "SQLVM1"

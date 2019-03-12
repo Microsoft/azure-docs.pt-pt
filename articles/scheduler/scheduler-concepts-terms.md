@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: a58b247732125574a067deff1d5b03859cd036fc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334232"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782297"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
 
@@ -69,9 +69,9 @@ O Azure Scheduler suporta vários tipos de tarefas:
 A um nível elevado, uma tarefa do Scheduler tem estas partes básicas:
 
 * A ação que é executada quando é acionado o temporizador da tarefa
-* Opcional: o tempo para executar a tarefa
-* Opcional: quando repetir a tarefa e com que frequência
-* Opcional: uma ação de erro que será executada se a ação principal falhar
+* Opcional: O tempo para executar a tarefa
+* Opcional: Quando e como muitas vezes repetir a tarefa
+* Opcional: Uma ação de erro que é executado se a ação principal falhar
 
 A tarefa também inclui os dados fornecidos pelo sistema, como o próximo tempo de execução agendado da tarefa. A definição do código da tarefa é um objeto no formato JavaScript Object Notation (JSON), que tem estes elementos:
 
@@ -239,7 +239,7 @@ Uma tarefa voltará a ocorrer se a definição JSON da tarefa incluir o objeto *
 },
 ```
 
-| Propriedade | Necessário | Valor | Descrição | 
+| Propriedade | Necessário | Value | Descrição | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sim, quando a **periodicidade** é utilizada | “Minuto”, “Hora”, “Dia”, “Semana”, “Mês”, “Ano” | A unidade de tempo entre ocorrências | 
 | **interval** | Não | 1 a 1000, inclusive | Um número inteiro positivo que determina o número de unidades de tempo entre cada ocorrência com base na **frequência** | 
@@ -269,7 +269,7 @@ Para o caso de uma tarefa do Scheduler poder falhar, pode configurar uma políti
 },
 ```
 
-| Propriedade | Necessário | Valor | Descrição | 
+| Propriedade | Necessário | Value | Descrição | 
 |----------|----------|-------|-------------| 
 | **retryType** | Sim | **Determinado**, **Nenhum** | Determina se especificou uma política de repetição (**determinado**) ou não (**nenhum**). | 
 | **retryInterval** | Não | PT30S | Especifica o intervalo e a frequência entre tentativas de repetição no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O valor mínimo é 15 segundos e o valor máximo é 18 meses. | 

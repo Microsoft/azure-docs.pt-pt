@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 073d1b54b1c6da2b1178f482d17b4de7abcc8a51
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: a7976c0798bd78fd51632d3025147526a645b041
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888928"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528801"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início rápido: Criar um hub de eventos com o portal do Azure
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de Macrodados e um serviço de ingestão de eventos capaz de receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -60,7 +60,7 @@ Um espaço de nomes dos Hubs de Eventos fornece um contentor de âmbito exclusiv
    ![Adicionar botão de barra de ferramentas](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Sobre o **criar espaço de nomes** página, siga os passos seguintes:
     1. Introduza um nome para o espaço de nomes. O sistema verifica imediatamente a disponibilidade do nome.
-    2. Shoose o escalão de preço (básico ou Standard).
+    2. Escolha o escalão de preço (básico ou Standard).
     3. Selecione o **subscrição** no qual pretende criar o espaço de nomes.
     4. Selecione um **localização** para o espaço de nomes.
     5. Selecione **Criar**. Poderá ter de aguardar alguns minutos para que o sistema aprovisione totalmente os recursos.

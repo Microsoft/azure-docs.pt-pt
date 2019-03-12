@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 2b570fdb42c29c6ad68add32be660ef57f1eec1f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6cbfc06f380d7c4818ca82e858c23bb18849fb7c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468306"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535747"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Esquema de eventos do Azure Event Grid para grupos de recursos
 
@@ -236,29 +236,29 @@ Um evento tem os seguintes dados de nível superior:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
-| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| ID | cadeia | Identificador exclusivo para o evento. |
+| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| ID | string | Identificador exclusivo para o evento. |
 | dados | objeto | Dados de eventos do grupo de recursos. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 O objeto de dados tem as seguintes propriedades:
 
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | Autorização | objeto | O pedido de autorização para a operação. |
-| afirmações | objeto | As propriedades de afirmações. Para obter mais informações, consulte [especificação do JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
-| correlationId | cadeia | Um ID de operação para resolução de problemas. |
+| afirmações | objeto | As propriedades de afirmações. Para obter mais informações, consulte [especificação do JWT](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
+| correlationId | string | Um ID de operação para resolução de problemas. |
 | httpRequest | objeto | Os detalhes da operação. Este objeto só é incluído ao atualizar um recurso existente ou eliminar um recurso. |
-| resourceProvider | cadeia | O fornecedor de recursos para a operação. |
-| resourceUri | cadeia | O URI do recurso na operação. |
-| operationName | cadeia | A operação que foi tirada. |
-| status | cadeia | O estado da operação. |
-| subscriptionId | cadeia | O ID de subscrição do recurso. |
-| tenantId | cadeia | O ID de inquilino do recurso. |
+| resourceProvider | string | O fornecedor de recursos para a operação. |
+| resourceUri | string | O URI do recurso na operação. |
+| operationName | string | A operação que foi tirada. |
+| status | string | O estado da operação. |
+| subscriptionId | string | O ID de subscrição do recurso. |
+| tenantId | string | O ID de inquilino do recurso. |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

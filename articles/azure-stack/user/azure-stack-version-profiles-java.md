@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c7a6330f8e0197092f4c581f46c3cc6e68dba247
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246369"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540270"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Utilizar perfis de versão de API com Java no Azure Stack
 
@@ -64,7 +64,7 @@ Utilize os seguintes passos para instalar o SDK Java:
 
 1.  Siga as instruções oficiais para instalar o Git. Para obter instruções, consulte [introdução - instalar o Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2.  Siga as instruções oficiais para instalar o [SDK de Java](http://zulu.org/download/) e [Maven](https://maven.apache.org/). A versão correta é a versão 8 do Java Development Kit. O Apache Maven correto é a versão 3.0 ou superior. A variável de ambiente do JAVA_HOME tem de ser definida para a localização de instalação do Kit de desenvolvimento Java para concluir o início rápido. Para obter mais informações, consulte [criar a primeira função com o Java e Maven](../../azure-functions/functions-create-first-java-maven.md).
+2.  Siga as instruções oficiais para instalar o [SDK de Java](https://zulu.org/download/) e [Maven](https://maven.apache.org/). A versão correta é a versão 8 do Java Development Kit. O Apache Maven correto é a versão 3.0 ou superior. A variável de ambiente do JAVA_HOME tem de ser definida para a localização de instalação do Kit de desenvolvimento Java para concluir o início rápido. Para obter mais informações, consulte [criar a primeira função com o Java e Maven](../../azure-functions/functions-create-first-java-maven.md).
 
 3.  Para instalar os pacotes de dependência correto, abra o ficheiro pom. xml na sua aplicação Java. Adicione uma dependência, conforme mostrado no seguinte código:
 

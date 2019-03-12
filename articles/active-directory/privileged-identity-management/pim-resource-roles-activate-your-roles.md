@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/21/2018
+ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b02b0d36c6d7f5ddabae7a0e1d27dcca811fe56
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e6bf5ae22fe8bf06d29c8c812a18cffcef14865c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447783"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550809"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Ativar as minhas funções de recursos do Azure no PIM
 
@@ -68,7 +68,7 @@ Quando precisar da desempenhar uma função de recursos do Azure, pode pedir a a
 
 1. Clique em **ativar**.
 
-    Se a função de não necessitar de aprovação, ativado e adicionado à lista de funções do Active Directory. Se pretender utilizar a função imediatamente, siga os passos na secção seguinte.
+    Se a função de não necessitar de aprovação, ativado e adicionado à lista de funções do Active Directory. Se pretender utilizar a função, siga os passos na secção seguinte.
 
     Se o [a função requer aprovação](pim-resource-roles-approval-workflow.md) para ativar, uma notificação será exibida no canto superior direito do seu navegador informando o pedido está com aprovação pendente.
 
@@ -76,17 +76,19 @@ Quando precisar da desempenhar uma função de recursos do Azure, pode pedir a a
 
 ## <a name="use-a-role-immediately-after-activation"></a>Utilize uma função imediatamente após a ativação
 
-Quando ativar uma função no PIM, demora menos de 10 minutos antes de poder aceder ao portal administrativo pretendido ou executar funções dentro de uma carga de trabalho administrativa específica. Para forçar uma atualização de suas permissões, utilize o **acesso a aplicações** página conforme descrito nos passos seguintes.
+Em caso de qualquer atraso após a ativação, siga estes passos depois de ativar a utilizar as funções de recursos do Azure imediatamente.
 
 1. Abra o Azure AD Privileged Identity Management.
 
-1. Clique nas **acesso a aplicações** página.
+1. Clique em **minhas funções** para ver uma lista de sua elegíveis funções de diretório do Azure AD e funções de recursos do Azure.
 
-    ![Acesso de aplicativo PIM - captura de ecrã](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+1. Clique em **funções de recursos do Azure**.
 
-1. Clique nas **recursos do Azure** ligação para reabrir o portal no **todos os recursos** página.
+1. Clique nas **funções do Active Directory** separador.
 
-    Quando clicar nesse link, invalidar o token atual e forçar o portal do Azure para obter um novo token que deve conter as suas permissões atualizadas.
+1. Quando a função estiver ativa, termine sessão do portal e inicie sessão novamente.
+
+    A função agora deve estar disponível para utilização.
 
 ## <a name="view-the-status-of-your-requests"></a>Ver o estado dos pedidos
 
@@ -118,7 +120,7 @@ Se não necessitar de ativação de uma função que requer aprovação, pode ca
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Permissões concedidas não após a ativação de uma função
 
-Quando ativar uma função no PIM, demora menos de 10 minutos antes de poder aceder ao portal administrativo pretendido ou executar funções dentro de uma carga de trabalho administrativa específica. Para forçar uma atualização de suas permissões, utilize o **acesso aos aplicativos** página, tal como descrito anteriormente na [utilizar uma função imediatamente após a ativação](#use-a-role-immediately-after-activation).
+Quando ativar uma função no PIM, demora menos de 10 minutos antes de poder aceder ao portal administrativo pretendido ou executar funções dentro de uma carga de trabalho administrativa específica. Assim que a ativação estar concluída, termine a sessão do portal do Azure e inicie sessão novamente para começar a utilizar a função recém-ativada.
 
 Para obter os passos de resolução de problemas adicionais, consulte [resolução de problemas de permissões elevadas](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 

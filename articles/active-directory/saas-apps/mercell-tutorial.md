@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bb94c288-2ed4-4683-acde-62474292df29
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 50b31c06dd9e44c7c9907e2e5c42300966662940
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 061d4d8498c07263db0bdbc7becd275782f0c761
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983953"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779521"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Tutorial: Integração do Active Directory do Azure com Mercell
 

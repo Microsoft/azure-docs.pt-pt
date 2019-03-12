@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4d049778-3c7b-46c0-92a4-f2633a32334b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 92a5dcbd0796bbbfdeb646b661d3a840126ed3a7
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 61fe772c285380dca030cdb1d2ffc905c1adf85c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404438"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768387"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Tutorial: Integração do Active Directory do Azure com a MyWorkDrive
 

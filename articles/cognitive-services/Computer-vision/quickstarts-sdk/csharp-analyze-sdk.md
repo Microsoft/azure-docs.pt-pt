@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4af3e175c334c082e4520343d6c8ad3a62db431d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 21ee4f8b0fe20588646287945ba35efa5bc55606
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309000"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542986"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Início rápido: Analisar uma imagem usando o SDK de visão do computador eC#
 
@@ -59,7 +59,7 @@ Para executar o exemplo, siga os seguintes passos:
             private const string localImagePath = @"<LocalImage>";
 
             private const string remoteImageUrl =
-                "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
+                "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
 
             // Specify the features to return
             private static readonly List<VisualFeatureTypes> features =
@@ -154,7 +154,7 @@ Uma resposta de êxito apresenta a legenda mais relevante para cada imagem. Pode
 Consulte [inícios rápidos de API: Analisar uma imagem local com o C# ](../QuickStarts/CSharp-analyze.md#examine-the-response) para obter um exemplo de um JSON não processado de saída.
 
 ```
-http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
+https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```
 

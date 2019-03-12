@@ -7,19 +7,19 @@ author: mlearned
 manager: douge
 editor: mlearned
 ms.assetid: ''
-ms.service: devops-project
+ms.service: az-devops-project
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: 9e425662a698f077c3a1b9b3ff1270384fd61374
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 6ae2d0723b195ed59f8c6a7320245509145094df
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261252"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776602"
 ---
 # <a name="overview-of-azure-devops-projects"></a>Descrição geral dos projetos de Azure DevOps
 

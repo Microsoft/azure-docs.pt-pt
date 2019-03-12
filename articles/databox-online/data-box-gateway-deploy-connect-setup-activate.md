@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 84eb458c68c7accf1b638b8e21907516328cb892
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450409"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545095"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Ligar, configurar, ativar o Gateway de caixa de dados do Azure (pré-visualização) 
 
@@ -43,25 +43,24 @@ Antes de configurar e configurar o Gateway de caixa de dados, certifique-se de q
 * Ter aprovisionado um dispositivo virtual e obter um URL ligado à mesma, conforme detalhado no [aprovisionar um Gateway de caixa de dados no Hyper-V](data-box-gateway-deploy-provision-hyperv.md) ou [aprovisionar um Gateway de caixa de dados no VMware](data-box-gateway-deploy-provision-vmware.md).
 * Tem a chave de ativação do serviço de Gateway de caixa de dados que criou para gerir dispositivos de Gateway de caixa de dados. Para obter mais informações, aceda a [preparar a implementação de Gateway de caixa de dados do Azure](data-box-gateway-deploy-prep.md).
 
-<!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Ligue-se para a configuração de interface do Usuário da local web 
 
-1. Abra uma janela do browser e ligue à IU da web local. Escreva:
+1. Abra uma janela do browser e ligue à IU da web local. Tipo:
    
    [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
    
    Utilize o URL de ligação que anotou no tutorial anterior. Verá um erro que indica que existe um problema com o certificado de segurança do Web site. Clique em **continuar para esta página da Web**. (Estes passos podem ser diferentes com base no navegador utilizado.)
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+    ![Erro durante a ligação](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
 2. Inicie sessão para a web da interface do Usuário do seu dispositivo virtual. A palavra-passe predefinido é *Password1*. 
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
+    ![Inicie sessão na IU web local](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
 3. São-lhe pedido para alterar a palavra-passe de administrador do dispositivo. Escreva uma nova palavra-passe que contenha entre 8 e 16 carateres. A palavra-passe tem de conter 3 dos seguintes: maiúsculas, minúsculas, numéricos e especiais carateres.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![Alteração de senha de administrador de dispositivo](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
 Está agora a **Dashboard** do seu dispositivo.
 
@@ -69,15 +68,15 @@ Está agora a **Dashboard** do seu dispositivo.
  
 1. No dashboard, pode aceder a várias definições necessárias para configurar e registar o dispositivo virtual com o serviço de Gateway de caixa de dados. O **as definições de rede**, **definições de proxy Web**, e **definições da hora** são opcionais. As definições necessárias apenas são **nome do dispositivo** e **definições da Cloud**.
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+    ![Web local da interface do Usuário "Dashboard" página](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
 2. Na **nome do dispositivo** página, configure um nome amigável para o seu dispositivo. O nome amigável pode ter 1 a 15 carateres e pode conter letras, números e hífenes.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![Página de "Nome do dispositivo" da IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
 3. (Opcionalmente) configurar seus **as definições de rede**. Verá a interface de rede, pelo menos, 1 e mais, dependendo de quantos configurado na máquina virtual subjacente. O **as definições de rede** página para um dispositivo virtual com uma interface de rede ativada é conforme mostrado abaixo.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
+    ![Página de "Definições de rede" da IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
     Quando configurar as definições de rede, tenha em atenção o seguinte:
 
@@ -90,7 +89,7 @@ Está agora a **Dashboard** do seu dispositivo.
 
 4. (Opcionalmente)-configure o servidor de proxy da web. Apesar de configuração do proxy web é opcional, lembre-se de que se utilizar um proxy da web, pode apenas configurá-lo aqui.
    
-   ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
+   ![Página de "Definições de proxy da Web" de IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
    Na **Web proxy** página:
    
@@ -101,7 +100,7 @@ Está agora a **Dashboard** do seu dispositivo.
 
 5. (Opcionalmente) configure as definições de hora para o seu dispositivo, como fuso horário e os servidores NTP primário e secundários. Os servidores NTP são necessários porque o dispositivo tem de sincronizar tempo para que ele pode autenticar com o seu fornecedor de serviços cloud.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
+    ![Página de "Definições de tempo" de IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
     Na **definições da hora** página:
     
@@ -116,10 +115,17 @@ Está agora a **Dashboard** do seu dispositivo.
 
     2. Clique em **ativar**. 
        
-         ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
+         ![Página de "Definições da nuvem" da IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. Terá de aguardar um minuto antes do dispositivo é ativado com êxito. Após a ativação, a página é atualizada para indicar que o dispositivo é ativado com êxito.
+    3. Em primeiro lugar, o dispositivo será ativado. O dispositivo, em seguida, é procurado quaisquer atualizações críticas e se estiver disponível, as atualizações são aplicadas automaticamente. Verá uma notificação para o efeito. 
 
+        A caixa de diálogo também tem uma chave de recuperação que deve copiar e guardá-lo numa localização segura. Esta chave é utilizada para recuperar os dados no caso do dispositivo não é possível efetuar o arranque.
+
+        ![Página de "Definições da nuvem" da IU local web](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)    
+
+    4. Terá de aguardar alguns minutos após a atualização é concluída com êxito. A página é atualizada para indicar que o dispositivo é ativado com êxito.
+
+        ![Página de "Definições da nuvem" local web da interface do Usuário atualizada](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 0d1d4358789cce4d393143e8a243ee9a3e06bf36
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 56d392a7df2a659cf457631ec5693766fd674f91
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652404"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727200"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitar custos inesperados com a faturação do Azure e a gestão de custos
 
@@ -140,7 +140,7 @@ Para obter mais informações, consulte [recomendações de custos do Advisor](.
 
 ## <a name="reviewing-costs-at-the-end-of-your-billing-cycle"></a>Rever os custos ao final do seu ciclo de faturação
 
-Após o fim do seu ciclo de faturação, a fatura irá tornar-se disponível. Também pode [transferir anteriores faturas e ficheiros de utilização em pormenor](billing-download-azure-invoice-daily-usage-date.md) para se certificar de que foram bem cobrados corretamente. Para obter mais informações sobre como comparar a sua utilização diária com a sua fatura, consulte [compreender a sua fatura do Microsoft Azure](billing-understand-your-bill.md).
+A fatura ficará disponível no final do ciclo de faturação. Também pode [transferir anteriores faturas e ficheiros de utilização em pormenor](billing-download-azure-invoice-daily-usage-date.md) para se certificar de que foram bem cobrados corretamente. Para obter mais informações sobre como comparar a sua utilização diária com a sua fatura, consulte [compreender a sua fatura do Microsoft Azure](billing-understand-your-bill.md).
 
 ### <a name="billing-api"></a>API de Faturação
 
@@ -184,6 +184,26 @@ Para ver se é o administrador de conta, aceda à [subscrições no portal do Az
 Se não for o administrador de conta, alguém provavelmente lhe forneceu acesso parcial usando [controlo de acesso baseado em função de diretório do Azure Active Directory](../role-based-access-control/role-assignments-portal.md) (RBAC). Para gerir subscrições e faturação informações, de alterações [encontrar o administrador de conta](billing-subscription-transfer.md#whoisaa). Peça ao administrador de conta para realizar as tarefas ou [transferir a subscrição para si](billing-subscription-transfer.md).
 
 Se o seu administrador de conta não se encontra com a sua organização e tem de gerir a faturação, [contacte-nos](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+
+### <a name="how-to-request-a-service-level-agreement-credit-for-a-service-incident"></a>Como solicitar um crédito de contrato de nível de serviço para um incidente de serviço
+
+O Contrato de Nível de Serviço (SLA) descreve o compromisso da Microsoft quanto ao período de disponibilidade e à conectividade. Seja comunicado um incidente de serviço quando serviços do Azure ocorrer um problema, esse tempo de atividade de impactos ou de conectividade, frequentemente referido como uma "Falha". Se não podemos alcançar e manter os níveis de serviço para cada serviço, conforme descrito no SLA, em seguida, pode ser elegível para um crédito uma parte do seu taxas mensais de serviço.
+
+Para pedir um crédito:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Se tiver várias contas, certifique-se de que utilize uma que foi afetado por um período de indisponibilidade do Azure. Isto ajuda a recolher automaticamente as informações de histórico necessário e resolver o caso de forma mais rápida de suporte.
+2. Crie um novo pedido de suporte.
+3. Sob **tipo de problema**, selecione **faturação**.
+4. Sob **tipo de problema**, selecione **reembolsar pedir**.
+5. Adicionar detalhes para especificar que está pedindo para um crédito de SLA, mencionar o data/hora/fuso horário, bem como os serviços afetados (VMs, Web Sites, etc.)
+6. Verifique se os seus detalhes de contacto e selecionar a **criar** botão para submeter o pedido.
+
+Limiares de SLA variam de acordo com o serviço. Por exemplo, camada de Web do SQL tem um SLA de 99,9%, as VMs têm um SLA de 99,95% e escalão Standard do SQL tem um SLA de 99,99%.
+
+Para alguns serviços, existem pré-requisitos para o SLA aplicar. Por exemplo, as máquinas virtuais tem de ter dois ou mais instâncias implementadas no mesmo conjunto de disponibilidade.
+
+Para obter mais informações, consulte a [contratos de nível de serviço](https://azure.microsoft.com/en-us/support/legal/sla/) documentação e o [resumo do SLA para serviços do Azure](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentação.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 

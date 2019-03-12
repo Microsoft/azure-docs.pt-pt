@@ -5,19 +5,19 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 5896083c9159c30e6b66009f43073391eec936ed
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4ae8ae43d8c245270b64611bed0ac4930aa0ecc3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003708"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763432"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Origens de dados no Azure Monitor
 Este artigo descreve as origens de dados recolhidos pelo Azure Monitor para monitorizar o estado de funcionamento e desempenho dos seus recursos e as aplicações em execução nos mesmos. Esses recursos podem ser no Azure, no noutra cloud ou no local.  Ver [dados recolhidos pelo Azure Monitor](data-collection.md) para obter detalhes sobre como estes dados são armazenados e como pode vê-lo.

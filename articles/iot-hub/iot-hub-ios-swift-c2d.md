@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: cccffb2f63fe0c929f88d172070ede1c12bcec5b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 882c2f7d9abfa40ddafbba4f98292c3f8f44c459
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239462"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548716"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Enviar mensagens da cloud para o dispositivo com o IoT Hub (iOS)
 
@@ -37,7 +37,7 @@ No final deste artigo, executa Swift dois projetos de iOS:
 * **serviço de exemplo**, que envia uma mensagem de cloud-para-dispositivo para a aplicação de dispositivo simulado através do IoT Hub e, em seguida, recebe a confirmação de entrega.
 
 > [!NOTE]
-> IoT Hub tem suporte SDK para muitas plataformas de dispositivos e linguagens (incluindo C, Java e Javascript) através de SDKs de dispositivo do IoT do Azure. Para obter instruções passo a passo sobre como ligar o seu dispositivo ao código do tutorial e, em geral, hub IoT do Azure, consulte a [Centro de programadores de IoT do Azure](http://www.azure.com/develop/iot).
+> IoT Hub tem suporte SDK para muitas plataformas de dispositivos e linguagens (incluindo C, Java e Javascript) através de SDKs de dispositivo do IoT do Azure. Para obter instruções passo a passo sobre como ligar o seu dispositivo ao código do tutorial e, em geral, hub IoT do Azure, consulte a [Centro de programadores de IoT do Azure](https://www.azure.com/develop/iot).
 
 Para concluir este tutorial, precisa do seguinte:
 

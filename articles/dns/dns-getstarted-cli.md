@@ -5,16 +5,16 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 12/4/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: e61975d81fd5920feb5fd47845c67d0aa5293ae6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b24b06ab121b1484e458a9e725fd90590af05c08
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962016"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761502"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início Rápido: criar uma zona DNS do Azure e registar com a CLI do Azure
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início rápido: Criar uma zona DNS do Azure e o registo com a CLI do Azure
 
 Este artigo explica-lhe os passos para criar a primeira zona DNS e registar com a CLI 1.0 do Azure, que está disponível para Windows, Mac e Linux. Também pode executar estes passos com o [portal do Azure](dns-getstarted-portal.md) ou com o [Azure PowerShell](dns-getstarted-powershell.md).
 
@@ -38,20 +38,20 @@ az group create --name MyResourceGroup --location "East US"
 
 Uma zona DNS é criada ao utilizar o comando `az network dns zone create`. Para ver a ajuda deste comando, escreva `az network dns zone create -h`.
 
-O exemplo seguinte cria uma zona DNS denominada *contoso.com* no grupo de recursos *MyResourceGroup*. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
+O exemplo seguinte cria uma zona DNS denominada *contoso.xyz* no grupo de recursos *MyResourceGroup*. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
 
 ```azurecli
-az network dns zone create -g MyResourceGroup -n contoso.com
+az network dns zone create -g MyResourceGroup -n contoso.xyz
 ```
 
 ## <a name="create-a-dns-record"></a>Criar um registo DNS
 
 Para criar um registo DNS, utilize o comando `az network dns record-set [record type] add-record`. Para obter ajuda com os registos A, veja `azure network dns record-set A add-record -h`.
 
-O exemplo seguinte cria um registo com o nome relativo “www” na zona DNS “contoso.com”, no grupo de recursos “MyResourceGroup”. O nome totalmente qualificado do conjunto de registos é “www.contoso.com”. O tipo de registo é “A”, com o endereço IP “1.2.3.4” e é utilizado um TTL predefinido de 3600 segundos (1 hora).
+O exemplo seguinte cria um registo com o nome relativo "www" na zona DNS "contoso.xyz" no grupo de recursos "MyResourceGroup". O nome completamente qualificado do conjunto de registos é "www.contoso.xyz". O tipo de registo é "A", com o endereço IP "10.10.10.10" e um TTL predefinido de 3600 segundos (1 hora).
 
 ```azurecli
-az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
+az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
 ```
 
 ## <a name="view-records"></a>Ver registos
@@ -59,41 +59,43 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 Para listar os registos DNS na sua zona, execute:
 
 ```azurecli
-az network dns record-set list -g MyResourceGroup -z contoso.com
+az network dns record-set list -g MyResourceGroup -z contoso.xyz
 ```
 
-## <a name="update-name-servers"></a>Atualizar servidores de nomes
+## <a name="test-the-name-resolution"></a>Testar a resolução de nomes
 
-Depois de ter a certeza que a sua zona DNS e os registos foram configurados corretamente, tem de configurar o seu nome de domínio para utilizar os servidores de nomes do DNS do Azure para permitir que os outros utilizadores da Internet encontrem os seus registos de DNS.
+Agora que tem uma zona DNS de teste com um registo de teste "A", pode testar a resolução de nomes com uma ferramenta chamada *nslookup*. 
 
-Os servidores de nomes para a sua zona são indicados pelo comando `az network dns zone show`. Para ver os nomes dos servidores de nome, utilize a saída do JSON, conforme mostrado no exemplo seguinte.
+**Para testar a resolução de nome DNS:**
 
-```azurecli
-az network dns zone show -g MyResourceGroup -n contoso.com -o json
+1. Execute o seguinte cmdlet para obter a lista de servidores de nomes para a sua zona:
 
-{
-  "etag": "00000003-0000-0000-b40d-0996b97ed101",
-  "id": "/subscriptions/a385a691-bd93-41b0-8084-8213ebc5bff7/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
-  "location": "global",
-  "maxNumberOfRecordSets": 5000,
-  "name": "contoso.com",
-  "nameServers": [
-    "ns1-01.azure-dns.com.",
-    "ns2-01.azure-dns.net.",
-    "ns3-01.azure-dns.org.",
-    "ns4-01.azure-dns.info."
-  ],
-  "numberOfRecordSets": 3,
-  "resourceGroup": "myresourcegroup",
-  "tags": {},
-  "type": "Microsoft.Network/dnszones"
-}
-```
+   ```azurecli
+   az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
+   ```
 
-Estes servidores de nomes devem ser configurados com a entidade de registo de nomes de domínio (onde comprou o nome de domínio). A entidade de registo irá oferecer a opção para configurar os servidores de nomes do domínio. Para obter mais informações, consulte [Tutorial: alojar o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+1. Copie um dos nomes de servidor a partir da saída do passo anterior.
+
+1. Abra uma linha de comandos e execute o seguinte comando:
+
+   ```
+   nslookup www.contoso.xyz <name server name>
+   ```
+
+   Por exemplo:
+
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.com.
+   ```
+
+   Deverá ver algo semelhante ao seguinte ecrã:
+
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+O nome do anfitrião **www.contoso.xyz** é resolvida para **10.10.10.10**, tal como tiver configurado. Este resultado verifica se a resolução de nomes está a funcionar corretamente.
 
 ## <a name="delete-all-resources"></a>Eliminar todos os recursos
- 
+
 Quando já não forem necessários, pode eliminar todos os recursos criados neste Início Rápido ao eliminar o grupo de recursos:
 
 ```azurecli

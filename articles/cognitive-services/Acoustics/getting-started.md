@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: a9cc8c7b4cdcc05d38bc0d68561fc9d86305b0cb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9569b161dd5c6c79c5333d585f9ab4fcdb55fa97
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879919"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533991"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Introdução ao projeto Acoustics
 Este guia de início rápido mostram como integrar o plug-in no seu projeto Unity, inserir sua cena e aplicar o acoustics a origens de som. Neste início rápido, terá primeiro de criar uma [conta do Azure batch](create-azure-account.md). Este guia assume um pouco familiarizado com o Unity.
@@ -24,7 +24,7 @@ Este guia de início rápido mostram como integrar o plug-in no seu projeto Unit
 Registe-se [aqui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) para aderir à pré-visualização do Designer.
 
 ## <a name="supported-platforms-for-quickstart"></a>Plataformas suportadas para o início rápido
-* [Unity 2018.2 +](http://www.unity3d.com)
+* [Unity 2018.2 +](https://www.unity3d.com)
   * Requer a definição de seu projeto o **.NET 4.x equivalente** versão de tempo de execução de scripts 
   * Requer o editor do Unity baseado no Windows
 

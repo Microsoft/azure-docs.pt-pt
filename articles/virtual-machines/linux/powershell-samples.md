@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: e094a95fef5e010471dde3e60f2fc9aaaaad6344
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 53784c3d74f9e6af5f1e84cc098194113e81333b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246383"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533362"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Exemplos do PowerShell da Máquina Virtual do Azure
 
@@ -43,6 +43,6 @@ A tabela seguinte inclui ligações para exemplos de scripts do PowerShell que c
 | [Criar um instantâneo de um VHD](../scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria um instantâneo a partir de um VHD e, em seguida, utiliza esse instantâneo para criar rapidamente vários discos geridos idênticos.  |
 | [Copiar um instantâneo para o mesmo ou numa subscrição diferente](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cópias de instantâneos para o mesmo ou numa subscrição diferente que está na mesma região do instantâneo principal. |
 |**Monitorizar máquinas virtuais**||
-| [Monitorizar uma VM com o Log Analytics do Azure](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria uma máquina virtual, instala o agente do Log Analytics e inscreve a VM numa área de trabalho do Log Analytics.  |
+| [Monitorizar uma VM com os registos do Azure Monitor](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Cria uma máquina virtual, instala o agente do Log Analytics e inscreve a VM numa área de trabalho do Log Analytics.  |
 | [Copiar um disco gerido para o mesmo ou numa subscrição diferente](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copia um disco gerido para o mesmo ou numa subscrição diferente que esteja na mesma região que o disco gerido principal.
 | | |

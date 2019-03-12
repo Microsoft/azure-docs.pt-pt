@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: d2ec75f233984cdce462ff7b05bbe97e62daeb65
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f311216182f85da3dd6cf01269062cc9c555f868
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866496"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538532"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com PHP
 
@@ -25,7 +25,7 @@ Embora esse aplicativo é escrito em PHP, a API é um serviço RESTful Web compa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [PHP 5.6.x](http://php.net/downloads.php) ou posterior
+* [PHP 5.6.x](https://php.net/downloads.php) ou posterior
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
@@ -64,7 +64,7 @@ function search ($host, $path, $key, $mkt, $query) {
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -122,7 +122,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: sngun
-ms.openlocfilehash: 5d80c0a8464a9672859a3fbd305bbd4ab322b092
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 203bb0d9630ad50b1a80fcd674322524220b3147
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037094"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545248"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: Exemplos .NET para a API do SQL
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Também irá precisar do [pacote NuGet Microsoft.Azure.DocumentDB](https://www.n
 > 
 
 ## <a name="database-examples"></a>Exemplos de base de dados
-O método de exemplo [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) do projeto DatabaseManagement mostra como fazer as seguintes tarefas.
+O método de exemplo [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) do projeto DatabaseManagement mostra como fazer as seguintes tarefas. Para saber mais sobre as bases de dados do Cosmos do Azure antes de executar os exemplos seguintes, veja [trabalhar com bancos de dados, contentores e itens](databases-containers-items.md) artigo conceitual. 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -59,7 +59,7 @@ O método de exemplo [RunDatabaseDemo](https://github.com/Azure/azure-documentdb
 | [Eliminar uma base de dados](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) |[DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx) |
 
 ## <a name="collection-examples"></a>Exemplos de coleção
-O método [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) do projeto CollectionManagement de exemplo mostra como fazer as seguintes tarefas.
+O método [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) do projeto CollectionManagement de exemplo mostra como fazer as seguintes tarefas. Para saber mais sobre as coleções do Cosmos do Azure antes de executar os exemplos seguintes, veja [trabalhar com bancos de dados, contentores e itens](databases-containers-items.md) artigo conceitual. 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -71,7 +71,7 @@ O método [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/b
 | [Eliminar uma coleção](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) |[DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx) |
 
 ## <a name="document-examples"></a>Exemplos de documento
-O método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) do projeto DocumentManagement de exemplo mostra como fazer as seguintes tarefas.
+O método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) do projeto DocumentManagement de exemplo mostra como fazer as seguintes tarefas. Para saber mais sobre os documentos do Cosmos do Azure antes de executar os exemplos seguintes, veja [trabalhar com bancos de dados, contentores e itens](databases-containers-items.md) artigo conceitual. 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -87,7 +87,7 @@ O método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/bl
 | [Ler documento apenas se este for alterado](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L442-L470) |[DocumentClient.AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx)<br>[Documents.Client.AccessConditionType](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accessconditiontype.aspx) |
 
 ## <a name="indexing-examples"></a>Exemplos de indexação
-O método de exemplo [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) do projeto IndexManagement mostra como fazer as seguintes tarefas.
+O método de exemplo [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) do projeto IndexManagement mostra como fazer as seguintes tarefas. Para saber mais sobre a indexação no Azure Cosmos DB, antes de executar os exemplos seguintes, veja [políticas de indexação](index-policy.md), [indexação tipos](index-types.md), e [indexação caminhos](index-paths.md) artigos conceptuais. 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -102,7 +102,8 @@ O método de exemplo [RunIndexDemo](https://github.com/Azure/azure-documentdb-do
 Para obter mais informações sobre a indexação, veja [Políticas de indexação do Azure Cosmos DB](index-policy.md).
 
 ## <a name="geospatial-examples"></a>Exemplos geoespaciais
-O ficheiro de exemplo geoespacial, [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), mostra como fazer as seguintes tarefas.  
+O ficheiro de exemplo geoespacial, [azure-documentdb-dotnet/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), mostra como fazer as seguintes tarefas.  Para saber mais sobre os dados de GeoJSON e Geoespaciais antes de executar os exemplos seguintes, veja [como utilizar os dados de localização Geoespacial e GeoJSON](geospatial.md) artigo conceitual. 
+
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -116,7 +117,7 @@ O ficheiro de exemplo geoespacial, [azure-documentdb-dotnet/samples/code-samples
 Para obter mais informações sobre como trabalhar com dados Geoespaciais, veja [Trabalhar com dados Geoespaciais do Azure Cosmos DB](geospatial.md).  
 
 ## <a name="query-examples"></a>Exemplos de consultas
-O ficheiro do documento de consulta, [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), mostra como fazer cada uma das seguintes tarefas através da gramática de consulta SQL, do fornecedor LINQ com consulta e com Lambda.
+O ficheiro do documento de consulta, [azure-documentdb-dotnet/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs), mostra como fazer cada uma das seguintes tarefas através da gramática de consulta SQL, do fornecedor LINQ com consulta e com Lambda. Para saber mais sobre a referência de consulta SQL no Azure Cosmos DB antes de executar os exemplos seguintes, veja [exemplos de consulta SQL](how-to-sql-query.md) artigo conceitual. 
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -138,7 +139,8 @@ O ficheiro do documento de consulta, [azure-documentdb-dotnet/samples/code-sampl
 Para obter mais informações sobre como escrever consultas, veja [Consulta SQL no Azure Cosmos DB](how-to-sql-query.md).
 
 ## <a name="change-feed-examples"></a>Exemplos de feed de alterações 
-O exemplo de feed de alterações, [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), mostra como fazer as seguintes tarefas. 
+O exemplo de feed de alterações, [azure-documentdb-dotnet/samples/code-samples/ChangeFeed/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), mostra como fazer as seguintes tarefas. Para saber mais sobre o feed no Azure Cosmos DB, antes de executar os seguintes exemplos de alterações, veja [feed de alterações de opções para ler](read-change-feed.md) e [processador do feed de alterações](change-feed-processor.md) artigos conceptuais. 
+
 
 | Tarefa | Referência da API |
 | --- | --- |
@@ -148,7 +150,7 @@ O exemplo de feed de alterações, [azure-documentdb-dotnet/samples/code-samples
 O exemplo de processador do feed de alterações:  [Alterar a ferramenta de migração de Feed](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedMigrationTool) demonstra como utilizar a biblioteca de processamento de feed de alterações para replicar dados para outra coleção do Cosmos DB.   
 
 ## <a name="server-side-programming-examples"></a>Exemplos de programação do lado do servidor
-O ficheiro de programação do lado do servidor, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), mostra como fazer as seguintes tarefas.
+O ficheiro de programação do lado do servidor, [azure-documentdb-dotnet/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs), mostra como fazer as seguintes tarefas. Para saber mais sobre a programação do lado do servidor no Azure Cosmos DB antes de executar os exemplos seguintes, veja [procedimentos armazenados, acionadores e funções definidas pelo utilizador](stored-procedures-triggers-udfs.md) artigo conceitual. 
 
 | Tarefa | Referência da API |
 | --- | --- |

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 63e4052a2bce6c620180d682d6713d2f1547c956
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166288"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536764"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Início rápido: Utilizar o PHP para chamar a API de pesquisa Web Bing  
 
@@ -25,7 +25,7 @@ Utilize este guia de introdução para efetuar a primeira chamada à API de pesq
 ## <a name="prerequisites"></a>Pré-requisitos
 Aqui estão algumas coisas de que irá precisar antes de executar este início rápido:
 
-* [PHP 5.6.x](http://php.net/downloads.php) ou posterior
+* [PHP 5.6.x](https://php.net/downloads.php) ou posterior
 * Uma chave de subscrição  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]

@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6c93e008-09f3-4937-9651-262993603f96
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 28934be3905f87a1f43b9e8dcbacdbc094cd2e3b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: fb606e914e0fb2b9721f3ca1e8927be500270795
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196248"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eplatform"></a>Tutorial: Integração do Active Directory do Azure com ePlatform
 

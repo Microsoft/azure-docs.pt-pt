@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 2/20/2019
+ms.date: 3/5/2019
 ms.author: moderakh
-ms.openlocfilehash: a090f40bcbc0dab1f685c02308243aff8fbac9fd
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588471"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570101"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK para a API de SQL: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -43,6 +43,12 @@ O SDK de Java de Async de API de SQL é diferente do SDK de Java API do SQL ao f
 | **Mínimo de runtime suportada**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
+* Bugfix para vazamento de recursos no client#close() ([github #88](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+* Continuação foi adicionado suporte de token para cruzada consultas de partição.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 * Corrigir alguns erros no modo direto.
@@ -140,6 +146,8 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.4.3](#2.4.3) |5 de Março de 2019|--- |
+| [2.4.2](#2.4.2) |1 de Março de 2019|--- |
 | [2.4.1](#2.4.1) |20 de Fevereiro de 2019|--- |
 | [2.4.0](#2.4.0) |8 de Fevereiro de 2019|--- |
 | [2.4.0-beta-1](#2.4.0-beta-1) |4 de Fevereiro de 2019|--- |

@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0441087e-953f-4b51-9842-316da7b72392
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a340178a902f8ebdf8a20b8b3b824f265f580d4
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 228692ede47bd67b25bfc4bd23b90666a8505107
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992010"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: Integração do Active Directory do Azure com GetThere
 

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: ce4feefa1b83f81fa1160ddc93a53da56c24fd7e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: fd53158d655f6663a33a7484b9f0bf84d4a73c8c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189886"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548835"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure
 
@@ -49,7 +49,7 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor MySQL:
     Confirmar palavra-passe | *A sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *A região mais próxima dos seus utilizadores*| Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *A versão principal mais recente*| A versão principal mais recente (a não ser que tenha requisitos específicos que exijam outra versão).
-    Escalão de preço | **Fins Gerais**, **Geração 4**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 4*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 5*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
   
    > [!NOTE]
    > Considere utilizar o escalão de preços básico se capacidades de computação e e/s são adequadas para sua carga de trabalho. Tenha em atenção que os servidores que criou no escalão de preço básico mais tarde não podem ser ampliadas para fins gerais ou com otimização de memória. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/mysql/) para obter mais informações.
@@ -111,7 +111,7 @@ Ligue ao servidor com a ferramenta de linha de comandos **mysql.exe**. Pode tran
 
     mysql parameter |Valor sugerido|Descrição
     ---|---|---
-    --host | *Nome do servidor* | O valor de nome de servidor que foi utilizado anteriormente quando criou a Base de Dados do Azure para o servidor MySQL. O nosso servidor de exemplo é **mydemoserver.mysql.database.azure.com**. Utilize o nome de domínio completamente qualificado (**\*.mysql.database.azure.com), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
+    --host | *Nome do servidor* | O valor de nome de servidor que foi utilizado anteriormente quando criou a Base de Dados do Azure para o servidor MySQL. O nosso servidor de exemplo é **mydemoserver.mysql.database.azure.com**. Utilize o nome de domínio completamente qualificado (**\*.mysql.database.azure.com**), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
     --user | *Nome de início de sessão de administrador do servidor* |O nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Base de Dados do Azure para o servidor MySQL anteriormente. Se não se lembrar do nome de utilizador, siga os passos na secção anterior para obter as informações da ligação. O formato é *username@servername*.
     -p | *Aguarde até que seja pedido* |Quando lhe for pedido, forneça a palavra-passe que indicou quando criou o servidor. Tenha em conta que os carateres da palavra-passe introduzida não são apresentados na linha de comandos bash ao escrevê-los. Após introduzir a palavra-passe, selecione **Enter**.
 
@@ -137,7 +137,7 @@ Ligue ao servidor com a ferramenta de linha de comandos **mysql.exe**. Pode tran
     > [!TIP]
     > Se a firewall não estiver configurada para permitir o endereço IP do seu cliente, ocorre o seguinte erro:
     >
-    > ERRO 2003 (28000): Cliente com o endereço IP 123.456.789.0 não tem permissão para aceder ao servidor.
+    > ERROR 2003 (28000): Cliente com o endereço IP 123.456.789.0 não tem permissão para aceder ao servidor.
     >
     > Para resolver o erro, certifique-se de que a configuração do servidor corresponde aos passos na secção "Configure a server-level firewall rule" (Configurar uma regra de firewall ao nível do servidor) do artigo.
 
@@ -183,7 +183,7 @@ Para ligar ao servidor com a ferramenta Workbench GUI do MySQL, siga os passos s
     |---|---|---|
      Nome da ligação | Ligação de demonstração | Uma etiqueta para esta ligação. |
     Método de ligação | Standard (TCP/IP) | Standard (TCP/IP) é suficiente. |
-    Nome de anfitrião | *Nome do servidor* | O valor de nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor MySQL. O nosso servidor de exemplo é **mydemoserver.mysql.database.azure.com**. Utilize o nome de domínio completamente qualificado (**\*.mysql.database.azure.com), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação.|
+    Nome de anfitrião | *Nome do servidor* | O valor de nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor MySQL. O nosso servidor de exemplo é **mydemoserver.mysql.database.azure.com**. Utilize o nome de domínio completamente qualificado (**\*.mysql.database.azure.com**), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação.|
      Porta | 3306 | A porta a utilizar quando ligar à Base de Dados do Azure para o servidor MySQL. |
     Nome de utilizador |  *Nome de início de sessão de administrador do servidor* | As informações de início de sessão de administrador do servidor que forneceu quando criou a Base de Dados do Azure para o servidor MySQL anteriormente. O nosso nome de utilizador de exemplo é **myadmin@mydemoserver**. Se não se lembrar do nome de utilizador, siga os passos na secção anterior para obter as informações da ligação. O formato é *username@servername*.
     Palavra-passe | *A sua palavra-passe* | Selecione o botão **Armazenar no Cofre...** para guardar a palavra-passe. |

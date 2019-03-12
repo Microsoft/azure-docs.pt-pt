@@ -5,16 +5,16 @@ services: storage
 author: RenaShahMSFT
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: db11b457fda75c780a6b02715b4aced4c9f38ac1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9238b1dfc697f9efae723aba787982ae1493a608
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452605"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762267"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Programar para os Ficheiros do Azure com .NET
 

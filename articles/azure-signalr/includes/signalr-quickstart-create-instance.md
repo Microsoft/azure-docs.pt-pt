@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: c95f05127d62d366e1ad78b45df23d04ced0164a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 15eded28e38279ea01bf019566d4fda5e7ac6c3e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262804"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57588163"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Criar uma instância do Azure SignalR Service
 
@@ -38,3 +38,7 @@ A aplicação irá ligar a uma instância do SignalR Service no Azure.
     ![Criar o Serviço SignalR](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Selecione **Criar** para começar a implementar a instância do SignalR Service.
+
+1. Depois da instância for implementada, abri-lo no portal e localize a página de definições. Alterar a definição do modo de serviço para *sem servidor*.
+
+    ![Modo de serviço SignalR](../media/signalr-concept-azure-functions/signalr-service-mode.png)

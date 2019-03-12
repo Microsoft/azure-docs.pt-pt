@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9d2578e10916d3770e73ab88e4d0e63aea3fe420
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 445437fe92ec75f1d34021808d7d47a372c2a44b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114781"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535183"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure
 As cópias de segurança do Azure podem ser criadas através do portal do Azure. Este método fornece uma interface de utilizador baseada no browser para criar e configurar cópias de segurança do Azure e de todos os recursos relacionados. Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo mostra em detalhe como fazer uma cópia de segurança de uma máquina virtual (VM) com o portal do Azure. 
@@ -25,7 +25,7 @@ Este início rápido ativa a cópia de segurança numa VM do Azure existente. Se
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no portal do Azure em http://portal.azure.com.
+Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="select-a-vm-to-back-up"></a>Selecionar uma VM para fazer uma cópia de segurança
 Crie uma cópia de segurança diária simples para um Cofre dos Serviços de Recuperação. 
@@ -90,7 +90,7 @@ Se quiser avançar para um tutorial de Cópia de segurança que explique como re
     ![Eliminar o grupo de recursos do portal do Azure](./media/quick-backup-vm-portal/delete-resource-group.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste início rápido, criou um cofre dos Serviços de Recuperação, ativou a proteção numa VM e criou o ponto de recuperação inicial. Para saber mais sobre o Azure Backup e os Serviços de Recuperação, prossiga para os tutoriais.
 
 > [!div class="nextstepaction"]

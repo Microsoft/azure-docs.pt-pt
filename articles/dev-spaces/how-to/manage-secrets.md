@@ -3,7 +3,6 @@ title: Como gerir segredos ao trabalhar com um espaço de desenvolvimento do Azu
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 05/11/2018
@@ -11,12 +10,12 @@ ms.topic: conceptual
 ms.technology: azds-kubernetes
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-ms.openlocfilehash: 45c893d6d61407f9c0f44b4a5961d351bba0035f
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 47d82b8734fb3e4356d711835cfa9cd42e75be74
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191803"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763508"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Como gerir segredos ao trabalhar com um espaço de desenvolvimento do Azure
 

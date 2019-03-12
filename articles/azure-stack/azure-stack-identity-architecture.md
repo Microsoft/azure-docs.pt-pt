@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: e0f6e3068a26eef3b6cca79cffbb98614eb44a34
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 9ae8a55d04c34ec65d964927fd25c3bc01adeae4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100164"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777877"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Arquitetura de identidade para o Azure Stack
 

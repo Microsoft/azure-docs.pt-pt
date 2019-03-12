@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 422bf9a3fb4e3168857a78f4f50ac771ef80c6a6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585438"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766466"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Aceder a dados de geração 2 de armazenamento do Data Lake com o Azure Databricks com o Spark
 
@@ -171,9 +171,10 @@ Utilizar o AzCopy para copiar dados de sua *. csv* ficheiro na sua conta de gera
 2. Para copiar dados a partir da *. csv* de conta, introduza o seguinte comando.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * Substitua a `<csv-folder-path>` valor de espaço reservado com o caminho do diretório para o *. csv* ficheiro (excluindo o nome do ficheiro).
+
+   * Substitua a `<csv-folder-path>` valor de marcador de posição pelo caminho para o *. csv* ficheiro.
 
    * Substitua o `storage-account-name` valor do marcador de posição pelo nome da sua conta de armazenamento.
 
@@ -187,22 +188,22 @@ No bloco de notas que criou anteriormente, adicione uma nova célula e cole o se
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## <a name="explore-data"></a>Explorar dados
 
-Numa nova célula, cole o seguinte código para obter uma lista de ficheiros CSV carregados via AzCopy. Substitua o `<csv-folder-path>` valor do marcador de posição com o mesmo valor para esse marcador de posição que utilizou anteriormente.
+Numa nova célula, cole o seguinte código para obter uma lista de ficheiros CSV carregados via AzCopy.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 Para criar um novo ficheiro e listar os ficheiros na pasta *parquet/flights*, execute este script:
@@ -220,13 +221,11 @@ Em seguida, pode começar a consultar os dados que carregou para a sua conta de 
 
 Para criar quadros de dados para as origens de dados, execute o seguinte script:
 
-* Substitua a `<csv-folder-path>` valor de espaço reservado com o caminho do diretório para o *. csv* ficheiro (excluindo o nome do ficheiro).
-
-* Substitua a `<your-csv-file-name` valor de marcador de posição pelo nome da sua *csv* ficheiro.
+* Substitua a `<csv-folder-path>` valor de marcador de posição pelo caminho para o *. csv* ficheiro.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier

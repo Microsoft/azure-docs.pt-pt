@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6a3eb9a7b85f3cd50384389ee8b03681c097dc27
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 79b118c0a4fd28eacf24dc63f04f36314807b41a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859879"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531101"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Início rápido: Obtenha informações de imagem usando a API de REST de pesquisa Visual do Bing e o Java
 
@@ -36,7 +36,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 * O [Java Development Kit (JDK) 7 ou 8](https://aka.ms/azure-jdks)
 * A [Biblioteca de Gson](https://github.com/google/gson)
-* [Apache HttpComponents](http://hc.apache.org/downloads.cgi)
+* [Apache HttpComponents](https://hc.apache.org/downloads.cgi)
 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]

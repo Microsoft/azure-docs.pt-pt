@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: cb964451d25bb381ee9cca84628852a61e4be9b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: dc4a982dde62f62eb8f2d91a61fd70ba79fa13d5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090912"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539982"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Utilizar Apache Flink com os Hubs de eventos do Azure para o Apache Kafka
 Este tutorial mostra-lhe como ligar Apache Flink aos hubs de eventos de Kafka-ativado sem alterar os seus clientes de protocolo ou os seus próprios clusters em execução. Os Hubs de eventos do Azure suporta [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html).
@@ -41,7 +41,7 @@ Para concluir este tutorial, certifique-se de que tem os seguintes pré-requisit
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
-* [Baixe](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) num arquivo binário Maven
+* [Baixe](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) num arquivo binário Maven
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, pode executar `sudo apt-get install git` para instalar o Git.

@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bd00a339-27c9-4904-b66f-a95bf597ac3c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a0071475984a7af71a301452f1eb63ba559e95cb
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 2b2a9ae0c781996081e058a862cdda8c55494b0f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992265"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>Tutorial: Integração do Active Directory do Azure com mindWireless
 

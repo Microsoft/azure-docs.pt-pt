@@ -4,14 +4,14 @@ ms.service: container-instances
 ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
-ms.openlocfilehash: dd5c8878ce71b49b3a25f5d14a00bfe4f49ee769
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333865"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553778"
 ---
-| Recurso | Limite Predefinido |
+| Recurso | Limite predefinido |
 | --- | :--- |
 | Grupos de contentores por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Número de contentores por grupo de contentores | 60 |
@@ -25,7 +25,7 @@ ms.locfileid: "56333865"
 | Contentor elimina por 5 minutos | 100<sup>1</sup> |
 
 
-<sup>1</sup> Crie um [pedido de suporte do Azure][azure-support] para pedir um aumento de limite.<br />
+<sup>1</sup>para pedir um aumento de limite, crie uma [pedido de suporte do Azure][azure-support].<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d51b5af6-018e-4678-9a3f-b70438394f67
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: daa2b7996de13052dbb08f2918b7b1f4e9cdfb02
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 4c43ff1e57d1c3ea0b3771894eb0803f39436ff3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990190"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>Tutorial: Integração do Active Directory do Azure com HeyBuddy
 

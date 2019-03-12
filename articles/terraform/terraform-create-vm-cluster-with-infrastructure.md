@@ -2,19 +2,19 @@
 title: Criar um cluster de VMs com o Terraform e o HCL
 description: Utilizar o HashiCorp Configuration Language (HCL) e o Terraform para criar um cluster de máquinas virtuais do Linux com um balanceador de carga no Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, máquina virtual, rede, módulos
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: a53fee8ee492de4d9eaa8b45a8d4a88e692da02d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: bf16d963a83bc720cc39e47cc928c1926a92859d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410375"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771468"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Criar um cluster de VMs com o Terraform e o HCL
 

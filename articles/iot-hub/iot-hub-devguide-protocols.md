@@ -8,20 +8,20 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 40297feca46910a3d5106134f8c2f45270d3f6df
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: f6c39765c9133c9bf295d4225c332fda1140a13b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011233"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532698"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referência - escolher um protocolo de comunicação
 
 IoT Hub permite que os dispositivos utilizar os protocolos seguintes para comunicações de lado do dispositivo:
 
-* [MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf)
+* [MQTT](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/mqtt-v3.1.1.pdf)
 * MQTT através de WebSockets
-* [AMQP](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
+* [AMQP](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 * AMQP através de WebSockets
 * HTTPS
 

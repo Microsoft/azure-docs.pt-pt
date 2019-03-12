@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1cb2eb42757d321648ea1ace000913916b1b7a05
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e98f8959341f84a10a2a1cda860ca4b78fe0eff5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880670"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773474"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: Integração do Active Directory do Azure com FreshGrade
 

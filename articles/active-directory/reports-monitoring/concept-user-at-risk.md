@@ -7,7 +7,7 @@ manager: daveba
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
@@ -15,12 +15,12 @@ ms.date: 01/17/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24b6a6a3dd3dab8d0c7fbfe5db3ae0f5efd621d2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fe94f516a9675a4a930e4a59411ece58b562cf41
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179710"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769358"
 ---
 # <a name="users-flagged-for-risk-report-in-the-azure-portal"></a>Utilizadores sinalizados no relatório de risco no portal do Azure
 

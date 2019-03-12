@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 3a1d363e08d4c7e9899f034b2260e764d07ed79d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: c7eb490bdf484651613c5c7a72d2a31be5306634
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344850"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773797"
 ---
-# <a name="understand-and-work-with-scopes"></a>Entender e trabalhar com âmbitos
+# <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
 Este artigo ajuda-o a compreender a faturação e de recursos âmbitos de gestão disponíveis no Azure e como utilizar os âmbitos na gestão de custos e APIs.
 
@@ -31,7 +31,7 @@ Os âmbitos são onde gerir dados de faturação, ter funções específicas par
 
 ## <a name="how-cost-management-uses-scopes"></a>Como o Cost Management utiliza âmbitos
 
-Funciona a gestão de custo em todos os âmbitos acima recursos para permitir às organizações gerir os custos no nível em que eles têm acesso, independentemente de ser toda a conta de faturação ou de um grupo de recursos. Embora a faturas âmbitos diferem com base no seu contrato do Microsoft (tipo de subscrição), não os âmbitos RBAC.
+Funciona a gestão de custo em todos os âmbitos acima recursos para permitir às organizações gerir os custos no nível em que eles têm acesso, independentemente de ser toda a conta de faturação ou de um grupo de recursos. Embora a faturas âmbitos diferem com base no seu contrato do Microsoft (tipo de subscrição), os âmbitos RBAC não o fizer.
 
 ## <a name="azure-rbac-scopes"></a>Âmbitos de RBAC do Azure
 
@@ -145,6 +145,10 @@ Os utilizadores de faturação não tem acesso a grupos de gestão, porque eles 
 ## <a name="cloud-solution-provider-csp-scopes"></a>Âmbitos de fornecedor de soluções (CSP) da cloud
 
 Parceiros da cloud Solution Provider (CSP) não são atualmente suportados no Cost Management. Em vez disso, pode usar [Centro de parceiros](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+
+## <a name="how-to-switch-between-scopes-within-cost-management"></a>Como alternar entre escopos dentro Cost Management
+
+Todas as experiências de gestão de custos no portal do Azure incluem uma **âmbito** envenenadas no canto superior esquerdo do painel, que fornece acesso ao âmbito de alterar rapidamente. Ao clicar o **âmbito** envenenadas abre um Seletor de âmbito que mostra contas de faturas, o grupo de gestão de raiz e quaisquer subscrições que não são aninhadas sob o grupo de gestão de raiz. Para selecionar um âmbito, clique em segundo plano para destacá-la e, em seguida, clique nas **selecione** na parte inferior. Para explorar os âmbitos aninhados (por exemplo, grupos de recursos numa subscrição), clique na ligação de nome de âmbito. Para selecionar o âmbito principal em qualquer nível aninhada, clique a **Selecione esta opção <scope>**  botão na parte superior do Seletor de âmbito.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificar o ID de recurso para um âmbito
 

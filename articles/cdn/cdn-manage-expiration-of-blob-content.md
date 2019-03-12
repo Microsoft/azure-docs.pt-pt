@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 39271bdda7adf7e8e65d3b5d5ea1844be1ecf233
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1b2009b54c7f436667c316b7ca002314bc966a1b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237948"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531934"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Gerir a expiração de armazenamento de Blobs do Azure na CDN do Azure
 > [!div class="op_single_selector"]
@@ -177,7 +177,7 @@ Pode utilizar o [REST API dos serviços de armazenamento do Azure](https://msdn.
    - [Definir as propriedades do Blob](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## <a name="testing-the-cache-control-header"></a>Teste o cabeçalho Cache-Control
-Pode verificar facilmente as definições de TTL dos blobs. Com o seu browser [ferramentas de programação](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), teste, que inclui o blob a `Cache-Control` cabeçalho de resposta. Também pode utilizar uma ferramenta como [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), ou [Fiddler](http://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
+Pode verificar facilmente as definições de TTL dos blobs. Com o seu browser [ferramentas de programação](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), teste, que inclui o blob a `Cache-Control` cabeçalho de resposta. Também pode utilizar uma ferramenta como [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/), ou [Fiddler](https://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
 
 ## <a name="next-steps"></a>Próximos Passos
 * [Saiba como gerir a expiração de conteúdo de serviço em nuvem na CDN do Azure](cdn-manage-expiration-of-cloud-service-content.md)

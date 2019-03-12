@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c49a6320b7ba37297a7c1c0775aef2c2d8c6c868
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 892e47d87fef482c6f655473278baeb5525ee09e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104428"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760032"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Exemplo: Criar uma habilidade personalizada com a API de tradução de texto
 
@@ -306,7 +306,7 @@ Agora que tem uma habilidade personalizada nova, pode adicioná-lo para o conjun
 }
 ```
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Parabéns! Criou seu primeiro enricher personalizado. Agora, pode seguir o mesmo padrão para adicionar sua própria funcionalidade personalizada. 
 
 + [Adicionar uma habilidade personalizada para um pipeline de pesquisa cognitiva](cognitive-search-custom-skill-interface.md)

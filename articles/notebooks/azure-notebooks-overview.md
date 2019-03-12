@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9916b75a15098acbafc1cb1f6d44d948cf6de851
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848602"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777724"
 ---
 # <a name="overview-of-azure-notebooks"></a>Descrição geral dos blocos de notas do Azure
 

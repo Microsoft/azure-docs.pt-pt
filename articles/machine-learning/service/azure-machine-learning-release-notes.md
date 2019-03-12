@@ -9,14 +9,14 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 2/25/2019
+ms.date: 03/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: d72676d7eaad539fc6e023bc96ccbb16f0958a7a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bb074dd848ce5e752ba8e4ca1d3a8ee533a2f5d2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311377"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777452"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -24,6 +24,21 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 + O Azure Machine Learning [ **principal SDK para Python**](https://aka.ms/aml-sdk)
 + O Azure Machine Learning [ **SDK de preparação de dados**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-03-11"></a>2019-03-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1018"></a>Azure Machine Learning SDK for Python v1.0.18
+
+ + **Alterações**
+   + O pacote do azureml tensorboard substitui azureml-contrib-tensorboard.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>SDK v1.0.17 de preparação de dados do Azure Machine Learning
+
++ **Novos recursos**
+  + Agora suporta a adição de duas colunas numéricas para gerar uma coluna resultante usando a linguagem de expressão.
+
++ **Melhorias e correções de erros**
+  + Melhorada a documentação e verificar a existência de random_split de parâmetro.
+  
 ## <a name="2019-02-27"></a>2019-02-27
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>SDK v1.0.16 de preparação de dados do Azure Machine Learning
@@ -37,25 +52,27 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 
 + **Novos recursos**
 
-  + O Azure Machine Learning SDK agora suporta uma [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) classe estimator para simplificar o processo de preparação e implementação de um modelo usando código personalizado do Chainer.
+  + O Azure Machine Learning fornece agora suporte de primeira classe para o framework DNN popular Chainer. Usando [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) utilizadores de classe podem facilmente preparar e implementar modelos de Chainer.
+    + Saiba como [executar formação distribuída com ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
+    + Saiba como [executar a otimização de hiper-parâmetros com Chainer usando HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + O Azure Machine Learning Pipelines adicionado uma execução de Pipeline com base nas alterações de arquivo de dados de Acionador de capacidade. O pipeline [bloco de notas do agendamento](https://aka.ms/pl-schedule) é atualizado para demonstrar esta funcionalidade.
-  
+
 + **Melhorias e correções de erros**
   + Foi adicionado o suporte do Azure Machine Learning Pipelines para definir a propriedade source_directory_data_store para um arquivo de dados desejado (por exemplo, o armazenamento de BLOBs) no [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) que são fornecidos para o [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Por predefinição passos utilizam o armazenamento de ficheiros do Azure como o arquivo de dados de backup que pode se deparar com problemas de limitação quando um grande número de passos é executado em simultâneo.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 + **Novos recursos**
-    + Experiência de editor para relatórios de tabela nova arrastar e soltar. Os utilizadores podem arrastar uma coluna do poço para a área de tabela em que será apresentada uma pré-visualização da tabela. As colunas podem ser reorganizadas.
-    + Novo Visualizador de arquivos de registos
-    + Links para experimentação é executada, computação, modelos, imagens e implantações do separador de atividades
+  + Experiência de editor para relatórios de tabela nova arrastar e soltar. Os utilizadores podem arrastar uma coluna do poço para a área de tabela em que será apresentada uma pré-visualização da tabela. As colunas podem ser reorganizadas.
+  + Novo Visualizador de arquivos de registos
+  + Links para experimentação é executada, computação, modelos, imagens e implantações do separador de atividades
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>SDK v1.0.15 de preparação de dados do Azure Machine Learning
 
 + **Novos recursos**
   + Agora suporta escrever fluxos a partir de um fluxo de dados de ficheiros de preparação de dados. Também fornece a capacidade de manipular os nomes de fluxo de arquivo para criar novos nomes de ficheiro.
     + Guia de procedimentos: [Bloco de notas de trabalhar com fluxos de arquivos](https://aka.ms/aml-data-prep-file-stream-nb)
- 
+
 + **Melhorias e correções de erros**
   + Desempenho melhorado de t-Digest em grandes conjuntos de dados.
   + Preparação de dados suporta agora a leitura de dados de um DataPath.

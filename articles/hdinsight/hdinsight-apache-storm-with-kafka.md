@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 341278237bc18bfbb8f4bb1e5d600e2cab894926
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 39ae76da197db0c2b4f494bd74b3c76e6ff27f8e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343362"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576808"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar o Apache Storm com o Apache Kafka no HDInsight
 
@@ -129,7 +129,7 @@ Este tutorial proporciona duas topologias:
     >
     > Se não utilizar o modelo disponibilizado neste documento para criar o cluster do Storm, tem de aplicar manualmente a ação de script no cluster.
     >
-    > A ação de script está localizada em `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh` e é aplicada nos nós supervisor e nimbus do cluster do Storm. Para obter mais informações sobre como utilizar as ações de script, veja o documento [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) (Utilizar ações de script para personalizar o HDInsight).
+    > A ação de script está localizada em `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` e é aplicada nos nós supervisor e nimbus do cluster do Storm. Para obter mais informações sobre como utilizar as ações de script, veja o documento [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) (Utilizar ações de script para personalizar o HDInsight).
 
 As topologias são definidas com [Flux](https://storm.apache.org/releases/1.1.2/flux.html). O Flux foi introduzido no Storm 0.10.x e permite-lhe separar a configuração da topologia do código. As topologias que utilizam a estrutura Flux estão definidas num ficheiro YAML. O ficheiro YAML pode ser incluído como parte da topologia. Também pode ser um ficheiro autónomo utilizado quando submeter a topologia. O Flux também suporta a substituição de variáveis em tempo de execução, que é utilizada neste exemplo.
 
@@ -518,7 +518,7 @@ Para criar uma Rede Virtual do Azure e, depois, criar os clusters do Kafka e do 
 4. Guarde o ficheiro `dev.properties` e, em seguida, utilize o seguinte comando para carregá-lo para o cluster do **Storm**:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Substitua **USERNAME** pelo nome de utilizador do SSH do cluster. Substitua **BASENAME** pelo nome de base que utilizou quando criou o cluster.

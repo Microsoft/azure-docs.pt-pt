@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2819da18-c7eb-43cf-aac3-1403a540bf6e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a65690af671c7472c4dcc48cabb52676fec7f5b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5931201af53942941415e4bfa5ff0846714ae3b4
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882829"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>Tutorial: Integração do Active Directory do Azure com ClearCompany
 

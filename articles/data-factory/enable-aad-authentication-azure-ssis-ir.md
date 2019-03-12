@@ -3,30 +3,31 @@ title: Ativar a autenticação do Azure Active Directory para o Runtime de integ
 description: Este artigo descreve como ativar a autenticação do Azure Active Directory com a identidade gerida do Azure Data Factory criar o Runtime de integração Azure-SSIS.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 2/19/2019
-ms.author: douglasl
-ms.openlocfilehash: 159aaf017265c09c2afc4b603ed5172fead9b29d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 3/11/2019
+author: swinarko
+ms.author: sawinark
+manager: craigg
+ms.openlocfilehash: 787c436261635376ff82e8762cbc1469f4375e6b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438657"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729957"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Runtime de integração Azure-SSIS
 
-Este artigo mostra-lhe como ativar a autenticação do Azure Active Directory (Azure AD) com a identidade gerida para o Azure Data Factory (ADF) e utilizá-lo em vez da autenticação de SQL para criar um IR Azure-SSIS Integration Runtime () que por sua vez criará o SSIS base de dados catálogo (SSISDB) na base de dados do Azure SQL server/gerida instância em seu nome.
+Este artigo mostra-lhe como ativar a autenticação do Azure Active Directory (Azure AD) com a identidade gerida para o Azure Data Factory (ADF) e utilizá-lo em vez da autenticação de SQL para criar um IR Azure-SSIS Integration Runtime () que por sua vez irá aprovisionar SSIS catálogo base de dados (SSISDB) na base de dados do Azure SQL server/gerida instância em seu nome.
 
 Para mais informações sobre a identidade gerida para o ADF, veja [identiy gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
-> Se já tiver criado um IR Azure-SSIS com a autenticação de SQL, não pode reconfigurar o runtime de integração para utilizar autenticação do Azure AD com o PowerShell neste momento, mas pode fazê-lo na aplicação de portal/ADF do Azure. 
+>-  Neste cenário, autenticação do Azure AD com a identidade gerida para o ADF só é utilizada na criação e as operações subsequentes iniciais do Runtime de integração do SSIS que será em Ativar aprovisionar e ligar ao SSISDB. Para execuções de pacote do SSIS, o runtime de integração de SSIS ainda se conectará ao SSISDB utilizando a autenticação SQL com contas totalmente geridas que são criadas durante o aprovisionamento de SSISDB.
+>-  Se já tiver criado o runtime de integração de SSIS através da autenticação de SQL, não pode reconfigurá-la para utilizar a autenticação do Azure AD através do PowerShell neste momento, mas pode fazê-lo através da aplicação do Azure portal/ADF. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

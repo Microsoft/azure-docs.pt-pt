@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: faq
+ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: sajagtap
-ms.openlocfilehash: 174e382fca780c778b3dfc020052015dd0e212e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 99b95a26a91d14edbef264ac3b107f8462e0ef5e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864456"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762182"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 

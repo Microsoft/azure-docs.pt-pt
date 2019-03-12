@@ -5,16 +5,16 @@ services: batch
 author: laurenhughes
 manager: jeconnoc
 ms.service: batch
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a2959e6caefb09a22be4473f7da005c6f524aba0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 912e3342b4e8031b4404dffb56f1add2cc705f8e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878358"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772590"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Descrição geral dos APIs e ferramentas do Batch
 

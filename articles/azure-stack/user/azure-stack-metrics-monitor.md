@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2018
+ms.date: 03/11/2018
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: e2144f293c446a311a9c903ff620c8ef1d1d4efc
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 174038c611d9e804817d49478f99c643f5280f7b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341447"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773051"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Como consumir dados de monitorização do Azure Stack
 

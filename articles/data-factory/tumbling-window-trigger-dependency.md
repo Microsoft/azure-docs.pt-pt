@@ -3,24 +3,23 @@ title: Criar dependências de Acionador de janela em cascata na fábrica de dado
 description: Saiba como criar dependência num acionador de janela em cascata no Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: douglasl
-ms.openlocfilehash: c51c1056869cbd7741fae2ed1a554a7c794d1a39
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: f3a547f5b953262d7263d1be0897161cf4091a1d
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967445"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57574394"
 ---
-# <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de Acionador de janela em cascata
+# <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
 
 Este artigo fornece passos para criar uma dependência num acionador de janela em cascata. Para obter informações gerais sobre os acionadores de janela em cascata, consulte [como criar o acionador de janela em cascata](how-to-create-tumbling-window-trigger.md).
 

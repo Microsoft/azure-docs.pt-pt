@@ -3,20 +3,20 @@ title: Copiar ou clonar uma fábrica de dados no Azure Data Factory | Documentos
 description: Saiba como copiar ou clonar uma fábrica de dados no Azure Data Factory
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: douglasl
-ms.openlocfilehash: a1071bb690fc5714890116c757c3036916bf1700
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314100"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575618"
 ---
 # <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Copiar ou clonar uma fábrica de dados no Azure Data Factory
 

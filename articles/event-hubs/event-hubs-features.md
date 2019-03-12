@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a54c01385b06aeaf4c894677ea95262ab2135893
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 242c2f63735be33fe933ae3229f7aa28356ea697
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456147"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548392"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e a terminologia nos Hubs de eventos do Azure
 
@@ -43,7 +43,7 @@ Qualquer entidade que envie dados para um hub de eventos é um produtor de event
 
 ### <a name="publishing-an-event"></a>Publicar um evento
 
-Pode publicar um evento através de AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. Os Event Hubs fornecem [bibliotecas de cliente e classes](event-hubs-dotnet-framework-api-overview.md) para publicar eventos para um hub de eventos a partir de clientes .NET. Para outros tempos de execução e plataformas, pode utilizar qualquer cliente AMQP 1.0, como o [Apache Qpid](http://qpid.apache.org/). Pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados de eventos) tem um limite de 1 MB, independentemente de ser um evento simples ou um lote. Publicar eventos maiores do que este resultados de limiar num erro. É preferível os publicadores não terem conhecimento das partições dentro do hub de eventos e apenas especificarem uma *chave de partição* (apresentada na secção seguinte) ou a sua identidade através do respetivo token SAS.
+Pode publicar um evento através de AMQP 1.0, Kafka 1.0 (e posterior) ou HTTPS. Os Event Hubs fornecem [bibliotecas de cliente e classes](event-hubs-dotnet-framework-api-overview.md) para publicar eventos para um hub de eventos a partir de clientes .NET. Para outros tempos de execução e plataformas, pode utilizar qualquer cliente AMQP 1.0, como o [Apache Qpid](https://qpid.apache.org/). Pode publicar eventos individualmente ou em lotes. Uma única publicação (instância de dados de eventos) tem um limite de 1 MB, independentemente de ser um evento simples ou um lote. Publicar eventos maiores do que este resultados de limiar num erro. É preferível os publicadores não terem conhecimento das partições dentro do hub de eventos e apenas especificarem uma *chave de partição* (apresentada na secção seguinte) ou a sua identidade através do respetivo token SAS.
 
 A opção para utilizar AMQP ou HTTPS é específica do cenário de utilização. O AMQP requer o estabelecimento de um socket bidirecional persistente, para além da segurança de nível do transporte (TLS) ou SSL/TLS. O AMQP tem custos de rede superiores ao inicializar a sessão. No entanto, o HTTPS requer sobrecarga SSL adicional para cada pedido. O AMQP tem um desempenho superior para publicadores frequentes.
 

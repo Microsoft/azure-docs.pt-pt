@@ -3,22 +3,22 @@ title: Atividade de procedimento armazenado do SQL Server
 description: Saiba como pode utilizar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado num banco de dados do Azure SQL ou o Azure SQL Data Warehouse a partir de um pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: douglasl
+author: nabhishek
+ms.author: abnarain
+manager: craigg
 robots: noindex
-ms.openlocfilehash: 5604767b49e6234bba5c16179bebe717938170cf
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 77842b60108629168f423f25eb03b01079cf55e5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753270"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775362"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Atividade de procedimento armazenado do SQL Server
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -85,7 +85,7 @@ A instrução a seguir usa a atividade de procedimento armazenado num pipeline p
     ```
 
    > [!IMPORTANT]
-   > **Nome** e **letras maiúsculas e minúsculas** do parâmetro (DateTime neste exemplo) tem de corresponder do parâmetro especificado no pipeline/JSON de atividade. Na definição do procedimento armazenado, certifique-se de que **@** é utilizado como um prefixo para o parâmetro.
+   > **Nome** e **letras maiúsculas e minúsculas** do parâmetro (DateTime neste exemplo) tem de corresponder do parâmetro especificado no pipeline/JSON de atividade. Na definição do procedimento armazenado, certifique-se de que **\@** é utilizado como um prefixo para o parâmetro.
 
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).

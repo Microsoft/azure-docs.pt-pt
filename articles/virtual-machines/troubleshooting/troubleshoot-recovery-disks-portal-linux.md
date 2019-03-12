@@ -3,7 +3,7 @@ title: Utilizar uma Linux VM de resolução de problemas no portal do Azure | Do
 description: Saiba como resolver problemas de máquina virtual do Linux ao ligar o disco do SO a uma VM com o portal do Azure de recuperação
 services: virtual-machines-linux
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: genli
-ms.openlocfilehash: 817a3465c3e9f5d43bb49e20a443b8cf88293abd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 65187c3ef6debfa27c8c4fea62bcd31b857b4171
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47413844"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776769"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Resolver problemas de uma VM do Linux ao anexar o disco do SO a uma VM de recuperação com o portal do Azure
 Se a sua máquina virtual (VM) do Linux encontra um erro de arranque ou disco, se pretender executar passos de resolução de problemas no disco rígido virtual em si. Um exemplo comum seria uma entrada inválida no `/etc/fstab` que impede que a VM que está a ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o portal do Azure para ligar o seu disco rígido virtual a outra VM do Linux para corrigir quaisquer erros, em seguida, voltar a criar a VM original.

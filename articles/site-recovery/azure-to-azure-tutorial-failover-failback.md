@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ba1e65ca915c576d2424b166488b89baa92c24a9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737727"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729034"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Realizar a ativação pós-falha e a reativação pós-falha de VMs do Azure entre regiões do Azure
+# <a name="fail-over-and-reprotect-azure-vms-between-azure-regions"></a>Ativação pós-falha e voltar a proteger VMs do Azure entre regiões do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para a estratégia de recuperação após desastre, através da gestão e orquestração de replicação, ativação pós-falha e reativação pós-falha de máquinas no local e máquinas virtuais (VMs) do Azure.
 
@@ -24,9 +24,7 @@ Este tutorial descreve como realizar a ativação pós-falha numa única VM do A
 
 > [!div class="checklist"]
 > * Realizar a ativação pós-falha da VM do Azure
-> * Voltar a proteger a VM do Azure secundária, para que replique para a região primária
-> * Realizar a reativação pós-falha da VM secundária
-> * Voltar a proteger a VM primária para a região secundária
+> * Voltar a proteger a VM do Azure secundária, para que replique para a região primária.
 
 > [!NOTE]
 > Este tutorial destina-se a orientar o utilizador através de passos para efetuar ativação pós-falha para uma região de destino e com o mínimo de personalização; caso deseje saber mais sobre os vários aspetos associados à ativação pós-falha, incluindo as considerações de rede, a automatização ou a resolução de problemas, veja os documentos em "Procedimentos" para VMs do Azure.
@@ -74,12 +72,5 @@ Após a ativação pós-falha da VM, tem de voltar a protege-la, para que esta r
 > Consulte a ["como" secção](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) para obter mais detalhes sobre o fluxo de trabalho de nova proteção e o que acontece durante a nova proteção.
 
 
-## <a name="fail-back-to-the-primary-region"></a>Realizar a reativação pós-falha para a região primária
-
-Depois de voltar a proteger as VMs, pode falhar novamente para a região primária, já que precisa. Para tal, configure uma ativação pós-falha da região secundária para a região primária, conforme descrito neste artigo.
-
-![Clique com o botão direito do rato para voltar a proteger](./media/azure-to-azure-tutorial-failover-failback/failback.png)
-
-Se vir a captura de ecrã anterior, "ContosoWin2016" VM foi efetuada a partir do centro dos E.U.A., para E.U.A. leste e não foi possível do E.U.A. Leste dos EUA Central.
-
-A ativação pós-falha encerra a VM na região secundária, ou seja, a região de recuperação após desastre e cria e inicializa a VM na região primária. Tente **nota** que as VMs de DR permanecerão no encerramento desalocada Estado, conforme mostrado acima. Este comportamento é propositado porque o Azure Site Recovery guarda as informações da máquina virtual, que pode ser útil na ativação pós-falha para as primárias para a região secundária mais tarde. Não é cobrada para as máquinas virtuais desalocadas, pelo que devem ser mantida como está.
+## <a name="next-steps"></a>Passos Seguintes
+- Leitura [como realizar a reativação pós-falha. ](azure-to-azure-tutorial-failback.md).

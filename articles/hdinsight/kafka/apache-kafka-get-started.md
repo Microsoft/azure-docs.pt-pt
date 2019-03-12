@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9be3bdd33546a2814af394aedfaa254feb997dcf
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976771"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576757"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Início rápido: Criar um Apache Kafka no cluster do HDInsight
 
@@ -180,6 +180,9 @@ Nesta secção, recebe as informações do anfitrião da API REST do Apache Amba
     ```
 
 2. Para definir uma variável de ambiente para o nome do cluster, utilize o comando seguinte:
+
+    > [!Important]
+    > Introduza o nome de cluster em todas as letras minúsculas para este comando, mesmo que ele foi aprovisionado com letras maiúsculas no nome. Não não possível utilizar nomes em maiúsculas com Zookeeper ou para obter informações do Mediador.
 
     ```bash
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME

@@ -5,16 +5,16 @@ description: Um modelo é o sistema, que fornece a tradução para um par de idi
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-rada
-ms.openlocfilehash: f6ac9647a969816cada2e4c644c17b4618cf14e8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: adc78b176afb0a43a7e1e3a7bb882282a914761d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735582"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783079"
 ---
 # <a name="what-are-trainings-and-models"></a>Quais são os modelos e treinamentos?
 

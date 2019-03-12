@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0d601df7914b7280de4b3c16c8b00c96cb5427e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 083770c24a6c8939f8d1ff9f0efd5d18aff9dcb0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435989"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539620"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>O Azure Data Factory - considerações de segurança para movimento de dados
 
@@ -74,10 +74,10 @@ Azure Data Lake store também fornece encriptação para dados armazenados na co
 Armazenamento do Azure, armazenamento de BLOBs e tabelas do Azure suporta Storage Service Encryption (SSE), que automaticamente encripta os dados antes de continuar a armazenar e desencriptar antes da obtenção. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](../../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 suporta a encriptação de cliente e servidor de dados em repouso. Para obter mais informações, consulte [proteger dados através de encriptação](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Atualmente, o Data Factory não suporta Amazon S3 dentro de uma cloud privada virtual (VPC).
+Amazon S3 suporta a encriptação de cliente e servidor de dados em repouso. Para obter mais informações, consulte [proteger dados através de encriptação](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html). Atualmente, o Data Factory não suporta Amazon S3 dentro de uma cloud privada virtual (VPC).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift suporta a encriptação de cluster para dados inativos. Para obter mais informações, consulte [encriptação de base de dados do Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Atualmente, o Data Factory não suporta o Amazon Redshift dentro de um VPC. 
+Amazon Redshift suporta a encriptação de cluster para dados inativos. Para obter mais informações, consulte [encriptação de base de dados do Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). Atualmente, o Data Factory não suporta o Amazon Redshift dentro de um VPC. 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce suporta a encriptação de plataforma do escudo que permite que a encriptação de todos os arquivos, anexos e campos personalizados. Para obter mais informações, consulte [Noções básicas sobre o fluxo de autenticação do Web Server OAuth](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -178,7 +178,7 @@ Os seguintes arquivos de dados de nuvem necessitam de listas de permissões do e
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [BD do Cosmos para o Azure](../../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

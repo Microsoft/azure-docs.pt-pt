@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: ce7cc489b107ce4bd95270b9a7f8cb560a2d2398
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 99371f0ae56046a328155aa2151ad8b89df93a04
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249651"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551930"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API padrão do .NET da tabela do Azure Cosmos DB: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -30,6 +30,11 @@ ms.locfileid: "55249651"
 |**Estrutura de suporte atual**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name0110-preview0110-preview"></a><a name="0.11.0-preview"/>0.11.0-Preview
+* As alterações foram feitas como CloudTableClient pode ser configurado. Agora demora um um objeto de TableClientConfiguration durante a construção. TableClientConfiguration fornece propriedades diferentes para configurar o comportamento de cliente, dependendo se o ponto de extremidade de destino é a API de tabela do Cosmos DB ou a API de tabela de armazenamento do Azure.
+* Foi adicionado suporte para TableQuery para devolver resultados em ordem classificada numa coluna personalizada. Esta funcionalidade só é suportada em pontos finais de tabela do Cosmos DB.
+* Foi adicionado suporte para expor RequestCharges em vários tipos de resultado. Esta funcionalidade só é suportada em pontos finais de tabela do Cosmos DB.
 
 ### <a name="a-name0101-preview0101-preview"></a><a name="0.10.1-preview"/>0.10.1-Preview
 * Adicione suporte para SAS token, operações de TablePermissions, ServiceProperties e ServiceStats relativamente aos pontos finais de tabelas de armazenamento do Azure. 
@@ -51,6 +56,7 @@ A Microsoft fornece notificação, pelo menos, **12 meses** antecedência exting
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [0.11.0-preview](#0.11.0-preview) |5 de Março de 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |22 de Janeiro de 2019 |--- |
 | [0.10.0-preview](#0.10.0-preview) |18 de Dezembro de 2018 |--- |
 | [0.9.1-preview](#0.9.1-preview) |18 de Outubro de 2018 |--- |

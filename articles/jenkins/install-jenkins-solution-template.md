@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 69ab376e9c4924babcb249a1d80f6f0d0a846f20
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 768cd7de7bc313711b86112c48fbf13601f1c377
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079022"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545112"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Criar um servidor do Jenkins numa VM do Linux do Azure a partir do portal do Azure
 
@@ -22,7 +22,7 @@ Este guia de introdução mostra como instalar o [Jenkins](https://jenkins.io) n
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure
-* Acesso ao SSH na linha de comandos do seu computador (por exemplo, o Bash da shell ou [PuTTY](http://www.putty.org/))
+* Acesso ao SSH na linha de comandos do seu computador (por exemplo, o Bash da shell ou [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

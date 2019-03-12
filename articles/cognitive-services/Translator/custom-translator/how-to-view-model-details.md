@@ -5,16 +5,16 @@ description: Separador de modelos em qualquer projeto mostra detalhes de cada mo
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 9dcfb40835202849761d5d81728caf6be63d9641
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 13f3d88ad69d2acc64b9a6469415eceaf22fa491
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215477"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764393"
 ---
 # <a name="view-model-details"></a>Ver detalhes do modelo
 

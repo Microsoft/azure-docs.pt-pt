@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384263"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540084"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -52,7 +52,7 @@ Depois de criar o espaço de nomes, navegue até à respetiva **controlo de aces
 
 Antes de poder executar o aplicativo de exemplo, registrá-la no Azure AD e aprovar a solicitação de consentimento que permite que a aplicação a aceder os Hubs de eventos em seu nome. 
 
-Como o aplicativo de exemplo é uma aplicação de consola, tem de registar uma aplicação nativa e adicionar as permissões de API para **eventhub** ao conjunto de "permissões obrigatórias". Aplicativos nativos também tem um **redirect-URI** no Azure AD que serve como um identificador; o URI não precisa de ser um destino de rede. Utilize `http://eventhubs.microsoft.com` para este exemplo, uma vez que o exemplo de código já utiliza esse URI.
+Como o aplicativo de exemplo é uma aplicação de consola, tem de registar uma aplicação nativa e adicionar as permissões de API para **eventhub** ao conjunto de "permissões obrigatórias". Aplicativos nativos também tem um **redirect-URI** no Azure AD que serve como um identificador; o URI não precisa de ser um destino de rede. Utilize `https://eventhubs.microsoft.com` para este exemplo, uma vez que o exemplo de código já utiliza esse URI.
 
 Os passos de registo detalhados são explicados em [deste tutorial](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Siga os passos para registar um **nativo** aplicação e, em seguida, siga as instruções de atualização para adicionar o **eventhub** API para as permissões necessárias. À medida que seguir os passos, anote o **TenantId** e o **ApplicationId**, pois irá precisar destes valores para executar a aplicação.
 

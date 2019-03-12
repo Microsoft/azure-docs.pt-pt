@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2aed2d4b-1dcd-4839-8fed-9419d107c61c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 8b4709755acdf56ed38681b0d8a253ab1e6293a1
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9745810b87e51c22fd4e74bfe3a461fcacfaa141
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240920"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778336"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Tutorial: Integração do Active Directory do Azure com Moxtra
 

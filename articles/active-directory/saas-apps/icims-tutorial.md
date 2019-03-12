@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 72dbd649-e4b1-4d72-ad76-636d84922596
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfeb5669b6af231577b71b52c17027614f776604
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0c19a6f0fcf3cdddd7ec62dcadb8ce7e7a15d99
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869314"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icims"></a>Tutorial: Integração do Active Directory do Azure com ICIMS
 

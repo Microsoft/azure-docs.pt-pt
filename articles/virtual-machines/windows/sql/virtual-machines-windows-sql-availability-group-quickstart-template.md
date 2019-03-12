@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 675933b46a228f636c4907e84d66263dde52f274
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5390885ccb4bbc3e1552d3f5e80c1b451b7bee38
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823336"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570169"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utilizar modelos de início rápido do Azure para configurar o grupo de disponibilidade Always On do SQL Server numa VM do Azure
 Este artigo descreve como utilizar os modelos de início rápido do Azure para parcialmente automatizar a implementação de uma configuração de grupo Always On disponibilidade para máquinas virtuais SQL Server no Azure. Existem dois modelos de início rápido do Azure que são utilizados neste processo. 
@@ -39,6 +39,13 @@ Para automatizar a configuração de um grupo de disponibilidade Always On na at
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um grupo de recursos com um controlador de domínio. 
 - Um ou mais associado a um domínio [VMs no Azure em execução do SQL Server 2016 (ou superior) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) na mesma disponibilidade ou conjunto de zona de disponibilidade que tenham sido [registado com o fornecedor de recursos de VM do SQL Server](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- (Não utilizado por qualquer entidade) disponíveis dois endereços IP, um para o Balanceador de carga interno e para o serviço de escuta do grupo de disponibilidade na mesma sub-rede que o grupo de disponibilidade. Se está a ser utilizado um balanceador de carga existente, em seguida, é necessário apenas um endereço IP disponível.  
+
+## <a name="permissions"></a>Permissões
+As seguintes permissões são necessárias para configurar o grupo de disponibilidade Always On na através de modelos de início rápido do Azure: 
+
+- Uma domínio conta de utilizador existente que tenha a permissão "Criar objeto de computador" no domínio.  Por exemplo, normalmente, uma conta de administrador de domínio tem permissão suficiente (ex: account@domain.com). _Esta conta também deve ser parte do grupo de administradores local em cada VM para criar o cluster._
+- A conta de utilizador de domínio que controla o serviço SQL Server. 
 
 
 ## <a name="step-1---create-the-wsfc-and-join-sql-server-vms-to-the-cluster-using-quickstart-template"></a>Passo 1 - criar o WSFC e Junte-se a VMs do SQL Server para o cluster utilizando o modelo de início rápido 

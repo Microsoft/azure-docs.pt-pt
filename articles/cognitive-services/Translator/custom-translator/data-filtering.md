@@ -5,16 +5,16 @@ description: Quando submete documentos a ser utilizado para um sistema personali
 author: jann-skotdal
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: 46af936cc479770fe5db8085106c9da310a9717e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: dee0f55d816cae3b178990a432c37d3082d26de3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452407"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775769"
 ---
 # <a name="data-filtering"></a>Filtragem de dados
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 28227ce9ebc5680f68c05cb1296a8ba35eac2c74
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dbac37e8b3bac5ee06ac3bdc3270c04efdcd408
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338353"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536696"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para Oracle no local com o Azure Data Factory
 
@@ -69,7 +69,7 @@ Este conector Oracle suporta duas versões de controladores:
     > Atualmente, o Microsoft driver para Oracle suporta apenas cópia de dados do Oracle. O controlador não suporta escrita a Oracle. O recurso de ligação de teste sobre o Data Management Gateway **diagnóstico** separador não suporta este controlador. Em alternativa, pode utilizar o Assistente para copiar para validar a conectividade.
     >
 
-- **Fornecedor de dados do Oracle para .NET**: Pode utilizar o fornecedor de dados Oracle para copiar dados de ou para Oracle. Este componente está incluído no [Oracle Data Access componentes para o Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). Instale a versão relevante (32 bits ou 64 bits) na máquina onde o gateway está instalado. [Fornecedor de dados Oracle .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) pode aceder à base de dados do Oracle 10g versão 2 e versões posteriores.
+- **Fornecedor de dados do Oracle para .NET**: Pode utilizar o fornecedor de dados Oracle para copiar dados de ou para Oracle. Este componente está incluído no [Oracle Data Access componentes para o Windows](https://www.oracle.com/technetwork/topics/dotnet/downloads/). Instale a versão relevante (32 bits ou 64 bits) na máquina onde o gateway está instalado. [Fornecedor de dados Oracle .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) pode aceder à base de dados do Oracle 10g versão 2 e versões posteriores.
 
     Se selecionou **instalação XCopy**, conclua os passos descritos no arquivo Readme htm. Recomendamos que selecione o instalador com a interface do Usuário (não o instalador de XCopy).
 
@@ -566,7 +566,7 @@ O pipeline contém uma atividade de cópia que tenha configurado para utilizar o
 
 **Resolução**
 
-* Se ainda não instalou o fornecedor de .NET para o Oracle, [instalá-lo](http://www.oracle.com/technetwork/topics/dotnet/downloads/)e, em seguida, repita o cenário.
+* Se ainda não instalou o fornecedor de .NET para o Oracle, [instalá-lo](https://www.oracle.com/technetwork/topics/dotnet/downloads/)e, em seguida, repita o cenário.
 * Se vir a mensagem de erro mesmo depois de instalar o fornecedor, conclua os seguintes passos:
     1. Abra o ficheiro de configuração de máquina para o .NET 2.0 a partir da pasta < disco do sistema\>: \Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config.
     2. Procure **fornecedor de dados do Oracle para .NET**. Deverá conseguir localizar uma entrada, conforme mostrado no exemplo a seguir sob **System. data** > **DbProviderFactories**: `<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`

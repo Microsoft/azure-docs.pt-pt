@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: dfd55ac12587cf99cc3fc3ff8eac4f4572229396
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 17f239dc3ba9714c01f55a88419df2d3416908fa
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753508"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539705"
 ---
 # <a name="troubleshooting-network-performance"></a>Resolução de problemas de desempenho da rede
 ## <a name="overview"></a>Descrição geral
@@ -198,7 +198,7 @@ Configuração de teste:
 \* A latência para Brasil é um bom exemplo em que a distância em linha reta é significativamente diferente do fibra executar distância. Eu esperava que a latência deve ser cerca de 160 ms, mas é realmente 189 ms. Essa diferença em relação a minha expectativa pode indicar um problema de rede em algum lugar, mas é muito provável que tenha que executar o fiber não passa para Brasil numa linha reta e tem um km 1.000 extra mais ou menos de deslocação para chegar ao Brasil de Seattle.
 
 ## <a name="next-steps"></a>Passos Seguintes
-1. Transferir o Toolkit de conectividade do Azure a partir do GitHub em [http://aka.ms/AzCT][ACT]
+1. Transferir o Toolkit de conectividade do Azure a partir do GitHub em [https://aka.ms/AzCT][ACT]
 2. Siga as instruções para [ligar um teste de desempenho][Performance Doc]
 
 <!--Image References-->
@@ -212,7 +212,7 @@ Configuração de teste:
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
 [Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
-[ACT]: http://aka.ms/AzCT
+[ACT]: https://aka.ms/AzCT
 
 
 

@@ -8,12 +8,12 @@ ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 5d05371d9b948dc2f7d6f834eb9431af80fc6365
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 788e7a453e9879d9c901448659ff1c8cfa7201ff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406877"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548322"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Pré-requisitos do Catálogo de Dados do Azure
 
@@ -30,7 +30,7 @@ Para configurar o catálogo de dados, precisa estar conectado com uma conta de u
 O Azure AD proporciona uma forma fácil de a sua empresa gerir a identidade e o acesso, tanto na nuvem, como no local. Os utilizadores podem utilizar uma conta escolar ou profissional de único para o início de sessão único para qualquer cloud e no local de aplicação web. Catálogo de dados utiliza o Azure AD para autenticar o início de sessão. Para obter mais informações, consulte [o que é o Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
 > [!NOTE]
-> Ao utilizar o [portal do Azure](http://portal.azure.com/), pode iniciar sessão com uma conta Microsoft pessoal ou um Azure Active Directory funcionam conta escolar ou profissional. Para configurar o catálogo de dados através do portal do Azure ou o [portal do catálogo de dados](http://www.azuredatacatalog.com), tem de iniciar sessão com uma conta do Azure Active Directory, não uma conta pessoal.
+> Ao utilizar o [portal do Azure](https://portal.azure.com/), pode iniciar sessão com uma conta Microsoft pessoal ou um Azure Active Directory funcionam conta escolar ou profissional. Para configurar o catálogo de dados através do portal do Azure ou o [portal do catálogo de dados](https://www.azuredatacatalog.com), tem de iniciar sessão com uma conta do Azure Active Directory, não uma conta pessoal.
 >
 >
 

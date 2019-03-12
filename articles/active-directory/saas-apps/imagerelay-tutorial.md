@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 65bb5990-07ef-4244-9f41-cd28fc2cb5a2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b9675289ab14b00d565a5863600845d42b55030
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 990134b3b7624c207de060c175931a32a1e5166a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985959"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Tutorial: Integração do Active Directory do Azure com o reencaminhamento de imagem
 

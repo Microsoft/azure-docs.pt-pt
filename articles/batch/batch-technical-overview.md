@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: HT
+ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621284"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730954"
 ---
 # <a name="what-is-azure-batch"></a>O que é o Azure Batch?
 
@@ -30,7 +30,7 @@ Os programadores podem utilizar o Batch como um serviço de plataforma para cria
 
 Não existem custos adicionais para a utilização do Batch. Paga apenas pelos recursos subjacentes consumidos, como máquinas virtuais, armazenamento e rede.
 
-Para uma comparação entre o Batch e outras opções de solução HPC no Azure, veja [HPC, Batch, and Big Compute solutions](../virtual-machines/linux/high-performance-computing.md) (Soluções de HPC, Batch e Macrocomputação).
+Para uma comparação entre o Batch e outras opções de solução HPC no Azure, veja [alto desempenho HPC (computação) no Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Executar cargas de trabalho paralelas
 O Batch funciona bem com cargas de trabalho intrinsecamente paralelas (também conhecidas como constrangedoramente paralelas). As cargas de trabalho intrinsecamente paralelas são aquelas em que as aplicações podem ser executadas separadamente e cada instância concluiu parte do trabalho. Quando as aplicações estão em execução, podem aceder a alguns dados comuns, mas não comunicam com outras instâncias da aplicação. As cargas de trabalho intrinsecamente paralelas conseguem executar em grande escala, determinado pela quantidade de recursos de computação disponíveis para executar aplicações em simultâneo.
@@ -88,7 +88,7 @@ Tenha em atenção que esta é apenas uma forma de utilizar o Batch, e este cen�
 
 Veja [Descrição geral das funcionalidades do Batch para programadores](batch-api-basics.md) para obter informações mais detalhadas sobre conjuntos, nós, trabalhos e tarefas, e as várias funcionalidades de API que pode utilizar ao criar a sua aplicação Batch. Veja também a versão mais recente das [Atualizações de serviço do Batch](https://azure.microsoft.com/updates/?product=batch).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Introdução ao Azure Batch com um dos seguintes inícios rápidos:
 * [Executar o seu primeiro trabalho do Batch com a CLI do Azure](quick-create-cli.md)

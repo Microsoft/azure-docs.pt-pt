@@ -4,16 +4,16 @@ description: Saiba como escolher uma solução do Azure para a transferência de
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: bc5668d826395fb71ee70907f095303a43f1ec7f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 4a8a014b365974bb8c138c74197d3d89cc63e42e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214322"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771985"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferência de dados para grandes conjuntos de dados com moderada para elevada largura de banda
  
@@ -72,7 +72,7 @@ Se utilizar a transferência de dados offline, utilize a tabela seguinte para co
 |    Exportar dados do Azure           |    Não                           |    Não                                            |    Não                                    |    Sim                                 |
 |    Encriptação                       |    AES 128 bits                  |    AES de 256 bits                                   |    AES de 256 bits                           |    AES 128 bits                         |
 |    Hardware                         |     Microsoft fornecido          |    Microsoft fornecido                            |    Microsoft fornecido                    |    Cliente fornecido                   |
-|    Interface de rede                |    3.1/SATA DE USB                 |    RJ 45, SFP +                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
+|    Interface de rede                |    3.1/SATA DE USB                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
 |    Integração de parceiros              |    Alguns                         |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Alta](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Alguns                                |
 |    Envio                         |    Gerida pela Microsoft            |    Gerida pela Microsoft                             |    Gerida pela Microsoft                     |    Gerida pelo cliente                    |
 | Quando move os dados de utilização         |Num limite de comércio|Num limite de comércio|Num limite de comércio|Através das fronteiras geográficas, por exemplo, da UE|
@@ -83,7 +83,7 @@ Se utilizar a transferência de dados online, utilize a tabela na secção segui
 
 ### <a name="high-network-bandwidth"></a>Largura de banda de rede elevada
 
-|                                     |    AzCopy de ferramentas, <br>O Azure PowerShell, <br>CLI do Azure             |    REST APIs, SDKs de armazenamento do Azure                   |    Gateway de caixa de dados ou de extremidade de caixa de dados (pré-visualização)           |    Azure Data Factory                                            |
+|                                     |    AzCopy de ferramentas, <br>Azure PowerShell, <br>CLI do Azure             |    REST APIs, SDKs de armazenamento do Azure                   |    Gateway de caixa de dados ou de extremidade de caixa de dados (pré-visualização)           |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Tipo de dados                  |    Blobs do Azure, os ficheiros do Azure, as tabelas do Azure    |    Blobs do Azure, os ficheiros do Azure, as tabelas do Azure    |    Blobs do Azure, os ficheiros do Azure                           |   Suporta 70 conectores de dados para arquivos de dados e formatos    |
 |    Fator de formulário                |    Ferramentas de linha de comandos                        |    Interface programática                    |    Microsoft fornece um virtual <br>ou o dispositivo físico     |    Serviço no portal do Azure                                            |
@@ -108,4 +108,4 @@ Se utilizar a transferência de dados online, utilize a tabela na secção segui
 - Utilizar as APIs REST para transferir dados
 
     - [No .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [Em Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)

@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c7fdbfcc34cdb6e10177d50bea707f1fa5f223e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6714d8d2a086980fce37cd2912f8ff6360558d15
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534775"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542776"
 ---
 # <a name="rendering-applications"></a>Aplicações de composição
 
@@ -58,7 +58,7 @@ Além dos compositores incorporadas no Maya, os compositores seguintes estão di
 
 ### <a name="task-command-line"></a>Linha de comandos da tarefa
 
-O `renderer.exe` compositor da linha de comandos é utilizado na linha de comandos de tarefas. O processador da linha de comandos está documentado no [Maya ajuda](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+O `renderer.exe` compositor da linha de comandos é utilizado na linha de comandos de tarefas. O processador da linha de comandos está documentado no [Maya ajuda](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 No exemplo a seguir, uma tarefa de preparação é usada para copiar os ficheiros de cenas e recursos para o diretório de trabalho de preparação de trabalho, uma pasta de saída é utilizada para armazenar a imagem de composição e estrutura 10 for processada.
 

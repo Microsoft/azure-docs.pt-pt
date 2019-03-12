@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 71f7afcc-1033-4098-9b7e-4f9f2b26f734
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12a97dc33075de4dc39802d6299e0c3a819cae02
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fefcff55e357d9fcaf7b0e36673dfd0748f79167
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873071"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Tutorial: Integração do Active Directory do Azure com o Envoy
 

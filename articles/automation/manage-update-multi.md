@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 864e93dcd94fd36b0e34495e0ea27f22d8b0dd0c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817682"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531324"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerir atualizações de várias máquinas
 
@@ -70,7 +70,7 @@ Quando a integração é concluída, a gestão de atualizações está ativada p
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Ativar a gestão de atualizações para computadores e máquinas de virtuais não pertencente ao Azure
 
-Para saber como ativar a gestão de atualizações para computadores e máquinas de virtuais do Windows não Azure, veja [computadores Windows ligar ao serviço Log Analytics no Azure](../log-analytics/log-analytics-windows-agent.md).
+Para saber como ativar a gestão de atualizações para computadores e máquinas de virtuais do Windows não Azure, veja [computadores Windows ligar ao serviço Azure Monitor no Azure](../log-analytics/log-analytics-windows-agent.md).
 
 Para saber como ativar a gestão de atualizações para computadores e máquinas de virtuais de Linux não Azure, veja [ligar os computadores Linux para registos do Azure Monitor](../log-analytics/log-analytics-agent-linux.md).
 

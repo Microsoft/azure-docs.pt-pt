@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/04/2019
-ms.openlocfilehash: a372a955578f3621c1b8a9226809671927c9bfd3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/06/2019
+ms.openlocfilehash: a1e76aafa271ff021517c3d06c3c6e02103413d3
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342756"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571478"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de recursos para conjuntos elásticos com os limites de compra modelo baseado em vCore
 
@@ -30,6 +30,8 @@ Para baseado em DTU limites de modelo compra, veja [limites de recursos baseados
 
 Pode definir o escalão de serviço, o tamanho de computação e quantidade de armazenamento utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), o [da CLI do Azure](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), ou o [API de REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
+> [!IMPORTANT]
+> Para dimensionar a orientação e considerações, consulte [dimensionar um conjunto elástico](sql-database-elastic-pool-scale.md)
 > [!NOTE]
 > Os limites de recursos de bases de dados individuais em conjuntos elásticos são geralmente as mesmas usadas para bases de dados individuais fora agrupamentos que tem o mesmo tamanho de computação. Por exemplo, os máximos de trabalhadores simultâneos para uma base de dados GP_Gen4_1 é de 200 funções de trabalho. Então, os máximos de trabalhadores simultâneos para uma base de dados num conjunto GP_Gen4_1 também é de 200 funções de trabalho. Tenha em atenção de que o número total de trabalhadores simultâneos no agrupamento de GP_Gen4_1 é 210.
 

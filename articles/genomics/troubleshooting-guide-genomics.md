@@ -7,23 +7,23 @@ services: microsoft-genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
-ms.service: microsoft-genomics
+ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 2c10259e4b9fa180d09ceef0359e7ec99e8200b1
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 01f4cca8e177d8f9c9325a7920eb7e72c005bbd6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239904"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760947"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
 Eis algumas sugestões de resolução de problemas para alguns dos problemas comuns que poderá deparar ao utilizar o serviço Microsoft Genomics, MSGEN.
 
  Para perguntas frequentes, não relacionados com a solução de problemas, consulte [perguntas comuns](frequently-asked-questions-genomics.md).
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Passo 1: Localizar os códigos de erro associados com o fluxo de trabalho
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>Passo 1: Localize os códigos de erro associados com o fluxo de trabalho
 
 Pode localizar as mensagens de erro associadas com o fluxo de trabalho por:
 
@@ -93,14 +93,14 @@ Localize o contentor de saída para o fluxo de trabalho em questão. MSGEN cria 
 Para resolução de problemas, examinar o conteúdo de standardoutput.txt e observe as mensagens de erro que são apresentados.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>Passo 2: Tente etapas recomendadas para erros comuns
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>Passo 2: Experimente os passos recomendados para erros comuns
 
 Esta secção destaca resumidamente comuns de erros de saída ao serviço Microsoft Genomics (msgen) e as estratégias que pode utilizar para resolvê-los. 
 
 O serviço Microsoft Genomics (msgen) pode emitir os seguintes tipos de erros:
 
-1. Erros de serviço internos: Erros que são internos para o serviço, que pode não ser resolvido, corrigindo os parâmetros ou ficheiros de entrada. Por vezes, voltar a submeter o fluxo de trabalho pode corrigir estes erros.
-2. Erros de entrada: Erros que podem ser resolvidos utilizando os argumentos corretos ou corrigir formatos de arquivo.
+1. Erros de serviço interno: Erros que são internos para o serviço, que pode não ser resolvido, corrigindo os parâmetros ou ficheiros de entrada. Por vezes, voltar a submeter o fluxo de trabalho pode corrigir estes erros.
+2. Erros de entrada: Formatos de arquivo de erros que podem ser resolvidos utilizando os argumentos corretos ou corrigir.
 
 ### <a name="1-internal-service-errors"></a>1. Erros de serviço interno
 
@@ -126,18 +126,18 @@ Estes erros são passíveis de ação do utilizador. Com base no tipo de ficheir
 | BAM          | 206        |   Não é possível ler o ficheiro BAM [nome_ficheiro]. Cabeçalho do ficheiro foi danificado.                                                                                      | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                            |
 | BAM          | 207        |  Não é possível ler o ficheiro BAM [nome_ficheiro]. Ficheiro truncado junto ao deslocamento [offset].                                                                                       | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                            |
 | BAM          | 208        |   Ficheiro BAM inválido. O ReadID [Read_Id] não tem nenhuma sequência no ficheiro [nome_ficheiro].                                                                                      | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                             |
-| FICHEIROS FASTQ        | 300        |  Não é possível ler o ficheiro de ficheiros FASTQ. [Nome_ficheiro] não termina com uma nova linha.                                                                                     | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                           |
-| FICHEIROS FASTQ        | 301        |   Não é possível ler o arquivo de ficheiros FASTQ [nome_ficheiro]. Registo de ficheiros FASTQ é maior do que o tamanho da memória intermédia no desvio: [_offset]                                                                                      | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
-| FICHEIROS FASTQ        | 302        |     Erro de sintaxe de ficheiros FASTQ. O ficheiro [nome_ficheiro] tem uma linha em branco.                                                                                    | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
-| FICHEIROS FASTQ        | 303        |       Erro de sintaxe de ficheiros FASTQ. O ficheiro [nome_ficheiro] tem um caráter de partida inválido no desvio: escreva do [_offset], linha: [line_type], caracteres: [_char]                                                                                  | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
-| FICHEIROS FASTQ        | 304      |  Erro de sintaxe de ficheiros FASTQ em readID [_ReadID].  Leia primeiro do batch não tem readID que termine em /1 no ficheiro [nome_ficheiro]                                                                                       | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
-| FICHEIROS FASTQ        | 305        |  Erro de sintaxe de ficheiros FASTQ em readID [_readID]. Segunda leitura do lote não tem readID que termine em /2 no ficheiro [nome_ficheiro]                                                                                      | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                          |
-| FICHEIROS FASTQ        | 306        |  Erro de sintaxe de ficheiros FASTQ em readID [_ReadID]. Leia primeiro do par não tem um ID que termina em /1 no ficheiro [nome_ficheiro]                                                                                       | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                          |
-| FICHEIROS FASTQ        | 307        |   Erro de sintaxe de ficheiros FASTQ em readID [_ReadID]. ReadID não termina com /1 ou / 2. O ficheiro [nome_ficheiro] não pode ser utilizado como um arquivo de ficheiros FASTQ emparelhado.                                                                                      |Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                          |
-| FICHEIROS FASTQ        | 308        |  Erro de leitura de ficheiros FASTQ. Leituras de ambas as extremidades responderam de forma diferente. Escolher os ficheiros FASTQ corretos?                                                                                       | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+| FASTQ        | 300        |  Não é possível ler o ficheiro de ficheiros FASTQ. [Nome_ficheiro] não termina com uma nova linha.                                                                                     | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                           |
+| FASTQ        | 301        |   Não é possível ler o arquivo de ficheiros FASTQ [nome_ficheiro]. Registo de ficheiros FASTQ é maior do que o tamanho da memória intermédia no desvio: [_offset]                                                                                      | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+| FASTQ        | 302        |     Erro de sintaxe de ficheiros FASTQ. O ficheiro [nome_ficheiro] tem uma linha em branco.                                                                                    | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+| FASTQ        | 303        |       Erro de sintaxe de ficheiros FASTQ. O ficheiro [nome_ficheiro] tem um caráter de partida inválido no desvio: escreva do [_offset], linha: [line_type], caracteres: [_char]                                                                                  | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+| FASTQ        | 304      |  Erro de sintaxe de ficheiros FASTQ em readID [_ReadID].  Leia primeiro do batch não tem readID que termine em /1 no ficheiro [nome_ficheiro]                                                                                       | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
+| FASTQ        | 305        |  Erro de sintaxe de ficheiros FASTQ em readID [_readID]. Segunda leitura do lote não tem readID que termine em /2 no ficheiro [nome_ficheiro]                                                                                      | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                          |
+| FASTQ        | 306        |  Erro de sintaxe de ficheiros FASTQ em readID [_ReadID]. Leia primeiro do par não tem um ID que termina em /1 no ficheiro [nome_ficheiro]                                                                                       | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                          |
+| FASTQ        | 307        |   Erro de sintaxe de ficheiros FASTQ em readID [_ReadID]. ReadID não termina com /1 ou / 2. O ficheiro [nome_ficheiro] não pode ser utilizado como um arquivo de ficheiros FASTQ emparelhado.                                                                                      |Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                          |
+| FASTQ        | 308        |  Erro de leitura de ficheiros FASTQ. Leituras de ambas as extremidades responderam de forma diferente. Escolher os ficheiros FASTQ corretos?                                                                                       | Corrija o formato do arquivo de ficheiros FASTQ e submeta novamente o fluxo de trabalho.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>Passo 3: Suporte de contacto Microsoft Genomics
+## <a name="step-3-contact-microsoft-genomics-support"></a>Passo 3: Contacte o suporte da Microsoft Genomics
 
 Se continuar com falhas de tarefas, ou se tiver outras dúvidas, contacte o suporte da Microsoft Genomics no portal do Azure. Pode encontrar informações adicionais sobre como submeter um pedido de suporte [aqui](file-support-ticket-genomics.md).
 

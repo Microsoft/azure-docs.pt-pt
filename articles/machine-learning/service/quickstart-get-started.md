@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d441ed408f9c9348ba091178cf6ce84d67abb3a
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2dabc331b13bc53a6d8e94d69c64b87c7f175c24
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672938"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762199"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o portal do Azure para começar a utilizar com o Azure Machine Learning
 
@@ -25,8 +25,8 @@ Utilize o portal do Azure para criar uma área de trabalho do Azure Machine Lear
 Neste início rápido, efetuar as seguintes ações:
 
 * Criar uma área de trabalho na sua subscrição do Azure.
-* Faça um teste com o Python num valores de registo e o bloco de notas do Jupyter através de várias iterações.
-* Ver os valores registados na área de trabalho.
+* Faça um teste com o Python num bloco de notas do Jupyter. O bloco de anotações contém código para calcular o instalador de plataforma e registos de erros em cada iteração. 
+* Ver os valores de erro com sessão iniciada na sua área de trabalho.
 
 Os seguintes recursos do Azure são adicionados automaticamente à sua área de trabalho quando estiverem disponíveis regionalmente:
 

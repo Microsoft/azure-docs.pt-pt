@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: de0227ac3e3d963b5ec196b58e467dbeaf0dff42
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453461"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769171"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utilizar o Transact-SQL (T-SQL) para criar e gerir conjuntos elásticos da base de dados
 
@@ -447,16 +447,16 @@ Adiciona uma nova tarefa.
   
 #### <a name="arguments"></a>Argumentos  
 
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 O nome da tarefa. O nome tem de ser exclusivo e não pode conter o sinal de percentagem) caráter. job_name é nvarchar(128), com nenhuma predefinição.
 
-[ **@description =** ] 'description'  
+[ **\@description =** ] 'description'  
 A descrição da tarefa. a descrição é nvarchar(512), com uma predefinição de NULL. Se a descrição for omitida, é utilizada uma cadeia vazia.
 
-[  **@enabled =** ] ativada  
+[  **\@ativado =** ] ativada  
 Se o agendamento do trabalho está ativado. Ativado é o bit, com um padrão de 0 (desativado). Se for 0, a tarefa não está ativada e não é executado de acordo com seu Cronograma; No entanto, pode ser executado manualmente. Se 1, a tarefa será executada de acordo com a sua agenda e também pode ser executada manualmente.
 
-[  **@schedule_interval_type =**] schedule_interval_type  
+[  **\@schedule_interval_type =**] schedule_interval_type  
 Valor indica quando a tarefa está a ser executado. schedule_interval_type é nvarchar(50), com uma predefinição de uma vez e pode ser um dos seguintes valores:
 - 'Uma vez',
 - 'Minutos',
@@ -465,16 +465,16 @@ Valor indica quando a tarefa está a ser executado. schedule_interval_type é nv
 - 'Semanas',
 - 'Meses'
 
-[  **@schedule_interval_count =** ] schedule_interval_count  
+[  **\@schedule_interval_count =** ] schedule_interval_count  
 Número de períodos de schedule_interval_count seja efetuada entre cada execução da tarefa. schedule_interval_count é int, com uma predefinição de 1. O valor tem de ser maior ou igual a 1.
 
-[  **@schedule_start_time =** ] schedule_start_time  
+[  **\@schedule_start_time =** ] schedule_start_time  
 Data na qual tarefa pode começar a execução. schedule_start_time é DATETIME2, com a predefinição de 00:00:00.0000000 0001-01-01.
 
-[ **@schedule_end_time =** ] schedule_end_time  
+[ **\@schedule_end_time =** ] schedule_end_time  
 Data na qual tarefa pode parar a execução. schedule_end_time é DATETIME2, com o padrão de 9999-12-31 11:59:59.0000000. 
 
-[  **@job_id =** ] job_id saída  
+[  **\@job_id =** ] job_id saída  
 O número de identificação de tarefa atribuído às tarefas se criado com êxito. job_id é uma variável de saída do tipo uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -510,19 +510,19 @@ Atualiza uma tarefa existente.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 O nome da tarefa para ser atualizado. job_name é nvarchar(128).
 
-[ **@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 O novo nome da tarefa. new_name é nvarchar(128).
 
-[ **@description =** ] 'description'  
+[ **\@description =** ] 'description'  
 A descrição da tarefa. a descrição é nvarchar(512).
 
-[  **@enabled =** ] ativada  
+[  **\@ativado =** ] ativada  
 Especifica se o agendamento do trabalho é ativado (1) ou não ativado (0). Ativado é o bit.
 
-[  **@schedule_interval_type=** ] schedule_interval_type  
+[ **\@schedule_interval_type=** ] schedule_interval_type  
 Valor indica quando a tarefa está a ser executado. schedule_interval_type é nvarchar(50) e pode ser um dos seguintes valores:
 
 - 'Uma vez',
@@ -532,13 +532,13 @@ Valor indica quando a tarefa está a ser executado. schedule_interval_type é nv
 - 'Semanas',
 - 'Meses'
 
-[  **@schedule_interval_count=** ] schedule_interval_count  
+[  **\@schedule_interval_count =** ] schedule_interval_count  
 Número de períodos de schedule_interval_count seja efetuada entre cada execução da tarefa. schedule_interval_count é int, com uma predefinição de 1. O valor tem de ser maior ou igual a 1.
 
-[  **@schedule_start_time=** ] schedule_start_time  
+[ **\@schedule_start_time=** ] schedule_start_time  
 Data na qual tarefa pode começar a execução. schedule_start_time é DATETIME2, com a predefinição de 00:00:00.0000000 0001-01-01.
 
-[ **@schedule_end_time=** ] schedule_end_time  
+[ **\@schedule_end_time=** ] schedule_end_time  
 Data na qual tarefa pode parar a execução. schedule_end_time é DATETIME2, com o padrão de 9999-12-31 11:59:59.0000000. 
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -567,10 +567,10 @@ Elimina uma tarefa existente.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 O nome da tarefa para serem eliminados. job_name é nvarchar(128).
 
-[ **@force =** ] force  
+[ **\@force =** ] force  
 Especifica se pretende eliminar se a tarefa tem quaisquer execuções em curso e cancelar todas as execuções de em curso (1) ou falha se todas as execuções de tarefas estão em curso (0). força é o bit.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -622,79 +622,79 @@ Adiciona um passo a um trabalho.
 
 #### <a name="arguments"></a>Argumentos
 
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 O nome da tarefa ao qual pretende adicionar o passo. job_name é nvarchar(128).
 
-[ **@step_id =** ] step_id  
+[  **\@step_id =** ] step_id  
 O número de identificação de sequência para o passo da tarefa. Números de identificação de passo começam em 1 e incrementar sem lacunas. Se um passo existente já tem este id, em seguida, que o passo e todos os passos seguintes terão o id do incrementado para que este novo passo pode ser inserido na sequência de. Se não for especificado, o step_id será automaticamente atribuído para o último na sequência de passos. step_id é um int.
 
-[  **@step_name =** ] step_name  
+[  **\@step_name =** ] step_name  
 O nome do passo. Tem de ser especificado, exceto a primeira etapa de uma tarefa que (para conveniência) tem um nome predefinido de 'JobStep'. step_name é nvarchar(128).
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 O tipo de comando que é executado por este passo de tarefa. command_type é nvarchar(50), com um valor padrão de TSql, que significa que o valor da @command_type parâmetro é um script T-SQL.
 
 Se for especificado, o valor tem de ser TSql.
 
-[ **@command_source =** ] 'command_source'  
+[ **\@command_source =** ] 'command_source'  
 O tipo de localização em que o comando é armazenado. command_source é nvarchar(50), com um valor padrão de Inline, que significa que o valor da @command_source parâmetro é o texto literal do comando.
 
 Se for especificado, o valor tem de ser Inline.
 
-[ **@command =** ] 'command'  
+[ **\@command =** ] 'command'  
 O comando deve ser o script de T-SQL válida e, em seguida, é executado por este passo de tarefa. comando é nvarchar (Max), com uma predefinição de NULL.
 
-[ **@credential_name =** ] 'credential_name'  
+[ **\@credential_name =** ] 'credential_name'  
 O nome da base de dados no âmbito a credencial armazenada nesta base de dados de controle de tarefa que é utilizada para ligar a cada uma das bases de dados de destino dentro do grupo de destino quando este passo é executado. credential_name é nvarchar(128).
 
-[ **@target_group_name =** ] 'target-group_name'  
+[ **\@target_group_name =** ] 'target-group_name'  
 O nome do grupo de destino que contém as bases de dados de destino que será executado o passo da tarefa na. target_group_name é nvarchar(128).
 
-[  **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[  **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 O atraso antes da primeira repetição tentar, se o passo de tarefa falhar durante a tentativa de execução inicial. initial_retry_interval_seconds é int, com o valor predefinido de 1.
 
-[  **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[  **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 O atraso máximo entre tentativas de repetição. Se o atraso entre tentativas cresceriam maior do que este valor, ele está limitado a este valor em vez disso. maximum_retry_interval_seconds é int, com o valor predefinido de 120.
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 O multiplicador para aplicar o atraso de repetição se a execução de passo de tarefa de várias tentativas de ativação. Por exemplo, se a primeira repetição tinha um atraso de 5 segundos e o multiplicador de término é 2.0, a segunda repetição terão um atraso de 10 segundos e a repetição de terceiro terá um atraso de 20 segundos. retry_interval_backoff_multiplier é real, com o valor predefinido do 2.0.
 
-[ **@retry_attempts =** ] retry_attempts  
+[ **\@retry_attempts =** ] retry_attempts  
 O número de vezes a repetir a execução se a tentativa inicial falhar. Por exemplo, se o valor de retry_attempts é 10, em seguida, haverá 1 inicial tentativa e 10 tentativas de repetição, fornecendo um total de tentativas de 11. Se a tentativa de repetição final falhar, a execução de tarefa irá terminar com um ciclo de vida de falhado. retry_attempts é int, com o valor predefinido de 10.
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 A quantidade máxima de tempo permitido para o passo executar. Se for excedido neste momento, em seguida, a execução de tarefa irá terminar com um ciclo de vida de excedido. step_timeout_seconds é int, com o valor predefinido de 43.200 segundos (12 horas).
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 Se não for nulo, o tipo de destino do conjunto de resultados do comando de primeira é escrito. output_type é nvarchar(50), com uma predefinição de NULL.
 
 Se for especificado, o valor tem de ser SqlDatabase.
 
-[ **@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] 'output_credential_name'  
 Se não nulo, o nome da base de dados credencial com âmbito que é utilizada para ligar à base de dados de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. output_credential_name é nvarchar(128), com um valor predefinido nulo.
 
-[ **@output_subscription_id =** ] 'output_subscription_id'  
+[ **\@output_subscription_id =** ] 'output_subscription_id'  
 Tem de descrição.
 
-[ **@output_resource_group_name =** ] 'output_resource_group_name'  
+[ **\@output_resource_group_name =** ] 'output_resource_group_name'  
 Tem de descrição.
 
-[ **@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] 'output_server_name'  
 Se não for null, o nome DNS completamente qualificado do servidor que contém a base de dados de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. output_server_name é nvarchar(256), com uma predefinição de NULL.
 
-[ **@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] 'output_database_name'  
 Se não for null, o nome da base de dados que contém a tabela de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. output_database_name é nvarchar(128), com uma predefinição de NULL.
 
-[ **@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] 'output_schema_name'  
 Se não for null, o nome do esquema SQL que contém a tabela de destino de saída. Se output_type for igual a SqlDatabase, o valor predefinido é dbo. output_schema_name é nvarchar(128).
 
-[ **@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] 'output_table_name'  
 Se não for nulo, o nome da tabela que conjunto de resultados do comando de primeira será gravado. Se a tabela já não existir, será criada com base no esquema do conjunto de resultados de retornar. Tem de ser especificado se output_type é igual a SqlDatabase. output_table_name é nvarchar(128), com um valor predefinido nulo.
 
-[  **@job_version =** ] job_version saída  
+[  **\@job_version =** ] job_version saída  
 Parâmetro de saída que será atribuído o novo número de versão da tarefa. job_version é int.
 
-[  **@max_parallelism =** ] max_parallelism saída  
+[  **\@max_parallelism =** ] max_parallelism saída  
 O nível máximo de paralelismo por conjunto elástico. Se o conjunto, em seguida, o passo da tarefa será restrita a só ser executado no máximo, que muitas bases de dados por conjunto elástico. Isto aplica-se para cada conjunto elástico que diretamente está incluído no grupo de destino ou está dentro de um servidor que está incluído no grupo de destino. max_parallelism é int.
 
 
@@ -746,79 +746,79 @@ Atualiza um passo de tarefa.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 O nome da tarefa à qual pertence o passo. job_name é nvarchar(128).
 
-[ **@step_id =** ] step_id  
+[  **\@step_id =** ] step_id  
 O número de identificação para o passo da tarefa ser modificado. Step_id ou step_name tem de ser especificado. step_id é um int.
 
-[  **@step_name =** ] 'step_name'  
+[  **\@step_name =** ] 'step_name'  
 O nome do passo deve ser modificada. Step_id ou step_name tem de ser especificado. step_name é nvarchar(128).
 
-[ **@new_id =** ] new_id  
+[ **\@new_id =** ] new_id  
 O novo número de identificação sequência para o passo da tarefa. Números de identificação de passo começam em 1 e incrementar sem lacunas. Se um passo foi reordenado, em seguida, outros passos irão ser automaticamente renumerados.
 
-[ **@new_name =** ] 'new_name'  
+[ **\@new_name =** ] 'new_name'  
 O novo nome do passo. new_name é nvarchar(128).
 
-[ **@command_type =** ] 'command_type'  
+[ **\@command_type =** ] 'command_type'  
 O tipo de comando que é executado por este passo de tarefa. command_type é nvarchar(50), com um valor padrão de TSql, que significa que o valor da @command_type parâmetro é um script T-SQL.
 
 Se for especificado, o valor tem de ser TSql.
 
-[ **@command_source =** ] 'command_source'  
+[ **\@command_source =** ] 'command_source'  
 O tipo de localização em que o comando é armazenado. command_source é nvarchar(50), com um valor padrão de Inline, que significa que o valor da @command_source parâmetro é o texto literal do comando.
 
 Se for especificado, o valor tem de ser Inline.
 
-[ **@command =** ] 'command'  
+[ **\@command =** ] 'command'  
 O comando deve ser o script de T-SQL válido e, em seguida, é executado por este passo de tarefa. comando é nvarchar (Max), com uma predefinição de NULL.
 
-[ **@credential_name =** ] 'credential_name'  
+[ **\@credential_name =** ] 'credential_name'  
 O nome da base de dados no âmbito a credencial armazenada nesta base de dados de controle de tarefa que é utilizada para ligar a cada uma das bases de dados de destino dentro do grupo de destino quando este passo é executado. credential_name é nvarchar(128).
 
-[ **@target_group_name =** ] 'target-group_name'  
+[ **\@target_group_name =** ] 'target-group_name'  
 O nome do grupo de destino que contém as bases de dados de destino que será executado o passo da tarefa na. target_group_name é nvarchar(128).
 
-[  **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[  **\@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 O atraso antes da primeira repetição tentar, se o passo de tarefa falhar durante a tentativa de execução inicial. initial_retry_interval_seconds é int, com o valor predefinido de 1.
 
-[  **@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[  **\@maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 O atraso máximo entre tentativas de repetição. Se o atraso entre tentativas cresceriam maior do que este valor, ele está limitado a este valor em vez disso. maximum_retry_interval_seconds é int, com o valor predefinido de 120.
 
-[ **@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 O multiplicador para aplicar o atraso de repetição se a execução de passo de tarefa de várias tentativas de ativação. Por exemplo, se a primeira repetição tinha um atraso de 5 segundos e o multiplicador de término é 2.0, a segunda repetição terão um atraso de 10 segundos e a repetição de terceiro terá um atraso de 20 segundos. retry_interval_backoff_multiplier é real, com o valor predefinido do 2.0.
 
-[ **@retry_attempts =** ] retry_attempts  
+[ **\@retry_attempts =** ] retry_attempts  
 O número de vezes a repetir a execução se a tentativa inicial falhar. Por exemplo, se o valor de retry_attempts é 10, em seguida, haverá 1 inicial tentativa e 10 tentativas de repetição, fornecendo um total de tentativas de 11. Se a tentativa de repetição final falhar, a execução de tarefa irá terminar com um ciclo de vida de falhado. retry_attempts é int, com o valor predefinido de 10.
 
-[ **@step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@step_timeout_seconds =** ] step_timeout_seconds  
 A quantidade máxima de tempo permitido para o passo executar. Se for excedido neste momento, em seguida, a execução de tarefa irá terminar com um ciclo de vida de excedido. step_timeout_seconds é int, com o valor predefinido de 43.200 segundos (12 horas).
 
-[ **@output_type =** ] 'output_type'  
+[ **\@output_type =** ] 'output_type'  
 Se não for nulo, o tipo de destino do conjunto de resultados do comando de primeira é escrito. Repor o valor de output_type NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_type é nvarchar(50), com uma predefinição de NULL.
 
 Se for especificado, o valor tem de ser SqlDatabase.
 
-[ **@output_credential_name =** ] 'output_credential_name'  
+[ **\@output_credential_name =** ] 'output_credential_name'  
 Se não nulo, o nome da base de dados credencial com âmbito que é utilizada para ligar à base de dados de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. Repor o valor de output_credential_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_credential_name é nvarchar(128), com um valor predefinido nulo.
 
-[ **@output_server_name =** ] 'output_server_name'  
+[ **\@output_server_name =** ] 'output_server_name'  
 Se não for null, o nome DNS completamente qualificado do servidor que contém a base de dados de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. Repor o valor de output_server_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_server_name é nvarchar(256), com uma predefinição de NULL.
 
-[ **@output_database_name =** ] 'output_database_name'  
+[ **\@output_database_name =** ] 'output_database_name'  
 Se não for null, o nome da base de dados que contém a tabela de destino de saída. Tem de ser especificado se output_type é igual a SqlDatabase. Repor o valor de output_database_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_database_name é nvarchar(128), com uma predefinição de NULL.
 
-[ **@output_schema_name =** ] 'output_schema_name'  
+[ **\@output_schema_name =** ] 'output_schema_name'  
 Se não for null, o nome do esquema SQL que contém a tabela de destino de saída. Se output_type for igual a SqlDatabase, o valor predefinido é dbo. Repor o valor de output_schema_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_schema_name é nvarchar(128).
 
-[ **@output_table_name =** ] 'output_table_name'  
+[ **\@output_table_name =** ] 'output_table_name'  
 Se não for nulo, o nome da tabela que conjunto de resultados do comando de primeira será gravado. Se a tabela já não existir, será criada com base no esquema do conjunto de resultados de retornar. Tem de ser especificado se output_type é igual a SqlDatabase. Repor o valor de output_server_name NULL, defina o valor deste parâmetro para ' (cadeia de caracteres vazia). output_table_name é nvarchar(128), com um valor predefinido nulo.
 
-[  **@job_version =** ] job_version saída  
+[  **\@job_version =** ] job_version saída  
 Parâmetro de saída que será atribuído o novo número de versão da tarefa. job_version é int.
 
-[  **@max_parallelism =** ] max_parallelism saída  
+[  **\@max_parallelism =** ] max_parallelism saída  
 O nível máximo de paralelismo por conjunto elástico. Se o conjunto, em seguida, o passo da tarefa será restrita a só ser executado no máximo, que muitas bases de dados por conjunto elástico. Isto aplica-se para cada conjunto elástico que diretamente está incluído no grupo de destino ou está dentro de um servidor que está incluído no grupo de destino. Para repor o valor de max_parallelism como null, defina o valor deste parâmetro como -1. max_parallelism é int.
 
 
@@ -853,16 +853,16 @@ Remove um passo de tarefa de uma tarefa.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 O nome da tarefa da qual o passo vai ser removido. job_name é nvarchar(128), com nenhuma predefinição.
 
-[ **@step_id =** ] step_id  
+[  **\@step_id =** ] step_id  
 O número de identificação para o passo da tarefa a ser eliminado. Step_id ou step_name tem de ser especificado. step_id é um int.
 
-[  **@step_name =** ] 'step_name'  
+[  **\@step_name =** ] 'step_name'  
 O nome do passo será eliminada. Step_id ou step_name tem de ser especificado. step_name é nvarchar(128).
 
-[  **@job_version =** ] job_version saída  
+[  **\@job_version =** ] job_version saída  
 Parâmetro de saída que será atribuído o novo número de versão da tarefa. job_version é int.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -897,10 +897,10 @@ Inicia uma tarefa em execução.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 O nome da tarefa da qual o passo vai ser removido. job_name é nvarchar(128), com nenhuma predefinição.
 
-[  **@job_execution_id =** ] job_execution_id saída  
+[  **\@job_execution_id =** ] job_execution_id saída  
 Parâmetro que será atribuído o id de execução da tarefa de saída. job_version é uniqueidentifier.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -928,7 +928,7 @@ Interrompe uma execução de tarefa.
 
 
 #### <a name="arguments"></a>Argumentos
-[ **@job_execution_id =** ] job_execution_id  
+[ **\@job_execution_id =** ] job_execution_id  
 O número de identificação da execução da tarefa para parar. job_execution_id é uniqueidentifier, com o padrão de nulo.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -958,10 +958,10 @@ Adiciona um grupo de destino.
 
 
 #### <a name="arguments"></a>Argumentos
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 O nome do grupo de destino para criar. target_group_name é nvarchar(128), com nenhuma predefinição.
 
-[  **@target_group_id =** ] target_group_id o destino de saída de grupo número de identificação atribuído à tarefa se criado com êxito. target_group_id é uma variável de saída do tipo uniqueidentifier, com uma predefinição de NULL.
+[  **\@target_group_id =** ] target_group_id o destino de saída de grupo número de identificação atribuído à tarefa se criado com êxito. target_group_id é uma variável de saída do tipo uniqueidentifier, com uma predefinição de NULL.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
 0 (êxito) ou 1 (falha)
@@ -988,7 +988,7 @@ Elimina um grupo de destino.
 
 
 #### <a name="arguments"></a>Argumentos
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 O nome do grupo de destino para eliminar. target_group_name é nvarchar(128), com nenhuma predefinição.
 
 #### <a name="return-code-values"></a>Valores de código de retorno
@@ -1022,31 +1022,31 @@ Adiciona uma base de dados ou grupo de bases de dados a um grupo de destino.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[ **@target_group_name =** ] 'target_group_name'  
+[ **\@target_group_name =** ] 'target_group_name'  
 O nome do grupo de destino ao qual o membro será adicionado. target_group_name é nvarchar(128), com nenhuma predefinição.
 
-[ **@membership_type =** ] 'membership_type'  
+[ **\@membership_type =** ] 'membership_type'  
 Especifica se o membro do grupo de destino será incluído ou excluído. target_group_name é nvarchar(128), com o padrão de "Inclusão". Valores válidos para target_group_name são 'Include' ou "Excluir".
 
-[ **@target_type =** ] 'target_type'  
+[ **\@target_type =** ] 'target_type'  
 O tipo de base de dados de destino ou a coleção de bases de dados incluindo todas as bases de dados num servidor, todas as bases de dados num conjunto elástico, todas as bases de dados num mapa de partições horizontais ou uma base de dados individual. target_type é nvarchar(128), com nenhuma predefinição. Valores válidos para target_type são 'SqlServer', "SqlElasticPool", "SqlDatabase" ou 'SqlShardMap'. 
 
-[ **@refresh_credential_name =** ] 'refresh_credential_name'  
+[ **\@refresh_credential_name =** ] 'refresh_credential_name'  
 O nome do servidor de base de dados SQL. refresh_credential_name é nvarchar(128), com nenhuma predefinição.
 
-[ **@server_name =** ] 'server_name'  
+[ **\@server_name =** ] 'server_name'  
 O nome do servidor de base de dados SQL que deve ser adicionado ao grupo de destino especificado. SERVER_NAME deve ser especificado quando target_type é 'SqlServer'. SERVER_NAME é nvarchar(128), com nenhuma predefinição.
 
-[ **@database_name =** ] 'database_name'  
+[ **\@database_name =** ] 'database_name'  
 O nome da base de dados que deve ser adicionado ao grupo de destino especificado. database_name deve ser especificado quando target_type é "SqlDatabase". database_name é nvarchar(128), com nenhuma predefinição.
 
-[ **@elastic_pool_name =** ] 'elastic_pool_name'  
+[ **\@elastic_pool_name =** ] 'elastic_pool_name'  
 O nome do conjunto elástico que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deve ser especificado quando target_type é 'SqlElasticPool'. elastic_pool_name é nvarchar(128), com nenhuma predefinição.
 
-[ **@shard_map_name =** ] 'shard_map_name'  
+[ **\@shard_map_name =** ] 'shard_map_name'  
 O nome do agrupamento de mapa de partições horizontais que deve ser adicionado ao grupo de destino especificado. elastic_pool_name deve ser especificado quando target_type é 'SqlSqlShardMap'. shard_map_name é nvarchar(128), com nenhuma predefinição.
 
-[  **@target_id =** ] target_group_id saída  
+[  **\@target_id =** ] target_group_id saída  
 O número de identificação do destino atribuído para o membro do grupo de destino se criado adicionado ao grupo de destino. target_id é uma variável de saída do tipo uniqueidentifier, com uma predefinição de NULL.
 Valores de retorno código 0 (êxito) ou 1 (falha)
 
@@ -1157,13 +1157,13 @@ Remove os registos do histórico para uma tarefa.
 ```
 
 #### <a name="arguments"></a>Argumentos
-[ **@job_name =** ] 'job_name'  
+[ **\@job_name =** ] 'job_name'  
 O nome da tarefa para o qual pretende eliminar os registos do histórico. job_name é nvarchar(128), com uma predefinição de NULL. É necessário especificar job_id ou job_name, mas não não possível especificar ambos.
 
-[ **@job_id =** ] job_id  
+[ **\@job_id =** ] job_id  
  O número de identificação de tarefa do trabalho para os registos a eliminar. job_id é uniqueidentifier, com uma predefinição de NULL. É necessário especificar job_id ou job_name, mas não não possível especificar ambos.
 
-[ **@oldest_date =** ] oldest_date  
+[ **\@oldest_date =** ] oldest_date  
  O registo mais antigo para reter no histórico. oldest_date é DATETIME2, com uma predefinição de NULL. Quando oldest_date é especificado, o sp_purge_jobhistory remove apenas os registos que são mais antigos do que o valor especificado.
 
 #### <a name="return-code-values"></a>Valores de código de retorno

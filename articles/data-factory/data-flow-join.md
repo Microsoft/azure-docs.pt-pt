@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: f95edc881e26576df216c92ff0b94c5c19bf7fa8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727932"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726877"
 ---
-# <a name="azure-data-factory-data-flow-join-transformation"></a>Transformação de associação de fluxo de dados de fábrica de dados do Azure
+# <a name="mapping-data-flow-join-transformation"></a>Transformação de associação de fluxo de dados de mapeamento
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -24,11 +24,11 @@ Utilize a associação de combinar dados de duas tabelas no seu fluxo de dados. 
 
 ## <a name="join-types"></a>Junte-se de tipos
 
-Selecionar tipo de associação é necessária para a transformação de associação
+Selecionar tipo de associação é necessária para a transformação de associação.
 
 ### <a name="inner-join"></a>Associação interna
 
-Associação interna passará apenas as linhas que coincidam com as condições de coluna das duas tabelas
+Associação interna passará apenas as linhas que coincidam com as condições de coluna das duas tabelas.
 
 ### <a name="left-outer"></a>Externa à esquerda
 
@@ -40,11 +40,11 @@ Todas as linhas do fluxo de direito não cumprir a condição de associação qu
 
 ### <a name="full-outer"></a>Externa completa
 
-Externa completa produz todas as colunas e linhas de ambos os lados com valores nulos para colunas que são não presentes na outra tabela
+Externa completa produz todas as colunas e linhas de ambos os lados com valores nulos para colunas que são não presentes na outra tabela.
 
 ### <a name="cross-join"></a>Associação cruzada
 
-O produto cruzado de dois fluxos com uma expressão de específicas
+Especifique o produto cruzado de dois fluxos com uma expressão. Pode utilizar este para criar condições de associação personalizado.
 
 ## <a name="specify-join-conditions"></a>Especificar as condições de associação
 
@@ -67,3 +67,7 @@ Pode obter condições de associação automática de mensagens em fila no fluxo
 ![Associação automática](media/data-flow/selfjoin.png "associação automática")
 
 No diagrama acima, a transformação selecione é na parte superior. Todos os está fazendo é aliasing o fluxo original para "OrigSourceBatting". A transformação de associação realçada abaixo dele pode ver que utilizamos esta sequência de alias Selecione como a associação a um direita, permitindo-nos fazer referência a mesma chave no lado esquerdo & no lado direito da associação interna.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Depois de associar dados, pode então [criar novas colunas](data-flow-derived-column.md) e [seus dados de sink para um arquivo de dados de destino](data-flow-sink.md).

@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: cfc01667f1fee7e57929e1990b5cf8c99a0fd595
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e43e1034abe4bbe3d31a46ab3b98b0efe612b852
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737506"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588725"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>Limpar a tarefa do Azure Stream Analytics
 
-Tarefas do Azure Stream Analytics podem ser facilmente eliminadas através do portal do Azure, Azure PowerShell, Azure SDK para .net ou a REST API.
+Tarefas do Azure Stream Analytics podem ser facilmente eliminadas através do portal do Azure, Azure PowerShell, Azure SDK para .net ou a REST API. Não é possível recuperar uma tarefa do Stream Analytics, uma vez que foi eliminado.
 
 >[!NOTE] 
 >Quando parar a tarefa de Stream Analytics, os dados presentes apenas no armazenamento de entrada e saído, como os Hubs de eventos ou a base de dados do Azure SQL. Se forem necessárias para remover os dados do Azure, certifique-se de que siga o processo de remoção para os recursos de entrada e saídos da sua tarefa do Stream Analytics.

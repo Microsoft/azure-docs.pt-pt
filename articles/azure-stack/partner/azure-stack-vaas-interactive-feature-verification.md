@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 20a48e67a24763af7bcce9e8831e2a1d1846d094
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594309"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766007"
 ---
 # <a name="interactive-feature-verification-testing"></a>Teste de verificação de recurso interativo  
 
@@ -35,13 +35,13 @@ Este artigo descreve um cenário simples de manual. O teste verifica a substitui
 
 ## <a name="overview-of-interactive-testing"></a>Descrição geral de teste interativa
 
-Um teste para a substituição do disco é um cenário comum. Neste exemplo, o teste tem sete etapas:
+Um teste para a substituição do disco é um cenário comum. Neste exemplo, o teste tem cinco etapas:
 
-1. Criar uma nova **aprovação de teste** fluxo de trabalho
-1. Selecione o **teste de identificação de disco**
-1. Concluir o passo manual quando lhe for pedido
-1. Verificar o resultado do cenário
-1. Enviar o resultado do teste para a Microsoft
+1. Criar uma nova **aprovação de teste** fluxo de trabalho.
+2. Selecione o **teste de identificação de disco**.
+3. Conclua o passo manual quando lhe for pedido.
+4. Verifique o resultado do cenário.
+5. Envie o resultado do teste para a Microsoft.
 
 ## <a name="create-a-new-test-pass"></a>Criar uma nova passagem de teste
 

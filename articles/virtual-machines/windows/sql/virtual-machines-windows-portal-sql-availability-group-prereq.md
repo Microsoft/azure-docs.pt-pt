@@ -3,7 +3,7 @@ title: Grupos de disponibilidade do SQL Server - máquinas virtuais do Azure - p
 description: Este tutorial mostra como configurar os pré-requisitos para a criação de um grupo de disponibilidade Always On do SQL Server em VMs do Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 17eb51044aae7f1f1536e965eea1d1cdb0a1a42b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: abe211ad4745564cb2698aa1261a1aeb6dd63af7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817444"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781736"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Concluir os pré-requisitos para a criação de grupos de disponibilidade Always On em máquinas virtuais do Azure
 

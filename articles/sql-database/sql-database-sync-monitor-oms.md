@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: a1f2b0e3095718caad7c35a20bf7e91c88568364
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 1417907bf9472137677a090906fa173c3d1ea571
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213471"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539297"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorizar a sincronização de dados SQL com os registos do Azure Monitor 
 
@@ -32,7 +32,7 @@ Para obter uma descrição geral da Sincronização de Dados SQL, veja [Sincroni
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard de monitorização para todos os grupos de sincronização 
 
-Já não terá de consultar os registos de cada grupo de sincronização individualmente para verificar se há problemas. Pode monitorizar todos os grupos de sincronização de qualquer uma das suas subscrições num único local, utilizando uma vista de análise de registo personalizado. Esta vista apresenta as informações que é importante para os clientes de sincronização de dados SQL.
+Já não terá de consultar os registos de cada grupo de sincronização individualmente para verificar se há problemas. Pode monitorizar todos os grupos de sincronização de qualquer uma das suas subscrições num único local, utilizando uma vista personalizada do Azure Monitor. Esta vista apresenta as informações que é importante para os clientes de sincronização de dados SQL.
 
 ![Dashboard de monitorização de sincronização de dados](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
@@ -50,9 +50,9 @@ Tem de configurar três componentes:
 
 -   Um runbook do PowerShell para alimentar dados de registo de sincronização de dados SQL para registos do Azure Monitor.
 
--   Um alerta do log analytics para notificações por e-mail.
+-   Um alerta de Monitor do Azure para notificações por e-mail.
 
--   Uma análise de registos Vista para monitorização.
+-   Uma vista de Monitor do Azure para monitorização.
 
 ### <a name="samples-to-download"></a>Exemplos para transferir
 
@@ -60,7 +60,7 @@ Transferir os exemplos de duas seguintes:
 
 -   [Runbook do PowerShell de Log de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Vista de análise de registos de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Modo de exibição de Monitor do Azure de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -130,7 +130,7 @@ Para agendar o runbook:
 
 Para monitorar sua automação está em execução conforme esperado, em **descrição geral** para a sua conta de automatização, localizar o **estatísticas de tarefas** visualizado sob **monitorização**. Afixe esta vista ao dashboard para uma visualização mais fácil. Execuções com êxito o programa de runbook como "Concluído" e execuções com falhas mostram como "Falhado".
 
-## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Criar um alerta do leitor do Log Analytics para notificações por E-Mail
+## <a name="create-an-azure-monitor-reader-alert-for-email-notifications"></a>Criar um alerta do leitor de Monitor do Azure para notificações por E-Mail
 
 Para criar um alerta que utiliza registos do Azure Monitor, efetue os seguintes procedimentos. Como pré-requisito, tem de ter os logs de Monitor do Azure associados a uma área de trabalho do Log Analytics.
 
@@ -152,9 +152,9 @@ Para criar um alerta que utiliza registos do Azure Monitor, efetue os seguintes 
 
 6.  Clique em **Guardar**. Agora, os destinatários especificados recebem notificações por e-mail quando ocorrerem erros.
 
-## <a name="create-a-log-analytics-view-for-monitoring"></a>Criar uma vista do Log Analytics para monitorizar
+## <a name="create-an-azure-monitor-view-for-monitoring"></a>Criar uma vista de Monitor do Azure para monitorização
 
-Este passo cria uma vista do log analytics para monitorizar visualmente todos os grupos de sincronização especificado. A vista inclui vários componentes:
+Este passo cria uma vista de Azure Monitor para monitorizar visualmente todos os grupos de sincronização especificado. A vista inclui vários componentes:
 
 -   Um mosaico de descrição geral, que mostra o número de erros, sucessos e avisos de todos os grupos de sincronização tem.
 
@@ -162,9 +162,9 @@ Este passo cria uma vista do log analytics para monitorizar visualmente todos os
 
 -   Um mosaico para cada grupo de sincronização, que mostra o número de erros, êxitos e avisos e as mensagens de erro recentes.
 
-Para configurar a vista do log analytics, efetue os seguintes procedimentos:
+Para configurar o modo de exibição de Monitor do Azure, efetue os seguintes procedimentos:
 
-1.  Na home page do log analytics, selecione o sinal de adição no lado esquerdo para abrir o **estruturador de vistas**.
+1.  Na home page de área de trabalho do Log Analytics, selecione o sinal de adição no lado esquerdo para abrir o **estruturador de vistas**.
 
 2.  Selecione **importação** na barra superior do designer de vista. Em seguida, selecione o ficheiro de exemplo "DataSyncLogOMSView".
 
@@ -196,7 +196,7 @@ Transfira os exemplos de código descritos neste artigo a partir das seguintes l
 
 -   [Runbook do PowerShell de Log de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Vista de análise de registos de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Modo de exibição de Monitor do Azure de sincronização de dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a Sincronização de Dados SQL, veja:

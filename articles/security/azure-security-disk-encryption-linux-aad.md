@@ -3,17 +3,16 @@ title: O Azure Disk Encryption, com as VMs de IaaS de Linux do Azure AD App (ver
 description: Este artigo fornece instruções sobre como ativar o Microsoft Azure Disk Encryption para VMs de IaaS Linux.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 03/04/2019
+ms.date: 03/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 292dafb88362d7f7d0ec07a2a7961b98e6518204
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 659530d1dcea5593e86edf85cb6c2b15da57618e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339390"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775639"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Ativar o Azure Disk Encryption para VMs de IaaS Linux (versão anterior)
 
@@ -32,38 +31,8 @@ Efetuar uma [instantâneo](../virtual-machines/windows/snapshot-copy-managed-dis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_NewLinux"></a> Implementar uma nova VM do IaaS Linux com a encriptação de disco ativada 
-
-1. Utilize o [modelo do Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) criar um novo encriptados VM do Linux IaaS. O modelo irá criar uma nova VM do Red Hat Linux 7.2 com uma matriz de RAID-0 de 200 GB e a encriptação de disco completa a utilizar discos geridos. Sobre o [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artigo, perceberá que algumas distribuições do Linux apenas suportam a encriptação de discos de dados. No entanto, este modelo fornece uma oportunidade de se familiarizar com os modelos de implantar e verificar o estado de encriptação com vários métodos. 
- 
-1. Clique em **implementar no Azure** no modelo do Azure Resource Manager.
-
-2. Selecione a subscrição, grupo de recursos, localização do grupo de recursos, parâmetros, os termos legais e contrato. Clique em **criar** para ativar a encriptação na VM de IaaS existente ou em execução.
-
-3. Depois de implementar o modelo, verifique se o estado de encriptação da VM com o seu método preferencial:
-     - Certifique-se com a CLI do Azure utilizando o [show do az vm encryption](/cli/azure/vm/encryption#az-vm-encryption-show) comando. 
-
-         ```azurecli-interactive 
-         az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
-         ```
-
-     - Certifique-se com o Azure PowerShell, utilizando o [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) cmdlet. 
-
-         ```azurepowershell-interactive
-         Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
-         ```
-
-     - Selecione a VM, em seguida, clique em **discos** sob a **definições** cabeçalho para verificar o estado de encriptação no portal. No gráfico de no **Encryption**, verá se estiver ativada. 
-
-| Parâmetro | Descrição |
-| --- | --- |
-| ID de cliente do AAD | ID de cliente da aplicação do Azure AD que tenha permissões para escrever segredos para o Cofre de chaves. |
-| Segredo do cliente AAD | Segredo do cliente de aplicação do Azure AD que tenha permissões para escrever segredos para o seu Cofre de chaves. |
-| Nome do Key Vault | Nome do Cofre de chaves que a chave deve ser colocada. |
-| Grupo de Recursos do Cofre de Chaves | Grupo de recursos do Cofre de chaves. |
-
-
 ## <a name="bkmk_RunningLinux"> </a> Ativar a encriptação numa VM do Linux IaaS existente ou em execução
+
 Neste cenário, pode ativar a encriptação com o modelo do Resource Manager, cmdlets do PowerShell ou comandos da CLI. 
 
 >[!IMPORTANT]

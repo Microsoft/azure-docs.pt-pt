@@ -12,16 +12,16 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1853ff4141a7af3260ef9575bb2457819ab2d4a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8bf61e6506e0d109b83fa323439348c3803bd5ce
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735021"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731028"
 ---
-# <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Escrever os dados com o SDK de Prep de dados do Azure Machine Learning
+# <a name="write-and-configure-data-using-azure-machine-learning"></a>Escrever e configurar os dados com o Azure Machine Learning
 
-Neste artigo, vai aprender diferentes métodos para escrever dados com o [SDK Python do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk). Dados de saída podem ser escritos em qualquer um fluxo de dados e gravações são adicionadas como passos para o fluxo de dados resultante e são executadas sempre que é o fluxo de dados. Dados são gravados para vários ficheiros de partição para permitir que escritas paralelas.
+Neste artigo, vai aprender diferentes métodos para escrever dados com o [SDK Python do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) e como configurar esses dados para a experimentação com o [do Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Dados de saída podem ser escritos em qualquer um fluxo de dados. Escritas são adicionadas como passos ao fluxo de dados resultante e estes passos são executados sempre que os dados de execuções de fluxo. Dados são gravados para vários ficheiros de partição para permitir que escritas paralelas.
 
 Uma vez que existem sem limites de quantos escrever passos existem num pipeline, pode adicionar facilmente passos adicionais de escrita para obter os resultados intermediários para resolução de problemas ou para outros pipelines.
 
@@ -90,7 +90,6 @@ Exemplo de saída:
 |3| 10013.0 | 99999.0 | ERRO | NO | NO |     | NaN | NaN | NaN |
 |4| 10014.0 | 99999.0 | ERRO | NO | NO | ENSO |    59783.0 | 5350.0 |  500.0|
 
-
 Na saída do anterior, vários erros aparecem nas colunas numéricas por causa de números que não foram analisados corretamente. Quando escritos para CSV, os valores nulos são substituídos com a cadeia de caracteres "ERROR" por predefinição.
 
 Adicione os parâmetros como parte da sua escrita chamarem e especifique uma cadeia de caracteres a utilizar para representar valores nulos.
@@ -139,6 +138,51 @@ O código anterior produz esta saída:
 |2| 10010.0 | 99999.0 | MiscreantData | NO| JN| ENJA|   70933.0|    -8667.0 |90,0|
 |3| 10013.0 | 99999.0 | MiscreantData | NO| NO| |   MiscreantData|    MiscreantData|    MiscreantData|
 |4| 10014.0 | 99999.0 | MiscreantData | NO| NO| ENSO|   59783.0|    5350.0| 500.0|
+
+## <a name="configure-data-for-automated-machine-learning-training"></a>Configurar dados de treinamento de aprendizado de máquina automatizada
+
+Passar o ficheiro de dados recentemente gravadas num [ `AutoMLConfig` ](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#automlconfig) objeto em preparação para a formação de aprendizado de máquina automatizada. 
+
+O exemplo de código seguinte ilustra como converter o seu fluxo de dados para um dataframe Pandas e dividi-lo posteriormente, para conjuntos de dados de preparação e teste para treinamento de aprendizado de máquina automatizada.
+
+```Python
+from azureml.train.automl import AutoMLConfig
+from sklearn.model_selection import train_test_split
+
+dflow = dprep.auto_read_file(path="")
+X_dflow = dflow.keep_columns([feature_1,feature_2, feature_3])
+y_dflow = dflow.keep_columns("target")
+
+X_df = X_dflow.to_pandas_dataframe()
+y_df = y_dflow.to_pandas_dataframe()
+
+X_train, X_test, y_train, y_test = train_test_split(X_df, y_df, test_size=0.2, random_state=223)
+
+# flatten y_train to 1d array
+y_train.values.flatten()
+
+#configure 
+automated_ml_config = AutoMLConfig(task = 'regression',
+                               X = X_train.values,  
+                   y = y_train.values.flatten(),
+                   iterations = 30,
+                       Primary_metric = "AUC_weighted",
+                       n_cross_validation = 5
+                       )
+
+```
+
+Se não necessitar de quaisquer passos de preparação de dados intermediários como no exemplo anterior, pode passar o seu fluxo de dados diretamente no `AutoMLConfig`.
+
+```Python
+automated_ml_config = AutoMLConfig(task = 'regression', 
+                   X = X_dflow,   
+                   y = y_dflow, 
+                   iterations = 30, 
+                   Primary_metric = "AUC_weighted",
+                   n_cross_validation = 5
+                   )
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Consulte o SDK [descrição geral](https://aka.ms/data-prep-sdk) para padrões de design e exemplos de utilização 

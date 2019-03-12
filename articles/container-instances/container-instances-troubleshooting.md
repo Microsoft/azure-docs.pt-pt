@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bfa616fb16470a3543f8c981a0104f6bda24cf4d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: eb7a98d22e9005bb1d5db2f1fbd35a1279d84703
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823484"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537236"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
@@ -197,7 +197,7 @@ Devido a diversos recursos regionais de carga no Azure, poderá receber o seguin
 
 Este erro indica que, devido a uma carga pesada na região em que está a tentar implementar, não não possível alocar os recursos especificados para o contentor nesse momento. Utilize um ou mais dos seguintes passos de mitigação para o ajudar a resolver o problema.
 
-* Certifique-se de que as definições de implementação do contentor ser abrangidos os parâmetros definidos no [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md#region-availability)
+* Certifique-se de que as definições de implementação do contentor ser abrangidos os parâmetros definidos no [disponibilidade das regiões do Azure Container Instances](container-instances-region-availability.md)
 * Especificar definições de CPU e memória inferior para o contentor
 * Implementar noutra região do Azure
 * Implementar mais tarde

@@ -4,16 +4,16 @@ description: Saiba como escolher uma solução do Azure para a transferência de
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: b9c19c4cd85b1ab2bc3ea010d029361957de3943
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7cdaebe62c7071b26c29e599bb0614dbe7631085
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53264113"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778030"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Transferência de dados para conjuntos de dados pequeno com baixa largura de banda de rede moderada
  
@@ -64,5 +64,5 @@ A tabela seguinte resume as diferenças nas capacidades principais.
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Saiba como [transferir dados com o Explorador de armazenamento do Azure](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [Transferir dados com AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [Transferir dados com o AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
 

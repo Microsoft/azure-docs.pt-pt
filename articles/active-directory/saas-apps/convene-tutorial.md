@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2540ac46-1aea-496b-a8c5-575a2690f7db
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fb602b158fc97f6737aaaf5297adf48f63790f1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6ba8d1ae1ff2b43afd56e6a36b4a0d0e4b831509
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873938"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convene"></a>Tutorial: Integração do Active Directory do Azure com Convene
 

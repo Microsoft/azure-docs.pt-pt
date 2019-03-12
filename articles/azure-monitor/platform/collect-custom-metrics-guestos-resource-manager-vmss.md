@@ -4,16 +4,16 @@ description: Enviar métricas de SO convidado para o arquivo de métrica de Moni
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: afe1214299b7f1ecd741f992af75abedcfe77b84
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308708"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760227"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO convidado para o arquivo de métrica de Monitor do Azure com um modelo Azure Resource Manager para um conjunto de dimensionamento de máquinas virtuais do Windows
 

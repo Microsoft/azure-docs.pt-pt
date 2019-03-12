@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: eec13db8bdbe1f40a51df14077adb8740e977f5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 35b4b06a09b8ef7b27e8d105d7f2336668c49f8f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138417"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570866"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar medições de utilizador reais para o Gestor de tráfego com o Visual Studio Mobile Center
 
@@ -40,13 +40,13 @@ Para obter a chave de rum do através do portal do Azure utilizando o seguinte p
         
    ![Gerar chave de medições de utilizador reais](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Figura 1: Geração de chave de medições de utilizador reais**
+   **Figura 1: Geração de chave de medições de utilizador real**
 
    5.   A página apresenta a chave de rum do que é gerado e um trecho de código JavaScript que tem de ser incorporados em sua página HTML.
  
    ![Código de JavaScript para a chave de medições de utilizador reais](./media/traffic-manager-create-rum-visual-studio/rum-key.png)
 
-   **Figura 2: Chave de medições de utilizador Real e JavaScript de medida**
+   **Figura 2: Chave de medições de utilizador real e JavaScript de medida**
  
    6. Clique nas **cópia** botão para copiar a chave de rum do. 
 
@@ -72,7 +72,7 @@ Para utilizar medidas de utilizadores reais, execute o seguinte procedimento:
     No seu **gradle** ficheiro, adicione as seguintes linhas:
 
     ```groovy
-    dependencies {   
+    dependencies {
      
         def mobileCenterSdkVersion = '0.12.1-16+3fe5b08'
         compile "com.microsoft.azure.mobile:mobile-center-rum:${mobileCenterSdkVersion}"

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 26290c65-9aa3-42ab-8ba5-901b14dc8e73
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d4c1a6f3dfd03cb5521c2c81522a0c950c502f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 52d2952ba838d69e94ebf6b009086888091e0264
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869824"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Tutorial: Integração do Active Directory do Azure com o estado de funcionamento RedBrick
 

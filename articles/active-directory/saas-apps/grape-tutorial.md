@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 073f8641-b64d-4754-b1a6-2b91c865b13d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 689d0cdea70da4f4ad3c11ba25025ac4f9f342fb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 06b688bf681261a7e5713ecd1c4a6dd9c55af1d8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866152"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Tutorial: Integração do Active Directory do Azure com o Gra Pe
 

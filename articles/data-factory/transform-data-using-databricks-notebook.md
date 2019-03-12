@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 85c3c913564dd38ece76ddd7f72b8ea4da52958e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984769"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778829"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Executar um Databricks Notebook com a Atividade do Databricks Notebook no Azure Data Factory
 
@@ -173,13 +173,13 @@ Nesta secção, vai criar um serviço ligado do Databricks. Este serviço ligado
 
        1. Neste caso, o **Caminho do Notebook** é **/adftutorial/mynotebook**
 
-1.  Volte à **ferramenta de criação da IU do Data Factory**. Navegue para o separador **Definições** em **Atividade do Notebook1**. 
-    
+1.  Volte à **ferramenta de criação da IU do Data Factory**. Navegue para o separador **Definições** em **Atividade do Notebook1**.
+
     a.  **Adicione o parâmetro** à atividade do Notebook. Vai utilizar o mesmo parâmetro que adicionou anteriormente ao **Pipeline**.
 
        ![Adicionar um parâmetro](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Dê o nome **input** ao parâmetro e forneça o valor como expressão **@pipeline().parameters.name**.
+    b.  Nome do parâmetro como **entrada** e forneça o valor como expressão  **\@pipeline ().parameters.name**.
 
 1.  Para validar o pipeline, selecione o **Validate** botão na barra de ferramentas. Para fechar a janela de validação, selecione o **\>\>** botão (seta para a direita).
 

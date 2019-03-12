@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 393a5c0af5ff7ccaef8aa462391c5c9457aa9c08
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 85763a895b61d184db033c09a413cc897ef6eaa3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011123"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551607"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefactos para seu laboratório no DevTest Labs
 DevTest Labs permite-lhe especificar um artefacto a ser adicionados a uma VM no momento da criação da VM ou após a VM é criada. Este artefacto pode ser uma ferramenta ou uma aplicação que pretende instalar na VM. Artefactos são definidos num ficheiro JSON carregado de um repositório do GitHub ou o Git do VSTS. 
@@ -377,7 +377,7 @@ if ($ArtifactRepositoryName -eq $null){
 
 O script adiciona um novo recurso para a subscrição atual. Uso [Get-AzContext](/powershell/module/az.accounts/get-azcontext) para ver estas informações. Uso [Set-AzContext](/powershell/module/az.accounts/set-azcontext) para definir o inquilino atual e a subscrição.
 
-A melhor forma de descobrir o nome de recurso e informações de tipo de recurso é utilizar o [APIs de REST do Azure de unidade de teste](https://azure.github.io/projects/apis/) Web site. Veja a [DevTest Labs – 2016 a 05-15](http://aka.ms/dtlrestapis) fornecedor para ver as APIs REST disponível para o fornecedor de DevTest Labs. Os utilizadores de script o seguinte ID de recurso. 
+A melhor forma de descobrir o nome de recurso e informações de tipo de recurso é utilizar o [APIs de REST do Azure de unidade de teste](https://azure.github.io/projects/apis/) Web site. Veja a [DevTest Labs – 2016 a 05-15](https://aka.ms/dtlrestapis) fornecedor para ver as APIs REST disponível para o fornecedor de DevTest Labs. Os utilizadores de script o seguinte ID de recurso. 
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"

@@ -7,13 +7,13 @@ ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
-ms.openlocfilehash: 54336de291d01f3741c288756095e40a43800a7f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.date: 03/11/2019
+ms.openlocfilehash: 23b53e852672c129ff148b0b493a44172f9baf9a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009992"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769749"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informações de preços do Hub de IoT do Azure
 
@@ -28,8 +28,8 @@ ms.locfileid: "57009992"
 | Operações de registo de identidade <br/> (criar, obter, listar, atualizar e eliminar) | Não será cobrado. |
 | Mensagens do dispositivo para a cloud | Mensagens enviadas com êxito são cobradas em blocos de 4 KB na entrada para o IoT Hub. Por exemplo, uma mensagem de 6 KB é cobrada 2 mensagens. |
 | Mensagens da cloud para dispositivo | Mensagens enviadas com êxito são cobradas em blocos de 4 KB, por exemplo uma mensagem de 6 KB é cobrada 2 mensagens. |
-| Carrega o ficheiro | Transferência de ficheiros para o armazenamento do Azure não tem tráfego limitada pelo IoT Hub. Mensagens de início e conclusão de transferência do ficheiro são cobradas conforme messaged medido em incrementos de 4 KB. Por exemplo, transferir um ficheiro de 10 MB é cobrada duas mensagens além do custo de armazenamento do Azure. |
-| Métodos diretos | Pedidos com êxito do método são cobrados em blocos de 4 KB, as respostas com corpos de não vazios são cobradas em blocos de 4 KB como mensagens adicionais. Pedidos para os dispositivos desligados são cobrados conforme as mensagens em blocos de 4 KB. Por exemplo, um método com um corpo de 6 KB resulta numa resposta com nenhum corpo de dispositivo, é cobrado como duas mensagens. Um método com um corpo de 6 KB resulta numa resposta de 1 KB do dispositivo é cobrado como duas mensagens para o pedido e ainda outra mensagem para a resposta. |
+| Carrega o ficheiro | Transferência de ficheiros para o armazenamento do Azure não tem tráfego limitada pelo IoT Hub. Mensagens de início e conclusão de transferência do ficheiro são cobradas conforme messaged medido em incrementos de 4 KB. Por exemplo, transferir um ficheiro de 10 MB é cobrado como duas mensagens além do custo de armazenamento do Azure. |
+| Métodos diretos | Pedidos com êxito do método são cobrados em blocos de 4 KB e as respostas são cobradas em blocos de 4 KB como mensagens adicionais. Pedidos para os dispositivos desligados são cobrados conforme as mensagens em blocos de 4 KB. Por exemplo, um método com um corpo de 4 KB resulta numa resposta com nenhum corpo do dispositivo é cobrado como duas mensagens. Um método com um corpo de 6 KB resulta numa resposta de 1 KB do dispositivo é cobrado como duas mensagens para o pedido e ainda outra mensagem para a resposta. |
 | Leituras de dispositivo e o módulo duplo | Duplo lê a partir do dispositivo ou do módulo e para a solução de back-end é cobrada conforme as mensagens em blocos de 512 bytes. Por exemplo, a leitura de um gémeo 6 KB é cobrado como 12 mensagens. |
 | Atualizações de dispositivo e o módulo duplo (etiquetas e propriedades) | Atualizações de Twin do dispositivo ou módulo e para o back-end de solução são cobradas conforme as mensagens em blocos de 512 bytes. Por exemplo, a leitura de um gémeo 6 KB é cobrado como 12 mensagens. |
 | Consultas de gémeos de dispositivo e módulo | Consultas são cobradas como mensagens, dependendo do tamanho do resultado em blocos de 512 bytes. |
@@ -42,7 +42,7 @@ ms.locfileid: "57009992"
 
 ## <a name="example-1"></a>Exemplo #1
 
-Um dispositivo envia uma mensagem de dispositivo para a cloud de 1 KB por minuto para o IoT Hub, que, em seguida, é lido pelo Azure Stream Analytics. A solução de back-end invoca um método (com o payload de 512 bytes) no dispositivo a cada 10 minutos para acionar uma ação específica. O dispositivo responde ao método com um resultado de 200 bytes.
+Um dispositivo envia uma mensagem de dispositivo para a cloud de 1 KB por minuto para o IoT Hub, que, em seguida, é lido pelo Azure Stream Analytics. A solução de back-end invoca um método (com um payload de 512 bytes) no dispositivo a cada 10 minutos para acionar uma ação específica. O dispositivo responde ao método com um resultado de 200 bytes.
 
 O dispositivo consuma:
 

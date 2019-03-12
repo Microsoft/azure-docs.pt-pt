@@ -3,17 +3,17 @@ title: Ligar uma aplicação de cliente genérica do node. js para o Azure IoT C
 description: Como um desenvolvedor de dispositivo, como ligar um dispositivo genérico do node. js à sua aplicação do Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b22d719a25a93e1dffdba848e18f732b31e6e67d
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: c04358734923654366eb679505910e14d0e0059b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214525"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767537"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -93,7 +93,7 @@ Introduza o nome do campo exatamente como mostrados na tabela no modelo de dispo
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
-Na aplicação do Azure IoT Central, adicione um dispositivo real a partir do modelo de dispositivo, criar e tome nota da cadeia de ligação do dispositivo. Para obter instruções passo a passo sobre como ligar uma aplicação node. js ao IoT Central, consulte [gerar cadeia de ligação para o dispositivo real do aplicativo](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) e [preparar o código de cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicione um dispositivo.
+Na aplicação do Azure IoT Central, adicione um dispositivo real a partir do modelo de dispositivo, criar e tome nota da cadeia de ligação do dispositivo. Para obter instruções passo a passo sobre como ligar uma aplicação node. js ao IoT Central, consulte [gerar cadeia de ligação para o dispositivo real do aplicativo](tutorial-add-device.md#generate-connection-string) e [preparar o código de cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicione um dispositivo.
 
 ### <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
 
@@ -129,11 +129,10 @@ Os passos seguintes mostram como criar uma aplicação de cliente que implementa
     var client = clientFromConnectionString(connectionString);
     ```
 
-  > [!NOTE]
-  > O Azure IoT Central transitou para utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub (DPS) para todas as ligações de dispositivo, siga estas instruções para [obter a cadeia de ligação do dispositivo](concepts-connectivity.md#get-a-connection-string) e continuar com o resto do tutorial. Para obter mais ajuda, também pode encontrar um conjunto detalhado de instruções em [preparar o código de cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicionar um dispositivo.
+    > [!NOTE]
+    > O Azure IoT Central transitou para utilizar o serviço de aprovisionamento de dispositivos do Azure IoT Hub (DPS) para todas as ligações de dispositivo, siga estas instruções para [obter a cadeia de ligação do dispositivo](concepts-connectivity.md#get-a-connection-string) e continuar com o resto do tutorial. Para obter mais ajuda, também pode encontrar um conjunto detalhado de instruções em [preparar o código de cliente](tutorial-add-device.md#prepare-the-client-code) nos tutoriais > Adicionar um dispositivo.
 
-
-  Atualizar o marcador de posição `{your device connection string}` com a cadeia de ligação do dispositivo. Neste exemplo, vamos inicializar `targetTemperature` para zero, pode, opcionalmente, efetuar a leitura atual do dispositivo ou o valor do dispositivo duplo. 
+    Atualizar o marcador de posição `{your device connection string}` com a cadeia de ligação do dispositivo. Neste exemplo, vamos inicializar `targetTemperature` para zero, pode, opcionalmente, efetuar a leitura atual do dispositivo ou o valor do dispositivo duplo. 
 
 1. Para enviar medições de telemetria, o estado e o evento para a aplicação Azure IoT Central, adicione a seguinte função para o ficheiro:
 
@@ -269,7 +268,7 @@ Como um operador na sua aplicação do Azure IoT Central, para o seu dispositivo
 
     ![Ver telemetria](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. Os mosaicos de propriedades do dispositivo são atualizados, se a ligação for bem-sucedida.
+* Ver os valores de propriedade do dispositivo enviados a partir do seu dispositivo na **propriedades** página. A dispositivo propriedades mosaicos atualização se a ligação for bem-sucedida.
 
     ![Ver as propriedades do dispositivo](media/howto-connect-nodejs/viewproperties.png)
 

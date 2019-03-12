@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8a784bb4e37caa28c89939bdcec5139648164b1a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 6c6fbde8ff803a053f8c34765ce95d3981a57c52
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340861"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551268"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreenda os efeitos de política do Azure
 
@@ -310,7 +310,7 @@ Exemplo: Avalia a bases de dados do SQL Server para determinar se transparentDat
             "properties": {
                 "mode": "incremental",
                 "template": {
-                    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                     "contentVersion": "1.0.0.0",
                     "parameters": {
                         "fullDbName": {

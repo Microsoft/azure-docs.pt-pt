@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 292e2c53c298856b7420dde7e85e4f6636b56178
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 52f1316b8167d2e1c3e37dbbfc0059b68e832172
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008241"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538566"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
 
@@ -23,6 +23,8 @@ Por predefinição, as mensagens são roteadas para o ponto de final de serviço
 | ------------------- | ----------- |
 | **Contagem de partições** | Defina esta propriedade durante a criação para definir o número de [partições](../event-hubs/event-hubs-features.md#partitions) para ingestão de eventos do dispositivo para a cloud. |
 | **Período de retenção**  | Esta propriedade especifica o período de tempo em dias as mensagens são mantidas pelo IoT Hub. A predefinição é um dia, mas ele pode ser aumentado para sete dias. |
+
+IoT Hub permite a retenção de dados em Hubs de eventos internos para um máximo de 7 dias. Pode definir o período de retenção durante a criação do IoT Hub. Tamanho de retenção de dados do IoT Hub depende do escalão do hub IoT e o tipo de unidade. Em termos de tamanho, os Hubs de eventos internos pode manter as mensagens do tamanho máximo de mensagem até pelo menos de 24 horas de quota. Por exemplo, para o IoT Hub fornece armazenamento suficiente para reter, pelo menos, 1 unidade de S1 400 mil mensagens de 4K tamanho de cada um. Se os dispositivos estão a enviar mensagens menores, eles podem ser retidos durante mais (até 7 dias) consoante a quantidade de armazenamento é consumido. Garantimos que reter os dados para o período de retenção especificado como um mínimo.
 
 IoT Hub também permite-lhe gerir grupos de consumidores sobre o dispositivo para cloud incorporado recebem o ponto final.
 

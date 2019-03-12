@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 347ee8389677e507e299490d86ae9b51ba4f59a6
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338432"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731574"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definir e Atribuir um Azure Blueprint com a API REST
 
@@ -262,7 +262,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -335,7 +335,7 @@ Em cada URI da API REST, existem variáveis que são utilizadas que precisa de s
 - `{YourMG}` -Substituir com o ID do seu grupo de gestão
 - `{subscriptionId}` - substituir pelo ID da subscrição
 
-1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas o ID do principal de serviço varia de inquilino para inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
+1. Forneça ao principal de serviço do Azure Blueprint a função **Proprietário** na subscrição de destino. O AppId é estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), mas o ID de principal de serviço varia por inquilino. Pode pedir detalhes para o seu inquilino através da API REST seguinte. Utiliza a [Graph API do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tem uma autorização diferente.
 
    - URI da API REST
 

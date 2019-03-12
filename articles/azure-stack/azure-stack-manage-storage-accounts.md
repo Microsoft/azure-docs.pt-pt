@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: bce00300e62b3ea04331530bbda2c16f0ddd2ab3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895072"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759377"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gerir contas de armazenamento no Azure Stack
 

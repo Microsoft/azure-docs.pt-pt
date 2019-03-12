@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 17a147b12d660e25bfba1e3b987f9c6ae219942d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d4ef9d42b90eef69d99d1c45398e0d69520dff8f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882591"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552117"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Conceber uma base de dados do Azure para MySQL com a CLI do Azure
 
@@ -53,13 +53,13 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar uma Base de Dados do Azure para o servidor MySQL
 Crie uma Base de Dados do Azure para o servidor MySQL com o comando az mysql server create. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-O exemplo seguinte cria uma Base de Dados do Azure para o servidor MySQL localizada em `westus` no grupo de recursos `myresourcegroup` com o nome `mydemoserver`. O servidor tem um início de sessão de administrador com o nome `myadmin`. É para Fins Gerais, servidor de Gen 4 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
+O exemplo seguinte cria uma Base de Dados do Azure para o servidor MySQL localizada em `westus` no grupo de recursos `myresourcegroup` com o nome `mydemoserver`. O servidor tem um início de sessão de administrador com o nome `myadmin`. É para fins gerais, servidor de geração 5 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen4_4` mapeia para Básico, Ger 4 e 4 vCores.
++ `--sku-name B_Gen5_2` é mapeado para básico, fins 5 e 2 vCores.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -97,8 +97,8 @@ O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **a
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },

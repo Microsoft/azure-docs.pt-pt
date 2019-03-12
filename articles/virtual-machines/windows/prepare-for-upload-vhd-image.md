@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: f64f2cafb15a6cae71c304282e1fe6bd9231ef71
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 978667dcd3f7bd10192a396ec3e8d097bdb73509
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432928"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57577148"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD do Windows ou o VHDX para carregar para o Azure
 Antes de carregar um Windows máquinas virtuais (VM) no local para o Microsoft Azure, tem de preparar o disco rígido virtual (VHD ou VHDX). O Azure suporta **apenas as VMs de geração 1** que estejam no formato de ficheiro VHD e que tem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1,023 GB. Pode converter uma geração de VHD e um disco de expansão dinâmica com tamanho fixo do sistema de ficheiros de 1 VM a partir do VHDX. Mas não é possível alterar a geração de uma VM. Para obter mais informações, consulte [devo criar uma geração 1 ou 2 VM no Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -415,11 +415,7 @@ Nem todas as funções ou a aplicação que é instalada num computador baseado 
 ## <a name="complete-recommended-configurations"></a>Conclua as configurações de recomendada
 As seguintes definições não afetam a carregar o VHD. No entanto, recomendamos vivamente que configurou-los.
 
-* Instalar o [agente de VMs do Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Em seguida, pode ativar as extensões de VM. As extensões VM implementam a maioria das funcionalidades críticas que poderá utilizar com as suas VMs como a reposição de palavras-passe, a configuração de RDP e assim por diante. Para obter mais informações, consulte:
-
-    - [Agente da VM e extensões – parte 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
-    - [Agente da VM e extensões – parte 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-
+* Instalar o [agente de VMs do Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Em seguida, pode ativar as extensões de VM. As extensões VM implementam a maioria das funcionalidades críticas que poderá utilizar com as suas VMs como a reposição de palavras-passe, a configuração de RDP e assim por diante. Para obter mais informações, consulte [descrição geral do agente de Máquina Virtual do Azure](../extensions/agent-windows.md).
 *  Depois da VM é criada no Azure, recomendamos que colocar o ficheiro de paginação no volume "Unidade Temporal" para melhorar o desempenho. Pode configurar isso da seguinte forma:
 
     ```PowerShell

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ea5084128848db7d799b1791aef528305b4f6df4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192372"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588980"
 ---
-# <a name="recognize-printed-and-handwritten-text"></a>Reconhecer texto manuscrito e impresso
+# <a name="recognize-printed-and-handwritten-text"></a>Reconhecer texto impresso e manuscrito
 
 Imagem digitalizada oferece uma série de serviços que detete e extraia texto impresso ou manuscritos, que aparece nas imagens. Isto é útil numa variedade de cenários como notetaking, registros médicos, segurança e banca. O seguintes três seções detalhes três diferentes reconhecimento de texto APIs, cada um otimizado para diferentes casos de utilização.
 
@@ -26,7 +26,7 @@ Imagem digitalizada oferece uma série de serviços que detete e extraia texto i
 
 A API de leitura Deteta o conteúdo de texto numa imagem usando nossos modelos mais recentes do reconhecimento e converte o texto identificado num fluxo de carateres legível por máquina. Está otimizado para imagens de muito texto (como documentos que foram verificados digitalmente) e para imagens com muito ruído visual. Ele executa forma assíncrona porque documentos maiores podem demorar vários minutos a devolver um resultado.
 
-A operação de leitura mantém os agrupamentos de linha original de palavras reconhecidas na sua saída. Cada linha é acompanhado de delimitação de coordenadas de caixa, e cada palavra dentro da linha também possui suas própria coordenadas. Se uma palavra foi reconhecida com confiança baixa, essas informações sejam transmitidas também. Consulte a [documentos de referência da API de leitura](https://westus.api.cognitive.microosft.com/vision/v2.0/read/core/asyncBatchAnalyze) para saber mais.
+A operação de leitura mantém os agrupamentos de linha original de palavras reconhecidas na sua saída. Cada linha é acompanhado de delimitação de coordenadas de caixa, e cada palavra dentro da linha também possui suas própria coordenadas. Se uma palavra foi reconhecida com confiança baixa, essas informações sejam transmitidas também. Consulte a [documentos de referência da API de leitura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) para saber mais.
 
 > [!NOTE]
 > Esta funcionalidade está atualmente em pré-visualização e só está disponível para texto em inglês.

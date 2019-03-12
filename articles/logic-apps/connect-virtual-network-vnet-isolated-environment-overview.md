@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/24/2019
-ms.openlocfilehash: ff43a55429eb69a7f98fd4da7fdbeb5d4e51513c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/11/2019
+ms.openlocfilehash: b53cd54afdf6243769602971ab77145cfa9ba9cc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991262"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758782"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso a recursos de rede Virtual do Azure a partir do Azure Logic Apps, utilizando ambientes de serviço de integração (ISEs)
 
@@ -64,13 +64,6 @@ A diferença entre os conectores ISE e não ISE é nos locais onde executar os a
   ![Selecionar conectores do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
 * Os conectores que são executados num ISE também estão disponíveis no serviço de aplicações lógicas global.
-
-<a name="vnet-access"></a>
-
-## <a name="permissions-for-virtual-network-access"></a>Permissões para acesso à rede virtual
-
-Pode selecionar uma rede virtual do Azure para injetar seu ambiente, tem de configurar permissões de controlo de acesso baseado em funções (RBAC) na sua rede virtual para o serviço do Azure Logic Apps. Esta tarefa requer que atribua os **contribuinte de rede** e **contribuinte clássico** funções para o serviço do Azure Logic Apps.
-Para configurar estas permissões, consulte [ligar a redes virtuais do Azure a partir de aplicações lógicas](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access).
 
 <a name="create-integration-account-environment"></a>
 

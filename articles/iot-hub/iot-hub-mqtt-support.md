@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 08b19fd933a641706e6a0ed39adb2c39fa72e766
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 89c14f783cd4e46809cb4cae2dcc4c0853a10993
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010944"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552049"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar com o seu hub IoT com o protocolo MQTT
 
@@ -328,8 +328,8 @@ Para explorar ainda mais os recursos do IoT Hub, veja:
 * [Implementar o AI em dispositivos de ponta com o Azure IoT Edge][lnk-iotedge]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-mqtt-org]: http://mqtt.org/
-[lnk-mqtt-docs]: http://mqtt.org/documentation
+[lnk-mqtt-org]: https://mqtt.org/
+[lnk-mqtt-docs]: https://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
 [lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm

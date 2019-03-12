@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: aa3f2bc23b731f1e2c02d84edd6079debfbae134
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190022"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727268"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
@@ -27,13 +27,115 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 
 [Explorador de armazenamento do Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) é uma aplicação autónoma que lhe permite trabalhar facilmente com dados de armazenamento do Azure no Windows, macOS e Linux.
 
-## <a name="version-162"></a>Versão 1.6.2
-9/1/2019
+## <a name="version-170"></a>Versão 1.7.0
+3/5/2019
 
-### <a name="download-azure-storage-explorer-162"></a>Transfira o Explorador de armazenamento do Azure 1.6.2
-- [Explorador de armazenamento do Azure 1.6.2 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorador de armazenamento do Azure 1.6.2 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorador de armazenamento do Azure 1.6.2 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-170"></a>Transfira o Explorador de armazenamento do Azure 1.7.0
+- [Explorador de armazenamento do Azure 1.7.0 para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorador de armazenamento do Azure 1.7.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorador de armazenamento do Azure 1.7.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+
+* Agora pode alterar o proprietário e o grupo proprietário ao gerir o acesso para um contentor de geração 2 do ADLS, ficheiro ou pasta.
+* No Windows, a atualização Explorador de armazenamento a partir de dentro do produto é agora uma instalação incremental. Isso deve resultar numa experiência de atualização mais rápida. Se preferir uma instalação limpa, então pode baixar o [instalador](https://azure.microsoft.com/en-us/features/storage-explorer/) por conta própria e, em seguida, instale manualmente. #1089
+
+### <a name="preview-features"></a>Funcionalidades de Pré-visualização
+
+* Sessão de fluxo de código de dispositivo no está agora disponível para pré-visualização. Para ativá-lo, aceda a "Pré-visualização" → "Utilização dispositivo código fluxo de início de sessão". Nós o encorajamos qualquer usuário que tenha tido problemas com o windows de início de sessão em branco para experimentar esta funcionalidade, como ele pode se revelar um formulário mais confiável de início de sessão. #938
+* Explorador de armazenamento integrado com o AzCopy está atualmente disponível para pré-visualização. Para ativá-lo, aceda a "Pré-visualização" → "Use AzCopy para melhorada Blob carregar e transferir". As transferências de blob concluídas com o AzCopy devem ser mais rápidas e um melhor desempenho.
+
+### <a name="fixes"></a>Correções
+
+* Agora, pode escolher o tipo de blob que pretende carregar como quando o AzCopy é ativado. #1111
+* Anteriormente, se tinha ativado os Web sites estáticos para uma conta de armazenamento do ADLS geração 2 e, em seguida, anexado-lo com o nome e a chave, Explorador de armazenamento seria não ter detetado que esse espaço de nomes hierárquico foi ativado. Isto foi corrigido. #1081
+* No editor de blob, ordenar por Estado restante de dias de retenção ou foi interrompida. Isto foi corrigido. #1106
+* Após 1.5.0, o Explorador de armazenamento já não espera para cópias de lado do servidor concluir antes de o relatório de sucesso durante uma mudança de nome ou copiar e colar. Isto foi corrigido. #976
+* Quando utilizar a funcionalidade experimental do AzCopy, o comando copiado depois de clicar em "Copiar o comando para área de transferência" nem sempre era executável por conta própria. Agora, serão copiados todos os comandos necessários para executar a transferência manualmente. #1079
+* Anteriormente, os blobs de geração 2 do ADLS não estavam acessíveis a se estivesse atrás de um proxy. Isto foi devido a um erro numa nova biblioteca de rede utilizado pelo SDK de armazenamento. 1.7.0, foi efetuada uma tentativa para atenuar este problema, mas algumas pessoas podem continuar a ver problemas. Será lançada uma correção completa numa atualização futura. #1090
+* No 1.7.0, salvar caixa de diálogo arquivo agora corretamente se lembra tiver guardado um ficheiro para a localização do último. #16
+* No painel de propriedades, o escalão de SKU de uma conta de armazenamento foi a ser apresentado como um tipo da conta. Isto foi corrigido. #654
+* Às vezes, foi impossível interromper a concessão de um blob, mesmo que introduziu corretamente o nome do blob. Isto foi corrigido. #1070
+
+### <a name="known-issues"></a>Problemas Conhecidos
+
+* Ao utilizar o RBAC, o Explorador de armazenamento requer algumas permissões de camada de gestão para poder aceder aos seus recursos de armazenamento. Consulte a [guia de resolução de problemas](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* A tentar aceder a Blobs de geração 2 do ADLS quando, por trás de um proxy poderá falhar.
+* A desanexar a partir de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Ver #537 para obter mais informações.
+* A desanexar a partir de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Para obter mais informações, consulte #537.
+* Se utilizar o VS para Mac e alguma vez criou uma configuração AAD personalizada, pode não ser possível para início de sessão. Para contornar o problema, elimine o conteúdo de ~ /. IdentityService/AadConfigurations. Se isso não desbloquear, comentário sobre este problema.
+* Azurite ainda não totalmente implementada todas as APIs de armazenamento. Por este motivo, talvez haja erros inesperados ou comportamento quando utilizar Azurite para o armazenamento de desenvolvimento.
+* Em casos raros, o foco de árvore pode ficar bloqueado no acesso rápido. Para unstick o foco, pode atualizar tudo.
+* Carregar a partir de pasta do OneDrive não funcionar devido a um bug em NodeJS. O bug foi corrigido, mas ainda não foi integrado ao Bombardeador. Para contornar este problema ao carregar para ou transferir a partir de um contentor de BLOBs, pode utilizar a funcionalidade experimental do AzCopy.
+* Para criar aplicativos para o Azure Stack, carregar determinados ficheiros como blobs de acréscimo pode falhar.
+* Depois de clicar em "Cancelar" numa tarefa, poderá demorar algum tempo para essa tarefa Cancelar. Isso é porque estamos usando o trabalho de filtro de cancelar em torno descrito aqui.
+* Se escolher o certificado PIN/smart card errado, terá de reiniciar para ter o Explorador de armazenamento se esqueça dessa decisão.
+* Mudar o nome de blobs (individualmente ou dentro de um contentor de BLOBs nome mudado) não preserva a instantâneos. Todas as outras propriedades e metadados de blobs, ficheiros e entidades são mantidas durante uma mudança de nome.
+* O Azure Stack não suporta as seguintes funcionalidades. Recursos tentando usar esses recursos ao trabalhar com o Azure Stack podem resultar em erros inesperados.
+   * Partilhas de ficheiros
+   * Camadas de acesso
+   * Eliminação de forma recuperável
+* O shell de Bombardeador utilizado pelo Explorador de armazenamento tem problemas com alguns aceleração de hardware GPU (unidade de processamento gráfico). Se o Explorador de armazenamento está exibindo uma janela principal (vazia) em branco, pode tentar iniciar o Explorador de armazenamento a partir da linha de comandos e desabilitando aceleração por GPU, adicionando o `--disable-gpu` mudar:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Os utilizadores do Linux, terá de instalar [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Para os utilizadores no Ubuntu 14.04, precisará garantir GCC é atualizado - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para os utilizadores no Ubuntu 17.04, terá de instalar GConf - isso pode ser feito ao executar os seguintes comandos e, em seguida, reiniciar a máquina:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 1.6.2](#version-162)
+* [Versão 1.6.1](#version-161)
+* [Versão 1.6.0](#version-160)
+* [Versão 1.5.0](#version-150)
+* [Versão 1.4.4](#version-144)
+* [Versão 1.4.3](#version-143)
+* [Versão 1.4.2](#version-142)
+* [Versão 1.4.1](#version-141)
+* [Versão 1.3.0](#version-130)
+* [Versão 1.2.0](#version-120)
+* [Versão 1.1.0](#version-110)
+* [Versão 1.0.0](#version-100)
+* [Versão 0.9.6](#version-096)
+* [Versão 0.9.5](#version-095)
+* [Versão 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versão 0.9.2](#version-092)
+* [Versão 0.9.1 e 0.9.0](#version-091-and-090)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versão 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-162"></a>Versão 1.6.2
+1/9/2019
 
 ### <a name="hotfixes"></a>Correções
 * No 1.6.1, entidades adicionadas para ACLs de geração 2 do ADLS por ObjectId que não eram os usuários sempre foram adicionadas como grupos. Agora, apenas os grupos são adicionados como grupos e entidades como andService de aplicações empresariais que principais são adicionados como os utilizadores. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
@@ -103,42 +205,6 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 1.6.1](#version-161)
-* [Versão 1.6.0](#version-160)
-* [Versão 1.5.0](#version-150)
-* [Versão 1.4.4](#version-144)
-* [Versão 1.4.3](#version-143)
-* [Versão 1.4.2](#version-142)
-* [Versão 1.4.1](#version-141)
-* [Versão 1.3.0](#version-130)
-* [Versão 1.2.0](#version-120)
-* [Versão 1.1.0](#version-110)
-* [Versão 1.0.0](#version-100)
-* [Versão 0.9.6](#version-096)
-* [Versão 0.9.5](#version-095)
-* [Versão 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versão 0.9.2](#version-092)
-* [Versão 0.9.1 e 0.9.0](#version-091-and-090)
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 e 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versão 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-161"></a>Versão 1.6.1
 12/18/2018

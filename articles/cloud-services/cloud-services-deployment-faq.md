@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d44cfc0164892c34bcbe16ca07e9ec67190ada24
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c961238d1fbce1ff590e0b0843ae1390aa7f1cd9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415309"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534825"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implantação de serviços Cloud do Azure: Perguntas mais frequentes sobre (FAQ)
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementação de serviços Cloud do Azure: Perguntas mais frequentes (FAQ)
 
 Este artigo contém perguntas freqüentes sobre problemas de implementação para [serviços Cloud do Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Também pode consultar o [página de tamanho de VM de serviços Cloud](cloud-services-sizes-specs.md) para informações de tamanho.
 
@@ -33,29 +33,29 @@ Se um serviço em nuvem tem uma implementação em qualquer bloco, o serviço em
 
 Falhas de atribuição ocorrerem quando o cluster onde está localizado o seu serviço cloud não tem recursos suficientes de computação físisca para satisfazer o pedido de implementação.
 
-Para ajudar a mitigar tais falhas de alocação, consulte [falha na alocação do serviço em nuvem: soluções](cloud-services-allocation-failures.md#solutions).
+Para ajudar a mitigar tais falhas de alocação, consulte [falha de alocação do serviço em nuvem: Soluções](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Por que faz aumentar ou reduzir horizontalmente uma implementação do serviço cloud, às vezes, resultar numa falha de alocação?
 Quando um serviço em nuvem é implementado, ele normalmente fixa-se um cluster específico. Isso significa aumentar verticalmente/horizontalmente um serviço cloud existente tem de alocar novas instâncias no mesmo cluster. Se o cluster está prestes a capacidade ou tamanho/tipo de VM pretendido não estiver disponível, o pedido pode falhar.
 
-Para ajudar a mitigar tais falhas de alocação, consulte [falha na alocação do serviço em nuvem: soluções](cloud-services-allocation-failures.md#solutions).
+Para ajudar a mitigar tais falhas de alocação, consulte [falha de alocação do serviço em nuvem: Soluções](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Por que, às vezes, a implementar um serviço em nuvem num grupo de afinidades resulta numa falha de alocação?
 Pelos recursos de infraestrutura em qualquer cluster nessa região, que pode ser atribuída uma nova implementação num serviço cloud vazio, a menos que o serviço em nuvem está afixado a um grupo de afinidades. As implementações para o mesmo grupo de afinidade serão tentadas no mesmo cluster. Se o cluster está prestes a capacidade, o pedido pode falhar.
 
-Para ajudar a mitigar tais falhas de alocação, consulte [falha na alocação do serviço em nuvem: soluções](cloud-services-allocation-failures.md#solutions).
+Para ajudar a mitigar tais falhas de alocação, consulte [falha de alocação do serviço em nuvem: Soluções](cloud-services-allocation-failures.md#solutions).
 
 ## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Por que motivo alterar tamanho da VM ou ao adicionar uma nova VM a um serviço cloud existente, por vezes, resultar numa falha de alocação?
 Os clusters num centro de dados podem ter diferentes configurações de tipos de máquina (por exemplo, uma série, série Av2, série D, série Dv2, série G, série H, etc.). Mas não todos os clusters teria necessariamente todos os tipos de VMs. Por exemplo, se tentar adicionar uma VM da série D para um serviço cloud que já tenha sido implementado num cluster só de série A, terá uma falha de alocação. Isso também acontece se tentar altere que os tamanhos de SKU de VM (por exemplo, mudar de uma série de à uma série de D).
 
-Para ajudar a mitigar tais falhas de alocação, consulte [falha na alocação do serviço em nuvem: soluções](cloud-services-allocation-failures.md#solutions).
+Para ajudar a mitigar tais falhas de alocação, consulte [falha de alocação do serviço em nuvem: Soluções](cloud-services-allocation-failures.md#solutions).
 
-Para verificar os tamanhos disponíveis na sua região, consulte [Microsoft Azure: produtos disponíveis por região](https://azure.microsoft.com/regions/services).
+Para verificar os tamanhos disponíveis na sua região, consulte [Microsoft Azure: Produtos disponíveis por região](https://azure.microsoft.com/regions/services).
 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Por que motivo algum tempo a implementar um serviço em nuvem falhar devido a quotas/limites/restrições na minha subscrição ou o serviço?
-Implementação de um serviço cloud poderá falhar se os recursos que devem ser alocados excederem a quota máxima permitida para o seu serviço ao nível da região/datacenter ou padrão. Para obter mais informações, consulte [serviços Cloud limita](../azure-subscription-service-limits.md#cloud-services-limits).
+Implementação de um serviço cloud poderá falhar se os recursos que devem ser alocados excederem a quota máxima permitida para o seu serviço ao nível da região/datacenter ou padrão. Para obter mais informações, consulte [serviços Cloud limita](../azure-subscription-service-limits.md#azure-cloud-services-limits).
 
-Também pode controlar a utilização/quota atual para a sua subscrição no portal do: portal do Azure = > subscrições = > \<adequadas a subscrição > = > "Utilização + quotas".
+Também pode controlar a utilização/quota atual para a sua subscrição no portal do: Portal do Azure = > subscrições = > \<adequadas a subscrição > = > "Utilização + quotas".
 
 Informações relacionadas com a utilização/consumo de recursos também podem ser obtidas por meio das APIs de faturação do Azure. Ver [API (pré-visualização) de utilização de recursos do Azure](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 

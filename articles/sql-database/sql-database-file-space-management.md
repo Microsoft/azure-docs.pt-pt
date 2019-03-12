@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 02/11/2019
-ms.openlocfilehash: b537dd8360c39a744cf9963376387a4c89e33838
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: a6fccb087d8a2c78bb1ad47758952b76b245dbde
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311649"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576213"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gerir o espaço de ficheiro para bases de dados individuais e agrupados na base de dados do Azure SQL
 
@@ -42,7 +42,7 @@ Nos cenários abaixo, monitorizar a utilização do espaço de ficheiros e encol
 
 A maioria das métricas de espaço de armazenamento apresentadas no portal do Azure e as seguintes APIs apenas medem o tamanho das páginas de dados utilizados:
 
-- O Azure Resource Manager com base em métricas de APIs incluindo PowerShell [get-métricas](https://docs.microsoft.com/powershell/module/az.insights/get-azmetric)
+- O Azure Resource Manager com base em métricas de APIs incluindo PowerShell [get-métricas](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 No entanto, as seguintes APIs também medem o tamanho do espaço alocado para bases de dados e elastic pools:

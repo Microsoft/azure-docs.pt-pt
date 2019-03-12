@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 90f7ef32a54f257a64942b37938cff5703112d6c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.date: 03/07/2019
+ms.openlocfilehash: f54e715f555f01a265ed89ac633f207546a73904
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409871"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576366"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar uma base de dados SQL do Azure com cópias de segurança da base de dados automatizada
 
@@ -141,7 +141,7 @@ Como foi discutido anteriormente, além de portal do Azure, a recuperação de b
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- Para restaurar um autónoma ou de bases de dados agrupadas, consulte [restauro AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase).
+- Para restaurar um autónoma ou de bases de dados agrupadas, consulte [restauro AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Descrição |
   | --- | --- |
@@ -153,7 +153,13 @@ Como foi discutido anteriormente, além de portal do Azure, a recuperação de b
   > [!TIP]
   > Para um script do PowerShell de exemplo que mostra como executar um restauro de ponto no tempo de uma base de dados, consulte [restaurar uma base de dados SQL com o PowerShell](scripts/sql-database-restore-database-powershell.md).
 
-- Para restaurar uma base de dados de instância gerida, consulte [restaurodepontonotempodade uma base de dados do Azure instância gerida SQL biblioteca do PowerShell do azurerm. SQL](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library/).
+- Para restaurar uma base de dados de instância gerida, consulte [restauro AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
+
+  | Cmdlet | Descrição |
+  | --- | --- |
+  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |Obtém um ou mais instâncias geridas. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | Obtém uma instância de bases de dados. |
+  | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |Restaura uma base de dados de instância. |
 
 ### <a name="rest-api"></a>API REST
 
@@ -166,7 +172,8 @@ Para restaurar uma base de dados individual ou agrupada através da API REST:
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para restaurar uma base de dados individual ou agrupada com a CLI do Azure, consulte [restauro do az sql db](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-restore).
+- Para restaurar uma base de dados individual ou agrupada com a CLI do Azure, consulte [restauro do az sql db](/cli/azure/sql/db#az-sql-db-restore).
+- Para restaurar uma instância gerida com a CLI do Azure, consulte [restauro de midb az sql](/cli/azure/sql/db#az-sql-midb-restore)
 
 ## <a name="summary"></a>Resumo
 

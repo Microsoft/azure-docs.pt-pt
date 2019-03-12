@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0ca82da43ea53aed3fbcf858b34a3ad94d712661
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864949"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530744"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 
@@ -150,7 +150,7 @@ Definir níveis, de modo que a maior parte do intervalo dinâmico disponível de
 
 Aqui, é utilizada a maior parte do intervalo (altura), mas os mais elevados picos de sinal de não chegam a parte superior ou inferior da janela. Também pode ver que o silêncio na gravação aproxima-se uma linha horizontal dinâmico, que indica um andar de baixo de ruído. Esta gravação tem o intervalo aceitável de dinâmico e a proporção de sinal e ruído.
 
-Registo diretamente no computador através de uma interface de áudio de alta qualidade ou uma porta USB, consoante o mic está a utilizar. Para analógicas, manter a cadeia de áudio simples: mic, preamp, interface de áudio, computador. Pode licenciar ambos [ávido ferramentas Pro](http://www.avid.com/en/pro-tools) e [Adobe Audition](https://www.adobe.com/products/audition.html) mensal a um custo razoável. Se o orçamento é extremamente curto, experimente gratuitamente [Audacity](https://www.audacityteam.org/).
+Registo diretamente no computador através de uma interface de áudio de alta qualidade ou uma porta USB, consoante o mic está a utilizar. Para analógicas, manter a cadeia de áudio simples: mic, preamp, interface de áudio, computador. Pode licenciar ambos [ávido ferramentas Pro](https://www.avid.com/en/pro-tools) e [Adobe Audition](https://www.adobe.com/products/audition.html) mensal a um custo razoável. Se o orçamento é extremamente curto, experimente gratuitamente [Audacity](https://www.audacityteam.org/).
 
 Registe 44.1 kHz 16 bits monophonic (CD qualidade) ou melhor. Atual-de-modernas são 48 kHz 24 bits, se seu equipamento de oferecer suporte a ele. Irá dimensionar o áudio a 16 kHz 16 bits antes de enviá-lo para o portal de voz personalizada. Ainda assim, vale a pena ter uma alta qualidade original gravar no caso de edições são necessários.
 
@@ -204,7 +204,7 @@ Os estúdios de gravação modernos executam em computadores. No final da sessã
 
 O portal de voz personalizada requer que cada ocorrência de pronunciação fornecida para estar em seu próprio arquivo. Cada arquivo de áudio fornecido pelo studio contém várias expressões. Assim, a principal tarefa pós-produção é dividir as gravações e prepará-los para a submissão. O engenheiro de gravação pode ter inserido marcadores no arquivo (ou fornecido uma folha de cálculo de indicação separado) para indicar onde começa cada ocorrência de pronunciação.
 
-Utilize suas anotações para encontrar exatamente o leva pretendem e, em seguida, utilizam um som edição utilitário, como [ávido ferramentas Pro](http://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), ou o software gratuito [Audacity](https://www.audacityteam.org/)para copiar cada expressão num novo arquivo.
+Utilize suas anotações para encontrar exatamente o leva pretendem e, em seguida, utilizam um som edição utilitário, como [ávido ferramentas Pro](https://www.avid.com/en/pro-tools), [Adobe Audition](https://www.adobe.com/products/audition.html), ou o software gratuito [Audacity](https://www.audacityteam.org/)para copiar cada expressão num novo arquivo.
 
 Deixe apenas cerca de 0,2 segundos de silêncio no início e no final de cada clip, com exceção da primeira. Esse arquivo deve começar com um completo cinco segundos de silêncio. Não utilize um editor de áudio a partes de silenciosa "zero de saída" do ficheiro. Incluindo o tom"espaço" ajudará a voz personalizada algoritmos compensar nenhum barulho de fundo residual.
 

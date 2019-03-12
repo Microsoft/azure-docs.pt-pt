@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 299ea79a7a344a57bf302aae049ba87234427343
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442788"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536951"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicação distribuída geograficamente com o Azure e o Azure Stack
 
@@ -507,9 +507,9 @@ Quando o serviço de aplicações concluir o carregamento do certificado, surge 
 
 1.  Na **Adicionar enlace de SSL** página, utilize as listas pendentes para selecionar o nome de domínio para proteger e o certificado a utilizar.
 
-2.  Na **tipo de SSL**, selecione se pretende utilizar [ **indicação de nome de servidor (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication)ou SSL baseado em IP.
+2.  Na **tipo de SSL**, selecione se pretende utilizar [ **indicação de nome de servidor (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication)ou SSL baseado em IP.
 
--   **SSL baseado em SNI**-enlaces SSL baseado em SNI várias podem ser adicionados. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).
+-   **SSL baseado em SNI**-enlaces SSL baseado em SNI várias podem ser adicionados. Esta opção permite utilizar vários certificados SSL para proteger múltiplos domínios no mesmo endereço IP. Os browsers mais modernos (incluindo o Internet Explorer, o Chrome, o Firefox e o Opera) suportam SNI (encontre informações mais abrangentes sobre o suporte de browsers em [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) [Indicação do Nome de Servidor]).
 
 -   **SSL baseado em IP**-apenas um enlace SSL baseado em IP pode ser adicionado. Esta opção permite utilizar apenas um certificado SSL para proteger um endereço IP público dedicado. Proteger vários domínios, protegê-los usando o mesmo certificado SSL. Esta é a opção tradicional para o enlace de SSL.
 

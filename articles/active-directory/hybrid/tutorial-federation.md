@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6d1d53fd292a936c833450fee3af91671eec86
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a242e2419c64b0b80665aa2a8859f73143210bab
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171178"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552202"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Tutorial: Federar um ambiente de floresta AD único na cloud
 
@@ -281,7 +281,7 @@ Agora iremos confirmar que os utilizadores que tínhamos no nosso diretório no 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar início de sessão com um dos nossos usuários
 
-1.  Navegue para [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1.  Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inicie sessão com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de início de sessão com o seguinte formato: (user@domain.onmicrosoft.com). Utilizar a mesma palavra-passe que o utilizador utiliza para iniciar sessão no local.
 ![Certifique-se](media/tutorial-password-hash-sync/verify1.png)
 

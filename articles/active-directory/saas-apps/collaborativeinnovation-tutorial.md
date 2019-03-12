@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03f1172b20442799ed9aeb395526d4cbbb3bcfb7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c2d8d1319c68b58216c42a07c7bdc89e40d94b99
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875434"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integração do Active Directory do Azure com a inovação de colaboração
 

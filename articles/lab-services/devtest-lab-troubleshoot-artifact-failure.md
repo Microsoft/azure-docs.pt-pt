@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ebc64215683989ce07f4dd88dc352ecaefe184cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d5e03b7645fcacaeba4ccf147d48886cefd33ffb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697277"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531446"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnosticar falhas de artefactos no laboratório 
 Depois de ter criado um artefato, pode verificar se foi concluída com êxito ou falha. Registos de artefactos no Azure DevTest Labs fornecem informações que pode usar para diagnosticar uma falha de artefacto. Tem duas opções para visualizar as informações de registo de artefactos para uma VM do Windows:
@@ -55,7 +55,7 @@ Depois de ter criado um artefato, pode verificar se foi concluída com êxito ou
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>Postagens de blogs relacionados
-* [Associar uma VM a um domínio do Active Directory existente, utilizando um modelo do Resource Manager no DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Associar uma VM a um domínio do Active Directory existente, utilizando um modelo do Resource Manager no DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba como [adicionar um repositório de Git a um laboratório](devtest-lab-add-artifact-repo.md).

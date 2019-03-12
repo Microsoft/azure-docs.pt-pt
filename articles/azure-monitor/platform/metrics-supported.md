@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8ee900554371644f374e4aeed51f1eeb0c18569e
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: a4b6bc8f6e621cda921d599b5368c6a671defcc2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408872"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548614"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com o Azure Monitor
 O Azure Monitor proporciona várias formas de interagir com métricas, incluindo gráficos-las no portal, o acesso aos mesmos através da API REST ou consultando-os com o PowerShell ou CLI. Segue-se uma lista completa de todas as métricas atualmente disponíveis com o pipeline de métrico do Azure Monitor. Outras métricas poderão estar disponíveis no portal ou através de APIs herdadas. Esta lista abaixo inclui apenas as métricas disponíveis com o pipeline de métrico do Azure Monitor consolidado. Para consultar e aceder a estas métricas, utilize o [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -316,8 +316,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades do computador alocadas que estão atualmente em utilização pela Máquina Virtual ou Máquinas Virtuais.|Nenhuma dimensão|
-|Entrada de Rede|Entrada de Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada).|Nenhuma dimensão|
-|Saída de Rede|Saída de Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída).|Nenhuma dimensão|
+|Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada).|Nenhuma dimensão|
+|Saída da Rede|Saída da Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída).|Nenhuma dimensão|
 |Bytes Lidos de Disco/Seg|Leitura de Disco|BytesPerSecond|Média|Média de bytes lidos do disco durante o período de monitorização.|Nenhuma dimensão|
 |Bytes Escritos em Disco/Seg|Escrita de Disco|BytesPerSecond|Média|Média de bytes escritos no disco durante o período de monitorização.|Nenhuma dimensão|
 |Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Média|IOPS de Leitura do Disco.|Nenhuma dimensão|
@@ -328,8 +328,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades do computador alocadas que estão atualmente em utilização pela Máquina Virtual ou Máquinas Virtuais.|RoleInstanceId|
-|Entrada de Rede|Entrada de Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada).|RoleInstanceId|
-|Saída de Rede|Saída de Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída).|RoleInstanceId|
+|Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada).|RoleInstanceId|
+|Saída da Rede|Saída da Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída).|RoleInstanceId|
 |Bytes Lidos de Disco/Seg|Leitura de Disco|BytesPerSecond|Média|Média de bytes lidos do disco durante o período de monitorização.|RoleInstanceId|
 |Bytes Escritos em Disco/Seg|Escrita de Disco|BytesPerSecond|Média|Média de bytes escritos no disco durante o período de monitorização.|RoleInstanceId|
 |Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Média|IOPS de Leitura do Disco.|RoleInstanceId|
@@ -358,8 +358,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades do computador alocadas que estão atualmente em utilização pela Máquina Virtual ou Máquinas Virtuais|Nenhuma dimensão|
-|Entrada de Rede|Entrada de Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|Nenhuma dimensão|
-|Saída de Rede|Saída de Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|Nenhuma dimensão|
+|Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|Nenhuma dimensão|
+|Saída da Rede|Saída da Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|Nenhuma dimensão|
 |Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Total de bytes lidos do disco durante o período de monitorização|Nenhuma dimensão|
 |Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Total de bytes escritos no disco durante o período de monitorização|Nenhuma dimensão|
 |Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Média|IOPS de Leitura do Disco|Nenhuma dimensão|
@@ -382,8 +382,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades do computador alocadas que estão atualmente em utilização pela Máquina Virtual ou Máquinas Virtuais|Nenhuma dimensão|
-|Entrada de Rede|Entrada de Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|Nenhuma dimensão|
-|Saída de Rede|Saída de Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|Nenhuma dimensão|
+|Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|Nenhuma dimensão|
+|Saída da Rede|Saída da Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|Nenhuma dimensão|
 |Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Total de bytes lidos do disco durante o período de monitorização|Nenhuma dimensão|
 |Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Total de bytes escritos no disco durante o período de monitorização|Nenhuma dimensão|
 |Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Média|IOPS de Leitura do Disco|Nenhuma dimensão|
@@ -406,8 +406,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |Percentagem da CPU|Percentagem da CPU|Percentagem|Média|A percentagem de unidades do computador alocadas que estão atualmente em utilização pela Máquina Virtual ou Máquinas Virtuais|Nenhuma dimensão|
-|Entrada de Rede|Entrada de Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|Nenhuma dimensão|
-|Saída de Rede|Saída de Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|Nenhuma dimensão|
+|Entrada na Rede|Entrada na Rede|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|Nenhuma dimensão|
+|Saída da Rede|Saída da Rede|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|Nenhuma dimensão|
 |Bytes de Leitura do Disco|Bytes de Leitura do Disco|Bytes|Total|Total de bytes lidos do disco durante o período de monitorização|Nenhuma dimensão|
 |Bytes de Escrita de Disco|Bytes de Escrita de Disco|Bytes|Total|Total de bytes escritos no disco durante o período de monitorização|Nenhuma dimensão|
 |Operações/Seg de Leitura do Disco|Operações/Seg de Leitura do Disco|CountPerSecond|Média|IOPS de Leitura do Disco|Nenhuma dimensão|
@@ -535,8 +535,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhuma dimensão|
 |active_connections|Ligações ativas|Contagem|Média|Ligações ativas|Nenhuma dimensão|
 |connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhuma dimensão|
-|network_bytes_egress|Saída de Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
-|network_bytes_ingress|Entrada de Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
+|network_bytes_egress|Saída da Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
+|network_bytes_ingress|Entrada na Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
@@ -554,8 +554,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |active_connections|Ligações ativas|Contagem|Média|Ligações ativas|Nenhuma dimensão|
 |connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhuma dimensão|
 |seconds_behind_master|Atraso de replicação em segundos|Contagem|Média|Atraso de replicação em segundos|Nenhuma dimensão|
-|network_bytes_egress|Saída de Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
-|network_bytes_ingress|Entrada de Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
+|network_bytes_egress|Saída da Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
+|network_bytes_ingress|Entrada na Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
@@ -572,8 +572,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhuma dimensão|
 |active_connections|Ligações ativas|Contagem|Média|Ligações ativas|Nenhuma dimensão|
 |connections_failed|Ligações com Falhas|Contagem|Total|Ligações com Falhas|Nenhuma dimensão|
-|network_bytes_egress|Saída de Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
-|network_bytes_ingress|Entrada de Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
+|network_bytes_egress|Saída da Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
+|network_bytes_ingress|Entrada na Rede|Bytes|Total|Na rede através de ligações de Active Directory|Nenhuma dimensão|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
@@ -676,7 +676,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 | AvailableStorage| Armazenamento disponível   |Bytes| Total|  Total de armazenamento disponível reportados na granularidade de 5 minutos por região|   DatabaseName, CollectionName, Region|   5M| Armazenamento disponível|   Utilizado para monitorizar o armazenamento disponível granularidade mínima de capacidade (aplicável apenas para recolhas de armazenamento fixa) deve ser de 5 minutos.| 
 | DataUsage |Utilização de Dados |Bytes| Total   |Utilização total de dados reportada na granularidade de 5 minutos por região|    DatabaseName, CollectionName, Region|   5M  |Tamanho dos dados  | Utilizado para monitorizar a utilização total de dados na coleção e a região, granularidade mínima deve ser de 5 minutos.|
 | IndexUsage|   Uso do índice|    Bytes|  Total   |Utilização total do índice relatados na granularidade de 5 minutos por região|    DatabaseName, CollectionName, Region|   5M| Tamanho do Índice| Utilizado para monitorizar a utilização total de dados na coleção e a região, granularidade mínima deve ser de 5 minutos. |
-| DocumentQuota|    Quota de documento| Bytes|  Total|  Quota de armazenamento total comunicados na granularidade de 5 minutos por região. Aplicável para f| DatabaseName, CollectionName, Region|   5M  |Capacidade de Armazenamento|  Utilizado para monitorizar a quota total na coleção e a região, granularidade mínima deve ser de 5 minutos.|
+| DocumentQuota|    Quota de documento| Bytes|  Total|  Quota de armazenamento total comunicados na granularidade de 5 minutos por região. Aplicável para coleções de armazenamento fixa| DatabaseName, CollectionName, Region|   5M  |Capacidade de Armazenamento|  Utilizado para monitorizar a quota total na coleção e a região, granularidade mínima deve ser de 5 minutos.|
 | DocumentCount|    Contagem de Documentos| Contagem   |Total  |Contagem de Totaldocument reportada na granularidade de 5 minutos por região|  DatabaseName, CollectionName, Region|   5M  |Contagem de Documentos|Utilizado para monitorizar a contagem de documentos na coleção e a região, granularidade mínima deve ser de 5 minutos.|
 
 ### <a name="latency-metrics"></a>Métricas de latência
@@ -1352,9 +1352,9 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|Autenticação de GeoType, ApiName,|
 |SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
-|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
+|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
@@ -1366,9 +1366,9 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|Autenticação de GeoType, ApiName,|
 |SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
-|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
+|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
@@ -1380,9 +1380,9 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|Autenticação de GeoType, ApiName,|
 |SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
-|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
+|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
@@ -1394,9 +1394,9 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|Autenticação de GeoType, ApiName,|
 |SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
-|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
+|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
@@ -1408,9 +1408,9 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Transações|Transações|Contagem|Total|O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com êxito ou falhados, bem como pedidos que produziram erros. Utilize a dimensão ResponseType para o número de tipos de resposta diferente.|ResponseType, autenticação de GeoType, ApiName,|
 |Entrada|Entrada|Bytes|Total|A quantidade de dados de entrada, em bytes. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure.|Autenticação de GeoType, ApiName,|
 |Saída|Saída|Bytes|Total|A quantidade de dados de saída, em bytes. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável.|Autenticação de GeoType, ApiName,|
-|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada no AverageE2ELatency.|Autenticação de GeoType, ApiName,|
+|SuccessServerLatency|Latência de Servidor Com Êxito|Milissegundos|Média|A latência média utilizada pelo armazenamento do Azure para processar um pedido com êxito, em milissegundos. Este valor não inclui a latência de rede especificada em AverageE2ELatency.|Autenticação de GeoType, ApiName,|
 |SuccessE2ELatency|Latência de E2E Com Êxito|Milissegundos|Média|A latência de ponto-a-ponto média de pedidos com êxito efetuados a um serviço de armazenamento ou a operação de API especificada, em milissegundos. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta.|Autenticação de GeoType, ApiName,|
-|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada.|Autenticação de GeoType, ApiName,|
+|Disponibilidade|Disponibilidade|Percentagem|Média|A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor de TotalBillableRequests e dividindo-o pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada.|Autenticação de GeoType, ApiName,|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 

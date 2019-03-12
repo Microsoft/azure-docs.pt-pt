@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: fd7dd06692e20eb0e7cc02af8d2f36c4dad8b597
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e6afea414ed632dead97a4b9adc7c623e48bd7ef
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251933"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766704"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Início rápido: Criar uma máquina de virtual de servidor do Linux com o PowerShell no Azure Stack
 
@@ -390,7 +390,7 @@ Depois da máquina virtual é implementada, configure uma ligação de SSH para 
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-A partir de um sistema de cliente com SSH instalado, utilize o seguinte comando para ligar à máquina virtual. Se estiver a trabalhar no Windows, pode usar [Putty](http://www.putty.org/) para criar a ligação.
+A partir de um sistema de cliente com SSH instalado, utilize o seguinte comando para ligar à máquina virtual. Se estiver a trabalhar no Windows, pode usar [Putty](https://www.putty.org/) para criar a ligação.
 
 ```
 ssh <Public IP Address>

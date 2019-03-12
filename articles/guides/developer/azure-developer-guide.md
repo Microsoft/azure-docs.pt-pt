@@ -7,19 +7,19 @@ documentationcenter: ''
 author: ggailey777
 manager: erikre
 ms.assetid: ''
-ms.service: na
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 7c4eefa09f0a70d42601a5b1fe8694500b5c6be2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d78998c3eab79c3c9d5511335c5d27be5803cc3e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118256"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762508"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -154,7 +154,7 @@ O Azure fornece várias formas de utilizar contentores em seus aplicativos.
 
     >**Introdução ao**: [Utilizar uma imagem personalizada do Docker para o serviço de aplicações no Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Autenticação
+### <a name="authentication"></a>Authentication
 
 É fundamental, não apenas saber quem está a utilizar os seus aplicativos, mas também para impedir acesso não autorizado aos seus recursos. O Azure fornece várias formas de autenticar os clientes de aplicação.
 
@@ -180,7 +180,7 @@ Com a sua aplicação em execução no Azure, precisa de ser capaz de monitoriza
 
     >**Introdução ao**: Siga os [tutorial do Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
--   **O Azure Monitor**: Um serviço que ajuda-o a visualizar, consultar, encaminhar, arquivar e agir relativamente a métricas e registos que são gerados pela sua infraestrutura do Azure e recursos. Monitor fornece as vistas de dados que vê no portal do Azure e é uma origem única para monitorizar os recursos do Azure.
+-   **Azure Monitor**: Um serviço que ajuda-o a visualizar, consultar, encaminhar, arquivar e agir relativamente a métricas e registos que são gerados pela sua infraestrutura do Azure e recursos. Monitor fornece as vistas de dados que vê no portal do Azure e é uma origem única para monitorizar os recursos do Azure.
  
     >**Introdução ao**: [Introdução ao Azure Monitor](../../monitoring-and-diagnostics/monitoring-get-started.md).
 
@@ -219,7 +219,7 @@ O Azure fornece duas formas de gerenciar seus aplicativos e serviços da linha d
 
 -   [Interface de linha de comandos (CLI) do Azure](../../xplat-cli-install.md): Permite-lhe ligar a uma subscrição do Azure e várias tarefas relativamente aos recursos do Azure na linha de comando do programa.
 
--   [O Azure PowerShell](../../powershell-install-configure.md): Fornece um conjunto de módulos com cmdlets que permitem-lhe gerir recursos do Azure com o Windows PowerShell.
+-   [Azure PowerShell](../../powershell-install-configure.md): Fornece um conjunto de módulos com cmdlets que permitem-lhe gerir recursos do Azure com o Windows PowerShell.
 
 ### <a name="azure-portal"></a>Portal do Azure
 

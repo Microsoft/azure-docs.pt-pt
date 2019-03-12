@@ -3,21 +3,20 @@ title: Actividade de função do Azure na fábrica de dados do Azure | Documento
 description: Saiba como utilizar a atividade de função do Azure para executar uma função do Azure no pipeline do Data Factory
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: douglasl
-ms.openlocfilehash: ee99733440d74424f98a2ed16de83c88bae53ff1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+author: sharonlo101
+ms.author: shlo
+manager: craigg
+ms.openlocfilehash: b98d20a1f96a6ab4a0dc72330e85fdc98ba04eae
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321794"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576383"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividade de função do Azure no Azure Data Factory
 
@@ -42,10 +41,10 @@ O tipo de retorno da função do Azure tem de ser válido `JObject`. (Lembre-se 
 
 | **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| nome  | Nome da atividade no pipeline  | Cadeia | sim |
-| tipo  | Tipo de atividade é 'AzureFunctionActivity' | Cadeia | sim |
+| name  | Nome da atividade no pipeline  | String | sim |
+| tipo  | Tipo de atividade é 'AzureFunctionActivity' | String | sim |
 | Serviço ligado | O serviço de função do Azure ligado para a aplicação de funções do Azure correspondente  | Referência de serviço ligado | sim |
-| Nome da função  | Nome da função na aplicação de função do Azure que chama esta atividade | Cadeia | sim |
+| Nome da função  | Nome da função na aplicação de função do Azure que chama esta atividade | String | sim |
 | método  | Método de REST API para a chamada de função | Cadeia de caracteres de tipos suportados: "GET", "POST", "PUT"   | sim |
 | cabeçalho  | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir o idioma e o tipo de um pedido: "cabeçalhos": {"Accept-Language": "en-us", "Content-Type": "application/json"} | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) | Não |
 | corpo  | corpo que é enviado com o pedido para o método da api de função  | Cadeia de caracteres (ou expressão com resultType de cadeia de caracteres) ou o objeto.   | Necessário para métodos PUT/POST |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 4c01cf93fe3bb66f9bce73acb3c2f100764d1f46
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b008293e06f476109abde5be519489b2e3d4c1e9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872548"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531390"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Começar com o SDK de dispositivos de voz
 
@@ -37,7 +37,7 @@ Antes de começar a desenvolver com o SDK de dispositivos de voz, recolha as inf
 
 * Obter a versão mais recente do SDK de dispositivos do voz, que inclui a partir de uma aplicação de exemplo do Android, o [site de download do SDK de dispositivos de voz](https://shares.datatransfer.microsoft.com/). Extraia o ficheiro. zip para uma pasta local, como C:\SDSDK.
 
-* Instale [Android Studio](https://developer.android.com/studio/) e [Vysor](http://vysor.io/download/) no seu PC.
+* Instale [Android Studio](https://developer.android.com/studio/) e [Vysor](https://vysor.io/download/) no seu PC.
 
 * Obter um [chave de subscrição do serviço de voz](get-started.md). Pode obter uma avaliação gratuita de 30 dias ou obter uma chave do seu dashboard do Azure.
 

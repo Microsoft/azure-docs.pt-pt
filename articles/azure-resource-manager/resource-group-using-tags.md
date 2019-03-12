@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 87b6dcb007eaea140b9655c248fdfb356cbc9b5f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: bc89b8d830e364c70fef5a5959d4da85c517a5ee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817325"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764938"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 
@@ -115,7 +115,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-Para aplicar todas as etiquetas de um grupo de recursos para todos os respetivos recursos, *sem reter etiquetas existentes nos recursos*, utilize o script seguinte:
+Para aplicar todas as etiquetas de um grupo de recursos para seus próprios recursos, e *não tenha etiquetas existentes nos recursos*, utilize o seguinte script:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -125,7 +125,7 @@ foreach ($g in $groups)
 }
 ```
 
-Para aplicar todas as etiquetas de um grupo de recursos para todos os respetivos recursos, *retendo etiquetas existentes nos recursos que não são duplicados*, utilize o script seguinte:
+Para aplicar todas as etiquetas de um grupo de recursos para seus próprios recursos, e *manter as etiquetas existentes nos recursos que não são duplicados*, utilize o seguinte script:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -222,7 +222,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Para aplicar todas as etiquetas de um grupo de recursos para todos os respetivos recursos, *sem reter etiquetas existentes nos recursos*, utilize o script seguinte:
+Para aplicar todas as etiquetas de um grupo de recursos para seus próprios recursos, e *não tenha etiquetas existentes nos recursos*, utilize o seguinte script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -238,7 +238,7 @@ do
 done
 ```
 
-Para aplicar todas as etiquetas de um grupo de recursos para seus próprios recursos, e *reter etiquetas existentes nos recursos*, utilize o seguinte script:
+Para aplicar todas as etiquetas de um grupo de recursos para seus próprios recursos, e *manter as etiquetas existentes nos recursos*, utilize o seguinte script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)

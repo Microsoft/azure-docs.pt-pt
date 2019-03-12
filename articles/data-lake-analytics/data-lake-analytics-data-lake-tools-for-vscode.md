@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 5ebd543000c8927f714e5345dfd8eb6033c6301a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 5042d89f1cb5e928444e4b3c9a23db7bb1d66585
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820373"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531611"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utilizar do Azure Data Lake Tools para Visual Studio Code
 
@@ -30,7 +30,7 @@ O Azure Data Lake Tools para o VS Code suporta o Windows, Linux e macOS. Depura
 
 Para MacOS e Linux:
 - [.NET core SDK 2.0](https://www.microsoft.com/net/download/core)
-- [Mono 5.2.x](http://www.mono-project.com/download/)
+- [Mono 5.2.x](https://www.mono-project.com/download/)
 
 ## <a name="install-azure-data-lake-tools"></a>Instalar as ferramentas do Azure Data Lake
 

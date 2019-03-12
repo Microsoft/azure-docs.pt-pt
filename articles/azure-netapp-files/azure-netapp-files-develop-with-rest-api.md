@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 169638fed9a513b8ed835076c049ee21979085fe
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: b67f7a613cd72e7a69b40741d971382276a38334
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55967529"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768064"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Programar para os ficheiros NetApp do Azure com a REST API 
 

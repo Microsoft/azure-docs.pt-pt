@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 0011ee646215c01e84aec71c7b992afca1ca3c2a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34dad39e3784dd0bc73e3be108d6b31d4f479a1e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997170"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543275"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrar recursos de IaaS do clássico para o Azure Resource Manager com CLI do Azure
 Estes passos mostram como utilizar comandos de interface de linha de comandos (CLI) do Azure para migrar a infraestrutura como um recursos de serviço (IaaS) do modelo de implementação clássica para o modelo de implementação Azure Resource Manager. O artigo requer a [CLI clássica do Azure](../../cli-install-nodejs.md). Uma vez que a CLI do Azure só é aplicável para recursos do Azure Resource Manager, não pode ser utilizado para essa migração.
@@ -62,7 +62,7 @@ Selecione a subscrição do Azure com o comando seguinte.
 > [!NOTE]
 > O registo é um passo de tempo, mas ele precisa ser feito uma vez antes de tentar migrar. Sem Registro verá a seguinte mensagem de erro 
 > 
-> *BadRequest: A subscrição não está registada para migração.* 
+> *BadRequest: Subscrição não está registada para migração.* 
 > 
 > 
 
@@ -85,7 +85,7 @@ Para este passo terá de mudar para `arm` modo. Fazer isso com o seguinte comand
 azure config mode arm
 ```
 
-Pode utilizar o seguinte comando da CLI para verificar o número atual de vCPUs que tiver no Azure Resource Manager. Para saber mais sobre as quotas de vCPU, consulte [limites e o Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+Pode utilizar o seguinte comando da CLI para verificar o número atual de vCPUs que tiver no Azure Resource Manager. Para saber mais sobre as quotas de vCPU, consulte [limites e o Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

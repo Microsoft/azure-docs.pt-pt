@@ -11,15 +11,15 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d47aab9e3d083cd7f51b1c3ba613f421fc1777a6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261966"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764103"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Criar os BizTalk Services com o Portal do Azure
 
@@ -143,8 +143,8 @@ Quando cria um BizTalk Service do Azure, também é criado um URL HTTPS com o no
 <br/>
 
 <ul>
-<li><strong>Utilização de Chave Avançada</strong>: no mínimo, os Serviços BizTalk do Azure requerem a Autenticação do Servidor.</li>
-<li><strong>Nome Comum</strong>: introduza o nome de domínio completamente qualificado (FQDN) do URL do seu Serviço BizTalk do Azure. Veja <a HREF="#CreateService">Criar um BizTalk Service</a> neste artigo.</li>
+<li><strong>Utilização de chave avançada</strong>: No mínimo, os serviços BizTalk do Azure requer autenticação de servidor.</li>
+<li><strong>Nome comum</strong>: Introduza o nome de domínio completamente qualificado (FQDN) do seu URL do serviço BizTalk do Azure. Veja <a HREF="#CreateService">Criar um BizTalk Service</a> neste artigo.</li>
 </ul>
 <br/>
 Após criar o BizTalk Service, pode adicionar um novo certificado ou outro diferente.
@@ -164,15 +164,15 @@ As Ligações Híbridas são utilizadas para ligar um site do Azure ou um servi�
 
  Veja [Ligações Híbridas](integration-hybrid-connection-overview.md) para saber mais, incluindo como criar e gerir as Ligações Híbridas.
 
-## <a name="next-steps"></a>Passos seguintes
-Agora que criou um BizTalk Service, familiarize-se com os diferentes separadores em [BizTalk Services: separadores Dashboard, Monitorização e Dimensionamento](biztalk-dashboard-monitor-scale-tabs.md). O BizTalk Service está pronto para as suas aplicações. Para começar a criar aplicações, veja [BizTalk Services do Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
+## <a name="next-steps"></a>Passos Seguintes
+Agora que é criado um BizTalk Service, familiarize-se com os diferentes [os serviços BizTalk: Separadores dashboard, monitorizar e dimensionar](biztalk-dashboard-monitor-scale-tabs.md). O BizTalk Service está pronto para as suas aplicações. Para começar a criar aplicações, veja [BizTalk Services do Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Consulte também
-* [Serviços BizTalk: Gráfico de Edições](biztalk-editions-feature-chart.md)<br/>
-* [Serviços BizTalk: Gráfico de Estado](biztalk-service-state-chart.md)<br/>
-* [Serviços BizTalk: Cópia de segurança e Restauro](biztalk-backup-restore.md)<br/>
-* [Serviços BizTalk: limitação](biztalk-throttling-thresholds.md)<br/>
-* [Serviços BizTalk: Nome e Chave do Emissor](biztalk-issuer-name-issuer-key.md)<br/>
+## <a name="see-also"></a>Ver também
+* [Serviços BizTalk: Gráfico de edições](biztalk-editions-feature-chart.md)<br/>
+* [Serviços BizTalk: Gráfico de estado](biztalk-service-state-chart.md)<br/>
+* [Serviços BizTalk: Cópia de segurança e restauro](biztalk-backup-restore.md)<br/>
+* [Serviços BizTalk: Throttling](biztalk-throttling-thresholds.md)<br/>
+* [Serviços BizTalk: Nome do emissor e chave do emissor](biztalk-issuer-name-issuer-key.md)<br/>
 * [Como posso começar a utilizar o SDK dos Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Ligações Híbridas](integration-hybrid-connection-overview.md)
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 26704ca7-13ed-4261-bf24-fd6252e2072b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d0e5f641c46571bc941b6a3bac2debd66804872
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e4bf593473e646bbfe3d8db1df44bd48195b4cf7
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246481"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729654"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Tutorial: Integração do Active Directory do Azure com o Cisco Webex reuniões
 
@@ -169,7 +169,7 @@ Para configurar o Azure AD início de sessão único com o Cisco Webex reuniões
 
 ### <a name="configure-cisco-webex-meetings-single-sign-on"></a>Configurar Cisco Webex reuniões início de sessão único
 
-1. Aceda a [gerenciamento de colaboração de nuvem do Cisco](http://www.webex.com/go/connectadmin) com as suas credenciais de administração.
+1. Aceda a [gerenciamento de colaboração de nuvem do Cisco](https://www.webex.com/go/connectadmin) com as suas credenciais de administração.
 
 2. Aceda a **definições de segurança** e navegue até à **configuração de SSO Web Federado**.
  

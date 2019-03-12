@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: f0a0a17fa14272b78be5f431213c37d33619ff2f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: a2536802eb1da47531301e4476f37f7ec649c900
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415005"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762369"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Criar uma VNet com uma ligação de Rede de VPNs com o PowerShell
 
@@ -37,7 +37,7 @@ Uma ligação de gateway de VPN de Site para Site é utilizada para ligar a sua 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
 * Certifique-se de que tem um dispositivo VPN compatível e alguém que o possa configurar. Para obter mais informações sobre os dispositivos VPN compatíveis e a configuração do dispositivo, consulte [About VPN Devices (Acerca dos Dispositivos VPN)](vpn-gateway-about-vpn-devices.md).
-* Verifique se tem um endereço IP IPv4 público com acesso exterior para o seu dispositivo VPN. Este endereço IP não pode estar localizado atrás de um NAT.
+* Verifique se tem um endereço IP IPv4 público com acesso exterior para o seu dispositivo VPN.
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede no local, tem de se coordenar com alguém que consiga fornecer esses detalhes. Ao criar esta configuração, tem de especificar prefixos de intervalo de endereços IP que o Azure irá encaminhar para a sua localização no local. Nenhuma das sub-redes da rede local pode sobrepor as sub-redes de rede virtual a que pretende ligar.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
@@ -142,7 +142,7 @@ O gateway de rede local (LNG) refere-se normalmente à sua localização no loca
 
 Utilize os seguintes valores:
 
-* O *GatewayIPAddress* é o endereço IP do seu dispositivo VPN no local. O dispositivo VPN não pode estar localizado atrás de um NAT.
+* O *GatewayIPAddress* é o endereço IP do seu dispositivo VPN no local.
 * O *AddressPrefix* é o seu espaço de endereços no local.
 
 Para adicionar um gateway de rede local com um prefixo de endereço único:

@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 2/27/2019
 ms.author: rosh
-ms.openlocfilehash: cadeaaf13268525dd535dd72e676c85272a65053
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 6b7685f837cabf7ec659311c54f8c168981e4777
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340436"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544721"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Início rápido: Obtenha informações de imagem usando a API de REST de pesquisa Visual do Bing e Ruby
 
@@ -172,9 +172,9 @@ JSON Response:
                 "thumbnailUrl": "https://tse2.mm.bing.net/th?id=OIP.FyoKOORtLFGzzanAVfPt4QAAAA&pid=Api",
                 "datePublished": "2014-02-04T12:00:00.0000000Z",
                 "isFamilyFriendly": true,
-                "contentUrl": "http://lovedbyacollie.lifeseven.com/wp-content/uploads/2014/02/PBBcookies.png",
+                "contentUrl": "https://lovedbyacollie.lifeseven.com/wp-content/uploads/2014/02/PBBcookies.png",
                 "contentUrlPingSuffix": "DevEx,5046.1",
-                "hostPageUrl": "http://lovedbyacollie.lifeseven.com/2014/02/04/peanut-butter-banana-training-treats/",
+                "hostPageUrl": "https://lovedbyacollie.lifeseven.com/2014/02/04/peanut-butter-banana-training-treats/",
                 "hostPageUrlPingSuffix": "DevEx,5045.1",
                 "contentSize": "197552 B",
                 "encodingFormat": "png",
@@ -257,9 +257,9 @@ JSON Response:
                 "thumbnailUrl": "https://tse4.mm.bing.net/th?id=OIP.v0zvOeP8dnNFPWQNSu80hwAAAA&pid=Api",
                 "datePublished": "2017-09-08T02:27:00.0000000Z",
                 "isFamilyFriendly": true,
-                "contentUrl": "http://bemz.scene7.com/is/image/Bemz?obj=masks&src=ir%7bBemzRender%2fsq50v2%3f%26src%3dDG2130%26rs%3dQ5%26sharpen%3d1%26res%3d20%26wid%3d2400%26hei%3d2400%7d&resmode=sharp2&op_usm=1,1,8&wid=280&hei=280&scl=5",
+                "contentUrl": "https://bemz.scene7.com/is/image/Bemz?obj=masks&src=ir%7bBemzRender%2fsq50v2%3f%26src%3dDG2130%26rs%3dQ5%26sharpen%3d1%26res%3d20%26wid%3d2400%26hei%3d2400%7d&resmode=sharp2&op_usm=1,1,8&wid=280&hei=280&scl=5",
                 "contentUrlPingSuffix": "DevEx,5066.1",
-                "hostPageUrl": "http://bemz.com/inspiration/popular-products/i-love-my-soderhamn/",
+                "hostPageUrl": "https://bemz.com/inspiration/popular-products/i-love-my-soderhamn/",
                 "hostPageUrlPingSuffix": "DevEx,5065.1",
                 "contentSize": "3000 B",
                 "encodingFormat": "jpeg",

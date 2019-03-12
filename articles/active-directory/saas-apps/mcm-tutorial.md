@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7f00799d-e3e9-4ba9-ae4a-fbca843ac5db
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 01b466c67874413ce075fd338bdf4f2b9f4d0a3d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 8651c853c256529e3f8746b4b50f9694bbb1dc38
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805397"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Tutorial: Integração do Active Directory do Azure com MCM
 

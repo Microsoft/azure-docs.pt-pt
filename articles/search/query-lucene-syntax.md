@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 59362b28390556f12cce8813635894c9f06b9a20
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 5bb5993ea47bfcaca96662fbb3d34341e137b929
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56008476"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544839"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxe de consulta Lucene no Azure Search
 Pode escrever consultas no Azure Search com base na avançada [analisador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) sintaxe para formulários de consulta especializadas: carateres universais, a pesquisa difusa, pesquisa de proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consultas de Lucene é [implementado intacto no Azure Search](search-lucene-query-architecture.md), com exceção do *pesquisas de intervalo* que é construído no Azure Search através de `$filter` expressões. 
@@ -41,20 +41,20 @@ O exemplo a seguir encontra documentos no índice utilizando a sintaxe de consul
 
 O `searchMode=all` parâmetro é relevante neste exemplo. Sempre que são operadores de consulta, em geral, deve definir `searchMode=all` para se certificar de que *todos os* dos critérios é correspondido.
 
-```  
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full  
-```  
+```
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2015-02-28&querytype=full
+```
 
  Em alternativa, utilize POST:  
 
-```  
-POST /indexes/hotels/docs/search?api-version=2015-02-28  
-{  
-  "search": "category:budget AND \"recently renovated\"^3",  
-  "queryType": "full",  
-  "searchMode": "all"  
-}  
-```  
+```
+POST /indexes/hotels/docs/search?api-version=2015-02-28
+{
+  "search": "category:budget AND \"recently renovated\"^3",
+  "queryType": "full",
+  "searchMode": "all"
+}
+```
 
 Para obter exemplos adicionais, consulte [exemplos de sintaxe de consulta Lucene para a criação de consultas na Azure Search](search-query-lucene-examples.md). Para obter detalhes sobre como especificar o contingent completa dos parâmetros de consulta, consulte [documentos sobre pesquisa &#40;API de REST do serviço de pesquisa do Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 

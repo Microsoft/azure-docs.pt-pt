@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e208f899ff26135d3ce26bfa18096210513381
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bcc93254b50da9bff6f687034d39d0058aa514e1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192052"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765960"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Active Directory do Azure com a percepção dos Estados Unidos (não-UltiPro)
 
@@ -166,7 +166,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     
     c. Na **nome do fornecedor de identidade** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure. 
 
-    d. Na **caixa de texto do domínio de SAML**, introduza o domínio, como **@contoso.com**.
+    d. Na **caixa de texto do domínio de SAML**, introduza o domínio, como  **\@contoso.com**.
 
     e. Clique em **carregar novamente** para carregar o **XML de metadados** ficheiro.
 

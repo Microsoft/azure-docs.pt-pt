@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 38a5434d4b6f27aacdf1861fa0b005501ad1e28b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7069114a8cb63b8b166bc29e92d8f355c49824bb
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308895"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727149"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -230,28 +230,28 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
 
 **Cmdlets do PowerShell (incluindo suporte de cláusula WHERE para filtrar adicionais)**:
 
-- [Criar ou atualizar o Blob de base de dados (Set-AzSqlDatabaseAuditing) de política de auditoria](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Criar ou atualizar o Blob de servidor (conjunto-AzSqlServerAuditing) de política de auditoria](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [Criar ou atualizar a base de dados (Set-AzSqlDatabaseAuditing) de política de auditoria](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Criar ou atualizar a política de auditoria de servidor (conjunto-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
 - [Obter política de auditoria de base de dados (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Obter política de auditoria de BLOBs de servidor (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Obter política de auditoria (Get-AzSqlServerAuditing) de servidor](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Para obter um exemplo de script, consulte [configurar a deteção de ameaças e auditoria com o PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
 ## <a id="subheading-9"></a>Gerir a auditoria de base de dados SQL com a REST API
 
-**REST API - a auditoria de BLOBs**:
+**REST API**:
 
-- [Criar ou atualizar a política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Criar ou atualizar a política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Obter política de auditoria de BLOBs de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Obter política de auditoria de BLOBs de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Criar ou atualizar a política de auditoria de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Criar ou atualizar o servidor de política de auditoria](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Obter política de auditoria de base de dados](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [Obter política de auditoria de servidor](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Obter política expandida com em que suporta a cláusula para filtragem adicionais:
 
-- [Criar ou atualizar a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Criar ou atualizar o servidor *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Obter a base de dados *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Obtenha o Server *expandido* diretiva de auditoria de BLOBs](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Criar ou atualizar a base de dados *expandido* diretiva de auditoria](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [Criar ou atualizar o servidor *expandido* diretiva de auditoria](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Obter a base de dados *expandido* diretiva de auditoria](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [Obtenha o Server *expandido* diretiva de auditoria](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>Gerir a auditoria de base de dados SQL através de modelos ARM
 

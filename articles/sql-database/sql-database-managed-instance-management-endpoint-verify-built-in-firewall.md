@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: d7b781a2cfcf17285b105a104588fe1569dffe4b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f059ac4149a385a12b440db0ad6394a343a1f810
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346225"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761927"
 ---
 # <a name="verifying-the-managed-instance-built-in-firewall"></a>A verificar o firewall interno da instância gerida
 

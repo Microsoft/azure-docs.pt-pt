@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: b-juche
-ms.openlocfilehash: 72da85fb7296d02bc6d5f7fcd3279953c312c920
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f08eaee038ad18c600826dea6fe0fd85935de59a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009218"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761978"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Redimensionar um conjunto de capacidade ou um volume
 Pode alterar o tamanho de um conjunto de capacidade ou um volume, se necessário. 
@@ -34,7 +34,7 @@ Pode alterar o tamanho do conjunto de capacidade em incrementos de 4 TiB ou dimi
 
 ## <a name="resize-a-volume"></a>Redimensionar um volume
 
-Pode alterar o tamanho de um volume, se necessário. Consumo de capacidade de um volume é deduzida da capacidade aprovisionada de seu conjunto.
+Pode alterar o tamanho de um volume, se necessário. O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto.
 
 1. No painel da conta de NetApp gerir, clique em **Volumes**. 
 2. Faça duplo clique o nome do volume que deseja redimensionar ou clique no ícone "..." no final da linha do volume para exibir o menu de contexto.

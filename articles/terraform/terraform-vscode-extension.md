@@ -2,19 +2,19 @@
 title: Instalar e utilizar a extensão do Azure Terraform no Visual Studio Code
 description: Saiba como instalar e utilizar a extensão do Azure Terraform no Visual Studio Code.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, azure, devops, visual studio code, extensão
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: df8260cc0d8ddd8521aa5bf683402c62bc2608f4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074585"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766738"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Instalar e utilizar a extensão do Azure Terraform no Visual Studio Code
 
@@ -173,7 +173,7 @@ Neste exercício, irá criar e executar um ficheiro de configuração básico do
 
 Numa fase anterior deste tutorial, instalou o GraphViz. O Terraform pode usar o GraphViz para gerar uma representação visual de uma configuração ou plano de execução. A extensão Azure Terraform do Visual Studio Code implementa esta funcionalidade por meio do comando *visualize*.
 
-- Na barra de menus, selecione **vista > paleta de comandos > Terraform do Azure: Visualizar**.
+- Na barra de menus, selecione **vista > paleta de comandos > Terraform do Azure: Visualize**.
 
     ![Ver o plano](media/terraform-vscode-extension/tf-graph.png)
 

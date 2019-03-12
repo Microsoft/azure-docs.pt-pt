@@ -5,19 +5,18 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
-ms.openlocfilehash: b8ae0e232ea70401a383f0a325b16caefcf51fae
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 1a4f1a5f8dac4f202f641111105da3cdfb70c823
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195001"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775412"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com .NET Core e o Visual Studio
 
@@ -34,7 +33,7 @@ Neste guia, vai aprender a:
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster do Kubernetes ativado para os Espaços de Programador do Azure
 
-1. Inicie sessão no portal do Azure em http://portal.azure.com.
+1. Inicie sessão no portal do Azure em https://portal.azure.com.
 1. Escolha **Criar um recurso** > procure **Kubernetes** > selecione **Serviço Kubernetes** > **Criar**.
 
    Conclua os passos seguintes, descritos abaixo de cada um dos títulos do formulário para criar o cluster de AKS.

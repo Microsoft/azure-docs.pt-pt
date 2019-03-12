@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: b80eee00f875ba9d7580acfc3340dfa2cec33fbe
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 64cd6276c00126a745e77f3d32679c54ebc2f190
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240954"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771128"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utilizar GPUs para cargas de trabalho intensivas de computação no Azure Kubernetes Service (AKS)
 
@@ -46,7 +46,7 @@ az aks create \
     --name myAKSCluster \
     --node-vm-size Standard_NC6 \
     --node-count 1 \
-    --kubernetes-version 1.11.7
+    --kubernetes-version 1.11.8
 ```
 
 Obter as credenciais para o seu cluster do AKS com o [az aks get-credentials] [ az-aks-get-credentials] comando:

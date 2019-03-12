@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: e8163ad34046261d9671c57db2cd2d2052fe35e0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401423"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550792"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilizar o DNS do Azure para fornecer definições de domínio personalizado para um serviço do Azure
 
@@ -38,10 +38,10 @@ Tenha em atenção o atual url no **domínios personalizados** painel, este ende
 
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
-|Nome     | myfunctionapp        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
+|Name     | myfunctionapp        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
 |TTL     | 1        | 1 é utilizado para 1 hora        |
 |Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
 |Alias     | adatumfunction.azurewebsites.net        | O nome DNS está a criar o alias, neste exemplo é o nome DNS adatumfunction.azurewebsites.net fornecido por predefinição para a aplicação de funções.        |
@@ -54,7 +54,7 @@ Na **Adicionar nome de anfitrião** painel, introduza o registo CNAME no **nome 
 
 ## <a name="public-ip-address"></a>Endereço IP público
 
-Para configurar um domínio personalizado para o recurso, como o Gateway de aplicação, o Balanceador de carga, o serviço em nuvem, o VMs do Resource Manager de endereços de serviços que utilizam um IP público e, registar VMs clássicas, um CNAME utilizado.
+Para configurar um domínio personalizado para recursos, como o Gateway de aplicação, o Balanceador de carga, o serviço em nuvem, o VMs do Resource Manager de endereços de serviços que utilizam um IP público, e as VMs clássicas, um registo é usada.
 
 Navegue para **Networking** > **endereço IP público**, selecione o recurso de IP público e clique em **configuração**. Notate o endereço IP mostrado.
 
@@ -63,10 +63,10 @@ Navegue para **Networking** > **endereço IP público**, selecione o recurso de 
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
-|Nome     | mywebserver        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | A        | Utilize um registo, como o recurso é um endereço IP.        |
+|Name     | mywebserver        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | A        | Utilize um registo, como o recurso é um endereço IP.        |
 |TTL     | 1        | 1 é utilizado para 1 hora        |
 |Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
 |Endereço IP     | <your ip address>       | O endereço IP público.|
@@ -90,10 +90,10 @@ Tenha em atenção o atual url no **domínios personalizados** painel, este ende
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
-|Nome     | mywebserver        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | CNAME        | Utilize um registo CNAME está a utilizar um alias. Se o recurso utilizado um endereço IP, seria usado um registo.        |
+|Name     | mywebserver        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | CNAME        | Utilize um registo CNAME está a utilizar um alias. Se o recurso utilizado um endereço IP, seria usado um registo.        |
 |TTL     | 1        | 1 é utilizado para 1 hora        |
 |Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
 |Alias     | webserver.azurewebsites.net        | O nome DNS está a criar o alias, neste exemplo é o nome DNS webserver.azurewebsites.net fornecido por predefinição para a aplicação web.        |
@@ -124,10 +124,10 @@ Navegue para **armazenamento** > **contas de armazenamento**, selecione a sua co
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
-|Nome     | asverify.mystorageaccount        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
+|Name     | asverify.mystorageaccount        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
 |TTL     | 1        | 1 é utilizado para 1 hora        |
 |Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | O nome DNS está a criar o alias, neste exemplo é o nome DNS asverify.adatumfunctiona9ed.blob.core.windows.net fornecido por predefinição para a conta de armazenamento.        |
@@ -152,10 +152,10 @@ Selecione o ponto final que está a trabalhar e clique em **+ domínio personali
 
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
-|Nome     | cdnverify.mycdnendpoint        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Tipo     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
+|Name     | cdnverify.mycdnendpoint        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Type     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
 |TTL     | 1        | 1 é utilizado para 1 hora        |
 |Unidade de TTL     | Horas        | Horas são utilizadas como a medição do tempo         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | O nome DNS está a criar o alias, neste exemplo é o nome DNS cdnverify.adatumcdnendpoint.azureedge.net fornecido por predefinição para a conta de armazenamento.        |

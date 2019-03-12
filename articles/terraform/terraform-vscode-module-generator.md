@@ -2,19 +2,19 @@
 title: Criar um modelo de base do Terraform no Azure com o Yeoman
 description: Saiba como criar um modelo de base do Terraform no Azure com o Yeoman.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, máquina virtual, azure, yeoman
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 1133e6b35d200ec7f855b41f3ae5d6f37949fc97
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 489f81842cca864ad1d55d7bb524fea7af960c65
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568503"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775837"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Criar um modelo de base do Terraform no Azure com o Yeoman
 

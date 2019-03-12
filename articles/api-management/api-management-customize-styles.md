@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4ea64b16a9a581683d3b7a44b4b331af435db22c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441762"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762726"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizar o estilo das páginas de portal do Programador
 
@@ -40,8 +40,8 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
-+ Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
-+ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
++ Conclua o início rápido seguinte: [Criar uma instância de gestão de API do Azure](get-started-create-service-instance.md).
++ Além disso, conclua o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -57,11 +57,11 @@ Neste tutorial, ficará a saber como:
     Todos os elementos que pode personalizar com **Estilos** aparecem na página
 5. Introduza "headings-color" no campo **Alterar valores de variáveis para personalizar o aspeto do portal do programador:**.
 
-    O elemento **@headings-color** é apresentado na página. Esta variável controla a cor do texto.
+    O  **\@headings-color** elemento aparece na página. Esta variável controla a cor do texto.
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Clique no campo para a variável **@headings-color**. 
+6. Clique no campo para o  **\@headings-color** variável. 
     
     É aberto o menu pendente do selecionador de cores.
 7. No menu pendente do selecionador de cores, selecione uma nova cor.

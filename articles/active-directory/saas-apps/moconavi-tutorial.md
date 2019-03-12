@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e1916224-e1c2-426f-b233-0a2518fa41db
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b2b1ed89ec9a4d4fb0082a26ac3cd7bfc10ed508
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: e63dbdd6a2556768cea55293b618975522e15cbb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246785"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integração do Active Directory do Azure com moconavi
 

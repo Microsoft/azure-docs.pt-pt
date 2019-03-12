@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 63de39fa97850c1df72bdcd964ed670e4e8b0608
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250653"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767197"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Referência do cmdlet Start-AzsReadinessChecker
 
@@ -301,7 +301,7 @@ Neste exemplo, a equipe de implantação ou suporte recebe o relatório de prepa
 Especifica o nome da região da implementação do Azure Stack.
 |  |  |
 |----------------------------|--------------|
-|Escreva:                       |Cadeia        |
+|Escreva:                       |String        |
 |Posição:                   |com o nome         |
 |Valor predefinido:              |Nenhuma          |
 |Aceite entrada de pipeline:      |Falso         |
@@ -312,7 +312,7 @@ Especifica o nome da região da implementação do Azure Stack.
 Especifica o FQDN de externo a implementação Azure Stack, também utilizada como alias ExternalFQDN e ExternalDomainName.
 |  |  |
 |----------------------------|--------------|
-|Escreva:                       |Cadeia        |
+|Escreva:                       |String        |
 |Posição:                   |com o nome         |
 |Valor predefinido:              |ExternalFQDN, ExternalDomainName |
 |Aceite entrada de pipeline:      |Falso         |
@@ -323,7 +323,7 @@ Especifica o FQDN de externo a implementação Azure Stack, também utilizada co
 Especifica sistema de identidade valores válidos a implementação Azure Stack, AAD ou ADFS, para o Azure Active Directory e o Active Directory Federated Services, respetivamente.
 |  |  |
 |----------------------------|--------------|
-|Escreva:                       |Cadeia        |
+|Escreva:                       |String        |
 |Posição:                   |com o nome         |
 |Valor predefinido:              |Nenhuma          |
 |Valores válidos:               |'AAD','ADFS'  |
@@ -357,7 +357,7 @@ Especifica a tabela de hash contendo caminhos e palavras-passe para certificados
 Especifica o ficheiro de configuração do Azure Stack implementação dados JSON. Este ficheiro é gerado para a implementação.
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
 |Aceite entrada de pipeline:      |Falso    |
@@ -368,7 +368,7 @@ Especifica o ficheiro de configuração do Azure Stack implementação dados JSO
 Especifica o caminho para um certificado problemático que requer a rotina de importação/exportação para corrigir, conforme indicado pela validação de certificado nesta ferramenta.
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
 |Aceite entrada de pipeline:      |Falso    |
@@ -379,7 +379,7 @@ Especifica o caminho para um certificado problemático que requer a rotina de im
 Especifica o caminho de destino para o ficheiro PFX resultante da rotina de importação/exportação.  
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
 |Aceite entrada de pipeline:      |Falso    |
@@ -405,7 +405,7 @@ Especifica o tipo de SAN, o pedido de certificado. Valid values MultipleCSR, Sin
 
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
 |Valores válidos:               |'MultipleCSR','SingleCSR' |
@@ -417,7 +417,7 @@ Especifica o tipo de SAN, o pedido de certificado. Valid values MultipleCSR, Sin
 Especifica o caminho de destino para os ficheiros de pedido de certificado, o diretório já deve existir.
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
 |Aceite entrada de pipeline:      |Falso    |
@@ -439,7 +439,7 @@ Especifica o administrador do serviço de diretório do Azure Active Directory a
 Especifica o nome do Azure Active Directory a utilizar para a implementação do Azure Stack.
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
 |Aceite entrada de pipeline:      |Falso    |
@@ -450,7 +450,7 @@ Especifica o nome do Azure Active Directory a utilizar para a implementação do
 Especifica a instância dos serviços do Azure que contém as contas, diretórios e subscrições para ser utilizado para implementação do Azure Stack e o Registro.
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
 |Valores válidos:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
@@ -462,7 +462,7 @@ Especifica a instância dos serviços do Azure que contém as contas, diretório
 Especifica a conta de registo a ser utilizadas para registo do Azure Stack.
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
 |Aceite entrada de pipeline:      |Falso    |
@@ -473,7 +473,7 @@ Especifica a conta de registo a ser utilizadas para registo do Azure Stack.
 Especifica o ID de subscrição de registo a ser utilizadas para registo do Azure Stack.
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |GUID     |
+|Escreva:                       |Guid     |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Nenhuma     |
 |Aceite entrada de pipeline:      |Falso    |
@@ -484,7 +484,7 @@ Especifica o ID de subscrição de registo a ser utilizadas para registo do Azur
 Especifica o caminho para o relatório de preparação, é predefinido para o nome do relatório atual diretório e padrão.
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Todos      |
 |Aceite entrada de pipeline:      |Falso    |
@@ -506,7 +506,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, do Portal de administração, ARM de administ
 
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |.\Certificates |
 |Aceite entrada de pipeline:      |Falso    |
@@ -529,7 +529,7 @@ Especifica se os serviços/nomes de anfitrião de PaaS devem ser adicionadas par
 Especifica se a Mostrar relatório de resumo, apenas omite detalhes.
 |  |  |
 |----------------------------|---------|
-|Escreva:                       |Cadeia   |
+|Escreva:                       |String   |
 |Posição:                   |com o nome    |
 |Valor predefinido:              |Todos      |
 |Valores válidos:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
@@ -565,7 +565,7 @@ Especifica o caminho personalizado para guardar o relatório de preparação par
 
 |  |  |
 |----------------------------|------------------|
-|Escreva:                       |Cadeia            |
+|Escreva:                       |String            |
 |Posição:                   |com o nome             |
 |Valor predefinido:              |$ENV:TEMP\AzsReadinessChecker  |
 |Aceite entrada de pipeline:      |Falso             |

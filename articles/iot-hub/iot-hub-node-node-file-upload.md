@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 8b502c7616ed889166e0c5e708fe7858bf884031
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: f110fe84ab09e930947411a79c950af21cc5334c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011165"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544525"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 
@@ -218,7 +218,7 @@ Neste tutorial, aprendeu a utilizar as capacidades de carregamento de arquivo do
 * [SDKs do Azure IoT][lnk-sdks]
 
 <!-- Links -->
-[Centro de Programadores do Azure IoT]: http://azure.microsoft.com/develop/iot
+[Centro de Programadores do Azure IoT]: https://azure.microsoft.com/develop/iot
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

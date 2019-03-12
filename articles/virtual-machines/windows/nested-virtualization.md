@@ -7,16 +7,16 @@ author: cynthn
 manager: jeconnoc
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: howto
+ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 096c7d54d0d6a166f62456e951b4c739074a8011
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f90ca51349eef92bd25095f5a2a10d7d181fdb2c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444417"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766534"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como ativar a virtualização aninhada na VM do Azure
 

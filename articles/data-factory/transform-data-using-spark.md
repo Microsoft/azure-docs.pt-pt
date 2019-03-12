@@ -3,23 +3,23 @@ title: Transformar dados com a atividade do Spark no Azure Data Factory | Docume
 description: Saiba como transformar dados, executando programas de Spark a partir de um pipeline de fábrica de dados do Azure com a atividade do Spark.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2018
-ms.author: douglasl
-ms.openlocfilehash: a25505a976be9d9ae38f562591d86ca9b56b8859
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025617"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576205"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados com a atividade do Spark no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-spark.md)
 > * [Versão atual](transform-data-using-spark.md)
 
@@ -80,15 +80,15 @@ Tarefas do Spark são mais extensíveis das tarefas do Pig/Hive. Para tarefas do
 
 Crie a seguinte estrutura de pasta no armazenamento de Blobs do Azure referenciado pelo serviço ligado do HDInsight. Em seguida, carregue ficheiros dependentes para as subpastas apropriado na pasta raiz representado pelo **entryFilePath**. Por exemplo, carregue os ficheiros de python para a subpasta pyFiles e ficheiros jar para a subpasta jars da pasta raiz. No tempo de execução, o serviço Data Factory espera que a seguinte estrutura de pasta no armazenamento de Blobs do Azure:     
 
-| Caminho                  | Descrição                              | Necessário | Tipo   |
+| Caminho                  | Descrição                              | Necessário | Type   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (root)            | O caminho da raiz da tarefa do Spark no serviço ligado do armazenamento | Sim      | Pasta |
 | &lt;definido pelo utilizador &gt; | O caminho que aponta para o ficheiro de entrada da tarefa do Spark | Sim      | Ficheiro   |
-| . / jars                | Todos os ficheiros nessa pasta são carregados e colocados no caminho da classe de java do cluster | Não       | Pasta |
-| . / pyFiles             | Todos os ficheiros nessa pasta são carregados e colocados em PYTHONPATH do cluster | Não       | Pasta |
-| . / ficheiros               | Todos os ficheiros nessa pasta são carregados e colocados no diretório de trabalho do executor | Não       | Pasta |
+| ./jars                | Todos os ficheiros nessa pasta são carregados e colocados no caminho da classe de java do cluster | Não       | Pasta |
+| ./pyFiles             | Todos os ficheiros nessa pasta são carregados e colocados em PYTHONPATH do cluster | Não       | Pasta |
+| ./files               | Todos os ficheiros nessa pasta são carregados e colocados no diretório de trabalho do executor | Não       | Pasta |
 | . / arquiva            | Todos os ficheiros nessa pasta são descomprimidos | Não       | Pasta |
-| . / registos                | A pasta que contém os registos do cluster do Spark. | Não       | Pasta |
+| ./logs                | A pasta que contém os registos do cluster do Spark. | Não       | Pasta |
 
 Eis um exemplo para um armazenamento que contém dois arquivos de tarefa do Spark no armazenamento de Blobs do Azure referenciada pelo serviço ligado do HDInsight.
 

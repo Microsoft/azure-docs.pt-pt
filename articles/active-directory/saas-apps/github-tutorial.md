@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abddd3f88e8e523b5856de0ff19998a0e07e7376
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f7dd926e679a8d12180f763d952097ea21e7ca30
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870589"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764257"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Active Directory do Azure com o GitHub
 

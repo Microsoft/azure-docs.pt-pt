@@ -4,14 +4,14 @@ description: Fornece uma descrição geral dos problemas conhecidos no serviço 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: raynew
-ms.openlocfilehash: 7479f651a9fce5d65b1faf4113febb6e79c426b2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0eede0ae4623d68adf749dc528ac5cc1ce81e024
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439083"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730411"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -80,11 +80,9 @@ esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/conto
 
 4. Assim que o relatório é transferido, utilize o Excel para navegar para a pasta transferida e abra o ficheiro no Excel para vê-la.
 
-### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Dados de desempenho para os adaptadores de discos e redes mostram como os zeros
+### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Dados de desempenho de CPU, memória e discos são apresentados como zeros
 
-Isto pode ocorrer se o nível de definição de estatística no vCenter server está definido como inferior a três. Em três nível ou superior, o vCenter armazena histórico de desempenho da VM para computação, armazenamento e rede. Para o nível menos de três, vCenter não armazena o armazenamento e dados de rede, mas apenas para dados da CPU e memória. Neste cenário, dados de desempenho mostra como zero no Azure Migrate e do Azure Migrate oferece a recomendação de tamanho para discos e redes com base nos metadados recolhidos das máquinas no local.
-
-Para ativar a recolha de dados de desempenho de disco e rede, altere o nível de definições de estatísticas como três. Em seguida, aguarde, pelo menos, um dia para descobrir o seu ambiente e avaliá-lo.
+O Azure Migrate perfis continuamente o ambiente no local para recolher dados de desempenho das VMs no local. Se tiver iniciado a deteção do seu ambiente, tem de aguardar pelo menos um dia para a recolha de dados de desempenho a ser feito. Se uma avaliação for criada sem aguardar por um dia, as métricas de desempenho serão apresentados como zeros. Depois de aguardar por dia, pode criar uma nova avaliação ou atualizar a avaliação existente com a opção "Recalcular" no relatório de avaliação.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Eu especifiquei uma geografia do Azure, ao criar um projeto de migração, como posso saber a região do Azure exata em que os metadados detetados seriam armazenados?
 

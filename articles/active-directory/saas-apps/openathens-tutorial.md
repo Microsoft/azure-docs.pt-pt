@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dd4adfc7-e238-41d5-8b25-1811f08078b6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e1c104380974c04309a7c2c80c976cfb2a099b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 61ee9b7f6155396d520ca4e093db02812cd488ee
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867189"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Tutorial: Integração do Active Directory do Azure com OpenAthens
 

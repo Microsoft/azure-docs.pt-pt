@@ -3,17 +3,17 @@ title: Formato de dados do perímetro geográfico GeoJSON no Azure Maps | Docume
 description: Saiba mais sobre o formato de dados do perímetro geográfico GeoJSON no Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/15/2018
+ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5a654b7fdae341da62d94499830a5e1202dff921
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 6f76eea365311cd6c10dd39054187bf3a07bd595
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339639"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568996"
 ---
 # <a name="geofencing-geojson-data"></a>Dados de barreira geográfica GeoJSON
 
@@ -34,7 +34,7 @@ Os dados para o perímetro geográfico ou conjunto de perímetros geográficos s
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | O início, data hora da validade período de tempo. |
 | endTime   | Datetime  | true |  Data hora da validade período de tempo final. |
-| recurrenceType | cadeia | false |   O tipo de periodicidade do período. O valor pode ser `Daily`, `Weekly`, `Monthly`, ou `Yearly`. Valor predefinido é `Daily`.|
+| recurrenceType | string | false |   O tipo de periodicidade do período. O valor pode ser `Daily`, `Weekly`, `Monthly`, ou `Yearly`. Valor predefinido é `Daily`.|
 | businessDayOnly | Booleano | false |  Indica se os dados só são válidos durante dias úteis. Valor predefinido é `false`.|
 
 

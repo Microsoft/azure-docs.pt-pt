@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c2bee4d35fe857d5ad3bf26dc1145b8721c85df4
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 44252274cc3c0050ba138c3115deeceb2f06f8d8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594241"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782773"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para o serviço de aplicações do Azure
 
@@ -102,7 +102,7 @@ Na **domínios personalizados** página, clique em **comprar domínio**.
 ### <a name="configure-the-domain-purchase"></a>Configurar a compra de domínio
 
 No **domínio do serviço de aplicações** página, além do **Procurar domínio** , escreva o nome de domínio que pretende comprar e escreva `Enter`. Os domínios disponíveis sugeridos são apresentados imediatamente por baixo da caixa de texto. Selecione um ou mais domínios que pretende comprar.
-   
+
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
 
 > [!NOTE]
@@ -111,15 +111,15 @@ No **domínio do serviço de aplicações** página, além do **Procurar domíni
 >
 
 Clique nas **informações de contacto** e preencha o formulário de informações de contacto do domínio. Quando terminar, clique em **OK** para voltar à página de domínio do serviço de aplicações.
-   
-É importante que preenche necessárias de todos os campos com muito mais precisão possível. Dados incorretos informações de contacto podem resultar numa falha para comprar domínios. 
+
+É importante que preenche necessárias de todos os campos com muito mais precisão possível. Dados incorretos informações de contacto podem resultar numa falha para comprar domínios.
 
 Em seguida, selecione as opções pretendidas para o seu domínio. Consulte a tabela seguinte para obter explicações:
 
 | Definição | Valor sugerido | Descrição |
 |-|-|-|
 |Proteção de privacidade | Ativar | Escolher "Proteção de privacidade", que está incluída no preço de compra _gratuitamente_. Alguns domínios de nível superior são gerenciados por entidades de registo que não suportam a proteção de privacidade e estão listadas no **proteção da privacidade** página. |
-| Atribuir nomes de anfitrião predefinidos | **www** e **@** | Selecione os enlaces de nome de anfitrião desejado, se assim o desejar. Quando a operação de compra de domínio estiver concluída, a sua aplicação pode ser acessada em nomes de anfitrião selecionado. Se a aplicação está por trás [Gestor de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), não vir a opção de atribuir o domínio de raiz (@), porque o Gestor de tráfego faz não suporte registos. Pode efetuar alterações a atribuições de nome de anfitrião depois de concluir a compra de domínio. |
+| Atribuir nomes de anfitrião predefinidos | **www** e **\@** | Selecione os enlaces de nome de anfitrião desejado, se assim o desejar. Quando a operação de compra de domínio estiver concluída, a sua aplicação pode ser acessada em nomes de anfitrião selecionado. Se a aplicação está por trás [Gestor de tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), não vir a opção de atribuir o domínio de raiz (@), porque o Gestor de tráfego faz não suporte registos. Pode efetuar alterações a atribuições de nome de anfitrião depois de concluir a compra de domínio. |
 
 ### <a name="accept-terms-and-purchase"></a>Aceitar termos e compra
 

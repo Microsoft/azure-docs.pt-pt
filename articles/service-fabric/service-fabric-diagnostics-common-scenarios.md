@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 355b859428712b2e7b086fdfc152044814695b7b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 8d6d2d83e24b5e42af5f4322021eebfe9bf09494
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243946"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551300"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
@@ -72,7 +72,7 @@ As soluções neste artigo, irão utilizar as seguintes ferramentas. Recomendamo
 
     ```kusto
     ServiceFabricOperationalEvent
-    | where EventID >= 25622 or EventID <= 25626
+    | where EventID >= 25622 and EventID <= 25626
     ```
 
 5. Clique em "Nova regra de alerta" na parte superior e agora sempre que um evento chegar com base nesta consulta, receberá um alerta no seu método escolhido de comunicação.

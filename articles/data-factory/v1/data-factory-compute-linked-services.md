@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fea90d273d156eec3bf29f376e4cf6668c68170f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0e0a249c53c90d3d8d03dcdb5fbb4f11f31c54df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697525"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545168"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 > [!NOTE]
@@ -116,7 +116,7 @@ O seguinte JSON define um serviço de ligado de HDInsight a pedido baseado em Li
 > [!IMPORTANT]
 > O cluster do HDInsight cria um *contentor predefinido* no armazenamento de Blobs do Azure que especificar no JSON **linkedServiceName** propriedade. Por predefinição, o HDInsight não elimina este contentor quando o cluster é eliminado. Num serviço ligado de HDInsight a pedido, é criado um cluster do HDInsight sempre que um setor tiver de ser processada, a menos que exista um cluster em direto (**timeToLive**). O cluster é eliminado quando o processamento é concluído. 
 >
-> Como são processados mais setores, verá muitos contentores no armazenamento de Blobs. Se não precisar dos contentores para tarefas de resolução de problemas, poderá eliminar os contentores para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: `adf<your Data Factory name>-<linked service name>-<date and time>`. Pode usar uma ferramenta como o [Explorador de armazenamento do Microsoft](http://storageexplorer.com/) para eliminar contentores no armazenamento de Blobs.
+> Como são processados mais setores, verá muitos contentores no armazenamento de Blobs. Se não precisar dos contentores para tarefas de resolução de problemas, poderá eliminar os contentores para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: `adf<your Data Factory name>-<linked service name>-<date and time>`. Pode usar uma ferramenta como o [Explorador de armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de Blobs.
 >
 > 
 
@@ -271,7 +271,7 @@ Pode criar um serviço de Batch ligado para registar um conjunto do Batch de má
 Se estiver a utilizar o serviço Batch:
 
 * Saiba mais sobre [Noções básicas do Azure Batch](../../batch/batch-technical-overview.md).
-* Saiba mais sobre o [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet. Utilize este cmdlet para criar uma conta do Batch. Em alternativa, pode criar a conta do Batch com o [portal do Azure](../../batch/batch-account-create-portal.md). Para obter informações detalhadas sobre como utilizar o cmdlet, consulte [utilizar o PowerShell para gerir uma conta do Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* Saiba mais sobre o [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet. Utilize este cmdlet para criar uma conta do Batch. Em alternativa, pode criar a conta do Batch com o [portal do Azure](../../batch/batch-account-create-portal.md). Para obter informações detalhadas sobre como utilizar o cmdlet, consulte [utilizar o PowerShell para gerir uma conta do Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Saiba mais sobre o [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet. Utilize este cmdlet para criar um conjunto do Batch.
 
 ### <a name="example"></a>Exemplo

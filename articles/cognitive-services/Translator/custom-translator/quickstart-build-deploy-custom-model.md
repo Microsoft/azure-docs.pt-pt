@@ -5,16 +5,16 @@ description: Neste início rápido que avança processo passo a passo da criaç�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 25ff375b3b29729270b23372d82d1978c4ae37be
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7875a32274ddf0ea886727cdc55a0bbb874b2296
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735004"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762998"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início rápido: Criar, implementar e utilizar um modelo personalizado para a tradução
 

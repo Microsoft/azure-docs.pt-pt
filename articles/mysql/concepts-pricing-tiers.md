@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: d84e3f834bd598bbd2cf84dfc46f6cd5507f6d8b
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 21ddeb9cb0621f0f11ca23a7b12a82df0b7aa8ca
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587128"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546678"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de dados do Azure para MySQL escalões de preço
 
@@ -50,30 +50,30 @@ Computação foram fornecidos recursos como vCores, que representam a CPU lógic
 |:---|:----------:|:--------------------:|
 | EUA Central |  | X |
 | EUA Leste |  | X |
-| EUA Leste 2 | X | X |
-| EUA Centro-Norte | X | X |
+| EUA Leste 2 |  | X |
+| EUA Centro-Norte |  | X |
 | EUA Centro-Sul | X | X |
-| EUA Oeste | X | X |
+| EUA Oeste |  | X |
 | EUA Oeste 2 |  | X |
-| Sul do Brasil | X | X |
-| Canadá Central | X | X |
-| Leste do Canadá | X | X |
+| Sul do Brasil |  | X |
+| Canadá Central |  | X |
+| Leste do Canadá |  | X |
 | Europa do Norte | X | X |
 | Europa Ocidental |  | X |
 | França Central |  | X |
 | Reino Unido Sul |  | X |
 | Reino Unido Oeste |  | X |
-| Ásia Oriental | X | X |
+| Ásia Oriental |  | X |
 | Sudeste Asiático | X | X |
 | Leste da Austrália |  | X |
 | Austrália Central |  | X |
 | Austrália Central 2 |  | X |
 | Sudeste da Austrália |  | X |
-| Índia Central | X | X |
+| Índia Central |  | X |
 | Sul da Índia |  | X |
-| Oeste da Índia | X | X |
+| Oeste da Índia |  | X |
 | Leste do Japão | X | X |
-| Oeste do Japão | X | X |
+| Oeste do Japão |  | X |
 | Coreia do Sul Central |  | X |
 | Coreia do Sul |  | X |
 | Leste da China 1 | X |  |

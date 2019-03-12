@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 635d86a1-b512-442d-8851-3b18ec1a24a5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e3ab524d65aaef36bbc61ab9dd6839a217e15d
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0f4bf465e0d0da465e3fb2b1b73600abc2cc54fa
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985423"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775667"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Tutorial: Integração do Active Directory do Azure com a imagem FUNCIONA
 

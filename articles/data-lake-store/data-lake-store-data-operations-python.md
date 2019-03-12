@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 33abaf7488579a501dc7e2d0b63645726b86c28b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ed28c502bb407c65b388704c177fca13cecc38d6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390727"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548631"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações do sistema de ficheiros em Gen1 de armazenamento do Azure Data Lake com o Python
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Para trabalhar com a geração 1 de armazenamento do Data Lake com o Python, tem
 
 * O módulo `azure-mgmt-resource`, que inclui módulos do Azure para o Active Directory, etc.
 * O `azure-mgmt-datalake-store` módulo, que inclui as operações de gestão de conta de geração 1 de armazenamento do Azure Data Lake. Para obter mais informações sobre este módulo, consulte a [referência de módulo do azure-mgmt-datalake-store](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* O `azure-datalake-store` módulo, que inclui as operações de sistema de ficheiros de geração 1 de armazenamento do Azure Data Lake. Para obter mais informações sobre este módulo, consulte a [referência de módulo do sistema de ficheiros do azure-datalake-store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* O `azure-datalake-store` módulo, que inclui as operações de sistema de ficheiros de geração 1 de armazenamento do Azure Data Lake. Para obter mais informações sobre este módulo, consulte a [referência de módulo do sistema de ficheiros do azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilize os comandos seguintes para instalar os módulos.
 
@@ -86,7 +86,7 @@ pip install azure-datalake-store
 
 3. Guarde as alterações a mysample.py.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Nesta secção, vamos falar sobre as diferentes formas de autenticar com o Azure AD. As opções disponíveis são:
 
@@ -131,5 +131,5 @@ O fragmento seguinte cria primeiro o cliente de conta de geração 1 de armazena
 
 ## <a name="see-also"></a>Consulte também
 
-* [Referência de Python (sistema de ficheiros) do Azure Data Lake Storage Gen1](http://azure-datalake-store.readthedocs.io/en/latest)
+* [Referência de Python (sistema de ficheiros) do Azure Data Lake Storage Gen1](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Abrir aplicações de macrodados de código compatíveis com a geração 1 de armazenamento do Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)

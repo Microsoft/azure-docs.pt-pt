@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: e1a928711a596c159ac920f11c123b73b72d3aa2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: bb701a33d4ebb1ffca19896f3b4ac0419f27d54f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313420"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539042"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
@@ -524,7 +524,7 @@ Para utilizar o formato Avro numa tabela do Hive, veja o [tutorial do Apache Hiv
 
 Tenha em atenção os seguintes pontos:
 
-* [Tipos de dados complexos](http://avro.apache.org/docs/current/spec.html#schema_complex) não são suportados (registos, enumerações, matrizes, mapas, uniões e fixo).
+* [Tipos de dados complexos](https://avro.apache.org/docs/current/spec.html#schema_complex) não são suportados (registos, enumerações, matrizes, mapas, uniões e fixo).
 
 ## <a name="compression-support"></a>Suporte de compressão
 

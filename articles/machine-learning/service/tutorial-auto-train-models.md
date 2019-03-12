@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfae2d3ec1f6e0e27a108abb085d75663008779d
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4f82e73518beeeb38be6cc10d7c340b28560a203
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342175"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570747"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -82,18 +82,19 @@ Utilize estes passos para criar um servidor de bloco de notas Jupyter local no s
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>Configurar o ambiente de desenvolvimento
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+Toda a configuração para o seu trabalho de desenvolvimento pode ser feita num bloco de notas Python. A configuração inclui as seguintes ações:
 
-* Install the SDK
-* Import Python packages
-* Configure your workspace
+* Instalar o SDK
+* Importação de pacotes Python
+* Configurar a sua área de trabalho
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Instalar e importar pacotes
 
-If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+Se estiver a seguir o tutorial em seu próprio ambiente de Python, utilize o seguinte para instalar pacotes necessários.
 
 ```shell
 pip install azureml-sdk[automl,notebooks] matplotlib

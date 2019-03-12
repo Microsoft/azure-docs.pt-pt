@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 95e2a17407ad7d9e108b4ac38e8ff0ff62abf857
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188560"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529702"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Início rápido: Implementar o Azure Data Box através do portal do Azure
 
@@ -43,7 +43,7 @@ Antes de começar:
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Encomenda
 
@@ -86,7 +86,7 @@ Quando receber o Data Box, siga os passos abaixo para instalar os cabos, ligar e
 
 Este passo demora entre 5 a 7 minutos.
 
-1. Para obter a palavra-passe do dispositivo, aceda a **Geral > Detalhes do dispositivo** no [portal do Azure](http://portal.azure.com).
+1. Para obter a palavra-passe do dispositivo, aceda a **Geral > Detalhes do dispositivo** no [portal do Azure](https://portal.azure.com).
 2. Atribua um endereço IP estático 192.168.100.5 e a sub-rede 255.255.255.0 ao adaptador Ethernet no computador que está a utilizar para ligar ao Data Box. Aceda à IU da Web local do dispositivo em `https://192.168.100.10`. A ligação pode demorar até 5 minutos depois de ligar o dispositivo. 
 3. Inicie sessão com a palavra-passe do portal do Azure. Verá um erro que indica um problema com o certificado de segurança do site. Siga as instruções específicas do browser para avançar para a página Web.
 4. Por predefinição, as definições de rede da interface de dados de 10 Gbps (ou de 1 Gbps) estão configuradas como DHCP. Se for necessário, pode configurar esta interface como estática e fornecer um endereço IP. 

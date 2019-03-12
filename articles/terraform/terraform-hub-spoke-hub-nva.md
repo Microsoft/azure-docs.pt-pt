@@ -2,19 +2,19 @@
 title: Criar uma aplicação de rede virtual de hub com o Terraform no Azure
 description: Tutorial implementa a criação da VNet do Hub que age como um ponto de ligação comum entre todas as outras redes
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, hub- and -spoke, redes, redes de híbridas, devops, máquina virtual, do azure, o VNet peering, hub-and-spoke, hub.
 author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: ec729a1a4ca63149b4060046ea1206b7a0e520c7
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 6fd81403d7c58fc196326d360aeccea9354f1088
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411434"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762500"
 ---
 # <a name="tutorial-create-a-hub-virtual-network-appliance-with-terraform-in-azure"></a>Tutorial: Criar uma aplicação de rede virtual de hub com o Terraform no Azure
 

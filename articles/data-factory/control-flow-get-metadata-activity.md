@@ -1,26 +1,27 @@
 ---
 title: Atividade obter metadados da fábrica de dados do Azure | Documentos da Microsoft
-description: Saiba como pode utilizar a atividade de procedimento armazenado do SQL Server para invocar um procedimento armazenado num banco de dados do Azure SQL ou o Azure SQL Data Warehouse a partir de um pipeline do Data Factory.
+description: Saiba como pode utilizar a atividade GetMetadata no pipeline do Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: linda33wj
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
-ms.author: shlo
-ms.openlocfilehash: ca77fa092e41534e0f18323014c9cea583c19758
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.date: 03/11/2019
+ms.author: jingwang
+ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671663"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730699"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Atividade obter metadados da fábrica de dados do Azure
+
 Atividade GetMetadata pode ser usada para recuperar **metadados** de quaisquer dados no Azure Data Factory. Esta atividade pode ser usada nos seguintes cenários:
 
 - Validar as informações de metadados de quaisquer dados
@@ -48,6 +49,7 @@ A atividade GetMetadata usa um conjunto de dados como entrada necessária e apre
 | Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Blob do Azure | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Armazenamento do Azure Data Lake Ger1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Armazenamento do Azure Data Lake Ger2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Armazenamento de Ficheiros do Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Sistema de Ficheiros | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/1/2019
+ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: c3ad62dd5f8af52ae9aed1f9469d4b00c4795fa7
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215859"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544047"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona (pré-visualização pública)
 
@@ -50,7 +50,6 @@ Durante a pré-visualização, não existe nenhum custo associado. Será cobrado
 |Faturação|Não existe atualmente nenhum faturação.|
 |Modo FIPS, o WebSocket|Estes não são atualmente suportadas.|
 |Modo só de ILB|Isso não é atualmente suportado. Público e o modo ILB é suportado em conjunto.|
-|Dimensionamento automático de firewall de aplicação Web|WAF não suporta o modo de dimensionamento automático. Modo de capacidade fixo é suportado.|
 |Integração de Netwatcher|Não é suportada na pré-visualização pública.|
 
 ## <a name="next-steps"></a>Passos Seguintes

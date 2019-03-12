@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e677a161-1662-4eb3-b48a-b2835470b59e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7f8d868b958b533ccdb112bd24d76585232f560
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e1c9d6166c3b21c73dfc290fc1a78ed9759e33cd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880449"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760992"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Tutorial: Integração do Active Directory do Azure com o sistema de SSO GTNexus
 
@@ -105,7 +105,7 @@ Para configurar o Azure AD início de sessão único com o sistema de SSO GTNexu
 
     a. Clique em **carregamento de ficheiro de metadados**.
 
-    ![image](common/upload-metadata.png)
+    ![imagem](common/upload-metadata.png)
 
     b. Clique em **logótipo da pasta** para selecionar o ficheiro de metadados e clique em **carregar**.
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD início de sessão único com o sistema de SSO GTNexu
 
     c. Depois do ficheiro de metadados é carregado com êxito, o **identificador** e **URL de resposta** automaticamente povoada na caixa de texto do sistema de SSO GTNexus secção de introdução de valores:
 
-    ![image](common/idp-intiated.png)
+    ![imagem](common/idp-intiated.png)
 
     > [!Note]
     > Se o **identificador** e **URL de resposta** valores não estiver a obter polulated automática, em seguida, preencha os valores manualmente de acordo com seus requisitos.
@@ -181,7 +181,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no sistema de SSO GTNexus. Trabalhar com [equipa de suporte do sistema de SSO GTNexus](mailto:support@gtnexus.com) para adicionar os utilizadores na plataforma do sistema de SSO GTNexus. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

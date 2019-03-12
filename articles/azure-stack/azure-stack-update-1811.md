@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 14e587276deab9656c3be04c96182942767ae0f2
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986027"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731646"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização de 1811 de pilha do Azure
 
@@ -87,7 +87,7 @@ O Azure Stack lança correções em intervalos regulares. Certifique-se de que i
 
     Durante a instalação desta atualização, o portal de utilizador do Azure Stack está disponível enquanto o anfitrião de extensão está a ser configurado. A configuração do anfitrião de extensão pode demorar até 5 horas. Durante esse período, poderá verificar o estado de uma atualização ou retomar uma instalação de atualização falhada utilizando o [PowerShell de Administrador do Azure Stack ou o ponto final com privilégios](azure-stack-monitor-update.md).
 
-- Quando o Azure Stack é gerido pelo System Center Operations Manager (SCOM), certifique-se de que atualizar o pacote de gestão para o Microsoft Azure Stack para a versão 10.0.3.11 antes de aplicar 1811.
+- Quando o Azure Stack é gerido pelo System Center Operations Manager (SCOM), certifique-se de que atualizar o pacote de gestão para o Microsoft Azure Stack para a versão 1.0.3.11 antes de aplicar 1811.
 
 ## <a name="new-features"></a>Novos recursos
 

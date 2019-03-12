@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2aa32d75edbacdfff6428a6526d9898cb6732d6b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620992"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534740"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tarefas de arranque do serviço Cloud comuns
 Este artigo fornece alguns exemplos de tarefas de arranque comuns, que talvez queira executar no seu serviço cloud. Pode utilizar tarefas de arranque para executar operações antes de uma função de inicialização. As operações que pode querer executar incluem instalar um componente, registar componentes COM, definir chaves do Registro ou a partir de um processo de execução demorada. 
@@ -186,7 +186,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 Esta tarefa faz com que o **startup.cmd** arquivo em lotes para ser executado sempre que a função da web é inicializada, garantindo que o necessário **ipSecurity** secção está desbloqueada.
 
-Por fim, modifique o [secção System. webServer](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) a função da web **Web. config** ficheiro para adicionar uma lista de endereços IP que é concedido acesso, conforme mostrado no exemplo a seguir:
+Por fim, modifique o [secção System. webServer](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) a função da web **Web. config** ficheiro para adicionar uma lista de endereços IP que é concedido acesso, conforme mostrado no exemplo a seguir:
 
 Esta configuração de exemplo **permite** todos os IPs para aceder ao servidor, exceto as duas definidas
 

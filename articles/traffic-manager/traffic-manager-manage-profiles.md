@@ -7,17 +7,17 @@ author: kumudd
 ms.service: traffic-manager
 manager: twooley
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 01c295ac12886e9a3a93cfbf5f4f3e96545cd5ec
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 11e63f95067a9ad6bb61a91da56fe22dc4962ae5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229512"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778473"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gerir um perfil no Traffic Manager do Azure
 

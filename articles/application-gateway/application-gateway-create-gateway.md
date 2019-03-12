@@ -9,18 +9,18 @@ editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 862d587442b4d3b752092810c33a197ba15a6b51
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 60ea054f6a3305e523e0843690bf58f7998cf0bb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994081"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783216"
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>Criar, iniciar ou eliminar um gateway de aplicação com o PowerShell 
 
@@ -48,11 +48,11 @@ Quando utiliza o comando `New-AzureApplicationGateway` para criar o gateway de a
 
 Os valores são:
 
-* **Conjunto de servidores de back-end:** a lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou ter um IP/VIP público.
-* **Definições do conjunto de servidores de back-end:** cada conjunto tem definições como a porta, o protocolo e a afinidade com base em cookies. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
-* **Porta de front-end:** esta porta é a porta pública aberta no gateway de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
-* **Serviço de escuta:** o serviço de escuta tem uma porta de front-end, um protocolo (Http ou Https; estes valores são sensíveis às maiúsculas e minúsculas) e o nome do certificado SSL (se configurar a descarga de SSL).
-* **Regra:** a regra vincula o serviço de escuta e o conjunto de servidores de back-end e define para que conjunto de servidores de back-end o tráfego deve ser direcionado ao chegar a um determinado serviço de escuta.
+* **Agrupamento de servidores de back-end:** A lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou ter um IP/VIP público.
+* **Definições de agrupamento de servidores de back-end:** Cada conjunto tem definições como a porta, protocolo e a afinidade com base no cookie. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
+* **Porta de front-end:** Esta porta é a porta pública aberta no gateway de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
+* **Serviço de escuta:** O serviço de escuta possui uma porta de front-end, um protocolo (Http ou Https; estes valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (se configurar o SSL de descarga).
+* **Regra:** A regra vincula o serviço de escuta e o conjunto de servidores de back-end e define para que conjunto de servidores de back-end o tráfego deve ser direcionado ao chegar a um determinado serviço de escuta.
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 

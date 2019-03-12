@@ -10,16 +10,16 @@ ms.assetid: ''
 ms.author: ruyakubu
 ms.date: 09/13/2018
 ms.devlang: ''
-ms.service: Cloud Foundry
+ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 7995d1a22984279f36e2a4ec84a57f1131acab2d
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ab3963ba8efc23d8f21c104361e0d3369ab5ea10
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331565"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772558"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Criar um cluster de Pivotal Cloud Foundry no Azure
 

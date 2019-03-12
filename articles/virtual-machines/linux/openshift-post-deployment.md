@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: b2a2e0ed48004a731ca15b3fb1d985bbee7e0c29
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b99490102dd4f2c08a11be066b2ddc5fd6b7ea7b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440664"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535840"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas de pós-implementação
 
 Depois de implementar um cluster do OpenShift, pode configurar itens adicionais. Este artigo abrange:
 
 - Como configurar o início de sessão único com o Azure Active Directory (Azure AD)
-- Como configurar o Log Analytics para monitorizar o OpenShift
+- Como configurar registos de Azure Monitor para monitorizar o OpenShift
 - Como configurar métricas e registo
 - Como instalar o Open Service Broker for Azure (OSBA)
 
@@ -179,11 +179,11 @@ sudo systemctl restart origin-master
 
 Na consola do OpenShift, verá agora duas opções para a autenticação: htpasswd_auth e [registo da aplicação].
 
-## <a name="monitor-openshift-with-log-analytics"></a>OpenShift de monitor com o Log Analytics
+## <a name="monitor-openshift-with-azure-monitor-logs"></a>Monitorizar o OpenShift com os registos do Azure Monitor
 
 Existem três formas de adicionar o agente Log Analytics ao OpenShift.
 - Instalar o agente do Log Analytics para Linux diretamente em cada nó do OpenShift
-- Ativar a extensão de VM do Log Analytics em cada nó do OpenShift
+- Ativar a extensão de VM do Azure Monitor em cada nó do OpenShift
 - Instalar o agente Log Analytics como um daemon-conjunto do OpenShift
 
 As instruções completas estão localizadas aqui: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.

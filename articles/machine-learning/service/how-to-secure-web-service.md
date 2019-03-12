@@ -1,7 +1,7 @@
 ---
-title: Proteger serviços da web com SSL
+title: Proteja os serviços Web com SSL
 titleSuffix: Azure Machine Learning service
-description: Saiba como proteger um serviço web implementado com o serviço Azure Machine Learning. Pode restringir o acesso a serviços da web e proteger os dados submetidos por clientes utilizando as camadas de soquete seguro (SSL) e a autenticação baseada em chave.
+description: Saiba como proteger um serviço web implementado com o serviço Azure Machine Learning ao ativar o HTTPS. HTTPS protege os dados submetidos por clientes que utilizam a segurança de camada de transporte (TLS), um substituto para camadas de soquete seguro (SSL). Também é utilizado pelos clientes para verificar a identidade do serviço web.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,27 +11,34 @@ ms.author: aashishb
 author: aashishb
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 160bc0e67b2686d17357241887a207cb4a03002c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 91958a76ffb3cafd818949c1475fd13bb978a928
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098107"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731885"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Utilizar o SSL para proteger serviços da web com o serviço Azure Machine Learning
 
-Neste artigo, ficará a saber como proteger um serviço web implementado com o serviço Azure Machine Learning. Pode restringir o acesso a serviços da web e proteger os dados submetidos por clientes utilizando as camadas de soquete seguro (SSL) e a autenticação baseada em chave.
+Neste artigo, ficará a saber como proteger um serviço web implementado com o serviço Azure Machine Learning. Pode restringir o acesso a serviços da web e proteger os dados submetidos por clientes que utilizam [Hypertext Transfer Protocol segura (HTTPS)](https://en.wikipedia.org/wiki/HTTPS).
+
+HTTPS é utilizado para proteger as comunicações entre um cliente e o serviço da web ao encriptar comunicações entre os dois. Encriptação é processada através de [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). Por vezes, isso ainda é conhecido como proteger o SSL (Sockets Layer), que foi o predecessor TLS.
+
+> [!TIP]
+> O SDK do Azure Machine Learning utiliza o termo "SSL' para propriedades relacionado com a ativação comunicações seguras. Isso não significa que o TLS não é utilizado pelo seu serviço web, apenas esse SSL é o termo mais reconhecível para muitos leitores.
+
+TLS e SSL ambos dependem __certificados digitais__, quais são utilizados para efetuar a verificação de encriptação e identidade. Para obter mais informações sobre como digital de certificados de trabalho, consulte a entrada na Wikipedia sobre [infraestrutura de chaves públicas (PKI)](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
 > [!Warning]
-> Se não ativar SSL, qualquer utilizador na internet será capaz de fazer chamadas para o serviço web.
+> Se não ativar e utilizar HTTPS para o seu serviço web, dados enviados de e para o serviço poderão estar visíveis aos outros na internet.
+>
+> HTTPS também permite que o cliente verificar a autenticidade do servidor que está a ligar a. Esta ação protege os clientes contra [man-in-the-middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) ataques.
 
-O SSL criptografa dados enviados entre o cliente e o serviço web. Ele é também utilizado pelo cliente para verificar a identidade do servidor. Autenticação apenas está ativada para os serviços que forneceram um certificado SSL e a chave.  Se ativar o SSL, é necessária uma chave de autenticação quando aceder ao serviço web.
-
-Se implementar um serviço web habilitado com SSL ou ativar SSL para o serviço web implementado existente, os passos são os mesmos:
+O processo de proteção de um novo serviço web ou um já existente é o seguinte:
 
 1. Obtenha um nome de domínio.
 
-2. Obtenha um certificado SSL.
+2. Obtenha um certificado digital.
 
 3. Implementar ou atualizar o serviço web com a definição de SSL ativada.
 
@@ -45,7 +52,7 @@ Se já não possui um nome de domínio, pode comprar um de uma __entidade de reg
 
 ## <a name="get-an-ssl-certificate"></a>Obter um certificado SSL
 
-Existem várias formas de obter um certificado SSL. A mais comum é comprar um de uma __autoridade de certificação__ (AC). Independentemente de onde obter o certificado, terá dos seguintes ficheiros:
+Existem várias formas de obter um certificado SSL (certificado digital). A mais comum é comprar um de uma __autoridade de certificação__ (AC). Independentemente de onde obter o certificado, terá dos seguintes ficheiros:
 
 * R __certificado__. O certificado tem de conter a cadeia de certificados completa e tem de ser PEM codificado.
 * R __chave__. A chave tem de ser PEM codificado.

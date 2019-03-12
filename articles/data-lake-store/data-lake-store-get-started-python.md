@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 06c341da73ad8df96d5c97e1cb9da4b7fd5c804e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cc384e9f392aa88342c5b8bd97963bed6d7ee814
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820659"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533329"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operações de gestão de conta na geração 1 de armazenamento do Azure Data Lake com o Python
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Para trabalhar com a geração 1 de armazenamento do Data Lake com o Python, tem
 
 * O módulo `azure-mgmt-resource`, que inclui módulos do Azure para o Active Directory, etc.
 * O `azure-mgmt-datalake-store` módulo, que inclui as operações de gestão de conta de geração 1 de armazenamento do Azure Data Lake. Para obter mais informações sobre este módulo, consulte [referência do módulo de gestão de geração 1 do armazenamento do Azure Data Lake](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* O `azure-datalake-store` módulo, que inclui as operações de sistema de ficheiros de geração 1 de armazenamento do Azure Data Lake. Para obter mais informações sobre este módulo, consulte [referência de módulo do sistema de ficheiros do azure-datalake-store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* O `azure-datalake-store` módulo, que inclui as operações de sistema de ficheiros de geração 1 de armazenamento do Azure Data Lake. Para obter mais informações sobre este módulo, consulte [referência de módulo do sistema de ficheiros do azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilize os comandos seguintes para instalar os módulos.
 
@@ -135,5 +135,5 @@ O fragmento seguinte cria primeiro o cliente de conta de geração 1 de armazena
 
 ## <a name="see-also"></a>Consulte também
 
-* [referência de Python (sistema de ficheiros) do Azure-datalake-store](http://azure-datalake-store.readthedocs.io/en/latest)
+* [referência de Python (sistema de ficheiros) do Azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest)
 * [Abrir aplicações de macrodados de código compatíveis com a geração 1 de armazenamento do Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)

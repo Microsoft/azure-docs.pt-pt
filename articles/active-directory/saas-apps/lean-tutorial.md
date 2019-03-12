@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8af3c65b-8e15-4b28-9d46-98c75b11fe11
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 5fcce479cd58a8482bcba56edc4de40389fbbc8d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7e7d259ce8800793fe5165d4380fa70668eaf4d2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57248795"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759343"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lean"></a>Tutorial: Integração do Active Directory do Azure com o saiba
 

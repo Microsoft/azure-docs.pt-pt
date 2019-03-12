@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2b63d048-b529-4fad-9e90-f244323409dd
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 749a5dbe16746927b23523f8f44227f00abc4140
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8b57aa05c81311c0cca9d5ea9e2ed764b606ad95
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872476"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772217"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutorial: Integração do Active Directory do Azure com Getabstract
 

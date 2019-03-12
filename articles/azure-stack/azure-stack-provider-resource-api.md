@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 48002ecb3186218d2cf86e38b43b8e35ae39d240
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4392dc0ab53304c172bbf4c29a50a64757ec9b77
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338387"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760448"
 ---
 # <a name="provider-resource-usage-api"></a>API de utilização do recurso do fornecedor
 

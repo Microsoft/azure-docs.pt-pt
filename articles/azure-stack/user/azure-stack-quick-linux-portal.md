@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d9a17bdad0bfa4965d36fbe2a2cf3a7890060e98
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245428"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772573"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Início rápido: criar uma máquina de virtual de servidor do Linux com o portal do Azure Stack
 
@@ -43,7 +43,7 @@ Pode criar uma máquina virtual do Ubuntu Server 16.04 LTS com o portal do Azure
 
    Se estiver a utilizar o Azure Stack Development Kit (ASDK), poderá não ter acesso a um cliente SSH. Se precisar de um cliente, existem diversos pacotes que incluem um cliente SSH. Por exemplo, o PuTTY inclui um cliente SSH e o gerador de chaves SSH (puttygen.exe). Para obter mais informações sobre os pacotes disponíveis, leia o seguinte artigo do Azure: [Como utilizar chaves SSH com Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
-   Este início rápido utiliza o PuTTY para gerar as chaves SSH e para ligar à máquina virtual de servidor do Linux. Para transferir e instalar PuTTY, aceda a [ http://www.putty.org/ ](http://www.putty.org).
+   Este início rápido utiliza o PuTTY para gerar as chaves SSH e para ligar à máquina virtual de servidor do Linux. Para transferir e instalar PuTTY, aceda a [ https://www.putty.org/ ](http://www.putty.org).
 
 ## <a name="create-an-ssh-key-pair"></a>Criar um par de chaves SSH
 

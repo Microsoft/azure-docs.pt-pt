@@ -1,6 +1,6 @@
 ---
-title: Início rápido - executar uma aplicação no Azure Container Instances - Portal
-description: Neste início rápido, vai utilizar o portal do Azure para implementar uma aplicação de contentor do Docker para executar num contentor isolado no Azure Container Instances
+title: Início rápido - implementar o contentor do Docker no Azure Container Instances - Portal
+description: Neste início rápido, vai utilizar o portal do Azure para implementar rapidamente uma aplicação web em contentores que é executado numa instância de contentor do Azure isolado
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,20 +8,22 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566124"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729157"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Início rápido: Execute uma aplicação de contentor no Azure Container Instances no portal do Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Início rápido: Implementar uma instância de contentor no Azure com o portal do Azure
 
-Utilize o Azure Container Instances para executar contentores de Docker no Azure com simplicidade e celeridade. Não precisa de implementar máquinas virtuais nem de utilizar uma plataforma de orquestração de contentores completa, como o Kubernetes. Neste início rápido, vai utilizar o portal do Azure para criar um contentor no Azure e disponibilizar a sua aplicação com um nome de domínio completamente qualificado (FQDN). Depois de configurar algumas definições e implementar o contentor, pode navegar para a aplicação em execução:
+Utilize o Azure Container Instances para execução sem servidor contentores do Docker no Azure com a simplicidade e celeridade. Implemente uma aplicação para uma contentor instância sob demanda quando não precisar de uma plataforma de orquestração de contentores completa, como o serviço Kubernetes do Azure.
+
+Neste início rápido, utilize o portal do Azure para implementar um contentor de Docker isolado e disponibilizar a sua aplicação com um nome de domínio completamente qualificado (FQDN). Depois de configurar algumas definições e implementar o contentor, pode navegar para a aplicação em execução:
 
 ![Aplicação implementada com o Azure Container Instances vista no browser][aci-portal-07]
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -41,9 +43,9 @@ Introduza os seguintes valores nas caixas de texto **Nome do contentor**, **Imag
 
 ![Configurar definições básicas para uma nova instância do contentor no portal do Azure][aci-portal-03]
 
-Neste início rápido, deixe a predefinição de **pública** para implementar o `microsoft/aci-helloworld` imagem a partir do registo do Docker Hub público. Esta imagem de pacotes de uma pequena aplicação web escrita em node. js, que serve uma página HTML estática.
+Neste início rápido, deixe a predefinição de **pública** para implementar o público `microsoft/aci-helloworld` imagem. Esta imagem de pacotes de uma pequena aplicação web escrita em node. js, que serve uma página HTML estática.
 
-Em **Configuração**, especifique uma **Etiqueta de nome DNS** para o contentor. O nome tem de ser exclusivo na região do Azure em que cria a instância de contentor. O contentor estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`.
+Em **Configuração**, especifique uma **Etiqueta de nome DNS** para o contentor. O nome tem de ser exclusivo dentro da região do Azure, onde cria a instância de contentor. O contentor estará publicamente acessível em `<dns-name-label>.<region>.azurecontainer.io`. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
 Deixe as outras predefinições da **Configuração** e, em seguida, selecione **OK** para validar a configuração.
 
@@ -67,7 +69,7 @@ Quando o **Estado** for *Em execução*, navegue para o FQDN do contentor no seu
 
 Parabéns! Ao configurar apenas algumas definições, implementou uma aplicação acessível publicamente no Azure Container Instances.
 
-## <a name="view-container-logs"></a>Ver registos de contentor
+## <a name="view-container-logs"></a>Ver registos do contentor
 
 Ver os registos de uma instância de contentor é útil quando estiver a resolver problemas no contentor ou na aplicação nele executada.
 

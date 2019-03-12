@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cd5ae365-9ed6-43a6-920b-f7814b993949
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae38ba2e8cd415751d021cd3b264fb9cac0be61
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2d93cf17c0c5de75be16c96aec2ed0b311632bf3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880024"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutorial: Integração do Active Directory do Azure com o Trello
 

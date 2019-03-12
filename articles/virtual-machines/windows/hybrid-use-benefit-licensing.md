@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: d692eb471c514015271a688e4660700788f1baaa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 64e9350606748116d2eef247790e88ed0d576c3f
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431467"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570373"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para o Windows Server
 Para clientes com Software Assurance, o Azure híbrido benefício para o Windows Server permite-lhe utilizar as suas licenças do Windows Server no local e executar as máquinas virtuais do Windows no Azure a um custo reduzido. Pode utilizar o Azure híbrido benefício para o Windows Server para implementar novas máquinas virtuais com o SO Windows. Este artigo vai sobre os passos sobre como implementar novas VMs com o Azure híbrido benefício para o Windows Server e como pode atualizar existente VMs em execução. Para obter mais informações sobre o Azure híbrido benefício para o Windows Server poupanças de custos e licenciamento, consulte a [página de licenciamento do Azure híbrido benefício para o Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -77,11 +77,11 @@ az vm create \
 ### <a name="template"></a>Modelo
 Dentro de modelos do Resource Manager, um parâmetro adicional `licenseType` tem de ser especificado. Pode ler mais sobre [criar modelos do Azure Resource Manager](../../resource-group-authoring-templates.md)
 ```json
-"properties": {  
-   "licenseType": "Windows_Server",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Server",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Converter uma VM existente com o Azure híbrido benefício para o Windows Server
@@ -161,7 +161,7 @@ O Máquina Virtual ou Máquina Virtual dimensionamento conjuntos de recursos no 
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
-$vms = Get-AzVM 
+$vms = Get-AzVM
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implementar um conjunto de dimensionamento de Máquina Virtual com o benefício híbrido do Azure para o Windows Server
-Dentro de sua máquina virtual do conjunto de dimensionamento de modelos do Resource Manager, um parâmetro adicional `licenseType` tem de ser especificada dentro de sua propriedade VirtualMachineProfile. Pode fazê-lo durante a criação ou atualização para o seu conjunto com o modelo de ARM do Powershell, CLI do Azure ou REST de dimensionamento.
+Dentro de sua máquina virtual do conjunto de dimensionamento de modelos do Resource Manager, um parâmetro adicional `licenseType` tem de ser especificada dentro de sua propriedade VirtualMachineProfile. Pode fazê-lo durante a criação ou atualização para o seu conjunto com o modelo de ARM do PowerShell, CLI do Azure ou REST de dimensionamento.
 
 O exemplo seguinte utiliza o modelo ARM com uma imagem do Windows Server 2016 Datacenter:
 ```json

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e2a9ae474aaacbf688103efce3cd5ae9b96acde
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216922"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576961"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU do Apache Ambari Web
 
@@ -85,48 +85,6 @@ A lista seguinte contém os Estados de alerta comuns utilizados pelo Ambari:
 * **UNKNOWN**
 
 Diferente de alertas **OK** fazer com que o **# alertas** entrada na parte superior da página para apresentar o número de alertas. Selecionar esta entrada apresenta os alertas e o respetivo estado.
-
-Ambari oferece vários alertas predefinidas. Os seguintes alertas ajudam a monitorizar a disponibilidade de um cluster:
-
-| Nome do Alerta                               | Descrição                                                                                                                                                                                  |
-|------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Estado do Monitor de métrica                    | Este alerta indica o estado do processo de Monitor de métricas, conforme determinado pelo script de estado do monitor.                                                                                   |
-| Heartbeat de agente do Ambari                   | Este alerta é acionado se o servidor tiver perdido o contacto com um agente.                                                                                                                        |
-| Processo de servidor zooKeeper                 | Este alerta ao nível do anfitrião é acionada se o processo de servidor ZooKeeper não pode ser determinado a ser a cópia de segurança e à escuta na rede.                                                               |
-| Estado do servidor IOCache metadados           | Este alerta ao nível do anfitrião é acionada se o servidor de metadados IOCache não pode ser determinado ficar operacional e está a responder aos pedidos dos clientes                                                            |
-| IU da Web do JournalNode                       | Este alerta ao nível do anfitrião é acionada se a interface do Usuário da Web de JournalNode está inacessível.                                                                                                                 |
-| Servidor de Thrift Spark2                     | Este alerta ao nível do anfitrião é acionada se o servidor de Thrift Spark2 não é possível determinar para ficar operacional.                                                                                                |
-| Processo de servidor de histórico                   | Este alerta ao nível do anfitrião é acionada se o processo do servidor de histórico não pode ser estabelecida para ficar operacional e à escuta na rede.                                                                |
-| Histórico servidor Web da interface do Usuário                    | Este alerta ao nível do anfitrião é acionada se a interface do Usuário da Web do servidor de histórico está inacessível.                                                                                                              |
-| IU da Web do ResourceManager                   | Este alerta ao nível do anfitrião é acionada se a interface do Usuário da Web de ResourceManager está inacessível.                                                                                                             |
-| Resumo do Estado de funcionamento do NodeManager               | Este alerta de nível de serviço é acionada se existirem NodeManagers mau estado de funcionamento                                                                                                                    |
-| Aplicação Web de linha cronológica da interface do Usuário                      | Este alerta ao nível do anfitrião é acionada se a interface do Usuário da Web de servidor de linha cronológica de aplicação não está acessível.                                                                                                         |
-| Resumo do Estado de funcionamento do DataNode                  | Este alerta de nível de serviço é acionada se existirem DataNodes mau estado de funcionamento                                                                                                                       |
-| IU da Web do NameNode                          | Este alerta ao nível do anfitrião é acionada se a interface do Usuário da Web de NameNode está inacessível.                                                                                                                    |
-| Processo de controlador de ativação pós-falha do zooKeeper    | Este alerta ao nível do anfitrião é acionada se o processo do controlador de ativação pós-falha do ZooKeeper não pode ser confirmada para ficar operacional e à escuta na rede.                                                   |
-| IU da Web do servidor de Oozie                      | Este alerta ao nível do anfitrião é acionada se o servidor de Oozie IU da Web está inacessível.                                                                                                                |
-| Oozie Server Status                      | Este alerta ao nível do anfitrião é acionada se o servidor de Oozie não pode ser determinado ficar operacional e está a responder aos pedidos dos clientes.                                                                      |
-| Processo de Metastore Hive                   | Este alerta ao nível do anfitrião é acionada se o processo de Hive Metastore não pode ser determinado a ser a cópia de segurança e à escuta na rede.                                                                 |
-| Processo de HiveServer2                      | Este alerta ao nível do anfitrião é acionada se a HiveServer não pode ser determinado ficar operacional e está a responder aos pedidos dos clientes.                                                                        |
-| Estado do servidor de WebHCat                    | Este alerta ao nível do anfitrião é acionada se o estado do servidor templeton não está em bom estado.                                                                                                            |
-| ZooKeeper percentagem de servidores disponíveis      | Este alerta é acionado se o número de para baixo de servidores de ZooKeeper no cluster é superior ao limiar crítico configurado. Agrega os resultados de verificações de processo do ZooKeeper.     |
-| Servidor do Spark2 Livy                       | Este alerta ao nível do anfitrião é acionada se o servidor de Livy2 não é possível determinar para ficar operacional.                                                                                                        |
-| Servidor de histórico de Spark2                    | Este alerta ao nível do anfitrião é acionada se o servidor de histórico de Spark2 não é possível determinar para ficar operacional.                                                                                               |
-| Processo de Recoletor de métricas                | Este alerta é acionado se o Recoletor de métricas não pode ser confirmada para ficar operacional e à escuta na porta configurada para o número de segundos iguais ao limiar.                                 |
-| Recoletor de métricas - processo de mestre de HBase | Este alerta é acionado se processos principais do HBase do Recoletor de métricas não podem ser confirmada para ficar operacional e à escuta na rede para o limiar configurado crítico, tendo em conta em segundos. |
-| Monitores de percentagem de métricas disponíveis       | Este alerta é acionado se uma percentagem do Monitor de métricas de processos não estão operacionais e à escuta na rede para o aviso configurado e dos limiares críticos.                             |
-| Percentagem NodeManagers disponíveis           | Este alerta é acionado se o número de baixo NodeManagers do cluster é superior ao limiar crítico configurado. Agrega os resultados de verificações de processo NodeManager.        |
-| Estado de funcionamento do NodeManager                       | Este alerta ao nível do anfitrião verifica a propriedade de estado de funcionamento de nó disponível a partir do componente de NodeManager.                                                                                              |
-| IU da Web do NodeManager                       | Este alerta ao nível do anfitrião é acionada se a interface do Usuário da Web de NodeManager está inacessível.                                                                                                                 |
-| O estado de funcionamento do NameNode alta disponibilidade        | Este alerta de nível de serviço é acionado se o Active Directory NameNode ou NameNode de reserva não está em execução.                                                                                     |
-| Processo de DataNode                         | Este alerta ao nível do anfitrião é acionada se os processos de DataNode individuais não podem ser estabelecida para ficar operacional e à escuta na rede.                                                         |
-| IU da Web do DataNode                          | Este alerta ao nível do anfitrião é acionada se a interface do Usuário da Web de DataNode está inacessível.                                                                                                                    |
-| Percentagem JournalNodes disponíveis           | Este alerta é acionado se o número de baixo JournalNodes do cluster é superior ao limiar crítico configurado. Agrega os resultados de verificações de processo JournalNode.        |
-| Percentagem DataNodes disponíveis              | Este alerta é acionado se o número de baixo DataNodes do cluster é superior ao limiar crítico configurado. Agrega os resultados de verificações de processo DataNode.              |
-| Estado do servidor Zeppelin                   | Este alerta ao nível do anfitrião é acionada se o servidor de Zeppelin não pode ser determinado ficar operacional e está a responder aos pedidos dos clientes.                                                                   |
-| Processo interativo do HiveServer2          | Este alerta ao nível do anfitrião é acionada se a HiveServerInteractive não pode ser determinado ficar operacional e está a responder aos pedidos dos clientes.                                                             |
-| Aplicação de LLAP                         | Este alerta é acionado se a aplicação de LLAP não pode ser determinado ficar operacional e está a responder a pedidos.                                                                                    |
-
 
 Alertas são organizados em vários grupos predefinidos, que podem ser visualizados a partir da **alertas** página.
 

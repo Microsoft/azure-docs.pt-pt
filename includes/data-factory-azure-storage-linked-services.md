@@ -4,39 +4,39 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: e5f2afa4bc8a4b8eae523fde323d835c0c53fe8e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f7c189c59b5098ef22491a914a618afda2b5f51e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572573"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57554656"
 ---
 ### <a name="azure-storage-linked-service"></a>Serviço Ligado do Storage do Azure
 O **serviço ligado do armazenamento do Azure** permite-lhe associar uma conta de armazenamento do Azure para uma fábrica de dados do Azure utilizando o **chave de conta**, que fornece a fábrica de dados com o acesso global para o armazenamento do Azure. A tabela seguinte fornece uma descrição para elementos JSON específicos ao serviço ligado do armazenamento do Azure.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |A propriedade de tipo deve ser definida como: **AzureStorage** |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **AzureStorage** |Sim |
 | connectionString |Especifica as informações necessárias para ligar ao armazenamento do Azure para a propriedade connectionString. |Sim |
 
-Consulte a secção seguinte para obter passos para ver/copiar a chave da conta de armazenamento do Azure: [chaves de acesso](../articles/storage/common/storage-account-manage.md#access-keys).
+Consulte a secção seguinte para obter passos para ver/copiar a chave da conta de armazenamento do Azure: [Chaves de acesso](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Exemplo:**  
 
 ```json
-{  
-    "name": "StorageLinkedService",  
-    "properties": {  
-        "type": "AzureStorage",  
-        "typeProperties": {  
-            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-        }  
-    }  
-}  
+{
+    "name": "StorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+        }
+    }
+}
 ```
 
 ### <a name="azure-storage-sas-linked-service"></a>Serviço ligado do armazenamento do Azure Sas
-Uma assinatura de acesso partilhado (SAS) disponibiliza acesso delegado a recursos na sua conta de armazenamento. Permite-lhe conceder que um cliente permissões limitadas a objetos na conta de armazenamento durante um determinado período de tempo e com um conjunto especificado de permissões, sem ter de partilhar as chaves de acesso da conta. A SAS é um URI que abrange em seus parâmetros de consulta todas as informações necessárias para acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente precisa apenas passar a SAS para o método ou construtor apropriado. Para obter informações detalhadas sobre SAS, consulte [assinaturas de acesso partilhado: compreender o modelo de SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
+Uma assinatura de acesso partilhado (SAS) disponibiliza acesso delegado a recursos na sua conta de armazenamento. Permite-lhe conceder que um cliente permissões limitadas a objetos na conta de armazenamento durante um determinado período de tempo e com um conjunto especificado de permissões, sem ter de partilhar as chaves de acesso da conta. A SAS é um URI que abrange em seus parâmetros de consulta todas as informações necessárias para acesso autenticado a um recurso de armazenamento. Para acessar recursos de armazenamento com a SAS, o cliente precisa apenas passar a SAS para o método ou construtor apropriado. Para obter informações detalhadas sobre SAS, consulte [assinaturas de acesso partilhado: Compreender o modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 > [!IMPORTANT]
 > O Azure Data Factory agora só suporta **SAS de serviço** , mas não a conta SAS. Ver [tipos de assinaturas de acesso partilhado](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures) para obter detalhes sobre estes dois tipos e como construir. Anote o URL de SAS generable a partir do portal do Azure ou o Explorador de armazenamento é uma SAS de conta, que não é suportado.
@@ -49,21 +49,21 @@ O serviço de SAS de armazenamento do Azure ligada permite-lhe ligar uma conta d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |A propriedade de tipo deve ser definida como: **AzureStorageSas** |Sim |
+| tipo |A propriedade de tipo tem de ser definida como: **AzureStorageSas** |Sim |
 | sasUri |Especifique o URI de assinatura de acesso partilhado para os recursos de armazenamento do Azure, como BLOBs, contentores ou tabela.  |Sim |
 
 **Exemplo:**
 
 ```json
-{  
-    "name": "StorageSasLinkedService",  
-    "properties": {  
-        "type": "AzureStorageSas",  
-        "typeProperties": {  
-            "sasUri": "<Specify SAS URI of the Azure Storage resource>"   
-        }  
-    }  
-}  
+{
+    "name": "StorageSasLinkedService",
+    "properties": {
+        "type": "AzureStorageSas",
+        "typeProperties": {
+            "sasUri": "<Specify SAS URI of the Azure Storage resource>"
+        }
+    }
+}
 ```
 
 Ao criar uma **URI de SAS**, Considerando o seguinte:  

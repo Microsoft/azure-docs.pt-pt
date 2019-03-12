@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2f68156e593281acb46dbeb132f0f45db4b3dfb9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5a407db97803d3c3be898893b7da6c1cb4aa94bb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244779"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537002"
 ---
 # <a name="azure-operational-security"></a>Segurança operacional do Azure
 ## <a name="introduction"></a>Introdução
@@ -164,7 +164,7 @@ O Centro de Segurança do Azure recolhe cópias efémeras dos ficheiros de infor
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-O [Log Analytics segurança](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) e permite que a solução TI ativamente monitorizar todos os recursos, o que podem ajudar a minimizar o impacto de incidentes de segurança de auditoria. Auditoria e segurança do log Analytics têm domínios de segurança que podem ser utilizados para monitorizar os recursos. O domínio de segurança fornece acesso rápido às opções, para monitorização de segurança, os seguintes domínios são abordados em mais detalhes:
+O [segurança de registos do Azure Monitor](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) e permite que a solução TI ativamente monitorizar todos os recursos, o que podem ajudar a minimizar o impacto de incidentes de segurança de auditoria. Registos do Azure Monitor de segurança e auditoria tem domínios de segurança que podem ser utilizados para monitorizar os recursos. O domínio de segurança fornece acesso rápido às opções, para monitorização de segurança, os seguintes domínios são abordados em mais detalhes:
 
 -   Avaliação de software maligno
 -   Avaliação de atualização

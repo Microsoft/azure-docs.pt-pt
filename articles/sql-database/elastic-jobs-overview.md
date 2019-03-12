@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: eeca88a53e05b5ad89eaa99d14914e77cf06d107
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566293"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773584"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerir conjuntos elásticos
 

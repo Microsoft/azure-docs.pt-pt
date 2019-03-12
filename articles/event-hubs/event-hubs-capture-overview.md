@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e2adae46e3124fcd407fa4d4677f02bdface0a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: f1fefb863770c4b71249e924162c543cc217c9d2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077645"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541473"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturar eventos através dos Hubs de eventos do Azure no armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake
 Os Hubs de eventos do Azure permite-lhe capturar automaticamente os dados de transmissão em fluxo nos Hubs de eventos num [armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/) ou [o armazenamento do Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) à sua escolha, com a flexibilidade adicional do especificar um hora ou intervalo de tamanho. Configurar a captura é rápido, existem sem os custos administrativos para executá-lo e é escalado automaticamente com os Hubs de eventos [unidades de débito](event-hubs-features.md#capacity). Captura de Hubs de eventos é a forma mais fácil de carregar dados de transmissão em fluxo para o Azure e permite-lhe concentrar-se no processamento de dados em vez de captura de dados.
@@ -89,7 +89,7 @@ Um exemplo completo ponta a ponta está disponível na transmissão em fluxo no 
 
 [Transmissão em fluxo em escala: Captura de Hubs de eventos]
 
-### <a name="use-apache-spark"></a>Utilizar o Apache Spark
+### <a name="use-apache-spark"></a>Use Apache Spark
 
 [Apache Spark] [ Apache Spark] é um "unificada motor de análise para processamento de dados em grande escala." Ele oferece suporte a idiomas diferentes, incluindo SQL e pode acessar facilmente o armazenamento de Blobs do Azure. Existem duas opções para executar o Apache Spark no Azure e fornecem acesso fácil para o armazenamento de Blobs do Azure:
 
@@ -146,15 +146,15 @@ Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 * [Introdução ao envio e receção de eventos](event-hubs-dotnet-framework-getstarted-send.md)
 * [Descrição geral dos Hubs de Eventos][Event Hubs overview]
 
-[Apache Avro]: http://avro.apache.org/
+[Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
+[Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
-[Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
-[Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
+[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
+[Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
+[Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html

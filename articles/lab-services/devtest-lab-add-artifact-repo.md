@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: c7b9921d7eacb9b40e39f8e68d13357ce6bcfd78
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe4134d322c87c199f24cbd7966a8d6fca7256d9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241553"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538872"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Adicionar um repositório de Git para armazenar artefactos personalizados e modelos do Resource Manager
 
@@ -89,7 +89,7 @@ Para adicionar um repositório ao seu laboratório, primeiro, obtenha informaç�
 
 ### <a name="related-blog-posts"></a>Postagens de blogs relacionados
 * [Resolver problemas com falhas de artefactos no DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Associar uma VM a um domínio do Active Directory existente, utilizando um modelo do Resource Manager no DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Associar uma VM a um domínio do Active Directory existente, utilizando um modelo do Resource Manager no DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

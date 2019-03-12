@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a6aab8fda2459804b38afc113be58db7c31b54c5
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 89a97b583407b448f296b1a54f5aabbf825b8b65
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586856"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537750"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Microsoft Translator V2 de API de texto para a migração V3
 
@@ -136,13 +136,13 @@ Versão 3 do texto do Translator API está a utilizar se estiver a utilizar o po
 * Fornece acesso aos sistemas de tradução personalizadas criadas com o Microsoft Translator Hub.
 * Versão 2 do texto do Translator API está a utilizar se estiver a utilizar o ponto de extremidade api.microsofttranslator.com.
 
-Nenhuma versão de API do Translator cria um registo das suas traduções. Suas traduções nunca são partilhadas com qualquer pessoa. Obter mais informações sobre o [Translator não-rastreio](http://www.aka.ms/NoTrace) página Web.
+Nenhuma versão de API do Translator cria um registo das suas traduções. Suas traduções nunca são partilhadas com qualquer pessoa. Obter mais informações sobre o [Translator não-rastreio](https://www.aka.ms/NoTrace) página Web.
 
 ## <a name="links"></a>Ligações
 
 * [Política de privacidade da Microsoft](https://privacy.microsoft.com/privacystatement)
 * [Informação Legal sobre o Microsoft Azure](https://azure.microsoft.com/support/legal)
-* [Termos dos Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Termos dos Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

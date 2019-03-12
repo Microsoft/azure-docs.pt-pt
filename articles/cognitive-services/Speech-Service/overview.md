@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9beab6f30d42a7fd2c424971d602a581732eb946
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858837"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543054"
 ---
 # <a name="what-is-speech-services"></a>O que é o serviços de fala?
 
 Como os outros serviços de voz do Azure, serviços de voz têm a tecnologia tecnologias de fala utilizadas em produtos como o Cortana e o Microsoft Office.
 
-Os serviços de voz unam-se anteriormente disponíveis através de funcionalidades de voz do Azure a [API de voz do Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home), [de voz do Translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [voz personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), e [personalizado Voz](http://customvoice.ai/) serviços. Agora, uma subscrição dá acesso a todas estas capacidades.
+Os serviços de voz unam-se anteriormente disponíveis através de funcionalidades de voz do Azure a [API de voz do Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home), [de voz do Translator](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [voz personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), e [personalizado Voz](https://customvoice.ai/) serviços. Agora, uma subscrição dá acesso a todas estas capacidades.
 
 ## <a name="main-speech-services-functions"></a>Funções de serviços de voz de principal
 

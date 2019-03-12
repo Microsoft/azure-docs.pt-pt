@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 56f3573bbab059aed78608209cb2815413876bb0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 3f812c1142b5cd40169f7340163295b0f7ea6a4d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308728"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779152"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Lidar com erros e exceções no Azure Logic Apps
 
@@ -23,7 +23,7 @@ A maneira que qualquer arquitetura de integração manipula adequadamente o temp
 
 <a name="retry-policies"></a>
 
-## <a name="retry-policies"></a>Políticas de repetição
+## <a name="retry-policies"></a>Repetir políticas
 
 Para a exceção de forma mais básica e o tratamento de erros, pode utilizar um *política de repetição* em qualquer ação ou acionador onde for suportado. Uma política de repetição Especifica se e como a ação ou acionador repete uma solicitação quando o pedido original expira ou falhar, que é qualquer solicitação que resulta num 408, 429 ou resposta 5xx. Não se for utilizada nenhuma política de repetição, é utilizada a política predefinida. 
 
@@ -223,9 +223,9 @@ Para limites em âmbitos, consulte [limites e configuração](../logic-apps/logi
 
 Embora a deteção de falhas de um âmbito é útil, também poderá contexto para o ajudar a compreender exatamente quais ações falha além de quaisquer erros ou códigos de estado que foram devolvidos. O `@result()` expressão fornece o contexto sobre o resultado de todas as ações num âmbito.
 
-O `@result()` expressão aceita um parâmetro único (nome de âmbito) e retorna uma matriz de todos os ação resultados de dentro dele. Estes objetos de ação incluem os mesmos atributos como a  **@actions()** objeto, como a ação a hora de início, hora de fim, estado, entradas, IDs de correlação e saídas. Para enviar o contexto para todas as ações que falharam num âmbito, pode facilmente emparelhar um  **@result()** funcionar com uma **runAfter** propriedade.
+O `@result()` expressão aceita um parâmetro único (nome de âmbito) e retorna uma matriz de todos os ação resultados de dentro dele. Estes objetos de ação incluem os mesmos atributos como a  **\@actions()** objeto, como a ação a hora de início, hora de fim, estado, entradas, IDs de correlação e saídas. Para enviar o contexto para todas as ações que falharam num âmbito, pode facilmente emparelhar um  **\@result()** funcionar com uma **runAfter** propriedade.
 
-Para executar uma ação para cada ação num âmbito que tem um **falhada** resultado, e para filtrar a matriz de resultados e as ações com falha, pode emparelhar  **@result()** com um **[Matriz de filtro](../connectors/connectors-native-query.md)** ação e um [ **para cada** ](../logic-apps/logic-apps-control-flow-loops.md) loop. Pode demorar a matriz de resultado filtrado e executar uma ação para cada falha utilizando o **para cada** loop. 
+Para executar uma ação para cada ação num âmbito que tem um **falhada** resultado, e para filtrar a matriz de resultados e as ações com falha, pode emparelhar  **\@result()** com um **[ Filtrar matrizes](../connectors/connectors-native-query.md)** ação e um [ **para cada** ](../logic-apps/logic-apps-control-flow-loops.md) loop. Pode demorar a matriz de resultado filtrado e executar uma ação para cada falha utilizando o **para cada** loop. 
 
 Eis um exemplo, seguido de uma explicação detalhada, que envia um pedido de HTTP POST com o corpo de resposta para todas as ações que falhou no âmbito "My_Scope":
 
@@ -317,7 +317,7 @@ Para referência, eis um exemplo de uma única `@result()` item, que mostra a **
 }
 ```
 
-Para efetuar diferente padrões de manipulação de exceção, pode utilizar as expressões descritas anteriormente neste artigo. Pode optar por executar uma única ação fora do âmbito que aceita a matriz filtrada completa de falhas de manipulação de exceção e remover as **para cada** ação. Também pode incluir outras propriedades úteis a partir da  **@result()** resposta conforme descrita anteriormente.
+Para efetuar diferente padrões de manipulação de exceção, pode utilizar as expressões descritas anteriormente neste artigo. Pode optar por executar uma única ação fora do âmbito que aceita a matriz filtrada completa de falhas de manipulação de exceção e remover as **para cada** ação. Também pode incluir outras propriedades úteis a partir da  **\@result()** resposta conforme descrita anteriormente.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Métricas e diagnósticos do Azure
 

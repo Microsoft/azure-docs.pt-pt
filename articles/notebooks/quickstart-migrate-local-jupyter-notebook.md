@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3bd7f895e3cc30c4c5a0496977d65d68c220931f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a160bc0247d2f80dda620b67c946805926d78006
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084507"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773968"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Início rápido: Migrar um bloco de notas Jupyter local
 
@@ -26,7 +26,7 @@ Blocos de notas do Jupyter que criar localmente no seu próprio computador estã
 
 Ao migrar seus blocos de notas do locais ou baseada no repositório para blocos de notas do Azure, armazená-las na cloud a partir do qual pode instantaneamente partilhá-los com seus colaboradores. Os funcionários precisam apenas um browser para ver e executar o bloco de notas e se eles [iniciar sessão](quickstart-sign-in-azure-notebooks.md) para blocos de notas do Azure também fazer alterações.
 
-Este início rápido demonstra o processo de migração de um bloco de notas do seu computador local ou outra URL do arquivo acessível. Para migrar blocos de notas a partir de um repositório do GitHub, consulte [início rápido: clonar um bloco de notas](quickstart-clone-jupyter-notebook.md).
+Este início rápido demonstra o processo de migração de um bloco de notas do seu computador local ou outra URL do arquivo acessível. Para migrar blocos de notas a partir de um repositório do GitHub, consulte [início rápido: Clonar um bloco de notas](quickstart-clone-jupyter-notebook.md).
 
 ## <a name="create-a-project-on-azure-notebooks"></a>Criar um projeto em blocos de notas do Azure
 
@@ -48,7 +48,7 @@ Este início rápido demonstra o processo de migração de um bloco de notas do 
 
     ![Comando para carregar um bloco de notas de um URL ou o computador local](media/quickstarts/upload-from-computer-url-command.png)
 
-   (Novamente, se seu bloco de notas estiver num repositório do GitHub, siga os passos [início rápido: clonar um bloco de notas](quickstart-clone-jupyter-notebook.md) em vez disso.)
+   (Novamente, se seu bloco de notas estiver num repositório do GitHub, siga os passos no [início rápido: Clonar um bloco de notas](quickstart-clone-jupyter-notebook.md) em vez disso.)
 
     - Se utilizar **de computador**, arraste e largue sua *.ipynb* ficheiros para o pop-up ou selecione o **escolher ficheiros**, em seguida, procure e selecione os ficheiros que pretende importar. Em seguida, selecione **carregar**. Os ficheiros carregados recebem o mesmo nome que os ficheiros locais. (Não precisa de carregar o conteúdo de qualquer *.ipynb_checkpoints* pastas.)
 

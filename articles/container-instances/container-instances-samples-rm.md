@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 03/07/2019
 ms.author: danlep
-ms.openlocfilehash: e825e0bdd08db0e9c1b51c09859aba2e7c716f91
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: bf9f2be8a0854a6968f3be6bfdaf3a59fc81dc76
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856473"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57728963"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Modelos do Azure Resource Manager do Azure Container Instances
 
@@ -29,11 +29,12 @@ Para opções de implementação, consulte a [implementação](#deployment) sec�
 | [Barra de navegação do MS SQL Server e do IIS][app-nav] | Implementa um único contentor do Windows com um Dynamics NAV com todas as funcionalidades autossuficiente / ambiente do Dynamics 365 Business Central. |
 | **Volumes** ||
 | [emptyDir][vol-emptydir] | Implementa dois contentores de Linux que compartilham um volume de emptyDir. |
-| [GitRepo][vol-gitrepo] | Implementa um contentor de Linux que clona um repositório do GitHub e monta-lo como um volume. |
-| [Segredo][vol-secret] | Implementa o contentor do Linux com um certificado PFX montado como um volume secreto. |
+| [gitRepo][vol-gitrepo] | Implementa um contentor de Linux que clona um repositório do GitHub e monta-lo como um volume. |
+| [secret][vol-secret] | Implementa o contentor do Linux com um certificado PFX montado como um volume secreto. |
 | **Redes** ||
 | [Contentor exposta por UDP][net-udp] | Implementa um contentor do Windows ou Linux que expõe uma porta UDP. |
 | [Contentor do Linux com IP público][net-publicip] | Implementa um único contentor de Linux podem ser acedido através de um IP público. |
+| [Implementar um grupo de contentor com uma rede virtual (pré-visualização)][net-vnet] | Implementa uma nova rede virtual, a sub-rede, o perfil de rede e o grupo de contentores. |
 | **Recursos do Azure** ||
 | [Criar conta de armazenamento do Azure e a partilha de ficheiros][az-files] | Utiliza a CLI do Azure numa instância de contentor para criar uma conta de armazenamento e uma partilha de ficheiros do Azure.
 
@@ -55,6 +56,7 @@ Tem várias opções para implementar recursos com modelos do Resource Manager:
 [az-files]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-storage-file-share
 [net-publicip]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip
 [net-udp]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-udp
+[net-vnet]: https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet
 [repo]: https://github.com/Azure/azure-quickstart-templates
 [vol-emptydir]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-emptydir
 [vol-gitrepo]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-linuxcontainer-volume-gitrepo

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/26/2019
-ms.openlocfilehash: c0f4d483c214847227059046c2dda305f63398d6
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/11/2019
+ms.openlocfilehash: c31d260c99707f4231a6833479517b9b69575d55
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991740"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778914"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure do Azure Logic Apps com um ambiente de serviço de integração (ISE)
 
@@ -28,8 +28,6 @@ Para cenários em que o logic apps e as contas de integração precisam de acess
 Este artigo mostra como concluir estas tarefas:
 
 * Defina as portas de rede virtual do Azure para que o tráfego pode ser transferidos através de seu ambiente de serviço de integração (ISE) em sub-redes na rede virtual.
-
-* Configure as permissões na sua rede virtual do Azure, para que a instância privada do Logic Apps possa acessar a rede virtual.
 
 * Crie o seu ambiente de serviço de integração (ISE).
 
@@ -46,9 +44,11 @@ Para obter mais informações sobre os ambientes de serviço de integração, co
   > [!IMPORTANT]
   > Logic apps, ações incorporadas e conectores que executar no seu ISE utilizam um plano de preços diferente, não o consumo baseado no plano de preços. Para obter mais informações, consulte [preços de aplicações lógicas](../logic-apps/logic-apps-pricing.md).
 
-* Uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Se não tiver uma rede virtual, saiba como [criar uma Azure virtual network](../virtual-network/quick-create-portal.md). Também precisa de sub-redes na rede virtual para implementar o seu ISE. Pode criar estas sub-redes com antecedência ou aguarde até que criar seu ISE onde pode criar sub-redes, ao mesmo tempo. Além disso, [certificar-se de que a rede virtual disponibiliza estas portas](#ports) para que seu ISE funciona corretamente e permanece acessível.
+* Uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Se não tiver uma rede virtual, saiba como [criar uma Azure virtual network](../virtual-network/quick-create-portal.md). 
 
-* Para proporcionar acesso direto à rede virtual do Azure, a suas aplicações lógicas [configurar permissões de controlo de acesso baseado em funções (RBAC) de sua rede](#vnet-access) para que o serviço de aplicações lógicas tem as permissões para aceder à sua rede virtual.
+  * A rede virtual tem de ter quatro *vazio* sub-redes para a implantação e criação de recursos no seu ISE. Pode criar estas sub-redes com antecedência, ou pode aguardar até que criar seu ISE onde pode criar sub-redes, ao mesmo tempo. Saiba mais sobre [requisitos de sub-rede](#create-subnet).
+
+  * Certifique-se de que a rede virtual [disponibiliza estas portas](#ports) para que seu ISE funciona corretamente e permanece acessível.
 
 * Para utilizar um ou mais servidores DNS personalizados para implementar a sua rede virtual do Azure, [configurar esses servidores de seguir estas orientações](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) antes de implementar seu ISE à sua rede virtual. Caso contrário, sempre que alterar o seu servidor DNS, também tem de reiniciar o ISE, que é um recurso que está disponível em pré-visualização pública do ISE.
 
@@ -60,13 +60,17 @@ Para obter mais informações sobre os ambientes de serviço de integração, co
 
 Para funcionar corretamente e mantenha-se acessível, o ambiente de serviço de integração (ISE) tem de ter as portas específicas disponíveis na sua rede virtual. Caso contrário, se qualquer uma destas portas não estão disponíveis, poderá perder o acesso ao seu ISE, que poderá parar de funcionar. Quando utiliza um ISE numa rede virtual, um problema de configuração comum é ter um ou mais portas bloqueadas. Para as ligações entre seu ISE e o sistema de destino, o conector que utiliza também pode ter seus próprios requisitos de porta. Por exemplo, se comunicar com um sistema FTP utilizando o conector FTP, certifique-se a porta a que utilizar em que o sistema FTP, como a porta 21 para o envio de comandos, está disponível.
 
-Para controlar o tráfego de entrada e saído entre sub-redes da rede virtual onde implementar seu ISE, pode configurar [grupos de segurança de rede](../virtual-network/security-overview.md) para essas sub-redes Learning [como filtrar o tráfego de rede em sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Estas tabelas descrevem as portas na sua rede virtual que utiliza o ISE e onde se acostumar essas portas. O asterisco (\*) representa a origens de todo e qualquer tráfego possíveis. O [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) representa um grupo de prefixos de endereços IP que o ajudam a minimizar a complexidade ao criar regras de segurança.
+Para controlar o tráfego de entrada e saído entre sub-redes da rede virtual onde implementar seu ISE, pode configurar [grupos de segurança de rede](../virtual-network/security-overview.md) para essas sub-redes Learning [como filtrar o tráfego de rede em sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Estas tabelas descrevem as portas na sua rede virtual que utiliza o ISE e onde se acostumar essas portas. O [etiqueta de serviço](../virtual-network/security-overview.md#service-tags) representa um grupo de prefixos de endereços IP que o ajudam a minimizar a complexidade ao criar regras de segurança. 
+
+> [!IMPORTANT]
+> Para a comunicação interna dentro as sub-redes, a ISE requer que abrir todas as portas dentro dessas sub-redes. 
 
 | Objetivo | Direção | Portas | Etiqueta de serviço de origem | Etiqueta do serviço de destino | Notas |
 |---------|-----------|-------|--------------------|-------------------------|-------|
 | Comunicação a partir do Azure Logic Apps | Saída | 80 & 443 | VIRTUAL_NETWORK | INTERNET | A porta depende do serviço externo com o qual comunica o serviço de aplicações lógicas |
 | Azure Active Directory | Saída | 80 & 443 | VIRTUAL_NETWORK | AzureActiveDirectory | |
 | Dependência de armazenamento do Azure | Saída | 80 & 443 | VIRTUAL_NETWORK | Armazenamento | |
+| Comunicação intersubnet | Entrada e saída | 80 & 443 | VIRTUAL_NETWORK | VIRTUAL_NETWORK | Para a comunicação entre sub-redes |
 | Comunicação com o Azure Logic Apps | Entrada | 443 | INTERNET  | VIRTUAL_NETWORK | O endereço IP para o computador ou serviço que chama qualquer acionador de pedido ou o webhook que existe na sua aplicação lógica. Fechar ou bloquear essa porta impede que as chamadas HTTP para aplicações lógicas com acionadores de pedido.  |
 | Histórico de execução da aplicação lógica | Entrada | 443 | INTERNET  | VIRTUAL_NETWORK | O endereço IP para o computador a partir da qual ver a aplicação lógica do histórico de execuções. Embora a fechar ou bloquear essa porta não impede que visualizar o histórico de execuções, não é possível ver as entradas e saídas de cada passo em que o histórico de execuções. |
 | Gerenciamento de conexões | Saída | 443 | VIRTUAL_NETWORK  | INTERNET | |
@@ -74,46 +78,13 @@ Para controlar o tráfego de entrada e saído entre sub-redes da rede virtual on
 | Estruturador de aplicações lógicas - propriedades dinâmicas | Entrada | 454 | INTERNET  | VIRTUAL_NETWORK | Pedidos são provenientes do Logic Apps [aceder ao ponto final de entrada a endereços IP nessa região](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | Dependência de aplicação do serviço de gestão | Entrada | 454 & 455 | AppServiceManagement | VIRTUAL_NETWORK | |
 | Implementação do conector | Entrada | 454 & 3443 | INTERNET  | VIRTUAL_NETWORK | Necessário para implantar e atualizar os conectores. Fechar ou bloquear essa porta faz com que as implementações de ISE efetuar a ativação e impede que o conector atualizações ou correções. |
+| Dependência SQL do Azure | Saída | 1433 | VIRTUAL_NETWORK | SQL |
+| Azure Resource Health | Saída | 1886 | VIRTUAL_NETWORK | INTERNET | Para a publicação de estado de funcionamento para Estado de funcionamento do recurso |
 | Gestão de API - ponto final de gestão | Entrada | 3443 | APIManagement  | VIRTUAL_NETWORK | |
 | Dependência do registo para a política do Hub de eventos e o agente de monitorização | Saída | 5672 | VIRTUAL_NETWORK  | EventHub | |
-| Aceder a Cache do Azure para instâncias de Redis entre instâncias de função | Entrada <br>Saída | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | |
-| Azure Load Balancer | Entrada | 8500 | AzureLoadBalancer  | VIRTUAL_NETWORK | |
+| Aceder a Cache do Azure para instâncias de Redis entre instâncias de função | Entrada <br>Saída | 6379-6383 | VIRTUAL_NETWORK  | VIRTUAL_NETWORK | Além disso, para ISE trabalhar com o Azure Cache de Redis, tem de abrir estes [descritas no Redis perguntas frequentes sobre a Cache do Azure a portas de saída e entradas](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Entrada | * | AZURE_LOAD_BALANCER | VIRTUAL_NETWORK |  |
 ||||||
-
-<a name="vnet-access"></a>
-
-## <a name="set-virtual-network-permissions"></a>Definir permissões de rede virtual
-
-Quando cria um ambiente de serviço de integração (ISE), selecione uma rede virtual do Azure para onde *injetar* seu ambiente. No entanto, antes de poder selecionar uma rede virtual para injetar seu ambiente, tem de configurar permissões de controlo de acesso baseado em funções (RBAC) na sua rede virtual. Para configurar as permissões, atribua essas funções específicas para o serviço do Azure Logic Apps:
-
-1. Na [portal do Azure](https://portal.azure.com), localize e selecione a rede virtual.
-
-1. No menu da sua rede virtual, selecione **controlo de acesso (IAM)**.
-
-1. Sob **controlo de acesso (IAM)**, escolha **adicionar atribuição de função**.
-
-   ![Adicionar funções](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
-
-1. Sobre o **adicionar atribuição de função** painel, adicione a função necessária para o serviço do Azure Logic Apps, conforme descrito.
-
-   1. Sob **função**, selecione **Contribuidor de rede**.
-
-   1. Sob **atribuir acesso aos**, selecione **utilizador, grupo ou principal de serviço do Azure AD**.
-
-   1. Sob **selecionar**, introduza **Azure Logic Apps**.
-
-   1. Depois da lista de membros for apresentada, selecione **do Azure Logic Apps**.
-
-      > [!TIP]
-      > Se não conseguir encontrar este serviço, introduza o ID da aplicação do serviço de aplicações lógicas: `7cd684f4-8a78-49b0-91ec-6a35d38739ba`
-
-   1. Quando tiver terminado, escolha **Save** (Guardar).
-
-   Por exemplo:
-
-   ![Adicionar atribuição de função](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
-
-Para obter mais informações, consulte [permissões para acesso à rede virtual](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 <a name="create-environment"></a>
 
@@ -144,12 +115,29 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
    | **Localização** | Sim | <*Azure-datacenter-region*> | A região do datacenter do Azure onde pretende implementar o seu ambiente |
    | **Capacidade adicional** | Sim | 0, 1, 2, 3 | O número de unidades de processamento para utilizar para este recurso ISE. Para adicionar capacidade após a criação, consulte [adicionar capacidade](#add-capacity). |
    | **Rede virtual** | Sim | <*Azure-virtual-network-name*> | A rede virtual do Azure em que deseja injetar o seu ambiente para que aplicações lógicas nesse ambiente podem acessar a rede virtual. Se não tiver uma rede, pode criar uma aqui. <p>**Importante**: Pode *apenas* realizar este injeção quando cria seu ISE. No entanto, antes de poder criar esta relação, certifique-se de que já [configurar o controlo de acesso baseado em funções na sua rede virtual para o Azure Logic Apps](#vnet-access). |
-   | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro *vazio* sub-redes para a criação de recursos no seu ambiente. Por isso, certifique-se de que estas sub-redes *não são delegados* a qualquer serviço. *Não é possível alterar* estes endereços de sub-rede depois de criar o seu ambiente. <p><p>Para criar cada sub-rede [siga os passos nesta tabela](#create-subnet). Cada sub-rede tem de cumprir estes critérios: <p>-Pode estar vazio. <br>-Utiliza um nome que não começa com um número ou um hífen. <br>-Consome os [formato de encaminhamento de entre domínios Classless (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e um espaço de endereços de classe B. <br>-Inclui, pelo menos, um `/27` no espaço de endereços, de modo a sub-rede obtém, pelo menos, 32 endereços. Para saber mais sobre o cálculo do número de endereços, veja [blocos CIDR de IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks). Por exemplo: <p>- `10.0.0.0/24` tem de 256 endereços porque 2<sup>(32-24)</sup> é 2<sup>8</sup> ou 256. <br>- `10.0.0.0/27` tem 32 endereços porque 2<sup>(32-27)</sup> é 2<sup>5</sup> ou 32. <br>- `10.0.0.0/28` tem apenas 16 endereços porque 2<sup>(32-28)</sup> é 2<sup>4</sup> ou 16. |
+   | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro *vazio* sub-redes para a criação de recursos no seu ambiente. Para criar cada sub-rede [siga os passos nesta tabela](#create-subnet).  |
    |||||
 
    <a name="create-subnet"></a>
 
    **Criar sub-rede**
+
+   O ISE requer quatro *vazio* sub-redes que *não são delegados* a qualquer serviço durante a criação de recursos no seu ambiente. 
+   *Não é possível alterar* estes endereços de sub-rede depois de criar o seu ambiente. Cada sub-rede tem de cumprir estes critérios:
+
+   * Utiliza um nome que não começa com um número ou um hífen.
+
+   * Utiliza a [formato de encaminhamento de entre domínios Classless (CIDR)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) e um espaço de endereços de classe B.
+
+   * Utiliza a, pelo menos, um `/27` o endereço de espaço porque cada sub-rede tem de ter 32 endereços como o *mínimo*. Por exemplo:
+
+     * `10.0.0.0/27` tem 32 endereços porque 2<sup>(32-27)</sup> é 2<sup>5</sup> ou 32.
+
+     * `10.0.0.0/24` tem de 256 endereços porque 2<sup>(32-24)</sup> é 2<sup>8</sup> ou 256.
+
+     * `10.0.0.0/28` tem apenas 16 endereços e é muito pequeno porque 2<sup>(32-28)</sup> é 2<sup>4</sup> ou 16.
+
+     Para saber mais sobre o cálculo de endereços, veja [blocos CIDR de IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
    1. Sob o **sub-redes** lista, escolha **configuração de sub-rede de gerir**.
 
@@ -207,7 +195,7 @@ A unidade de base do ISE corrigiu capacidade, portanto, se precisar de mais déb
    1. Na **predefinido** secção, escolha **adicionar uma regra**.
 
    1. Sobre o **regra de dimensionamento** painel, configurar os critérios e a ação a tomar quando a regra for acionada.
-   
+
    1. Quando tiver terminado, escolha **adicionar**.
 
 1. Quando tiver terminado, lembre-se de guardar as alterações.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: edd011509c9129e95bcf7ea49f5a84e17fffd176
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 7f3b6de64343137278895d92835f080f8844dda1
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310555"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588929"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure
 
@@ -26,7 +26,10 @@ Pode configurar um domínio personalizado para aceder a dados de BLOBs na sua co
 > [!NOTE]  
 > Contas de armazenamento atualmente suportam apenas um nome de domínio personalizado por conta. Não é possível mapear um nome de domínio personalizado para pontos finais de serviço da web e de Blobs.
 
-A tabela seguinte mostra alguns URLs de exemplo para dados de BLOBs que esteja localizados numa conta de armazenamento com o nome *mystorageaccount*. O domínio personalizado que está registado para a conta de armazenamento são *www.contoso.com*:
+> [!NOTE]  
+> O mapeamento só funcionam em subdomínios (por exemplo, www.contoso.com). Se quiser que o seu ponto final da web disponível no domínio raiz (por exemplo, contoso.com), então precisa [utilizar a CDN do Azure com domínios personalizados](storage-https-custom-domain-cdn.md)
+
+A tabela seguinte mostra alguns URLs de exemplo para dados de BLOBs que esteja localizados numa conta de armazenamento com o nome *mystorageaccount*. O subdomínio personalizado que está registado para a conta de armazenamento são *www.contoso.com*:
 
 | Tipo de recurso | URL predefinido | URL de domínio personalizado |
 | --- | --- | --- | --- |
@@ -38,9 +41,9 @@ A tabela seguinte mostra alguns URLs de exemplo para dados de BLOBs que esteja l
 > [!NOTE]  
 > Conforme mostrado nas seções a seguir, todos os exemplos para o ponto final de serviço de BLOBs também se aplicam ao ponto de final de serviço da web.
 
-## <a name="direct-vs-intermediary-domain-mapping"></a>Direto vs. o mapeamento de domínio intermediário
+## <a name="direct-vs-intermediary-cname-mapping"></a>Direto versus intermediário mapeamento de CNAME
 
-Pode apontar o seu domínio personalizado para o ponto final do blob para a sua conta de armazenamento em qualquer uma das seguintes formas: 
+Pode apontar seu domínio personalizado, o prefixo um subdomínio (por exemplo, www.contoso.com) para o ponto final do blob para a sua conta de armazenamento em qualquer uma das seguintes formas: 
 * Utilize o mapeamento direto de CNAME.
 * Utilize o *asverifiy* subdomínio intermediário.
 
@@ -82,8 +85,8 @@ Normalmente, pode gerir as definições de DNS do seu domínio no site da entida
 1. Encontre a secção para gerir CNAMEs.  
    Poderá ter de ir para uma página de definições avançadas e procure **CNAME**, **Alias**, ou **subdomínios**.
 
-1. Criar um novo registo CNAME, introduza um alias de subdomínio, tal como **www** ou **fotos**e, em seguida, forneça um nome de anfitrião.  
-   O nome de anfitrião é o ponto final de serviço de Blobs. Seu formato é  *\<mystorageaccount >. blob.core.windows.net*, em que *mystorageaccount* é o nome da conta de armazenamento. O nome de anfitrião a utilizar é apresentado no item #1 do **Custom domain** painel na [portal do Azure](https://portal.azure.com).
+1. Criar um novo registo CNAME, introduza um alias de subdomínio, tal como **www** ou **fotos** (é necessário o subdomínio, domínios de raiz não são suportados) e, em seguida, forneça um nome de anfitrião.  
+   O nome de anfitrião é o ponto final de serviço de Blobs. Seu formato é  *\<mystorageaccount >. blob.core.windows.net*, em que *mystorageaccount* é o nome da conta de armazenamento. O nome de anfitrião a utilizar é apresentado no item #1 do **Custom domain** painel na [portal do Azure](https://portal.azure.com). 
 
 1. Na **Custom domain** painel, na caixa de texto, introduza o nome do seu domínio personalizado, incluindo o subdomínio.  
    Por exemplo, se o seu domínio for *contoso.com* e é o seu alias de subdomínio *www*, introduza **www.contoso.com**. Se for o subdomínio *fotografias*, introduza **photos.contoso.com**.

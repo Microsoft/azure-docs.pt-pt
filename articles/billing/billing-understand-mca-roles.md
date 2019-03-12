@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 43bf977483e9f24eb446e1c4c7b168c890604c39
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9b14174541117878d7fd98b79d1cd139babb1027
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249111"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543462"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Compreender as funções administrativas do contrato de cliente da Microsoft no Azure
 
@@ -183,7 +183,7 @@ A tabela seguinte mostra que função tem de concluir as tarefas no contexto de 
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Gerir funções de faturas no portal do Azure
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Pesquisar nos **custo Management + faturação**.
 
