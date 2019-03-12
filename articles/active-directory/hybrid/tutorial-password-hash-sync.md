@@ -14,16 +14,16 @@ ms.date: 09/17/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72ad11258d4bc0b5b7d56570f1de24676160924d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 54bc5f0a155db5460b3422d03650211175eef89a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314658"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534179"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial:  Integrar uma única floresta do AD com a sincronização de hash de palavra-passe (PHS)
 
-![Criar](media/tutorial-password-hash-sync/diagram.png)
+![Create](media/tutorial-password-hash-sync/diagram.png)
 
 O tutorial seguinte irá guiá-lo através da criação de um ambiente de identidade híbrida com sincronização de hash de palavra-passe.  Neste ambiente, em seguida, pode ser utilizado para fins de teste ou para obter mais familiarizado com o funcionamento de uma identidade híbrida.
 
@@ -41,7 +41,7 @@ Seguem-se os pré-requisitos necessários para a conclusão deste tutorial
 >
 > Cópias dos scripts do PowerShell que são utilizados neste tutorial estão disponíveis no GitHub [aqui](https://github.com/billmath/tutorial-phs).
 
-## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
 A primeira coisa que precisamos para o fazer, para que o nosso ambiente de identidade híbrida a cópia de segurança e em execução é criar uma máquina virtual que será utilizada como nosso servidor do Active Directory no local.  Faça o seguinte:
 
 1. Abra o ISE do PowerShell como administrador.
@@ -226,7 +226,7 @@ Agora iremos confirmar que os utilizadores que tínhamos no nosso diretório no 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar início de sessão com um dos nossos usuários
 
-1.  Navegue para [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1.  Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inicie sessão com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de início de sessão com o seguinte formato: (user@domain.onmicrosoft.com). Utilizar a mesma palavra-passe que o utilizador utiliza para iniciar sessão no local.</br>
 ![Certifique-se](media/tutorial-password-hash-sync/verify1.png)</br>
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: c2020688359fafe6cf39dacc84c84ea79251ddbb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: d758d36602e48f882a0c6c78bf8c36fd28209a7b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733355"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533940"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Utilize a ferramenta de migração de dados para migrar os dados para o Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Embora a ferramenta de importação inclua uma interface gráfica (dtui.exe), ta
 
 ## <a id="Install"></a>Instalação
 
-O código de origem da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Pode transferir e compilar a solução localmente ou [transferir um binário previamente compilado](http://aka.ms/csdmtool) e, em seguida, executar:
+O código de origem da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Pode transferir e compilar a solução localmente ou [transferir um binário previamente compilado](https://aka.ms/csdmtool) e, em seguida, executar:
 
 * **Dtui.exe**: Versão de interface gráfica da ferramenta
 * **Dt.exe**: Versão de linha de comando da ferramenta

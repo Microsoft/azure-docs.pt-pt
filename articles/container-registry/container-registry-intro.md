@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 0ffad78afd6acdfbcea8df970358c639706f14b8
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: befac6f1429d5099f68f0c2ba0a90bb1217f8b6f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814253"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530267"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introdução aos registos privados de contentores Docker no Azure
 
@@ -27,7 +27,7 @@ Para obter informações sobre o Docker e os contentores, veja [Docker overview]
 
 Extrair imagens de um registo de contentores do Azure para vários destinos de implementações:
 
-* **Sistemas de orquestração dimensionáveis** que gerem aplicações em contentores através de clusters de anfitriões, incluindo [Kubernetes](http://kubernetes.io/docs/), [CD/SO](https://docs.mesosphere.com/) e [Docker Swarm](https://docs.docker.com/swarm/).
+* **Sistemas de orquestração dimensionáveis** que gerem aplicações em contentores através de clusters de anfitriões, incluindo [Kubernetes](https://kubernetes.io/docs/), [CD/SO](https://docs.mesosphere.com/) e [Docker Swarm](https://docs.docker.com/swarm/).
 * **Serviços do Azure** que suportam a criação e a execução de aplicações em escala, incluindo o [Azure Kubernetes Service (AKS)](../aks/index.yml), o [Serviço de Aplicações](../app-service/index.yml), o [Batch](../batch/index.yml), o [Service Fabric](/azure/service-fabric/) e outros.
 
 Os programadores também podem enviar para um registo de contentores como parte de um fluxo de trabalho de desenvolvimento de contentores. Por exemplo, podem segmentar um registo de contentor a partir de uma ferramenta de integração e implementação contínua, como o [Serviços de DevOps do Azure](https://docs.microsoft.com/azure/devops/) ou o [Jenkins](https://jenkins.io/).

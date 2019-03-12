@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
+ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 2592c81947f48c10891fe920647612d5c30af64f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 271da0a6ff443fcee28bc870821f4222b3018c91
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989088"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576876"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurar o Runtime de integração Azure-SSIS para elevado desempenho
 
@@ -95,7 +95,7 @@ Se tiver muitos pacotes para executar e, mais importantes sobre a produtividade 
 Quando um nó de trabalho eficiente já estiver a utilizar para executar pacotes, aumentando **AzureSSISMaxParallelExecutionsPerNode** pode aumentar o débito global do integration runtime. Para nós Standard_D1_v2, 1 a 4 de execuções paralelas por nó são suportadas. Para todos os outros tipos de nós, 1 a 8 de execuções paralelas por nó são suportadas.
 Pode estimar o valor apropriado com base no custo do seu pacote e as seguintes configurações para os nós de trabalho. Para obter mais informações, consulte [tamanhos de máquina de virtual para fins gerais](../virtual-machines/windows/sizes-general.md).
 
-| Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / Desempenho de rede esperado (Mbps) |
+| Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS / MBps de leitura / MBps de escrita | Discos de dados máximos / débito: IOPS | NICs. Máx. / Desempenho de rede esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3.5         | 50                     | 3000 / 46 / 23                                             | 2 / 2x500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4x500                         | 2 / 1500                                       |

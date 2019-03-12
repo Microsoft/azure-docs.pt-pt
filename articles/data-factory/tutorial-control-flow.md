@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: 53540128b5a9a1e2690179a35f26a9a82c6cb584
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446958"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551641"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade de cópia for bem sucedida, vai querer enviar detalhes da operação de cópia com êxito (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade de cópia falhar, vai querer enviar detalhes da falha de cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
 
-Uma visão geral do cenário: ![Descrição geral](media/tutorial-control-flow/overview.png)
+Uma visão geral do cenário: ![Descrição Geral](media/tutorial-control-flow/overview.png)
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -56,7 +56,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     John|Doe
     Jane|Doe
     ```
-2. Utilize ferramentas como o [Explorador de Armazenamento do Microsoft Azure](http://storageexplorer.com/) para criar o contentor **adfv2branch** e carregar o ficheiro **input.txt** para o contentor.
+2. Utilize ferramentas como o [Explorador de Armazenamento do Microsoft Azure](https://storageexplorer.com/) para criar o contentor **adfv2branch** e carregar o ficheiro **input.txt** para o contentor.
 
 ## <a name="create-visual-studio-project"></a>Criar projeto do Visual Studio
 

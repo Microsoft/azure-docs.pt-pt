@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7fcf08c36d8babd0a318ed5b912823c344f4ce64
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024370"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549957"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiar dados do Amazon Redshift, com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-amazon-redshift-connector.md)
 > * [Versão atual](connector-amazon-redshift.md)
 
@@ -38,7 +38,7 @@ Especificamente, este conector Amazon Redshift suporta a recuperação de dados 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se estiver a copiar para um dados no local do arquivo de dados usando [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md), conceder o acesso ao cluster do Amazon Redshift de Runtime de integração (endereço IP da utilização da máquina). Ver [autorizar o acesso ao cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) para obter instruções.
+* Se estiver a copiar para um dados no local do arquivo de dados usando [Integration Runtime autoalojado](create-self-hosted-integration-runtime.md), conceder o acesso ao cluster do Amazon Redshift de Runtime de integração (endereço IP da utilização da máquina). Ver [autorizar o acesso ao cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) para obter instruções.
 * Se estiver a copiar dados para um arquivo de dados do Azure, veja [intervalos de IP do Centro de dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) para o endereço IP de computação e os intervalos de SQL utilizados pelos dados do Azure centra-se.
 
 ## <a name="getting-started"></a>Introdução
@@ -57,7 +57,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Amazon Redsh
 | servidor |Nome anfitrião ou endereço IP do servidor do Amazon Redshift. |Sim |
 | porta |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não, a predefinição é 5439 |
 | base de dados |Nome da base de dados do Amazon Redshift. |Sim |
-| o nome de utilizador |Nome de utilizador que tenha acesso à base de dados. |Sim |
+| nome do utilizador |Nome de utilizador que tenha acesso à base de dados. |Sim |
 | palavra-passe |Palavra-passe da conta de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -151,7 +151,7 @@ Saiba mais sobre como utilizar UNLOAD para copiar dados do Amazon Redshift com e
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Utilizar o descarregamento para copiar dados do Amazon Redshift
 
-[DESCARREGAR](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) é um mecanismo fornecido pelo Amazon Redshift, que pode descarregar os resultados de uma consulta para um ou mais ficheiros no Amazon Simple Storage Service (Amazon S3). É a forma recomendada pela Amazon para copiar o conjunto de dados grande do Redshift.
+[DESCARREGAR](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) é um mecanismo fornecido pelo Amazon Redshift, que pode descarregar os resultados de uma consulta para um ou mais ficheiros no Amazon Simple Storage Service (Amazon S3). É a forma recomendada pela Amazon para copiar o conjunto de dados grande do Redshift.
 
 **Exemplo: copiar dados do Amazon Redshift para o Azure SQL Data Warehouse, utilizando o descarregamento, cópia faseada e o PolyBase**
 
@@ -210,17 +210,17 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são utilizados ent
 | Tipo de dados do Amazon Redshift | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | BIGINT |Int64 |
-| VALOR BOOLEANO |Cadeia |
-| CHAR |Cadeia |
+| VALOR BOOLEANO |String |
+| CHAR |String |
 | DATA |DateTime |
 | DECIMAL |Decimal |
-| PRECISÃO DUPLA |Valor de duplo |
+| PRECISÃO DUPLA |Double |
 | NÚMERO INTEIRO |Int32 |
-| REAL |Único |
+| REAL |Single |
 | SMALLINT |Int16 |
-| TEXTO |Cadeia |
+| TEXTO |String |
 | TIMESTAMP |DateTime |
-| VARCHAR |Cadeia |
+| VARCHAR |String |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Azure Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md##supported-data-stores-and-formats).

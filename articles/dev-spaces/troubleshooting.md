@@ -3,19 +3,18 @@ title: Resolução de problemas
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 67b4c3a74345d2f82cf10c3becb243df41f9406b
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 7a944b87192236ba7401fe62d52275bea8be5076
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195120"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769800"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -142,12 +141,12 @@ Inicie o VS Code a partir de um prompt de comando em que a variável de ambiente
 
 Verá este erro no Visual Studio Code, se tiver uma versão mais recente da extensão do VS Code para espaços de desenvolvimento do Azure, mas uma versão mais antiga da CLI de espaços de desenvolvimento do Azure.
 
-### <a name="try"></a>Experimente
+### <a name="try"></a>Experimentar
 
 Transfira e instale a versão mais recente da CLI de espaços de desenvolvimento do Azure:
 
-* [Windows](http://aka.ms/get-azds-windows)
-* [Mac](http://aka.ms/get-azds-mac)
+* [Windows](https://aka.ms/get-azds-windows)
+* [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>Erro 'azds' não é reconhecido como um comando interno ou externo, programa operável ou arquivo em lotes

@@ -3,21 +3,20 @@ title: Criar uma fábrica de dados do Azure com o modelo do Resource Manager | M
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com um modelo do Azure Resource Manager.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: 7d02dedc6979f1b9b78ef1ec3f74728c67574f56
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437059"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576655"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar uma fábrica de dados do Azure com o modelo Azure Resource Manager
 
@@ -38,7 +37,7 @@ Este início rápido descreve como utilizar um modelo do Azure Resource Manager 
 
 Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções em [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-Az-ps).
 
-## <a name="resource-manager-templates"></a>Modelos do Resource Manager
+## <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
 
 Para saber mais sobre os modelos do Azure Resource Manager, veja [Authoring Azure Resource Manager Template](../azure-resource-manager/resource-group-authoring-templates.md) (Criar Modelos do Azure Resource Manager).
 
@@ -53,7 +52,7 @@ Crie um ficheiro JSON com o nome **ADFTutorialARM.json** na pasta **C:\ADFTutori
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
         "dataFactoryName": {
             "type": "string",
@@ -604,7 +603,7 @@ Defina um pipeline que copia os dados de um conjunto de dados dos blobs do Azure
 }
 ```
 
-#### <a name="trigger"></a>Acionador
+#### <a name="trigger"></a>Acionamento
 
 Defina um acionador que executa o pipeline uma vez por hora. O acionador implementado está no estado parado. Iniciar o acionador com o **Start-AzDataFactoryV2Trigger** cmdlet. Para obter mais informações sobre os acionadores, veja o artigo [Execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md#triggers).
 

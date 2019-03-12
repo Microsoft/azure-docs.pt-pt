@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb2329a2a67e2e54084d2289cb8cb1a18663b329
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593680"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551063"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de v2.0 - fluxo de código de autorização de OAuth 2.0
 
@@ -271,7 +271,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | obrigatório    | Tem de ser `refresh_token` para este vertente do fluxo de código de autorização. |
 | `scope`         | obrigatório    | Uma lista de âmbitos separadas por espaços. Os âmbitos solicitados neste leg tem de ser equivalente a ou um subconjunto dos âmbitos solicitada no leg de pedido de authorization_code original. Se os âmbitos especificados neste pedido abrangem vários servidores de recursos, o ponto final v2.0 irá devolver um token para o recurso especificado no âmbito da primeira. Para obter uma explicação mais detalhada de âmbitos, consulte [permissões e consentimento e âmbitos](v2-permissions-and-consent.md). |
 | `refresh_token` | obrigatório    | Refresh_token que obteve no segundo leg do fluxo. |
-| `redirect_uri`  | obrigatório    | O valor de redirect_uri mesmo que foi utilizado para adquirir o authorization_code. |
+| `redirect_uri`  | obrigatório    |  A `redirect_uri`registado no aplicativo do cliente. |
 | `client_secret` | necessária para as aplicações web | O segredo de aplicação que criou no portal de registo de aplicação para a sua aplicação. Não deve ser utilizada num aplicativo nativo, porque client_secrets não podem ser armazenados com confiança nos dispositivos. É necessário para aplicações web e APIs, que têm a capacidade de armazenar o client_secret em segurança no lado do servidor web.                                                                                                                                                    |
 
 #### <a name="successful-response"></a>Resposta com êxito

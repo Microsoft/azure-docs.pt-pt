@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9426fb1df38797ffbb9cc457ba4fe9eb62cfba40
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583090"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544278"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Início rápido: Salas disponíveis ao utilizar o gémeos Digital do Azure
 
@@ -149,7 +149,7 @@ Os tutoriais entrar em detalhes sobre como:
 Para continuar para os tutoriais, não limpe os recursos criados neste início rápido. Se não quiser continuar, elimine todos os recursos criados por este início rápido.
 
 1. Elimine a pasta que foi criada quando transferiu o repositório de exemplo.
-1. No menu à esquerda na [portal do Azure](http://portal.azure.com), selecione **todos os recursos**. Em seguida, selecione o recurso de duplos Digital. Na parte superior a **todos os recursos** painel, selecione **eliminar**.
+1. No menu à esquerda na [portal do Azure](https://portal.azure.com), selecione **todos os recursos**. Em seguida, selecione o recurso de duplos Digital. Na parte superior a **todos os recursos** painel, selecione **eliminar**.
 
     > [!TIP]
     > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.

@@ -3,15 +3,15 @@ title: Tipos de recursos no Azure Resource Health suportados | Documentos da Mic
 description: Tipos de recurso suportados através do Azure Resource health
 author: stephbaron
 ms.author: stbaron
-ms.topic: how-to
+ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: 6945573fffa5a8398a61bfa44737bec798e16be2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881445"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770351"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e o estado de funcionamento verifica-se no estado de funcionamento de recursos do Azure
 Segue-se uma lista completa de todas as verificações executadas por meio do Estado de funcionamento do recurso por tipos de recursos.

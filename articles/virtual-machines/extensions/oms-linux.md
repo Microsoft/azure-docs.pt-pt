@@ -1,5 +1,5 @@
 ---
-title: Extensão de máquina virtual do Log Analytics do Azure para Linux | Documentos da Microsoft
+title: Extensão da máquina virtual do Azure Monitor para Linux | Documentos da Microsoft
 description: Implemente o agente do Log Analytics na máquina virtual Linux utilizando uma extensão de máquina virtual.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,21 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 3bb6bdfa849894547175c5ccf79ee476b4987a97
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: a004182371299e98933d0469e9c85313b29ede3e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408824"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550741"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de análise de registo para Linux
+# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do Azure Monitor para Linux
 
 ## <a name="overview"></a>Descrição geral
 
-Log Analytics proporciona capacidades de remediação do alerta, monitorização e alertas na cloud e recursos no local. A extensão de máquina virtual do agente do Log Analytics para Linux é publicada e suportada pela Microsoft. A extensão instala o agente Log Analytics em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho do Log Analytics existente. Este documento detalha as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual do Log Analytics para Linux.
+Registos de Monitor do Azure fornece capacidades de remediação do alerta, monitorização e alertas ativos na cloud e no local. A extensão de máquina virtual do agente do Log Analytics para Linux é publicada e suportada pela Microsoft. A extensão instala o agente Log Analytics em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho do Log Analytics existente. Este documento detalha as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual do Azure Monitor para Linux.
 
 >[!NOTE]
 >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, o agente do OMS para Windows ou Linux irá ser referido como o agente de Log Analytics para o agente do Windows e do Log Analytics para Linux.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -52,9 +54,9 @@ A extensão de agente do Log Analytics pode ser executada nessas distribuições
 >
 
 ### <a name="agent-and-vm-extension-version"></a>Versão de agente e a extensão de VM
-A tabela seguinte fornece um mapeamento da versão da extensão de VM do Log Analytics e pacote de agente do Log Analytics para cada versão. Uma ligação para as notas de versão para a versão de pacote de agente do Log Analytics está incluída. Notas de versão incluem detalhes sobre correções de bugs e novos recursos disponíveis para uma versão de determinado agente.  
+A tabela seguinte fornece um mapeamento da versão da extensão de VM do Azure Monitor e pacote de agente do Log Analytics para cada versão. Uma ligação para as notas de versão para a versão de pacote de agente do Log Analytics está incluída. Notas de versão incluem detalhes sobre correções de bugs e novos recursos disponíveis para uma versão de determinado agente.  
 
-| Versão de extensão de VM do Linux de análise do registo | Versão do pacote de agente de análise de registo | 
+| Versão de extensão de VM do Linux de Monitor do Azure | Versão do pacote de agente de análise de registo | 
 |--------------------------------|--------------------------|
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
@@ -125,7 +127,7 @@ O JSON seguinte mostra o esquema para a extensão de agente do Log Analytics. A 
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
-Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração pós-implementação, tais como a integração para o Log Analytics. Um modelo do Resource Manager de exemplo que inclui a extensão de VM de agente do Log Analytics pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. Os modelos são ideais quando implementar um ou mais máquinas virtuais que necessitam de configuração pós-implementação, tais como a integração de registos do Azure Monitor. Um modelo do Resource Manager de exemplo que inclui a extensão de VM de agente do Log Analytics pode ser encontrado no [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 A configuração do JSON para uma extensão de máquina virtual pode ser aninhada dentro do recurso de máquina virtual ou colocada na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
@@ -220,7 +222,7 @@ Resultado da execução de extensão é registado para o ficheiro seguinte:
 | 19 | Falha de instalação do pacote OMI | 
 | 20 | Falha de instalação do pacote SCX |
 | 51 | Esta extensão não é suportada no sistema de operação da VM | |
-| 55 | Não é possível ligar ao serviço Log Analytics ou pacotes necessários em falta ou dpkg Gerenciador de pacotes está bloqueado| Verifique se o sistema tem acesso à Internet ou que foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID da área de trabalho de e verificar curl e tar utilitários estão instalados. |
+| 55 | Não é possível ligar ao serviço Azure Monitor ou pacotes necessários em falta ou dpkg Gerenciador de pacotes está bloqueado| Verifique se o sistema tem acesso à Internet ou que foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID da área de trabalho de e verificar curl e tar utilitários estão instalados. |
 
 Informações adicionais de resolução de problemas podem ser encontradas no [guia de resolução de problemas do Log Analytics-agente para Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 

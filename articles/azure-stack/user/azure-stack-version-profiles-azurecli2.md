@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: fe5e998b919a3e2a876ef943424bd7161b71b5d4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 261efda18b7cecc6370743c604622a8884ff8364
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241209"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732313"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utilizar perfis de versão de API com a CLI do Azure no Azure Stack
 
@@ -151,6 +151,8 @@ Esta secção explica como configurar a CLI se estiver a utilizar o Azure AD com
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz de AC do Azure Stack
 
+Se estiver a utilizar o ASDK, terá de confiar no certificado de raiz da AC no seu computador remoto. Não terá de fazê-lo com os sistemas de intregrated.
+
 Para confiar no certificado de raiz de AC do Azure Stack, anexe-o para o certificado de Python existente.
 
 1. Encontre a localização do certificado no seu computador. A localização pode variar dependendo de onde instalou o Python. Abra um prompt de comando ou uma linha de comandos elevada do PowerShell e escreva o seguinte comando:
@@ -203,7 +205,14 @@ Para confiar no certificado de raiz de AC do Azure Stack, anexe-o para o certifi
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-    Registe o seu ambiente, especificando o nome. Especifique o nome do ambiente após o `-n` mudar. Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`.
+2. Registe o seu ambiente. Utilize os seguintes parâmetros ao executar `az cloud register`.
+    | Value | Exemplo | Descrição |
+    | --- | --- | --- |
+    | Nome do ambiente | AzureStackUser | Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`. |
+    | Ponto final do Gestor de recursos | https://management.local.azurestack.external | O **ResourceManagerUrl** no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/` O **ResourceManagerUrl** em sistemas integrados é: `https://management.<region>.<fqdn>/` Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se tiver uma pergunta sobre o ponto de extremidade do sistema integrado, entre em contato com o operador da cloud. |
+    | Ponto final de armazenamento | local.azurestack.external | `local.azurestack.external` destina-se a ASDK. Para um sistema de intregrated, deverá utilizar um ponto final para o seu sistema.  |
+    | Sufixo de Keyvalut | .vault.local.azurestack.external | `.vault.local.azurestack.external` destina-se a ASDK. Para um sistema integrado, deverá utilizar um ponto final para o seu sistema.  |
+    | Imagem da VM alias doc ponto final, | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI do documento que contenha aliases de imagem de máquina virtual. Para obter mais informações, consulte [# # # configurar o ponto final de aliases de máquina virtual](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
@@ -263,6 +272,8 @@ Esta secção explica como configurar a CLI se estiver a utilizar o Active Direc
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz de AC do Azure Stack
 
+Se estiver a utilizar o ASDK, terá de confiar no certificado de raiz da AC no seu computador remoto. Não terá de fazê-lo com os sistemas de intregrated.
+
 1. Encontre a localização do certificado no seu computador. A localização pode variar dependendo de onde instalou o Python. Abra um prompt de comando ou uma linha de comandos elevada do PowerShell e escreva o seguinte comando:
 
     ```PowerShell  
@@ -313,7 +324,14 @@ Esta secção explica como configurar a CLI se estiver a utilizar o Active Direc
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-    Registe o seu ambiente, especificando o nome. Especifique o nome do ambiente após o `-n` mudar. Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`.
+2. Registe o seu ambiente. Utilize os seguintes parâmetros ao executar `az cloud register`.
+    | Value | Exemplo | Descrição |
+    | --- | --- | --- |
+    | Nome do ambiente | AzureStackUser | Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`. |
+    | Ponto final do Gestor de recursos | https://management.local.azurestack.external | O **ResourceManagerUrl** no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/` O **ResourceManagerUrl** em sistemas integrados é: `https://management.<region>.<fqdn>/` Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se tiver uma pergunta sobre o ponto de extremidade do sistema integrado, entre em contato com o operador da cloud. |
+    | Ponto final de armazenamento | local.azurestack.external | `local.azurestack.external` destina-se a ASDK. Para um sistema de intregrated, deverá utilizar um ponto final para o seu sistema.  |
+    | Sufixo de Keyvalut | .vault.local.azurestack.external | `.vault.local.azurestack.external` destina-se a ASDK. Para um sistema integrado, deverá utilizar um ponto final para o seu sistema.  |
+    | Imagem da VM alias doc ponto final, | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI do documento que contenha aliases de imagem de máquina virtual. Para obter mais informações, consulte [# # # configurar o ponto final de aliases de máquina virtual](#set-up-the-virtual-machine-aliases-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
@@ -336,26 +354,26 @@ Esta secção explica como configurar a CLI se estiver a utilizar o Active Direc
 
 1. Inicie sessão no seu ambiente do Azure Stack, utilizando o `az login` comando. Pode iniciar sessão no ambiente do Azure Stack como um utilizador ou como um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md). 
 
-  - Inicie sessão como um *utilizador*: 
+  - Inicie sessão como um *utilizador*:
 
     Pode especificar o nome de utilizador e palavra-passe diretamente dentro do `az login` comando ou autenticar com um browser. Terá de efetuar a última opção se a sua conta tiver a autenticação multifator ativada:
 
     ```azurecli
     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
-    ``
+    ```
 
     > [!NOTE]
-    > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
+    > Se a sua conta de utilizador tiver a autenticação multifator ativada, pode utilizar o `az login` comando sem fornecer o `-u` parâmetro. Executar o comando seguinte dá-lhe um URL e um código que tem de utilizar a autenticação.
 
-  - Sign in as a *service principal*: 
+  - Inicie sessão como um *principal de serviço*: 
     
-    Prepare the .pem file to be used for service principal login.
+    Prepare o ficheiro. pem a ser utilizado para início de sessão principal de serviço.
 
-    On the client machine where the principal was created, export the service principal certificate as a pfx with the private key located at `cert:\CurrentUser\My`; the cert name has the same name as the principal.
+    No computador cliente em que o principal foi criado, a exportar o certificado de principal de serviço, como um pfx com a chave privada localizado em `cert:\CurrentUser\My`; o nome tem o mesmo nome que o principal de certificado.
 
-    Convert the pfx to pem (use the OpenSSL utility).
+    Converta o pfx em pem (utilize o utilitário de OpenSSL).
 
-    Sign in to the CLI:
+    Entrar para a CLI:
   
     ```azurecli  
     az login --service-principal \
@@ -383,6 +401,8 @@ Se o grupo de recursos é criado com êxito, o comando anterior devolve as segui
 Esta secção explica como configurar a CLI se estiver a utilizar o Azure AD como o serviço de gestão de identidade e estiver a utilizar o CLI num computador Linux.
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz de AC do Azure Stack
+
+Se estiver a utilizar o ASDK, terá de confiar no certificado de raiz da AC no seu computador remoto. Não terá de fazê-lo com os sistemas de intregrated.
 
 Confie no certificado de raiz de AC do Azure Stack, acrescentando-lo para o certificado de Python existente.
 
@@ -419,11 +439,18 @@ Utilize os seguintes passos para ligar ao Azure Stack:
    set ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. Registe o seu ambiente, especificando o nome. Especifique o nome do ambiente após o `-n` mudar. Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`.
+2. Registe o seu ambiente. Utilize os seguintes parâmetros ao executar `az cloud register`.
+    | Value | Exemplo | Descrição |
+    | --- | --- | --- |
+    | Nome do ambiente | AzureStackUser | Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`. |
+    | Ponto final do Gestor de recursos | https://management.local.azurestack.external | O **ResourceManagerUrl** no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/` O **ResourceManagerUrl** em sistemas integrados é: `https://management.<region>.<fqdn>/` Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se tiver uma pergunta sobre o ponto de extremidade do sistema integrado, entre em contato com o operador da cloud. |
+    | Ponto final de armazenamento | local.azurestack.external | `local.azurestack.external` destina-se a ASDK. Para um sistema de intregrated, deverá utilizar um ponto final para o seu sistema.  |
+    | Sufixo de Keyvalut | .vault.local.azurestack.external | `.vault.local.azurestack.external` destina-se a ASDK. Para um sistema integrado, deverá utilizar um ponto final para o seu sistema.  |
+    | Imagem da VM alias doc ponto final, | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI do documento que contenha aliases de imagem de máquina virtual. Para obter mais informações, consulte [# # # configurar o ponto final de aliases de máquina virtual](#set-up-the-virtual-machine-aliases-endpoint). |
 
-      ```azurecli  
-      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-      ```
+    ```azurecli  
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    ```
 
 3. Defina o ambiente do Active Directory. 
 
@@ -485,6 +512,8 @@ Esta secção explica como configurar a CLI se estiver a utilizar o Active Direc
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz de AC do Azure Stack
 
+Se estiver a utilizar o ASDK, terá de confiar no certificado de raiz da AC no seu computador remoto. Não terá de fazê-lo com os sistemas de intregrated.
+
 Confie no certificado de raiz de AC do Azure Stack, acrescentando-lo para o certificado de Python existente.
 
 1. Encontre a localização do certificado no seu computador. A localização pode variar dependendo de onde instalou o Python. Tem de ter o pip e o certifi [módulo instalado](#install-python-on-linux). Pode utilizar o seguinte comando de Python de linha de comandos do bash:
@@ -520,11 +549,18 @@ Utilize os seguintes passos para ligar ao Azure Stack:
    set ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
-2. Registe o seu ambiente, especificando o nome. Especifique o nome do ambiente após o `-n` mudar. Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`.
+2. Registe o seu ambiente. Utilize os seguintes parâmetros ao executar `az cloud register`.
+    | Value | Exemplo | Descrição |
+    | --- | --- | --- |
+    | Nome do ambiente | AzureStackUser | Utilize `AzureStackUser` para o ambiente do utilizador. Se estiver a operador, especificar `AzureStackAdmin`. |
+    | Ponto final do Gestor de recursos | https://management.local.azurestack.external | O **ResourceManagerUrl** no Azure Stack Development Kit (ASDK) é: `https://management.local.azurestack.external/` O **ResourceManagerUrl** em sistemas integrados é: `https://management.<region>.<fqdn>/` Para obter os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` Se tiver uma pergunta sobre o ponto de extremidade do sistema integrado, entre em contato com o operador da cloud. |
+    | Ponto final de armazenamento | local.azurestack.external | `local.azurestack.external` destina-se a ASDK. Para um sistema de intregrated, deverá utilizar um ponto final para o seu sistema.  |
+    | Sufixo de Keyvalut | .vault.local.azurestack.external | `.vault.local.azurestack.external` destina-se a ASDK. Para um sistema integrado, deverá utilizar um ponto final para o seu sistema.  |
+    | Imagem da VM alias doc ponto final, | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | URI do documento que contenha aliases de imagem de máquina virtual. Para obter mais informações, consulte [# # # configurar o ponto final de aliases de máquina virtual](#set-up-the-virtual-machine-aliases-endpoint). |
 
-      ```azurecli  
-      az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-      ```
+    ```azurecli  
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    ```
 
 3. Defina o ambiente do Active Directory. 
 
@@ -547,12 +583,12 @@ Utilize os seguintes passos para ligar ao Azure Stack:
 
   *  Como um **utilizador** usando um navegador da web com um código de dispositivo:  
 
-    ```azurecli  
+  ```azurecli  
     az login --use-device-code
-    ```
+  ```
 
-    > [!NOTE]  
-    >Executar o comando dá-lhe um URL e um código que tem de utilizar a autenticação.
+  > [!NOTE]  
+  >Executar o comando dá-lhe um URL e um código que tem de utilizar a autenticação.
 
   * Como um principal de serviço:
         
@@ -577,9 +613,9 @@ Utilize os seguintes passos para ligar ao Azure Stack:
 Com tudo o que configurar, utilizar a CLI para criar recursos no Azure Stack. Por exemplo, pode criar um grupo de recursos para uma aplicação e adicionar uma máquina virtual. Utilize o seguinte comando para criar um grupo de recursos com o nome "MyResourceGroup":
 
 ```azurecli
-az group create \
-  -n MyResourceGroup -l local
+  az group create -n MyResourceGroup -l local
 ```
+
 Se o grupo de recursos é criado com êxito, o comando anterior devolve as seguintes propriedades do recurso recentemente criado:
 
 ![Saída de criar grupo de recursos](media/azure-stack-connect-cli/image1.png)

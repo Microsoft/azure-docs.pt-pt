@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3c15febed58e5e833bc338b6f27da779409582d9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: abc38d315bc879a06ecd9a9bf7188c15533c018a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247142"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535013"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Máquinas de virtuais de amostras de CLI para Windows do Azure
 
@@ -47,5 +47,5 @@ A tabela seguinte inclui ligações para scripts bash criados com a CLI do Azure
 |**Proteger máquinas virtuais**||
 | [Encriptar uma VM e discos de dados](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria um Azure Key Vault, a chave de encriptação e o principal de serviço, em seguida, criptografa uma VM. |
 |**Monitorizar máquinas virtuais**||
-| [Monitorizar uma VM com o Log Analytics](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria uma máquina virtual, instala o agente do Log Analytics e inscreve a VM numa área de trabalho do Log Analytics.  |
+| [Monitorizar uma VM com o Azure Monitor](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | Cria uma máquina virtual, instala o agente do Log Analytics e inscreve a VM numa área de trabalho do Log Analytics.  |
 | | |

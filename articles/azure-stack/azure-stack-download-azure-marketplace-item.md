@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: c3c577ce2483c5de3aa458c7fe4b6fced418f684
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2f51ab51cc352c5f3d95ac1a35a1cbf918899753
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882948"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768404"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Transferir itens do marketplace do Azure para o Azure Stack
 

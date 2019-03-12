@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 74d5dea5-2c48-464a-a7d0-cdd481c429d7
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 346b128277113eddd23c0f525f8ec8688c037633
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 5b4f5b3e5c839ace4221edda484a07d45412bcf6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804778"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-openpages"></a>Tutorial: Integração do Active Directory do Azure com o IBM OpenPages
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no IBM OpenPages. Trabalhar com [equipa de suporte da IBM OpenPages](https://www.ibm.com/support/home/) para adicionar os utilizadores na plataforma do IBM OpenPages. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 48a84520a61d19968b467091871459e21898dd5e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321250"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548648"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Introdução à programação do CDN do Azure
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "54321250"
 
 Pode utilizar o [SDK do CDN do Azure para node. js](https://www.npmjs.com/package/azure-arm-cdn) para automatizar a criação e gestão de perfis da CDN e os pontos finais.  Este tutorial explica a criação de uma aplicação de consola node. js simple que demonstra vários das operações disponíveis.  Este tutorial não se destina para descrever todos os aspetos do SDK da CDN do Azure para node. js em detalhes.
 
-Para concluir este tutorial, já deverá ter [node. js](http://www.nodejs.org) **4.x.x** ou superior instalado e configurado.  Pode utilizar qualquer editor de texto que pretende criar a sua aplicação node. js.  Para escrever neste tutorial, usei [Visual Studio Code](https://code.visualstudio.com).  
+Para concluir este tutorial, já deverá ter [node. js](https://www.nodejs.org) **4.x.x** ou superior instalado e configurado.  Pode utilizar qualquer editor de texto que pretende criar a sua aplicação node. js.  Para escrever neste tutorial, usei [Visual Studio Code](https://code.visualstudio.com).  
 
 > [!TIP]
 > O [projeto concluído este tutorial](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74) está disponível para download no MSDN.
@@ -363,9 +363,9 @@ Por fim, vamos eliminar nosso perfil.
 ## <a name="next-steps"></a>Próximos Passos
 Para ver o projeto concluído nestas instruções [transferir o exemplo](https://code.msdn.microsoft.com/Azure-CDN-SDK-for-Nodejs-c712bc74).
 
-Para ver a referência do SDK da CDN do Azure para node. js, veja a [referência](http://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
+Para ver a referência do SDK da CDN do Azure para node. js, veja a [referência](https://azure.github.io/azure-sdk-for-node/azure-arm-cdn/latest/).
 
-Para encontrar a documentação adicional sobre o Azure SDK para node. js, veja a [total referência](http://azure.github.io/azure-sdk-for-node/).
+Para encontrar a documentação adicional sobre o Azure SDK para node. js, veja a [total referência](https://azure.github.io/azure-sdk-for-node/).
 
 Gerir recursos do CDN com [PowerShell](cdn-manage-powershell.md).
 

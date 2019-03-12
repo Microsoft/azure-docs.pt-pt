@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275960"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536016"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser e integração de APIS de faturação do Microsoft Azure
 Este artigo descreve como as informações recolhidas a partir do novo Microsoft Azure APIs de faturação podem ser usadas na Cloud Cruiser para análise e simulação de custo de fluxo de trabalho.
@@ -124,7 +124,7 @@ O objetivo final é ser capaz de criar relatórios como o seguinte e ser capaz d
 
 ![Figura 10 - relatório com divisões utilizando etiquetas][10]
 
-### <a name="microsoft-azure-tags"></a>Etiquetas do Microsoft Azure
+### <a name="microsoft-azure-tags"></a>Microsoft Azure Tags
 Os dados disponíveis por meio da API de utilização do Azure incluem não apenas informações de consumo, mas também metadados de recursos, incluindo todas as marcas associadas a ele. As etiquetas proporcionam uma forma fácil para organizar os recursos, mas para ser Efetivo, terá de se certificar de que:
 
 * As etiquetas são aplicadas corretamente aos recursos na hora de aprovisionamento
@@ -137,7 +137,7 @@ Com a nova API de utilização do Azure, Cloud Cruiser pode extrair informaçõe
 No lado do charging, o Cloud Cruiser automatiza o processo de análise de custos/estorno e pode utilizar as informações de marca para se ligarem a utilização para o consumidor apropriado (departamento, divisão, projeto, etc.). Esta automatização fornece uma grande melhoria e pode certificar-se de um processo charging auditável e consistente.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Criar um grupo de recursos com etiquetas no Microsoft Azure
-Neste tutorial, a primeira etapa é criar um grupo de recursos no portal do Azure, em seguida, criar novas marcas para associar aos recursos. Neste exemplo, podemos criar as seguintes tags: departamento, ambiente, proprietário, o projeto.
+Neste tutorial, a primeira etapa é criar um grupo de recursos no portal do Azure, em seguida, criar novas marcas para associar aos recursos. Neste exemplo, podemos criar as seguintes tags: Proprietário de departamento, ambiente, e o projeto.
 
 Captura de ecrã seguinte mostra um exemplo de grupo de recursos com as etiquetas associadas.
 
@@ -200,7 +200,7 @@ Agora precisamos apenas adicionar um passo para publicar os dados de utilizaçã
 A melhor parte é que precisa apenas passar por esse processo, uma vez. Quando o livro estiver concluído, basta adicioná-lo para o agendador e é executada de hora a hora ou diariamente à hora agendada. Em seguida, é apenas uma questão de criar novos relatórios ou personalizar os existentes, para analisar os dados para obter informações significativas da sua utilização na cloud.
 
 ### <a name="next-steps"></a>Próximos Passos
-* Para obter instruções detalhadas sobre como criar pastas de trabalho de Cloud Cruiser e relatórios, consulte o Cloud Cruiser online [documentação](http://docs.cloudcruiser.com/) (início de sessão válido obrigado).  Para obter mais informações sobre o Cloud Cruiser, contacte [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
+* Para obter instruções detalhadas sobre como criar pastas de trabalho de Cloud Cruiser e relatórios, consulte o Cloud Cruiser online [documentação](https://docs.cloudcruiser.com/) (início de sessão válido obrigado).  Para obter mais informações sobre o Cloud Cruiser, contacte [ info@cloudcruiser.com ](mailto:info@cloudcruiser.com).
 * Ver [obter informações sobre o consumo de recursos do Microsoft Azure](billing-usage-rate-card-overview.md) para uma descrição geral da utilização de recursos do Azure e RateCard APIs.
 * Veja a [referência de API de REST de faturação do Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) para obter mais informações sobre as duas APIs, o que fazem parte do conjunto de APIs fornecidas pelo Azure Resource Manager.
 * Se gostaria de mergulhar no código de exemplo, confira nossos exemplos código da API de faturação do Azure do Microsoft no [exemplos de código do Azure](https://azure.microsoft.com/documentation/samples/?term=billing).

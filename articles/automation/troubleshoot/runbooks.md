@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 77f6a48402aef5b493b115d2137ccb6a507050b7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991298"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760210"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Resolver problemas de erros com runbooks
 
@@ -38,7 +38,7 @@ Este erro ocorre se o nome de recurso de credencial não é válido. Este erro t
 
 Para determinar qual é o problema, siga os passos seguintes:  
 
-1. Certifique-se de que não tem carateres especiais. Estes carateres incluem o **@** caráter no nome do elemento de credencial de automatização que está a utilizar para ligar ao Azure.  
+1. Certifique-se de que não tem carateres especiais. Estes carateres incluem o **\@** caráter no nome do elemento de credencial de automatização que está a utilizar para ligar ao Azure.  
 2. Verifique se pode utilizar o nome de utilizador e palavra-passe que são armazenados na credencial da automatização do Azure no seu editor do ISE do PowerShell local. Pode fazê-Verifique o nome de utilizador e palavra-passe estão corretos, executando os seguintes cmdlets no ISE do PowerShell:  
 
    ```powershell

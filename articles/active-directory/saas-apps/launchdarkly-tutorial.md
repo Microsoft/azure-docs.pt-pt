@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3f0671bc-f93f-496e-b465-b9ce8c6633fa
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c089e6f72af6fce7b97c0b3d467a9e1696cf87a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 195ec548ab30f548316cd29dba345671c57c5139
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874346"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782365"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integração do Active Directory do Azure com LaunchDarkly
 

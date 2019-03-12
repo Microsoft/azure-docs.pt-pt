@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: jhubbard
-ms.date: 03/04/2019
-ms.openlocfilehash: 05398f98bb92da8bf8436f2421beacdde3fd91c9
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/07/2019
+ms.openlocfilehash: 4e7f344dfa0b5cf38d36cec786169c5c7a51af3b
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336569"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576519"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Rodar o protetor de encriptação de dados transparente (TDE) com o PowerShell
 
@@ -43,7 +43,7 @@ Este guia aborda duas opções para girar o protetor de TDE no servidor.
 
 ## <a name="manual-key-rotation"></a>Rotação de chaves manual
 
-Manual rotação de chaves utiliza a [Add-AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [AzSqlServerKeyVaultKey adicionar](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), e [AzSqlServerTransparentDataEncryptionProtector conjunto](/powershell/module/az.sql/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets para adicionar um chave completamente nova, que poderia ser num novo nome de chave ou até mesmo outro Cofre de chaves. Usando essa abordagem suporta a adição a mesma chave aos cofres de chaves diferentes para suportar cenários de elevada disponibilidade e recuperação após desastre geográfico.
+Manual rotação de chaves utiliza a [Add-AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [AzSqlServerKeyVaultKey adicionar](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), e [AzSqlServerTransparentDataEncryptionProtector conjunto](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets para adicionar um chave completamente nova, que poderia ser num novo nome de chave ou até mesmo outro Cofre de chaves. Usando essa abordagem suporta a adição a mesma chave aos cofres de chaves diferentes para suportar cenários de elevada disponibilidade e recuperação após desastre geográfico.
 
 >[!NOTE]
 >O comprimento combinado para o nome de Cofre de chaves e o nome da chave não pode exceder 94 carateres.
@@ -71,7 +71,7 @@ Manual rotação de chaves utiliza a [Add-AzKeyVaultKey](/powershell/module/az.k
 
 ## <a name="option-2-manual-rotation"></a>Opção 2: Rotação manual
 
-Utiliza a opção o [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azurekeyvaultkey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), e [AzSqlServerTransparentDataEncryptionProtector conjunto](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets para adicionar um completamente nova chave, que poderia ser num novo nome de chave ou até mesmo outro Cofre de chaves. 
+Utiliza a opção o [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), e [AzSqlServerTransparentDataEncryptionProtector conjunto](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets para adicionar um completamente nova chave, que poderia ser num novo nome de chave ou até mesmo outro Cofre de chaves. 
 
 >[!NOTE]
 >O comprimento combinado para o nome de Cofre de chaves e o nome da chave não pode exceder 94 carateres.

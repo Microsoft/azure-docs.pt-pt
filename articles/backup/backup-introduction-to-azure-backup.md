@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 2888f291980b83b0c917e88f65d06ebaa6c8348e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447366"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544108"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Descrição geral das funcionalidades do Azure Backup
 O Azure Backup é o serviço baseado no Azure que pode utilizar para criar cópias de segurança (ou proteger) e restaurar os dados na nuvem Microsoft. O Azure Backup substitui a solução de cópia de segurança no local ou fora das instalações por uma solução baseada na nuvem que é fiável, segura e competitiva em termos de custos. O Azure Backup oferece vários componentes que são transferidos e implementados no computador ou servidor adequado, ou na nuvem. O componente ou o agente que implementar depende do que pretende proteger. Todos os componentes do Azure Backup (independentemente de estar a proteger dados no local ou na cloud) podem ser utilizados para criar cópias de segurança para um cofre dos Serviços de Recuperação do Azure. Veja a [tabela de componentes do Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais à frente neste artigo) para obter informações sobre os componentes a utilizar para proteger dados, aplicações ou cargas de trabalho específicos.
@@ -132,7 +132,7 @@ As cópias de segurança estão comprimidas para reduzir o espaço de armazename
 
 
 #### <a name="disk-deduplication"></a>Eliminação de Discos Duplicados
-Pode tirar partido da eliminação de duplicados ao implementar o System Center DPM ou o Azure Backup Server [numa máquina virtual Hyper-V](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). O Windows Server efetua a eliminação de duplicados de dados (ao nível do anfitrião) em discos rígidos virtuais (VHDs) que estão ligados à máquina virtual como o armazenamento de cópia de segurança.
+Pode tirar partido da eliminação de duplicados ao implementar o System Center DPM ou o Azure Backup Server [numa máquina virtual Hyper-V](https://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx). O Windows Server efetua a eliminação de duplicados de dados (ao nível do anfitrião) em discos rígidos virtuais (VHDs) que estão ligados à máquina virtual como o armazenamento de cópia de segurança.
 
 > [!NOTE]
 > A eliminação de duplicados não está disponível no Azure para nenhum componente do Backup. Quando o System Center DPM e o Servidor do Backup são implementados no Azure, não é possível eliminar os discos de armazenamento ligados à VM duplicados.

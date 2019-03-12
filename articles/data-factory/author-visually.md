@@ -3,21 +3,21 @@ title: Criação da fábrica de dados do Azure | Documentos da Microsoft
 description: Saiba como utilizar a criação da fábrica de dados do Azure
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
+author: sharonlo101
 ms.author: shlo
-ms.openlocfilehash: c4e71f3c355f00bda3df6d43bc81743b391ea0dd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.reviewer: ''
+manager: craigg
+ms.openlocfilehash: 92ace83b265fe55e30804cc593fdf06ff0e880f4
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871966"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57577046"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:

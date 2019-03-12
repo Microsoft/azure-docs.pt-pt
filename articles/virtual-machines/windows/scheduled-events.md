@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 9130bf5c2708f7eecf6fc1b5db2ffbb3c2fffc30
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c9bd14128a6874f06983aa99ebb5a8a9a85843a2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201283"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550691"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Windows
 
@@ -62,10 +62,10 @@ Se a Máquina Virtual não for criada dentro de uma rede Virtual, os casos de pa
 ### <a name="version-and-region-availability"></a>Versão e a disponibilidade de região
 O serviço de eventos agendados tem a mesma versão. Versões são obrigatórias e a versão atual é `2017-08-01`.
 
-| Versão | Tipo de versão | Regiões | Notas de Versão | 
+| Versão | Tipo de versão | Regiões | Notas de Lançamento | 
 | - | - | - | - |
-| 2017-08-01 | Disponibilidade Geral | Todos | <li> Removido o caráter de sublinhado antecedendo nomes de recursos para IaaS VMs<br><li>Requisito de cabeçalho de metadados imposto a todos os pedidos | 
-| 2017-03-01 | Pré-visualização | Todos |<li>Versão inicial
+| 2017-08-01 | Disponibilidade Geral | Tudo | <li> Removido o caráter de sublinhado antecedendo nomes de recursos para IaaS VMs<br><li>Requisito de cabeçalho de metadados imposto a todos os pedidos | 
+| 2017-03-01 | Pré-visualização | Tudo |<li>Versão inicial
 
 > [!NOTE] 
 > Versões anteriores de pré-visualização de eventos agendados suportados {mais recente} como a api-version. Este formato já não é suportado e será preterido no futuro.
@@ -105,7 +105,7 @@ No caso em que há eventos agendados, a resposta contém uma matriz de eventos:
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
-            "NotBefore": {timeInUTC},              
+            "NotBefore": {timeInUTC},
         }
     ]
 }
@@ -129,7 +129,7 @@ Cada evento está agendado uma quantidade mínima de tempo no futuro, com base n
 | - | - |
 | Congelamento| 15 minutos |
 | Reiniciar | 15 minutos |
-| Voltar a implementar | 10 minutos |
+| Implementar novamente | 10 minutos |
 
 ### <a name="event-scope"></a>Âmbito de eventos     
 Eventos agendados são entregues para:        
@@ -179,7 +179,7 @@ function Get-ScheduledEvents($uri)
 
 # How to approve a scheduled event
 function Approve-ScheduledEvent($eventId, $uri)
-{    
+{
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
     $scheduledEventsApproval = @{"StartRequests" = $startRequests} 

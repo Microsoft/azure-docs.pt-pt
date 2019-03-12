@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: a996703f3719c2be90851241c1fe23c89f24e606
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 03976d321a92f6049d06cea88604618d5a2dee67
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447953"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532275"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações de segurança para movimento de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Certificação fábrica de dados para:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Se estiver interessado em conformidade do Azure e como o Azure protege a sua própria infra-estrutura, visite o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). Para obter a lista mais recente de todas as verificações de ofertas de conformidade do Azure - http://aka.ms/AzureCompliance.
+Se estiver interessado em conformidade do Azure e como o Azure protege a sua própria infra-estrutura, visite o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). Para obter a lista mais recente de todas as verificações de ofertas de conformidade do Azure - https://aka.ms/AzureCompliance.
 
 Neste artigo, vamos rever considerações de segurança nos seguintes cenários de movimento de dados de dois: 
 
@@ -78,23 +78,23 @@ Se o arquivo de dados na cloud suporta HTTPS ou TLS, todos os dados transferidos
 ### <a name="data-encryption-at-rest"></a>Encriptação de dados inativos
 Alguns dados armazena a encriptação de suporte de dados em repouso. Recomendamos que ative o mecanismo de encriptação de dados para esses arquivos de dados. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+#### <a name="azure-sql-data-warehouse"></a>Armazém de Dados SQL do Azure
 Encriptação de dados transparente (TDE) no armazém de dados SQL do Azure ajuda a proteger contra ameaças de atividades maliciosas através de encriptação em tempo real e a descriptografia dos seus dados em repouso. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [proteger uma base de dados no SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 Base de dados SQL do Azure também suporta a encriptação de dados transparente (TDE), que ajuda a proteger contra ameaças de atividades maliciosas, ao efetuar a encriptação em tempo real e a descriptografia dos dados, sem a necessidade de alterações à aplicação. Este comportamento é transparente para o cliente. Para obter mais informações, consulte [encriptação de dados transparente para a base de dados SQL e o armazém de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+#### <a name="azure-data-lake-store"></a>Arquivo do Azure Data Lake
 Azure Data Lake Store também fornece encriptação para dados armazenados na conta. Quando ativada, o Data Lake Store é automaticamente encripta os dados antes de persistir e desencripta antes de recuperação, tornando-a transparente para o cliente que acessa os dados. Para obter mais informações, consulte [segurança no Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Armazenamento de Blobs do Azure e o armazenamento de tabelas do Azure
 Armazenamento de Blobs do Azure e o armazenamento de tabelas do Azure suportam Storage Service Encryption (SSE), que automaticamente encripta os dados antes de continuar a armazenar e desencriptar antes da obtenção. Para obter mais informações, consulte [encriptação do serviço de armazenamento do Azure para dados Inativos](../storage/common/storage-service-encryption.md).
 
 #### <a name="amazon-s3"></a>Amazon S3
-Amazon S3 suporta a encriptação de cliente e servidor de dados em repouso. Para obter mais informações, consulte [proteger dados através de encriptação](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
+Amazon S3 suporta a encriptação de cliente e servidor de dados em repouso. Para obter mais informações, consulte [proteger dados através de encriptação](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html).
 
 #### <a name="amazon-redshift"></a>Amazon Redshift
-Amazon Redshift suporta a encriptação de cluster para dados inativos. Para obter mais informações, consulte [encriptação de base de dados do Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
+Amazon Redshift suporta a encriptação de cluster para dados inativos. Para obter mais informações, consulte [encriptação de base de dados do Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
 #### <a name="salesforce"></a>Salesforce
 Salesforce suporta a encriptação de plataforma do escudo que permite que a encriptação de todos os arquivos, anexos e campos personalizados. Para obter mais informações, consulte [Noções básicas sobre o fluxo de autenticação do Web Server OAuth](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
@@ -134,11 +134,11 @@ Rede Virtual do Azure é uma representação lógica da sua rede na cloud. Pode 
 
 A tabela seguinte resume a rede e recomendações de configuração do runtime de integração autoalojado com base em diferentes combinações de origem e destino localizações para movimento de dados híbrido.
 
-| Origem      | Destino                              | Configuração da rede                    | Configuração do runtime de integração                |
+| Origem      | Destino                              | Configuração de rede                    | Configuração do runtime de integração                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | VPN IPSec (point-to-site ou site a site) | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
-| Local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | ExpressRoute (peering privado)           | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
-| Local | Serviços baseados no Azure que tem um ponto final público | ExpressRoute (peering público)            | O runtime de integração autoalojado tem de ser instalado no local. |
+| No local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | VPN IPSec (point-to-site ou site a site) | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
+| No local | Máquinas virtuais e serviços em nuvem implementados em redes virtuais | ExpressRoute (peering privado)           | O runtime de integração autoalojado pode ser instalado no local ou numa máquina virtual do Azure numa rede virtual. |
+| No local | Serviços baseados no Azure que tem um ponto final público | ExpressRoute (peering público)            | O runtime de integração autoalojado tem de ser instalado no local. |
 
 As seguintes imagens mostram o uso do runtime de integração autoalojado para mover dados entre uma base de dados no local e serviços do Azure com o ExpressRoute e VPN IPSec (com a rede Virtual do Azure):
 
@@ -186,7 +186,7 @@ Os seguintes arquivos de dados de nuvem necessitam de adicionar o endereço IP d
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [BD do Cosmos para o Azure](../cosmos-db/firewall-support.md)
-- [Amazon Redshift](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
+- [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

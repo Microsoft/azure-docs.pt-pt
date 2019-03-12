@@ -4,23 +4,24 @@ description: Utilize o Azure PowerShell para criar uma atribuição de política
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: de8192ee0f0dad1ccc385aa28892a3ef4f5c4a86
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 103e0e09d3ac5f3d3f6bb8d8d44e25dd8d8d87e6
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338738"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726979"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Criar uma atribuição de política para identificar recursos incompatíveis com o Azure PowerShell
 
-O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos. Neste início rápido, vai criar uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos. Quando terminar, vai poder identificar máquinas virtuais *incompatíveis* com a atribuição de política.
+O primeiro passo para compreender a conformidade no Azure consiste em identificar o estado dos seus recursos. Neste início rápido, vai criar uma atribuição de política para identificar máquinas virtuais que não estão a utilizar discos geridos. Quando terminar, vai poder identificar máquinas virtuais que estejam *incompatíveis*.
 
-O módulo Azure PowerShell é utilizado para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia explica como utilizar Az para criar uma atribuição de política. A política identifica is recursos incompatíveis no seu ambiente do Azure.
+O módulo Azure PowerShell é utilizado para gerir recursos do Azure a partir da linha de comandos ou em scripts.
+Este guia explica como utilizar o módulo de Az para criar uma atribuição de política.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -28,11 +29,11 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se ainda não o fez, instale o [ARMClient](https://github.com/projectkudu/ARMClient). É uma ferramenta que envia pedidos de HTTP para APIs baseadas no Azure Resource Manager.
 - Antes de começar, certifique-se de que a versão mais recente do Azure PowerShell está instalada. Ver [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps) para obter informações detalhadas.
 - Utilize o Azure PowerShell para registar o fornecedor de recursos do Policy Insights. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, tem de ter permissão para a operação de fornecedor de recursos de registo. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
 
   ```azurepowershell-interactive
+  # Register the resource provider if it's not already registered
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
@@ -40,19 +41,24 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste início rápido, pode criar uma atribuição de política e atribuir a *VMs de auditoria sem discos geridos* definição. Esta definição de política identifica os recursos que não estão em conformidade para as condições definidas na definição de política.
+Neste início rápido, vai criar uma atribuição de política para o *VMs de auditoria sem discos geridos* definição. Esta definição de política identifica as máquinas virtuais não utilizar discos geridos.
 
 Execute os seguintes comandos para criar uma nova atribuição de política:
 
 ```azurepowershell-interactive
+# Get a reference to the resource group that will be the scope of the assignment
 $rg = Get-AzResourceGroup -Name '<resourceGroupName>'
+
+# Get a reference to the built-in policy definition that will be assigned
 $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs that do not use managed disks' }
+
+# Create the policy assignment with the built-in definition against your resource group
 New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs without managed disks Assignment' -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Os comandos anteriores utilizam as seguintes informações:
 
-- **Nome** – O nome real da atribuição.  Neste exemplo, foi utilizado *audit-vm-manageddisks*.
+- **Nome** – O nome real da atribuição. Neste exemplo, foi utilizado *audit-vm-manageddisks*.
 - **DisplayName** – O nome da atribuição de política a apresentar. Neste caso, está usando *VMs de auditoria sem discos geridos atribuição*.
 - **Definição** – A definição de política, com base na qual está a utilizar para criar a atribuição. Neste caso, é o ID de definição de política *VMs de auditoria que não utilizam discos geridos*.
 - **Âmbito** – Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Pode ir de uma subscrição aos grupos de recursos. Não se esqueça de substituir &lt;âmbito&gt; pelo nome do seu grupo de recursos.
@@ -64,51 +70,40 @@ Agora, está pronto para identificar recursos incompatíveis para compreender o 
 Utilize as seguintes informações para identificar recursos que não estão em conformidade com a atribuição de política que criou. Execute os seguintes comandos:
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
-$policyAssignment.PolicyAssignmentId
+# Get the resources in your resource group that are non-compliant to the policy assignment
+Get-AzPolicyState -ResourceGroupName $rg.ResourceGroupName -PolicyAssignmentName 'audit-vm-manageddisks' -Filter 'IsCompliant eq false'
 ```
 
-Para obter mais informações sobre IDs de atribuição de política, consulte [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
-
-Em seguida, execute o seguinte comando para obter os ID dos recursos que não estão em conformidade produzidos num ficheiro de JSON:
-
-```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-```
+Para obter mais informações sobre como obter o estado de política, consulte [Get-AzPolicyState](/powershell/module/az.policyinsights/Get-AzPolicyState).
 
 Os resultados assemelham-se ao seguinte exemplo:
 
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-    "@odata.count": 3,
-    "value": [{
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachineId>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine2Id>"
-        },
-        {
-            "@odata.id": null,
-            "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-            "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.compute/virtualmachines/<virtualmachine3ID>"
-        }
-
-    ]
-}
+```output
+Timestamp                   : 3/9/19 9:21:29 PM
+ResourceId                  : /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmId}
+PolicyAssignmentId          : /subscriptions/{subscriptionId}/providers/microsoft.authorization/policyassignments/audit-vm-manageddisks
+PolicyDefinitionId          : /providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d
+IsCompliant                 : False
+SubscriptionId              : {subscriptionId}
+ResourceType                : /Microsoft.Compute/virtualMachines
+ResourceTags                : tbd
+PolicyAssignmentName        : audit-vm-manageddisks
+PolicyAssignmentOwner       : tbd
+PolicyAssignmentScope       : /subscriptions/{subscriptionId}
+PolicyDefinitionName        : 06a78e20-9358-41c9-923c-fb736d382a4d
+PolicyDefinitionAction      : audit
+PolicyDefinitionCategory    : Compute
+ManagementGroupIds          : {managementGroupId}
 ```
 
-Os resultados são comparáveis aos que normalmente vê listados em **recursos que não estão em conformidade** na vista do portal do Azure.
+Os resultados corresponderem a que vê na **conformidade do recurso** separador de uma atribuição de política na vista do portal do Azure.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover a atribuição de criado, utilize o seguinte comando:
 
 ```azurepowershell-interactive
+# Removes the policy assignment
 Remove-AzPolicyAssignment -Name 'audit-vm-manageddisks' -Scope '/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>'
 ```
 

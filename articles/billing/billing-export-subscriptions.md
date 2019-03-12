@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: a2716793a47eae56a8e6eef8416ff446b6f7176f
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 8a3d1a3a6b1dce1d729942715bbe5962837ff093
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902572"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532138"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Exportar e veja as suas informações de subscrição de nível superior
-Se precisar de ver o conjunto de IDs associados com as suas credenciais de utilizador, de subscrição [transferir um ficheiro. JSON com informações da sua subscrição a partir do Centro de contas do Azure](http://account.azure.com/subscriptions/download).
+Se precisar de ver o conjunto de IDs associados com as suas credenciais de utilizador, de subscrição [transferir um ficheiro. JSON com informações da sua subscrição a partir do Centro de contas do Azure](https://account.azure.com/subscriptions/download).
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 

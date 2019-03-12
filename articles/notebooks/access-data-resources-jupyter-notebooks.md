@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 0e3022296dd1a3e1221bb44c94df787660df2a70
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 17f7e7acc70047119b882a5bb6e60bfdf06f79c0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359889"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775463"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados na cloud num bloco de notas
 

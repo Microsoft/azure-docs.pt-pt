@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 5d2a0c25-168e-4842-b83b-74f8f50a8624
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a8158bbc4e43f913d4b6931f7d5f41d3236898
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4776b5d387df9a13d141d5d120b7e6db115b5384
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877338"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-idid-manager"></a>Tutorial: Integração do Active Directory do Azure com iDiD Manager
 
@@ -177,7 +177,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no iDiD Manager. Trabalhar com [equipa de suporte do Gestor de iDiD](mailto:support@idid.fi) para adicionar os utilizadores na plataforma iDiD Manager. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

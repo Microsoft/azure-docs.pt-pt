@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 614f8a3e3738e1c99f5a089410814765d278d3fe
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 9dc2facbcae5ced1328d5488e533239a6a5627cf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743852"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776483"
 ---
 # <a name="validate-azure-registration"></a>Validar o registo do Azure
  

@@ -1,5 +1,5 @@
 ---
-title: Guia de resolução de problemas de DNS do Azure | Microsoft Docs
+title: Guia de resolução de problemas de DNS do Azure | Documentos da Microsoft
 description: Como resolver problemas comuns com o DNS do Azure
 services: dns
 documentationcenter: na
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
-ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069104"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541575"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guia de resolução de problemas de DNS do Azure
 
-Esta página fornece informações de resolução de problemas para perguntas comuns de DNS do Azure.
+Esta página fornece informações de resolução de problemas para as perguntas mais comuns do DNS do Azure.
 
-Se estes passos não resolverem o problema, também pode procurar ou publique o problema no nosso [fórum de suporte de comunitário no MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Em alternativa, abra um pedido de suporte do Azure.
+Se estes passos não resolverem o problema, também pode procurar ou publique o seu problema no nosso [fórum de suporte da Comunidade no MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork). Em alternativa, abra um pedido de suporte do Azure.
 
 
-## <a name="i-cant-create-a-dns-zone"></a>Não é possível criar uma zona DNS
+## <a name="i-cant-create-a-dns-zone"></a>Não consigo criar uma zona DNS
 
 Para resolver problemas comuns, experimente um ou mais dos métodos seguintes:
 
@@ -69,11 +69,11 @@ A resolução de nomes DNS é um processo com vários passos que pode falhar por
 
 1.  Confirme que os registos DNS foram configurados corretamente no DNS do Azure. Reveja os registos DNS no portal do Azure, verificando que o nome da zona, o nome do registo e o tipo de registo estão corretos.
 2.  Confirme que os registos DNS resolvem corretamente nos servidores de nome do DNS do Azure.
-    - Se fizer consultas de DNS a partir do seu PC local, poderá ver os resultados em cache que não refletem o estado atual dos servidores de nome.  Além disso, as redes empresariais utilizam frequentemente servidores de proxy do DNS que impedem que as consultas de DNS sejam direcionadas para servidores de nomes específicos.  Para evitar estes problemas, utilize um serviço de resolução de nome baseado na Web, tal como [digwebinterface](http://digwebinterface.com).
+    - Se fizer consultas de DNS a partir do seu PC local, poderá ver os resultados em cache que não refletem o estado atual dos servidores de nome.  Além disso, as redes empresariais utilizam frequentemente servidores de proxy do DNS que impedem que as consultas de DNS sejam direcionadas para servidores de nomes específicos.  Para evitar estes problemas, utilize um serviço de resolução de nome baseado na Web, tal como [digwebinterface](https://digwebinterface.com).
     - Confirme que especifica os servidores de nome corretos para a zona DNS — estes são apresentados no Portal do Azure.
     - Verifique se o nome DNS está correto (tem de especificar o nome totalmente qualificado, incluindo o nome da zona) e se o tipo de registo está correto
 3.  Confirme que o nome de domínio DNS foi corretamente [delegado para os servidores de nomes DNS do Azure](dns-domain-delegation.md). Existem [muitos sites de terceiros que oferecem a validação de delegação DNS](https://www.bing.com/search?q=dns+check+tool). Este é um teste de delegação de *zona*, pelo que deve introduzir apenas o nome da zona DNS e não o nome de registo completamente qualificado.
-4.  Tendo concluído o procedimento acima, o registo DNS deverá agora resolver corretamente. Para verificar, pode utilizar novamente [digwebinterface](http://digwebinterface.com), desta vez com as predefinições de servidor de nome.
+4.  Tendo concluído o procedimento acima, o registo DNS deverá agora resolver corretamente. Para verificar, pode utilizar novamente [digwebinterface](https://digwebinterface.com), desta vez com as predefinições de servidor de nome.
 
 
 ### <a name="recommended-documents"></a>**Documentos recomendados**
@@ -95,14 +95,14 @@ Exemplos de nomes de registos SRV (“sip” do nome do serviço, “tcp” do p
 
 [Zonas e registos DNS](dns-zones-records.md)
 <br>
-[Criar conjuntos de registos de DNS e registos ao utilizar o portal do Azure](dns-getstarted-create-recordset-portal.md)
+[Criar registos e conjuntos de registos DNS com o portal do Azure](dns-getstarted-create-recordset-portal.md)
 <br>
-[Tipo de registo de SRV (Wikipedia)](https://en.wikipedia.org/wiki/SRV_record)
+[Tipo de registo SRV (Wikipédia)](https://en.wikipedia.org/wiki/SRV_record)
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [zonas DNS do Azure e registos](dns-zones-records.md)
+* Saiba mais sobre [zonas e registos DNS do Azure](dns-zones-records.md)
 * Para começar a utilizar o DNS do Azure, saiba como [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e [criar registos DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona DNS existente, saiba como [importar e exportar um ficheiro de zona DNS](dns-import-export.md).
 

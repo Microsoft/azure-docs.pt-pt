@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 26865acbf635f07db4799ab197e110d37cbe69e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984344"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536288"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o escalão certo do IoT Hub para a sua solução
 
@@ -33,7 +33,7 @@ O escalão standard do IoT Hub permite que todas as funcionalidades e é necess�
 
 Apenas um tipo de [edition](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de uma camada pode ser selecionado por IoT Hub. Por exemplo, pode criar um IoT Hub com múltiplas unidades de S1, mas não com uma mistura de unidades de edições diferentes, por exemplo, S1 e B3, ou S1 e S2.
 
-| Capacidade | Escalão Basic | Escalão Standard |
+| Capacidade | Escalão Basic | Escalão gratuito/Standard |
 | ---------- | ---------- | ------------- |
 | [Telemetria do dispositivo para a cloud](iot-hub-devguide-messaging.md) | Sim | Sim |
 | [Identidade por dispositivo](iot-hub-devguide-identity-registry.md) | Sim | Sim |
@@ -67,7 +67,7 @@ A configuração de partição permanece inalterada durante a migração de esca
 
 A diferença em capacidades suportadas entre os escalões básicos e standard do IoT Hub significa que algumas chamadas de API não funcionam com os hubs de escalão básico. A tabela seguinte mostra as APIs estão disponíveis: 
 
-| API | Escalão Basic | Escalão Standard |
+| API | Escalão Basic | Escalão gratuito/Standard |
 | --- | ---------- | ------------- |
 | [Eliminar dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Sim | Sim |
 | [Obter o dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Sim | Sim |

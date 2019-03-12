@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 1b157d8292eacff87a28554939a6f144b9f5d0e9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 7dcbfdaf00b0e628541cfd1a3b79df8cf8334ed3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092098"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536883"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutorial: Configurar um registo de alias para fazer referência a um endereço IP público do Azure 
 
@@ -30,13 +30,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 Deve ter um nome de domínio disponível que possa alojar no DNS do Azure para testar. Deve ter controlo total sobre este domínio. O controlo total inclui a capacidade de definir os registos do servidor de nomes (NS) do domínio.
 
-Para obter instruções sobre como alojar o seu domínio no DNS do Azure, veja [Tutorial: Alojar o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Para obter instruções para alojar o seu domínio no DNS do Azure, consulte [Tutorial: Aloje o seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
 O domínio de exemplo utilizado para este tutorial é o contoso.com, mas utilize o seu próprio nome de domínio.
 
 ## <a name="create-the-network-infrastructure"></a>Criar a infraestrutura de rede
 Primeiro, crie uma rede virtual e uma sub-rede onde possa colocar os servidores Web.
-1. Inicie sessão no portal do Azure em http://portal.azure.com.
+1. Inicie sessão no portal do Azure em https://portal.azure.com.
 2. No canto superior esquerdo do portal, selecione **Criar um recurso**. Introduza *grupo de recursos* na caixa de pesquisa e crie um grupo de recursos chamado **RG-DNS-Alias-pip**.
 3. Selecione **Criar um recurso** > **Rede** > **Rede virtual**.
 4. Criar uma rede virtual denominada **VNet-Server**. Coloque-o no grupo de recursos **RG-DNS-Alias-pip** e atribua à sub-rede o nome **SN-Web**.
@@ -89,7 +89,7 @@ Este procedimento funciona, uma vez que utilizou um registo de alias associado a
 Quando já não precisar dos recursos criados para este tutorial, elimine o grupo de recursos **RG-DNS-Alias-pip**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, criou um registo de alias para fazer referência a um endereço IP público do Azure. Para saber mais sobre o DNS do Azure e as aplicações Web, avance para o tutorial de aplicações Web.
 

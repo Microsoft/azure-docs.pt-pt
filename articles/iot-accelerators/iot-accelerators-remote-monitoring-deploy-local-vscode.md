@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6e2fafa398b09d0822c4582e196345b812e6fc52
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 68f82c7e5b66cf94824bde930923f11423046e9a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392246"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544261"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>Implementar o monitorização remota acelerador de soluções localmente - Visual Studio Code
 
@@ -34,7 +34,7 @@ Para concluir a implementação de local, terá das seguintes ferramentas instal
 * [Git](https://git-scm.com/)
 * [.Net Core](https://dotnet.microsoft.com/download)
 * [Docker](https://www.docker.com)
-* [Nginx](http://nginx.org/en/download.html)
+* [Nginx](https://nginx.org/en/download.html)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [VS Code C# extensão](https://code.visualstudio.com/docs/languages/csharp)
 * [NODE. js v8](https://nodejs.org/) -este software é um pré-requisito para a CLI de PCS que os scripts usam para criar recursos do Azure. Não utilize a v10 de node. js
@@ -88,7 +88,7 @@ Configure um servidor de proxy inverso para ligar a aplicação web e os micross
 * Cópia a **nginx.conf** ficheiro a partir do **webui\scripts\localhost** pasta para o **nginx\conf** diretório de instalação.
 * Execute **nginx**.
 
-Para obter mais informações sobre como executar **nginx**, consulte [nginx para Windows](http://nginx.org/en/docs/windows.html).
+Para obter mais informações sobre como executar **nginx**, consulte [nginx para Windows](https://nginx.org/en/docs/windows.html).
 
 ### <a name="connect-to-the-dashboard"></a>Ligar ao dashboard
 

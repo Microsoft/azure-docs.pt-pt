@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 22203a0e950a59cb255c8864218d4e03988e6634
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: e5e184e6dadfa993e0b758ad32b54ea6ccfcb272
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56647571"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546539"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar ficheiros novos e alterados com base no LastModifiedDate com a ferramenta copiar dados de forma incremental
 
@@ -43,9 +43,9 @@ Neste tutorial, vai executar os seguintes passos:
 
 Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
 
-1. Criar um contentor com o nome **origem**. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/).
+1. Criar um contentor com o nome **origem**. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
 
-2. Criar um contentor com o nome **destino**. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/).
+2. Criar um contentor com o nome **destino**. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -174,7 +174,7 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
     
-12. Crie um ficheiro de texto vazio e nomeie-o como file1.txt. Carregue o ficheiro de file1.txt para o **origem** contentor na sua conta de armazenamento. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/).    
+12. Crie um ficheiro de texto vazio e nomeie-o como file1.txt. Carregue o ficheiro de file1.txt para o **origem** contentor na sua conta de armazenamento. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).   
 
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
     
@@ -190,13 +190,13 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
     
-15. Criar outro ficheiro de texto vazio e nomeie-o como file2.txt. Carregue o ficheiro de file2.txt para o **origem** contentor na sua conta de armazenamento. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/).   
+15. Criar outro ficheiro de texto vazio e nomeie-o como file2.txt. Carregue o ficheiro de file2.txt para o **origem** contentor na sua conta de armazenamento. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).  
     
 16. Fazer o mesmo passo 13 e 14 e verá apenas o ficheiro novo (file2.txt) foram copiado dos **origem** contentor para o **destino** contentor da conta de armazenamento na próxima execução de pipeline.  
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
 
-    Também pode verificar o mesmo ao utilizar o Explorador de armazenamento do Azure (http://storageexplorer.com/) para analisar os ficheiros.
+    Também pode verificar o mesmo ao utilizar o Explorador de armazenamento do Azure (https://storageexplorer.com/) para analisar os ficheiros.
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 

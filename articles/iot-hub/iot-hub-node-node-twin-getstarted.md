@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: ca03a37febcd75f69e442fbd5dd0e52d51c829a0
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 397f4f48437b48934171cc0b90ad04715f2ee21b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514424"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541269"
 ---
 # <a name="get-started-with-device-twins-node"></a>Começar a utilizar dispositivos duplos (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -209,7 +209,7 @@ Utilize os seguintes recursos para saber como:
 
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md

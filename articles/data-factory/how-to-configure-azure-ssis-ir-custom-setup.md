@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ade16bbd45203892cd9a3117dd52471884cf700
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 27ebcee961cc81ad088cadfa8980b3bd51b3d7a4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455824"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536934"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizar a configuração para o runtime de integração Azure-SSIS
 
@@ -64,7 +64,7 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
     1.  Se pretender que os registos adicionais gerados por outras ferramentas (por exemplo, `msiexec.exe`) para ser carregadas no seu contentor, especifique a variável de ambiente predefinida `CUSTOM_SETUP_SCRIPT_LOG_DIR` como a pasta de log em seus scripts (por exemplo, `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
-1.  Transferir, instalar e iniciar [Explorador de armazenamento do Azure](http://storageexplorer.com/).
+1.  Transferir, instalar e iniciar [Explorador de armazenamento do Azure](https://storageexplorer.com/).
 
     1.  Sob **(Local e ligado)**, selecione direito **contas de armazenamento** e selecione **ligar ao armazenamento do Azure**.
 
@@ -148,9 +148,9 @@ Para personalizar o runtime de integração Azure-SSIS, precisa do seguinte:
 
        1. Uma `EXCEL` pasta, que contém uma configuração personalizada para instalar os assemblies de código-fonte aberto (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, e `ExcelDataReader.dll`) em cada nó do seu ir Azure-SSIS.
 
-       1. Uma `ORACLE ENTERPRISE` pasta, que contém um script de configuração personalizada (`main.cmd`) e o ficheiro de configuração de instalação silenciosa (`client.rsp`) para instalar os conectores de Oracle e o controlador OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações do Oracle, a origem e destino. Em primeiro lugar, Baixe o Microsoft Connectors v5.0 para Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) da [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente mais recente Oracle - por exemplo, `winx64_12102_client.zip` – na [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), em seguida, carregá-los tudo em conjunto com `main.cmd` e `client.rsp` ao contentor. Se usar TNS para ligar a Oracle, também tem de transferir `tnsnames.ora`, editá-lo e carregá-lo para o contentor, para que possam ser copiado para a pasta de instalação do Oracle durante a configuração.
+       1. Uma `ORACLE ENTERPRISE` pasta, que contém um script de configuração personalizada (`main.cmd`) e o ficheiro de configuração de instalação silenciosa (`client.rsp`) para instalar os conectores de Oracle e o controlador OCI em cada nó do seu Azure-SSIS IR Enterprise Edition. Esta configuração permite-lhe utilizar o Gestor de ligações do Oracle, a origem e destino. Em primeiro lugar, Baixe o Microsoft Connectors v5.0 para Oracle (`AttunitySSISOraAdaptersSetup.msi` e `AttunitySSISOraAdaptersSetup64.msi`) da [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) e o cliente mais recente Oracle - por exemplo, `winx64_12102_client.zip` – na [Oracle](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), em seguida, carregá-los tudo em conjunto com `main.cmd` e `client.rsp` ao contentor. Se usar TNS para ligar a Oracle, também tem de transferir `tnsnames.ora`, editá-lo e carregá-lo para o contentor, para que possam ser copiado para a pasta de instalação do Oracle durante a configuração.
 
-       1. Uma `ORACLE STANDARD ADO.NET` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar o controlador ODP.NET do Oracle em cada nó do seu ir Azure-SSIS. Esta configuração permite-lhe utilizar o Gestor de ligações ADO.NET, a origem e destino. Em primeiro lugar, por exemplo, a transferir o controlador Oracle ODP.NET mais recentes - `ODP.NET_Managed_ODAC122cR1.zip` - a partir de [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e, em seguida, carregue-o em conjunto com `main.cmd` ao contentor.
+       1. Uma `ORACLE STANDARD ADO.NET` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar o controlador ODP.NET do Oracle em cada nó do seu ir Azure-SSIS. Esta configuração permite-lhe utilizar o Gestor de ligações ADO.NET, a origem e destino. Em primeiro lugar, por exemplo, a transferir o controlador Oracle ODP.NET mais recentes - `ODP.NET_Managed_ODAC122cR1.zip` - a partir de [Oracle](https://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e, em seguida, carregue-o em conjunto com `main.cmd` ao contentor.
        
        1. Uma `ORACLE STANDARD ODBC` pasta, que contém um script de configuração personalizada (`main.cmd`) para instalar o controlador ODBC do Oracle e configurar o DSN em cada nó do seu ir Azure-SSIS. Esta configuração permite-lhe utilizar o Gestor de ligação de ODBC/origem/destino ou a ligação de consulta Power Manager/origem com o tipo de origem de dados ODBC para ligar ao servidor Oracle. Em primeiro lugar, transferir o cliente instantâneas Oracle (pacote básico ou pacote Lite básico) e ODBC pacote - por exemplo, os pacotes de 64 bits do mais recente [aqui](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (pacote básico: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, pacote Lite básico: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, pacote de ODBC : `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) ou os pacotes de 32 bits a partir de [aqui](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (pacote básico: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, pacote Lite básico: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, o pacote de ODBC: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`) e, em seguida, carregá-los em conjunto com `main.cmd` em o contentor.
 

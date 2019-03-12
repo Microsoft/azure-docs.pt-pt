@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8f5d98ff591cb456cbbcb3d28a63f39ab3729152
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 47f3c4bdf21d751cd3804c6a854e7f8706b0815a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308520"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767962"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Executar a primeira consulta do Resource Graph com a CLI do Azure
 
@@ -70,8 +70,8 @@ Com a extensão da CLI do Azure adicionada ao seu ambiente escolhido, é altura 
    az graph query -q 'project name, type | limit 5 | order by name asc'
    ```
 
-  > [!NOTE]
-  > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, ou seja, primeiro limita os resultados da consulta e, em seguida, ordena-os.
+   > [!NOTE]
+   > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, ou seja, primeiro limita os resultados da consulta e, em seguida, ordena-os.
 
 1. Atualize a consulta para primeiro `order by` propriedade **Nome** e, em seguida, `limit` os cinco resultados principais:
 

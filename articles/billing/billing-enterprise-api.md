@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: 1319c44dab465ec2d1fa5ead99e7f3cba8965850
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 52612419599ef69e7476c660b52f9e6e36946825
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265639"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535404"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral de APIs de relatórios para os clientes empresariais
 As APIs de relatórios permitem que os clientes do Azure do Enterprise programaticamente extrair dados de faturas e de consumo para ferramentas de análise de dados preferencial. Os clientes empresariais iniciaram uma [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para tornar negociados compromissos monetários e obter acesso aos preços personalizados para recursos do Azure.
@@ -29,12 +29,12 @@ As APIs de relatórios permitem que os clientes do Azure do Enterprise programat
 * **Gerar ou obter a chave de API** -inicie sessão no portal da empresa e navegue até aos relatórios > Transferir utilização > chave de acesso de API para gerar ou obter a chave de API.
 * **Passando chaves na API** -chave de API a precisa de ser transmitidos para cada chamada para autenticação e autorização. A seguinte propriedade tem de ser para os cabeçalhos HTTP
 
-|Chave de cabeçalho do pedido | Valor|
+|Chave de cabeçalho do pedido | Value|
 |-|-|
 |Autorização| Especifique o valor neste formato: **portador {API_KEY}** <br/> Exemplo: portador eyr... 09| 
 
 ## <a name="consumption-apis"></a>APIs de consumo
-Um ponto de final de Swagger está disponível [aqui](https://consumption.azure.com/swagger/ui/index) para as APIs descrito abaixo que deverá ativar fácil introspeção da API e a capacidade de gerar SDKs de cliente a utilizar [AutoRest](https://github.com/Azure/AutoRest) ou [Swagger CodeGen](http://swagger.io/swagger-codegen/). Dados a partir de 1 de Maio de 2014 estão disponíveis através desta API. 
+Um ponto de final de Swagger está disponível [aqui](https://consumption.azure.com/swagger/ui/index) para as APIs descrito abaixo que deverá ativar fácil introspeção da API e a capacidade de gerar SDKs de cliente a utilizar [AutoRest](https://github.com/Azure/AutoRest) ou [Swagger CodeGen](https://swagger.io/swagger-codegen/). Dados a partir de 1 de Maio de 2014 estão disponíveis através desta API. 
 
 * **Saldo e o resumo** – a [saldo e o resumo de API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) oferece um resumo mensal de informações sobre os saldos, novas compras, os encargos de serviços do Azure Marketplace, ajustes e custos de utilização excedida.
 
@@ -56,7 +56,7 @@ Etags vai ser devolvidas na resposta de toda a API acima. Uma alteração na Eta
 |-|-|-|
 |200| OK|Sem erros|
 |401| Não autorizado| Chave de API não encontrado, inválido, expirou etc.|
-|404| Não disponível| Ponto final de relatório não foi encontrado|
+|404| Indisponível| Ponto final de relatório não foi encontrado|
 |400| Pedido Inválido| Parâmetros inválidos – intervalos de datas, números EA etc.|
 |500| Erro do Servidor| Erro inesperado ao processar o pedido| 
 

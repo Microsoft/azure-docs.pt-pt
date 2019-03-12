@@ -2,25 +2,18 @@
 title: 'Ligar a sua rede no local a uma rede virtual do Azure: Site-Site VPN (clássico): Portal | Microsoft Docs'
 description: Crie uma ligação IPsec da sua rede no local para uma rede virtual do Azure clássica através da Internet pública.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: b0fa60d709c2fa6c286e44797d53e8a4a8d47d00
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: ff58619a0fb463c0877b2b595404af19903db1ec
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695609"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776942"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma ligação de Site a Site com o portal do Azure (clássico)
 
@@ -46,7 +39,7 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
 * Confirme que pretende trabalhar com o modelo de implementação clássica. Se quiser trabalhar com o modelo de implementação Resource Manager, veja [Criar uma ligação Site a Site (Resource Manager)](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Quando possível, recomendamos que utilize o modelo de implementação Resource Manager.
 * Certifique-se de que tem um dispositivo VPN compatível e alguém que o possa configurar. Para obter mais informações sobre os dispositivos VPN compatíveis e a configuração do dispositivo, consulte [About VPN Devices (Acerca dos Dispositivos VPN)](vpn-gateway-about-vpn-devices.md).
-* Verifique se tem um endereço IP IPv4 público com acesso exterior para o seu dispositivo VPN. Este endereço IP não pode estar localizado atrás de um NAT.
+* Verifique se tem um endereço IP IPv4 público com acesso exterior para o seu dispositivo VPN.
 * Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração de rede no local, tem de se coordenar com alguém que consiga fornecer esses detalhes. Ao criar esta configuração, tem de especificar prefixos de intervalo de endereços IP que o Azure irá encaminhar para a sua localização no local. Nenhuma das sub-redes da rede local pode sobrepor as sub-redes de rede virtual a que pretende ligar.
 * Atualmente, o PowerShell é necessário para especificar a chave partilhada e criar a ligação de gateway de VPN. Instale a versão mais recente dos cmdlets do PowerShell da Gestão de Serviço (SM) do Azure. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). Ao trabalhar com o PowerShell para esta configuração, certifique-se de que está a executar como administrador. 
 
@@ -63,12 +56,12 @@ Os exemplos neste artigo utilizam os seguintes valores. Pode utilizar estes valo
   * BackEnd: 10.12.0.0/24 (opcional neste exercício)
 * **GatewaySubnet:** 10.11.255.0/27
 * **Grupo de recursos:** TestRG1
-* **Localização:** EUA Leste
+* **Localização:** E.U.A. Leste
 * **Servidor DNS:** 10.11.0.3 (opcional neste exercício)
 * **Nome do local site:** Site2
 * **Espaço de endereços de cliente:** O espaço de endereços que está localizado no seu site no local.
 
-## <a name="CreatVNet"></a>1. Criar uma rede virtual
+## <a name="CreatVNet"></a>1. Criar rede virtual
 
 Quando cria uma rede virtual para utilizar numa ligação de S2S, tem de certificar-se de que os espaços de endereços que especificar não se sobrepõem a nenhum dos espaços de endereços do cliente para os sites locais aos quais pretende ligar. Se tiver sub-redes sobrepostas, a ligação não funcionará corretamente.
 
@@ -128,7 +121,7 @@ O site local refere-se, normalmente, à sua localização no local. Contém o en
 3. Na página **Nova Ligação VPN**, selecione **Site a site**.
 4. Clique em **Site local - Configurar definições necessárias** para abrir a página **Site local**. Configure as definições e, em seguida, clique em **OK** para guardar as definições.
   - **Nome:** Crie um nome para o seu site local torna mais fácil de identificar.
-  - **Endereço IP do gateway VPN:** Este é o endereço IP público do dispositivo VPN para a sua rede no local. O dispositivo VPN requer um endereço IP público IPv4. Especifique um endereço IP público válido para o dispositivo VPN ao qual pretende ligar. Não pode estar protegido por NAT e tem de estar acessível ao Azure. Se não souber o endereço IP do seu dispositivo VPN, pode sempre colocar um valor de marcador de posição (desde que esteja no formato de um endereço IP público válido) e, em seguida, alterá-lo mais tarde.
+  - **Endereço IP do gateway VPN:** Este é o endereço IP público do dispositivo VPN para a sua rede no local. O dispositivo VPN requer um endereço IP público IPv4. Especifique um endereço IP público válido para o dispositivo VPN ao qual pretende ligar. Tem de estar acessível pelo Azure. Se não souber o endereço IP do seu dispositivo VPN, pode sempre colocar um valor de marcador de posição (desde que esteja no formato de um endereço IP público válido) e, em seguida, alterá-lo mais tarde.
   - **Espaço de endereços de cliente:** Liste os intervalos de endereços IP que pretende que sejam encaminhados para a rede no local através deste gateway. Pode adicionar vários intervalos de espaço de endereços. Certifique-se de que os intervalos que especifica aqui não se sobrepõem aos intervalos de outras redes às quais a rede virtual se liga ou aos intervalos de endereços da própria rede virtual.
 
   ![Site local](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configurar o site local")

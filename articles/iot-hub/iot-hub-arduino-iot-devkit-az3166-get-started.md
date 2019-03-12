@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: 0e668c0b31defd5c945ddf2fec1b00f75d92f174
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e35e669c4abc4815b932e09d369af28e42617e8c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990158"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535702"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligar a IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -175,9 +175,9 @@ Siga estes passos para preparar o ambiente de desenvolvimento para DevKit:
 
 ### <a name="install-st-link-drivers"></a>Instalar controladores de ST-ligação
 
-[ST-ligação/V2](http://www.st.com/en/development-tools/st-link-v2.html) é a interface USB que IoT DevKit utiliza para comunicar com a sua máquina de desenvolvimento. Tem de instalá-lo no Windows para ativar o flash o código de deivce compilado para o DevKit. Siga os passos de específicas de SO para permitir o acesso de máquina para o seu dispositivo.
+[ST-ligação/V2](https://www.st.com/en/development-tools/st-link-v2.html) é a interface USB que IoT DevKit utiliza para comunicar com a sua máquina de desenvolvimento. Tem de instalá-lo no Windows para ativar o flash o código de deivce compilado para o DevKit. Siga os passos de específicas de SO para permitir o acesso de máquina para o seu dispositivo.
 
-* **Windows**: Baixe e instale o controlador USB a partir [STMicroelectronics site](http://www.st.com/en/development-tools/stsw-link009.html).
+* **Windows**: Baixe e instale o controlador USB a partir [STMicroelectronics site](https://www.st.com/en/development-tools/stsw-link009.html).
 * **macOS**: Nenhum driver é necessário para macOS.
 * **Ubuntu**: Execute o seguinte no terminal e terminar sessão e inicie sessão para que a alteração de grupo entrar em vigor:
     ```bash

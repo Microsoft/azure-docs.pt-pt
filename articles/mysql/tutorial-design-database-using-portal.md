@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 54d5fdf925769a5dd0db73ae964419388cae913c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 677af69bb3ad6d1d2fff5a4e33e4a58e373159c6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866951"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533549"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Criar uma base de dados do Azure para MySQL com o portal do Azure
 A Base de Dados do Azure para MySQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados MySQL de alta disponibilidade na cloud. No portal do Azure, pode facilmente gerir o seu servidor e criar uma base de dados.
@@ -23,7 +23,7 @@ Neste tutorial, irá utilizar o Portal do Azure para aprender a:
 > * Criar uma Base de Dados do Azure para MySQL
 > * Configurar a firewall do servidor
 > * Utilize a ferramenta da linha de comandos mysql para criar uma base de dados
-> * Carregar os dados de exemplo
+> * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
@@ -55,7 +55,7 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
     Confirmar palavra-passe | *A sua escolha*| Confirme a palavra-passe da conta de administrador.
     Localização | *A região mais próxima dos seus utilizadores*| Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
     Versão | *A versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam outra versão).
-    Escalão de preço | **Fins Gerais**, **Geração 4**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 4*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 5*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
     
    ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
@@ -66,7 +66,7 @@ As Bases de Dados do Azure para MySQL estão protegidas por uma firewall. Por pr
 
 1. Clique no servidor acabado de criar e clique em **Segurança da ligação**.
    
-   ![Segurança da Ligação](./media/tutorial-design-database-using-portal/1-Connection-security.png)
+   ![Segurança das ligações](./media/tutorial-design-database-using-portal/1-Connection-security.png)
 2. Pode **Adicionar o Meu IP** ou configurar regras de firewall aqui. Não se esqueça de clicar em **Guardar** depois de criar a regras.
 Já pode ligar ao servidor através da ferramenta de linha de comandos mysql ou da ferramenta da GUI MySQL Workbench.
 
@@ -164,7 +164,7 @@ Neste tutorial, utilizou o portal do Azure para aprender a:
 > * Criar uma Base de Dados do Azure para MySQL
 > * Configurar a firewall do servidor
 > * Utilize a ferramenta da linha de comandos mysql para criar uma base de dados
-> * Carregar os dados de exemplo
+> * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados

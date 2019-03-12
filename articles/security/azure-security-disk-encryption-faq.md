@@ -3,17 +3,16 @@ title: FAQ - Azure Disk Encryption para IaaS VMs | Documentos da Microsoft
 description: Este artigo fornece respostas para perguntas freqüentes sobre o Microsoft Azure disco encriptação para Windows e VMs de IaaS Linux.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 03/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14804de1d8507a49cda2ce1dd8ee97dc56c0223b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c082de09cbe17bd31e50d14329cfb8f58b01d8fe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439558"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781328"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption para VMs de IaaS FAQ
 
@@ -44,12 +43,14 @@ O Azure Disk Encryption é suportado nas seguintes distribuições de servidor d
 | --- | --- |--- |
 | Ubuntu | 16.04| Disco de SO e dados |
 | Ubuntu | 14.04.5</br>[com o Azure ajustado kernel atualizado para 4.15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco de SO e dados |
+| RHEL | 7.6 | Disco de SO e dados * |
 | RHEL | 7.5 | Disco de SO e dados * |
 | RHEL | 7.4 | Disco de SO e dados * |
 | RHEL | 7.3 | Disco de SO e dados * |
 | RHEL | 7.2 | Disco de SO e dados * |
 | RHEL | 6.8 | Disco de dados * |
 | RHEL | 6.7 | Disco de dados * |
+| CentOS | 7.5 | Disco de SO e dados |
 | CentOS | 7.4 | Disco de SO e dados |
 | CentOS | 7.3 | Disco de SO e dados |
 | CentOS | 7.2N | Disco de SO e dados |

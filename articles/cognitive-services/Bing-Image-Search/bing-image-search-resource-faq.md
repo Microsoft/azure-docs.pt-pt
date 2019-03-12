@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: dea09c60fddcec83662d2f5bafa529f115530c7e
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341668"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539025"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Perguntas mais frequentes (FAQ) sobre a API de pesquisa de imagens do Bing
 
@@ -63,6 +63,6 @@ Essa abordagem também protege a chave de API de exposição ao público, uma ve
 
 É sua pergunta sobre um recurso ou uma funcionalidade em falta? Considere solicitar ou Vote para ele em nosso [web site do Uservoice](https://cognitive.uservoice.com/forums/555907-bing-search).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
- [Estouro de pilha: Serviços cognitivos](http://stackoverflow.com/questions/tagged/bing-api)
+ [Estouro de pilha: Serviços cognitivos](https://stackoverflow.com/questions/tagged/bing-api)

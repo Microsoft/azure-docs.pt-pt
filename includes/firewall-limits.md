@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 2/4/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 9097f2b70a80431cf3302555ad2c835338cf8d8e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c3bb0c7eb6effeb5165eace565a9db5dac1d39d6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55736040"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553819"
 ---
 | Recurso | Limite predefinido |
 | --- | --- |
-| Dados processados |TB/firewall/mês, 1000 <sup>1</sup> |
-|Regras|10 mil - tudo regra combinado de tipos|
+| Dados processados |1.000 TB/firewall/mês. <sup>1</sup> |
+|Regras|10 000, todos regra combinado de tipos.|
 |Global peering|Não suportado. Deve ter, pelo menos, uma implementação de firewall por região.|
 |Tamanho mínimo de AzureFirewallSubnet |/26|
 |Intervalo de portas nas regras de rede e da aplicação|0-64,000. Trabalho está em curso para reduzir esta limitação.|
 |
 
 
-<sup>1</sup> contacte o suporte do Azure no caso de precisa de aumentar estes limites.
+<sup>1</sup>se precisar de aumentar estes limites, contacte o suporte do Azure.

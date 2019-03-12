@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: e966f371f7a308d3981a10e26ecd8c8ee855e6df
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 02c05bc7d8488a5fd4d0698f13a1ba354dbbb0e8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57402874"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546046"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Criar uma tabela de rotas de Virtual Hub para conduzir o tráfego para uma aplicação Virtual de rede
 
@@ -45,7 +45,7 @@ Certifique-se de que cumpriu os seguintes critérios:
 
 ## <a name="signin"></a>1. Iniciar sessão
 
-Certifique-se de que instalar a versão mais recente dos cmdlets do PowerShell do Resource Manager. Para obter mais informações sobre como instalar os cmdlets PowerShell, consulte [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-az-ps). Isto é importante porque as versões anteriores dos cmdlets não contêm os valores atuais de que precisa para este exercício. Módulos thee exemplos a seguir são RM do Azure. Este artigo será atualizado para o Azure Az no futuro.
+Certifique-se de que instalar a versão mais recente dos cmdlets do PowerShell do Resource Manager. Para obter mais informações sobre como instalar os cmdlets PowerShell, consulte [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-az-ps). Isto é importante porque as versões anteriores dos cmdlets não contêm os valores atuais de que precisa para este exercício.
 
 1. Abra a consola do PowerShell com privilégios elevados e inicie sessão na sua conta do Azure. Este cmdlet pede-lhe as credenciais de início de sessão. Depois de iniciar sessão, são transferidas as definições de conta para que fiquem disponíveis para o Azure PowerShell.
 
@@ -86,13 +86,13 @@ Certifique-se de que instalar a versão mais recente dos cmdlets do PowerShell d
 Crie hub de ligações de rede virtual da VNet Spoke Indiretos e a VNet de rede de Perímetro para o hub virtual.
 
   ```powershell
-  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name “indirectspoke1” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name “indirectspoke2” -ResourceGroupName “testRG”
-  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name “dmzvnet” -ResourceGroupName “testRG”
+  $remoteVirtualNetwork1= Get-AzVirtualNetwork -Name "indirectspoke1" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork2= Get-AzVirtualNetwork -Name "indirectspoke2" -ResourceGroupName "testRG"
+  $remoteVirtualNetwork3= Get-AzVirtualNetwork -Name "dmzvnet" -ResourceGroupName "testRG"
 
-  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection1” -RemoteVirtualNetwork $remoteVirtualNetwork1
-  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection2” -RemoteVirtualNetwork $remoteVirtualNetwork2
-  New-AzVirtualHubVnetConnection -ResourceGroupName “testRG” -VirtualHubName “westushub” -Name  “testvnetconnection3” -RemoteVirtualNetwork $remoteVirtualNetwork3
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection1" -RemoteVirtualNetwork $remoteVirtualNetwork1
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection2" -RemoteVirtualNetwork $remoteVirtualNetwork2
+  New-AzVirtualHubVnetConnection -ResourceGroupName "testRG" -VirtualHubName "westushub" -Name  "testvnetconnection3" -RemoteVirtualNetwork $remoteVirtualNetwork3
   ```
 
 ## <a name="route"></a>4. Criar uma rota de virtual hub
@@ -116,7 +116,7 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 Confirme as alterações para o hub virtual.
 
 ```powershell
-Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub” -RouteTable $routeTable
+Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
 ```
 
 ## <a name="cleanup"></a>Limpar recursos

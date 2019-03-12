@@ -14,16 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 0fae47f248d5662b69a0d1a12c82b7ded33badd6
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6a45d6366ef3c581c00b084b7ea2e4095eaaba3f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001988"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538124"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Criar uma aplicação de chat node. js com Socket.IO num serviço Cloud do Azure
 
-O Socket.IO disponibiliza comunicação em tempo real entre o servidor node. js e clientes. Este tutorial explica-lhe alojar um soquete. Aplicação de chat no Azure com base em e/s. Para obter mais informações sobre o Socket.IO, consulte [socket.io](http://socket.io).
+O Socket.IO disponibiliza comunicação em tempo real entre o servidor node. js e clientes. Este tutorial explica-lhe alojar um soquete. Aplicação de chat no Azure com base em e/s. Para obter mais informações sobre o Socket.IO, consulte [socket.io](https://socket.io).
 
 Uma captura de ecrã da aplicação concluída está ilustrado abaixo:
 
@@ -84,11 +84,7 @@ Antes de testar a aplicação no emulador do Azure, é preciso fazer algumas peq
          var port = process.env.PORT || 3000;         //Updated
 3. Para garantir que a aplicação escuta na porta correta, abra o Server. js no bloco de notas ou o seu editor favorito e, em seguida, altere a linha seguinte, substituindo **3000** com **process.env.port** conforme mostrado abaixo:
    
-       //app.listen(3000, function () {            //Original
-       app.listen(process.env.port, function () {  //Updated
-         var addr = app.address();
-         console.log('   app listening on http://' + addr.address + ':' + addr.port);
-       });
+       App. LISTEN (3000, função () {//Original       App. LISTEN (process.env.port, a função (-) {//Updated var Ender = app.address();       Console.log ("aplicação à escuta em http://' + addr.address +": "+ addr.port);     });
 
 Depois de guardar as alterações ao **Server. js**, utilize os seguintes passos para instalar os módulos necessários e, em seguida, testar o aplicativo no emulador do Azure:
 
@@ -109,7 +105,7 @@ Depois de guardar as alterações ao **Server. js**, utilize os seguintes passos
        PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
    
    > [!NOTE]
-   > Se tiver problemas em iniciar o emulador, por exemplo,.: início AzureEmulator: Ocorreu uma falha inesperada.  Detalhes: Encontrou um erro inesperado ao objeto de comunicação, System.ServiceModel.Channels.ServiceChannel, não pode ser utilizado para comunicação porque está no Estado Faulted.
+   > Se tiver problemas em iniciar o emulador, por exemplo,.:      Start-AzureEmulator : Ocorreu uma falha inesperada.  Detalhes: Foi encontrado um erro inesperado ao objeto de comunicação, System.ServiceModel.Channels.ServiceChannel, não pode ser utilizado para comunicação, porque está no Estado Faulted.
    
       reinstalar AzureAuthoringTools v 2.7.1 e AzureComputeEmulator v 2.7 - Certifique-se de que a versão corresponde.
    >
@@ -156,7 +152,7 @@ Para obter mais informações, consulte também os [Centro de programadores de n
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
-[Azure SLA]: http://www.windowsazure.com/support/sla/
+[Azure SLA]: https://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
 [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582246"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531169"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Tutorial: Filtrar tráfego de entrada com DNAT do Azure Firewall com o portal do Azure
 
@@ -37,7 +37,7 @@ Neste tutorial, vai criar duas VNets em modo peering:
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-1. Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na página de boas-vindas do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **Adicionar**.
 3. Em **Nome do grupo de recursos**, escreva **RG-DNAT-Test**.
 4. Em **Subscrição**, selecione a sua subscrição.
@@ -105,7 +105,7 @@ Agora, configure o peering entre as duas VNets.
 6. Clique em **Permitir tráfego reencaminhado**.
 7. Clique em **OK**.
 
-## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
 
 Crie uma máquina virtual de carga de trabalho e coloque-a na sub-rede **SN-Workload**.
 
@@ -150,7 +150,7 @@ Após a conclusão da implementação, tome nota do endereço IP privado para a 
 
    |Definição  |Valor  |
    |---------|---------|
-   |Nome     |FW-DNAT-test|
+   |Name     |FW-DNAT-test|
    |Subscrição     |\<a sua subscrição\>|
    |Grupo de recursos     |**Utilizar existente**: RG-DNAT-Test |
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
@@ -229,4 +229,4 @@ Neste tutorial, ficou a saber como:
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
 > [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+> [Tutorial: Monitorize registos de Firewall do Azure](./tutorial-diagnostics.md)

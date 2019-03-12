@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5e8aa310d518ff26d2d0224797b2feb0745896d1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5694f8eead2b0fd4be75ee858c3c124dd8c53e03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864911"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540417"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Criar um cluster do HDInsight com a geração 1 de armazenamento do Azure Data Lake com o modelo Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Para certificar-se de que os dados de exemplo que carregar são acessíveis a pa
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Executar tarefas de teste no cluster do HDInsight para utilizar a geração 1 de armazenamento do Data Lake
 Depois de configurar um cluster do HDInsight, pode executar tarefas de teste no cluster para testar que o cluster do HDInsight pode aceder a geração 1 de armazenamento do Data Lake. Para tal, executamos uma tarefa do Hive de exemplo que cria uma tabela com os dados de exemplo carregado anteriormente para a sua conta de geração 1 de armazenamento do Data Lake.
 
-Nesta secção, irá SSH num cluster do HDInsight Linux e execute a uma consulta do Hive de exemplo. Se estiver a utilizar um cliente Windows, recomendamos que utilize **PuTTY**, que pode ser transferido a partir [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta secção, irá SSH num cluster do HDInsight Linux e execute a uma consulta do Hive de exemplo. Se estiver a utilizar um cliente Windows, recomendamos que utilize **PuTTY**, que pode ser transferido a partir [ https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para obter mais informações sobre como utilizar o PuTTY, veja [utilizar o SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 
@@ -124,7 +124,7 @@ Para obter mais informações sobre como utilizar o PuTTY, veja [utilizar o SSH 
 ## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>Aceder a geração 1 de armazenamento do Data Lake com comandos do HDFS
 Depois de configurar o cluster do HDInsight para utilizar a geração 1 de armazenamento do Data Lake, pode utilizar os comandos da shell HDFS para aceder à loja.
 
-Nesta secção, irá SSH num Linux de HDInsight cluster e execute os comandos HDFS. Se estiver a utilizar um cliente Windows, recomendamos que utilize **PuTTY**, que pode ser transferido a partir [ http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+Nesta secção, irá SSH num Linux de HDInsight cluster e execute os comandos HDFS. Se estiver a utilizar um cliente Windows, recomendamos que utilize **PuTTY**, que pode ser transferido a partir [ https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html ](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para obter mais informações sobre como utilizar o PuTTY, veja [utilizar o SSH com Hadoop baseado em Linux no HDInsight do Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 

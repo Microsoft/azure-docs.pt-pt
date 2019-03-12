@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f7620c29e7d00a06be6d14740f05cc7543e49837
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 8f7de542610731f88104591dc27baac1406a9514
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674570"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548409"
 ---
 # <a name="bing-text-to-speech-api"></a>API do Bing texto em voz
 
@@ -71,7 +71,7 @@ Autorização | Token de autorização |  Consulte a <a href="#Subscription">tok
 
 ### <a name="InputParam"></a>Parâmetros de entrada
 
-Pedidos para o API do Bing texto em voz são feitos através de chamadas HTTP POST. Os cabeçalhos estão especificados na secção anterior. O corpo contém uma entrada de Speech Synthesis Markup Language (SSML) que representa o texto a ser sintetizado. Para obter uma descrição da marcação utilizada para controlar os aspectos de voz, como o idioma e o género do falante, consulte a [especificação do W3C SSML](http://www.w3.org/TR/speech-synthesis/).
+Pedidos para o API do Bing texto em voz são feitos através de chamadas HTTP POST. Os cabeçalhos estão especificados na secção anterior. O corpo contém uma entrada de Speech Synthesis Markup Language (SSML) que representa o texto a ser sintetizado. Para obter uma descrição da marcação utilizada para controlar os aspectos de voz, como o idioma e o género do falante, consulte a [especificação do W3C SSML](https://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
 >O tamanho máximo da entrada SSML suportada é 1024 carateres, incluindo todas as etiquetas.
@@ -141,42 +141,42 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>Alterar a saída de voz por meio de SSML
 
-API de voz de Microsoft suporta SSML 1.0, conforme definido no W3C [Speech Synthesis Markup Language (SSML) versão 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Esta secção mostra exemplos de alterar a determinadas características da saída gerada de voz, como fala de velocidade, pronúncia etc., através de etiquetas SSML.
+API de voz de Microsoft suporta SSML 1.0, conforme definido no W3C [Speech Synthesis Markup Language (SSML) versão 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Esta secção mostra exemplos de alterar a determinadas características da saída gerada de voz, como fala de velocidade, pronúncia etc., através de etiquetas SSML.
 
 1. Adicionar a garantia de reparação
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
   ```
 
 2. Taxa de alteração de fala
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 3. Pronúncia
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
   ```
 
 4. Volume de alterações
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 5. Alterar o argumento de venda
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
 6. Contour prosody de alteração
 
   ```
-  <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
+  <speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
   ```
 
 > [!NOTE]

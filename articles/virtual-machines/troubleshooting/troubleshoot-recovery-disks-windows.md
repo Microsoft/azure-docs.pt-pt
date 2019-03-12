@@ -3,7 +3,7 @@ title: Utilizar um Windows resolver problemas de VMS com o Azure PowerShell | Do
 description: Saiba como resolver problemas de VM do Windows no Azure ao ligar o disco do SO a uma VM com o Azure PowerShell de recuperação
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 27409de144274cde4201937c47df0fd2bbfd788a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 45e595e932c4e7070836372a4fd48791f68c5e08
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984448"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761570"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Resolver problemas de uma VM do Windows ao anexar o disco do SO a uma VM com o Azure PowerShell de recuperação
 Se a sua máquina virtual (VM) do Windows no Azure encontra um erro de arranque ou disco, terá de efetuar os passos de resolução de problemas no próprio disco. Um exemplo comum seria uma atualização de aplicação com falhas que impede que a VM que está a ser capazes de arrancar com êxito. Este artigo fornece detalhes sobre como utilizar o Azure PowerShell para ligar o disco a outra VM do Windows para corrigir quaisquer erros, em seguida, repare a VM original. 

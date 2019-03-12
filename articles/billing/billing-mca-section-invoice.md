@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: f903f85dfafb61562698a437465f8421aaf3a3d8
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339492"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551624"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Criar secções na sua fatura para organizar os seus custos
 
@@ -28,7 +28,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 Para criar uma seção de nota fiscal, tem de ser um **faturação proprietário de perfil** ou uma **Contribuidor de perfil de faturação**. Para obter mais informações, consulte [gerir secções de nota fiscal para o perfil de faturação](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Pesquisar nos **custo Management + faturação**.
 

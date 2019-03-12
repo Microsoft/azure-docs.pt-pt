@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d01d2f18ed35d1752f97f405ae7f7bfb4708ca0d
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095775"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570050"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Cópia de segurança e restaurar Reliable Services e Reliable Actors
 O Azure Service Fabric é uma plataforma de elevada disponibilidade que replica o estado em vários nós para manter este elevada disponibilidade.  Assim, mesmo que um nó no cluster falhar, os serviços continuam disponíveis. Embora esta redundância incorporados fornecida pela plataforma pode ser suficiente para alguns, em certos casos é desejável para o serviço de cópia de segurança de dados (para um repositório externo).
@@ -188,13 +188,13 @@ Reliable Actors Framework se baseia no Reliable Services. ActorService, que hosp
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo)
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo)
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```
@@ -203,7 +203,7 @@ Quando cria uma classe de serviço de ator personalizado, terá de registar que 
 
 ```csharp
 ActorRuntime.RegisterActorAsync<MyActor>(
-   (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
+    (context, typeInfo) => new MyCustomActorService(context, typeInfo)).GetAwaiter().GetResult();
 ```
 
 O fornecedor de estado predefinido dos Reliable Actors é `KvsActorStateProvider`. Cópia de segurança incremental não está ativada por predefinição para `KvsActorStateProvider`. Pode ativar a cópia de segurança incremental através da criação de `KvsActorStateProvider` com a definição adequada em seu construtor e, em seguida, passa ao construtor ActorService, conforme mostrado no seguinte fragmento de código:
@@ -211,13 +211,13 @@ O fornecedor de estado predefinido dos Reliable Actors é `KvsActorStateProvider
 ```csharp
 class MyCustomActorService : ActorService
 {
-     public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
-            : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
-     {                  
-     }
+    public MyCustomActorService(StatefulServiceContext context, ActorTypeInformation actorTypeInfo)
+          : base(context, actorTypeInfo, null, null, new KvsActorStateProvider(true)) // Enable incremental backup
+    {
+    }
     
     //
-   // Method overrides and other code.
+    // Method overrides and other code.
     //
 }
 ```
@@ -246,7 +246,7 @@ Ao efetuar o restauro a partir de uma cadeia de cópia de segurança, semelhante
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Nos bastidores: obter mais detalhes sobre a cópia de segurança e restauro
 Eis mais alguns detalhes sobre a cópia de segurança e restauro.
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 O Reliable State Manager fornece a capacidade de criar cópias de segurança sem bloquear qualquer leitura ou operações de escrita. Para fazer isso, ele utiliza um mecanismo de persistência de registo e ponto de verificação.  O Gestor de estado de Reliable demora difusas pontos de verificação (leves) em determinados pontos para liberar a pressão do registo transacional e melhorar os tempos de recuperação.  Quando `BackupAsync` é chamado, o Gerenciador de estado fiável instruirá todos os objetos confiáveis para copiar seus arquivos de ponto de verificação mais recente para uma pasta de cópia de segurança local.  Em seguida, o Gestor de estado de Reliable copia todos os registros de log, começando com o ponteiro"start" para o registro de log mais recente para a pasta de cópia de segurança.  Uma vez que todos os registros de log até o registo mais recente do registo estão incluídos na cópia de segurança e o Gestor de estado de Reliable preserva o registo de escrita-ahead, o Gestor de estado confiável garante que todas as transações que são confirmadas (`CommitAsync` devolveu com êxito ) estão incluídas na cópia de segurança.
 
 Qualquer transação que se compromete após `BackupAsync` foi chamado Maio ou não estar na cópia de segurança.  Assim que a pasta de cópia de segurança local que tiverem sido povoada pela plataforma (ou seja, cópia de segurança local é concluída pelo tempo de execução), retorno de chamada de cópia de segurança do serviço é invocado.  Esse retorno de chamada é responsável por mover a pasta de cópia de segurança para uma localização externa, como o armazenamento do Azure.

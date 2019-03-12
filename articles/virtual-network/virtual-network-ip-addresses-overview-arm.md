@@ -7,17 +7,17 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: jdial
-ms.openlocfilehash: 0ae83e56a4ca1e05f5af8229452662f0af7751a6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5240d6d4cd510eb4ea87392421fc00ae01b5e600
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433285"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771968"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 

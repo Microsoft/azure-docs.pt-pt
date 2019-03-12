@@ -1,5 +1,5 @@
 ---
-title: 'Encaminhamento requisitos - ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Encaminhamento requisitos - ExpressRoute: Azure | Microsoft Docs'
 description: Esta página apresenta os requisitos detalhados para configurar e gerir o encaminhamento para circuitos do ExpressRoute.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 72489ea48aef9317d97e4d6f19b465db6a9a039d
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: d3d4bbb0b9007ef61c96f980b9f3c3ee19dd11b5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245672"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539127"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -91,10 +91,10 @@ Certifique-se de que o endereço IP e o número AS estão registados em seu nome
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
 * [AFRINIC](https://www.afrinic.net/)
-* [LACNIC](http://www.lacnic.net/)
+* [LACNIC](https://www.lacnic.net/)
 * [RIPENCC](https://www.ripe.net/)
-* [RADB](http://www.radb.net/)
-* [ALTDB](http://altdb.net/)
+* [RADB](https://www.radb.net/)
+* [ALTDB](https://altdb.net/)
 
 Se os prefixos e o número SA não estiverem atribuídos a si nos registos anteriores, terá de abrir um pedido de suporte para a validação manual dos seus prefixos e ASN. O suporte requer documentação, como uma Carta de Autorização, que prova que está autorizado a utilizar os recursos.
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 93e3d9fa67cfb941abf97476e03f44a4b16e94e7
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: c29647e4ee312302b66535ba834edabb42e4cff7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313165"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550607"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início rápido: Detetar rostos numa imagem usando a REST API e PHP
 
@@ -57,7 +57,7 @@ $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
 
 // This sample uses the PHP5 HTTP_Request2 package
-// (http://pear.php.net/package/HTTP_Request2).
+// (https://pear.php.net/package/HTTP_Request2).
 require_once 'HTTP/Request2.php';
 
 $request = new Http_Request2($uriBase . '/detect');

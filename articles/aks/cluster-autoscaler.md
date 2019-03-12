@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: f8804a157c21f3c90c667646689eec0968bc9027
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 841c9ae933dfa6d94eaf265549c7e697caf3dc02
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453006"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782518"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às necessidades de aplicações no Azure Kubernetes Service (AKS)
 
@@ -99,7 +99,7 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.4 \
+  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \

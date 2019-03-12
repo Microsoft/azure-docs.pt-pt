@@ -29,6 +29,8 @@ items:
       items:
       - name: Utilizar C#
         href: sdk-csharp-quick-start.md
+      - name: Utilizar o Python
+        href: sdk-python-quickstart.md
   expanded: true
 - name: Tutoriais
   items:
@@ -109,9 +111,9 @@ items:
     href: endpoint-custom.md
   - name: Suporte de idioma e região
     href: language-support.md
-ms.openlocfilehash: 6cba0cdf82b24811753a34441ab1f62bc5e445e7
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: eee327b77fa3c0d46d47bb3ac6644fb175249618
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506758"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57568901"

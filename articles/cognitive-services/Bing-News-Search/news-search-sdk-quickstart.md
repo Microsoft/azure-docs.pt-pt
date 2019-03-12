@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 39c2416bb692c9b97571eebbcb590c955744cac6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 90883b136a1c77f12dc4aa81bc18bc43c1e9ca0b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857095"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538583"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Início rápido: Efetua uma pesquisa de notícias com o SDK de pesquisa de notícias do Bing paraC#
 
@@ -26,7 +26,7 @@ Utilize este guia de introdução para começar a pesquisa de notícias com o SD
 
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](http://www.mono-project.com/).
+* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
 
 * O [pacote NuGet do SDK de pesquisa do Bing notícias](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). Também instalar este pacote instala o seguinte:
     * Microsoft.Rest.ClientRuntime

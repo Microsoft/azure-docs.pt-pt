@@ -5,19 +5,20 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6dd378f69dbf0c7cffe04d4b6a18fd3e6cda6b8b
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f1b4caba48f0637e76840f921513f1f03ce9c56f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409980"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729186"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início rápido: Colocar em pausa e retomar a computação do Azure SQL Data Warehouse com o PowerShell
+
 Utilize o PowerShell para colocar em pausa a computação do Azure SQL Data Warehouse para reduzir os custos. [Retomar a computação](sql-data-warehouse-manage-compute-overview.md) quando estiver pronto para utilizar o armazém de dados.
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -65,6 +66,7 @@ Siga estes passos para encontrar as informações de localização para o seu ar
 6. Se o servidor for foo.database.windows.net, utilize apenas a primeira parte como nome de servidor nos cmdlets do PowerShell. Na imagem anterior, o nome completo do servidor é newserver-20171113.database.windows.net. Remova o sufixo e utilizar **newserver 20171113** como o nome do servidor no cmdlet do PowerShell.
 
 ## <a name="pause-compute"></a>Computação em pausa
+
 Para reduzir os custos, pode colocar em pausa e retomar a computação recursos sob demanda. Por exemplo, se não estiver a utilizar a base de dados durante a noite e no fim de semana, pode colocar em pausa durante essas horas e retomá-lo durante o dia. Não existe nenhum custo associado para recursos de computação, enquanto a base de dados está em pausa. No entanto, continuar a ser cobrado o armazenamento.
 
 Para colocar em pausa uma base de dados, utilize o [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) cmdlet. O exemplo seguinte coloca em pausa um armazém de dados com o nome **mySampleDataWarehouse** alojada num servidor com o nome **newserver 20171113**. O servidor está num grupo de recursos do Azure com o nome **myResourceGroup**.
@@ -86,6 +88,7 @@ $resultDatabase
 
 
 ## <a name="resume-compute"></a>Computação de retomar
+
 Para iniciar uma base de dados, utilize o [retomar AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) cmdlet. O exemplo seguinte inicia um banco de dados chamado mySampleDataWarehouse alojada num servidor com o nome newserver 20171113. O servidor está num grupo de recursos do Azure com o nome myResourceGroup.
 
 ```Powershell
@@ -115,17 +118,18 @@ Siga estes passos para limpar os recursos conforme quiser.
 
     ![Limpar recursos](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, clique em **Iniciar**.
+2. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, clique em **Iniciar**.
 
-2. Para remover o armazém de dados para não lhe ser cobrada a computação ou o armazenamento, clique em **Eliminar**.
+3. Para remover o armazém de dados para não lhe ser cobrada a computação ou o armazenamento, clique em **Eliminar**.
 
-3. Para remover o servidor SQL que criou, clique em **mynewserver 20171113.database.windows.net**e, em seguida, clique em **eliminar**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
+4. Para remover o servidor SQL que criou, clique em **mynewserver 20171113.database.windows.net**e, em seguida, clique em **eliminar**.  Tenha cuidado com esta eliminação, uma vez que eliminar o servidor também elimina todas as bases de dados atribuídas ao mesmo.
 
-4. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
+5. Para remover o grupo de recursos, clique em **myResourceGroup** e, em seguida, clique em **Eliminar grupo de recursos**.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Agora está em pausa e retomar a computação para o seu armazém de dados. Para saber mais sobre o Azure SQL Data Warehouse, avance para o tutorial para carregar dados.
 
 > [!div class="nextstepaction"]
->[Carregar dados para o SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Carregar dados para o SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

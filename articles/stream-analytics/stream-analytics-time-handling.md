@@ -6,17 +6,17 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.openlocfilehash: 91193cc328c02f5ba4f5eb18e0bf853f9d91313a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 03/05/2018
+ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732267"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543292"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Compreender a manipulação de tempo no Azure Stream Analytics
 
-Neste artigo, vamos discutir como pode fazer escolhas de design para resolver o tempo prático tratando de problemas no serviço Azure Stream Analytics. Tempo de design de manipulação de decisões estão estreitamente relacionadas com fatores de ordenação de eventos. Para obter mais informações, consulte este artigo relacionado: [Considerações de ordem de eventos do Azure Stream Analytics](stream-analytics-out-of-order-and-late-events.md).
+Neste artigo, vamos discutir como pode fazer escolhas de design para resolver o tempo prático tratando de problemas no serviço Azure Stream Analytics. Tempo de design de manipulação de decisões estão estreitamente relacionadas com fatores de ordenação de eventos.
 
 ## <a name="background-time-concepts"></a>Conceitos de tempo em segundo plano
 

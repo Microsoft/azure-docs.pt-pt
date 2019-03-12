@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 3cd1bbf1852c440172913467c5c8523c520cac2f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 389a8ac729cf5f4f95aa37654434245d08ecc87e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337520"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533634"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar a sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -130,13 +130,13 @@ As quotas de gastos que tiverem sido definidas para os departamentos na sua insc
 
 Centro de custos que estavam definidas as subscrições do Azure no seu registro de contrato Enterprise são passadas a nova conta de faturação. No entanto, não são suportados os centros de custos de departamentos e contas de contrato Enterprise.
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>Informação adicional
 
 As secções seguintes fornecem informações adicionais sobre como configurar a sua conta de cobrança.
 
 ### <a name="no-service-downtime"></a>Sem períodos de indisponibilidade de serviço
 
-Continuar a executar serviços do Azure na sua subscrição sem qualquer interrupção. Só que fazemos a transição da relação de faturação para subscrições do Azure. Não haverá impacto para os recursos existentes, grupos de recursos ou grupos de gestão.
+Os serviços do Azure na sua subscrição continuam em execução sem quaisquer interrupções. Apenas fazemos a transição da relação de faturação das suas subscrições do Azure. Não tem impacto nos recursos, grupos de recursos ou grupos de gestão existentes.
 
 ### <a name="user-access-to-azure-resources"></a>Acesso de utilizador aos recursos do Azure
 
@@ -144,7 +144,7 @@ Acesso aos recursos do Azure que foi definido com o Azure RBAC (controlo de aces
 
 ### <a name="azure-reservations"></a>Azure Reservations
 
-Nenhumas reservas de Azure no seu registro de contrato Enterprise é movida para a sua nova conta de cobrança. Durante a transição, não haverá quaisquer alterações para os descontos de reserva que estão a ser aplicadas às suas subscrições.
+Nenhumas reservas de Azure no seu registro de contrato Enterprise é movida para a sua nova conta de cobrança. Durante a transição, não são feitas quaisquer alterações aos descontos de reservas que estão a ser aplicados às suas subscrições.
 
 ### <a name="azure-marketplace-products"></a>Produtos do Azure Marketplace
 
@@ -203,7 +203,7 @@ Para concluir a configuração, precisa de acesso para a nova conta de faturaç�
 
 ### <a name="azure-subscriptions"></a>Subscrições do Azure
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Pesquisar nos **custo Management + faturação**.
 
@@ -219,7 +219,7 @@ Subscrições do Azure que são transferidas da sua inscrição do contrato Ente
 
 ### <a name="azure-reservations"></a>Azure Reservations
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Pesquisar nos **custo Management + faturação**.
 
@@ -239,7 +239,7 @@ Reservas do Azure que são movidas do seu registro do Enterprise Agreement para 
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-profile"></a>Acesso aos administradores da empresa no perfil de faturação
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Pesquisar nos **custo Management + faturação**.
 
@@ -255,7 +255,7 @@ Os administradores empresariais são listados como faturação proprietários de
 
 ### <a name="access-of-enterprise-administrators-department-administrators-and-account-owners-on-invoice-sections"></a>Acesso de administradores da empresa, os administradores do departamento e proprietários da conta em secções de nota fiscal
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Pesquisar nos **custo Management + faturação**.
 

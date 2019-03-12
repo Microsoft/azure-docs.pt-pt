@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a0d5f42fa6725ba23a89904779040f379f31e59e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6ffed81390419898847ce1b1b9e6b2b48a749cdf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454158"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548477"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]
@@ -46,7 +46,7 @@ Com o serviço Batch, define os recursos de computação do Azure para executar 
 Opcionalmente, para saber mais sobre o Batch, veja [a documentação do Batch](https://docs.microsoft.com/azure/batch/).
 
 ## <a name="why-azure-data-factory"></a>Porquê o Azure Data Factory?
-Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. Pode utilizar o Data Factory para criar pipelines de dados geridos que mover os dados no local e na cloud armazenamentos de dados para um arquivo de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Pode utilizar o Data Factory para processar/transformar dados com os serviços, como o Azure HDInsight e Azure Machine Learning. Também pode agendar pipelines de dados para executar de forma agendada (por exemplo, hora a hora, diariamente e semanalmente). Pode monitorizar e gerir pipelines de rapidamente identificar problemas e tomar medidas.
+O Data Factory é um serviço de integração de dados com base na cloud que organiza e automatiza o movimento e a transformação dos dados. Pode utilizar o Data Factory para criar pipelines de dados geridos que mover os dados no local e na cloud armazenamentos de dados para um arquivo de dados centralizado. Um exemplo é o armazenamento de Blobs do Azure. Pode utilizar o Data Factory para processar/transformar dados com os serviços, como o Azure HDInsight e Azure Machine Learning. Também pode agendar pipelines de dados para executar de forma agendada (por exemplo, hora a hora, diariamente e semanalmente). Pode monitorizar e gerir pipelines de rapidamente identificar problemas e tomar medidas.
 
   Se não estiver familiarizado com o Data Factory, os artigos seguintes ajudá-lo a compreender a arquitetura de implementação da solução descrita neste artigo:  
 
@@ -96,7 +96,7 @@ Se não tiver uma subscrição do Azure, pode criar rapidamente uma conta de ava
 Utilize uma conta de armazenamento para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento, consulte [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). A solução de exemplo utiliza o armazenamento de Blobs.
 
 #### <a name="azure-batch-account"></a>Conta de Batch do Azure
-Criar uma conta do Batch com o [portal do Azure](http://portal.azure.com/). Para obter mais informações, consulte [criar e gerir uma conta do Batch](../../batch/batch-account-create-portal.md). Tenha em atenção a chave de conta e o nome da conta de Batch. Também pode utilizar o [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet para criar uma conta do Batch. Para obter instruções sobre como utilizar este cmdlet, consulte [introdução aos cmdlets do PowerShell do Batch](../../batch/batch-powershell-cmdlets-get-started.md).
+Criar uma conta do Batch com o [portal do Azure](https://portal.azure.com/). Para obter mais informações, consulte [criar e gerir uma conta do Batch](../../batch/batch-account-create-portal.md). Tenha em atenção a chave de conta e o nome da conta de Batch. Também pode utilizar o [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet para criar uma conta do Batch. Para obter instruções sobre como utilizar este cmdlet, consulte [introdução aos cmdlets do PowerShell do Batch](../../batch/batch-powershell-cmdlets-get-started.md).
 
 A solução de exemplo utiliza o Batch (indiretamente por meio de um pipeline de fábrica de dados) para processar dados de forma paralela num conjunto de nós de computação (uma coleção gerida de VMs).
 
@@ -123,7 +123,7 @@ Crie um conjunto do Batch com, pelo menos, dois nós de computação.
 
    f. Selecione **OK** para criar o conjunto.
 
-#### <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
+#### <a name="azure-storage-explorer"></a>Explorador do Armazenamento do Azure
 Utilizar [6 de Explorador de armazenamento do Azure](https://azurestorageexplorer.codeplex.com/) ou [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (a partir de ClumsyLeaf Software) para inspecionar e alterar os dados em seus projetos de armazenamento. Também pode inspecionar e alterar os dados nos registos das suas aplicações alojadas na cloud.
 
 1. Criar um contentor com o nome **mycontainer** com acesso privado (sem acesso anónimo).
@@ -562,7 +562,7 @@ Serviços ligados ligam os arquivos de dados ou serviços de computação à fá
 
 1. Selecione **Implementar** na barra de comandos para implementar o serviço ligado.
 
-   ![Implementação](./media/data-factory-data-processing-using-batch/image8.png)
+   ![Implementar](./media/data-factory-data-processing-using-batch/image8.png)
 
 #### <a name="create-an-azure-batch-linked-service"></a>Criar um serviço ligado do Azure Batch
 Neste passo, vai criar um serviço ligado para a sua conta do Batch que é utilizada para executar a atividade personalizada da fábrica de dados.
@@ -980,4 +980,4 @@ Depois de processar dados, pode consumir ferramentas online, como o Power BI. Se
   * [Introdução à biblioteca de cliente do Batch para .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

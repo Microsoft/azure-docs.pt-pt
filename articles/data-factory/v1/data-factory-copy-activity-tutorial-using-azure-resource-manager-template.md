@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ef07d5c4e7dad82290897ae771fb3046ab5f4f30
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 95a29a458fc9333515ef29aaaed9a47e93cf3a8d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453516"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546182"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o modelo Azure Resource Manager para criar um pipeline do Data Factory para copiar dados 
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ O modelo do Resource Manager de nível superior para definir uma fábrica de dad
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": { ...
     },
@@ -102,7 +102,7 @@ Crie um ficheiro JSON com o nome **ADFCopyTutorialARM.json** na pasta **C:\ADFGe
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
       "storageAccountName": { "type": "string", "metadata": { "description": "Name of the Azure storage account that contains the data to be copied." } },
       "storageAccountKey": { "type": "securestring", "metadata": { "description": "Key for the Azure storage account." } },

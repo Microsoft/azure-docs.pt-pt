@@ -171,12 +171,12 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blogue
-    href: http://blogs.technet.com/b/kv/
+    href: https://blogs.technet.com/b/kv/
   - name: Comentários sobre o Produto
     href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: e4cf443e80ad77e0892b164ecf63aec6afc2a428
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: ae2d61cbe152491825c4f8a075088ba9f523a579
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308062"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542450"

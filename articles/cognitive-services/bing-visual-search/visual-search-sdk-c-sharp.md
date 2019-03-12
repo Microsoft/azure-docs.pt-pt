@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3c6a103d3d4c1890a58b833d29c88eb040ac9810
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a7fc4686ec31b4c3a23d3e0ff72e5e2a270015b0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860699"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532104"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>Início rápido: Obtenha informações de imagem com o SDK de pesquisa Visual do Bing paraC#
 
@@ -24,7 +24,7 @@ Utilize este guia de introdução para iniciar a obtenção de informações de 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](http://www.mono-project.com/).
+* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
 * O pacote de pesquisa Visual do NuGet. 
     - No Explorador de Soluções do Visual Studio, clique com o botão direito do rato no seu projeto e selecione `Manage NuGet Packages` no menu. Instale o pacote `Microsoft.Azure.CognitiveServices.Search.VisualSearch`. Instalar os pacotes NuGet também instala o seguinte:
         - Microsoft.Rest.ClientRuntime

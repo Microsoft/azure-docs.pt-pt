@@ -8,14 +8,14 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212197"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537466"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implementar duplos Digital do Azure e configurar um gráfico espacial
+# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implementar o Azure Digital Twins e configurar um gráfico espacial
 
 Pode utilizar o serviço de duplos Digital do Azure para reunir as pessoas, lugares e dispositivos num sistema geográfico coerente. Esta série de tutoriais demonstra como utilizar o gémeos Digital do Azure para detetar a ocupação da sala com condições ideais de qualidade de temperatura e ar. 
 
@@ -151,7 +151,7 @@ O **provisionSample.yaml** ficheiro contém os seguintes nós:
 
 - **recursos**: O `resources` nó cria um recurso do IoT Hub do Azure para comunicar com os dispositivos em sua configuração. Um hub IoT no nó raiz do seu gráfico pode comunicar com todos os dispositivos e sensores no seu gráfico.  
 
-- **espaços**: No modelo de objeto duplos Digital, `spaces` representam os locais físicos. Cada espaço tem um `Type` &mdash;por exemplo, região, local ou Customer&mdash;e amigável `Name`. Espaços podem pertencer a outros espaços, criação de uma estrutura hierárquica. O ficheiro de provisionSample.yaml tem um gráfico geográfico de um edifício imaginário. Tenha em atenção o aninhamento de lógico de espaços do tipo `Floor` dentro `Venue`, `Area` num chão, e `Room` nós numa área. 
+- **spaces**: No modelo de objeto duplos Digital, `spaces` representam os locais físicos. Cada espaço tem um `Type` &mdash;por exemplo, região, local ou Customer&mdash;e amigável `Name`. Espaços podem pertencer a outros espaços, criação de uma estrutura hierárquica. O ficheiro de provisionSample.yaml tem um gráfico geográfico de um edifício imaginário. Tenha em atenção o aninhamento de lógico de espaços do tipo `Floor` dentro `Venue`, `Area` num chão, e `Room` nós numa área. 
 
 - **dispositivos**: Podem conter espaços `devices`, que são entidades de físicas ou virtuais que gerir um número de sensores. Por exemplo, um dispositivo pode ser um telefone do utilizador, um pod de sensor Raspberry Pi ou um gateway. No edifício imaginário do exemplo, repare que a sala denominada **Focus Room** contém um dispositivo **Raspberry Pi 3 A1**. Cada nó do dispositivo é identificado por um `hardwareId` exclusivo, que está codificado no exemplo. Para configurar este exemplo para uma produção real, substitua estes valores pelos da sua configuração.  
 
@@ -173,7 +173,7 @@ Guarde e feche o ficheiro de provisionSample.yaml. O próximo tutorial, irá adi
 
 Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vontade eliminar recursos criados neste tutorial:
 
-1. No menu do lado esquerdo da [portal do Azure](http://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
+1. No menu do lado esquerdo da [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
 
     > [!TIP]
     > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.

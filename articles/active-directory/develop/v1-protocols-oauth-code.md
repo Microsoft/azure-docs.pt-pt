@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 03/5/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdbde6eda2bd532b1a26a58e4ca82c9b5fab4e6c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2598bb4deef0c7dae9f5df558ec1054ad02fb2f7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188601"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531118"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizar o acesso a aplicações de web do Azure Active Directory utilizando o fluxo de concessão de código do OAuth 2.0
 
@@ -61,9 +61,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type |obrigatório |Tem de incluir `code` para o fluxo de código de autorização. |
 | redirect_uri |Recomendado |O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. Para aplicações de dispositivos móveis e nativas, deve usar o valor predefinido de `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |opcional |Especifica o método que deve ser utilizado para enviar a cópia de token resultante à sua aplicação. Pode ser `query`, `fragment`, ou `form_post`. `query` Fornece o código como um parâmetro de cadeia de caracteres de consulta no seu URI de redirecionamento. Se estiver solicitando um token de ID com o fluxo implícito, é possível utilizar `query` conforme especificado no [especificação de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se estiver solicitando apenas do código, pode usar `query`, `fragment`, ou `form_post`. `form_post` executa uma POSTAGEM que contém o código para o seu URI de redirecionamento. A predefinição é `query` para um fluxo de código.  |
-| state |Recomendado |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
+| estado |Recomendado |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 | Recurso | Recomendado |O URI de ID de aplicação da API (recurso protegido) da web de destino. Para encontrar o URI de ID de aplicação, no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`. Isto é necessário em um dos autorização ou pedidos de token. Para garantir autenticação menos prompts colocá-lo no pedido de autorização para se certificar de consentimento é recebido do usuário. |
-| scope | **ignored** | Para aplicações do Azure AD v1, âmbitos devem ser configurados estaticamente no Portal do Azure em aplicativos **configurações**, **permissões obrigatórias**. |
+| âmbito | **ignored** | Para aplicações do Azure AD v1, âmbitos devem ser configurados estaticamente no Portal do Azure em aplicativos **configurações**, **permissões obrigatórias**. |
 | linha de comandos |opcional |Indica o tipo de interação do usuário que é necessário.<p> Valores válidos são: <p> *login*: Deve ser pedido ao utilizador para autenticar. <p> *select_account*: É pedido ao utilizador para selecionar uma conta, interromper o início de sessão único no. O utilizador pode selecionar uma conta de início de sessão iniciada existente, introduza as credenciais para uma conta de memorizados ou optar por utilizar uma conta diferente completamente. <p> *consent*: Consentimento do utilizador foram concedido, mas tem de ser atualizado. Deve ser pedido ao utilizador para dar consentimento. <p> *admin_consent*: Um administrador deve ser-lhe pedido para consentir em nome de todos os utilizadores na sua organização |
 | login_hint |opcional |Pode ser usada para preencher previamente o campo de endereço de e-mail/nome de utilizador da página início de sessão do utilizador, se souber que o respetivo nome de utilizador antes do tempo. Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação, já após extrair o nome de utilizador de um anterior início de sessão com o `preferred_username` de afirmação. |
 | domain_hint |opcional |Fornece uma dica sobre o inquilino ou domínio que o utilizador deve utilizar para iniciar sessão. O valor da domain_hint é um domínio registado para o inquilino. Se o inquilino está federado para um diretório no local, o AAD redireciona para o servidor de Federação do inquilino especificado. |
@@ -90,7 +90,7 @@ Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 | admin_consent |O valor for True, se um administrador que deu consentimento para um pedido de solicitação de consentimento. |
 | Código |O código de autorização que o aplicativo solicitou. O aplicativo pode usar o código de autorização para pedir um token de acesso para o recurso de destino. |
 | session_state |Um valor exclusivo que identifica a sessão do utilizador atual. Este valor é um GUID, mas deve ser tratado como um valor indefinido, que é transmitido sem exame. |
-| state |Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. É uma boa prática para a aplicação verificar se os valores de estado no pedido e resposta são idênticos antes de utilizar a resposta. Isto ajuda a detetar [ataques de falsificação de pedidos entre sites (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) contra o cliente. |
+| estado |Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. É uma boa prática para a aplicação verificar se os valores de estado no pedido e resposta são idênticos antes de utilizar a resposta. Isto ajuda a detetar [ataques de falsificação de pedidos entre sites (CSRF)](https://tools.ietf.org/html/rfc6749#section-10.12) contra o cliente. |
 
 ### <a name="error-response"></a>Resposta de erro
 Respostas de erro também podem ser enviadas para o `redirect_uri` para que o aplicativo pode manipulá-las adequadamente.
@@ -105,7 +105,7 @@ error=access_denied
 | --- | --- |
 | erro |Um valor de código de erro definido na seção 5.2 do [Framework de autorização do OAuth 2.0](https://tools.ietf.org/html/rfc6749). A tabela seguinte descreve os códigos de erro que retorna do Azure AD. |
 | error_description |Uma descrição mais detalhada do erro. Esta mensagem não se destina a ser amigável de utilizador final. |
-| state |O valor de estado é um valor de não reutilizado gerado aleatoriamente que seja enviado no pedido e devolvido na resposta para impedir ataques do solicitação intersite forjada (CSRF). |
+| estado |O valor de estado é um valor de não reutilizado gerado aleatoriamente que seja enviado no pedido e devolvido na resposta para impedir ataques do solicitação intersite forjada (CSRF). |
 
 #### <a name="error-codes-for-authorization-endpoint-errors"></a>Códigos de erro para erros de ponto final de autorização
 A tabela seguinte descreve os vários códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro.
@@ -145,7 +145,7 @@ grant_type=authorization_code
 | client_id |obrigatório |O Id de aplicação atribuída à aplicação quando registou com o Azure AD. Pode encontrar isto no portal do Azure. O Id da aplicação é apresentado nas definições de registo de aplicações. |
 | grant_type |obrigatório |Tem de ser `authorization_code` para o fluxo de código de autorização. |
 | Código |obrigatório |O `authorization_code` que obteve na secção anterior |
-| redirect_uri |obrigatório |O mesmo `redirect_uri` valor que foi utilizado para adquirir o `authorization_code`. |
+| redirect_uri |obrigatório | A `redirect_uri`registado no aplicativo do cliente. |
 | client_secret |necessária para as aplicações web, não é permitidas para os clientes públicos |O segredo de aplicação que criou no Portal do Azure para a sua aplicação sob **chaves**. Não pode ser utilizado num aplicativo nativo (cliente público), porque client_secrets não podem ser armazenados com confiança nos dispositivos. É necessário para aplicações web e web APIs (clientes confidenciais tudo), que têm a capacidade de armazenar o `client_secret` com segurança no lado do servidor. O client_secret deve ser codificada de URL antes de serem enviados. |
 | Recurso | Recomendado |O URI de ID de aplicação da API (recurso protegido) da web de destino. Para encontrar o URI de ID de aplicação, no Portal do Azure, clique em **do Azure Active Directory**, clique em **registos de aplicação**, abra a aplicação **definições** página, em seguida, clique em  **Propriedades**. Também pode ser um recurso externo, como `https://graph.microsoft.com`. Isto é necessário em um dos autorização ou pedidos de token. Para garantir autenticação menos prompts colocá-lo no pedido de autorização para se certificar de consentimento é recebido do usuário. Se estiver em pedido de autorização e o pedido de token, o recurso "parâmetros têm de corresponder. | 
 | code_verifier | opcional | O code_verifier mesmo que foi utilizado para obter o authorization_code. Necessário se PKCE foi utilizada no pedido de concessão do código de autorização. Para obter mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
@@ -180,7 +180,7 @@ Uma resposta com êxito poderia ter esta aparência:
 | expires_in |O tempo que o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache. |
 | Recurso |O URI de ID de aplicação da web API (recurso protegido). |
-| scope |Permissões de representação concedidas à aplicação cliente. A permissão predefinida é `user_impersonation`. O proprietário do recurso protegido pode registar os valores adicionais no Azure AD. |
+| âmbito |Permissões de representação concedidas à aplicação cliente. A permissão predefinida é `user_impersonation`. O proprietário do recurso protegido pode registar os valores adicionais no Azure AD. |
 | refresh_token |Um token de atualização de OAuth 2.0. A aplicação pode utilizar este token para adquirir os tokens de acesso adicionais depois do token de acesso atual expira. Atualizar tokens são vida longa e pode ser utilizados para manter o acesso aos recursos por longos períodos de tempo. |
 | id_token |Um que de JSON Web Token (JWT) não assinados representam um [token de ID](id-tokens.md). Base64Url de podem aplicação decodificar os segmentos deste token solicite informações sobre o utilizador que iniciou sessão. A aplicação pode armazenar em cache os valores e exibi-los, mas não deverá confiar nos mesmos para qualquer autorização ou limites de segurança. |
 
@@ -316,7 +316,7 @@ Uma resposta com êxito de token terá o seguinte aspeto:
 | expires_in |A duração restante do token em segundos. Um valor de típico é de 3600 (uma hora). |
 | expires_on |A data e hora em que o token expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. |
 | Recurso |Identifica o recurso protegido que o token de acesso pode ser utilizados para aceder. |
-| scope |Permissões de representação concedidas à aplicação cliente nativa. A permissão de predefinição está **user_impersonation**. O proprietário do recurso de destino pode registar valores alternativos no Azure AD. |
+| âmbito |Permissões de representação concedidas à aplicação cliente nativa. A permissão de predefinição está **user_impersonation**. O proprietário do recurso de destino pode registar valores alternativos no Azure AD. |
 | access_token |Novo token de acesso que foi pedido. |
 | refresh_token |Refresh_token OAuth 2.0 nova que pode ser utilizado para pedir novos tokens de acesso quando expira nesta resposta. |
 

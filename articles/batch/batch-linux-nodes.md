@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1e11f5cfcd80d3aa29530736a7e334c9af741322
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e228e73283685988247c8d419ba0a97b8c7b2974
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733727"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546970"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Aprovisionar nós de computação do Linux em conjuntos do Batch
 
@@ -45,7 +45,7 @@ Quando configurar uma referência de imagem de máquina virtual, especifica as p
 
 | **Propriedades de referência da imagem** | **Exemplo** |
 | --- | --- |
-| Publicador |Canónico |
+| Publicador |Canonical |
 | Oferta |UbuntuServer |
 | SKU |14.04.4-LTS |
 | Versão |mais recente |
@@ -216,10 +216,10 @@ A tabela seguinte lista as imagens de máquina virtual do Marketplace que são c
 
 | **Publicador** | **Oferta** | **SKU de imagem** | **Versão** | **ID de SKU do agente de nó** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| lote | rendering-centos73 | composição | mais recente | batch.node.centos 7 |
-| lote | rendering-windows2016 | composição | mais recente | batch.node.Windows amd64 |
-| Canónico | UbuntuServer | 16.04-LTS | mais recente | batch.node.ubuntu 16.04 |
-| Canónico | UbuntuServer | 14.04.5-LTS | mais recente | batch.node.ubuntu 14.04 |
+| batch | rendering-centos73 | composição | mais recente | batch.node.centos 7 |
+| batch | rendering-windows2016 | composição | mais recente | batch.node.Windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | mais recente | batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | mais recente | batch.node.ubuntu 14.04 |
 | credativ | Debian | 9 | mais recente | batch.node.debian 9 |
 | credativ | Debian | 8 | mais recente | batch.node.debian 8 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | mais recente | batch.node.centos 7 |
@@ -327,9 +327,9 @@ Se implementar aplicações em nós do Batch usando [pacotes de aplicações](ba
 
 O [exemplos de código Python] [ github_samples_py] no [azure-batch-samples] [ github_samples] repositório no GitHub contêm scripts que lhe mostram como realizar operações comuns em lote, como o agrupamento, a tarefa e a criação da tarefa. O [Leia-me] [ github_py_readme] que acompanha o Python exemplos inclui detalhes sobre como instalar os pacotes necessários.
 
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_net_mgmt]: https://msdn.microsoft.com/library/azure/mt463120.aspx
-[api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
+[api_rest]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [cloud_services_pricing]: https://azure.microsoft.com/pricing/details/cloud-services/
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples

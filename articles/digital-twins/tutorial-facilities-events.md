@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: dkshir
-ms.openlocfilehash: f24d601fc3b589daf22788ad0d05eb74a7b51f0a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156770"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528911"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações do seus espaços duplos Digital do Azure ao utilizar o Logic Apps
 
@@ -188,7 +188,7 @@ Pode utilizar o [do Azure Logic Apps](../logic-apps/logic-apps-overview.md) serv
 
 Dentro de alguns minutos, deve começar a obter notificações por correio eletrónico deste recurso do Logic Apps. 
 
-   ![Notificação por e-mail](./media/tutorial-facilities-events/logic-app-notification.png)
+   ![Notificação de e-mail](./media/tutorial-facilities-events/logic-app-notification.png)
 
 Para parar o recebimento destes emails, aceda ao seu recurso do Logic Apps no portal e selecione o **descrição geral** painel. Selecione **desativar**.
 
@@ -196,7 +196,7 @@ Para parar o recebimento destes emails, aceda ao seu recurso do Logic Apps no po
 
 Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vontade eliminar recursos criados neste tutorial:
 
-1. No menu do lado esquerdo da [portal do Azure](http://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
+1. No menu do lado esquerdo da [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
 
     > [!TIP]
     > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.

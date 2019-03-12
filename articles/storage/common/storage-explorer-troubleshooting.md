@@ -7,13 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.subservice: common
-ms.openlocfilehash: 15ceaf1a75859ca53ddb946555880b360b29ee58
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: bff1e8c111a8a50e15b6d316e422a641a778c73c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405696"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775174"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas de Explorador de armazenamento do Azure
 
@@ -97,13 +96,11 @@ Se não conseguir encontrar nenhum certificado autoassinado utilizando os passos
 
 Em branco início de sessão caixas de diálogo são causadas frequentemente por ADFS solicitando o Explorador de armazenamento para executar um redirecionamento, que não é suportado por Bombardeador. Para contornar este problema, pode tentar utilizar o fluxo de código de dispositivo para início de sessão. Para tal, siga estes passos:
 
-1. "Ir para Experimental" -> "Utilizar código sessão de dispositivo".
+1. "Ir para a pré-visualização" -> "Utilizar código sessão de dispositivo".
 2. Abra a caixa de diálogo Ligar (quer através de "Adicionar conta" no painel de conta ou o ícone de plug na barra vertical do lado esquerdo).
 3. Escolha qual pretende iniciar sessão para o ambiente.
 4. Clique em "Iniciar" no botão.
 5. Siga as instruções no painel seguinte.
-
-Nota: esta funcionalidade está apenas disponível no 1.7.0 pré-visualização.
 
 Se tiver problemas de inscrição para a conta que pretende utilizar como browser predefinido já está conectado a uma conta diferente, pode:
 
@@ -244,6 +241,14 @@ Para as distribuições de Linux que não seja o Ubuntu 16.04, terá de instalar
 * GCC atualizado
 
 Dependendo de sua distribuição, pode haver outros pacotes, que tem de instalar. O Explorador de armazenamento [notas de versão](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) conter passos específicos para algumas distribuições.
+
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Abrir no Explorador do portal do Azure não funciona
+
+Se o botão "Abrir no Explorador de" no portal do Azure não funcionar para, certifique-se de que está a utilizar um browser compatível. Os seguintes browsers foram testados para compatibilidade.
+* Microsoft Edge
+* Mozilla Firefox
+* Google Chrome
+* Microsoft Internet Explorer
 
 ## <a name="next-steps"></a>Passos Seguintes
 

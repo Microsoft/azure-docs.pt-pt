@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: bc52c4eaf77b9441683eea8e5f899c6ef34d62e8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 8d70fca5820dbd2152ca378916bfbcdbad4a027f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002362"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776761"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -158,6 +158,10 @@ Tokens de acesso expirarem a cada hora, por isso terá de gerar um novo token de
 
 O Video Indexer utiliza um modelo de preços pay as you go simple com base na duração da entrada conteúda que indexar. Encargos adicionais poderão aplicar-se para a codificação, transmissão em fluxo, armazenamento, a utilização de rede e suporte de dados de unidades reservadas. Para obter mais informações, consulte a [preços](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) página.
 
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Quando me são faturadas para utilizar o Video Indexer?
+
+Ao enviar um vídeo ser indexados, o utilizador irá definir a indexação para ser a análise de vídeo, análise de áudio ou ambos. Isso determinará qual são cobradas SKUs. Se existir um erro de nível crítico durante o processamento, será devolvido um código de erro como resposta. Nesse caso, uma faturação sem ocorre.  Um erro crítico pode ser causado por um bug no nosso código ou tem uma falha crítica numa dependência interna do serviço. Erros, tais como a extração errado de identificação ou informações não são considerados críticas e uma resposta é devolvida. Em qualquer caso em que é devolvida uma resposta válida (código de erro não), ocorre a faturação.
+ 
 ### <a name="does-video-indexer-offer-a-free-trial"></a>O indexador de vídeo oferece uma avaliação gratuita?
 
 Sim, o indexador de vídeo oferece uma avaliação gratuita, que fornece o serviço completo e a funcionalidade de API. Existe uma quota de 600 minutos que vale a pena de vídeos para utilizadores de interface baseada na web e de 2.400 minutos para que os utilizadores de API. 

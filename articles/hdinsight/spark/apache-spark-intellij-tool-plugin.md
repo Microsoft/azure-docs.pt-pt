@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: maxluk
-ms.openlocfilehash: 76df7f57f44100a27fbe4583051fa25c61e27ee0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 272ec7298785128caebd850dc488ca01937a3960
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961827"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548512"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Utilizar o Azure Toolkit para IntelliJ para criar aplicativos de Apache Spark para um cluster do HDInsight
 
@@ -166,7 +166,7 @@ Pode ligar um cluster do HDInsight ao utilizar o nome de utilizador do Apache am
         |Tipo de recurso de ligação|Selecione **Cluster de HDInsight** na lista pendente.|
         |URL do nome do cluster| Introduza o nome do cluster.|
         |Tipo de Autenticação| Deixe como **autenticação básica**|
-        |Nome de Utilizador| Introduza o nome de utilizador do cluster, a predefinição é o administrador.|
+        |Nome de utilizador| Introduza o nome de utilizador do cluster, a predefinição é o administrador.|
         |Palavra-passe| Introduza a palavra-passe para o nome de utilizador.|
     
         ![caixa de diálogo de cluster de hdinsight de ligação](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
@@ -180,7 +180,7 @@ Pode ligar um cluster do HDInsight ao utilizar o nome de utilizador do Apache am
         |Nome do Cluster| Introduza o nome do cluster.|
         |Yarn Endpoint|Opcional.|
         |Tipo de Autenticação| Deixe como **autenticação básica**|
-        |Nome de Utilizador| Introduza o nome de utilizador do cluster, a predefinição é o administrador.|
+        |Nome de utilizador| Introduza o nome de utilizador do cluster, a predefinição é o administrador.|
         |Palavra-passe| Introduza a palavra-passe para o nome de utilizador.|
 
         ![ligar a caixa de diálogo do livy cluster](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
@@ -209,9 +209,9 @@ Depois de criar uma aplicação Scala, pode enviá-lo para o cluster.
     |Clusters do Spark (apenas Linux)|Selecione o cluster do Spark do HDInsight no qual pretende executar a sua aplicação.|
     |Selecione um Artefato para submeter|Deixe a predefinição.|
     |Nome da classe principal|O valor predefinido é a classe principal a partir do ficheiro selecionado. Pode alterar a classe ao selecionar as reticências (**...** ) e escolhendo a outra classe.|
-    |Configurações da tarefa|Pode alterar as chaves predefinidas e/ou valores. Para obter mais informações, consulte [API de REST do Livy Apache](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Configurações da tarefa|Pode alterar as chaves predefinidas e/ou valores. Para obter mais informações, consulte [API de REST do Livy Apache](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumentos de linha de comandos|Pode inserir argumentos separados por espaço para a classe principal, se necessário.|
-    |Jars referenciados e arquivos referenciados|Pode introduzir os caminhos para os ficheiros e Jars referenciadas se houver. Para obter mais informações: [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Consulte também [como carregar recursos em cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Jars referenciados e arquivos referenciados|Pode introduzir os caminhos para os ficheiros e Jars referenciadas se houver. Para mais informações: [Configuração do Apache Spark](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  Consulte também [como carregar recursos em cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
     |Armazenamento de carregamento de tarefas|Expanda para revelar as opções adicionais.|
     |Tipo de armazenamento|Selecione **Use Azure Blob a carregar** na lista pendente.|
     |Conta de Armazenamento|Introduza a sua conta de armazenamento.|

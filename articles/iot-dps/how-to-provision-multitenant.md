@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 43989ff9dac7cdad76117aaa6e3c862453b24813
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865115"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544448"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como aprovisionar para arquitetura "multitenancy" 
 
@@ -86,7 +86,7 @@ Nesta secção, irá criar um novo grupo de inscrição para os dispositivos de 
 
 Para simplificar, este artigo usa [atestado de chave simétrico](concepts-symmetric-key-attestation.md) com a inscrição. Para uma solução mais segura, considere a utilização [atestado de certificado X.509](concepts-security.md#x509-certificates) com uma cadeia de fidedignidade.
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com)e abra a sua instância do serviço aprovisionamento de dispositivos.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a sua instância do serviço aprovisionamento de dispositivos.
 
 2. Selecione o **gerir inscrições** separador e, em seguida, clique nas **adicionar grupo de inscrição** botão na parte superior da página. 
 

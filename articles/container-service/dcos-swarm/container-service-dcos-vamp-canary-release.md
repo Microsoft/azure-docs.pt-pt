@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: cd2eb3ba1d3207f4f210aa259e938bb42b44d37a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002060"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535455"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(PRETERIDO) Microsserviços de versão canary com Vamp num cluster DC/OS do Azure Container Service
 
@@ -31,7 +31,7 @@ Nestas instruções, criamos Vamp no Azure Container Service com um cluster DC/O
 
 [Lançar canary](https://martinfowler.com/bliki/CanaryRelease.html) é uma estratégia de implantação do smart adotada por organizações inovadoras, como o Netflix, o Facebook e o Spotify. É uma abordagem que faz sentido, pois ele reduz problemas, introduz a redes de segurança para e aumenta a inovação. Então, por que não são todas as empresas de usá-lo? Estendendo um pipeline CI/CD para incluir as estratégias canary adiciona complexidade e requer conhecimento de devops extensa e experiência. Isso é o suficiente para bloquear mais pequenas empresas e empresas semelhantes, antes de eles até mesmo começar a utilizar. 
 
-[Vamp](http://vamp.io/) é um sistema de código-fonte aberto projetado para facilitar esta transição e trazer Canárias liberação de recursos para o agendador de contentor preferencial. Funcionalidade de proteção do vamp vai além da implementação baseado em percentagem. Tráfego pode ser filtrado e dividido numa ampla variedade de condições, por exemplo, para utilizadores específicos de destino, intervalos de IP ou dispositivos. Vamp controla e analisa métricas de desempenho, permitindo a automatização com base nos dados do mundo real. Pode configurar a reversão automática em caso de erro ou dimensionar as variantes de serviço individual com base na carga ou latência.
+[Vamp](https://vamp.io/) é um sistema de código-fonte aberto projetado para facilitar esta transição e trazer Canárias liberação de recursos para o agendador de contentor preferencial. Funcionalidade de proteção do vamp vai além da implementação baseado em percentagem. Tráfego pode ser filtrado e dividido numa ampla variedade de condições, por exemplo, para utilizadores específicos de destino, intervalos de IP ou dispositivos. Vamp controla e analisa métricas de desempenho, permitindo a automatização com base nos dados do mundo real. Pode configurar a reversão automática em caso de erro ou dimensionar as variantes de serviço individual com base na carga ou latência.
 
 ## <a name="set-up-azure-container-service-with-dcos"></a>Configurar o Azure Container Service com DC/OS
 
@@ -129,7 +129,7 @@ Assim que o Elasticsearch comunica **em execução**, pode adicionar o pacote de
 
 Agora que essa Vamp está em execução, implemente um serviço a partir de um plano gráfico. 
 
-Em sua forma mais simples, um [Vamp esquema](http://vamp.io/documentation/using-vamp/blueprints/) descreve os pontos de extremidade (gateways), clusters e serviços para implementar. Vamp utiliza clusters para agrupar variantes diferentes do mesmo serviço em grupos lógicos para lançar canary ou A testes a / B.  
+Em sua forma mais simples, um [Vamp esquema](https://vamp.io/documentation/using-vamp/blueprints/) descreve os pontos de extremidade (gateways), clusters e serviços para implementar. Vamp utiliza clusters para agrupar variantes diferentes do mesmo serviço em grupos lógicos para lançar canary ou A testes a / B.  
 
 Este cenário utiliza uma aplicação monolítica de exemplo chamada [ **sava**](https://github.com/magneticio/sava), que está na versão 1.0. A solução é empacotada num contentor do Docker, que está no Docker Hub em magneticio/sava:1.0.0. A aplicação é executada normalmente na porta 8080, mas se quiser expô-los em porta 9050 neste caso. Implemente a aplicação através de Vamp usando uma esquema simple.
 
@@ -187,7 +187,7 @@ Quando tudo tiver sido criada, vá para o **descrição geral** painel do Balanc
 
 ![Portal do Azure – obter um endereço IP](./media/container-service-dcos-vamp-canary-release/18_public_ip_address.png)
 
-![Sava](./media/container-service-dcos-vamp-canary-release/19_sava100.png)
+![sava](./media/container-service-dcos-vamp-canary-release/19_sava100.png)
 
 
 ## <a name="run-a-canary-release"></a>Executar uma versão canary
@@ -200,7 +200,7 @@ Para mesclar o novo serviço de sava 1.1 com a implementação em execução:
 
 1. Na IU do Vamp, clique em **esquemas**.
 
-2. Clique em **adicionar** e cole o seguinte esquema YAML: este esquema descreve uma nova variante de serviço (sava: 1.1.0) para implementar dentro do cluster existente (sava_cluster).
+2. Clique em **adicionar** e cole o seguinte esquema YAML: Este esquema descreve uma nova variante de serviço (sava: 1.1.0) para implementar dentro do cluster existente (sava_cluster).
 
   ```YAML
   name: sava:1.1.0      # blueprint name
@@ -291,9 +291,9 @@ Também abordamos alguns recursos poderosos do Vamp: a intercalação de uma nov
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre a gestão de ações de Vamp através da [Vamp API de REST](http://vamp.io/documentation/api/api-reference/).
+* Saiba mais sobre a gestão de ações de Vamp através da [Vamp API de REST](https://vamp.io/documentation/api/api-reference/).
 
 * Criar scripts de automatização de Vamp em node. js e executá-los como [Vamp fluxos de trabalho](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
 
-* Consulte adicional [VAMP tutoriais](http://vamp.io/documentation/tutorials/).
+* Consulte adicional [VAMP tutoriais](https://vamp.io/documentation/tutorials/).
 

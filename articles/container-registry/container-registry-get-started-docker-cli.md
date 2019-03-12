@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 164d705a16dd82a1c5f3ff6f5e6982f80eb40dab
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: d2aa05d6648a76b02e09c660d7e6f6f30988db53
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330873"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542170"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Enviar a sua primeira imagem para um registo privado de contentor Docker com a CLI do Docker
 
-Os registos de contentores do Azure armazenam e gerem imagens de contentores do [Docker](http://hub.docker.com) privadas, de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens do Docker públicas. Pode utilizar o [interface de linha de comandos do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) para [início de sessão](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/)e outras operações no seu contentor registo.
+Os registos de contentores do Azure armazenam e gerem imagens de contentores do [Docker](https://hub.docker.com) privadas, de forma semelhante a como o [Docker Hub](https://hub.docker.com/) armazena imagens do Docker públicas. Pode utilizar o [interface de linha de comandos do Docker](https://docs.docker.com/engine/reference/commandline/cli/) (Docker CLI) para [início de sessão](https://docs.docker.com/engine/reference/commandline/login/), [push](https://docs.docker.com/engine/reference/commandline/push/), [pull](https://docs.docker.com/engine/reference/commandline/pull/)e outras operações no seu contentor registo.
 
 Nas etapas a seguir, baixar um oficial [imagem da Nginx](https://store.docker.com/images/nginx) partir do registo do Docker Hub público, identifique-a para o seu registo de contentores do Azure privado, enviá-la para o seu registo e, em seguida, tirá-lo a partir do registo.
 

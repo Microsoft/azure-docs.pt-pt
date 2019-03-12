@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d504635121c5153367cd0b89ce593b093bb3cd39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633866"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537249"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Completa como funciona a pesquisa de texto no Azure Search
 
@@ -55,14 +55,14 @@ O exemplo seguinte é uma solicitação de pesquisa pode enviar para o Azure Sea
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2017-11-11 
-{  
-    "search": "Spacious, air-condition* +\"Ocean view\"",  
-    "searchFields": "description, title",  
+{
+    "search": "Spacious, air-condition* +\"Ocean view\"",
+    "searchFields": "description, title",
     "searchMode": "any",
-    "filter": "price ge 60 and price lt 300",  
+    "filter": "price ge 60 and price lt 300",
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
- } 
+}
 ~~~~
 
 Para este pedido, o mecanismo de pesquisa faz o seguinte:
@@ -117,7 +117,7 @@ Por predefinição (`searchMode=any`), o motor de busca assume a interpretação
 Suponha que definimos agora `searchMode=all`. Neste caso, o espaço é interpretado como uma operação de "e". Cada um dos restantes termos tem ambos de estar presente no documento para ser qualificado como uma correspondência. O exemplo de consulta resultante poderia ser interpretado da seguinte forma: 
 
 ~~~~
-+Spacious,+air-condition*+"Ocean view"  
++Spacious,+air-condition*+"Ocean view"
 ~~~~
 
 Uma árvore de consulta modificada para esta consulta seria o seguinte, em que um documento correspondente é a intersecção de todas as três subconsultas: 
@@ -155,7 +155,7 @@ Quando o analisador de predefinida processa o termo, ele será minúsculas de "m
 O comportamento de um analisador pode ser testado com o [API analisar](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Forneça o texto que pretende analisar para ver o que irão gerar termos dadas analyzer. Por exemplo, para ver como o analisador padrão seria processada o texto "air-condition", pode emitir o pedido seguinte:
 
 ~~~~
-{ 
+{
     "text": "air-condition",
     "analyzer": "standard"
 }
@@ -164,7 +164,7 @@ O comportamento de um analisador pode ser testado com o [API analisar](https://d
 O analisador padrão quebra o texto de entrada para os seguintes dois tokens, anotando-los com atributos, como iniciar e deslocamentos de fim (utilizados para o detetor de ocorrências), bem como a respetiva posição (utilizado para a correspondência de expressão):
 
 ~~~~
-{  
+{
   "tokens": [
     {
       "token": "air",
@@ -195,11 +195,11 @@ Análise lexical aplica-se apenas aos tipos de consulta que necessitam de termos
 Obtenção de documento refere-se para encontrar os documentos com correspondência de termos no índice. Nesta fase é compreendi melhor por meio de um exemplo. Vamos começar com um índice de hotéis o esquema simples seguinte: 
 
 ~~~~
-{   
-    "name": "hotels",     
-    "fields": [     
-        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },     
-        { "name": "title", "type": "Edm.String", "searchable": true },     
+{
+    "name": "hotels",
+    "fields": [
+        { "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+        { "name": "title", "type": "Edm.String", "searchable": true },
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
@@ -208,28 +208,28 @@ Obtenção de documento refere-se para encontrar os documentos com correspondên
 Ainda mais partem do princípio de que este índice contém os documentos de quatro seguintes: 
 
 ~~~~
-{ 
+{
     "value": [
-        {         
-            "id": "1",         
-            "title": "Hotel Atman",         
-            "description": "Spacious rooms, ocean view, walking distance to the beach."   
-        },       
-        {         
-            "id": "2",         
-            "title": "Beach Resort",        
-            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."     
-        },       
-        {         
-            "id": "3",         
-            "title": "Playa Hotel",         
+        {
+            "id": "1",
+            "title": "Hotel Atman",
+            "description": "Spacious rooms, ocean view, walking distance to the beach."
+        },
+        {
+            "id": "2",
+            "title": "Beach Resort",
+            "description": "Located on the north shore of the island of Kauaʻi. Ocean view."
+        },
+        {
+            "id": "3",
+            "title": "Playa Hotel",
             "description": "Comfortable, air-conditioned rooms with ocean view."
-        },       
-        {         
-            "id": "4",         
-            "title": "Ocean Retreat",         
+        },
+        {
+            "id": "4",
+            "title": "Ocean Retreat",
             "description": "Quiet and secluded"
-        }    
+        }
     ]
 }
 ~~~~
@@ -269,8 +269,8 @@ Para o **Descrição** campo, o índice é o seguinte:
 
 | Termo | Lista de documentos |
 |------|---------------|
-| ar | 3
-| e | 4
+| air | 3
+| e em | 4
 | praia | 1
 | condicionadas de | 3
 | mais confortáveis | 3
@@ -327,7 +327,7 @@ Lembre-se os três documentos que corresponder à nossa consulta de exemplo:
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
 ~~~~
-{  
+{
   "value": [
     {
       "@search.score": 0.25610128,
@@ -395,7 +395,7 @@ Este artigo explorou a pesquisa em texto completo no contexto do Azure Search. E
 
 + [Compare os analisadores de padrão e em inglês](https://alice.unearth.ai/)) lado a lado neste site da web de demonstração. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Procurar nos documentos de REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

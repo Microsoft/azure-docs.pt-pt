@@ -11,16 +11,16 @@ ms.date: 09/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c813685a89f3d18b01ab75d710df54f8d1e1338
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1ccc2941e1f3bbc4df0bf4dfbf55311c9e095fc8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187751"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548317"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Tutorial:  Integrar uma única floresta do AD através da autenticação pass-through (PTA)
 
-![Criar](media/tutorial-passthrough-authentication/diagram.png)
+![Create](media/tutorial-passthrough-authentication/diagram.png)
 
 O tutorial seguinte irá guiá-lo através da criação de um ambiente de identidade híbrido através da autenticação pass-through.  Neste ambiente, em seguida, pode ser utilizado para fins de teste ou para obter mais familiarizado com o funcionamento de uma identidade híbrida.
 
@@ -39,7 +39,7 @@ Seguem-se os pré-requisitos necessários para a conclusão deste tutorial
 >
 > Cópias dos scripts do PowerShell que são utilizados neste tutorial estão disponíveis no GitHub [aqui](https://github.com/billmath/tutorial-phs).
 
-## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
 A primeira coisa que precisamos para o fazer, para que o nosso ambiente de identidade híbrida a cópia de segurança e em execução é criar uma máquina virtual que será utilizada como nosso servidor do Active Directory no local.  
 
 >[!NOTE]
@@ -250,7 +250,7 @@ Agora iremos confirmar que os utilizadores que tínhamos no nosso diretório no 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testar início de sessão com um dos nossos usuários
 
-1.  Navegue para [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1.  Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inicie sessão com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de início de sessão com o seguinte formato: (user@domain.onmicrosoft.com). Utilizar a mesma palavra-passe que o utilizador utiliza para iniciar sessão no local.
 ![Certifique-se](media/tutorial-password-hash-sync/verify1.png)
 

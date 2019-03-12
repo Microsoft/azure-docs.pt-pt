@@ -8,16 +8,16 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: d59a811b09d2c60627f7d506f1f5fd3513c914e8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408025"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533498"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implementar a partir do GitHub App Service do Azure com a integração contínua Jenkins e implementação
 
-Este tutorial implementa uma aplicação web de Java de exemplo do GitHub para [serviço de aplicações do Azure no Linux](/azure/app-service/containers/app-service-linux-intro) ao configurar a integração contínua (CI) e a implementação contínua (CD) no Jenkins. Quando atualizar a aplicação ao emitir consolidações para o GitHub, o Jenkins compila automaticamente e republishes a sua aplicação no App Service do Azure. A aplicação de exemplo neste tutorial, foi desenvolvida utilizando o [Spring Boot](http://projects.spring.io/spring-boot/) framework. 
+Este tutorial implementa uma aplicação web de Java de exemplo do GitHub para [serviço de aplicações do Azure no Linux](/azure/app-service/containers/app-service-linux-intro) ao configurar a integração contínua (CI) e a implementação contínua (CD) no Jenkins. Quando atualizar a aplicação ao emitir consolidações para o GitHub, o Jenkins compila automaticamente e republishes a sua aplicação no App Service do Azure. A aplicação de exemplo neste tutorial, foi desenvolvida utilizando o [Spring Boot](https://projects.spring.io/spring-boot/) framework. 
 
 ![Descrição geral](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 

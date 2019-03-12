@@ -3,7 +3,6 @@ title: Recuperação de desastre e continuidade de negócio nos espaços de dese
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: lisaguthrie
 ms.author: lcozzens
 ms.date: 01/28/2019
@@ -11,12 +10,12 @@ ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
 manager: jeconnoc
-ms.openlocfilehash: 25397b52cbcfb141fe27e9261c78a2ef6adb677d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192944"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775650"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Recuperação de desastre e continuidade de negócio nos espaços de desenvolvimento do Azure
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 185ff9c7f50fa08ba952f1519bf406d9017982e0
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 5833ee3964958437b7834ff25f1bce7837370fb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455964"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550588"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -160,7 +160,7 @@ Seguem-se alguns aspectos da linguagem de consulta do Cosmos DB por meio de exem
 
 * A linguagem de consulta estruturadas funciona com dados sem esquemas. Por conseguinte, o sistema de tipo tem de ser vinculado dinamicamente. A mesma expressão poderia resultar em diferentes tipos nos itens diferentes. O resultado de uma consulta é um valor JSON válido, mas não é garantido que estará de um esquema fixo.  
 
-* Azure Cosmos DB suporta apenas os itens JSON rigorosos. Isso significa que o sistema de tipos e as expressões são restritas lidar apenas com os tipos JSON. Consulte a [especificação do JSON](http://www.json.org/) para obter mais detalhes.  
+* Azure Cosmos DB suporta apenas os itens JSON rigorosos. Isso significa que o sistema de tipos e as expressões são restritas lidar apenas com os tipos JSON. Consulte a [especificação do JSON](https://www.json.org/) para obter mais detalhes.  
 
 * Um contentor do Cosmos DB é uma coleção de esquemas de mensagens em fila de itens JSON. As relações de entidades de dados dentro e entre itens num contentor implicitamente são capturadas por contenção e não pela chave primária e relações de chave estrangeiras. Este é um aspecto importante a pena apontar tendo em consideração as junções de intra-item, abordadas posteriormente neste artigo.
 

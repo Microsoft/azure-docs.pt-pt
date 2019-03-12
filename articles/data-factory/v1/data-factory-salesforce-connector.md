@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2364715bfeaea473db292baff2eb1e1cce3203b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 3689c93c392d910d6b3979291bc5a6c81080418c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233019"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551811"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ O Salesforce tem limites para total de pedidos de API e pedidos de API em simult
 - Se o número de pedidos simultâneos excede o limite, de limitação ocorre e verá falhas aleatórias.
 - Se o número total de solicitações exceder o limite, a conta do Salesforce será bloqueada durante 24 horas.
 
-Também poderá receber o erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Consulte a secção "Limites de pedido de API" a [limites de desenvolvedor do Salesforce](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) artigo para obter detalhes.
+Também poderá receber o erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Consulte a secção "Limites de pedido de API" a [limites de desenvolvedor do Salesforce](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) artigo para obter detalhes.
 
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move os dados do Salesforce ao utilizar ferramentas/APIs diferentes.
@@ -71,7 +71,7 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 | --- | --- | --- |
 | tipo |A propriedade de tipo tem de ser definida como: **Salesforce**. |Sim |
 | environmentUrl | Especifique a instância de URL do Salesforce. <br><br> -Predefinição é "https://login.salesforce.com". <br> -Para copiar dados de proteção de segurança, especifique "https://test.salesforce.com". <br> -Para copiar dados de domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |Não |
-| o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
+| nome do utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | palavra-passe |Especifique uma palavra-passe da conta de utilizador. |Sim |
 | securityToken |Especifique um token de segurança da conta de utilizador. Ver [obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como repor/obter um token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Sim |
 
@@ -288,13 +288,13 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 | Número de automática |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
-| Date |DateTime |
+| Data |DateTime |
 | Data/Hora |DateTime |
-| Email |String |
-| Id |String |
+| E-mail |String |
+| ID |String |
 | Relação de referência |String |
 | Lista de opções de seleção múltipla |String |
-| Number |Decimal |
+| Número |Decimal |
 | Percentagem |Decimal |
 | Telefone |String |
 | Lista de opções |String |
@@ -303,7 +303,7 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 | Área de texto (longa) |String |
 | Área de texto (avançado) |String |
 | Texto (encriptado) |String |
-| do IdP |String |
+| URL |String |
 
 > [!NOTE]
 > Para mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

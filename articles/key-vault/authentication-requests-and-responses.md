@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: defb351f0efa5264e21928ab90a0dca12454e074
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2d63c14c5eba1a9637cfd5544585e71d2bc86048
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404345"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535166"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
 
@@ -26,7 +26,7 @@ O Azure Key Vault suporta o formato JSON solicitações e respostas. Pedidos par
 
 Este tópico aborda informações específicas para o serviço Azure Key Vault. Para obter informações gerais sobre como utilizar as interfaces REST do Azure, incluindo autenticação/autorização e como adquirir um token de acesso, consulte [referência da API REST do Azure](https://docs.microsoft.com/rest/api/azure).
 
-## <a name="request-url"></a>URL do Pedido  
+## <a name="request-url"></a>URL do pedido  
  Operações de gestão de chaves utilizam HTTP DELETE, GET, PATCH, PUT e HTTP POST e operações criptográficas em relação a objetos de chave existentes utilizam HTTP POST. Os clientes que não é possível suportar a verbos HTTP específicos também podem utilizar o HTTP POST com o cabeçalho de pedido de HTTP X para especificar o verbo pretendido; pedidos que normalmente não requerem um corpo devem incluir um corpo vazio ao utilizar o HTTP POST, por exemplo, quando a utilização do POST, em vez de eliminar.  
 
  Para trabalhar com objetos no Azure Key Vault, seguem URLs de exemplo:  
@@ -92,7 +92,7 @@ Este tópico aborda informações específicas para o serviço Azure Key Vault. 
 ```  
 
 ## <a name="authentication"></a>Authentication  
- Todos os pedidos para o Azure Key Vault tem de ser autenticado. O Azure Key Vault oferece suporte a tokens de acesso do Azure Active Directory que podem ser obtidos com OAuth2 [[especificação RFC6749](http://tools.ietf.org/html/rfc6749)]. 
+ Todos os pedidos para o Azure Key Vault tem de ser autenticado. O Azure Key Vault oferece suporte a tokens de acesso do Azure Active Directory que podem ser obtidos com OAuth2 [[especificação RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
  Para obter mais informações sobre a registar a aplicação e da autenticação a utilizar o Azure Key Vault, consulte [registar a sua aplicação de cliente com o Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
  

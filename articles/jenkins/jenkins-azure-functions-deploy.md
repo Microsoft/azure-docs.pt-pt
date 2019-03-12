@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: 1138af0e073f68842861df86acd4d9d6eb467782
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 93504de6384be530ba037f662f7b043729aa3f99
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825043"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536926"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Implementar as funções do Azure com o plug-in das funções do Azure do Jenkins
 
@@ -89,6 +89,14 @@ Os passos seguintes explicam como preparar o servidor Jenkins:
 
 1. Com o principal de serviço do Azure, adicione um tipo de credencial "Microsoft Azure Service Principal" no Jenkins. Consulte a [implementar no serviço de aplicações do Azure](./tutorial-jenkins-deploy-web-app-azure-app-service.md#add-service-principal-to-jenkins) tutorial.
 
+## <a name="fork-the-sample-github-repo"></a>Bifurcar o repositório do GitHub de exemplo
+
+1. [Inicie sessão para o repositório do GitHub para a aplicação ímpar ou até mesmo exemplo](https://github.com/VSChina/odd-or-even-function.git).
+
+1. No canto superior-direito no GitHub, escolha **Fork**.
+
+1. Siga as instruções para selecionar a sua conta do GitHub e concluir a bifurcação.
+
 ## <a name="create-a-jenkins-pipeline"></a>Criar um Pipeline do Jenkins
 
 Nesta secção, vai criar a [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/).
@@ -107,7 +115,27 @@ Nesta secção, vai criar a [Jenkins Pipeline](https://jenkins.io/doc/book/pipel
     
 1. Na **Pipeline -> definição** secção, selecione **Pipeline de script do SCM**.
 
-1. Introduza o SCM repositório URL e o script caminho usando fornecido [exemplo de script](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+1. Introduzir caminho URL e o script do seu fork do GitHub ("doc/recursos/jenkins/JenkinsFile") para utilizar o [JenkinsFile exemplo](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+
+   ```
+   node {
+    stage('Init') {
+        checkout scm
+        }
+
+    stage('Build') {
+        sh 'mvn clean package'
+        }
+
+    stage('Publish') {
+        azureFunctionAppPublish appName: env.FUNCTION_NAME, 
+                                azureCredentialsId: env.AZURE_CRED_ID, 
+                                filePath: '**/*.json,**/*.jar,bin/*,HttpTrigger-Java/*', 
+                                resourceGroup: env.RES_GROUP, 
+                                sourceDirectory: 'target/azure-functions/odd-or-even-function-sample'
+        }
+    }
+    ```
 
 ## <a name="build-and-deploy"></a>Criar e implementar
 

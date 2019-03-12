@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: 2a2e899d9c1c624a5d516a819e7bcf409975c981
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: fca459291fbf25c5404427fdcfc96947c52a1e74
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883224"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544312"
 ---
 # <a name="quickstart-query-for-facts"></a>Início rápido: Consultar os fatos
 
@@ -78,22 +78,22 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
       {
         "_type": "ContractualRules/LinkAttribution",
         "text": "en.wikipedia.org/wiki/Diffuse_sky_radiation",
-        "url": "http://en.wikipedia.org/wiki/Diffuse_sky_radiation"
+        "url": "https://en.wikipedia.org/wiki/Diffuse_sky_radiation"
       },
       {
         "_type": "ContractualRules/LinkAttribution",
         "text": "spaceplace.nasa.gov/blue-sky/en/",
-        "url": "http://spaceplace.nasa.gov/blue-sky/en/"
+        "url": "https://spaceplace.nasa.gov/blue-sky/en/"
       }
     ],
     "attributions": [
       {
         "providerDisplayName": "en.wikipedia.org/wiki/Diffuse_sky_radiation",
-        "seeMoreUrl": "http://en.wikipedia.org/wiki/Diffuse_sky_radiation"
+        "seeMoreUrl": "https://en.wikipedia.org/wiki/Diffuse_sky_radiation"
       },
       {
         "providerDisplayName": "spaceplace.nasa.gov/blue-sky/en/",
-        "seeMoreUrl": "http://spaceplace.nasa.gov/blue-sky/en/"
+        "seeMoreUrl": "https://spaceplace.nasa.gov/blue-sky/en/"
       }
     ],
     "value": [
@@ -190,7 +190,7 @@ Os resultados dos `facts` incluem as seguintes linhas e células:
           ],
           "seeMoreUrl": {
             "text": "8 more rows",
-            "url": "http://www.diffen.com/difference/Coffee_vs_Tea"
+            "url": "https://www.diffen.com/difference/Coffee_vs_Tea"
           }
         }
       }

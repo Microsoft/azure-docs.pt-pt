@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 722159b82845eff08e0c302eafd503459941ebe7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e57dc6c46eea6063217bd4e10cc9faf2883a5c3f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734766"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546505"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notas de versão para serviços BizTalk do Azure
 
@@ -128,7 +128,7 @@ Ao utilizar tipos de dados definidas pelo utilizador, copie os ficheiros (. dll)
 <faultcode>s:Client</faultcode>
 <faultstring xml:lang="en-US">The UDT with FullName "File, FileUDT, Version=Value, Culture=Value, PublicKeyToken=Value" could not be loaded. Try placing the assembly containing the UDT definition in the Global Assembly Cache.</faultstring>
 <detail>
-  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <AFConnectRuntimeFault xmlns="http://Microsoft.ApplicationServer.Integration.AFConnect/2011" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
     <ExceptionCode>ERROR_IN_SENDING_MESSAGE</ExceptionCode>
   </AFConnectRuntimeFault>
 </detail>

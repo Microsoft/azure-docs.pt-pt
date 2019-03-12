@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5e4a2528-04ff-4e8f-9bd0-1ecd62d68ebb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 191f90b390210bdf17a9b5bc2d5158d323527ec4
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: fb0ee0d2410df355d28bcb673f0edbb7bb9b2020
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890750"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartvidio"></a>Tutorial: Integração do Active Directory do Azure com smartvid.io
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f68c3797d5425c496e38c1000cc39e3868d41739
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f3b9ef9d840630269c4c5621a4dab3c732bacdbf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727042"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551658"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário de monitor em funções duráveis - exemplo de observador de Meteorologia
 
@@ -166,7 +166,7 @@ Pode ver registos de atividades da orquestração ao observar a função no port
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-A orquestração será [terminar](durable-functions-instance-management.md#terminating-instances) assim que o tempo limite for atingiu ou desmarque o céu é detetados. Também pode utilizar `TerminateAsync` (.NET) ou `terminate` (JavaScript) dentro de outra função ou invocar a **terminatePostUri** webhook de HTTP POST referenciado na resposta 202 acima, substituindo `{text}` com o motivo para terminação de:
+A orquestração será [terminar](durable-functions-instance-management.md) assim que o tempo limite for atingiu ou desmarque o céu é detetados. Também pode utilizar `TerminateAsync` (.NET) ou `terminate` (JavaScript) dentro de outra função ou invocar a **terminatePostUri** webhook de HTTP POST referenciado na resposta 202 acima, substituindo `{text}` com o motivo para terminação de:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106846"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531747"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
 
@@ -40,7 +40,7 @@ Processamento de dados no duplos Digital do Azure consiste em definir três obje
 
 ### <a name="matchers"></a>Matchers
 
-Matchers definir um conjunto de condições que avaliar quais ações com base na telemetria de sensores de entrada. Condições para determinar a correspondência podem incluir as propriedades do sensor, o dispositivo de principal do sensor e o espaço de principal do sensor. As condições são expressas como comparações contra um [caminho JSON](http://jsonpath.com/) conforme descrito neste exemplo:
+Matchers definir um conjunto de condições que avaliar quais ações com base na telemetria de sensores de entrada. Condições para determinar a correspondência podem incluir as propriedades do sensor, o dispositivo de principal do sensor e o espaço de principal do sensor. As condições são expressas como comparações contra um [caminho JSON](https://jsonpath.com/) conforme descrito neste exemplo:
 
 - Todos os sensores do tipo de dados **temperatura** representado pelo valor de cadeia de caracteres de escape `\"Temperature\"`
 - Ter `01` na respetiva porta
@@ -94,7 +94,7 @@ Matchers definir um conjunto de condições que avaliar quais ações com base n
 
 Uma função definida pelo usuário é uma função personalizada executada dentro de um ambiente isolado de duplos Digital do Azure. Funções definidas pelo utilizador têm acesso a mensagem de telemetria não processados do sensor que obtém recebida. Funções definidas pelo utilizador também tem acesso para o serviço graph e o dispatcher espacial. Depois da função definida pelo utilizador está registrada dentro de um gráfico, na ferramenta de correspondência (detalhadas [acima](#matcher)) tem de ser criada para especificar quando a função é executada. Por exemplo, quando duplos Digital do Azure recebe telemetria nova de um determinado sensor, a função definida pelo utilizador correspondente pode calcular uma média móvel das último alguns as leituras dos sensores.
 
-Funções definidas pelo utilizador podem ser escritas em JavaScript. Métodos auxiliares interagirem com o gráfico no ambiente de execução definido pelo utilizador. Os desenvolvedores podem executar fragmentos personalizados de código em relação a mensagens de telemetria de sensores. Os exemplos incluem:
+Funções definidas pelo utilizador podem ser escritas em JavaScript. Métodos auxiliares interagirem com o gráfico no ambiente de execução definido pelo utilizador. Os desenvolvedores podem executar fragmentos personalizados de código em relação a mensagens de telemetria de sensores. Alguns exemplos:
 
 - Defina o diretamente para o objeto de sensor em gráfico de leitura de sensor.
 - Execute uma ação baseada nas leituras de sensores diferentes dentro de um espaço no gráfico.

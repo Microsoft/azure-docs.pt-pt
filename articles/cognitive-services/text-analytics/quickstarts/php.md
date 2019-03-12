@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: 4bfc0556d283bff3e5ca59c062e0e71ae1af7e3f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 35c929d508f0a4f29b1c5038446d27e62ddbfbe2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327431"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535697"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com o PHP para chamar o serviço cognitivos de análise de texto
 <a name="HOLTop"></a>
@@ -74,7 +74,7 @@ function DetectLanguage ($host, $path, $key, $data) {
     $data = json_encode ($data);
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -193,7 +193,7 @@ function GetSentiment ($host, $path, $key, $data) {
     $data = json_encode ($data);
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -285,7 +285,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
     $data = json_encode ($data);
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -399,7 +399,7 @@ function GetEntities ($host, $path, $key, $data) {
     $data = json_encode ($data);
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,

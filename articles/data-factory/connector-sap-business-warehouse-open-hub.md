@@ -10,26 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/08/2019
 ms.author: jingwang
-ms.openlocfilehash: fe0783891bd5f571c06551e19c154d6f22768e84
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 474ebaad60328b011e91337c46040ae37c603e21
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821546"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731053"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse através de Hub aberto com o Azure Data Factory
 
 Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados a partir de um SAP Business Warehouse (BW) através de Hub aberto. Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
-
-## <a name="sap-bw-open-hub-integration"></a>Integração de Hub do SAP BW aberto 
-
-[Serviço de Hub aberto do SAP BW](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) é uma maneira eficiente para extrair dados do SAP BW. O diagrama seguinte mostra um dos fluxos típicos, os clientes têm no seu sistema SAP, os fluxos de dados de caso do SAP ECC -> PSA -> DSO -> cubo.
-
-SAP BW aberto Hub destino (OHD) define o destino ao qual os dados do SAP são passados. Todos os objetos suportados pelo SAP dados de transferência de processo (DTP) podem ser usados como origens de dados de hub aberto, por exemplo, DSO, consulta do InfoCube, origem de dados, etc. Tipo de destino de Hub aberto - onde estão armazenados os dados retransmitidos - pode ser tabelas de base de dados (locais ou remotas) e ficheiros simples. Este suporte de conector de Hub aberto do SAP BW copiar dados de tabela local OHD BW. No caso de estiver a utilizar outros tipos, pode ligar diretamente ao sistema de base de dados ou ficheiro através de outros conectores.
-
-![Hub do SAP BW aberto](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
@@ -41,6 +33,37 @@ Especificamente, este conector SAP Business Warehouse aberto Hub suporta:
 - Cópia de dados por meio da tabela de local de destino de Hub aberto que, por baixo, pode ser DSO, consulta do InfoCube, MultiProvider, origem de dados, etc.
 - Cópia de dados usando a autenticação básica.
 - A ligar ao servidor de aplicações.
+
+## <a name="sap-bw-open-hub-integration"></a>Integração de Hub do SAP BW aberto 
+
+[Serviço de Hub aberto do SAP BW](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) é uma maneira eficiente para extrair dados do SAP BW. O diagrama seguinte mostra um dos fluxos típicos, os clientes têm no seu sistema SAP, os fluxos de dados de caso do SAP ECC -> PSA -> DSO -> cubo.
+
+SAP BW aberto Hub destino (OHD) define o destino ao qual os dados do SAP são passados. Todos os objetos suportados pelo SAP dados de transferência de processo (DTP) podem ser usados como origens de dados de hub aberto, por exemplo, DSO, consulta do InfoCube, origem de dados, etc. Tipo de destino de Hub aberto - onde estão armazenados os dados retransmitidos - pode ser tabelas de base de dados (locais ou remotas) e ficheiros simples. Este suporte de conector de Hub aberto do SAP BW copiar dados de tabela local OHD BW. No caso de estiver a utilizar outros tipos, pode ligar diretamente ao sistema de base de dados ou ficheiro através de outros conectores.
+
+![Hub do SAP BW aberto](./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png)
+
+## <a name="delta-extraction-flow"></a>Fluxo de extração de delta
+
+Conector do Hub ADF SAP BW aberto oferece duas propriedades opcionais: `excludeLastRequest` e `baseRequestId` que podem ser utilizadas para processar a carga de delta do Hub aberto. 
+
+- **excludeLastRequestId**: Se exclui os registos do último pedido. Valor predefinido é verdadeiro. 
+- **baseRequestId**: O ID do pedido de carregamento delta. Depois de definida, serão possível obter apenas os dados com requestId maior do que o valor desta propriedade. 
+
+Em geral, a extração de SAP InfoProviders para o Azure Data Factory (ADF) consiste em 2 passos: 
+
+1. **SAP BW dados de transferência de processo (DTP)** este passo copia os dados de um InfoProvider BW do SAP para uma tabela de Hub aberto do SAP BW 
+
+1. **Cópia de dados do ADF** neste passo, a tabela de Hub aberto é lido pelo conector do ADF 
+
+![Fluxo de extração de delta](media\connector-sap-business-warehouse-open-hub\delta-extraction-flow.png)
+
+No primeiro passo é executado um DTP. Cada execução cria um novo ID de pedido SAP. O ID do pedido é armazenado na tabela Hub aberto e, em seguida, é utilizado pelo conector do ADF para identificar o delta. Os dois passos executam de maneira assíncrona: o DTP é acionada pelo SAP, e a cópia de dados do ADF é disparada por meio do ADF. 
+
+Por predefinição, ADF não é ler o delta mais recente a partir da tabela de Hub aberto (a opção "excluir o último pedido" é o verdadeira). Pelo presente, os dados no ADF não são 100% atualizado com os dados na tabela aberto Hub (o último delta está em falta). Em troca, este procedimento garante que nenhuma linha se perder causado pela extração assíncrona. Ele funciona bem mesmo quando o ADF está lendo a tabela de Hub aberta enquanto o DTP ainda é escrita na mesma tabela. 
+
+Onde geralmente armazena o ID do pedido copiado máximo na última execução pelo ADF num arquivo de dados de teste (por exemplo, o Azure Blob na acima diagrama). Por conseguinte, o mesmo pedido não é ler uma segunda vez pelo ADF na execução subsequente. Enquanto isso, tenha em atenção que os dados não são automaticamente eliminados da tabela de Hub aberto.
+
+Para diferenças adequada manipulá-la não pode ter pedido IDs de DTPs diferentes na mesma tabela de Hub aberto. Portanto, deve não criar DTP mais de um para cada aberto Hub destino (OHD). Quando precisar de extração diferenciais e completas do mesmo InfoProvider, deve criar dois OHDs para o mesmo InfoProvider. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -60,6 +83,10 @@ Para utilizar este conector SAP Business Warehouse aberto Hub, terá de:
 - Criar tipo de destino de Hub aberto SAP como **tabela de base de dados** com opção de "Chave técnicos" marcada.  Também é recomendável deixar os dados a eliminação da tabela como não verificados, embora não seja necessário. Tire partido do DTP (diretamente executar ou integrar a cadeia de processo existente) para entrada de dados de objeto de origem (por exemplo, o cubo) que escolheu para a tabela de destino de hub aberto.
 
 ## <a name="getting-started"></a>Introdução
+
+> [!TIP]
+>
+> Para obter instruções para utilizar o conector do Hub aberto do SAP BW, consulte [carregar dados do SAP Business Warehouse (BW) através do Azure Data Factory](load-sap-bw-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

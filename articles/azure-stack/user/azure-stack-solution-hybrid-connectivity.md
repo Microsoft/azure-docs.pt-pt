@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2530f6f59ef458d5a7c2de5850d8fab322798ba3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a05021255c6226329f1d7a3f0e7fa8c9be756646
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752667"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546726"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutorial: configurar a conectividade de cloud híbrida com o Azure e o Azure Stack
 
@@ -87,7 +87,7 @@ Os exemplos neste tutorial utilizam os seguintes valores. Pode utilizar estes va
 Especificações de ligação:
 
  - **Tipo de VPN**: Baseado na rota
- - **Tipo de ligação**: Site-site (IPsec)
+ - **Tipo de ligação**: Site a site (IPsec)
  - **Tipo de gateway**: VPN
  - **Nome da ligação do Azure**: Azure-Gateway-AzureStack-S2SGateway (o portal será preenchido automaticamente este valor)
  - **Nome da ligação do Azure Stack**: AzureStack-Gateway-Azure-S2SGateway (o portal será preenchido automaticamente este valor)
@@ -97,7 +97,7 @@ Especificações de ligação:
 
 Endereços IP de rede e sub-rede:
 
-| Ligação do Azure/Azure Stack | Name | Subrede | Endereço IP |
+| Ligação do Azure/Azure Stack | Name | Sub-rede | Endereço IP |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |
@@ -119,7 +119,7 @@ Utilize os seguintes passos para criar uma rede virtual com o portal. Pode usar 
 
 Para criar uma vNet no Azure:
 
-1. Utilizar o browser para ligar para o [portal do Azure](http://portal.azure.com/) e inicie sessão com a sua conta do Azure.
+1. Utilizar o browser para ligar para o [portal do Azure](https://portal.azure.com/) e inicie sessão com a sua conta do Azure.
 2. Selecione **criar um recurso**. Na **pesquisar no marketplace** , insira `virtual network`'. Encontrar **rede Virtual** na lista de resultados e, em seguida, selecione **rede Virtual**.
 3. Partir do **selecionar um modelo de implementação** , selecione **Resource Manager**e, em seguida, selecione **criar**.
 4. No **criar rede virtual**, configurar as definições da VNet. Os nomes de campos obrigatórios são prefixados com um asterisco vermelho.  Ao introduzir um valor válido, o asterisco muda para uma marca de verificação verde.
@@ -132,7 +132,7 @@ Para criar uma vNet no Azure Stack:
 
 Antes de ligar a rede virtual a um gateway, terá de criar a sub-rede do gateway para a rede virtual que pretende ligar. Os serviços do gateway utilizam os endereços IP que especificar na sub-rede de gateway.
 
-Na [portal do Azure](http://portal.azure.com/), navegue para o Gestor de recursos de rede virtual onde pretende criar um gateway de rede virtual.
+Na [portal do Azure](https://portal.azure.com/), navegue para o Gestor de recursos de rede virtual onde pretende criar um gateway de rede virtual.
 
 1. Selecione a vNet para abrir o **rede Virtual** página.
 2. Na **configurações**, selecione **sub-redes**.

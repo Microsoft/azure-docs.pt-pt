@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 3c69cb076b3b23cd5149e05f1b6ee9ae1ba170a6
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 8bc2d655f7c6b20cabfadbf9dffca8622a24674f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430204"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778673"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com ficheiros de NetApp do Azure
 

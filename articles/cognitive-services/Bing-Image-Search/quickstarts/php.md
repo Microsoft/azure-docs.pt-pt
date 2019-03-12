@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: cca6fba401d8673cf97897c24a9d6de2329f19a4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 396c50e6697ed1f111d497f7adeb005e268b80bb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232494"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546420"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Início rápido: Procure imagens usando a API de REST de pesquisa de imagens do Bing e o PHP
 
@@ -29,7 +29,7 @@ O código fonte deste exemplo está disponível [no GitHub](https://github.com/A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [PHP 5.6.x ou posterior](http://php.net/downloads.php).
+* [PHP 5.6.x ou posterior](https://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/15/2019
-ms.openlocfilehash: b2c3e4067fd8e08440f9fe6e15212160aef002f0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 6669be82877ae5d9465e23dad3c8b310cf24af89
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312941"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576774"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente do Azure Key Vault
 
@@ -175,7 +175,7 @@ Utilize o [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Verifique o seguinte se ocorrer um problema:
-- Se não for encontrado o Cofre de chaves, certificar-se de que está na subscrição correta com o [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) cmdlet.
+- Se não for encontrado o Cofre de chaves, certificar-se de que está na subscrição correta com o [Get-AzSubscription](/powershell/module/az.account/get-azsubscription) cmdlet.
 
    ```powershell
    Get-AzSubscription `

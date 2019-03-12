@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
-ms.openlocfilehash: 884c87501a54a582177cba99596fe6f0b4cccf36
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3cda9d487d9548251c68d61db51bf2fb826b6f79
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593340"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775293"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notas de versão para a validação como um serviço
 
@@ -107,7 +107,7 @@ Se estiver a executar o fluxo de trabalho do Azure Stack mensal verificação de
 
   - Categoria de teste interativa
 
-    O **Interactive** categoria de teste foi adicionada. Esses testes permitem que os parceiros para exercer interativos e não automatizada cenários do Azure Stack.
+    O **Interactive** categoria de teste foi adicionada. Esses testes exercitem interativos e não automatizada cenários do Azure Stack.
 
   - Verificação de recurso interativo
 

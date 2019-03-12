@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9f818715895c2ff2c5d0e1758aaf17a2393287d2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050650"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534945"
 ---
 # <a name="traffic-manager-traffic-view"></a>Vista de tráfego do Gestor de tráfego
 
@@ -35,6 +35,8 @@ Por exemplo, pode utilizar a vista de tráfego para compreender quais são as re
 
 Vista de tráfego funciona por meio de Gestor de tráfego examinar as consultas de entrada recebidas nos últimos sete dias, em relação a um que tenha esta funcionalidade ativada. Informações de consultas recebidas, a vista de tráfego extrai o IP de origem do resolvedor DNS que serve como uma representação da localização dos utilizadores. Estes são, em seguida, agrupados em conjunto com uma granularidade de nível de resolvedor DNS para criar regiões de base de usuário usando as informações geográficas de endereços IP mantido pelo Gestor de tráfego. O Gestor de tráfego analisa, em seguida, as regiões do Azure para o qual a consulta foi encaminhada e constrói um mapa de fluxo de tráfego para os utilizadores dessas regiões.  
 No próximo passo, o Gestor de tráfego correlaciona a região base do utilizador para mapeamento de região do Azure com as tabelas de latência de inteligência de rede que mantém para redes de utilizador final diferentes compreender a latência média encontrada pelos utilizadores a partir dessas regiões quando a ligar a regiões do Azure. Todos os cálculos, em seguida, são combinados num por local DNS resolvedor nível de IP antes que seja apresentada ao utilizador. Pode consumir as informações de várias formas.
+
+A frequência de atualização de dados de vista de tráfego depende de várias variáveis de serviço interno. No entanto, os dados normalmente são atualizados uma vez a cada 24 horas.
 
 >[!NOTE]
 >A latência descrita na vista de tráfego é uma latência representativa entre o utilizador final e regiões do Azure à qual tinha ligada para e não é a latência de pesquisa DNS. Tráfego vista faz uma melhor estimativa do esforço da latência entre o resolvedor DNS local e a região do Azure, que a consulta foi encaminhada, se houver dados insuficientes disponível, em seguida, a latência retornada será nulo. 

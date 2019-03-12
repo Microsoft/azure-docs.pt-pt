@@ -10,16 +10,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 84ce67fb1790c032931225b76a6c26cecc5a040c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 30ebccd6bee26900ac01f7f4d17993e24c9db745
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251950"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779254"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Criar uma máquina virtual utilizando uma palavra-passe segura armazenada no Cofre de chaves do Azure Stack
 

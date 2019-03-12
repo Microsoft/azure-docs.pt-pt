@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 7e08076364cef87ec27ad34ee9af17242245bbc6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 77908e24a19a48bf9b84d5d5b664bf0443159118
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455998"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537767"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever o Kubernetes no Azure Kubernetes Service (AKS) de registos de nó principal
 
@@ -88,7 +88,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Ver registos recolhidos
 
-Pode demorar alguns minutos para que os registos de diagnóstico para ser ativada e aparece na área de trabalho do Log Analytics. No portal do Azure, selecione o grupo de recursos para sua área de trabalho do Log Analytics, como *myResourceGroup*, em seguida, escolha o seu recurso do Log Analytics, tal como *myAKSLogs*.
+Pode demorar alguns minutos para que os registos de diagnóstico para ser ativada e aparece na área de trabalho do Log Analytics. No portal do Azure, selecione o grupo de recursos para sua área de trabalho do Log Analytics, como *myResourceGroup*, em seguida, escolha o seu recurso de análise de registo, tal como *myAKSLogs*.
 
 ![Selecione a área de trabalho do Log Analytics para o seu cluster do AKS](media/view-master-logs/select-log-analytics-workspace.png)
 

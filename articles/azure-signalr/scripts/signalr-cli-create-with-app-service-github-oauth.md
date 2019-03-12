@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/22/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 727b21300b389b6c4b3a608aeb10046e13faab98
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 84020448019867744d08806acbbd47adbc1a83e3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253107"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546480"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Criar uma aplicação Web que utiliza o Serviço SignalR e a autenticação do GitHub
 
@@ -58,4 +58,4 @@ Cada comando na tabela liga à documentação específica do comando. Este scrip
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Pode ver exemplos de script da CLI do Serviço Azure SignalR adicionais na [documentação do Serviço Azure SignalR](../signalr-cli-samples.md).
+Pode ver exemplos de script da CLI do Serviço Azure SignalR adicionais na [documentação do Serviço Azure SignalR](../signalr-reference-cli.md).

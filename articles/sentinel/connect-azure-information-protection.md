@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 37c6902d4604ca68b67ec4a2c9dc7cde6c67ac05
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7c5866d3096823f91a70b28c7c5dd1790e1b3bf8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246635"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537172"
 ---
 # <a name="collect-data-from-azure-information-protection"></a>Recolher dados do Azure Information Protection
 

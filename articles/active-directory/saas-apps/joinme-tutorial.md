@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: cda5ea0d-3270-4ba5-ad81-4df108eaad12
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d970ae91c0e5928cb03d0f14d590663aebd3d6b1
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 7384e12581309256584342908edf6b5543d8cef0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984973"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-joinme"></a>Tutorial: Integração do Active Directory do Azure com join.me
 

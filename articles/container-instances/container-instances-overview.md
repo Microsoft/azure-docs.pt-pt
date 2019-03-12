@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/30/2018
 ms.author: seanmck
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d7c63503d0e1c142dfc1ef685453b93e24ec52b3
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187199"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730370"
 ---
 # <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 
@@ -48,9 +48,14 @@ Para obter e persistir o estado com o Azure Container Instances, ofereceremos a 
 
 O Azure Container Instances permite agendar contentores do Windows e do Linux com a mesma API. Basta especificar o tipo de SO quando cria os [grupos de contentor](container-instances-container-groups.md).
 
-Algumas funcionalidades estão atualmente restritas para contentores Linux. Enquanto trabalhamos para trazer paridade de funcionalidades para os contentores do Windows, pode encontrar as diferenças da plataforma atual em [Quotas e disponibilidade das regiões do Azure Container Instances](container-instances-quotas.md).
+Algumas funcionalidades estão atualmente restritas para contentores do Linux:
 
-O Azure Container Instances suporta imagens do Windows com base nas versões do Canal de Serviço a Longo Prazo (LTSC). As versões do Canal Semianual (SAC) do Windows, como 1709 e 1803, não são suportadas.
+* Vários contentores por grupo de contentores
+* Montagem de volume ([ficheiros do Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segredo](container-instances-volume-secret.md))
+* [Implementação da rede virtual](container-instances-vnet.md) (pré-visualização)
+* [Recursos GPU](container-instances-gpu.md) (pré-visualização)
+
+O Azure Container Instances suporta imagens do Windows Server 2016 com base em versões de canal de manutenção de longo prazo (LTSC). As versões do Canal Semianual (SAC) do Windows, como 1709 e 1803, não são suportadas.
 
 ## <a name="co-scheduled-groups"></a>Grupos agendados conjuntamente
 

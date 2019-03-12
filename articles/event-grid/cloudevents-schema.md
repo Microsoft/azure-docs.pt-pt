@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c9c0fd8bf7dc893ce07a6e3ce9cb392fc652a560
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079873"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535857"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Utilizar o esquema do CloudEvents com o Event Grid
 
-Além seu [esquema de eventos padrão](event-schema.md), Azure Event Grid os eventos no suporta nativamente o [esquema do CloudEvents JSON](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) é um [especificação de abrir](https://github.com/cloudevents/spec/blob/master/spec.md) para descrever os dados de eventos.
+Além seu [esquema de eventos padrão](event-schema.md), Azure Event Grid os eventos no suporta nativamente o [esquema do CloudEvents JSON](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](https://cloudevents.io/) é um [especificação de abrir](https://github.com/cloudevents/spec/blob/master/spec.md) para descrever os dados de eventos.
 
 CloudEvents simplifica a interoperabilidade, fornecendo um esquema de evento comum para publicação e utilizam a nuvem com base em eventos. Esse esquema permite ferramentas uniforme, formas de roteamento e processamento de eventos e universais formas de anular a serialização do esquema de eventos externo. Com um esquema comum, pode integrar mais facilmente o trabalho entre plataformas.
 
@@ -60,18 +60,18 @@ Eis um exemplo de um evento de armazenamento de Blobs do Azure no formato do Clo
 
 Do CloudEvents v0.1 tem as seguintes propriedades disponíveis:
 
-| CloudEvents        | Tipo     | Valor de JSON de exemplo             | Descrição                                                        | Mapeamento do Event Grid
+| CloudEvents        | Type     | Valor de JSON de exemplo             | Descrição                                                        | Mapeamento do Event Grid
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| eventType          | Cadeia   | "com.example.someevent"          | Tipo de ocorrência que tenham acontecido                                   | eventType
-| eventTypeVersion   | Cadeia   | "1.0"                            | A versão do eventType (opcional)                            | dataVersion
-| cloudEventsVersion | Cadeia   | "0.1"                            | A versão da especificação do CloudEvents que utiliza o evento        | *passar por*
+| eventType          | String   | "com.example.someevent"          | Tipo de ocorrência que tenham acontecido                                   | eventType
+| eventTypeVersion   | String   | "1.0"                            | A versão do eventType (opcional)                            | dataVersion
+| cloudEventsVersion | String   | "0.1"                            | A versão da especificação do CloudEvents que utiliza o evento        | *passar por*
 | source             | URI      | "/mycontext"                     | Descreve o produtor de eventos                                       | topic#subject
-| eventID            | Cadeia   | "1234-1234-1234"                 | ID do evento                                                    | ID
+| eventID            | String   | "1234-1234-1234"                 | ID do evento                                                    | id
 | eventTime          | Carimbo de data/hora| "2018-04-05T17:31:00Z"           | Timestamp de quando o evento ocorreu (opcional)                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | Uma ligação para o esquema que seguem o atributo de dados (opcional) | *não utilizado*
-| contentType        | Cadeia   | "application/json"               | Descrever o formato de codificação de dados (opcional)                       | *não utilizado*
+| contentType        | String   | "application/json"               | Descrever o formato de codificação de dados (opcional)                       | *não utilizado*
 | Extensões         | Mapa      | { "extA": "vA", "extB", "vB" }  | Quaisquer metadados adicionais (opcional)                                 | *não utilizado*
-| dados               | Object   | { "objA": "vA", "objB", "vB" }  | O payload do evento (opcional)                                       | dados
+| dados               | Objeto   | { "objA": "vA", "objB", "vB" }  | O payload do evento (opcional)                                       | dados
 
 Para obter mais informações, consulte a [especificação do CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754225"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538694"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch com a API .NET
 
@@ -31,7 +31,7 @@ Utilize o Azure Batch para executar trabalhos de lote de computação de alto de
 > * Monitorizar a execução de tarefas
 > * Obter ficheiros de saída
 
-Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o formato MP3 através da ferramenta de código aberto [ffmpeg](http://ffmpeg.org/). 
+Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o formato MP3 através da ferramenta de código aberto [ffmpeg](https://ffmpeg.org/). 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 * [Windows versão de 64 bits do ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Transfira o ficheiro zip para o seu computador local. Para este tutorial, terá apenas o ficheiro zip. Não tem de deszipar o ficheiro ou instalá-lo localmente.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 

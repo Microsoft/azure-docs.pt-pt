@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 70a611f6a9b52ba6a4c904cc4cfa9bc8f0b4df8e
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 65a3aa41c72341aa57c8cb2ddca5d1ed10f0ec06
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409589"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530846"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites de disco de caixa de dados do Azure
 
@@ -46,7 +46,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 - Não copie dados diretamente para os discos. Copiar dados para pré-criada *BlockBlob*,*PageBlob*, e *AzureFile* pastas.
 - Uma pasta sob o *BlockBlob* e *PageBlob* é um contentor. Por exemplo, os contentores são criados como *BlockBlob/contentores* e *PageBlob/contentor*.
-- Se tiver um objeto existente do Azure (por exemplo, um blob) na cloud com o mesmo nome que o objeto que está a ser copiado, disco Data Box irá substituir o ficheiro na cloud.
+- Se tiver um objeto existente do Azure (por exemplo, um blob) na cloud com o mesmo nome que o objeto que está a ser copiado, o disco Data Box renomeie o arquivo como file(1) na cloud.
 - Todos os ficheiros escritos na *BlockBlob* e *PageBlob* partilhas é carregado como um blob de blocos e BLOBs de páginas, respectivamente.
 - Esvaziar qualquer hierarquia de diretório (sem quaisquer ficheiros) criada *BlockBlob* e *PageBlob* pastas não é carregado.
 - Se houver algum erro ao carregar dados para o Azure, é criado um registo de erros na conta de armazenamento de destino. O caminho para este registo de erros está disponível no portal do quando o carregamento estiver concluído e pode rever o registo para tomar medidas corretivas. Não elimine dados da origem sem verificar os dados carregados.

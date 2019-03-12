@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 42c0f44408a6df62b87ba0fc378bf229d1493215
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 16717bbbb8974a1adb740c8fee5a5ba06043f53e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860257"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544378"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Início rápido: Execute uma pesquisa de notícias utilizando PHP e a API de REST de pesquisa do Bing notícias
 
@@ -66,7 +66,7 @@ $term = 'Microsoft';
 function BingNewsSearch ($url, $key, $query) {
     // Prepare HTTP request
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
     $options = array ('http' => array (
                           'header' => $headers,

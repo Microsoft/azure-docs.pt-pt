@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 0d9ddbeae3a666d3b3cf56f80ae633a7ecaa650a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e52cf99e3bdd1960ca361ccde50d85dfaa2209c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294038"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544925"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Dados de Stream do Azure Storage Blob para a geração 1 de armazenamento do Azure Data Lake com o Azure Stream Analytics
 Neste artigo, aprenderá como usar Gen1 de armazenamento do Azure Data Lake como uma saída para uma tarefa do Azure Stream Analytics. Este artigo demonstra um cenário simples que lê dados a partir de um blob de armazenamento do Azure (entrada) e escreve os dados de geração 1 de armazenamento do Data Lake (saída).
@@ -106,7 +106,7 @@ Comece por criar uma tarefa do Stream Analytics que inclui uma origem de entrada
 
     Clique em **iniciar** para iniciar a tarefa. Pode demorar até para alguns minutos para iniciar a tarefa.
 
-3. Para acionar a tarefa para escolher os dados do blob, copie um ficheiro de dados de exemplo para o contentor de Blobs. Pode obter um ficheiro de dados de exemplo dos [repositório de Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Para este tutorial, vamos copiar o ficheiro **vehicle1_09142014.csv**. Pode utilizar vários clientes, como [Explorador de armazenamento do Azure](http://storageexplorer.com/), para carregar dados para um contentor de Blobs.
+3. Para acionar a tarefa para escolher os dados do blob, copie um ficheiro de dados de exemplo para o contentor de Blobs. Pode obter um ficheiro de dados de exemplo dos [repositório de Git do Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt). Para este tutorial, vamos copiar o ficheiro **vehicle1_09142014.csv**. Pode utilizar vários clientes, como [Explorador de armazenamento do Azure](https://storageexplorer.com/), para carregar dados para um contentor de Blobs.
 
 4. Do **descrição geral** separador, em **monitorização**, veja como os dados foi processados.
 
@@ -118,5 +118,5 @@ Comece por criar uma tarefa do Stream Analytics que inclui uma origem de entrada
 
     No painel Data Explorer, tenha em atenção que o resultado é escrito para um caminho de pasta conforme especificado na geração de 1 de armazenamento do Data Lake saída configurações (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Criar um cluster do HDInsight para utilizar a geração 1 de armazenamento do Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7523eef4e3dc25929616f1d151ab22841db13993
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211874"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Active Directory do Azure com o Portal de cativas de redes da Palo Alto
 
@@ -197,7 +197,7 @@ Em seguida, crie um utilizador com o nome *Eduarda Almeida* no Portal de cativas
 > [!NOTE]
 > Se quiser criar manualmente um utilizador, entre em contato com o [equipa de suporte da Palo Alto redes cativas Portal cliente](https://support.paloaltonetworks.com/support).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Portal de cativas de redes da Palo Alto é instalado atrás da firewall numa VM do Windows. Para testar o início de sessão único no Portal de cativas de redes da Palo Alto, inicie sessão para a VM do Windows utilizando o protocolo RDP (Remote Desktop). Na sessão do RDP, abra um browser e aceda a qualquer Web site. O URL de SSO é aberto e lhe for pedido para se autenticar. Quando a autenticação for concluída, pode acessar os Web sites.
 

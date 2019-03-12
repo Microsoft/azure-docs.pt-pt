@@ -1,6 +1,6 @@
 ---
-title: Descrição geral de comunicação do Reliable Services | Microsoft Docs
-description: Descrição geral do modelo de comunicação de Reliable Services, incluindo os serviços de escuta de abertura nos serviços, resolver pontos finais e comunicação entre os serviços.
+title: Descrição geral de comunicação do Reliable Services | Documentos da Microsoft
+description: Descrição geral sobre o modelo de comunicação de Reliable Services, incluindo serviços de escuta de abertura em serviços, resolução de pontos finais e a comunicação entre serviços.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 62c81368b8a3129b42262cb99cf23a5021744c1b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 49f5a74c2fcd45d03119bffbffad6fcf30e72440
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570560"
 ---
-# <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar a APIs de comunicação Reliable Services
-Azure Service Fabric, como uma plataforma é completamente agnóstico relativamente sobre a comunicação entre os serviços. Todas as pilhas e protocolos são aceitáveis, do UDP para HTTP. Está a funcionar para o Programador de serviço para escolher a forma como os serviços devem comunicar. A estrutura da aplicação Reliable Services fornece pilhas de comunicação incorporada, bem como as APIs que pode utilizar para criar os componentes de comunicação personalizado.
+# <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar a APIs de comunicação de Reliable Services
+O Azure Service Fabric, como uma plataforma é completamente independente sobre a comunicação entre serviços. Todos os protocolos e pilhas são aceitáveis, de UDP para HTTP. Cabe-lhe para o desenvolvedor de serviço para escolher como serviços devem se comunicar. A estrutura da aplicação de Reliable Services fornece as pilhas de comunicação incorporada, bem como as APIs que pode usar para criar os componentes da comunicação personalizado.
 
 ## <a name="set-up-service-communication"></a>Configurar a comunicação de serviço
-A API de serviços fiável utiliza uma interface simples para comunicação de serviço. Para abrir um ponto final para o seu serviço, basta implemente esta interface:
+A API de serviços fiáveis utiliza uma interface simples para a comunicação de serviço. Para abrir um ponto de extremidade para o seu serviço, simplesmente implementa essa interface:
 
 ```csharp
 
@@ -49,9 +50,9 @@ public interface CommunicationListener {
 }
 ```
 
-Em seguida, pode adicionar a implementação de serviço de escuta de comunicação ao devolver uma substituição de método de classe com base no serviço.
+Em seguida, pode adicionar sua implementação do serviço de escuta de comunicação, retorná-la numa substituição do método de classe baseadas no serviço.
 
-Para serviços sem monitorização de estado:
+Para serviços sem estado:
 
 ```csharp
 public class MyStatelessService : StatelessService
@@ -74,7 +75,7 @@ public class MyStatelessService extends StatelessService {
 }
 ```
 
-Para os serviços com monitorização de estado:
+Para serviços com estado:
 
 ```java
     @Override
@@ -95,11 +96,11 @@ public class MyStatefulService : StatefulService
 }
 ```
 
-Em ambos os casos, tem de devolver uma coleção de serviços de escuta. Isto permite que o serviço escute em múltiplos pontos finais, potencialmente com protocolos diferentes, utilizando vários serviços de escuta. Por exemplo, pode ter um serviço de escuta HTTP e um serviço de escuta de WebSocket separado. Cada serviço de escuta obtém um nome e a coleção resultante de *name: endereço* pares são representados como um objeto JSON quando um cliente solicita os serviço de escuta endereços para uma instância de serviço ou uma partição.
+Em ambos os casos, retornar uma coleção de serviços de escuta. Isso permite que o serviço escute em vários pontos de extremidade, potencialmente utilizando protocolos diferentes, utilizando várias escutas. Por exemplo, pode ter um serviço de escuta HTTP e um serviço de escuta separado do WebSocket. Cada serviço de escuta obtém um nome e a coleção resultante de *name: endereço* pares são representados como um objeto JSON quando um cliente solicita os endereços de escuta de uma instância de serviço ou de uma partição.
 
-Um serviço sem monitorização de estado, a substituição devolve uma coleção de ServiceInstanceListeners. A `ServiceInstanceListener` contém uma função para criar um `ICommunicationListener(C#) / CommunicationListener(Java)` e concede-lhe um nome. Para os serviços com monitorização de estado, a substituição devolve uma coleção de ServiceReplicaListeners. Isto é ligeiramente diferente do respetivo homólogo sem monitorização de estado, porque um `ServiceReplicaListener` tem uma opção para abrir um `ICommunicationListener` nas réplicas secundárias. Não só pode utilizar vários serviços de escuta de comunicação num serviço, mas também pode especificar que os serviços de escuta que aceitam pedidos em réplicas secundárias e aqueles escutarem apenas em réplicas primárias.
+Num serviço sem estado, a substituição retorna uma coleção de ServiceInstanceListeners. R `ServiceInstanceListener` contém uma função para criar um `ICommunicationListener(C#) / CommunicationListener(Java)` e atribui-lhe um nome. Para serviços com estado, a substituição retorna uma coleção de ServiceReplicaListeners. Isso é ligeiramente diferente de sua contraparte sem monitoração de estado, uma vez que um `ServiceReplicaListener` tem uma opção para abrir um `ICommunicationListener` em réplicas secundárias. Não só pode usar vários serviços de escuta de comunicação num serviço, mas também pode especificar quais serviços de escuta aceitarem pedidos em réplicas secundárias e quais os ouvir apenas em réplicas primárias.
 
-Por exemplo, pode ter um ServiceRemotingListener que aceita chamadas RPC apenas em réplicas primárias e uma escuta segundo, personalizada que demora leitura pedidos nas réplicas secundárias através de HTTP:
+Por exemplo, pode ter um ServiceRemotingListener que usa chamadas RPC apenas em réplicas primárias e uma escuta de segunda, personalizada que usa leitura pedidos em réplicas secundárias, através de HTTP:
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -120,11 +121,11 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 ```
 
 > [!NOTE]
-> Ao criar vários serviços de escuta para um serviço, cada serviço de escuta **tem** ser fornecido um nome exclusivo.
+> Ao criar várias escutas para um serviço, cada serviço de escuta **tem** ser fornecido um nome exclusivo.
 >
 >
 
-Por fim, descrevem os pontos finais que são necessários para o serviço no [manifesto serviço](service-fabric-application-and-service-manifests.md) na secção em pontos finais.
+Por fim, descrevem os pontos finais que são necessários para o serviço no [manifesto do serviço](service-fabric-application-and-service-manifests.md) sob a secção sobre pontos de extremidade.
 
 ```xml
 <Resources>
@@ -136,7 +137,7 @@ Por fim, descrevem os pontos finais que são necessários para o serviço no [ma
 
 ```
 
-O serviço de escuta de comunicação pode aceder os recursos de ponto final atribuídos ao mesmo a partir do `CodePackageActivationContext` no `ServiceContext`. O serviço de escuta, em seguida, pode começar a escutar para pedidos quando for aberta.
+O serviço de escuta de comunicação poderá acessar os recursos de ponto final atribuídos ao mesmo a partir da `CodePackageActivationContext` no `ServiceContext`. O serviço de escuta, em seguida, pode começar a escutar para pedidos quando for aberta.
 
 ```csharp
 var codePackageActivationContext = serviceContext.CodePackageActivationContext;
@@ -150,12 +151,12 @@ int port = codePackageActivationContext.getEndpoint("ServiceEndpoint").getPort()
 ```
 
 > [!NOTE]
-> Recursos de ponto final são comuns para o pacote de todo o serviço e são atribuídos pelo Service Fabric quando o pacote de serviço é ativado. Várias réplicas de serviço alojadas no mesmo ServiceHost podem partilhar a mesma porta. Isto significa que o serviço de escuta de comunicação deve suportar a partilha de portas. É a forma recomendada de fazê-lo para o serviço de escuta de comunicação utilizar a partição ID e o ID de réplica/instância ao gerar o endereço de escuta.
+> Recursos de ponto de extremidade são comuns para o pacote de todo o serviço e são alocados pelo Service Fabric quando o pacote de serviço é ativado. Várias réplicas de serviço hospedadas no mesmo ServiceHost podem partilhar a mesma porta. Isso significa que o serviço de escuta de comunicação deve dar suporte a partilha de portas. A forma recomendada de fazer isso é para o serviço de escuta de comunicação utilizar a partição de ID e o ID de réplica/instância ao gerar o endereço de escuta.
 >
 >
 
 ### <a name="service-address-registration"></a>Registo de endereço do serviço
-Um serviço de sistema chamado o *Naming Service* é executado em clusters de Service Fabric. O serviço de atribuição de nomes é uma entidade de registo para serviços e os respetivos endereços que cada instância ou a réplica do serviço está a escutar. Quando o `OpenAsync(C#) / openAsync(Java)` método de um `ICommunicationListener(C#) / CommunicationListener(Java)` estiver concluída, o retorno valor obtém registado no serviço de nomenclatura. Este valor de retorno que seja publicado no serviço de atribuição de nomes é uma cadeia cujo valor pode ser qualquer coisa de todo. Este valor de cadeia é clientes veem quando pedem para um endereço para o serviço a partir do serviço de nomenclatura.
+Um serviço do sistema chamado os *Naming Service* é executado em clusters do Service Fabric. O serviço de nomenclatura é uma entidade de registo para serviços e os respetivos endereços de que cada instância ou a réplica do serviço está a escutar. Quando o `OpenAsync(C#) / openAsync(Java)` método de um `ICommunicationListener(C#) / CommunicationListener(Java)` for concluído, seu retorno valor é registado no serviço de nomenclatura. Este valor de retorno que é publicado no serviço de nomenclatura é uma cadeia de caracteres cujo valor pode ser absolutamente qualquer coisa. Este valor de cadeia de caracteres é o que veem os clientes quando eles pedirem um endereço para o serviço do serviço de nomenclatura.
 
 ```csharp
 public Task<string> OpenAsync(CancellationToken cancellationToken)
@@ -193,20 +194,20 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 }
 ```
 
-O Service Fabric fornece APIs que permitem que os clientes e outros serviços e, em seguida, peça para este endereço de por nome de serviço. Isto é importante porque o endereço do serviço não é estático. Os serviços são movidos em torno do cluster para fins de balanceamento e disponibilidade de recursos. Este é o mecanismo que permitem aos clientes resolver o endereço para um serviço de escuta.
+O Service Fabric fornece APIs que permitem que os clientes e outros serviços, em seguida, fazer para este endereço ao nome do serviço. Isso é importante porque o endereço do serviço não é estático. Os serviços são movidos em torno do cluster para fins de balanceamento e a disponibilidade de recursos. Esse é o mecanismo que permitem aos clientes resolver o endereço de escuta para um serviço.
 
 > [!NOTE]
-> Para uma passagem completa de como escrever um serviço de escuta de comunicação, consulte [serviços de API Web do Service Fabric com OWIN automática de alojamento](service-fabric-reliable-services-communication-webapi.md) para c#, enquanto que para Java pode escrever a sua própria implementação do servidor de HTTP, consulte o artigo EchoServer aplicação exemplo ao https://github.com/Azure-Samples/service-fabric-java-getting-started.
+> Para ver uma introdução completa de como escrever um serviço de escuta de comunicação, consulte [serviços de API de Web de recursos de infraestrutura do serviço com hospedagem interna OWIN](service-fabric-reliable-services-communication-webapi.md) para C#, enquanto que para Java pode escrever sua própria implementação de servidor HTTP, consulte EchoServer exemplo de aplicativo no https://github.com/Azure-Samples/service-fabric-java-getting-started.
 >
 >
 
-## <a name="communicating-with-a-service"></a>Ao comunicar com um serviço
-A API de serviços fiável fornece as bibliotecas seguintes para clientes que comunicam com os serviços de escrita.
+## <a name="communicating-with-a-service"></a>Comunicação com um serviço
+A API de serviços fiáveis fornece as seguintes bibliotecas para gravar clientes que se comunicam com os serviços.
 
 ### <a name="service-endpoint-resolution"></a>Resolução de ponto final de serviço
-É o primeiro passo para comunicação com um serviço para resolver um endereço de ponto final da partição ou instância de serviço que pretende comunicar com. O `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` classe de utilitário é um primitivo básico que ajuda os clientes a determinar o ponto final de um serviço em tempo de execução. Na terminologia de Service Fabric, o processo de determinar o ponto final de um serviço é referido como o *resolução de ponto final de serviço*.
+É o primeiro passo para comunicação com um serviço resolver um endereço de ponto final da partição ou a instância do serviço que pretende comunicar com o. O `ServicePartitionResolver(C#) / FabricServicePartitionResolver(Java)` classe de utilitário é um primitivo básico que ajuda os clientes a determinar o ponto final de um serviço em tempo de execução. Na terminologia do Service Fabric, o processo de determinar o ponto final de um serviço é referido como o *resolução do ponto final de serviço*.
 
-Para ligar aos serviços dentro de um cluster, ServicePartitionResolver pode ser criada através das predefinições. Esta é a utilização recomendada para a maioria das situações:
+Para ligar aos serviços dentro de um cluster, ServicePartitionResolver pode ser criada através das predefinições. Esta é a utilização recomendada na maioria das situações:
 
 ```csharp
 ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
@@ -215,7 +216,7 @@ ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 FabricServicePartitionResolver resolver = FabricServicePartitionResolver.getDefault();
 ```
 
-Para ligar a serviços em cluster diferente, um ServicePartitionResolver pode ser criado com um conjunto de pontos finais de gateway do cluster. Tenha em atenção que os pontos finais de gateway são apenas diferentes pontos finais para ligar ao mesmo cluster. Por exemplo:
+Para ligar aos serviços num cluster diferente, um ServicePartitionResolver pode ser criada com um conjunto de pontos finais de gateway do cluster. Tenha em atenção que os pontos finais de gateway são apenas diferentes pontos de extremidade para ligar ao mesmo cluster. Por exemplo:
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
@@ -224,7 +225,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.clo
 FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
 
-Em alternativa, `ServicePartitionResolver` pode ser especificado uma função para a criação de um `FabricClient` internamente a utilizar:
+Em alternativa, `ServicePartitionResolver` pode ser atribuído uma função para a criação de um `FabricClient` utilizar internamente:
 
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
@@ -239,7 +240,7 @@ public interface CreateFabricClient {
 }
 ```
 
-`FabricClient` é o objeto que é utilizado para comunicar com o cluster do Service Fabric para várias operações de gestão no cluster. Isto é útil quando pretende mais controlo sobre como uma resolução de partição de serviço interage com o cluster. `FabricClient` efetua a colocação em cache internamente e é geralmente dispendioso criar, pelo que é importante reutilizar `FabricClient` instâncias quanto possíveis.
+`FabricClient` é o objeto que é utilizado para comunicar com o cluster do Service Fabric para várias operações de gestão no cluster. Isto é útil quando quiser mais controle sobre como um resolvedor de partição de serviço interage com o seu cluster. `FabricClient` realiza a colocação em cache internamente e é geralmente dispendiosas de criar, pelo que é importante reutilizar `FabricClient` instâncias tanto quanto possíveis.
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -248,7 +249,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMy
 FabricServicePartitionResolver resolver = new  FabricServicePartitionResolver(() -> new CreateFabricClientImpl());
 ```
 
-Um método de resolver, em seguida, é utilizado para obter o endereço de um serviço ou uma partição de serviço para os serviços particionadas.
+Um método de resolver, em seguida, é utilizado para obter o endereço de um serviço ou de uma partição de serviço para os serviços particionadas.
 
 ```csharp
 ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
@@ -263,16 +264,16 @@ CompletableFuture<ResolvedServicePartition> partition =
     resolver.resolveAsync(new URI("fabric:/MyApp/MyService"), new ServicePartitionKey());
 ```
 
-Um endereço de serviço pode ser resolvido utilizando facilmente um ServicePartitionResolver, mas mais trabalho é necessário para garantir que o endereço resolvido pode ser utilizado corretamente. O cliente tem de detetar se a tentativa de ligação falhou devido a um erro transitório e pode ser repetida (por exemplo, serviço movido ou está temporariamente indisponível), ou um erro permanente (por exemplo, serviço foi eliminado ou o recurso pedido já não existe). Instâncias de serviço ou réplicas podem mover à volta de nó para o nó em qualquer altura para por vários motivos. O endereço de serviço resolvido através de ServicePartitionResolver poderá estar obsoleto que o código de cliente tenta ligar-se do tempo. Nesse caso novamente o cliente tem de voltar a resolver o endereço. Fornecer anterior `ResolvedServicePartition` indica que a resolução precisa tentar novamente em vez de apenas obter um endereço em cache.
+Um endereço de serviço pode ser resolvido facilmente usando um ServicePartitionResolver, mas mais de trabalho é necessária para garantir que o endereço resolvido corretamente pode ser utilizado. O cliente precise detetar se a tentativa de ligação falhou devido a um erro transitório e pode ser repetida (por exemplo, serviço movido ou está temporariamente indisponível), ou um erro permanente (por exemplo, o serviço foi eliminado ou o recurso solicitado já não existe). Instâncias de serviço ou de réplicas podem mover em torno de nó para nó em qualquer altura por vários motivos. O endereço do serviço resolvido por meio de ServicePartitionResolver poderão ficar obsoleto no momento em que seu código de cliente tenta estabelecer ligação. Nesse caso novamente o cliente tem de voltar a resolver o endereço. Fornecendo anterior `ResolvedServicePartition` indica que o resolvedor precisa tentar novamente em vez de simplesmente obter um endereço em cache.
 
-Normalmente, o código de cliente necessário não funciona com o ServicePartitionResolver diretamente. É criado e transmitido ao fábricas de cliente de comunicação na API serviços fiável. As fábricas de utilizam o resolvedor internamente para gerar um objeto de cliente que pode ser utilizado para comunicar com os serviços.
+Normalmente, o código de cliente necessário não funcionar com o ServicePartitionResolver diretamente. É criado e passado para as fábricas de cliente de comunicação na API de serviços fiáveis. As fábricas de utilizam o resolvedor internamente para gerar um objeto de cliente que pode ser utilizado para comunicar com os serviços.
 
-### <a name="communication-clients-and-factories"></a>Os clientes de comunicação e fábricas de
-A biblioteca de fábrica de comunicação implementa um padrão de repetição de processamento de falhas normal que facilita a repetir as ligações a pontos finais de serviço resolvido. A biblioteca de fábrica fornece o mecanismo de repetição enquanto está a fornecer os processadores de erro.
+### <a name="communication-clients-and-factories"></a>Clientes de comunicação e fábricas
+A biblioteca de fábrica de comunicação implementa um padrão de repetição de processamento de falhas normal que facilita a repetir ligações a pontos finais de serviço resolvidos. A biblioteca de factory fornece o mecanismo de repetição enquanto fornecer os manipuladores de erro.
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` Define a interface base implementada por uma fábrica do cliente de comunicação que produza os clientes que podem comunicar com um serviço do Service Fabric. A implementação do CommunicationClientFactory depende da pilha de comunicação utilizada pelo serviço do Service Fabric onde pretende comunicar o cliente. A API de serviços fiável fornece um `CommunicationClientFactoryBase<TCommunicationClient>`. Isto fornece uma implementação da CommunicationClientFactory interface base e executa tarefas que são comuns a todas as pilhas de comunicação. (Estas tarefas incluem a utilização de um ServicePartitionResolver para determinar o ponto final do serviço). Os clientes, normalmente, implementam classe abstrata CommunicationClientFactoryBase para processar lógica específica para a pilha de comunicação.
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` Define a interface base implementada por uma fábrica de cliente de comunicação que produz os clientes que podem se comunicar com um serviço do Service Fabric. A implementação do CommunicationClientFactory depende a pilha de comunicação utilizada pelo serviço do Service Fabric, onde o cliente deseja se comunicar. A API de serviços fiáveis fornece um `CommunicationClientFactoryBase<TCommunicationClient>`. Isso fornece uma implementação de base da CommunicationClientFactory interface e executa tarefas comuns a todas as pilhas de comunicação. (Essas tarefas incluem o uso de um ServicePartitionResolver para determinar o ponto final de serviço). Os clientes normalmente implementam a classe abstrata do CommunicationClientFactoryBase para lidar com lógica específica para a pilha de comunicações.
 
-O cliente de comunicação apenas recebe um endereço e utiliza-o para ligar a um serviço. O cliente pode utilizar qualquer protocolo que pretende.
+O cliente de comunicação apenas recebe um endereço e a utiliza para ligar a um serviço. O cliente pode utilizar qualquer protocolo que ele deseja.
 
 ```csharp
 public class MyCommunicationClient : ICommunicationClient
@@ -297,7 +298,7 @@ public class MyCommunicationClient implements CommunicationClient {
 }
 ```
 
-A fábrica do cliente é principalmente responsável pela criação de clientes de comunicação. Para clientes que não mantêm uma ligação persistente, por exemplo, um cliente HTTP, a fábrica só tem de criar e devolver o cliente. Outros protocolos que mantêm uma ligação persistente, por exemplo, alguns protocolos binários, também devem ser validados pela fábrica para determinar se a ligação tem de ser recriada.  
+O alocador de cliente é responsável principalmente para a criação de clientes de comunicação. Para clientes que não mantêm uma ligação persistente, como um cliente HTTP, a fábrica só tem de criar e retornar o cliente. Outros protocolos que mantêm uma ligação persistente como, por exemplo, alguns protocolos binários, também devem ser validados pela fábrica para determinar se a ligação tem de ser recriadas.  
 
 ```csharp
 public class MyCommunicationClientFactory : CommunicationClientFactoryBase<MyCommunicationClient>
@@ -340,14 +341,14 @@ public class MyCommunicationClientFactory extends CommunicationClientFactoryBase
 }
 ```
 
-Por fim, um processador de excepções é responsável por determinar a ação a tomar quando ocorre uma exceção. Exceções são categorizadas em **repetição** e **sem repetição**.
+Por fim, um manipulador de exceção é responsável por determinar a ação a tomar quando ocorre uma exceção. Exceções são categorizadas em **repetição** e **sem repetição**.
 
-* **Sem repetição** exceções simplesmente obterem novamente iniciadas novamente para o autor da chamada.
-* **repetição** exceções mais são categorizadas em **transitório** e **não transitório**.
-  * **Transitório** exceções são aqueles que pode ser repetida simplesmente sem voltar a resolver o endereço de ponto final de serviço. Estes irão incluir problemas de rede transitórios ou respostas de erro do serviço além das que indicam que o endereço de ponto final de serviço não existe.
-  * **Não transitório** exceções são aqueles que requerem o endereço de ponto final de serviço seja novamente resolvido. Estas incluem as exceções que indicam o que ponto final do serviço não está acessível, que indica que o serviço foi movido para um nó diferente.
+* **Sem repetição** exceções simplesmente obterem relançadas para o chamador.
+* **repetição** exceções mais são categorizadas em **transitória** e **não transitórias**.
+  * **Transitório** exceções são aqueles que podem simplesmente ser repetidas sem voltar a resolver o endereço de ponto final de serviço. Estes irão incluir problemas de rede transitórios ou respostas de erro de serviço que não tenham que indicam que o endereço de ponto final de serviço não existe.
+  * **Não transitórias** exceções são aqueles que exigem o endereço de ponto final de serviço ser resolvidos novamente. Estes incluem exceções que indicam que o ponto final de serviço não está acessível, que indica que o serviço foi movido para um nó diferente.
 
-O `TryHandleException` faz uma decisão sobre uma determinado exceção. Se este **não souber** que decisões a tomar sobre uma exceção, deverá devolver **falso**. Se este **saber** que é decisão, deve definir o resultado em conformidade e devolver **verdadeiro**.
+O `TryHandleException` toma uma decisão sobre uma determinada exceção. Se ele **não sabe** quais decisões a tomar sobre uma exceção, ele deverá retornar **falso**. Se ele **saber** quais decisão de fazer, deve definir o resultado em conformidade e retornar **verdadeiro**.
 
 ```csharp
 class MyExceptionHandler : IExceptionHandler
@@ -373,7 +374,7 @@ class MyExceptionHandler : IExceptionHandler
 public class MyExceptionHandler implements ExceptionHandler {
 
     @Override
-    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {        
+    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {
 
         /* if exceptionInformation.getException() is known and is transient (can be retried without re-resolving)
          */
@@ -394,8 +395,8 @@ public class MyExceptionHandler implements ExceptionHandler {
     }
 }
 ```
-### <a name="putting-it-all-together"></a>Passar todos os em conjunto
-Com um `ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`, e `IExceptionHandler(C#) / ExceptionHandler(Java)` construído em torno de um protocolo de comunicação, um `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` encapsula-lo num wrapper tudo em conjunto e fornece o ciclo de resolução de endereço de partição de serviço e de processamento de falhas em torno estes componentes.
+### <a name="putting-it-all-together"></a>Juntar tudo
+Com uma `ICommunicationClient(C#) / CommunicationClient(Java)`, `ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)`, e `IExceptionHandler(C#) / ExceptionHandler(Java)` criado em torno de um protocolo de comunicação, um `ServicePartitionClient(C#) / FabricServicePartitionClient(Java)` encapsula-lo a todas as ferramentas e fornece o loop de resolução de endereço de partição de serviço e de processamento de falhas em torno desses componentes.
 
 ```csharp
 private MyCommunicationClientFactory myCommunicationClientFactory;
@@ -430,6 +431,6 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [ASP.NET Core com Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
-* [Chamadas de procedimento remoto com o sistema de interação remota Reliable Services](service-fabric-reliable-services-communication-remoting.md)
-* [Comunicação de WCF utilizando Reliable Services](service-fabric-reliable-services-communication-wcf.md)
+* [ASP.NET Core com o Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
+* [Chamadas de procedimento remoto com a comunicação remota do Reliable Services](service-fabric-reliable-services-communication-remoting.md)
+* [Comunicação do WCF com o Reliable Services](service-fabric-reliable-services-communication-wcf.md)

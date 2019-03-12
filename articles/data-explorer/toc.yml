@@ -120,16 +120,16 @@ items:
     - name: Fórum do MSDN
       href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
   - name: Comentários sobre o produto
-    href: http://aka.ms/adefeedback
+    href: https://aka.ms/adefeedback
   - name: Preços
     href: https://azure.microsoft.com/pricing/details/data-explorer/
   - name: Simulador de Custos
-    href: http://aka.ms/adecostestimator
+    href: https://aka.ms/adecostestimator
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 8f9d139b7773c45ff4554ab0f58663e1fad03af9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0a81411ee9630eba64d01d02c7ee9b0115943cd5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730125"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538600"

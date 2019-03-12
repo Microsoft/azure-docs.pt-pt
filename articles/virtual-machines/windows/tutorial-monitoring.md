@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4f10a1ae406ab8a560051ac6305df8f8f9fbbd7b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 32e92cb8cd6cd5d16ea8d38d178bb440420e6784
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438640"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546369"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorizar e atualizar uma máquina virtual do Windows no Azure
 
@@ -31,7 +31,7 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Ativar diagnósticos de arranque numa VM
-> * Ver diagnósticos de arranque
+> * Ver diagnóstico de arranque
 > * Ver métricas de anfitrião da VM
 > * Instalar a extensão de diagnóstico
 > * Ver métricas da VM
@@ -46,7 +46,7 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-## <a name="create-virtual-machine"></a>Criar a máquina virtual
+## <a name="create-virtual-machine"></a>Criar máquina virtual
 
 Para configurar a monitorização e a gestão de atualizações do Azure neste tutorial, precisa de uma VM do Windows no Azure. Primeiro, defina um nome de utilizador e palavra-passe para a VM com [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
@@ -66,7 +66,7 @@ New-AzVm `
 
 Demora alguns minutos até que os recursos e a VM sejam criados.
 
-## <a name="view-boot-diagnostics"></a>Ver diagnósticos de arranque
+## <a name="view-boot-diagnostics"></a>Ver diagnóstico de arranque
 
 À medida que as máquinas virtuais do Windows arrancam, o agente de diagnóstico de arranque captura a saída de ecrã que pode ser utilizada para fins de resolução de problemas. Esta capacidade está ativada por predefinição. As capturas de ecrã capturadas são armazenadas numa conta de armazenamento do Azure, que também é criada por predefinição.
 
@@ -142,7 +142,7 @@ Para executar ações adicionais em VMs que necessitam de atualizações, a Auto
 O processo de validação verifica ainda se a VM está aprovisionada com o Microsoft Monitoring Agent (MMA) e a função de trabalho de runbook híbrida de Automatização.
 Este agente serve para comunicar com a VM e obter informações sobre o estado de atualização.
 
-Escolha a área de trabalho e a conta de automatização do Log Analytics e clique em **Ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
+Escolha a conta de área de trabalho e a automatização do Log Analytics e clique em **ativar** para ativar a solução. A solução demora até 15 minutos a ativar.
 
 Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a inclusão, estes serão adicionados automaticamente:
 
@@ -150,11 +150,11 @@ Se for detetada a falta de qualquer um dos seguintes pré-requisitos durante a i
 * [Automatização](../../automation/automation-offering-get-started.md)
 * Uma [Função de trabalho de runbook híbrida](../../automation/automation-hybrid-runbook-worker.md) está ativada na VM
 
-O ecrã **Gestão de Atualizações** é apresentado. Configure a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
+O ecrã **Gestão de Atualizações** é apresentado. Configurar a localização, a área de trabalho do Log Analytics e a conta de automatização para utilizar e clique em **ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização.
 
 ![Ativar a solução de Gestão de atualizações](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser. Após a ativação da solução, as informações sobre atualizações em falta na VM são transmitidas ao Log Analytics. Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
+A ativação da solução pode demorar até 15 minutos. Durante este período, não deve fechar a janela do browser. Após a solução está ativada, informações sobre atualizações em falta na VM são transmitidas para registos do Azure Monitor. Pode demorar entre 30 minutos e 6 horas até que os dados fiquem disponíveis para análise.
 
 ### <a name="view-update-assessment"></a>Ver avaliação de atualizações
 
@@ -175,7 +175,7 @@ Para agendar uma nova Implementação de Atualização para a VM, clique em **Ag
   * Update rollups
   * Pacotes de funcionalidades
   * Service packs
-  * Atualizações de definições
+  * Atualizações da definição
   * Ferramentas
   * Atualizações
 
@@ -226,13 +226,13 @@ Ativar a Gestão de alterações e de inventário na VM:
 2. Na lista, selecione uma VM.
 3. No ecrã da VM, na secção **Operações**, clique em **Inventário** ou em **Controlo de alterações**. É aberto o ecrã **Ativar o Controlo de Alterações e Inventário**.
 
-Configure a localização, a área de trabalho do Log Analytics e a conta de Automatização a utilizar e clique em **Ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
+Configurar a localização, a área de trabalho do Log Analytics e a conta de automatização para utilizar e clique em **ativar**. Se os campos estiverem desativados, significa que outra solução de automatização está ativada para a VM e terá de ser utilizada a mesmo área de trabalho e conta de Automatização. Apesar de as soluções estarem separadas no menu, tratam-se da mesma solução. Ativar uma ativa a outra na VM.
 
 ![Ativar o Controlo de Alterações e Inventário](./media/tutorial-monitoring/manage-inventory-enable.png)
 
 Após a ativação da solução, o inventário poderá demorar algum tempo a ser recolhido na VM antes de aparecerem dados.
 
-### <a name="track-changes"></a>Controlar as alterações
+### <a name="track-changes"></a>Registar alterações
 
 Na sua VM, selecione **Controlo de Alterações**, em **OPERAÇÕES**. Clique em **Editar Definições**. É apresentada a página **Controlo de Alterações**. Selecione o tipo de definição que pretende controlar e clique em **+Adicionar** para configurar as definições. As opções disponíveis para o Windows são:
 
@@ -282,14 +282,14 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 
 Após alguns minutos, deverá ver a VM nova na área de trabalho do Log Analytics.
 
-![Painel do Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Painel de área de trabalho do log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, configurou e reviu as VMs com o Centro de Segurança do Azure. Aprendeu a:
 
 > [!div class="checklist"]
-> * Criar uma rede virtual
+> * Criar rede virtual
 > * Criar um grupo de recursos e uma VM
 > * Ativar diagnósticos de arranque na VM
 > * Ver diagnósticos de arranque

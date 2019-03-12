@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 8c134ae9944517d6ae66fcd22e06bbfc599912b4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6cb1f788f41fe07516d759b177e1d76405dd2bf8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076397"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529732"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Enviar eventos para Hubs de eventos do Azure com C
 
@@ -38,12 +38,12 @@ Para concluir este tutorial, precisa do seguinte:
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um espaço de nomes de Hubs de Eventos e um hub de eventos
 O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md).
 
-Obter o valor da chave de acesso para o hub de eventos ao seguir as instruções do artigo: [obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilize a chave de acesso no código escrito mais tarde neste tutorial. O nome da chave predefinida é: **RootManageSharedAccessKey**.
+Obter o valor da chave de acesso para o hub de eventos ao seguir as instruções do artigo: [Obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Utilize a chave de acesso no código escrito mais tarde neste tutorial. O nome da chave predefinida é: **RootManageSharedAccessKey**.
 
 Agora, continue com os seguintes passos neste tutorial.
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>Escrever código para enviar mensagens para os Hubs de eventos
-Esta secção mostra como escrever um aplicativo de C para enviar eventos para o hub de eventos. O código utiliza a biblioteca de Proton AMQP dos [projeto Apache Qpid](http://qpid.apache.org/). Isso é análogo ao utilizar tópicos e filas do Service Bus com o AMQP do C conforme mostrado [neste exemplo](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [documentação Qpid Proton](http://qpid.apache.org/proton/index.html).
+Esta secção mostra como escrever um aplicativo de C para enviar eventos para o hub de eventos. O código utiliza a biblioteca de Proton AMQP dos [projeto Apache Qpid](https://qpid.apache.org/). Isso é análogo ao utilizar tópicos e filas do Service Bus com o AMQP do C conforme mostrado [neste exemplo](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Para obter mais informações, consulte a [documentação Qpid Proton](https://qpid.apache.org/proton/index.html).
 
 1. Partir do [página Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html), siga as instruções para instalar Qpid Proton, dependendo do seu ambiente.
 2. Para compilar a biblioteca de Proton, instale os seguintes pacotes:
@@ -51,10 +51,10 @@ Esta secção mostra como escrever um aplicativo de C para enviar eventos para o
     ```shell
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Transfira o [biblioteca Qpid Proton](http://qpid.apache.org/proton/index.html)e extraí-lo, por exemplo:
+3. Transfira o [biblioteca Qpid Proton](https://qpid.apache.org/proton/index.html)e extraí-lo, por exemplo:
    
     ```shell
-    wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
+    wget https://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
     tar xvfz qpid-proton-0.7.tar.gz
     ```
 4. Crie um diretório de compilação, a compilação e a instalação:
@@ -66,7 +66,7 @@ Esta secção mostra como escrever um aplicativo de C para enviar eventos para o
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. No seu diretório de trabalho, crie um novo ficheiro chamado **sender.c** com o código a seguir. Lembre-se substituir os valores para o seu/nome da chave SAS, o nome do hub de eventos e o espaço de nomes. Também deve substituir uma versão com codificação URL da chave para o **SendRule** criado anteriormente. Pode codificar o URL ele [aqui](http://www.w3schools.com/tags/ref_urlencode.asp).
+5. No seu diretório de trabalho, crie um novo ficheiro chamado **sender.c** com o código a seguir. Lembre-se substituir os valores para o seu/nome da chave SAS, o nome do hub de eventos e o espaço de nomes. Também deve substituir uma versão com codificação URL da chave para o **SendRule** criado anteriormente. Pode codificar o URL ele [aqui](https://www.w3schools.com/tags/ref_urlencode.asp).
    
     ```c
     #include "proton/message.h"

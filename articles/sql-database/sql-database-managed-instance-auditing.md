@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: ff29d60715001ddb98ffb7424784ae0b81cfbb3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 20c893aa0ff5bc1f20ecfd95d33038937f3af466
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437688"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576978"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introdução à auditoria da instância de base de dados do SQL do Azure gerido
 
@@ -131,7 +131,7 @@ A seguinte secção descreve a configuração de auditoria na sua instância ger
 
      1. (Opcional) Inicie sessão sua conta do Azure:
 
-        ![Iniciar sessão no Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
+        ![Inicie sessão no  Azure](./media/sql-managed-instance-auditing/12_mi_SSMS_sign_in_to_azure.png)
 
      1. Selecione uma subscrição, a conta de armazenamento e o contentor de BLOBs as listas pendentes ou criar seu próprio contentor ao clicar em **criar**. Quando terminar de clique **OK**:
 
@@ -190,7 +190,7 @@ Registos de auditoria a partir de uma instância gerida podem ser enviados para 
    - [Criar o guia de T-SQL de especificação de auditoria de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Criar o guia de T-SQL de especificação de auditoria de base de dados](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-10. Ative a auditoria de servidor que criou no passo 7:
+10. Ative a auditoria de servidor que criou no passo 8:
  
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);

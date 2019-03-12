@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 05802c2a6e1d5e0ea16aa8cfcc4333c14d05c7ae
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986086"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535217"
 ---
 # <a name="getting-compliance-data"></a>Obter dados de conformidade
 

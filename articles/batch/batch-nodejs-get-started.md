@@ -7,16 +7,16 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164624"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772179"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do Batch para Node.js
 
@@ -260,7 +260,7 @@ As tarefas do Azure Batch são grupos lógicos de tarefas semelhantes. No nosso 
 Estas tarefas serão executadas em paralelo e implementadas em vários nós, orquestradas pelo serviço Azure Batch.
 
 > [!Tip]
-> Pode utilizar a propriedade [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar o número máximo de tarefas que podem ser executadas em simultâneo em nós individuais.
+> Pode utilizar a propriedade [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) para especificar o número máximo de tarefas que podem ser executadas em simultâneo em nós individuais.
 >
 >
 
@@ -273,17 +273,17 @@ O [script de shell](https://github.com/shwetams/azure-batchclient-sample-nodejs/
 Pode carregar o script numa conta de Armazenamento do Azure e gerar um URI de SAS para aceder ao mesmo. Também pode utilizar o SDK do Armazenamento do Azure para Node.js para automatizar este processo.
 
 > [!Tip]
-> As tarefas de preparação para tarefas só são executadas nos nós de VMs, nos quais essas tarefas específicas têm de ser executadas. Se quiser instalar pré-requisitos em todos os nós, independentemente das tarefas que são executadas nos mesmos, pode utilizar a propriedade [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) enquanto estiver a adicionar um conjunto. Pode utilizar a definição de tarefa de preparação seguinte como referência.
+> As tarefas de preparação para tarefas só são executadas nos nós de VMs, nos quais essas tarefas específicas têm de ser executadas. Se quiser instalar pré-requisitos em todos os nós, independentemente das tarefas que são executadas nos mesmos, pode utilizar a propriedade [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) enquanto estiver a adicionar um conjunto. Pode utilizar a definição de tarefa de preparação seguinte como referência.
 >
 >
 
 As tarefas de preparação são especificadas durante a submissão do trabalho do Azure Batch. Seguem-se todos os parâmetros de configuração da tarefa de preparação:
 
 * **ID**: Um identificador exclusivo para a preparação da tarefa
-* **Linha de comandos**: Linha de comandos para executar o executável da tarefa
+* **commandLine**: Linha de comandos para executar o executável da tarefa
 * **resourceFiles**: Matriz de objetos que disponibiliza detalhes dos ficheiros necessários para ser baixado para esta tarefa ser executado.  Seguem-se as respetivas opções
     - blobSource: O URI de SAS do ficheiro
-    - caminho do ficheiro: Caminho local para transferir e guardar o ficheiro.
+    - filePath: Caminho local para transferir e guardar o ficheiro.
     - fileMode: Apenas aplicável para nós do Linux, o fileMode está no formato octal e um valor predefinido 0770
 * **waitForSuccess**: Se definido como true, a tarefa não é executada em falhas de tarefas de preparação
 * **runElevated**: Defina como VERDADEIRO se forem necessários privilégios elevados para executar a tarefa.
@@ -349,7 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 O código adiciona várias tarefas ao conjunto e cada uma das tarefas é executada num nó no conjunto de VMs criado. Se o número de tarefas exceder o número de VMs num conjunto ou a propriedade maxTasksPerNode, as tarefas aguardam até que seja disponibilizado um nó. Esta orquestração é processada pelo Azure Batch automaticamente.
 
-O portal tem vistas detalhadas sobre as tarefas e os estados dos trabalhos. Também pode utilizar a lista para obter funções no SDK do Azure para Node. Estão disponíveis detalhes na [ligação](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) da documentação.
+O portal tem vistas detalhadas sobre as tarefas e os estados dos trabalhos. Também pode utilizar a lista para obter funções no SDK do Azure para Node. Estão disponíveis detalhes na [ligação](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) da documentação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

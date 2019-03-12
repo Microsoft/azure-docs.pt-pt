@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 033a7207765f2ee6712f8552d5c1585280250d5e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312074"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773151"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurar o dashboard de aplicações
 
@@ -32,7 +32,7 @@ Selecionando **editar**, abre o painel de biblioteca do dashboard. A biblioteca 
 
 ![Biblioteca do dashboard](media/howto-configure-homepage/image2.png)
 
-Por exemplo, pode adicionar um **as definições e propriedades** mosaico para mostrar uma seleção dos valores de propriedades e definições atuais de um dispositivo. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Depois que fornecem o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. A captura de ecrã a seguir mostra a **definir a temperatura** definição selecionada para adicionar ao mosaico. Selecione **feito** para guardar a alteração ao dashboard.
+Por exemplo, pode adicionar um **as definições e propriedades** mosaico para mostrar uma seleção dos valores de propriedades e definições atuais de um dispositivo. Para tal, primeiro selecione um **modelo de dispositivo** , em seguida, selecione um **dispositivo instância**. Depois que fornecem o mosaico a um título e selecione um **definição** ou uma **propriedade** para apresentar. Captura de ecrã seguinte mostra as definições e propriedades selecionadas a adicionar ao mosaico. Selecione **feito** para guardar a alteração ao dashboard.
 
 ![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](media/howto-configure-homepage/image3.png)
 

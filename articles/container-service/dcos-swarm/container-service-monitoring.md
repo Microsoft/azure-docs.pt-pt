@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a094369d467b3b1f3d5fe93f870dccc9eae7519c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996145"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547216"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(PRETERIDO) Monitorizar um cluster DC/OS do Azure Container Service com o Datadog
 
@@ -23,7 +23,7 @@ ms.locfileid: "52996145"
 Neste artigo vamos implementar agentes Datadog a todos os nós de agente no seu cluster do Azure Container Service. Precisa de uma conta com o Datadog para esta configuração. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-[Implemente](container-service-deployment.md) e [ligue](../container-service-connect.md) um cluster configurado pelo Azure Container Service. Explore a [IU do Marathon](container-service-mesos-marathon-ui.md). Aceda a [ http://datadoghq.com ](http://datadoghq.com) para configurar uma conta de Datadog. 
+[Implemente](container-service-deployment.md) e [ligue](../container-service-connect.md) um cluster configurado pelo Azure Container Service. Explore a [IU do Marathon](container-service-mesos-marathon-ui.md). Aceda a [ https://datadoghq.com ](https://datadoghq.com) para configurar uma conta de Datadog. 
 
 ## <a name="datadog"></a>Datadog
 O Datadog é um serviço de monitoramento que recolhe dados de monitorização de seus contentores no seu cluster do Azure Container Service. O Datadog tem um Dashboard de integração de Docker onde pode ver métricas específicas dentro de seus contentores. As métricas reunidas a partir de seus contentores são organizadas por CPU, memória, rede e e/s. O Datadog divide as métricas em contentores e imagens. Um exemplo da aparência da interface do Usuário para a utilização da CPU é inferior.

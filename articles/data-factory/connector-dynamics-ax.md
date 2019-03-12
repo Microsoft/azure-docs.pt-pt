@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 1d20308bb7fcfa2636f10e3990d98dcd6ab05a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 05bd4fdd220b47b11dfed9857dbc8dbe25b236df
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238218"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529798"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Copiar dados do Dynamics AX com o Azure Data Factory (pré-visualização)
 
@@ -46,7 +46,7 @@ Para utilizar autenticação do principal de serviço, siga estes passos:
 
     - ID da aplicação
     - Chave da aplicação
-    - ID do inquilino
+    - ID do Inquilino
 
 2. Vá para o Dynamics AX e conceder este serviço principal permissão adequada para aceder ao seu Dynamics AX.
 
@@ -134,7 +134,7 @@ Para copiar dados do Dynamics AX, defina o **origem** tipo de atividade de cópi
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **DynamicsAXSource**. | Sim |
-| consulta | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| consulta | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo**
 

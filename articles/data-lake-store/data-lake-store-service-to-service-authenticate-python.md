@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: a51eb8f560d598f86caf57b7b24737b0a3574b68
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4cad09877a3fc4f586db2d92ce97a64b6efe295e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957226"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537155"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o Python
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Para trabalhar com a geração 1 de armazenamento do Data Lake com o Python, tem
 
 * O módulo `azure-mgmt-resource`, que inclui módulos do Azure para o Active Directory, etc.
 * O `azure-mgmt-datalake-store` módulo, que inclui as operações de gestão de conta de geração 1 de armazenamento do Data Lake. Para obter mais informações sobre este módulo, consulte [referência do módulo de gestão de geração 1 do armazenamento do Azure Data Lake](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
-* O `azure-datalake-store` módulo, que inclui as operações de sistema de ficheiros de geração 1 de armazenamento do Data Lake. Para obter mais informações sobre este módulo, consulte [referência de módulo do sistema de ficheiros do azure-datalake-store](http://azure-datalake-store.readthedocs.io/en/latest/).
+* O `azure-datalake-store` módulo, que inclui as operações de sistema de ficheiros de geração 1 de armazenamento do Data Lake. Para obter mais informações sobre este módulo, consulte [referência de módulo do sistema de ficheiros do azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest/).
 
 Utilize os comandos seguintes para instalar os módulos.
 

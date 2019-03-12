@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0d343ff5d7513500fa7803495dd42eb94b772935
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 15f5fe6e74cbe8cbffff31114e8aa588ec4a7ebb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546101"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538005"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opções de movimento de dados e armazenamento para o processamento de ficheiros ativos e de saída
 
@@ -25,7 +25,7 @@ Existem várias opções para tornar os arquivos de recursos e de cena disponív
   * Esta opção tem a vantagem de que é bastante rentável, como não existem VMs são necessárias para o sistema de arquivos, além de blobfuse colocação em cache nas VMs evita repetidas downloads dos mesmos arquivos várias trabalhos e tarefas.  Movimento de dados também é simples, como os ficheiros são simplesmente blobs e padrão de APIs e ferramentas, como o azcopy, podem ser usadas para copiar ficheiros entre um sistema de ficheiros no local e o armazenamento do Azure.
 * Sistema de ficheiros ou partilha de ficheiros:
   * Dependendo do sistema de operativo da VM e os requisitos de dimensionamento do desempenho, em seguida, as opções incluem [ficheiros do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction), utilizar uma VM com discos anexados para NFS, usar várias VMs com discos anexados para um sistema de ficheiros distribuído como GlusterFS, ou utilizar uma oferta de terceiros.
-  * [Sistemas de Avere](http://www.averesystems.com/) faz agora parte da Microsoft e terá em breve soluções que são ideais para a composição em grande escala, de alto desempenho.  A solução de Avere permitirá NFS baseada no Azure ou cache SMB seja criado que funciona em conjunto com o armazenamento de BLOBs ou com dispositivos no local.
+  * [Sistemas de Avere](https://www.averesystems.com/) faz agora parte da Microsoft e terá em breve soluções que são ideais para a composição em grande escala, de alto desempenho.  A solução de Avere permitirá NFS baseada no Azure ou cache SMB seja criado que funciona em conjunto com o armazenamento de BLOBs ou com dispositivos no local.
   * Com um sistema de ficheiros, os ficheiros podem ser lidos ou gravados diretamente para o sistema de ficheiros ou podem ser copiados entre o sistema de ficheiros e o conjunto de VMs.
   * Um sistema de ficheiros partilhado permite que um grande número de recursos compartilhados entre projetos e tarefas a ser utilizado com o processamento de tarefas acessar apenas o que é necessário.
 

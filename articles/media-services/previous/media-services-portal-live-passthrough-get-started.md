@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: d1dc92e134b7ebca8e0eed30ef125210bc00eb37
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4609c9d49cd2ed9aeb8d07c7fb27d290b6bd7771
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989989"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765854"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Como realizar uma transmissão em fluxo em direto com codificadores no local através do Portal do Azure
 > [!div class="op_single_selector"]

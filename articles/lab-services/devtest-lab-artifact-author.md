@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: e4fd8d226ebe1cb993e11fb5c9617df3eef08bdc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098566"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532581"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefactos personalizados para a máquina virtual do DevTest Labs
 
@@ -126,7 +126,7 @@ O exemplo seguinte mostra como utilizar expressões e funções para construir u
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Como diagnosticar falhas de artefactos no DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
-* [Associar uma VM a um domínio do Active Directory existente, utilizando um modelo do Resource Manager no DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [Associar uma VM a um domínio do Active Directory existente, utilizando um modelo do Resource Manager no DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Saiba como [adicionar um repositório de Git de artefactos a um laboratório](devtest-lab-add-artifact-repo.md).

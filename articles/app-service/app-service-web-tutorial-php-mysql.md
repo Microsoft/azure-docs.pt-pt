@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8c3ba3a077920d58a94fe3f4df1b0a81039439d5
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: c906880897b14cf999fcffd17abba0adebc1adf6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747650"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552134"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutorial: Criar uma aplicação de MySQL no Azure e o PHP
 
@@ -209,7 +209,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
-No Cloud Shell, execute o comando novamente para permitir o acesso a partir do seu computador local, substituindo *\<your_ip_address>* pelo [seu endereço IP IPv4 local](http://www.whatsmyip.org/).
+No Cloud Shell, execute o comando novamente para permitir o acesso a partir do seu computador local, substituindo *\<your_ip_address>* pelo [seu endereço IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -349,7 +349,7 @@ Neste passo, vai implementar a aplicação PHP ligada ao MySQL no Serviço de Ap
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-### <a name="configure-database-settings"></a>Configurar as definições da base de dados
+### <a name="configure-database-settings"></a>Configurar as definições de base de dados
 
 Conforme indicado anteriormente, pode ligar à base de dados MySQL do Azure através de variáveis de ambiente no Serviço de Aplicações.
 

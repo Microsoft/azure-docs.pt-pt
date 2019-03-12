@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: 78ffad6c0022d688516fed7c6e21467dc120d609
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4fec60cdf3fcf24378567ea97dd7922c805cde18
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455960"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542935"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Transmitir em fluxo para os Hubs de Eventos para o Apache Kafka
 Este início rápido mostra como transmitir para Hubs de Eventos ativados pelo Kafka, sem alterar os clientes de protocolo nem a execução dos seus próprios clusters. Vai aprender a utilizar os seus produtores e consumidores para comunicar com Hubs de Eventos ativados pelo Kafka, com apenas uma alteração de configuração nas aplicações. Os Hubs de Eventos do Azure suportam o [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html)
@@ -28,7 +28,7 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 * Leia o artigo [Hubs de Eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md).
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
-* [Transferir](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um arquivo binário Maven.
+* [Transferir](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário Maven.
 * [Git](https://www.git-scm.com/)
 * [Um espaço de nomes de Hubs de Eventos ativado pelo Kafka](event-hubs-create.md)
 

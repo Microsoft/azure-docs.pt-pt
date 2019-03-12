@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: kumud
-ms.openlocfilehash: 40852b9457e703334350402489feb68ac92832a0
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 50ed230993f1df07b463297605a144830476803d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693792"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540312"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Monitorização de pontos finais do Gestor de tráfego
 
@@ -28,7 +28,7 @@ Para configurar a monitorização do ponto final, tem de especificar as seguinte
 * **Protocolo**. Selecione HTTP, HTTPS ou TCP como protocolo que o Gestor de tráfego utiliza quando o ponto final de pesquisa para verificar o respetivo estado de funcionamento. Monitorização de HTTPS não verifica se o seu certificado SSL não é válido – só verifica que o certificado está presente.
 * **Porta**. Escolha a porta utilizada para o pedido.
 * **Caminho**. Esta definição de configuração é válida apenas para os protocolos HTTP e HTTPS, para que o caminho de especificar a definição é necessária. Fornecer esta definição para o TCP resultados de protocolo num erro de monitorização. Para o protocolo HTTP e HTTPS, dê o caminho relativo e o nome da página Web ou o ficheiro que acede a monitorização. Uma barra (/) é uma entrada válida para o caminho relativo. Este valor indica que o ficheiro está no diretório de raiz (predefinição).
-* **Definições de cabeçalho personalizado** esta definição ajuda a adicionar cabeçalhos HTTP específicos para o estado de funcionamento de configuração verifica que o Gestor de tráfego envia para pontos finais sob um perfil. Os cabeçalhos personalizados podem ser especificados a um nível de perfil até ser aplicável a todos os pontos finais esse perfil and / or num nível de ponto final aplicável apenas para esse ponto final. Pode usar os cabeçalhos personalizados para ter as verificações do Estado de funcionamento para pontos finais num ambiente multi-inquilino ser roteados corretamente ao especificar um cabeçalho de anfitrião ao seu destino. Também pode utilizar esta definição, adicionando os cabeçalhos exclusivos que podem ser utilizados para identificar o Gestor de tráfego teve origem pedidos de HTTP (S) e processa-os de forma diferente.
+* **Definições de cabeçalho personalizado** esta definição ajuda a adicionar cabeçalhos HTTP específicos para o estado de funcionamento de configuração verifica que o Gestor de tráfego envia para pontos finais sob um perfil. Os cabeçalhos personalizados podem ser especificados a um nível de perfil até ser aplicável a todos os pontos finais esse perfil and / or num nível de ponto final aplicável apenas para esse ponto final. Pode usar os cabeçalhos personalizados para ter as verificações do Estado de funcionamento para pontos finais num ambiente multi-inquilino ser roteados corretamente ao especificar um cabeçalho de anfitrião ao seu destino. Também pode utilizar esta definição, adicionando os cabeçalhos exclusivos que podem ser utilizados para identificar o Gestor de tráfego teve origem pedidos de HTTP (S) e processa-os de forma diferente. Pode especificar até oito seprated de pares de valor do cabeçalho: por uma vírgula. Por exemplo, "header1:value1, header2:value2". 
 * **Intervalos de código de estado de espera** esta definição permite-lhe especificar vários intervalos de código de êxito no formato 200 299, 301 301. Se estes códigos de estado são recebidos como resposta a partir de um ponto de extremidade quando uma verificação de estado de funcionamento é iniciada, o Gestor de tráfego marca esses pontos de extremidade como bom estado de funcionamento. Pode especificar um máximo de 8 intervalos de código de estado. Esta definição é aplicável apenas para o protocolo HTTP e HTTPS e para todos os pontos finais. Esta definição é no nível de perfil do Gestor de tráfego e por predefinição, o valor de 200 é definido como o código de estado de êxito.
 * **Intervalo de pesquisa**. Este valor Especifica a frequência com que um ponto de extremidade é verificado para seu estado de funcionamento de um agente de pesquisa do Gestor de tráfego. Pode especificar dois valores aqui: 30 segundos (pesquisa normal) e 10 segundos (pesquisa rápida). Se não forem fornecidos valores, o perfil define como um valor predefinido de 30 segundos. Visite o [preço de Gestor de tráfego](https://azure.microsoft.com/pricing/details/traffic-manager) página para obter mais informações sobre os preços de pesquisa rápida.
 * **Pela tolerar o número de falhas de**. Este valor Especifica como várias falhas de um agente de pesquisa do Gestor de tráfego tolera antes de os marcar esse ponto final danificada. O valor pode variar entre 0 e 9. Um valor de 0 significa que uma única falha de monitorização pode causar o ponto de extremidade seja marcado como mau estado de funcionamento. Se for especificado nenhum valor, ele usa o valor predefinido de 3.
@@ -69,12 +69,12 @@ Estado do monitor de ponto final é um valor gerado pelo Gestor de tráfego, que
 
 | Estado do perfil | Estado do ponto final  | Estado do monitor de ponto final | Notas |
 | --- | --- | --- | --- |
-| Desativado |Ativado |Inativa |O perfil foi desativado. Embora o estado de ponto final estiver ativado, o estado do perfil (desativado) tem precedência. Pontos finais nos perfis desativados não são monitorizados. Um código de resposta NXDOMAIN é retornado para a consulta DNS. |
-| &lt;any&gt; |Desativado |Desativado |O ponto final foi desativado. Pontos de extremidade desativados não são monitorizados. O ponto final não está incluído nas respostas DNS, por conseguinte, não receber o tráfego. |
-| Ativado |Ativado |Online |O ponto final está a ser monitorizado e está em bom estado. Ele está incluído nas respostas DNS e pode receber o tráfego. |
-| Ativado |Ativado |Degradado |Ponto final de monitorização do Estado de funcionamento verificações estão a falhar. O ponto final não está incluído nas respostas DNS e não recebe o tráfego. <br>Uma exceção é se todos os pontos finais estão degradados, caso em que todas elas são consideradas a ser devolvido na resposta da consulta).</br>|
-| Ativado |Ativado |CheckingEndpoint |O ponto final está a ser monitorizado, mas os resultados da primeira sonda ainda não foram recebidos. CheckingEndpoint é um estado temporário que normalmente ocorre imediatamente após a adição ou ativar um ponto de extremidade no perfil. Um ponto de extremidade neste estado está incluído nas respostas DNS e pode receber o tráfego. |
-| Ativado |Ativado |Parada |A aplicação de web ou serviço cloud que o ponto final aponta para não está em execução. Verifique as definições de aplicação de web ou serviço cloud. Também pode acontecer se o ponto final é do tipo aninhado ponto de extremidade e o perfil de subordinado está desativado ou está inativo. <br>Um ponto final com um estado parado, não é monitorizado. Ele não está incluído nas respostas DNS e não recebe o tráfego. Uma exceção é se todos os pontos finais estão degradados, caso em que todos eles serão considerados a ser devolvido na resposta da consulta.</br>|
+| Desactivado |Activado |Inativa |O perfil foi desativado. Embora o estado de ponto final estiver ativado, o estado do perfil (desativado) tem precedência. Pontos finais nos perfis desativados não são monitorizados. Um código de resposta NXDOMAIN é retornado para a consulta DNS. |
+| &lt;any&gt; |Desactivado |Desactivado |O ponto final foi desativado. Pontos de extremidade desativados não são monitorizados. O ponto final não está incluído nas respostas DNS, por conseguinte, não receber o tráfego. |
+| Activado |Activado |Online |O ponto final está a ser monitorizado e está em bom estado. Ele está incluído nas respostas DNS e pode receber o tráfego. |
+| Activado |Activado |Degradado |Ponto final de monitorização do Estado de funcionamento verificações estão a falhar. O ponto final não está incluído nas respostas DNS e não recebe o tráfego. <br>Uma exceção é se todos os pontos finais estão degradados, caso em que todas elas são consideradas a ser devolvido na resposta da consulta).</br>|
+| Activado |Activado |CheckingEndpoint |O ponto final está a ser monitorizado, mas os resultados da primeira sonda ainda não foram recebidos. CheckingEndpoint é um estado temporário que normalmente ocorre imediatamente após a adição ou ativar um ponto de extremidade no perfil. Um ponto de extremidade neste estado está incluído nas respostas DNS e pode receber o tráfego. |
+| Activado |Activado |Parada |A aplicação de web ou serviço cloud que o ponto final aponta para não está em execução. Verifique as definições de aplicação de web ou serviço cloud. Também pode acontecer se o ponto final é do tipo aninhado ponto de extremidade e o perfil de subordinado está desativado ou está inativo. <br>Um ponto final com um estado parado, não é monitorizado. Ele não está incluído nas respostas DNS e não recebe o tráfego. Uma exceção é se todos os pontos finais estão degradados, caso em que todos eles serão considerados a ser devolvido na resposta da consulta.</br>|
 
 Para obter detalhes sobre como o estado do monitor de ponto final é calculado para aninhados pontos de extremidade, consulte [aninhada de perfis do Gestor de tráfego](traffic-manager-nested-profiles.md).
 
@@ -87,11 +87,11 @@ O estado do monitor de perfil é uma combinação do Estado do perfil configurad
 
 | Estado do perfil (conforme configurado) | Estado do monitor de ponto final | Estado do monitor de perfil | Notas |
 | --- | --- | --- | --- |
-| Desativado |&lt;qualquer&gt; ou um perfil com não existem pontos finais definidos. |Desativado |O perfil foi desativado. |
-| Ativado |O estado de, pelo menos, um ponto final está degradado. |Degradado |Reveja os valores de estado do ponto de extremidade individuais para determinar quais pontos de extremidade ainda mais necessitam de atenção. |
-| Ativado |O estado de, pelo menos, um ponto final é Online. Não existem pontos finais possuem um status de Degraded. |Online |O serviço está a aceitar o tráfego. Não são necessárias mais ações. |
-| Ativado |O estado de, pelo menos, um ponto final é CheckingEndpoint. Não existem pontos finais estão em Estado Online ou Degraded. |CheckingEndpoints |O estado de transição ocorre quando um perfil se criadas ou ativadas. O estado de funcionamento do ponto final está a ser verificado pela primeira vez. |
-| Ativado |Os Estados de todos os pontos finais no perfil são desativado ou parado ou o perfil não tem definidos pontos finais. |Inativa |Não existem pontos finais estão ativos, mas o perfil ainda está ativado. |
+| Desactivado |&lt;qualquer&gt; ou um perfil com não existem pontos finais definidos. |Desactivado |O perfil foi desativado. |
+| Activado |O estado de, pelo menos, um ponto final está degradado. |Degradado |Reveja os valores de estado do ponto de extremidade individuais para determinar quais pontos de extremidade ainda mais necessitam de atenção. |
+| Activado |O estado de, pelo menos, um ponto final é Online. Não existem pontos finais possuem um status de Degraded. |Online |O serviço está a aceitar o tráfego. Não são necessárias mais ações. |
+| Activado |O estado de, pelo menos, um ponto final é CheckingEndpoint. Não existem pontos finais estão em Estado Online ou Degraded. |CheckingEndpoints |O estado de transição ocorre quando um perfil se criadas ou ativadas. O estado de funcionamento do ponto final está a ser verificado pela primeira vez. |
+| Activado |Os Estados de todos os pontos finais no perfil são desativado ou parado ou o perfil não tem definidos pontos finais. |Inativa |Não existem pontos finais estão ativos, mas o perfil ainda está ativado. |
 
 ## <a name="endpoint-failover-and-recovery"></a>Ativação pós-falha do ponto final e recuperação
 

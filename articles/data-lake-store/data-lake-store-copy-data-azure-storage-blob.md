@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 7e218cea543b48371647531cf6d62d8c10a07978
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5049e280b65a9f223ea577ee4fde973657682b4c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230755"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544651"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copiar dados dos Blobs de armazenamento do Azure para a geração 1 de armazenamento do Azure Data Lake
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Antes de começar este artigo, tem de ter o seguinte:
 * **Os Blobs de armazenamento do Azure** contentor com alguns dados.
 * **Uma conta de geração 1 de armazenamento do Azure Data Lake**. Para obter instruções sobre como criar um, consulte [introdução ao Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **(Opcional) da conta do Azure Data Lake Analytics** -veja [introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obter instruções sobre como criar uma conta do Data Lake Analytics.
-* **Ferramenta de AdlCopy**. Instalar a ferramenta AdlCopy [ http://aka.ms/downloadadlcopy ](https://aka.ms/downloadadlcopy).
+* **Ferramenta de AdlCopy**. Instalar a ferramenta AdlCopy [ https://aka.ms/downloadadlcopy ](https://aka.ms/downloadadlcopy).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Sintaxe da ferramenta AdlCopy
 Utilize a seguinte sintaxe para trabalhar com a ferramenta de AdlCopy

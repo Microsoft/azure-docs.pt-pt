@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 247720e8b1c044175d404dee6ffdc272ac3d24af
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 5fb62c38bde98d946694790adb860240eaa59fa9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336534"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530182"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>URL de entidade criados previamente para uma aplicação LUIS
 Entidade de URL extrai URLs com nomes de domínio ou endereços IP. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém os URLs para a aplicação. Entidade de URL é suportada no `en-us` apenas a cultura. 
@@ -29,7 +29,7 @@ O exemplo seguinte mostra a resolução do **builtin.url** entidade.
 
 ```json
 {
-  "query": "http://www.luis.ai is a great cognitive services example of artificial intelligence",
+  "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {
     "intent": "None",
     "score": 0.781975448
@@ -42,7 +42,7 @@ O exemplo seguinte mostra a resolução do **builtin.url** entidade.
   ],
   "entities": [
     {
-      "entity": "http://www.luis.ai",
+      "entity": "https://www.luis.ai",
       "type": "builtin.url",
       "startIndex": 0,
       "endIndex": 17

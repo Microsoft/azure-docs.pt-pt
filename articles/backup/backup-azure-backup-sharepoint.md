@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 35f9b76e27a0977a25f6d060f7362bc417e0568e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 7e8043badbc0accd38ad618a7d455729ab6606b2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813862"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541297"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Fazer cópia de segurança de um farm do SharePoint para o Azure
 Criar cópias de segurança um farm do SharePoint para o Microsoft Azure com o System Center Data Protection Manager (DPM) no quase da mesma forma que efetue cópias de segurança de outras origens de dados. O Azure Backup fornece flexibilidade na programação de cópia de segurança para criar diariamente, pontos de cópia de segurança semana, mensal ou anual e dá-lhe opções de política de retenção para vários pontos de cópia de segurança. O DPM fornece a capacidade para armazenar cópias de disco local para rápida objetivos de tempo de recuperação (RTO) e para armazenar cópias para o Azure para retenção económica de longo prazo.
@@ -47,7 +47,7 @@ Embora o desempenho depende de vários fatores, como o tamanho do farm do ShareP
 
 ### <a name="dpm-update-rollup-5"></a>Update Rollup 5 do DPM
 Para iniciar a proteção de um farm do SharePoint para o Azure, terá de instalar o DPM Update Rollup 5 ou posterior. O Update Rollup 5 fornece a capacidade de proteger um farm do SharePoint para o Azure, se o farm é configurado utilizando o SQL AlwaysOn.
-Para obter mais informações, consulte o blog da postagem que introduz [Update Rollup 5 do DPM](http://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
+Para obter mais informações, consulte o blog da postagem que introduz [Update Rollup 5 do DPM](https://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
 
 ### <a name="whats-not-supported"></a>O que não é suportado
 * O DPM protege um farm do SharePoint não protege os índices de pesquisa ou bases de dados de serviço de aplicações. Terá de configurar a proteção destas bases de dados separadamente.
@@ -240,6 +240,6 @@ Sim, o item pode ser recuperado para o site do SharePoint original.
 Como os bancos de dados do SharePoint são configurados no SQL AlwaysOn, não é possível modificar a menos que o grupo de disponibilidade é removido. Como resultado, o DPM não é possível restaurar uma base de dados para a localização original. Pode recuperar uma base de dados do SQL Server para outra instância do SQL Server.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Saiba mais sobre o DPM proteção do SharePoint – consulte [série de vídeo - DPM proteção do SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
+* Saiba mais sobre o DPM proteção do SharePoint – consulte [série de vídeo - DPM proteção do SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 * Revisão [notas de versão do System Center 2012 – Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 * Revisão [notas de versão para o Data Protection Manager no System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c95fcd2e6369fae920481db2623124342c34a730
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ce9635c108a948b4773c7d27cb254f01d06896f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447635"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544244"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
@@ -38,7 +38,7 @@ Contas de armazenamento para fins gerais v2 de suportar as funcionalidades de ar
 > [!NOTE]
 > A Microsoft recomenda utilizar uma conta de armazenamento para fins gerais v2 na maioria dos cenários. Pode facilmente atualizar uma para fins gerais v1 ou a conta de armazenamento de BLOBs para uma conta para fins gerais v2, sem períodos de indisponibilidade e sem a necessidade de copiar dados.
 >
-> Para obter mais informações sobre como atualizar para uma conta para fins gerais v2, consulte [atualizar para uma conta de armazenamento para fins gerais v2](storage-account-upgrade.md). 
+> Para obter mais informações sobre como atualizar para uma conta para fins gerais v2, consulte [atualizar para uma conta de armazenamento para fins gerais v2](storage-account-upgrade.md).
 
 Contas de armazenamento para fins gerais v2 oferecem várias camadas de acesso para armazenar dados com base nos seus padrões de utilização. Para obter mais informações, consulte [camadas de acesso para o bloco de dados de BLOBs](#access-tiers-for-block-blob-data).
 
@@ -85,7 +85,7 @@ Armazenamento do Azure oferece opções diferentes para aceder aos dados de blob
 Os escalões de acesso disponíveis são:
 
 > [!NOTE]
-> O [escalão de acesso de Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) está disponível em pré-visualização limitada, como uma conta de armazenamento localmente redundante (LRS) nas regiões Europa do Norte, E.u.a. Leste 2, E.u.a. Central e E.u.a. oeste. Para saber como se registar na pré-visualização, veja [introdução ao armazenamento de Blobs do Azure Premium](https://aka.ms/premiumblob).
+> O [o escalão de acesso de premium (pré-visualização)](../blobs/storage-blob-storage-tiers.md#premium-access-tier), que é otimizado para aplicações confidenciais de desempenho, fornece uma latência baixa e consistente com taxas de transação e débito elevadas. A camada de acesso de premium está disponível apenas com contas de armazenamento de Blob de blocos (pré-visualização). Para obter mais informações, consulte [pré-visualização pública do armazenamento de Blobs do Azure Premium](https://azure.microsoft.com/blog/azure-premium-blob-storage-public-preview/).
 
 * O **frequente** camada de acesso, o que está otimizada para acesso frequente de objetos na conta de armazenamento. Aceder aos dados na camada frequente é mais econômica, enquanto os custos de armazenamento são um pouco mais. Novas contas de armazenamento são criadas de acesso frequente escalão por predefinição.
 * O **esporádico** camada de acesso, o que está otimizada para armazenar grandes quantidades de dados que são acedidos com pouca frequência e armazenados durante, pelo menos, 30 dias. Armazenamento de dados na camada de acesso esporádica é mais rentável, mas o acesso aos dados pode ser um pouco mais dispendioso do que a aceder aos dados na camada frequente.

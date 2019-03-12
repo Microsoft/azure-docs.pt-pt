@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244496"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550127"
 ---
-# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: O processo de EDIFACT faturas de usar os serviços BizTalk do Azure
+# <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: Processar faturas EDIFACT com os Serviços BizTalk do Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -55,11 +55,11 @@ Para alcançar este cenário de negócio, a Contoso utiliza os recursos fornecid
 Para concluir o cenário, usamos filas do Service Bus para enviar a nota fiscal da Contoso para Northwind ou receber confirmação da Northwind. Estas filas podem ser criadas através de uma aplicação de cliente, o que está disponível para download e está incluída no pacote de exemplo que está disponível como parte deste tutorial.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Tem de ter um espaço de nomes do Service Bus. Para obter instruções sobre como criar um espaço de nomes, veja [como: criar ou modificar um espaço de nomes de serviço do Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Vamos assumir que já tem um espaço de nomes do Service Bus aprovisionado, chamado **edifactbts**.
+* Tem de ter um espaço de nomes do Service Bus. Para obter instruções sobre como criar um espaço de nomes, consulte [como: Criar ou modificar um espaço de nomes de serviço do Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Vamos assumir que já tem um espaço de nomes do Service Bus aprovisionado, chamado **edifactbts**.
 * Tem de ter uma subscrição de serviços do BizTalk. Para este tutorial, vamos assumir que tiver uma subscrição de serviços do BizTalk, chamada **contosowabs**.
 * Registe a sua subscrição de serviços do BizTalk no Portal de serviços do BizTalk. Para obter instruções, consulte [registar uma implementação de serviços do BizTalk no Portal dos serviços do BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
 * Tem de ter o Visual Studio instalado.
-* Tem de ter o SDK dos BizTalk Services instalado. Pode baixar o SDK do [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
+* Tem de ter o SDK dos BizTalk Services instalado. Pode baixar o SDK do [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## <a name="step-1-create-the-service-bus-queues"></a>Passo 1: Criar as filas do Service Bus
 Esta solução utiliza filas do Service Bus para trocar mensagens entre parceiros comerciais. Contoso e Northwind enviam mensagens para as filas de onde os pontes EAI e/ou EDI aceder aos mesmos. Para esta solução, terá três filas do Service Bus:
@@ -106,7 +106,7 @@ Contratos de parceiros comerciais são criados entre perfis de negócios de parc
    3. Sobre o **protocolo** separador, no **esquemas** secção, carregue o **EFACT_D93A_INVOIC.xsd** esquema. Esse esquema está disponível com o pacote de exemplo.
       
       ![][4]  
-   4. Sobre o **transporte** separador, especifique os detalhes para as filas do Service Bus. O contrato de lado de envio, vamos utilizar o **northwindreceive** fila para enviar a nota fiscal EDIFACT para Northwind e o **suspenso** fila para encaminhar todas as mensagens que falharem durante o processamento e são suspensos. Criou estes filas em **passo 1: criar as filas do Service Bus** (deste tópico).
+   4. Sobre o **transporte** separador, especifique os detalhes para as filas do Service Bus. O contrato de lado de envio, vamos utilizar o **northwindreceive** fila para enviar a nota fiscal EDIFACT para Northwind e o **suspenso** fila para encaminhar todas as mensagens que falharem durante o processamento e são suspensos. Criou estes filas em **passo 1: Criar as filas do Service Bus** (deste tópico).
       
       ![][5]  
       
@@ -246,7 +246,7 @@ Neste tópico, vamos ver como testar a solução utilizando o **Tutorial cliente
    
    ![][16]  
 
-## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Passo 5 (opcional): nota fiscal de EDIFACT enviar em lotes
+## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Passo 5 (opcional): Enviar faturas EDIFACT em lotes
 Pontes de EDI do BizTalk Services também suporta a criação de batches de mensagens de saída. Esta funcionalidade é útil para o recebimento de parceiros que receber um lote de mensagens (determinado critério de reuniões) em vez de mensagens individuais.
 
 O aspecto mais importante ao trabalhar com lotes é a versão real do batch, também denominado os critérios de versão. Os critérios de versão podem basear-se em como o parceiro de receção quer receber mensagens. Se a criação de batches estiver ativada, a ponte EDI não envia os mensagem de saída para o parceiro de receção, até que os critérios de versão é concluído. Por exemplo, um critério de criação de batches com base na mensagem tamanho expedir um lote apenas quando "n" são limitativas mensagens. Um critério de batch também pode ser o baseados no tempo, que é enviado um lote uma hora fixa todos os dias. Nesta solução, tentamos os critérios com base do tamanho da mensagem.

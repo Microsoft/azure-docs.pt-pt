@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
-ms.date: 03/04/2019
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 4cd94a0d5891c2d34e152dad87d21cbb45a2ec39
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336874"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766579"
 ---
 # <a name="scheduling-a-test"></a>Agendamento de um teste
 
@@ -53,7 +53,7 @@ Inicie sessão no portal, selecione ou criação de uma solução e, em seguida,
 
 ![Texto alternativo](media/vaas_test_pass_parameters.png)
 
-Defina o fluxo de trabalho para a sua solução. O fluxo de trabalho tem as etapas de processo utilizado para testar a sua solução.
+Fornece os parâmetros que se aplicam a todos os testes no fluxo de trabalho.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -63,22 +63,23 @@ Defina o fluxo de trabalho para a sua solução. O fluxo de trabalho tem as etap
 
 ## <a name="select-tests-to-run"></a>Selecione a execução
 
-Escolha os testes que pretende executar no seu fluxo de trabalho.
+Os testes que selecionar serão agendados uma vez criado o fluxo de trabalho.
 
 1. Selecione a que pretende executar no seu fluxo de trabalho de teste (s).
 
     Se quiser substituir os parâmetros comuns (ou seja, os parâmetros fornecidos na secção anterior) de qualquer teste, selecione o **editar** ligação seguinte para especificar os novos valores.
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. Selecione **seguinte** para rever o fluxo de trabalho.
 
 ## <a name="review-and-submit"></a>Rever e submeter
 
-Rever, criar e, em seguida, agendar, o fluxo de trabalho.
+Conclua a criação de fluxo de trabalho.
 
 1. Reveja as informações apresentadas.
 
-    Os serviços cria seu fluxo de trabalho com as informações fornecidas e serão agendados com os testes selecionados.
+    O serviço cria seu fluxo de trabalho com as informações fornecidas e serão agendados com os testes selecionados.
 
     Se nada for exibida incorreto, utilize o **Previous** botões para ir para uma seção anterior.
 

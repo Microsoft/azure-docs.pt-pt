@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a6d48ab0112c0f6064d65910dd84e17436de94d7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 887e3b24a061225c2b4adbfdc5e5696ed268e349
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442771"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540361"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Início rápido: Extrair texto manuscrito usando a REST API e JavaScript na visão do computador
 
@@ -50,7 +50,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 <html>
 <head>
     <title>Handwriting Sample</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 

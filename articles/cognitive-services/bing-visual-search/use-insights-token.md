@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: a1a2128e4e13494a76dfad9f051be56e02dbd995
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d2bf5194a3fd4398927d0ee95d89e44db1c1ca15
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878804"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542646"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Com um token de informações para obter informações sobre uma imagem
 
@@ -286,7 +286,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-// http://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
+// https://hc.apache.org/downloads.cgi (HttpComponents Downloads) HttpClient 4.5.5
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

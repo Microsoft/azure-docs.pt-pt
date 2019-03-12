@@ -5,8 +5,6 @@ services: traffic-manager
 documentationcenter: ''
 author: liumichelle
 manager: dkays
-editor: ''
-ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-ms.openlocfilehash: a6f7a690cac5718216636d3191f348c71bcfb5d6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 8c4d890633a8d588b51f876a361a77e6533b5db4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734356"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533156"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Com os serviços de balanceamento de carga no Azure
 

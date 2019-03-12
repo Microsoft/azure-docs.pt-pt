@@ -196,12 +196,12 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=event-hubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-eventhub
+    href: https://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 95e32aa7c38ba5cda4ac6a83bb72f5d28d5b5e9b
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 3053e474ff88c979287dcbfb666283302ea03ed3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560792"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531220"

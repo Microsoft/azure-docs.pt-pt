@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 963d03db2db811b44b1d89df8254f751ec7d3136
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cf4ee8b1b9d96ad4d32a0ac8b1682968b90653f9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877406"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541495"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Como aprovisionar dispositivos legados com chaves simétricas
 
@@ -114,7 +114,7 @@ O SDK inclui o código de exemplo para o dispositivo simulado. Esse dispositivo 
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>Criar um grupo de inscrição de chave simétrica
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com)e abra a sua instância do serviço aprovisionamento de dispositivos.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a sua instância do serviço aprovisionamento de dispositivos.
 
 2. Selecione o **gerir inscrições** separador e, em seguida, clique nas **adicionar grupo de inscrição** botão na parte superior da página. 
 

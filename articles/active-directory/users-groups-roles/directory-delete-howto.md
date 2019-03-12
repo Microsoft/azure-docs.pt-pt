@@ -9,20 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/05/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59bfc13053a33b8f29f09a9ab93a108e746ea012
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3dffcfe7c4c892976a61272a2217226f512b70ed
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431160"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542561"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Eliminar um inquilino do Azure Active Directory
-
 Quando um inquilino é eliminado, também são eliminados todos os recursos que estão contidos no inquilino. Tem de preparar o inquilino ao minimizarem os seus recursos associados antes de eliminar. Apenas um administrador global do Azure Active Directory (Azure AD) pode eliminar um inquilino do Azure AD a partir do portal.
 
 ## <a name="prepare-the-tenant-for-deletion"></a>Preparar o inquilino para eliminação
@@ -52,7 +51,7 @@ Não é possível eliminar um inquilino no Azure AD, até que ele passa diversas
 
 ## <a name="i-have-an-expired-subscription-but-i-cant-delete-the-tenant"></a>Tenho uma subscrição expirada, mas não consigo eliminar o inquilino
 
-Quando configurou o seu inquilino do Azure Active Directory, pode também ativar as subscrições com base na licença para a sua organização, como o Azure Active Directory Premium P2, Office 365 empresas – versão Premium, ou Enterprise Mobility + Security E5. Estas subscrições bloqueiam a eliminação de diretório até são totalmente eliminadas, para evitar a perda acidental de dados. As subscrições têm de estar num **desaprovisionada** estado para permitir que a eliminação do inquilino. Uma **expirado** ou **cancelado** subscrição move para a **desativado** estado e a etapa final é o **Deprovisoned** estado. 
+Quando configurou o seu inquilino do Azure AD, pode também ativar as subscrições com base na licença para a sua organização, como o Azure AD Premium P2, Office 365 empresas – versão Premium, ou Enterprise Mobility + Security E5. Estas subscrições bloqueiam a eliminação de diretório até são totalmente eliminadas, para evitar a perda acidental de dados. As subscrições têm de estar num **desaprovisionada** estado para permitir que a eliminação do inquilino. Uma **expirado** ou **cancelado** subscrição move para a **desativado** estado e a etapa final é o **Deprovisoned** estado. 
 
 Para o que esperar quando uma subscrição de avaliação do Office 365 expira (não incluindo paga parceiro/CSP, Enterprise Agreement ou licenciamento por Volume), consulte a tabela seguinte. Para obter mais informações sobre o Office 365 dados retenção e a subscrição do ciclo de vida, consulte [o que acontece aos meus dados e o acesso quando o meu do Office 365 para a subscrição de empresas termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -61,17 +60,19 @@ Estado da subscrição | Dados | Acesso a dados
 Active Directory (30 dias para avaliação)  | Dados acessíveis a todos    | <li>Os utilizadores têm acesso normal a ficheiros do Office 365, ou aplicações<li>Os administradores têm acesso normal para o Centro de administração do Office 365 e recursos 
 Expirada (30 dias)   | Dados acessíveis a todos    | <li>Os utilizadores têm acesso normal a ficheiros do Office 365, ou aplicações<li>Os administradores têm acesso normal para o Centro de administração do Office 365 e recursos
 Desativado (30 dias) | Dados acessíveis para apenas administradores  | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem aceder ao centro de administração do Office 365, mas não é possível atribuir licenças para ou atualizar utilizadores
-Desaprovisionada (30 dias após desativado) | Dados eliminados (eliminado automaticamente se não existem outros serviços estão em utilização) | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem acessar o Centro de administração do Office 365 para comprar e gerir outras subscrições
+Desaprovisionada (30 dias após desativado) | Dados eliminados (eliminado automaticamente se não existem outros serviços estão em utilização) | <li>Os utilizadores não é possível aceder a aplicações ou ficheiros do Office 365<li>Os administradores podem acessar o Centro de administração do Office 365 para comprar e gerir outras subscrições 
 
-Pode colocar uma subscrição para um **Deprovisoned** estado para ser eliminada em 3 dias, com a Microsoft Store para o Centro de administração de negócios. Esta funcionalidade estará disponível em breve para o Centro de administração do Office 365.
+## <a name="delete-a-subscription-in-the-microsoft-365-admin-center"></a>Eliminar uma subscrição no Centro de administração do Microsoft 365
 
-1. Inicie sessão para o [Microsoft Store para o Centro de administração empresarial](https://businessstore.microsoft.com/manage/) com uma conta que seja um Administrador Global no inquilino. Se estiver a tentar eliminar o inquilino de "Contoso" que tem o contoso.onmicrosoft.com de domínio predefinido inicial, inicie sessão com um UPN como admin@contoso.onmicrosoft.com.
+Pode colocar uma subscrição para um **Deprovisoned** estado a eliminar dentro de 3 dias com o Centro de administração do Microsoft 365.
 
-2. Vá para o **Manage** separador e selecione **produtos e serviços**, em seguida, escolha a subscrição que pretende cancelar e selecione **eliminar**.
+1. Inicie sessão para o [Centro de administração do Microsoft 365](https://admin.microsoft.com) com uma conta que seja um Administrador Global no inquilino. Se estiver a tentar eliminar o inquilino de "Contoso" que tem o contoso.onmicrosoft.com de domínio predefinido inicial, inicie sessão com um UPN como admin@contoso.onmicrosoft.com.
+
+2. Vá para o **faturação** separador e selecione **produtos e serviços**, em seguida, escolha a subscrição que pretende cancelar. Depois de clicar em **Cancelar**, atualize a página.
   
   ![Eliminar a ligação para a eliminar subscrição](./media/directory-delete-howto/delete-command.png)
   
-3. Selecione **eliminar subscrição** para aceitar os termos e condições e eliminar a subscrição. Todos os dados é eliminado permanentemente no prazo de três dias. Pode reativar a subscrição durante os próximos três dias, se mudar de ideias.
+3. Selecione **eliminar** para eliminar a subscrição e aceite os termos e condições. Todos os dados é eliminado permanentemente no prazo de três dias. Pode reativar a subscrição durante o período de três dias, se mudar de ideias.
   
   ![termos e condições](./media/directory-delete-howto/delete-terms.png)
 

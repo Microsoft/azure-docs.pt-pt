@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: f488f8aa991b3d4baae05097af9b6e2f2db481cc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: d684493a3ede55c241c901bb0814630b1d204e0c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158929"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542884"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Abane, abane para um Tweet – obter uma mensagem do Twitter com as funções do Azure
 
@@ -60,7 +60,7 @@ Na janela da solução, executar a tarefa através de `Ctrl+P` (macOS: `Cmd+P`) 
 
 No terminal VS Code, uma linha de comandos interativa orienta-o através do aprovisionamento os serviços do Azure necessários:
 
-![Aprovisionamento de cloud](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
+![cloud-provision](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/cloud-provision.png)
 
 > [!NOTE]
 > Se a página paradas do Estado de carregamento ao tentar iniciar sessão no Azure, consulte a [passo "página de início de sessão se destaca" em perguntas Freqüentes IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#page-hangs-when-log-in-azure).
@@ -169,7 +169,7 @@ Para fins de teste, esse projeto de exemplo usa um token de portador do Twitter 
 
 4. Na [portal do Azure](https://portal.azure.com/){: target = blank"}, entrar no **grupo de recursos** e encontrar a função do Azure (tipo: Serviço de aplicações) para o seu projeto de "Abanar, Agite". O nome contém sempre 'abane..."cadeia de caracteres.
 
-   ![função do Azure](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
+   ![azure-function](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function.png)
 
 5. Atualizar o código para `run.csx` dentro **funções > shakeshake cs** com o seu próprio token:
 
@@ -177,7 +177,7 @@ Para fins de teste, esse projeto de exemplo usa um token de portador do Twitter 
    string authHeader = "Bearer " + "[your own token]";
   ```
   
-  ![token do twitter](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
+  ![twitter-token](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/twitter-token.png)
 
 6. Guarde o ficheiro e clique em **executar**.
 
@@ -195,13 +195,13 @@ Em alternativa, ao executar o código, existem alguns blips que causam um reiní
 
 2. Na [portal do Azure](https://portal.azure.com/), localize a aplicação de funções do Azure que criou e reiniciá-lo:
 
-   ![reinício de função do Azure](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
+   ![azure-function-restart](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/azure-function-restart.png)
 
 ### <a name="feedback"></a>Comentários
 
 Se tiver outros problemas, consulte a [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou contacte-nos com os seguintes canais:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Passos Seguintes

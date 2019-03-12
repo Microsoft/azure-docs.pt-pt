@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 98ca3478c3a8963c3bf57143354340d6ed14900e
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.date: 03/06/2019
+ms.openlocfilehash: 2f615214fb7b77614054841af7972eb814525dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594343"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549923"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -26,6 +26,7 @@ A opção de implementação de instância gerida fornece compatibilidade com o 
 ![Migração](./media/sql-database-managed-instance/migration.png)
 
 Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este artigo resume e explica essas diferenças. <a name="Differences"></a>
+
 - [Disponibilidade](#availability) incluindo as diferenças nos [Always-On](#always-on-availability) e [cópias de segurança](#backup),
 - [Segurança](#security) incluindo as diferenças nos [auditoria](#auditing), [certificados](#certificates), [credenciais](#credential), [provedores criptográficos](#cryptographic-providers), [Inícios de sessão / utilizadores](#logins--users), [chave e a chave mestra de serviço do serviço](#service-key-and-service-master-key),
 - [Configuração](#configuration) incluindo as diferenças nos [a extensão do conjunto da memória intermédia](#buffer-pool-extension), [agrupamento](#collation), [níveis de compatibilidade](#compatibility-levels),[base de dados espelhamento](#database-mirroring), [opções de base de dados](#database-options), [SQL Server Agent](#sql-server-agent), [opções da tabela](#tables),
@@ -45,7 +46,7 @@ Uma vez que ainda existem algumas diferenças na sintaxe e o comportamento, este
 - [GRUPO DE DISPONIBILIDADE DE SOLTAR](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) cláusula do [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instrução
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 
 Instâncias geridas têm cópias de segurança automáticas e permitir que os utilizadores criar a base de dados completa `COPY_ONLY` cópias de segurança. Diferenciais, registo e de cópias de segurança de instantâneos de ficheiros não são suportadas.
 
@@ -61,10 +62,16 @@ Instâncias geridas têm cópias de segurança automáticas e permitir que os ut
 Limitações:  
 
 - Com a instância gerida, pode fazer backup de uma base de dados de instância para uma cópia de segurança com até 32 reparte, que é o suficiente para as bases de dados até 4 TB se for utilizada a compactação de backup.
-- Tamanho máximo do stripe de cópia de segurança é 195 GB (tamanho máximo de BLOBs). Aumente o número de reparte no comando de cópia de segurança para reduzir o tamanho do stripe individuais e se manter dentro este limite.
+- Usando o tamanho máximo stripe de cópia de segurança a `BACKUP` comando numa instância gerida é 195 GB (tamanho máximo de BLOBs). Aumente o número de reparte no comando de cópia de segurança para reduzir o tamanho do stripe individuais e se manter dentro este limite.
 
-> [!TIP]
-> Para contornar esta limitação no local, cópia de segurança `DISK` em vez de cópia de segurança para `URL`, carregar o ficheiro de cópia de segurança para BLOBs, em seguida, restaurar. Restauro suporta ficheiros maiores porque é utilizado um tipo de blob diferente.  
+    > [!TIP]
+    > Para contornar esta limitação ao fazer backup de uma base de dados a partir de qualquer um dos SQL Server num ambiente no local ou numa máquina virtual, pode fazer o seguinte:
+    >
+    > - Cópia de segurança para `DISK` em vez de cópia de segurança `URL`
+    > - Carregue os ficheiros de cópia de segurança para armazenamento de BLOBs
+    > - Restaurar para a instância gerida
+    >
+    > O `Restore` comando num instâncias geridas suporta tamanhos de BLOBs maiores nos ficheiros de cópia de segurança, porque é utilizado um tipo de blob diferente para o armazenamento dos ficheiros de cópia de segurança carregados.
 
 Para obter informações sobre cópias de segurança com o T-SQL, consulte [cópia de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
@@ -85,7 +92,7 @@ A chave de diferenças no `CREATE AUDIT` sintaxe para a auditoria para o armazen
 - Uma nova sintaxe `TO URL` é fornecido e permite-lhe especificar o URL do contentor de armazenamento de Blobs do Azure onde `.xel` serão colocados ficheiros
 - A sintaxe `TO FILE` não é suportada uma vez que uma instância gerida não é possível aceder a partilhas de ficheiros do Windows.
 
-Para obter mais informações, consulte:  
+Para obter mais informações, veja:  
 
 - [CRIAR A AUDITORIA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -125,44 +132,51 @@ Uma instância gerida não é possível aceder aos ficheiros, pelo que não não
 
 - Inícios de sessão SQL criados `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, e `FROM SID` são suportados. Ver [criar início de sessão](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Principais de servidor do Azure Active Directory (Azure AD) (inícios de sessão) criados com [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) sintaxe ou o [criar utilizador de início de sessão [início de sessão do Azure AD]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) sintaxe são suportados (**pré-visualização pública** ). Estes são criados ao nível do servidor de inícios de sessão.
-    - Instância gerida suporta entidades de base de dados do Azure AD com a sintaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Isso também é conhecido como os utilizadores de base de dados do Azure AD contido.
+
+    Instância gerida suporta entidades de base de dados do Azure AD com a sintaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Isso também é conhecido como os utilizadores de base de dados do Azure AD contido.
+
 - Inícios de sessão do Windows criados com `CREATE LOGIN ... FROM WINDOWS` sintaxe não são suportados. Utilize inícios de sessão do Azure Active Directory e os utilizadores.
 - Tem de utilizador do Azure AD que criou a instância [irrestrito privilégios de administrador](sql-database-manage-logins.md#unrestricted-administrative-accounts).
 - Utilizadores de nível de base de dados do Azure Active Directory (Azure AD) não administradores podem ser criados usando `CREATE USER ... FROM EXTERNAL PROVIDER` sintaxe. Consulte [utilizador de criar... DO FORNECEDOR EXTERNO](sql-database-manage-logins.md#non-administrator-users).
 - Principais de servidor do Azure AD (inícios de sessão) suportam a recursos SQL na instância de uma MI apenas. Funcionalidades que requerem a interação entre a instância, independentemente se o mesmo Azure AD dentro de inquilino ou inquilinos diferentes não são suportados para utilizadores do Azure AD. Exemplos de tais recursos são:
-    - Replicação transacional do SQL e
-    - Servidor de ligação
+
+  - Replicação transacional do SQL e
+  - Servidor de ligação
+
 - Definir um início de sessão do AD do Azure mapeado para um grupo do Azure AD, como o proprietário da base de dados não é suportado.
 - Representação de principais de ao nível do servidor do Azure AD com outras entidades de segurança do Azure AD é suportada, tal como o [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) cláusula. EXECUTE como limitação:
-    - EXECUTE AS USER não é suportada para utilizadores do Azure AD quando o nome é diferente do nome de início de sessão. Por exemplo, quando o utilizador é criado através da sintaxe CREATE USER [myAadUser] de início de sessão [john@contoso.com], e representação é tentada por meio de EXEC como utilizador = _myAadUser_. Ao criar um **USUÁRIO** a partir de um principal do servidor do Azure AD (início de sessão), especificar o user_name como o mesmo login_name partir **início de sessão**.
-    - Apenas os SQL server principais ao nível (inícios de sessão) que fazem parte do `sysadmin` função pode executar as seguintes operações de filtragem de entidades de segurança do Azure AD: 
-        - EXECUTAR COMO UTILIZADOR
-        - EXECUTAR COMO INÍCIO DE SESSÃO
+
+  - EXECUTE AS USER não é suportada para utilizadores do Azure AD quando o nome é diferente do nome de início de sessão. Por exemplo, quando o utilizador é criado através da sintaxe CREATE USER [myAadUser] de início de sessão [john@contoso.com], e representação é tentada por meio de EXEC como utilizador = _myAadUser_. Ao criar um **USUÁRIO** a partir de um principal do servidor do Azure AD (início de sessão), especificar o user_name como o mesmo login_name partir **início de sessão**.
+  - Apenas os SQL server principais ao nível (inícios de sessão) que fazem parte do `sysadmin` função pode executar as seguintes operações de filtragem de entidades de segurança do Azure AD:
+
+    - EXECUTAR COMO UTILIZADOR
+    - EXECUTAR COMO INÍCIO DE SESSÃO
+
 - **Pré-visualização pública** limitações para principais de servidor do Azure AD (inícios de sessão):
-    - Limitações de administração de diretório Active Directory para instância gerida:
-        - O administrador do Azure AD utilizado para configurar a instância gerida não pode ser utilizado para criar um Azure AD principal do servidor (início de sessão) dentro da instância gerida. Tem de criar o primeiro Azure principal do servidor AD (início de sessão) a utilizar uma conta do SQL Server que é um `sysadmin`. Esta é uma limitação temporária que será removida depois de principais de servidor do Azure AD (inícios de sessão) tornam-se em GA. Verá o seguinte erro se tentar utilizar uma conta de administrador do Azure AD para criar o início de sessão: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-        - Atualmente, o início de sessão do Azure AD primeiro criado na BD principal tem de ser criado pela conta do SQL Server standard (não o Azure AD) é uma `sysadmin` utilizando o [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) do fornecedor externo. GA do POST, essa limitação serão removidas e um inicial início de sessão do Azure AD pode ser criado pelo administrador do Active Directory para instância gerida.
+
+  - Limitações de administração de diretório Active Directory para instância gerida:
+
+    - O administrador do Azure AD utilizado para configurar a instância gerida não pode ser utilizado para criar um Azure AD principal do servidor (início de sessão) dentro da instância gerida. Tem de criar o primeiro Azure principal do servidor AD (início de sessão) a utilizar uma conta do SQL Server que é um `sysadmin`. Esta é uma limitação temporária que será removida depois de principais de servidor do Azure AD (inícios de sessão) tornam-se em GA. Verá o seguinte erro se tentar utilizar uma conta de administrador do Azure AD para criar o início de sessão: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - Atualmente, o início de sessão do Azure AD primeiro criado na BD principal tem de ser criado pela conta do SQL Server standard (não o Azure AD) é uma `sysadmin` utilizando o [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) do fornecedor externo. GA do POST, essa limitação serão removidas e um inicial início de sessão do Azure AD pode ser criado pelo administrador do Active Directory para instância gerida.
     - Utilizado com o SQL Server Management Studio (SSMS) ou SqlPackage DacFx (exportar/importar) não é suportada para inícios de sessão do Azure AD. Esta limitação será removida depois de principais de servidor do Azure AD (inícios de sessão) tornam-se em GA.
     - A utilização de principais de servidor do Azure AD (inícios de sessão) com o SSMS
-        - Não é suportada a criação de scripts de inícios de sessão do Azure AD (com qualquer início de sessão autenticado).
-        - O IntelliSense não reconhece os **criar início de sessão do fornecedor externo** instrução e mostrará um sublinhado em vermelho.
+
+      - Não é suportada a criação de scripts de inícios de sessão do Azure AD (com qualquer início de sessão autenticado).
+      - O IntelliSense não reconhece os **criar início de sessão do fornecedor externo** instrução e mostrará um sublinhado em vermelho.
+
 - Apenas ao nível do servidor de início de sessão principal (criado pela instância gerida, processo de aprovisionamento), os membros das funções de servidor (`securityadmin` ou `sysadmin`), ou outros inícios de sessão com a permissão ALTER ANY LOGIN ao nível do servidor podem criar servidor do Azure AD entidades de segurança (inícios de sessão) na base de dados mestra para a instância gerida.
 - Se o início de sessão é uma entidade de segurança do SQL, apenas inícios de sessão que fazem parte do `sysadmin` função pode utilizar o comando create para criar inícios de sessão para uma conta do Azure AD.
 - Início de sessão do Azure AD tem de ser um membro de um Azure AD no mesmo diretório utilizado para a instância gerida do SQL do Azure.
 - Principais de servidor do Azure AD (inícios de sessão) são visíveis no object explorer lhe que comece com o SSMS 18.0 preview 5.
 - É permitida a sobreposição de principais de servidor (inícios de sessão) do Azure AD com uma conta de administrador do Azure AD. Principais de servidor do Azure AD (inícios de sessão) têm precedência sobre administrador do Azure AD ao resolver as permissões do principal e a aplicar à instância gerida.
 - Durante a autenticação, a seguir a sequência é aplicada para resolver o principal de autenticação:
+
     1. Se a conta do Azure AD existe como mapeadas diretamente para o Azure AD principal do servidor (início de sessão) (presente no sys.server_principals como tipo de "E"), conceder acesso e aplicar permissões do principal de servidor do Azure AD (início de sessão).
     2. Se a conta do Azure AD é um membro de um grupo do Azure AD que está mapeado para o principal do servidor do Azure AD (início de sessão) (presente no sys.server_principals como sendo do tipo 'X'), conceder acesso e aplicar permissões de início de sessão de grupo do Azure AD.
     3. Se a conta do Azure AD é um especial configurado o portal de administrador do Azure AD para a instância gerida (não existe nas vistas de sistema de instância gerida), aplicar permissões especiais de fixas de administrador do Azure AD para a instância gerida (modo Legado).
     4. Se a conta do Azure AD existe como diretamente mapeado para um utilizador numa base de dados (em database_principals como tipo de "E"), conceder acesso e aplicar permissões do utilizador de base de dados do Azure AD.
     5. Se a conta do Azure AD é membro de um grupo do Azure AD que está mapeado para um utilizador numa base de dados (em database_principals como 'X' de tipo), conceder acesso e aplicar permissões de início de sessão de grupo do Azure AD.
     6. Se houver um início de sessão do AD do Azure mapeado para uma conta de utilizador do Azure AD ou uma conta de grupo do Azure AD, a resolver para o utilizador a autenticar, todas as permissões deste início de sessão do Azure AD serão aplicadas.
-
-
-
-
-
 
 ### <a name="service-key-and-service-master-key"></a>Chave de mestre de chave e de serviço do serviço
 
@@ -320,7 +334,6 @@ Uma instância gerida não é possível aceder a partilhas de ficheiros e pastas
 - Apenas `CREATE ASSEMBLY FROM BINARY` é suportada. Ver [CREATE ASSEMBLY de binário](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` is't suportado. Ver [CREATE ASSEMBLY de ficheiro](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` não pode referenciar arquivos. Ver [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
 
 ### <a name="dbcc"></a>DBCC
 

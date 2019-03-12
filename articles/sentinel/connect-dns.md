@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 088a8f5034593b222a8a204feaa40b9cf5374059
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a7f075b74876ec807d790f3ffbea5dad14163535
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241889"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530421"
 ---
 # <a name="connect-your-domain-name-server"></a>Connect your domain name server
 
@@ -56,7 +56,7 @@ Coleção de DNS é conseguida ao instalar um agente na máquina de DNS. O agent
 
 3. Para utilizar o esquema relevante no Log Analytics para os registos DNS, procure **DnsEvents**.
 
-## <a name="validate"></a>Validação 
+## <a name="validate"></a>Validar 
 
 No Log Analytics, procure o esquema **DnsEvents** e certifique-se de eventos.
 

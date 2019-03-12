@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 053cabfa29bd5e436fecd922e4bcdbca9483d25a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5b9e0a30658e1cb8fe0f83d55c04f120637babaf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455688"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549209"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory
 > [!NOTE]
@@ -28,7 +28,7 @@ Este artigo fornece sugestões de resolução de problemas para problemas ao uti
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
+## <a name="troubleshooting-tips"></a>Sugestões para a resolução de problemas
 ### <a name="error-the-subscription-is-not-registered-to-use-namespace-microsoftdatafactory"></a>Erro: A subscrição não está registada para utilizar o espaço de nomes 'Microsoft. DataFactory'
 Se aparecer este erro, o fornecedor de recursos do Azure Data Factory não foi registado no seu computador. Faça o seguinte:
 
@@ -120,7 +120,7 @@ Ver [depurar um pipeline com atividade personalizada](data-factory-use-custom-ac
 ### <a name="using-portal-blades"></a>Com os painéis do portais
 Ver [monitorizar o pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) para obter os passos.
 
-### <a name="using-monitor-and-manage-app"></a>Com a Aplicação Monitorizar e Gerir
+### <a name="using-monitor-and-manage-app"></a>Utilizar a Aplicação Monitorizar e Gerir
 Ver [monitorizar e gerir pipelines de fábrica de dados com a monitorizar e gerir aplicações](data-factory-monitor-manage-app.md) para obter detalhes.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Utilizar o Azure PowerShell para resolver problemas
@@ -130,9 +130,9 @@ Ver [pipelines de Monitor de Data Factory com o Azure PowerShell](data-factory-b
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
-[json-scripting-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[json-scripting-reference]: https://go.microsoft.com/fwlink/?LinkId=516971
 
 [azure-portal]: https://portal.azure.com/
 

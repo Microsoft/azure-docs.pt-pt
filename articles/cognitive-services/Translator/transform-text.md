@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 8d82a561102d0616ca4e66258ee439acbe2aa148
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: db350473e107a9c80aa85dffcf37d1b87a40c302
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866275"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540252"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Como utilizar o método TransformText
 
@@ -72,7 +72,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             AdmAccessToken admToken;
             string headerValue;
             //Get Client Id and Client Secret from https://datamarket.azure.com/developer/applications/
-            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx)
+            //Refer obtaining AccessToken (https://msdn.microsoft.com/library/hh454950.aspx)
             AdmAuthentication admAuth = new AdmAuthentication("clientID", "client secret");
 
             try
@@ -104,7 +104,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             string language = "en";
             string domain = "general";
             //Keep appId parameter blank as we are sending access token in authorization header.
-            string url = string.Format("http://api.microsofttranslator.com/V3/json/TransformText?sentence={0}&category={1}&language={2}",textToTransform,domain,language); ;
+            string url = string.Format("https://api.microsofttranslator.com/V3/json/TransformText?sentence={0}&category={1}&language={2}",textToTransform,domain,language); ;
             TransformTextResponse transformTextResponse= new TransformTextResponse();
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.Headers.Add("Authorization", authToken);

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 0086746ee676127a3fcae9e7b05efd3f7a9f65f3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 656ed50b9104fec48ff3eddb3c291608f8f87294
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878430"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534042"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Início rápido: Converter texto para voz com o .NET Core
 
@@ -156,7 +156,7 @@ string host = "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
 Texto é enviado como o corpo de um `POST` pedido. Com SSML, pode especificar a voz e linguagem. Neste início rápido, vamos utilizar SSML com o idioma definido como `en-US` e a voz como `ZiraRUS`. Vamos construir SSML para o seu pedido:
 
 ```csharp
-string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
+string body = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
               <voice name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>" +
               text + "</voice></speak>";
 ```
@@ -234,7 +234,7 @@ Se codificou a chave de subscrição no seu programa, certifique-se de que remov
 > [!div class="nextstepaction"]
 > [Explore exemplos de .NET no GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Referência da API de conversão de texto em voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [Criar tipos de voz personalizada](how-to-customize-voice-font.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: implementar e configurar o Azure Firewall com o portal do Azure'
+title: 'Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure'
 description: Neste tutorial, irá aprender a implementar e configurar o Azure Firewall com o portal do Azure.
 services: firewall
 author: vhorne
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2dd9fc5691c646a72936039b6bcc5949d227c6b5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633729"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545337"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
+# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure
 
 Controlar o acesso de rede de saída é uma parte importante de um plano de segurança de rede geral. Por exemplo, pode limitar o acesso a sites ou portas e endereços IP de saída que podem ser acedidos.
 
@@ -54,7 +54,7 @@ Em primeiro lugar, crie um grupo de recursos para conter os recursos necessário
 
 O grupo de recursos contém todos os recursos para o tutorial.
 
-1. Inicie sessão no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. Na página de boas-vindas do portal do Azure, clique em **Grupos de recursos** > **Adicionar**.
 3. Em **Nome do grupo de recursos**, escreva **Test-FW-RG**.
 4. Em **Subscrição**, selecione a sua subscrição.
@@ -109,12 +109,12 @@ Agora, crie as máquinas virtuais de ligação e de carga de trabalho, e coloque
 4. Sob **regras de porta de entrada**, para **portas de entrada públicas**, clique em **permitir portas selecionadas**.
 5. Para **Selecione as portas de entrada**, selecione **RDP (. 3389)**.
 
-6. Aceite as outras predefinições e clique em **seguinte: discos**.
-7. Aceite as predefinições de disco e clique em **seguinte: funcionamento em rede**.
+6. Aceite as outras predefinições e clique em **seguinte: Discos**.
+7. Aceite as predefinições de disco e clique em **seguinte: Funcionamento em rede**.
 8. Certifique-se de que **FW-teste-VN** está selecionada para a rede virtual e a sub-rede é **atalhos SN**.
 9. Para **IP público**, clique em **criar nova**.
 10. Tipo **Srv-atalhos-PIP** para o nome do endereço IP e clique em público **OK**.
-11. Aceite as outras predefinições e clique em **seguinte: gestão**.
+11. Aceite as outras predefinições e clique em **seguinte: Management**.
 12. Clique em **desativar** para desativar o diagnóstico de arranque. Aceite as outras predefinições e clique em **rever + criar**.
 13. Reveja as definições na página de resumo e, em seguida, clique em **criar**.
 
@@ -122,10 +122,10 @@ Repita este processo para criar outra máquina virtual com o nome **Srv-Work**.
 
 Utilize as informações na tabela seguinte para configurar a máquina virtual de trabalho de Srv. O resto da configuração é igual à da máquina virtual Srv-Jump.
 
-|Definição  |Valor  |
+|Definição  |Value  |
 |---------|---------|
-|Subrede|Workload-SN|
-|IP público|Nenhuma|
+|Sub-rede|Workload-SN|
+|IP Público|Nenhuma|
 |Portas de entrada públicas|Nenhuma|
 
 ## <a name="deploy-the-firewall"></a>Implementar a firewall
@@ -139,11 +139,11 @@ Implemente a firewall na VNet.
 
    |Definição  |Valor  |
    |---------|---------|
-   |Nome     |Test-FW01|
+   |Name     |Test-FW01|
    |Subscrição     |\<a sua subscrição\>|
-   |Grupo de recursos     |**Utilizar existente**: Test-FW-RG |
+   |Grupo de recursos     |**Utilizar existente**: Teste-FW-RG |
    |Localização     |Selecionar a mesma localização que utilizou anteriormente|
-   |Escolher uma rede virtual     |**Utilizar existente**: Test-FW-VN|
+   |Escolher uma rede virtual     |**Utilizar existente**: Teste-FW-VN|
    |Endereço IP público     |**Crie um novo**. O endereço IP público tem de ser do tipo SKU Standard.|
 
 5. Clique em **Rever + criar**.
@@ -235,12 +235,12 @@ Agora, teste a firewall para confirmar que funciona conforme esperado.
 1. No portal do Azure, reveja as definições de rede para a máquina virtual **Srv-Work** e anote o endereço IP privado.
 2. Ligue um ambiente de trabalho remoto à máquina virtual **Srv-Jump** e, a partir daqui, abra uma ligação de ambiente de trabalho remoto ao endereço IP privado de **Srv-Work**.
 
-3. Abra o Internet Explorer e navegue até http://msn.com.
+3. Abra o Internet Explorer e navegue até https://msn.com.
 4. Clique em **OK** > **Fechar** nos alertas de segurança.
 
    Deverá ver a home page do MSN.
 
-5. Navegue para http://www.msn.com.
+5. Navegue para https://www.msn.com.
 
    Deve estar bloqueado pela firewall.
 
@@ -256,4 +256,4 @@ Pode manter os recursos da firewall para o próximo tutorial. Se já não precis
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)
+> [Tutorial: Monitorize registos de Firewall do Azure](./tutorial-diagnostics.md)

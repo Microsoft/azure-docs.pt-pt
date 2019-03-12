@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 7cf6b08655174ce6d9b851d635d5c8b9d9d358dd
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245544"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543734"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Construtor de expressões de fluxo de dados de mapeamento
 
@@ -51,7 +51,7 @@ Adicione comentários para as expressões usando a sintaxe de comentário com v�
 
 ## <a name="regular-expressions"></a>Expressões Regulares
 
-A linguagem de expressão fluxo de dados do Azure Data Factory [documentação de referência completo aqui](http://aka.ms/dataflowexpressions), permite que incluam a sintaxe de expressão regular. Ao utilizar as funções de expressão regular, o construtor de expressões tentará interpretar barra invertida (\) como uma seqüência de caracteres de escape. Ao utilizar as barras invertidas sua expressão regular, ou coloque regex todo em tiques ` ` ou usar uma barra invertida dupla.
+A linguagem de expressão fluxo de dados do Azure Data Factory [documentação de referência completo aqui](https://aka.ms/dataflowexpressions), permite que incluam a sintaxe de expressão regular. Ao utilizar as funções de expressão regular, o construtor de expressões tentará interpretar barra invertida (\) como uma seqüência de caracteres de escape. Ao utilizar as barras invertidas sua expressão regular, ou coloque regex todo em tiques ` ` ou usar uma barra invertida dupla.
 
 Exemplo de uso ticks
 

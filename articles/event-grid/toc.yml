@@ -176,10 +176,10 @@ items:
   - name: Calculadora de preços
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-eventgrid
-ms.openlocfilehash: ac839b3f9eca6a4abee95e55be3679d4f854eb48
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+    href: https://stackoverflow.com/questions/tagged/azure-eventgrid
+ms.openlocfilehash: 6bd8fcbaa3fa54ec2fa09697a226fb4cd94a4d4b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989224"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538946"

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 47d06ce5a03fe51ba345f60e2feff958ed4a890b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ec147355d6f61a282a0e6b0950fe03ba0e2341f5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871167"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530387"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Cópia de Segurança e Restauro para SQL Server em Máquinas Virtuais do Azure
 
@@ -36,7 +36,7 @@ A tabela seguinte fornece informações sobre várias opções de cópia de segu
 |---|---|---|---|
 | [Cópia de Segurança Automatizada](#automated) | 2014<br/> 2016<br/> 2017 | Cópia de segurança automatizada permite-lhe agendar cópias de segurança regulares para todas as bases de dados numa VM do SQL Server. As cópias de segurança são armazenadas no armazenamento do Azure durante 30 dias. A partir do SQL Server 2016, a cópia de segurança automatizada v2 oferece opções adicionais, como a configuração manual de agendamento e a frequência de completo e backups de log. |
 | [Cópia de segurança do Azure para VMs SQL](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | O Azure Backup fornece uma capacidade de cópia de segurança de classe empresarial para o SQL Server em execução em VMs do Azure. Com este serviço, pode gerenciar centralmente as cópias de segurança para vários servidores e de milhares de bases de dados. Bases de dados podem ser restaurados para um ponto específico no tempo no portal. Ele oferece uma política de retenção personalizável que pode manter cópias de segurança durante anos. Esta funcionalidade está atualmente em pré-visualização pública. |
-| [Cópia de segurança manual](#manual) | Todos | Dependendo da versão do SQL Server, existem várias técnicas para criar cópias de segurança e restaurar o SQL Server em execução numa VM do Azure manualmente. Neste cenário, é responsável por como seus bancos de dados são uma cópia de segurança e a localização de armazenamento e gestão destas cópias de segurança. |
+| [Cópia de segurança manual](#manual) | Tudo | Dependendo da versão do SQL Server, existem várias técnicas para criar cópias de segurança e restaurar o SQL Server em execução numa VM do Azure manualmente. Neste cenário, é responsável por como seus bancos de dados são uma cópia de segurança e a localização de armazenamento e gestão destas cópias de segurança. |
 
 As secções seguintes descrevem cada opção em mais detalhes. A seção final deste artigo fornece um resumo na forma de uma matriz de funcionalidade.
 
@@ -144,7 +144,7 @@ A tabela seguinte resume as capacidades de cada opção de cópia de segurança 
 | Cópia de segurança para os discos ligados na VM |   |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Relatórios de cópia de segurança personalizáveis centrais |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Alertas de e-mail consolidado de falhas |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Personalizar a monitorização baseada no Log Analytics |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Personalizar a monitorização com base em registos do Azure Monitor |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Monitorizar trabalhos de cópia de segurança com o SSMS ou Transact-SQL scripts | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Restaurar bases de dados com o SSMS ou Transact-SQL scripts | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Sim](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 

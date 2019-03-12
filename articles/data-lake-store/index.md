@@ -1,22 +1,16 @@
 ---
-title: Documentação do Armazenamento do Azure Data Lake Ger1 - Tutoriais, Referência da API | Microsoft Docs
-description: Saiba como configurar, gerir e aceder a um repositório de hiperescala do data lake compatível com o Hadoop para análises em dados de qualquer tamanho, tipo e velocidade de ingestão.
+title: 'Documentação do Armazenamento do Azure Data Lake Ger1 - Tutoriais, Referência da API | Microsoft Docs'
+description: 'Saiba como configurar, gerir e aceder a um repositório de hiperescala do data lake compatível com o Hadoop para análises em dados de qualquer tamanho, tipo e velocidade de ingestão.'
 services: data-lake-store
 author: twooley
 manager: twooley
 layout: LandingPage
-ms.assetid: ''
+ms.assetid: null
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 68e4a7bd73b7fdd4b21140c912422b062f51c775
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869199"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentação de Armazenamento do Azure Data Lake Ger1
 
@@ -198,7 +192,7 @@ Saiba como utilizar o Armazenamento do Azure Data Lake Ger1 (anteriormente conhe
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
                         <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python">Python (Gestão de Conta)</a></p>
-                        <p><a href="http://azure-datalake-store.readthedocs.io/en/latest">Python (Gestão do Sistema de Ficheiros)</a></p>
+                        <p><a href="https://azure-datalake-store.readthedocs.io/en/latest">Python (Gestão do Sistema de Ficheiros)</a></p>
                     </div>
                 </div>
             </div>

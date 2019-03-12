@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad35d8d3ff04de7e3d99976d637c4fad47c0cd6c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 08aab209d4772435c8b349026f036ce15ff73ced
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869008"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731611"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: Integração do Active Directory do Azure com Envi MMIS
 
@@ -251,7 +251,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Envi MMIS, tem de ser 
 
     g. Clique em **Guardar**.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

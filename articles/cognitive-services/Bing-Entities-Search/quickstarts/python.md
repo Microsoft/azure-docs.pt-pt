@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 73b666116a23ab8d861d38af4dc9fa5e19d5d1bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 14bd9a0bfbef15acdac5a2eddc88c72d3e142591
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857163"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537971"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com o Python
 
@@ -113,7 +113,7 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

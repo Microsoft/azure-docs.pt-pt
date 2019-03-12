@@ -439,14 +439,14 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=iot-hub
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-iot-hub
+    href: https://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Estudos de caso técnicos
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: b04836e45f65222ce43c0f5bfdb83aa0d6cc0e91
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: cdeb8f013ee8a0dff212d5fc9facc199ed81828e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342705"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530885"

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
 ms.service: service-bus-relay
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: d02f2e474ce97d22a77cf633898819c31d45799c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: a7bb26cdfec4042a1963f929f92e5505045124a7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701594"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763304"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Criar um espaço de nomes de Reencaminhamento com o Portal do Azure
 
@@ -34,7 +34,7 @@ O espaço de nomes é um controlo do âmbito do contentor para todos os componen
 
 Parabéns! Criou um espaço de nomes do reencaminhamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 * [FAQ de Reencaminhamento](relay-faq.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)

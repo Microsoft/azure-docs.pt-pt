@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 2/21/2019
 ms.author: rosh
-ms.openlocfilehash: 6395b928913b9ea9ada83885cfd3a065619f0a57
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 295c32c1e14dc6a69a37040f92d27a6862359228
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318565"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545059"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>Início rápido: Obter resultados de notícias, usando a API de REST de pesquisa de notícias do Bing e Go
 
@@ -187,7 +187,7 @@ Os resultados contêm o nome e um URL de cada resultado.
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"
 (string) (len=142) "https://www.marketwatch.com/press-release/cognitive-services-market-global-industry-analysis-and-opportunity-assessment-2019---2025-2019-02-21"
 (string) (len=104) "Microsoft calls for greater collaboration to harness the power of AI to empower people with disabilities"
-(string) (len=115) "http://indiaeducationdiary.in/microsoft-calls-greater-collaboration-harness-power-ai-empower-people-disabilities-2/"
+(string) (len=115) "https://indiaeducationdiary.in/microsoft-calls-greater-collaboration-harness-power-ai-empower-people-disabilities-2/"
 (string) (len=70) "Microsoft 'Intelligent Cloud Hub' to build AI-ready workforce in India"
 (string) (len=139) "https://cio.economictimes.indiatimes.com/news/cloud-computing/microsoft-intelligent-cloud-hub-to-build-ai-ready-workforce-in-india/67187807"
 (string) (len=81) "Skills shortage is stopping many Asian companies from embracing A.I., study shows"

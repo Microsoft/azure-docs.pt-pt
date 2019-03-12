@@ -10,18 +10,18 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2df1e2c261069473a02b40e4a7e45895eadea42d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5a2fb54658599e0500944aaae9225f314277f9da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219401"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539093"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>Tutorial: Deteção de anomalias com a aplicação de Python
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-O tutorial mostra como utilizar a API de Deteção de Anomalias no Python e como utilizar bibliotecas populares para visualizar os resultados. Utilize o Jupyter para executar o tutorial e experimentar os seus dados com a sua chave de subscrição. Para saber como começar a utilizar os blocos de notas interativos do Jupyter, veja: [Documentação do Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
+O tutorial mostra como utilizar a API de Deteção de Anomalias no Python e como utilizar bibliotecas populares para visualizar os resultados. Utilize o Jupyter para executar o tutorial e experimentar os seus dados com a sua chave de subscrição. Para saber como começar a utilizar os blocos de notas interativos do Jupyter, veja: [Documentação do Jupyter](https://jupyter.readthedocs.io/en/latest/index.html). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

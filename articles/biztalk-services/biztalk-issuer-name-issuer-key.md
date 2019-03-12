@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5eac98ec88b960956c9a0931673e67f530aef8da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238714"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542187"
 ---
-# <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Nome e Chave do Emissor
+# <a name="biztalk-services-issuer-name-and-issuer-key"></a>Serviços BizTalk: Nome do emissor e chave do emissor
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -38,7 +38,7 @@ Este tópico lista os passos para obter o nome do emissor e chave do emissor.
 ## <a name="access-control-issuer-name-and-issuer-key"></a>Nome de emissor de controlo de acesso e a chave do emissor
 O nome de emissor de controlo de acesso e a chave do emissor são utilizados pelo seguinte:
 
-* A aplicação do BizTalk Service do Azure criada no Visual Studio: para implementar com êxito a aplicação de serviço BizTalk no Visual Studio para o Azure, introduza o nome de emissor de controlo de acesso e a chave do emissor. 
+* A sua aplicação do BizTalk Service do Azure criada no Visual Studio: Para implementar com êxito a aplicação de serviço BizTalk no Visual Studio para o Azure, introduza o nome de emissor de controlo de acesso e a chave do emissor. 
 * O Portal de serviços BizTalk do Azure: Quando cria um BizTalk Service e abra o Portal de serviços do BizTalk, seu nome de emissor de controlo de acesso e a chave do emissor são automaticamente registrados para as implementações com os mesmos valores de controlo de acesso.
 
 ### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Obter o nome de emissor de controlo de acesso e a chave do emissor
@@ -77,7 +77,7 @@ Em mais de [New-AzureSBNamespace](https://docs.microsoft.com/powershell/module/s
 Nome de emissor do Service Bus e a chave do emissor são utilizados pelos serviços de adaptador do BizTalk. No seu projeto de serviços do BizTalk no Visual Studio, utilize os serviços de adaptador do BizTalk para ligar a um sistema de linha de negócio (LOB) no local. Para ligar, criar reencaminhamento LOB e introduza os detalhes de sistema LOB. Ao fazer isso, também é introduzir o nome de emissor do Service Bus e a chave do emissor.
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Para obter o nome de emissor do Service Bus e a chave do emissor
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Procure **do Service Bus**e selecione o seu espaço de nomes. 
 3. Abra o **políticas de acesso partilhado** propriedades, selecione a política e ver o **cadeia de ligação** para o nome e os valores de chave.  
 
@@ -90,11 +90,11 @@ Tópicos de serviços BizTalk do Azure adicionais:
 * [Serviços BizTalk do Azure](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Consultar Também
-* [Como: utilizar o serviço de gestão de ACS para configurar identidades de serviço](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [How to: Utilizar o serviço de gestão de ACS para configurar identidades de serviço](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [Serviços BizTalk: Programador, básico, Standard e Premium gráfico de edições](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Os serviços BizTalk: aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [Serviços BizTalk: Gráfico de Estado de Aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [Serviços BizTalk: Separadores Dashboard, Monitorizar e Dimensionar](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Serviços BizTalk: Cópia de segurança e Restauro](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Serviços BizTalk: limitação](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Serviços BizTalk: Aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [Serviços BizTalk: Gráfico de estado de aprovisionamento](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [Serviços BizTalk: Separadores dashboard, monitorizar e dimensionar](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [Serviços BizTalk: Cópia de segurança e restauro](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Serviços BizTalk: Throttling](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

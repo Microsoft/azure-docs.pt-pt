@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 6b53c94787cfcabae1072f9879f14e0d890e967c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 5c2bb1cfc4fcfe91c5860c229486f0f24b409797
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341535"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540449"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exemplo - cofres do Key Vault com não existem pontos de extremidade de rede virtual
 
@@ -51,7 +51,7 @@ Esta definição de política de exemplo não tem parâmetros definidos.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-[![Implementar no Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
+[![Implementar no Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
 [![Implementar no Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -99,7 +99,7 @@ Os scripts de implementação e remoção utilizam os seguintes comandos. Cada c
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+### <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 ```azurecli-interactive
 # Create the Policy Definition (Subscription scope)
@@ -138,7 +138,7 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 Existem várias ferramentas que podem ser utilizadas para interagir com a API REST do Gestor de Recursos, como o [ARMClient](https://github.com/projectkudu/ARMClient) ou o PowerShell.
 
-### <a name="deploy-with-rest-api"></a>Implementar com a API REST
+### <a name="deploy-with-rest-api"></a>Implementar com API REST
 
 - Crie a Definição de Política (âmbito da Subscrição). Utilize o JSON [definição de política](#policy-definition) para o Corpo do Pedido.
 
@@ -179,7 +179,7 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 
 ### <a name="rest-api-explanation"></a>Explicação da API REST
 
-| Serviço | Grupo | Operação | Notas |
+| Serviço | Agrupar | Operação | Notas |
 |---|---|---|---|
 | Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Alternativa: [Criar grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestão de Recursos | Atribuições de Política | [Criar](/rest/api/resources/policyassignments/create) | Cria uma nova atribuição do Azure Policy. Neste exemplo, damos uma definição, mas também pode tomar iniciativa. |

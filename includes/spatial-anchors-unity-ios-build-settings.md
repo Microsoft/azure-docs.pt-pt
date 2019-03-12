@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: ea01900926f0a2e9b3481b64a191a58e04839513
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: acf904ec061351996f57be3d12f7dcce019378e7
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752345"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57588165"
 ---
 Abra o Unity e abra o projeto no `Unity` pasta.
 
@@ -17,7 +17,7 @@ Open **definições de criação** ao selecionar **ficheiro** -> **definições 
 
 Na **plataforma** secção, selecione **iOS**.
 
-Selecione **plataforma de comutador** para alterar a plataforma para **iOS**.
+Selecione **plataforma de comutador** para alterar a plataforma para **iOS**. Unity poderá pedir-lhe para instalar os componentes de suporte do iOS se estiverem em falta.
 
 ![Definições de compilação do Unity](./media/spatial-anchors-unity/unity-ios-build-settings.png)
 

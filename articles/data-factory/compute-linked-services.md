@@ -3,20 +3,20 @@ title: Computação ambientes suportados pelo Azure Data Factory | Documentos da
 description: Saiba mais sobre os ambientes de computação que pode utilizar nos pipelines da fábrica de dados do Azure (por exemplo, o Azure HDInsight) para dados de transformação ou processo.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.author: douglasl
-ms.openlocfilehash: 490f11b4a35bb7e5669ccf1554c3a73f5156f3c7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445658"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576893"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica os diferentes ambientes de computação que pode utilizar para processar ou transformar dados. Ele também fornece detalhes sobre as configurações diferentes (sob demanda versus traga seu próprio) suportados pelo Data Factory, quando configurar os serviços ligados de ligação estes ambientes de uma fábrica de dados do Azure de computação.
@@ -91,7 +91,7 @@ O seguinte JSON define um serviço de ligado de HDInsight a pedido baseado em Li
 > [!IMPORTANT]
 > O cluster do HDInsight cria um **contentor predefinido** no armazenamento de blobs especificado no JSON (**linkedServiceName**). Quando o cluster é eliminado, o HDInsight não é eliminado deste contentor. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que um setor tiver de ser processado, exceto se houver um cluster em direto (**timeToLive**) que será eliminado no fim do processamento. 
 >
-> Conforme mais atividade é executada, verá muitos contentores no armazenamento de Blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](http://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
+> Conforme mais atividade é executada, verá muitos contentores no armazenamento de Blobs do Azure. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Utilize ferramentas como o [Explorador de Armazenamento do Microsoft](https://storageexplorer.com/) para eliminar contentores no armazenamento de blobs do Azure.
 >
 > 
 
@@ -142,7 +142,7 @@ O serviço de HDInsight a pedido ligada requer uma autenticação do principal d
 
 - ID da aplicação
 - Chave da aplicação 
-- ID do inquilino
+- ID do Inquilino
 
 Utilize autenticação do principal de serviço ao especificar as seguintes propriedades:
 
@@ -288,7 +288,7 @@ Pode criar um serviço ligado de HDInsight de Azure para registar o seu próprio
 | ----------------- | ------------------------------------------------------------ | -------- |
 | tipo              | A propriedade de tipo deve ser definida como **HDInsight**.            | Sim      |
 | clusterUri        | O URI do HDInsight cluster.                            | Sim      |
-| o nome de utilizador          | Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. | Sim      |
+| nome do utilizador          | Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. | Sim      |
 | palavra-passe          | Especifique a palavra-passe da conta de utilizador.                       | Sim      |
 | linkedServiceName | Nome do serviço ligado do armazenamento do Azure que se refere-se para o armazenamento de Blobs do Azure utilizado pelo cluster do HDInsight. <p>Atualmente, não é possível especificar que um Store do Azure Data Lake serviço ligado para esta propriedade. Se o cluster do HDInsight tem acesso ao Store de Lake dados, pode aceder aos dados a Store do Azure Data Lake de scripts Hive/Pig. </p> | Sim      |
 | isEspEnabled      | Especificar '*true*' se o cluster do HDInsight está [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction) ativada. A predefinição é "*false*'. | Não       |
@@ -311,7 +311,7 @@ Pode criar um serviço ligado do Azure Batch para registar um conjunto do Batch 
 Consulte o seguinte tópicos, se estiver familiarizado com o serviço Azure Batch:
 
 * [Noções básicas do Azure Batch](../batch/batch-technical-overview.md) para uma descrição geral do serviço Azure Batch.
-* [Novo AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet para criar uma conta do Azure Batch (ou) [portal do Azure](../batch/batch-account-create-portal.md) para criar a conta do Azure Batch com portal do Azure. Ver [utilizar o PowerShell para gerir a conta do Azure Batch](http://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) tópico para obter instruções detalhadas sobre como utilizar o cmdlet.
+* [Novo AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) cmdlet para criar uma conta do Azure Batch (ou) [portal do Azure](../batch/batch-account-create-portal.md) para criar a conta do Azure Batch com portal do Azure. Ver [utilizar o PowerShell para gerir a conta do Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) tópico para obter instruções detalhadas sobre como utilizar o cmdlet.
 * [Novo AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet para criar um conjunto do Batch do Azure.
 
 ### <a name="example"></a>Exemplo
@@ -485,7 +485,7 @@ Pode criar **serviço ligado do Azure Databricks** para registar a área de trab
 
 | Propriedade             | Descrição                              | Necessário                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| nome                 | Nome do serviço ligado               | Sim   |
+| name                 | Nome do serviço ligado               | Sim   |
 | tipo                 | A propriedade de tipo deve ser definida como: **AzureDatabricks**. | Sim                                      |
 | domínio               | Especifica a região do Azure em conformidade com base na região da área de trabalho do Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
 | accessToken          | Token de acesso é necessário para o Data Factory autenticar para o Azure Databricks. Token de acesso tem de ser gerado a partir da área de trabalho do databricks. Obter mais passos para encontrar o token de acesso pode ser encontrado [aqui](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | Sim                                       |

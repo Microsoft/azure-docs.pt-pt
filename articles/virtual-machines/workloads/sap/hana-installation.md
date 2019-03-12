@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/03/2019
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d81207195eb19a386d0d98fd4bfa6ba53ca972e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 5bdf23d1a2142e5c83ceeb72a79ca4fbea65d09c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316647"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534281"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (instâncias grandes) no Azure
 
@@ -131,7 +131,7 @@ Para o SAP HANA no Azure (instâncias grandes), sincronização de hora que fez 
 Como resultado, tem de configurar um servidor de time separadas que pode ser utilizado por servidores de aplicações SAP em execução em VMs do Azure e as instâncias de base de dados do SAP HANA em execução nas instâncias grandes do HANA. A infraestrutura de armazenamento em carimbos de data / instância grande é a hora sincronizada com os servidores NTP.
 
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Funcionamento em Rede
 Partimos do princípio de que seguiu as recomendações na criação de redes virtuais do Azure e na conexão essas redes virtuais com o HANA nas instâncias grandes, conforme descrito nos seguintes documentos:
 
 - [Descrição geral do SAP HANA (instância grande) e a arquitetura no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
@@ -202,14 +202,15 @@ Para versões de SAP HANA 1.0 até SPS12, esses parâmetros podem ser definidos 
 
 Também pode configurar os parâmetros após a instalação de banco de dados do SAP HANA, utilizando a estrutura de hdbparam. 
 
-O armazenamento utilizado nas instâncias grandes do HANA tem uma limitação de tamanho de ficheiro. O [limitação de tamanho é 16TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por ficheiro. Ao contrário de casos de limitações de tamanho de ficheiro, como em sistemas de ficheiros de EXT3, HANA não é implicitamente atento a limitação de armazenamento imposta pelo armazenamento de instâncias grandes do HANA. como resultado HANA não criará automaticamente um novo ficheiro de dados quando é atingido o limite de tamanho de ficheiro de 16TB. Como HANA tenta aumentar o arquivo para além dos 16TB, o HANA relatório de erros e o servidor de índices falhará no final.
+O armazenamento utilizado nas instâncias grandes do HANA tem uma limitação de tamanho de ficheiro. O [limitação de tamanho é 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) por ficheiro. Ao contrário das limitações de tamanho de ficheiro em sistemas de ficheiros EXT3, HANA není implicitamente atento a limitação de armazenamento imposta pelo armazenamento de instâncias grandes do HANA. como resultado HANA não criará automaticamente um novo ficheiro de dados quando é atingido o limite de tamanho de ficheiro de 16TB. Como HANA tenta aumentar o arquivo para além dos 16 TB, o HANA relatório de erros e o servidor de índices falhará no final.
 
 > [!IMPORTANT]
-> Para impedir que o HANA tentando aumentar os arquivos de dados além do limite de tamanho de ficheiro de 16 TB de armazenamento de instâncias grandes do HANA, tem de definir os seguintes parâmetros no ficheiro de configuração global.ini do HANA
+> Para impedir que o HANA tentando aumentar os arquivos de dados além do limite de tamanho de ficheiro de 16 TB de armazenamento de instâncias grandes do HANA, tem de definir os seguintes parâmetros no ficheiro de configuração global.ini SAP HANA
 > 
 - datavolume_striping=true
 - datavolume_striping_size_gb = 15000
 - Consulte também a SAP note [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- Tenha em atenção a nota SAP [#2631285](https://launchpad.support.sap.com/#/notes/2631285)
 
 
 Com o SAP HANA 2.0, a estrutura de hdbparam foi preterida. Como resultado, tem de definir os parâmetros com comandos SQL. Para obter mais informações, consulte [a nota SAP #2399079: Eliminação de hdbparam no HANA 2](https://launchpad.support.sap.com/#/notes/2399079).

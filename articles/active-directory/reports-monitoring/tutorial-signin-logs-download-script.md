@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b134482e571b235b462c027a6d4ae8967fc77413
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: aedbc625bedcbe66b43b66ce96e1b17746b9a47c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175477"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531294"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Tutorial: Como transferir e utilizar um script para aceder aos registos de início de sessão
 
@@ -36,7 +36,6 @@ Neste tutorial, saiba como gerar um script para transferir todos os início de s
 
 * Um inquilino do Azure Active Directory com uma licença premium (P1/P2). Tenha em atenção que, se não tem quaisquer dados de atividades antes da atualização, demorará alguns dias para os dados sejam apresentados nos relatórios depois de atualizar para uma licença premium. 
 * Um utilizador, o que está a **administrador global**, **administrador de segurança**, **leitor de segurança** ou **leitor de relatório** função para o inquilino. Além disso, qualquer usuário pode acessar seus próprios inícios de sessão. 
-* Se quiser executar o script transferido no seu computador, o Windows 10 [configurar o módulo Azure PowerShell e defina a política de execução](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 
 ## <a name="tutorial"></a>Tutorial
 

@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: ed43a376dd5bb3279fd7e6aa6522980234db3c5f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 92b7714e9f6635cf0b44a98a16ddb4616643ba81
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441802"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544567"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Segurança do Azure e o esquema de conformidade - HIPAA/HITRUST Health Data and AI
 
@@ -91,7 +91,7 @@ Eles não têm acesso a registos dos doentes.
 
 -   Atribuições de função personalizada: N/A
 
--   Âmbito: ResourceGroup
+-   Âmbito: GrupoRecursos
 
 ### <a name="data-scientist"></a>Cientista de dados
 
@@ -102,7 +102,7 @@ Cientista de dados opera o Azure Machine Learning Studio. Pode importar, exporta
 
 -   Atribuições de função personalizada: N/A
 
--   Âmbito: ResourceGroup
+-   Âmbito: GrupoRecursos
 
 ### <a name="chief-medical-information-officer-cmio"></a>Diretor de informação médica (CMIO)
 
@@ -121,7 +121,7 @@ Esta função exige monitorizar o estado de doentes individuais, bem como garant
 
 -   Atribuições de função personalizada: Tem o privilégio para executar HealthcareDemo.ps1 fazer ambos os admissão do doente e proprietários.
 
--   Âmbito: ResourceGroup
+-   Âmbito: GrupoRecursos
 
 ### <a name="auditor"></a>Auditor
 
@@ -272,7 +272,7 @@ Ao utilizar o script de demonstração. . \\HealthcareDemo.ps1 com o **BulkPatie
 
 **2. Key Vault** pedida para um segredo associado ao token do pedido.
 
-**3. Funções do Azure validar o pedido e autorizar o pedido de acesso ao Key Vault.
+**3. Funções do Azure** validar o pedido e autorizar o pedido de acesso ao Key Vault.
 
 **4. Key Vault** devolve o segredo, neste caso, a cadeia de ligação de BD SQL.
 
@@ -355,7 +355,7 @@ A solução suporta o Azure Event Grid, um único serviço para gerir o encaminh
 
 - [O Assistente do Azure](/azure/advisor/advisor-overview) é consultor da cloud personalizado que o ajuda a seguir as melhores práticas para otimizar as suas implementações do Azure. Ele analisa a sua telemetria de configuração e utilização de recursos e, em seguida, recomenda soluções que o podem ajudar a melhorar a rentabilidade, o desempenho, a elevada disponibilidade e a segurança dos seus recursos do Azure.
 
-### <a name="application-insights"></a>Application Insights
+### <a name="application-insights"></a>Estatísticas das Aplicações
 - [O Application Insights](/azure/application-insights/app-insights-overview) é um serviço de gestão de desempenho de aplicações (APM) extensível para desenvolvedores da web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Deteta anomalias de desempenho. inclui ferramentas de análise poderosas para o ajudar a diagnosticar problemas e a compreender o que os utilizadores efetivamente fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade.
 
 ### <a name="azure-alerts"></a>Alertas do Azure

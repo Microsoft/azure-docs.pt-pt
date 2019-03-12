@@ -1,5 +1,5 @@
 ---
-title: Extensão da máquina virtual do Azure Log Analytics para Windows | Documentos da Microsoft
+title: Extensão da máquina virtual do Azure Monitor para Windows | Documentos da Microsoft
 description: Implemente o agente do Log Analytics na máquina de virtual do Windows com uma extensão da máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,16 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 66240ffebcd98bb8e14fb21bcb5c54b8fceb7a64
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 7c56b54f2d5be2bd47644e07369120468bb6015e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406393"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533702"
 ---
-# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual de análise de registo para Windows
+# <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Azure Monitor para Windows
 
-Log Analytics proporciona capacidades de monitorização na cloud e recursos no local. A extensão de máquina virtual de agente do Log Analytics para Windows é publicada e suportada pela Microsoft. A extensão instala o agente Log Analytics em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho do Log Analytics existente. Este documento detalha as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual do Log Analytics para Windows.
+Registos de Monitor do Azure fornece capacidades de monitorização em recursos de nuvem e no local. A extensão de máquina virtual de agente do Log Analytics para Windows é publicada e suportada pela Microsoft. A extensão instala o agente Log Analytics em máquinas virtuais do Azure e inscreve máquinas virtuais para uma área de trabalho do Log Analytics existente. Este documento detalha as plataformas suportadas, configurações e opções de implementação para a extensão de máquina virtual do Azure Monitor para Windows.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,7 +36,7 @@ A extensão de agente do Log Analytics para o Windows podem ser executado em Win
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 
-Automaticamente, o Centro de segurança do Azure Aprovisiona o agente Log Analytics e liga-o com a área de trabalho da análise de registo predefinido da subscrição do Azure. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e quebra a ligação com o Centro de segurança do Azure.
+Automaticamente, o Centro de segurança do Azure Aprovisiona o agente Log Analytics e liga-o com a área de trabalho do Log Analytics predefinido da subscrição do Azure. Se estiver a utilizar o Centro de segurança do Azure, não execute os passos neste documento. Se o fizer, substitui a área de trabalho configurada e quebra a ligação com o Centro de segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade Internet
 A extensão de agente do Log Analytics para Windows requer que a máquina virtual de destino está ligada à internet. 
@@ -85,7 +87,7 @@ Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manage
 
 O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou colocado na raiz ou de nível superior de um modelo do Resource Manager JSON. A colocação do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [defina o nome e tipo para recursos subordinados](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
 
-O exemplo a seguir supõe que a extensão do Log Analytics é aninhada dentro do recurso de máquina virtual. Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
+O exemplo a seguir supõe que a extensão do Azure Monitor é aninhada dentro do recurso de máquina virtual. Quando aninhar o recurso de extensão, o JSON é colocado no `"resources": []` objeto da máquina virtual.
 
 
 ```json

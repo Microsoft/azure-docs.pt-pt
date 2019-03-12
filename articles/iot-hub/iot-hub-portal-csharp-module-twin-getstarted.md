@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 228c581071bfc59399874828b7a7dd9570900535
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: f323eb777d98a812ead8dd8ac78ee3d6b36a748a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009907"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545825"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade de módulo e ao módulo duplo do Hub IoT com o portal e o dispositivo .NET
 
@@ -177,7 +177,7 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, vej
 [15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-csharp-csharp-getstarted]: iot-hub-csharp-csharp-module-twin-getstarted.md

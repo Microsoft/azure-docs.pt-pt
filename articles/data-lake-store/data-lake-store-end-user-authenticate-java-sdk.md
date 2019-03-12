@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 47b975b3ea0cfa9d2fb2536236b0a8dfaef14503
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d2c0cc277b2115f50455a1caa825306cc173d94c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126943"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538991"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com Java
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Neste artigo, saiba como utilizar o SDK de Java para fazer a autenticação de u
 * (Opcional) E IDE como [IntelliJ IDEIA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) ou semelhante.
 
 ## <a name="end-user-authentication"></a>Autenticação de utilizador final
-1. Crie um projeto Maven com o [arquétipo mvn](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) a partir da linha de comandos ou com um IDE. Para obter instruções sobre como criar um projeto Java com IntelliJ, veja [aqui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Para obter instruções sobre como criar um projeto com Eclipse, clique [aqui](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
+1. Crie um projeto Maven com o [arquétipo mvn](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) a partir da linha de comandos ou com um IDE. Para obter instruções sobre como criar um projeto Java com IntelliJ, veja [aqui](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Para obter instruções sobre como criar um projeto com Eclipse, clique [aqui](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
 
 2. Adicione as seguintes dependências ao ficheiro **pom.xml** do Maven. Adicione o seguinte fragmento antes da etiqueta **\</project>**:
    
@@ -56,7 +56,7 @@ Neste artigo, saiba como utilizar o SDK de Java para fazer a autenticação de u
           </dependency>
         </dependencies>
    
-    A primeira dependência é para utilizar o SDK de geração 1 do Data Lake Storage (`azure-data-lake-store-sdk`) do repositório maven. A segunda dependência é para especificar a arquitetura de registo (`slf4j-nop`) a utilizar para esta aplicação. Utiliza o SDK de geração 1 de armazenamento do Data Lake [slf4j](http://www.slf4j.org/) fachada de Registro em log, que permite que escolha a partir de um número de arquiteturas de registo mais populares, como log4j, registo Java, logback, etc., ou nenhum registo. Neste exemplo, vamos desativar o registo e, por conseguinte, utilizar o enlace **slf4j-nop**. Para utilizar outras opções de registo na sua aplicação, clique [aqui](http://www.slf4j.org/manual.html#projectDep).
+    A primeira dependência é para utilizar o SDK de geração 1 do Data Lake Storage (`azure-data-lake-store-sdk`) do repositório maven. A segunda dependência é para especificar a arquitetura de registo (`slf4j-nop`) a utilizar para esta aplicação. Utiliza o SDK de geração 1 de armazenamento do Data Lake [slf4j](https://www.slf4j.org/) fachada de Registro em log, que permite que escolha a partir de um número de arquiteturas de registo mais populares, como log4j, registo Java, logback, etc., ou nenhum registo. Neste exemplo, vamos desativar o registo e, por conseguinte, utilizar o enlace **slf4j-nop**. Para utilizar outras opções de registo na sua aplicação, clique [aqui](https://www.slf4j.org/manual.html#projectDep).
 
 3. Adicione as seguintes declarações de importação à aplicação.
 

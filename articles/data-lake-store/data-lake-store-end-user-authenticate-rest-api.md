@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ea550c0959f5de13f013f135926251bf9f8b450f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1e952e32142672946fa987b763032dad66f564a9
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124444"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537886"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com a REST API
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Neste artigo, saiba mais sobre como utilizar a API REST para fazer a autenticaç
 
 * **Criar uma aplicação de "Nativa" do Azure Active Directory**. Tem de ter concluído os passos em [autenticação de utilizador final com geração 1 de armazenamento do Data Lake com o Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
-* **[cURL](http://curl.haxx.se/)**. Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a uma conta de geração 1 de armazenamento do Data Lake.
+* **[cURL](https://curl.haxx.se/)**. Este artigo utiliza o cURL para demonstrar como fazer chamadas de REST API em relação a uma conta de geração 1 de armazenamento do Data Lake.
 
 ## <a name="end-user-authentication"></a>Autenticação de utilizador final
 Autenticação de utilizador final é a abordagem recomendada, se pretender que um utilizador inicie sessão sua aplicação utilizar o Azure AD. Seu aplicativo é capaz de aceder aos recursos do Azure com o mesmo nível de acesso que o utilizador com sessão iniciada. O utilizador precisa de fornecer as credenciais periodicamente por ordem para a sua aplicação manter o acesso.

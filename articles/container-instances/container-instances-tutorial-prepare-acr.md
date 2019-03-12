@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 4ee7411853127d331e70e486bbf9f21e0ce6c153
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: c1a4313f9a8174b9ea6e6cff694b9a0a9cf395d1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750312"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538158"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Implementar um Azure container registry e enviar uma imagem de contentor
 
@@ -217,7 +217,7 @@ Avance para o próximo tutorial para saber como implementar o contentor para o A
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
 [docker-windows]: https://docs.docker.com/docker-for-windows/
-[nodejs]: http://nodejs.org
+[nodejs]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-acr-create]: /cli/azure/acr#az-acr-create

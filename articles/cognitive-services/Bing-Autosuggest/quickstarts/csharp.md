@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 2ef0233898836dc35eb6bdedab4caba16cf8c752
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 10e25797c15a821579cd15333cdd833e491acbd0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011029"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546114"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing eC#
 
@@ -24,7 +24,7 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](http://www.mono-project.com/).
+* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
@@ -163,7 +163,7 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
 > [!div class="nextstepaction"]
 > [Tutorial da Sugestão Automática do Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
 - [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

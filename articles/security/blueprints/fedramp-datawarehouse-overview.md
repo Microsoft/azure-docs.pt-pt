@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 426293dbb3650b5a2bb3809b1e808f640392791d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3c78aed2f30ea85f5bc16a8c0fb270bb1c761be8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241957"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539518"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Azure Security and Compliance Blueprint: Armazém de dados para a automatização de FedRAMP
 
@@ -83,7 +83,7 @@ A secção seguinte fornece detalhes sobre os elementos de desenvolvimento e imp
 
 Uma máquina virtual foi criada como um anfitrião de bastião associados a um domínio com as seguintes configurações:
 -   [Extensão de antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
--   [Extensão do log Analytics](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [O Azure Monitor registos de extensão](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Extensão de diagnóstico do Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [O Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) com o Azure Key Vault (respeita o Azure Government, DSS da PCI, HIPAA e outros requisitos)
 -   Uma [política de encerramento automático](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) para reduzir o consumo de recursos de máquina virtual quando não está em utilização

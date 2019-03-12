@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 096bc96558f0fe33f8046622dc2443728674e405
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a9f6dfb0de2cf09b27d08eb6b7dc425c8cd1f17d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876884"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549226"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrato de licença do SDK de dispositivos de voz
 
@@ -52,7 +52,7 @@ e) partilhar, publicar, ou emprestar o software (exceto para qualquer código di
 
 f) tem de utilizar o software apenas em combinação com o Azure serviços cognitivos da Microsoft, serviço de voz
 
-**3\. RECOLHA DE DADOS.** Este software pode interagir com outros produtos da Microsoft que recolhem dados que são transmitidos à Microsoft. Para obter mais informações sobre como Microsoft processos os dados pessoais que recolhemos, consulte a declaração de privacidade da Microsoft em http://go.microsoft.com/fwlink/?LinkId=248681.
+**3\. RECOLHA DE DADOS.** Este software pode interagir com outros produtos da Microsoft que recolhem dados que são transmitidos à Microsoft. Para obter mais informações sobre como Microsoft processos os dados pessoais que recolhemos, consulte a declaração de privacidade da Microsoft em https://go.microsoft.com/fwlink/?LinkId=248681.
 
 **4\. SOFTWARE DE PRÉ-LANÇAMENTO.** O software é uma versão de pré-lançamento. Ele poderá não funcionar corretamente. Poderá ser diferente da versão lançada comercialmente.
 

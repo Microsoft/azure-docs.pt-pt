@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 0ca4b3b353dd3985680fbf71afbf5ba6a35644fa
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a4041d7d2cc9d3fd42a541c316d8d739b3ab733d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456283"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539875"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiar dados do Armazenamento de blobs do Azure para a base de dados SQL com o Azure Data Factory
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. O pipeline nesta fábrica de dados copia os dados do Armazenamento de blobs do Azure para uma base de dados SQL. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -53,7 +53,7 @@ Agora, prepare o Armazenamento de blobs e a Base de Dados SQL para o tutorial, a
     Jane,Doe
     ```
 
-1. Crie um contentor com o nome **adftutorial** no Armazenamento de blobs. Crie uma pasta com o nome **input** neste contentor. Em seguida, carregue o ficheiro **emp.txt** para a pasta **input**. Utilize o portal do Azure ou ferramentas como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/) para realizar estas tarefas.
+1. Crie um contentor com o nome **adftutorial** no Armazenamento de blobs. Crie uma pasta com o nome **input** neste contentor. Em seguida, carregue o ficheiro **emp.txt** para a pasta **input**. Utilize o portal do Azure ou ferramentas como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/) para realizar estas tarefas.
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela SQL sink
 
@@ -129,7 +129,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
 1. Na **atividades** ferramenta caixa, expanda o **mover andTransform** categoria e arraste e largue o **dados de cópia** atividade da caixa de ferramenta para a superfície de desenho do pipeline. Especifique **CopyFromBlobToSql** em **Nome**.
 
-    ![Atividade Copiar](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
+    ![Copiar atividade](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
 ### <a name="configure-source"></a>Configurar origem
 
@@ -205,7 +205,7 @@ Neste tutorial, vai começar pela criação do pipeline. Em seguida, vai criar s
 
 1. Em **Tabela**, selecione **[dbo].[emp]**. 
 
-    ![Tabela](./media/tutorial-copy-data-portal/select-emp-table.png)
+    ![Tabelas](./media/tutorial-copy-data-portal/select-emp-table.png)
 1. Vá para o separador **Esquema** e selecione **Importar Esquema**. 
 
     ![Selecione a importação do esquema](./media/tutorial-copy-data-portal/import-destination-schema.png)

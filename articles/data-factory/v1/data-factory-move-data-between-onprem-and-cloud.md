@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3d4be0466f7f91c23666af4b155fe3b69c868d58
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 94c464733d731505cde0327ce9a295d3b4ab68de
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449551"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538702"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre origens no local e a nuvem com o Data Management Gateway
 > [!NOTE]
@@ -362,7 +362,7 @@ Neste passo, vai criar um **pipeline** com um **atividade de cópia** que utiliz
    * Na **typeProperties** secção, **SqlSource** está especificado como o **tipo de origem** e * * BlobSink * * é especificado como o **tipo de sink**.
    * Consulta SQL `select * from emp` é especificado para o **sqlReaderQuery** propriedade **SqlSource**.
 
-   Tanto o datetime de início como de fim têm de estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **end** é opcional, mas iremos utilizá-lo neste tutorial.
+   Tanto o datetime de início como de fim têm de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O tempo **end** é opcional, mas iremos utilizá-lo neste tutorial.
 
    Se não especificar valor da propriedade **end**, esta é calculada como “**início + 48 horas**”. Para executar o pipeline de forma indefinida, especifique **9/9/9999** como o valor da propriedade **end**.
 
@@ -407,9 +407,9 @@ Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos 
 6. Clique em **X** para fechar todas as páginas até
 7. voltar à home page para o **ADFTutorialOnPremDF**.
 8. (opcional) Clique em **Pipelines**, clique em **ADFTutorialOnPremDF**e fazer uma busca tabelas de entrada (**consumida**) ou conjuntos de dados de saída (**produzido**).
-9. Utilize ferramentas como [Explorador de armazenamento do Microsoft](http://storageexplorer.com/) para verificar se um ficheiro/blob é criado para cada hora.
+9. Utilize ferramentas como [Explorador de armazenamento do Microsoft](https://storageexplorer.com/) para verificar se um ficheiro/blob é criado para cada hora.
 
-   ![Explorador do Storage do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Explorador do Armazenamento do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 * Ver [Data Management Gateway](data-factory-data-management-gateway.md) artigo para todos os detalhes sobre o Data Management Gateway.

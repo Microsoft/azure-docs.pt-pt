@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 55274f26-be7e-4514-964c-7186ecb55c4a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55eb93b77d2a23bafbb36763755a6bc1138b0433
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7a0a5bd2806e977a6678c1bf41ce993bdc137604
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868693"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782586"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>Tutorial: Integração do Active Directory do Azure com FiscalNote
 

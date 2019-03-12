@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: f4a2fe4c9307f7e59ca94e47683356143546d090
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 077b3e8b9aac47818b82384584d9b3cb410f9422
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310748"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541388"
 ---
 # <a name="about-azure-vm-backup"></a>Acerca das cópias de segurança de VMs do Azure
 
@@ -61,7 +61,7 @@ Quando cria cópias de segurança de VMs do Azure com o Azure Backup, as VMs sã
 Instantâneos de cópia de segurança do Azure de acordo com a agenda de cópia de segurança.
 
 - **VMs do Windows**: Para VMs do Windows, o serviço de cópia de segurança, as coordenadas com o serviço do Volume de cópia de sombra (VSS) para criar um instantâneo consistente com a aplicação dos discos da VM.
-    - Por predefinição, o Azure Backup permite cópias de segurança completas do VSS. [Saiba mais](http://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+    - Por predefinição, o Azure Backup permite cópias de segurança completas do VSS. [Saiba mais](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
     - Se pretender alterar a definição para que as cópias de segurança do Azure utiliza cópias de segurança de cópia VSS, defina a seguinte chave de registro num prompt de comando: **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**.
 - **VMs do Linux**: Se quiser criar instantâneos consistentes com a aplicação de VM do Linux, utilize o script prévio de Linux e estrutura para escrever seus próprios scripts personalizados para garantir a consistência do script posterior.
     -  O Azure Backup invoca apenas os scripts de pré/pós escritos por.

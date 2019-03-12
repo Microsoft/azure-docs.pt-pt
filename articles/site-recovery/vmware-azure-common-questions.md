@@ -5,15 +5,15 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/03/2019
+ms.date: 03/07/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9e15f2e1b064ec2e64bfa8254075eac5bc801115
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9e192c736235fcf8b8b5374787ad94aaf87427bf
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442618"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727081"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -123,11 +123,15 @@ Sim, o ExpressRoute pode ser utilizado para replicar VMs no Azure. O site Recove
 
 ### <a name="how-can-i-change-storage-account-after-machine-is-protected"></a>Como posso alterar a conta de armazenamento depois do computador está protegido?
 
-Para uma replicação em curso, conta de armazenamento só pode ser atualizada para premium. Se pretender utilizar preços normais, terá de desativar a replicação da sua máquina de origem e volte a ativar a proteção com discos geridos standard. Fora isso, não há uma nenhuma outra forma de alterar a conta de armazenamento depois de ativar a proteção.
+Terá de desativar e ativar a replicação atualizar ou mudar o tipo de conta de armazenamento.
 
 ### <a name="how-can-i-change-managed-disk-type-after-machine-is-protected"></a>Como posso alterar o tipo de disco gerido depois do computador está protegido?
 
-Sim, pode facilmente alterar o tipo de disco gerido. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage).
+Sim, pode facilmente alterar o tipo de disco gerido. [Saiba mais](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). No entanto, depois de alterar o tipo de disco gerido, certifique-se de que aguardar que os pontos de recuperação nova seja gerado se precisa testar ativação pós-falha ou ativação pós-falha publicar esta atividade.
+
+### <a name="can-i-switch-the-replication-from-managed-disks-to-unmanaged-disks"></a>Pode alternar a replicação a partir de discos geridos para discos não geridos?
+
+Não, mudar de gerido para não gerenciado não é suportada.
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Por que não é possível replicar através de VPN?
 

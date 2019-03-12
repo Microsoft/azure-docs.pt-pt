@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 78ec1766-4f79-4f16-9a66-d5584c4b6151
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: d45d111f677010cbe7faa7778348c13e0eae2963
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 172c3918e1f3efa0aa96b0e095121ed6387bcf21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878851"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: Integração do Active Directory do Azure com Greenhouse
 

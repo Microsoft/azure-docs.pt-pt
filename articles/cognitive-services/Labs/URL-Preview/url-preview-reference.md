@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: a871048c9d75fc6ea958cfacaa3a47b11765fb0d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: da23d8037f37174826a2b9662c39bb507367a6ae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884448"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537818"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de v7 pré-visualização do URL do projeto
 
@@ -77,13 +77,13 @@ O pedido pode incluir os seguintes parâmetros de consulta. Consulte a coluna ne
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|O mercado de onde os resultados provêm. <br /><br />Para obter uma lista de possíveis valores de mercado, consulte códigos de mercado.<br /><br /> **NOTA:** A API de pré-visualização do URL atualmente suporta apenas geografia dos EUA e do idioma inglês.<br /><br />|String|Sim|
 |<a name="query" />q|O URL para a pré-visualização|String|Sim|
-|<a name="responseformat" />responseFormat|O tipo de mídia a utilizar para a resposta. Seguem-se os valores possíveis de maiúsculas e minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> A predefinição é JSON. Para obter informações sobre o JSON de objetos que contém a resposta, consulte [objetos de resposta](#response-objects).<br /><br />Se especificar JsonLd, o corpo da resposta inclui os objetos de JSON LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON LD](http://json-ld.org/).|String|Não|
+|<a name="responseformat" />responseFormat|O tipo de mídia a utilizar para a resposta. Seguem-se os valores possíveis de maiúsculas e minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> A predefinição é JSON. Para obter informações sobre o JSON de objetos que contém a resposta, consulte [objetos de resposta](#response-objects).<br /><br />Se especificar JsonLd, o corpo da resposta inclui os objetos de JSON LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, consulte [JSON LD](https://json-ld.org/).|String|Não|
 |<a name="safesearch"/>safeSearch|Conteúdo para adultos ilegal ou pirateado conteúdo, é bloqueado com o código de erro 400 e o *isFamilyFriendly* sinalizador não for devolvido. <p>Para o conteúdo para adultos legal, segue-se o comportamento. Código de estado devolve 200 e o *isFamilyFriendly* sinalizador estiver definido como false.<ul><li>safeSearch=strict: Título, descrição, URL e imagem não serão devolvidos.</li><li>pesquisa segura = moderado; Obtenha title, URL e descrição mas não a imagem descritiva.</li><li>pesquisa segura = desativar; Obter todos os resposta objetos/elementos – title, URL, descrição e imagem.</li></ul> |String|Não é necessário. </br> O padrão é safeSearch = rigorosa.|
 
 ## <a name="response-objects"></a>Objetos de resposta
 O esquema de resposta é qualquer um de uma [página Web] ou byl vrácen Prvek, tal como a API de pesquisa na Web. Se o pedido falhar, o objeto de nível superior é o [byl vrácen Prvek](#errorresponse) objeto.
 
-|Object|Descrição|
+|Objeto|Descrição|
 |------------|-----------------|
 |[WebPage](#webpage)|Principal ao nível objeto JSON que contém os atributos de pré-visualização.|
 
@@ -112,16 +112,16 @@ Define as informações sobre uma página da Web em pré-visualização.
 
 |Name|Value|Type|
 |----------|-----------|----------|
-|nome|O título da página, não necessariamente o título do HTML|String|
+|name|O título da página, não necessariamente o título do HTML|String|
 |url|O URL que, na verdade, foi pesquisado (pedido pode seguiu redirecionamentos)|String|
 |descrição|Breve descrição da página e conteúdo|String|
-|isFamilyFriendly|Mais precisos para itens no índice web; buscas em tempo real fazer esta deteção com base apenas no URL e não o conteúdo da página|boolean|
+|isFamilyFriendly|Mais precisos para itens no índice web; buscas em tempo real fazer esta deteção com base apenas no URL e não o conteúdo da página|booleano|
 |primaryImageOfPage/contentUrl|O URL para uma imagem representativo para incluir na pré-visualização|String|
 
 ### <a name="identifiable"></a>Identificação
 |Name|Value|Type|
 |-------------|-----------------|----------|
-|ID|Um identificador de recurso|String|
+|id|Um identificador de recurso|String|
 
 ## <a name="error-codes"></a>Códigos de erro
 

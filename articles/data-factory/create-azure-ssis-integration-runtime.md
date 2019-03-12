@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 9d639dfc1b9e262e6f12cd29c00e2f0e40274426
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e0f45de51c191f532340179f2477844dfe0b491d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456453"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535235"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar Runtime de integração Azure-SSIS no Azure Data Factory
 Este artigo fornece passos para o aprovisionamento do Azure-SSIS Integration Runtime (IR) no Azure Data Factory (ADF). Em seguida, pode utilizar o SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) para implementar e executar pacotes do SQL Server Integration Services (SSIS) neste runtime de integração no Azure.
@@ -544,7 +544,7 @@ Nesta secção, vai utilizar o modelo Azure Resource Manager para criar o runtim
     ```json
     {
         "contentVersion": "1.0.0.0",
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "parameters": {},
         "variables": {},
         "resources": [{

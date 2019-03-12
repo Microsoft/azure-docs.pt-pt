@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: 1c1a706fb423f440d40c49a9a19cc54ed63ac636
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249177"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544601"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Acompanhar o saldo de crédito do Azure para o contrato de cliente da Microsoft
 
@@ -31,7 +31,7 @@ Este artigo aplica-se a uma conta de cobrança para um contrato de cliente da Mi
 
 ## <a name="check-credit-balance-in-the-azure-portal"></a>Verificar saldo de crédito no portal do Azure
 
-1. Inicie sessão no [portal do Azure]( http://portal.azure.com).
+1. Inicie sessão no [portal do Azure]( https://portal.azure.com).
 
 2. Pesquisar nos **custo Management + faturação**.
 
@@ -76,7 +76,7 @@ Créditos do Azure são um dos métodos de pagamento. Obtém crédito da Microso
 
  Os seguintes produtos não são abrangidos por créditos do Azure. É-lhe cobrado para usar esses produtos, independentemente do seu saldo de crédito:
 
-- Canónico
+- Canonical
 - Citrix XenApp Essentials
 - Citrix XenDesktop 
 - Utilizador registado

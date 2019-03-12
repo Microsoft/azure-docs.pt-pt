@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 04707a747edb7cf26b4e7f4e3251b958f6f11f38
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: df1542d6d20120a9b1e087fadf3743479ecebf07
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962297"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533838"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copiar novos ficheiros com base no nome de ficheiro particionada de tempo com a ferramenta copiar dados de forma incremental
 
@@ -43,14 +43,14 @@ Neste tutorial, vai executar os seguintes passos:
 
 Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
 
-1. Criar um contentor com o nome **origem**.  Criar um caminho de pasta como **2019/02/26/14** no seu contentor. Criar um arquivo de texto vazio e nomeie-o como **file1.txt**. Carregar o file1.txt para o caminho da pasta **origem/2019/02/26/14** na sua conta de armazenamento.  Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/).
+1. Criar um contentor com o nome **origem**.  Criar um caminho de pasta como **2019/02/26/14** no seu contentor. Criar um arquivo de texto vazio e nomeie-o como **file1.txt**. Carregar o file1.txt para o caminho da pasta **origem/2019/02/26/14** na sua conta de armazenamento.  Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
     
     ![Carregar ficheiros](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
     > Ajuste o nome da pasta com o seu fuso horário UTC.  Por exemplo, se a hora UTC atual é 2 às 18:03 26 de Fevereiro de 2019, pode criar o caminho da pasta como **origem/2019/02/26/14/** pela regra de **origem / {ano} / {Month} / {Day} / {Hour} /**.
 
-2. Criar um contentor com o nome **destino**. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/).
+2. Criar um contentor com o nome **destino**. Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
@@ -175,10 +175,10 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
 
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     
-    Também pode verificar o mesmo ao utilizar o Explorador de armazenamento do Azure (http://storageexplorer.com/) para analisar os ficheiros.
+    Também pode verificar o mesmo ao utilizar o Explorador de armazenamento do Azure (https://storageexplorer.com/) para analisar os ficheiros.
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
-12. Criar outro ficheiro de texto vazio com o nome do novo **file2.txt**. Carregar o ficheiro de file2.txt para o caminho da pasta **origem/2019/02/26/15** na sua conta de armazenamento.   Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/).    
+12. Criar outro ficheiro de texto vazio com o nome do novo **file2.txt**. Carregar o ficheiro de file2.txt para o caminho da pasta **origem/2019/02/26/15** na sua conta de armazenamento.   Pode utilizar várias ferramentas para executar estas tarefas, como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/).   
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
@@ -197,7 +197,7 @@ Prepare seu armazenamento de BLOBs para o tutorial ao efetuar estes passos.
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png) 
     
-    Também pode verificar o mesmo ao utilizar o Explorador de armazenamento do Azure (http://storageexplorer.com/) para analisar os ficheiros na **destino** contentor
+    Também pode verificar o mesmo ao utilizar o Explorador de armazenamento do Azure (https://storageexplorer.com/) para analisar os ficheiros na **destino** contentor
     
     ![Monitorizar execuções de pipeline](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 

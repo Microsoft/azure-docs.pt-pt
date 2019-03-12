@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 4e31e5d6f1f08012c2ab0dbccb7a0f6c2df89a9a
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117107"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57728872"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início rápido: Definir e obter um segredo no Azure Key Vault com o portal do Azure
 
@@ -26,9 +26,9 @@ O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
-Inicie sessão no portal do Azure em http://portal.azure.com.
+Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Criar um cofre
 
@@ -70,7 +70,11 @@ Para adicionar um segredo ao cofre, apenas tem de efetuar alguns passos adiciona
 
 Depois de receber a mensagem de que o segredo foi criado com êxito, pode clicar no mesmo na lista. Em seguida, pode ver algumas das propriedades. Se clicar na versão atual, pode ver o valor que especificou no passo anterior.
 
-![Propriedades do segredo](./media/quick-create-portal/version.png)
+![Propriedades do segredo](./media/quick-create-portal/current-version-hidden.png)
+
+Ao clicar no botão "Mostrar valor do segredo" no painel da direita, pode ver o valor oculto. 
+
+![Valor secreto apareceu](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

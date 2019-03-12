@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ef8c8f32422352c01b8c7ceb4811863faad4e57
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6b54b8f74df4b073b29ce05b11aa90ba53db7c09
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308776"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731716"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: Criar e consultar um armazém de dados SQL do Azure com o Azure PowerShell
 

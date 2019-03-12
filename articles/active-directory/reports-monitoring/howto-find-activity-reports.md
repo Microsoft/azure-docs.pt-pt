@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171303"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533413"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Encontrar relatórios de atividade no portal do Azure
 
@@ -48,15 +48,46 @@ O relatório de registos de auditoria consolida os seguintes relatórios:
 
 ### <a name="filtering-on-audit-logs"></a>Filtragem em registos de auditoria
 
-Pode utilizar a filtragem avançada no relatório de auditoria para aceder a uma determinada categoria de dados de auditoria, especificando-na **categoria de atividade** filtro. Por exemplo, para ver todas as atividades relacionadas com a reposição de palavra-passe self-service, selecione o **gestão de palavras-passe self-service** categoria. 
+Pode utilizar a filtragem avançada no relatório de auditoria para aceder a uma determinada categoria de dados de auditoria, especificando-na **categoria** filtro. Por exemplo, para ver todas as atividades relacionadas aos utilizadores, selecione o **UserManagement** categoria. 
 
-Categorias de atividade incluem:
+Categorias incluem:
 
+- Tudo
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Autorização
+- Contacto
+- Dispositivo
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- Outros
+- Política
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+Pode também filtrar num serviço específico com o **serviço** filtro de lista pendente. Por exemplo, para obter todos os eventos de auditoria relacionados com a gestão de palavras-passe self-service, selecione o **gestão de palavras-passe Self-Service** filtro.
+
+Os serviços incluem:
+
+- Tudo
+- Revisões de Acesso
+- Aprovisionamento de Contas 
+- Aplicação SSO
+- Métodos de Autenticação
+- B2C
+- Acesso Condicional
 - Diretório do Núcleo
-- Gestão de Palavra-passe Personalizada
+- Gestão de direitos
+- Proteção de Identidade
+- Utilizadores Convidados
+- PIM
 - Gestão de Grupos Personalizada
-- Aprovisionamento de Contas
-
+- Gestão de Passord self-service
+- Termos de Utilização
 
 ## <a name="sign-ins-report"></a>Relatório de inícios de sessão 
 

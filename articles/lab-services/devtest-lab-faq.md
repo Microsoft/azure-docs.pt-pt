@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7d845b0e434f21c6db46cddb26b7f55aeb33d080
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733780"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551828"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
@@ -99,8 +99,8 @@ Se estiver a utilizar o Azure DevOps, pode utilizar um [extensão de tarefas de 
 As seguinte mensagens de blogue oferta orientações e informações sobre como utilizar a extensão de serviços de DevOps do Azure:
 
 * [Laboratórios Dev/Test e a extensão do Azure DevOps](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Implementar uma nova VM num laboratório DevTest Labs existente dos serviços de DevOps do Azure](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [Com o Azure DevOps Services release management para implementações contínuas DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [Implementar uma nova VM num laboratório DevTest Labs existente dos serviços de DevOps do Azure](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [Com o Azure DevOps Services release management para implementações contínuas DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 Para outra integração contínua (CI) / cadeias de ferramentas de entrega contínua (CD), é possível obter os mesmos cenários por implantar [modelos Azure Resource Manager](https://aka.ms/dtlquickstarttemplate) utilizando [cmdlets do Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) e [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). Também pode utilizar [APIs REST para os laboratórios DevTest](https://aka.ms/dtlrestapis) para integrar com a sua coleção de ferramentas.  
 

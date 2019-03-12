@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: c4d694621e4ac5428256346e3994bc3233d399a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441411"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544533"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para Salesforce com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,7 +48,7 @@ O Salesforce tem limites para total de pedidos de API e pedidos de API em simult
 - Se o número de pedidos simultâneos excede o limite, de limitação ocorre e ver falhas aleatórias.
 - Se o número total de solicitações exceder o limite, a conta do Salesforce está bloqueada durante 24 horas.
 
-Poderá também receber a mensagem de erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Para obter mais informações, consulte a seção "Limites de pedido de API" [limites de desenvolvedor do Salesforce](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
+Poderá também receber a mensagem de erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Para obter mais informações, consulte a seção "Limites de pedido de API" [limites de desenvolvedor do Salesforce](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
 
 ## <a name="get-started"></a>Introdução
 
@@ -64,7 +64,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Salesforce.
 |:--- |:--- |:--- |
 | tipo |A propriedade de tipo deve ser definida como **Salesforce**. |Sim |
 | environmentUrl | Especifique o URL da instância do Salesforce. <br> -Predefinição é `"https://login.salesforce.com"`. <br> -Para copiar dados de proteção de segurança, especifique `"https://test.salesforce.com"`. <br> -Para copiar dados de domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
-| o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
+| nome do utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | palavra-passe |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um token de segurança da conta de utilizador. Para obter instruções sobre como repor e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, veja [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para sink se associada a origem de serviço não tem o runtime de integração |
@@ -314,13 +314,13 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre
 | Número de automática |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
-| Date |DateTime |
+| Data |DateTime |
 | Data/Hora |DateTime |
-| Email |String |
-| Id |String |
+| E-mail |String |
+| ID |String |
 | Relação de referência |String |
 | Lista de opções de seleção múltipla |String |
-| Number |Decimal |
+| Número |Decimal |
 | Percentagem |Decimal |
 | Telefone |String |
 | Lista de opções |String |
@@ -329,7 +329,7 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre
 | Área de texto (longa) |String |
 | Área de texto (avançado) |String |
 | Texto (encriptado) |String |
-| do IdP |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229401"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535387"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Aprovisionar a sua criação e o monitor trabalhar condições duplos Digital do Azure
 
@@ -257,7 +257,7 @@ Se a condição monitorizada for cumprida, a função definida pelo usuário def
 
 Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vontade eliminar recursos criados neste tutorial:
 
-1. No menu do lado esquerdo da [portal do Azure](http://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
+1. No menu do lado esquerdo da [portal do Azure](https://portal.azure.com), selecione **todos os recursos**, selecione o grupo de recursos digitais duplos e selecione **eliminar**.
 
     > [!TIP]
     > Se teve problemas ao eliminar a instância de duplos Digital, uma atualização de serviço capacidade foi implementada com a correção. Volte a tentar eliminar a instância.

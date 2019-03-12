@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7c8553aed809290ea52fcb2e98fea48a30c109f6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087172"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539603"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controlo de acesso na geração 1 de armazenamento do Azure Data Lake
 
@@ -27,9 +27,9 @@ Geração de armazenamento 1 do Azure Data Lake implementa um modelo de controle
 
 Existem dois tipos de listas de controlo de acesso (ACLs) – **ACLs de Acesso** e **ACLs Predefinidas**.
 
-* **ACLs de Acesso**: controlam o acesso a um objeto. Os ficheiros e as pastas têm ACLs de Acesso.
+* **ACLs de acesso**: Controlam o acesso a um objeto. Os ficheiros e as pastas têm ACLs de Acesso.
 
-* **ACLs Predefinidas**: um "modelo" de ACLs associado a uma pasta que determinam as ACLs de Acesso para todos os itens subordinados que são criados nessa pasta. Os ficheiros não possuem ACLs Predefinidas.
+* **ACLs predefinidas**: Um "modelo" de ACLs associado uma pasta que determinam as ACLs de acesso para todos os itens subordinados que são criados nessa pasta. Os ficheiros não possuem ACLs Predefinidas.
 
 
 Tanto as ACLs de Acesso como as ACLs Predefinidas têm a mesma estrutura.
@@ -132,8 +132,8 @@ Como não há nenhum "grupo principal" associado a utilizadores na geração 1 d
 
 **Atribuir o grupo proprietário para um novo ficheiro ou pasta**
 
-* **Caso 1**: a pasta raiz "/". Esta pasta é criada quando é criada uma conta de geração 1 de armazenamento do Data Lake. Neste caso, o grupo proprietário está definido para um GUID de todos os de zero.  Este valor não permite que qualquer acesso.  É um marcador de posição até a hora num que grupo é atribuído.
-* **Caso 2** (todos os outros casos): quando é criado um item novo, o grupo proprietário é copiado da pasta principal.
+* **Caso 1**: A pasta raiz "/". Esta pasta é criada quando é criada uma conta de geração 1 de armazenamento do Data Lake. Neste caso, o grupo proprietário está definido para um GUID de todos os de zero.  Este valor não permite que qualquer acesso.  É um marcador de posição até a hora num que grupo é atribuído.
+* **Caso 2** (todos os outros casos): Quando um novo item é criado, o grupo proprietário é copiado da pasta principal.
 
 **Alterar o grupo proprietário**
 
@@ -289,13 +289,13 @@ Não, mas as ACLs Predefinidas podem ser utilizadas para definir ACLs para fiche
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Onde posso obter mais informações sobre o modelo de controlo de acesso POSIX?
 
 * [POSIX Access Control Lists on Linux (Listas de Controlo de Acesso POSIX no Linux)](https://www.linux.com/news/posix-acls-linux)
-* [HDFS permission guide (Guia de permissões do HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [FAQ DO POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
-* [POSIX 1003.1 2008](http://standards.ieee.org/findstds/standard/1003.1-2008.html)
-* [POSIX 1003.1 2013](http://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
-* [POSIX 1003.1 2016](http://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
+* [HDFS permission guide (Guia de permissões do HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [FAQ DO POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
+* [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
+* [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL: using access control lists on Linux (ACL: utilizar listas de controlo de acesso no Linux)](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL: using access control lists on Linux (ACL: utilizar listas de controlo de acesso no Linux)](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Consulte também
 

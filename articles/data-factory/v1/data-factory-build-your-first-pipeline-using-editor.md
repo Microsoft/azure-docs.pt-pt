@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020715"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535999"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar a primeira fábrica de dados com o portal do Azure
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ Neste passo, irá ligar um cluster do HDInsight a pedido à sua fábrica de dado
 
      c. O cluster do HDInsight cria um contentor predefinido no armazenamento de blobs especificado na propriedade JSON (**linkedServiceName**). O HDInsight não elimina este contentor quando o cluster é eliminado. Este comportamento é propositado. Com o serviço ligado do HDInsight a pedido, é criado um cluster do HDInsight sempre que é processado um setor, exceto se houver um cluster em direto (**timeToLive**). O cluster é eliminado automaticamente quando o processamento é concluído.
 
-     À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: “adf**nomedasuafábricadedados**-**nomedoserviçoligado**-carimbodedataehora”. Utilize ferramentas como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/) para eliminar contentores do armazenamento de blobs.
+     À medida que são processados mais setores, verá muitos contentores no armazenamento de blobs. Se não precisar deles para a resolução de problemas das tarefas, poderá eliminá-los para reduzir o custo de armazenamento. Os nomes destes contentores seguem um padrão: “adf**nomedasuafábricadedados**-**nomedoserviçoligado**-carimbodedataehora”. Utilize ferramentas como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/) para eliminar contentores do armazenamento de blobs.
 
      Para obter mais informações, veja [Serviço ligado do HDInsight a pedido](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 

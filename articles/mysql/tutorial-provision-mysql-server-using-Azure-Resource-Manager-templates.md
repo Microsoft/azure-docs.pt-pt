@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8b443d0002b600860597710792054e9531b6cc41
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880704"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532917"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Aprovisionar uma base de dados do Azure para servidor MySQL com o modelo Azure Resource Manager
 
@@ -26,7 +26,7 @@ Neste tutorial, utilize modelo Azure Resource Manager e outros utilitários para
 > [!div class="checklist"]
 > * Criar uma base de dados do Azure para o servidor MySQL com o ponto final de serviço de VNet com o modelo Azure Resource Manager
 > * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
-> * Carregar os dados de exemplo
+> * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 
@@ -87,8 +87,8 @@ Este pedido, os valores que precisam para serem personalizados são:
 +   `storageProfile/geoRedundantBackup` -Especifique ativado/desativado dependendo dos requisitos de Geo-DR.
 +   `sku/tier` -Especifique o escalão básico, GeneralPurpose ou MemoryOptimized para implementação.
 +   `sku/capacity` -Especifique a capacidade de vCore. Os valores possíveis incluem 2, 4, 8, 16, 32 ou 64.
-+   `sku/family` -Especifique Gen4 ou Gen5 para selecionar a geração de hardware para a implementação de servidor.
-+   `sku/name` -Especifique TierPrefix_family_capacity. Por exemplo B_Gen4_1, GP_Gen5_16, MO_Gen5_32. Consulte a [escalões de preço](./concepts-pricing-tiers.md) documentação para compreender os valores válidos por região e por camada.
++   `sku/family` -Especifique Gen5 para escolher a geração de hardware para a implementação de servidor.
++   `sku/name` -Especifique TierPrefix_family_capacity. Por exemplo B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Consulte a [escalões de preço](./concepts-pricing-tiers.md) documentação para compreender os valores válidos por região e por camada.
 +   `resources/properties/virtualNetworkSubnetId` -Especifique o identificador do Azure da sub-rede na VNet onde o servidor MySQL do Azure deve ser colocado. 
 +   `tags(optional)` -Especifique etiquetas opcionais são pares chave-valor que pretende utilizar para categorizar os recursos para faturação etc.
 
@@ -127,8 +127,8 @@ O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **a
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -204,7 +204,7 @@ Neste tutorial, aprendeu a:
 > [!div class="checklist"]
 > * Criar uma base de dados do Azure para o servidor MySQL com o ponto final de serviço de VNet com o modelo Azure Resource Manager
 > * Utilize a [ferramenta da linha de comandos mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
-> * Carregar os dados de exemplo
+> * Carregar dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 

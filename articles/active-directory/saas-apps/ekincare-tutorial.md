@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 57f56d14-83cf-4cbb-b342-fac4fc60078f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fa97b6f33bb0ed8a1d0a457b79a5e1d8637d472
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 90e6f922c6851d5ed3b564f202e0b87b231f2f25
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880568"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Tutorial: Integração do Active Directory do Azure com eKincare
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD início de sessão único com eKincare, execute os se
 
 5. aplicação de eKincare espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
 
@@ -127,9 +127,9 @@ Para configurar o Azure AD início de sessão único com eKincare, execute os se
     | OrganizationName | *user.companyname* |
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![image](common/new-save-attribute.png)
+    ![imagem](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![imagem](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -216,7 +216,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na eKincare. suporta eKincare **aprovisionamento de utilizadores de just-in-time**, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no eKincare, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

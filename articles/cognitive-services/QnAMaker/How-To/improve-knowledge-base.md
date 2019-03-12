@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: 7281fb15e91195e1dd20095d9fdf80d3d9894a26
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433064"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537903"
 ---
 # <a name="use-active-learning-to-improve-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
@@ -154,7 +154,7 @@ Quando a aplicação de cliente (como um chatbot) recebe a resposta, são devolv
 
 A aplicação cliente apresenta todas as dúvidas com uma opção para o utilizador selecionar a pergunta que mais representa a sua intenção. 
 
-Assim que o usuário seleciona uma das perguntas existentes. Os comentários do utilizador são enviados para o QnA Maker [Train](http://www.aka.ms/activelearningsamplebot) loop de API para continuar o comentários de aprendizagem ativa. 
+Assim que o usuário seleciona uma das perguntas existentes. Os comentários do utilizador são enviados para o QnA Maker [Train](https://www.aka.ms/activelearningsamplebot) loop de API para continuar o comentários de aprendizagem ativa. 
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 19f928d854618a5e29841dc45d7846faf7fb83b4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253130"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540278"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gerir a expiração do conteúdo da web na CDN do Azure
 > [!div class="op_single_selector"]
@@ -106,7 +106,7 @@ O exemplo de ficheiro de configuração XML seguinte mostra como definir o `<cli
 </configuration>
 ```
 
-Para utilizar o **cacheControlMaxAge** atributo, tem de definir o valor da **cacheControlMode** atributo para `UseMaxAge`. Esta definição causou o cabeçalho de HTTP e a diretiva, `Cache-Control: max-age=<nnn>`, para ser adicionado à resposta. O formato do valor de intervalo de tempo para o **cacheControlMaxAge** atributo é `<days>.<hours>:<min>:<sec>`. Seu valor é convertido em segundos e é utilizado como o valor do `Cache-Control` `max-age` diretiva. Para obter mais informações sobre o `<clientCache>` elemento, consulte [Cache do cliente <clientCache> ](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Para utilizar o **cacheControlMaxAge** atributo, tem de definir o valor da **cacheControlMode** atributo para `UseMaxAge`. Esta definição causou o cabeçalho de HTTP e a diretiva, `Cache-Control: max-age=<nnn>`, para ser adicionado à resposta. O formato do valor de intervalo de tempo para o **cacheControlMaxAge** atributo é `<days>.<hours>:<min>:<sec>`. Seu valor é convertido em segundos e é utilizado como o valor do `Cache-Control` `max-age` diretiva. Para obter mais informações sobre o `<clientCache>` elemento, consulte [Cache do cliente <clientCache> ](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Definir cabeçalhos Cache-Control através de programação
 Para aplicativos ASP.NET, controla a CDN comportamento de cache por meio de programação, definindo a **HttpResponse.Cache** propriedade da .NET API. Para obter informações sobre o **HttpResponse.Cache** propriedade, veja [propriedade HttpResponse.Cache](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) e [HttpCachePolicy classe](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
@@ -128,10 +128,10 @@ Response.Cache.SetLastModified(DateTime.Now);
 ```
 
 ## <a name="testing-the-cache-control-header"></a>Teste o cabeçalho Cache-Control
-Pode verificar facilmente as definições de TTL de seu conteúdo da web. Com o seu browser [ferramentas de programação](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), teste, que inclui o seu conteúdo da web a `Cache-Control` cabeçalho de resposta. Também pode utilizar uma ferramenta como **wget**, [Postman](https://www.getpostman.com/), ou [Fiddler](http://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
+Pode verificar facilmente as definições de TTL de seu conteúdo da web. Com o seu browser [ferramentas de programação](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/), teste, que inclui o seu conteúdo da web a `Cache-Control` cabeçalho de resposta. Também pode utilizar uma ferramenta como **wget**, [Postman](https://www.getpostman.com/), ou [Fiddler](https://www.telerik.com/fiddler) para examinar os cabeçalhos de resposta.
 
 ## <a name="next-steps"></a>Próximos Passos
-* [Leia os detalhes sobre o **clientCache** elemento](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Leia os detalhes sobre o **clientCache** elemento](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Leia a documentação para o **HttpResponse.Cache** propriedade](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
 * [Leia a documentação para o **HttpCachePolicy classe**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
 * [Saiba mais sobre conceitos de colocação em cache](cdn-how-caching-works.md)

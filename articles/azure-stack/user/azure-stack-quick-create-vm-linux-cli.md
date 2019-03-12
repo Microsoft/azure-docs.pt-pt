@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bb0eac4f7de11c2b80412319227a00d5dbe6d8c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b3fbd91ddf06d4515ee55d24ba9330d0af6dc124
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243407"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540328"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Início rápido: criar uma máquina de virtual de servidor do Linux com a CLI do Azure no Azure Stack
 
@@ -55,7 +55,7 @@ O exemplo seguinte cria um grupo de recursos com o nome myResourceGroup na local
 az group create --name myResourceGroup --location local
 ```
 
-## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+## <a name="create-a-virtual-machine"></a>Crie uma máquina virtual
 
 Criar uma máquina virtual com o [az vm criar](/cli/azure/vm#az-vm-create) comando. O exemplo seguinte cria uma VM com o nome myVM. Este exemplo utiliza Demouser para um nome de utilizador administrativo e Demouser@123 como a palavra-passe do utilizador. Altere estes valores para algo que seja apropriado para seu ambiente.
 
@@ -82,7 +82,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="use-ssh-to-connect-to-the-virtual-machine"></a>Utilize SSH para ligar à máquina virtual
 
-Num computador cliente com SSH instalado, ligue à máquina virtual. Se estiver a trabalhar num cliente Windows, utilize [Putty](http://www.putty.org/) para criar a ligação. Para ligar à máquina virtual, utilize o seguinte comando:
+Num computador cliente com SSH instalado, ligue à máquina virtual. Se estiver a trabalhar num cliente Windows, utilize [Putty](https://www.putty.org/) para criar a ligação. Para ligar à máquina virtual, utilize o seguinte comando:
 
 ```bash
 ssh <publicIpAddress>

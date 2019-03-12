@@ -13,17 +13,17 @@ caps.latest.revision: 42
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 9cb78362b5c0613d6ed6820bbf8e6d3275ab4787
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5f1084090561d3233d0587cf426581ab6ef0ab94
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250667"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533005"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definição de serviços Cloud do Azure (ficheiro. csdef)
 O ficheiro de definição de serviço define o modelo de serviço para uma aplicação. O ficheiro contém as definições para as funções que estão disponíveis para um serviço em nuvem, especifica os pontos de extremidade de serviço e estabelece as definições de configuração para o serviço. Valores de definição de configuração são definidos no ficheiro de configuração do serviço, conforme descrito pelos [esquema de configuração do serviço em nuvem (clássico)](https://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35).
 
-Por predefinição, o ficheiro de esquema de configuração de diagnósticos do Azure está instalado para o `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` diretório. Substitua `<version>` com a versão instalada do [SDK do Azure](http://www.windowsazure.com/develop/downloads/).
+Por predefinição, o ficheiro de esquema de configuração de diagnósticos do Azure está instalado para o `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` diretório. Substitua `<version>` com a versão instalada do [SDK do Azure](https://www.windowsazure.com/develop/downloads/).
 
 A extensão de padrão para o ficheiro de definição de serviço é. csdef.
 

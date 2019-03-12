@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 274ba6d6a1ce2e9c8f2cae0ca29de8442525391e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 06fd66c3fb9e90e0198d40253f3c554fe8596c3d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106493"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543379"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do programador do Cofre de chaves do Azure
 
@@ -149,12 +149,12 @@ Os artigos sejam sobre outros cenários e serviços que usam ou integram com o K
 - [Descrição geral do chaves de conta de armazenamento do Key Vault](key-vault-ovw-storage-keys.md) descreve as chaves de contas de armazenamento do Azure de integração do Cofre de chaves.
 - [Mundos de segurança do Cofre de chaves](key-vault-ovw-security-worlds.md) descreve as relações entre regiões e áreas de segurança.
 
-## <a name="social"></a>Redes sociais
+## <a name="social"></a>Social
 
 - [Blog do Cofre de chaves](https://aka.ms/kvblog)
 - [Fórum do Cofre de chaves](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>Bibliotecas de suporte
 
-- [Biblioteca do Microsoft Azure Key Vault Core](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fornece **IKey** e **IKeyResolver** interfaces para a localização de chaves a partir dos identificadores e realizar operações com chaves.
-- [Extensões do Microsoft Azure Key Vault](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornece recursos expandidos para o Azure Key Vault.
+- [Biblioteca do Microsoft Azure Key Vault Core](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core) fornece **IKey** e **IKeyResolver** interfaces para a localização de chaves a partir dos identificadores e realizar operações com chaves.
+- [Extensões do Microsoft Azure Key Vault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions) fornece recursos expandidos para o Azure Key Vault.

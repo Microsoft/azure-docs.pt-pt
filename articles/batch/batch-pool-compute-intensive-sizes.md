@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d3152eb4b2512e05cad60772f8c4c75dd929758a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051701"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535595"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilizar o RDMA ou GPU instâncias em conjuntos do Batch
 
@@ -45,7 +45,7 @@ As capacidades RDMA ou GPU de tamanhos de computação intensiva no Batch são s
 
 | Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, ND24rs NC24rs_v2, NC24rs_v3,<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, ou<br/>Baseada em centOS HPC<br/>(O azure Marketplace) | Intel MPI 5<br/><br/>Controladores de RDMA do Linux | Ativar a comunicação entre nós, desabilite a execução de tarefa em simultâneo |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, ou<br/>Baseada em centOS HPC<br/>(O azure Marketplace) | Intel MPI 5<br/><br/>Controladores de RDMA do Linux | Ativar a comunicação entre nós, desabilite a execução de tarefa em simultâneo |
 | [NC, a NCv2, NCv3, NDv2 série](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia por série) | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3 ou 7.4<br/>(O azure Marketplace) | Controladores de NVIDIA CUDA ou CUDA Toolkit | N/A | 
 | [NV, NVv2 série](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3<br/>(O azure Marketplace) | Controladores de GRID da NVIDIA | N/A |
 <sup>*</sup>Tamanhos de série N com capacidade RDMA também incluem NVIDIA Tesla GPUs
@@ -54,7 +54,7 @@ As capacidades RDMA ou GPU de tamanhos de computação intensiva no Batch são s
 
 | Tamanho | Capacidade | Sistemas operativos | Software necessário | Definições do conjunto |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, ND24rs NC24rs_v2, NC24rs_v3,<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (do azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Controladores de RDMA do Windows | Ativar a comunicação entre nós, desabilite a execução de tarefa em simultâneo |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (do azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Controladores de RDMA do Windows | Ativar a comunicação entre nós, desabilite a execução de tarefa em simultâneo |
 | [NC, a NCv2, a NCv3, ND, NDv2 série](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varia por série) | Windows Server 2016 ou <br/>2012 R2 (do Azure Marketplace) | Controladores de NVIDIA CUDA ou CUDA Toolkit| N/A | 
 | [NV, NVv2 série](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 ou<br/>2012 R2 (do Azure Marketplace) | Controladores de GRID da NVIDIA | N/A |
 <sup>*</sup>Tamanhos de série N com capacidade RDMA também incluem NVIDIA Tesla GPUs
@@ -100,18 +100,18 @@ Para configurar um tamanho de VM especializado para o seu conjunto do Batch, tem
 
 Para executar aplicativos de CUDA num conjunto de nós de NC do Windows, terá de instalar os controladores de NVDIA GPU. Os seguintes passos de exemplo utilizam um pacote de aplicação para instalar os controladores de GPU da NVIDIA. Poderá escolher esta opção se a sua carga de trabalho depende de uma versão específica de controladores GPU.
 
-1. Transferir um pacote de configuração para os controladores GPU no Windows Server 2016 a partir da [Web site da NVIDIA](https://www.nvidia.com/Download/index.aspx) , por exemplo, [versão 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Guarde o ficheiro localmente com um nome abreviado como *GPUDriverSetup.exe*.
+1. Transferir um pacote de configuração para os controladores GPU no Windows Server 2016 a partir da [Web site da NVIDIA](https://www.nvidia.com/Download/index.aspx) , por exemplo, [versão 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Guarde o ficheiro localmente com um nome abreviado como *GPUDriverSetup.exe*.
 2. Crie um ficheiro zip do pacote.
 3. Carregar o pacote para a sua conta do Batch. Para obter os passos, consulte a [pacotes de aplicações](batch-application-packages.md) orientações. Especifique um id de aplicação, como *GPUDriver*e uma versão como *411.82*.
 1. Utilizar as APIs do Batch ou o portal do Azure, crie um conjunto na configuração da máquina virtual com o número pretendido de nós e dimensionamento. A tabela seguinte mostra as definições de exemplo para instalar os controladores de NVIDIA GPU silenciosamente usando uma tarefa de início:
 
-| Definição | Valor |
+| Definição | Value |
 | ---- | ----- | 
 | **Tipo de Imagem** | Marketplace (Linux/Windows) |
 | **Publicador** | MicrosoftWindowsServer |
 | **Oferta** | WindowsServer |
-| **Sku** | 2016 Datacenter |
-| **Tamanho do nó** | Padrão NC6 |
+| **Sku** | 2016-Datacenter |
+| **Tamanho do nó** | NC6 Standard |
 | **Referências do pacote de aplicação** | GPUDriver, versão 411.82 |
 | **Iniciar a tarefa ativada** | Verdadeiro<br>**Linha de comandos** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidade do usuário** -utilizador automático de agrupamento, o administrador<br/>**Aguardar execução com êxito** – verdadeiro
 
@@ -126,12 +126,12 @@ Para executar aplicativos de CUDA num conjunto de nós do Linux NC, terá de ins
 4. Crie uma conta do Batch numa região que suporta VMs do NC.
 5. Usando as APIs do Batch ou o portal do Azure, criar um conjunto [com a imagem personalizada](batch-custom-images.md) e com o número pretendido de nós e dimensionamento. A tabela seguinte mostra exemplos de definições de agrupamento para a imagem:
 
-| Definição | Valor |
+| Definição | Value |
 | ---- | ---- |
 | **Tipo de Imagem** | Imagem Personalizada |
 | **Imagem personalizada** | *Nome da imagem* |
 | **SKU do agente de nó** | batch.node.ubuntu 16.04 |
-| **Tamanho do nó** | Padrão NC6 |
+| **Tamanho do nó** | NC6 Standard |
 
 ## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Exemplo: Microsoft MPI num pool de VMS do Windows H16r
 
@@ -145,7 +145,7 @@ Para executar aplicações MPI do Windows num conjunto de nós de VM do Azure H1
 1. Siga os passos para criar uma [instantâneo e de imagem de VM do Windows personalizada](batch-custom-images.md) para o Batch.
 1. Usando as APIs do Batch ou o portal do Azure, criar um conjunto [com a imagem personalizada](batch-custom-images.md) e com o número pretendido de nós e dimensionamento. A tabela seguinte mostra exemplos de definições de agrupamento para a imagem:
 
-| Definição | Valor |
+| Definição | Value |
 | ---- | ---- |
 | **Tipo de Imagem** | Imagem Personalizada |
 | **Imagem personalizada** | *Nome da imagem* |
@@ -160,7 +160,7 @@ Para executar aplicações MPI num conjunto do Linux a série H nós, uma opçã
 
 Usando as APIs do Batch ou o portal do Azure, criar um conjunto com esta imagem e com o número pretendido de nós e dimensionamento. A tabela seguinte mostra exemplos de definições de agrupamento:
 
-| Definição | Valor |
+| Definição | Value |
 | ---- | ---- |
 | **Tipo de Imagem** | Marketplace (Linux/Windows) |
 | **Publicador** | OpenLogic |

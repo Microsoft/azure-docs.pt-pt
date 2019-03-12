@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 39ffe1b71fb002658110c63c825e0515f38e2b9e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537329"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528683"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Criar e gerir a base de dados do Azure para o servidor MySQL com o portal do Azure
 Este tópico descreve como pode criar rapidamente uma nova base de dados do Azure para o servidor MySQL. Também inclui informações sobre como gerir o servidor com o portal do Azure. Gestão de servidor inclui a visualização de detalhes do servidor e bases de dados, repor a palavra-passe, dimensionar os recursos e a eliminação do servidor.
@@ -44,7 +44,7 @@ Siga estes passos para criar uma base de dados do Azure para o servidor MySQL co
     | *Localização* | Sudeste Asiático (selecione entre Europa do Norte e E.U.A. oeste) |
     | *Versão* | 5.7 (escolher a base de dados do Azure para a versão do servidor MySQL) |
 
-4. Clique em **escalão de preço** para especificar o nível de desempenho e a camada de serviço do novo servidor. Selecione o **fins gerais** separador. *Geração 4*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**.
+4. Clique em **escalão de preço** para especificar o nível de desempenho e a camada de serviço do novo servidor. Selecione o **fins gerais** separador. *Geração 5*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 
@@ -62,7 +62,7 @@ Depois do novo servidor tenha sido provisionado, o utilizador tem várias opçõ
 
 2. Introduza uma nova palavra-passe e confirme a palavra-passe na janela, conforme mostrado:
 
-   ![Repor palavra-passe](./media/howto-create-manage-server-portal/reset-password.png)
+   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Clique em **OK** para guardar a nova palavra-passe.
 
@@ -90,7 +90,7 @@ Depois do novo servidor tenha sido provisionado, o utilizador tem várias opçõ
 
 1. Do servidor **descrição geral**, clique nas **eliminar** botão para abrir o pedido de confirmação de eliminação.
 
-    ![delete](./media/howto-create-manage-server-portal/delete.png)
+    ![eliminar](./media/howto-create-manage-server-portal/delete.png)
 
 2. Escreva o nome do servidor na caixa de entrada dupla confirmação.
 
@@ -101,7 +101,7 @@ Depois do novo servidor tenha sido provisionado, o utilizador tem várias opçõ
 ## <a name="list-the-azure-database-for-mysql-databases"></a>Lista a base de dados do Azure para bases de dados MySQL
 Do servidor **descrição geral**, desloque para baixo até ver a base de dados do mosaico na parte inferior. Todas as bases de dados do servidor estão listados na tabela.
 
-   ![bases de dados show](./media/howto-create-manage-server-portal/show-databases.png)
+   ![show-databases](./media/howto-create-manage-server-portal/show-databases.png)
 
 ## <a name="show-details-of-an-azure-database-for-mysql-server"></a>Mostrar detalhes de uma base de dados do Azure para o servidor MySQL
 Clique em **propriedades**, localizado em **definições** para ver informações detalhadas sobre o servidor.
@@ -110,4 +110,4 @@ Clique em **propriedades**, localizado em **definições** para ver informaçõe
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Início rápido: Criar base de dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+[Quickstart: Criar base de dados do Azure para o servidor MySQL com o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)

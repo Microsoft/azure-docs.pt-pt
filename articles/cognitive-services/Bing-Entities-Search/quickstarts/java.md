@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: ba8d1fa44ca3eacf4c8feeede18b594dfe72ea37
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 4a8f4fb3605f254bb48005e944a49fe45395aaec
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884125"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542527"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com Java
 
@@ -190,7 +190,7 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

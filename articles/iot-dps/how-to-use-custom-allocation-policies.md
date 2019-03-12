@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 4c02df5684036aef078b0f79c70d3b66d60e013b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 739780bedc701cc63747db6100242d0d6cad6085
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881520"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542680"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como utilizar políticas de alocação personalizado
 
@@ -90,7 +90,7 @@ Nesta secção, irá utilizar o Azure Cloud Shell para criar dois hubs IoT novo 
 
 Nesta secção, irá criar um novo grupo de inscrição que utiliza a política de alocação personalizado. Para simplificar, este artigo usa [atestado de chave simétrico](concepts-symmetric-key-attestation.md) com a inscrição. Para uma solução mais segura, considere a utilização [atestado de certificado X.509](concepts-security.md#x509-certificates) com uma cadeia de fidedignidade.
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com)e abra a sua instância do serviço aprovisionamento de dispositivos.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e abra a sua instância do serviço aprovisionamento de dispositivos.
 
 2. Selecione o **gerir inscrições** separador e, em seguida, clique nas **adicionar grupo de inscrição** botão na parte superior da página. 
 
@@ -527,7 +527,7 @@ A tabela seguinte mostra cenários esperados e os códigos de erro de resultados
 | O webhook devolve 200 OK com "iotHubHostName' definido como um nome de anfitrião válido do hub IoT | Estado do resultado: Atribuído  | SDK devolve PROV_DEVICE_RESULT_OK juntamente com informações de hub |
 | O webhook devolve 200 OK com 'iotHubHostName' presente na resposta, mas definida como uma cadeia vazia nem nula | Estado do resultado: Com Falhas<br><br> Código do erro: CustomAllocationIotHubNotSpecified (400208) | SDK devolve PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
 | O webhook devolve 401 não autorizado | Estado do resultado: Com Falhas<br><br>Código do erro: CustomAllocationUnauthorizedAccess (400209) | SDK devolve PROV_DEVICE_RESULT_UNAUTHORIZED |
-| Uma inscrição Individual foi criada para desativar o dispositivo | Estado do resultado: Desativado | SDK devolve PROV_DEVICE_RESULT_DISABLED |
+| Uma inscrição Individual foi criada para desativar o dispositivo | Estado do resultado: Desactivado | SDK devolve PROV_DEVICE_RESULT_DISABLED |
 | O webhook retorna o código de erro > = 429 | Orquestração dos pontos de distribuição tentará novamente várias vezes. A política de repetição é atualmente:<br><br>&nbsp;&nbsp;-Número de tentativas: 10<br>&nbsp;&nbsp;-Intervalo de inicial: 1s<br>&nbsp;&nbsp;-Incremento: 9s | SDK irá ignorar o erro e submeta outra mensagem de estado de get no tempo especificado |
 | O webhook devolve qualquer outro código de estado | Estado do resultado: Com Falhas<br><br>Código do erro: CustomAllocationFailed (400207) | SDK returns PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 

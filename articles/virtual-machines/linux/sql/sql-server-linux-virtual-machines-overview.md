@@ -8,17 +8,17 @@ manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 18f9dd5318c6aecff8819178168469d9334e5e29
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: c97793dc28b4ef097d8baa34678aeb92bf123809
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332409"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778098"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Linux)
 
