@@ -10,36 +10,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c7bf766dc0f73b37fc7de537537c7a885a50c30a
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 09b8556a83dec286ce8d67fa5fd6d27e027325bf
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339577"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769221"
 ---
 # <a name="deploy-the-local-agent"></a>Implementar o agente local
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Saiba como utilizar a validação como um agente local do serviço (VaaS) para verificar se o seu hardware. O agente local tem de ser implementado na solução do Azure Stack que está a ser validada antes de executar testes de validação.
+Saiba como utilizar a validação como um agente local do serviço (VaaS) para executar testes de validação. O agente local tem de ser implementado antes de executar testes de validação.
 
 > [!Note]  
-> Deve certificar-se de que a máquina em que o agente local está em execução não a perder o acesso de out-vinculado à internet. Esta máquina tem de estar acessível apenas aos utilizadores que têm autorização para utilizar VaaS em nome do seu inquilino.
+> Certifique-se de que a máquina em que o agente local está em execução não perde o acesso de saída à internet. Esta máquina deve estar acessível apenas aos usuários que estão autorizados a utilizar VaaS em nome do seu inquilino.
 
 Para implementar o agente local:
 
-1. Instalar o agente local
-2. Executar verificações de sanidade
-3. Execute o agente local
+1. Instale o agente local.
+2. Execute verificações de sanidade.
+3. Execute o agente local.
 
 ## <a name="download-and-start-the-local-agent"></a>Transferir e iniciar o agente local
 
-Transferi o agente para um computador que cumpra os pré-requisitos no Centro de dados que não faz parte do sistema do Azure Stack, mas que tem acesso a todos os pontos finais do Azure Stack.
+Transferi o agente para um computador que cumpre os pré-requisitos no seu datacenter e tem acesso a todos os pontos finais do Azure Stack. Esta máquina não deve fazer parte do sistema do Azure Stack ou alojado na cloud do Azure Stack.
 
 ### <a name="machine-prerequisites"></a>Pré-requisitos de máquina
 
@@ -51,8 +51,6 @@ Verifique se o seu computador cumpre os seguintes critérios:
 - Processadores de núcleo do mínimo de 8
 - Espaço em disco mínimo de 200 GB
 - Conectividade de rede estável à internet
-
-O Azure Stack é o sistema em teste. A máquina não deve fazer parte do Azure Stack ou alojado na cloud do Azure Stack.
 
 ### <a name="download-and-install-the-agent"></a>Transfira e instale o agente
 
@@ -95,7 +93,7 @@ O comando transfere uma imagem de repositório (PIR) de imagem pública (VHD do 
 
 ## <a name="checks-before-starting-the-tests"></a>Verificações antes de iniciar os testes
 
-Os testes de executam ações remotas. A máquina que executa os testes têm de ter acesso aos pontos finais do Azure Stack, caso contrário, os testes não funcionará. Se estiver a utilizar o agente local VaaS, utilize a máquina em que o agente será executado. Pode verificar que o seu computador tem acesso aos pontos finais do Azure Stack, executando as seguintes verificações:
+A execução dos testes operações remotas. A máquina que executa os testes têm de ter acesso aos pontos finais do Azure Stack, caso contrário, os testes não funcionará. Se estiver a utilizar o agente local VaaS, utilize a máquina em que o agente será executado. Pode verificar que o seu computador tem acesso aos pontos finais do Azure Stack, executando as seguintes verificações:
 
 1. Verifique se o URI de Base pode ser contatado. Abra uma linha de comandos ou shell do bash e execute o seguinte comando, substituindo `<EXTERNALFQDN>` com o FQDN externo do seu ambiente:
 

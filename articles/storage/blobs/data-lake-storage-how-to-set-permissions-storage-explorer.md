@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867057"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546316"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Definir permissões de nível de ficheiros e diretórios a utilizar o Explorador de armazenamento do Azure com a geração 2 de armazenamento do Azure Data Lake
 
@@ -33,7 +33,7 @@ Para melhor retratar o processo, é necessário que concluir nossa [guia de intr
 
 ## <a name="managing-access"></a>Gerir o acesso
 
-Pode definir permissões na raiz do seu sistema de ficheiros. Para fazer isso, seu sistema de ficheiros com o botão direito e selecione **gerir permissões**, concentrando-se até a **permissão Gerir** caixa de diálogo.
+Pode definir permissões na raiz do seu sistema de ficheiros. Para fazer isso, deve estar conectado a Explorador de armazenamento do Azure, com a sua conta individual com direitos para fazê-lo (e não com uma cadeia de ligação). O sistema de ficheiros com o botão direito e selecione **gerir permissões**, voltar a colocar ao **permissão Gerir** caixa de diálogo.
 
 ![Explorador de armazenamento do Microsoft Azure – gerir o acesso ao diretório](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -66,4 +66,4 @@ Pode gerir as permissões em diretórios individuais, bem como arquivos individu
 Este procedimento, ficou a saber como definir permissões em ficheiros e diretórios usando **Explorador de armazenamento do Azure**. Para obter mais informações sobre as ACLs, incluindo as ACLs padrão, acessar ACLs, seu comportamento e as respetivas permissões correspondentes, avance para o nosso artigo conceitual sobre o assunto.
 
 > [!div class="nextstepaction"]
-> [Controlo de acesso na geração 2 de armazenamento do Azure Data Lake](data-lake-storage-access-control.md)
+> [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md) (Controlo de acesso no Azure Data Lake Storage Gen2)

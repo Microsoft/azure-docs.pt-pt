@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09914de48df09dabd4069cd33e7acbea328fa89d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193157"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546862"
 ---
 # <a name="start-using-pim"></a>Comece a utilizar o PIM
 
@@ -106,7 +106,6 @@ Depois do PIM ser configurado, pode realizar as tarefas de gestão de identidade
 | --- | --- |
 | **Minhas funções**  | Apresenta uma lista de funções elegíveis e ativas atribuídos ao utilizador. Este é o local onde pode ativar quaisquer funções elegíveis atribuídas. |
 | **Os meus pedidos** | Apresenta os pedidos pendentes para ativar as atribuições de funções elegíveis. |
-| **Acesso à aplicação** | Permite-lhe reduzir os atrasos potenciais e utilizar uma função imediatamente após a ativação. |
 | **Aprovar pedidos** | Apresenta uma lista de pedidos de ativação de funções elegíveis pelos utilizadores no seu diretório que está a seu cargo para aprovar. |
 | **Rever acesso** | Lista as revisões de acesso do Active Directory que está atribuído a concluir, se estiver a rever o acesso para si próprio ou por outra pessoa. |
 | **Funções do Azure AD** | Apresenta um dashboard e as definições para os administradores de função com privilégios gerirem atribuições de função de diretório do Azure AD. Este dashboard está desativado para todos aqueles que não são um administrador de funções com privilégios. Estes utilizadores têm acesso a um dashboard especial intitulado A minha vista. O dashboard A minha vista só apresenta informações sobre o utilizador que está a aceder ao dashboard, e não sobre o inquilino completo. |

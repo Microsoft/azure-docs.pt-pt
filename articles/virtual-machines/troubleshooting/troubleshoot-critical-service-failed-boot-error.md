@@ -3,7 +3,7 @@ title: Quando se reinicia uma VM do Azure a falha de serviço crítico | Documen
 description: Aprenda a solucionar o erro "Falha de serviço 0x0000005A crítico", que ocorre quando se reinicia | Documentos da Microsoft
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: ffc8bd21468847a71a44be2244c72af7016cd65f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d450bc4e05a70ff8c1698dd2760d0f71140db21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432027"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763645"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows mostra "CRÍTICOS serviço falhou" na tela azul quando se reinicia uma VM do Azure
 Este artigo descreve o erro "Falha no serviço crítico" que ocorrem quando arranca uma Máquina Virtual do Windows (VM) no Microsoft Azure. Ele fornece passos de resolução de problemas para ajudar a resolver os problemas. 

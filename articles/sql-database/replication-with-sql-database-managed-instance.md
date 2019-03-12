@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 038d8c919e68e68f886525a6c78139496edef8e1
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893023"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762981"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurar a replicação numa base de dados de instância gerida de base de dados do Azure SQL
 

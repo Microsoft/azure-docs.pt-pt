@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 399cecc3-aa62-4914-8b6c-5a35289820c1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: d1b7518989681202a58e7ad05a9e5f2ae7185bf8
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e5ef2df3fb9cd329bc3052e0fc2874ed7c9ba934
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991007"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774545"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutorial: Integração do Active Directory do Azure com Grovo
 

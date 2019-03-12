@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: c5e172410c7cb60888107e37064c2429caf6df9e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 83dc6436c69038a43f32588d485790a701c2e18d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195494"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549260"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Início rápido: Criar uma aplicação de Java Spring com a configuração de aplicações
 
@@ -29,7 +29,7 @@ Pode utilizar qualquer editor de código para concluir os passos deste início r
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, instale um suportados [Kit de desenvolvimento Java (JDK)](https://aka.ms/azure-jdks) com a versão 8 e [Apache Maven](http://maven.apache.org/) com a versão 3.0 ou superior.
+Para concluir este início rápido, instale um suportados [Kit de desenvolvimento Java (JDK)](https://aka.ms/azure-jdks) com a versão 8 e [Apache Maven](https://maven.apache.org/) com a versão 3.0 ou superior.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

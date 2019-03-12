@@ -5,20 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/16/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: b8240f69649e9bcb9a705f2c9fcbb819cf119356
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511977"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761417"
 ---
 # <a name="azure-dns-faq"></a>FAQ sobre DNS do Azure
 
 ## <a name="about-azure-dns"></a>Sobre o DNS do Azure
 
-### <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
+### <a name="what-is-azure-dns"></a>O que é o Azure DNS?
 
 O sistema de nomes de domínio (DNS) traduz ou resolvido, um nome do Web site ou serviço para o endereço IP. O DNS do Azure é um serviço de alojamento para domínios DNS. Ele fornece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
@@ -42,7 +42,7 @@ Para obter mais informações, consulte a [página do SLA de DNS do Azure](https
 
 Um domínio é um nome exclusivo no sistema de nome de domínio. Um exemplo é contoso.com.
 
-Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Por exemplo, o domínio contoso.com pode conter vários registos DNS. Os registos podem incluir mail.contoso.com para um servidor de email e www.contoso.com para um Web site. Estes registos estão alojados na zona DNS contoso.com.
+Uma zona DNS é utilizada para alojar os registos de DNS de um domínio específico. Por exemplo, o domínio contoso.com pode conter vários registos DNS. Os registos podem incluir mail.contoso.com para um servidor de email e www.contoso.com para um Web site. Estes registos estão alojados na zona DNS contoso.com.
 
 É um nome de domínio *apenas um nome*. Uma zona DNS é um recurso de dados que contém os registos DNS para um nome de domínio. Pode utilizar o DNS do Azure para alojar uma zona DNS e gerir os registos DNS para um domínio no Azure. Ele também fornece servidores de nomes DNS para responder a consultas DNS da Internet.
 
@@ -239,7 +239,7 @@ Sim. Para desassociar a uma rede virtual de registo de uma zona privada, atualiz
 
 Sim. Quando elimina uma rede virtual de registo ou resolução sem desassociar primeiro de uma zona privada, a operação de eliminação for concluída com êxito. Mas a rede virtual não é automaticamente desassociada da sua zona privada, se aplicável. Deve desassociar manualmente a rede virtual a partir da zona privada. Por esse motivo, desassocie a rede virtual da sua zona privada antes de o eliminar.
 
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>Resolução de DNS ao utilizar a predefinição FQDN (internal.cloudapp.net) continuarão a funcionar mesmo quando uma zona privada (por exemplo, contoso. local) está ligada a uma rede virtual?
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>Resolução de DNS ao utilizar a predefinição FQDN (internal.cloudapp.net) continuarão a funcionar mesmo quando uma zona privada (por exemplo, private.contoso.com) está ligada a uma rede virtual?
 
 Sim. As zonas privadas do não substitui as resoluções DNS padrão através da utilização da zona de internal.cloudapp.net fornecida pelo Azure. É oferecido como uma funcionalidade adicional ou um aprimoramento. Se se basear no internal.cloudapp.net fornecida pelo Azure ou em sua própria zona privada, utilize o FQDN da zona que pretende resolver contra. 
 
@@ -262,7 +262,7 @@ Sim. Durante a pré-visualização pública, existem as seguintes limitações.
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Existem quotas ou limites de zonas ou registos para zonas privadas?
 
-Não há nenhum limite no número de zonas permitidas por subscrição para zonas privadas. Não há nenhum limite no número de conjuntos de registos por zona para zonas privadas. Zonas públicas e privadas contam para os limites DNS globais. Para obter mais informações, consulte o [subscrição do Azure e limites do serviço](../azure-subscription-service-limits.md#dns-limits)
+Não há nenhum limite no número de zonas permitidas por subscrição para zonas privadas. Não há nenhum limite no número de conjuntos de registos por zona para zonas privadas. Zonas públicas e privadas contam para os limites DNS globais. Para obter mais informações, consulte o [subscrição do Azure e limites do serviço](../azure-subscription-service-limits.md#azure-dns-limits)
 
 ### <a name="is-there-portal-support-for-private-zones"></a>Existe suporte para zonas privadas do portal?
 

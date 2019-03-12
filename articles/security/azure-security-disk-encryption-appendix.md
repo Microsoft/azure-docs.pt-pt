@@ -3,17 +3,16 @@ title: Apêndice - Azure Disk Encryption para IaaS VMs | Documentos da Microsoft
 description: Este artigo é o anexo de Microsoft Azure disco encriptação para Windows e VMs de IaaS Linux.
 author: mestew
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/14/2019
+ms.date: 03/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: d23e6d00b77e69f7f3353938c52b450eebbfd142
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 6632647c7782411d0d124c325f9bf0afff7e699d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990685"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767794"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apêndice para a encriptação de disco do Azure 
 
@@ -164,14 +163,6 @@ A tabela seguinte mostra quais parâmetros podem ser utilizados no script do Pow
 
 - [Criar um novo Windows IaaS geridos disco VM encriptada da imagem da Galeria](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - Este modelo cria uma nova VM do Windows criptografado com discos geridos com a imagem de galeria do Windows Server 2012.
-
-- [Implantação do RHEL 7.2 com encriptação de disco completa com discos geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - Este modelo cria uma VM de 7.2 RHEL totalmente encriptados no Azure com discos geridos. Ele inclui uma unidade de sistema operacional de 30 GB encriptada e uma criptografada matriz de 200 GB (RAID-0) montado em /mnt/raidencrypted. Consulte a [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artigo para distribuições suportadas de servidor do Linux. 
-
-- [Implantação do RHEL 7.2 com encriptação de disco completa com discos não geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
-    - Este modelo cria uma VM de 7.2 RHEL totalmente encriptados no Azure com uma unidade de sistema operacional de 30 GB encriptada e uma matriz de 200 GB (RAID-0) encriptada montado em /mnt/raidencrypted. Consulte a [FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artigo para distribuições suportadas de servidor do Linux. 
-
-- [Ativar a encriptação de disco num VHD para Windows ou Linux encriptadas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
 
 - [Criar um novo disco gerido encriptado a partir de um blob VHD/armazenamento encriptado](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Cria um novo disco gerido encriptado fornecido de um VHD previamente encriptado e as definições de encriptação correspondente
@@ -555,7 +546,7 @@ Ao encriptar a utilizar uma aplicação do Azure AD (versão anterior), o segred
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Segredo de encriptação de disco não criptografado com uma KEK
-Para configurar o segredo no Cofre de chaves, utilize [Set-AzureKeyVaultSecret](/powershell/module/az.keyvault/set-azurekeyvaultsecret). Se tiver uma máquina virtual do Windows, o ficheiro de bek é codificado como uma cadeia base64 e, em seguida, é carregado para o seu Cofre de chaves com o `Set-AzureKeyVaultSecret` cmdlet. Para o Linux, a frase de acesso é codificado como uma cadeia base64 e, em seguida, é carregado para o Cofre de chaves. Além disso, certifique-se de que as etiquetas seguintes estão definidas quando cria o segredo no Cofre de chaves.
+Para configurar o segredo no Cofre de chaves, utilize [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Se tiver uma máquina virtual do Windows, o ficheiro de bek é codificado como uma cadeia base64 e, em seguida, é carregado para o seu Cofre de chaves com o `Set-AzureKeyVaultSecret` cmdlet. Para o Linux, a frase de acesso é codificado como uma cadeia base64 e, em seguida, é carregado para o Cofre de chaves. Além disso, certifique-se de que as etiquetas seguintes estão definidas quando cria o segredo no Cofre de chaves.
 
 #### <a name="windows-bek-file"></a>Ficheiro do Windows BEK
 ```powershell
@@ -604,7 +595,7 @@ $SecretUrl
 Utilize o `$secretUrl` no próximo passo para [anexar o disco do SO sem utilizar KEK](#bkmk_URLnoKEK).
 
 ### <a name="bkmk_SecretKEK"></a> Segredo de encriptação de disco encriptado com uma KEK
-Antes de carregar o segredo ao Cofre de chaves, opcionalmente, poderá criptografá-los com uma chave de encriptação de chave. Utilizar a moldagem [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) primeiro criptografar o segredo usando a chave de encriptação de chave. O resultado desta operação de moldagem é uma cadeia de URL codificado em base64 que, em seguida, pode carregar como um segredo ao utilizar o [ `Set-AzureKeyVaultSecret` ](/powershell/module/az.keyvault/set-azurekeyvaultsecret) cmdlet.
+Antes de carregar o segredo ao Cofre de chaves, opcionalmente, poderá criptografá-los com uma chave de encriptação de chave. Utilizar a moldagem [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) primeiro criptografar o segredo usando a chave de encriptação de chave. O resultado desta operação de moldagem é uma cadeia de URL codificado em base64 que, em seguida, pode carregar como um segredo ao utilizar o [ `Set-AzKeyVaultSecret` ](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation

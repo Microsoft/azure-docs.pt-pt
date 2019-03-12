@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 01ed1b94ffedb273321fa49653a614c659611e6a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4c50ba76cf1e9b8103bd006c9f97c18a3e92d0c2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453206"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550284"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Fábrica de dados do Azure - perguntas mais frequentes
 > [!NOTE]
@@ -78,7 +78,7 @@ A tabela seguinte fornece uma lista dos ambientes de computação suportados pel
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[Procedimento Armazenado](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Como é que o Azure Data Factory compara com o SQL Server Integration Services (SSIS)? 
-Consulte o [fábrica de dados do Azure vs. SSIS](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) apresentação de um dos nossos MVPs (Most Valued Professionals): Reza Rad. Algumas das alterações recentes na fábrica de dados não podem estar relacionadas no conjunto de slides. Estamos continuamente a adicionar mais recursos ao Azure Data Factory. Estamos continuamente a adicionar mais recursos ao Azure Data Factory. Podemos irá incorporar essas atualizações a comparação de tecnologias de integração de dados da Microsoft algum tempo ainda este ano.   
+Consulte o [fábrica de dados do Azure vs. SSIS](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) apresentação de um dos nossos MVPs (Most Valued Professionals): Reza Rad. Algumas das alterações recentes na fábrica de dados não podem estar relacionadas no conjunto de slides. Estamos continuamente a adicionar mais recursos ao Azure Data Factory. Estamos continuamente a adicionar mais recursos ao Azure Data Factory. Podemos irá incorporar essas atualizações a comparação de tecnologias de integração de dados da Microsoft algum tempo ainda este ano.   
 
 ## <a name="activities---faq"></a>Atividades - FAQ
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>Quais são os diferentes tipos de atividades, que pode usar num pipeline do Data Factory?
@@ -202,10 +202,10 @@ Se realmente desejar parar todas as execuções imediatamente, a única forma se
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
 [adf-powershell-reference]: /powershell/module/az.datafactory/
-[azure-portal]: http://portal.azure.com
+[azure-portal]: https://portal.azure.com
 [set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
-[adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
-[hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
+[adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
+[hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
+[hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
+[hdinsight-alternate-storage-2]: https://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx

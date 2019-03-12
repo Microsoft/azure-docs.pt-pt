@@ -3,20 +3,20 @@ title: Apresentação da IU do Azure IoT Central | Microsoft Docs
 description: Como construtor, familiarize-se com as principais áreas da IU do Azure IoT Central que utiliza para criar uma solução de IoT.
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/13/2018
+ms.date: 01/24/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 67b46b1bd13fc749b3f30ca8acbee038dc188604
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 4908130cc0d59e42adb4f7ab2239e5b57dc08b89
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214253"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774307"
 ---
-# <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Apresentação da IU do Azure IoT Central
+# <a name="take-a-tour-of-the-azure-iot-central-ui-new-ui-design"></a>Faça um tour do Azure IoT Central da interface do Usuário (design de nova interface do Usuário)
 
 Este artigo apresenta-lhe a IU do Microsoft Azure IoT Central. Pode utilizar a IU para criar, gerir e utilizar uma solução do Azure IoT Central e os respetivos dispositivos ligados.
 
@@ -33,15 +33,14 @@ Como _operador_, utilize a IU do Azure IoT Central para gerir a sua solução do
 - Resolver e remediar problemas nos seus dispositivos.
 - Aprovisionar novos dispositivos.
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## <a name="use-the-left-navigation-menu"></a>Utilizar o menu de navegação à esquerda
 
-Utilize o menu de navegação à esquerda para aceder às diferentes áreas da aplicação:
+Utilize o menu de navegação à esquerda para aceder as áreas diferentes do aplicativo. Pode expandir ou fechar barra de navegação, selecionando **<** ou **>**:
 
 | Menu | Descrição |
 | ---- | ----------- |
-| ![Menu de navegação à esquerda](media/overview-iot-central-tour/navigationbar.png) | <ul><li>O **Dashboard** botão Exibe seu dashboard de aplicações. Como um construtor, pode personalizar o dashboard para os operadores. Os utilizadores também podem criar seus próprios dashboards.</li><li>O botão **Device Explorer** lista os modelos de dispositivo definidos na sua aplicação e os dispositivos simulados e reais associados a cada modelo de dispositivo. Como operador, utilize o **Device Explorer** para gerir os dispositivos ligados.</li><li>O botão **Device Sets** permite-lhe ver e criar conjuntos de dispositivos. Como operador, pode criar conjuntos de dispositivos como uma coleção lógica de dispositivos especificados por uma consulta.</li><li>O botão **Analytics** mostra a análise derivada da telemetria dos dispositivos, para dispositivos e conjuntos de dispositivo. Como operador, pode criar vistas personalizadas com base nos dados dos dispositivos para obter informações da aplicação.</li><li>O botão **Tarefas** permite a gestão de dispositivos em massa ao permitir criar e executar tarefas para realizar atualizações em escala.</li><li>O botão **Application Builder** mostra as ferramentas utilizadas por um construtor, como a ferramenta **Criar Modelo de Dispositivo**.</li><li>O botão **Administration** mostra as páginas de administração da aplicação, onde um administrador pode gerir as definições, os utilizadores e as funções da aplicação.</li></ul> |
+| ![Menu de navegação à esquerda](media/overview-iot-central-tour/navigationbar.png) | <ul><li>O **Dashboard** botão Exibe seu dashboard de aplicações. Como um construtor, pode personalizar o dashboard para os operadores. Os utilizadores também podem criar seus próprios dashboards.</li><li>O **Device Explorer** botão lista os dispositivos simulados e real associados a cada modelo de dispositivo na aplicação. Como operador, utilize o **Device Explorer** para gerir os dispositivos ligados.</li><li>O botão **Device Sets** permite-lhe ver e criar conjuntos de dispositivos. Como operador, pode criar conjuntos de dispositivos como uma coleção lógica de dispositivos especificados por uma consulta.</li><li>O botão **Analytics** mostra a análise derivada da telemetria dos dispositivos, para dispositivos e conjuntos de dispositivo. Como operador, pode criar vistas personalizadas com base nos dados dos dispositivos para obter informações da aplicação.</li><li>O botão **Tarefas** permite a gestão de dispositivos em massa ao permitir criar e executar tarefas para realizar atualizações em escala.</li><li>O **modelos de dispositivos** botão mostra as ferramentas de um construtor usa para criar e gerir modelos de dispositivos.</li><li>O **a exportação contínua de dados** botão um administrador para configurar a exportação contínua para outros serviços do Azure como o armazenamento e filas.</li><li>O botão **Administration** mostra as páginas de administração da aplicação, onde um administrador pode gerir as definições, os utilizadores e as funções da aplicação.</li></ul> |
 
 ## <a name="search-help-and-support"></a>Pesquisa, ajuda e suporte
 
@@ -49,9 +48,10 @@ O menu superior é apresentado em todas as páginas:
 
 ![Barra de ferramentas](media/overview-iot-central-tour/toolbar.png)
 
-- Para procurar modelos de dispositivos e dispositivos, escolha o ícone **Pesquisar**.
+- Para procurar dispositivos e modelos de dispositivos, introduza um **pesquisa** valor.
+- Para alterar o idioma de interface do Usuário ou o tema, escolha o **definições** ícone.
+- Para terminar a aplicação, escolha o **conta** ícone.
 - Para obter ajuda e suporte, escolha o menu pendente **Ajuda** para obter uma lista de recursos.
-- Para controlar os tutoriais, altere o tema da IU ou terminar sessão na aplicação, escolha o ícone **Conta**.
 
 Pode escolher entre um tema claro ou um tema escuro para a IU:
 
@@ -61,13 +61,13 @@ Pode escolher entre um tema claro ou um tema escuro para a IU:
 
 ![Dashboard](media/overview-iot-central-tour/homepage.png)
 
-A página de boas-vindas é a primeira página que vê ao iniciar sessão na sua aplicação do Azure IoT Central. O dashboard é a primeira página que vê quando iniciar sessão na sua aplicação do Azure IoT Central. Como um construtor, pode personalizar o dashboard de aplicações para outros utilizadores através da adição de mosaicos. Para obter mais informações, veja o tutorial [Personalizar a vista de operador do Azure IoT Central](tutorial-customize-operator.md). Os utilizadores também podem [criar seus próprios dashboards pessoais](howto-personalize-dashboard.md).
+O dashboard é a primeira página que vê quando iniciar sessão na sua aplicação do Azure IoT Central. Como um construtor, pode personalizar o dashboard de aplicações para outros utilizadores através da adição de mosaicos. Para obter mais informações, veja o tutorial [Personalizar a vista de operador do Azure IoT Central](tutorial-customize-operator.md). Os utilizadores também podem [criar seus próprios dashboards pessoais](howto-personalize-dashboard.md).
 
 ## <a name="device-explorer"></a>Explorador de dispositivos
 
 ![Página do Explorador](media/overview-iot-central-tour/explorer.png)
 
-A página do explorador apresenta os _modelos de dispositivos_ e os _dispositivos_ na aplicação do Azure IoT Central.
+Mostra a página de Explorador a _dispositivos_ na sua aplicação do Azure IoT Central, agrupada por _modelo de dispositivo_.
 
 * Um modelo do dispositivo define um tipo de dispositivo que pode ligar à aplicação. Para obter mais informações, veja [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](tutorial-define-device-type.md).
 * Um dispositivo representa um dispositivo real ou simulado na aplicação. Para obter mais informações, veja [Adicionar um novo dispositivo à aplicação do Azure IoT Central](tutorial-add-device.md).
@@ -82,7 +82,7 @@ A página _conjuntos de dispositivo_ apresenta os conjuntos de dispositivos cria
 
 ![Página de análise](media/overview-iot-central-tour/analytics.png)
 
-A página de análise apresenta gráficos que o ajudam a compreender como se comportam os dispositivos ligados à sua aplicação. Um operador utiliza esta página para monitorizar e investigar problemas dos dispositivos ligados. O construtor pode definir os gráficos apresentados nesta página. Para obter mais informações, veja o artigo [Criar análise personalizada para a aplicação do Azure IoT Central](howto-create-analytics.md).
+A página de análise apresenta gráficos que o ajudam a compreender como se comportam os dispositivos ligados à sua aplicação. Um operador utiliza esta página para monitorizar e investigar problemas dos dispositivos ligados. O construtor pode definir os gráficos apresentados nesta página. Para obter mais informações, veja o artigo [Criar análise personalizada para a aplicação do Azure IoT Central](howto-use-device-sets.md).
 
 ## <a name="jobs"></a>Tarefas
 
@@ -90,11 +90,17 @@ A página de análise apresenta gráficos que o ajudam a compreender como se com
 
 A página de tarefas permite-lhe realizar operações de gestão de dispositivos em massa nos seus dispositivos. O construtor utiliza esta página para atualizar as propriedades, as definições e os comandos dos dispositivos. Para obter mais informações, veja o artigo [Executar uma tarefa](howto-run-a-job.md).
 
-## <a name="application-builder"></a>Application Builder
+## <a name="device-templates"></a>Modelos de Dispositivos
 
-![Página Application Builder](media/overview-iot-central-tour/applicationbuilder.png)
+![Página de modelos de dispositivo](media/overview-iot-central-tour/templates.png)
 
-A página do construtor de aplicação contém ligações para as ferramentas utilizadas pelo construtor para criar uma aplicação do Azure IoT Central, tais como criar modelos de dispositivos e configurar a página de boas-vindas. Para obter mais informações, veja o tutorial [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](tutorial-define-device-type.md).
+A página de modelos de dispositivos é onde um construtor cria e gere os modelos de dispositivos na aplicação. Para obter mais informações, veja o tutorial [Definir um novo tipo de dispositivo na aplicação do Azure IoT Central](tutorial-define-device-type.md).
+
+## <a name="continuous-data-export"></a>Exportação de Dados Contínuos
+
+![Página de exportação de dados contínua](media/overview-iot-central-tour/export.png)
+
+A página de exportação contínua de dados é em que um administrador define como exportar dados, como telemetria, a partir da aplicação. Outros serviços podem armazenar os dados exportados ou utilizá-la para análise. Para obter mais informações, consulte a [exportar seus dados no Azure IoT Central](howto-export-data.md) artigo.
 
 ## <a name="administration"></a>Administração
 

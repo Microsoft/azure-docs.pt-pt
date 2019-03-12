@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 0dc4fc31-ae1c-422c-ac34-7b025e6651b4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: bdfc9b3e981a1b88fbae7805785d9bb4c823bccb
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: eb162e51a6091b22abd4a8d12275423d726b1785
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074467"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763950"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Utilizar o serviço Azure Machine Learning num bloco de notas
 

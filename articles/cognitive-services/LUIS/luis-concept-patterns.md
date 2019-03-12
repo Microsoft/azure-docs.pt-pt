@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/05/2019
 ms.author: diberry
-ms.openlocfilehash: af73d78b911d59f68c5e824931b5634d8c69f309
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449007"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547423"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Padrões de melhorar a exatidão da previsão
 Padrões foram criados para melhorar a precisão quando várias expressões são muito semelhantes.  Um padrão permite-lhe obter maior exatidão para um objetivo sem fornecer expressões de com muitos mais. 
@@ -41,8 +41,11 @@ Padrões de resolver as seguintes situações:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Padrões não são uma garantia de intenção
 Padrões de utilizam uma combinação de tecnologias de predição. A definição de um objetivo de uma expressão de modelo num padrão não é uma garantia de predição intenção, mas é um sinal forte. 
 
-## <a name="patterns-do-not-improve-entity-detection"></a>Padrões não aperfeiçoar a detecção de entidade
-Embora padrões precisam entidades, um padrão não ajuda a detetar a entidade. Um padrão destina-se apenas para ajudar a predição com intenções e funções.  
+<a name="patterns-do-not-improve-entity-detection"/>
+
+## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Padrões não aperfeiçoar a detecção de entidade aprendidas de máquina
+
+Um padrão destina-se principalmente para ajudar a predição de objetivos e as funções. A entidade de pattern.any é utilizada para extrair entidades de forma livre. Embora padrões de usar entidades, um padrão não ajuda a detetar uma entidade aprendidas por máquina.  
 
 Não espere ver a predição de entidade melhorado se fechar várias expressões de com num padrão único. Para obter entidades simples acionar, terá de adicionar expressões ou utilize entidades de lista mais que seu padrão de não serão acionados.
 

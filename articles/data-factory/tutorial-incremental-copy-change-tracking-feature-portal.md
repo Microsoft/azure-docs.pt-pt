@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: af83fe7a750e5dbeb065926f5aed452fdf6e3df6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ce4002ff37de3fcc96b86bcfb8ee9b0239212ef3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438793"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760822"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -260,7 +260,7 @@ Neste passo, cria um conjunto de dados para representar os dados que são copiad
 
     1. Selecione **AzureStorageLinkedService** em **Serviço ligado**.
     2. Introduza **adftutorial/incchgtracking** na parte **folder** de **filePath**.
-    3. Introduza **@CONCAT('Incremental-', pipeline().RunId, '.txt')** na parte **file** de **filePath**.  
+    3. Introduza  **\@CONCAT ('Incremental-', pipeline(). RunId, '. txt')** para **arquivo** faz parte da **filePath**.  
 
        ![Conjunto de dados de sink - ligação](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 

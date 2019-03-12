@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cddc6ccd8360ef88c95cd33c0bc8e141d721042d
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 951f8f887a7b29aac67b50ff8f92ddfd4a66e26b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010519"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766883"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma rede Virtual do Azure
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com as aplicações no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). [Redes virtuais do Azure] [ VNETOverview] (VNets) permitem-lhe colocar muitos dos seus recursos do Azure numa rede de endereçáveis não internet. Estas redes, em seguida, podem ser ligadas às suas redes no local usando as tecnologias VPN. 
@@ -277,7 +277,8 @@ A nova versão está em pré-visualização e tem as seguintes características.
 * A nova funcionalidade de integração de VNet não funciona para aplicações num ambiente de serviço de aplicações.
 * Não é possível eliminar uma VNet com uma aplicação integrada.  
 * Tabelas de rotas e o global peering ainda não estão disponíveis com a nova integração de VNet.  
-* Um endereço é utilizado para cada instância de plano de serviço de aplicações. Uma vez que o tamanho de sub-rede não pode ser alterado após a atribuição, utilize uma sub-rede que mais do que pode cobrir o tamanho de dimensionamento máximo. / 27 com 32 endereços é o tamanho recomendado, pois o que seria acomodar um plano de serviço de aplicações é dimensionado para 20 instâncias.  Pode consumir recursos usando a nova capacidade de integração de VNet protegidos pelo ponto final de serviço. Para tal, ative pontos finais de serviço na sub-rede utilizada para a integração de VNet.
+* Um endereço é utilizado para cada instância de plano de serviço de aplicações. Uma vez que o tamanho de sub-rede não pode ser alterado após a atribuição, utilize uma sub-rede que mais do que pode cobrir o tamanho de dimensionamento máximo. / 27 com 32 endereços é o tamanho recomendado, pois o que seria acomodar um plano de serviço de aplicações é dimensionado para 20 instâncias.
+* Pode consumir recursos usando a nova capacidade de integração de VNet protegidos pelo ponto final de serviço. Para tal, ative pontos finais de serviço na sub-rede utilizada para a integração de VNet.
 
 Para utilizar o novo recurso:
 
