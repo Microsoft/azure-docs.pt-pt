@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 2c81369bc278a0995af04a38b0143eb0df8ba3a5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b4d40f011b9a9e69953496fbdb0dc63ffc8a5027
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877372"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774562"
 ---
 # <a name="manage-and-configure-projects"></a>Gerir e configurar projetos
 

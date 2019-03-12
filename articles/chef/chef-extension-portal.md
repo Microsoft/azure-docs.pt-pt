@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: d7728dd5c025a88f8912dca708abc45ab519ce2c
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 02a2e9a6d513db5ac82b7bde5c8d3f0ca187ad15
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327554"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533957"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Instalar o cliente do Chef no portal do Azure
 Pode adicionar a extensão de cliente do Chef diretamente numa máquina Linux ou Windows a partir do portal do Azure. Este artigo orienta-o processo usando uma nova máquina virtual de Linux.
@@ -30,7 +30,7 @@ Pode adicionar a extensão de cliente do Chef diretamente numa máquina Linux ou
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Instalar a extensão do Chef na nova máquina virtual do Linux
 Nesta secção, primeiro usará o portal do Azure para criar uma máquina Linux. Durante o processo, também verá como instalar a extensão da Chef sobre a nova máquina virtual.
 
-1. Navegue para o [portal do Azure](http://portal.azure.com).
+1. Navegue para o [portal do Azure](https://portal.azure.com).
 
 1. No menu à esquerda, selecione o **máquinas virtuais** opção. Se o **máquinas virtuais** opção não está presente, selecione **todos os serviços** e, em seguida, selecione **máquinas virtuais**.
 

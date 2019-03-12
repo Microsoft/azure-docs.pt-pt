@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: ec05fb3ea2aa968ebd34c8c1e156f3621e4049fa
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 71afbff4d5a322fe632824f082fcdf256e364699
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190151"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532512"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Início rápido: Criar uma Base de Dados do Azure para o servidor PostgreSQL no portal do Azure
 
@@ -48,7 +48,7 @@ Para criar uma Base de Dados do Azure para o servidor PostgreSQL, siga os passos
     Palavra-passe |A sua palavra-passe| Uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números (0 a 9) e carateres não alfanuméricos (!, $, #, %, etc.).
     Localização|A região mais próxima dos seus utilizadores| A localização que esteja mais próxima dos seus utilizadores.
     Versão|A versão principal mais recente| A versão principal mais recente do PostgreSQL, a não ser que tenha requisitos específicos.
-    Escalão de preço | **Fins Gerais**, **Geração 4**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 4*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
+    Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **Escalão de preço**. Em seguida, selecione o separador **Fins Gerais**. *Geração 5*, *2 vCores*, *5 GB* e *7 dias* são os valores predefinidos de **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção da Cópia de Segurança**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
 
    > [!NOTE]
    > Considere utilizar o escalão de preços básico se capacidades de computação e e/s são adequadas para sua carga de trabalho. Tenha em atenção que os servidores que criou no escalão de preço básico mais tarde não podem ser ampliadas para fins gerais ou com otimização de memória. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações.
@@ -112,9 +112,9 @@ Estão disponíveis diversas aplicações para ligar à sua Base de Dados do Azu
     psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
     ```
 
-    parâmetro psql |Valor|Descrição
+    parâmetro psql |Value|Descrição
     ---|---|---
-    --host | Nome do servidor | O valor do nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor PostgreSQL. O servidor de exemplo mostrado é **mydemoserver.postgres.database.azure.com.** Utilize o nome de domínio completamente qualificado (**\*.postgres.database.azure.com), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
+    --host | Nome do servidor | O valor do nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor PostgreSQL. O servidor de exemplo mostrado é **mydemoserver.postgres.database.azure.com.** Utilize o nome de domínio completamente qualificado (**\*.postgres.database.azure.com**), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
     --port | 5432 | A porta a utilizar quando se liga à Base de Dados do Azure para o servidor PostgreSQL. 
     --username | Nome de início de sessão de administrador do servidor |O nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Base de Dados do Azure para o servidor PostgreSQL anteriormente. Se não se lembrar do nome de utilizador, siga os passos na secção anterior para obter as informações da ligação. O formato é *username@servername*.
     --dbname | *postgres* | O nome da base de dados predefinido e gerado pelo sistema que foi criado para a primeira ligação. Mais tarde, vai criar a sua própria base de dados.
@@ -176,9 +176,9 @@ pgAdmin é uma ferramenta de código aberto utilizada com o PostgreSQL. Pode ins
 
    ![Separador “Ligação”](./media/quickstart-create-database-portal/10-pgadmin-create-server.png)
 
-    parâmetro pgAdmin |Valor|Descrição
+    parâmetro pgAdmin |Value|Descrição
     ---|---|---
-    Nome/endereço do anfitrião | Nome do servidor | O valor do nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor PostgreSQL. O nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Utilize o nome de domínio completamente qualificado (**\*.postgres.database.azure.com), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
+    Nome/endereço do anfitrião | Nome do servidor | O valor do nome de servidor que foi utilizado quando criou anteriormente a Base de Dados do Azure para o servidor PostgreSQL. O nosso servidor de exemplo é **mydemoserver.postgres.database.azure.com.** Utilize o nome de domínio completamente qualificado (**\*.postgres.database.azure.com**), conforme mostrado no exemplo. Se não se lembrar do nome do servidor, siga os passos na secção anterior para obter as informações da ligação. 
     Porta | 5432 | A porta a utilizar quando se liga à Base de Dados do Azure para o servidor PostgreSQL. 
     Base de dados de manutenção | *postgres* | O nome predefinido da base de dados gerado pelo sistema.
     Nome de utilizador | Nome de início de sessão de administrador do servidor | O nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Base de Dados do Azure para o servidor PostgreSQL anteriormente. Se não se lembrar do nome de utilizador, siga os passos na secção anterior para obter as informações da ligação. O formato é *username@servername*.

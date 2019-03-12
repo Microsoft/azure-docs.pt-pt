@@ -11,16 +11,16 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 7bf7034d30a8aac187fb2eeae6569f2f495e4439
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 83d5215049976b67d22e29c2e4b75ec63a505b36
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327258"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776619"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Sobre o gateway VPN para o Azure Stack
 
@@ -72,7 +72,7 @@ Os diagramas e as descrições das secções seguintes podem ajudá-lo a selecio
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Site a site e multilocal (túnel VPN IPsec/IKE)
 
-### <a name="site-to-site"></a>Site a Site
+### <a name="site-to-site"></a>Site a site
 
 R *site a site* (S2S) ligação de gateway VPN é uma ligação através do túnel VPN IPsec/IKE (IKEv2). Este tipo de ligação requer um dispositivo VPN que está localizada no local e é atribuído um endereço IP público. Este dispositivo não pode estar localizado atrás de um NAT. As ligações S2S podem ser utilizadas para configurações em vários locais e híbridas.
 
@@ -111,7 +111,7 @@ A tabela seguinte mostra os tipos de gateway e o débito agregado estimado pelo 
 |-------|-------|-------|
 |**SKU básico** ***(3)***    | 100 Mbps  | 20    |
 |**Standard SKU**       | 100 Mbps  | 20    |
-|**SKU de elevado desempenho** | 200 Mbps    | 10    |
+|**SKU de elevado desempenho** | 200 Mbps    | 10    |
 
 **Notas de tabela:**
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fba02e010bbc4220b1858811b4388b81a084c21
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ee9b8f3cf0e1b83b59cc21800c41e0092a3c5e16
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983103"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776925"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>Tutorial: Integração do Active Directory do Azure com Klue
 

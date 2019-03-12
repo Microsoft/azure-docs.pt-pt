@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2e590dcdf642b6a634792bc159702c3be6bf6c6d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 25a800302cff40ab35704ecee4525b7a92578828
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448480"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545961"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com atividade de cópia com o Visual Studio
 > [!div class="op_single_selector"]
@@ -283,7 +283,7 @@ Atualmente, é o conjunto de dados de saída que controla a agenda. Neste tutori
      
     Substitua o valor da propriedade **start** com o dia atual e o valor **end** com o dia seguinte. Pode especificar apenas a parte da data e ignorar a parte da hora em data e hora. Por exemplo, "2016-02-03", que é equivalente a "2016-02-03T00:00:00Z"
      
-    Tanto o datetime de início como de fim têm de estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2016-10-14T16:32:41Z. O tempo **end** é opcional, mas iremos utilizá-lo neste tutorial. 
+    Tanto o datetime de início como de fim têm de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2016-10-14T16:32:41Z. O tempo **end** é opcional, mas iremos utilizá-lo neste tutorial. 
      
     Se não especificar valor da propriedade **end**, esta é calculada como “**início + 48 horas**”. Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**.
      
@@ -444,7 +444,7 @@ Adicione um ficheiro de configuração para cada ambiente realizando os seguinte
     }
     ```
 
-    Este exemplo configura a propriedade connectionString de um serviço ligado do Storage do Azure e de um serviço ligado do Azure SQL. Tenha em atenção que a sintaxe para especificar o nome é [JsonPath](http://goessner.net/articles/JsonPath/).   
+    Este exemplo configura a propriedade connectionString de um serviço ligado do Storage do Azure e de um serviço ligado do Azure SQL. Tenha em atenção que a sintaxe para especificar o nome é [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     Se JSON tiver uma propriedade com uma matriz de valores, conforme apresentado no seguinte código:  
 

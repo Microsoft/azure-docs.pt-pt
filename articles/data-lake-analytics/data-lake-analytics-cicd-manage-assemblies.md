@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/30/2018
-ms.openlocfilehash: 0d9192e5ca4dba202ca5287481072bb0f8ae5621
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 27a873fac8bf2b53ee06780b8a348eaaa5c94e97
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598524"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768030"
 ---
 # <a name="best-practices-for-managing-u-sql-assemblies-in-a-cicd-pipeline"></a>Melhores práticas para o gerenciamento de assemblies de U-SQL num pipeline CI/CD
 
@@ -56,9 +56,9 @@ Siga estes passos para criar projetos e adicione referências.
 
     ![Ferramentas do Data Lake para Visual Studio-- criar o assembly de referência](./media/data-lake-analytics-cicd-manage-assemblies/data-lake-tools-create-assembly-from-reference.png)
 
-7. Adicione **dependências geridos** e **ficheiros adicionais**, se existir alguma. Ao adicionar ficheiros adicionais, a ferramenta usa o caminho relativo para se certificar de que ele possa encontrar os assemblies no seu computador local e na máquina de compilação mais tarde. 
+7. Adicione **dependências geridos** e **ficheiros adicionais**, se existir alguma. Ao adicionar ficheiros adicionais, a ferramenta usa o caminho relativo para se certificar de que ele possa encontrar os assemblies no seu computador local e na máquina de compilação mais tarde.
 
-**@_DeployTempDirectory** no editor de janela na parte inferior é uma variável predefinida que aponta a ferramenta para a pasta de saída da compilação. Sob a pasta de saída da compilação, a cada assembly possui uma subpasta com o nome com o nome do assembly. Todas as DLLs e ficheiros adicionais são nessa subpasta. 
+**\@_DeployTempDirectory** no editor de janela na parte inferior é uma variável predefinida que aponta a ferramenta para a pasta de saída da compilação. Sob a pasta de saída da compilação, a cada assembly possui uma subpasta com o nome com o nome do assembly. Todas as DLLs e ficheiros adicionais são nessa subpasta.
 
 ## <a name="build-a-u-sql-database-project"></a>Criar um projeto de banco de dados U-SQL
 

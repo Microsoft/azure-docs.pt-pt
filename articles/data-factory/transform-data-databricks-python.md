@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: de730004b55f72cb645c6a31c02fd1fe28a52ecd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013184"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541711"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transforme dados executando uma atividade de Python no Azure Databricks
 
@@ -64,7 +64,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 
 |Propriedade|Descrição|Necessário|
 |---|---|---|
-|nome|Nome da atividade no pipeline.|Sim|
+|name|Nome da atividade no pipeline.|Sim|
 |descrição|Texto que descreve o que faz a atividade.|Não|
 |tipo|Para a atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|Sim|
 |linkedServiceName|Nome do serviço ligado do Databricks em que a atividade de Python é executado. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|
@@ -100,7 +100,7 @@ Na definição de atividade do Databricks acima, para especificar esses tipos de
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

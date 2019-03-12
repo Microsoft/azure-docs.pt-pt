@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b69fc8ea3f0c65ad9ab460d1302d4f5690782420
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8ba09d1841ada25f6b763f187f629ef0c7eae598
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869624"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548035"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-with-nodejs-in-computer-vision"></a>Início rápido: Analisar uma imagem remota através da API REST com node. js na visão do computador
 
@@ -69,7 +69,7 @@ const uriBase =
     'https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze';
 
 const imageUrl =
-    'http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
+    'https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
 // Request parameters.
 const params = {

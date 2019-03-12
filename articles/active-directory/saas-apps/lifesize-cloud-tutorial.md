@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 75fab335-fdcd-4066-b42c-cc738fcb6513
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be975a7a0e004e29aaee9433c727d1d456ff03c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e863c1c1a3464ae8722665cebf4758fc864dc86e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866135"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integração do Active Directory do Azure com a nuvem Lifesize
 
@@ -224,7 +224,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida na Lifesize Cloud. Lifesize cloud suporta o aprovisionamento automático de utilizadores. Após a autenticação com êxito do Azure AD, o utilizador será aprovisionado automaticamente no aplicativo.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

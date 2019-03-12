@@ -3,17 +3,17 @@ title: Carregar imagens para a aplicação Azure IoT Central | Documentos da Mic
 description: Como um construtor, saiba como preparar e carregar imagens para a aplicação Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4378ff4155cf0b2f9c4af8176f41fe35fc433792
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310714"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767333"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a sua aplicação do Azure IoT Central
 
@@ -30,7 +30,7 @@ Para executar os passos descritos neste artigo é necessário o seguinte:
 
 Pode adicionar imagens personalizadas para as seguintes localizações num aplicativo do Azure IoT Central:
 
-* O **Gerenciador de aplicativos** página
+* O **meus aplicativos** página
 
     ![Imagem na página do Gestor de aplicações](media/howto-prepare-images/applicationmanager.png)
 
@@ -70,7 +70,7 @@ As secções seguintes descrevem como carregar as imagens em diferentes locais:
 
 ### <a name="application-manager"></a>Gestor de aplicações
 
-Para carregar uma imagem no **Gerenciador de aplicativos**, navegue para o **as definições da aplicação** página no **administração** secção. Tem de ser um administrador para concluir essa tarefa:
+Para carregar uma imagem a utilizar no **meus aplicativos** página, navegue para o **as definições da aplicação** página no **administração** secção. Tem de ser um administrador para concluir essa tarefa:
 
 ![Carregar a imagem de aplicação](media/howto-prepare-images/uploadapplicationmanager.png)
 
@@ -78,9 +78,9 @@ Selecione o mosaico de imagem de aplicação para carregar a sua imagem preparad
 
 ### <a name="application-dashboard"></a>Dashboard de aplicações
 
-Para carregar uma imagem no dashboard do aplicativo, navegue para o **Dashboard** da sua aplicação e selecione **editar**. Tem de ser um construtor para concluir essa tarefa:
+Para carregar uma imagem no dashboard do aplicativo, navegue para o **Dashboard** página da sua aplicação e selecione **editar**. Tem de ser um construtor para concluir essa tarefa:
 
-![Carregar a imagem do dashboard de aplicações](media/howto-prepare-images/uploadhomepage.png)
+![Carregar a imagem do dashboard](media/howto-prepare-images/uploadhomepage.png)
 
 Em configurar a imagem, selecione o mosaico de imagem para carregar a sua imagem preparada do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
@@ -88,15 +88,15 @@ Em configurar a imagem, selecione o mosaico de imagem para carregar a sua imagem
 
 ### <a name="device-template"></a>Modelo de dispositivos
 
-Para carregar uma imagem num modelo de dispositivo, navegue até **Device Explorer**, escolha o modelo de dispositivo e, em seguida, um dispositivo. Tem de ser um construtor para concluir essa tarefa:
+Para carregar uma imagem num modelo de dispositivo, navegue até **modelos de dispositivos** e escolha o modelo de dispositivo. Tem de ser um construtor para concluir essa tarefa:
 
 ![Carregar a imagem de modelo do dispositivo](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Selecione o mosaico de imagem para carregar a sua imagem preparada (64 x 64 px) do seu computador local. 
+Selecione o mosaico de imagem para carregar a sua imagem preparada (64 x 64 px) do seu computador local.
 
 ### <a name="device-dashboard"></a>Dashboard do dispositivo
 
-Para carregar uma imagem num dashboard do dispositivo, navegue até **Device Explorer**, escolha o modelo de dispositivo e, em seguida, um dispositivo. Em seguida, escolha o **Dashboard** página e selecione **Editar modelo**. Tem de ser um construtor para concluir essa tarefa:
+Para carregar uma imagem num dashboard do dispositivo, navegue até **modelos de dispositivos** e escolha o modelo de dispositivo. Em seguida, escolha o **Dashboard** separador. Tem de ser um construtor para concluir essa tarefa:
 
 ![Carregar a imagem do dashboard de dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
 

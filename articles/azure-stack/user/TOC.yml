@@ -154,7 +154,7 @@ items:
           href: azure-stack-solution-template-kubernetes-trouble.md
       - name: Implementar os serviços cognitivos
         href: azure-stack-solution-template-cognitive-services.md
-  - name: Criar aplicações
+  - name: Crie aplicações
     items:
     - name: Desenvolver para o Azure Stack
       href: azure-stack-developer.md
@@ -181,7 +181,7 @@ items:
           href: azure-stack-version-profiles-powershell.md
         - name: CLI do Azure
           href: azure-stack-version-profiles-azurecli2.md
-        - name: Ir
+        - name: Go
           href: azure-stack-version-profiles-go.md
         - name: Ruby
           href: azure-stack-version-profiles-ruby.md
@@ -232,12 +232,12 @@ items:
   - name: Informações de preços
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-stack
+    href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Formação e certificação
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: a06965bc494da93dfb945ccdfbbf10db310df48c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: df2db5b5a0e402aaaf0cd8d52c3dfa443225dfaf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986299"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539059"

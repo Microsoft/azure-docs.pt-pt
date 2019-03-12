@@ -8,12 +8,12 @@ ms.assetid: 3aca9c49-45a4-4352-92e6-bd25ee3eacf7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 12b8161cc5845bca749c34188835cef1d92b299a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 60c5b7b55e417a5703010ea34cf75dcb20146c37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404556"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531684"
 ---
 # <a name="azure-data-catalog-release-notes"></a>Notas de versão do catálogo de dados do Azure
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Notas para a 20 de Novembro de 2015 da versão do catálogo de dados do Azure
@@ -29,7 +29,7 @@ Para cada situação, o problema pode ser resolvido ao transferir e instalar a v
 ### <a name="registering-and-connecting-to-teradata"></a>Registar e ligar a Teradata
 Ao ligar a origens de dados de Teradata utilizadores devem ter instalado o controlador ODBC de Teradata correto que corresponde ao número de bits (32 bits ou 64 bits) do software a ser utilizado.
 
-Esta data de lançamento do ADC, o mais recente [controlador ODBC de Teradata para windows (versão 15.10)](http://downloads.teradata.com/download/connectivity/odbc-driver/windows) é compatível com o Office 2013, mas não com o Office 2016.
+Esta data de lançamento do ADC, o mais recente [controlador ODBC de Teradata para windows (versão 15.10)](https://downloads.teradata.com/download/connectivity/odbc-driver/windows) é compatível com o Office 2013, mas não com o Office 2016.
 
 ## <a name="notes-for-the-july-13-2015-release-of-azure-data-catalog"></a>Notas para a 13 de Julho de 2015 da versão do catálogo de dados do Azure
 ### <a name="registering-and-connecting-to-oracle-database"></a>Registar e ligar a base de dados Oracle
@@ -53,7 +53,7 @@ Os utilizadores poderão encontrar uma situação onde podem iniciar sessão no 
 
 Existem duas causas possíveis para este comportamento de problema:
 
-**Causa 1: Configuração de serviços de Federação do Active Directory** a ferramenta de registo da origem de dados utiliza a autenticação de formulários para validar os inícios de sessão do utilizador no Active Directory. Para o início de sessão bem-sucedidos, autenticação de formulários tem de estar ativada na política de autenticação Global por um administrador do Active Directory.
+**Fazer com que 1: Configuração de serviços de Federação de diretório Active Directory** a ferramenta de registo da origem de dados utiliza a autenticação de formulários para validar os inícios de sessão do utilizador no Active Directory. Para o início de sessão bem-sucedidos, autenticação de formulários tem de estar ativada na política de autenticação Global por um administrador do Active Directory.
 
 Em algumas situações, esse comportamento de erro pode ocorrer apenas quando o utilizador está na rede da empresa, ou apenas quando o usuário se conectar de fora da rede da empresa. A política de autenticação Global permite que os métodos de autenticação a ser ativada em separado para ligações extranet e de intranet. Se a autenticação de formulários não está ativada para a rede a partir do qual o usuário se conectar, poderão ocorrer erros de início de sessão.
 

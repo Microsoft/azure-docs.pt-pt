@@ -4,16 +4,16 @@ description: Saiba como escolher uma solução do Azure para a transferência de
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: alkohli
-ms.openlocfilehash: b90e84082eb73dde5a2303f166e9aa254c6f3101
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4e2a182493b1e9de3d2ba9d586a9560e42fe0ecb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263819"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773440"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Escolha uma solução do Azure para a transferência de dados
 
@@ -78,4 +78,4 @@ Responda às seguintes perguntas para ajudar a selecionar uma solução de trans
 - Utilizar as APIs REST para transferir dados
 
     - [No .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [Em Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)

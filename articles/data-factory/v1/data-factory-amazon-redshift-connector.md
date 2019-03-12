@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b7a785cc506f12360edc14555b7241a557dc400c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817347"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541932"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Atualmente, o Data Factory suporta apenas mover dados do Amazon Redshift para um
 > Para obter o melhor desempenho ao copiar grandes quantidades de dados do Amazon Redshift, considere a utilização o Redshift incorporado **UNLOAD** comando por meio do Amazon Simple Storage Service (Amazon S3). Para obter detalhes, consulte [descarregamento de utilização para copiar dados do Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Se estiver a mover dados para um arquivo de dados no local, instale [Data Management Gateway](data-factory-data-management-gateway.md) numa máquina no local. Conceder acesso de um gateway ao cluster do Amazon Redshift através do endereço IP de máquinas no local. Para obter instruções, consulte [autorizar o acesso ao cluster](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
+* Se estiver a mover dados para um arquivo de dados no local, instale [Data Management Gateway](data-factory-data-management-gateway.md) numa máquina no local. Conceder acesso de um gateway ao cluster do Amazon Redshift através do endereço IP de máquinas no local. Para obter instruções, consulte [autorizar o acesso ao cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Para mover dados para um arquivo de dados do Azure, consulte a [intervalos SQL que são utilizados por Datacenters do Azure da Microsoft e de endereço IP de computação](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ## <a name="getting-started"></a>Introdução
@@ -100,7 +100,7 @@ Em alternativa, pode utilizar o **RelationalSource** tipo, que inclui o Amazon R
 
 ## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>Utilizar o descarregamento para copiar dados do Amazon Redshift
 
-O Amazon Redshift [ **UNLOAD** ](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) comando descarrega os resultados de uma consulta para um ou mais ficheiros no Amazon S3. Este comando é recomendado pelo Amazon copiar grandes conjuntos de dados entre Redshift.
+O Amazon Redshift [ **UNLOAD** ](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) comando descarrega os resultados de uma consulta para um ou mais ficheiros no Amazon S3. Este comando é recomendado pelo Amazon copiar grandes conjuntos de dados entre Redshift.
 
 **Exemplo: Copiar dados do Amazon Redshift para o Azure SQL Data Warehouse**
 

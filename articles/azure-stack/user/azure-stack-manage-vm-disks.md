@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: e38612e0d4e0707525b313c79143018c74c4c77b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: c6bba6a428e5ff339b1d269965fa1948bddc696e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326515"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764441"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Criar armazenamento de disco da máquina virtual no Azure Stack
 

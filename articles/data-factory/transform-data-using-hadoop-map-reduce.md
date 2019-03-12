@@ -3,23 +3,23 @@ title: Transformar dados com a atividade MapReduce do Hadoop no Azure Data Facto
 description: Saiba como processar os dados ao executar programas de MapReduce do Hadoop num cluster HDInsight do Azure a partir de uma fábrica de dados do Azure.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: 4543982f731feb44a8f02581c11714dec2b206f9
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214509"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576400"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformar dados com a atividade MapReduce do Hadoop no Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-map-reduce.md)
 > * [Versão atual](transform-data-using-hadoop-map-reduce.md)
 
@@ -62,7 +62,7 @@ Ver [Pig](transform-data-using-hadoop-pig.md) e [Hive](transform-data-using-hado
 
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
-| nome              | Nome da atividade                     | Sim      |
+| name              | Nome da atividade                     | Sim      |
 | descrição       | Texto que descreve o que a atividade é utilizada para | Não       |
 | tipo              | Para a atividade de MapReduce, o tipo de atividade é HDinsightMapReduce | Sim      |
 | linkedServiceName | Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |

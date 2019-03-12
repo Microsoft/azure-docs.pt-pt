@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3cbfb29542f2c71f4308b63319e77b37093529d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: e855c7c7f7c74ee9c8c30cd618260ad284b1c7f7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445905"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541745"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
 Neste tutorial, vai criar um pipeline do Data Factory que copia dados do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista dos arquivos de dados suportados como origens e sinks, consulte [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -57,7 +57,7 @@ Agora, prepare o Blob do Azure e a Base de Dados SQL do Azure para o tutorial ao
     Jane|Doe
     ```
 
-2. Utilize ferramentas como o [Explorador de Armazenamento do Azure](http://storageexplorer.com/) para criar o contentor **adfv2tutorial** e carregar o ficheiro **inputEmp.txt** para o contentor.
+2. Utilize ferramentas como o [Explorador de Armazenamento do Azure](https://storageexplorer.com/) para criar o contentor **adfv2tutorial** e carregar o ficheiro **inputEmp.txt** para o contentor.
 
 #### <a name="create-a-sink-sql-table"></a>Criar uma tabela SQL sink
 

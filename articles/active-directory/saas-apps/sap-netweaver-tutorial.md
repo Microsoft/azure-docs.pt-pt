@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1b9e59e3-e7ae-4e74-b16c-8c1a7ccfdef3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9033276c7f3469c356c55fde8861bda2c15ca2d6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d211e1e106ff849d2634c6788b96284be0585ee4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452849"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767249"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Active Directory do Azure com o SAP NetWeaver
 

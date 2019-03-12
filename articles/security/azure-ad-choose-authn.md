@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7a90a0af8c6c7fd19b784d97e2ce30bea7910089
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728187"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550716"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação correta para sua solução de identidade híbrida do Azure Active Directory 
 
 Este artigo começa uma série de artigos que ajudam as organizações a implementar uma solução completa de identidade de híbrida do Azure Active Directory (Azure AD). Esta solução foi descrita como o [arquitetura de transformação Digital identidade híbrida](https://aka.ms/aadframework). Ele aborda os resultados de negócios e organizações de objetivos podem se concentrar em para implementar uma solução de identidade híbrida robusto e seguro. 
 
-O primeiro resultado do negócio do framework descreve os requisitos para as organizações a proteger o processo de autenticação quando os utilizadores acedem a aplicações na cloud. A primeira meta de negócios no resultado do negócio seguro de autenticação é a capacidade dos próprios utilizadores para iniciar sessão em aplicações na cloud com seus nomes de utilizador no local e as palavras-passe. Este processo de início de sessão para e a forma como autenticar os utilizadores possibilitam tudo na cloud.
+O primeiro resultado do negócio do framework descreve os requisitos para as organizações a proteger o processo de autenticação quando os utilizadores acedem a aplicações na cloud. A primeira meta de negócios no resultado do negócio seguro de autenticação é a capacidade dos próprios utilizadores para iniciar sessão em aplicações na cloud com seus nomes de utilizador no local e as palavras-passe. Este processo de início de sessão e autenticação possibilita tudo na cloud.
 
 Escolher o método de autenticação correto é a principal preocupação para as organizações que desejam mover seus aplicativos para a cloud. Não tome esta decisão apenas superficialmente, pelos seguintes motivos:
 
@@ -161,7 +161,7 @@ Os diagramas seguintes descrevem os componentes de arquitetura de alto nível ne
 
     ![Identidade de híbrida do Azure AD com a sincronização de hash de palavra-passe](media/azure-ad/azure-ad-authn-image2.png)
 
-* Requisitos de agente de autenticação pass-through:
+* Requisitos de agente de autenticação pass-through, com dois agentes para fins de redundância:
 
     ![Identidade de híbrida do Azure AD com a autenticação pass-through](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -173,7 +173,7 @@ Os diagramas seguintes descrevem os componentes de arquitetura de alto nível ne
 
 |Consideração|Sincronização de hash de palavra-passe + SSO totalmente integrado|Autenticação pass-through + SSO totalmente integrado|Federação com o AD FS|
 |:-----|:-----|:-----|:-----|
-|Onde acontecer autenticação?|Na cloud|Na cloud após uma troca de verificação de palavra-passe segura com o agente de autenticação no local|Local|
+|Onde acontecer autenticação?|Na cloud|Na cloud após uma troca de verificação de palavra-passe segura com o agente de autenticação no local|No local|
 |Quais são os requisitos de servidor no local para além do sistema de provisionamento: Do Azure AD Connect?|Nenhuma|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores do AD FS<br><br>Dois ou mais servidores do WAP na rede de perímetro/rede de Perímetro|
 |Quais são os requisitos para a Internet no local e o funcionamento em rede para além do sistema de provisionamento?|Nenhuma|[Acesso de Internet de saída](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) dos servidores a executar agentes de autenticação|[Acesso à Internet de entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) para os servidores WAP no perímetro<br><br>Acesso de rede de entrada para servidores do AD FS dos servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
 |Existe um requisito do certificado SSL?|Não|Não|Sim|
@@ -204,7 +204,7 @@ Utilize ou ativar a sincronização de hash de palavra-passe para qualquer méto
 
    * As organizações que anteriormente ativado a sincronização de hash de palavra-passe alterada seu método de autenticação a utilizar a sincronização de hash de palavra-passe. Eles foram novamente online dentro de uma questão de horas. Ao utilizar o acesso ao e-mail através do Office 365, eles trabalharam para resolver problemas e aceder a outras cargas de trabalho com base na cloud.
 
-   * As organizações que anteriormente não tiver ativado a sincronização de hash de palavra-passe, tinham que recorrer a sistemas de e-mail de consumidor externos não fidedignos para comunicações e resolução de problemas. Nesses casos, que o necessário semanas ou mais para ser novamente em funcionamento.
+   * As organizações que anteriormente não tiver ativado a sincronização de hash de palavra-passe, tinham que recorrer aos sistemas de e-mail de consumidor externos não fidedignos para comunicações resolver problemas. Nesses casos, demorou semanas-los para restaurar a sua infraestrutura de identidade no local, antes dos usuários eram capazes de início de sessão para aplicações baseadas na cloud novamente.
 
 3. **Proteção de identidade**. Uma das melhores maneiras de proteger os usuários na cloud é o Azure AD Identity Protection com o Azure AD Premium P2. Microsoft analisa continuamente a Internet para o utilizador e palavra-passe apresenta uma lista que pessoas mal-intencionadas vender e disponibilizar na web escuro. Azure AD pode utilizar estas informações para verificar se qualquer um dos nomes de utilizador e palavras-passe na sua organização sejam comprometidos. Portanto, é fundamental para ativar a sincronização de hash de palavra-passe, não importa qual método de autenticação a utilizar, se de que está a ser federado ou a autenticação pass-through. Fuga de credenciais é apresentada como um relatório. Utilize estas informações para bloquear ou forçar os usuários para alterar as palavras-passe quando o utilizador tentar iniciar sessão com palavras-passe de fugas.
 

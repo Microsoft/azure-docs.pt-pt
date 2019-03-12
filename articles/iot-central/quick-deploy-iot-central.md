@@ -3,18 +3,18 @@ title: Criar uma aplicação do Azure IoT Central | Microsoft Docs
 description: Crie uma nova aplicação do Azure IoT Central. Utilize um modelo de aplicação para criar uma aplicação de avaliação ou pay as you go.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/31/2018
+ms.date: 02/20/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9b66e4160dc78286f393257136dbf9375c6f61fb
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0844737288abeb8d6ab1043b4c55ba5ef1c4883c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306736"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780258"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Criar uma aplicação do Azure IoT Central
 
@@ -37,6 +37,7 @@ Para criar uma nova aplicação do Azure IoT Central:
 1. Escolha um nome simpático para a aplicação, como **Contoso IoT**. O Azure IoT Central gera um prefixo de URL exclusivo para si. Pode alterar este prefixo de URL para algo mais memorável.
 
 1. Escolha um modelo de aplicação. Os modelos de aplicação podem conter itens predefinidos, como modelos de dispositivo e dashboards, que o ajudam a começar.
+
     | Modelo de aplicação | Descrição |
     | -------------------- | ----------- |
     | Exemplo da Contoso       | Cria uma aplicação que inclui um modelo de dispositivo já criado para uma máquina dispensadora de bebidas. Utilize este modelo para começar a explorar o Azure IoT Central. |
@@ -44,7 +45,8 @@ Para criar uma nova aplicação do Azure IoT Central:
     | Aplicação personalizada   | Cria uma aplicação vazia que pode preencher com os seus próprios modelos de dispositivo e dispositivos. |
 
 1. Se estiver a criar uma aplicação **Pay As You Go**, tem de selecionar o *Diretório*, a *Subscrição do Azure* e a *Região*. 
-    - O *Diretório* é o diretório do Azure Active Directory utilizado para criar a aplicação. Contém identidades de utilizadores, credenciais e outras informações organizacionais. Se não tiver um diretório do AAD, é gerado um por si quando criar uma subscrição do Azure.
+
+    - *Diretório* é o Azure Active Directory (AD) para criar a sua aplicação. Contém identidades de utilizadores, credenciais e outras informações organizacionais. Se não tiver um Azure AD, é criada uma para quando cria uma subscrição do Azure.
 
     - A *Subscrição do Azure* permite-lhe criar instâncias de serviços do Azure. O IoT Central aprovisiona os recursos na sua subscrição. Se não tiver uma subscrição do Azure, pode criá-la na [página de inscrição do Azure](https://aka.ms/createazuresubscription). Depois de criar a subscrição, regresse à página **Create Application** (Criar Aplicação). A subscrição nova aparece no menu pendente **Azure Subscription** (Subscrição do Azure).
 
@@ -60,4 +62,4 @@ Para criar uma nova aplicação do Azure IoT Central:
 Neste início rápido, criou uma aplicação do IoT Central. O passo seguinte sugerido é:
 
 > [!div class="nextstepaction"]
-> [Apresentação do IoT Central](https://docs.microsoft.com/azure/iot-central/overview-iot-central-tour)
+> [Apresentação do IoT Central](overview-iot-central-tour.md)

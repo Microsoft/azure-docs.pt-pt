@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 00fb888f201f4bb8d211050b288516021d837dc5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9f835382cbfe56c1601267ae994a94b56c0c3692
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888776"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727047"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas mais frequentes sobre na API de utilização do Azure Stack
 
@@ -197,15 +197,15 @@ Este artigo responde a algumas perguntas mais frequentes sobre a API de utiliza�
 **Unidade**: GB\*mês      
 **Notas de**: O tamanho real no disco do premium de disco gerido 
 
-**ID do medidor**: 75d4b707-1027-4403-9986-6ec7c05579c8  
+**ID do medidor**: 108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **Nome do medidor**: ActualStandardSnapshotSize   
 **Unidade**: GB\*mês   
 **Notas de**: O tamanho real no disco do instantâneo padrão gerido.  
 
-**ID do medidor**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**ID do medidor**: 578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **Nome do medidor**: ActualPremiumSnapshotSize   
 **Unidade**: GB\*mês   
-**Notas de**: O tamanho real num disco gerido premium.   
+**Notas de**: O tamanho real no disco do instantâneo gerido premium.   
 
 **ID do medidor**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Nome do medidor**: S4   
@@ -285,7 +285,11 @@ Este artigo responde a algumas perguntas mais frequentes sobre a API de utiliza�
 **ID do medidor**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Nome do medidor**: ActualPremiumSnapshotSize   
 **Unidade**: Bytes\*horas   
-**Notas de**: O tamanho real num disco gerido premium (preterido) 
+**Notas de**: O tamanho real no disco do instantâneo de gerido premium (preterido) 
+
+**ID do medidor**: 75d4b707-1027-4403-9986-6ec7c05579c8 **nome do medidor**: ActualStandardSnapshotSize **unidade**: GB\*mês **notas**: O tamanho real no disco do instantâneo padrão gerido (preterido)  
+
+**ID do medidor**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e **nome do medidor**: ActualPremiumSnapshotSize **unidade**: GB\*mês **notas**: O tamanho real no disco do instantâneo de gerido premium (preterido)  
 
 ### <a name="sql-rp"></a>Sql RP
   

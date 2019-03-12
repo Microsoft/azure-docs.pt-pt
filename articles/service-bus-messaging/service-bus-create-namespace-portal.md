@@ -9,17 +9,17 @@ editor: spelluru
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/12/2019
 ms.author: aschhab
-ms.openlocfilehash: 7543fb6aed2e63a998dae2b0a855a70197a282ac
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a893cdf49792a8df624786804ec0ca4d8f043ec4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587213"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57764800"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Criar um espaço de nomes do Service Bus com o portal do Azure
 

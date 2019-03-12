@@ -7,17 +7,17 @@ documentationcenter: na
 author: jimdial
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: c1693b6e5ef9abbd1c72c10581a9f36325cf6478
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5687075b8b63755b8b04f8c8fd0d0706ec8e27bc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243997"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774528"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -34,7 +34,7 @@ As vantagens da utilização do peering de redes virtuais, sejam locais ou globa
 * A capacidade de configurar o peering entre redes virtuais criadas através do Azure Resource Manager ou o peering entre uma rede virtual criada através do Resource Manager e outra criada através do modelo de implementação clássica. Para saber mais sobre os modelos de implementação do Azure, veja [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Compreender os modelos de implementação do Azure).
 * Sem períodos de indisponibilidade para recursos em qualquer rede virtual durante ou após a criação do peering.
 
-## <a name="connectivity"></a>Conectividade
+## <a name="connectivity"></a>Ligação
 
 Depois das redes virtuais serem colocadas em modo de peering, os recursos em cada uma destas podem ligar-se diretamente a recursos na rede virtual em modo de peering.
 

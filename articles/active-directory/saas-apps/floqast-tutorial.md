@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 013cb57d-567c-44d0-a119-e6ba6e607153
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 897759d6b4d8f71fab5c2ac5c14ce230ac6660af
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: f2db0ab90c1444518c80a1a83204147dc1d8ad4b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990463"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766177"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Tutorial: Integração do Active Directory do Azure com FloQast
 
@@ -108,13 +108,13 @@ Para configurar o Azure AD início de sessão único com FloQast, execute os seg
 
 5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
-    ![image](common/both-preintegrated-signon.png)
+    ![imagem](common/both-preintegrated-signon.png)
 
     Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://go.floqast.com/login/sso`
 
 6. Aplicação de FloQast espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para adicionar os atributos.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
 7. Além dos acima, o aplicativo FloQast espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
@@ -122,13 +122,13 @@ Para configurar o Azure AD início de sessão único com FloQast, execute os seg
     | ------------------- | -------------------- |    
     | FirstName           | user.givenname |
     | LastName            | user.surname |
-    | Email               | user.mail    |
+    | E-mail               | user.mail    |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![image](common/new-save-attribute.png)
+    ![imagem](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![imagem](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -152,7 +152,7 @@ Para configurar o Azure AD início de sessão único com FloQast, execute os seg
 
     a. Selecione **asserção e resposta SAML de início de sessão** partir a **opção assinatura**.
     
-    b. Clicar em **Guardar**
+    b. Clique em **Guardar**
 
     ![Opção de assinatura de Communifire](./media/floqast-tutorial/tutorial-floqast-signing-option.png)
 
@@ -225,7 +225,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no FloQast. Trabalhar com [equipa de suporte de FloQast](mailto:support@floqast.com) para adicionar os utilizadores na plataforma FloQast. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

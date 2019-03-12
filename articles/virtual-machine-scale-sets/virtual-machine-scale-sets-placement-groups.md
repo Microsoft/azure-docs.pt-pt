@@ -12,15 +12,15 @@ ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/9/2017
 ms.author: rajraj
-ms.openlocfilehash: 2a1c78a4cec595b672604c90e103ae3b9e40273f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1ec1ec0fab6947f7f07b3c387f4c8af4a0f666cb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55693688"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776347"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Trabalhar com conjuntos de dimensionamento de máquinas virtuais de grande escala
 Agora, pode criar [conjuntos de dimensionamento de máquinas virtuais](/azure/virtual-machine-scale-sets/) do Azure com uma capacidade de até 1000 VMs. Neste documento, um _conjunto de dimensionamento de máquinas virtuais de grande escala_ está definido como um conjunto de dimensionamento com capacidade para dimensionar para mais do que 100 VMs. Esta capacidade é definida por uma propriedade de conjunto de dimensionamento (_singlePlacementGroup=False_). 

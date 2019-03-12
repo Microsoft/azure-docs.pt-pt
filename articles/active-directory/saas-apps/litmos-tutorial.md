@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cfaae4bb-e8e5-41d1-ac88-8cc369653036
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ada3c9a6ed08895727d395363b7e8a9cb1f2f08f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9e7f462431e286492691796db20d719cb2e0aff4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864401"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768517"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>Tutorial: Integração do Active Directory do Azure com Litmos
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD início de sessão único com Litmos, execute os segu
 
 5. Aplicação de Litmos espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
 
@@ -124,13 +124,13 @@ Para configurar o Azure AD início de sessão único com Litmos, execute os segu
     |---------------|--------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | Email | user.mail |
+    | E-mail | user.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![image](common/new-save-attribute.png)
+    ![imagem](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![imagem](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -263,7 +263,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Litmos
   
     ![Utilizadores de gerar automaticamente][27]
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -3,21 +3,20 @@ title: Por meio de programação monitorizar uma fábrica de dados do Azure | Do
 description: Saiba como monitorizar um pipeline na fábrica de dados com os kits de desenvolvimento de software diferente (SDKs).
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.author: douglasl
-ms.openlocfilehash: 938392cea3e6fe001e662a60e17b936415e7e4f2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: ed1d6ab96a7658880a8784c5e03c3787cf87a8ba
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439286"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576315"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Por meio de programação monitorizar uma fábrica de dados do Azure
 Este artigo descreve como monitorizar um pipeline na fábrica de dados com os kits de desenvolvimento de software diferente (SDKs). 

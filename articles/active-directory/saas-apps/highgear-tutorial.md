@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 55dcd2fb-96b7-46ec-9e69-eee71c535773
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 017664e29f1ecf7d35411a3bc941df932c195856
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 61010399f6f2f5b87c1aa5e1c342a97e6b34bb45
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880160"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutorial: Integração do Active Directory do Azure com HighGear
 
@@ -246,7 +246,7 @@ Para criar um utilizador de teste para testar a configuração de início de ses
 
 7. Para guardar o contacto, clique a **guardar** na parte inferior do painel.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Eliminar um gateway de rede virtual: PowerShell: clássico Azure | Documentos da Microsoft'
+title: 'Elimine um gateway de rede virtual: PowerShell: Azure clássico | Documentos da Microsoft'
 description: Elimine um gateway de rede virtual com o PowerShell no modelo de implementação clássica.
 services: vpn-gateway
 documentationcenter: na
@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ca014e4f5fbc4a5695dbc5fedc85826c71a2a906
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319851"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767775"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminar um gateway de rede virtual com o PowerShell (clássico)
 
@@ -56,7 +56,7 @@ Neste exemplo, o ficheiro de configuração de rede é exportado para C:\AzureNe
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-Abra o ficheiro com um editor de texto e ver o nome para a sua VNet clássica. Quando cria uma VNet no portal do Azure, o nome completo, que utiliza o Azure não é visível no portal. Por exemplo, uma VNet que aparece para ter o nome "ClassicVNet1" no portal do Azure, pode ter um nome muito mais tempo no ficheiro de configuração de rede. O nome pode ter um aspeto semelhante: 'Grupo ClassicRG1 ClassicVNet1'. Nomes de rede virtual são apresentados como **' VirtualNetworkSite name ='**. Utilize os nomes no ficheiro de configuração de rede ao executar os cmdlets do PowerShell.
+Abra o ficheiro com um editor de texto e ver o nome para a sua VNet clássica. Quando cria uma VNet no portal do Azure, o nome completo, que utiliza o Azure não é visível no portal. Por exemplo, uma VNet que aparece para ter o nome "ClassicVNet1" no portal do Azure, pode ter um nome muito mais tempo no ficheiro de configuração de rede. O nome pode ser algo como: 'Grupo ClassicRG1 ClassicVNet1'. Nomes de rede virtual são apresentados como **' VirtualNetworkSite name ='**. Utilize os nomes no ficheiro de configuração de rede ao executar os cmdlets do PowerShell.
 
 ## <a name="delete"></a>Passo 3: Eliminar o gateway de rede virtual
 
@@ -181,7 +181,7 @@ Exemplo:
  </Subnets>
 ```
 
-## <a name="upload"></a>Passo 5: Carregar o ficheiro de configuração de rede
+## <a name="upload"></a>Passo 5: Carregue o ficheiro de configuração de rede
 
 Guardar as alterações e carregar o ficheiro de configuração de rede para o Azure. Certifique-se de que alterar o caminho de ficheiro para o seu ambiente, conforme necessário.
 

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 9686ac0bc75a219940fcadca78cff539c1b50f0a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b99197f44961bdfa23050e9481e290e6c3d24845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876830"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759090"
 ---
 # <a name="create-and-clone-projects"></a>Criar e clonar projetos
 

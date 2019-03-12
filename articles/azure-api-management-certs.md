@@ -7,19 +7,19 @@ author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
-ms.service: na
+ms.service: api-management
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421594"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765803"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carregar um certificado de gestão de serviço do Azure
 Certificados de gestão permitem-lhe autenticar com o modelo de implementação clássico fornecido pelo Azure. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) utilizam estes certificados para automatizar a configuração e implementação dos vários serviços do Azure. 
@@ -33,7 +33,7 @@ Se desejar obter mais informações sobre certificados do Azure (incluindo a cri
 
 Também pode utilizar [do Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticar o código de cliente para fins de automatização.
 
-**Nota:** tem de ser um coadministrador na subscrição para realizar quaisquer operações em certificados de gestão. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como adicionar ou remover Coadministradores do novo Portal do Azure 
+**Nota:** Tem de ser um coadministrador na subscrição para realizar quaisquer operações em certificados de gestão. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como adicionar ou remover Coadministradores do novo Portal do Azure 
 
 ## <a name="upload-a-management-certificate"></a>Carregar um certificado de gestão
 Depois de ter um certificado de gestão que criou, (ficheiro. cer com apenas a chave pública) pode carregá-lo no portal. Quando o certificado está disponível no portal, qualquer pessoa com um certificado correspondente (chave privada) pode ligar através da API de gestão e aceder aos recursos para a subscrição associada.

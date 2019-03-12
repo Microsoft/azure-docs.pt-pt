@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 79ba32f85c608d98b29b235bf1417e74f7e2a4d4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313488"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550775"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentor numa rede virtual do Azure
 
@@ -40,21 +40,15 @@ Determinadas limitações aplicam-se ao implementar grupos de contentores a uma 
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
-Enquanto esta funcionalidade está em pré-visualização, as seguintes limitações aplicam-se ao implementar instâncias de contentor a uma rede virtual. 
+Enquanto esta funcionalidade está em pré-visualização, as seguintes limitações aplicam-se ao implementar grupos de contentores a uma rede virtual. 
 
-**Regiões suportadas e limites de recursos**
-
-| Localização | SO | CPU | Memória (GB) |
-| -------- | :---: | :---: | :-----------: |
-| Europa Ocidental | Linux | 4 | 14 |
-| E.U.A. leste, E.U.A. oeste | Linux | 2 | 3.5 |
-| Leste da Austrália, Europa do Norte | Linux | 1 | 1.5 |
+[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 Limites de recursos de contentor podem ser diferente do limites para as instâncias de contentor não estejam em rede nestas regiões. Contentores de Linux atualmente, apenas são suportados para esta funcionalidade. O suporte do Windows está previsto.
 
-**Funcionalidades e recursos de rede não suportada**
+### <a name="unsupported-network-resources-and-features"></a>Funcionalidades e recursos de rede não suportada
 
-* Azure Load Balancer
+* Balanceador de Carga do Azure
 * Peering de rede virtual
 
 **Eliminação do recurso de rede** requer [passos adicionais](#delete-network-resources) após a implantação de grupos de contentores para a rede virtual.
@@ -93,7 +87,7 @@ Para implementar uma nova rede virtual e que o Azure crie automaticamente os rec
 
 * Nome da rede virtual:
 * Prefixo de endereço de rede virtual no formato CIDR
-* Nome da sub-rede
+* Nome de sub-rede
 * Prefixo de endereço de sub-rede no formato CIDR
 
 A rede virtual e os prefixos de endereço de sub-rede especificam os espaços de endereços para a rede virtual e sub-rede, respectivamente. Estes valores são representados na notação de Classless entre domínios encaminhamento (CIDR), por exemplo `10.0.0.0/16`. Para obter mais informações sobre como trabalhar com sub-redes, veja [adicionar, alterar ou eliminar uma sub-rede de rede virtual](../virtual-network/virtual-network-manage-subnet.md).

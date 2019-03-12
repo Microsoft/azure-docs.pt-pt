@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 542fe0064de84e6266d2d0274809d7b2046b855c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874414"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550161"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões de máquina virtual e funcionalidades para Windows
 
@@ -34,7 +34,7 @@ Este artigo fornece uma descrição geral das extensões de VM, pré-requisitos 
 Várias extensões de VM do Azure diferentes estão disponíveis, cada um com uma específicas do caso de utilização. Alguns exemplos incluem:
 
 - Aplica configurações de estado de pretendido do PowerShell para uma VM com a extensão de DSC para Windows. Para obter mais informações, consulte [extensão de configuração de estado pretendido do Azure](dsc-overview.md).
-- Configure a monitorização de uma VM com a extensão de VM de agente de monitorização Microsoft. Para obter mais informações, consulte [ligar as VMs do Azure para o Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configure a monitorização de uma VM com a extensão de VM de agente de monitorização Microsoft. Para obter mais informações, consulte [ligar as VMs do Azure para registos do Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Com o Chef para configurar uma VM do Azure. Para obter mais informações, consulte [implementação de automação de VM do Azure com o Chef](../windows/chef-automation.md).
 - Configure a monitorização da sua infraestrutura do Azure com a extensão de Datadog. Para obter mais informações, consulte a [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -261,7 +261,7 @@ Quando uma atualização está disponível, ele só é instalado na VM quando ex
 - Extensões
 - Contentor de diagnóstico de arranque
 - Segredos do SO convidado
-- Tamanho da VM
+- Tamanhos de VM
 - Perfil de rede
 
 Os publicadores disponibilizar as atualizações à regiões em alturas diferentes, portanto, é possível que pode ter VMs em diferentes regiões em versões diferentes.

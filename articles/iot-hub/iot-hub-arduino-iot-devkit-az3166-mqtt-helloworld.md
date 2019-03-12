@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158487"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552015"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>Enviar mensagens para um servidor MQTT
 
 Sistemas de Internet das coisas (IoT), muitas vezes, lidam com intermitente, de baixa qualidade ou lenta ligações à internet. MQTT é um protocolo de conectividade do máquina-a-máquina (M2M), que foi desenvolvido com tais desafios em mente. 
 
-A biblioteca de cliente MQTT usada aqui é a parte a [Eclipse Paho](http://www.eclipse.org/paho/) projeto, que fornece APIs para a utilização MQTT ao longo de vários meios de transporte.
+A biblioteca de cliente MQTT usada aqui é a parte a [Eclipse Paho](https://www.eclipse.org/paho/) projeto, que fornece APIs para a utilização MQTT ao longo de vários meios de transporte.
 
 ## <a name="what-you-learn"></a>O que irá aprender
 
@@ -71,16 +71,16 @@ No VS Code, siga este procedimento para abrir e configurar o Monitor de série:
 
 O Monitor Serial apresenta todas as mensagens enviadas pelo esboço de exemplo. O esboço liga-se a DevKit ao Wi-Fi. Assim que a ligação Wi-Fi for bem-sucedida, o esboço envia uma mensagem no Mediador MQTT. Depois disso, o exemplo envia repetidamente duas mensagens de "iot.eclipse.org" usando o QoS 0 e 1 de QoS, respectivamente.
 
-![saída de série](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![serial-output](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## <a name="problems-and-feedback"></a>Problemas e comentários
 
 Se tiver problemas, consulte a [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) ou ligue-se com os seguintes canais:
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Ligar a IoT DevKit AZ3166 ao IoT Hub do Azure na cloud](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [Abane, abane para um Tweet](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

@@ -9,12 +9,12 @@ author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: dcecb98d5e254e3fadd114c227e783a60fc6fa4e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316154"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759396"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Pesquisar o armazenamento de Blobs com o Azure Search
 
@@ -52,5 +52,5 @@ O Azure Search pode ser adicionado para blobs diretamente a partir da página de
 
 Clique em **adicionar Azure Search** para iniciar um fluxo, onde pode selecionar um serviço de pesquisa do Azure existente ou criar um novo serviço. Se criar um novo serviço, são navegar para fora da experiência do portal da conta de armazenamento. Pode navegar de volta para a página de portal de armazenamento e a selecionar os **adicionar Azure Search** opção, onde pode selecionar o serviço existente.
 
-### <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Próximos Passos
 Saiba mais sobre o indexador de Blobs do Azure Search em todo o [documentação](https://aka.ms/azsblobindexer).

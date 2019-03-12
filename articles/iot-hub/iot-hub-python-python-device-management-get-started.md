@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7b2876f30af23f73be5a53770ac75ef323d90c37
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 80091adaa364289ec9cddf6e259242e376b76b37
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668982"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549617"
 ---
 # <a name="get-started-with-device-management-python"></a>Introdução à gestão de dispositivo (Python)
 
@@ -37,8 +37,8 @@ Para concluir este tutorial, precisa do seguinte:
 * [Python 2.x ou 3.x](https://www.python.org/downloads/). Certifique-se de que utiliza a instalação de 32 ou 64 bits, conforme exigido pela sua configuração. Quando lhe for pedido durante a instalação, confirme que adiciona Python à variável de ambiente específica da sua plataforma. Se estiver a utilizar Python 2.x, poderá ter de [instalar ou atualizar o *pip*, o sistema de gestão de pacotes de Python](https://pip.pypa.io/en/stable/installing/).
     * Instalar o [azure-iothub-dispositivo-cliente](https://pypi.org/project/azure-iothub-device-client/) empacotar, utilizando o comando   `pip install azure-iothub-device-client`
     * Instalar o [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) empacotar, utilizando o comando   `pip install azure-iothub-service-client`
-* Se estiver a utilizar o SO Windows, o [pacote redistribuível Visual C++](http://www.microsoft.com/download/confirmation.aspx?id=48145), para permitir a utilização de DLLs nativas de Python.
-* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](http://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
+* Se estiver a utilizar o SO Windows, o [pacote redistribuível Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145), para permitir a utilização de DLLs nativas de Python.
+* Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 

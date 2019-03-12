@@ -10,15 +10,15 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818044"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776313"
 ---
 # <a name="what-is-azure-relay"></a>O que é o Reencaminhamento do Azure?
 O serviço Azure Relay permite-lhe expor em segurança serviços que são executados na rede empresarial na cloud pública. Pode fazê-lo sem abrir uma porta no firewall, ou para fazer alterações intrusivas na sua infraestrutura de rede empresarial. 
@@ -82,7 +82,7 @@ O diagrama seguinte mostra como os pedidos de reencaminhamento recebidos são pr
 5. O gateway encaminha o pedido de ligação para o gateway correto mencionado no arquivo de gateway. 
 6. O gateway envia um pedido para o cliente de escuta para este criar um canal temporário para o nó de gateway que está mais próximo do cliente de envio. 
 7. O cliente de escuta cria um canal temporário para o gateway que está mais próximo do cliente de envio. Agora que a ligação é estabelecida entre os clientes através de um gateway, os clientes podem trocar mensagens entre si. 
-8. O gateway encaminha qualquer outra forma de mensagens do cliente de escuta para o cliente de envio. 
+8. O gateway encaminha todas as mensagens do cliente escuta para o cliente de envio. 
 9. O gateway encaminha qualquer outra forma de mensagens do cliente de envio para o cliente de escuta.  
 
 ## <a name="next-steps"></a>Passos Seguintes

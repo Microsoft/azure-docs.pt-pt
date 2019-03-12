@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ba79bfc1-992e-4924-b76a-8eb0dfb97724
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a98a41984692e9a20b3606c30e387b7674cf7bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 137429fc21bc71f0273029ca6578596b64001823
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874168"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731599"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Tutorial: Integração do Active Directory do Azure com Coralogix
 
@@ -118,15 +118,15 @@ Para configurar o Azure AD início de sessão único com Coralogix, execute os s
 
 5. Aplicação de Coralogix espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
 6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
     
     a. Clique em **ícone de edição** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![image](./media/coralogix-tutorial/tutorial_usermail.png)
+    ![imagem](./media/coralogix-tutorial/tutorial_usermail.png)
 
-    ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
+    ![imagem](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
     b. Partir do **formato de identificador de nome escolher** lista, selecione **endereço de E-Mail**.
 
@@ -207,7 +207,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Coralogix. Trabalhar com [equipa de suporte de Coralogix](mailto:info@coralogix.com) para adicionar os utilizadores na plataforma Coralogix. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

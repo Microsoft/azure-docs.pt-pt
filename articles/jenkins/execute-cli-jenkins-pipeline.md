@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: dfdc572810cfcfd275faa4502e508b9c8ccec9b6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727846"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546148"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementar no Serviço de Aplicações do Azure com o Jenkins e a CLI do Azure
 Para implementar uma aplicação Web Java no Azure, pode utilizar a CLI do Azure no [Pipeline do Jenkins](https://jenkins.io/doc/book/pipeline/). Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:
@@ -117,7 +117,7 @@ Quando a definição de aplicação Web estiver pronta, a CLI do Azure mostra in
 
 Configure a configuração do runtime de Java de que a sua aplicação precisa, com o comando [az appservice web config update](/cli/azure/webapp/config).
 
-O comando seguinte configura a aplicação Web para ser executada num JDK recente do Java 8 e [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+O comando seguinte configura a aplicação Web para ser executada num JDK recente do Java 8 e [Apache Tomcat](https://tomcat.apache.org/) 8.0.
 
 ```azurecli-interactive
 az webapp config set \ 
@@ -152,7 +152,7 @@ Abra o Jenkins num browser e clique em **New Item** (Novo Item).
 * Em **Definition** (Definição), selecione **Pipeline script from SCM** (Script de pipeline do SCM).
 * Em **SCM**, selecione **Git**.
 * Introduza o URL do GitHub para o repositório duplicado: https:\<o repositório duplicado\>.git
-* Clicar em **Guardar**
+* Clique em **Guardar**
 
 ## <a name="test-your-pipeline"></a>Testar o pipeline
 * Vá para o pipeline que criou e clique em **Build Now** (Compilar Agora)

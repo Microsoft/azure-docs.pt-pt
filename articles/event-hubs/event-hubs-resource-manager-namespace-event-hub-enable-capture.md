@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 26e248590ab6a5aa84da36abe1f1c3fb0a3dc35f
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 804ef04f0066a8b8dd9df82aef03fcfc32d7cb43
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238050"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776500"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um espaço de nomes com o hub de eventos e ativar a captura utilizando um modelo
 

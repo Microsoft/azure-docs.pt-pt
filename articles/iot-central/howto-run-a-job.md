@@ -5,15 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 09/15/2018
+ms.date: 02/04/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: f08167b4f37193c9a04da02fdd31e066a97aec66
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 142881e0a72ef9db7397276f092a4b7502b61fed
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57317667"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781448"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Criar e executar uma tarefa no seu aplicativo de Central de IoT do Azure
 
@@ -40,8 +40,6 @@ Esta secção mostra-lhe como criar e executar uma tarefa. Cada passo passa por 
 1. No lado direito, escolha os dispositivos que pretende executar a tarefa. Ao selecionar a caixa de verificação principal, todos os dispositivos são selecionados no conjunto de dispositivo inteiro. Ao selecionar a caixa de verificação junto ao nome, são selecionados todos os dispositivos na página atual.
 
 1. Depois dos dispositivos pretendidos tenham sido selecionados, selecione **executar**. A tarefa aparecerão agora no principal **tarefas** página. Nesta vista, é capaz de ver o seu trabalho em execução e o histórico de qualquer anteriormente executar tarefas. Seu trabalho em execução serão sempre apresentados na parte superior da lista.
-
-    ![Executar tarefa](./media/howto-run-a-job/runjob.png)
 
     ![Ver Tarefa](./media/howto-run-a-job/viewjob.png)
 
@@ -72,15 +70,15 @@ Quando uma tarefa tiver sido criada, o **estado** coluna será atualizada com a 
 | -------------------- | ------------------------------------------------------- |
 | Concluído            | Esta tarefa foi executada em todos os dispositivos.              |
 | Com Falhas               | Esta tarefa tem falha e não totalmente executado nos dispositivos.  |
-| Pendente              | Esta tarefa ainda não tenha iniciado em execução em dispositivos.        |
-| A executar              | Esta tarefa está atualmente em execução em dispositivos.             |
+| Em espera              | Esta tarefa ainda não tenha iniciado em execução em dispositivos.        |
+| Em Execução              | Esta tarefa está atualmente em execução em dispositivos.             |
 | Parada              | Esta tarefa foi parada manualmente por um utilizador.           |
 
 A mensagem de estado é seguida por uma visão geral dos dispositivos dentro da tarefa. Estes Estados do dispositivo significam o seguinte:
 
 | Mensagem de estado       | Significado de estado                                                     |
 | -------------------- | ------------------------------------------------------------------ |
-| Bem-sucedido            | O número de dispositivos que a tarefa foi executada com êxito no.  |
+| Com Êxito            | O número de dispositivos que a tarefa foi executada com êxito no.  |
 | Com Falhas               | O número de dispositivos que a tarefa falhou a ser executadas a.      |
 
 ### <a name="view-the-device-status"></a>Ver o estado do dispositivo
@@ -91,7 +89,7 @@ Para ver o estado de cada dispositivo no trabalho, selecione o nome da tarefa. A
 | -------------------- | ----------------------------------------------------------------------------- |
 | Concluído            | A tarefa foi executada neste dispositivo.                                     |
 | Com Falhas               | A tarefa não conseguiu executar neste dispositivo. A mensagem de erro que acompanha este artigo irá mostrar mais informações.  |
-| Pendente              | A tarefa ainda não executada neste dispositivo.                                  |
+| Em espera              | A tarefa ainda não executada neste dispositivo.                                  |
 
 > [!NOTE]
 > Se um dispositivo tiver sido eliminado, não será possível selecionar o dispositivo e esta será apresentada como excluído com o ID de dispositivo.

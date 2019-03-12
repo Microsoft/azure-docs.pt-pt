@@ -2,18 +2,18 @@
 title: Utilizar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 description: Tutorial sobre como utilizar o Terraform para configurar e criar a versão de um conjunto de dimensionamento de máquinas virtuais do Azure completo com uma rede virtual e discos ligados geridos
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, máquina virtual, Azure, conjunto de dimensionamento, rede, armazenamento, módulos
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 7d23e9113b83970d0cfee8f96989faa2c2760421
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 12f1e69aeb1021ed7bc97b0c54248c798cfd75b9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745831"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762828"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Utilizar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 

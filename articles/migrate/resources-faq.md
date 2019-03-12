@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 26992cfe1c6cb8555a7084075fed4d9c8daed031
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3744e51ffb4e0836eba4b1641413d8c0ee240f87
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444384"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729388"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - perguntas mais frequentes (FAQ)
 
@@ -21,7 +21,7 @@ Este artigo contém perguntas mais frequentes sobre o Azure Migrate. Se tiver qu
 
 ### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>O Azure Migrate suporta a avaliação de apenas as cargas de trabalho VMware?
 
-Sim, do Azure Migrate só suporta atualmente a avaliação das cargas de trabalho do VMware. Suporte para Hyper-V e servidores físicos será ativado no futuro.
+Sim, do Azure Migrate só suporta atualmente a avaliação das cargas de trabalho do VMware. Suporte para Hyper-V está em pré-visualização, inscreva-se [aqui](http://aka.ms/migratefuture) para obter acesso à pré-visualização. Suporte para servidores físicos será ativado no futuro.
 
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate precisa vCenter Server para detetar um ambiente do VMware?
 
@@ -42,7 +42,7 @@ O Azure Migrate é uma ferramenta de planejamento de migração e do Azure Site 
 
 **Migração do VMware para Azure**: Se pretender migrar as cargas de trabalho no local para o Azure, utilize o Azure Migrate para planeamento da migração. O Azure Migrate avalia cargas de trabalho no local e fornece orientações, informações e mecanismos para ajudá-lo a migrar para o Azure. Assim que estiver pronto com o seu plano de migração, pode utilizar serviços como o Azure Site Recovery e o serviço de migração de base de dados do Azure para migrar as máquinas para o Azure.
 
-**Migração do Hyper-V para o Azure**: O Azure Migrate só suporta atualmente avaliação das máquinas de virtuais de VMware para migração para o Azure. Suporte para Hyper-V está nas previsões para o Azure Migrate. Até lá, pode usar o Site Recovery Deployment Planner. Assim que o suporte de Hyper-V está ativado no Azure Migrate, pode utilizar o Azure Migrate para planejamento de migração de cargas de trabalho do Hyper-V.
+**Migração do Hyper-V para o Azure**: A versão em disponibilidade geral do Azure Migrate suporta atualmente a avaliação das máquinas de virtuais de VMware para migração para o Azure. Suporte para Hyper-V está atualmente em pré-visualização com suporte de produção. Se estiver interessado em experimentar a pré-visualização, inscreva-se [aqui](http://aka.ms/migratefuture).
 
 **Recuperação após desastre do VMware/Hyper-V para o Azure**: Se pretende fazer a recuperação após desastre (DR) no Azure com o Azure Site Recovery (recuperação de sites), utilize o Site Recovery Deployment Planner para planejamento de DR. Site Recovery Deployment Planner faz uma avaliação profunda ASR específicos do seu ambiente no local. Fornece recomendações que são necessários pelo Site Recovery para operações bem-sucedidas de DR, como replicação, ativação pós-falha das suas máquinas virtuais.  
 
@@ -120,7 +120,7 @@ Para a visualização de dependência, se instalar agentes nas VMs, os dados rec
 
 ### <a name="what-is-the-volume-of-data-which-is-uploaded-by-azure-migrate-in-the-case-of-continuous-profiling"></a>O que é o volume de dados que são carregados pelo Azure Migrate, no caso de criação de perfis contínua?
 
-O volume de dados que são enviados para o Azure Migrate seria variam consoante vários parâmetros. Para dar um indicador número, um projeto com dez máquinas (cada ter um disco e uma NIC), enviaria cerca de 50 MB por dia. Este é um valor aproximado e seria mudar com base no número de pontos de dados para os NICs e os discos (os dados enviados seria não-lineares se aumentar o número de máquinas, NICs ou discos). 
+O volume de dados que são enviados para o Azure Migrate seria variam consoante vários parâmetros. Para dar um indicador número, um projeto com dez máquinas (cada ter um disco e uma NIC), enviaria cerca de 50 MB por dia. Este é um valor aproximado e seria mudar com base no número de pontos de dados para os NICs e os discos (os dados enviados seria não-lineares se aumentar o número de máquinas, NICs ou discos).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Os dados são encriptados em descanso e em trânsito?
 

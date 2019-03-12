@@ -6,17 +6,17 @@ documentationcenter: na
 author: craigshoemaker
 manager: jeconnoc
 keywords: das funções do Azure, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 617ee115409005273421906423f524bc3b41a974
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5762e934d7735dd9617cefc1f56105823d74312f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736306"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782195"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB enlaces das funções do Azure 2.x
 

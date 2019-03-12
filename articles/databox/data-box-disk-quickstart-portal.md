@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 298c5f718d10a318ff241cf000f24b5484485489
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408586"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546930"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Início rápido: Implementar o disco do Azure Data Box através do portal do Azure
 
@@ -30,11 +30,11 @@ Antes de começar:
 
 - Certifique-se de que a sua subscrição está ativada para o serviço Azure Data Box. Para ativar a sua subscrição para este serviço, [Inscreva-se no serviço](https://aka.ms/azuredataboxfromdiskdocs).
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
-Inicie sessão no Portal do Azure em [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
+Inicie sessão no Portal do Azure em [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
-## <a name="order"></a>Encomenda
+## <a name="order"></a>Ordem
 
 Este passo demora cerca de 5 minutos.
 
@@ -101,7 +101,7 @@ O tempo de conclusão desta operação depende do tamanho dos dados.
 2. O serviço Azure Data Box notifica-o de que a cópia de dados está concluída através do portal do Azure.
     
     1. Consulte os registos de erros para verificar a existência de quaisquer falhas e executar as ações apropriadas.
-    2. Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de eliminá-los da origem.
+    2. Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de o eliminá-los da origem.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

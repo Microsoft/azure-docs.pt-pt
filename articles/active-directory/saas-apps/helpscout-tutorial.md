@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0aad9910-0bc1-4394-9f73-267cf39973ab
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3650704cd3d01d1cce21a665f3731a00a2107ab7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 079eff11b61fc4decca220b79ea55b76a53fbb4f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865727"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781481"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Active Directory do Azure com ajudar Scout
 
@@ -222,7 +222,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na ajuda Scout. Ajuda do Scout suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Scout ajudar, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

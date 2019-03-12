@@ -2,19 +2,19 @@
 title: Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com uma identidade gerida
 description: Utilize a imagem do Marketplace para criar a máquina virtual Terraform Linux com uma identidade gerida e Gestão de Estado Remota para implementar facilmente recursos no Azure.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, máquina virtual, estado remoto, azure
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: ae424638967de808f3ffb7d9a56a02398ed79f9e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852546"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768158"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Utilizar uma imagem do Azure Marketplace para criar uma máquina virtual Terraform Linux com identidades geridas para recursos do Azure
 

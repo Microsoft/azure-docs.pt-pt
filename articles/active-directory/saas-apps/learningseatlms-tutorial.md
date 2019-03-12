@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bb056fcf-4135-478e-85b1-5015d1f07b85
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3051dc44890c14c2bb94c16a0b6de67ff3302521
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 596dc691ea2a8bf4e00684bb22ea849814ef9222
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985092"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Tutorial: Integração do Active Directory do Azure com a aprendizagem de LMS posto de trabalho
 

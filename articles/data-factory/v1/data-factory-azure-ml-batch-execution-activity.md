@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: fe671dec730cd1a593c6413c38625677c3f9d164
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6c71956bf43a0147d5abff4b708be93f62fe34fa
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894110"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545061"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory
 
@@ -303,7 +303,7 @@ Recomendamos que passe pela [criar seu primeiro pipeline com o Data Factory] [ a
     }
     ```
 
-      Ambos **começar** e **final** datetimes tem de estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **final** tempo é opcional. Se não especificar valor para o **final** propriedade, esta é calculada como "**início + 48 horas.**" Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
+      Ambos **começar** e **final** datetimes tem de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **final** tempo é opcional. Se não especificar valor para o **final** propriedade, esta é calculada como "**início + 48 horas.**" Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
 
       > [!NOTE]
       > Especificação de entrada para o AzureMLBatchExecution atividade é opcional.
@@ -407,7 +407,7 @@ Ao utilizar o módulo leitor de uma experimentação do Azure Machine Learning, 
 No exemplo acima de JSON:
 
 * O serviço Azure Machine Learning Web implementado utiliza um leitor e um módulo de escritor de dados de/para uma base de dados do SQL do Azure de leitura/escrita. Esse Web service expõe os seguintes quatro parâmetros:  Nome do servidor de base de dados, nome de base de dados, nome de conta de utilizador do servidor e palavra-passe de conta de utilizador Server.
-* Ambos **começar** e **final** datetimes tem de estar no [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **final** tempo é opcional. Se não especificar valor para o **final** propriedade, esta é calculada como "**início + 48 horas.**" Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
+* Ambos **começar** e **final** datetimes tem de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41Z. O **final** tempo é opcional. Se não especificar valor para o **final** propriedade, esta é calculada como "**início + 48 horas.**" Para executar o pipeline de forma indefinida, especifique **9999-09-09** como o valor da propriedade **end**. Veja [Referência de Processamento de Scripts JSON](https://msdn.microsoft.com/library/dn835050.aspx) para obter mais detalhes sobre as propriedades de JSON.
 
 ### <a name="other-scenarios"></a>Outros cenários
 #### <a name="web-service-requires-multiple-inputs"></a>Serviço Web requer várias entradas
@@ -634,4 +634,4 @@ Também pode utilizar [funções de fábrica de dados](data-factory-functions-va
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
-[azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
+[azure-machine-learning]: https://azure.microsoft.com/services/machine-learning/

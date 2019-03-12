@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9debcd121cbbde626758abccfe838abda12ad840
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822838"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763372"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Ligar o Explorador de armazenamento para uma subscrição do Azure Stack ou uma conta de armazenamento
 
@@ -30,7 +30,7 @@ Neste artigo, irá aprender a ligar às suas subscrições do Azure Stack e as c
 > [!NOTE]  
 > Existem várias ferramentas disponíveis para mover dados para e do armazenamento do Azure Stack. Para obter mais informações, consulte [transferência de dados de ferramentas para o armazenamento do Azure Stack](azure-stack-storage-transfer.md).
 
-Se ainda não instalou o Explorador de armazenamento ainda, [transfira o Explorador de armazenamento](http://www.storageexplorer.com/) e instalá-lo.
+Se ainda não instalou o Explorador de armazenamento ainda, [transfira o Explorador de armazenamento](https://www.storageexplorer.com/) e instalá-lo.
 
 Depois de ligar a uma subscrição do Azure Stack ou uma conta de armazenamento, pode utilizar o [artigos do Explorador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md) para trabalhar com os seus dados do Azure Stack. 
 

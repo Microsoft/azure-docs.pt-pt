@@ -5,20 +5,20 @@ author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3b23ea83a0fc710a5b664f31ad997b843d18f6fe
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074772"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765192"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementar a sua aplicação para máquinas virtuais do Linux no Azure com o com o Jenkins e serviços do Azure DevOps
 

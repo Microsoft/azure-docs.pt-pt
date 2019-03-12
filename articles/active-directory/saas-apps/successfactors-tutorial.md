@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c964d4e070bafc6e8e66535c3963d82803d3cd1e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 69bc0c801feb787861af480c60af4345103f5325
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865778"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781787"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Active Directory do Azure com SuccessFactors
 
@@ -281,7 +281,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no SuccessFactors, tem de
 
 Para obter os utilizadores criados no SuccessFactors, terá de contactar o [equipa de suporte de SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

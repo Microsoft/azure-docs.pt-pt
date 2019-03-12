@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: d353db3554837ebe13cc53f5adac6658b82e31ec
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ac3296937c02c3021c49dafc9a6ed7c249fe37af
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717692"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769323"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Pré-visualização do SDK de gestão do Go do HDInsight
 
@@ -32,7 +32,7 @@ O SDK Go do HDInsight fornece classes e funções que permitem que gerencie seus
 
 A partir da sua localização GOPATH, execute `go get github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight`
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication"></a>Authentication
 
 Primeiro, o SDK precisa de ser autenticada com a sua subscrição do Azure.  Siga o exemplo abaixo para criar um principal de serviço e utilizá-lo para autenticar. Depois de o fazer, terá uma instância de um `ClustersClient`, que contém muitas funções (descritas a seguir secções) que podem ser utilizadas para efetuar operações de gestão.
 
@@ -107,7 +107,7 @@ import (
     "context"
     "github.com/Azure/go-autorest/autorest/azure/auth"
     hdi "github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight"
-    "github.com/Azure/go-autorest/autorest/to"    
+    "github.com/Azure/go-autorest/autorest/to"
 )
 
 func main() {
@@ -428,13 +428,13 @@ if (err != nil) {
     fmt.Println("Error: ", err)
 }
 for (page.NotDone()) {
-    for _, script := range page.Values() {          
+    for _, script := range page.Values() {
         fmt.Println(*script.Name) //There are functions to get other properties of RuntimeScriptActionDetail besides Name, such as Status, Operation, StartTime, EndTime, etc. See reference documentation.
     }
     err = page.Next();
     if (err != nil) {
         fmt.Println("Error: ", err)
-    }    
+    }
 }
 ```
 
@@ -466,13 +466,13 @@ if (err != nil) {
     fmt.Println("Error: ", err)
 }
 for (page.NotDone()) {
-    for _, script := range page.Values() {          
+    for _, script := range page.Values() {
         fmt.Println(*script.Name) //There are functions to get other properties of RuntimeScriptActionDetail besides Name, such as Status, Operation, StartTime, EndTime, etc. See reference documentation.
     }
     err = page.Next();
     if (err != nil) {
         fmt.Println("Error: ", err)
-    }       
+    }
 }
 ```
 

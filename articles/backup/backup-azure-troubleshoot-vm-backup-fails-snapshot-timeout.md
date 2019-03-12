@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 530bb83d753d27db4869b5725bc6d4c4e020e179
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3be2ab8bd4be56de945303bec9969f531be77864
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446610"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535600"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -220,7 +220,7 @@ Para VM do Linux, se a extensão do VMSnapshot não mostra no portal do Azure, [
 Concluir estes passos, faz com que a extensão de ser reinstalados durante a próxima cópia de segurança.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remova o bloqueio do grupo de recursos de ponto de recuperação
-1. Inicie sessão no [portal do Azure](http://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Aceda a **opção de todos os recursos**, selecione o grupo de recursos de coleção de ponto de restauro no seguinte formato AzureBackupRG_`<Geo>`_`<number>`.
 3. Na **configurações** secção, selecione **bloqueios** para apresentar os bloqueios.
 4. Para remover o bloqueio, selecione as reticências e clique em **eliminar**.
@@ -241,7 +241,7 @@ Depois de remover o bloqueio, acione uma cópia de segurança do ad hoc/manual. 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Limpeza do wsu restauro do ponto de coleção a partir do portal do Azure <br>
 
 Para limpar manualmente o restauro pontos de coleção que não estão a ser desmarcadas devido ao bloqueio no grupo de recursos, tente os seguintes passos:
-1. Inicie sessão no [portal do Azure](http://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Sobre o **Hub** menu, clique em **todos os recursos**, selecione o grupo de recursos com o seguinte formato AzureBackupRG_`<Geo>`_`<number>` onde está localizada a sua VM.
 
     ![Bloqueio de eliminação](./media/backup-azure-arm-vms-prepare/resource-group.png)

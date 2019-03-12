@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: d8522967154a69b8473475932f2074bc98b4f24d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 0c6bf22527278d0d2217a8b384eb8bcd2210856a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731228"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779522"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurar a deteção de ameaças (pré-visualização) na instância gerida da base de dados do Azure SQL
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873977"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534808"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Início rápido: Criar uma conta dos serviços cognitivos no portal do Azure
 
@@ -35,7 +35,7 @@ As secções seguintes explicam como criar uma subscrição única ou múltiplos
 
 ### <a name="single-service-subscription"></a>Subscrição de serviço único
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com)e clique em **+ criar um recurso**.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e clique em **+ criar um recurso**.
 
     ![Selecione as APIs serviços cognitivos](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -57,7 +57,7 @@ As secções seguintes explicam como criar uma subscrição única ou múltiplos
 
 ### <a name="multi-service-subscription"></a>Subscrição múltiplos serviço
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com)e clique em **+ criar um recurso**.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e clique em **+ criar um recurso**.
 
     ![Selecione as APIs serviços cognitivos](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 

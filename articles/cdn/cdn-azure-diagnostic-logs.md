@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: edb2bbee8df24dc9f9747ff13f5e3526192d91b2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5b80dcfa5cef116bb2558f154a54d343e467ae83
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874023"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546658"
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
 Com os registos de diagnóstico do Azure, pode ver a análise de núcleo e salvá-los num ou mais destinos, incluindo:
 
- - Conta de armazenamento do Azure
- - Azure Event Hubs
+ - Conta de Armazenamento do Azure
+ - Hubs de Eventos do Azure
  - [Área de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Esta funcionalidade está disponível nos pontos finais CDN para todos os escalões de preço. 
@@ -45,11 +45,13 @@ O diagrama seguinte mostra uma exibição de análise de núcleo CDN típica de 
 
 Para obter mais informações sobre os registos de diagnóstico, consulte [registos de diagnóstico](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## <a name="enable-logging-with-the-azure-portal"></a>Ativar o registo com o portal do Azure
 
 Siga estes ativar passos logs com análise de principal CDN:
 
-Inicie sessão no [portal do Azure](http://portal.azure.com). Se não já tiver ativado o CDN para seu fluxo de trabalho, [criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md) antes de continuar.
+Inicie sessão no [portal do Azure](https://portal.azure.com). Se não já tiver ativado o CDN para seu fluxo de trabalho, [criar um perfil de CDN do Azure e o ponto final](cdn-create-new-endpoint.md) antes de continuar.
 
 1. No portal do Azure, navegue até **perfil da CDN**.
 
@@ -168,7 +170,7 @@ O exemplo seguinte mostra como ativar os registos de diagnóstico através de Cm
 Esta secção descreve o esquema de análise de principal CDN, como ele é organizado dentro de uma conta de armazenamento do Azure e fornece o código de exemplo para transferir os registos num arquivo CSV.
 
 ### <a name="using-microsoft-azure-storage-explorer"></a>Utilizar o Explorador de armazenamento do Microsoft Azure
-Antes de poder aceder os dados de análise de principais de uma conta de armazenamento do Azure, terá primeiro de uma ferramenta para acessar o conteúdo numa conta de armazenamento. Embora haja várias ferramentas disponíveis no mercado, que recomendamos é o Microsoft Azure Storage Explorer. Para transferir a ferramenta, consulte [Explorador de armazenamento do Azure](http://storageexplorer.com/). Depois de baixar e instalar o software, configure-o para utilizar a mesma conta de armazenamento do Azure que foi configurada como um destino para os registos de diagnóstico de CDN.
+Antes de poder aceder os dados de análise de principais de uma conta de armazenamento do Azure, terá primeiro de uma ferramenta para acessar o conteúdo numa conta de armazenamento. Embora haja várias ferramentas disponíveis no mercado, que recomendamos é o Microsoft Azure Storage Explorer. Para transferir a ferramenta, consulte [Explorador de armazenamento do Azure](https://storageexplorer.com/). Depois de baixar e instalar o software, configure-o para utilizar a mesma conta de armazenamento do Azure que foi configurada como um destino para os registos de diagnóstico de CDN.
 
 1.  Abra **Explorador de armazenamento do Microsoft Azure**
 2.  Localize a conta de armazenamento
@@ -189,7 +191,7 @@ Registos de análise de núcleo são gerados a cada hora e os dados são recolhi
 
 |Value|Descrição|
 |-------|---------|
-|ID da subscrição    |ID da subscrição do Azure no formato Guid.|
+|ID de Subscrição    |ID da subscrição do Azure no formato Guid.|
 |Nome do Grupo de Recursos |Nome do grupo de recursos ao qual pertencem os recursos do CDN.|
 |Profile Name (Nome do Perfil) |Nome do perfil da CDN|
 |Nome do ponto final |Nome do ponto final da CDN|
@@ -225,18 +227,18 @@ Para utilizar o Azure Monitor, terá [ativar o registo](#enable-logging-with-azu
 
 Pode exibir os dados numa variedade de formas usando soluções de gestão. Pode obter soluções de gestão a partir da [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-Pode instalar soluções de gestão a partir do Azure marketplace, selecionando o **obter agora** link na parte inferior de cada solução.
+Pode instalar soluções de monitorização do Azure marketplace, selecionando o **obter agora** link na parte inferior de cada solução.
 
-### <a name="add-a-azure-monitor-cdn-management-solution"></a>Adicionar uma solução de gestão de CDN do Azure Monitor
+### <a name="add-a-azure-monitor-cdn-monitoring-solution"></a>Adicionar uma CDN de Monitor do Azure, solução de monitorização
 
-Siga estes passos para adicionar uma solução de gestão do Azure Monitor:
+Siga estes passos para adicionar uma solução de monitorização do Azure Monitor:
 
 1.   Inicie sessão no portal do Azure com a sua subscrição do Azure e aceda ao seu dashboard.
     ![Dashboard do Azure](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
 
 2. Na **New** página, em **Marketplace**, selecione **monitorização + gestão**.
 
-    ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
+    ![Mercado](./media/cdn-diagnostics-log/14_Marketplace.png)
 
 3. Na **monitorização + gestão** página, selecione **ver tudo**.
 
@@ -298,11 +300,11 @@ Pode ver, ofertas e os escalões de preços para soluções de gestão [aqui](ht
 
 Pode personalizar a exibição sobre os seus dados ao utilizar o **estruturador de vistas**. Para começar a projetar, aceda à sua área de trabalho do Log Analytics e selecione o **estruturador de vistas** mosaico.
 
-![Estruturador de Vista](./media/cdn-diagnostics-log/27_Designer.png)
+![Ver Estruturador](./media/cdn-diagnostics-log/27_Designer.png)
 
 Arrastar e largar os tipos de gráficos e preencha os dados de detalhes pretende analisar.
 
-![Estruturador de Vista](./media/cdn-diagnostics-log/28_Designer.png)
+![Ver Estruturador](./media/cdn-diagnostics-log/28_Designer.png)
 
     
 ## <a name="log-data-delays"></a>Atrasos de dados de registo
@@ -443,7 +445,7 @@ Propriedades de exemplo:
 
 * [Registos de diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Análise principal através do portal suplementar do CDN do Azure](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Registos de Monitor do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [API de REST do Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
 
 

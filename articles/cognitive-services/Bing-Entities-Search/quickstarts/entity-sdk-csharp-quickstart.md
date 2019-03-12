@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 6a365ef5421de3ceb31c5cc78a424f786f174ab3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 00a4f222e45bcb62db13e420c6b1829d8be8a14b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861923"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57529330"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Enviar um pedido de pesquisa com o SDK de pesquisa de entidades do Bing paraC#
 
@@ -26,7 +26,7 @@ Utilize este guia de introdução para começar a pesquisa de entidades com o SD
 
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](http://www.mono-project.com/).
+* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
 * O [pacote NuGet do SDK de pesquisa do Bing notícias](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). Também instalar este pacote instala o seguinte:
     * Microsoft.Rest.ClientRuntime
     * Microsoft.Rest.ClientRuntime.Azure

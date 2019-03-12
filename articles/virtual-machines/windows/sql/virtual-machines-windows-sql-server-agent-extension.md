@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7cc65c0564b6171e66c4337ce02e1c2d6449e101
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: fceca61c5a867fd4142660429bfb83fb7e0322f4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55975420"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767130"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatizar tarefas de gestão em máquinas virtuais do Azure com a extensão de agente do SQL Server (Resource Manager)
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ A extensão do agente IaaS do SQL Server suporta as seguintes tarefas de adminis
 
 | Funcionalidade de administração | Descrição |
 | --- | --- |
-| **Cópia de segurança automatizada do SQL** |Automatiza o agendamento de cópias de segurança para todas as bases de dados para a instância predefinida do SQL Server na VM. Para obter mais informações, consulte [cópia de segurança automatizada para SQL Server em máquinas virtuais do Azure (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
+| **Cópia de segurança automatizada do SQL** |Automatiza o agendamento de cópias de segurança para todas as bases de dados por qualquer instância predefinida ou uma [corretamente instalados](virtual-machines-windows-sql-server-iaas-faq.md#administration) com o nome a instância do SQL Server na VM. Para obter mais informações, consulte [cópia de segurança automatizada para SQL Server em máquinas virtuais do Azure (Resource Manager)](virtual-machines-windows-sql-automated-backup.md). |
 | **Aplicação de patches automatizada de SQL** |Configura uma janela de manutenção durante o qual as atualizações importantes do Windows para a VM podem ser feita, para que pode evitar atualizações durante as horas de pico para a sua carga de trabalho. Para obter mais informações, consulte [patching automatizado para SQL Server em máquinas virtuais do Azure (Resource Manager)](virtual-machines-windows-sql-automated-patching.md). |
 | **Integração do Cofre de Chaves do Azure** |Permite-lhe automaticamente instalado e configurado o Azure Key Vault na sua VM do SQL Server. Para obter mais informações, consulte [configurar o Azure integração Key Vault para o SQL Server em VMs do Azure (Resource Manager)](virtual-machines-windows-ps-sql-keyvault.md). |
 

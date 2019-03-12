@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 5f89077980cc36bb2fd08b100da4625c39302c35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: eb16778e0e7050dfda92fcc1b92afffe5860268d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311940"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767588"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividade do dispositivo no Azure IoT Central
 
@@ -43,7 +43,7 @@ Essa abordagem é útil quando está experimentando o Centro de IoT ou dispositi
 
 Para ligar um único dispositivo ao IoT Central através da SAS, siga estes passos:
 
-1. Para adicionar o dispositivo real, navegue para o **Explorador de dispositivos**, escolha um modelo de dispositivo e selecione **+ novo > Real**:
+1. Para adicionar o dispositivo real, navegue para o **Device Explorer**, escolha um modelo de dispositivo e selecione **+ novo > Real**:
     - Introduza o seu próprio (minúsculas) **ID de dispositivo** ou utilizar o ID de sugerida.
     - Introduza um **nome do dispositivo** ou utilize o nome sugerido.
 

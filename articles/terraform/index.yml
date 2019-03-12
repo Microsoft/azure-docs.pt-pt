@@ -1,17 +1,17 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5f8e4ead27c05ec9efd08628773ba698dbbcdbca
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8ca48ec812c2c9ea4b6aac814c77f0554bd9ae0a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458691"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765703"
 documentType: LandingData
 title: Documentação do Terraform no Azure
 metadata:
   title: Documentação do Terraform no Azure – Tutoriais, exemplos, referência e recursos
   description: Saiba como utilizar o Terraform para aprovisione máquinas virtuais e outras infraestruturas no Azure de forma fiável.
   services: terraform
-  ms.service: terraform
+  ms.service: azure
   keywords: terraform, azure, devops, tutorials, samples, reference
   author: tomarchermsft
   manager: jeconnoc

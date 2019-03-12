@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed31d07f4bbe9fc47ce0d2c31f45fed288c4c4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e5639984c6eef7d1c081fd52061988d3535c00fa
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218028"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576995"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -33,7 +33,7 @@ A política de porta de dois requer dois tipos de dados de autenticação, por e
 * Todas as seguintes funções de administrador do Azure são afetadas:
   * Administrador de suporte técnico
   * Administrador de assistência técnica
-  * Administrador de faturação
+  * Administrador de Faturação
   * Parceiro de Suporte de Escalão 1
   * Parceiro de Suporte de Escalão 2
   * Administrador do serviço Exchange
@@ -50,6 +50,8 @@ A política de porta de dois requer dois tipos de dados de autenticação, por e
   * Administrador de serviço de proxy de aplicações
   * Administrador de serviço CRM
   * Administrador de serviço do Power BI
+  * Administrador da autenticação
+  * Administrador com privilégios de autenticação
 
 * Se a 30 dias decorridos numa subscrição de avaliação; ou
 * Um domínio personalizado está presente, por exemplo, contoso.com; ou
@@ -69,19 +71,23 @@ Cada conta de utilizador que tem de iniciar sessão Azure AD tem de ter um valor
 
 | Propriedade | Requisitos de UserPrincipalName |
 | --- | --- |
-| Carateres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
+| Carateres permitidos |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! 
+          \#
+           ^ 
+          \~
+        </li></ul> |
 | Carateres não permitidos |<ul> <li>Qualquer "\@ \" caractere que não é separar o nome de utilizador do domínio.</li> <li>Não pode conter um caráter de ponto final "." imediatamente anterior a "\@ \" símbolo</li></ul> |
 | Restrições de tamanho |<ul> <li>O comprimento total não pode exceder 113 carateres</li><li>Pode haver até 64 carateres antes do "\@ \" símbolo</li><li>Pode haver até 48 carateres após o "\@ \" símbolo</li></ul> |
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>Políticas de palavra-passe que só se aplicam a contas de utilizador de cloud
 
-A tabela seguinte descreve as definições de política de palavra-passe disponíveis que podem ser aplicadas a contas de utilizador que são criadas e geridas no Azure AD:
+A tabela seguinte descreve as definições de política de palavra-passe aplicadas a contas de utilizador que são criadas e geridas no Azure AD:
 
 | Propriedade | Requisitos |
 | --- | --- |
 | Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| Carateres não permitidos |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Palavras-passe seguras apenas: Não pode conter um caráter de ponto "." Imediatamente anterior a "\@ \" símbolo".</li></ul> |
-| Restrições de palavra-passe |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 carateres.</li><li>Palavras-passe seguras apenas: Requer três de quatro dos seguintes procedimentos:<ul><li>Carateres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
+| Carateres não permitidos |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Não pode conter um caráter de ponto "." imediatamente anterior a "\@ \" símbolo".</li></ul> |
+| Restrições de palavra-passe |<ul><li>Um mínimo de 8 caracteres e um máximo de 16 carateres.</li><li>Requer três de quatro dos seguintes procedimentos:<ul><li>Carateres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
 | Duração de expiração de palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de palavra-passe |<ul><li>Valor predefinido: **14** dias (antes de expira a palavra-passe).</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
 | Expiração de palavra-passe |<ul><li>Valor predefinido: **false** dias (indica que expiração de palavra-passe está ativada).</li><li>O valor pode ser configurado para contas de utilizador individuais ao utilizar o `Set-MsolUser` cmdlet.</li></ul> |

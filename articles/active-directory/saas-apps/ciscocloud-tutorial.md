@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db1cea1d-ff0a-4f0d-b5fd-50ca32702d56
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 128fe0fcb04fcdada559d19f94bd2848dc8b5e03
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 8e74c655413f523edcf848367aac54602daed7cb
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991381"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Tutorial: Integração do Active Directory do Azure com a nuvem de Cisco
 

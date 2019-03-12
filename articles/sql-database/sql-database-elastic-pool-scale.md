@@ -11,19 +11,68 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 2726c1fd08414f112035d5378fc7e395ca7ace4c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.date: 3/06/2019
+ms.openlocfilehash: b2ad701115a69520658c2aa9cea53dbda90cf868
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959090"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726759"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar recursos de conjunto elástico na base de dados do Azure SQL
 
 Este artigo descreve como dimensionar os recursos de computação e armazenamento disponíveis para conjuntos elásticos e bases de dados agrupadas na base de dados do Azure SQL.
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>modelo de compra baseado em vCore: Alterar o tamanho de armazenamento do conjunto elástico
+## <a name="change-compute-resources-vcores-or-dtus"></a>Recursos de computação de alteração (vCores ou DTUs)
+
+Após escolher inicialmente o número de vCores ou eDTUs, pode dimensionar um conjunto elástico ou reduzir verticalmente dinamicamente com base na experiência real utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), o [da CLI do Azure ](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [API de REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+
+
+### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto da alteração do tamanho de computação de camada ou ao redimensionar o serviço
+
+Alterar o serviço de camada ou de computação tamanho de um conjunto elástico segue um padrão semelhante para bases de dados individuais e envolve principalmente o serviço, efetuando os seguintes passos:
+
+1. Criar nova instância de computação do conjunto elástico  
+
+    É criada uma nova instância de computação do conjunto elástico com o escalão de serviço pedido e o tamanho de computação. Para algumas combinações de camada de serviços e as alterações do tamanho de computação, uma réplica de cada base de dados tem de ser criada a nova instância de computação que envolve a cópia de dados e pode influenciar fortemente da latência geral. Independentemente disso, as bases de dados permanecem online durante este passo e ligações continuam a ser direcionado para as bases de dados na instância de computação do original.
+
+2. Mude o encaminhamento de ligações a nova instância de computação
+
+    Ligações existentes para as bases de dados na instância de computação original são removidas. Quaisquer novas ligações são estabelecidas para as bases de dados na nova instância de computação. Para algumas combinações de camada de serviços e as alterações do tamanho de computação, ficheiros de base de dados desligados e voltar a ligar durante a troca.  Seja como for, o comutador pode resultar numa interrupção do serviço breve onde as bases de dados não estão disponíveis em geral para menos de 30 segundos e, muitas vezes, apenas alguns segundos. Se existirem de longa execução transações em execução quando as ligações são ignoradas, a duração deste passo pode demorar mais tempo para recuperar transações abortadas. [Acelerado de recuperação de base de dados](sql-database-accelerated-database-recovery.md) pode reduzir o impacto de abortar transações de longa execução.
+
+> [!IMPORTANT]
+> Nenhum dado seja perdido durante qualquer passo no fluxo de trabalho.
+
+### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latência de alterar o tamanho de computação de camada ou ao redimensionar o serviço
+
+A latência de alterar a camada de serviços ou rescale o tamanho de computação de um único banco de dados ou conjunto elástico é parametrizada da seguinte forma:
+
+|Camada de serviços|Base de dados única básica,</br>Standard (S0-S1)|Conjunto elástico básico,</br>Standard (S2-S12), </br>Hiperescala, </br>Base de dados única finalidade geral ou conjunto elástico|Base de dados única Premium ou críticas para a empresa ou o conjunto elástico|
+|:---|:---|:---|:---|
+|**Base de dados única básica,</br> Standard (S0-S1)**|&bull; &nbsp;Latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido a cópia de dados</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido a cópia de dados</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espaço utilizado|
+|**Conjunto elástico básico, </br>Standard (S2-S12), </br>Hiperescala, </br>base de dados para fins gerais ou conjunto elástico**|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido a cópia de dados</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência de tempo constante independente do espaço utilizado</br>&bull; &nbsp;Normalmente, menos de 5 minutos|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido a cópia de dados</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espaço utilizado|
+|**Base de dados única Premium ou críticas para a empresa ou o conjunto elástico**|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido a cópia de dados</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido a cópia de dados</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espaço utilizado|&bull; &nbsp;Latência proporcional ao espaço de base de dados utilizado devido a cópia de dados</br>&bull; &nbsp;Normalmente, menos de 1 minuto por GB de espaço utilizado|
+
+> [!NOTE]
+>
+> - No caso de alteração da camada de serviço ou ao redimensionar a computação de um conjunto elástico, a soma do espaço utilizado em todas as bases de dados no conjunto deve ser utilizada para calcular a estimativa.
+> - No caso de mover uma base de dados de/para um conjunto elástico, apenas o espaço utilizado pela base de dados afeta a latência, não o espaço utilizado pelo conjunto elástico.
+>
+> [!TIP]
+> Para monitorizar operações em curso, consulte: [Gerir as operações com a API de REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [gerir as operações com a CLI](/cli/azure/sql/db/op), [monitorizar as operações com o T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e estes dois comandos do PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) e [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+
+### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considerações adicionais ao alterar escalão ou ao redimensionar o tamanho de computação de serviço
+
+- Quando downsizing vCores ou eDTUs de um conjunto elástico, o espaço do agrupamento utilizado tem de ser menor do que o tamanho máximo permitido das eDTUs de escalão e o conjunto de serviço do destino.
+- Quando ao redimensionar o vCores ou eDTUs de um conjunto elástico, aplicável um custo de armazenamento extra se (1) o tamanho máximo de armazenamento do conjunto é suportado pelo pool de destino e (2) o tamanho máximo de armazenamento excede a quantidade de armazenamento incluído de agrupamento de destino. Por exemplo, se um conjunto Standard com um tamanho máximo de 100 GB de 100 Edtus é downsized para um conjunto padrão de 50 Edtus, em seguida, um custo de armazenamento extra aplica-se uma vez que o agrupamento de destino suporta um tamanho máximo de 100 GB e a quantidade de armazenamento incluído é apenas 50 GB. Por isso, a quantidade de armazenamento extra é 100 GB – 50 GB = 50 GB. Para obter os preços do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço utilizada é inferior à quantidade de armazenamento incluído, em seguida, isso encargos extra pode ser evitado ao reduzir o tamanho máximo da base de dados para o montante incluído.
+
+### <a name="billing-during-rescaling"></a>Faturação durante ao redimensionar o
+
+Será cobrado por cada hora, que uma base de dados existe ao utilizar o escalão de serviço mais elevado + tamanho aplicado durante essa hora, independentemente da utilização ou se a base de dados esteve ativo durante menos de uma hora de computação. Por exemplo, se criar uma base de dados e a eliminar passados cinco minutos, a fatura reflete um custo de hora de uma base de dados.
+
+## <a name="change-elastic-pool-storage-size"></a>Alterar o tamanho de armazenamento do conjunto elástico
+
+### <a name="vcore-based-purchasing-model"></a>Modelo de compras baseado em vCore
 
 - Pode aprovisionar um armazenamento até ao limite de tamanho máximo:
 
@@ -35,16 +84,7 @@ Este artigo descreve como dimensionar os recursos de computação e armazenament
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>modelo de compra baseado em vCore: Recursos (vCores) de computação do conjunto elástico de alteração
-
-Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
-
-- Quando ao redimensionar o vCores num conjunto elástico, ligações de base de dados rapidamente são ignoradas. Este comportamento é o mesmo comportamento que ocorre quando ao redimensionar o DTUs para uma base de dados. Para obter detalhes sobre a duração e o impacto da queda de conexão para uma base de dados durante as operações ao redimensionar, consulte [(DTUs) de recursos de computação de alteração](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
-- A duração a redimensionar vCores de agrupamento pode depender da quantidade total de espaço de armazenamento utilizado por todas as bases de dados no conjunto. Em geral, a latência ao redimensionar calcula a média 90 minutos ou menos por 100 GB. Por exemplo, se o total de espaço utilizado por todas as bases de dados no conjunto é 200 GB, em seguida, a latência esperada ao redimensionar o conjunto é de 3 horas ou menos. Em alguns casos no escalão Standard ou Basic, a latência ao redimensionar pode ser menos de cinco minutos, independentemente da quantidade de espaço utilizado.
-- Em geral, a duração para alterar os vCores min por vCores de base de dados ou máximo por base de dados é de cinco minutos ou menos.
-- Quando downsizing vCores de agrupamento, o espaço do agrupamento utilizado tem de ser menor do que o tamanho máximo permitido dos vCores de escalão e o conjunto de serviço do destino.
-
-## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modelo de compra baseado em DTU: Alterar o tamanho de armazenamento do conjunto elástico
+### <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
 - O preço de eDTU de um conjunto elástico inclui uma certa quantidade de armazenamento sem custos adicionais. Pode ser aprovisionado armazenamento extra para além da quantidade incluída por um custo adicional até ao limite de tamanho máximo em incrementos de 250 GB a 1 TB e, em seguida, em incrementos de 256 GB a partir de 1 TB. Para quantidades de armazenamento incluído e limites de tamanho máximo, consulte [conjunto elástico: tamanhos de armazenamento e tamanhos de computação](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
 - Pode aprovisionar um armazenamento extra para um conjunto elástico aumente o seu tamanho máximo utilizando o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [REST API ](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
@@ -52,16 +92,6 @@ Pode aumentar ou diminuir o tamanho de computação a um conjunto elástico com 
 
 > [!IMPORTANT]
 > Em algumas circunstâncias, poderá ter reduzir uma base de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [gerir o espaço de ficheiro na base de dados do Azure SQL](sql-database-file-space-management.md).
-
-## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modelo de compra baseado em DTU: Recursos (eDTUs) de computação do conjunto elástico de alteração
-
-Pode aumentar ou diminuir os recursos disponíveis para um conjunto elástico com base no recurso às suas necessidades com o [portal do Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), o [da CLI do Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), ou o [ REST API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
-
-- Quando ao redimensionar o conjunto de eDTUs, ligações de base de dados rapidamente são ignoradas. Este comportamento é o mesmo comportamento que ocorre quando ao redimensionar o DTUs para uma base de dados. Para obter detalhes sobre a duração e o impacto da queda de conexão para uma base de dados durante as operações ao redimensionar, consulte [(DTUs) de recursos de computação de alteração](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
-- A duração a redimensionar eDTUs do conjunto pode confiar na quantidade total de espaço de armazenamento utilizado por todas as bases de dados no conjunto. Em geral, a latência ao redimensionar calcula a média 90 minutos ou menos por 100 GB. Por exemplo, se o total de espaço utilizado por todas as bases de dados no conjunto é 200 GB, em seguida, a latência esperada ao redimensionar o conjunto é de 3 horas ou menos. Em alguns casos no escalão Standard ou Basic, a latência ao redimensionar pode ser menos de cinco minutos, independentemente da quantidade de espaço utilizado.
-- Em geral, a duração para alterar o mínimo de eDTUs por base de dados ou o número máximo de eDTUs por base de dados é de cinco minutos ou menos.
-- Quando downsizing eDTUs para um conjunto elástico, o espaço do agrupamento utilizado tem de ser menor do que o tamanho máximo permitido das eDTUs de escalão e o conjunto de serviço do destino.
-- Quando ao redimensionar o eDTUs para um conjunto elástico, aplicável um custo de armazenamento extra se (1) o tamanho máximo de armazenamento do conjunto é suportado pelo pool de destino e (2) o tamanho máximo de armazenamento excede a quantidade de armazenamento incluído de agrupamento de destino. Por exemplo, se um conjunto Standard com um tamanho máximo de 100 GB de 100 Edtus é downsized para um conjunto padrão de 50 Edtus, em seguida, um custo de armazenamento extra aplica-se uma vez que o agrupamento de destino suporta um tamanho máximo de 100 GB e a quantidade de armazenamento incluído é apenas 50 GB. Por isso, a quantidade de armazenamento extra é 100 GB – 50 GB = 50 GB. Para obter os preços do armazenamento extra, consulte [preços de base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço utilizada é inferior à quantidade de armazenamento incluído, em seguida, isso encargos extra pode ser evitado ao reduzir o tamanho máximo da base de dados para o montante incluído.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

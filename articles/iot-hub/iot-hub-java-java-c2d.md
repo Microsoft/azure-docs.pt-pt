@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 035b7b7d51e3cb10f42d4983792282350ddb4208
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 9032a6903833ba819e09fd1ca11cd6b43d5485cb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010774"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541694"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Enviar mensagens da cloud para dispositivo hub IoT (Java)
 
@@ -113,7 +113,7 @@ Nesta secção, vai criar uma aplicação de consola Java que envia mensagens de
     ```
 
     > [!NOTE]
-    > Pode verificar a versão mais recente do **cliente do serviço iot** usando [pesquisa Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Pode verificar a versão mais recente do **cliente do serviço iot** usando [pesquisa Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Guarde e feche o ficheiro pom.xml.
 

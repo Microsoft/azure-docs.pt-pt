@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: ce5635c97d91514f3fca63162f5356cdf89a7ca6
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/11/2019
+ms.openlocfilehash: 27a65a871264fa13a42acfb5be2d4b5f99d31adc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307484"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57758697"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportar uma base de dados SQL do Azure para um ficheiro BACPAC
 
@@ -28,6 +28,7 @@ Quando for necessário exportar uma base de dados de arquivamento ou para mover 
 - Para uma exportação transacionalmente consistentes, não verifique se qualquer um dos nenhuma escrita atividade está a ocorrer durante a exportação ou que está a exportar a partir de um [cópia transacional consistente](sql-database-copy.md) da base de dados SQL do Azure.
 - Se estiver a exportar para o armazenamento de BLOBs, o tamanho máximo de um ficheiro BACPAC é 200 GB. Arquivar um ficheiro BACPAC maior, exportar para o armazenamento local.
 - Exportar um ficheiro BACPAC para o armazenamento premium do Azure com os métodos abordados neste artigo não é suportada.
+- Armazenamento protegido por uma firewall não é atualmente suportado.
 - Se a operação de exportação da base de dados do Azure SQL exceder 20 horas, poderá ser cancelado. Para aumentar o desempenho durante a exportação, pode:
 
   - Temporariamente aumente o tamanho de computação.

@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 4499424ef25e7d2ba32b691cce6d5d3d1face0d0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7872ed2c9d6f094907ae4d11adef6bc7a99be8e4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308470"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782892"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de ficheiro no Azure Stack
 

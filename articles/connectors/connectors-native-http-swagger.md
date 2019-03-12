@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817755"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551981"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chamar pontos finais REST com HTTP + Swagger connector no Azure Logic Apps
 
@@ -60,7 +60,7 @@ Eis os passos para criar, configurar e armazenar documentos de Swagger no armaze
 
 3. Carregue o ficheiro de Swagger para o blob. 
 
-   Pode efetuar este passo do [portal do Azure](https://portal.azure.com) ou a partir de uma ferramenta como [Explorador de armazenamento do Azure](http://storageexplorer.com/).
+   Pode efetuar este passo do [portal do Azure](https://portal.azure.com) ou a partir de uma ferramenta como [Explorador de armazenamento do Azure](https://storageexplorer.com/).
 
 4. Fazer referência a uma ligação HTTPS para o documento no armazenamento de Blobs do Azure. 
 
@@ -74,7 +74,7 @@ Seguem-se os detalhes para os acionadores e ações que este HTTP + Swagger conn
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger triggers
 Um acionador é um evento que pode ser utilizado para iniciar o fluxo de trabalho que está definido numa aplicação lógica. [Saiba mais sobre os acionadores.](connectors-overview.md) O HTTP + Swagger connector tem um acionador.
 
-| Acionador | Descrição |
+| Acionamento | Descrição |
 | --- | --- |
 | HTTP + Swagger |Efetuar uma chamada HTTP e retornar o conteúdo de resposta |
 
@@ -97,7 +97,7 @@ Um asterisco (*) significa que um campo obrigatório.
 | Método * |método |Verbo HTTP para utilizar. |
 | URI* |uri |URI do pedido HTTP. |
 | Cabeçalhos |Cabeçalhos |Um objeto JSON de cabeçalhos HTTP para incluir. |
-| Corpo |corpo |O corpo do pedido HTTP. |
+| Mensagem |corpo |O corpo do pedido HTTP. |
 | Authentication |autenticação |Autenticação a utilizar para o pedido. Para obter mais informações, consulte a [conector HTTP](connectors-native-http.md#authentication). |
 
 **Detalhes de saída**
@@ -107,7 +107,7 @@ Resposta HTTP
 | Nome da Propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
 | Cabeçalhos |objeto |Cabeçalhos de resposta |
-| Corpo |objeto |Objeto de resposta |
+| Mensagem |objeto |Objeto de resposta |
 | Código de Estado |int |Código de estado de HTTP |
 
 ### <a name="http-responses"></a>Respostas HTTP

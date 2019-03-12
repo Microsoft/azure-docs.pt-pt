@@ -5,15 +5,15 @@ services: storage
 author: artemuwka
 ms.service: storage
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: 86d2569d0ab920bd32a25e1331d74ed4f623143a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 111c24c1cd608542a5ef7da85f93ca22082af6d9
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437671"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726724"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>Transferir dados com v10 o AzCopy (pré-visualização)
 
@@ -24,9 +24,9 @@ AzCopy v10 (pré-visualização) é o utilitário de linha de comando da próxim
 - Sincronize um sistema de arquivos para BLOBs do Azure e vice-versa. Use `azcopy sync <source> <destination>`. Ideal para cenários de cópia incremental.
 - Oferece suporte a APIs de geração 2 de Lake armazenamento de dados do Azure. Utilize `myaccount.dfs.core.windows.net` como um URI para chamar as APIs de geração 2 do ADLS.
 - Suporta a copiar de uma conta de toda (serviço de BLOBs apenas) para outra conta.
-- Conta para cópia de conta agora está a utilizar a nova [colocar a partir do URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) APIs. Nenhuma transferência de dados para o cliente é necessário que torna a transferência com mais rapidez!
+- Conta para cópia de conta agora está a utilizar a nova [colocação blocos a partir do URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) APIs. Nenhuma transferência de dados para o cliente é necessário que torna a transferência com mais rapidez!
 - Lista/remover ficheiros e blobs num determinado caminho.
-- Oferece suporte a padrões de carateres universais num caminho, bem como – incluir e – excluir sinalizadores.
+- Oferece suporte a padrões de carateres universais num caminho, bem como na – excluir sinalizador.
 - Resiliência melhorada: todas as instâncias de AzCopy criará uma ordem de tarefa e um ficheiro de registo relacionados. Pode ver e reiniciar tarefas anteriores e retomar tarefas falhadas. AzCopy também automaticamente será repetida uma transferência após uma falha.
 - Melhorias de desempenho geral.
 
@@ -35,9 +35,9 @@ AzCopy v10 (pré-visualização) é o utilitário de linha de comando da próxim
 ### <a name="latest-preview-version-v10"></a>Versão de pré-visualização mais recente (v10)
 
 Baixe a versão de pré-visualização mais recente do AzCopy:
-- [Windows](https://aka.ms/downloadazcopy-v10-windows)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac)
+- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Linux](https://aka.ms/downloadazcopy-v10-linux) (destino)
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 ### <a name="latest-production-version-v81"></a>Versão mais recente de produção (v8.1)
 
@@ -49,18 +49,23 @@ Transfira o [v7.3 AzCopy que suporta a cópia de dados de/para o serviço de arm
 
 ## <a name="post-installation-steps"></a>Passos de pós-instalação
 
-AzCopy v10 não necessita de uma instalação. Abra uma aplicação de linha de comando preferencial e navegue para a pasta onde o `azcopy.exe` executável está localizado. Se assim o desejar, pode adicionar a localização da pasta AzCopy ao caminho do sistema.
+AzCopy v10 não necessita de uma instalação. Abra uma aplicação de linha de comando preferencial e navegue para a pasta onde `azcopy.exe` (Windows) ou `azcopy` executável (Linux) está localizado. Se assim o desejar, pode adicionar a localização da pasta AzCopy ao caminho do sistema.
 
 ## <a name="authentication-options"></a>Opções de autenticação
 
 AzCopy v10 permite-lhe utilizar as opções seguintes quando a autenticação com o armazenamento do Azure:
-- **O Azure Active Directory [suportados para os serviços de Blob e de geração 2 do ADLS]**. Utilize ```.\azcopy login``` para iniciar sessão com o Azure Active Directory.  O utilizador deve ter [função de "Contribuinte de dados de Blob de armazenamento" atribuída](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) ao escrever no armazenamento de Blobs com a autenticação do Azure Active Directory.
+- **O Azure Active Directory [suportados para os serviços de Blob e de geração 2 do ADLS]**. Utilize ```.\azcopy login``` para iniciar sessão com o Azure Active Directory.  O utilizador deve ter [função de "Contribuinte de dados de Blob de armazenamento" atribuída](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) ao escrever no armazenamento de Blobs com a autenticação do Azure Active Directory. Para autenticar com a identidade de serviço gerida (MSI), utilize `azcopy login --identity` depois de conceder a instância de computação do Azure a função de contribuinte de dados.
 - **Tokens de SAS [suportados para serviços de ficheiros e BLOBs]**. Acrescente o token SAS para o caminho de blob na linha de comando para utilizá-lo. Pode gerar o token SAS através do Portal do Azure, [Explorador de armazenamento](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), ou outras ferramentas da sua preferência. Para obter mais informações, consulte [exemplos](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
-> [!IMPORTANT]
-> Ao submeter um pedido de suporte para Microsoft Support (ou o problema que envolvem qualquer parte 3 de resolução de problemas). a versão eliminada do comando que está a tentar executar para garantir que a SAS não é acidentalmente partilhada com qualquer pessoa de partilha. Pode encontrar a versão eliminada no início do ficheiro de registo. Reveja a secção Resolução de problemas, mais adiante neste artigo para obter mais detalhes.
-
 ## <a name="getting-started"></a>Introdução
+
+> [!TIP]
+> **Prefere uma interface gráfica do usuário?**
+>
+> Tente [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), um cliente de desktop que simplifica a gerir dados de armazenamento do Azure, e **utiliza agora o AzCopy** para acelerar a transferência de dados para dentro e fora do armazenamento do Azure.
+>
+> Simplesmente habilite o recurso de AzCopy no Explorador de armazenamento no menu de "Preview". Explorador de armazenamento, em seguida, irá utilizar o AzCopy durante o carregamento e transferência de dados para armazenamento de BLOBs para um melhor desempenho.
+> ![Ativar o AzCopy como um motor de transferência no Explorador de armazenamento do Azure](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 AzCopy v10 tem uma sintaxe simple de Self-documentada. A sintaxe geral será semelhante ao seguinte quando tiver sessão iniciada no Azure Active Directory:
 
@@ -80,7 +85,7 @@ AzCopy v10 tem uma sintaxe simple de Self-documentada. A sintaxe geral será sem
 Eis como pode obter uma lista de comandos disponíveis:
 
 ```azcopy
-.\azcopy -help
+.\azcopy --help
 # Using the alias instead
 .\azcopy -h
 ```
@@ -88,7 +93,7 @@ Eis como pode obter uma lista de comandos disponíveis:
 Para ver a página de ajuda e exemplos para um comando específico, execute o comando abaixo:
 
 ```azcopy
-.\azcopy <cmd> -help
+.\azcopy <cmd> --help
 # Example:
 .\azcopy cp -h
 ```
@@ -153,7 +158,7 @@ Copiar dados entre duas contas de armazenamento utiliza a [colocar o bloco de UR
 
 Para copiar os dados entre duas contas de armazenamento, utilize o seguinte comando:
 ```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
+.\azcopy cp "https://account.blob.core.windows.net/<sastoken>" "https://otheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
 > [!NOTE]
@@ -161,27 +166,35 @@ Para copiar os dados entre duas contas de armazenamento, utilize o seguinte coma
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>Copiar uma imagem VHD para uma conta de armazenamento
 
-AzCopy v10 por predefinição carrega dados para blobs de blocos. No entanto, se um arquivo de origem tiver a extensão de vhd, o AzCopy v10 irá por predefinição carregá-lo para um blob de página. Este comportamento atualmente não é configurável.
+Utilize `--blob-type=PageBlob` para carregar uma imagem de disco para armazenamento de BLOBs como um Blob de página.
 
-## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Sincronização: cópia incremental e delete (apenas para armazenamento de BLOBs)
+```azcopy
+.\azcopy cp "C:\myimages\diskimage.vhd" "https://account.blob.core.windows.net/mycontainer/diskimage.vhd<sastoken>" --blob-type=PageBlob
+```
+
+## <a name="sync-incremental-copy-and-optional-delete-blob-storage-only"></a>Sincronização: cópia incremental e delete (opcional) (apenas para armazenamento de BLOBs)
+
+Comando de sincronização sincroniza o conteúdo de um diretório de origem para um diretório na última carimbos de data / modificada e nomes de ficheiro comparando de destino. Opcionalmente, esta operação inclui a eliminação de ficheiros de destino se elas não existam na origem quando `--delete-destination=prompt|true` sinalizador é fornecido. Por predefinição, o comportamento de eliminação está desativado.
 
 > [!NOTE]
-> Comando de sincronização sincroniza o conteúdo de origem para destino e isso inclui a eliminação de ficheiros de destino se elas não existam na origem. Certifique-se de que utiliza o destino que pretende sincronizar.
+> Utilize `--delete-destination` sinalizador com cuidado. Ativar [eliminação de forma recuperável](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) de recursos antes de ativar o comportamento de eliminação em sincronia, para impedir eliminações acidentais na sua conta.
+>
+> Quando `--delete-destination` está definido como true, o AzCopy irá eliminar os ficheiros que não existem na origem do destino sem qualquer pedido ao utilizador. Se gostaria de pedido de confirmação, utilize `--delete-destination=prompt`.
 
 Para sincronizar o seu sistema de ficheiros local para uma conta de armazenamento, utilize o seguinte comando:
 
 ```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer<sastoken>"
 ```
 
 Da mesma forma pode sincronizar um contentor de BLOBs para baixo para um sistema de arquivos local:
 
 ```azcopy
 # If you're using Azure Active Directory authentication the sastoken is not required
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
+.\azcopy sync "https://account.blob.core.windows.net/mycontainer" "C:\local\path"
 ```
 
-O comando permite-lhe uma forma incremental a sincronizar a origem para o destino com base na última carimbos de data / modificada. Se adicionar ou eliminar um ficheiro na origem, o AzCopy v10 irá fazer o mesmo no destino. Antes da eliminação, pede-lhe o AzCopy para confirmar a eliminação dos ficheiros.
+O comando permite-lhe uma forma incremental a sincronizar a origem para o destino com base na última carimbos de data / modificada. Se adicionar ou eliminar um ficheiro na origem, o AzCopy v10 irá fazer o mesmo no destino. Se o comportamento de eliminação estiver ativado no comando de sincronização, o AzCopy irá eliminar ficheiros de destino se eles já não existe na origem.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 
@@ -214,13 +227,6 @@ export AZCOPY_CONCURRENCY_VALUE=<value>
 # If the value is blank then the default value is currently in use
 ```
 
-## <a name="troubleshooting"></a>Resolução de problemas
-
-AzCopy v10 cria ficheiros de registo e ficheiros de plano para todas as tarefas. Pode utilizar os registos para investigar e resolver quaisquer problemas potenciais. Os registos irão conter o estado de falha (UPLOADFAILED COPYFAILED e DOWNLOADFAILED), o caminho completo e o motivo da falha. Os registos da tarefa e os ficheiros de plano estão localizados em % USERPROFILE\\.azcopy pasta no Windows ou $HOME\\.azcopy pasta em Mac e Linux.
-
-> [!IMPORTANT]
-> Ao submeter um pedido de suporte para Microsoft Support (ou o problema que envolvem qualquer parte 3 de resolução de problemas). a versão eliminada do comando que está a tentar executar para garantir que a SAS não é acidentalmente partilhada com qualquer pessoa de partilha. Pode encontrar a versão eliminada no início do ficheiro de registo.
-
 ### <a name="change-the-location-of-the-log-files"></a>Alterar a localização dos ficheiros de registo
 
 Pode alterar a localização dos ficheiros de registo, se for necessário ou para evitar o disco do SO a ser preenchida.
@@ -237,6 +243,17 @@ export AZCOPY_LOG_LOCATION=<value>
 # If the value is blank then the default value is currently in use
 ```
 
+### <a name="change-the-default-log-level"></a>Alterar o nível de registo predefinido
+
+Por predefinição, o nível de registo de AzCopy está definido para informações. Se gostaria de reduzir a verbosidade de registo para poupar espaço em disco, substituir a definição utilizando ``--log-level`` opção. Níveis de registo disponíveis são: DEBUG, INFO, aviso, erro, PÂNICO e FATAL
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+AzCopy v10 cria ficheiros de registo e ficheiros de plano para todas as tarefas. Pode utilizar os registos para investigar e resolver quaisquer problemas potenciais. Os registos irão conter o estado de falha (UPLOADFAILED COPYFAILED e DOWNLOADFAILED), o caminho completo e o motivo da falha. Os registos da tarefa e os ficheiros de plano estão localizados em % USERPROFILE %\\.azcopy pasta no Windows ou $HOME\\.azcopy pasta em Mac e Linux.
+
+> [!IMPORTANT]
+> Ao submeter um pedido de suporte para Microsoft Support (ou o problema que envolvem qualquer parte 3 de resolução de problemas). a versão eliminada do comando que está a tentar executar para garantir que a SAS não é acidentalmente partilhada com qualquer pessoa de partilha. Pode encontrar a versão eliminada no início do ficheiro de registo.
+
 ### <a name="review-the-logs-for-errors"></a>Rever os registos de erros
 
 O seguinte comando irá obter todos os erros com o estado UPLOADFAILED do 04dc9ca9-158f-7945-5933-564021086c79 log:
@@ -244,6 +261,8 @@ O seguinte comando irá obter todos os erros com o estado UPLOADFAILED do 04dc9c
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
+
+Em alternativa pode ver os nomes de ficheiro que não são transferidos com `azcopy jobs show <jobid> --with-status=Failed` comando.
 
 ### <a name="view-and-resume-jobs"></a>Ver e retomar tarefas
 
@@ -270,10 +289,6 @@ Para filtrar as transferências por Estado, utilize o seguinte comando:
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
 ```
-
-### <a name="change-the-default-log-level"></a>Alterar o nível de registo predefinido
-
-Por predefinição, o nível de registo de AzCopy está definido para informações. Se gostaria de reduzir a verbosidade de registo para poupar espaço em disco, substituir a definição utilizando ``--log-level`` opção. Níveis de registo disponíveis são: DEBUG, INFO, aviso, erro, PÂNICO e FATAL
 
 ## <a name="next-steps"></a>Passos Seguintes
 

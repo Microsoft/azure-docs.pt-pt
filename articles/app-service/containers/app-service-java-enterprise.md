@@ -13,14 +13,17 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6618e5317db1a7a4332a35b7ee9cd74934c8a787
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ee39d2d2cf85b8de52804ac764b17db348a053e0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737897"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538226"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia de Java Enterprise para o serviço de aplicações no Linux
+
+> [!NOTE] 
+> Java Enterprise Edition no Linux de serviço de aplicação está atualmente em pré-visualização. É essa pilha **não** recomendado para trabalho com acesso à produção. Consulte a [guia para programadores do Java](app-service-linux-java.md) para obter informações sobre nossos pilhas Java SE e Tomcat.
 
 Serviço de aplicações do Azure no Linux permite que os programadores de Java para criar, implementar e dimensionar aplicações Java empresariais (Java EE) num serviço totalmente gerido baseado em Linux.  O ambiente de tempo de execução Java Enterprise subjacente é o código-fonte aberto [Wildfly](https://wildfly.org/) servidor de aplicações.
 

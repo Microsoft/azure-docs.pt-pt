@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: c133ba5a95e0476c6d992e53776b384fdc8c97ba
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e71999e9c5b118fbf31d0d735d03cddb321b0065
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809808"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773423"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurar uma ligação de ponto a Site através da autenticação de certificado (clássico)
 
@@ -85,7 +85,7 @@ Utilize os seguintes valores para criar um ambiente de teste ou consultá-estes 
 
 Antes de começar, certifique-se de que tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
-### <a name="part-1-create-a-virtual-network"></a>Parte 1: Criar uma rede virtual
+### <a name="part-1-create-a-virtual-network"></a>Parte 1: Criar rede virtual
 
 Se ainda não tiver uma rede virtual (VNet), crie uma. As capturas de ecrã são disponibilizadas como exemplos. Não se esqueça de substituir os valores pelos seus. Para criar uma VNet com o portal do Azure, siga os passos abaixo:
 

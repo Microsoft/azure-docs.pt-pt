@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 9780b4bf-1fd1-48c1-9ceb-f750225ae08a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 702b5fb7145d0312489bf0eae1a025e2277dd1df
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9880610f29317a8d84bfc189f1eaf6b2a61723a9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869280"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Tutorial: Integração do Active Directory do Azure com Fuze
 
@@ -181,7 +181,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Aplicação de fuze suporta apenas no tempo de aprovisionamento de utilizador, para que os utilizadores serão criados automaticamente no início de sessão. Para outros esclarecimentos, entre em contato com Fuze [suportar](https://www.fuze.com/support).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

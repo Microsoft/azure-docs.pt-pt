@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: f2101c685ff7b3820f826da1d2e1d52b687d26c6
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 776648fd5bab2dd4ef51ff4c26936f38d9987e94
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446636"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769817"
 ---
 # <a name="configure-deployment-sources"></a>Configurar origens de implementação
 
@@ -104,7 +104,7 @@ Tem de ter um Account da Microsoft associada a uma conta do OneDrive para conclu
 ![Aplicação do OneDrive - adicionar plataforma Web][12]
 8. Adicionar a **permissões do Microsoft Graph** - **permissões delegadas**
     - **Files.ReadWrite.AppFolder**
-    - **User.Read**  
+    - **Utilizador. Leitura**  
       ![Aplicação do OneDrive - permissões de gráfico][13]
 9. Clique em **Guardar**.
 10.  Num novo separador do browser ou janela, inicie sessão no portal de administração do Azure Stack (https://adminportal.local.azurestack.external) como o administrador de serviços.

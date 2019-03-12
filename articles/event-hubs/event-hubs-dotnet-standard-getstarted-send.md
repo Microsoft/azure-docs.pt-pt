@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: b645b444d62ae0f1834006a41190c417cee35963
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2bf5825d3f13044d1c9bde2b05d1c93ecd967a0f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081698"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782042"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-core"></a>Introdução ao envio de mensagens para Hubs de eventos do Azure no .NET Core
 Os Event Hubs são um serviço que processa grandes quantidades de dados de eventos (telemetria) em aplicações e dispositivos ligados. Depois de recolher os dados para os Event Hubs, pode armazená-los utilizando um cluster de armazenamento ou transformá-los utilizando um fornecedor de análise em tempo real. Esta capacidade de processamento e recolha de eventos de grande escala é um componente importante das arquiteturas das aplicações modernas, incluindo a Internet das Coisas (IoT). Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -37,7 +37,7 @@ Este tutorial mostra como enviar eventos para um hub de eventos através de uma 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Criar um espaço de nomes de Hubs de Eventos e um hub de eventos
 O primeiro passo consiste em utilizar o [portal do Azure](https://portal.azure.com) para criar um espaço de nomes do tipo Hubs de Eventos e obter as credenciais de gestão de que a sua aplicação precisa para comunicar com o hub de eventos. Para criar um espaço de nomes e um hub de eventos, siga o procedimento [este artigo](event-hubs-create.md).
 
-Obter a cadeia de ligação para o espaço de nomes do hub de eventos ao seguir as instruções do artigo: [obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Irá utilizar a cadeia de ligação mais tarde neste tutorial. 
+Obter a cadeia de ligação para o espaço de nomes do hub de eventos ao seguir as instruções do artigo: [Obter cadeia de ligação](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Irá utilizar a cadeia de ligação mais tarde neste tutorial. 
 
 ## <a name="create-a-console-application"></a>Criar uma aplicação de consola
 

@@ -5,16 +5,16 @@ services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
 manager: jeconnoc
-ms.service: backup, virtual-machines-windows
+ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: c41f609786620c8b90d484813d675efcd667d1e1
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 0392a187bf40e1fe35053b493733c7e89aa6969e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692635"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783130"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensão do Windows de instantâneo de VM para o Azure Backup
 
@@ -25,7 +25,7 @@ Cópia de segurança do Azure fornece suporte cópias de segurança de cargas de
 ### <a name="operating-system"></a>Sistema operativo
 Para obter uma lista dos sistemas operativos suportados, consulte [sistemas operativos suportados pelo Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
-### <a name="internet-connectivity"></a>Conectividade Internet
+### <a name="internet-connectivity"></a>Acesso à Internet
 
 Extensão de instantâneo da VM requer que a máquina virtual de destino está ligada à internet quando Vamos dar uma cópia de segurança da máquina virtual.
 
@@ -63,17 +63,17 @@ O JSON seguinte mostra o esquema para a extensão de instantâneo VM. A extensã
 
 | Nome | Valor / exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | cadeia |
-| commandStartTimeUTCTicks | 6.36458E + 17 | cadeia |
-| região | pt-PT | cadeia |
-| objectStr | Codificação de matriz de uri de sas-"blobSASUri": ["https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmwin1404ltsc201652903941.vhd? sv = 2014-02-14 & sr = b & sig = % De TywkROXL1zvhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA 3D & st = 2017-11-09T14% 3A23% 3A28Z & zar = 2017-11-09T17% 3A38% 3A28Z & sp = rw "," https:\/\/sopattna8461.blob.core.windows.net\/vhds\/vmwin1404ltsc-20160629-122418.vhd? sv = 2014-02-14 & sr = b & sig = 5S0A6YDWvVwqPAkzWXVy % 2BS % 2FqMwzFMbamT5upwx05v8Q % 3D & st = 2017-11-09T14% 3A23% 3A28Z & zar = 2017-11-09T17% 3A38% 3A28Z & sp = rw "," https:\/ \/ sopattna8461.blob.Core.Windows.NET\/bootdiagnostics-vmwintu1-deb58392-ed5e-48be-9228-ff681b0cd3ee\/vmubuntu1404ltsc-20160629-122541.vhd? sv = 2014-02-14 & sr = b & sig = % De X0Me2djByksBBMVXMGIUrcycvhQSfjYvqKLeRA7nBD4 3D & st = 2017-11-09T14% 3A23% 3A28Z & zar = 2017-11-09T17% 3A38% 3A28Z & sp = rw "," https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmwin1404ltsc-20160701-163922.vhd? sv = 2014-02-14 & sr = b & sig = oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r % 2BC % 2BNIAork % 3D & st = 2017-11-09T14% 3A23% 3A28Z & zar = 2017-11-09T17% 3A38% 3A28Z & sp = rw "," https:\/ \/ sopattna5365.blob.Core.Windows.NET\/vhds\/vmwin1404ltsc-20170705-124311.vhd? sv = 2014-02-14 & sr = b & sig = ZUM9d28Mvvm % 2FfrhJ71TFZh0Ni90m38bBs3zMl % 2FQ9rs0% 3D & st = 2017-11-09T14% 3A23% 3A28Z & Se = 2017-11-09T17% 3A38% 3A28Z & sp = rw "] | cadeia |
-| logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | cadeia |
-| statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | cadeia |
+| apiVersion | 2015-06-15 | data |
+| taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |
+| commandStartTimeUTCTicks | 6.36458E + 17 | string |
+| região | pt-PT | string |
+| objectStr | Codificação de matriz de uri de sas-"blobSASUri": ["https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmwin1404ltsc201652903941.vhd? sv = 2014-02-14 & sr = b & sig = % De TywkROXL1zvhXcLujtCut8g3jTpgbE6JpSWRLZxAdtA 3D & st = 2017-11-09T14% 3A23% 3A28Z & zar = 2017-11-09T17% 3A38% 3A28Z & sp = rw "," https:\/\/sopattna8461.blob.core.windows.net\/vhds\/vmwin1404ltsc-20160629-122418.vhd? sv = 2014-02-14 & sr = b & sig = 5S0A6YDWvVwqPAkzWXVy % 2BS % 2FqMwzFMbamT5upwx05v8Q % 3D & st = 2017-11-09T14% 3A23% 3A28Z & zar = 2017-11-09T17% 3A38% 3A28Z & sp = rw "," https:\/ \/ sopattna8461.blob.Core.Windows.NET\/bootdiagnostics-vmwintu1-deb58392-ed5e-48be-9228-ff681b0cd3ee\/vmubuntu1404ltsc-20160629-122541.vhd? sv = 2014-02-14 & sr = b & sig = % De X0Me2djByksBBMVXMGIUrcycvhQSfjYvqKLeRA7nBD4 3D & st = 2017-11-09T14% 3A23% 3A28Z & zar = 2017-11-09T17% 3A38% 3A28Z & sp = rw "," https:\/\/sopattna5365.blob.core.windows.net\/vhds\/vmwin1404ltsc-20160701-163922.vhd? sv = 2014-02-14 & sr = b & sig = oXvtK2IXCNqWv7fpjc7TAzFDpc1GoXtT7r % 2BC % 2BNIAork % 3D & st = 2017-11-09T14% 3A23% 3A28Z & zar = 2017-11-09T17% 3A38% 3A28Z & sp = rw "," https:\/ \/ sopattna5365.blob.Core.Windows.NET\/vhds\/vmwin1404ltsc-20170705-124311.vhd? sv = 2014-02-14 & sr = b & sig = ZUM9d28Mvvm % 2FfrhJ71TFZh0Ni90m38bBs3zMl % 2FQ9rs0% 3D & st = 2017-11-09T14% 3A23% 3A28Z & Se = 2017-11-09T17% 3A38% 3A28Z & sp = rw "] | string |
+| logsBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Logs.txt?sv=2014-02-14&sr=b&sig=DbwYhwfeAC5YJzISgxoKk%2FEWQq2AO1vS1E0rDW%2FlsBw%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string |
+| statusBlobUri | https://seapod01coord1exsapk732.blob.core.windows.net/bcdrextensionlogs-d45d8a1c-281e-4bc8-9d30-3b25176f68ea/sopattna-vmubuntu1404ltsc.v2.Status.txt?sv=2014-02-14&sr=b&sig=96RZBpTKCjmV7QFeXm5IduB%2FILktwGbLwbWg6Ih96Ao%3D&st=2017-11-09T14%3A33%3A29Z&se=2017-11-09T17%3A38%3A29Z&sp=rw | string |
 
 
 
-## <a name="template-deployment"></a>Implementação de modelos
+## <a name="template-deployment"></a>Implementação de modelo
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. No entanto, a forma recomendada de adicionar uma extensão de instantâneo VM a uma máquina virtual é ao ativar a cópia de segurança na máquina virtual. Isso pode ser alcançado através de um modelo do Resource Manager.  Um modelo do Resource Manager de exemplo que permite a cópia de segurança numa máquina virtual pode ser encontrado no [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-recovery-services-backup-vms/).
 

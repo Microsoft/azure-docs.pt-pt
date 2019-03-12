@@ -4,15 +4,15 @@ description: Disponibiliza uma descrição geral do serviço do Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e2cafe0c8c5d8194519428839ec3c73f5dc726c0
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: bbb3e4f319584740f165b64948e1fd4dca2722b0
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992038"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729512"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -30,7 +30,8 @@ O Azure Migrate ajuda-o a:
 ## <a name="current-limitations"></a>Limitações atuais
 
 - Pode avaliar máquinas virtuais (VMs) do VMware no local apenas para migração para VMs do Azure. As VMs do VMware tem de ser geridas pelo vCenter Server (versão 5.5, 6.0, 6.5 ou 6.7).
-- Se quiser avaliar Hyper-VMs e servidores físicos, utilize o [Planeador de Implementações do Azure Site Recovery](https://aka.ms/asr-dp-hyperv-doc) para Hyper-V e as nossas [ferramentas para parceiros](https://azure.microsoft.com/migration/partners/) para máquinas físicas.
+- Suporte para Hyper-V está atualmente em pré-visualização com suporte de produção, se estiver interessado em experimentá-lo, inscreva-se [aqui.](http://aka.ms/migratefuture)
+- Para avaliação de servidores físicos, pode tirar partido do nosso [ferramentas de parceiros](https://azure.microsoft.com/migration/partners/).
 - Pode detetar até 1500 VMs numa única deteção e até 1500 VMs num único projeto. Além disso, pode avaliar até 1500 VMs numa única avaliação.
 - Se pretender encontrar um ambiente maior, pode dividir a deteção e criar vários projetos. [Saiba mais](how-to-scale-assessment.md). O Azure Migrate suporta até 20 projetos por subscrição.
 - O Azure Migrate só suporta discos geridos para avaliação de migrações.
@@ -38,7 +39,7 @@ O Azure Migrate ajuda-o a:
     **Geografia** | **Localização de armazenamento**
     --- | ---
     Azure Government | Gov (US) - Virginia
-    Ásia | Sudeste Asiático
+    Ásia | Sudeste asiático ou Ásia Oriental
     Europa | Europa do Norte ou da Europa Ocidental
     Estados Unidos | E.U.A. Leste ou oeste dos E.U.A.
 

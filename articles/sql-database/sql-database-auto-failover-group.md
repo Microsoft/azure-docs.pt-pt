@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 862cc4da99aed02b81b6fd12913736bf30866f72
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/07/2019
+ms.openlocfilehash: 3c65d4360e3a20b7c2228e42fb4b4db1eecc75ff
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313604"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774801"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
@@ -215,7 +215,7 @@ Se a sua aplicação utilizar a instância gerida como a camada de dados, siga e
   > [!NOTE]
   > Em determinadas camadas de serviços, a base de dados SQL do Azure suporta a utilização de [réplicas só de leitura](sql-database-read-scale-out.md) carregar saldo consulta só de leitura cargas de trabalho utilizar a capacidade de uma réplica só de leitura e a utilizar o `ApplicationIntent=ReadOnly` parâmetro na ligação cadeia de caracteres. Quando tiver configurado uma secundária georreplicada, pode utilizar esta capacidade para ligar a qualquer uma réplica só de leitura na localização primária ou na localização georreplicado.
   > - Para ligar a uma réplica só de leitura na localização primária, utilize `failover-group-name.zone_id.database.windows.net`.
-  > - Para ligar a uma réplica só de leitura na localização primária, utilize `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Para ligar a uma réplica só de leitura na localização secundária, utilize `failover-group-name.secondary.zone_id.database.windows.net`.
 
 - **Esteja preparado para degradação de desempenho**
 
@@ -282,7 +282,9 @@ Quando configurar um grupo de ativação pós-falha entre a primárias e secund�
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade uma base de dados primária
 
-Pode atualizar ou mudar a versão de uma base de dados principal para um tamanho de computação diferentes (dentro do mesmo escalão de serviço, não entre fins gerais e crítico para a empresa) sem desligar a quaisquer bases de dados secundários. Ao atualizar, recomendamos que Atualize primeiro o banco de dados secundário e, em seguida, atualizar o primário. Ao fazer downgrade, inverter a ordem: mudar para a versão principal primeiro e, em seguida, mudar o secundário. Quando atualizar ou mudar para a versão da base de dados para um escalão de serviço diferente, esta recomendação é imposta.
+Pode atualizar ou mudar a versão de uma base de dados principal para um tamanho de computação diferentes (dentro do mesmo escalão de serviço, não entre fins gerais e crítico para a empresa) sem desligar a quaisquer bases de dados secundários. Ao atualizar, recomendamos que Atualize todas as bases de dados secundárias primeiro e, em seguida, atualizar o primário. Ao fazer downgrade, inverter a ordem: mudar para a versão principal primeiro e, em seguida, mudar todas as bases de dados secundários. Quando atualizar ou mudar para a versão da base de dados para um escalão de serviço diferente, esta recomendação é imposta.
+
+Esta sequência recomenda-se especificamente para evitar o problema em que o secundário num SKU inferior fica sobrecarregado e tem de ser propagados novamente durante um processo de atualização ou a mudança para versão anterior. Também pode evitar o problema, tornando o primário só de leitura, às custas de afetar todas as cargas de trabalho de leitura e escrita em relação a principal. 
 
 > [!NOTE]
 > Se criou a base de dados secundária como parte da configuração do grupo de ativação pós-falha não é recomendado para mudar para a versão da base de dados secundário. Isso é para garantir que sua camada de dados tem capacidade suficiente para processar a carga de trabalho regular depois de ativação pós-falha está ativado.
@@ -303,8 +305,6 @@ Para obter informações sobre como utilizar o restauro de ponto no tempo com gr
 Como discutido anteriormente, grupos de ativação pós-falha automática e o Active Directory georreplicação também pode ser gerida através de programação com o Azure PowerShell e a API REST. As tabelas seguintes descrevem o conjunto de comandos disponíveis. Replicação geográfica activa inclui um conjunto de APIs do Azure Resource Manager para a gestão, incluindo o [API REST da base de dados SQL do Azure](https://docs.microsoft.com/rest/api/sql/) e [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Essas APIs requerem a utilização de grupos de recursos e suportam a segurança baseada em funções (RBAC). Para obter mais informações sobre como implementar funções de acesso, consulte [controlo de acesso](../role-based-access-control/overview.md).
 
 ### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Gerir a ativação pós-falha da base de dados do SQL com conjuntos elásticos e bases de dados individuais
-
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 | Cmdlet | Descrição |
 | --- | --- |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: dc798dc78ed0cdbf11bbe3bc2dd805433b127a4d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7f43528c55cd22c2649ca0f1208da6f41695b98e
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976927"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569982"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Como implementar o Windows 10 no Azure com direitos de alojamento multi-inquilino 
 Para os clientes com Windows 10 Enterprise E3/E5 por usuário ou o Windows Virtual Desktop Access por utilizador (licenças de subscrição de utilizador ou licenças de subscrição de utilizador do suplemento), o multi-inquilino de alojamento direitos para Windows 10 permite-lhe reunir as suas licenças do Windows 10 para a cloud e executar máquinas virtuais do Windows 10 no Azure sem ter de adquirir outra licença. Para obter mais informações, consulte [alojamento do multi-inquilino para o Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -56,7 +56,7 @@ if($adminAccount.Disabled)
     $adminAccount.Put()
 }
 ```
-Para obter mais informações: 
+Para mais informações: 
 * [Como carregar o VHD para o Azure](upload-generalized-managed.md)
 * [Como preparar um VHD do Windows para carregar para o Azure](prepare-for-upload-vhd-image.md)
 
@@ -72,11 +72,11 @@ Add-AzVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.
 
 **Implementar com a implementação de modelo do Azure Resource Manager** dentro de modelos do Resource Manager, um parâmetro adicional para `licenseType` pode ser especificado. Pode ler mais sobre [criar modelos do Azure Resource Manager](../../resource-group-authoring-templates.md). Assim que tiver o seu VHD carregado para o Azure, edite modelo do Resource Manager para incluir o tipo de licença como parte do fornecedor de computação e implementar o modelo como normal:
 ```json
-"properties": {  
-   "licenseType": "Windows_Client",
-   "hardwareProfile": {
+"properties": {
+    "licenseType": "Windows_Client",
+    "hardwareProfile": {
         "vmSize": "[variables('vmSize')]"
-   }
+    }
 ```
 
 **Implementar através do PowerShell** quando implementar a sua VM do Windows Server através do PowerShell, tem um parâmetro adicional para `-LicenseType`. Assim que tiver o seu VHD carregado para o Azure, criar uma VM com `New-AzVM` e especifique o tipo de licenciamento da seguinte forma:

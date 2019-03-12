@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bea9a987078799436c9dcad650ee56d5d6d81512
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341346"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729095"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Gerir dispositivos ligados a partir do portal do meu perfil (pré-visualização)
 Pode gerir os dispositivos que estiver ligado com a sua conta escolar ou profissional, desativar qualquer um que já não é proprietário, do **dispositivos** página do **meu perfil** portal.
@@ -36,7 +36,7 @@ Pode gerir os dispositivos que estiver ligado com a sua conta escolar ou profiss
     ![Página de dispositivo, que mostra dispositivos de conexão](media/myprofile-portal/myprofile-portal-devices-page.png)
 
 ## <a name="disable-a-device"></a>Desativar um dispositivo
-Pode desativar qualquer um dos seus dispositivos ligados em qualquer altura. Isto é especialmente importante se um dispositivo não for familiar para ou se um dispositivo é perdido ou roubado.
+Pode desativar qualquer um dos seus dispositivos ligados em qualquer altura. Isto é especialmente importante se um dispositivo não for familiar para ou se um dispositivo é perdido ou roubado. Depois de desativar um dispositivo, ele já não pode ser autenticado pela sua organização e que não poderá aceder a qualquer um dos recursos da sua organização.
 
 >[!Important]
 >Se desativar um dispositivo por engano, não é possível-lo. Terá de contactar o administrador da organização para adicionar o dispositivo novamente.

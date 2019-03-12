@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/05/2018
 ms.author: wesmc
-ms.openlocfilehash: d90595d3d557293bfbc6b06aca638eb1b7c08d30
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8f30918a73e1e7012ad3be151e778eb073627b84
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164318"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726690"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Início rápido: Enviar a telemetria de IoT de um dispositivo Android
 
@@ -86,11 +86,17 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 3. No Android Studio, clique em **arquivo** > **sincronizar projeto com os ficheiros Gradle**. Certifique-se de que a compilação for concluída.
 
+   > [!NOTE]
+   > Se a sincronização de projeto falhar, pode ser para um dos seguintes motivos:
+   >
+   > * As versões do plug-in do Android Gradle e referenciado no projeto do Gradle estão Desatualizadas para a sua versão do Android Studio. Siga [estas instruções](https://developer.android.com/studio/releases/gradle-plugin) para referenciar e instalar as versões corretas do plug-in e Gradle para a sua instalação.
+   > * O contrato de licença para o Android SDK não assinado. Siga as instruções na saída da compilação para assinar o contrato de licença e transferir o SDK.
+
 4. Depois de concluída a compilação, clique em **execute** > **executar "aplicação"**. Configure a aplicação seja executada num dispositivo Android físico ou o emulador do Android. Para obter mais informações sobre como executar uma aplicação Android num dispositivo físico ou o emulador, consulte [executar a sua aplicação](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Assim que a aplicação for carregada, clique nas **iniciar** botão para começar a enviar telemetria ao seu IoT Hub:
 
-    ![Aplicação](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![Candidatura](media/quickstart-send-telemetry-android/sample-screenshot.png)
 
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria a partir do seu hub
@@ -120,5 +126,5 @@ Neste início rápido, configurou um IoT hub, registou um dispositivo, enviou te
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Início rápido: Controlar um dispositivo ligado a um hub IoT](quickstart-control-device-android.md)
+> [Quickstart: Controlar um dispositivo ligado a um hub IoT](quickstart-control-device-android.md)
 

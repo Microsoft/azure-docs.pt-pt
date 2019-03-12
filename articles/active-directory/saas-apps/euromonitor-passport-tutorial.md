@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7740905c-04c4-4d8c-ad90-523a6cd1e206
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da24aba207bca7fbcf3d34933ffe1ba83336722b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ce719b0b4baaf334df4571f154ae425115dfec21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880330"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769732"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>Tutorial: Integração do Active Directory do Azure com o Euromonitor Passport
 

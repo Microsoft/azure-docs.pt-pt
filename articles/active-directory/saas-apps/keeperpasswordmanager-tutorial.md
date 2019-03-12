@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e1a98f6a-2dae-4734-bdbf-4fba742a61d2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdb47a009c42193a30214377d21d63e42040b1d4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b53dfff6b7b6ce8f2c2c074dd08a81aa113808f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865251"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782093"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Tutorial: Integração do Active Directory do Azure com o Gestor de palavra-passe de extinção do responsável & Digital de cofre
 
@@ -189,7 +189,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Para ativar a utilizadores do Azure AD iniciar sessão no Gestor de palavra-passe de extinção do responsável & Digital de cofre, tem de ser aprovisionados no Gestor de palavra-passe de extinção do responsável & Digital de cofre. Aplicativo oferece suporte apenas no tempo de aprovisionamento de utilizador e de utilizadores de autenticação serão criados no aplicativo automaticamente. Pode contactar [suporte do guardião](https://keepersecurity.com/contact.html), se desejar configurar manualmente os utilizadores.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

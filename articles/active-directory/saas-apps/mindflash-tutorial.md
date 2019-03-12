@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdf91993-aaaa-4598-89b7-77ef8ca065d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: eb3c84ffae5ef760fd73c1b2ea2a2832b9408724
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 592628cb036972cdae2ab14501fc09fa8ddcb7cc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992299"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761724"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Integração do Active Directory do Azure com Mindflash
 
@@ -210,7 +210,7 @@ Para habilitar logon Mindflash de utilizadores do Azure AD, tem de ser aprovisio
 >Pode utilizar quaisquer outras Mindflash utilizador conta criação ferramentas ou APIs fornecidas pelo Mindflash para aprovisionar contas de utilizador do AAD. 
 > 
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

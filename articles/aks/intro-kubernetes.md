@@ -5,21 +5,23 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 09/26/2018
+ms.date: 03/05/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: db6a02db3a154193a9326e2957038e5daa2faae7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 46d667bc32c5c5f3ccb14cf4a43a3441efe94c31
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992365"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552219"
 ---
-# <a name="azure-kubernetes-service-aks"></a>Serviço de Kubernetes do Azure (AKS)
+# <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
 O Azure Kubernetes Service (AKS) torna fácil implementar um cluster Kubernetes gerido no Azure. O AKS reduz a complexidade e a sobrecarga operacional de gerir o Kubernetes ao descarregar grande parte dessa responsabilidade para o Azure. Enquanto serviço alojado do Kubernetes, o Azure lida com tarefas críticas para si, como a monitorização do estado de funcionamento e a manutenção. Os mestres do Kubernetes são geridos pelo Azure. Pode apenas gerir e manter os nós dos agentes. Como serviço Kubernetes gerido, o AKS é gratuito, paga apenas os nós dos agentes dentro dos seus clusters, não paga os mestres.
 
 Pode criar um cluster do AKS no portal do Azure, com a CLI do Azure, ou um modelo controlado por opções de implementação, tais como modelos do Resource Manager e o Terraform. Ao implementar um cluster do AKS, o mestre do Kubernetes e todos os nós são implementados e configurados para si. As funcionalidades adicionais, como redes avançadas, integração do Azure Active Directory e monitorização também podem ser configuradas durante o processo de implementação.
+
+Para obter mais informações sobre noções básicas do Kubernetes, consulte [Kubernetes principais conceitos para o AKS][concepts-clusters-workloads].
 
 Para começar, conclua o guia de introdução do AKS [no portal do Azure][aks-portal] ou [com a CLI do Azure][aks-cli].
 
@@ -30,6 +32,8 @@ Para maior segurança e gestão, o AKS permite a integração com o Azure Active
 ### <a name="identity-and-security-management"></a>Gestão de identidade e segurança
 
 Para limitar o acesso aos recursos do cluster, o AKS suporta o [controlo de acesso baseado em funções (RBAC)][kubernetes-rbac]. O RBAC permite-lhe controlar o acesso aos recursos e aos espaços de nomes do Kubernetes, e as permissões para esses recursos. Também pode configurar um cluster do AKS para integração com o Azure Active Directory (AD). Com a integração do Microsoft Azure AD, o acesso ao Kubernetes pode ser configurado com base na identidade e na associação de grupos existentes. Os seus utilizadores do Microsoft Azure AD e grupos existentes podem obter acesso aos recursos AKS com uma experiência de início de sessão integrada.
+
+Para obter mais informações sobre identidade, consulte [opções de acesso e identidade para o AKS][concepts-identity].
 
 Para proteger os seus clusters AKS, veja [Integrar o Azure Active Directory com o AKS][aks-aad].
 
@@ -65,13 +69,17 @@ Para obter mais informações, veja [Utilizar GPUs no AKS][aks-gpu].
 
 Para suportar cargas de trabalho da aplicação, pode montar volumes de armazenamento para dados persistentes. Podem ser utilizados volumes estáticos e dinâmicos. Consoante o número de pods ligados que irão partilhar o armazenamento, pode utilizar o armazenamento suportado pelos Discos do Azure para acesso único ao pod ou pelos Ficheiros do Azure para vários acessos ao pod em simultâneo.
 
-Introdução aos volumes persistentes dinâmicos com os [Discos do Azure][azure-disk] ou os [Ficheiros do Azure][azure-files].
+Para obter mais informações, consulte [opções de armazenamento para aplicações no AKS][concepts-storage].
+
+Comece com volumes dinâmicos de persistentes usando [discos do Azure] [ azure-disk] ou [ficheiros do Azure][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Redes virtuais e entrada
 
 Um cluster do AKS pode ser implementado numa rede virtual existente. Nesta configuração, a cada pod do cluster é atribuído um endereço IP na rede virtual, e pode comunicar diretamente com outros pods no cluster e outros nós na rede virtual. Os pods também podem ligar a outros serviços numa rede virtual em modo de peering e a redes no local através do ExpressRoute ou ligações de rede de VPNs.
 
-Para obter mais informações, veja [Descrição geral de redes AKS][aks-networking].
+Para obter mais informações, consulte a [rede conceitos para aplicações no AKS][aks-networking].
+
+Para obter uma introdução ao tráfego de entrada, veja [Encaminhamento de aplicações de HTTP][aks-http-routing].
 
 ### <a name="ingress-with-http-application-routing"></a>Entrar com encaminhamento de aplicações de HTTP
 
@@ -112,10 +120,7 @@ Saiba mais sobre como implementar e gerir o AKS com o guia de introdução da CL
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
-[draft]: https://github.com/Azure/draft
-[helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
@@ -134,3 +139,7 @@ Saiba mais sobre como implementar e gerir o AKS com o guia de introdução da CL
 [container-health]: ../monitoring/monitoring-container-health.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
+[concepts-clusters-workloads]: concepts-clusters-workloads.md
+[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[concepts-identity]: concepts-identity.md
+[concepts-storage]: concepts-storage.md

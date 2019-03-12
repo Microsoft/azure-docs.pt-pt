@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.openlocfilehash: 3f861259c8c760b921f1c33f4e449853a3686a40
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: b1a224c4170349f0797d2d57acbf45e8b7649bd8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010808"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531577"
 ---
 # <a name="get-started-with-device-management-node"></a>Introdução à gestão de dispositivo (Node)
 
@@ -239,7 +239,7 @@ Já está pronto para executar as aplicações.
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a7d290b9270d5d548a2e2b36cd73588639691b6c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 84cf7d485295ae1a102957ee1f94ab3e9b2ea954
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819110"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548256"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -49,6 +49,7 @@ Runbooks na automatização do Azure podem ser executados em qualquer uma uma á
 |Utilização de módulos com requisitos específicos| Função de Trabalho de Runbook Híbrida|Alguns exemplos incluem:</br> **WinSCP** -dependência do winscp.exe </br> **IISAdministration** -IIS tem de ser ativada|
 |Instalar o módulo que requer o instalador|Função de Trabalho de Runbook Híbrida|Módulos para a área de segurança tem de ser xcopyable|
 |Utilizar runbooks ou módulos que exigem diferente do 4.7.2 do .NET Framework|Função de Trabalho de Runbook Híbrida|Sandboxes de automatização tem 4.7.2 do .NET Framework e não é possível atualizá-lo|
+|Scripts que exigem elevação|Função de Trabalho de Runbook Híbrida|Áreas de segurança não permitem a elevação. Para resolver esse uso uma função de trabalho de Runbook híbrida e pode desativar o UAC e uso `Invoke-Command` quando executar o comando que precisa de elevação|
 
 ## <a name="runbook-behavior"></a>Comportamento de Runbook
 
@@ -127,12 +128,12 @@ A tabela seguinte descreve os diferentes estados possíveis das tarefas. PowerSh
 | Com Falhas |Para [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook não conseguiu compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), não foi possível iniciar o runbook ou a tarefa ter uma exceção. |
 | Falha ao aguardar que recursos |A tarefa falhou porque atingiu o [justa](#fair-share) limitar três vezes e iniciado a partir do ponto de verificação mesmo ou desde o início do runbook cada vez. |
 | Em Fila |A tarefa está a aguardar a disponibilização de recursos num trabalho de Automatização para que possa ser iniciada. |
-| A iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciar. |
+| A Iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciar. |
 | A retomar |O sistema está a retomar a tarefa depois de ter sido suspenso. |
-| A executar |A tarefa está a ser executada. |
+| Em Execução |A tarefa está a ser executada. |
 | Em execução, à espera de recursos |A tarefa foi descarregada porque atingiu o [justa](#fair-share) limite. Ele retoma em breve do último ponto de verificação. |
 | Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
-| A parar |O sistema está a parar a tarefa. |
+| A Parar |O sistema está a parar a tarefa. |
 | Suspenso |A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele começa desde o início do runbook. Se tiver um ponto de verificação, pode começar novamente e retomar a partir do último ponto de verificação. O runbook está suspenso apenas pelo sistema quando ocorre uma exceção. Por predefinição, ErrorActionPreference está definido como **continuar**, que significa que a tarefa em execução num erro. Se esta variável de preferência estiver definida como **parar**, em seguida, a tarefa suspende num erro. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 | A suspender |O sistema está a tentar suspender a tarefa a pedido do utilizador. O runbook tem de atingir o ponto de verificação seguinte antes de poder ser suspenso. Se já passado o último ponto de verificação, em seguida, ele é concluída antes de poder ser suspenso. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 
@@ -224,7 +225,7 @@ Para partilhar recursos entre todos os runbooks na cloud, automatização do Azu
 
 Para execução prolongada tarefas, é recomendado utilizar um [Runbook Worker híbrido](automation-hrw-run-runbooks.md#job-behavior). Os Runbook Workers híbridos não estão limitados por justa e não tem uma limitação quanto um runbook pode executar. A outra tarefa [limites](../azure-subscription-service-limits.md#automation-limits) aplicam-se a áreas de segurança do Azure e os Runbook Workers híbridos. Embora os Runbook Workers híbridos não estão limitados pelo limite de cota razoável de duração de 3 horas, runbooks foi executada nos mesmos ainda deve ser desenvolvido para oferecer suporte a comportamentos de reinício de problemas de infraestrutura local inesperado.
 
-Outra opção é otimizar o runbook utilizando runbooks subordinados. Se o seu runbook percorre a mesma função em vários recursos, como uma operação de base de dados em várias bases de dados, pode mover essa função para um [runbook subordinado](automation-child-runbooks.md) e chamá-lo com o [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Cada um destes runbooks subordinados é executado em paralelo, em processos separados, diminuindo a quantidade total de tempo do runbook principal para conclusão. Pode utilizar o [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet no runbook para verificar o estado da tarefa para cada filho, se existem operações que precisam ser executadas após a conclusão do runbook subordinado.
+Outra opção é otimizar o runbook utilizando runbooks subordinados. Se o seu runbook percorre a mesma função em vários recursos, como uma operação de base de dados em várias bases de dados, pode mover essa função para um [runbook subordinado](automation-child-runbooks.md) e chamá-lo com o [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Cada um destes runbooks subordinados é executado em paralelo, em processos separados, diminuindo a quantidade total de tempo do runbook principal para conclusão. Pode utilizar o [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet no runbook para verificar o estado da tarefa para cada filho, se existem operações que efetuar após a conclusão do runbook subordinado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

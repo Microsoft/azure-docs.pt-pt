@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a93b771a-9bc3-444a-bdc0-457f8bb7e780
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 1d83205cedf76852e4a565ad1059d096883e3845
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: a714a55977d4a4e6c377719418638bd989dee314
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408484"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57782501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Tutorial: Integração do Active Directory do Azure com Nexonia
 
@@ -184,7 +184,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Nexonia. Trabalhar com [equipa de suporte de Nexonia](https://nexonia.zendesk.com/hc/requests/new) para adicionar os utilizadores na plataforma Nexonia. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

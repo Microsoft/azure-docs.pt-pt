@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 74ac8602e61404214f300682f5696100b8fa0c60
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 05f9c0e68dfbc70f3a73d5b5cb0e166f0289c20c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868859"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538141"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Início rápido: Pesquisa de notícias usando C# e a API de REST de pesquisa do Bing notícias
 
@@ -28,7 +28,7 @@ Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful
 
 * Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](http://www.mono-project.com/).
+* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 

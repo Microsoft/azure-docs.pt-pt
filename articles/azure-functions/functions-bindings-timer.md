@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: bdbb9d7c8b129642616a934dcc3d226434e69a03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558979"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760772"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Acionador de temporizador das funções do Azure 
 
@@ -50,13 +50,13 @@ Veja o exemplo de idioma específico:
 
 ### <a name="c-example"></a>Exemplo do c#
 
-A exemplo a seguir mostra um [ C# função](functions-dotnet-class-library.md) que é executado sempre que os minutos de ter um valor divisível por cinco (por exemplo, se a função começa às 18:00 57:, o desempenho seguinte será 19: 00:00):
+A exemplo a seguir mostra um [ C# função](functions-dotnet-class-library.md) que é executado sempre que os minutos de ter um valor divisível por cinco (por exemplo, se a função começa às 18:00 57:, o desempenho seguinte será 19: 00:00). O [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>Exemplo de script do c#
 
-O exemplo seguinte mostra um acionador de temporizador de enlace num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função escreve um registo que indica se esta invocação de função é devido a uma ocorrência de agendamento em falta.
+O exemplo seguinte mostra um acionador de temporizador de enlace num *Function* ficheiro e uma [função de script do c#](functions-reference-csharp.md) que utiliza o enlace. A função escreve um registo que indica se esta invocação de função é devido a uma ocorrência de agendamento em falta. O [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -84,7 +84,7 @@ Aqui está o código de script do c#:
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -94,7 +94,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F#exemplo
 
-O exemplo seguinte mostra um acionador de temporizador de enlace num *Function* ficheiro e uma [ F# função do script](functions-reference-fsharp.md) que utiliza o enlace. A função escreve um registo que indica se esta invocação de função é devido a uma ocorrência de agendamento em falta.
+O exemplo seguinte mostra um acionador de temporizador de enlace num *Function* ficheiro e uma [ F# função do script](functions-reference-fsharp.md) que utiliza o enlace. A função escreve um registo que indica se esta invocação de função é devido a uma ocorrência de agendamento em falta. O [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -119,7 +119,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 
 ### <a name="javascript-example"></a>Exemplo de JavaScript
 
-O exemplo seguinte mostra um acionador de temporizador de enlace num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função escreve um registo que indica se esta invocação de função é devido a uma ocorrência de agendamento em falta.
+O exemplo seguinte mostra um acionador de temporizador de enlace num *Function* ficheiro e uma [função JavaScript](functions-reference-node.md) que utiliza o enlace. A função escreve um registo que indica se esta invocação de função é devido a uma ocorrência de agendamento em falta. R [objeto timer](#usage) é passado para a função.
 
 Eis a vinculação de dados a *Function* ficheiro:
 
@@ -138,7 +138,7 @@ Eis o código JavaScript:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node is running late!');
     }
@@ -201,7 +201,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 ## <a name="usage"></a>Utilização
 
-Quando uma função de Acionador de temporizador é invocada, o [objeto timer](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) é passado para a função. O JSON seguinte é uma representação de exemplo do objeto timer. 
+Quando uma função de Acionador de temporizador é invocada, um objeto de timer é passado para a função. O JSON seguinte é uma representação de exemplo do objeto timer.
 
 ```json
 {
@@ -226,12 +226,12 @@ O Azure utiliza as funções do [NCronTab](https://github.com/atifaziz/NCrontab)
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|Tipo  |Exemplo  |Quando acionado  |
+|Type  |Exemplo  |Quando acionado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00 em que hh significa a cada hora (uma vez por hora)|
 |Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 todos os dias, onde mm significa a cada minuto da hora (60 vezes por dia)|
 |Um intervalo (`-` operador)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05, hh:mm:06 e hh:mm:07 em que HH: mm é a cada minuto da hora em hora (3 vezes um minuto)|  
-|Um conjunto de valores (`,` operador)|<nobr>"5,8,10 **** *"</nobr>|hh:mm:05, hh:mm:08 e hh:mm:10 em que HH: mm é a cada minuto da hora em hora (3 vezes um minuto)|
+|Um conjunto de valores (`,` operador)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05, hh:mm:08 e hh:mm:10 em que HH: mm é a cada minuto da hora em hora (3 vezes um minuto)|
 |Um valor de intervalo (`/` operador)|<nobr>"0 */5 * * * *"</nobr>|na hh:05:00, hh:10:00, hh:15:00, e assim por diante, por meio de hh:55:00 em que hh significa a cada hora (12 vezes por hora)|
 
 Para especificar meses ou dias pode utilizar valores numéricos, nomes ou abreviações de nomes:
@@ -277,7 +277,7 @@ Ou crie uma definição de aplicação para a sua aplicação de função com o 
 
 Quando utiliza `WEBSITE_TIME_ZONE`, a hora é ajustada para alterações de hora no fuso horário específico, por exemplo, o horário de Verão. 
 
-## <a name="timespan"></a>Período de tempo
+## <a name="timespan"></a>TimeSpan
 
  A `TimeSpan` pode ser utilizado apenas para uma aplicação de função que é executado num plano do serviço de aplicações.
 
@@ -289,7 +289,7 @@ Expresso como uma cadeia de caracteres, o `TimeSpan` é o formato `hh:mm:ss` qua
 |---------|---------|
 |"01:00:00" | a cada hora        |
 |"00:01:00"|cada minuto         |
-|"24: 00:00" | todos os dias        |
+|"24:00:00" | everyday        |
 
 ## <a name="scale-out"></a>Expandir
 

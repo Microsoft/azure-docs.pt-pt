@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: b4c13fb0bdae790f215b87dbfdbfa32eff388fd8
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 091babea272a609a668ebfb676a55e0fa02b8c27
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730583"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548750"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Início rápido: Criar uma Base de Dados do Azure para PostgreSQL com a CLI do Azure
 A Base de Dados do Azure para o PostgreSQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados de alta disponibilidade do PostgreSQL na cloud. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de introdução mostra-lhe como criar uma Base de Dados do Azure para o servidor PostgreSQL num [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) com a CLI do Azure.
@@ -48,13 +48,13 @@ Crie uma [Base de Dados do Azure para o servidor PostgreSQL](overview.md) com o 
 
 **Definição** | **Valor de exemplo** | **Descrição**
 ---|---|---
-nome | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
+name | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | myResourceGroup | Indique o nome do grupo de recursos do Azure.
-sku-name | GP_Gen4_2 | O nome do SKU. Segue a convenção {escalão de preço}_{geração de computação}_{vCores} em estenografia. Veja abaixo desta tabela para obter mais informações sobre o parâmetro de nome de SKU.
+nome de SKU | GP_Gen5_2 | O nome de SKU. Segue a convenção {escalão de preço}_{geração de computação}_{vCores} em estenografia. Veja abaixo desta tabela para obter mais informações sobre o parâmetro de nome de SKU.
 backup-retention | 7 | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35. 
-geo-redundant-backup | Desativado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, desativado.
-localização | westus | A localização do Azure para o servidor.
-ssl-enforcement | Ativado | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, desativado.
+geo-redundant-backup | Desactivado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, desativado.
+localização | euaoeste | A localização do Azure para o servidor.
+ssl-enforcement | Activado | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, desativado.
 storage-size | 51200 | A capacidade de armazenamento do servidor (a unidade é megabytes). O tamanho de armazenamento válido é 5120 MB no mínimo e aumenta em incrementos de 1024 MB. Consulte o documento que contém os [escalões de preço](./concepts-pricing-tiers.md) para obter mais informações sobre limites de tamanho de armazenamento. 
 versão | 9.6 | A versão principal do PostgreSQL.
 admin-user | myadmin | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser**, **admin**, **administrador**, **raiz**, **convidado** nem **público**.
@@ -62,7 +62,7 @@ admin-password | *palavra-passe segura* | A palavra-passe do utilizador administ
 
 
 O valor do parâmetro sku-name segue a convenção {escalão de preço} \_ {geração de computação} \_ {vCores}, conforme os exemplos abaixo:
-+ `--sku-name B_Gen4_1` é mapeado para básico, fins 4 e 1 vCore. Esta opção é o menor SKU disponível.
++ `--sku-name B_Gen5_1` é mapeado para básico, fins 5 e 1 vCore. Esta opção é o menor SKU disponível.
 + `--sku-name GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 + `--sku-name MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -108,8 +108,8 @@ O resultado está no formato JSON. Aponte o **administratorLogin** e o **fullyQu
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
