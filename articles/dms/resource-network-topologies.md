@@ -2,7 +2,7 @@
 title: Topologias para migrações de instância gerida da base de dados SQL do Azure com o serviço de migração de base de dados do Azure de rede | Documentos da Microsoft
 description: Saiba as configurações de origem e de destino para o serviço de migração de base de dados.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: 82c91515ac3fae65623e3750471fec46b5d4bf5b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713201"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790684"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologias de rede para migrações de instância gerida BD SQL do Azure com o serviço de migração de base de dados do Azure
 Este artigo aborda várias topologias de rede que funciona com o serviço de migração de base de dados do Azure para proporcionar uma experiência de migração abrangente de servidores do SQL Server no local para a instância gerida da base de dados SQL do Azure.
@@ -66,13 +66,13 @@ Utilize esta topologia de rede se o seu ambiente requer um ou mais dos seguintes
 
 ## <a name="inbound-security-rules"></a>Regras de segurança de entrada
 
-| **NOME**   | **PORTA** | **PROTOCOLO** | **ORIGEM** | **DESTINO** | **AÇÃO** |
+| **NOME**   | **PORT** | **PROTOCOL** | **ORIGEM** | **DESTINO** | **AÇÃO** |
 |------------|----------|--------------|------------|-----------------|------------|
 | DMS_subnet | Qualquer      | Qualquer          | SUB-REDE DO DMS | Qualquer             | Permitir      |
 
 ## <a name="outbound-security-rules"></a>Regras de segurança de saída
 
-| **NOME**                  | **PORTA**                                              | **PROTOCOLO** | **ORIGEM** | **DESTINO**           | **AÇÃO** | **Motivo para a regra**                                                                                                                                                                              |
+| **NOME**                  | **PORT**                                              | **PROTOCOL** | **ORIGEM** | **DESTINO**           | **AÇÃO** | **Motivo para a regra**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | móveis                | 443,9354                                              | TCP          | Qualquer        | Qualquer                       | Permitir      | Comunicação de plano de gestão através do service bus e o armazenamento de Blobs do Azure. <br/>(Se estiver ativada o peering da Microsoft, poderá não ter esta regra.)                                                             |
 | Diagnóstico               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | Permitir      | O DMS utiliza esta regra para recolher informações de diagnóstico para fins de resolução de problemas.                                                                                                                      |

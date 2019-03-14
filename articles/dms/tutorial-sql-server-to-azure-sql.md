@@ -2,7 +2,7 @@
 title: 'Tutorial: Utilizar o Azure Database Migration Service a migração offline do SQL Server para uma base de dados/em pool único na base de dados do Azure SQL | Documentos da Microsoft'
 description: Saiba como migrar a partir do SQL Server no local para um único banco de dados ou bases de dados agrupadas no offline para o Azure SQL Database ao utilizar o serviço de migração de base de dados do Azure.
 services: dms
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/28/2019
-ms.openlocfilehash: 24f4ac5851746e64ea910853f24db5a3ffa95574
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/12/2019
+ms.openlocfilehash: ada8fa1702e93b98fa3c167cb0fd75810bfe294b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991306"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792264"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar o SQL Server para um único banco de dados ou bases de dados agrupadas na base de dados do Azure SQL offline com o DMS
 

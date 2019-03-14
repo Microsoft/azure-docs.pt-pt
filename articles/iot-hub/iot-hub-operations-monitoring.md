@@ -1,26 +1,26 @@
 ---
-title: Monitorização de operações de IoT Hub do Azure | Documentos da Microsoft
+title: Operações do IoT Hub do Azure (preterido) de monitorização | Documentos da Microsoft
 description: Como utilizar a monitorização para monitorizar o estado das operações no hub IoT em tempo real de operações do IoT Hub do Azure.
 author: nberdy
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/10/2017
+ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160053"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791584"
 ---
-# <a name="iot-hub-operations-monitoring"></a>Monitorização de operações do IoT Hub
+# <a name="iot-hub-operations-monitoring-deprecated"></a>Operações do IoT Hub monitorização (preterido)
 
 Monitorização de operações do IoT Hub permite-lhe monitorizar o estado das operações no hub IoT em tempo real. IoT Hub regista os eventos em várias categorias de operações. Pode participar no envio de eventos de um ou mais categorias para um ponto final do hub IoT para processamento. Pode monitorizar os dados de erros ou configurar o processamento mais complexo com base nos padrões de dados.
 
 >[!NOTE]
->Monitorização de operações do IoT Hub foi preterido e será removida do IoT Hub no dia 10 de Março de 2019. Para monitorizar as operações e o estado de funcionamento do IoT Hub, veja [monitorizar o estado de funcionamento do IoT Hub do Azure e diagnosticar problemas rapidamente][lnk-monitor]. Para obter mais informações sobre a linha cronológica de preterição, consulte [monitorizar as soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health][lnk-blog-announcement].
+>IoT Hub **operações de monitorização foi preteridas e foi removidas do IoT Hub, 10 de Março de 2019**. Para monitorizar as operações e o estado de funcionamento do IoT Hub, veja [monitorizar o estado de funcionamento do IoT Hub do Azure e diagnosticar problemas rapidamente][lnk-monitor]. Para obter mais informações sobre a linha cronológica de preterição, consulte [monitorizar as soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health][lnk-blog-announcement].
 
 IoT Hub monitoriza seis categorias de eventos:
 

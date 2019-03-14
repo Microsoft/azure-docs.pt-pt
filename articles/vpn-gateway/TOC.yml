@@ -69,7 +69,7 @@ items:
       href: vpn-gateway-about-skus-legacy.md
   - name: Ligações Site a Site
     items:
-    - name: Configurar uma ligação S2S
+    - name: Configurar ligações S2S
       items:
       - name: Portal do Azure
         href: vpn-gateway-howto-site-to-site-resource-manager-portal.md
@@ -248,9 +248,9 @@ items:
     href: https://azure.microsoft.com/support/legal/sla
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway
-ms.openlocfilehash: 84c6a8972109e8512e66a5fa6283125534b2e2e1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2335ac142c260b738e7c18d731403e3e18ccc196
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781294"
+ms.locfileid: "57791448"

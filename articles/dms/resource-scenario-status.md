@@ -2,7 +2,7 @@
 title: Estado de cenário de migração de base de dados | Documentos da Microsoft
 description: Saiba mais sobre o estado dos cenários de migração suportados pelo serviço de migração de base de dados do Azure.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 02/11/2019
-ms.openlocfilehash: 39a7f7ce6660016f00e36c5f6619eba2fa461023
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/12/2019
+ms.openlocfilehash: fea50b896c769587b21b8a4e2ce8c585d7aee8c4
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993168"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791567"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Estado de cenários de migração suportados pelo serviço de migração de base de dados do Azure
 O Azure Database Migration Service foi concebido para suportar uma variedade de cenários de migração (pares origem/destino) para ambos offline (única) e migrações de online (sincronização contínua). A cobertura de cenário fornecida pelo serviço de migração de base de dados do Azure está a ser expandida ao longo do tempo. Novos cenários estão sendo adicionados regularmente. Este artigo identifica os cenários de migração atualmente suportados pelo serviço de migração de base de dados do Azure e o estado (privada [ou limitado] pré-visualização, pré-visualização pública ou em disponibilidade geral) ou a cada cenário.

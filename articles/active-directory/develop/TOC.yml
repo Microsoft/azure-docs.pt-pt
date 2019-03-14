@@ -443,9 +443,9 @@ items:
     href: developer-support-help-options.md
   - name: Identidades geridas para os recursos do Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 9b02dc22bbe27b02d608130eac72a00c7d1471c3
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 4b1ce1f30f76553174c0c13e04f020e22d6c8d2d
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238458"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792060"

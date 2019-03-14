@@ -2,18 +2,19 @@
 title: Arquiteturas de referência de composição do Azure - Batch do Azure
 description: Farm de composição de arquiteturas de utilização do Azure Batch e outros serviços do Azure para expandir no local disparando para a cloud
 services: batch
+ms.service: batch
 author: davefellows
 manager: jeconnoc
 ms.author: lahugh
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: b8813466b9c0f74a608c0150c037dfec3db08dbc
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: ae4680c948ce8e1efd32207dc37821d61182f2d8
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893821"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791210"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Arquiteturas de referência para a composição do Azure
 

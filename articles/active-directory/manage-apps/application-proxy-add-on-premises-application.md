@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f29b55b03d28728ad038f0071a7ba8a75a7acd2c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4d03efe2f8f8c3cad9ab37ea100b050a6e13aafc
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199447"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792128"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através do Proxy de aplicações no Azure Active Directory
 
@@ -40,17 +40,18 @@ Para adicionar uma aplicação ao seu inquilino, precisa de:
 * Uma conta de administrador do aplicativo.
 
 ### <a name="windows-server"></a>Servidor do Windows
+
 Para utilizar o Proxy de aplicações, precisa de um servidor do Windows com o Windows Server 2012 R2 ou posterior. Instalará o conector do Proxy de aplicações no servidor. Este servidor do conector tem de ligar a serviços de Proxy de aplicações no Azure e as aplicações no local que pretende publicar.
 
 Para elevada disponibilidade no seu ambiente de produção, é recomendável ter mais de um servidor do Windows. Para este tutorial, um servidor do Windows é suficiente.
 
-**Recomendações para o servidor do conector**
+#### <a name="recommendations-for-the-connector-server"></a>Recomendações para o servidor do conector
 
 1. Fisicamente, localize o servidor do conector perto os servidores de aplicações para otimizar o desempenho entre o conector e a aplicação. Para obter mais informações, consulte [considerações sobre a topologia de rede](application-proxy-network-topology.md).
 
 2. O servidor do conector e os servidores de aplicativos da web devem pertencer ao mesmo domínio do Active Directory. Ter os servidores no mesmo domínio é um requisito para utilizar o início de sessão único (SSO) com a autenticação integrada do Windows (IWA) e Kerberos Constrained Delegation (KCD). Se o servidor do conector e a servidores de aplicações web estiverem em domínios diferentes do Active Directory, terá de utilizar a delegação baseada em recursos para início de sessão único. Para obter mais informações, consulte [KCD para início de sessão único com o Proxy de aplicações](application-proxy-configure-single-sign-on-with-kcd.md).
 
-**Requisitos de software**
+#### <a name="software-requirements"></a>Requisitos de software
 
 O servidor de conector do Windows tem de ter o TLS 1.2, ativado antes de instalar o conector do Proxy de aplicações. Os conectores existentes com versões anteriores ao 1.5.612.0 irão continuar a trabalhar em versões anteriores do TLS até indicações em contrário. 
 
@@ -67,8 +68,8 @@ Para ativar o TLS 1.2:
 
 2. Reinicie o servidor
 
-  
 ## <a name="prepare-your-on-premises-environment"></a>Preparar o ambiente no local
+
 Para preparar o ambiente para o Proxy de aplicações do Azure AD, primeiro tem de ativar a comunicação a centros de dados do Azure. Se existir uma firewall no caminho, certifique-se de que está aberto para que o conector possa fazer pedidos HTTPS (TCP) para o Proxy de aplicações.
 
 ### <a name="open-ports"></a>Abrir portas
@@ -97,6 +98,7 @@ Permitir o acesso aos seguintes URLs:
 Se a sua firewall ou proxy permite que listas de permissões de DNS, pode ligações de lista de permissões para \*. msappproxy.net e \*. servicebus.windows.net. Se não, precisa permitir o acesso para o [intervalos de IP de DataCenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Os intervalos de IP são atualizados a cada semana.
 
 ## <a name="install-and-register-a-connector"></a>Instalar e registar um conector
+
 Para utilizar o Proxy de aplicações, terá de instalar um conector em cada servidor de Windows que optar por utilizar com o serviço de Proxy de aplicações. O conector é um agente que gere a ligação de saída dos servidores de aplicações no local para o Proxy de aplicações no Azure AD. Pode instalar um conector em servidores que têm também de outros agentes de autenticação instalados, como o Azure AD Connect.
 
 Para instalar o conector:
@@ -122,12 +124,12 @@ Para obter informações sobre conectores, planejamento de capacidade e como ele
 
 Se estiver a utilizar a aplicação de Qlik Sense, instale sempre o connector mais recente. Qlik Sense utiliza WebSockets, que é apenas suportado em versões de conector 1.5.612.0 ou posterior.
 
-
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>Verifique se o conector instalado e registado corretamente
 
 Pode utilizar o portal do Azure ou no seu servidor do Windows para confirmar que um novo conector é instalado corretamente.
 
 ### <a name="verify---azure-portal"></a>Certifique-se - portal do Azure
+
 Para confirmar o conector instalado e registado corretamente:
 
 1. Inicie sessão no seu diretório do inquilino no [portal do Azure](https://portal.azure.com).
@@ -139,6 +141,7 @@ Para confirmar o conector instalado e registado corretamente:
 Para obter mais ajuda com a instalação de um conector, consulte [problemas ao instalar um conector de Proxy de aplicações](application-proxy-connector-installation-problem.md).
 
 ### <a name="verify---windows-server"></a>Certifique-se - server do Windows
+
 Para confirmar o conector instalado e registado corretamente:
 
 1. Abra o Gestor de serviços do Windows ao clicar o **Windows** chave e introduzir *Services. msc*.
@@ -165,7 +168,7 @@ Agora que já preparou o seu ambiente e instalado um conector, está pronto para
 
 4. Na **adicionar sua própria aplicação no local** painel, forneça as seguintes informações sobre a sua aplicação:
 
-    ![Configurar a aplicação](./media/application-proxy-publish-azure-portal/configure-app.png)
+    ![Configurar a sua aplicação no local](./media/application-proxy-add-on-premises-application/add-on-premises-app-with-application-proxy-updated.png)
 
     | Campo | Descrição |
     | :---- | :---------- |
@@ -186,8 +189,6 @@ Agora que já preparou o seu ambiente e instalado um conector, está pronto para
     | **Traduzir URLs em cabeçalhos** | Manter este valor como **Sim** , a menos que seu aplicativo necessário o cabeçalho de anfitrião original no pedido de autenticação. |
     | **Traduzir URLs no corpo de aplicação** | Manter este valor como **não** a menos que tenha inserido no código HTML links para outras aplicações no local e não utilizar domínios personalizados. Para obter mais informações, consulte [vincular a tradução com Proxy de aplicações](application-proxy-configure-hard-coded-link-translation.md).<br><br>Definir este valor como **Sim** se pretender monitorizar esta aplicação com o Microsoft Cloud App Security (MCAS). Para obter mais informações, consulte [configurar a monitorização de acesso de aplicações em tempo real com o Microsoft Cloud App Security e Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md) |
    
-
-
 6. Selecione **Adicionar**.
 
 ## <a name="test-the-application"></a>Testar a aplicação
@@ -195,6 +196,7 @@ Agora que já preparou o seu ambiente e instalado um conector, está pronto para
 Está pronto para testar o aplicativo é adicionado corretamente. Nos passos seguintes, irá adicionar uma conta de utilizador à aplicação e tente iniciar sessão.
 
 ### <a name="add-a-user-for-testing"></a>Adicionar um utilizador para fins de teste
+
 Antes de adicionar um utilizador para a aplicação, certifique-se de que a conta de utilizador já tem permissões para aceder à aplicação a partir de dentro da rede empresarial.
 
 Para adicionar um utilizador de teste:
@@ -223,6 +225,7 @@ Para testar o início de sessão na aplicação:
 Para resolução de problemas, consulte [problemas de resolução de problemas de Proxy de aplicações e mensagens de erro](application-proxy-troubleshoot.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 Neste tutorial, preparou seu ambiente no local para trabalhar com o Proxy de aplicações e, em seguida, instalado e registado o conector do Proxy de aplicações. Em seguida, adicionou uma aplicação ao seu inquilino do Azure AD. Verificar a que um utilizador pode iniciar sessão para a aplicação utilizando uma conta do Azure AD.
 
 Fez tudo isto:
@@ -237,8 +240,3 @@ Está pronto para configurar a aplicação para início de sessão único. Utili
 
 > [!div class="nextstepaction"]
 >[Configure single sign-on](what-is-single-sign-on.md#choosing-a-single-sign-on-method) (Configurar o início de sessão único)
-
-
-
-
-

@@ -222,6 +222,8 @@ items:
         href: application-proxy-configure-single-sign-on-password-vaulting.md
       - name: Cabeçalhos
         href: application-proxy-configure-single-sign-on-with-ping-access.md
+      - name: SAML SSO
+        href: application-proxy-configure-single-sign-on-on-premises-apps.md
   - name: Painel de acesso
     items:
     - name: Gerir a extensão do browser
@@ -288,9 +290,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: eaf3183f7640b874fe69d2b1b80d3d0368bde555
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 498749e8e12b03ebc8c46f26cadc2db62731d59d
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751315"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790988"

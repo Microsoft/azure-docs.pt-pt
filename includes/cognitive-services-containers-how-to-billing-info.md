@@ -3,14 +3,16 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 002/08/2019
-ms.openlocfilehash: 12c86ca71b7421678b68684cccca86411d604d61
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 03/06/2019
+ms.openlocfilehash: b20ee2df1f468323c3298854371c97950c017e49
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740858"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57788910"
 ---
+Consultas para o contentor são faturadas ao escalão de preço do recurso do Azure utilizado para o `<ApiKey>`.
+
 Contentores de serviços cognitivos não estão licenciados para executar sem a ser ligado ao Azure para medição. Os clientes têm de ativar os contentores comunicar informações de faturação com o serviço de medição em todos os momentos. Contentores de serviços cognitivos não enviar dados de cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft. O contentor de relatórios de utilização sobre a cada 10 a 15 minutos.
 
 O `docker run` utiliza os argumentos a seguir para fins de faturação:

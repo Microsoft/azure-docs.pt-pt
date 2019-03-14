@@ -2,16 +2,17 @@
 title: Suporte para o Gestor - de composição do Azure Batch
 description: Utilizar o Azure para processar a utilizar a integração de Gestor de composição do Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4eeece4946b4f957d9f864da7c46d77d119863b5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539927"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790066"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Utilizar o Azure Batch com os gestores de farm de composição
 
@@ -22,7 +23,7 @@ O Azure fornece suporte interno ou suplementos para gestores de composição pop
 Os gerentes de composição seguintes são suportados:
 
 * [PipelineFX Qube!](https://www.pipelinefx.com/)
-* [Composição Royal](http://www.royalrender.de/)
+* [Royal Render](http://www.royalrender.de/)
 * [Prazo de Thinkbox](https://deadline.thinkboxsoftware.com/)
 
 ## <a name="using-azure-with-pipelinefx-qube"></a>Utilizar o Azure com PipelineFX Qube

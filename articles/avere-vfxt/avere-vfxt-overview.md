@@ -1,6 +1,6 @@
 ---
-title: Avere vFXT para Azure
-description: Introdução ao Avere vFXT para Azure, uma camada de cache na cloud para HPC
+title: Avere vFXT for Azure
+description: Introdução ao Avere vFXT for Azure, uma camada de cache na cloud para HPC
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: overview
@@ -13,9 +13,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 02/28/2019
 ms.locfileid: "56989324"
 ---
-# <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT para Azure? 
+# <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT for Azure? 
 
-O Avere vFXT para Azure é uma solução de colocação na cache do sistema de ficheiros para tarefas de computação de alto desempenho (HPC) intensivas em termos de dados. Permite tirar partido da escalabilidade de informática na cloud para tornar os seus dados acessíveis quando e onde forem necessários, até mesmo para dados armazenados no seu próprio hardware no local.
+O Avere vFXT for Azure é uma solução de colocação na cache do sistema de ficheiros para tarefas de computação de alto desempenho (HPC) intensivas em termos de dados. Permite tirar partido da escalabilidade de informática na cloud para tornar os seus dados acessíveis quando e onde forem necessários, até mesmo para dados armazenados no seu próprio hardware no local.
 
 O Avere vFXT suporta os seguintes cenários de computação comuns: 
 
@@ -24,7 +24,7 @@ O Avere vFXT suporta os seguintes cenários de computação comuns:
 
 ![Diagrama que mostra os detalhes do sistema Avere vFXT numa subscrição do Azure ligada ao armazenamento de Blobs e a um datacenter no local](media/avere-vfxt-hybrid.png)
 
-O Avere vFXT para Azure é mais adequado para as seguintes situações: 
+O Avere vFXT for Azure é mais adequado para as seguintes situações: 
 
 * Operações de leitura intensiva para cargas de trabalho HPC
 * Aplicações que utilizam o protocolo NFS comum
@@ -33,7 +33,7 @@ O Avere vFXT para Azure é mais adequado para as seguintes situações:
 
 Para mais informações, visite <https://azure.microsoft.com/services/storage/avere-vfxt/>
 
-## <a name="who-uses-avere-vfxt-for-azure"></a>Quem utiliza o Avere vFXT para Azure? 
+## <a name="who-uses-avere-vfxt-for-azure"></a>Quem utiliza o Avere vFXT for Azure? 
 
 O Avere vFXT pode ajudar em todos os tipos de tarefas de computação de leitura intensiva:
 

@@ -1,19 +1,19 @@
 ---
 title: Implementar o modelo de solução do Ansible para o Azure para CentOS
 description: Saiba como implementar o modelo de solução do Ansible numa máquina virtual CentOS alojada no Azure, juntamente com ferramentas configuradas para trabalhar com o Azure.
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, modelo de solução, máquina virtual, identidades geridas para recursos do azure, centos, red hat
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.openlocfilehash: 9fa711c86e3ef7f05e87504905ec642808d8f601
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 6dfc1c0f9dcf29d9cf24df19fbd043c71852aeac
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770287"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790964"
 ---
 # <a name="deploy-the-ansible-solution-template-for-azure-to-centos"></a>Implementar o modelo de solução do Ansible para o Azure para CentOS
 O modelo de solução do Ansible para o Azure foi concebido para configurar uma instância do Ansible numa máquina virtual CentOS, juntamente com o Ansible e um conjunto de ferramentas configurado para trabalhar com o Azure. Estas ferramentas incluem:

@@ -1,19 +1,19 @@
 ---
 title: Gerir o tráfego da web com o Gateway de aplicação do Azure com o Ansible
 description: Saiba como pode utilizar o Ansible para criar e configurar um Gateway de Aplicação do Azure para gerir o tráfego da Web
-ms.service: ansible
+ms.service: azure
 keywords: devops do azure, do ansible, bash, playbook, gateway de aplicação, Balanceador de carga, o tráfego da web
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 43e8681e5266f113d466a138abeeda77aff1c18b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 83f21573af7ec523acc376c4b3364cdcfb47f96f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052262"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792145"
 ---
 # <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Gerir o tráfego da web com o Gateway de aplicação do Azure com o Ansible
 

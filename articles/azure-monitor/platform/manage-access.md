@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: d09ce810605055b5be53219f254beb6660addbee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 07e3552b58b702cb94c879dd34397010c07522db
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445709"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791941"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerir dados de registo e áreas de trabalho no Azure Monitor
 Arquivos de Monitor do Azure registos de dados numa área de trabalho do Log Analytics, que é essencialmente um contentor que inclui informações de configuração e dados. Para gerir o acesso aos registos de dados, realizar diversas tarefas administrativas relacionadas com a áreas de trabalho. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
@@ -85,6 +85,7 @@ Os dados que um utilizador tem acesso ao são determinados por vários fatores q
 | [Modo de acesso](#access-modes) | Método que o utilizador utiliza para acessa a área de trabalho.  Define o âmbito dos dados disponíveis e o modo de controlo de acesso que é aplicado. |
 | [Modo de controlo de acesso](#access-control-mode) | Definir a área de trabalho que define se as permissões são aplicadas ao nível da área de trabalho ou recurso. |
 | [Permissões](#manage-accounts-and-users) | Permissões aplicadas a pessoa ou grupos de utilizadores para a área de trabalho ou recurso. Define os dados que o utilizador terá acesso a. |
+| [Nível de tabela RBAC](#table-level-rbac) | Permissões granulares opcionais que se aplica a todos os utilizadores, independentemente do respetivo modo de acesso ou o modo de controlo de acesso. Define os tipos de dados um utilizador pode aceder. |
 
 
 
@@ -93,7 +94,7 @@ O _modo de acesso_ se refere à forma como um utilizador acede a uma área de tr
 
 **Área de trabalho centrado**: Neste modo, um utilizador pode ver todos os registos na área de trabalho que têm permissões para. Consultas neste modo estão confinadas a todos os dados em todas as tabelas na área de trabalho. Este é o modo de acesso utilizado quando os registos são acedidos com a área de trabalho como o escopo, por exemplo, quando seleciona **registos** partir a **Azure Monitor** menu no portal do Azure.
 
-**Recurso centrado**: Quando acessar a área de trabalho para um recurso específico, por exemplo, quando seleciona **registos** de um menu de recursos no portal do Azure, pode ver os registos para apenas esse recurso. Consultas neste modo estão confinadas a apenas os dados associados a esse recurso. Este modo também permite que o controlo de acesso granular baseada em funções (RBAC). 
+**Recurso centrado**: Quando acessar a área de trabalho para um recurso específico, por exemplo, quando seleciona **registos** de um menu de recursos no portal do Azure, pode ver os registos para apenas esse recurso em todas as tabelas que têm acesso a. Consultas neste modo estão confinadas a apenas os dados associados a esse recurso. Este modo também permite que o controlo de acesso granular baseada em funções (RBAC). 
 
 > [!NOTE]
 > Os registos estão disponíveis para consultas centrada em recursos apenas se eles foram corretamente associados com o recurso relevante. Atualmente, os seguintes recursos têm limitações: 
@@ -113,16 +114,16 @@ A tabela seguinte resume os modos de acesso:
 |:---|:---|:---|
 | Quem é se destina a cada modelo? | Administração central. Administradores que precisam de configurar a recolha de dados e os utilizadores que necessitam de aceder a uma grande variedade de recursos. Também necessário atualmente para utilizadores que têm para aceder aos registos para recursos fora do Azure. | Equipes de aplicação. Administradores de recursos do Azure a ser monitorizados. |
 | O que requer um utilizador para ver os registos? | Permissões para a área de trabalho. Ver **permissões de área de trabalho** na [gerir contas e utilizadores](#manage-accounts-and-users). | Acesso de leitura para o recurso. Ver **permissões de recursos** na [gerir contas e utilizadores](#manage-accounts-and-users). As permissões podem ser herdadas (por exemplo, o grupo de recursos que contêm) ou diretamente atribuído ao recurso. Permissão para os registos para o recurso será automaticamente atribuído. |
-| O que é o âmbito de permissões? | Área de trabalho. Os utilizadores com acesso à área de trabalho podem consultar todos os registos nessa área de trabalho. | Recursos do Azure. Utilizador pode consultar os registos para recursos tem acesso a partir de qualquer área de trabalho, mas não é possível consultar os registos para outros recursos. |
+| O que é o âmbito de permissões? | Área de trabalho. Os utilizadores com acesso à área de trabalho podem consultar todos os registos nessa área de trabalho de tabelas que têm permissões para. Consulte [controlo de acesso de tabela](#table-access-control) | Recursos do Azure. Utilizador pode consultar os registos para recursos tem acesso a partir de qualquer área de trabalho, mas não é possível consultar os registos para outros recursos. |
 | Como pode aceder aos registos de utilizador? | Inicie **registos** partir **Azure Monitor** menu ou **áreas de trabalho do Log Analytics**. | Inicie **registos** no menu para o recurso do Azure. |
 
 
 ## <a name="access-control-mode"></a>Modo de controlo de acesso
 O _modo de controlo de acesso_ é uma configuração em cada áreas de trabalho que define como as permissões são determinadas para essa área de trabalho.
 
-**Necessitam de permissões de área de trabalho**:  Este modo de controlo não permite granular RBAC. Para um utilizador aceder a área de trabalho, eles tem de possuir permissões para a área de trabalho. 
+**Necessitam de permissões de área de trabalho**:  Este modo de controlo não permite granular RBAC. Para um utilizador aceder a área de trabalho, eles tem de possuir permissões para a área de trabalho ou tabelas específicas. 
 
-Se um usuário acessa a área de trabalho no modo voltada para a área de trabalho, terá acesso a todos os dados na área de trabalho. Se um usuário acessa a área de trabalho no modo centrada em recursos, terá acesso aos dados apenas para esse recurso.
+Se um usuário acessa a área de trabalho no modo voltada para a área de trabalho, terão acesso a todos os dados todas as tabelas que tiver sido concedidos acesso. Se um usuário acessa a área de trabalho no modo centrada em recursos, terá acesso aos dados apenas para esse recurso em todas as tabelas que tiver sido concedidos acesso a.
 
 Esta é a predefinição para todas as áreas de trabalho criadas antes de Março de 2019.
 
@@ -144,6 +145,46 @@ Pode ver o modo de controlo de acesso à área de trabalho atual na **descriçã
 Pode alterar esta definição no **propriedades** página para a área de trabalho. Alterar a definição será desativada se não tiver permissões para configurar a área de trabalho.
 
 ![Modo de acesso de área de trabalho de alteração](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-control-mode-in-azure-portal"></a>Definir o modo de controlo de acesso no portal do Azure
+Pode ver o modo de controlo de acesso à área de trabalho atual na **descrição geral** página para a área de trabalho a **área de trabalho do Log Analytics** menu.
+
+![Modo de controlo de acesso de área de trabalho de modo de exibição](media/manage-access/view-access-control-mode.png)
+
+Pode alterar esta definição no **propriedades** página para a área de trabalho. Alterar a definição será desativada se não tiver permissões para configurar a área de trabalho.
+
+![Modo de acesso de área de trabalho de alteração](media/manage-access/change-access-control-mode.png)
+
+### <a name="define-access-control-mode-in-powershell"></a>Definir o modo de controlo de acesso no PowerShell
+
+Utilize o seguinte comando para examinar o modo de controlo de acesso para todas as áreas de trabalho na subscrição:
+
+```PowerShell
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
+```
+
+Utilize o seguinte script para definir o modo de controlo de acesso para uma área de trabalho específico:
+
+```PowerShell
+$WSName = "my-workspace"
+$Workspace = Get-AzResource -Name $WSName -ExpandProperties
+if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+    { $Workspace.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
+else 
+    { $Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
+Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properties -Force
+```
+
+Utilize o seguinte script para definir o modo de controlo de acesso para todas as áreas de trabalho na subscrição
+
+```PowerShell
+Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
+if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
+    { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
+else 
+    { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
+Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
+```
 
 ### <a name="define-access-mode-in-resource-manager-template"></a>Definir o modo de acesso no modelo do Resource Manager
 Para configurar o modo de acesso num modelo Azure Resource Manager, defina o **enableLogAccessUsingOnlyResourcePermissions** sinalizador na área de trabalho para um dos seguintes valores de recursos.
@@ -241,6 +282,58 @@ Quando a consulta de utilizadores inicia a partir de uma área de trabalho atrav
 
 Esta permissão é concedida normalmente de uma função que inclua  _\*/leitura ou_ _\*_ permissões como a conta interna [leitor](../../role-based-access-control/built-in-roles.md#reader) e [ Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) funções. Tenha em atenção que as funções personalizadas que incluem ações específicas ou funções incorporadas dedicadas poderão não incluir esta permissão.
 
+Ver [definir o controlo de acesso por tabela](#defining-per-table-access-control) abaixo se pretende criar o controlo de acesso diferentes para diferentes tabelas.
+
+
+## <a name="table-level-rbac"></a>Nível de tabela RBAC
+**RBAC de nível de tabela** permite-lhe fornecer um controle mais granular aos dados numa área de trabalho do Log Analytics, além de outras permissões. Esse controle permite-lhe definir os tipos de dados específicos que podem ser acedidos apenas por um conjunto específico de utilizadores.
+
+Implementar o controlo de acesso de tabela com [funções personalizadas do Azure](../../role-based-access-control/custom-roles.md) conceder ou negar o acesso específico [tabelas](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) na área de trabalho. Estas funções são aplicadas a áreas de trabalho com voltada para a área de trabalho ou recurso centrado [modos de controlo de acesso](#access-control-modes) independentemente do utilizador [modo de acesso](#access-mode).
+
+Criar uma [função personalizada](../../role-based-access-control/custom-roles.md) com as seguintes ações para definir o acesso ao controlo de acesso de tabela.
+
+- Para conceder acesso a uma tabela, incluí-lo no **ações** secção da definição de função.
+- Para negar o acesso a uma tabela, incluí-lo no **NotActions** secção da definição de função.
+- Utilize * para especificar todas as tabelas.
+
+Por exemplo, para criar uma função de acesso para o _Heartbeat_ e _AzureActivity_ tabelas, criar uma função personalizada com as seguintes ações:
+
+```
+"Actions":  [
+              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+  ],
+```
+
+Para criar uma função com o acesso apenas _SecurityBaseline_ e nenhuma outra tabela, crie uma função personalizada com as seguintes ações:
+
+```
+    "Actions":  [
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
+    ],
+    "NotActions":  [
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+    ],
+```
+
+### <a name="custom-logs"></a>Registos personalizados
+ Registos personalizados são criados por fontes de dados, tais como registos personalizados e a HTTP Data Collector API. A maneira mais fácil de identificar o tipo de registo está verificando as tabelas listadas na [Custom Logs no esquema do registo](../log-query/get-started-portal.md#understand-the-schema).
+
+ Atualmente não é possível conceder ou negar o acesso a registos personalizados individuais, mas pode conceder ou negar o acesso a todos os registos personalizados. Para criar uma função de acesso a todos os registos personalizados, crie uma função personalizada com as seguintes ações:
+
+```
+    "Actions":  [
+        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+    ],
+```
+
+### <a name="considerations"></a>Considerações
+
+- Se um utilizador é concedido global ler permissão com as funções de leitor ou contribuinte padrão que incluem o  _\*/leitura_ ação, ele irá substituir o controlo de acesso por tabela e dão-lhes acesso a todos os dados de registo.
+- Se um utilizador é concedido acesso por tabela, mas sem outras permissões, eles conseguirão aceder aos dados de registo da API, mas não a partir do portal do Azure. Para fornecer acesso ao portal do Azure, utilize o leitor do Log Analytics como sua função de base.
+- Administradores da subscrição têm acesso a todos os tipos de dados, independentemente de quaisquer outras definições de permissão.
+- Os proprietários de área de trabalho são tratados como qualquer outro utilizador para o controlo de acesso-table.
+- Deve atribuir funções para grupos de segurança em vez de utilizadores individuais para reduzir o número de atribuições. Isso também o ajudará a utilizar as ferramentas de gestão de grupo existentes para configurar e verificar o acesso.
 
 
 

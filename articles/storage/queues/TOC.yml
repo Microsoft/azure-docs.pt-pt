@@ -59,7 +59,7 @@ items:
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Encriptação inativa com chaves do cliente
       href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Proteção Avançada Contra Ameaças (pré-visualização)
+    - name: Proteção Avançada Contra Ameaças
       href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Ativar o TLS seguro para o cliente do Armazenamento do Azure
       href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -263,9 +263,9 @@ items:
       href: https://github.com/Azure/azure-storage-ios
   - name: Ofertas de conformidade
     href: ../common/storage-compliance-offerings.md
-ms.openlocfilehash: 26892c88d38b53d97232e74ea1d271c590ca983e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: e371fe2d2b2eff9888f53b7417bb02e102970230
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878872"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791261"

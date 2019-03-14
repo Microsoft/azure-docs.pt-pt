@@ -7,12 +7,13 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: d0c54a00afd723b68bedc0a305cfb0f16edf4ac9
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.topic: conceptual
+ms.openlocfilehash: 387b4e982772f22453876e1ea8b9e7c4039601c4
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816260"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790583"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Eliminar um gateway de rede virtual com o portal
 

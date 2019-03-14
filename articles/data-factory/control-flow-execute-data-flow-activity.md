@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 4e661f838cc0b8e52ff72e4e44a43d611fa3355f
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727387"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792417"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Executar a atividade de fluxo de dados no Azure Data Factory
 Utilize a atividade de fluxo de dados de execução para executar o fluxo de dados do ADF nas execuções do pipeline debug (área de segurança) e nas execuções de pipeline acionada.
@@ -54,6 +54,12 @@ Utilize a atividade de fluxo de dados de execução para executar o fluxo de dad
 ### <a name="run-on"></a>Executar em
 
 Escolha o ambiente de computação para esta execução de seu fluxo de dados. A predefinição é o Runtime de integração do padrão de resolução automática do Azure. Esta opção irá executar o fluxo de dados no ambiente do Spark na mesma região que a fábrica de dados. O tipo de computação será um cluster de tarefa, o que significa que o ambiente de computação demorará alguns minutos para inicialização.
+
+### <a name="debugging-pipelines-with-data-flows"></a>Depurar pipelines com os fluxos de dados
+
+![Botão de depuração](media/data-flow/debugbutton.png "botão de depuração")
+
+Utilize os dados de fluxo de depuração para utilizar um cluster warmed para testar os fluxos de dados interativamente numa depuração de pipeline ser executada. Utilize a opção de depuração Pipleine para testar os fluxos de dados dentro de um pipeline.
 
 ### <a name="compute-type"></a>Tipo de computação
 

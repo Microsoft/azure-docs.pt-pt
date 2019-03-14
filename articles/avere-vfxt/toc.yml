@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Descrição geral
   items:
-  - name: O que é o Avere vFXT para Azure?
+  - name: O que é o Avere vFXT for Azure?
     href: avere-vfxt-overview.md
 - name: Conceitos
   items:
@@ -37,7 +37,7 @@ items:
     href: avere-vfxt-open-ticket.md
   - name: Projetos de demonstração
     href: avere-vfxt-demo-links.md
-  - name: Perguntas Frequentes de Avere vFXT para Azure
+  - name: Perguntas Frequentes de Avere vFXT for Azure
     href: avere-vfxt-faq.md
   - name: Documentação adicional
     items:

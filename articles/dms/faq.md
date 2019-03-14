@@ -2,7 +2,7 @@
 title: FAQ sobre como utilizar o serviço de migração de base de dados do Azure | Documentos da Microsoft
 description: Saiba as perguntas mais frequentes sobre como utilizar o serviço de migração de base de dados do Azure para efetuar migrações de base de dados.
 services: database-migration
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: f66babf5ee72876692a5ae1b371f811534db6875
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 03/12/2019
+ms.openlocfilehash: a3b32fcb7d776bd127db55ba06cfc526574e839b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452339"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790883"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sobre como utilizar o serviço de migração de base de dados do Azure
 Este artigo apresenta uma lista de perguntas frequentes sobre como utilizar o serviço de migração de base de dados do Azure em conjunto com respostas relacionadas.

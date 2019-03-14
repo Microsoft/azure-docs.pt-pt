@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 57f08426f40bf3bb37cc241d04fe50a163dadee4
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.topic: conceptual
+ms.openlocfilehash: 49a3ea97efc702a4616a48eb3b69b0868e2853f2
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296941"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792230"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Proteja e utilizar as políticas em máquinas virtuais no Azure
 

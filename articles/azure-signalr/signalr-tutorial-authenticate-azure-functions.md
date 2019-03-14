@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 3d3188afa54232e51efefa9bcf2fe8cd065a99cb
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 52bdbd1f7fb02c33e9cd6eef862d5be299bf1dad
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570968"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792349"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: Autenticação de serviço SignalR do Azure com as funções do Azure
 
@@ -113,7 +113,7 @@ Quando executar e depurar o runtime das Funções do Azure localmente, as defini
         },
         "Host": {
             "LocalHttpPort": 7071,
-            "CORS": "http://localhost:5500",
+            "CORS": "http://127.0.0.1:5500",
             "CORSCredentials": true
         }
     }
@@ -122,6 +122,9 @@ Quando executar e depurar o runtime das Funções do Azure localmente, as defini
     * Introduza a cadeia de ligação do Azure SignalR Service para uma definição chamada `AzureSignalRConnectionString`. Obtenha o valor a partir da página **Keys** (Chaves) no recurso do Azure SignalR Service no portal do Azure; pode ser utilizada a cadeia de ligação primária ou secundária.
     * A definição `WEBSITE_NODE_DEFAULT_VERSION` não é utilizada localmente, mas é necessária quando for implementada no Azure.
     * A secção `Host` configura as definições de porta e CORS do anfitrião local das Funções (esta definição não tem efeito quando estiver em execução no Azure).
+
+        > [!NOTE]
+        > Servidor ao vivo normalmente é configurado para servir conteúdo a partir de http://127.0.0.1:5500. Se achar que está a utilizar um URL diferente ou se estiver a utilizar um servidor diferente do HTTP, altere o `CORS` definição para refletir a origem correta.
 
     ![Obter a chave do SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 
@@ -320,7 +323,7 @@ Tem estado a executar a aplicação de funções e a aplicação de chat localme
     | Localização | Selecione a mesma localização como os outros recursos |
     | Desempenho | Standard |
     | Tipo de conta | StorageV2 (fins gerais v2) |
-    | Replicação | Armazenamento Localmente Redundante (LRS) |
+    | Replicação | Armazenamento localmente redundante (LRS) |
     | Camada de acesso | Acesso Frequente |
 
 1. Clique em **rever + criar**, em seguida, **criar**.
@@ -372,7 +375,7 @@ Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clie
     |---|---|
     | Pasta para implementar | Selecione a pasta de projetos principal |
     | Subscrição | Selecione a sua subscrição |
-    | Function App | Selecione **Criar Nova Aplicação de Funções** |
+    | Function app | Selecione **Criar Nova Aplicação de Funções** |
     | Nome da aplicação de funções | Introduza um nome exclusivo |
     | Grupo de recursos | Selecione o mesmo grupo de recursos da instância do SignalR Service |
     | Conta de armazenamento | Selecione a conta de armazenamento que criou anteriormente |
@@ -391,7 +394,7 @@ Ao enviar uma mensagem, a aplicação pode decidir se a envia para todos os clie
     |---|---|
     | Ficheiro de definições locais | local.settings.json |
     | Subscrição | Selecione a sua subscrição |
-    | Function App | Selecione a aplicação de funções implementada anteriormente |
+    | Function app | Selecione a aplicação de funções implementada anteriormente |
 
 As definições locais são carregadas para a aplicação de funções no Azure. Se lhe for pedido para substituir as definições existentes, selecione **Sim para tudo**.
 

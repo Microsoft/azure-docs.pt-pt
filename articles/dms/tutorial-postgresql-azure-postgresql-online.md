@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 87d4e85cec70ee8b1ac6999fb5d1888eb76988ad
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/12/2019
+ms.openlocfilehash: 54df5069970a628962f20761441a8f9947356da9
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990345"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791669"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do PostgreSQL no local para a [Base de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/) com um período de indisponibilidade mínimo. Por outras palavras, a migração pode ser feita com um período de indisponibilidade mínimo para a aplicação. Neste tutorial, vai migrar a base de dados de exemplo **Aluguer de DVDs** de uma instância no local do PostgreSQL 9.6 para a Base de Dados do Azure para PostgreSQL através de uma atividade de migração online no Azure Database Migration Service.

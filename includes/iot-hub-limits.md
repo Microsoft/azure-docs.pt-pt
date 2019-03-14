@@ -4,12 +4,12 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: ea4931bee17b57260660cc5ba80807a8ae25ca3d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20553db8c79c960aabda5aba708d315517462126
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554011"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57805183"
 ---
 A tabela seguinte lista os limites associados com os escalões de serviço diferentes S1, S2, S3 e F1. Para obter informações sobre o custo de cada *unidade* em cada escalão, consulte [preços do IoT Hub do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -70,8 +70,8 @@ IoT Hub limita os pedidos quando as quotas seguintes são ultrapassadas.
 | Receções da cloud para o dispositivo |833.33/SEC/Unit (50 000/min/unidade) (para S3), 16.67/sec/unit (1.000/min/unidade) (para S1 e S2). |
 | Operações de carregamento de ficheiros |carregamento de ficheiros 83.33 notificações/seg/unidade (5.000/min/unidade) (para S3), ficheiros 1.67 carregamento notificações/seg/unidade (100/min/unidade) (para S1 e S2). <br/> 10 000 SAS URIs podem ficar fora de uma conta de armazenamento do Azure de uma só vez.<br/> 10 SAS URIs/dispositivo podem ficar fora de uma só vez. |
 | Métodos diretos | 24 MB/seg/unidade (para S3), 480 KB/seg/unidade (para S2), 160 KB/seg/unidade (para S1).<br/> Com base no tamanho do medidor da limitação 8 KB. |
-| Leituras de dispositivo duplo | máximo de 50/seg/unidade (para S3), de 10 por segundo ou 1/seg/unidade (para S2), 10/seg (para S1). |
-| Atualizações de dispositivo duplo | máximo de 50/seg/unidade (para S3), de 10 por segundo ou 1/seg/unidade (para S2), 10/seg (para S1). |
+| Leituras de dispositivo duplo | 500/seg/unidade (para S3), máximo de 100/seg ou 10/seg/unidade (para S2), 100/seg (para S1) |
+| Atualizações de dispositivo duplo | 250/seg/unidade (para S3), máximo de 50 por segundo ou 5/seg/unidade (para S2), 50/seg (para S1) |
 | Operações de tarefas <br/> (criar, atualizar, lista e eliminar) | 83.33/SEC/Unit (5.000/min/unidade) (para S3), 1.67/sec/unit (100/min/unidade) (para S2), 1.67/sec/unit (100/min/unidade) (para S1). |
 | Débito de operação tarefas por dispositivo | máximo de 50/seg/unidade (para S3), de 10 por segundo ou 1/seg/unidade (para S2), 10/seg (para S1). |
 | Taxa de inicialização de fluxo de dispositivo | 5 novos fluxos de bytes/s (para S1, S2, S3 e apenas F1). |

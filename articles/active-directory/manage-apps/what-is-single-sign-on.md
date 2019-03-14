@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: arvindh
+ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186bc220778ed669672bfbc689dad6471195f4ce
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448565"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792043"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 Início de sessão único (SSO) adiciona segurança e conveniência, quando os utilizadores início de sessão em aplicações no Azure Active Directory (Azure AD). Este artigo descreve os métodos de início de sessão únicos e ajuda a escolher o método mais apropriado de SSO quando configurar as suas aplicações.
@@ -35,14 +35,14 @@ Existem várias formas de configurar uma aplicação para início de sessão ún
 
 Este fluxograma ajuda-o a decidir que método de início de início de sessão único é melhor para sua situação. 
 
-![Escolher método de início de sessão único](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+![Escolher método de início de sessão único](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
 
 A tabela seguinte resume os métodos de início de sessão únicos e ligações para obter mais detalhes. 
 
 | Método de início de sessão único | Tipos de aplicação | Quando utilizar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | Apenas na nuvem | Utilize o OpenID Connect e OAuth ao desenvolver um novo aplicativo. Este protocolo simplifica a configuração da aplicação, tem SDKs fácil de usar e permite que a sua aplicação para utilizar o MS Graph.
-| [SAML](#saml-sso) | Apenas na nuvem | Escolha SAML sempre que possível para os aplicativos existentes que não usam o OpenID Connect ou do OAuth. SAML funciona para as aplicações que se autenticam utilizando um dos protocolos de SAML.|
+| [SAML](#saml-sso) | na cloud e no local | Escolha SAML sempre que possível para os aplicativos existentes que não usam o OpenID Connect ou do OAuth. SAML funciona para as aplicações que se autenticam utilizando um dos protocolos de SAML.|
 | [Com base em palavra-passe](#password-based-sso) | na cloud e no local | Escolha a palavra-passe quando o aplicativo efetua a autenticação com o nome de utilizador e palavra-passe. Com base em palavra-passe de início de sessão único permite o armazenamento de palavra-passe de aplicação segura e de repetição com uma extensão de browser ou aplicação móvel. Este método utiliza o início de sessão no processo existente fornecido pela aplicação, mas permite que um administrador gerir as palavras-passe. |
 | [Ligado](#linked-sso) | na cloud e no local | Escolha ligado início de sessão único quando a aplicação está configurada para início de sessão único em outro serviço do fornecedor de identidade. Esta opção não adiciona o início de sessão único para a aplicação. No entanto, a aplicação já pode ter início de sessão único implementado através de outro serviço, como serviços de Federação do Active Directory.|
 | [Desativado](#disabled-sso) | na cloud e no local | Escolha desativado início de sessão único quando a aplicação não está pronta para ser configurado para início de sessão único. Os utilizadores têm de introduzir o respetivo nome de utilizador e a palavra-passe sempre que iniciarem esta aplicação.|

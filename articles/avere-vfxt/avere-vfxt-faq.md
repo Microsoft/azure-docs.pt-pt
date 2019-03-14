@@ -13,13 +13,13 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 03/05/2019
 ms.locfileid: "57404642"
 ---
-# <a name="avere-vfxt-for-azure-faq"></a>Perguntas Frequentes de Avere vFXT para Azure
+# <a name="avere-vfxt-for-azure-faq"></a>Perguntas Frequentes de Avere vFXT for Azure
 
 Este artigo responde às perguntas que podem ajudar a decidir se Avere vFXT para o Azure é ideal para suas necessidades. Ele fornece informações básicas sobre Avere vFXT e explica como ela funciona com outros componentes do Azure e com produtos de fornecedores externos. 
 
 ## <a name="general"></a>Geral 
 
-### <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT para Azure?
+### <a name="what-is-avere-vfxt-for-azure"></a>O que é o Avere vFXT for Azure?
 
 Avere vFXT para o Azure é um sistema de ficheiros de elevado desempenho que armazena em cache dados ativos na computação do Azure para o processamento eficiente de cargas de trabalho críticas.
 

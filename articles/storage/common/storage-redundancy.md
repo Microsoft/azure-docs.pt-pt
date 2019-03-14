@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: cbe8970e3e7b924025a93b50f9b8c9e46643b349
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 347ae6dbdbab866b6d82d64bec4e668689078429
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872051"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791244"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento do Azure
 
@@ -51,7 +51,7 @@ Para obter informações sobre o armazenamento do Azure garante-se para durabili
 > O armazenamento Premium suporta o armazenamento apenas localmente redundante (LRS).
 
 ## <a name="changing-replication-strategy"></a>Alterar a estratégia de replicação
-Permitimos que mudam a estratégia de replicação de sua conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou um dos muitos [ Bibliotecas de cliente do Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da conta de armazenamento não resulta num período de indisponibilidade.
+Pode alterar a estratégia de replicação da conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou uma do [cliente do Azure bibliotecas](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da conta de armazenamento não resulta num período de indisponibilidade.
 
    > [!NOTE]
    > Atualmente, não é possível utilizar o Portal ou a API para converter a sua conta ZRS. Se pretender converter a replicação da sua conta ZRS, veja [armazenamentoredundância de zona (ZRS)](storage-redundancy-zrs.md) para obter detalhes.
@@ -59,7 +59,9 @@ Permitimos que mudam a estratégia de replicação de sua conta de armazenamento
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>Existem custos para alterar a estratégia de replicação da minha conta?
 Depende de seu caminho de conversão. Ordenação de mais barato da oferta de redundância mais caras temos LRS, ZRS, GRS e RA-GRS. Por exemplo, irá *partir* LRS a nada serão aplicados custos adicionais, uma vez que vai para um nível de redundância mais sofisticado. Vai *para* GRS ou RA-GRS será cobrado um custo de largura de banda de saída porque os dados (em sua região primária) está a ser replicados para a região secundária remoto. Este é um custo único na configuração inicial. Depois dos dados são copiados, não existem mais conversão custos. Apenas serão cobrados para replicar qualquer novo ou de atualizações nos dados existentes. Para obter detalhes sobre os custos de largura de banda, consulte [página de preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-Se alterar o GRS para LRS, não existe nenhum custo adicional, mas os dados replicados são eliminados da localização secundária.
+Se converter sua conta de armazenamento de GRS para LRS, não existe nenhum custo adicional, mas os dados replicados são eliminados da localização secundária.
+
+Se converter sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta é faturada como RA-GRS para 30 dias adicionais para além da data em que foi convertido.
 
 ## <a name="see-also"></a>Consulte também
 

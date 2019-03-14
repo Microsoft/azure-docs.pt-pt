@@ -6,12 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/8/2019
 ms.author: victorh
-ms.openlocfilehash: 95d443eeebf2fe5a8fad185210f88576a5f21f6a
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.topic: conceptual
+ms.openlocfilehash: 2f0bd0a20b866d342802014f1034a7ed9d939d53
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435300"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792247"
 ---
 # <a name="url-path-based-routing-overview"></a>Descrição geral do Encaminhamento Baseado no Caminho do URL
 

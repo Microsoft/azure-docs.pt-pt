@@ -2,16 +2,17 @@
 title: Composição de descrição geral - Azure Batch
 description: Introdução ao utilizar o Azure para o processamento e uma descrição geral das capacidades de composição do Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: dbe3fe59fd2674cf3475fc5b589a2c938e706ab2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d4423b22c4c8afea5afa9c7040e081665b17ba87
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441343"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790345"
 ---
 # <a name="rendering-using-azure"></a>Composição com o Azure
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed8a07a5578174bec758587fbdbc0710ffae9dc1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e9212493d574762bed3f2204716bd0c81686e93e
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171762"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791295"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Exemplos de código do Azure Active Directory (ponto final v2.0)
 
@@ -63,7 +63,7 @@ As seguintes amostras ilustram aplicativos da web que iniciar sessão dos utiliz
 
  Plataforma | Apenas inicia sessão dos utilizadores | Inicia sessão dos utilizadores e chama o Microsoft Graph
  -------- | ------------------- | ---------------------------------
-![Núcleo de ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) | Mesmo de exemplo no [aspnetcore2-2-signInAndCallGraph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/aspnetcore2-2-signInAndCallGraph) ramo
+![Núcleo de ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.1 | [Tutorial de utilizadores inicia sessão do ASP.NET Core WebApp](https://aka.ms/aspnetcore-webapp-sign-in) | Mesmo de exemplo no [aplicação Web ASP.NET Core chama Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph) fase
 ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Início rápido do ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p>[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 ![Node.js](media/sample-v2-code/logo_nodejs.png)  |                   | [Guia de introdução do node. js](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)
 ![Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp)

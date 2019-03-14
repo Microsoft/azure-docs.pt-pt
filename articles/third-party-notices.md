@@ -1,10 +1,13 @@
 ---
-ms.openlocfilehash: 7eab9e74cac444671e9ce2a6081359a1f01eabd0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.service: azure
+ms.topic: conceptual
+ms.date: 03/08/2019
+ms.openlocfilehash: 2b1fc99fe179187c6431d9a999628db76885e553
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543139"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789678"
 ---
 # <a name="legal-notices"></a>Avisos legais
 

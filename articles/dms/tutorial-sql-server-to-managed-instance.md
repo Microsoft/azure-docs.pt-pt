@@ -2,7 +2,7 @@
 title: 'Tutorial: Utilizar o DMS para migrar para uma instância gerida da base de dados do Azure SQL | Documentos da Microsoft'
 description: Saiba como migrar a partir do SQL Server no local para uma instância gerida da base de dados do Azure SQL utilizando o serviço de migração de base de dados do Azure.
 services: dms
-author: pochiraju
+author: HJToland3
 ms.author: rajpo
 manager: craigg
 ms.reviewer: douglasl
@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/28/2019
-ms.openlocfilehash: 100b2d9b6b39786675edb6683574409f96a6e9c7
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.date: 03/12/2019
+ms.openlocfilehash: 243ffb4167060fb2b74d9b7ebf280fec6a540da5
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992588"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791771"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para uma instância gerida da base de dados do Azure SQL offline com o DMS
 

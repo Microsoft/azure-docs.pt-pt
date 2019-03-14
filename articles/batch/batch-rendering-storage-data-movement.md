@@ -2,16 +2,17 @@
 title: Movimento de dados e armazenamento para a composição - Azure Batch
 description: Opções de movimento de dados e armazenamento para cargas de trabalho de composição
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 15f5fe6e74cbe8cbffff31114e8aa588ec4a7ebb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5a0d4dc82995e63697cc673bc54695c9c6d586df
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538005"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790251"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opções de movimento de dados e armazenamento para o processamento de ficheiros ativos e de saída
 

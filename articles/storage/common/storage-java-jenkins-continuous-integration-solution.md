@@ -5,15 +5,16 @@ ms.topic: article
 ms.author: tarcher
 author: tarcher
 services: devops
+ms.service: storage
 custom: jenkins
 ms.date: 07/31/2018
 ms.subservice: common
-ms.openlocfilehash: 22db4690ccbd05b25f907e2d2134fa7ce5233d60
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2aeab9be28a61f4e185be7192e7965cbf02bfed9
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476898"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791992"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilizar o armazenamento do Azure com uma solução de integração contínua Jenkins
 

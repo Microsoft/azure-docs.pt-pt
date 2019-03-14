@@ -13,12 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 08/21/2017
 ms.author: cynthn
-ms.openlocfilehash: c49f55e8241603a5f4a0883453010232b0675429
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.topic: conceptual
+ms.openlocfilehash: 1457c22034a9d6994485a297b3cb01bc05dcd9d6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660753"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790191"
 ---
 # <a name="automatically-scale-virtual-machines-in-azure"></a>Dimensionar automaticamente máquinas virtuais no Azure
 

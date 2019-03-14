@@ -10,15 +10,14 @@ tags: azure-service-management
 ms.devlang: na
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
-ms.technology: database-engine
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: de8cc3822ea50f3950e44488e70cc858794abdb2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7d33fb24e08ea0a726f9f8e51eacf17fd22efaf9
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760536"
+ms.locfileid: "57791142"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionar uma máquina virtual do SQL Server do Linux no portal do Azure
 
@@ -178,7 +177,7 @@ Se tiver de ligar remotamente ao SQL Server na VM do Azure, tem de configurar um
 1. No painel de navegação esquerdo, sob **configurações**, selecione **Networking**.
 1. Na janela do funcionamento em rede, selecione **adicionar porta de entrada** sob **regras de porta de entrada**.
 
-   ![Regras de porta de entrada](./media/provision-sql-server-linux-virtual-machine/networking.png)
+   ![Regras da porta de entrada](./media/provision-sql-server-linux-virtual-machine/networking.png)
 
 1. Na lista **Serviço**, selecione **MS SQL**.
 

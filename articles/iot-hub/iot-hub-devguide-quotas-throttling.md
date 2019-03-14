@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 31d3c404d22c9b8ad66c2d5d1adf34c38cc4a682
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010859"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791380"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e limitação
 
@@ -42,8 +42,8 @@ A tabela seguinte mostra os imposto limitadores. Valores referem-se para um hub 
 | Na cloud para o dispositivo recebe<sup>1</sup> <br/> (apenas quando dispositivo utiliza HTTPS)| 16.67/SEC/Unit (1000/min/unidade) | 16.67/SEC/Unit (1000/min/unidade) | 833.33/SEC/Unit (50000/min/unidade) |
 | Carregamento de ficheiros | ficheiro 1.67 carregamento notificações/seg/unidade (100/min/unidade) | ficheiro 1.67 carregamento notificações/seg/unidade (100/min/unidade) | ficheiro 83.33 carregamento notificações/seg/unidade (5000/min/unidade) |
 | Métodos diretos<sup>1</sup> | 160KB/seg/unidade<sup>2</sup> | 480KB/seg/unidade<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
-| Duplo (dispositivo e módulo) leituras<sup>1</sup> | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
-| Duplo atualizações (dispositivo e módulo)<sup>1</sup> | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
+| Duplo (dispositivo e módulo) leituras<sup>1</sup> | 100/seg | Mais de 100/seg ou 10/seg/unidade | 500/seg/unidade |
+| Duplo atualizações (dispositivo e módulo)<sup>1</sup> | 50/seg | Mais de 50 por segundo ou 5/seg/unidade | 250/seg/unidade |
 | Tarefas de operações<sup>1,3</sup> <br/> (criar, atualizar, listar, eliminar) | 1.67/SEC/Unit (100/min/unidade) | 1.67/SEC/Unit (100/min/unidade) | 83.33/SEC/Unit (5000/min/unidade) |
 | Tarefas de operações de dispositivo<sup>1</sup> <br/> (atualizar duplo, invocar o método direto) | 10/seg | Mais de 10 por segundo ou 1/seg/unidade | 50/seg/unidade |
 | Configurações e implementações de borda<sup>1</sup> <br/> (criar, atualizar, listar, eliminar) | 0.33/SEC/Unit (20/min/unidade) | 0.33/SEC/Unit (20/min/unidade) | 0.33/SEC/Unit (20/min/unidade) |
@@ -52,7 +52,7 @@ A tabela seguinte mostra os imposto limitadores. Valores referem-se para um hub 
 | Transferência de dados de fluxo de dispositivo máximo<sup>4</sup> (agregar volume por dia) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md). <br/><sup>2</sup>limitação de tamanho do medidor é de 8 KB. <br/><sup>3</sup>só pode ter uma tarefa de importação/exportação de dispositivos ativos por vez. <br/><sup>4</sup>só estão disponíveis para S1, S2, S3, F1 do SKU e fluxos de dispositivo do IoT Hub.
+<sup>1</sup>esta funcionalidade não está disponível no escalão básico do IoT Hub. Para obter mais informações, consulte [como escolher o IoT Hub certo](iot-hub-scaling.md). <br/><sup>2</sup>limitação de tamanho do medidor é de 4 KB. <br/><sup>3</sup>só pode ter uma tarefa de importação/exportação de dispositivos ativos por vez. <br/><sup>4</sup>só estão disponíveis para S1, S2, S3, F1 do SKU e fluxos de dispositivo do IoT Hub.
 
 O *ligações de dispositivos* limitação rege a taxa a que seja possível estabelecer novas ligações de dispositivo com um hub IoT. O *ligações de dispositivos* limitação não controlam o número máximo de dispositivos ligados em simultâneo. O *ligações de dispositivos* limitação de taxa depende do número de unidades que sejam aprovisionados para o hub IoT.
 

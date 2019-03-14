@@ -16,12 +16,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 9bad9b6fb285c27264c8c0567aebd4d4f2850582
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 66dfdf3a88a4bacdc118fed00d79f02b22da7869
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731338"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792468"
 ---
 # <a name="azure-stack-1902-update"></a>Atualização de 1902 de pilha do Azure
 
@@ -73,9 +73,34 @@ Correções de pilha do Azure só são aplicáveis a sistemas integrados do Azur
 
 <!-- ## Fixed issues -->
 
-## <a name="changes"></a>Alterações
+## <a name="improvements"></a>Melhorias
 
 - A compilação de 1902 introduz uma nova interface de utilizador no portal do administrador do Azure Stack para a criação de planos, ofertas, quotas e planos de suplementos. Para obter mais informações, incluindo capturas de ecrã, consulte [criar planos, ofertas e quotas](azure-stack-create-plan.md).
+
+<!--
+1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
+1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
+1398846 Bug 3751038: ECEClient.psm1 should provide cmdlet to resume action plan instance    PNU
+1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
+1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
+-->
+- Para melhorar a integridade do pacote e segurança, bem como gestão mais simples para ingestão offline, a Microsoft alterou o formato do pacote de atualização de ficheiros. .exe e. bin para um ficheiro. zip. O novo formato adiciona mais confiabilidade do processo de descompactação que às vezes, podem causar a preparação da atualização estagne. O mesmo formato de pacote também se aplica ao atualizar a partir de seu OEM.
+- Para melhorar a experiência do operador do Azure Stack ao executar o teste AzureStack, operadores agora basta usar, "Test-AzureStack-grupo UpdateReadiness" em vez de passar parâmetros adicionais dez após uma instrução de inclusão.
+
+  ```powershell
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- Para melhorar a fiabilidade e disponibilidade dos serviços de infraestrutura de núcleo geral durante o processo de atualização, o fornecedor de recursos de atualização nativo como parte do plano de ação de atualização irá detetar e invocar automática remediações global, conforme necessário. Fluxos de trabalho de remediação global "reparar" incluem:
+    - Verificar a existência de máquinas de virtuais de infraestrutura que estão num Estado não ideal e tentar repará-lo conforme necessário 
+    - Verifique a existência de problemas de serviço do SQL como parte do plano de controle e tentar repará-lo conforme necessário
+    - Verifique o estado do serviço de Balanceador de carga de Software (SLB) como parte do controlador de rede (NC) e tentar repará-lo conforme necessário
+    - Verifique o estado do serviço de controlador de rede (NC) e tentam repará-la conforme necessário
+    - Verifique o estado de nós de recursos de infraestrutura do serviço do serviço de consola de recuperação de emergência (ERCS) e repará-los, conforme necessário
+    - Verifique o estado de nós de recursos de infraestrutura do serviço XRP e repará-los, conforme necessário
+    - Verifique o estado de nós de recursos de infraestrutura do serviço de armazenamento consistente do Azure (ACS) e repará-los, conforme necessário
+
+
 
 ## <a name="common-vulnerabilities-and-exposures"></a>Vulnerabilidades e exposições comuns
 
@@ -174,7 +199,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
    Para certificar-se de que o processo de patch e atualização resulta no menor período de tempo de inatividade do inquilino, certifique-se do carimbo de data do Azure Stack tem mais de 12 GB de espaço disponível na **capacidade** painel. Pode ver esta memória aumentar refletidas na **capacidade** painel após uma instalação com êxito da atualização.
 
-### <a name="networking"></a>Funcionamento em Rede  
+### <a name="networking"></a>Redes  
 
 <!-- 3239127 - IS, ASDK -->
 - No portal do Azure Stack, quando altera um endereço IP estático para uma configuração de IP que está vinculado a um adaptador de rede anexado a uma instância VM, verá uma mensagem de aviso que indica 

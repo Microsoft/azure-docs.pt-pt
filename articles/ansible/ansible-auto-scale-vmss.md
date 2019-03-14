@@ -1,19 +1,19 @@
 ---
 title: Dimensionar automaticamente um conjunto de dimensionamento no Azure com o Ansible
 description: Saiba como utilizar o Ansible para dimensionar um conjunto de dimensionamento com o dimensionamento automático no Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, dimensionamento, dimensionamento automático, máquina virtual, o conjunto de dimensionamento de máquina virtual, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 578ad3207f62e74805be056ca11d3bd9b46513da
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157059"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792434"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Dimensionar automaticamente um conjunto de dimensionamento no Azure com o Ansible
 O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o seu conjunto de dimensionamento de máquinas virtuais (VMSS) no Azure, tal como faria em qualquer outro recurso do Azure. 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 1eebc879ad56ba4f35e6a8a1b857ae877a6a2f01
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: af2225d749283c7124f89d5a7cd735b2f6bfd121
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726265"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792621"
 ---
 # <a name="mapping-data-flow-union-transformation"></a>Transformação union do fluxo de dados de mapeamento
 
@@ -20,7 +20,7 @@ ms.locfileid: "57726265"
 
 União vai juntar vários fluxos de dados em um, com o SQL Union um desses fluxos como a nova saída da transformação Union. Do esquema de cada fluxo de entrada será possível combinar tudo dentro de seu fluxo de dados, sem a necessidade de ter uma chave de junção.
 
-Pode combinar n-número de fluxos na tabela de definições ao selecionar o ícone de "+" junto a cada linha configurado.
+Pode combinar n-número de fluxos na tabela de definições ao selecionar o ícone de "+" junto a cada linha configurada, incluindo os dados de origem, bem como fluxos de transformações existentes no seu fluxo de dados.
 
 ![Transformação Union](media/data-flow/union.png "Union")
 
@@ -35,3 +35,15 @@ Para conseguir isso, adicione linhas adicionais nas definições de União, incl
 Se definir uma transformação selecione após sua União, poderá mudar o nome sobrepostos campos ou campos que não foram com o nome de origens headerless. Clique em "Inspect" para ver os metadados de combinação com 132 colunas total neste exemplo de três origens diferentes:
 
 ![Transformação Union final](media/data-flow/union333.png "Union 3")
+
+## <a name="name-and-position"></a>Nome e a posição
+
+Ao escolher "union por nome de", cada valor de coluna irá largar na coluna correspondente de cada origem, com um novo esquema de metadados concatenada.
+
+Se optar por "union pela posição", cada valor de coluna irá largar na posição original de cada origem correspondente, resultando num novo combinado fluxo de dados onde os dados de cada origem são adicionados no mesmo fluxo:
+
+![Saída Union](media/data-flow/unionoutput.png "Union de saída")
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Explore as transformações semelhantes, incluindo [aderir](data-flow-join.md) e [Exists](data-flow-exists.md).

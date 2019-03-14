@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 02/22/2019
-ms.openlocfilehash: 01b0a86ede79187d8f180df0f2f71f6eaadb7428
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990540"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791958"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações no Azure Stack
 
@@ -147,11 +147,11 @@ O certificado para a identidade tem de conter um assunto que corresponde ao form
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>Validar certificados
-Antes de implementar o fornecedor de recursos do serviço de aplicações, deve [validar os certificados para ser utilizado](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) utilizando a ferramenta do Verificador de preparação do Azure Stack disponível a partir do [galeria do PowerShell](https://aka.ms/AzsReadinessChecker). A ferramenta de verificação da preparação do Azure Stack valida que os certificados PKI gerados são adequados para implementação de serviços de aplicações. 
 
-Como melhor prática, ao trabalhar com todas as informações necessárias [certificados PKI de pilha do Azure](azure-stack-pki-certs.md), deve planear a deixe tempo suficiente para testar e volte a emitir certificados, se necessário. 
+Antes de implementar o fornecedor de recursos do serviço de aplicações, deve [validar os certificados para ser utilizado](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) utilizando a ferramenta do Verificador de preparação do Azure Stack disponível a partir do [galeria do PowerShell](https://aka.ms/AzsReadinessChecker). A ferramenta de verificação da preparação do Azure Stack valida que os certificados PKI gerados são adequados para implementação de serviços de aplicações.
+
+Como melhor prática, ao trabalhar com todas as informações necessárias [certificados PKI de pilha do Azure](azure-stack-pki-certs.md), deve planear a deixe tempo suficiente para testar e volte a emitir certificados, se necessário.
 
 ## <a name="virtual-network"></a>Rede virtual
 
@@ -170,6 +170,15 @@ Sub-redes
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>Preocupações de licenciamento para o servidor de ficheiros necessários e o SQL Server
+
+Serviço de aplicações do Azure no Azure Stack requer um servidor de ficheiros e o SQL Server para operar.  É livre para utilizar recursos pré-existentes localizados fora da sua implementação do Azure Stack ou implementar recursos na sua subscrição de fornecedor predefinido do Azure Stack.
+
+Se optar por implementar os recursos na sua subscrição de fornecedor predefinido do Azure Stack, as licenças para esses recursos (licenças do Windows Server e licenças do SQL Server) estão incluídas no custo do serviço de aplicações do Azure no Azure Stack, sujeitos aos seguintes restrições:
+
+- a infraestrutura é implementada para o **subscrição do fornecedor predefinido**;
+- a infraestrutura exclusivamente é utilizada pelo serviço de aplicações do Azure no fornecedor de recursos do Azure Stack.  Outras cargas de trabalho administrativas (outros fornecedores de recursos, por exemplo SQL-RP) ou ao inquilino (por exemplo inquilino as aplicações, que requerem uma base de dados), não são permitidos para tornar usar essa infra-estrutura.
+
 ## <a name="prepare-the-file-server"></a>Preparar o servidor de ficheiros
 
 Serviço de aplicações do Azure requer a utilização de um servidor de ficheiros. Para implementações de produção, o servidor de ficheiros tem de ser configurado para ser elevada disponibilidade e capacidade de processamento de falhas.
@@ -180,7 +189,7 @@ Para apenas para implementações do Azure Stack Development Kit, pode utilizar 
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>Modelo de início rápido para o servidor de ficheiros altamente disponíveis e o SQL Server
 
-R [modelo de início rápido de arquitetura de referência](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) estão agora disponíveis, que irá implementar o servidor de ficheiros, SQL Server, Active Directory de suporte infraestrutura numa rede Virtual configurado para suportar uma implementação de elevada disponibilidade do Serviço de aplicações do Azure no Azure Stack.  
+R [modelo de início rápido de arquitetura de referência](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) estão agora disponíveis, que irá implementar o servidor de ficheiros, SQL Server, Active Directory de suporte infraestrutura numa rede Virtual configurado para suportar uma implementação de elevada disponibilidade do Serviço de aplicações do Azure no Azure Stack.
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>Passos para implementar um servidor de ficheiros personalizada
 
@@ -303,12 +312,11 @@ Para qualquer uma das funções do SQL Server, pode utilizar uma instância pred
 O instalador do serviço de aplicações irá verificar para garantir que o SQL Server tem de contenção da base de dados ativada. Para ativar a contenção da base de dados no SQL Server que alojará as bases de dados do serviço de aplicações, execute estes comandos SQL:
 
 ```sql
-sp_configure 'contained database authentication', 1;  
-GO  
-RECONFIGURE;  
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
 GO
 ```
-
 
 >[!IMPORTANT]
 > Se optar por implementar o serviço de aplicações numa rede Virtual existente, o SQL Server devem ser implementado numa sub-rede separada do serviço de aplicações e o servidor de ficheiros.

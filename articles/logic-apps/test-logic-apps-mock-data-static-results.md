@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: 43256e13dc1dd3263b213cc1e4a1e1c07af3b5c8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/12/2019
+ms.openlocfilehash: 23cce4d846cdf183f41b25663ba21d3bf1d27013
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786585"
+ms.locfileid: "57791005"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testar aplicações lógicas com dados fictícios ao configurar resultados estáticos
 
@@ -67,6 +67,10 @@ Por exemplo, se configurar resultados estáticos para o Outlook 365 enviar a aç
 
    ![Mostrar ícone ativada resultados estáticos](./media/test-logic-apps-mock-data-static-results/static-results-enabled.png)
 
+   Após a execução da sua aplicação lógica, no histórico de execuções da sua aplicação lógica, o **resultados estático** coluna mostra se a uma execução específica inclui ações que têm resultados estáticos ativados, por exemplo:
+
+   ![Executar histórico - coluna de resultados estático](./media/test-logic-apps-mock-data-static-results/run-history.png)
+
 <a name="reuse-sample-outputs"></a>
 
 ## <a name="reuse-previous-outputs"></a>Reutilizar saídas anteriores
@@ -101,7 +105,7 @@ Se a sua aplicação lógica tiver anterior executar com saídas que pode reutil
 
    ![Modo JSON](./media/test-logic-apps-mock-data-static-results/json-editing-mode.png)
 
-1. Se tiver terminado, escolha **feito**. Ou, para voltar ao estruturador, escolha **modo de edição de comutador** (![escolha "Modo de edição de comutador"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
+1. Quando tiver terminado, selecione **Concluído**. Ou, para voltar ao estruturador, escolha **modo de edição de comutador** (![escolha "Modo de edição de comutador"](./media/test-logic-apps-mock-data-static-results/switch-editor-mode-button.png)).
 
 ## <a name="disable-static-results"></a>Desativar resultados estáticos
 

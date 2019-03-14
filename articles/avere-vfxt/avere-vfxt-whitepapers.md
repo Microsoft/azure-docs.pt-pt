@@ -23,7 +23,7 @@ Os recursos nesta tabela incluem estudos de caso, White Papers de tecnologia, in
 
 Este guia fornece orientações passo a passo para instalar o Agisoft PhotoScan software photogrammetry apoiada pelo armazenamento de vFXT Avere ou sistema de ficheiros paralelos BeeGFS. O autor, Paulo Marques da Costa do AzureCAT, mostra como configurar a PhotoScan em máquinas virtuais do Azure (VMs). Armazenamento de elevado desempenho acelera o tempo de processamento e os resultados de seus testes de benchmark estão incluídos. Este ambiente pode ser aumentado e diminuído conforme necessário e suporta terabytes de armazenamento sem sacrificar o desempenho.
 
-## <a name="datasheet-avere-vfxt-for-azure"></a>Folha de dados: Avere vFXT para Azure
+## <a name="datasheet-avere-vfxt-for-azure"></a>Folha de dados: Avere vFXT for Azure
 
 **Link:** [Avere vFXT para folha de dados do Azure](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
 

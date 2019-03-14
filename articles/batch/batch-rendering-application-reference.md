@@ -2,16 +2,17 @@
 title: Utilizar aplicações de composição - Azure Batch
 description: Como utilizar aplicações de composição com o Azure Batch
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6714d8d2a086980fce37cd2912f8ff6360558d15
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542776"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789595"
 ---
 # <a name="rendering-applications"></a>Aplicações de composição
 

@@ -6,6 +6,7 @@ documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
 editor: ''
+ms.service: marketplace
 ms.assetid: ''
 ms.workload: ''
 ms.tgt_pltfrm: ''
@@ -13,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: bfc4f6cbe289326e3a7a2a6ea0a46221e7578d7e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f194b02e5b92ca2de5b58a033c38d4f2e35f93f6
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729088"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790921"
 ---
 # <a name="add-bank-and-tax-information"></a>Adicionar informações bancárias e imposto  
 As informações do banco e o imposto são necessárias para todas as ofertas comerciais usando transact listagem tipo.  

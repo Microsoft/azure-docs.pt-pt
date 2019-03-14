@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 3e8014a9cb2353ef65482aa35a1e686567ca6e35
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.topic: conceptual
+ms.openlocfilehash: 29c2e53c4fb496e0f12e04f08b0add4273db25a7
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315049"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790163"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de tamanho de pedido de firewall de aplicação Web e listas de exclusão
 

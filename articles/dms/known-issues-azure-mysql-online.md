@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: be6c31840abcf2503293c381aad2848afebe3d9b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/12/2019
+ms.openlocfilehash: 75549302ca5d942a8a56cd9f72bc34297078a1e1
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337129"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790820"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Limitações de migração/problemas conhecidos com migrações online BD do Azure para MySQL
 

@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 82559c89094649b377dc2a898798ce6aad5fbcc7
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d3cabbcc04766d4a209ecf96db3f842902b465a5
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570492"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792400"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuração de fluxo de dados de mapeamento
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-O Azure Data Factory mapeamento de fluxo de dados tem um modo de depuração, o que pode ser ativado com o botão de depuração na parte superior da superfície de design. Quando a criação de fluxos de dados, definir o modo de depuração no permitirá que veja interativamente os dados a transformação de forma, enquanto que criar e depurar seus fluxos de dados.
+O Azure Data Factory mapeamento de fluxo de dados tem um modo de depuração, o que pode ser ativado com o botão de dados de fluxo de depuração na parte superior da superfície de design. Quando a criação de fluxos de dados, definir o modo de depuração no permitirá que veja interativamente os dados a transformação de forma, enquanto que criar e depurar seus fluxos de dados. A sessão de depuração pode ser usada tanto em sessões de design de fluxo de dados, bem como durante a execução de depuração do pipeline de fluxos de dados.
 
-<img src="media/data-flow/debugbutton.png" width="400">
+![Botão de depuração](media/data-flow/debugbutton.png "botão de depuração")
 
 ## <a name="overview"></a>Descrição geral
-Quando o modo de depuração está ativado, irá criar interativamente o fluxo de dados com um cluster de interativo do Azure Databricks em execução. A sessão será fechada depois de desativar depuração no Azure Data Factory. Deve estar ciente de custos por hora, incorridos ao Azure Databricks durante o tempo que tem a sessão de depuração ativada.
+Quando o modo de depuração está ativado, irá criar interativamente o fluxo de dados com um cluster do Spark Active Directory. A sessão será fechada depois de desativar depuração no Azure Data Factory. Deve estar ciente de custos por hora, incorridos ao Azure Databricks durante o tempo que tem a sessão de depuração ativada.
 
-Na maioria dos casos, é uma boa prática para criar seus fluxos de dados no modo de depuração para que possa validar sua lógica de negócio e ver as transformações de dados antes de publicar o seu trabalho no Azure Data Factory.
+Na maioria dos casos, é uma boa prática para criar seus fluxos de dados no modo de depuração para que possa validar sua lógica de negócio e ver as transformações de dados antes de publicar o seu trabalho no Azure Data Factory. Também deve utilizar o botão "Depuração" no painel de pipeline para testar o fluxo de dados dentro de um pipeline.
 
 ## <a name="debug-mode-on"></a>Modo de depuração no
 Quando mudar no modo de depuração, será solicitado um formulário de painel lateral que irá pedir-lhe para apontar para o cluster do Azure Databricks interativo e selecione as opções para a amostragem de origem. Tem de utilizar um cluster interativo do Azure Databricks e selecione um tamanho de amostragem de cada um de seus transformações de origem ou escolher um ficheiro de texto a utilizar para os seus dados de teste.
@@ -54,3 +54,9 @@ Com depuração no, a guia visualização de dados será light cópia de seguran
 Selecionar colunas individuais na sua aba de pré-visualização de dados serão um gráfico na extremidade direita da sua grade de dados com estatísticas detalhadas sobre cada campo de pop-up. O Azure Data Factory fará com que a determinação com base na amostragem de dados, o tipo de gráfico para apresentar. Campos de alta cardinalidade serão predefinido para NULL / NOT NULL gráficos, enquanto os dados categóricos e numéricos que tem a cardinalidade baixa apresentará os gráficos de barras que mostra a frequência de valor de dados. Também verá máximo / len comprimento dos campos de cadeia de caracteres, Mín / Máx. de valores nos campos numéricos, desenvolvimento padrão, percentis, contagens e média. 
 
 <img src="media/data-flow/chart.png" width="400">
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Assim que estiver terminado de criar e depurar o fluxo de dados, [executá-lo a partir de um pipeline.](control-flow-execute-data-flow-activity.md)
+
+Ao testar o seu pipeline com um fluxo de dados, utilizar o pipeline [depuração executa a opção de execução.](iterative-development-debugging.md)

@@ -6,12 +6,13 @@ author: vhorne
 ms.service: dns
 ms.date: 2/19/2019
 ms.author: victorh
-ms.openlocfilehash: 85f7318ac584e324f58d2ad470dc896e79e416d5
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.topic: conceptual
+ms.openlocfilehash: 70c1c1ab0dd5d1998054cf0c68325022803dff06
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417893"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791618"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegação de zonas DNS com o DNS do Azure
 

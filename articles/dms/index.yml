@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 086a425be743772b6419a9473ad497a310d94842
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 0ce1426337c8b564a2626da1ac52c39fa6460a87
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671952"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791091"
 documentType: LandingData
 title: Documentação do Azure Database Migration Service
 metadata:
@@ -12,12 +12,12 @@ metadata:
   title: Documentação do Azure Database Migration Service - Tutoriais | Microsoft Docs
   meta.description: Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service.
   services: functions
-  author: pochiraju
+  author: HJToland3
   manager: craigg
   ms.service: dms
   ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 12/12/2018
+  ms.date: 03/12/2019
   ms.author: rajpo
 abstract:
   description: O Azure Database Migration Service permite migrações totalmente integradas a partir de várias origens de bases de dados para as plataformas de Dados do Azure com um período de indisponibilidade mínimo. O serviço utiliza o Assistente de Migração de Dados para gerar relatórios de avaliação que fornecem recomendações para o guiar pelas alterações necessárias antes de realizar uma migração. Quando estiver preparado para iniciar o processo de migração, o Azure Database Migration Service realiza todos os passos necessários.
