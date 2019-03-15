@@ -71,7 +71,7 @@
       "breadcrumb_path": "/azure/bread/toc.json",
       "brand": "azure",
       "searchScope": ["Azure"],
-      "contributors_to_exclude": ["PRMerger5", "PRMerger4", "PRMerger3", "PRMerger-2","hexiaokai", "openpublishingbuild", "tysonn", "v-anpasi", "kiwhit",
+      "contributors_to_exclude": ["PRMerger9", "PRMerger17", "PRMerger5", "PRMerger4", "PRMerger3", "PRMerger-2","hexiaokai", "openpublishingbuild", "tysonn", "v-anpasi", "kiwhit",
          "ShawnJackson", "PRmerger", "DuncanmaMSFT", "Saisang", "Ja-Dunn", "jomolnar", "KatieCumming", "rjagiewich", "v-thepet", "deneha", "ktoliver",
          "itechedit", "MattGLaBelle", "Lisaco88", "GitHubber17", "v-shils", "rmca14", "tfosmark", "sdwheeler"],
       "_op_documentIdPathDepotMapping": {
@@ -294,6 +294,7 @@
         "articles/service-fabric/**/*.md": "https://feedback.azure.com/forums/293901-service-fabric",
         "articles/service-health/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/site-recovery/**/*.md": "https://feedback.azure.com/forums/256299-site-recovery",
+	"articles/spatial-anchors/**/*.md": "https://feedback.azure.com/forums/919252-azure-spatial-anchors",
         "articles/sql-data-warehouse/**/*.md": "https://feedback.azure.com/forums/307516-sql-data-warehouse",
         "articles/sql-database/**/*.md": "https://feedback.azure.com/forums/217321-sql-database",
         "articles/sql-server-stretch-database/**/*.md": "https://feedback.azure.com/forums/217321-sql-database",
