@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 27062d4c0af36f9f9590e07c80e64ea407e6b8c8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01efbd928630b491419f6231007590c4f0fb0b22
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888490"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gerir capturas de pacotes com o observador de rede do Azure com o PowerShell
 
@@ -266,7 +266,7 @@ Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -Packe
 
 ## <a name="download-a-packet-capture"></a>Transferir uma captura de pacotes
 
-Depois de concluída a sua sessão de captura de pacotes, pode carregar o ficheiro de captura para o armazenamento de BLOBs ou para um ficheiro local na VM. A localização de armazenamento da captura de pacotes é definida durante a criação da sessão. Uma ferramenta conveniente para aceder a estes ficheiros de captura guardados para uma conta de armazenamento é Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  http://storageexplorer.com/
+Depois de concluída a sua sessão de captura de pacotes, pode carregar o ficheiro de captura para o armazenamento de BLOBs ou para um ficheiro local na VM. A localização de armazenamento da captura de pacotes é definida durante a criação da sessão. Uma ferramenta conveniente para aceder a estes ficheiros de captura guardados para uma conta de armazenamento é Explorador de armazenamento do Microsoft Azure, que pode ser baixado aqui:  https://storageexplorer.com/
 
 Se for especificada uma conta de armazenamento, os arquivos de captura de pacotes são guardados para uma conta de armazenamento na seguinte localização:
 

@@ -6,15 +6,15 @@ keywords: Clip; subclip; codificação; suporte de dados
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: bfd27e95ef46fbd8edd35a9e6d39675dc895adde
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 41fd483a0b78619db6d018cf4b2ab7933a7c3031
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432367"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015254"
 ---
 # <a name="configure-localization"></a>Configurar localização 
 

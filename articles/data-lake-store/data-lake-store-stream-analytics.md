@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: e52cf99e3bdd1960ca361ccde50d85dfaa2209c0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1b18bd5aae398d2ec942120af5d96943636c346c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544925"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101116"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Dados de Stream do Azure Storage Blob para a geração 1 de armazenamento do Azure Data Lake com o Azure Stream Analytics
 Neste artigo, aprenderá como usar Gen1 de armazenamento do Azure Data Lake como uma saída para uma tarefa do Azure Stream Analytics. Este artigo demonstra um cenário simples que lê dados a partir de um blob de armazenamento do Azure (entrada) e escreve os dados de geração 1 de armazenamento do Data Lake (saída).
@@ -54,17 +54,17 @@ Comece por criar uma tarefa do Stream Analytics que inclui uma origem de entrada
 
     ![Adicionar uma entrada para a tarefa](./media/data-lake-store-stream-analytics/create.input.2.png "adicionar uma entrada para a tarefa")
 
-    * Para **alias de entrada**, introduza um nome exclusivo para a tarefa de entrada.
-    * Para **tipo de origem**, selecione **fluxo de dados**.
-    * Para **origem**, selecione **armazenamento de BLOBs**.
-    * Para **subscrição**, selecione **armazenamento de BLOBs de utilização da subscrição atual**.
-    * Para **conta de armazenamento**, selecione a conta de armazenamento que criou como parte dos pré-requisitos. 
-    * Para **contentor**, selecione o contentor que criou na conta de armazenamento selecionada.
-    * Para **formato de serialização de eventos**, selecione **CSV**.
-    * Para **delimitador**, selecione **separador**.
-    * Para **Encoding**, selecione **UTF-8**.
+   * Para **alias de entrada**, introduza um nome exclusivo para a tarefa de entrada.
+   * Para **tipo de origem**, selecione **fluxo de dados**.
+   * Para **origem**, selecione **armazenamento de BLOBs**.
+   * Para **subscrição**, selecione **armazenamento de BLOBs de utilização da subscrição atual**.
+   * Para **conta de armazenamento**, selecione a conta de armazenamento que criou como parte dos pré-requisitos. 
+   * Para **contentor**, selecione o contentor que criou na conta de armazenamento selecionada.
+   * Para **formato de serialização de eventos**, selecione **CSV**.
+   * Para **delimitador**, selecione **separador**.
+   * Para **Encoding**, selecione **UTF-8**.
 
-    Clique em **Criar**. Agora, o portal adiciona a entrada e testa a ligação ao mesmo.
+     Clique em **Criar**. Agora, o portal adiciona a entrada e testa a ligação ao mesmo.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Criar uma saída de geração 1 de armazenamento do Data Lake para o trabalho
@@ -84,15 +84,15 @@ Comece por criar uma tarefa do Stream Analytics que inclui uma origem de entrada
 
     ![Adicionar uma saída para a sua tarefa](./media/data-lake-store-stream-analytics/create.output.3.png "adicionar uma saída para a sua tarefa")
 
-    * Para **nome da conta**, selecione a conta de geração 1 do Data Lake Storage que já criou onde pretende que a tarefa de saída sejam enviados para.
-    * Para **padrão de prefixo do caminho**, introduza um caminho de ficheiro utilizado para escrever ficheiros dentro da conta do Data Lake Storage Gen1 especificado.
-    * Para **formato de data**, se utilizou um token de data no caminho de prefixo, pode selecionar o formato de data em que os ficheiros estão organizados.
-    * Para **formato de hora**, se utilizou um token de tempo no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados.
-    * Para **formato de serialização de eventos**, selecione **CSV**.
-    * Para **delimitador**, selecione **separador**.
-    * Para **Encoding**, selecione **UTF-8**.
+   * Para **nome da conta**, selecione a conta de geração 1 do Data Lake Storage que já criou onde pretende que a tarefa de saída sejam enviados para.
+   * Para **padrão de prefixo do caminho**, introduza um caminho de ficheiro utilizado para escrever ficheiros dentro da conta do Data Lake Storage Gen1 especificado.
+   * Para **formato de data**, se utilizou um token de data no caminho de prefixo, pode selecionar o formato de data em que os ficheiros estão organizados.
+   * Para **formato de hora**, se utilizou um token de tempo no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados.
+   * Para **formato de serialização de eventos**, selecione **CSV**.
+   * Para **delimitador**, selecione **separador**.
+   * Para **Encoding**, selecione **UTF-8**.
     
-    Clique em **Criar**. Agora, o portal adiciona a saída e testa a ligação ao mesmo.
+     Clique em **Criar**. Agora, o portal adiciona a saída e testa a ligação ao mesmo.
     
 ## <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 
@@ -118,5 +118,5 @@ Comece por criar uma tarefa do Stream Analytics que inclui uma origem de entrada
 
     No painel Data Explorer, tenha em atenção que o resultado é escrito para um caminho de pasta conforme especificado na geração de 1 de armazenamento do Data Lake saída configurações (`streamanalytics/job/output/{date}/{time}`).  
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Criar um cluster do HDInsight para utilizar a geração 1 de armazenamento do Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

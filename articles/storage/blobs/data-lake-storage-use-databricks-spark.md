@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 422bf9a3fb4e3168857a78f4f50ac771ef80c6a6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: cd851502f901302987f562976c3c2f5d324cdeb5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902948"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Aceder a dados de geração 2 de armazenamento do Data Lake com o Azure Databricks com o Spark
 
@@ -147,12 +147,12 @@ Nesta secção, irá criar um sistema de ficheiros e uma pasta na sua conta de a
 
    * O `storage-account-name` é o nome da conta de armazenamento de geração 2 de armazenamento do Azure Data Lake.
 
-    > [!NOTE]
-    > Num ambiente de produção, considere armazenar a chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao seu bloco de código em vez da chave de autenticação. Depois de concluir este início rápido, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no site do Azure Databricks para ver exemplos dessa abordagem.
+   > [!NOTE]
+   > Num ambiente de produção, considere armazenar a chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao seu bloco de código em vez da chave de autenticação. Depois de concluir este início rápido, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no site do Azure Databricks para ver exemplos dessa abordagem.
 
 19. Prima a **SHIFT + ENTER** chaves para executar o código nesse bloco.
 
-    Mantenha este bloco de notas aberto, como irá adicionar comandos a ele mais tarde.
+   Mantenha este bloco de notas aberto, como irá adicionar comandos a ele mais tarde.
 
 ## <a name="ingest-data"></a>Ingerir dados
 
@@ -182,7 +182,7 @@ Utilizar o AzCopy para copiar dados de sua *. csv* ficheiro na sua conta de gera
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Utilize o Databricks Notebook para converter CSV em Parquet
 
-No bloco de notas que criou anteriormente, adicione uma nova célula e cole o seguinte código na célula. Substitua o `storage-account-name` valor do marcador de posição nesse trecho de código com o nome da pasta que guardou o ficheiro csv para.
+No bloco de notas que criou anteriormente, adicione uma nova célula e cole o seguinte código na célula. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.

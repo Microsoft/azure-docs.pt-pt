@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: aschhab
-ms.openlocfilehash: 87911a6041adb76abb4fed6a52f10dc183578254
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: f226b9b802bca47cc6fd7b9cdec550b23c7c88d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585309"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890827"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Como utilizar filas do Service Bus com Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -185,7 +185,7 @@ Agora que aprendeu as noções básicas de filas do Service Bus, veja [filas, t�
 
 Para obter mais informações, veja [Centro para Programadores do Java](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: https://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: 4cec5dd38d41f354f4d1430240a23f0b328cbb7b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8922d4399f52937710f111c3c8ad4c9af91b6bb7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452435"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890105"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Instruções T-SQL suportadas no Azure SQL Data Warehouse
 Ligações para a documentação para instruções T-SQL suportado no Azure SQL Data Warehouse.
@@ -40,6 +40,7 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 * [CREATE TABLE](https://msdn.microsoft.com/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/library/mt204041.aspx)
 * [CRIAR VISTA](https://msdn.microsoft.com/library/ms187956.aspx)
+* [CRIAR o CLASSIFICADOR de carga de trabalho](/sql/t-sql/statements/create-workload-classifier-transact-sql) (pré-visualização)
 * [REMOVER ORIGEM DE DADOS EXTERNA](https://msdn.microsoft.com/library/mt146367.aspx)
 * [REMOVER O FORMATO DE FICHEIRO EXTERNO](https://msdn.microsoft.com/library/mt146379.aspx)
 * [REMOVER TABELA EXTERNA](https://msdn.microsoft.com/library/mt130698.aspx)
@@ -49,6 +50,7 @@ Ligações para a documentação para instruções T-SQL suportado no Azure SQL 
 * [REMOVER TABELA](https://msdn.microsoft.com/library/ms173790.aspx)
 * [DROP SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 * [VISTA DE LISTA](https://msdn.microsoft.com/library/ms173492.aspx)
+* [CLASSIFICADOR de carga de trabalho de lista](/sql/t-sql/statements/drop-workload-classifier-transact-sql) (pré-visualização)
 * [MUDAR O NOME](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)

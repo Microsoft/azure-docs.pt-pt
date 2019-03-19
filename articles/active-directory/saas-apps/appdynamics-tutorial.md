@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f33480c5dfefcb1c3e136149b31e829edfbcac54
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d6b8edf2627ade23fc6d1125afbabc34a1d9d21b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integração do Active Directory do Azure com o AppDynamics
 
@@ -130,29 +130,29 @@ Para configurar o Azure AD início de sessão único com o AppDynamics, execute 
 
 ### <a name="configure-appdynamics-single-sign-on"></a>Configurar o AppDynamics Single Sign-On
 
-7. Numa janela do browser web diferente, inicie sessão no site da sua empresa AppDynamics como administrador.
+1. Numa janela do browser web diferente, inicie sessão no site da sua empresa AppDynamics como administrador.
 
-8. Na barra de ferramentas na parte superior, clique em **configurações**e, em seguida, clique em **administração**.
+1. Na barra de ferramentas na parte superior, clique em **configurações**e, em seguida, clique em **administração**.
 
     ![Administração](./media/appdynamics-tutorial/ic790216.png "administração")
 
-9. Clique nas **fornecedor de autenticação** separador.
+1. Clique nas **fornecedor de autenticação** separador.
 
     ![Fornecedor de autenticação](./media/appdynamics-tutorial/ic790224.png "fornecedor de autenticação")
 
-10. Na **fornecedor de autenticação** secção, execute os seguintes passos:
+1. Na **fornecedor de autenticação** secção, execute os seguintes passos:
 
-    ![Configuração de SAML](./media/appdynamics-tutorial/ic790225.png "configuração de SAML")
+   ![Configuração de SAML](./media/appdynamics-tutorial/ic790225.png "configuração de SAML")
 
-    a. Como **fornecedor de autenticação**, selecione **SAML**.
+   a. Como **fornecedor de autenticação**, selecione **SAML**.
 
-    b. Na **URL de início de sessão** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
+   b. Na **URL de início de sessão** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
 
-    c. Na **URL de fim de sessão** caixa de texto, cole o valor de **URL de fim de sessão** que copiou do portal do Azure.
+   c. Na **URL de fim de sessão** caixa de texto, cole o valor de **URL de fim de sessão** que copiou do portal do Azure.
 
-    d. Abra o certificado com codificação base 64 no bloco de notas, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado** caixa de texto
+   d. Abra o certificado com codificação base 64 no bloco de notas, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado** caixa de texto
 
-    e. Clique em **Guardar**.
+   e. Clique em **Guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -172,7 +172,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

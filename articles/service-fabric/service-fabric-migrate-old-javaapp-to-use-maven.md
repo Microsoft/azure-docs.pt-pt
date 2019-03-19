@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: b880a80e19c5a85a35d5e1d78022fe4acc74f0e1
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 75a3f8e6c872e0bbb9fde8c5776d99ba0cf2c3d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999174"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116605"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Atualizar a sua aplicação Java do Service Fabric anterior para obter as bibliotecas do Java a partir do Maven
 Recentemente, movemos os binários Java do Service Fabric do Java SDK do Service Fabric para o alojamento Maven. Agora, pode utilizar **mavencentral** para obter as mais recentes dependências de Java do Service Fabric. Este início rápido ajuda-o a atualizar as suas aplicações Java existentes, que criou anteriormente para serem utilizadas com o Java SDK do Service Fabric, através de um modelo do Yeoman ou do Eclipse, para compatibilidade com a compilação baseada no Maven.
@@ -27,17 +27,17 @@ Recentemente, movemos os binários Java do Service Fabric do Java SDK do Service
 ## <a name="prerequisites"></a>Pré-requisitos
 1. Primeiro, tem de desinstalar o Java SDK existente.
 
-  ```bash
-  sudo dpkg -r servicefabricsdkjava
-  ```
+   ```bash
+   sudo dpkg -r servicefabricsdkjava
+   ```
 2. Siga os passos mencionados [aqui](service-fabric-cli.md) para instalar a última CLI do Service Fabric.
 
 3. Para criar e trabalhar nas aplicações Java do Service Fabric, tem de garantir que tem instalado o JDK 1.8 e o Gradle. Se ainda não estiverem instalados, execute o seguinte para instalar o JDK 1.8 (openjdk-8-jdk) e Gradle
 
- ```bash
- sudo apt-get install openjdk-8-jdk-headless
- sudo apt-get install gradle
- ```
+   ```bash
+   sudo apt-get install openjdk-8-jdk-headless
+   sudo apt-get install gradle
+   ```
 4. Atualize os scripts de instalação/desinstalação da sua aplicação, para que utilizem a nova CLI do Service Fabric, seguindo os passos mencionados [aqui](service-fabric-application-lifecycle-sfctl.md). Pode ver os nossos [exemplos](https://github.com/Azure-Samples/service-fabric-java-getting-started) de introdução como referência.
 
 >[!TIP]

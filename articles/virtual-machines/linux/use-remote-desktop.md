@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 44b0f8b3d11b737ad88f7d33b036b52d24b70e33
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dec0b8bcd5a0e0d20ead5b149405e3716589ba53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960332"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995722"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instalar e configurar o ambiente de trabalho remoto para ligar a uma VM do Linux no Azure
 Máquinas de virtuais do Linux (VMs) no Azure, normalmente, são geridas a partir da linha de comandos a utilizar uma ligação de secure shell (SSH). Quando novos para Linux, ou para cenários de resolução de problemas rápidos, o uso de ambiente de trabalho remoto pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de desktop ([xfce](https://www.xfce.org)) e o ambiente de trabalho remoto ([xrdp](http://www.xrdp.org)) para a sua VM do Linux com o modelo de implementação do Resource Manager.
@@ -103,7 +103,7 @@ Depois de autenticar, o ambiente de área de trabalho xfce carregará e ter um a
 
 ![ambiente de área de trabalho de xfce por meio de xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-Se o seu cliente local do RDP utiliza a autenticação de nível de rede (NLA), terá de desativar essa definição de ligação. XRDP não suporta atualmente NLA. Pode também ver as soluções alternativas de RDP que suportam a NLA, tal como [FreeRDP](http://www.freerdp.com).
+Se o seu cliente local do RDP utiliza a autenticação de nível de rede (NLA), terá de desativar essa definição de ligação. XRDP não suporta atualmente NLA. Pode também ver as soluções alternativas de RDP que suportam a NLA, tal como [FreeRDP](https://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Resolução de problemas

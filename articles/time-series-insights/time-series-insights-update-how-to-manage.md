@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 099c7a456e67eae981b2e68e73e2bed7557c7372
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 3c6b5094613ee482b0fd3f63e3d9d69dfe4d40f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094876"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Aprovisionar e gerir a pré-visualização do Azure Time Series Insights
 
@@ -67,7 +67,7 @@ Os passos seguintes descrevem como criar um ambiente de pré-visualização do A
      > [!TIP]
      > O tempo de colocados em fila de mensagens pode não ser a melhor definição configurada para utilizar no evento de batch ou cenários de carregamento de dados históricos. Certifique-se verificar a sua decisão de usar ou não usar uma propriedade Timestamp nestes casos.
 
-    ![Separador de origem do evento][2]
+     ![Separador de origem do evento][2]
 
 1. Confirme que o seu ambiente tiver sido aprovisionado com as definições pretendidas.
 

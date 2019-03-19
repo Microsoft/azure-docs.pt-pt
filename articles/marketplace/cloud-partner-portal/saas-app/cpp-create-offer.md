@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 03920bc3ed17eac9d76cea78877f1f008e83f4dd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880284"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Criar uma nova oferta de aplicação SaaS
 
@@ -34,6 +34,7 @@ O diagrama seguinte mostra o processo para criar uma oferta de aplicação SaaS.
 ## <a name="offer-components"></a>Componentes de oferta
 
 A oferta da aplicação SaaS consiste em cinco seções, descritas na tabela a seguir:
+
 |  **Grupo de recursos**   |  **Descrição**  |
 |  ---------------   |  ---------------  |
 |    Definições da oferta  |  Utilize para configurar uma identidade exclusiva para a aplicação SaaS.                 |
@@ -45,7 +46,7 @@ A oferta da aplicação SaaS consiste em cinco seções, descritas na tabela a s
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta
 
-Inicie sessão para o [Cloud Partner Portal](http://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menu à esquerda. No novo oferecem menu, selecione **aplicações SaaS** para exibir o formulário de nova oferta e iniciar o processo de definição de ativos para uma nova oferta de aplicação SaaS.
+Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menu à esquerda. No novo oferecem menu, selecione **aplicações SaaS** para exibir o formulário de nova oferta e iniciar o processo de definição de ativos para uma nova oferta de aplicação SaaS.
 
 ![Menu novo de oferta para aplicações SaaS](./media/azure-new-saas-offer.png)
 
@@ -54,8 +55,8 @@ Inicie sessão para o [Cloud Partner Portal](http://cloudpartner.azure.com/)e, e
 A página nova oferta para o tipo de oferta SaaS fornece um conjunto de guias e os campos de formulário que irá utilizar para criar uma nova oferta. Cada um dos seguintes artigos explica como utilizar o separador para definir os grupos de recursos e serviços de suporte para a sua oferta de novo.
 
 - [Separador Definições da oferta](./cpp-offer-settings-tab.md)
-- [Separador de informações técnica](./cpp-technical-info-tab.md)
-- [Separador de informações de canal](./cpp-channel-info-tab.md)
+- [Separador Informações Técnicas](./cpp-technical-info-tab.md)
+- [Separador Informações de Canal](./cpp-channel-info-tab.md)
 - [Separador Versão de Teste](./cpp-testdrive-tab.md)
-- [Vitrine separador de detalhes](./cpp-storefront-tab.md)
-- [Separador de contactos](./cpp-contacts-tab.md)
+- [Separador Detalhes da Loja](./cpp-storefront-tab.md)
+- [Separador Contactos](./cpp-contacts-tab.md)

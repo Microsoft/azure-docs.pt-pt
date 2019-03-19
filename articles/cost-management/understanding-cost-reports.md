@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103426"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109819"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn Noções básicas sobre relatórios de gestão de custos
 
@@ -41,7 +41,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
       - Gestão de Ativos
       - Otimização
 
-  Escreva um nome de filtro e clique em **guardar**.
+   Escreva um nome de filtro e clique em **guardar**.
 
 3. **Etiquetas**
 
@@ -71,55 +71,55 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
       - Etiquetas de entidade de custos do Cloudyn
       - Categorias de etiqueta de subscrição para efeitos de alocação de custos
 
-  Os exemplos podem incluir:
-     - Centro de custos
-     - Departamento
-     - Aplicação
-     - Ambiente
-     - Código de custo
+   Os exemplos podem incluir:
+   - Centro de custos
+   - Departamento
+   - Aplicação
+   - Ambiente
+   - Código de custo
 
-    Aqui está uma lista de grupos internos disponíveis nos relatórios:
+     Aqui está uma lista de grupos internos disponíveis nos relatórios:
 
-    - **Tipo de custo**
-      - Selecione um tipo de custo ou vários tipos de custo, ou todos. Tipos de custos incluem:
-        - Tarifa única
-        - Suporte
-        - Custo de utilização
-    - **Cliente**
-        - Selecione um cliente específico, vários clientes, ou todos os clientes.
-    - **Nome da conta**
-        - O nome de conta ou a subscrição. No Azure, é o nome da subscrição do Azure.
-    - **Conta não**
-        - Selecione uma conta, várias contas ou todas as contas. No Azure, é o GUID da subscrição do Azure.
-    - **Conta de principal**
-        - Selecione a conta principal, várias contas ou selecione.
-    - **Serviço**
-        - Selecione um serviço, vários serviços, ou todos os serviços.
-    - **Fornecedor**
-        - O fornecedor de cloud em que estão associadas ativos e as despesas.
-    - **Região**
-        - Região onde está alojado o recurso.
-    - **Zona de disponibilidade**
-        - Localizações do AWS isolados numa região.
-    - **Tipo de Recurso**
-        - O tipo de recurso em uso.
-    - **Subtipo**
-        - Selecione o tipo de secundárias.
-    - **Operação**
-        - Selecione a operação ou **Mostrar tudo**.
-    - **Modelo de preço**
-        - Inicialmente todos
-        - Não antes
-        - Inicialmente parcial
-        - A Pedido
-        - Reserva
-        - Lugar
-    - **Tipo de custos**
-        - Selecione o tipo de custo negativos ou positivos ou ambos.
-    - **Inquilinos**
-        - Se uma máquina está em execução como uma máquina dedicada.
-    -   **Tipo de utilização**
-          - Tipo de utilização pode ser as tarifas únicas ou taxas recorrentes.
+     - **Tipo de custo**
+     - Selecione um tipo de custo ou vários tipos de custo, ou todos. Tipos de custos incluem:
+       - Tarifa única
+       - Suporte
+       - Custo de utilização
+     - **Cliente**
+       - Selecione um cliente específico, vários clientes, ou todos os clientes.
+     - **Nome da conta**
+       - O nome de conta ou a subscrição. No Azure, é o nome da subscrição do Azure.
+     - **Conta não**
+       - Selecione uma conta, várias contas ou todas as contas. No Azure, é o GUID da subscrição do Azure.
+     - **Conta de principal**
+       - Selecione a conta principal, várias contas ou selecione.
+     - **Serviço**
+       - Selecione um serviço, vários serviços, ou todos os serviços.
+     - **Fornecedor**
+       - O fornecedor de cloud em que estão associadas ativos e as despesas.
+     - **Região**
+       - Região onde está alojado o recurso.
+     - **Zona de disponibilidade**
+       - Localizações do AWS isolados numa região.
+     - **Tipo de Recurso**
+       - O tipo de recurso em uso.
+     - **Subtipo**
+       - Selecione o tipo de secundárias.
+     - **Operação**
+       - Selecione a operação ou **Mostrar tudo**.
+     - **Modelo de preço**
+       - Inicialmente todos
+       - Não antes
+       - Inicialmente parcial
+       - A Pedido
+       - Reserva
+       - Lugar
+     - **Tipo de custos**
+       - Selecione o tipo de custo negativos ou positivos ou ambos.
+     - **Inquilinos**
+       - Se uma máquina está em execução como uma máquina dedicada.
+     - **Tipo de utilização**
+       - Tipo de utilização pode ser as tarifas únicas ou taxas recorrentes.
 
 5. **Filtros**
 
@@ -139,7 +139,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
     - Taxas de compra de instâncias reservadas
     - Alguns itens do Azure Marketplace.
 
-  Em amortização, selecione **amortizado custo** ou **custo real**.
+   Em amortização, selecione **amortizado custo** ou **custo real**.
 
 8. **Resolução**
 
@@ -162,7 +162,7 @@ Cada área numerada na imagem anterior é descrita detalhadamente nas seguintes 
 
     A opção de Mostrar/ocultar não tem qualquer efeito nos relatórios.
 
-12.   **Formatos de apresentação**
+12. **Formatos de apresentação**
 
     Utilize os formatos de apresentação para selecionar vários modos de exibição gráfico ou tabela.
 

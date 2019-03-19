@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116172"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110312"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -36,6 +36,8 @@ Este é o terceiro tutorial de uma série. Este tutorial parte do princípio de 
 
 Antes de começar, é útil rever as arquiteturas do [VMware](vmware-azure-architecture.md) ou [Hyper-V](hyper-v-azure-architecture.md) para a recuperação após desastre.
 
+> [!TIP]
+> À procura de uma forma sem agente migrar VMs de VMware para o Azure? [Clique aqui](https://aka.ms/migrateVMs-signup)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,7 +56,6 @@ Os dispositivos exportados por controladores paravirtualizados não são suporta
    ![Novo cofre](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 O cofre novo é adicionado ao **Dashboard** em **Todos os recursos** e na página principal **Cofres dos Serviços de Recuperação**.
-
 
 
 ## <a name="select-a-replication-goal"></a>Selecionar um objetivo de replicação
@@ -112,10 +113,10 @@ Execute a ativação pós-falha nos computadores que quer migrar.
 5. Certifique-se de que a VM do Azure é apresentada no Azure conforme esperado.
 6. Em **Itens replicados**, clique com o botão direito do rato na VM > **Concluir a Migração**. Isso faz o seguinte:
 
-    - O processo de migração é concluído, para a replicação para a VM do AWS e interrompe a faturação do Site Recovery para a VM.
-    - Este passo limpa os dados de replicação. Não elimina as VMs migradas.
+   - O processo de migração é concluído, para a replicação para a VM do AWS e interrompe a faturação do Site Recovery para a VM.
+   - Este passo limpa os dados de replicação. Não elimina as VMs migradas.
 
-    ![Concluir a migração](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Concluir a migração](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

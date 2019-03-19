@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321743"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57851368"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutorial: Criar e implementar uma aplicação com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com monitorização de estado
 
@@ -187,7 +187,7 @@ Abra **Views/Shared/_Layout.cshtml**, o esquema predefinido da aplicação ASP.N
 
 ```html
 <!DOCTYPE html>
-<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -621,22 +621,22 @@ Para ver o que acontece no código, conclua os passos seguintes:
 4. Regresse ao browser e clique numa opção de votação ou adicione uma opção nova. Atingiu o primeiro ponto de interrupção no controlador de API do front-end da Web.
     
 
-    1. É aqui que o JavaScript no browser envia um pedido para o controlador de API Web no serviço do front-end.
+   1. É aqui que o JavaScript no browser envia um pedido para o controlador de API Web no serviço do front-end.
 
-    ![Adicionar Serviço de Front-End de Votação](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![Adicionar Serviço de Front-End de Votação](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Primeiro, construa o URL para o ReverseProxy para o serviço de back-end **(1)**.
-    3. Em seguida, envie o Pedido HTTP PUT para ReverseProxy **(2)**.
-    4. Por último, devolva a resposta do serviço de back-end ao cliente **(3)**.
+   2. Primeiro, construa o URL para o ReverseProxy para o serviço de back-end **(1)**.
+   3. Em seguida, envie o Pedido HTTP PUT para ReverseProxy **(2)**.
+   4. Por último, devolva a resposta do serviço de back-end ao cliente **(3)**.
 
 5. Prima **F5** para continuar.
-    1. Está agora no ponto de interrupção do serviço de back-end.
+   1. Está agora no ponto de interrupção do serviço de back-end.
 
-    ![Adicionar Serviço de Back-End de Votação](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![Adicionar Serviço de Back-End de Votação](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. Na primeira linha no método **(1)**, utilize o `StateManager` para obter ou adicionar um dicionário fiável chamado `counts`.
-    3. Todas as interações com os valores num dicionário fiável requer uma transação; a utilização da declaração **(2)** cria essa transação.
-    4. Na transação, atualize o valor da chave relevante para a opção de voto e consolide a operação **(3)**. Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
+   2. Na primeira linha no método **(1)**, utilize o `StateManager` para obter ou adicionar um dicionário fiável chamado `counts`.
+   3. Todas as interações com os valores num dicionário fiável requer uma transação; a utilização da declaração **(2)** cria essa transação.
+   4. Na transação, atualize o valor da chave relevante para a opção de voto e consolide a operação **(3)**. Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
 6. Prima **F5** para continuar.
 
 Para parar a sessão de depuração, prima **Shift + F5**.

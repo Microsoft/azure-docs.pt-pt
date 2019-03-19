@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25af451ac06a7d744e171754db6f4e54cb2156c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78e15de18e57e949b2e7b7146269204469e61797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106955"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizar a funcionalidade do Azure AD para a reposição de palavra-passe self-service
 
@@ -68,8 +68,8 @@ Os gráficos que escolher são mostrados nas seguintes circunstâncias:
 
 * Depois de um utilizador introduz o respetivo nome de utilizador
 * Se o usuário acessa o URL personalizado:
-    * Passando o `whr` parâmetro para a palavra-passe de reposição de página, como "https://login.microsoftonline.com/?whr=contoso.com"
-    * Passando o `username` parâmetro para a palavra-passe de reposição de página, como "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * Passando o `whr` parâmetro para a palavra-passe de reposição de página, como `https://login.microsoftonline.com/?whr=contoso.com`
+    * Passando o `username` parâmetro para a palavra-passe de reposição de página, como `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Obter detalhes sobre como configurar a imagem corporativa no artigo [adicionar imagem corporativa à sua página de início de sessão no Azure AD](../fundamentals/customize-branding.md).
 

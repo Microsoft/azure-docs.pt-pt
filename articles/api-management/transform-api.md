@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: fc22babe6bc052ff2e746185d6ccec059aad7331
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992041"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084985"
 ---
 # <a name="transform-and-protect-your-api"></a>Transformar e proteger a sua API
 
@@ -72,23 +72,23 @@ A resposta original deve ter o seguinte aspeto:
 
 ![Definir política de saída](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
 
-1.  Selecione **API da Conferência de Demonstração**.
-2.  Na parte superior do ecrã, selecione o separador **Design**.
-3.  Selecione **Todas as operações**.
-4.  Na secção **Processamento de saída**, clique no ícone**</>**.
-5.  Posicione o cursor no interior do elemento **&lt;saída&gt;**.
-6.  Na janela direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho de HTTP** duas vezes (para inserir dois fragmentos de política).
+1. Selecione **API da Conferência de Demonstração**.
+2. Na parte superior do ecrã, selecione o separador **Design**.
+3. Selecione **Todas as operações**.
+4. Na secção **Processamento de saída**, clique no ícone**</>**.
+5. Posicione o cursor no interior do elemento **&lt;saída&gt;**.
+6. Na janela direita, em **Políticas de transformação**, clique em **+ Definir cabeçalho de HTTP** duas vezes (para inserir dois fragmentos de política).
 
-    ![Políticas](./media/transform-api/transform-api.png)
+   ![Políticas](./media/transform-api/transform-api.png)
 
-7.  Modifique o código **<outbound>** para ter o seguinte aspeto:
+7. Modifique o código **<outbound>** para ter o seguinte aspeto:
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![Políticas](./media/transform-api/set-policy.png)
+   ![Políticas](./media/transform-api/set-policy.png)
 
-8.  Clique no botão **Guardar**.
+8. Clique no botão **Guardar**.
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Substituir os URLs originais no corpo de resposta da API pelos URLs de gateway de APIM
 

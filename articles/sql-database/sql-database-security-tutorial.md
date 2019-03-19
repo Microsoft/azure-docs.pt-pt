@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 4fc1b4d4d0d7f215f8fee1de01e171c3fdc5aae5
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308793"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893276"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Proteger uma base de dados individual ou agrupada
 
@@ -77,11 +77,11 @@ Para configurar uma regra de firewall ao nível do servidor:
 
 1. Sobre o **descrição geral** página, selecione **definir firewall do servidor**. O **definições da Firewall** é aberta a página para o servidor de base de dados.
 
-    1. Selecione **Adicionar IP de cliente** na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall. A regra pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP. Selecione **Guardar**.
+   1. Selecione **Adicionar IP de cliente** na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall. A regra pode abrir a porta 1433 para um único endereço IP ou um intervalo de endereços IP. Selecione **Guardar**.
 
-    ![configurar regra de firewall do servidor](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![configurar regra de firewall do servidor](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Selecione **OK** e feche o **definições da Firewall** página.
+   1. Selecione **OK** e feche o **definições da Firewall** página.
 
 Agora, já pode ligar a qualquer base de dados do servidor com o endereço IP ou o intervalo de endereços IP especificado.
 
@@ -248,11 +248,11 @@ Para ativar a segurança de dados avançada:
 
 1. Sobre o **do SQL server** página, encontre o **segurança** secção e selecione **segurança avançada de dados**.
 
-    1. Selecione **ON** sob **segurança de dados avançada** para ativar a funcionalidade. Escolha uma conta de armazenamento para guardar os resultados da avaliação de vulnerabilidade. Em seguida, selecione **Guardar**.
+   1. Selecione **ON** sob **segurança de dados avançada** para ativar a funcionalidade. Escolha uma conta de armazenamento para guardar os resultados da avaliação de vulnerabilidade. Em seguida, selecione **Guardar**.
 
-    ![Painel de navegação](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Painel de navegação](./media/sql-database-security-tutorial/threat-settings.png)
 
-    Também pode configurar mensagens de e-mail para receber alertas de segurança, os detalhes de armazenamento e os tipos de deteção de ameaças.
+      Também pode configurar mensagens de e-mail para receber alertas de segurança, os detalhes de armazenamento e os tipos de deteção de ameaças.
 
 1. Retorno para o **bases de dados SQL** página da sua base de dados e selecione **segurança de dados avançada** sob o **segurança** secção. Aqui encontrará vários indicadores de segurança disponíveis para a base de dados.
 
@@ -274,25 +274,25 @@ Para ativar a auditoria:
 
 1. Sob **auditoria** definições, defina os seguintes valores:
 
-    1. Definir **auditoria** ao **ON**.
+   1. Definir **auditoria** ao **ON**.
 
-    1. Selecione **destino de registo de auditoria** como qualquer um dos seguintes:
+   1. Selecione **destino de registo de auditoria** como qualquer um dos seguintes:
 
-        - **Armazenamento**, uma conta de armazenamento do Azure, onde os registos de eventos são salvos e pode ser baixados como *. xel* ficheiros
+       - **Armazenamento**, uma conta de armazenamento do Azure, onde os registos de eventos são salvos e pode ser baixados como *. xel* ficheiros
 
-           > [!TIP]
-           > Utilize a mesma conta de armazenamento para todas as bases de dados auditadas para tirar o máximo de modelos de relatório de auditoria.
+          > [!TIP]
+          > Utilize a mesma conta de armazenamento para todas as bases de dados auditadas para tirar o máximo de modelos de relatório de auditoria.
 
-        - **Log Analytics**, que armazena automaticamente os eventos para consulta ou análise adicional
+       - **Log Analytics**, que armazena automaticamente os eventos para consulta ou análise adicional
 
-            > [!NOTE]
-            > R **área de trabalho do Log Analytics** é necessária para suportar funcionalidades avançadas, como análise, regras de alerta personalizadas e exportações do Excel ou Power BI. Sem uma área de trabalho, o editor de consultas está disponível.
+           > [!NOTE]
+           > R **área de trabalho do Log Analytics** é necessária para suportar funcionalidades avançadas, como análise, regras de alerta personalizadas e exportações do Excel ou Power BI. Sem uma área de trabalho, o editor de consultas está disponível.
 
-        - **Hub de eventos**, que permite que os eventos para ser encaminhado para utilização em outros aplicativos
+       - **Hub de eventos**, que permite que os eventos para ser encaminhado para utilização em outros aplicativos
 
-    1. Selecione **Guardar**.
+   1. Selecione **Guardar**.
 
-    ![Definições de auditoria](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Definições de auditoria](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. Agora, pode selecionar **ver registos de auditoria** para ver os dados de eventos de base de dados.
 
@@ -334,7 +334,7 @@ Para ativar ou certifique-se de encriptação:
     ![Encriptação de Dados Transparente](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Para ver o estado de encriptação, ligar à base de dados, com [SSMS](./sql-database-connect-query-ssms.md) e consultar a `encryption_state` coluna da [DM database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) vista. Um Estado de `3` indica a base de dados é encriptado.
+> Para ver o estado de encriptação, ligar à base de dados, com [SSMS](./sql-database-connect-query-ssms.md) e consultar a `encryption_state` coluna da [DM database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) vista. Um Estado de `3` indica a base de dados é encriptado.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

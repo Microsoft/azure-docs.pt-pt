@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d28776b8501a1467a77cd0ad4225d1267d768052
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7b817eefc7a17966060eb7ca05e21f70f04d0878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885458"
 ---
 # <a name="set-up-service-fabric-mesh-cli"></a>Configurar a CLI do Service Fabric mesh
 Malha Interface de linha de comandos (CLI do Service Fabric) é necessário para implementar e gerir recursos localmente e na malha do Azure Service Fabric. 
@@ -55,7 +55,7 @@ Siga as instruções [configurar a CLI do Service Fabric](https://docs.microsoft
 Para poder utilizar a CLI do Maven, a seguinte tem de ser instalado no seu computador: 
 
 * [Java](https://www.azul.com/downloads/zulu/)
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * CLI do Azure de malha (malha de az -) para o modo de malha do Azure Service Fabric de destino 
 * SFCTL (sfctl) - para clusters do locais de destino 

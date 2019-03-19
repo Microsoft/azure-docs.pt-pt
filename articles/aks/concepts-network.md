@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: 360caaec0033136ffa250d636864fbed8359b8ef
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244252"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175671"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Este artigo apresenta os conceitos principais que fornecem o funcionamento em re
 
 Para permitir o acesso às suas aplicações ou de componentes da aplicação comunicar entre si, o Kubernetes fornece uma camada de abstração para redes virtuais. Nós do Kubernetes estão ligados a uma rede virtual e podem fornecer conectividade de entrada e saída para pods. O *kube proxy* componente é executado em cada nó para fornecer esses recursos de rede.
 
-No Kubernetes, *serviços* agrupem os pods para permitir o acesso direto por meio de um endereço IP ou nome DNS e uma porta específica. Também pode distribuir o tráfego utilizando um *Balanceador de carga*. Mais complexa de encaminhamento de tráfego de aplicativo também pode ser obtida com *controladores de entrada*. É possível com o Kubernetes, segurança e a filtragem do tráfego de rede para pods *as políticas de rede*.
+No Kubernetes, *serviços* agrupem os pods para permitir o acesso direto por meio de um endereço IP ou nome DNS e uma porta específica. Também pode distribuir o tráfego utilizando um *Balanceador de carga*. Mais complexa de encaminhamento de tráfego de aplicativo também pode ser obtida com *controladores de entrada*. É possível com o Kubernetes, segurança e a filtragem do tráfego de rede para pods *as políticas de rede* (em pré-visualização no AKS).
 
 A plataforma do Azure também ajuda a simplificar a rede virtual para os clusters do AKS. Quando cria um balanceador de carga do Kubernetes, o recurso do Balanceador de carga do Azure subjacente é criado e configurado. Como abrir portas de rede para pods, são configuradas as regras de grupo de segurança de rede do Azure correspondente. Para o encaminhamento de aplicações de HTTP, o Azure também pode configurar *DNS externo* como entrada nova rotas estão configuradas.
 
@@ -108,7 +108,7 @@ Um grupo de segurança de rede filtra o tráfego para as VMs, por exemplo, os n�
 
 Por predefinição, todos os pods num cluster do AKS podem enviar e receber tráfego sem limitações. Para obter mais segurança, pode querer definir regras que controlam o fluxo de tráfego. Aplicações de back-end, muitas vezes, só são expostas aos serviços de front-end necessário ou componentes da base de dados só estão acessíveis para os escalões de aplicação que se ligar aos mesmos.
 
-Política de rede é uma funcionalidade de Kubernetes, que permite-lhe controlar o fluxo de tráfego entre os pods. Pode optar por permitir ou negar o tráfego com base em etiquetas de definições de atribuídas como, espaço de nomes ou porta de tráfego. Grupos de segurança de rede são mais para os nós do AKS, não os pods. O uso de diretivas de rede é uma forma mais adequada, nativas da cloud para controlar o fluxo de tráfego. À medida pods são criados dinamicamente num cluster do AKS, as políticas de rede necessária podem ser aplicadas automaticamente.
+Política de rede é uma funcionalidade de Kubernetes atualmente em pré-visualização no AKS que lhe permite controlar o fluxo de tráfego entre os pods. Pode optar por permitir ou negar o tráfego com base em etiquetas de definições de atribuídas como, espaço de nomes ou porta de tráfego. Grupos de segurança de rede são mais para os nós do AKS, não os pods. O uso de diretivas de rede é uma forma mais adequada, nativas da cloud para controlar o fluxo de tráfego. À medida pods são criados dinamicamente num cluster do AKS, as políticas de rede necessária podem ser aplicadas automaticamente.
 
 Para obter mais informações, consulte [proteger o tráfego entre pods através de políticas de rede no Azure Kubernetes Service (AKS)][use-network-policies].
 

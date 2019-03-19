@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: f1a8646502a11f9c17023587302d7f2f7a4e4234
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093876"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicar a partir de uma região do Azure para outra
 
@@ -33,7 +33,7 @@ Este artigo resume as configurações suportadas e componentes quando implementa
 ## <a name="resource-support"></a>Suporte de recursos
 
 **Ação de recurso** | **Detalhes**
---- | --- | ---
+--- | --- 
 **Mover o Cofre entre grupos de recursos** | Não suportado
 **Mover os recursos de armazenamento/computação/rede entre grupos de recursos** | Não suportado.<br/><br/> Se mover uma VM ou componentes associados, como o armazenamento/rede depois da VM está a replicar, terá de desativar e, em seguida, volte a ativar replicação para a VM.
 **Replicar VMs do Azure a partir de uma subscrição para outro para recuperação após desastre** | Suportado no mesmo inquilino do Azure Active Directory.

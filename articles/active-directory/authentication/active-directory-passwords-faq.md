@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6194ed8ffa5732c9f187679e934aad306293d46
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186374"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878198"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas mais frequentes de gestão de palavras-passe
 
@@ -98,12 +98,10 @@ Nestas perguntas frequentes é dividida nas secções seguintes:
 * **P:  Quanto deve esperar para receber um e-mail, SMS ou chamada telefónica de reposição de palavra-passe?**
 
   > **R:** E-mails, mensagens SMS e as chamadas de telefone deverá ser entregue em menos de um minuto. O caso de normal é de 5 a 20 segundos.
-    >Se não receber a notificação neste período de tempo:
-        > * Verifique a pasta de lixo.
-        > * Verifique que o número ou o e-mail que está a ser contactado é o esperado.
-        > * Verifique se os dados de autenticação no diretório estão corretamente formatado, por exemplo, + 1 4255551234 ou *user@contoso.com*. 
-  >
-  >
+  > Se não receber a notificação neste período de tempo:
+  > * Verifique a pasta de lixo.
+  > * Verifique que o número ou o e-mail que está a ser contactado é o esperado.
+  > * Verifique se os dados de autenticação no diretório estão corretamente formatado, por exemplo, + 1 4255551234 ou *usuário\@contoso.com*. 
 * **P:  Que idiomas são suportados pela reposição de palavra-passe?**
 
   > **R:** A palavra-passe de reposição da interface do Usuário, mensagens SMS e chamadas de voz são localizados nos mesmos idiomas que são suportados no Office 365.

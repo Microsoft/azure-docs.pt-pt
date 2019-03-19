@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd988004112fa4f420af7d0149bde19fdc06bfc
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 1b578c0187f7b804b6261fec9d299f83d7dc1832
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015135"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Como: Configurar políticas de risco na proteção de identidade do Azure Active Directory (atualizada)
 
@@ -32,7 +32,9 @@ Azure AD Deteta eventos de risco são indicadores de identidades potencialmente 
 - Com a política de risco de início de sessão, pode configurar uma resposta a eventos de risco em tempo real que foram detectados durante o início de sessão do utilizador. 
 - Com a política de risco do utilizador, pode configurar uma resposta para todos os riscos de utilizador do Active Directory que foram detetados para um utilizador ao longo do tempo.  
 
-> [!VIDEO https://youtu.be/zEsbbik-BTE]
+> [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
+
+
 ## <a name="what-is-the-sign-in-risk-policy"></a>O que é a política de risco de início de sessão?
 
 O Azure AD analisa cada início de sessão de um utilizador. É o objetivo da análise detetar as ações suspeitas que acompanham o início de sessão. Por exemplo, o início de sessão efetuado com um endereço IP anónimo, ou o início de sessão iniciado a partir de uma localização não familiar? No Azure AD, as ações suspeitas que consegue detetar o sistema também são conhecidos como eventos de risco. Com base em eventos de risco que foram detetados durante um início de sessão, do Azure AD calcula um valor. O valor representa a probabilidade (baixa, média, alta) que o início de sessão não é efetuado pelo usuário legítimo. Denomina-se a probabilidade **nível de risco de início de sessão**.

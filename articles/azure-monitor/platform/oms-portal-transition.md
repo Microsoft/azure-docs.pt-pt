@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886631"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS para o Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "54214006"
 
 O portal do Azure é o hub para todos os serviços do Azure e oferece uma gestão avançada de experiência com recursos como os dashboards para fixar recursos, a pesquisa inteligente para localizar recursos e a identificação para gestão de recursos. Para consolidar e simplificar o fluxo de trabalho de monitorização e gestão, começamos a adicionar as capacidades de portais do OMS no portal do Azure. Todas as funcionalidades do portal do OMS agora fazem parte do portal do Azure. Na verdade, alguns dos novos recursos, tais como análise de tráfego só estão disponíveis no portal do Azure. Será capaz de realizar tudo que estava a fazer no portal do OMS com o portal do Azure e muito mais. Se ainda não o fez, deve começar a utilizar o portal do Azure hoje mesmo!
 
-**Portal do OMS será oficialmente retirado a 15 de Janeiro de 2019** para a cloud comercial do Azure e para a cloud do Azure US Government, portal do OMS **vão ser descontinuados oficialmente 30 de Março de 2019.** Temos o prazer de passar para o portal do Azure e esperar que a transição para ser fácil. Mas estamos cientes de alterações são difíceis e podem ser prejudicais. Envie dúvidas, comentários ou preocupações para **LAUpgradeFeedback@microsoft.com**. O restante deste artigo passa pelos cenários-chave e o plano para essa transição.
+**Portal do OMS será oficialmente retirado a 15 de Janeiro de 2019** para a cloud comercial do Azure e para a cloud do Azure US Government, portal do OMS **vão ser descontinuados oficialmente 30 de Março de 2019.** Temos o prazer de passar para o portal do Azure e esperar que a transição para ser fácil. Mas estamos cientes de alterações são difíceis e podem ser prejudicais. Envie dúvidas, comentários ou preocupações para **LAUpgradeFeedback\@microsoft.com**. O restante deste artigo passa pelos cenários-chave e o plano para essa transição.
 
 ## <a name="what-is-changing"></a>O que está a mudar? 
 As seguintes alterações estejam sendo anunciadas com a descontinuação do portal do OMS. Cada uma dessas alterações é descrita mais detalhadamente nas secções abaixo.
@@ -47,7 +47,7 @@ Embora a maioria dos recursos vão continuar a funcionar sem executar qualquer m
 - Precisa [migrar as suas permissões de utilizador](#user-access-and-role-migration) ao portal do Azure.
 - Ver [migrar as implementações de atualização do OMS para o Azure](../../automation/migrate-oms-update-deployments.md) para obter detalhes sobre a transição da solução de gestão de atualizações.
 
-Consulte a [perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics](oms-portal-faq.md) para obter informações sobre como efetuar a transição para o portal do Azure. Enviar comentários, dúvidas ou preocupações para **LAUpgradeFeedback@microsoft.com**.
+Consulte a [perguntas comuns para a transição do portal do OMS para o portal do Azure para utilizadores do Log Analytics](oms-portal-faq.md) para obter informações sobre como efetuar a transição para o portal do Azure. Enviar comentários, dúvidas ou preocupações para **LAUpgradeFeedback\@microsoft.com**.
 
 ## <a name="user-access-and-role-migration"></a>Migração de acesso e a função de utilizador
 Gestão de acesso ao portal do Azure é mais rica e mais poderoso do que a gestão de acesso no Portal do OMS. Ver [gerir áreas de trabalho](manage-access.md#manage-accounts-and-users) para obter detalhes sobre a gestão de acesso no Log Analytics.

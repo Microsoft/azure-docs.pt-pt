@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 91e2a4f49ba52ccbae8838400d54e0f483ca5039
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9fc20c97e19ef3a651bc6df36118bc85fefcaec3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118736"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurar o trânsito do gateway de VPN para peering de rede virtual
 
@@ -129,13 +129,13 @@ Add-AzVirtualNetworkPeering `
 Os passos são semelhantes ao exemplo do Resource Manager, mas as operações são aplicadas apenas na rede virtual Hub-RM.
 
 1. Crie ou atualize o peering de rede virtual de Hub-RM para Spoke-RM no portal do Azure. Navegue até ao recurso de rede virtual Hub-RM, clique em “Peerings” e em “Adicionar”:
-    - Defina a opção “Clássico” do modelo de implementação de Rede virtual
-    - Selecione a rede virtual “Spoke-Classic” na subscrição correspondente
-    - Confirme se a opção “Permitir acesso de rede virtual” está “Ativada”
-    - Defina a opção “**Permitir trânsito do gateway**”
-    - Clique em “OK”
+   - Defina a opção “Clássico” do modelo de implementação de Rede virtual
+   - Selecione a rede virtual “Spoke-Classic” na subscrição correspondente
+   - Confirme se a opção “Permitir acesso de rede virtual” está “Ativada”
+   - Defina a opção “**Permitir trânsito do gateway**”
+   - Clique em “OK”
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. Se o peering já tiver sido criado, navegue até ao recurso de peering e, em seguida, ative a opção “**Permitir trânsito do gateway**”, semelhante à captura de ecrã mostrada no passo (1)
 

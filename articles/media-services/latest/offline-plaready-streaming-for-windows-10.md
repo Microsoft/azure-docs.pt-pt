@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 6960f6da2eb8c867d36ba4073d1a0fcafe8d75bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443212"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902006"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline de transmissão em fluxo para o Windows 10
 
@@ -41,7 +41,7 @@ O desafio que enfrentamos na implementação do modo offline é a seguinte:
 * MP4 é suportada por muitos leitores, ferramentas de codificador, mas não existe nenhum vínculo entre o contentor de MP4 e DRM;
 * A longo prazo, CFF com CENC é a melhor opção. No entanto, hoje em dia, o ecossistema de suporte de ferramentas/player ainda não está lá. É necessário uma solução, hoje em dia.
  
-A idéia é: transmissão em fluxo uniforme ([PIFF](http://go.microsoft.com/?linkid=9682897)) formato de ficheiro com h264 taxa de bits/AAC tem um vínculo com PlayReady (AES-128 CTR). Smooth streaming .ismv arquivo individual (partindo do princípio de áudio é muxed vídeo) em si é um fMP4 e pode ser utilizado para a reprodução. Se der um conteúdo de transmissão em fluxo uniforme através da encriptação do PlayReady, cada ficheiro .ismv torna-se um PlayReady protegido real de MP4 fragmentado. Podemos escolher um ficheiro de .ismv com a velocidade de transmissão preferencial e renomeá-lo como. mp4 para download.
+A idéia é: transmissão em fluxo uniforme ([PIFF](https://go.microsoft.com/?linkid=9682897)) formato de ficheiro com h264 taxa de bits/AAC tem um vínculo com PlayReady (AES-128 CTR). Smooth streaming .ismv arquivo individual (partindo do princípio de áudio é muxed vídeo) em si é um fMP4 e pode ser utilizado para a reprodução. Se der um conteúdo de transmissão em fluxo uniforme através da encriptação do PlayReady, cada ficheiro .ismv torna-se um PlayReady protegido real de MP4 fragmentado. Podemos escolher um ficheiro de .ismv com a velocidade de transmissão preferencial e renomeá-lo como. mp4 para download.
 
 Existem duas opções para alojar o PlayReady protegidas MP4 para transferência progressiva:
 
@@ -57,12 +57,12 @@ Seguem-se dois conjuntos de recursos de teste, primeiro com disponibilização d
 
 Asset #1:
 
-* URL de transferência progressiva: [http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
+* URL de transferência progressiva: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4")
 * PlayReady LA_URL (AMS): [https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/](https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/)
 
 Asset #2:
 
-* URL de transferência progressiva: [http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](http://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
+* URL de transferência progressiva: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady LA_URL (no local): [https://willzhan12.cloudapp.net/playready/rightsmanager.asmx](https://willzhan12.cloudapp.net/playready/rightsmanager.asmx)
 
 Para reprodução de teste, usamos uma aplicação Universal do Windows no Windows 10. Na [exemplos do Windows 10 Universal](https://github.com/Microsoft/Windows-universal-samples), há um exemplo de leitor básico chamado [exemplo de transmissão em fluxo adaptável](https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/AdaptiveStreaming). Tudo o que precisamos fazer é adicionar o código para nós escolher o vídeo transferido e utilizá-lo como a origem, em vez de origem de transmissão em fluxo adaptável. As alterações são no botão de manipulador de eventos de clique:

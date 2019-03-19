@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 3d5962ec097c5cd72693530328b710af915054d0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105289"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -289,13 +289,13 @@ Neste exemplo de política encaminha o pedido para um serviço fabric back-end, 
 
 > [!IMPORTANT]
 >  Tenha em atenção que, por predefinição, quando acessa a mensagem, body usando `context.Request.Body` ou `context.Response.Body`, o corpo da mensagem original foi perdido e tem de ser definido por meio do retorno o corpo de volta na expressão. Para preservar o conteúdo do corpo, defina o `preserveContent` parâmetro `true` ao aceder a mensagem. Se `preserveContent` está definido como `true` e um corpo de diferente é devolvido pela expressão, o corpo retornado é utilizado.
->
+> 
 >  Tenha em atenção as seguintes considerações ao utilizar o `set-body` política.
->
->  -   Se estiver a utilizar o `set-body` política para retornar um corpo de novo ou atualizado, não precisa de definir `preserveContent` para `true` porque fornecidos explicitamente o novo conteúdo do corpo.
-> -   Preservar o conteúdo de uma resposta no pipeline de entrada não faz sentido, porque não existe nenhuma resposta ainda.
-> -   Preservar o conteúdo de um pedido no pipeline de saída não faz sentido, porque o pedido já foi enviado para o back-end neste momento.
-> -   Se esta política é utilizada quando não existe nenhum corpo de mensagem, por exemplo num GET de entrada, é emitida uma exceção.
+> 
+> - Se estiver a utilizar o `set-body` política para retornar um corpo de novo ou atualizado, não precisa de definir `preserveContent` para `true` porque fornecidos explicitamente o novo conteúdo do corpo.
+>   -   Preservar o conteúdo de uma resposta no pipeline de entrada não faz sentido, porque não existe nenhuma resposta ainda.
+>   -   Preservar o conteúdo de um pedido no pipeline de saída não faz sentido, porque o pedido já foi enviado para o back-end neste momento.
+>   -   Se esta política é utilizada quando não existe nenhum corpo de mensagem, por exemplo num GET de entrada, é emitida uma exceção.
 
  Para obter mais informações, consulte a `context.Request.Body`, `context.Response.Body`e o `IMessage` secções o [variável de contexto](api-management-policy-expressions.md#ContextVariables) tabela.
 
@@ -514,7 +514,7 @@ OriginalUrl.
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-skip - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` Transaction múltiplas entradas com o mesmo nome resulta no cabeçalho que está a ser definido de acordo com todas as entradas (que serão listadas várias vezes); apenas valores listados serão definidos no resultado.|Não|substituir|
-|name|Especifica o nome do cabeçalho de ser definido.|Sim|N/A|
+|nome|Especifica o nome do cabeçalho de ser definido.|Sim|N/A|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -574,7 +574,7 @@ OriginalUrl.
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |ação existe|Especifica a ação a tomar quando o parâmetro de consulta já foi especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do parâmetro existente.<br />-skip - não substitui o valor de parâmetro de consulta existente.<br />-Acrescentar - acrescenta o valor para o valor de parâmetro de consulta existente.<br />-delete - remove o parâmetro de consulta no pedido.<br /><br /> Quando definido como `override` Transaction múltiplas entradas com o mesmo nome resulta no parâmetro de consulta que está a ser definido, de acordo com todas as entradas (que serão listadas várias vezes); apenas valores listados serão definidos no resultado.|Não|substituir|
-|name|Especifica o nome do parâmetro de consulta seja definido.|Sim|N/A|
+|nome|Especifica o nome do parâmetro de consulta seja definido.|Sim|N/A|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -586,11 +586,11 @@ OriginalUrl.
 ##  <a name="RewriteURL"></a> Reescrever URL
  O `rewrite-uri` política converte um URL do pedido de sua forma pública para o formato esperado pelo serviço web, conforme mostrado no exemplo a seguir.
 
--   URL pública- `http://api.example.com/storenumber/ordernumber`
+- URL pública- `http://api.example.com/storenumber/ordernumber`
 
--   URL do pedido- `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- URL do pedido- `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- Esta política pode ser utilizada quando um URL humano e/ou navegador amigável deva ser transformado em formato de URL esperado pelo serviço web. Esta política só tem de ser aplicadas ao expor um formato de URL alternativo, como URLs limpas, RESTful URLs, fácil de utilizar URLs ou URLs que permitem SEO que são puramente estruturais URLs que não contenham uma cadeia de consulta e em vez disso, contêm apenas o caminho do recurso ( após o esquema e a autoridade). Isso é geralmente feito estética, usabilidade ou mecanismo de pesquisa fins de otimização (SEO).
+  Esta política pode ser utilizada quando um URL humano e/ou navegador amigável deva ser transformado em formato de URL esperado pelo serviço web. Esta política só tem de ser aplicadas ao expor um formato de URL alternativo, como URLs limpas, RESTful URLs, fácil de utilizar URLs ou URLs que permitem SEO que são puramente estruturais URLs que não contenham uma cadeia de consulta e em vez disso, contêm apenas o caminho do recurso ( após o esquema e a autoridade). Isso é geralmente feito estética, usabilidade ou mecanismo de pesquisa fins de otimização (SEO).
 
 > [!NOTE]
 >  Só é possível adicionar parâmetros de cadeia de caracteres de consulta através da política. Não é possível adicionar parâmetros de caminho de modelo extra no rewrite URL.

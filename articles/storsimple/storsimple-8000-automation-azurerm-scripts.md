@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 4184d3605c464b5da495de0698155dda1ae4e474
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b7cc47c449b91693831dda74bf987f595fe65681
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438716"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997873"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Utilizar scripts baseados no SDK do Azure Resource Manager para gerir dispositivos do StorSimple
 
@@ -77,7 +77,7 @@ O script utilizado neste exemplo apresenta uma lista de todos os trabalhos de um
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Transferir o CLI do NuGet](http://www.nuget.org/downloads) sob a pasta que criou no passo anterior. Existem várias versões do _nuget.exe_. Escolha a versão correspondente ao seu SDK. Cada ligação de transferência aponta diretamente para um _.exe_ ficheiro. Certifique-se de que com o botão direito e guarde o ficheiro para o seu computador, em vez de executá-lo a partir do browser.
+2. [Transferir o CLI do NuGet](https://www.nuget.org/downloads) sob a pasta que criou no passo anterior. Existem várias versões do _nuget.exe_. Escolha a versão correspondente ao seu SDK. Cada ligação de transferência aponta diretamente para um _.exe_ ficheiro. Certifique-se de que com o botão direito e guarde o ficheiro para o seu computador, em vez de executá-lo a partir do browser.
 
     Também pode executar o seguinte comando para transferir e armazenar o script na mesma pasta que criou anteriormente.
     

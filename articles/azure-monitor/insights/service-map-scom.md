@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: magoedte
-ms.openlocfilehash: 878abe79754c3286b77aef744d1bc4973a8af841
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 40e6d6ff6ea8748b525642e5507c80590b322b7a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729401"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110108"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integração de mapa de serviço com o System Center Operations Manager
 
@@ -67,11 +67,11 @@ Para configurar a integração de mapa de serviço, faça o seguinte:
 
     Para a integração criar um diagrama de aplicação distribuída para um servidor, tem de ser o servidor:
 
-    * Gerido pelo Operations Manager
-    * Gerido pelo mapa de serviço
-    * Listado no grupo de servidores de mapa de serviço
+   * Gerido pelo Operations Manager
+   * Gerido pelo mapa de serviço
+   * Listado no grupo de servidores de mapa de serviço
 
-    ![O grupo de configuração do Operations Manager](media/service-map-scom/scom-config-group.png)
+     ![O grupo de configuração do Operations Manager](media/service-map-scom/scom-config-group.png)
 
 6. Opcional: Selecione o agrupamento de recursos do servidor de gestão para comunicar com o Log Analytics e, em seguida, clique em **adicionar área de trabalho**.
 

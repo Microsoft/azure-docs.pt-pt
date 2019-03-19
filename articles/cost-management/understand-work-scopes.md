@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/28/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: c7eb490bdf484651613c5c7a72d2a31be5306634
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773797"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002932"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -146,9 +146,9 @@ Os utilizadores de faturação não tem acesso a grupos de gestão, porque eles 
 
 Parceiros da cloud Solution Provider (CSP) não são atualmente suportados no Cost Management. Em vez disso, pode usar [Centro de parceiros](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
-## <a name="how-to-switch-between-scopes-within-cost-management"></a>Como alternar entre escopos dentro Cost Management
+## <a name="switch-between-scopes-in-cost-management"></a>Alternar entre âmbitos no Cost Management
 
-Todas as experiências de gestão de custos no portal do Azure incluem uma **âmbito** envenenadas no canto superior esquerdo do painel, que fornece acesso ao âmbito de alterar rapidamente. Ao clicar o **âmbito** envenenadas abre um Seletor de âmbito que mostra contas de faturas, o grupo de gestão de raiz e quaisquer subscrições que não são aninhadas sob o grupo de gestão de raiz. Para selecionar um âmbito, clique em segundo plano para destacá-la e, em seguida, clique nas **selecione** na parte inferior. Para explorar os âmbitos aninhados (por exemplo, grupos de recursos numa subscrição), clique na ligação de nome de âmbito. Para selecionar o âmbito principal em qualquer nível aninhada, clique a **Selecione esta opção <scope>**  botão na parte superior do Seletor de âmbito.
+Todas as vistas de gestão de custos no portal do Azure incluem uma **âmbito** envenenadas no canto superior esquerdo da vista. Usá-lo para alterar rapidamente o âmbito. Clique nas **âmbito** envenenadas para abrir o Seletor de âmbito. Mostra contas de faturas, o grupo de gestão de raiz e quaisquer subscrições que não são aninhadas sob o grupo de gestão de raiz. Para selecionar um âmbito, clique em segundo plano para destacá-la e, em seguida, clique em **selecione** na parte inferior. Para desagregação em âmbitos aninhados, como grupos de recursos numa subscrição, clique na ligação de nome de âmbito. Para selecionar o âmbito principal em qualquer nível aninhada, clique em **Selecione esta opção &lt;âmbito&gt;**  na parte superior do Seletor de âmbito.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificar o ID de recurso para um âmbito
 
@@ -218,7 +218,7 @@ Ao trabalhar com APIs de gestão de custos, saber que o âmbito é fundamental. 
 4. Copie o valor de campo de ID de recurso.
 5. O escopo é: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Gestão de custos é atualmente suportada no Azure Global (https://management.azure.com) e o Azure Government (https://management.usgovcloudapi.net). Para obter mais informações sobre o Azure Government, consulte [pontos de extremidade Global do Azure e a API de Governo](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Gestão de custos é atualmente suportada no [Global do Azure](https://management.azure.com) e [Azure Government](https://management.usgovcloudapi.net). Para obter mais informações sobre o Azure Government, consulte [pontos de extremidade Global do Azure e a API de Governo](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
 
 ## <a name="next-steps"></a>Passos Seguintes
 

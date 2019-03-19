@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a82d871ea232b31b31cfc24585af672141617d88
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353015"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57976781"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fábrica de dados do Azure - funções e variáveis de sistema
 > [!NOTE]
@@ -27,6 +27,7 @@ ms.locfileid: "54353015"
 Este artigo fornece informações sobre as funções e variáveis suportadas pelo Azure Data Factory.
 
 ## <a name="data-factory-system-variables"></a>Variáveis de sistema de fábrica de dados
+
 | Nome da variável | Descrição | Âmbito de objeto | Âmbito JSON e casos de utilização |
 | --- | --- | --- | --- |
 | WindowStart |Início do intervalo de tempo para a janela de execução da atividade atual |atividade |<ol><li>Especifique as consultas de seleção de dados. Veja os artigos de conector referenciados no [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo.</li> |
@@ -94,7 +95,7 @@ As tabelas seguintes listam todas as funções no Azure Data Factory:
 | Date |EndOfDay(X) |X: DateTime |Obtém a data-hora que representa o fim do dia (componente de dia) de X.<br/><br/>Exemplo: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
 | Date |EndOfMonth(X) |X: DateTime |Obtém o fim do mês representado pelo componente de mês do parâmetro X. <br/><br/>Exemplo: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (data e hora que representa o fim do mês de Setembro) |
 | Date |StartOfDay(X) |X: DateTime |Obtém o início do dia representado pelo componente de dia do parâmetro X.<br/><br/>Exemplo: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |FROM(X) |X: Cadeia |Analisar a cadeia de caracteres X para uma hora de data. |
+| DateTime |FROM(X) |X: String |Analisar a cadeia de caracteres X para uma hora de data. |
 | DateTime |Ticks(X) |X: DateTime |Obtém os ticks propriedade do parâmetro X. Uma escala é igual a 100 nanossegundos. O valor desta propriedade representa o número de tiques decorridos desde 12: 00:00 meia-noite, 1 de Janeiro, 0001. |
 | Texto |Format(X) |X: Variável de cadeia de caracteres |Formata o texto (use `\\'` combinação para o escape `'` carateres).|
 

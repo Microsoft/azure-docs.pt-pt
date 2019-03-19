@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168248"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894092"
 ---
 <a name="create-a-microsoft-developer-account"></a>Criar uma conta do Microsoft Developer
 ====================================
@@ -77,7 +77,7 @@ O Microsoft Developer Center é utilizado para registar as informações da empr
 >[!IMPORTANT]
 >Tem de concluir os seguintes componentes de perfil do desenvolvedor para percorre as fases de criação de oferta e a implantação.
 
-| Perfil do desenvolvedor     | Para iniciar o draft    | Testes       | Publicar gratuitamente e o modelo de solução   | Publicar comercial   |
+| Perfil do desenvolvedor     | Para iniciar o draft    | Teste       | Publicar gratuitamente e o modelo de solução   | Publicar comercial   |
 |---------------------- |----------------   |-----------    |-------------------------------------  |---------------------  |
 | Registo de empresa  | Tem de ter         | Tem de ter     | Tem de ter                             | Tem de ter             |
 | ID de perfil do imposto        | Opcional          | Opcional      | Opcional                              | Tem de ter             |
@@ -90,7 +90,7 @@ O Microsoft Developer Center é utilizado para registar as informações da empr
 
 1. Abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação para se certificar de que não estiver inscrito para uma conta pessoal.
 
-2. Vá para o [Windows Dev Center](http://dev.windows.com/registration?accountprogram=azure) para registrar-se como um vendedor. Leia a observação importante a seguir antes de continuar.
+2. Vá para o [Windows Dev Center](https://dev.windows.com/registration?accountprogram=azure) para registrar-se como um vendedor. Leia a observação importante a seguir antes de continuar.
 
    ![Verificação da conta Microsoft](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
@@ -157,7 +157,7 @@ Para publicar ofertas comerciais para compra, terá de adicionar fiscais e infor
 
 **Para fornecer informações bancárias**
 
-1.  Inicie sessão para o [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) com a sua conta Microsoft.
+1.  Inicie sessão para o [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) com a sua conta Microsoft.
 2.  Selecione **conta de dividendos** no menu à esquerda, sob **escolher método de pagamento**, selecione **conta bancária** ou **PayPal**.
 
     >[!NOTE]
@@ -173,7 +173,7 @@ Para publicar ofertas comerciais para compra, terá de adicionar fiscais e infor
 
 **Para fornecer informações fiscais**
 
-1.  Inicie sessão para o [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) com a sua conta Microsoft (se necessário).
+1.  Inicie sessão para o [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) com a sua conta Microsoft (se necessário).
 2.  No menu da esquerda, selecione **imposto sobre vendas perfil**.
 3.  Sobre o **configurar o seu formulário de imposto sobre** página:
     - Selecione o país ou região onde tenha residência permanente.

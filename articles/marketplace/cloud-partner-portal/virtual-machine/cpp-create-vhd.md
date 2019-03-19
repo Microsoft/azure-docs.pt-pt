@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bd085804f532811e71d421e3f683c50c1c3416cb
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575487"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096576"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Criar um VHD compatível com o Azure
 
@@ -55,18 +55,18 @@ No Microsoft [portal do Azure](https://ms.portal.azure.com/), criar a imagem bas
     ![Painel de VM nova computação](./media/publishvm_014.png)
 
 5. Depois de selecionar a imagem virtual adequada, forneça os valores seguintes:
-  * Sobre o **Noções básicas** painel, introduza um **nome** para a máquina virtual, entre 1 e 15 carateres de alfanuméricos. (Este exemplo utiliza `DemoVm009`.)
-  * Introduza um **nome de utilizador** e uma forte **palavra-passe**, que é utilizado para criar uma conta local na VM.  (Aqui `adminUser` é usado.)  A palavra-passe tem de ter entre 8 e 123 carateres e cumprir três dos quatro requisitos de complexidade seguintes: um caráter em letra minúscula, um caráter em letra maiúscula, um número e um caráter especial. Para obter mais informações, consulte [requisitos de nome de utilizador e palavra-passe](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-  * Selecione o grupo de recursos que criou (aqui `DemoResourceGroup`).
-  * Selecione um Datacenter do Azure **localização** (aqui `West US`).
-  * Clique em **OK** para guardar estes valores. 
+   * Sobre o **Noções básicas** painel, introduza um **nome** para a máquina virtual, entre 1 e 15 carateres de alfanuméricos. (Este exemplo utiliza `DemoVm009`.)
+   * Introduza um **nome de utilizador** e uma forte **palavra-passe**, que é utilizado para criar uma conta local na VM.  (Aqui `adminUser` é usado.)  A palavra-passe tem de ter entre 8 e 123 carateres e cumprir três dos quatro requisitos de complexidade seguintes: um caráter em letra minúscula, um caráter em letra maiúscula, um número e um caráter especial. Para obter mais informações, consulte [requisitos de nome de utilizador e palavra-passe](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Selecione o grupo de recursos que criou (aqui `DemoResourceGroup`).
+   * Selecione um Datacenter do Azure **localização** (aqui `West US`).
+   * Clique em **OK** para guardar estes valores. 
 
-6.  Selecione o tamanho da VM para implementar com as seguintes recomendações:
-  * Se tenciona desenvolver o VHD no local, o tamanho não é relevante. Pondere utilizar uma das VMs mais pequenas.
-  * Se tenciona desenvolver a imagem no Azure, pondere utilizar um dos tamanhos de VM recomendados para a imagem selecionada.
-  * Para obter informações sobre preços, consulte a **escalões de preço recomendados** Seletor apresentado no portal. Isso exibirá os três tamanhos recomendados fornecidos pelo editor. (Aqui, o publicador é Microsoft.)
+6. Selecione o tamanho da VM para implementar com as seguintes recomendações:
+   * Se tenciona desenvolver o VHD no local, o tamanho não é relevante. Pondere utilizar uma das VMs mais pequenas.
+   * Se tenciona desenvolver a imagem no Azure, pondere utilizar um dos tamanhos de VM recomendados para a imagem selecionada.
+   * Para obter informações sobre preços, consulte a **escalões de preço recomendados** Seletor apresentado no portal. Isso exibirá os três tamanhos recomendados fornecidos pelo editor. (Aqui, o publicador é Microsoft.)
 
-    ![Painel de tamanho de VM nova](./media/publishvm_015.png)
+   ![Painel de tamanho de VM nova](./media/publishvm_015.png)
 
 7. Na **definições** painel, definir o **disco gerido de utilização** a opção de **não**.  Isto permite-lhe gerir manualmente o novo VHD. (A **configurações** painel também lhe permite alterar a outra alteração as rede opções de armazenamento e, por exemplo, selecionando **Premium (SSD)** na **tipo de disco**.)  Clique em **OK** para continuar.
 

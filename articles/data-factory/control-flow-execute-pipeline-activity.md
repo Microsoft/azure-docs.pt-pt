@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: f36d9eed11685d1bb35a46a97eb58fe870970075
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a0ece499262464bc28f55c37188698a3313e2c04
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998717"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Atividade execute Pipeline na fábrica de dados do Azure
 A atividade executar Pipeline permite que um pipeline do Data Factory invoque outro pipeline.
@@ -59,13 +59,14 @@ A atividade executar Pipeline permite que um pipeline do Data Factory invoque ou
 ```
 
 ## <a name="type-properties"></a>Propriedades do tipo
+
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade execute pipeline. | Cadeia | Sim
-tipo | Deve ser definida como: **ExecutePipeline**. | Cadeia | Sim
+nome | Nome da atividade execute pipeline. | String | Sim
+tipo | Deve ser definida como: **ExecutePipeline**. | String | Sim
 pipeline | Referência do pipeline para o pipeline dependente que invoca este pipeline. Um objeto de referência do pipeline tem duas propriedades: **referenceName** e **tipo**. A propriedade referenceName Especifica o nome do pipeline de referência. A propriedade de tipo tem de ser definida para PipelineReference. | PipelineReference | Sim
 parâmetros | Parâmetros a ser transmitidos para o pipeline invocado | Um objeto JSON que mapeia nomes de parâmetro para valores de argumento | Não
-waitOnCompletion | Define se a execução da atividade aguarda para que a execução de pipeline dependentes concluir. | A predefinição é falso. | Booleano | Não
+waitOnCompletion | Define se a execução da atividade aguarda para que a execução de pipeline dependentes concluir. A predefinição é falso. | Booleano | Não
 
 ## <a name="sample"></a>Sample
 Este cenário tem dois pipelines:

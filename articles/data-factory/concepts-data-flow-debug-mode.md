@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: d3cabbcc04766d4a209ecf96db3f842902b465a5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 1a332dd46cac196c8185ddb12c0d900f5c36e1b3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894058"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Modo de depuração de fluxo de dados de mapeamento
 
@@ -46,7 +46,7 @@ Quando tiver terminado com a sua vez de depuração, a depuração optar por des
 <img src="media/data-flow/datapreview.png" width="400">
 
 ## <a name="data-preview"></a>Pré-visualização de dados
-Com depuração no, a guia visualização de dados será light cópia de segurança no painel inferior. Sem o modo de depuração no fluxo de dados mostrará apenas os metadados atual e para cada um das transformações no separador Inspect. A pré-visualização de dados só irá consultar o número de linhas que tiver definido como o limite de nas definições da origem. Poderá ter de clicar em "Obter dados" para atualizar a pré-visualização de dados.
+Com depuração no, a guia visualização de dados será light cópia de segurança no painel inferior. Sem o modo de depuração no fluxo de dados mostrará apenas os metadados atual e para cada um das transformações no separador Inspect. A pré-visualização de dados só irá consultar o número de linhas que tiver definido como o limite de nas suas definições de depuração. Poderá ter de clicar em "Obter dados" para atualizar a pré-visualização de dados.
 
 <img src="media/data-flow/stats.png" width="400">
 

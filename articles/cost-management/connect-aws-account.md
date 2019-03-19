@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0e3d6255d6e2787d407d24a4217a0262ae4c974d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 411a3d606ac8ec2f262ec9a1aabac7b74ccd110a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098482"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010942"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ligar uma conta do Amazon Web Services
 
@@ -45,7 +45,7 @@ A primeira etapa é obter a frase de acesso de ligação exclusivo a partir do p
 1. Inicie sessão na consola AWS https://console.aws.amazon.com/iam/home e selecione **funções**.
 2. Clique em **criar função** e, em seguida, selecione **conta AWS outro**.
 3. Na **ID da conta** caixa, cole `432263259397`. Este ID de conta é a conta de recoletor de dados do Cloudyn atribuída pelo AWS para o serviço do Cloudyn. Utilize o ID de conta exata apresentado.
-4. Junto a **opções**, selecione **necessitam de ID externo**. Cole o valor exclusivo que anteriormente copiados a partir da **ID externo** campo no Cloudyn. Em seguida, clique em **seguinte: permissões**.  
+4. Junto a **opções**, selecione **necessitam de ID externo**. Cole o valor exclusivo que anteriormente copiados a partir da **ID externo** campo no Cloudyn. Em seguida, clique em **seguinte: Permissões**.  
     ![Cole o ID externo do Cloudyn na página Criar função](./media/connect-aws-account/create-role01.png)
 5. Em **anexar as políticas de permissões**, na **tipo de política** pesquisa da caixa de filtro, escreva `ReadOnlyAccess`, selecione **ReadOnlyAccess**, em seguida, clique em **seguinte: Revisão**.  
     ![Selecione o acesso só de leitura na lista de nomes de política](./media/connect-aws-account/readonlyaccess.png)
@@ -80,10 +80,10 @@ As seções a seguir explicam como criar um utilizador só de leitura para forne
 1. Inicie sessão na consola AWS https://console.aws.amazon.com/iam/home e selecione **utilizadores**.
 2. Clique em **adicionar utilizador**.
 3. Na **nome de utilizador** , digite um nome de utilizador.
-4. Para **tipo de acesso**, selecione **acesso programático** e clique em **seguinte: permissões**.  
+4. Para **tipo de acesso**, selecione **acesso programático** e clique em **seguinte: Permissões**.  
     ![Introduza um nome de utilizador na página Adicionar utilizador](./media/connect-aws-account/add-user01.png)
 5. Para permissões, selecione **anexar as políticas existentes diretamente**.
-6. Sob **políticas de permissões de anexar**, na **tipo de política** pesquisa da caixa de filtro, escreva `ReadOnlyAccess`, selecione **ReadOnlyAccess**e, em seguida, clique em **seguinte : Reveja**.  
+6. Sob **políticas de permissões de anexar**, na **tipo de política** pesquisa da caixa de filtro, escreva `ReadOnlyAccess`, selecione **ReadOnlyAccess**e, em seguida, clique em **seguinte : Revisão**.  
     ![Selecione ReadOnlyAccess para definir as permissões do utilizador](./media/connect-aws-account/set-permission-for-user.png)
 7. Na página revisão, certifique-se as suas seleções estão corretas, em seguida, clique em **criar utilizador**.
 8. Na página conclua, a sua chave ID e segredo de acesso à chave de acesso são apresentados. Utilize estas informações para configurar o registo no Cloudyn.
@@ -127,11 +127,11 @@ Criar um registo de S3 para armazenar informações detalhadas de faturas.
 6. Na página revisão, clique em **bucket de criar**. É apresentada a lista de registo.
 7. Clique com o registo que criou e selecione o **permissões** separador e, em seguida, selecione **política de Bucket**. É aberto o editor de política de registo.
 8. Copie o seguinte exemplo JSON e cole-o no editor de políticas de registo.
-  - Substitua `<BillingBucketName>` com o nome do seu registo de S3.
-  - Substitua `<ReadOnlyUserOrRole>` com a função ou utilizador ARN que tinha anteriormente copiou.
+   - Substitua `<BillingBucketName>` com o nome do seu registo de S3.
+   - Substitua `<ReadOnlyUserOrRole>` com a função ou utilizador ARN que tinha anteriormente copiou.
 
-  ```json
-  {
+   ```json
+   {
     "Version": "2012-10-17",
     "Id": "Policy1426774604000",
     "Statement": [
@@ -169,8 +169,8 @@ Criar um registo de S3 para armazenar informações detalhadas de faturas.
             "Resource": "arn:aws:s3:::<BillingBucketName>/*"
         }
     ]
-  }
-  ```
+   }
+   ```
 
 9. Clique em **Guardar**.  
     ![Clique em Guardar no editor de políticas de Bucket](./media/connect-aws-account/bucket-policy-editor.png)

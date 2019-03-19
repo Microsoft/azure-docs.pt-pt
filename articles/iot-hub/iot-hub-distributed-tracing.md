@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 0a2027e3ae0fb40058b5bdbfd212687697877076
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0553bd904cfaabaefce4e6ab3f7fbf5d356922d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875264"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100365"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Mensagens de dispositivo-para-cloud do Azure IoT com o rastreio distribuído (pré-visualização) de rastreio
 
@@ -269,7 +269,7 @@ Para compreender os diferentes tipos de registos, consulte [registos de diagnós
 Para visualizar o fluxo de mensagens de IoT, configure a aplicação de exemplo do mapa da aplicação. A aplicação de exemplo envia os registos de rastreio distribuído para [mapa da aplicação](../application-insights/app-insights-app-map.md) usando uma função do Azure e um Hub de eventos.
 
 > [!div class="button"]
-<a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obter o exemplo no Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obter o exemplo no Github</a>
 
 Esta imagem abaixo mostra o rastreio distribuído no mapa da aplicação com três pontos de extremidade de encaminhamento:
 

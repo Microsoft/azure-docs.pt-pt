@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901547"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Integração do controlo de origem na automatização do Azure - legado
 
@@ -65,23 +65,23 @@ Se já tiver uma conta do GitHub e um repositório de que pretende associar a au
      
      | **Parâmetro** | **Valor** |
      |:--- |:--- |
-     | Nome |Microsoft.Azure.Automation.SourceControl.Connection |
-     | Tipo |Cadeia |
-     | Valor |{"Ramo":\<*o nome do ramo*>, "RunbookFolderPath":\<*o caminho de pasta do Runbook*>, "ProviderType":\<*tem um valor de 1 para GitHub*>, "Repositório":\<*nome do seu repositório*>, "Nomedeutilizador":\<*nome de utilizador do Your GitHub*>} |
+     | Name |Microsoft.Azure.Automation.SourceControl.Connection |
+     | Type |String |
+     | Value |{"Ramo":\<*o nome do ramo*>, "RunbookFolderPath":\<*o caminho de pasta do Runbook*>, "ProviderType":\<*tem um valor de 1 para GitHub*>, "Repositório":\<*nome do seu repositório*>, "Nomedeutilizador":\<*nome de utilizador do Your GitHub*>} |
 
-    * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**, contém o valor encriptado seguro de sua OAuthToken.  
+     * A variável **Microsoft.Azure.Automation.SourceControl.OAuthToken**, contém o valor encriptado seguro de sua OAuthToken.  
 
-    |**Parâmetro**            |**Valor** |
-    |:---|:---|
-    | Nome  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
-    | Tipo | UNKNOWN(Encrypted) |
-    | Valor | <*OAuthToken encriptado*> |  
+     |**Parâmetro**            |**Valor** |
+     |:---|:---|
+     | Name  | Microsoft.Azure.Automation.SourceControl.OAuthToken |
+     | Type | UNKNOWN(Encrypted) |
+     | Value | <*OAuthToken encriptado*> |  
 
-    ![Variáveis](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
+     ![Variáveis](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Controlo de código fonte da automatização** é adicionado como uma aplicação autorizada para a sua conta do GitHub. Para ver a aplicação: A partir da sua home page do GitHub, navegue para o **perfil** > **definições** > **aplicativos**. Esta aplicação permite que a automatização do Azure sincronizar o seu repositório do GitHub para uma conta de automatização.  
+     * **Controlo de código fonte da automatização** é adicionado como uma aplicação autorizada para a sua conta do GitHub. Para ver a aplicação: A partir da sua home page do GitHub, navegue para o **perfil** > **definições** > **aplicativos**. Esta aplicação permite que a automatização do Azure sincronizar o seu repositório do GitHub para uma conta de automatização.  
 
-    ![Aplicação de Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
+     ![Aplicação de Git](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
 
 ## <a name="using-source-control-in-automation"></a>Usando o controle de origem na automatização
@@ -124,10 +124,6 @@ O botão Sincronizar na página de sincronização de repositório permite-lhe e
 
     > [!NOTE] 
     > Uma sincronização a partir do controlo de origem substitui a versão de rascunho os runbooks que existem atualmente na sua conta de automatização para **todos os** runbooks que estão atualmente nos controle de origem. O Git de instrução de linha de comandos equivalente a sincronização é **pull de git**
-
-
-## <a name="troubleshooting-source-control-problems"></a>Resolução de problemas de controle de origem
-Se existirem quaisquer erros com uma verificação no ou a tarefa de sincronização, o estado da tarefa deve ser suspensa e pode ver mais detalhes sobre o erro na página de tarefa.  O **todos os registos** parte mostra todos os fluxos de PowerShell associados com essa tarefa. Este procedimento fornece os detalhes necessários para o ajudar a corrigir quaisquer problemas com seu check-in ou a sincronização. Ele também mostra a sequência de ações que ocorreram durante a sincronização ou verificação num runbook.  
 
 ![Imagem de AllLogs](media/automation-source-control-integration-legacy/automation_13_AllLogs.png)
 

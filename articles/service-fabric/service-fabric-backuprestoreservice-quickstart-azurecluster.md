@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 96911efb541fc861aa7dd5f735efca8309763428
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4cb73ea08060336710207e026bb5bcc5a251efc8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443101"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877926"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Cópia de segurança periódica e restauro no Azure Service Fabric 
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ O Service Fabric fornece um conjunto de APIs para alcançar a seguinte funcional
 ## <a name="prerequisites"></a>Pré-requisitos
 * Cluster do Service Fabric com recursos de infraestrutura versão 6.2 e versões posteriores. O cluster deve ser configurado no Windows Server. Consulte este [artigo](service-fabric-cluster-creation-via-arm.md) para obter os passos criar recursos de infraestrutura do serviço de cluster com o modelo de recursos do Azure.
 * Certificado X.509 para a encriptação dos segredos necessárias para se ligar ao armazenamento para armazenar cópias de segurança. Consultar [artigo](service-fabric-cluster-creation-via-arm.md) saber como obter ou criar um certificado X.509.
-* Aplicação de Service Fabric Reliable com monitoração de estado criada com o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos destinados a .net Core 2.0, a aplicação deve ser criada usando o Service Fabric SDK versão 3.1 ou posterior.
+* Aplicação de Service Fabric Reliable com monitoração de estado criada com o SDK do Service Fabric versão 3.0 ou superior. Para aplicativos visando o .NET Core 2.0, a aplicação deve ser criada usando o Service Fabric SDK versão 3.1 ou posterior.
 * Crie conta de armazenamento do Azure para armazenar cópias de segurança do aplicativo.
 
 ## <a name="enabling-backup-and-restore-service"></a>Ativar o serviço de cópia de segurança e restauro

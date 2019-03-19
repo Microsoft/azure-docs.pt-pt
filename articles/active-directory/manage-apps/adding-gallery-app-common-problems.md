@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe781802309ad0945eaee23c35dda1617e47ae06
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853176"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar uma aplicação da galeria do Azure AD
 
@@ -73,41 +73,41 @@ Consulte as seguintes descrições para obter mais detalhes sobre as notificaç�
 
 ### <a name="essential-notification-items"></a>Itens de notificação essenciais
 
--   **Título** – o título descritivo da notificação
+- **Título** – o título descritivo da notificação
 
   * Exemplo – **as definições de proxy de aplicação**
 
--   **Descrição** – a descrição, o que ocorreu em resultado da operação
+- **Descrição** – a descrição, o que ocorreu em resultado da operação
 
-    -   Exemplo – **interno url introduzido já está a ser utilizado por outra aplicação**
+  -   Exemplo – **interno url introduzido já está a ser utilizado por outra aplicação**
 
--   **ID de notificação** – o ID exclusivo da notificação
+- **ID de notificação** – o ID exclusivo da notificação
 
-    -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+  -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **ID do pedido de cliente** – o ID de pedido específico feito pelo browser
+- **ID do pedido de cliente** – o ID de pedido específico feito pelo browser
 
-    -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
+  -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Hora UTC do carimbo de data /** – o período de tempo durante o qual a notificação ocorreu, em UTC
+- **Hora UTC do carimbo de data /** – o período de tempo durante o qual a notificação ocorreu, em UTC
 
-    -   Exemplo – **2017-03-23T19:50:43.7583681Z**
+  -   Exemplo – **2017-03-23T19:50:43.7583681Z**
 
--   **ID de transação interno** – o ID interno, podemos usar para procurar o erro nos nossos sistemas
+- **ID de transação interno** – o ID interno, podemos usar para procurar o erro nos nossos sistemas
 
-    -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+  -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – o utilizador que executou a operação
+- **UPN** – o utilizador que executou a operação
 
-    -   Exemplo – **tperkins@f128.info**
+  -   Exemplo – **tperkins\@f128.info**
 
--   **ID do inquilino** – o ID exclusivo do inquilino que fazia parte, o utilizador que executou a operação
+- **ID do inquilino** – o ID exclusivo do inquilino que fazia parte, o utilizador que executou a operação
 
-    -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+  -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **ID de objeto de utilizador** – o ID exclusivo do utilizador que executou a operação
+- **ID de objeto de utilizador** – o ID exclusivo do utilizador que executou a operação
 
-    -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
+  -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Itens de notificação detalhada
 
@@ -125,7 +125,7 @@ Consulte as seguintes descrições para obter mais detalhes sobre as notificaç�
 
 -   **Detalhes** – o detalhadas descrição, o que ocorreu em resultado da operação
 
-    -   Exemplo – **url interno "https://bing.com/" é inválido, uma vez que já está em utilização**
+    -   Exemplo – **url interno `https://bing.com/` é inválido, uma vez que já está em utilização**
 
 -   **Erro ao copiar** – clique a **ícone de cópia** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um grupo de suporte ou produto 
 -   engenheiro

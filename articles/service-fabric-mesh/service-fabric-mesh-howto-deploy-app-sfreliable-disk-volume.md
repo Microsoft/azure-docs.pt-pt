@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2ed64bbf0da252285184e2ca6fef0555a85ce149
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955326"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850858"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montar o volume elevada disponibilidade do disco de fiável de recursos de infraestrutura de serviço com base num aplicativo de malha do Service Fabric 
 O método comum de estado persistente com aplicações de contentor é usar o armazenamento remoto, como o armazenamento de ficheiros do Azure ou a base de dados, como o Azure Cosmos DB. Isto leva a leitura significativa e latência de rede de escrita para o armazenamento remoto.

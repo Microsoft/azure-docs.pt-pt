@@ -12,12 +12,12 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 02/04/2019
-ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a1902ae2bf663c432876a0f73e2bb17616023b8a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006926"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Implementar uma rede de blockchain Ethereum no Azure Stack
 
@@ -39,7 +39,7 @@ Transferir os itens mais recente [do Marketplace](../azure-stack-download-azure-
 - Script personalizado para Linux 2.0
 - Extensão de Script personalizado para Windows
 
-Para obter mais informações sobre os cenários de blockchain, consulte [modelo de solução de prova de trabalho consortium Ethereum](../../blockchain/templates/ethereum-deployment.md).
+Para obter mais informações sobre os cenários de blockchain, consulte [modelo de solução de prova da autoridade consortium Ethereum](../../blockchain/templates/ethereum-poa-deployment.md).
 
 ## <a name="deployment-architecture"></a>Arquitetura de implantação
 

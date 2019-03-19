@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106462"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure
 
@@ -122,7 +122,7 @@ Da primeira vez que o enlace de saída é utilizado, o runtime das Funções cri
 
 Ignore esta secção se já tiver instalado o Explorador de Armazenamento e o tiver ligado à conta de armazenamento que está a utilizar com este início rápido.
 
-2. Execute a ferramenta [Explorador de Armazenamento do Microsoft Azure](https://storageexplorer.com/), selecione o ícone de ligação à esquerda, escolha **Utilizar um nome e uma chave da conta de armazenamento** e selecione **Seguinte**.
+1. Execute a ferramenta [Explorador de Armazenamento do Microsoft Azure](https://storageexplorer.com/), selecione o ícone de ligação à esquerda, escolha **Utilizar um nome e uma chave da conta de armazenamento** e selecione **Seguinte**.
 
     ![Execute a ferramenta Microsoft Azure Storage Explorer.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -140,13 +140,13 @@ Ignore esta secção se já tiver instalado o Explorador de Armazenamento e o ti
  
 1. Clique no ícone de mostrar/ocultar junto a **Chave da Conta** para apresentar o valor e, em seguida, copie o valor **Chave da Conta** e cole-o na caixa **Chave da Conta** no Explorador de armazenamento.
   
-3. Selecione **Seguinte > Ligar**.
+1. Selecione **Seguinte > Ligar**.
 
    ![Cole as credenciais de armazenamento e ligue-se.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### <a name="examine-the-output-queue"></a>Examinar a fila de saída
 
-4. No Explorador de Armazenamento, selecione a conta de armazenamento que está a utilizar para este início rápido.
+1. No Explorador de Armazenamento, selecione a conta de armazenamento que está a utilizar para este início rápido.
 
 1. Expanda o nó **Filas** nó e, em seguida, selecione a fila com o nome **outqueue**. 
 
@@ -154,7 +154,7 @@ Ignore esta secção se já tiver instalado o Explorador de Armazenamento e o ti
 
     ![Mensagem de fila apresentada no Explorador de Armazenamento](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Execute novamente a função e verá uma nova mensagem aparecer na fila.  
+1. Execute novamente a função e verá uma nova mensagem aparecer na fila.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

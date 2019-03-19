@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bacefaada8ab0d63bb17d22f67b91c51a789de8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172336"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858002"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema ao configurar a palavra-passe início de sessão único para uma aplicação de externas à Galeria
 
@@ -46,25 +46,25 @@ Em geral, **se captura do campo de início de sessão automático não funcionar
 
 Para configurar **baseado em palavra-passe de início de sessão único** para uma aplicação com **captura do campo de início de sessão automático**, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
-  * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
+   * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende configurar o início de sessão único.
+6. Selecione a aplicação que pretende configurar o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Selecione o modo **baseado em palavra-passe de início de sessão.**
+8. Selecione o modo **baseado em palavra-passe de início de sessão.**
 
-9.  Introduza o **URL de início de sessão**, o URL em que os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão. **Certifique-se de que os campos de início de sessão são visíveis no URL é fornecer**.
+9. Introduza o **URL de início de sessão**, o URL em que os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão. **Certifique-se de que os campos de início de sessão são visíveis no URL é fornecer**.
 
 10. Clique no botão **Guardar**.
 
@@ -76,25 +76,25 @@ Para capturar os campos de início de sessão manualmente, primeiro tem de ter a
 
 Para configurar **baseado em palavra-passe de início de sessão único** para uma aplicação com **captura do campo de início de sessão manual**, siga os passos abaixo:
 
-1.  Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
+1. Abra o [ **portal do Azure** ](https://portal.azure.com/) e inicie sessão como um **Administrador Global** ou **Coadministrador.**
 
-2.  Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
+2. Abra o **extensão do Active Directory do Azure** ao clicar em **todos os serviços** na parte superior do menu de navegação esquerdo principal.
 
-3.  Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
+3. Escreva **"Azure Active Directory**" na caixa de pesquisa de filtro e selecione o **Azure Active Directory** item.
 
-4.  Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
+4. Clique em **aplicações empresariais** no menu de navegação do lado esquerdo do Azure Active Directory.
 
-5.  Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
+5. Clique em **todos os aplicativos** para ver uma lista de todas as suas aplicações.
 
    * Se não vir a aplicação que quer mostrar aqui, utilize o **filtro** na parte superior do **todas as listas de aplicações** e defina o **mostrar** a opção de **todos os Aplicações.**
 
-6.  Selecione a aplicação que pretende configurar o início de sessão único.
+6. Selecione a aplicação que pretende configurar o início de sessão único.
 
-7.  Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
+7. Assim que o aplicativo é carregado, clique nas **início de sessão único** no menu de navegação do lado esquerdo da aplicação.
 
-8.  Selecione o modo **baseado em palavra-passe de início de sessão.**
+8. Selecione o modo **baseado em palavra-passe de início de sessão.**
 
-9.  Introduza o **URL de início de sessão**, o URL em que os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão. **Certifique-se de que os campos de início de sessão são visíveis no URL é fornecer**.
+9. Introduza o **URL de início de sessão**, o URL em que os utilizadores introduzirem o respetivo nome de utilizador e palavra-passe para iniciar sessão. **Certifique-se de que os campos de início de sessão são visíveis no URL é fornecer**.
 
 10. Clique no botão **Guardar**.
 
@@ -174,21 +174,21 @@ Também pode baixar a extensão para o Chrome e Firefox dos links diretos abaixo
 
 Pode ver os detalhes de qualquer notificação do portal, seguindo os passos abaixo:
 
-1.  Clique nas **notificações** ícone (na campainha) no canto superior direito do portal do Azure
+1. Clique nas **notificações** ícone (na campainha) no canto superior direito do portal do Azure
 
-2.  Selecione qualquer notificação numa **erro** Estado (aquelas com linhas vermelhas (!!!) junto a eles).
+2. Selecione qualquer notificação numa **erro** Estado (aquelas com linhas vermelhas (!!!) junto a eles).
 
-  >! Tenha em atenção], não é possível clicar em notificações numa **Successful** ou **em curso** estado.
-  >
-  >
+   >! Tenha em atenção], não é possível clicar em notificações numa **Successful** ou **em curso** estado.
+   >
+   >
 
-3.  O **detalhes de notificação** painel abre-se.
+3. O **detalhes de notificação** painel abre-se.
 
-4.  Utilize as informações por si para obter mais detalhes sobre o problema de compreender.
+4. Utilize as informações por si para obter mais detalhes sobre o problema de compreender.
 
-5.  Se ainda precisar de ajuda, também pode partilhar as informações com um engenheiro de suporte ou o grupo de produto para obter ajuda com o seu problema.
+5. Se ainda precisar de ajuda, também pode partilhar as informações com um engenheiro de suporte ou o grupo de produto para obter ajuda com o seu problema.
 
-6.  Clique nas **cópia** **ícone** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo de suporte ou o produto.
+6. Clique nas **cópia** **ícone** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo de suporte ou o produto.
 
 ## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda com o envio de detalhes de notificação para um engenheiro de suporte
 
@@ -226,7 +226,7 @@ A seguir explica mais o que cada da notificação significa que os itens e forne
 
 -   **UPN** – o utilizador que executou a operação
 
-    -   Exemplo – **tperkins@f128.info**
+    -   Exemplo – **tperkins\@f128.info**
 
 -   **ID do inquilino** – o ID exclusivo do inquilino que fazia parte, o utilizador que executou a operação
 
@@ -240,11 +240,11 @@ A seguir explica mais o que cada da notificação significa que os itens e forne
 
 -   **Nome a apresentar** – **(pode estar vazio)** um nome a apresentar mais detalhado do erro
 
-    -   Exemplo * – **as definições de proxy de aplicação**
+    -   Exemplo – **as definições de proxy de aplicação**
 
 -   **Estado** – o estado específico da notificação
 
-    -   Exemplo * – **falhou**
+    -   Exemplo – **falhou**
 
 -   **ID de objeto** – **(pode estar vazio)** o ID de objeto em relação aos quais a operação foi executada
 
@@ -252,7 +252,7 @@ A seguir explica mais o que cada da notificação significa que os itens e forne
 
 -   **Detalhes** – o detalhadas descrição, o que ocorreu em resultado da operação
 
-    -   Exemplo – **url interno "https://bing.com/" é inválido, uma vez que já está em utilização**
+    -   Exemplo – **url interno "<https://bing.com/>" é inválido, uma vez que já está em utilização**
 
 -   **Erro ao copiar** – clique no **ícone de cópia** à direita do **copiar erro** caixa de texto para copiar todos os detalhes de notificação para partilhar com um engenheiro de grupo do produto ou de suporte
 

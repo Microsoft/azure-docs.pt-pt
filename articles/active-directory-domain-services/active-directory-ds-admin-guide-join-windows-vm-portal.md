@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180709"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900595"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Associar uma máquina virtual do Windows Server a um domínio gerido
 Este artigo mostra como implementar uma máquina virtual do Windows Server com o portal do Azure. Em seguida, mostra como associar a máquina virtual a um domínio gerido do Azure Active Directory Domain Services (Azure AD DS).
@@ -107,7 +107,7 @@ Para associar a máquina virtual do Windows Server com o Azure AD DS gerido dom�
 
 7. Pode especificar as credenciais em qualquer uma das seguintes formas:
 
-   * **Formato UPN**: (Recomendado) Especifique o sufixo de nome principal (UPN) do utilizador da conta de utilizador, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do utilizador *bob* é *bob@domainservicespreview.onmicrosoft.com*.
+   * **Formato UPN**: (Recomendado) Especifique o sufixo de nome principal (UPN) do utilizador da conta de utilizador, conforme configurado no Azure AD. Neste exemplo, o sufixo UPN do utilizador *bob* é *bob\@domainservicespreview.onmicrosoft.com*.
 
    * **Formato de SAMAccountName**: Pode especificar o nome da conta no formato SAMAccountName. Neste exemplo, o usuário *bob* tem de introduzir *CONTOSO100\bob*.
 
@@ -146,7 +146,7 @@ Se estiver a ter problemas com as credenciais e não é possível aderir ao dom�
 
 * Verifique se tiver [ativada a sincronização de palavra-passe](active-directory-ds-getting-started-password-sync.md) ao seu domínio gerido.
 
-* Verifique que já utilizou o UPN do utilizador, conforme configurado no Azure AD (por exemplo, *bob@domainservicespreview.onmicrosoft.com*) para iniciar sessão.
+* Verifique que já utilizou o UPN do utilizador, conforme configurado no Azure AD (por exemplo, *bob\@domainservicespreview.onmicrosoft.com*) para iniciar sessão.
 
 * Aguarde o tempo suficiente para a sincronização de palavra-passe para serem concluídas, conforme especificado no guia de introdução.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253685"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106547"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Escala para reativação pós-falha com servidores de processos adicionais
 
@@ -24,8 +24,8 @@ Por predefinição, quando está a replicar VMs de VMware ou servidores físicos
 
 Certifique-se de que já executou [planeamento de capacidade](site-recovery-plan-capacity-vmware.md) para a replicação de VMware. Isto ajuda a identificar como e quando deve implantar os servidores de processos adicionais.
 
->[!NOTE]
-Não é suportada a utilização de um componente de servidor de processos clonado. Siga os passos neste artigo para cada PS Escalamento horizontal.
+> [!NOTE]
+> Não é suportada a utilização de um componente de servidor de processos clonado. Siga os passos neste artigo para cada PS Escalamento horizontal.
 
 ### <a name="sizing-requirements"></a>Requisitos de dimensionamento 
 
@@ -56,11 +56,11 @@ Transfira o ficheiro de instalação para o servidor de processos da seguinte fo
 3. Selecione o servidor de configuração para desagregar os detalhes do servidor. Em seguida, clique em **+ servidor de processos**.
 4. Na **servidor de processos adicione** >  **escolha onde pretende implementar o servidor de processos**, selecione **servidor de processos de escalamento horizontal de implementar no local**.
 
-  ![Adicionar página de servidores](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![Adicionar página de servidores](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Clique em **transferir o Microsoft Azure Site Recovery a configuração unificada**. Esta ação transfere a versão mais recente do ficheiro de instalação.
 
-  > [!WARNING]
-  A versão de instalação do servidor de processo deve ser o mesmo como, ou anterior, a versão do servidor de configuração tem em execução. Uma forma simples de garantir a compatibilidade da versão é usar o mesmo instalador, que utilizou mais recentemente para instalar ou atualizar o seu servidor de configuração.
+   > [!WARNING]
+   > A versão de instalação do servidor de processo deve ser o mesmo como, ou anterior, a versão do servidor de configuração tem em execução. Uma forma simples de garantir a compatibilidade da versão é usar o mesmo instalador, que utilizou mais recentemente para instalar ou atualizar o seu servidor de configuração.
 
 ## <a name="install-from-the-ui"></a>Instalar a partir da interface do Usuário
 

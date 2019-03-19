@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 7452ed3606817c71285f3ad32a6069995604d528
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 08a1980a8855fc119a5066e058e9bb4d2df6646e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438351"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998864"
 ---
 # <a name="what-is-the-cloudyn-service"></a>O que é o serviço do Cloudyn?
 
@@ -24,6 +24,35 @@ A Cloudyn, uma subsidiária da Microsoft, permite-lhe controlar a utilização d
 Para ver um vídeo introdutório, veja [Introduction to Azure Cloudyn (Introdução à Azure Cloudyn)](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
 O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](overview-cost-mgt.md).
+
+## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Funcionalidades do Cloudyn mudar para o Azure Cost Management
+
+A Microsoft adquiriu a Cloudyn e é migrar seus recursos de gerenciamento de custo do portal do Cloudyn nativamente no Azure. Para utilizar as novas funcionalidades, iniciar sessão no portal do Azure e navegue para [gestão de custos e a faturação](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) na lista de serviços do Azure. Em comparação ao Cloudyn, a experiência nativa oferece um desempenho melhorado e latência mais baixa de dados de cerca de oito horas.
+
+Migração de funcionalidade-chave para categorias de oferta Enterprise Agreement, o pay as you go e o MSDN para o Azure Cost Management está concluída. Subscrições de CSP estão a ser migrados para o Azure Cost Management.
+
+Se tiver uma categoria de oferta ainda não foram migrados, deve continuar a utilizar o portal do Cloudyn. Todos os outros podem utilizar o Azure Cost Management.
+
+| Funcionalidades e ofertas do Microsoft Azure | Serviço de gestão de custos recomendada |
+| --- | --- |
+| Contrato Enterprise do Azure | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Web do Azure Direct (PAYG/MSDN) | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure Government | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure CSP | [Cloudyn](https://azure.cloudyn.com) |
+| Entre Clouds custam de suporte de análise de AWS (em pré-visualização) | [Gestão de Custos do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Recomendações de AWS | [Cloudyn](https://azure.cloudyn.com) |
+
+Algumas das seguintes funcionalidades estão disponíveis no Cloudyn, mas todos eles estão agora disponíveis no Azure Cost Management.
+
+- APIs
+- Recomendações de computação do Azure
+- Recomendações de reserva do Azure
+- Orçamentos
+- Análise de custos
+- Exportar dados para uma conta de armazenamento do Azure
+- Latências mais baixas
+- O pacote de conteúdos do Power BI e o conector
+- Suporte de marca do recurso
 
 ## <a name="monitor-usage-and-spending"></a>Monitorizar a utilização e os gastos
 
@@ -46,6 +75,7 @@ O alerta ajuda a gerir os custos ao notificá-lo automaticamente quando ocorrere
 Pode determinar a utilização da VM ideal e identificar as VM inativas ou removê-las, bem como os discos desligados com a Cloudyn. Através da utilização de informações nos relatórios de Ineficácia e Otimização de Dimensionamento, pode criar um plano para reduzir ou remover VMs inativas. No entanto, os relatórios de otimização não são atualmente suportados para contas ou subscrições de parceiro CSP.
 
 Se aprovisionou Instâncias Reservadas do AWS, pode melhorar a sua utilização de instâncias reservadas com relatórios de Otimização, onde pode ver recomendações de compra, modificar reservas e planear o aprovisionamento.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

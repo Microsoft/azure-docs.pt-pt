@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842622"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 
@@ -74,7 +74,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>Máquinas virtuais correspondidas por regex
 
 Esta consulta procura máquinas virtuais que correspondam a uma [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conhecida como _regex_).
-O **coincide com regex @** permite definir o regex para fazer corresponder, que é `^Contoso(.*)[0-9]+$`. Essa definição de regex é explicada como:
+O **coincide com regex \@**  permite definir o regex para fazer corresponder, que é `^Contoso(.*)[0-9]+$`. Essa definição de regex é explicada como:
 
 - `^` – A correspondência tem de começar no início da cadeia de caracteres.
 - `Contoso` - a cadeia sensível às maiúsculas e minúsculas.

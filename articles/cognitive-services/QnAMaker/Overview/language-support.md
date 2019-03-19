@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 78ad656648215b0e328c62ecdd9eb0a1eb855a88
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 4e1dbf408565e78547928047ae2ce2d37ad1a022
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961691"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105129"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>Suporte de idioma e região para a ferramenta QnA Maker
 
@@ -47,7 +47,7 @@ A ferramenta QnA Maker Deteta automaticamente de idioma da base de dados de conh
 |Idiomas suportados|
 |-----|
 |Árabe|
-|Arménio|, 
+|Arménio|
 Bengali|
 |Basco (Basco)|
 |Búlgaro|

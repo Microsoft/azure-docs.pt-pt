@@ -10,18 +10,18 @@ ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: e95b20a12fafa9d1dbcbd641ce1c9f2674314489
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606440"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880069"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implementar e chamar APIs personalizadas de fluxos de trabalho no Azure Logic Apps
 
 Depois de [criar APIs personalizadas](./logic-apps-create-api-app.md) para utilização em fluxos de trabalho de aplicação de lógica, tem de implementar as suas APIs antes de poder chamá-los. Pode implementar as suas APIs conforme [aplicações web](../app-service/overview.md), mas considere implementar as suas APIs conforme [aplicações API](../app-service/app-service-web-tutorial-rest-api.md), que tornar seu trabalho mais fácil quando criar, aloja e consumir APIs na cloud e no local. Não precisa alterar qualquer código em suas APIs - apenas implementar seu código numa aplicação API. Pode alojar as suas APIs num [App Service do Azure](../app-service/overview.md), uma plataforma-como-um-serviço (PaaS que fornece fácil, altamente dimensionável e que aloja a API da oferta).
 
-Embora pode chamar qualquer API a partir de uma aplicação lógica, a melhor experiência, adicione [OpenAPI (anteriormente Swagger) metadados](http://swagger.io/specification/) que descreve a API de operações e os parâmetros. Este ficheiro OpenAPI ajuda a sua API integrar mais facilmente e funcionam melhor com o logic apps.
+Embora pode chamar qualquer API a partir de uma aplicação lógica, a melhor experiência, adicione [OpenAPI (anteriormente Swagger) metadados](https://swagger.io/specification/) que descreve a API de operações e os parâmetros. Este ficheiro OpenAPI ajuda a sua API integrar mais facilmente e funcionam melhor com o logic apps.
 
 ## <a name="deploy-your-api-as-a-web-app-or-api-app"></a>Implementar a sua API como uma aplicação web ou a aplicação de API
 

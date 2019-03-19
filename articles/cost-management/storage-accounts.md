@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100859"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104306"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurar contas de armazenamento para o Cloudyn
 
@@ -39,13 +39,13 @@ A configurar o armazenamento do Azure para utilização por Cloudyn é simples. 
 2. Clique em **todos os serviços**, selecione **contas de armazenamento**, desloque-se para a conta de armazenamento que pretende utilizar e, em seguida, selecione a conta.
 3. Na sua página de conta de armazenamento em **configurações**, clique em **chaves de acesso**.
 4. Copiar seus **nome da conta de armazenamento** e **cadeia de ligação** em chave1.  
-![Copie a cadeia de ligação e o nome de conta de armazenamento](./media/storage-accounts/azure-storage-access-keys.png)  
+   ![Copie a cadeia de ligação e o nome de conta de armazenamento](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Abra o portal da Cloudyn a partir do portal do Azure ou navegue para https://azure.cloudyn.com e inicie sessão.
 6. Clique no símbolo de engrenagem e, em seguida, selecione **gestão de armazenamento de relatórios**.
 7. Clique em **adicionar novo +** e certifique-se de que o Microsoft Azure está selecionada. Cole o seu nome de conta de armazenamento do Azure no **nome** área. Colar seu **cadeia de ligação** na área correspondente. Introduza um nome de contentor e, em seguida, clique em **guardar**.  
-![Cole o nome e a ligação de cadeias de caracteres no adicionar uma nova caixa de armazenamento de relatório de conta de armazenamento do Azure](./media/storage-accounts/azure-cloudyn-storage.png)
+   ![Cole o nome e a ligação de cadeias de caracteres no adicionar uma nova caixa de armazenamento de relatório de conta de armazenamento do Azure](./media/storage-accounts/azure-cloudyn-storage.png)
 
-  A nova entrada de armazenamento do Azure do relatório é apresentada na lista conta de armazenamento.  
+   A nova entrada de armazenamento do Azure do relatório é apresentada na lista conta de armazenamento.  
     ![Nova entrada de armazenamento do Azure do relatório na lista](./media/storage-accounts/azure-storage-entry.png)
 
 
@@ -53,7 +53,7 @@ Agora pode salvar relatórios para o armazenamento do Azure. Em qualquer relató
 
 ## <a name="configure-an-aws-storage-bucket"></a>Configurar um bucket de armazenamento AWS
 
-O Cloudyn utiliza credenciais do AWS existentes: utilizador ou função, para guardar os relatórios ao seu registo. Para testar o acesso, tenta salvar um arquivo de texto pequeno para o registo com o nome de ficheiro Cloudyn _bucket de verificação-permission.txt_.
+O Cloudyn utiliza credenciais do AWS existentes: O utilizador ou função, para guardar os relatórios ao seu registo. Para testar o acesso, tenta salvar um arquivo de texto pequeno para o registo com o nome de ficheiro Cloudyn _bucket de verificação-permission.txt_.
 
 Forneça o utilizador ou função do Cloudyn com a permissão de PutObject ao seu registo. Em seguida, utilizar um registo existente ou criar um novo para guardar relatórios. Por fim, decida como gerir a classe de armazenamento, definir regras de ciclo de vida ou remover arquivos desnecessários.
 
@@ -67,8 +67,8 @@ Quando cria uma nova política, fornecer as permissões exatas necessárias para
 4. Clique nas **JSON** separador.
 5. A seguinte política permite-lhe guardar um relatório para um registo de S3. Copie e cole o seguinte exemplo de política para o **JSON** separador. Substitua &lt;bucketname&gt; com o nome do registo.
 
-  ```json
-{
+   ```json
+   {
     "Version": "2012-10-17",
     "Statement": [
       {
@@ -82,8 +82,8 @@ Quando cria uma nova política, fornecer as permissões exatas necessárias para
         ]
       }
     ]
-}
-```
+   }
+   ```
 
 6. Clique em **rever política**.  
     ![Política de JSON do AWS, mostrando as informações de exemplo](./media/storage-accounts/aws-policy.png)  
@@ -109,12 +109,12 @@ Para anexar a nova política, abra a consola do AWS e editar o utilizador ou fun
 1. Selecione o utilizador do Cloudyn.
 2. Sobre o **permissões** separador, clique em **adicionar permissões**.
 3. Na **conceder permissão** secção, selecione **anexar as políticas existentes diretamente**.
-4. Procure a política que criou e selecioná-lo, em seguida, clique em **seguinte: revisão**.
+4. Procure a política que criou e selecioná-lo, em seguida, clique em **seguinte: Revisão**.
 5. Sobre as permissões de adicionar a página de nome de função, clique em **adicionar permissões**.  
     ![Política de exemplo ligada ao seu utilizador do Cloudyn](./media/storage-accounts/aws-attach-policy-user.png)
 
 
-### <a name="optional-set-permission-with-bucket-policy"></a>Opcional: Definir a permissão com a política de registo
+### <a name="optional-set-permission-with-bucket-policy"></a>Opcional: Permissão de conjunto com a política de registo
 
 Também pode definir a permissão para criar relatórios no seu registo de S3 utilizando uma política de registo. Na vista de S3 clássica:
 
@@ -122,11 +122,11 @@ Também pode definir a permissão para criar relatórios no seu registo de S3 ut
 2. Selecione o **permissões** separador e, em seguida, clique em **política de registo**.
 3. Copie e cole o seguinte exemplo de política. Substitua &lt;bucket\_name&gt; e &lt;Cloudyn\_princípio&gt; com ARN do seu registo. Substitua o ARN da função ou utilizador utilizado pela Cloudyn.
 
-  ```
-{
-  "Id": "Policy1485775646248",
-  "Version": "2012-10-17",
-  "Statement": [
+   ```
+   {
+   "Id": "Policy1485775646248",
+   "Version": "2012-10-17",
+   "Statement": [
     {
       "Sid": "SaveReport2S3",
       "Action": [
@@ -140,9 +140,9 @@ Também pode definir a permissão para criar relatórios no seu registo de S3 ut
         ]
       }
     }
-  ]
-}
-```
+   ]
+   }
+   ```
 
 4. No editor de política de registo, clique em **guardar**.
 

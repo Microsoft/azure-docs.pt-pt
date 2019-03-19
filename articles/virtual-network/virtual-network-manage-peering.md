@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial;anavin
-ms.openlocfilehash: e752c19dc74135c05b971f8eb296da61259d0c20
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 28783b61a9361d97c151294140819249c9a100c2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57875223"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -114,9 +114,9 @@ Se pretender que as redes virtuais para comunicar-se por vezes, mas nem sempre, 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações
 
 - <a name="cross-region"></a>Pode configurar o peering entre redes virtuais na mesma região ou regiões diferentes. Peering de redes virtuais em diferentes regiões também é referido como *Global VNet Peering*. 
-- Ao criar um peering global, as redes virtuais em modo de peering podem existir em qualquer região de cloud pública do Azure ou em regiões da cloud na China, mas não está no governo regiões de cloud. Pode apenas ponto a ponto as redes virtuais na mesma região em regiões de cloud do Azure Government. Não é possível configurar o peering entre nuvens.
-- Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end de um balanceador de carga interno básico numa rede virtual em modo de peering global. Suporte para o Balanceador de carga básico só existe na mesma região. Existe suporte para o Balanceador de carga Standard para o Global VNet Peering.
-- Não é possível utilizar gateways remotos ou permitir que o trânsito de gateway em redes virtuais global em modo de peering. Para utilizar gateways remotos ou permitir que o trânsito de gateway, as redes virtuais em modo de peering tem de ser na mesma região.
+- Ao criar um peering global, as redes virtuais em modo de peering podem existir em qualquer região de cloud pública do Azure ou regiões de cloud da China ou regiões de cloud do Governo. Não é possível configurar o peering entre nuvens. Por exemplo, uma VNet na cloud pública do Azure não pode ser agrupada para uma VNet na cloud do Azure China.
+- Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end de um balanceador de carga interno básico numa rede virtual em modo de peering global. Suporte para o Balanceador de carga básico só existe na mesma região. Não existe suporte para o Balanceador de carga Standard para tanto, o VNet Peering e o Global VNet Peering.
+- Pode utilizar gateways remotos ou permitir que o trânsito de gateway em redes virtuais em modo de peering global em pré-visualização. A pré-visualização está disponível em todas as regiões do Azure, regiões da cloud na China e regiões de cloud do Governo. Não é necessária nenhuma lista de permissões. Pode testar em pré-visualização através da CLI, PowerShell, modelos ou API. Portal não é suportado na pré-visualização.
 - As redes virtuais podem estar nas subscrições idêntica ou diferentes. Quando configurar o peering de redes virtuais em diferentes subscrições, ambas as subscrições podem ser associadas ao inquilino do Azure Active Directory idêntica ou diferente. Se ainda não tiver um inquilino do AD, pode [criá-lo](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Suporte para o peering entre redes virtuais das subscrições associadas aos diferentes inquilinos do Azure Active Directory não está disponível no Portal. Pode utilizar modelos, PowerShell ou CLI.
 - As redes virtuais que configurar o peering tem de ter espaços de endereços IP não sobrepostos.
 - Não é possível adicionar intervalos de endereços para ou eliminar intervalos de endereços do espaço de endereços da rede virtual depois de uma rede virtual é executado o peering com outra rede virtual. Para adicionar ou remover intervalos de endereços, eliminar o peering, adicionar ou remover os intervalos de endereços, em seguida, recrie o peering. Para intervalos de endereços para adicionar ou remover intervalos de endereços das redes virtuais, veja [gerir redes virtuais](manage-virtual-network.md).

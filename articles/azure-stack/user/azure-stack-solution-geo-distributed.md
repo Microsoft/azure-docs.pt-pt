@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 857aa71a4812534030ca638fd8bab11f60535ea0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536951"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860589"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Criar uma solução de aplicação distribuída geograficamente com o Azure e o Azure Stack
 
@@ -135,7 +135,7 @@ Configure híbrida CI/CD para implementar aplicação Web no Azure e o Azure Sta
 
 1. **Inicie sessão no Azure Pipelines** para confirmar a capacidade de criar definições de compilação.
 
-2. Adicione **win10-x64 - r** código. Isso é necessário para acionar uma implementação independente com .net Core.
+2. Adicione **win10-x64 - r** código. Isso é necessário para acionar uma implementação independente com .NET Core.
 
     ![Texto alternativo](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -154,9 +154,9 @@ DevOps do Azure e o servidor de DevOps do Azure fornecem um pipeline totalmente 
 
 ![Texto alternativo](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  Selecione o **plus** botão para adicionar uma nova versão sob a **guia Releases** na página de criação e versão do Visual Studio Online (VSO).
+1. Selecione o **plus** botão para adicionar uma nova versão sob a **guia Releases** na página de criação e versão do Visual Studio Online (VSO).
 
-    ![Texto alternativo](media/azure-stack-solution-geo-distributed/image6.png)
+   ![Texto alternativo](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. Aplicar a **implementação de serviço de aplicações do Azure** modelo.
 
@@ -210,7 +210,7 @@ DevOps do Azure e o servidor de DevOps do Azure fornecem um pipeline totalmente 
 
 14. Selecione o **subscrição** para o ponto de final do Azure Stack.
 
-  ![Texto alternativo](media/azure-stack-solution-geo-distributed/image20.png)
+    ![Texto alternativo](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. Definir o nome da aplicação web do Azure Stack como o **nome do serviço de aplicações**.
 
@@ -299,11 +299,11 @@ A captura de ecrã seguinte mostra um exemplo de uma página de registos DNS:
 
 ![Página de registos DNS de exemplo](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  Na entidade de registo de nome de domínio, selecione **adicionar ou criar** para criar um registo. Alguns fornecedores têm ligações diferentes para adicionar diferentes tipos de registos. Consulte a documentação do fornecedor.
+1. Na entidade de registo de nome de domínio, selecione **adicionar ou criar** para criar um registo. Alguns fornecedores têm ligações diferentes para adicionar diferentes tipos de registos. Consulte a documentação do fornecedor.
 
-2.  Adicione um registo CNAME para mapear um subdomínio para o nome de anfitrião da aplicação predefinido.
+2. Adicione um registo CNAME para mapear um subdomínio para o nome de anfitrião da aplicação predefinido.
 
-  No exemplo de domínio www.northwindcloud.com, adicione um registo CNAME que mapeia o nome para < aplicação\_nome >. azurewebsites.
+   No exemplo de domínio www.northwindcloud.com, adicione um registo CNAME que mapeia o nome para < aplicação\_nome >. azurewebsites.
 
 Depois de adicionar o CNAME, a página de registos DNS terá um aspeto semelhante ao seguinte exemplo:
 
@@ -311,47 +311,47 @@ Depois de adicionar o CNAME, a página de registos DNS terá um aspeto semelhant
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>Ativar o mapeamento de registos CNAME no Azure
 
-1.  Num novo separador, inicie sessão no portal do Azure,
+1. Num novo separador, inicie sessão no portal do Azure,
 
-2.  Navegue para os serviços de aplicações.
+2. Navegue para os serviços de aplicações.
 
-3.  Selecione a aplicação web.
+3. Selecione a aplicação web.
 
-4.  No painel de navegação esquerdo da página da aplicação no portal do Azure, selecione **Domínios personalizados**.
+4. No painel de navegação esquerdo da página da aplicação no portal do Azure, selecione **Domínios personalizados**.
 
-5.  Selecione o ícone **+** junto a **Adicionar nome de anfitrião**.
+5. Selecione o ícone **+** junto a **Adicionar nome de anfitrião**.
 
-1.  Escreva o nome de domínio completamente qualificado, como `www.northwindcloud.com`.
+1. Escreva o nome de domínio completamente qualificado, como `www.northwindcloud.com`.
 
-2.  Selecione **Validar**.
+2. Selecione **Validar**.
 
-3.  Se indicado, adicione registos adicionais de outros tipos (`A` ou `TXT`) para os registos DNS de entidades de registo de nome de domínio. Azure irá fornecer os valores e os tipos destes registos:
+3. Se indicado, adicione registos adicionais de outros tipos (`A` ou `TXT`) para os registos DNS de entidades de registo de nome de domínio. Azure irá fornecer os valores e os tipos destes registos:
 
-    a.  Um registo **A**, para mapear o endereço IP da aplicação.
+   a.  Um registo **A**, para mapear o endereço IP da aplicação.
 
-    b.  R **TXT** registo para mapear para o nome de anfitrião da aplicação predefinido < app_name >. azurewebsites. Serviço de aplicações utiliza este registo apenas no momento da configuração, para verificar a propriedade de domínio personalizado. Após a verificação, elimine o registo TXT.
+   b.  R **TXT** registo para mapear para o nome de anfitrião da aplicação predefinido < app_name >. azurewebsites. Serviço de aplicações utiliza este registo apenas no momento da configuração, para verificar a propriedade de domínio personalizado. Após a verificação, elimine o registo TXT.
 
-4.  Concluir esta tarefa no separador de entidade de registo de domínio e revalide até que o **Adicionar nome de anfitrião** botão é ativado.
+4. Concluir esta tarefa no separador de entidade de registo de domínio e revalide até que o **Adicionar nome de anfitrião** botão é ativado.
 
-5.  Certifique-se de que * * tipo de registo de nome de anfitrião está definido como **CNAME (www.example.com ou qualquer subdomínio)**.
+5. Certifique-se de que * * tipo de registo de nome de anfitrião está definido como **CNAME (www.example.com ou qualquer subdomínio)**.
 
-6.  Selecione **Adicionar nome de anfitrião**.
+6. Selecione **Adicionar nome de anfitrião**.
 
-7.  Escreva o nome de domínio completamente qualificado, como `northwindcloud.com`.
+7. Escreva o nome de domínio completamente qualificado, como `northwindcloud.com`.
 
-8.  Selecione **Validar**.
+8. Selecione **Validar**.
 
-9.  O **adicionar** é ativado.
+9. O **adicionar** é ativado.
 
 10. Certifique-se de que * * tipo de registo de nome de anfitrião está definido como **um registo a (www.example.com)**.
 
 11. **Adicionar nome de anfitrião**.
 
-  Poderá demorar algum tempo para que os nomes de anfitrião novo sejam refletidas da aplicação **domínios personalizados** página. Experimente atualizar o browser para atualizar os dados.
+    Poderá demorar algum tempo para que os nomes de anfitrião novo sejam refletidas da aplicação **domínios personalizados** página. Experimente atualizar o browser para atualizar os dados.
   
-  ![Texto alternativo](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![Texto alternativo](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  No caso de um erro, uma notificação de erro de verificação será exibida na parte inferior da página. ![Erro de verificação](media/azure-stack-solution-geo-distributed/image32.png)
+    No caso de um erro, uma notificação de erro de verificação será exibida na parte inferior da página. ![Erro de verificação](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  Os passos acima podem ser repetidos para mapear um domínio de caráter universal (\*. northwindcloud.com).... Isso permite que a adição de quaisquer subdomínios adicionais para este serviço de aplicações sem ter de criar um registo CNAME separado para cada um deles. Siga as instruções de entidade de registo para configurar esta definição.
@@ -482,15 +482,15 @@ Quando IIS ou **Certreq.exe** são utilizados para gerar o pedido de certificado
 
 #### <a name="upload-the-ssl-certificate"></a>Carregar o certificado SSL
 
-1.  Selecione **definições de SSL** na navegação à esquerda da aplicação web.
+1. Selecione **definições de SSL** na navegação à esquerda da aplicação web.
 
-2.  Selecione **carregar certificado**.
+2. Selecione **carregar certificado**.
 
-3.  Na **ficheiro de certificado PFX**, selecione ficheiro PFX.
+3. Na **ficheiro de certificado PFX**, selecione ficheiro PFX.
 
-4.  4. Na **palavra-passe do certificado**, escreva a palavra-passe que criou ao exportar o ficheiro PFX.
+4. 1. Na **palavra-passe do certificado**, escreva a palavra-passe que criou ao exportar o ficheiro PFX.
 
-5.  Selecione **Upload**.
+5. Selecione **Upload**.
 
 ![Carregar certificado](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -588,23 +588,23 @@ A aplicação permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security)
 
 ### <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
 
-1.  Na barra de pesquisa de portais, procure o * * perfil do Traffic Manager * * nome criado na secção anterior e selecione o perfil do Gestor de tráfego nos resultados que apresentados.
+1. Na barra de pesquisa de portais, procure o * * perfil do Traffic Manager * * nome criado na secção anterior e selecione o perfil do Gestor de tráfego nos resultados que apresentados.
 
-2.  Na **perfil do Gestor de tráfego**, na **definições** secção, selecione **pontos finais**.
+2. Na **perfil do Gestor de tráfego**, na **definições** secção, selecione **pontos finais**.
 
-3.  Selecione **Adicionar**.
+3. Selecione **Adicionar**.
 
-4.  A adicionar o ponto de final do Azure Stack.
+4. A adicionar o ponto de final do Azure Stack.
 
-5.  Para **tipo**, selecione **ponto final externo**.
+5. Para **tipo**, selecione **ponto final externo**.
 
-6.  Fornecer um **nome** para este ponto final, o ideal é que o nome da pilha do Azure.
+6. Fornecer um **nome** para este ponto final, o ideal é que o nome da pilha do Azure.
 
-7.  Para o nome de domínio completamente qualificado (**FQDN**), o URL externo de utilização da aplicação de Web do Azure Stack.
+7. Para o nome de domínio completamente qualificado (**FQDN**), o URL externo de utilização da aplicação de Web do Azure Stack.
 
-8.  Em mapeamento geográfico, selecione um continente/região onde o recurso está localizado, por exemplo, **Europa.**
+8. Em mapeamento geográfico, selecione um continente/região onde o recurso está localizado, por exemplo, **Europa.**
 
-9.  Em país/região pendente que é apresentada, selecione o país que serão aplicadas a este ponto final, por exemplo, **Alemanha**.
+9. Em país/região pendente que é apresentada, selecione o país que serão aplicadas a este ponto final, por exemplo, **Alemanha**.
 
 10. Mantenha a caixa **Adicionar como desativado** desmarcada.
 
@@ -628,12 +628,12 @@ A aplicação permite [TLS](https://wikipedia.org/wiki/Transport_Layer_Security)
 
 16. Selecione **OK**
 
-  > [!Note]  
-  >  Crie, pelo menos, um ponto final com um âmbito geográfico de todas as (mundo) para ser usado como o ponto final predefinido para o recurso.
+    > [!Note]  
+    >  Crie, pelo menos, um ponto final com um âmbito geográfico de todas as (mundo) para ser usado como o ponto final predefinido para o recurso.
 
-1.  Quando a adição de ambos os pontos finais estiver concluída, estes são apresentados em **Perfil do Gestor de Tráfego**, juntamente com o respetivo estado de monitorização como **Online**.
+1. Quando a adição de ambos os pontos finais estiver concluída, estes são apresentados em **Perfil do Gestor de Tráfego**, juntamente com o respetivo estado de monitorização como **Online**.
 
-  ![Texto alternativo](media/azure-stack-solution-geo-distributed/image46.png)
+    ![Texto alternativo](media/azure-stack-solution-geo-distributed/image46.png)
 
 **Empresa global baseia-se nas capacidades do Azure a distribuição geográfica**
 

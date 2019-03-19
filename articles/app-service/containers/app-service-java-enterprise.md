@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: ee39d2d2cf85b8de52804ac764b17db348a053e0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101776"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guia de Java Enterprise para o serviço de aplicações no Linux
 
@@ -44,7 +44,7 @@ Pode escrever um script de Bash para chamar a CLI WildFly para de arranque:
 - Configurar fornecedores de mensagens
 - Adicione outros módulos e dependências para a configuração do servidor Wildfly.
 
- O script é executado quando Wildfly está em execução, mas antes de iniciar a aplicação. O script deve utilizar o [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) chamado a partir de `/opt/jboss/wildfly/bin/jboss-cli.sh` para configurar o servidor de aplicações com qualquer configuração ou as alterações necessárias depois do servidor é iniciado. 
+  O script é executado quando Wildfly está em execução, mas antes de iniciar a aplicação. O script deve utilizar o [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) chamado a partir de `/opt/jboss/wildfly/bin/jboss-cli.sh` para configurar o servidor de aplicações com qualquer configuração ou as alterações necessárias depois do servidor é iniciado. 
 
 Não utilize o modo interativo da CLI para configurar Wildfly. Em vez disso, pode fornecer um script de comandos para a CLI JBoss usando o `--file` comando, por exemplo:
 

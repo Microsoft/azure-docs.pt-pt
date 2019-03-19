@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082131"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar dashboards de KPI personalizados com o Azure Application Insights
 
@@ -42,18 +42,18 @@ Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.a
 ## <a name="create-a-new-dashboard"></a>Criar um novo dashboard
 Um único dashboard pode conter recursos de várias aplicações, grupos de recursos e subscrições.  Comece o tutorial ao criar um novo dashboard para a sua aplicação.  
 
-2.  No painel de dashboard, selecione **novo dashboard**.
+1. No painel de dashboard, selecione **novo dashboard**.
 
-    ![Novo dashboard](media/tutorial-app-dashboards/1newdashboard.png)
+   ![Novo dashboard](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. Escreva um nome para o dashboard.
-4. Veja a **Galeria de Mosaicos** para obter uma variedade de mosaicos que pode adicionar ao dashboard.  Além de adicionar mosaicos a partir da galeria, pode afixar gráficos e outras vistas diretamente a partir do Application Insights ao dashboard.
-5. Localize o mosaico **Markdown** e arraste-o para o dashboard.  Este mosaico permite-lhe adicionar texto formatado no markdown, o que é ideal para adicionar texto descritivo ao dashboard.
-6. Adicione texto às propriedades do mosaico e redimensione-o na tela do dashboard.
+1. Escreva um nome para o dashboard.
+1. Veja a **Galeria de Mosaicos** para obter uma variedade de mosaicos que pode adicionar ao dashboard.  Além de adicionar mosaicos a partir da galeria, pode afixar gráficos e outras vistas diretamente a partir do Application Insights ao dashboard.
+1. Localize o mosaico **Markdown** e arraste-o para o dashboard.  Este mosaico permite-lhe adicionar texto formatado no markdown, o que é ideal para adicionar texto descritivo ao dashboard.
+1. Adicione texto às propriedades do mosaico e redimensione-o na tela do dashboard.
     
     ![Editar mosaico Markdown](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Clique em **personalização concluída** na parte superior do ecrã para sair do modo de personalização do mosaico.
+1. Clique em **personalização concluída** na parte superior do ecrã para sair do modo de personalização do mosaico.
 
 ## <a name="add-health-overview"></a>Adicionar descrição geral do estado de funcionamento
 Um dashboard com apenas texto estático não é muito interessante, por isso, adicione agora um mosaico a partir do Application Insights para mostrar informações sobre a aplicação.  Pode adicionar mosaicos do Application Insights a partir da Galeria de Mosaicos ou afixá-los diretamente a partir dos ecrãs do Application Insights.  Isto permite-lhe configurar gráficos e vistas com os quais já está familiarizado antes de afixá-los ao dashboard.  Comece por adicionar a descrição geral do estado de funcionamento padrão para a sua aplicação.  Isto não requer nenhuma configuração e permite uma personalização mínima no dashboard.

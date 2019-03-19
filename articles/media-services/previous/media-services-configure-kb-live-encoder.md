@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: 1672eb2ef0db36c9b30ca444fa4224eb1afbe828
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 058a1f964eb14d89628c92cbadd80511b7a27bae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998489"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014945"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador em direto Haivision KB para enviar um fluxo em direto com velocidade de transmissão única  
 > [!div class="op_single_selector"]

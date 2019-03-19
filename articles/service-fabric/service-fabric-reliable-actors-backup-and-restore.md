@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c16e3ed140284422f3b62669fed1f8fb4dd681f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726938"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872244"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>Implementar a cópia de segurança de Reliable Actors e restaurar
 
@@ -123,7 +123,7 @@ Para obter mais informações sobre Reliable Actors, leia os artigos seguintes:
 * [Coleção de ciclo de vida e libertação da memória de ator](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API de atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de exemplo de Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

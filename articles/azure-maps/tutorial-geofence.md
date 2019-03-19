@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670898"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085325"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configure um perímetro geográfico, utilizando o Azure Maps
 
@@ -25,11 +25,11 @@ Para saber mais sobre o Event Grid, veja [Azure Event Grid](https://docs.microso
 Neste tutorial, ficará a saber, como:
 
 > [!div class="checklist"]
-* Carregue a área do perímetro geográfico no serviço de dados usando a API de carregamento de dados do Azure Maps.
-*   Configure uma grelha de eventos para manipular eventos de perímetro geográfico.
-*   Configure o manipulador de eventos do perímetro geográfico.
-*   Configure alertas em resposta a eventos de perímetro geográfico, utilizar o Logic Apps.
-*   Utilize as APIs de serviço do Azure Maps perímetro geográfico para controlar se um recurso de construção é dentro do site de construção, ou não.
+> * Carregue a área do perímetro geográfico no serviço de dados usando a API de carregamento de dados do Azure Maps.
+> *   Configure uma grelha de eventos para manipular eventos de perímetro geográfico.
+> *   Configure o manipulador de eventos do perímetro geográfico.
+> *   Configure alertas em resposta a eventos de perímetro geográfico, utilizar o Logic Apps.
+> *   Utilize as APIs de serviço do Azure Maps perímetro geográfico para controlar se um recurso de construção é dentro do site de construção, ou não.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -150,9 +150,9 @@ Abra a aplicação Postman e siga os passos seguintes para carregar o site de co
 
 5. Clique em enviar e rever o cabeçalho de resposta. O cabeçalho de localização contém o URI para aceder ou transferir os dados para utilização futura. Ele também contém um exclusivo `udId` para os dados carregados.
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## <a name="set-up-an-event-handler"></a>Configurar um manipulador de eventos
 
@@ -163,15 +163,15 @@ Pode ver todas [suportado manipuladores de eventos](https://docs.microsoft.com/a
 
 1. Criar uma aplicação lógica no portal do Azure
 
-  ![criar aplicações lógicas](./media/tutorial-geofence/logic-app.png)
+   ![criar aplicações lógicas](./media/tutorial-geofence/logic-app.png)
 
 2. Selecione um acionador de pedido HTTP e, em seguida, selecione "enviar e-mail" como uma ação no conector do outlook
   
-  ![Esquema de aplicações lógicas](./media/tutorial-geofence/logic-app-schema.png)
+   ![Esquema de aplicações lógicas](./media/tutorial-geofence/logic-app-schema.png)
 
 3. Guarde a aplicação de lógica para gerar o ponto final do URL de HTTP e copie o URL de HTTP.
 
-  ![O ponto de extremidade do Logic Apps](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![O ponto de extremidade do Logic Apps](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Criar uma subscrição de eventos do Azure Maps
@@ -208,53 +208,53 @@ Seguem-se cinco pedidos de HTTP obter a API de barreira geográfica, com diferen
  
 1. Localização 1:
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![Consulta de perímetro geográfico 1](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![Consulta de perímetro geográfico 1](./media/tutorial-geofence/geofence-query1.png)
 
-  Se examinar a resposta acima, a distância negativa do perímetro geográfico principal significa que o equipamento está dentro do perímetro geográfico e positivo do perímetro geográfico subsite significa que está fora do perímetro geográfico subsite. 
+   Se examinar a resposta acima, a distância negativa do perímetro geográfico principal significa que o equipamento está dentro do perímetro geográfico e positivo do perímetro geográfico subsite significa que está fora do perímetro geográfico subsite. 
 
 2. Localização 2: 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![Consulta de perímetro geográfico 2](./media/tutorial-geofence/geofence-query2.png)
+   ![Consulta de perímetro geográfico 2](./media/tutorial-geofence/geofence-query2.png)
 
-  Se analisar a resposta JSON anterior cuidadosamente o equipamento está fora contendo, mas é dentro de cerca de principal. A mesma não aciona um evento e nenhum e-mail é enviado.
+   Se analisar a resposta JSON anterior cuidadosamente o equipamento está fora contendo, mas é dentro de cerca de principal. A mesma não aciona um evento e nenhum e-mail é enviado.
 
 3. Localização 3: 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Consulta de perímetro geográfico 3](./media/tutorial-geofence/geofence-query3.png)
+   ![Consulta de perímetro geográfico 3](./media/tutorial-geofence/geofence-query3.png)
 
-  Ocorreu uma alteração de estado e agora o equipamento está dentro de ambas as principal e subsites perímetros geográficos. Isso publica um evento e uma notificação por e-mail será enviado para o Operations Manager.
+   Ocorreu uma alteração de estado e agora o equipamento está dentro de ambas as principal e subsites perímetros geográficos. Isso publica um evento e uma notificação por e-mail será enviado para o Operations Manager.
 
 4. Localização 4: 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![Consulta de perímetro geográfico 4](./media/tutorial-geofence/geofence-query4.png)
+   ![Consulta de perímetro geográfico 4](./media/tutorial-geofence/geofence-query4.png)
 
    Ao observar com cuidado a resposta correspondente, pode observar que nenhum evento é publicado aqui, apesar dos equipamentos tem saído do perímetro geográfico subsite. Se examinar o período de tempo especificado do utilizador no pedido GET, pode ver que o perímetro geográfico subsite expirou em relação ao momento e o equipamento ainda está no perímetro geográfico principal. Também pode ver o ID de geometria do perímetro geográfico subsite em `expiredGeofenceGeometryId` no corpo da resposta.
 
 
 5. Localização 5:
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Consulta de perímetro geográfico 5](./media/tutorial-geofence/geofence-query5.png)
+   ![Consulta de perímetro geográfico 5](./media/tutorial-geofence/geofence-query5.png)
 
-  Pode ver que o equipamento tiver saído do perímetro geográfico de site de construção principal. Publica um evento, é uma violação séria e é enviado um e-mail de alerta crítico para o Operations Manager.
+   Pode ver que o equipamento tiver saído do perímetro geográfico de site de construção principal. Publica um evento, é uma violação séria e é enviado um e-mail de alerta crítico para o Operations Manager.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

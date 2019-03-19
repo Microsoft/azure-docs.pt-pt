@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3ab98669e01c9cfb2d4f46b8ddd83ff69653337b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a5b4e0465e83dec5620954998db329e7902fb59c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434177"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106054"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implementar uma VM a partir dos VHDs
 
@@ -51,13 +51,13 @@ Irá utilizar os seguintes passos para criar e implementar uma imagem de VM do u
 
 Depois da VM é implementada, está pronto para [certificar a sua imagem VM](./cpp-certify-vm.md).
 
-2.  Clique em **New** e procure **implementação do modelo**, em seguida, selecione **criar seu próprio modelo no Editor**.  <br/>
-  ![Criar modelo de implementação do VHD no portal do Azure](./media/publishvm_021.png)
+1. Clique em **New** e procure **implementação do modelo**, em seguida, selecione **criar seu próprio modelo no Editor**.  <br/>
+   ![Criar modelo de implementação do VHD no portal do Azure](./media/publishvm_021.png)
 
-3. Copiar e colar isto [modelo JSON](./cpp-deploy-json-template.md) para o editor e clique em **guardar**. <br/>
-  ![Guardar o modelo de implementação do VHD no portal do Azure](./media/publishvm_022.png)
+1. Copiar e colar isto [modelo JSON](./cpp-deploy-json-template.md) para o editor e clique em **guardar**. <br/>
+   ![Guardar o modelo de implementação do VHD no portal do Azure](./media/publishvm_022.png)
 
-4. Forneça os valores de parâmetro para apresentados **implementação personalizada** páginas de propriedades.
+1. Forneça os valores de parâmetro para apresentados **implementação personalizada** páginas de propriedades.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
@@ -79,7 +79,7 @@ Depois da VM é implementada, está pronto para [certificar a sua imagem VM](./c
    | URL DE VHD                     | Concluir o URL de VHD de disco do SO                                                     |
    |  |  |
             
-5. Depois de fornecer estes valores, clique em **Compra**. 
+1. Depois de fornecer estes valores, clique em **Compra**. 
 
 Azure começará a implementação: ele cria uma nova VM com o VHD não gerido especificado, no caminho de conta de armazenamento especificada.  Pode acompanhar o progresso no portal do Azure ao clicar em **máquinas virtuais** no lado esquerdo do portal.  Quando a VM tiver sido criada, o estado será alterado de `Starting` para `Running`. 
 

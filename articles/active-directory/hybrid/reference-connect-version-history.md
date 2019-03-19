@@ -16,12 +16,12 @@ ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd90cd18be1fdbac5948fb076a3358b070bad8eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 840ea818c7c2e197f1ab65f4bd61067bf5e51283
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455077"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57836985"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -149,7 +149,7 @@ O Azure AD Connect atualizar falhará se sempre na disponibilidade do SQL está 
 
 ### <a name="fixed-issues"></a>Problemas corrigidos 
 
-- Foi corrigido um erro em que o servidor do AAD Connect mostraria elevada utilização da CPU após a atualização para o .net 4.7.2
+- Foi corrigido um erro em que o servidor do AAD Connect mostraria elevada utilização da CPU após a atualização para o .NET 4.7.2
 - Foi corrigido um erro que intermitentemente produziria uma mensagem de erro para um problema de deadlock SQL resolvido automaticamente
 - Corrigidos vários problemas de acessibilidade para Editor de regras de sincronização e o Gestor do serviço de sincronização  
 - Foi corrigido um erro em que o Azure AD Connect não é possível obter as informações de definição de registo
@@ -180,12 +180,12 @@ Novos recursos e aperfeiçoamentos
 - Configuração de repetição de escrita do dispositivo é agora gerida unicamente no Assistente do Azure para ligar AD.
 - Um novo módulo do PowerShell chamado ADSyncTools.psm1 é adicionado que pode ser utilizado para resolver problemas de conectividade de SQL e vários outros utilitários de resolução de problemas. Saiba mais sobre o módulo de ADSyncTools [aqui](tshoot-connect-tshoot-sql-connectivity.md). 
 - Foi adicionada uma nova tarefa adicional "Configurar opções de dispositivo". Pode utilizar a tarefa para configurar as seguintes duas operações: 
-    -   **Associação ao Azure AD híbrido**: Se o seu ambiente tiver uma infraestrutura do AD no local e também quiser tirar partido das capacidades que o Azure Active Directory oferece, pode implementar dispositivos híbridos associados ao Azure AD. Estes são dispositivos associados tanto ao Active Directory no local, como ao Azure Active Directory.
-    -   **Repetição de escrita do dispositivo**: Repetição de escrita do dispositivo é utilizada para ativar o acesso condicional com base em dispositivos para o AD FS (2012 R2 ou superior) protegidos de dispositivos
+  - **Associação ao Azure AD híbrido**: Se o seu ambiente tiver uma infraestrutura do AD no local e também quiser tirar partido das capacidades que o Azure Active Directory oferece, pode implementar dispositivos híbridos associados ao Azure AD. Estes são dispositivos associados tanto ao Active Directory no local, como ao Azure Active Directory.
+  - **Repetição de escrita do dispositivo**: Repetição de escrita do dispositivo é utilizada para ativar o acesso condicional com base em dispositivos para o AD FS (2012 R2 ou superior) protegidos de dispositivos
 
-   >[!NOTE] 
-   > - A opção de ativar a repetição de escrita do dispositivo de personalizar as opções de sincronização estarão esbatida. 
-   > -  O módulo do PowerShell para ADPrep foi preterido com esta versão.
+    >[!NOTE] 
+    > - A opção de ativar a repetição de escrita do dispositivo de personalizar as opções de sincronização estarão esbatida. 
+    > -  O módulo do PowerShell para ADPrep foi preterido com esta versão.
 
 
 
@@ -415,7 +415,7 @@ Estado: 19 de Outubro de 2017
 
 * Foi corrigido um problema com o *alterar utilizador inicie sessão* tarefas no Assistente do Azure AD Connect:
 
-   * O erro ocorre quando tiver uma implementação existente do Azure AD Connect com a sincronização de palavra-passe **desativada**, e está a tentar definir o método de início de sessão do utilizador como *autenticação pass-through*. Quando a alteração é aplicada, o assistente ativa a autenticação pass-through e sincronização de palavra-passe. Com essa correção, o assistente já não permite a sincronização de palavra-passe.
+  * O erro ocorre quando tiver uma implementação existente do Azure AD Connect com a sincronização de palavra-passe **desativada**, e está a tentar definir o método de início de sessão do utilizador como *autenticação pass-through*. Quando a alteração é aplicada, o assistente ativa a autenticação pass-through e sincronização de palavra-passe. Com essa correção, o assistente já não permite a sincronização de palavra-passe.
 
   * Anteriormente, a sincronização de palavra-passe era um pré-requisito para ativar a autenticação pass-through. Ao definir o método de início de sessão do utilizador como *autenticação pass-through*, o assistente seria ativar a autenticação pass-through e sincronização de palavra-passe. Recentemente, a sincronização de palavra-passe foi removida como um pré-requisito. Como parte do Azure AD Connect versão 1.1.557.0, foi efetuada uma alteração para o Azure AD Connect para não ativar a sincronização de palavra-passe, quando definir o método de início de sessão do utilizador como *autenticação pass-through*. No entanto, a alteração só foi aplicada para instalação do Azure AD Connect. Com essa correção, a mesma alteração também é aplicada para o *alterar utilizador inicie sessão* tarefas.
   
@@ -436,7 +436,7 @@ Estado: 19 de Outubro de 2017
 * Foi adicionada lógica para simplificar as etapas necessárias para configurar o Azure AD Connect com Microsoft Germany Cloud. Anteriormente, é necessário para atualizar as chaves de registo específicas no servidor do Azure AD Connect para que funcione corretamente com o Microsoft Cloud da Alemanha, conforme descrito neste artigo. Agora, o Azure AD Connect pode detetar automaticamente se o inquilino no Germany Cloud da Microsoft baseia-se nas credenciais de administrador global fornecidas durante a configuração.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
->[!NOTE]
+> [!NOTE]
 > Nota: O serviço de sincronização tem uma interface WMI que permite desenvolver seu próprio agendador personalizado. Esta interface foi despromovido e será removida do futuro lançamento de versões do Azure AD Connect após 30 de Junho de 2018. Os clientes que pretendem personalizar agenda de sincronização devem utilizar o [agendador interno (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### <a name="fixed-issues"></a>Problemas corrigidos
@@ -642,7 +642,7 @@ O problema que surge é que o **sincronizar todos os domínios e UOs opção** e
 
 * O Azure AD Connect agora suporta a repetição de escrita de Exchange Online **cloudPublicDelegates** atributo para AD no local **publicDelegates** atributo. Isto permite que o cenário em que uma caixa de correio do Exchange Online pode ser concedida SendOnBehalfTo direitos para os utilizadores com a caixa de correio do Exchange no local. Para suportar esta funcionalidade, uma nova regra de sincronização de out-of-box "" de saída para o AD – repetição de escrita do utilizador Exchange híbrido PublicDelegates foi adicionado. Esta regra de sincronização só é adicionada ao Azure AD Connect quando híbrida do Exchange funcionalidade está ativada.
 
-*   O Azure AD Connect agora suporta a sincronizar a **altRecipient** atributo do Azure AD. Para suportar esta alteração, seguintes regras de sincronização de out-of-box foram atualizadas para incluir o fluxo de atributo necessário:
+* O Azure AD Connect agora suporta a sincronizar a **altRecipient** atributo do Azure AD. Para suportar esta alteração, seguintes regras de sincronização de out-of-box foram atualizadas para incluir o fluxo de atributo necessário:
   * Do AD – Exchange do utilizador
   * Expansão para AAD – ExchangeOnline de utilizador
   
@@ -1186,9 +1186,9 @@ Data da versão: Outubro de 2014
 
 Se já tiver instalado o Azure AD Sync, isso significa que há uma etapa adicional, que precisa levar no caso de ter alterado a qualquer uma das regras de sincronização de out-of-box. Depois de atualizar para o 1.0.470.1023 versão, a sincronização tiver modificado de regras são duplicadas. Para cada regra de sincronização modificado, faça o seguinte:
 
-1.  Localize a regra de sincronização modificou e tome nota das alterações.
-* Elimine a regra de sincronização.
-* Localize a nova regra de sincronização é criada pelo Azure AD Sync e, em seguida, volte a aplicar as alterações.
+1. Localize a regra de sincronização modificou e tome nota das alterações.
+1. Elimine a regra de sincronização.
+1. Localize a nova regra de sincronização é criada pelo Azure AD Sync e, em seguida, volte a aplicar as alterações.
 
 **Permissões para a conta do Active Directory**
 

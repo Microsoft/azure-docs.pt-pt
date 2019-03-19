@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 2979f64934b2ea4517800f5bf0a17e96a1b238dc
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 3f10c8d38d37682e2a949397d9747ec094bdb9af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170110"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Início rápido: Criar uma aplicação .NET Framework ou Core com a conta de API do Azure Cosmos DB Gremlin
 
@@ -160,7 +160,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. A partir do [portal do Azure](https://portal.azure.com/), navegue até à sua conta da base de dados de gráficos. No separador **Descrição geral**, pode ver dois pontos finais- 
  
-   **.NET SDK URI** – Este valor é utilizado quando se liga a conta de gráficos através da biblioteca de Microsoft.Azure.Graphs. 
+   **.NET SDK URI** -este valor é utilizado quando se liga a conta de gráfico com Microsoft.Azure.Graphs biblioteca. 
 
    **Ponto final do Gremlin** – Este valor é utilizado quando se liga à conta de gráficos através da biblioteca de Gremlin.Net.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 3475791e3cc8fd0daea3bf330d9c15f685c13488
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0f9cc11e64e2517ef7aff0cd51705c39bf212b37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463264"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011424"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como utilizar o Armazenamento de filas do PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -126,7 +126,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -160,7 +160,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -192,7 +192,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -249,7 +249,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -294,7 +294,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -344,7 +344,7 @@ try{
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -373,7 +373,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -403,7 +403,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -413,7 +413,7 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu as noções básicas do armazenamento de filas do Azure, siga estas ligações para saber mais sobre tarefas de armazenamento mais complexas:
 
-* Visite o [referência da API para a biblioteca de cliente PHP do armazenamento do Azure](http://azure.github.io/azure-storage-php/)
+* Visite o [referência da API para a biblioteca de cliente PHP do armazenamento do Azure](https://azure.github.io/azure-storage-php/)
 * Consulte a [exemplo de fila Advanced](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 Para obter mais informações, consulte também os [Centro de programadores PHP](https://azure.microsoft.com/develop/php/).
@@ -421,5 +421,5 @@ Para obter mais informações, consulte também os [Centro de programadores PHP]
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
-[composer-phar]: http://getcomposer.org/composer.phar
+[composer-phar]: https://getcomposer.org/composer.phar
 

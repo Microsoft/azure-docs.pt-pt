@@ -1,346 +1,402 @@
 ---
-title: Desenvolver com a API de tabela com o .NET SDK
-titleSuffix: Azure Cosmos DB
-description: Aprenda a desenvolver com a API de tabela no Azure Cosmos DB com o .NET SDK
+title: Introdução ao Azure Cosmos DB API de tabela com o SDK de .NET Standard
+description: Store dados estruturados na cloud com a API de tabela do Azure Cosmos DB.
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: tutorial
-ms.date: 12/07/2018
-author: wmengmsft
-ms.author: wmeng
-ms.custom: seodec18
-ms.reviewer: sngun
-ms.openlocfilehash: 0f0e5219298cf0bce30e2a1e9d66135b4146db5d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.topic: sample
+ms.date: 03/11/2019
+ms.openlocfilehash: 0f324d39db38b17d436583277d60d87b2878d131
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036788"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880796"
 ---
-# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>Desenvolver com a API de tabela do Azure Cosmos DB com o .NET SDK
+# <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de tabela do Azure Cosmos DB e tabelas do Azure com o SDK .NET
 
-O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distribuição global da Microsoft. Pode criar e consultar rapidamente o documento, a chave/valor e as bases de dados de gráficos, que beneficiam de capacidades de escalamento horizontal e distribuição global no centro do Azure Cosmos DB.
+[!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
-Este tutorial abrange as seguintes tarefas: 
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-> [!div class="checklist"] 
-> * Criar uma conta do Azure Cosmos DB 
-> * Ativar a funcionalidade no ficheiro app.config 
-> * Criar uma tabela com a [API de Tabelas](table-introduction.md)
-> * Adicionar uma entidade a uma tabela 
-> * Inserir um lote de entidades 
-> * Obter uma única entidade 
-> * Consultar entidades mediante a utilização de índices secundários automáticos 
-> * Substituir uma entidade 
-> * Eliminar uma entidade 
-> * Eliminar uma tabela
- 
-## <a name="tables-in-azure-cosmos-db"></a>Tabelas no Azure Cosmos DB 
+Pode utilizar o armazenamento de API de tabela do Azure Cosmos DB ou tabelas do Azure para armazenar o NoSQL estruturado do arquivo de dados na cloud, fornecendo um chaves/atributos com um esquema menos design. Como API de tabela do Azure Cosmos DB e a tabela de armazenamento são esquema menos, é fácil adaptar os seus dados conforme as necessidades da sua aplicação evoluem. Pode utilizar a API de tabela do Azure Cosmos DB ou o armazenamento de tabelas para armazenar conjuntos de dados flexíveis, como dados de utilizador para aplicações web, livros de endereços, informações do dispositivo ou outros tipos de metadados do que seu serviço requer. 
 
-O Azure Cosmos DB disponibiliza a [API de Tabelas](table-introduction.md) para as aplicações que precisam de um arquivo de chaves-valores com um design sem esquema. Tanto a API de Tabelas do Azure Cosmos DB, como o [armazenamento de Tabelas do Azure](../storage/common/storage-introduction.md), suportam agora os mesmos SDKs e APIs REST. Pode utilizar o Azure Cosmos DB para criar tabelas com requisitos de débito elevado.
+Este tutorial descreve um exemplo que mostra-lhe como utilizar o [biblioteca de tabela do Microsoft Azure Cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) com cenários de armazenamento de tabelas do Azure e de API de tabela do Azure Cosmo DB. Tem de utilizar a ligação específica ao serviço do Azure. Estes cenários são explorados usando C# exemplos que mostram como criar tabelas, Inserir / Atualizar dados, consultar dados e eliminar as tabelas.
 
-Este tutorial é para os programadores que estão familiarizados com o SDK de armazenamento de Tabelas do Azure e que querem utilizar as funcionalidades premium disponíveis no Azure Cosmos DB. Baseia-se em [Get Started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md) (Introdução ao armazenamento de Tabelas do Azure com .NET) e mostra como tirar partido de capacidades adicionais, como índices secundários, débito aprovisionado e multi-homing. Este tutorial descreve como utilizar o portal do Azure para criar uma conta do Azure Cosmos DB e, em seguida, criar e implementar uma aplicação de API de Tabelas. Também vamos analisar exemplos de .NET para criar e eliminar uma tabela e inserir, atualizar, eliminar e consultar dados de tabelas. 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se utilizar atualmente o armazenamento de Tabelas do Azure, beneficia das vantagens seguintes com a API de Tabelas do Azure Cosmos DB:
+Para concluir este exemplo com êxito, precisa do seguinte:
 
-- [Distribuição global](distribute-data-globally.md) chave na mão com multi-homing e [ativações pós-falha automáticas e manuais](high-availability.md)
-- Suporte para indexação automática e independente de esquema relativamente a todas as propriedades (“índices secundários”) e consultas rápidas 
-- Suporte para [dimensionamento independente de armazenamento e débito](partition-data.md), em qualquer número de regiões
-- Suporte para [débito dedicado por tabela](request-units.md) que pode ser dimensionado de centenas para milhões de pedidos por segundo
-- Suporte para [cinco níveis de consistência ajustáveis](consistency-levels.md) para alternar entre disponibilidade, latência e consistência com base nas necessidades da sua aplicação.
-- 99,99% de disponibilidade numa única região e capacidade de adicionar mais regiões para maior disponibilidade e [SLAs abrangentes líderes da indústria](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) em disponibilidade geral
-- Trabalhar com o SDK do .NET do armazenamento do Azure já existente e ausência de alterações ao código da aplicação
+* [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
-Este tutorial abrange a API de Tabelas do Azure Cosmos DB com o SDK do .NET. Pode transferir [Azure Cosmos DB Table API .NET SDK](https://aka.ms/tableapinuget) (SDK do .NET da API de Tabelas do Azure Cosmos DB) do NuGet.
+* [Biblioteca de tabela do Microsoft Azure cosmos DB para .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) -essa biblioteca está atualmente disponível para .NET Standard e o .NET framework. 
 
-Para saber mais sobre as tarefas de armazenamento de tabelas do Azure complexas, veja:
+* [Conta do Azure da API de tabela do Cosmos DB](create-table-dotnet.md#create-a-database-account).
 
-* A [Introdução à API de Tabelas do Azure Cosmos DB](table-introduction.md)
-* A documentação de referência do serviço Tabelas para obter detalhes completos sobre as APIs disponíveis [Azure Cosmos DB Table API .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cosmosdb/client?view=azure-dotnet)
+## <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta da API de Tabelas do Azure Cosmos DB
 
-### <a name="about-this-tutorial"></a>Acerca deste tutorial
-Este tutorial é para os programadores que estão familiarizados com o SDK de armazenamento de Tabelas do Azure e que querem utilizar as funcionalidades premium disponíveis com a utilização do Azure Cosmos DB. Baseia-se em [Get Started with Azure Table storage using .NET](table-storage-how-to-use-dotnet.md) (Introdução ao armazenamento de Tabelas do Azure com .NET) e mostra como tirar partido de capacidades adicionais, como índices secundários, débito aprovisionado e multi-homing. Descreve como utilizar o portal do Azure para criar uma conta do Azure Cosmos DB e, em seguida, criar e implementar uma aplicação de Tabelas. Também vamos analisar exemplos de .NET para criar e eliminar uma tabela e inserir, atualizar, eliminar e consultar dados de tabelas. 
+[!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
-Se ainda não tiver o Visual Studio 2017 instalado, pode transferir e utilizar a [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **gratuita**. Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+## <a name="create-a-net-console-project"></a>Crie um projeto de consola .NET
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+No Visual Studio, crie uma nova aplicação de consola .NET. Os passos seguintes mostram como criar uma aplicação de consola no Visual Studio 2017. Os passos são semelhantes aos de outras versões do Visual Studio. Pode usar a biblioteca de tabela do Azure Cosmos DB em qualquer tipo de aplicações de .NET, incluindo uma aplicação de web ou serviço de cloud do Azure e aplicações de dispositivos móveis e computadores. Neste guia, utilizamos uma aplicação de consola pela simplicidade.
 
-## <a name="create-a-database-account"></a>Criar uma conta de base de dados
+1. Selecione **Ficheiro** > **Novo** > **Projeto**.
 
-Comecemos por criar uma conta do Azure Cosmos DB no portal do Azure.  
- 
-> [!IMPORTANT]  
-> Tem de criar uma nova conta da API de Tabela para trabalhar com os SDKs de API de Tabela geralmente disponíveis. As contas de API de Tabela criadas durante a pré-visualização não são suportadas pelos SDKs geralmente disponíveis. 
->
+1. Selecione **instalados** > **Visual C#**   >  **consola App (.NET Core)**.
 
-[!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
+1. Na **Name** campo, introduza um nome para a sua aplicação, por exemplo, **CosmosTableSamples** (pode fornecer um nome diferente conforme necessário).
 
-## <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
+1. Selecione **OK**.
 
-Agora, vamos clonar uma aplicação de Tabela a partir do GitHub, definir a cadeia de ligação e executá-la. Vai ver como é fácil trabalhar com dados programaticamente. 
+Todos os exemplos de código neste exemplo, podem ser adicionados ao método Main () da sua aplicação de consola **Program.cs** ficheiro.
 
-1. Abra uma janela de terminal do git, como o git bash e utilize o comando `cd` para alterar para uma pasta e instalar a aplicação de exemplo. 
+## <a name="install-the-required-nuget-package"></a>Instale o pacote de NuGet necessário
 
-    ```bash
-    cd "C:\git-samples"
-    ```
+Para obter o pacote NuGet, siga estes passos:
 
-2. Execute o seguinte comando para clonar o repositório de exemplo. Este comando cria uma cópia da aplicação de exemplo no seu computador. 
+1. Clique com o botão direito do rato no projeto no **Explorador de Soluções** e escolha **Gerir Pacotes NuGet**.
 
-    ```bash
-    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
-    ```
+1. Procure online `Microsoft.Azure.Cosmos.Table`, `Microsoft.Extensions.Configuration`, `Microsoft.Extensions.Configuration.Json`, `Microsoft.Extensions.Configuration.Binder` e selecione **instalar** para instalar a biblioteca de tabela do Microsoft Azure Cosmos DB.
 
-3. Em seguida, abra o ficheiro da solução no Visual Studio. 
+## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 
-## <a name="update-your-connection-string"></a>Atualizar a cadeia de ligação
+1. Partir do [portal do Azure](https://portal.azure.com/), clique em **cadeia de ligação**. Utilize o botão de cópia à direita da janela, para copiar a **CADEIA DE LIGAÇÃO PRIMÁRIA**.
 
-Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. Isto permite à aplicação comunicar com a base de dados alojada. 
-
-1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de ligação**. 
-
-    Utilize os botões de cópia à direita do ecrã, para copiar a CADEIA DE LIGAÇÃO PRIMÁRIA.
-
-    ![Ver e copiar a CADEIA DE LIGAÇÃO no painel Cadeia de Ligação](./media/create-table-dotnet/connection-string.png)
-
-2. No Visual Studio, abra o ficheiro app.config. 
-
-3. Anule o comentário StorageConnectionString na linha 8 e comente em StorageConnectionString na linha 7, uma vez que este tutorial não utiliza o Emulador de Armazenamento. As linhas 7 e 8 devem agora ter o seguinte aspeto:
-
-    ```
-    <!--key="StorageConnectionString" value="UseDevelopmentStorage=true;" />-->
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />
-    ```
-
-4. Cole a CADEIA DE LIGAÇÃO PRIMÁRIA do portal no valor de StorageConnectionString na linha 8. Cole a cadeia dentro de aspas.
+   ![Ver e copiar a CADEIA DE LIGAÇÃO PRIMÁRIA no painel Cadeia de Ligação](./media/create-table-dotnet/connection-string.png)
    
-    > [!IMPORTANT]
-    > Se o Ponto final utilizar documents.azure.com, significa que tem uma conta de pré-visualização, e tem de criar uma [nova conta de API de Tabela](#create-a-database-account) para trabalhar com o SDK de API de Tabela geralmente disponível. 
-    >
+1. Para configurar a cadeia de ligação, a partir do visual studio com o botão direito clique no seu projeto **CosmosTableSamples**.
 
-    A linha 8 deve ter agora um aspeto semelhante a:
+1. Selecione **adicione** e, em seguida **Novo Item**. Criar um novo arquivo **Settings** com o tipo de ficheiro como **configuração de JSON do TypeScript** ficheiro. 
 
-    ```
-    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
-    ```
+1. Substitua o código no ficheiro Settings JSON com o seguinte código e atribuir a cadeia de ligação primária:
 
-5. Guarde o ficheiro app.config.
+   ```csharp
+   {
+   "StorageConnectionString": <Primary connection string of your Azure Cosmos DB account>
+   }
+   ```
 
-Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
+1. Clique com o botão direito do rato no seu projeto **CosmosTableSamples**. Selecione **Add**, **Novo Item** e adicionar uma classe chamada **AppSettings.cs**.
 
-## <a name="azure-cosmos-db-capabilities"></a>Capacidades do Azure Cosmos BD
-O Azure Cosmos DB suporta várias capacidades que não estão disponíveis na API de armazenamento de Tabelas do Azure. 
+1. Adicione o seguinte código ao ficheiro AppSettings.cs. Este ficheiro lê a cadeia de ligação a partir do ficheiro Settings JSON e atribui-o para o parâmetro de configuração:
 
-Algumas funcionalidades são acedidas através de novas sobrecargas para o elemento CreateCloudTableClient que permitem aos utilizadores especificar a política de ligação e o nível de consistência.
-
-| Definições de Ligação da Tabela | Descrição |
-| --- | --- |
-| Modo da Ligação  | O Azure Cosmos DB suporta dois modos de conectividade No modo `Gateway`, os pedidos são sempre feitos para o gateway do Azure Cosmos DB, que os encaminha para as partições de dados correspondentes. No modo de conectividade `Direct`, o cliente obtém o mapeamento das tabelas para partições e os pedidos são feitos diretamente nas partições de dados. Recomendamos `Direct`, o predefinido.  |
-| Protocolo da Ligação | O Azure Cosmos DB suporta dois protocolos de ligação, `Https` e `Tcp`. `Tcp` é o predefinido e o recomendado porque é mais leve. |
-| Localizações Preferenciais | Uma lista separada por vírgulas das localizações preferenciais (multi-homing) para leituras. Cada conta do Azure Cosmos DB pode ser associada a entre 1 e 30 ou mais regiões. Cada instância do cliente pode especificar um subconjunto dessas regiões pela ordem preferencial para leituras de latência baixa. Os nomes das regiões devem utilizar os respetivos [nomes a apresentar](https://msdn.microsoft.com/library/azure/gg441293.aspx), como, por exemplo, `West US`. Veja também [Multi-homing APIs](tutorial-global-distribution-table.md) (APIs de multi-homing). |
-| Nível de Consistência | Pode fazer compensações entre latência, consistência e disponibilidade ao escolher entre cinco níveis de consistência bem definidos: `Strong`, `Session`, `Bounded-Staleness`, `ConsistentPrefix` e `Eventual`. A predefinição é `Session`. A escolha do nível de consistência faz uma diferença significativa quanto ao desempenho nas configurações de várias regiões. Veja [Consistency levels](consistency-levels.md) (Níveis de consistência) para obter detalhes. |
-
-Podem ser ativadas outras funcionalidades com os valores de configuração `appSettings` seguintes.
-
-| Chave | Descrição |
-| --- | --- |
-| TableQueryMaxItemCount | Configurar o número máximo de itens devolvidos por consulta de tabela num único percurso de ida e volta. A predefinição é `-1`, que permite que o Azure Cosmos DB determine dinamicamente o valor no runtime. |
-| TableQueryEnableScan | Se a consulta não puder utilizar o índice para algum filtro, executá-la de qualquer forma através de uma análise. A predefinição é `false`.|
-| TableQueryMaxDegreeOfParallelism | O grau de paralelismo para a execução de uma consulta entre partições. `0` é um valor em série sem obtenção prévia, `1` é um valor em série com obtenção prévia e valores mais altos aumentam a taxa de paralelismo. A predefinição é `-1`, que permite que o Azure Cosmos DB determine dinamicamente o valor no runtime. |
-
-Para alterar o valor predefinido, abra o ficheiro `app.config` no Explorador de Soluções do Visual Studio. Adicione o conteúdo do elemento `<appSettings>` mostrado abaixo. Substitua `account-name` pelo nome da sua conta de armazenamento e `account-key` pela chave de acesso da conta. 
-
-```xml
-<configuration>
-    ...
-    <appSettings>
-      <!-- Client options -->
-      <add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.azure.com" />
-      <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key; TableEndpoint=https://account-name.documents.azure.com" />
-
-      <!-- Table query options -->
-      <add key="TableQueryMaxItemCount" value="-1"/>
-      <add key="TableQueryEnableScan" value="false"/>
-      <add key="TableQueryMaxDegreeOfParallelism" value="-1"/>
-      <add key="TableQueryContinuationTokenLimitInKb" value="16"/>
-            
-    </appSettings>
-</configuration>
-```
-
-Vamos fazer uma breve revisão do que está a acontecer à aplicação. Abra o ficheiro `Program.cs` e verá que estas linhas de código criam os recursos da Tabela. 
-
-## <a name="create-the-table-client"></a>Criar o cliente da tabela
-Para ligar à conta da tabela, inicialize `CloudTableClient`.
-
-```csharp
-CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-```
-Este cliente é iniciado com os valores de configuração `TableConnectionMode`, `TableConnectionProtocol`, `TableConsistencyLevel` e `TablePreferredLocations`, se estiverem especificados nas definições da aplicação.
-
-## <a name="create-a-table"></a>Criar uma tabela
-
-Em seguida, vai criar uma tabela com `CloudTable`. As tabelas do Azure Cosmos DB podem ser dimensionadas de forma independente em termos de armazenamento e débito e o serviço cria automaticamente as partições. 
-
-```csharp
-CloudTable table = tableClient.GetTableReference("people");
-400
-table.CreateIfNotExists(throughput: 800);
-```
-
-Há uma diferença importante na forma como as tabelas são criadas. O Azure Cosmos DB reserva débito, ao contrário do modelo baseado no consumo do armazenamento do Azure para transações. O débito é dedicado/reservado, pelo que nunca se verá limitado se a taxa de pedidos estiver no débito aprovisionado ou abaixo.
-
-Pode configurar o débito predefinido ao incluí-lo como um parâmetro de CreateIfNotExists.
-
-A leitura de uma entidade de 1 KB é normalizada como 1 RU e as outras operações são normalizadas para um valor de RU fixo com base na CPU, na memória e no consumo de IOPS. Saiba mais sobre [Request units in Azure Cosmos DB](request-units.md) (Unidades de pedido no Azure Cosmos DB) e, mais especificamente, [key value stores](key-value-store-cost.md) (Arquivos de chaves-valores).
-
-Em seguida, vamos analisar as operações simples de leitura e escrita (CRUD) ao utilizar o SDK de armazenamento de Tabelas do Azure. Este tutorial demonstra latências baixas previsíveis, em milissegundos de um só dígito, e consultas rápidas fornecidas pelo Azure Cosmos DB.
-
-## <a name="add-an-entity-to-a-table"></a>Adicionar uma entidade a uma tabela
-As entidades no armazenamento de Tabelas do Azure partem da classe `TableEntity` e têm de ter as propriedades `PartitionKey` e `RowKey`. Segue-se uma definição de exemplo para uma entidade de cliente.
-
-```csharp
-public class CustomerEntity : TableEntity
-{
-    public CustomerEntity(string lastName, string firstName)
+   ```csharp
+   namespace CosmosTableSamples
+   {
+    using Microsoft.Extensions.Configuration;
+    public class AppSettings
     {
-        this.PartitionKey = lastName;
-        this.RowKey = firstName;
+        public string StorageConnectionString { get; set; }
+        public static AppSettings LoadAppSettings()
+        {
+            IConfigurationRoot configRoot = new ConfigurationBuilder()
+                .AddJsonFile("Settings.json")
+                .Build();
+            AppSettings appSettings = configRoot.Get<AppSettings>();
+            return appSettings;
+        }
+    }
+   }
+   ```
+
+## <a name="parse-and-validate-the-connection-details"></a>Analisar e validar os detalhes de ligação 
+
+1. Clique com o botão direito do rato no seu projeto **CosmosTableSamples**. Selecione **Add**, **Novo Item** e adicionar uma classe chamada **Common.cs**. Vai escrever código para validar os detalhes de ligação e criar uma tabela nessa classe.
+
+1. Definir um método `CreateStorageAccountFromConnectionString` conforme mostrado abaixo. Este método irá analisar os detalhes de cadeia de ligação e validar que o nome da conta e os detalhes chave da conta fornecidos no ficheiro "Settings". são válidos. 
+
+   ```csharp
+   public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+    {
+            CloudStorageAccount storageAccount;
+            try
+            {
+                storageAccount = CloudStorageAccount.Parse(storageConnectionString);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the application.");
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                Console.WriteLine("Invalid storage account information provided. Please confirm the AccountName and AccountKey are valid in the app.config file - then restart the sample.");
+                Console.ReadLine();
+                throw;
+            }
+
+            return storageAccount;
+        }
+   ```
+
+
+## <a name="create-a-table"></a>Criar uma tabela 
+
+A classe [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtableclient?redirectedfrom=MSDN&view=azure-dotnet) permite-lhe obter tabelas e entidades armazenadas no Table Storage. Porque não temos todas as tabelas na conta de API de tabela do Cosmos DB, vamos adicionar os `CreateTableAsync` método para o **Common.cs** classe para criar uma tabela:
+
+```csharp
+public static async Task<CloudTable> CreateTableAsync(string tableName)
+  {
+    string storageConnectionString = AppSettings.LoadAppSettings().StorageConnectionString;
+
+    // Retrieve storage account information from connection string.
+    CloudStorageAccount storageAccount = CreateStorageAccountFromConnectionString(storageConnectionString);
+
+    // Create a table client for interacting with the table service
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient(new TableClientConfiguration());
+
+    Console.WriteLine("Create a Table for the demo");
+
+    // Create a table client for interacting with the table service 
+    CloudTable table = tableClient.GetTableReference(tableName);
+    if (await table.CreateIfNotExistsAsync())
+    {
+      Console.WriteLine("Created Table named: {0}", tableName);
+    }
+    else
+    {
+      Console.WriteLine("Table {0} already exists", tableName);
     }
 
-    public CustomerEntity() { }
-
-    public string Email { get; set; }
-
-    public string PhoneNumber { get; set; }
+    Console.WriteLine();
+    return table;
 }
 ```
 
-O fragmento seguinte mostra como inserir uma entidade com o SDK de armazenamento do Azure. O Azure Cosmos DB foi concebido para latência baixa garantida em qualquer escala em todo o mundo.
+## <a name="define-the-entity"></a>Definir a entidade 
 
-As escritas são concluídas em <15 ms em p99 e ~6 ms em p50 nas aplicações que são executadas na mesma região que a conta do Azure Cosmos DB. E esta duração tem em conta o facto de as escritas serem reconhecidas no cliente só após serem replicadas de forma síncrona, consolidadas de forma durável e depois de todo o conteúdo ter sido indexado.
+As entidades mapeiam para C# objetos através de uma classe personalizada derivam [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Para adicionar uma entidade a uma tabela, crie uma classe que define as propriedades de entidade.
 
-
-```csharp
-// Create a new customer entity.
-CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
-customer1.Email = "Walter@contoso.com";
-customer1.PhoneNumber = "425-555-0101";
-
-// Create the TableOperation object that inserts the customer entity.
-TableOperation insertOperation = TableOperation.Insert(customer1);
-
-// Execute the insert operation.
-table.Execute(insertOperation);
-```
-
-## <a name="insert-a-batch-of-entities"></a>Inserir um lote de entidades
-O armazenamento de Tabelas do Azure suporte uma API de operação em lote, que lhe permite combinar atualizações, eliminações e inserções na mesma operação em lote.
+Clique com o botão direito do rato no seu projeto **CosmosTableSamples**. Selecione **Add**, **nova pasta** e nomeie-o como **modelo**. Dentro da pasta de modelo, adicione uma classe chamada **CustimerEntity.cs** e adicione o seguinte código ao mesmo.
 
 ```csharp
-// Create the batch operation.
-TableBatchOperation batchOperation = new TableBatchOperation();
-
-// Create a customer entity and add it to the table.
-CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
-customer1.Email = "Jeff@contoso.com";
-customer1.PhoneNumber = "425-555-0104";
-
-// Create another customer entity and add it to the table.
-CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-customer2.Email = "Ben@contoso.com";
-customer2.PhoneNumber = "425-555-0102";
-
-// Add both customer entities to the batch insert operation.
-batchOperation.Insert(customer1);
-batchOperation.Insert(customer2);
-
-// Execute the batch operation.
-table.ExecuteBatch(batchOperation);
-```
-## <a name="retrieve-a-single-entity"></a>Obter uma única entidade
-As obtenções (GETs) no Azure Cosmos DB demoram <10 ms em p99 e ~1 ms em p50 na mesma região do Azure. Pode adicionar tantas regiões quantas pretender à sua conta para leituras de latência baixa e implementar aplicações para que leiam a partir da respetiva região local ("multi-homed") ao definir `TablePreferredLocations`. 
-
-Pode utilizar o fragmento abaixo para obter uma entidade única:
-
-```csharp
-// Create a retrieve operation that takes a customer entity.
-TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
-
-// Execute the retrieve operation.
-TableResult retrievedResult = table.Execute(retrieveOperation);
-```
-> [!TIP]
-> Saiba mais sobre o multi-homing das APIs em [Developing with multiple regions](tutorial-global-distribution-table.md) (Desenvolver com várias regiões)
->
-
-## <a name="query-entities-using-automatic-secondary-indexes"></a>Consultar entidades mediante a utilização de índices secundários automáticos
-As tabelas podem ser consultadas com a classe `TableQuery`. O Azure Cosmos DB tem um motor de bases de dados otimizado para escritas que indexa automaticamente todas as colunas das tabelas. A indexação do Azure Cosmos DB é independente do esquema. Por conseguinte, mesmo que o esquema seja diferente entre as linhas que evolua ao longo do tempo, é indexado automaticamente. Uma vez que o Azure Cosmos DB suporta índices secundários automáticos, as consultas a qualquer propriedade podem utilizar o índice e ser satisfeitas de forma eficiente.
-
-```csharp
-CloudTable table = tableClient.GetTableReference("people");
-
-// Filter against a property that's not partition key or row key
-TableQuery<CustomerEntity> emailQuery = new TableQuery<CustomerEntity>().Where(
-    TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal, "Ben@contoso.com"));
-
-foreach (CustomerEntity entity in table.ExecuteQuery(emailQuery))
+namespace CosmosTableSamples.Model
 {
-    Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
-        entity.Email, entity.PhoneNumber);
+    using Microsoft.Azure.Cosmos.Table;
+    public class CustomerEntity : TableEntity
+    {
+        public CustomerEntity()
+        {
+        }
+
+        public CustomerEntity(string lastName, string firstName)
+        {
+            PartitionKey = lastName;
+            RowKey = firstName;
+        }
+
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+    }
 }
 ```
 
-O Azure Cosmos DB suporta a mesma funcionalidade de consultas que o armazenamento de Tabelas do Azure para a API de Tabelas. Também suporta ordenação, agregações, consultas geoespaciais, hierarquias e um vasto conjunto de funções incorporadas. Veja [Azure Cosmos DB query](how-to-sql-query.md) (Consulta do Azure Cosmos DB) para obter uma descrição geral destas capacidades. 
+Esse código define uma classe de entidade que utiliza o nome próprio do cliente como a chave de linha e o apelido como a chave de partição. Em conjunto, a chave da fila e a partição da entidade identificam-na de forma exclusiva na tabela. Entidades com a mesma chave de partição podem ser consultadas mais rapidamente do que as entidades com chaves de partição diferentes, mas utilização várias chaves de partição permite uma maior escalabilidade de operações simultâneas. Entidades para ser armazenados em tabelas tem de ser um tipo suportado, por exemplo derivadas dos [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableentity?redirectedfrom=MSDN&view=azure-dotnet) classe. As propriedades de entidade que pretende armazenar numa tabela têm de ser propriedades públicas do tipo e suportar a introdução e a definição de valores. Além disso, o tipo de entidade deve expor um construtor sem parâmetros.
 
-## <a name="replace-an-entity"></a>Substituir uma entidade
-Para atualizar uma entidade, recupere-a do serviço Tabela, modifique o objeto de entidade e, em seguida, guarde as alterações novamente no serviço Tabela. O código seguinte altera o número de telefone de um cliente existente. 
+## <a name="insert-or-merge-an-entity"></a>Inserir ou intercalar uma entidade
+
+O exemplo de código seguinte cria um objeto de entidade e adiciona-o para a tabela. O método InsertOrMerge dentro de [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) classe é usada para inserir ou intercalar uma entidade. O [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtable.executeasync?view=azure-dotnet) método é chamado para executar a operação. 
+
+Clique com o botão direito do rato no seu projeto **CosmosTableSamples**. Selecione **Add**, **Novo Item** e adicionar uma classe chamada **SamplesUtils.cs**. Essa classe armazena todo o código necessário para executar operações de CRUD nas entidades. 
 
 ```csharp
-TableOperation updateOperation = TableOperation.Replace(updateEntity);
-table.Execute(updateOperation);
+public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable table, CustomerEntity entity)
+    {
+      if (entity == null)
+    {
+       throw new ArgumentNullException("entity");
+    }
+    try
+    {
+       // Create the InsertOrReplace table operation
+       TableOperation insertOrMergeOperation = TableOperation.InsertOrMerge(entity);
+
+       // Execute the operation.
+       TableResult result = await table.ExecuteAsync(insertOrMergeOperation);
+       CustomerEntity insertedCustomer = result.Result as CustomerEntity;
+        
+        // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
+        if (result.RequestCharge.HasValue)
+          {
+            Console.WriteLine("Request Charge of InsertOrMerge Operation: " + result.RequestCharge);
+          }
+
+        return insertedCustomer;
+        }
+        catch (StorageException e)
+        {
+          Console.WriteLine(e.Message);
+          Console.ReadLine();
+          throw;
+        }
+    }
 ```
-Da mesma forma, pode realizar operações `InsertOrMerge` ou `Merge`.  
+
+### <a name="get-an-entity-from-a-partition"></a>Obter uma entidade a partir de uma partição
+
+Pode obter a entidade de uma partição ao utilizar o método de recuperação no [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) classe. O exemplo de código seguinte obtém a chave de linha de chave de partição, o e-mail e número de telefone de uma entidade de cliente. Este exemplo imprime também as unidades de pedido consumidas para a consulta para a entidade. Para consultar uma entidade, acrescente o seguinte código para **SamplesUtils.cs** ficheiro: 
+
+```csharp
+public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)
+    {
+      try
+      {
+        TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>(partitionKey, rowKey);
+        TableResult result = await table.ExecuteAsync(retrieveOperation);
+        CustomerEntity customer = result.Result as CustomerEntity;
+        if (customer != null)
+        {
+          Console.WriteLine("\t{0}\t{1}\t{2}\t{3}", customer.PartitionKey, customer.RowKey, customer.Email, customer.PhoneNumber);
+        }
+
+        // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
+        if (result.RequestCharge.HasValue)
+        {
+           Console.WriteLine("Request Charge of Retrieve Operation: " + result.RequestCharge);
+        }
+
+        return customer;
+        }
+        catch (StorageException e)
+        {
+           Console.WriteLine(e.Message);
+           Console.ReadLine();
+           throw;
+        }
+    }
+```
 
 ## <a name="delete-an-entity"></a>Eliminar uma entidade
-Pode facilmente eliminar uma entidade depois de a ter obtido através do mesmo padrão mostrado para atualizar uma entidade. O código seguinte obtém e elimina uma entidade de cliente.
+
+Pode facilmente eliminar uma entidade depois de a ter obtido através do mesmo padrão mostrado para atualizar uma entidade. O código seguinte obtém e elimina uma entidade de cliente. Para eliminar uma entidade, acrescente o código seguinte ao **SamplesUtils.cs** ficheiro: 
 
 ```csharp
-TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
-table.Execute(deleteOperation);
+public static async Task DeleteEntityAsync(CloudTable table, CustomerEntity deleteEntity)
+   {
+     try
+     {
+        if (deleteEntity == null)
+     {
+        throw new ArgumentNullException("deleteEntity");
+     }
+
+    TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
+    TableResult result = await table.ExecuteAsync(deleteOperation);
+
+    // Get the request units consumed by the current operation. RequestCharge of a TableResult is only applied to Azure CosmoS DB 
+    if (result.RequestCharge.HasValue)
+    {
+       Console.WriteLine("Request Charge of Delete Operation: " + result.RequestCharge);
+    }
+
+    }
+    catch (StorageException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
 ```
 
-## <a name="delete-a-table"></a>Eliminar uma tabela
-Finalmente, o seguinte exemplo de código elimina uma tabela a partir de uma conta do Storage. Pode eliminar e recriar uma tabela imediatamente com o Azure Cosmos DB.
+## <a name="execute-the-crud-operations-on-sample-data"></a>Executar as operações de CRUD em dados de exemplo
+
+Depois de definir os métodos para criar entidades de tabela, inserção ou intercalação, execute esses métodos nos dados de exemplo. Para tal, clique com botão direito no seu projeto **CosmosTableSamples**. Selecione **Add**, **Novo Item** e adicionar uma classe chamada **BasicSamples.cs** e adicione o seguinte código ao mesmo. Este código cria uma tabela, que adiciona entidades a ele. Se pretender eliminar a entidade e uma tabela no final do projeto, remover os comentários do `table.DeleteIfExistsAsync()` e `SamplesUtils.DeleteEntityAsync(table, customer)` métodos do seguinte código:
 
 ```csharp
-CloudTable table = tableClient.GetTableReference("people");
-table.DeleteIfExists();
+using System;
+namespace CosmosTableSamples
+{
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Cosmos.Table;
+    using Model;
+
+    class BasicSamples
+    {
+        public async Task RunSamples()
+        {
+            Console.WriteLine("Azure Cosmos DB Table - Basic Samples\n");
+            Console.WriteLine();
+
+            string tableName = "demo" + Guid.NewGuid().ToString().Substring(0, 5);
+
+            // Create or reference an existing table
+            CloudTable table = await Common.CreateTableAsync(tableName);
+
+            try
+            {
+                // Demonstrate basic CRUD functionality 
+                await BasicDataOperationsAsync(table);
+            }
+            finally
+            {
+                // Delete the table
+                // await table.DeleteIfExistsAsync();
+            }
+        }
+
+        private static async Task BasicDataOperationsAsync(CloudTable table)
+        {
+            // Create an instance of a customer entity. See the Model\CustomerEntity.cs for a description of the entity.
+            CustomerEntity customer = new CustomerEntity("Harp", "Walter")
+            {
+                Email = "Walter@contoso.com",
+                PhoneNumber = "425-555-0101"
+            };
+
+            // Demonstrate how to insert the entity
+            Console.WriteLine("Insert an Entity.");
+            customer = await SamplesUtils.InsertOrMergeEntityAsync(table, customer);
+
+            // Demonstrate how to Update the entity by changing the phone number
+            Console.WriteLine("Update an existing Entity using the InsertOrMerge Upsert Operation.");
+            customer.PhoneNumber = "425-555-0105";
+            await SamplesUtils.InsertOrMergeEntityAsync(table, customer);
+            Console.WriteLine();
+
+            // Demonstrate how to Read the updated entity using a point query 
+            Console.WriteLine("Reading the updated Entity.");
+            customer = await SamplesUtils.RetrieveEntityUsingPointQueryAsync(table, "Harp", "Walter");
+            Console.WriteLine();
+
+            // Demonstrate how to Delete an entity
+            //Console.WriteLine("Delete the entity. ");
+            //await SamplesUtils.DeleteEntityAsync(table, customer);
+            //Console.WriteLine();
+        }
+    }
+}
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+O código anterior cria uma tabela que começa com "demonstração" e o GUID gerado é acrescentado ao nome de tabela. Em seguida, adiciona uma entidade de cliente com o nome próprio e apelido como "Harp Walter" e mais tarde atualiza o número de telefone deste utilizador. 
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+Neste tutorial, criou o código para executar operações CRUD básicas em dados armazenados na conta de API de tabela. Também pode efetuar operações avançadas, tais como – inserção de dados em lote, consultas de todos os dados dentro de uma partição, consulta um intervalo de dados dentro de uma partição, listas de tabelas na conta cujos nomes comecem com o prefixo especificado. Pode baixar o formulário de exemplo completo [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) repositório do GitHub. O [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) classe tem mais operações que pode efetuar nos dados.  
+
+## <a name="run-the-project"></a>Executar o projeto
+
+Agora, crie a solução e pressione F5 para executar o projeto. Quando o projeto é executado, verá o resultado seguinte no prompt de comando:
+
+![Saída da linha de comandos](./media/tutorial-develop-table-standard/output-from-sample.png)
+
+Se receber um erro que diz que não é possível localizar o ficheiro Settings quando a execução do projeto, pode resolver adicionando a seguinte entrada XML para as definições do projeto. Clique com o botão direito do rato no CosmosTableSamples, selecione CosmosTableSamples.csproj editar e adicionar itemGroup seguinte: 
+
+```csharp
+  <ItemGroup>
+    <None Update="Settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+```
+Agora pode iniciar sessão no portal do Azure e verifique se os dados existem na tabela. 
+
+![Resultados no portal](./media/tutorial-develop-table-standard/results-in-portal.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, mostrámos como começar a utilizar o Azure Cosmos DB com a API de Tabelas e fizemos o seguinte: 
-
-> [!div class="checklist"] 
-> * Criámos uma conta do Azure Cosmos DB 
-> * Ativámos funcionalidades no ficheiro app.config 
-> * Criámos uma tabela 
-> * Adicionámos uma entidade a uma tabela 
-> * Inserimos um lote de entidades 
-> * Obtivemos uma entidade individual 
-> * Utilizámos índices secundários automáticos para consultar entidades 
-> * Substituímos uma entidade 
-> * Eliminámos uma entidade 
-> * Eliminámos uma tabela  
-
-Agora, pode avançar para o próximo tutorial e saber mais sobre como consultar dados de tabelas. 
+Agora pode avançar para o próximo tutorial e saiba como migrar dados para a conta de API de tabela do Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Query with the Table API](tutorial-query-table.md) (Consultar com a API de Tabelas)
+>[Como consultar dados](../cosmos-db/table-import.md)

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 0664134e29f1b5a6ea6c4e100db925e9055d836d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547933"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097428"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Cópia de Segurança do Windows Server para o Azure
 
@@ -88,11 +88,11 @@ O agente dos Serviços de Recuperação do Microsoft Azure (MARS) cria uma assoc
 
 1. Localize e faça duplo clique o **MARSagentinstaller.exe** transferido.
 2. O **Assistente de Configuração do Agente dos Serviços de Recuperação do Microsoft Azure** é apresentado. À medida que avança ao longo do assistente, forneça as seguintes informações quando lhe for pedido e clique em **Registar**.
-    - Localização para a pasta cache e da instalação.
-    - Informações do servidor proxy se utilizar um servidor proxy para estabelecer ligação à Internet.
-    - Os detalhes do seu nome de utilizador e palavra-passe se utilizar um proxy autenticado.
+   - Localização para a pasta cache e da instalação.
+   - Informações do servidor proxy se utilizar um servidor proxy para estabelecer ligação à Internet.
+   - Os detalhes do seu nome de utilizador e palavra-passe se utilizar um proxy autenticado.
 
-    ![preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. No final do assistente, clique em **Avançar para o Registo** e forneça o ficheiro **Credenciais do Cofre** transferido no procedimento anterior.
  

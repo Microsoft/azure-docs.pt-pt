@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7e97983e1316476848eb4a051cd636339b8caff7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c215c125237d72875155f15002fca6c4bee53b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440969"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077739"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas de suporte do Azure IoT Edge
 
@@ -31,6 +31,7 @@ O Azure IoT Edge tem um mecanismo de contentor para iniciar módulos, uma vez qu
 
 <br>
 <center>
+
 ![Moby como tempo de execução do contentor](./media/support/only-moby-for-production.png)
 </center>
 
@@ -47,11 +48,13 @@ A família de SO anfitrião tem de corresponder sempre a família de utilizado n
 
 <br>
 <center>
+
 ![SO anfitrião corresponda ao SO convidado](./media/support/edge-on-device.png)
 </center>
 
 ### <a name="tier-1"></a>Escalão 1
 Disponível em geral
+
 | Sistema Operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Raspbian stretch | Não | Sim|
@@ -59,6 +62,7 @@ Disponível em geral
 | Ubuntu Server 18.04 | Sim | Não |
 
 Pré-visualização pública
+
 | Sistema Operativo | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Compilação do Windows 10 IoT Core 17763 | Sim | Não |
@@ -86,6 +90,7 @@ O Azure IoT Edge pode ser executado em máquinas virtuais. Isso é comum quando 
 
 <br>
 <center>
+
 ![O Azure IoT Edge numa VM](./media/support/edge-on-vm.png)
 </center>
 

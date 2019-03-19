@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f6718c13534e7f43b183400a1ccf25c3f8d1e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5a4ed93bee091bf0a40718a47ffb7cd97a85147c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669016"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993497"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor o multi-factor authentication para utilizadores convidados B2B
 
@@ -139,5 +139,6 @@ Remova o utilizador de teste e a política de acesso condicional de teste quando
 5.  No painel esquerdo, selecione **Azure Active Directory**.
 6.  Em **Segurança**, selecione **Acesso Condicional**.
 7.  Na lista **Nome da política**, selecione o menu de contexto (…) da sua política de teste e selecione **Eliminar**. Selecione **Sim** para confirmar.
+
 ## <a name="next-steps"></a>Passos Seguintes
 Neste tutorial, criou uma política de acesso condicional que exige que os utilizadores convidados utilizem a MFA ao iniciar sessão numa das suas aplicações na cloud. Para saber mais sobre como adicionar utilizadores para colaboração, veja [Adicionar utilizadores de colaboração B2B do Azure Active Directory no portal do Azure](add-users-administrator.md).

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: cb984bcbe79b69c0614579d66a3b853cd38a7e12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892189"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099091"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migração de Contoso: Rearquitetar uma aplicação no local para um contentor do Azure e a base de dados do Azure SQL
 
@@ -402,10 +402,10 @@ Os administradores da Contoso irão converter a aplicação para um contentor ut
 4. Eles repetir o processo para a aplicação de SmartHotel.Registration.WCF.
 5. Agora, eles verificam como a solução foi alterada.
 
-    - A nova aplicação é **SmartHotel.RegistrationApplication/**
-    - Ele contém dois serviços: **SmartHotel.Registration.WCF** e **SmartHotel.Registration.Web**.
+   - A nova aplicação é **SmartHotel.RegistrationApplication/**
+   - Ele contém dois serviços: **SmartHotel.Registration.WCF** e **SmartHotel.Registration.Web**.
 
-    ![Contentor](./media/contoso-migration-rearchitect-container-sql/container4.png)
+     ![Contentor](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 6. Visual Studio criou o ficheiro de Docker e obtida as imagens necessárias localmente na máquina do desenvolvedor.
 
@@ -488,7 +488,7 @@ Os administradores de contoso agora configurar serviços de DevOps do Azure para
 
 16. Além disso, tenha em atenção que o acionador de implementação contínua está ativado.
 
-   ![Implementação contínua ativada](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+    ![Implementação contínua ativada](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
 17. Clicarem **salvar** > **criar uma versão**.
 

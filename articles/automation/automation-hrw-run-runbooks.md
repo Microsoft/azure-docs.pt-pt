@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 35367a9ebc9ff09f40defd444f6ceb8ff54efe07
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: fab886de55cc524390093f7e7913c79f7af3fe78
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430289"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858151"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks em execução numa função de trabalho de Runbook híbrida
 
@@ -307,12 +307,8 @@ O runbook assinado terá o nome `<runbook name>.asc`.
 
 O runbook assinado agora pode ser carregado para a automatização do Azure e pode ser executado como um runbook regular.
 
-## <a name="troubleshoot"></a>Resolução de problemas
-
-Se os runbooks não são concluir com êxito, reveja o guia de resolução de problemas na [falhas de execução do runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para saber mais sobre os diferentes métodos que podem ser utilizados para iniciar um runbook, consulte [a partir de um Runbook na automatização do Azure](automation-starting-a-runbook.md).
 * Para compreender as diferentes formas de trabalhar com runbooks do PowerShell na automatização do Azure com o editor de texto, veja [editar um Runbook na automatização do Azure](automation-edit-textual-runbook.md)
-
+* Se os runbooks não são concluir com êxito, reveja o guia de resolução de problemas na [falhas de execução do runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).

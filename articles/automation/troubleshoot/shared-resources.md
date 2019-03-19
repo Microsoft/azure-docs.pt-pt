@@ -4,16 +4,16 @@ description: Aprenda a solucionar problemas com os recursos de automatização d
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/22/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: abce40958f8d775e0a579a18cf8d1351740031ff
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 35e39a070a4c976655296d2ea141478d13e43bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902829"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Resolver problemas de erros com recursos partilhados
 
@@ -137,6 +137,30 @@ Não tem as permissões que necessita criar ou atualizar a conta Run As ou o rec
 Para criar ou atualizar uma conta Run As, tem de ter permissões adequadas para os vários recursos utilizados pela conta Run As. Para saber mais sobre as permissões necessárias para criar ou atualizar uma conta Run As, consulte [permissões de conta Run As](../manage-runas-account.md#permissions).
 
 Se o problema é devido a um bloqueio, certifique-se de que o bloqueio está ok para removê-lo. Em seguida, navegue para o recurso que está bloqueado, o bloqueio com o botão direito e escolher **eliminar** ao remover o bloqueio.
+
+### <a name="iphelper"></a>Cenário: Receber o erro "Não é possível localizar um ponto de entrada com o nome"GetPerAdapterInfo' na DLL 'iplpapi.dll' "quando um runbook em execução.
+
+#### <a name="issue"></a>Problema
+
+Ao executar um runbook recebe a seguinte exceção:
+
+```error
+Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
+```
+
+#### <a name="cause"></a>Causa
+
+Este erro é provavelmente causado por um computador incorretamente configurado [conta Run As](../manage-runas-account.md).
+
+#### <a name="resolution"></a>Resolução
+
+Certifique-se de que sua [conta Run As](../manage-runas-account.md) está corretamente configurado. Assim que estiver configurado corretamente, certifique-se de que tem o código correto no seu runbook para autenticar com o Azure. O exemplo seguinte mostra um trecho de código para autenticar para o Azure num runbook utilizando uma conta Run As.
+
+```powershell
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

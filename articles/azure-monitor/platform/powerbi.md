@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 623968467da775c55adf006a84a16ba46bd21d1d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887459"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110176"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importar dados de registo do Azure Monitor para o Power BI
 
@@ -60,11 +60,11 @@ O ambiente de trabalho do Power BI é um aplicativo de desktop permite-lhe criar
 ## <a name="publish-to-power-bi"></a>Publicar no Power BI
 Ao publicar no Power BI, um conjunto de dados e um relatório serão criados.  Se criar um relatório no Power BI Desktop, em seguida, isso será publicado com os seus dados.  Caso contrário, em seguida, será criado um relatório em branco.  Pode modificar o relatório no Power BI ou crie um novo com base no conjunto de dados.
 
-8. Crie um relatório com base nos seus dados.  Uso [documentação do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se não estiver familiarizado com ele.  Quando estiver pronto para enviar para o Power BI, clique em **publicar**.  Quando lhe for pedido, selecione um destino na sua conta do Power BI.  A menos que tenha um destino específico em mente, utilize **minha área de trabalho**.
+1. Crie um relatório com base nos seus dados.  Uso [documentação do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se não estiver familiarizado com ele.  Quando estiver pronto para enviar para o Power BI, clique em **publicar**.  Quando lhe for pedido, selecione um destino na sua conta do Power BI.  A menos que tenha um destino específico em mente, utilize **minha área de trabalho**.
 
     ![Publicar do Power BI Desktop](media/powerbi/desktop-publish.png)
 
-3. Quando a publicação estiver concluída, clique em **abrir no Power BI** para abrir o Power BI com o novo conjunto de dados.
+1. Quando a publicação estiver concluída, clique em **abrir no Power BI** para abrir o Power BI com o novo conjunto de dados.
 
 
 ### <a name="configure-scheduled-refresh"></a>Configurar a atualização agendada

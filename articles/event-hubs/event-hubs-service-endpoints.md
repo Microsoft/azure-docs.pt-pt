@@ -1,6 +1,6 @@
 ---
 title: Virtual rede pontos finais de serviço - Event Hubs do Azure | Documentos da Microsoft
-description: Este artigo fornece informações sobre como ponto final de serviço de eventhub adda a uma rede virtual.
+description: Este artigo fornece informações sobre como adicionar um ponto de extremidade do serviço de eventhub a uma rede virtual.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -9,22 +9,23 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 03/12/2019
 ms.author: shvija
-ms.openlocfilehash: 077202e65c9e63c8ca5ea1a555ccd70bf27028c6
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7b5a62f81238d1ae2b627c395613066350b36efe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232608"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887600"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utilizar pontos finais de serviço de rede Virtual com o Event Hubs do Azure
 
 A integração do Hubs de eventos com [pontos finais de serviço de rede Virtual (VNet)] [ vnet-sep] permite o acesso seguro às capacidades de mensagens de cargas de trabalho como as máquinas virtuais que estão vinculadas a virtual redes, com o caminho do tráfego de rede que estão protegidas em ambas as extremidades.
 
-Depois de configurado para ser associada a pelo menos um ponto final do serviço de sub-rede virtual de rede, o respetivo dos Hubs de eventos espaço de nomes já não aceita tráfego de qualquer lugar, mas autorizado sub-redes nas redes virtuais. Da perspectiva de rede virtual, ligando um espaço de nomes de Hubs de eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de mensagens.
+Uma vez configurado, vinculado a pelo menos um ponto final do serviço de sub-rede virtual de rede, o respetivo dos Hubs de eventos espaço de nomes já não aceita tráfego de qualquer lugar, mas autorizado sub-redes nas redes virtuais. Da perspectiva de rede virtual, ligando um espaço de nomes de Hubs de eventos a um ponto de extremidade de serviço configura um túnel de rede isolado da sub-rede da rede virtual para o serviço de mensagens. 
 
-O resultado é uma relação isolada e privada entre as cargas de trabalho ligada à sub-rede e o namespace respectivo do Hubs de eventos, apesar do endereço de rede observable do sistema de mensagens serviço ponto final que está a ser num intervalo IP público.
+O resultado é uma relação isolada e privada entre as cargas de trabalho ligada à sub-rede e o namespace respectivo do Hubs de eventos, apesar do endereço de rede observable do sistema de mensagens serviço ponto final que está a ser num intervalo IP público. Existe uma exceção a este comportamento. Ativar um ponto de final de serviço, por predefinição, ativa a regra de denyall na firewall do IP associado com a rede virtual. Pode adicionar endereços IP específicos na firewall do IP para permitir o acesso ao ponto final público do Hub de eventos. 
+
 
 >[!WARNING]
 > Implementar a integração de redes virtuais pode impedir que outros serviços do Azure a interagir com os Hubs de eventos.
@@ -48,7 +49,7 @@ O resultado é uma relação isolada e privada entre as cargas de trabalho ligad
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários de segurança avançada ativados pela integração de VNet 
 
-Soluções que requerem uma segurança forte e compartimentalizada e, em que sub-redes da rede virtual fornecem a segmentação de fornecida entre os serviços compartmentalized, geralmente ainda precisam de caminhos de comunicação entre serviços que residem em compartimentos desses.
+Soluções que requerem uma segurança forte e compartimentalizada e, em que sub-redes da rede virtual fornecem a segmentação de fornecida entre os serviços compartmentalized, ainda precisam de caminhos de comunicação entre serviços que residem em compartimentos desses.
 
 Qualquer rotas IP imediata entre compartimentos, incluindo aquelas com HTTPS por TCP/IP, carrega o risco de exploração de vulnerabilidades da camada de rede em segurança. Serviços de mensagens fornecem caminhos de comunicação completamente isolado, onde as mensagens até mesmo são escritas no disco à medida que eles fazem a transição entre partes. Cargas de trabalho em duas redes virtuais diferentes que estão ambos vinculadas para a mesma instância de Hubs de eventos podem comunicar com eficiência e fiável através de mensagens, enquanto a integridade de limite de isolamento de rede correspondentes é preservada.
  

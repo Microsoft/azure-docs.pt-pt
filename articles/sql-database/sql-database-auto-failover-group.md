@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 3c65d4360e3a20b7c2228e42fb4b4db1eecc75ff
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.date: 03/12/2019
+ms.openlocfilehash: 7bfed1144ebfc69ed51b7bbc1adf78538ed28425
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774801"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861082"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
@@ -322,17 +322,17 @@ Como discutido anteriormente, grupos de ativação pós-falha automática e o Ac
 
 ### <a name="powershell-managing-failover-groups-with-managed-instances-preview"></a>PowerShell: Gerir grupos de ativação pós-falha com instâncias de geridas (pré-visualização)
 
-#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Instalar a versão de pré-lançamento mais recente do Powershell
+#### <a name="install-the-newest-pre-release-version-of-powershell"></a>Instalar a versão de pré-lançamento mais recente do PowerShell
 
 1. Atualize o módulo PowerShellGet 1.6.5 (ou versão de pré-visualização mais recente). Ver [site de pré-visualização do PowerShell](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. Numa nova janela do PowerShell, execute os seguintes comandos:
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force

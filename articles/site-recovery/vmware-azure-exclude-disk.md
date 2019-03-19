@@ -8,12 +8,12 @@ ms.workload: storage-backup-recovery
 ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: cf5b994146d84d92cae4591c042ed1cfbb042dee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002880"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Excluir discos da replicação de VMs de VMware para o Azure
 
@@ -80,7 +80,7 @@ Os discos na máquina virtual de origem são os seguintes:
 DB-Disk0-OS | DISK0 | C:\ | Disco do sistema operativo
 DB-Disk1| Disk1 | D:\ | Base de dados do sistema SQL e User Database1
 DB-Disk2 (disco excluído da proteção) | Disk2 | E:\ | Ficheiros temporários
-DB-Disk3 (disco excluído da proteção) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho de pasta F:\MSSQL\Data\) </br /> </br />aponte o caminho da pasta antes da ativação pós-falha.
+DB-Disk3 (disco excluído da proteção) | Disk3 | F:\ | Base de dados tempdb do SQL (caminho da pasta (F:\MSSQL\Data\) <br /> <br />Anote o caminho da pasta antes da ativação pós-falha.
 DB-Disk4 | Disk4 |G:\ |User Database2
 
 Uma vez que as alterações a dados em dois discos da máquina virtual são temporárias, enquanto proteger a máquina virtual de SalesDB, exclua Disk2 e Disk3 da replicação. O Azure Site Recovery não irá replicar esses discos. Na ativação pós-falha, os discos não estarão presentes na máquina virtual de ativação pós-falha no Azure.
@@ -90,7 +90,7 @@ Os discos na máquina virtual do Azure após a ativação pós-falha são os seg
 **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operativo
-Disk1 | E:\ | Armazenamento temporário</br /> </br />o Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
 Disk2 | D:\ | Base de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -154,7 +154,7 @@ No exemplo anterior, a configuração de disco da máquina virtual do Azure é a
 **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | ---
 DISK0 | C:\ | Disco do sistema operativo
-Disk1 | E:\ | Armazenamento temporário</br /> </br />o Azure adiciona este disco e atribui a primeira letra de unidade disponível.
+Disk1 | E:\ | Armazenamento temporário<br /> <br />O Azure adiciona este disco e atribui a primeira letra de unidade disponível.
 Disk2 | D:\ | Base de dados do sistema SQL e User Database1
 Disk3 | G:\ | User Database2
 
@@ -193,7 +193,7 @@ Após a ativação pós-falha da máquina virtual do VMware para o Azure, os dis
 **Nome do disco** | **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Disco do sistema operativo
-DB-Disk1 | Disk1 | D:\ | Armazenamento temporário</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Armazenamento temporário<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 
@@ -220,10 +220,10 @@ Seguem-se as definições de ficheiro de paginação na máquina virtual no loca
 
 Após a ativação pós-falha da máquina virtual do VMware para o Azure, os discos na máquina virtual do Azure são os seguintes:
 
-**Nome do disco**| **Sistema operativo convidado disco#**| **Letra da unidade** | **Tipo de dados no disco**
+**Nome do disco** | **Sistema operativo convidado disco#** | **Letra da unidade** | **Tipo de dados no disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Disco do sistema operativo
-DB-Disk1 | Disk1 | D:\ | Armazenamento temporário</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Armazenamento temporário<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 

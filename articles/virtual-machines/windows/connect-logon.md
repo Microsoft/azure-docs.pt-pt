@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 14bbb77678a70b51c7f640b501827c5618cce606
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: c14b6e16a16f325681722203eaa05a435b141208
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978966"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990613"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Como ligar e iniciar sessão máquina virtual do Azure a executar o Windows
 Irá utilizar o botão **Ligar** no Portal do Azure para iniciar uma sessão de Ambiente de Trabalho Remoto (RDP) a partir de um ambiente de trabalho do Windows. Ligue primeiro à máquina virtual e, em seguida, iniciar sessão.
@@ -32,7 +32,7 @@ Para ligar a uma VM do Windows a partir de um Mac, terá de instalar como um cli
 2. No menu da esquerda, selecione **máquinas virtuais**.
 3. Selecione a máquina virtual na lista.
 4. No topo da página para a máquina virtual, selecione **Connect**.
-2. Sobre o **ligar à máquina virtual** , selecione o endereço IP adequado e a porta. Na maioria dos casos, o endereço IP predefinido e a porta devem ser utilizados. Selecione **ficheiro RDP transferir**RDP transferir ficheiro * *. Se a VM tem uma política just-in-time definida, primeiro tem de selecionar o **pedir acesso** botão para pedir acesso antes de pode transferir o ficheiro RDP. Para obter mais informações sobre a política de acesso just-in-time, consulte [gerir o acesso de máquina virtual utilizando o apenas na política de tempo](../../security-center/security-center-just-in-time.md).
+2. Sobre o **ligar à máquina virtual** , selecione o endereço IP adequado e a porta. Na maioria dos casos, o endereço IP predefinido e a porta devem ser utilizados. Selecione **Transferir ficheiro RDP**. Se a VM tem uma política just-in-time definida, primeiro tem de selecionar o **pedir acesso** botão para pedir acesso antes de pode transferir o ficheiro RDP. Para obter mais informações sobre a política de acesso just-in-time, consulte [gerir o acesso de máquina virtual utilizando o apenas na política de tempo](../../security-center/security-center-just-in-time.md).
 2. Abra o ficheiro RDP transferido e selecione **Connect** quando lhe for pedido. 
 2. Obterá um aviso de que o `.rdp` arquivo provém de um publicador desconhecido. Isto era esperado. Na **conexão de área de trabalho remoto** janela, selecione **Connect** para continuar.
    

@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 991032a603844e697c122d8a26923f4c95a4a78c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 66ab1fa9779aa378c4153adc0da81b3d172e1320
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778795"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170229"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -66,9 +66,13 @@ A página acima fornece também instruções sobre como ativar o suporte para a 
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 
-Quando adiciona a solução para a área de trabalho, o mosaico de análise de SQL do Azure é adicionado à sua área de trabalho e é apresentado na descrição geral. O mosaico mostra o número de bases de dados SQL do Azure, conjuntos elásticos, instâncias geridas e as bases de dados em instâncias de geridas que a solução está a receber a telemetria de diagnóstico de.
+Quando adiciona a solução para a área de trabalho, o mosaico de análise de SQL do Azure é adicionado à sua área de trabalho e é apresentado na descrição geral. Selecione a ligação de vista de resumo para carregar o conteúdo do mosaico.
 
-![Mosaico de análise de SQL do Azure](./media/azure-sql/azure-sql-sol-tile.png)
+![Mosaico de resumo de análise de SQL do Azure](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+Uma vez carregado, o mosaico mostra o número de bases de dados SQL do Azure, conjuntos elásticos, instâncias geridas e as bases de dados em instâncias de geridas que a solução está a receber a telemetria de diagnóstico de.
+
+![Mosaico de análise de SQL do Azure](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 A solução fornece duas vistas separadas – uma para monitorização de bases de dados do Azure SQL e conjuntos elásticos e a outra exibição para monitorizar a instância gerida e bases de dados em instâncias geridas.
 

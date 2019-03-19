@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 373d7d4b421b3e679a5bb0f843db47e28eebbcc1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 29ced587022bc15e82c756cb5f1b80554cfcceb2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009419"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação após desastre de máquinas de virtuais de VMware no local ou servidores físicos para um site secundário
 
@@ -50,11 +50,11 @@ s para máquinas físicas, siga este [tutorial](./physical-azure-disaster-recove
 --|--|--
 **Componentes necessários** |Serviço de mobilidade nas máquinas replicadas. Local no servidor de configuração, o servidor de processos, o servidor de destino mestre. Servidor de processo temporário no Azure para reativação pós-falha.|Serviço de mobilidade, servidor de processos, o servidor de configuração e o destino principal
 **Configuração e orquestração** |O Cofre dos serviços de recuperação no portal do Azure | Usando vContinuum 
-**Replicados**|Disco (Windows e Linux) |Volume-Windows<br> Disk-Linux
-**Cluster de disco partilhado**|Não suportado|Suportadas
+**Replicados** |Disco (Windows e Linux) |Volume-Windows<br> Disk-Linux
+**Cluster de disco partilhado** |Não suportado|Suportadas
 **Alterações a dados limites (média)** |10 MB/s dados por disco<br> Dados de 25MB/s por VM<br> [Saiba mais](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Dados > 10 MB/s por disco  <br> Dados > 25 MB/s por VM
 **Monitorização** |No portal do Azure|No c++ /CX (servidor de configuração)
-**Matriz de suporte**| [Clique aqui para obter detalhes](./vmware-physical-azure-support-matrix.md)|[Transferir a matriz de ASR Scout compatível](https://aka.ms/asr-scout-cm)
+**Matriz de suporte** | [Clique aqui para obter detalhes](./vmware-physical-azure-support-matrix.md)|[Transferir a matriz de ASR Scout compatível](https://aka.ms/asr-scout-cm)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -81,52 +81,52 @@ Instale as atualizações da seguinte forma:
 >Versão de atualização de ficheiro dos todos os componentes do Scout pode não ser o mesmo para o ficheiro. zip de atualização. A versão mais antiga indicam que não há nenhuma alteração no componente desde a atualização anterior para esta atualização.
 
 Transfira o [atualizar](https://aka.ms/asr-scout-update7) ficheiro. zip e a [MySQL e PHP atualizam](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) ficheiros de configuração. O ficheiro. zip de atualização contém todas as a base de binários e os binários de atualização cumulativos dos seguintes componentes: 
-  - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
-  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
-  - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
-  - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
-  - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
-  - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
-  - InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
-  - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
-1. Extraia os ficheiros. zip.
-2. **Servidor de RX**: Cópia **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** para o servidor de RX e extraia-o. A pasta extraída, execute **/Install**.
-3. **Servidor de configuração e o servidor de processos**: Cópia **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** para o servidor de configuração e o servidor de processos. Faça duplo clique para executá-lo.<br>
-4. **Servidor de destino principal de Windows**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor. Clique duas vezes nele para executá-lo. O mesmo ficheiro também pode ser utilizado para instalação de raiz. A mesma atualização de agente unified também é aplicável para o servidor de origem.
+- InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+- RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
+- InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+- InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+- InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+- InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+- InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+  1. Extraia os ficheiros. zip.
+  2. **Servidor de RX**: Cópia **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** para o servidor de RX e extraia-o. A pasta extraída, execute **/Install**.
+  3. **Servidor de configuração e o servidor de processos**: Cópia **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** para o servidor de configuração e o servidor de processos. Faça duplo clique para executá-lo.<br>
+  4. **Servidor de destino principal de Windows**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor. Clique duas vezes nele para executá-lo. O mesmo ficheiro também pode ser utilizado para instalação de raiz. A mesma atualização de agente unified também é aplicável para o servidor de origem.
   A atualização não tem de aplicar no mestre de destino preparado com o **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** como este é o novo instalador de disponibilidade geral em todas as alterações mais recentes.
-5. **servidor vContinuum**:  Cópia **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor.  Certifique-se de que tenha fechado o Assistente do vContinuum. Faça duplo clique no ficheiro para executá-lo.
-6. **Servidor de destino principal do Linux**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** para o servidor de destino principal do Linux e extraia-o. A pasta extraída, execute **/Install**.
-7. **Servidor de origem do Windows**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** ao servidor de origem. Faça duplo clique no ficheiro para executá-lo. 
-8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Para RHEL 6.7 server de 64 bits, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
-9. Depois de atualizar o servidor de configuração, o servidor de processos e o servidor RX com os programas de instalação acima mencionados, as bibliotecas PHP e MySQL precisa ser atualizado manualmente com os passos mencionados na secção 7.4 a [guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide).
+  5. **servidor vContinuum**:  Cópia **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** para o servidor.  Certifique-se de que tenha fechado o Assistente do vContinuum. Faça duplo clique no ficheiro para executá-lo.
+  6. **Servidor de destino principal do Linux**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** para o servidor de destino principal do Linux e extraia-o. A pasta extraída, execute **/Install**.
+  7. **Servidor de origem do Windows**: Para atualizar o agente unificado, copie **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** ao servidor de origem. Faça duplo clique no ficheiro para executá-lo. 
+  8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Para RHEL 6.7 server de 64 bits, copie **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
+  9. Depois de atualizar o servidor de configuração, o servidor de processos e o servidor RX com os programas de instalação acima mencionados, as bibliotecas PHP e MySQL precisa ser atualizado manualmente com os passos mencionados na secção 7.4 a [guia de instalação rápida](https://aka.ms/asr-scout-quick-install-guide).
 
 ## <a name="enable-replication"></a>Ativar a replicação
 
@@ -183,23 +183,23 @@ Instale as atualizações da seguinte forma:
 >Versão de atualização de ficheiro dos todos os componentes do Scout pode não ser o mesmo para o ficheiro. zip de atualização. A versão mais antiga indicam que não há nenhuma alteração no componente desde a atualização anterior para esta atualização.
 
 Transfira o [atualizar](https://aka.ms/asr-scout-update6) ficheiro. zip. O ficheiro contém os seguintes componentes: 
-  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
-  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
-  - Bits de update4 UA para RHEL5, OL5, OL6, SUSE 10, 11 de SUSE: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-1. Extraia os ficheiros. zip.
-2. **Servidor de RX**: Cópia **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** para o servidor de RX e extraia-o. A pasta extraída, execute **/Install**.
-3. **Servidor de configuração e o servidor de processos**: Cópia **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** para o servidor de configuração e o servidor de processos. Faça duplo clique para executá-lo.<br>
-4. **Servidor de destino principal de Windows**: Para atualizar o agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** para o servidor. Clique duas vezes nele para executá-lo. A mesma atualização de agente unified também é aplicável para o servidor de origem. Se a origem não foi atualizada para a atualização 4, deve atualizar o agente unificado.
+- RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+- CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+- UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+- UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+- vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+- Bits de update4 UA para RHEL5, OL5, OL6, SUSE 10, 11 de SUSE: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  1. Extraia os ficheiros. zip.
+  2. **Servidor de RX**: Cópia **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** para o servidor de RX e extraia-o. A pasta extraída, execute **/Install**.
+  3. **Servidor de configuração e o servidor de processos**: Cópia **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** para o servidor de configuração e o servidor de processos. Faça duplo clique para executá-lo.<br>
+  4. **Servidor de destino principal de Windows**: Para atualizar o agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** para o servidor. Clique duas vezes nele para executá-lo. A mesma atualização de agente unified também é aplicável para o servidor de origem. Se a origem não foi atualizada para a atualização 4, deve atualizar o agente unificado.
   A atualização não tem de aplicar no mestre de destino preparado com o **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** como este é o novo instalador de disponibilidade geral em todas as alterações mais recentes.
-5. **servidor vContinuum**:  Cópia **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** para o servidor.  Certifique-se de que tenha fechado o Assistente do vContinuum. Faça duplo clique no ficheiro para executá-lo.
-    A atualização não tem de aplicar no destino mestre preparado com o **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** como este é o novo instalador de disponibilidade geral em todas as alterações mais recentes.
-6. **Servidor de destino principal do Linux**: Para atualizar o agente unificado, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** a mestre e extraia-o servidor de destino. A pasta extraída, execute **/Install**.
-7. **Servidor de origem do Windows**: Para atualizar o agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** ao servidor de origem. Faça duplo clique no ficheiro para executá-lo. 
-    Não precisa de instalar o agente de atualização 5 no servidor de origem, se ele já foi atualizado para a atualização 4 ou agente de origem é instalado com o instalador de base mais recente **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Para RHEL 6.7 server de 64 bits, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
+  5. **servidor vContinuum**:  Cópia **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** para o servidor.  Certifique-se de que tenha fechado o Assistente do vContinuum. Faça duplo clique no ficheiro para executá-lo.
+  A atualização não tem de aplicar no destino mestre preparado com o **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** como este é o novo instalador de disponibilidade geral em todas as alterações mais recentes.
+  6. **Servidor de destino principal do Linux**: Para atualizar o agente unificado, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** a mestre e extraia-o servidor de destino. A pasta extraída, execute **/Install**.
+  7. **Servidor de origem do Windows**: Para atualizar o agente unificado, copie **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** ao servidor de origem. Faça duplo clique no ficheiro para executá-lo. 
+  Não precisa de instalar o agente de atualização 5 no servidor de origem, se ele já foi atualizado para a atualização 4 ou agente de origem é instalado com o instalador de base mais recente **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
+  8. **Servidor de origem do Linux**: Para atualizar o agente unificado, copie a versão correspondente do arquivo agente unificado para o servidor Linux e extraí-lo. A pasta extraída, execute **/Install**.  Exemplo: Para RHEL 6.7 server de 64 bits, copie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** para o servidor e extraia-o. A pasta extraída, execute **/Install**.
 
 
 > [!NOTE]
@@ -276,9 +276,9 @@ A atualização 4 do Scout é uma atualização cumulativa. Inclui todas as corr
 
 > [!NOTE]
 > * **InMage_Scout_Standard_8.0.1_GA.zip** pacote básico tem:
-    * Um instalador de base de servidor de configuração atualizada (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
-    * Um instalador de base de destino principal de Windows (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
-    * Para instalações novas, utilize o novo servidor de configuração e bits de destino mestre GA do Windows.
+>     * Um instalador de base de servidor de configuração atualizada (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
+>     * Um instalador de base de destino principal de Windows (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**).
+>     * Para instalações novas, utilize o novo servidor de configuração e bits de destino mestre GA do Windows.
 > * A atualização 4 pode ser aplicada diretamente em 8.0.1 GA.
 > * O servidor de configuração e atualizações de RX não serão apresentadas depois dos que foram aplicadas.
 

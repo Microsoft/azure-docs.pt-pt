@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: d69a2a26fb0b487a3efa4b5376ca6480569aa846
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 9b6c0715cb85e245aba94adfb8b33d0d07ece9a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084417"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Notificações push para utilizadores específicos com os Hubs de notificação do Azure
 
@@ -64,7 +64,7 @@ Se pretender utilizar aplicações móveis que o seu serviço de back-end, consu
    * **APNS**: Etiqueta e o comutador para permitir o envio da notificação para o serviço de notificação de plataforma da Apple.
    * **Destinatário Username:A** UITextField com texto de marcador de posição *etiqueta de nome de utilizador do destinatário*, imediatamente abaixo do GCM identificar e restrita para as margens esquerdas e direita e sob a etiqueta do GCM.
 
-    Alguns componentes foram adicionados na [introdução aos Hubs de notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
+     Alguns componentes foram adicionados na [introdução aos Hubs de notificação (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) tutorial.
 
 3. **CTRL** arraste a partir dos componentes na vista para `ViewController.h` e adicione essas saídas de novo.
 

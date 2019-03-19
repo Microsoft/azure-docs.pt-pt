@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 536ca8895d130fd9273d556332830d020a485dc3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 812b3752bfffd16c09b466b036fb0ac91e77d5a4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958299"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104357"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Criar uma máquina virtual com um endereço IP privado estático com o PowerShell
 
@@ -91,14 +91,12 @@ Pode concluir as etapas a seguir do computador local ou com o Azure Cloud Shell.
 
 > [!WARNING]
 > Embora possa adicionar definições de endereço IP privadas para o sistema operativo, recomendamos que não se o fizer, até depois de ler [adicionar um endereço IP privado para um sistema operativo](virtual-network-network-interface-addresses.md#private).
->
->
-<a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
-
+> 
+> 
+> <a name = "change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>
+> 
 > [!IMPORTANT]
 > Para aceder à VM a partir da internet, tem de atribuir um endereço IP público à VM. Também pode alterar a atribuição de endereços IP privada dinâmica para uma atribuição estática. Para obter detalhes, consulte [endereços IP de adicionar ou alterar](virtual-network-network-interface-addresses.md). Além disso, é recomendável que limite o tráfego de rede para a VM ao associar um grupo de segurança de rede para a interface de rede, a sub-rede que criou a interface de rede no ou ambos. Para obter detalhes, consulte [gerir grupos de segurança de rede](manage-network-security-group.md).
->
->
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

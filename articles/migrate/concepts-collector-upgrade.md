@@ -4,15 +4,15 @@ description: Fornece informações sobre as atualizações para a aplicação de
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f29556c8f2a5aa727ce80632eaccf5e1ed6d7c1a
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: d7a9a6cb8683116b9e0c432c2aede2b8df3ddc68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895636"
 ---
 # <a name="collector-update-release-history"></a>Histórico de lançamento de atualização do recoletor
 
@@ -22,7 +22,17 @@ Recoletor do Azure Migrate é uma aplicação simples que é utilizada para dete
 
 ## <a name="continuous-discovery-upgrade-versions"></a>Deteção contínua: Versões de atualização
 
-Nenhuma atualização para a aplicação de deteção contínua ainda está disponível.
+### <a name="version-101012-released-on-03132019"></a>Versão 1.0.10.12 (lançado em 03/13/2019)
+
+Contém correções para problemas na seleção do Azure na cloud a aplicação.
+
+Valores para a atualização de hash [1.0.10.12 do pacote](https://aka.ms/migrate/col/upgrade_10_12)
+
+**Algoritmo** | **Valor de hash**
+--- | ---
+MD5 | 27704154082344c058238000dff9ae44
+SHA1 | 41e9e2fb71a8dac14d64f91f0fd780e0d606785e
+SHA256 | c6e7504fcda46908b636bfe25b8c73f067e3465b748f77e50027e66f2727c2a9
 
 ## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>Deteção única (agora preterida): Versões de atualização anteriores
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: geg
-ms.openlocfilehash: 0140cbc440e6098290a81f7ae61aa99e36da7d80
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 26856ac77f169d76c8bcbee7efd707c9881e4876
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312040"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105816"
 ---
 # <a name="restore-azure-vms"></a>Restaurar as VMs do Azure
 
@@ -101,11 +101,11 @@ Depois de restaurar o disco, utilize o modelo que foi gerado como parte da opera
     - [Saiba mais](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) sobre a implementação de recursos a partir de um modelo personalizado.
     - [Saiba mais](../azure-resource-manager/resource-group-authoring-templates.md) sobre a criação de modelos.
 
-  ![Implementação do modelo de carga](./media/backup-azure-arm-restore-vms/edit-template1.png)
+   ![Implementação do modelo de carga](./media/backup-azure-arm-restore-vms/edit-template1.png)
 
 4. Introduza os valores personalizados para a VM, aceite o **termos e condições** e clique em **Compra**.
 
-  ![Submeter a implementação de modelo](./media/backup-azure-arm-restore-vms/submitting-template1.png)
+   ![Submeter a implementação de modelo](./media/backup-azure-arm-restore-vms/submitting-template1.png)
 
 
 ## <a name="replace-existing-disks"></a>Substituir discos existentes

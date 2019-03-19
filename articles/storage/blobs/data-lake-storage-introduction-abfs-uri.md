@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: fe020ab1091b91ba21174b59d0ce25ab0c6122ca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c851044393adbacb6b80e264c6a4393b1c083efb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878311"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006131"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Utilize a geração 2 Lake armazenamento de dados do Azure URI
 
-O [sistema de ficheiros do Hadoop](http://www.aosabook.org/en/hdfs.html) controladores que seja compatível com a geração 2 de armazenamento do Azure Data Lake é conhecido pelo respetivo identificador de esquema `abfs` (sistema de ficheiros de Blob do Azure). Consistente com outros controladores de sistema de ficheiros do Hadoop, o driver ABFS emprega um formato de URI para endereçar ficheiros e diretórios dentro de uma conta com capacidade de geração 2 de armazenamento do Data Lake.
+O [sistema de ficheiros do Hadoop](https://www.aosabook.org/en/hdfs.html) controladores que seja compatível com a geração 2 de armazenamento do Azure Data Lake é conhecido pelo respetivo identificador de esquema `abfs` (sistema de ficheiros de Blob do Azure). Consistente com outros controladores de sistema de ficheiros do Hadoop, o driver ABFS emprega um formato de URI para endereçar ficheiros e diretórios dentro de uma conta com capacidade de geração 2 de armazenamento do Data Lake.
 
 ## <a name="uri-syntax"></a>Sintaxe de URI
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811774"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899031"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -23,7 +23,7 @@ O Azure Monitor proporciona interfaces do usuário unificada para monitoramento 
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor proporciona várias formas de métricas de acesso. Pode acessá-los da [portal do Azure](https://portal.azure.com), o Azure Monitor APIs (REST e .net) e soluções de análise de como os Hubs de eventos. Para obter mais informações, consulte [monitorizar as métricas do Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+O Azure Monitor proporciona várias formas de métricas de acesso. Pode acessá-los da [portal do Azure](https://portal.azure.com), o Azure Monitor APIs (REST e .NET) e soluções de análise de como os Hubs de eventos. Para obter mais informações, consulte [monitorizar as métricas do Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Métricas estão ativadas por predefinição, e pode acessar 93 nos últimos dias de dados. Se precisar de reter dados durante um período mais longo do tempo, pode arquivar dados de métricas para uma conta de armazenamento do Azure. Este é configurado no [das definições de diagnóstico](../../azure-monitor/platform/diagnostic-logs-overview.md) no Azure Monitor.
 
@@ -134,13 +134,13 @@ A seguinte resposta contém valores de métrica no formato JSON:
 
 ```
 
-### <a name="access-metrics-with-the-net-sdk"></a>Métricas de acesso com o .net SDK
+### <a name="access-metrics-with-the-net-sdk"></a>Métricas de acesso com o SDK de .NET
 
-O Azure Monitor proporciona [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler a definição de métrica e valores. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como utilizar o SDK com parâmetros diferentes. Tem de utilizar `0.18.0-preview` ou versão posterior para as métricas de armazenamento. ID de recurso é usado no .net SDK. Para obter mais informações, leia a compreender o ID de recurso para os serviços de armazenamento.
+O Azure Monitor proporciona [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler a definição de métrica e valores. O [código de exemplo](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como utilizar o SDK com parâmetros diferentes. Tem de utilizar `0.18.0-preview` ou versão posterior para as métricas de armazenamento. ID de recurso é utilizado no SDK do .NET. Para obter mais informações, leia a compreender o ID de recurso para os serviços de armazenamento.
 
-O exemplo seguinte mostra como utilizar o SDK de .net do Azure Monitor para ler métricas de armazenamento.
+O exemplo seguinte mostra como utilizar o SDK .NET do Azure Monitor para ler métricas de armazenamento.
 
-#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Listar definição métricas ao nível da conta com o .net SDK
+#### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Listar definição métricas ao nível da conta com o SDK de .NET
 
 O exemplo seguinte mostra como listar a definição de métrica ao nível da conta:
 
@@ -177,7 +177,7 @@ O exemplo seguinte mostra como listar a definição de métrica ao nível da con
 
 Se pretende listar as definições de métricas para BLOBs, tabelas, ficheiros ou filas, tem de especificar as IDs de recurso diferente para cada serviço com a API.
 
-#### <a name="read-metric-values-with-the-net-sdk"></a>Valores de métrica de leitura com o .net SDK
+#### <a name="read-metric-values-with-the-net-sdk"></a>Valores de métrica de leitura com o SDK de .NET
 
 O exemplo seguinte mostra como ler `UsedCapacity` dados ao nível da conta:
 
@@ -227,7 +227,7 @@ O exemplo seguinte mostra como ler `UsedCapacity` dados ao nível da conta:
 
 Acima de exemplo, se quiser ler valores de métrica para BLOBs, tabelas, ficheiros ou fila, tem de especificar as IDs de recurso diferente para cada serviço com a API.
 
-#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Ler valores de métricos multidimensionais com o .net SDK
+#### <a name="read-multi-dimensional-metric-values-with-the-net-sdk"></a>Ler valores de métricos multidimensionais com o SDK de .NET
 
 Para métricas multidimensionais, terá de definir o filtro de dados de metadados para ler dados de métrica no valor de dimensão específicos.
 
@@ -380,7 +380,7 @@ O armazenamento do Azure fornece as seguintes métricas de transação no Azure 
 | Saída | A quantidade de dados de saída. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
 | SuccessServerLatency | O tempo médio utilizado para processar um pedido com êxito pelo Armazenamento do Azure. Este valor não inclui a latência de rede especificada em SuccessE2ELatency. <br/><br/> Unidade: Milissegundos <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
 | SuccessE2ELatency | A latência de ponto a ponto média de pedidos com êxito feitos a um serviço de armazenamento ou a uma operação de API especificada. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta. <br/><br/> Unidade: Milissegundos <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
-| Disponibilidade | A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor total de pedidos faturáveis e dividindo-o pelo número de pedidos aplicáveis, incluindo os pedidos que produziram erros inesperados. Todos os erros inesperados resultam em disponibilidade reduzida para o serviço de armazenamento ou a operação de API especificada. <br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 99.99 |
+| Disponibilidade | A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor total de pedidos faturáveis e dividindo-o pelo número de pedidos aplicáveis, incluindo os pedidos que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada. <br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Dimensões de métricas
 
@@ -389,7 +389,7 @@ O armazenamento do Azure suporta seguintes dimensões de métricas no Azure Moni
 | Nome da Dimensão | Descrição |
 | ------------------- | ----------------- |
 | BlobType | O tipo de blob para apenas as métricas de Blob. Os valores suportados são **BlockBlob** e **PageBlob**. Acrescentar Blob está incluído no BlockBlob. |
-| ResponseType | Tipo de resposta de transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: Todos os outros erros de servidor, exceto aqueles descrito </li> <li> ServerBusyError: Pedido autenticado que devolveu um código de estado HTTP 503. </li> <li> ServerTimeoutError: O limite de tempo pedido autenticado que devolveu um código de estado HTTP 500. O limite de tempo excedido devido a um erro de servidor. </li> <li> AuthorizationError: Pedido autenticado que falhou devido a acesso não autorizado de dados ou uma falha de autorização. </li> <li> NetworkError: Pedido autenticado que falhou por erros de rede. Normalmente ocorre quando um cliente prematuramente fecha uma conexão antes da expiração de tempo limite. </li> <li>    ClientThrottlingError: Erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: O limite de tempo pedido autenticado que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou o tempo limite do pedido estiver definido como um valor inferior que o esperado pelo serviço de armazenamento, é um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li> ClientOtherError: Todos os outros erros do lado do cliente exceto aqueles descrito. </li> <li> Êxito: Pedido com êxito|
+| ResponseType | Tipo de resposta de transação. Os valores disponíveis incluem: <br/><br/> <li>ServerOtherError: todos os outros erros do lado do servidor, exceto os descritos </li> <li> ServerBusyError: pedido autenticado que devolveu um código de estado HTTP 503. </li> <li> ServerTimeoutError: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. O tempo limite excedido ocorreu devido a um erro de servidor. </li> <li> AuthorizationError: pedido autenticado que falhou devido a acesso não autorizado a dados ou a uma falha de autorização. </li> <li> NetworkError: pedido autenticado que falhou devido a erros de rede. Ocorre normalmente quando um cliente fecha prematuramente uma ligação antes da expiração do tempo limite. </li> <li>    ClientThrottlingError: erro de limitação do lado do cliente. </li> <li> ClientTimeoutError: pedido autenticado com tempo limite excedido que devolveu um código de estado HTTP 500. Se o tempo limite da rede do cliente ou do pedido estiver definido como um valor inferior ao esperado pelo serviço de armazenamento, trata-se de um tempo limite esperado. Caso contrário, é reportado como um ServerTimeoutError. </li> <li> ClientOtherError: todos os outros erros do lado do cliente, exceto os descritos. </li> <li> Êxito: pedido com êxito|
 | GeoType | Transação do cluster primária ou secundária. Os valores disponíveis incluem primária e secundária. Aplica-se para Storage(RA-GRS) redundantes de Georreplicação de acesso de leitura ao ler objetos do inquilino secundário. |
 | ApiName | O nome da operação. Por exemplo: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para todos os nomes de operação, consulte [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | Tipo de autenticação utilizado em transações. Os valores disponíveis incluem: <br/> <li>AccountKey: A transação é autenticada com a chave de conta de armazenamento.</li> <li>SAS: A transação é autenticada com assinaturas de acesso partilhado.</li> <li>OAuth: A transação é autenticada com tokens de acesso de OAuth.</li> <li>Anónimo: A transação é solicitada anonimamente. Ele não inclui pedidos de simulação.</li> <li>AnonymousPreflight: A transação é a solicitação de simulação.</li> |

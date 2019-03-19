@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ede1f031c3c38e714d076b861ba2abdad81c6702
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: c8fc99426751e9aaaec53cbb6b64a84b6e7f6734
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726860"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894330"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-using-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação de HoloLens Unity com âncoras espaciais do Azure
 
@@ -34,7 +34,7 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Uma máquina Windows com <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a> e <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> instalado com o **desenvolvimento da plataforma Universal do Windows** carga de trabalho.
+- Uma máquina Windows com <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a>, <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 +</a> instalado com o **desenvolvimento da plataforma Universal do Windows** carga de trabalho, e <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
 - Um dispositivo de HoloLens com [modo de programador](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ativada. Este artigo requer um dispositivo de HoloLens com o [atualização do Windows 10 de Outubro de 2018](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (também conhecido como RS5). Para atualizar para a versão mais recente no HoloLens, abra a **definições** aplicação, aceda à **atualização e segurança**, em seguida, selecione o **procurar atualizações** botão.
 - A aplicação tem de definir o **SpatialPerception** capacidade sob **definições de criação**->**as definições do leitor**->**publicação As definições**->**capacidades**.
 - Tem de ativar a sua aplicação **suportado de realidade Virtual** com **SDK de realidade mista do Windows** sob **definições de criação**->**asdefiniçõesdoleitor** -> **XR definições**.

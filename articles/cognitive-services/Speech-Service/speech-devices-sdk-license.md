@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a9f6dfb0de2cf09b27d08eb6b7dc425c8cd1f17d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 825a6035a997eb27a3e8e5833a792bdd985997c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549226"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084628"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrato de licença do SDK de dispositivos de voz
 
@@ -83,9 +83,9 @@ b) Canadá. Se adquiriu este software no Canadá, pode parar de receber atualiza
 c) Alemanha e Áustria.
 
 > (i) garantia. O software licenciado corretamente será executado substancialmente conforme descrito em qualquer material da Microsoft que acompanha o software. No entanto, a Microsoft oferece nenhuma garantia contratual em relação ao software licenciado.
-
+> 
 > (ii) limitação de responsabilidade. Em caso de conduta intencional, negligência grave, reivindicações baseadas no ato de responsabilidade do produto, bem como, em caso de morte ou ferimento pessoal ou físico, a Microsoft é responsável de acordo com a lei estatutária.
-
+> 
 > Sujeito à cláusula supracitada (ii), Microsoft somente será responsável por negligência se a Microsoft violar tais obrigações contratuais materiais, o cumprimento das quais facilitar o desempenho de vencimento do presente contrato, cuja violação seria Coloque o objetivo deste contrato e a conformidade com a qual pode confiar constantemente uma parte confiável (chamadas "cardinal obrigações"). Em outros casos de negligência, a Microsoft não será responsabilizada por negligência.
 
 **15\. ISENÇÃO DE GARANTIA. O SOFTWARE É LICENCIADO "TAL COMO"ESTÁ. ASSUME O RISCO DE USÁ-LO. A MICROSOFT DÁ-NÃO EXISTEM GARANTIAS EXPLÍCITAS, GARANTIAS OU CONDIÇÕES. ATÉ AO LIMITE PERMITIDO PELA LEGISLAÇÃO APLICÁVEL, A MICROSOFT EXCLUI TODAS AS GARANTIAS IMPLÍCITAS, INCLUINDO DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA E NÃO INFRAÇÃO.**

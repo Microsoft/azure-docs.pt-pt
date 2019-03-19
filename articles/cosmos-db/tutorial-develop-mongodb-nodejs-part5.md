@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 59ba69f8bf208ab4f38ae326cf4297947f0b844e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c8cab3c723b7e507b0f3b05b933cca9e2c24fb39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547117"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075480"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Criar uma aplicação Angular com API do Azure Cosmos DB para o MongoDB - utilizar o Mongoose para ligar ao Cosmos DB
 
@@ -56,35 +56,35 @@ O mongoose é um modelagem de biblioteca (ODM) para MongoDB e node. js de dados 
 
 1. Copie o seguinte código para o **mongo** ficheiro. O código fornece as seguintes funcionalidades:
 
-    * Requer o Mongoose.
-    * Substitui a promessa do Mongo para utilizar a promessa básica que está incorporada no versões ES6/ES2015 e posteriores.
-    * Chamadas de um ficheiro env que lhe permite configurar determinadas coisas consoante esteja em teste, produção ou desenvolvimento. Irá criar esse arquivo na próxima seção.
-    * Inclui a cadeia de ligação do MongoDB, que é definida no ficheiro env.
-    * Cria uma função connect que chama o Mongoose.
+   * Requer o Mongoose.
+   * Substitui a promessa do Mongo para utilizar a promessa básica que está incorporada no versões ES6/ES2015 e posteriores.
+   * Chamadas de um ficheiro env que lhe permite configurar determinadas coisas consoante esteja em teste, produção ou desenvolvimento. Irá criar esse arquivo na próxima seção.
+   * Inclui a cadeia de ligação do MongoDB, que é definida no ficheiro env.
+   * Cria uma função connect que chama o Mongoose.
 
-    ```javascript
-    const mongoose = require('mongoose');
-    /**
+     ```javascript
+     const mongoose = require('mongoose');
+     /**
      * Set to Node.js native promises
      * Per https://mongoosejs.com/docs/promises.html
      */
-    mongoose.Promise = global.Promise;
+     mongoose.Promise = global.Promise;
 
-    const env = require('./env/environment');
+     const env = require('./env/environment');
 
-    // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+     // eslint-disable-next-line max-len
+     const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
-    function connect() {
+     function connect() {
      mongoose.set('debug', true);
      return mongoose.connect(mongoUri, { useMongoClient: true });
-    }
+     }
 
-    module.exports = {
-      connect,
-      mongoose
-    };
-    ```
+     module.exports = {
+     connect,
+     mongoose
+     };
+     ```
     
 1. No painel do Explorer, em **servidor**, crie uma pasta denominada **ambiente**. Na **ambiente** pasta, crie um ficheiro denominado **Environment**.
 

@@ -1,6 +1,6 @@
 ---
-title: Enumerar atores no Service Fabric do Azure | Microsoft Docs
-description: Saiba como enumerar Reliable Actors e os respetivos metadados.
+title: Enumerar atores no Azure Service Fabric | Documentos da Microsoft
+description: Saiba como enumerar os Reliable Actors e os respetivos metadados.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: d5d6ac87db18815aa945d6964338626365b08e64
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 300ab4f73fdae0224d2de5e1e1dea6cc6cfa7438
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207272"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57864376"
 ---
-# <a name="enumerate-service-fabric-reliable-actors"></a>Enumerar Service Fabric Reliable Actors
-O serviço de Reliable Actors permite que um cliente a enumeração de metadados sobre os atores que aloja o serviço. Porque o serviço de atores é um serviço com estado particionado, enumeração é efetuada por partição. Porque cada partição pode conter muitos atores, enumeração é devolvida como um conjunto de resultados paginados. As páginas são looped através de até que todas as páginas são lidas. O exemplo seguinte mostra como criar uma lista de todos os atores de Active Directory de uma partição de um serviço de atores:
+# <a name="enumerate-service-fabric-reliable-actors"></a>Enumerar Atores fiáveis do Service Fabric
+O serviço do Reliable Actors permite que um cliente enumerar os metadados sobre os atores que aloja o serviço. Uma vez que o serviço de ator é um serviço com estado particionado, enumeração é realizada por partição. Uma vez que cada partição pode conter vários atores, a enumeração é retornada como um conjunto de resultados paginados. As páginas são executado um loop sobre até que todas as páginas são lidas. O exemplo seguinte mostra como criar uma lista de todos os atores de Active Directory de uma partição de um serviço de ator:
 
 ```csharp
 IActorService actorServiceProxy = ActorServiceProxy.Create(
@@ -68,11 +68,11 @@ while (continuationToken != null);
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Gestão do Estado de ator](service-fabric-reliable-actors-state-management.md)
+* [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Coleção de ciclo de vida e libertação da memória de ator](service-fabric-reliable-actors-lifecycle.md)
 * [Documentação de referência da API de atores](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Código de exemplo de Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Código de exemplo de Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

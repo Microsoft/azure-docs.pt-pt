@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 39ab31cd06707dbd488914da248941ab6d174c29
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 632fa14bd96eaee2ca58b59dd855584c1fd961e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388762"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010102"
 ---
 # <a name="app-service-environment-management-addresses"></a>Endereços de gestão do ambiente de serviço de aplicações
 
@@ -40,7 +40,7 @@ Os endereços indicados abaixo podem ser configurados numa tabela de rotas. Isso
 
 ## <a name="configuring-a-network-security-group"></a>Configurar um grupo de segurança de rede
 
-Com os grupos de segurança de rede não é necessário se preocupar sobre os endereços individuais ou manter a sua própria configuração. Existe uma etiqueta de serviço IP com o nome AppServiceManagement que é mantido atualizado com todos os endereços. Para utilizar esta etiqueta de serviço IP no seu NSG, aceda ao portal, abra a IU de grupos de segurança de rede e selecionar regras de segurança de entrada. Se tiver uma regra já existente para o tráfego de entrada de gestão editá-lo. Se este NSG não foi criado com o seu ASE, ou se se trata de todos os novos, em seguida, selecione **adicionar**. Em origem pendente, selecione **etiquetas de serviço**.  Da fonte etiqueta de serviço, selecione * * AppServiceManagement * *. Definir a origem de intervalos de portas \*, o destino para **qualquer**, intervalos de portas de destino para **454 455**, de protocolo para **TCP**e a ação para **permitir** . Se estiver fazendo a regra, em seguida, terá de definir a prioridade. 
+Com os grupos de segurança de rede não é necessário se preocupar sobre os endereços individuais ou manter a sua própria configuração. Existe uma etiqueta de serviço IP com o nome AppServiceManagement que é mantido atualizado com todos os endereços. Para utilizar esta etiqueta de serviço IP no seu NSG, aceda ao portal, abra a IU de grupos de segurança de rede e selecionar regras de segurança de entrada. Se tiver uma regra já existente para o tráfego de entrada de gestão editá-lo. Se este NSG não foi criado com o seu ASE, ou se se trata de todos os novos, em seguida, selecione **adicionar**. Em origem pendente, selecione **etiquetas de serviço**.  Sob a etiqueta de serviço de origem, selecione **AppServiceManagement**. Definir a origem de intervalos de portas \*, o destino para **qualquer**, intervalos de portas de destino para **454 455**, de protocolo para **TCP**e a ação para **permitir** . Se estiver fazendo a regra, em seguida, terá de definir a prioridade. 
 
 ![criar um NSG com a etiqueta de serviço][1]
 

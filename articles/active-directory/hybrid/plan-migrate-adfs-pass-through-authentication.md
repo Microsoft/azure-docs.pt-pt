@@ -12,12 +12,12 @@ ms.date: 12/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7406758a5e5c345aee4165139242025b8ceb4d18
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bf0bb51470272099ed2824d0450082f93fe65f14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534723"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076467"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar de Federação para autenticação pass-through do Azure Active Directory
 
@@ -260,11 +260,11 @@ Em primeiro lugar, altere o método de início de sessão:
    ![Captura de ecrã do preparado para Configurar página](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
 7. No portal do Azure AD, selecione **do Azure Active Directory**e, em seguida, selecione **do Azure AD Connect**.
 8. Verifique se estas definições:
-  * **Federação** está definido como **desativado**.
-  * **Totalmente integrado início de sessão único** está definido como **ativado**.
-  * **Autenticação pass-through** está definido como **ativado**.<br />
+   * **Federação** está definido como **desativado**.
+   * **Totalmente integrado início de sessão único** está definido como **ativado**.
+   * **Autenticação pass-through** está definido como **ativado**.<br />
 
-  ![Captura de ecrã que mostra as definições na secção de início de sessão de utilizador](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
+   ![Captura de ecrã que mostra as definições na secção de início de sessão de utilizador](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
 Próxima. Implemente métodos de autenticação adicionais:
 
@@ -272,16 +272,16 @@ Próxima. Implemente métodos de autenticação adicionais:
 2. Sobre o **autenticação pass-through** página, selecione a **transferir** botão.
 3. Sobre o **agente de transferência** página, selecione **aceitar os termos e transferir**.
 
-  Agentes de autenticação adicional começam a transferir. Instale o agente de autenticação secundária num servidor associado a um domínio. 
+   Agentes de autenticação adicional começam a transferir. Instale o agente de autenticação secundária num servidor associado a um domínio. 
 
-  > [!NOTE]
-  > O primeiro agente é sempre instalado no Azure AD Connect próprio servidor como parte das alterações efetuadas na configuração do **sessão do utilizador** secção da ferramenta Azure AD Connect. Instale quaisquer agentes de autenticação adicional num servidor separado. Recomendamos que tem duas ou três agentes de autenticação adicional disponíveis. 
+   > [!NOTE]
+   > O primeiro agente é sempre instalado no Azure AD Connect próprio servidor como parte das alterações efetuadas na configuração do **sessão do utilizador** secção da ferramenta Azure AD Connect. Instale quaisquer agentes de autenticação adicional num servidor separado. Recomendamos que tem duas ou três agentes de autenticação adicional disponíveis. 
 
 4. Execute a instalação do agente de autenticação. Durante a instalação, tem de introduzir as credenciais de uma conta de Administrador Global.
 
-  ![Captura de ecrã que mostra o botão instalar na página do Microsoft Azure AD Connect autenticação pacote do agente](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Captura de ecrã que mostra o botão instalar na página do Microsoft Azure AD Connect autenticação pacote do agente](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-  ![Captura de ecrã que mostra a página de início de sessão](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Captura de ecrã que mostra a página de início de sessão](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. Quando é instalado o agente de autenticação, pode retornar para a página de estado de funcionamento do agente de autenticação pass-through para verificar o estado dos agentes adicionais.
 

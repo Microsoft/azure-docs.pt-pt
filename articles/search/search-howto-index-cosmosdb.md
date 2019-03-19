@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9021bb2a030472d4e83d78c8fc6363db570c3554
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: dceabc799e187f3af56588d5a9008e5cdca517c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318007"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864461"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Como o índice do Cosmos DB com um indexador de Azure Search
 
@@ -23,7 +23,7 @@ Este artigo mostra-lhe como configurar o Azure Cosmos DB [indexador](search-inde
 
 Como a terminologia pode ser confusa, vale a pena observar que [indexação do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/index-overview) e [indexação de pesquisa do Azure](search-what-is-an-index.md) são operações distintas, exclusivas para cada serviço. Antes de começar a Azure Search indexação, a base de dados do Azure Cosmos DB tem já existem e contêm dados.
 
-Pode utilizar o [portal](#cosmos-indexer-portal), [REST APIs](#cosmos-indexer-rest), ou [SDK de .NET](#cosmos-indexer-dotnet) para indexar o conteúdo do Cosmos. O indexador de Cosmos DB no Azure Search consegue pesquisar [itens de Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) acessados por meio desses protocolos:
+Pode utilizar o [portal](#cosmos-indexer-portal), REST APIs ou .NET SDK para indexar o conteúdo do Cosmos. O indexador de Cosmos DB no Azure Search consegue pesquisar [itens de Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) acessados por meio desses protocolos:
 
 * [API DE SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [API do MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (suporte do Azure Search para esta API está em pré-visualização pública)  
@@ -250,7 +250,7 @@ Certifique-se de que o esquema do seu índice de destino é compatível com o es
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mapeamento entre tipos de dados JSON e tipos de dados de pesquisa do Azure
 | Tipo de dados JSON | Tipos de campo de índice de destino compatível |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
+| Booleano |Edm.Boolean, Edm.String |
 | Números que são semelhantes a números inteiros |Edm.Int32, Edm.Int64, Edm.String |
 | Números entre aquela aparência como os pontos de vírgula flutuante |Edm.Double, Edm.String |
 | String |Edm.String |

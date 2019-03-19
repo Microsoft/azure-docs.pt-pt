@@ -6,12 +6,12 @@ ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842752"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090751"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Manter os endereços IP durante a ativação pós-falha
 
@@ -62,10 +62,10 @@ Se ocorrer uma falha regional de origem, a empresa pode falhar ao longo de todos
 
 - Com endereços IP de destino já em vigor antes da ativação pós-falha, a empresa A pode coordenar a ativação pós-falha e automaticamente estabelecer ligações após a ativação pós-falha entre **VNet de recuperação** e **VNet do Azure**. Isso é ilustrado no diagrama seguinte....
 - Dependendo dos requisitos de aplicações, ligações entre as duas VNets (**VNet de recuperação** e **VNet do Azure**) no destino região pode ser estabelecido antes, durante a (como passo intermédio) ou após a ativação pós-falha.
-    - A empresa pode utilizar [planos de recuperação](site-recovery-create-recovery-plans.md) para especificar quando serão possível estabelecer ligações.
-    - Se possam ligar-se entre as VNets com peering de VNet ou VPN de site a site.
-        - O VNet peering não utiliza um gateway de VPN e tem restrições de diferentes.
-        - O VNet peering [preços](https://azure.microsoft.com/pricing/details/virtual-network) é calculado de forma diferente do que o Gateway de VPN de VNet a VNet [preços](https://azure.microsoft.com/pricing/details/vpn-gateway). Para as ativações pós-falha, aconselhamos em geral, para utilizar o mesmo método de conectividade como redes de origem, incluindo o tipo de ligação, para minimizar a incidentes de rede imprevisíveis.
+  - A empresa pode utilizar [planos de recuperação](site-recovery-create-recovery-plans.md) para especificar quando serão possível estabelecer ligações.
+  - Se possam ligar-se entre as VNets com peering de VNet ou VPN de site a site.
+      - O VNet peering não utiliza um gateway de VPN e tem restrições de diferentes.
+      - O VNet peering [preços](https://azure.microsoft.com/pricing/details/virtual-network) é calculado de forma diferente do que o Gateway de VPN de VNet a VNet [preços](https://azure.microsoft.com/pricing/details/vpn-gateway). Para as ativações pós-falha, aconselhamos em geral, para utilizar o mesmo método de conectividade como redes de origem, incluindo o tipo de ligação, para minimizar a incidentes de rede imprevisíveis.
 
     ![Recursos de ativação pós-falha completa do Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
@@ -128,13 +128,13 @@ Neste cenário, **empresa B** é executado de uma empresa híbrida, com parte da
 Eis o aspeto de arquitetura de rede antes da ativação pós-falha.
 
 - VMs de aplicação estão alojadas no Azure Ásia Oriental.
--  Ásia Oriental tem uma VNet (**VNet de origem**) com o endereço espaço 10.1.0.0/16.
-    - Este asiático tem cargas de trabalho dividido em três sub-redes na **VNet de origem**:
-        - **Sub-rede 1**: 10.1.1.0/24
-        - **Sub-rede 2**: 10.1.2.0/24,
-        - **Sub-rede 3**: 10.1.3.0/24utilizing uma rede virtual com endereço espaço 10.1.0.0/16. Esta rede virtual com o nome **VNet de origem**
- - A região secundária (destino) é o Azure Sudeste asiático:
-    - Sudeste asiático tem uma recuperação VNet (**VNet de recuperação**) idêntico ao **VNet de origem**.
+- Ásia Oriental tem uma VNet (**VNet de origem**) com o endereço espaço 10.1.0.0/16.
+  - Este asiático tem cargas de trabalho dividido em três sub-redes na **VNet de origem**:
+    - **Sub-rede 1**: 10.1.1.0/24
+    - **Sub-rede 2**: 10.1.2.0/24,
+    - **Sub-rede 3**: 10.1.3.0/24utilizing uma rede virtual com endereço espaço 10.1.0.0/16. Esta rede virtual com o nome **VNet de origem**
+      - A região secundária (destino) é o Azure Sudeste asiático:
+  - Sudeste asiático tem uma recuperação VNet (**VNet de recuperação**) idêntico ao **VNet de origem**.
 - As VMs na Ásia Oriental estão ligadas a um datacenter no local com o Azure ExpressRoute ou o site para site VPN.
 - Para reduzir o RTO, a empresa B Aprovisiona gateways de VNet de recuperação no Azure Sudeste asiático antes da ativação pós-falha.
 - Endereços IP de destino de atribui/verifica de empresa B para VMs replicadas. O endereço IP de destino é o mesmo endereço IP de origem para cada VM.

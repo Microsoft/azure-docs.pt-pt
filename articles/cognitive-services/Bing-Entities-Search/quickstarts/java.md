@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 4a8f4fb3605f254bb48005e944a49fe45395aaec
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d9001a10afdb92e2ebe469e3beb080c667e8559b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542527"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097342"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com Java
 
@@ -35,25 +35,25 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
 
 1. Crie um novo projeto Java no seu IDE ou editor favorito e importe as seguintes bibliotecas.
 
-  ```java
-  import java.io.*;
-  import java.net.*;
-  import java.util.*;
-  import javax.net.ssl.HttpsURLConnection;
-  import com.google.gson.Gson;
-  import com.google.gson.GsonBuilder;
-  import com.google.gson.JsonObject;
-  import com.google.gson.JsonParser;
-  import com.google.gson.Gson;
-  import com.google.gson.GsonBuilder;
-  import com.google.gson.JsonObject;
-  import com.google.gson.JsonParser;
-  ```
+   ```java
+   import java.io.*;
+   import java.net.*;
+   import java.util.*;
+   import javax.net.ssl.HttpsURLConnection;
+   import com.google.gson.Gson;
+   import com.google.gson.GsonBuilder;
+   import com.google.gson.JsonObject;
+   import com.google.gson.JsonParser;
+   import com.google.gson.Gson;
+   import com.google.gson.GsonBuilder;
+   import com.google.gson.JsonObject;
+   import com.google.gson.JsonParser;
+   ```
 
 2. Crie uma nova classe, as variáveis para o ponto final da API, a chave de subscrição e uma consulta de pesquisa.
 
-  ```java
-  public class EntitySearch {
+   ```java
+   public class EntitySearch {
 
       static String subscriptionKey = "ENTER KEY HERE";
     
@@ -62,9 +62,9 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
     
         static String mkt = "en-US";
         static String query = "italian restaurant near me";
-  //...
+   //...
     
-  ```
+   ```
 
 ## <a name="construct-a-search-request-string"></a>Construir uma cadeia de caracteres de solicitação de pesquisa
 
@@ -123,16 +123,16 @@ Embora esta aplicação seja escrita em Java, a API é um serviço Web RESTful c
 
 2. Utilize a biblioteca de Gson para criar uma nova `GsonBuilder()`e utilizar `setPrettyPrinting().create()` para formatar o json. Em seguida, retorná-lo.    
   
-  ```java
-  //...
-  public static String prettify (String json_text) {
+   ```java
+   //...
+   public static String prettify (String json_text) {
     JsonParser parser = new JsonParser();
     JsonObject json = parser.parse(json_text).getAsJsonObject();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     return gson.toJson(json);
-  }
-  //...
-  ```
+   }
+   //...
+   ```
 
 ## <a name="call-the-search-function"></a>Chamar a função de pesquisa
 

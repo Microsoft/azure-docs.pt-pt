@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: e8e9991f20481deee85a6d582582335eb98e3c24
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815222"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993423"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Otimizar autovacuum numa base de dados do Azure para o servidor PostgreSQL 
 Este artigo descreve como otimizar efetivamente autovacuum numa base de dados do Azure para o servidor PostgreSQL.
@@ -43,6 +43,7 @@ Os parâmetros de configuração que controlam autovacuum baseiam-se em resposta
 - Quanto ele limpa depois de iniciar?
 
 Aqui estão algumas configurações de autovacuum parâmetros que pode atualizar com base nas perguntas anterior, juntamente com algumas orientações.
+
 Parâmetro|Descrição|Valor predefinido
 ---|---|---
 autovacuum_vacuum_threshold|Especifica o número mínimo de tuplas atualizadas ou eliminadas necessários para acionar uma operação de aspirador em qualquer uma tabela. A predefinição é 50 cadeias de identificação. Defina este parâmetro só no ficheiro postgresql.conf ou na linha de comandos de servidor. Para substituir a definição para tabelas individuais, altere os parâmetros de armazenamento de tabela.|50
@@ -51,6 +52,7 @@ autovacuum_vacuum_cost_limit|Especifica o valor de limite de custo utilizado em 
 autovacuum_vacuum_cost_delay|Especifica o valor de atraso de custo utilizado em operações de aspirador automática. Se não for especificado -1, é utilizado o valor de regular vacuum_cost_delay. O valor predefinido é 20 milissegundos. Defina este parâmetro só no ficheiro postgresql.conf ou na linha de comandos de servidor. Para substituir a definição para tabelas individuais, altere os parâmetros de armazenamento de tabela.|20 ms
 autovacuum_nap_time|Especifica que o atraso mínimo entre autovacuum é executado em qualquer determinada base de dados. Em cada rodada, o daemon examina o banco de dados e emite comandos ASPIRADOR e analisar, conforme necessário para tabelas no banco de dados. O atraso é medido em segundos, e a predefinição é (1 min) de um minuto. Defina este parâmetro só no ficheiro postgresql.conf ou na linha de comandos de servidor.|15 s
 autovacuum_max_workers|Especifica o número máximo de processos de autovacuum, que não seja o iniciador autovacuum, que podem ser executadas ao mesmo tempo. A predefinição é três. Defina este parâmetro só no início do servidor.|3
+
 Para substituir as definições para tabelas individuais, altere os parâmetros de armazenamento de tabela. 
 
 ## <a name="autovacuum-cost"></a>Custo de Autovacuum

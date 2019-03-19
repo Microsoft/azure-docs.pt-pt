@@ -16,18 +16,18 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: jeconnoc
 ms.custom: seodec18
-ms.openlocfilehash: 90eaf7f57f524cb6e47d9d0f4e160855acd6daf5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 67e4f99046820aa21392ff1238318e1b48bb5354
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633662"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901088"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Criar uma aplicação de serviço de aplicações com implementação contínua com a CLI do Azure
 
 Este script de exemplo cria uma aplicação no serviço de aplicações com os respetivos recursos relacionados e, em seguida, configura a implementação contínua a partir de um repositório de DevOps do Azure. Neste exemplo, precisa de:
 
-* Um repositório do Azure DevOps com o código da aplicação, para o qual tem permissões administrativas.
+* Um repositório de DevOps do Azure com o código da aplicação, que tem permissões administrativas.
 * Um [Token de Acesso Pessoal (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) para a sua organização do Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

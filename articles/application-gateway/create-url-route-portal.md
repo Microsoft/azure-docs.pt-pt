@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: f1c26c43472e9d433baf2e9c6baab1e621d88b87
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4d8c389055b81c355de6e1c9120230e1f04443cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311955"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087062"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Criar um gateway de aplicação com o caminho com base em regras de encaminhamento com o portal do Azure
 
@@ -49,20 +49,20 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
 2. Selecione **Rede** e, em seguida, selecione **Gateway de Aplicação** na lista Destaques.
 3. Introduza estes valores para o gateway de aplicação:
 
-    - *myAppGateway* - para o nome do gateway de aplicação.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
+   - *myAppGateway* - para o nome do gateway de aplicação.
+   - *myResourceGroupAG* - para o novo grupo de recursos.
 
-    ![Criar um novo gateway de aplicação](./media/create-url-route-portal/application-gateway-create.png)
+     ![Criar um novo gateway de aplicação](./media/create-url-route-portal/application-gateway-create.png)
 
 4. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
 5. Clique em **escolher uma rede virtual**, clique em **criar nova**e, em seguida, introduza estes valores para a rede virtual:
 
-    - *myVNet* - para o nome da rede virtual.
-    - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
-    - *myAGSubnet* - para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* - para o nome da rede virtual.
+   - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
+   - *myAGSubnet* - para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar a rede virtual](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Criar a rede virtual](./media/create-url-route-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **escolher um endereço IP público**, clique em **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público tem o nome *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.

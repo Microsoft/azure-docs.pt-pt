@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: aa316626d6328d29a2697c8496feb9062804eef9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 568b00007f2c95a5a63c236863f0c599c6b6f86f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992298"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure
 Neste tutorial, vai criar uma fábrica de dados do Azure com um pipeline que carrega dados delta de uma tabela numa base de dados SQL do Azure para o armazenamento de Blobs do Azure. 
@@ -612,7 +612,7 @@ Neste tutorial, vai criar um pipeline com duas atividades Lookup uma atividade C
  
     TableName | WatermarkValue
     --------- | --------------
-    data_source_table   2017-09-05  8:06:00.000
+    data_source_table | 2017-09-05  8:06:00.000
 
 ### <a name="insert-data-into-the-data-source-store-to-verify-delta-data-loading"></a>Inserir dados no arquivo de dados de origem para verificar o carregamento de dados delta
 

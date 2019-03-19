@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 7a02fff5a727bd0a3be762e9e458a71f66b87ba2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 956cf6c8fac34d5fc3e4d3c5bee663247665b69e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452679"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002862"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Parceiros de inteligência de negócios do SQL Data Warehouse
 Para criar a sua solução de armazém de dados ponto a ponto, escolha entre uma ampla variedade de ferramentas líderes do setor.  Este artigo destaca a empresas parceiras da Microsoft com a soluções de business intelligence (BI) a que suporta o Azure SQL Data Warehouse.
@@ -63,29 +63,29 @@ Para saber mais sobre alguns dos nossos outros parceiros, veja [parceiros de int
 
 <!--Website links -->
 [birst_website]:https://www.birst.com/
-[clearstory_website]:http://www.clearstorydata.com/
+[clearstory_website]:https://www.clearstorydata.com/
 [dell_statistica_website]:http://www.statsoft.com/Products/STATISTICA-Features
-[dundas_bi_website]:http://www.dundas.com/dundas-bi
-[jinfonet_website]:http://www.jinfonet.com/product/jreport-designer
-[logianalytics_website]:http://www.logianalytics.com/
+[dundas_bi_website]:https://www.dundas.com/dundas-bi
+[jinfonet_website]:https://www.jinfonet.com/product/jreport-designer
+[logianalytics_website]:https://www.logianalytics.com/
 [looker_website]:https://looker.com/partners/microsoft-azure/
-[qlik_website]:http://www.qlik.com/us/products/qlik-sense/enterprise
+[qlik_website]:https://www.qlik.com/us/products/qlik-sense/enterprise
 [sisense_website]:https://www.sisense.com/product/
-[tableau_website]:http://www.tableau.com/
+[tableau_website]:https://www.tableau.com/
 [targit_website]:https://www.targit.com/en/software/deployment/targitonazure
-[yellowfin_website]:http://www.yellowfinbi.com/
+[yellowfin_website]:https://www.yellowfinbi.com/
 
 <!--Get Started Links-->
-[qlik_getstarted]:http://www.qlik.com/us/products/qlik-sense/getting-started
+[qlik_getstarted]:https://www.qlik.com/us/products/qlik-sense/getting-started
 
 <!--Datasheet Links-->
 
 <!--[birst_datasheet]:-->
 
-[clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
+[clearstory_datasheet]:https://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
 [dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf
-[dundas_bi_datasheet]:http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
-[jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf
+[dundas_bi_datasheet]:https://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
+[jinfonet_datasheet]:https://www.jinfonet.com/products/JReport%20Brief.pdf
 [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/
 
 [looker_datasheet]:https://info.looker.com/h/i/229169578-looker-for-microsoft-azure
@@ -93,11 +93,11 @@ Para saber mais sobre alguns dos nossos outros parceiros, veja [parceiros de int
 [qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family
 [sisense_datasheet]:https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf
 
-[tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data
+[tableau_datasheet]:https://www.tableau.com/stories/workbook/azure-sql-data
 
 <!--[targit_datasheet]:-->
 
-[yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
+[yellowfin_datasheet]:https://www.yellowfinbi.com/Document.i4?DocumentId=877299
 
 <!--Marketplace Links -->
 
@@ -121,7 +121,7 @@ Para saber mais sobre alguns dos nossos outros parceiros, veja [parceiros de int
 
 <!--[birst_press]:-->
 
-[clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
+[clearstory_press]:https://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
 
 <!--[dell_statistica_press]:-->
 
@@ -129,7 +129,7 @@ Para saber mais sobre alguns dos nossos outros parceiros, veja [parceiros de int
 
 <!--[jinfonet_press]:-->
 
-[logianalytics_press]:http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
+[logianalytics_press]:https://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
 [looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
 
 <!--[qlik_press]:-->

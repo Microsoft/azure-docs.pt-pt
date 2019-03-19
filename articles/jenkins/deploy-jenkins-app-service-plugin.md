@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 98e1f982eb627db2a7d2126109e5897c45649ce9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545129"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864818"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementar no Serviço de Aplicações do Azure com o plug-in Jenkins 
 
@@ -90,7 +90,7 @@ Antes de configurar o trabalho no Jenkins, precisa de um plano do Serviço de Ap
 ### <a name="set-up-the-jenkins-job"></a>Configurar o trabalho do Jenkins
 
 1. Crie um projeto **freestyle** novo no dashboard do Jenkins.
-2. Configure o campo **Source Code Management** (Gestão do Código de Origem) para utilizar o seu fork local da [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Indique o valor de **Repository URL** (URL do Repositório). Por exemplo, http://github.com/&lt;o_seu_ID>/exemplodeaplicaçãowebjava.
+2. Configure o campo **Source Code Management** (Gestão do Código de Origem) para utilizar o seu fork local da [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Indique o valor de **Repository URL** (URL do Repositório). Por exemplo: http:\//github.com/&lt;your_ID > / javawebappsample.
 3. Adicione um passo para compilar o projeto com o Maven ao adicionar o comando **Execute shell**. Neste exemplo, precisamos de outro comando para mudar o nome do ficheiro \*.war na pasta raiz para **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Antes de configurar o trabalho no Jenkins, precisa de uma aplicação Web no Lin
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Configurar o trabalho do Jenkins para Docker
 
 1. Crie um projeto **freestyle** novo no dashboard do Jenkins.
-2. Configure o campo **Source Code Management** (Gestão do Código de Origem) para utilizar o seu fork local da [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Indique o valor de **Repository URL** (URL do Repositório). Por exemplo, http://github.com/&lt;o_seu_ID>/exemplodeaplicaçãowebjava.
+2. Configure o campo **Source Code Management** (Gestão do Código de Origem) para utilizar o seu fork local da [aplicação Web Java simples para o Azure](https://github.com/azure-devops/javawebappsample). Indique o valor de **Repository URL** (URL do Repositório). Por exemplo: http:\//github.com/&lt;your_ID > / javawebappsample.
 3. Adicione um passo para compilar o projeto com o Maven ao adicionar o comando **Execute shell**. Inclua a linha seguinte no comando:
     ```bash
     mvn clean package

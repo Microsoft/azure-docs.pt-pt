@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0fb2103b982d5b2fc1a04455b451459ede12166e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1363dd3c620789b9f3c8ce1dbe0892ee61d66051
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336940"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108210"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Recuperação após desastre e distribuição geográfica
 
@@ -24,7 +24,7 @@ ms.locfileid: "53336940"
 Nas funções durável, todos os Estados são mantidos no armazenamento do Azure. R [hub tarefas](durable-functions-task-hubs.md) é um contentor lógico para os recursos de armazenamento do Azure que são utilizadas para orquestrações. As funções do Orchestrator e atividade só podem interagir entre si quando eles pertencem ao mesmo hub de tarefa.
 Os cenários descritos propor opções de implementação para aumentar a disponibilidade e minimizar o período de indisponibilidade durante as atividades de recuperação após desastre.
 
-É importante observar que esses cenários são com base nas configurações de ativo-passivo, uma vez que eles são orientados pela utilização do armazenamento do Azure. Este padrão consiste na implementação de uma aplicação de cópia de segurança de funções (passivo) para uma região diferente. O Gestor de tráfego irá monitorizar a aplicação de função (Active Directory) principal para disponibilidade. Ocorrerá uma falha ao longo para a aplicação de funções de cópia de segurança se primária falhar. Para obter mais informações, consulte [Gestor de tráfego](https://azure.microsoft.com/services/traffic-manager/)do [o método de encaminhamento de tráfego de prioridade.](../../traffic-manager/traffic-manager-routing-methods.md#a-name--priorityapriority-traffic-routing-method)
+É importante observar que esses cenários são com base nas configurações de ativo-passivo, uma vez que eles são orientados pela utilização do armazenamento do Azure. Este padrão consiste na implementação de uma aplicação de cópia de segurança de funções (passivo) para uma região diferente. O Gestor de tráfego irá monitorizar a aplicação de função (Active Directory) principal para disponibilidade. Ocorrerá uma falha ao longo para a aplicação de funções de cópia de segurança se primária falhar. Para obter mais informações, consulte [Gestor de tráfego](https://azure.microsoft.com/services/traffic-manager/)do [o método de encaminhamento de tráfego de prioridade.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
 
 >[!NOTE]
 >

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 02c05bc7d8488a5fd4d0698f13a1ba354dbbb0e8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546046"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076161"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>Criar uma tabela de rotas de Virtual Hub para conduzir o tráfego para uma aplicação Virtual de rede
 
@@ -49,37 +49,37 @@ Certifique-se de que instalar a versão mais recente dos cmdlets do PowerShell d
 
 1. Abra a consola do PowerShell com privilégios elevados e inicie sessão na sua conta do Azure. Este cmdlet pede-lhe as credenciais de início de sessão. Depois de iniciar sessão, são transferidas as definições de conta para que fiquem disponíveis para o Azure PowerShell.
 
-  ```powershell
-  Connect-AzAccount
-  ```
+   ```powershell
+   Connect-AzAccount
+   ```
 2. Obtenha uma lista das suas subscrições do Azure.
 
-  ```powershell
-  Get-AzSubscription
-  ```
+   ```powershell
+   Get-AzSubscription
+   ```
 3. Especifique a subscrição que pretende utilizar.
 
-  ```powershell
-  Select-AzSubscription -SubscriptionName "Name of subscription"
-  ```
+   ```powershell
+   Select-AzSubscription -SubscriptionName "Name of subscription"
+   ```
 
 ## <a name="rg"></a>2. Criar recursos
 
 1. Crie um grupo de recursos.
 
-  ```powershell
-  New-AzResourceGroup -Location "West US" -Name "testRG"
-  ```
+   ```powershell
+   New-AzResourceGroup -Location "West US" -Name "testRG"
+   ```
 2. Crie uma WAN virtual.
 
-  ```powershell
-  $virtualWan = New-AzVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
-  ```
+   ```powershell
+   $virtualWan = New-AzVirtualWan -ResourceGroupName "testRG" -Name "myVirtualWAN" -Location "West US"
+   ```
 3. Crie um hub virtual.
 
-  ```powershell
-  New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
-  ```
+   ```powershell
+   New-AzVirtualHub -VirtualWan $virtualWan -ResourceGroupName "testRG" -Name "westushub" -AddressPrefix "10.0.1.0/24"
+   ```
 
 ## <a name="connections"></a>3. Criar ligações
 

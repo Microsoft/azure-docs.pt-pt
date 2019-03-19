@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bc04afead8742c9f384287ecb8d33c54770456b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ae984cc2e0f43b81b8aa2f08b3944886733c9054
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447392"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994647"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Como implementar um bot de aprendiz de conversação
 
@@ -45,7 +45,7 @@ Eis como obter o ID de modelo:
     npm run ui
     ```
 
-2. Browser aberto para http://localhost:5050 
+2. Browser aberto para `http://localhost:5050` 
 
 3. Clique em que pretende obter o ID para o modelo de aprendiz de conversação
 
@@ -109,20 +109,20 @@ Seguem-se as instruções passo a passo para implementar um Bot de aprendiz de c
 
 3. No portal do Azure, edite o recurso de bot de funções que acabou de criar.
 
-    1. Clique no item de barra de navegação de "Definições da aplicação" à esquerda
-    1. Desloque para baixo para a secção "Definições de aplicação"
-    2. Adicione estas definições:
+   1. Clique no item de barra de navegação de "Definições da aplicação" à esquerda
+   1. Desloque para baixo para a secção "Definições de aplicação"
+   2. Adicione estas definições:
 
-        Variável de ambiente | valor
-        --- | --- 
-        CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_MODEL_ID      | GUID de Id de aplicação, obtido a partir da interface do Usuário de aprendiz de conversação, em "definições" do modelo >
-        LUIS_AUTHORING_KEY               | Criação de chave para este modelo do LUIS
-        LUIS_SUBSCRIPTION_KEY            | Não é necessário, mas recomendado para bots publicados evitar o uso de sua quota de criação de conteúdos.
+       Variável de ambiente | valor
+       --- | --- 
+       CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
+       CONVERSATION_LEARNER_MODEL_ID      | GUID de Id de aplicação, obtido a partir da interface do Usuário de aprendiz de conversação, em "definições" do modelo >
+       LUIS_AUTHORING_KEY               | Criação de chave para este modelo do LUIS
+       LUIS_SUBSCRIPTION_KEY            | Não é necessário, mas recomendado para bots publicados evitar o uso de sua quota de criação de conteúdos.
     
-    4. Clique em "Guardar" junto à parte superior da página
-    5. Abrir "Build" item de barra de navegação à esquerda
-    6. Clique em "Configurar a implementação contínua" 
-    7. Clique no ícone de "Configuração" em implementações
-    8. Clique em "Definições necessárias"
-    9. Selecione a origem de onde o seu código de bot está disponível e configurar a origem.
+   4. Clique em "Guardar" junto à parte superior da página
+   5. Abrir "Build" item de barra de navegação à esquerda
+   6. Clique em "Configurar a implementação contínua" 
+   7. Clique no ícone de "Configuração" em implementações
+   8. Clique em "Definições necessárias"
+   9. Selecione a origem de onde o seu código de bot está disponível e configurar a origem.

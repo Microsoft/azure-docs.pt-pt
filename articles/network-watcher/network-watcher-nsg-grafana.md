@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51819039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000394"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerir e analisar registos de fluxo do grupo de segurança de rede com o observador de rede e o Grafana
 
@@ -182,7 +182,7 @@ sudo dpkg -i grafana_4.5.1_amd64.deb
 sudo service grafana-server start
 ```
 
-Para informações de instalação adicionais, consulte [instalar no Debian / Ubuntu](http://docs.grafana.org/installation/debian/).
+Para informações de instalação adicionais, consulte [instalar no Debian / Ubuntu](https://docs.grafana.org/installation/debian/).
 
 #### <a name="add-the-elasticsearch-server-as-a-data-source"></a>Adicione o servidor do ElasticSearch como uma origem de dados
 

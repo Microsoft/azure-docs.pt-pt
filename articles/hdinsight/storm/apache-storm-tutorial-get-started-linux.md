@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5c0fe0921446dde12771bacf096f806701b90444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971670"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118004"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introdução ao Apache Storm no HDInsight com os exemplos do storm-starter
 
@@ -124,26 +124,26 @@ Siga estes passos para monitorizar a topologia através da IU do Storm:
 
     Esta página fornece as seguintes informações:
 
-    * **Estatísticas de topologia** – informações básicas sobre o desempenho da topologia, organizadas em intervalos de tempo.
+   * **Estatísticas de topologia** – informações básicas sobre o desempenho da topologia, organizadas em intervalos de tempo.
 
-        > [!NOTE]  
-        > Selecionar um intervalo de tempo específico altera o intervalo de tempo das informações apresentadas noutras secções da página.
+       > [!NOTE]  
+       > Selecionar um intervalo de tempo específico altera o intervalo de tempo das informações apresentadas noutras secções da página.
 
-    * **Spouts** – informações básicas sobre spouts, incluindo o último erro devolvido por cada spout.
+   * **Spouts** – informações básicas sobre spouts, incluindo o último erro devolvido por cada spout.
 
-    * **Bolts** – informações básicas sobre bolts.
+   * **Bolts** – informações básicas sobre bolts.
 
-    * **Configuração da topologia** – informações detalhadas sobre a configuração da topologia.
+   * **Configuração da topologia** – informações detalhadas sobre a configuração da topologia.
 
-    Esta página também fornece ações que podem ser efetuadas na topologia:
+     Esta página também fornece ações que podem ser efetuadas na topologia:
 
-    * **Ativar** – retoma o processamento de uma topologia desativada.
+   * **Ativar** – retoma o processamento de uma topologia desativada.
 
-    * **Desativar** – coloca em pausa uma topologia em execução.
+   * **Desativar** – coloca em pausa uma topologia em execução.
 
-    * **Rebalancear** – ajusta o paralelismo da topologia. Deve rebalancear as topologias em execução depois de ter alterado o número de nós no cluster. O rebalanceamento ajusta o paralelismo para compensar o número maior/menor de nós no cluster. Para obter mais informações, consulte [compreender o paralelismo de uma topologia do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+   * **Rebalancear** – ajusta o paralelismo da topologia. Deve rebalancear as topologias em execução depois de ter alterado o número de nós no cluster. O rebalanceamento ajusta o paralelismo para compensar o número maior/menor de nós no cluster. Para obter mais informações, consulte [compreender o paralelismo de uma topologia do Apache Storm](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
-    * **Eliminar** – termina uma topologia do Storm após o tempo limite especificado.
+   * **Eliminar** – termina uma topologia do Storm após o tempo limite especificado.
 
 3. Nesta página, selecione uma entrada da secção **Spouts** ou **Bolts**. São apresentadas informações sobre o componente selecionado.
 

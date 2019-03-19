@@ -11,12 +11,12 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 01f4cca8e177d8f9c9325a7920eb7e72c005bbd6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760947"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078062"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -73,8 +73,8 @@ Existem três argumentos necessários:
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  Em alternativa pode incluir o caminho para o ficheiro de configuração em vez de introduzir diretamente o URL e a chave. Se incluir estes argumentos da linha de comandos, bem como o ficheiro de configuração, os argumentos da linha de comandos irão ter precedência.  
+  > [!NOTE]
+  >  Em alternativa pode incluir o caminho para o ficheiro de configuração em vez de introduzir diretamente o URL e a chave. Se incluir estes argumentos da linha de comandos, bem como o ficheiro de configuração, os argumentos da linha de comandos irão ter precedência.  
 
 Para o fluxo de trabalho ID de 1001 e o ficheiro Config txt colocado no mesmo caminho que o msgen executável, o comando terá esta aparência:
 
@@ -116,7 +116,7 @@ Estes erros são passíveis de ação do utilizador. Com base no tipo de ficheir
 
 | Tipo de ficheiro | Código de erro | Mensagem de erro                                                                           | Passos de resolução de problemas recomendados                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Qualquer          | 701        | Tem de leitura [readId] [numberOfBases] bases, mas o limite é de [maxReadLength]           | A razão mais comum para este erro é que leva a concatenação de duas leituras de danos no ficheiro. Verifique os ficheiros de entrada. |                                |
+| Qualquer          | 701        | Tem de leitura [readId] [numberOfBases] bases, mas o limite é de [maxReadLength]           | A razão mais comum para este erro é que leva a concatenação de duas leituras de danos no ficheiro. Verifique os ficheiros de entrada. |
 | BAM          | 200        |   Não é possível ler o ficheiro '[yourFileName]'.                                                                                       | Verifique o formato do ficheiro BAM. Submeta novamente o fluxo de trabalho com um ficheiro formatado corretamente.                                                                           |
 | BAM          | 201        |  Não é possível ler o ficheiro BAM [nome_ficheiro].                                                                                      |Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                            |
 | BAM          | 202        | Não é possível ler o ficheiro BAM [nome_ficheiro]. Ficheiro demasiado pequeno e em falta o cabeçalho.                                                                                        | Verifique o formato do ficheiro BAM.  Submeta o fluxo de trabalho com um ficheiro formatado corretamente.                                                                            |

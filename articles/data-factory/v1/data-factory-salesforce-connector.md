@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3689c93c392d910d6b3979291bc5a6c81080418c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 63fd8f75cb22a4dec888b7765c7515bfb68a4a6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551811"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999018"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 | --- | --- | --- |
 | tipo |A propriedade de tipo tem de ser definida como: **Salesforce**. |Sim |
 | environmentUrl | Especifique a instância de URL do Salesforce. <br><br> -Predefinição é "https://login.salesforce.com". <br> -Para copiar dados de proteção de segurança, especifique "https://test.salesforce.com". <br> -Para copiar dados de domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |Não |
-| nome do utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
+| o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | palavra-passe |Especifique uma palavra-passe da conta de utilizador. |Sim |
 | securityToken |Especifique um token de segurança da conta de utilizador. Ver [obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como repor/obter um token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Sim |
 
@@ -283,18 +283,19 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 
 
 ### <a name="type-mapping-for-salesforce"></a>Mapeamento do tipo de Salesforce
+
 | Tipo de Salesforce | . Tipo de NET |
 | --- | --- |
 | Número de automática |String |
 | Caixa de verificação |Booleano |
 | Moeda |Decimal |
-| Data |DateTime |
+| Date |DateTime |
 | Data/Hora |DateTime |
-| E-mail |String |
-| ID |String |
+| Email |String |
+| Id |String |
 | Relação de referência |String |
 | Lista de opções de seleção múltipla |String |
-| Número |Decimal |
+| Number |Decimal |
 | Percentagem |Decimal |
 | Telefone |String |
 | Lista de opções |String |
@@ -303,7 +304,7 @@ Ver [propriedades do tipo RelationalSource](#copy-activity-properties) para obte
 | Área de texto (longa) |String |
 | Área de texto (avançado) |String |
 | Texto (encriptado) |String |
-| URL |String |
+| do IdP |String |
 
 > [!NOTE]
 > Para mapear colunas do conjunto de dados de origem para colunas do conjunto de dados de sink, consulte [mapeamento de colunas do conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

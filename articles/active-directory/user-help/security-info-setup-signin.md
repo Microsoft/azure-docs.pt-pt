@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123611"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configurar as suas informações de segurança (pré-visualização) no prompt de página de início de sessão de
 Pode seguir estes passos, se lhe for pedido para configurar as informações de segurança imediatamente depois de iniciar sessão na sua conta escolar ou profissional.
@@ -39,10 +39,10 @@ Siga estes passos para configurar as suas informações de segurança para a sua
 
 1. Depois de selecionar **próxima** da linha de comandos, uma **manter o seu assistente de seguro de conta** aparece e mostra o primeiro método, o administrador e a organização tem de configurar. Neste exemplo, é a aplicação Microsoft Authenticator.
 
-    >[!Note]
-    >Se pretender utilizar uma aplicação de autenticação que não a aplicação Microsoft Authenticator, selecione o **desejo usar uma aplicação de autenticador diferente** ligação.
-    
-    >Se sua organização permite-lhe escolher um método diferente, além da aplicação authenticator, pode selecionar o **quero configurar uma ligação de outro método**.
+   > [!Note]
+   > Se pretender utilizar uma aplicação de autenticação que não a aplicação Microsoft Authenticator, selecione o **desejo usar uma aplicação de autenticador diferente** ligação.
+   > 
+   > Se sua organização permite-lhe escolher um método diferente, além da aplicação authenticator, pode selecionar o **quero configurar uma ligação de outro método**.
 
     ![Manter o seu assistente de seguro de conta, que mostra a página de download da aplicação de autenticação](media/security-info/securityinfo-prompt-get-auth-app.png)
 

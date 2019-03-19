@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e4aabaf2673f6211523653f9d0a0ecf1769f83a3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 870910654101b4d6689b51464f8a29aef41bf9cb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103133"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a base de dados do Azure para as regras de firewall do MySQL com a CLI do Azure
 Regras de firewall ao nível do servidor permitem aos administradores gerir o acesso a uma base de dados do Azure para o servidor MySQL de um endereço IP específico ou um intervalo de endereços IP. Usando o convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para uma descrição geral da base de dados do Azure para MySQL firewalls, consulte [base de dados do Azure para as regras de firewall do servidor MySQL](./concepts-firewall-rules.md)
@@ -26,10 +26,10 @@ O **az mysql server firewall-rule** comando é utilizado a partir da CLI do Azur
 
 Comandos:
 - **Criar**: Crie uma regra de firewall do servidor MySQL do Azure.
-- **Eliminar**: Elimine uma regra de firewall do servidor MySQL do Azure.
-- **Lista**: Liste as regras de firewall do servidor MySQL do Azure.
+- **delete**: Elimine uma regra de firewall do servidor MySQL do Azure.
+- **list**: Liste as regras de firewall do servidor MySQL do Azure.
 - **Mostrar**: Mostre os detalhes de um servidor MySQL do Azure a regra de firewall.
-- **Atualização**: Atualize uma regra de firewall do servidor MySQL do Azure.
+- **update**: Atualize uma regra de firewall do servidor MySQL do Azure.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Inicie sessão no Azure e listar a sua base de dados do Azure para servidores MySQL
 Ligar em segurança a CLI do Azure com a sua conta do Azure utilizando o **início de sessão az** comando.
@@ -38,7 +38,7 @@ Ligar em segurança a CLI do Azure com a sua conta do Azure utilizando o **iníc
     ```azurecli
     az login
     ```
-Esse comando gera um código para utilizar no próximo passo.
+   Esse comando gera um código para utilizar no próximo passo.
 
 2. Utilize um browser para abrir a página [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin)e, em seguida, introduza o código.
 

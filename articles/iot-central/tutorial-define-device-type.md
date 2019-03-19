@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d4a7d42fad50b58c7b4be182b69650dd3d117544
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3f20708308a9b5d7c09d6a498d659afac8a508c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780648"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090802"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application-new-ui-design"></a>Tutorial: Definir um novo tipo de dispositivo na sua aplicação do Azure IoT Central (design de nova interface do Usuário)
 
@@ -59,21 +59,21 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
 
 4. Para criar uma nova aplicação do Azure IoT Central:
     
-    * Escolha **Avaliação**. Não precisa de uma subscrição do Azure para criar uma aplicação de Avaliação.
+   * Escolha **Avaliação**. Não precisa de uma subscrição do Azure para criar uma aplicação de Avaliação.
     
-       Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](quick-deploy-iot-central.md).
+      Para obter mais informações sobre as subscrições e diretórios, veja [criar uma aplicação de início rápido](quick-deploy-iot-central.md).
     
-    * Selecione **Aplicação Personalizada**.
+   * Selecione **Aplicação Personalizada**.
     
-    * Opcionalmente, pode escolher um nome de aplicação amigável, como **Ares Condicionados Contoso**. O Azure IoT Central gera um prefixo de URL exclusivo para si. Pode alterar este prefixo de URL para algo mais memorável.
+   * Opcionalmente, pode escolher um nome de aplicação amigável, como **Ares Condicionados Contoso**. O Azure IoT Central gera um prefixo de URL exclusivo para si. Pode alterar este prefixo de URL para algo mais memorável.
     
-    * Selecione **Criar**.
+   * Selecione **Criar**.
 
-    ![Página da Aplicação do Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
+     ![Página da Aplicação do Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
+     Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
 
-## <a name="create-a-new-custom-device-template"></a>Criar um novo modelo de dispositivo personalizado
+## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
 
 Como construtor, pode criar e editar os modelos de dispositivos na sua aplicação. Quando cria um modelo de dispositivo, o Azure IoT Central gera um dispositivo simulado a partir do modelo. O dispositivo simulado gera telemetria, que permite que teste o comportamento do seu aplicativo antes de ligar um dispositivo real.
 
@@ -85,32 +85,36 @@ Para adicionar um novo modelo de dispositivo para a sua aplicação, terá de ir
 
 Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Condicionado Ligado** para dispositivos que enviam telemetria de temperatura para a sua aplicação:
 
-1. Sobre o **modelos de dispositivos** página, selecione **+**:
+1. Sobre o **modelos de dispositivos** página, selecione **+ novo**:
 
     ![Página de modelos de dispositivo, criar modelo de dispositivo](./media/tutorial-define-device-type/newtemplate.png)
 
-3. Sobre o **modelo de dispositivo personalizado** página, introduza **ligado ar-condicionado** como o nome do seu dispositivo e, em seguida, selecione **criar**. Também pode carregar uma imagem do seu dispositivo que está visível para os operadores no explorador do dispositivo:
+2. A página mostra os modelos que pode escolher.
+
+    ![Biblioteca de modelos de dispositivo](./media/tutorial-define-device-type/devicetemplatelibrary.png)
+
+3. Selecione o **personalizada**, introduza **ligado ar-condicionado** como o nome do modelo de dispositivo e, em seguida, selecione **criar**. Também pode carregar uma imagem do seu dispositivo que está visível para os operadores no explorador do dispositivo:
 
     ![Personalizar Dispositivo](./media/tutorial-define-device-type/createcustomdevice.png)
 
 4. Na **ligado ar-condicionado** modelo de dispositivo, certifique-se de que está no **medidas** separador onde define a telemetria. Cada modelo de dispositivo, que define tem separadores separados para que possa:
 
-    * Especifique a _medidas_, como telemetria, o evento e o estado, enviados pelo dispositivo.
+   * Especifique a _medidas_, como telemetria, o evento e o estado, enviados pelo dispositivo.
 
-    * Definir o _definições_ utilizadas para controlar o dispositivo.
+   * Definir o _definições_ utilizadas para controlar o dispositivo.
 
-    * Definir o _propriedades_ que são os metadados do dispositivo.
+   * Definir o _propriedades_ que são os metadados do dispositivo.
 
-    * Definir o _comandos_ para ser executado diretamente no dispositivo.
+   * Definir o _comandos_ para ser executado diretamente no dispositivo.
 
-    * Definir o _regras_ associados ao dispositivo.
+   * Definir o _regras_ associados ao dispositivo.
 
-    * Personalizar o dispositivo _dashboard_ para os operadores.
+   * Personalizar o dispositivo _dashboard_ para os operadores.
 
-    ![Medidas do ar condicionado](./media/tutorial-define-device-type/airconmeasurements.png)
+     ![Medidas do ar condicionado](./media/tutorial-define-device-type/airconmeasurements.png)
 
-    > [!NOTE]
-    > Para alterar o nome do modelo de dispositivo, selecione o nome do modelo na parte superior da página.
+     > [!NOTE]
+     > Para alterar o nome do modelo de dispositivo, selecione o nome do modelo na parte superior da página.
 
 5. Para adicionar a medida de telemetria de temperatura, selecione **+ nova medida**. Em seguida, escolha **Telemetria** como o tipo de medida:
 
@@ -118,26 +122,26 @@ Os passos seguintes mostram como criar um novo modelo de dispositivo de **Ar Con
 
 6. Cada tipo de telemetria que define para um modelo de dispositivo inclui [opções de configuração](howto-set-up-template.md), como:
 
-    * Opções de apresentação.
+   * Opções de apresentação.
 
-    * Detalhes da telemetria.
+   * Detalhes da telemetria.
 
-    * Parâmetros de simulação.
+   * Parâmetros de simulação.
 
-    Para configurar a sua telemetria de **Temperatura**, utilize as informações na tabela seguinte:
+     Para configurar a sua telemetria de **Temperatura**, utilize as informações na tabela seguinte:
 
-    | Definição              | Value         |
-    | -------------------- | -----------   |
-    | Nome a Apresentar         | Temperatura   |
-    | Nome do Campo           | temperatura   |
-    | Unidades                | F             |
-    | Mín.                  | 60            |
-    | Máx.                  | 110           |
-    | Casas decimais       | 0             |
+     | Definição              | Value         |
+     | -------------------- | -----------   |
+     | Nome a Apresentar         | Temperatura   |
+     | Nome do Campo           | temperatura   |
+     | Unidades                | F             |
+     | Mín.                  | 60            |
+     | Máx.                  | 110           |
+     | Casas decimais       | 0             |
 
-    Também pode escolher uma cor para a apresentação de telemetria. Para guardar a definição de telemetria, selecione **guardar**:
+     Também pode escolher uma cor para a apresentação de telemetria. Para guardar a definição de telemetria, selecione **guardar**:
 
-    ![Configurar a simulação de Temperatura](./media/tutorial-define-device-type/temperaturesimulation.png)
+     ![Configurar a simulação de Temperatura](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. Depois de pouco tempo, o **medidas** separador mostra um gráfico de telemetria de temperatura do seu dispositivo simulado ligados ar-condicionado. Utilize os controlos para gerir a visibilidade, a agregação ou para editar a definição de telemetria:
 
@@ -163,17 +167,17 @@ Use eventos para definir os dados de ponto no tempo que o dispositivo envia quan
 
    * Gravidade.
 
-    Para configurar o seu evento **Erro do Motor da Ventoinha**, utilize as informações na tabela seguinte:
+     Para configurar o seu evento **Erro do Motor da Ventoinha**, utilize as informações na tabela seguinte:
 
-    | Definição              | Value             |
-    | -------------------- | -----------       |
-    | Nome a Apresentar         | Erro de Motor da Ventoinha   |
-    | Nome do Campo           | fanmotorerr       |
-    | Gravidade             | Erro             |
+     | Definição              | Value             |
+     | -------------------- | -----------       |
+     | Nome a Apresentar         | Erro de Motor da Ventoinha   |
+     | Nome do Campo           | fanmotorerr       |
+     | Gravidade             | Erro             |
 
-    Para guardar a definição de eventos, selecione **guardar**:
+     Para guardar a definição de eventos, selecione **guardar**:
 
-    ![Configurar medição de Eventos](./media/tutorial-define-device-type/eventconfiguration.png)
+     ![Configurar medição de Eventos](./media/tutorial-define-device-type/eventconfiguration.png)
 
 3. Depois de pouco tempo, o **medidas** separador mostra um gráfico dos eventos gerados aleatoriamente a partir do seu dispositivo simulado ligados ar-condicionado. Utilize os controlos para gerir a visibilidade ou para editar a definição do evento:
 
@@ -201,20 +205,20 @@ Pode usar o estado para definir e visualizar o estado do dispositivo ou o seu co
 
    * Cor para cada valor.
 
-    Para configurar o seu estado do **Modo da Ventoinha**, utilize as informações na tabela seguinte:
+     Para configurar o seu estado do **Modo da Ventoinha**, utilize as informações na tabela seguinte:
 
-    | Definição              | Value             |
-    | -------------------- | -----------       |
-    | Nome a Apresentar         | Modo da Ventoinha          |
-    | Nome do Campo           | fanmode           |
-    | Value                | 1                 |
-    | Etiqueta de apresentação        | Em funcionamento         |
-    | Value                | 0                 |
-    | Etiqueta de apresentação        | Parada           |
+     | Definição              | Value             |
+     | -------------------- | -----------       |
+     | Nome a Apresentar         | Modo da Ventoinha          |
+     | Nome do Campo           | fanmode           |
+     | Value                | 1                 |
+     | Etiqueta de apresentação        | Em funcionamento         |
+     | Value                | 0                 |
+     | Etiqueta de apresentação        | Parada           |
 
-    Para guardar a definição de medição do Estado, selecione **guardar**:
+     Para guardar a definição de medição do Estado, selecione **guardar**:
 
-    ![Configurar medição de Estado](./media/tutorial-define-device-type/stateconfiguration.png)
+     ![Configurar medição de Estado](./media/tutorial-define-device-type/stateconfiguration.png)
 
 3. Depois de pouco tempo, o **medidas** separador mostra um gráfico dos Estados aleatoriamente gerado a partir do seu dispositivo simulado ligados ar-condicionado. Utilize os controlos para gerir a visibilidade ou para editar a definição do estado:
 
@@ -230,9 +234,9 @@ As definições, as propriedades e os comandos são valores diferentes definidos
 
 * Pode utilizar _propriedades_ para definir os metadados associados ao seu dispositivo. Existem duas categorias de propriedades:
     
-    * Utilize _propriedades da aplicação_ para registar informações sobre o dispositivo na sua aplicação. Por exemplo, pode utilizar propriedades da aplicação para registar a localização de um dispositivo e a data da última assistência. Essas propriedades são armazenadas no aplicativo e não sincronizar com o dispositivo. Um operador pode atribuir valores às propriedades.
+  * Utilize _propriedades da aplicação_ para registar informações sobre o dispositivo na sua aplicação. Por exemplo, pode utilizar propriedades da aplicação para registar a localização de um dispositivo e a data da última assistência. Essas propriedades são armazenadas no aplicativo e não sincronizar com o dispositivo. Um operador pode atribuir valores às propriedades.
 
-    * Utilize _propriedades do dispositivo_ para ativar um dispositivo para enviar os valores de propriedade para a aplicação. Estas propriedades só podem ser alteradas pelo dispositivo. Para um operador, as propriedades do dispositivo são só de leitura. Neste cenário de um ar condicionado ligado, a versão de firmware e o número de série do dispositivo são propriedades comunicadas pelo dispositivo.
+  * Utilize _propriedades do dispositivo_ para ativar um dispositivo para enviar os valores de propriedade para a aplicação. Estas propriedades só podem ser alteradas pelo dispositivo. Para um operador, as propriedades do dispositivo são só de leitura. Neste cenário de um ar condicionado ligado, a versão de firmware e o número de série do dispositivo são propriedades comunicadas pelo dispositivo.
     
     Para obter mais informações, consulte [propriedades](howto-set-up-template.md#properties) no guia de procedimento sobre como configurar um modelo de dispositivo.
 

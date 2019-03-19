@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d91366ee0fec2930484f7aaa7468e6d1d62f233
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701824"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002197"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar redes do Azure CNI no Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ O plano de endereço IP para um cluster do AKS consiste num virtual de rede, pel
 | --------- | ------------- |
 | Rede virtual | A rede virtual do Azure pode ser tão grande quanto /8, mas está limitada a 65.536 endereços IP configurados. |
 | Subrede | Tem de ser suficientemente grande para acomodar os nós, pods e recursos de todos os Kubernetes e do Azure que podem ser aprovisionados no seu cluster. Por exemplo, se implementar um balanceador de carga interno do Azure, o IPs de front-end são alocadas a partir da sub-rede de cluster, IPs públicos não. O tamanho da sub-rede também deve levar em operações de atualização de contas ou futuras necessidades de dimensionamento.<p />Para calcular a *mínima* tamanho de sub-rede, incluindo um nó adicional para operações de atualização: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemplo para um cluster de 50 nó: `(51) + (51  * 30 (default)) = 1,581` (/ 21 ou superior)<p/>Exemplo para um cluster de 50 nó que também inclui o aprovisionamento para aumentar verticalmente uma 10 nós adicionais: `(61) + (61 * 30 (default)) = 1,891` (/ 21 ou superior)<p>Se não especificar um número máximo de pods por nó, ao criar o cluster, o número máximo de pods por nó é definido como *30*. O número mínimo de endereços IP necessários baseia-se nesse valor. Se calcular seus requisitos de endereço IP mínimos num valor máximo diferente, veja [como configurar o número máximo de pods por nó](#configure-maximum---new-clusters) definir este valor quando implementar o cluster. |
-| Intervalo de endereços de serviço do Kubernetes | Não deve ser utilizado pelo qualquer elemento de rede no ou ligado a esta rede virtual neste intervalo. Endereço do serviço CIDR tem de ser menor do que /12. |
+| Intervalo de endereços do serviço Kubernetes | Não deve ser utilizado pelo qualquer elemento de rede no ou ligado a esta rede virtual neste intervalo. Endereço do serviço CIDR tem de ser menor do que /12. |
 | Endereço IP do serviço de DNS do Kubernetes | Intervalo de endereços que será utilizado pela deteção de serviço de cluster (kube-dns) do serviço de endereço IP dentro do Kubernetes. Não utilize o primeiro endereço IP no seu intervalo de endereços, como.1. O primeiro endereço no seu intervalo de sub-rede é utilizado para o *kubernetes.default.svc.cluster.local* endereço. |
 | Endereço de bridge do docker | Endereço IP (em notação CIDR) utilizado como a ponte de Docker endereço IP em nós. Predefinição de 172.17.0.1/16. |
 
@@ -143,7 +143,7 @@ As perguntas e respostas seguintes aplicam-se para o **Azure CNI** configuraçã
 
 * *Pode configurar políticas de rede por pod?*
 
-  Não. Políticas de rede por pod não são atualmente suportadas.
+  Política de rede do Kubernetes está atualmente disponível como uma funcionalidade de pré-visualização do AKS. Para começar a utilizar, veja [proteger o tráfego entre pods ao utilizar políticas de rede no AKS][network-policy].
 
 * *É o número máximo de pods implementável para um nó configurável?*
 
@@ -201,3 +201,4 @@ Clusters de Kubernetes criados com o AKS motor de suportar o [kubenet] [ kubenet
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md

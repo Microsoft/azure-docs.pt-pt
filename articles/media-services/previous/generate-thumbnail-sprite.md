@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b4d760d8520f43b223665f17c85d3932761ebe17
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: e5d32d1bc3bd704b03e58c62251a323ed3f4662c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003113"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991659"
 ---
 # <a name="generate-a-thumbnail-sprite"></a>Gerar um sprite em miniatura  
 

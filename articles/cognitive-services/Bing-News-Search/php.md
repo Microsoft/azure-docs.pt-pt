@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 16717bbbb8974a1adb740c8fee5a5ba06043f53e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e77c7ea6036e92c33c975f8180053a8880db55a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090530"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Início rápido: Execute uma pesquisa de notícias utilizando PHP e a API de REST de pesquisa do Bing notícias
 
@@ -200,4 +200,4 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-[Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)
+> [Criar uma aplicação Web de página única](tutorial-bing-news-search-single-page-app.md)

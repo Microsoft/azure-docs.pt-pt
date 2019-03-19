@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: ee7aff0256cf5567b4b29e6140ffb57b3717631a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a44f46a01bd0c0530ce57ad65464c10a4d2617f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978051"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889969"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Resolver problemas de ligações com o observador de rede do Azure com a CLI do Azure
 
@@ -185,7 +185,7 @@ O exemplo seguinte verifica a conectividade a um Web site.
 ### <a name="example"></a>Exemplo
 
 ```azurecli
-az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
+az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
 ### <a name="response"></a>Resposta

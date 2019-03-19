@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a2c416df849f59040985524394d2caa3399d910
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439705"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Tutorial: Integração do Active Directory do Azure com Brightidea
 
@@ -163,18 +163,18 @@ Para configurar o Azure AD início de sessão único com Brightidea, execute os 
     
     ![Configuração de Brightidea](./media/brightidea-tutorial/configure4.png)
     
-     * Introduza o **nome do perfil SAML** , como por exemplo, de `Azure Ad SSO`
+   * Introduza o **nome do perfil SAML** , como por exemplo, de `Azure Ad SSO`
     
-     * Para **carregar metadados**, clique em Escolher ficheiro e carregue o ficheiro de metadados baixado do portal do Azure.
+   * Para **carregar metadados**, clique em Escolher ficheiro e carregue o ficheiro de metadados baixado do portal do Azure.
 
      > [!NOTE]
      > Depois de carregar o ficheiro de metadados, os campos restantes **único início de sessão no serviço, o emissor do fornecedor de identidade, carregar chave pública** será preenchida automaticamente.
 
-     * Na **E-Mail** caixa de texto, introduza o valor como `mail`.
+   * Na **E-Mail** caixa de texto, introduza o valor como `mail`.
      
-     * Na **pseudónimo** caixa de texto, introduza o valor como `givenName`.
+   * Na **pseudónimo** caixa de texto, introduza o valor como `givenName`.
      
-     * Clique em **guardar alterações**.  
+   * Clique em **guardar alterações**.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -194,7 +194,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** , digite **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.

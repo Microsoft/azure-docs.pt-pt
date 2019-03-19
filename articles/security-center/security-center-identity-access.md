@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105557"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098785"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorizar a identidade e acesso no Centro de segurança do Azure (pré-visualização)
 Este artigo ajuda-o a utilizar o Centro de Segurança do Azure para monitorizar a atividade de identidade e acesso dos utilizadores.
@@ -68,11 +68,11 @@ Sob **descrição geral**, há uma lista de recomendações. A primeira coluna i
 
 1. Selecione uma recomendação. A recomendação é apresentada a janela e apresenta:
 
-  - Descrição da recomendação
-  - Lista de subscrições de mau e bom estado de funcionamento
-  - Lista de recursos não verificados devido a uma avaliação com falhas ou o recurso está sob a uma subscrição em execução no escalão gratuito e não é avaliada
+   - Descrição da recomendação
+   - Lista de subscrições de mau e bom estado de funcionamento
+   - Lista de recursos não verificados devido a uma avaliação com falhas ou o recurso está sob a uma subscrição em execução no escalão gratuito e não é avaliada
 
-  ![Janela da recomendação][3]
+   ![Janela da recomendação][3]
 
 1. Selecione uma subscrição na lista para obter detalhes adicionais.
 
@@ -81,27 +81,27 @@ Sob **subscrições**, há uma lista de subscrições. A primeira coluna apresen
 
 ![Separador da subscrição][4]
 
-1.  Selecione uma subscrição. É aberta uma vista de resumida com três separadores:
+1. Selecione uma subscrição. É aberta uma vista de resumida com três separadores:
 
-  - **Recomendações**: com base nas avaliações realizadas pelo centro de segurança que falharam.
-  - **Passados avaliações**: lista de avaliações realizadas pelo centro de segurança passado.
-  - **Avaliações indisponíveis**: lista de avaliações de que não foi possível executar devido a um erro ou porque a subscrição tiver mais de 600 contas.
+   - **Recomendações**: com base nas avaliações realizadas pelo centro de segurança que falharam.
+   - **Passados avaliações**: lista de avaliações realizadas pelo centro de segurança passado.
+   - **Avaliações indisponíveis**: lista de avaliações de que não foi possível executar devido a um erro ou porque a subscrição tiver mais de 600 contas.
 
-  Sob **recomendações** é uma lista de recomendações para a subscrição selecionada e a gravidade de cada recomendação.
+   Sob **recomendações** é uma lista de recomendações para a subscrição selecionada e a gravidade de cada recomendação.
 
-  ![Recomendações para selecionar a subscrição][5]
+   ![Recomendações para selecionar a subscrição][5]
 
 1. Selecione uma recomendação para obter uma descrição da recomendação, uma lista de subscrições mau e bom estado de funcionamento e uma lista de recursos não verificados.
 
-  ![Descrição da recomendação][6]
+   ![Descrição da recomendação][6]
 
-  Sob **transmitido avaliações** é uma lista de avaliações aprovadas.  Gravidade dessas avaliações é sempre verde.
+   Sob **transmitido avaliações** é uma lista de avaliações aprovadas.  Gravidade dessas avaliações é sempre verde.
 
-  ![Avaliações aprovadas][7]
+   ![Avaliações aprovadas][7]
 
 1. Selecione uma avaliação com êxito da lista para obter uma descrição da avaliação e uma lista das inscrições em bom estado. Há uma guia para subscrições de mau estado de funcionamento que apresenta uma lista de todas as subscrições que falharam.
 
-  ![Avaliações aprovadas][8]
+   ![Avaliações aprovadas][8]
 
 ## <a name="recommendations"></a>Recomendações
 Utilize a tabela abaixo como referência para ajudar a compreender as recomendações de identidade e acesso disponíveis e o que cada um deles faz se as aplicar.

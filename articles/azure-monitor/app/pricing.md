@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec0211c71b8be66262ef0f19dcd1f952051c97b8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: edf724d6fd659ad4e8887a9c68467d17a33f5ccc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332681"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110294"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -167,15 +167,15 @@ Uma vez que este plano é aplicável apenas para clientes com uma assinatura do 
 ### <a name="how-the-enterprise-plan-works"></a>Como funciona o plano Enterprise
 
 * Paga para cada nó que envia telemetria para todas as aplicações no plano do Enterprise.
- * R *nó* é uma máquina física ou virtual server ou uma instância de função de plataforma-como-serviço que aloja a aplicação.
- * Máquinas de desenvolvimento, os browsers cliente e dispositivos móveis não contam como nós.
- * Se a sua aplicação tem vários componentes que enviam telemetria, como um serviço da web e uma função de trabalho back-end, os componentes são contados em separado.
- * [Live Stream métricas](../../azure-monitor/app/live-stream.md) dados não são contabilizados para fins de preços. Numa subscrição, as cobranças são por nó, não por aplicação. Se tiver cinco nós que enviam telemetria para 12 aplicações, o custo é para cinco nós.
+  * R *nó* é uma máquina física ou virtual server ou uma instância de função de plataforma-como-serviço que aloja a aplicação.
+  * Máquinas de desenvolvimento, os browsers cliente e dispositivos móveis não contam como nós.
+  * Se a sua aplicação tem vários componentes que enviam telemetria, como um serviço da web e uma função de trabalho back-end, os componentes são contados em separado.
+  * [Live Stream métricas](../../azure-monitor/app/live-stream.md) dados não são contabilizados para fins de preços. Numa subscrição, as cobranças são por nó, não por aplicação. Se tiver cinco nós que enviam telemetria para 12 aplicações, o custo é para cinco nós.
 * Embora os encargos são apresentados por mês, é-lhe cobrado apenas para a qualquer hora em que um nó envia telemetria a partir de uma aplicação. O custo por hora é o custo mensal com aspas simples, dividido por 744 (o número de horas no mês de 31 dias).
 * Recebe uma alocação de volume de dados de 200 MB por dia para cada nó detetado (com granularidade de hora a hora). Alocação de dados não utilizados não é transportada através de um dia para a próxima.
- * Se escolher a empresa plano de preços, cada subscrição recebe um montante diário de dados com base no número de nós que enviam telemetria para os recursos do Application Insights nessa subscrição. Então, se tiver cinco nós que enviam dados todo o dia, terá um volume total permitido de 1 GB aplicada a todos os recursos do Application Insights nessa subscrição. Não importa se alguns nós enviam mais dados do que outros nós, uma vez que os dados incluídos são partilhados por todos os nós. Se, num determinado dia, os recursos do Application Insights recebem mais dados do que está incluído na alocação diária de dados para esta subscrição, se aplicam os encargos de dados excedidos por GB. 
- * O volume de dados diário é calculado como o número de horas do dia (utilizando a UTC) que cada nó envia telemetria, dividido por 24 multiplicado por 200 MB. Por isso, se tiver quatro nós que enviam telemetria durante 15 das 24 horas do dia, os dados incluídos nesse dia seriam ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. O preço de USD 2.30 por GB de dados excedida, o custo seria USD 1.15 se os nós de envio de 1 GB de dados nesse dia.
- * O montante diário de plano de Enterprise não serem partilhado com aplicações para o qual optou pelo plano básico. Montante não utilizado não é herdado do dia a dia. 
+  * Se escolher a empresa plano de preços, cada subscrição recebe um montante diário de dados com base no número de nós que enviam telemetria para os recursos do Application Insights nessa subscrição. Então, se tiver cinco nós que enviam dados todo o dia, terá um volume total permitido de 1 GB aplicada a todos os recursos do Application Insights nessa subscrição. Não importa se alguns nós enviam mais dados do que outros nós, uma vez que os dados incluídos são partilhados por todos os nós. Se, num determinado dia, os recursos do Application Insights recebem mais dados do que está incluído na alocação diária de dados para esta subscrição, se aplicam os encargos de dados excedidos por GB. 
+  * O volume de dados diário é calculado como o número de horas do dia (utilizando a UTC) que cada nó envia telemetria, dividido por 24 multiplicado por 200 MB. Por isso, se tiver quatro nós que enviam telemetria durante 15 das 24 horas do dia, os dados incluídos nesse dia seriam ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. O preço de USD 2.30 por GB de dados excedida, o custo seria USD 1.15 se os nós de envio de 1 GB de dados nesse dia.
+  * O montante diário de plano de Enterprise não serem partilhado com aplicações para o qual optou pelo plano básico. Montante não utilizado não é herdado do dia a dia. 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>Exemplos de como determinar a contagem de nós distintos
 

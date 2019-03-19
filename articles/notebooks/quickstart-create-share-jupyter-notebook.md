@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 584d59592158ccf542dbb05486b159a5e34ffbc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759107"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104408"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Início rápido: Criar e partilhar um bloco de notas
 
@@ -34,12 +34,12 @@ ms.locfileid: "57759107"
 
 1. Na **criar novo projeto** pop-up apresentado, introduza ou defina os seguintes detalhes, em seguida, selecione **criar**:
 
-    - **Nome do projeto**: Olá, mundo no Python
-    - **ID do projeto**: hello-world-python
-    - **Projeto público**: (limpo)
-    - **Criar um README.md**: (limpo)
+   - **Nome do projeto**: Olá, mundo no Python
+   - **ID do projeto**: hello-world-python
+   - **Projeto público**: (limpo)
+   - **Criar um README.md**: (limpo)
 
-    ![Novo projeto pop-up com detalhes preenchidas](media/quickstarts/new-project-popup.png)
+     ![Novo projeto pop-up com detalhes preenchidas](media/quickstarts/new-project-popup.png)
 
 1. Após alguns instantes, o Azure blocos de notas navega para o novo projeto. Adicionar um bloco de notas para o projeto, selecionando o **+ novo** pendente (que podem aparecer apenas como **+**), em seguida, selecionar **bloco de notas**:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 35abc43b60f31d94e8c4221137ad5437366b3489
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 52469cb2735b2270815191ec0815daee350882a4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547866"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108870"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gestor de tráfego
 
@@ -39,8 +39,8 @@ Contoso Corp desenvolveram um novo portal de parceiros. O URL para este portal �
 Para obter esta configuração, eles concluírem os seguintes passos:
 
 1. Implemente três instâncias do seu serviço. Os nomes DNS estas implementações são "contoso-us.cloudapp .net", "contoso-eu.cloudapp .net" e "contoso-asia.cloudapp .net".
-2. Criar um perfil do Gestor de tráfego, com o nome "contoso.trafficmanager.net" e configurá-lo para usar o método de encaminhamento de tráfego de "Desempenho" em três pontos de extremidade.
-* Configure o respetivo nome de domínio personalizado, "partners.contoso.com", para apontar para 'contoso.trafficmanager.net", com um registo CNAME de DNS.
+1. Criar um perfil do Gestor de tráfego, com o nome "contoso.trafficmanager.net" e configurá-lo para usar o método de encaminhamento de tráfego de "Desempenho" em três pontos de extremidade.
+1. Configure o respetivo nome de domínio personalizado, "partners.contoso.com", para apontar para 'contoso.trafficmanager.net", com um registo CNAME de DNS.
 
 ![Configuração de DNS do Gestor de tráfego][1]
 

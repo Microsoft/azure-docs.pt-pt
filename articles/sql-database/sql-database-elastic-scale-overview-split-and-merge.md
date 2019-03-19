@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 195b513d7cc878045449ed137a2ea72f291a9f6e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 03/12/2019
+ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901938"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Mover dados entre bases de dados de nuvem aumentadas horizontalmente
 
@@ -29,7 +29,7 @@ A ferramenta de divisão / intercalação é executado como um serviço web do A
 
 ## <a name="download"></a>Transferência
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>Documentação
 
@@ -136,7 +136,7 @@ O pacote de serviço de divisão / intercalação inclui uma função de trabalh
 
 - **Mapa de partições horizontais**
 
- A próxima seção dos parâmetros do pedido inclui informações sobre o mapa de partições horizontais e a base de dados que aloja o seu mapa de partições horizontais. Em particular, tem de fornecer o nome do servidor de base de dados do Azure SQL e a base de dados que aloja o shardmap, as credenciais para ligar para a base de dados do mapa de partições horizontais e, finalmente, o nome do mapa de partições horizontais. Atualmente, a operação só aceita um único conjunto de credenciais. Estas credenciais têm de ter permissões suficientes para efetuar as alterações para o mapa de partições horizontais também os dados de utilizador em partições horizontais.
+  A próxima seção dos parâmetros do pedido inclui informações sobre o mapa de partições horizontais e a base de dados que aloja o seu mapa de partições horizontais. Em particular, tem de fornecer o nome do servidor de base de dados do Azure SQL e a base de dados que aloja o shardmap, as credenciais para ligar para a base de dados do mapa de partições horizontais e, finalmente, o nome do mapa de partições horizontais. Atualmente, a operação só aceita um único conjunto de credenciais. Estas credenciais têm de ter permissões suficientes para efetuar as alterações para o mapa de partições horizontais também os dados de utilizador em partições horizontais.
 
 - **Intervalo de origem (dividir e intercalar)**
 
@@ -217,6 +217,8 @@ O serviço de divisão / intercalação utiliza o diagnóstico do Azure com base
 ## <a name="deploy-diagnostics"></a>Implementar o diagnóstico
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 Para ativar a monitorização e diagnóstico utilizando a configuração de diagnóstico para as funções web e de trabalho fornecidas pelo pacote NuGet, execute os seguintes comandos com o Azure PowerShell:
 

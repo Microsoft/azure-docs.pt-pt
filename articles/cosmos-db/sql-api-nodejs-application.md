@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: d9374a7815451c2ae3d9f6a84f4bfdadf1ad676d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: efe24f5203c0479c71b565b8cf2c272dc107a96b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777622"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088116"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Criar uma aplicação web de node. js utilizando o SDK de JavaScript para gerir uma conta da API de SQL no Azure Cosmos DB 
 
@@ -87,7 +87,7 @@ Agora vamos aprender a criar um projeto de Olá mundo node. js básico, usando a
    
    ![Saiba Node.js - Captura de ecrã da aplicação Olá, Mundo numa janela do browser](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- Parar a aplicação através da utilização de CTRL + C na janela de terminal e selecione **y** para terminar a tarefa do batch.
+   Parar a aplicação através da utilização de CTRL + C na janela de terminal e selecione **y** para terminar a tarefa do batch.
 
 ## <a name="_Toc395783179"></a>Instalar os módulos necessários
 
@@ -183,7 +183,7 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
       const { body } = await this.container.item(itemId).read();
       return body;
     }
-  }
+   }
 
    module.exports = TaskDao;
    ```
@@ -243,9 +243,9 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
 
       res.redirect("/");
     }
-  }
+   }
 
-  module.exports = TaskList;
+   module.exports = TaskList;
    ```
 
 3. Guarde e feche o ficheiro **tasklist.js**.

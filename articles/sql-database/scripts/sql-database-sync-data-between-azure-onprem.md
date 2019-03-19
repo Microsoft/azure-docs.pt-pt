@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 03/07/2019
-ms.openlocfilehash: 19f6e948803c89738b34d9f9be7e5a31c6085fa7
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.date: 03/12/2019
+ms.openlocfilehash: 5b18d6d8a7a60ad8b5de961a407da40a17ddfd96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575491"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895554"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Utilizar o PowerShell para sincronizar entre uma Base de Dados SQL e uma base de dados do SQL Server no local
 

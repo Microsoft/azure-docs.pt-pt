@@ -1,6 +1,6 @@
 ---
-title: Criar uma conta dos Serviços de Multimédia do Azure - CLI do Azure | Microsoft Docs
-description: Utilize o script da CLI do Azure para criar uma conta dos Serviços de Multimédia do Azure.
+title: Criar uma conta de Media Services do Azure - CLI do Azure | Documentos da Microsoft
+description: Utilize o script de CLI do Azure para criar uma conta de Media Services do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 41d9548aa33ee29c40179506ae824ab79b000859
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7e668852346de1b48bd34658dea001435ba8a625
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213179"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842230"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>Exemplo da CLI: Criar uma conta dos Azure Media Services
 

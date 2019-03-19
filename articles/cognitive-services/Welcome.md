@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: nitinme
-ms.openlocfilehash: 5c6d9bbfe5cf3632b21f374c23bf5df728478ce0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f0bfa407705f4c9535e6dddc9a27a4f7130931d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113835"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Quais são os serviços cognitivos do Azure?
 
@@ -46,7 +46,7 @@ Serviços cognitivos do Azure são APIs, SDKs e serviços disponíveis para ajud
 |[Verificação ortográfica do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "verificação ortográfica do Bing")|Verificação ortográfica do Bing permite-lhe executar a gramática contextual e inclui verificação ortográfica.|
 |[Compreensão de idiomas LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "compreensão de idiomas")|O serviço de compreensão de idiomas (LUIS) permite que a sua aplicação saiba o que uma pessoa quer em suas próprias palavras.|
 |[Análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "de análise de texto")|Análise de texto fornece processamento linguagem natural relativamente a texto não processado para análise de sentimentos, extração de expressões-chave e deteção de idioma.|
-|[Texto do tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/ "texto do tradutor")|Texto do Translator fornece para tradução de texto baseado em máquina em tempo quase real.||
+|[Texto do tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/ "texto do tradutor")|Texto do Translator fornece para tradução de texto baseado em máquina em tempo quase real.|
 
 ## <a name="search-apis"></a>Pesquisar APIs
 

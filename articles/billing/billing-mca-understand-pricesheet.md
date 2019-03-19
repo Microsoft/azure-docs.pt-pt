@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 96a2281368b7a2180dbe2136a253a8b1a13a8731
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: eb6184e10d38cdcfad7070663e36f6610d009cdb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249096"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880760"
 ---
 # <a name="understand-the-terms-in-your-price-sheet-for-a-microsoft-customer-agreement"></a>Compreender os termos na sua folha de preços para um contrato de cliente da Microsoft
 
@@ -61,7 +61,7 @@ A secção seguinte descreve os termos de importantes exibidos na sua folha de p
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 
-Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se tiver alguma dúvida ou precisar de ajuda, [criar um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

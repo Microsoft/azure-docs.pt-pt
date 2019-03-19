@@ -18,12 +18,12 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f7765b775706d3bdf09176bc4bfbf18533d054
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 57b7f540ccf80c6d25a7dfcfcad1ba7ca6698167
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441311"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113236"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: Exigir aplicações aprovadas do cliente para o acesso de aplicação de cloud com o acesso condicional 
 
@@ -292,13 +292,13 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 5. Como **controlos de acesso**, tem de ter o seguinte selecionado:
 
-    - **Exigir dispositivo seja marcado como compatível**
+   - **Exigir dispositivo seja marcado como compatível**
 
-    - **Exigir aplicação aprovada do cliente (pré-visualização)**
+   - **Exigir aplicação aprovada do cliente (pré-visualização)**
 
-    - **Exigir um dos controlos selecionados**   
+   - **Exigir um dos controlos selecionados**   
  
-    ![Acesso condicional](./media/app-based-conditional-access/11.png)
+     ![Acesso condicional](./media/app-based-conditional-access/11.png)
 
 
 
@@ -388,13 +388,13 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 5. Como **controlos de acesso**, tem de ter o seguinte selecionado:
 
-    - **Exigir dispositivo seja marcado como compatível**
+   - **Exigir dispositivo seja marcado como compatível**
 
-    - **Exigir aplicação aprovada do cliente (pré-visualização)**
+   - **Exigir aplicação aprovada do cliente (pré-visualização)**
 
-    - **Exigir todos os controlos selecionados**   
+   - **Exigir todos os controlos selecionados**   
  
-    ![Acesso condicional](./media/app-based-conditional-access/13.png)
+     ![Acesso condicional](./media/app-based-conditional-access/13.png)
 
 
 
@@ -420,13 +420,13 @@ Para a política de acesso condicional neste passo, terá de configurar os segui
 
 5. Como **controlos de acesso**, tem de ter o seguinte selecionado:
 
-    - **Exigir dispositivo seja marcado como compatível**
+   - **Exigir dispositivo seja marcado como compatível**
 
-    - **Exigir aplicação aprovada do cliente (pré-visualização)**
+   - **Exigir aplicação aprovada do cliente (pré-visualização)**
 
-    - **Exigir todos os controlos selecionados**   
+   - **Exigir todos os controlos selecionados**   
  
-    ![Acesso condicional](./media/app-based-conditional-access/64.png)
+     ![Acesso condicional](./media/app-based-conditional-access/64.png)
 
 
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: e6621172734ea02f971bd5064b403ad4844210a3
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: da29065485438b402dfb8b9a41f95f435a172a01
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960771"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854488"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de convidado do Azure Policy
 
@@ -125,6 +125,14 @@ Política do Azure utiliza os fornecedores de recursos de configuração de conv
 
 Todas as políticas incorporadas para a configuração de convidado são incluídas numa iniciativa para as definições para utilizam em atribuições de grupo. O incorporado *[pré-visualização]: Definições de segurança de palavra-passe dentro de máquinas virtuais do Linux e Windows de auditoria* iniciativa contém 18 políticas. Existem seis **DeployIfNotExists** e **auditoria** pares de definição de política para Windows e três pares para Linux.
 Para cada um, o **DeployIfNotExists** [regra de definição de política](definition-structure.md#policy-rule) limita os sistemas avaliados.
+
+## <a name="client-log-files"></a>Ficheiros de registo de cliente
+
+A extensão da configuração de convidado escreve os ficheiros de registo nas seguintes localizações:
+
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\1.10.0.0\dsc\logs\dsc.log`
+
+Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-1.8.0/GCAgent/logs/dsc.log`
 
 ## <a name="next-steps"></a>Passos Seguintes
 

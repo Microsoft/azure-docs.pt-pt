@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 68bffaeef0451dae3a3b9707049dd2e44ad311fd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5c768497cc21b3fae82a9db290531af33841a2cf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865880"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877305"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de segurança: Gestão de exceções | Atenuações 
 | Produtos/serviços | Artigo |
@@ -71,7 +71,7 @@ Desative as informações de depuração no serviço. Pode fazê-lo ao remover o
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | MVC 5, MVC 6 |
 | **Atributos**              | N/A  |
-| **Referências**              | [Manipulação na ASP.NET Web API de exceção](http://www.asp.net/web-api/overview/error-handling/exception-handling), [modelar validação na ASP.NET Web API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Referências**              | [Manipulação na ASP.NET Web API de exceção](https://www.asp.net/web-api/overview/error-handling/exception-handling), [modelar validação na ASP.NET Web API](https://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
 | **Passos** | Por predefinição, o mais exceções não identificadas na ASP.NET Web API são convertidas numa resposta HTTP com o código de estado `500, Internal Server Error`|
 
 ### <a name="example"></a>Exemplo
@@ -179,7 +179,7 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Verifique os links na seção referências para obter mais detalhes sobre a manipulação de exceção e a validação de modelo na ASP.Net Web API 
+Verifique os links na seção referências para obter mais detalhes sobre a manipulação de exceção e a validação de modelo na ASP.NET Web API 
 
 ## <a id="messages"></a>Não expõem detalhes de segurança em mensagens de erro
 

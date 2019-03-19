@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 551f2bbc4846a1b47dafaa03cca08b424572ebf5
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995653"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Separador do Marketplace de máquina virtual
 
@@ -72,7 +72,7 @@ Esta segunda secção está dividida em três subsecções: **Logótipos**, **ca
 
 ### <a name="logo-guidelines"></a>Diretrizes para logótipos
 
-<!-- TD: It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- TD: It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Todos os logótipos carregados para o Portal de parceiro de Cloud devem seguir as diretrizes:

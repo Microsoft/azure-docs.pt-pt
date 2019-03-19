@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: c18678e211b8b1f8682215a7314309166ebb02cf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 48c5804df53c084715cac872aa431cf8694c6d35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885123"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Active Directory do Azure com mais simples de arquivos
 
@@ -140,8 +140,8 @@ Para configurar o Azure AD início de sessão único com mais simples de arquivo
    
     a. Na **domínio** caixa de texto, escreva o seu domínio registado.
    
-    >[!NOTE]
-    >Se não tiver um domínio registado ainda, contacte os ficheiros mais simples equipa através de suporte [ support@flatterfiles.com ](mailto:support@flatterfiles.com). 
+   > [!NOTE]
+   > Se não tiver um domínio registado ainda, contacte os ficheiros mais simples equipa através de suporte [ support@flatterfiles.com ](mailto:support@flatterfiles.com). 
     
     b. Na **URL de fornecedor de identidade** caixa de texto, cole o valor de **URL de início de sessão** que copiou formam o portal do Azure.
    
@@ -167,7 +167,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -227,7 +227,7 @@ O objetivo desta secção é criar um utilizador chamado Eduarda Almeida em arqu
     d. Clique em **Submit** (Submeter).   
 
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

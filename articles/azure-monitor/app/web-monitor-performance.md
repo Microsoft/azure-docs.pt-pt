@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8f5a0a22ecea0b5df0f4108984b2a65d4add2bf8
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: d7b8037f50fc4877fe233925f3e922648169f73b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301779"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901173"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorizar o desempenho nas aplicações Web
 
@@ -112,7 +112,7 @@ Aqui estão algumas dicas para localizar e diagnosticar problemas de desempenho:
 * Compare a contagem de pedidos com outras métricas para ver se falhas ou lento de resposta está relacionado ao carregar.
 * [Inserir e procurar declarações de rastreio] [ diagnostic] em seu código para o ajudar a identificar problemas.
 * Monitorizar a sua aplicação Web na operação com [Stream de métricas em direto][livestream].
-* Capturar o estado da sua aplicação .net com [Snapshot Debugger][snapshot].
+* Capturar o estado da sua aplicação .NET com [Snapshot Debugger][snapshot].
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Encontre e corrija estrangulamentos de desempenho com experiência de investigação de desempenho
 

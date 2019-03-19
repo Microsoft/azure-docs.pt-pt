@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 44601d069f8c93e6101b5856e49ecf8c4b519e78
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4862377a8441d5ec920d6b52dbed8ad405144227
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857968"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como utilizar tópicos do Service Bus e as subscrições com PHP
 
@@ -35,7 +35,7 @@ Este artigo mostra-lhe como utilizar tópicos do Service Bus e as subscrições.
 O único requisito para criar uma aplicação PHP que acede ao serviço de Blobs do Azure é fazer referência a classes no [Azure SDK para PHP](../php-download-sdk.md) de dentro de seu código. Pode utilizar quaisquer ferramentas de desenvolvimento para criar a sua aplicação ou o bloco de notas.
 
 > [!NOTE]
-> A instalação do PHP também tem de ter o [extensão de OpenSSL](http://php.net/openssl) instalado e ativado.
+> A instalação do PHP também tem de ter o [extensão de OpenSSL](https://php.net/openssl) instalado e ativado.
 > 
 > 
 
@@ -341,5 +341,5 @@ Para obter mais informações, consulte [filas, tópicos e subscrições][Queues
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter
-[require-once]: http://php.net/require_once
+[require-once]: https://php.net/require_once
 [Service Bus quotas]: service-bus-quotas.md

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 02/07/2019
 ms.author: lahugh
-ms.openlocfilehash: 734c16111ab859b55d87525cdc8a644c8114f6d2
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429048"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874766"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Variáveis do ambiente de nó de computação do Azure Batch
 
@@ -62,7 +62,6 @@ As linhas de comando executadas pelas tarefas na computação fazer de nós não
 | AZ_BATCH_TASK_DIR               | O caminho completo dos [diretório de tarefas] [ files_dirs] no nó. Esse diretório contém a `stdout.txt` e `stderr.txt` para a tarefa e o AZ_BATCH_TASK_WORKING_DIR. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | O ID da tarefa atual. | Todas as tarefas, exceto pelo fato de uma tarefa de início. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Um caminho de diretório é idêntico para a principal tarefa e cada subtarefa de um [tarefas de várias instâncias][multi_instance]. O caminho existe em cada nó em que várias instâncias execuções de tarefas e é de leitura/escrita acessível para os comandos de tarefas em execução nesse nó (tanto a [comandos de coordenação] [ coord_cmd] e o [ comando de aplicativo][app_cmd]). Subtarefas ou uma tarefa principal, que são executadas nos outros nós não tem acesso remoto para este diretório (não é um diretório de rede "partilhado"). | Principal de várias instâncias e as subtarefas. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_TASK_SHARED_DIR        | Um diretório comuns para armazenar dados que se destina a ser partilhados entre as tarefas no nó. | Todas as tarefas. | C:\user\tasks\shared |
 | AZ_BATCH_TASK_WORKING_DIR       | O caminho completo dos [diretório de trabalho] [ files_dirs] no nó. A tarefa em execução tem acesso de leitura/escrita para este diretório. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | A lista de nós e o número de núcleos por nó que são alocados para uma [tarefas de várias instâncias][multi_instance]. Nós e núcleos estão listados no formato `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, onde o número de nós é seguido por um ou mais endereços IP do nó e o número de núcleos para cada um. |  Principal de várias instâncias e as subtarefas. |`2 10.0.0.4 1 10.0.0.5 1` |
 

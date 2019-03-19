@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e23c9e04d06e509cba32c728ae6f86e1328d88cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111077"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Pesquise a uma base de dados SQL do Azure com indexadores do Azure Search
 
@@ -90,20 +90,20 @@ Pode encontrar o ponto final do serviço de pesquisa e a chave no portal. A chav
 
 4. Copie e cole-o como a primeiro entrada em **appsettings.json** no Visual Studio.
 
-  > [!Note]
-  > Os nomes de serviço fazem parte do ponto final que inclui search.windows.net. Se tiver curiosidade, pode ver o URL completo em **Essentials**, na página Descrição Geral. O URL tem um aspeto semelhante a este exemplo: https://your-service-name.search.windows.net
+   > [!Note]
+   > Os nomes de serviço fazem parte do ponto final que inclui search.windows.net. Se tiver curiosidade, pode ver o URL completo em **Essentials**, na página Descrição Geral. O URL tem um aspeto semelhante a este exemplo: https://your-service-name.search.windows.net
 
 5. À esquerda, em **Definições** > **Chaves**, copie uma das chaves de administrador e cole-a como a segunda entrada em **appsettings.json**. As chaves são cadeias alfanuméricas geradas para o seu serviço durante o aprovisionamento e são necessárias para acesso autorizado para operações do mesmo. 
 
-  Depois de adicionar ambas as definições, o aspeto do seu ficheiro deverá ser parecido com:
+   Depois de adicionar ambas as definições, o aspeto do seu ficheiro deverá ser parecido com:
 
-  ```json
-  {
+   ```json
+   {
     "SearchServiceName": "azs-tutorial",
     "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
-  }
-  ```
+   }
+   ```
 
 ## <a name="prepare-an-external-data-source"></a>Preparar uma origem de dados externa
 
@@ -125,7 +125,7 @@ O exercício seguinte pressupõe que não existe nenhum servidor o base de dados
 
 4. Abra a página Base de Dados SQL da base de dados nova, se ainda não estiver aberta. O nome do recurso deverá indicar *Base de dados SQL* e não *SQL Server*.
 
-  ![Página Base de dados SQL](./media/search-indexer-tutorial/hotels-db.png)
+   ![Página Base de dados SQL](./media/search-indexer-tutorial/hotels-db.png)
 
 4. Na barra de comandos, clique em **Ferramentas** > **Editor de consultas**.
 
@@ -135,24 +135,24 @@ O exercício seguinte pressupõe que não existe nenhum servidor o base de dados
 
 7. Selecione o ficheiro e clique em **Abrir**. O script deverá ser parecido com o da captura de ecrã seguinte:
 
-  ![Script de SQL](./media/search-indexer-tutorial/sql-script.png)
+   ![Script de SQL](./media/search-indexer-tutorial/sql-script.png)
 
 8. Clique em **Executar** para executar a consulta. No painel Resultados, deverá ver uma mensagem de consulta bem-sucedida para três linhas.
 
 9. Para devolver um conjunto de linhas a partir desta tabela, pode executar a consulta seguinte como passo de verificação:
 
-   ```sql
-   SELECT HotelId, HotelName, Tags FROM Hotels
-   ```
-   A consulta prototípica, `SELECT * FROM Hotels`, não funciona no Editor de Consultas. Os dados de exemplo incluem coordenadas geográficas no campo Localização, que não são processadas no editor atualmente. Para obter uma lista de outras colunas a consultar, pode executar a instrução `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    ```sql
+    SELECT HotelId, HotelName, Tags FROM Hotels
+    ```
+    A consulta prototípica, `SELECT * FROM Hotels`, não funciona no Editor de Consultas. Os dados de exemplo incluem coordenadas geográficas no campo Localização, que não são processadas no editor atualmente. Para obter uma lista de outras colunas a consultar, pode executar a instrução `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Agora que tem um conjunto de dados externo, copie a cadeia de ligação ADO.NET para a base de dados. Na página Base de Dados SQL da sua base de dados, aceda a **Definições** > **Cadeias de Ligação** e copie a cadeia de ligação ADO.NET.
  
-  Esta cadeia é semelhante ao exemplo seguinte, modificado para utilizar um nome de base de dados, um nome de utilizador e uma palavra-passe válidos.
+    Esta cadeia é semelhante ao exemplo seguinte, modificado para utilizar um nome de base de dados, um nome de utilizador e uma palavra-passe válidos.
 
-  ```sql
-  Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  ```
+    ```sql
+    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 11. Cole a cadeia de ligação em "AzureSqlConnectionString" como a terceira entrada no ficheiro **appsettings.json**, no Visual Studio.
 
     ```json
@@ -250,15 +250,15 @@ No portal do Azure, na página Descrição Geral do serviço de pesquisa, clique
 
 2. Clique no botão **Pesquisar** para emitir uma pesquisa vazia. 
 
-  As três entradas no índice são devolvidas como documentos JSON. O Explorador de Pesquisa devolve documentos em JSON, para que possa ver a estrutura inteira.
+   As três entradas no índice são devolvidas como documentos JSON. O Explorador de Pesquisa devolve documentos em JSON, para que possa ver a estrutura inteira.
 
 3. Em seguida, introduza uma cadeia de pesquisa: `search=river&$count=true`. 
 
-  Esta consulta invoca a pesquisa de texto completo para o termo `river` e o resultado inclui um contagem dos documentos correspondentes. Devolver a contagem de documentos correspondentes é útil em cenários de teste, em que tem um índice grande com milhares ou milhões de documentos. Neste caso, apenas um documento corresponde à consulta.
+   Esta consulta invoca a pesquisa de texto completo para o termo `river` e o resultado inclui um contagem dos documentos correspondentes. Devolver a contagem de documentos correspondentes é útil em cenários de teste, em que tem um índice grande com milhares ou milhões de documentos. Neste caso, apenas um documento corresponde à consulta.
 
 4. Por último, introduza uma cadeia de pesquisa que limite a saída JSON para campos de interesse: `search=river&$count=true&$select=hotelId, baseRate, description`. 
 
-  A resposta da consulta é reduzida aos campos selecionados, resultando numa saída mais concisa.
+   A resposta da consulta é reduzida aos campos selecionados, resultando numa saída mais concisa.
 
 ## <a name="view-indexer-configuration"></a>Ver a configuração do indexador
 
@@ -268,7 +268,7 @@ Todos os indexadores, incluindo o que acabou de criar programaticamente, são ap
 2. Desloque-se para baixo para localizar os mosaicos para **Indexadores** e **Origens de Dados**.
 3. Clique num mosaico para abrir uma lista de cada recurso. Pode selecionar indexadores individuais ou origens de dados para ver ou modificar as definições de configuração.
 
-  ![Mosaicos de indexador e origem de dados](./media/search-indexer-tutorial/tiles-portal.png)
+   ![Mosaicos de indexador e origem de dados](./media/search-indexer-tutorial/tiles-portal.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos

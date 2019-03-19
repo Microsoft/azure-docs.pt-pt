@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 67acc7a074b26cb7614b5e08d25afd7b7c1caa74
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094927"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Reconhecer a conversão de voz no Objective-C no iOS com o SDK de voz
 
@@ -75,7 +75,7 @@ Substitua o gerado automaticamente XML com este código:
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
 1. Transfira o [ficheiro wav de exemplo](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) ao clicar com o botão direito do rato na ligação e ao selecionar **Save target as...** (Guardar destino como...). Adicione o ficheiro wav ao projeto como um recurso ao arrastá-lo a partir de uma janela do Explorador para o nível da raiz da vista do Projeto.
-Clique em **Finish** (Concluir) na caixa de diálogo seguinte sem alterar as definições.
+   Clique em **Finish** (Concluir) na caixa de diálogo seguinte sem alterar as definições.
 1. Substitua o conteúdo do ficheiro `ViewController.m` gerado automaticamente por:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
@@ -90,12 +90,12 @@ Clique em **Finish** (Concluir) na caixa de diálogo seguinte sem alterar as def
 ## <a name="building-and-running-the-sample"></a>Criar e Executar o Exemplo
 
 1. Torne a saída de depuração visível (**View (Ver)** > **Debug Area (Área de Depuração)** > **Activate Console (Ativar Consola)**).
-1. Escolha o simulador iOS ou um dispositivo iOS ligado ao computador de desenvolvimento como destino para a aplicação a partir da lista no menu **Product (Produto)** -> **Destination (Destino)**.
+1. Escolha o simulador do iOS ou um dispositivo iOS ligado para o seu computador de desenvolvimento como o destino para a aplicação na lista os **produto** -> **destino** menu.
 1. Crie e execute o código de exemplo no simulador iOS ao selecionar **Product (Produto)** -> **Run (Executar)** no menu ou ao clicar no botão **Play (Reproduzir)**.
-Atualmente, o SDK de Voz apenas suporta plataformas iOS de 64 bits.
+   Atualmente, o SDK de Voz apenas suporta plataformas iOS de 64 bits.
 1. Depois de clicar no botão "Recognize (File)" (Reconhecer (Ficheiro)) na aplicação, deverá ver o conteúdo do ficheiro de áudio "What's the weather like?" na parte inferior do ecrã.
 
- ![Aplicação iOS Simulada](media/sdk/qs-objectivec-simulated-app.png)
+   ![Aplicação iOS Simulada](media/sdk/qs-objectivec-simulated-app.png)
 
 1. Depois de clicar no botão "Recognize (Microphone)" (Reconhecer (Microfone)) na aplicação e dizer algumas palavras, deverá ver o texto que falou na parte inferior do ecrã.
 

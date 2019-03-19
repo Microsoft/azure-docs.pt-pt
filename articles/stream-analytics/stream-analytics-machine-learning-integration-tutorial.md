@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093340"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109312"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Executar análise de sentimentos com o Azure Stream Analytics e o Azure Machine Learning
 Este artigo descreve como configurar rapidamente a uma tarefa Azure Stream Analytics simples que integra o Azure Machine Learning. Utilize um modelo de análise de sentimentos de Machine Learning a partir da galeria do Cortana Intelligence para analisar dados de texto de transmissão em fluxo e determinar a classificação de sentimento em tempo real. Utilizar o Cortana Intelligence Suite permite-lhe realizar esta tarefa sem se preocupar sobre a complexidade da criação de um modelo de análise de sentimentos.
@@ -145,7 +145,7 @@ A tarefa obtém entrada do ficheiro CSV que carregado anteriormente para o armaz
 
    ![Definições para a nova entrada de tarefa do Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
 ### <a name="configure-the-job-output"></a>Configurar o resultado da tarefa
 A tarefa envia resultados para o mesmo armazenamento de BLOBs onde obtém entrada. 

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e92c812ffc8b72fe79248c602e48ff01ef9fefcb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 21a10bcedc25ddce63ba468e400dcea1f77148a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57863122"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação Android Unity com o Azure âncoras espaciais
 
@@ -35,7 +35,9 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Um Windows ou macOS do computador com <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a> e <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 +</a> instalado.
+- Um Windows ou macOS do computador com <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 +</a> e <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3 +</a>.
+  - Se executar no Windows, também precisará <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
+  - Se executar no macOS, obtenha o Git instalado através do HomeBrew. Introduza o seguinte comando numa única linha de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Em seguida, execute `brew install git`.
 - R <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">desenvolvedor ativada</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore com capacidade</a> dispositivo Android.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -58,32 +60,12 @@ Salve a cena selecionando **arquivo** -> **guardar**.
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Selecione **exportar** para abrir uma caixa de diálogo. Em seguida, selecione uma pasta para exportar o projeto do Android Studio.
-
-Quando a exportação for concluída, uma pasta será exibida contendo o projeto do Android Studio exportado, com uma subpasta denominada **HelloAR U3D**.
-
-## <a name="deploy-the-android-application"></a>Implementar a aplicação Android
-
-Abra o Android Studio e selecione **abrir um projeto existente do Android Studio**. Em seguida, selecione o **HelloAR U3D** sub-pasta a partir de projeto do Android Studio exportado e clique em **OK**.
-
-Após a abertura, será apresentada uma mensagem solicitando a utilizar o Gradle wrapper. Selecione **OK** para utilizar o Gradle wrapper e para abrir o projeto.
-
-Ligar o dispositivo Android, inicie sessão e ligá-la no PC com um cabo USB.
-
-Selecione **executar** da barra de ferramentas do Android Studio.
-
-![Android Studio, implementar e executar](./media/get-started-unity-android/android-studio-deploy-run.png)
-
-Selecione o dispositivo Android no **selecione o destino de implementação** caixa de diálogo e selecione **OK** para executar a aplicação no dispositivo Android.
+Certifique-se a **projeto exportar** caixa de verificação não tem uma marca de verificação. Clique em **compilar e executar**. Será solicitado a salvar sua `.apk` ficheiro, pode escolher qualquer nome para o mesmo.
 
 Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
 
 > [!NOTE]
 > Ao executar a aplicação, se não vir a câmera como plano de fundo (para a instância em vez disso, verá um espaço em branco, azul ou outras texturas), em seguida, provavelmente terá de voltar a importar ativos no Unity. Pare a aplicação. No menu superior no Unity, escolha **elementos -> importe novamente todos os**. Em seguida, execute novamente a aplicação.
-
-Pare a aplicação, selecionando **parar** da barra de ferramentas do Android Studio.
-
-![Parar de Android Studio](./media/get-started-unity-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

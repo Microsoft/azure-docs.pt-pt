@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 0b5fe1b1df306bf0930715bc6cfb586e5445f85c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110499"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Voltar a proteger efetuar a ativação pós-falha de VMs do Azure para a região primária
 
@@ -35,12 +35,12 @@ Quando [efetuar a ativação pós-falha](site-recovery-failover.md) VMs do Azure
 
 1. Na **cofre** > **itens replicados**, com o botão direito a ativação pós-falha VM e selecione **voltar a proteger**. A direção de nova proteção deve mostrar a partir do secundário para o primário.
 
-  ![Voltar a proteger](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![Voltar a proteger](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 2. Reveja os conjuntos de disponibilidade, armazenamento, rede e grupo de recursos. Em seguida, clique em **OK**. Se existirem quaisquer recursos marcados como novo, eles são criados como parte do processo de nova proteção.
 3. A tarefa de nova proteção realiza o seeding do site de destino com os dados mais recentes. Depois que terminar, a replicação de diferenças ocorre. Em seguida, pode efetuar a ativação pós-falha para o site primário. Pode selecionar a conta de armazenamento ou a rede que pretende utilizar durante a voltar a proteger, utilizando a opção de personalizar.
 
-  ![Opção de personalizar](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
+   ![Opção de personalizar](./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png)
 
 ### <a name="customize-reprotect-settings"></a>Personalizar as definições de voltar a proteger
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69bc0c801feb787861af480c60af4345103f5325
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2281fb046ca9b96aa5800150d630b9086236c5c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781787"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57846927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Active Directory do Azure com SuccessFactors
 
@@ -106,6 +106,7 @@ Para configurar o Azure AD início de sessão único com SuccessFactors, execute
     ![SuccessFactors domínio e URLs únicas início de sessão em informações](common/sp-identifier-reply.png)
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -114,6 +115,7 @@ Para configurar o Azure AD início de sessão único com SuccessFactors, execute
     | `https://<companyname>.sapsf.eu`|
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -127,6 +129,7 @@ Para configurar o Azure AD início de sessão único com SuccessFactors, execute
     | `https://www.successfactors.cn/<companyname>`|
 
     c. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -242,7 +245,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -281,7 +284,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no SuccessFactors, tem de
 
 Para obter os utilizadores criados no SuccessFactors, terá de contactar o [equipa de suporte de SuccessFactors](https://www.successfactors.com/content/ssf-site/en/support.html).
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

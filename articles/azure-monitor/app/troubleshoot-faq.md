@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 810a4708974d18a4bba048e3e402a172868178f3
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905070"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>O Application Insights: Perguntas Mais Frequentes
 
@@ -257,7 +257,7 @@ Consulte a nossa lista completa de serviços e endereços IP [aqui](../../azure-
 
 Permitir que o seu servidor web para enviar telemetria para nossos pontos de extremidade. 
 
-### <a name="proxy-redirect"></a>Redirecionamento do proxy
+### <a name="gateway-redirect"></a>Redirecionamento de gateway
 
 Encaminhar o tráfego do seu servidor para um gateway na sua intranet, substituindo os pontos finais na sua configuração.
 Se estas propriedades de "Endpoint" não estão presentes na sua configuração, essas classes irão utilizar os valores predefinidos mostrados no exemplo applicationinsights. config. 
@@ -288,7 +288,19 @@ O gateway deve encaminhar o tráfego para o endereço base do nosso ponto de ext
 
 _Nota ApplicationIdProvider está disponível a partir de v2.6.0_
 
+### <a name="proxy-passthrough"></a>Pass-through do proxy
 
+Pass-through do proxy pode ser alcançado ao configurar um nível de máquina ou o nível de aplicativo proxy.
+Para obter mais informações consulte o artigo do dotnet sobre [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
+ 
+ Web. config de exemplo:
+ ```xml
+<system.net>
+    <defaultProxy>
+      <proxy proxyaddress="http://xx.xx.xx.xx:yyyy" bypassonlocal="true"/>
+    </defaultProxy>
+</system.net>
+```
  
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Pode executar testes web de disponibilidade num servidor de intranet?

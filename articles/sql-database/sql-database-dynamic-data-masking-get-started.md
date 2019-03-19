@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/04/2019
-ms.openlocfilehash: c174167268e95e55b0916d2340005538d3ae8add
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 2be1f7bb6417834196da03b7cba22387744f8c19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336789"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876549"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>Máscara de dados dinâmicos da base de dados SQL
 
@@ -55,7 +55,7 @@ Máscara de dados dinâmica pode ser configurada pelo administrador de base de d
 
 O motor de recomendações de ddm de autor, sinalizadores de determinados campos do seu banco de dados como campos potencialmente confidenciais, que podem ser bons candidatos à máscara. No painel máscara de dados dinâmicos no portal, verá as colunas recomendadas para a base de dados. Tudo o que precisa fazer é clicar **adicionar máscara** para uma ou mais colunas e, em seguida **guardar** para aplicar uma máscara para estes campos.
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurar a máscara da base de dados utilizando cmdlets do Powershell de dados dinâmicos
+## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configurar a máscara da base de dados utilizando cmdlets do PowerShell de dados dinâmicos
 
 Ver [Cmdlets de base de dados SQL do Azure](https://docs.microsoft.com/powershell/module/az.sql).
 

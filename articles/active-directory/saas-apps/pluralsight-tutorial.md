@@ -4,7 +4,7 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
 ms.service: active-directory
@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/26/2018
+ms.date: 03/05/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78b634cb0295a2f5109433e6a93b8a5f4f67cea
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874988"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>Tutorial: Integração do Active Directory do Azure com a Pluralsight
 
@@ -46,6 +45,8 @@ Para configurar a integração do Azure AD com a Pluralsight, terá dos seguinte
 Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
 
 * Oferece suporte a Pluralsight **SP** iniciada SSO
+
+* Oferece suporte a Pluralsight **just-in-time** aprovisionamento de utilizadores 
 
 ## <a name="adding-pluralsight-from-the-gallery"></a>Adicionando Pluralsight da Galeria
 
@@ -114,26 +115,25 @@ Para configurar o Azure AD início de sessão único com a Pluralsight, execute 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de início de sessão e o URL de resposta real. Contacte [equipa de suporte de cliente do Pluralsight](mailto:support@pluralsight.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. Aplicação de Pluralsight espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
-
-    ![imagem](common/edit-attribute.png)
+5. Aplicação de Pluralsight espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+    ![image](common/edit-attribute.png)
 
     >[!NOTE]
     >Também pode adicionar os **"ID exclusivo"** atributo com o valor apropriado, como EmployeeID ou outra coisa que lhe seja conveniente para a sua organização. Observe também que esse não é o atributo necessário; No entanto, pode adicioná-lo para identificar o utilizador exclusivo.
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, configurar o atributo de token de SAML conforme mostrado na imagem acima e execute os seguintes passos:
+6. Além dos acima, o aplicativo Pluralsight espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
     
     | Name | Atributo de origem|
     | --------------- | --------- |
     | Nome Próprio  | user.givenname  |
     | Apelido  | user.surname  |
-    | E-mail  | user.mail  |
+    | Email  | user.mail  |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![imagem](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![imagem](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -173,7 +173,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -208,9 +208,9 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-pluralsight-test-user"></a>Criar utilizador de teste do Pluralsight
 
-O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na Pluralsight. Trabalhe em conjunto com [equipa de suporte de cliente do Pluralsight](mailto:support@pluralsight.com) para adicionar os utilizadores na conta da Pluralsight.  Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, um usuário chamado Eduarda Almeida é criado na Pluralsight. Pluralsight suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir na Pluralsight, uma nova é criada após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -218,7 +218,7 @@ Quando clica no mosaico da Pluralsight, no painel de acesso, deve ser automatica
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

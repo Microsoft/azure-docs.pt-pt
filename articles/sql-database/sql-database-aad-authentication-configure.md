@@ -11,13 +11,13 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/04/2019
-ms.openlocfilehash: e4ccb9be5d13ea72086fbaae2ffb2ec63ad55786
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.date: 03/12/2019
+ms.openlocfilehash: f3c485659bc686efbb4101879e5cd24e7bb3db46
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340325"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905108"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurar e gerir a autenticação do Azure Active Directory com o SQL
 
@@ -29,12 +29,14 @@ Este artigo mostra-lhe como criar e preencher do Azure AD e, em seguida, utiliza
 > Ligar ao SQL Server em execução numa VM do Azure não é suportada através de uma conta do Azure Active Directory. Utilize um conta do Active Directory do domínio em vez disso.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> O módulo do PowerShell do Azure Resource Manager ainda é suportado pelo SQL Database do Azure, mas todo o desenvolvimento futuro é para o módulo de Az.Sql. Para estes cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Criar e preencher um Azure AD
 
 Criar um Azure AD e preenchê-lo com os utilizadores e grupos. O Azure AD pode ser o Azure AD inicial domínio gerido. O Azure AD também pode ser no local Active Directory Domain Services que está Federado com o Azure AD.
 
-Para obter mais informações, veja [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD (Adicionar o seu próprio nome de domínio ao Azure AD)](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory (O Microsoft Azure suporta agora a federação com o Windows Server Active Directory)](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory (Administrar o seu diretório do Azure AD)](../active-directory/fundamentals/active-directory-administer.md), [Manage Azure AD using Windows PowerShell (Gerir o Azure AD com o Windows PowerShell)](/powershell/azure/overview?view=azureadps-2.0) e [Hybrid Identity Required Ports and Protocols (Portas e Protocolos Necessários para a Identidade Híbrida)](../active-directory/hybrid/reference-connect-ports.md).
+Para obter mais informações, veja [Integrating your on-premises identities with Azure Active Directory (Integrar as identidades no local ao Azure Active Directory)](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD (Adicionar o seu próprio nome de domínio ao Azure AD)](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory (O Microsoft Azure suporta agora a federação com o Windows Server Active Directory)](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory (Administrar o seu diretório do Azure AD)](../active-directory/fundamentals/active-directory-administer.md), [Manage Azure AD using Windows PowerShell (Gerir o Azure AD com o Windows PowerShell)](/powershell/azure/overview) e [Hybrid Identity Required Ports and Protocols (Portas e Protocolos Necessários para a Identidade Híbrida)](../active-directory/hybrid/reference-connect-ports.md).
 
 ## <a name="associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Associar ou adicionar uma subscrição do Azure ao Azure Active Directory
 
@@ -240,6 +242,7 @@ Também pode aprovisionar um administrador do Azure Active Directory com as APIs
 ### <a name="cli"></a>CLI  
 
 Também pode aprovisionar um administrador do Azure AD ao chamar os seguintes comandos da CLI:
+
 | Comando | Descrição |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Aprovisiona um administrador do Azure Active Directory para o servidor SQL do Azure ou Azure SQL Data Warehouse. (Tem de ser da subscrição atual.) |
@@ -349,7 +352,7 @@ Utilize este método quando estabelecer ligação com um nome do principal do Az
 Utilize este método para autenticar para o SQL DB/DW, com o Azure AD nativos ou federadas utilizadores do Azure AD. Um utilizador nativo é uma explicitamente criado no Azure AD e a ser autenticado utilizando o nome de utilizador e palavra-passe, embora um utilizador federado é um utilizador do Windows com um domínio está Federado com o Azure AD. Este segundo método (usando o utilizador e palavra-passe) pode ser utilizado quando um usuário deseja usar as suas credenciais do windows, mas sua máquina local não está associada com o domínio (por exemplo, através de um acesso remoto). Neste caso, um utilizador do Windows pode indicar a respetiva conta de domínio e palavra-passe e pode autenticar-se para o SQL DB/DW utilizando credenciais federadas.
 
 1. Iniciar o Management Studio ou as ferramentas de dados e, no **ligar ao servidor** (ou **ligar ao motor de base de dados**) caixa de diálogo a **autenticação** caixa, selecione  **O Active Directory - palavra-passe**.
-2. Na **nome de utilizador** , escreva o nome de utilizador do Azure Active Directory no formato **username@domain.com**. Os nomes de utilizador tem de ser uma conta do Azure Active Directory ou uma conta de um domínio a federar com o Azure Active Directory.
+2. Na **nome de utilizador** , escreva o nome de utilizador do Azure Active Directory no formato **nome de utilizador\@promovida**. Os nomes de utilizador tem de ser uma conta do Azure Active Directory ou uma conta de um domínio a federar com o Azure Active Directory.
 3. Na **palavra-passe** caixa, escreva a palavra-passe de utilizador para a conta do Azure Active Directory ou federado a conta de domínio.
 
     ![Selecionar a autenticação de palavra-passe do AD][12]

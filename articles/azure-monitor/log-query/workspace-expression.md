@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: 933d37f576d0b8507d2311a3e31e34182a0a2e69
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996298"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>expressão de Workspace() na consulta de registo do Azure Monitor
 

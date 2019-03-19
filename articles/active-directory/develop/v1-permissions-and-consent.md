@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7b2de1ae56e554013d9a5c574bb231164b80f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103167"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permissões e consentimento no ponto de extremidade de versão 1.0 do Azure Active Directory
 
@@ -102,11 +102,11 @@ As aplicações no Azure AD dependem de consentimento para ter acesso a recursos
 - Os recursos devem definir explicitamente as permissões `Read` e `ReadWrite` em separado.
 - Os recursos devem marcar todas as permissões que permitem acesso aos dados em limites do utilizador como permissões `Admin`.
 - Os recursos devem seguir o padrão de nomenclatura `Subject.Permission[.Modifier]`, em que:
-    - `Subject` corresponde com o tipo de dados que estão disponíveis
-    - `Permission` corresponde à ação que um utilizador pode efetuar após a que os dados
-    - `Modifier` Opcionalmente, usada para descrever especializações de outra permissão
+  - `Subject` corresponde com o tipo de dados que estão disponíveis
+  - `Permission` corresponde à ação que um utilizador pode efetuar após a que os dados
+  - `Modifier` Opcionalmente, usada para descrever especializações de outra permissão
     
     Por exemplo:
-    * Mail.Read - permite aos utilizadores lerem correio.
-    * Mail.ReadWrite - permite aos utilizadores lerem ou escreverem correio.
-    * Mail.ReadWrite.All - permite que um administrador ou utilizador aceda a todo o correio da organização.
+  - Mail.Read - permite aos utilizadores lerem correio.
+  - Mail.ReadWrite - permite aos utilizadores lerem ou escreverem correio.
+  - Mail.ReadWrite.All - permite que um administrador ou utilizador aceda a todo o correio da organização.

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 971d9b557b56a645f0c99c41fb3afb3ed01db3d0
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ea643622973456f6334333731f3a3e7be6a41089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732260"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Active Directory do Azure com ClickTime
 
@@ -108,6 +108,7 @@ Para configurar o Azure AD início de sessão único com ClickTime, execute os s
     a. Na **identificador** caixa de texto, escreva um URL: `https://app.clicktime.com/sp/`
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://app.clicktime.com/Login/` |
@@ -163,7 +164,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -222,7 +223,7 @@ No caso de ClickTime, o aprovisionamento é uma tarefa manual.
    
     a.  Na **nome completo** caixa de texto, tipo de nome completo do utilizador, como **Eduarda Almeida**. 
   
-    b.  Na **endereço de e-mail** caixa de texto, como o tipo de e-mail do utilizador **brittasimon@contoso.com**.
+    b.  Na **endereço de e-mail** caixa de texto, como o tipo de e-mail do utilizador **brittasimon\@contoso.com**.
        
     > [!NOTE]
     > Se quiser, pode definir propriedades adicionais do novo objeto person.

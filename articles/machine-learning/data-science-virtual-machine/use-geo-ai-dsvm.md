@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 11026d642a5136ffcf0caa5815934115b6becf89
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 6e6737e928ece820ea9119d8dfe1d7cf22477646
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880114"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Utilizar a máquina de Virtual de ciência de dados de Inteligência Artificial de Geo
 
@@ -30,7 +30,7 @@ Utilize a VM de ciência de dados de IA geográfica para obter dados para análi
 
 ## <a name="configuration-details"></a>Detalhes de configuração
 
-A biblioteca de Python [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), que é utilizado para a interface com o ArcGIS está instalado no ambiente de conda de raiz global da VM de ciência de dados que se encontra em ```c:\anaconda```. 
+A biblioteca de Python [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), que é utilizado para a interface com o ArcGIS está instalado no ambiente de conda de raiz global da VM de ciência de dados que se encontra em ```c:\anaconda```. 
 
 - Se estiver a executar o Python numa linha de comandos, execute ```activate``` para ativar no ambiente de Python de conda raiz. 
 - Se estiver a utilizar um IDE ou Jupyter notebook, pode selecionar o ambiente ou kernel para se certificar de que no ambiente de conda correto. 
@@ -43,7 +43,7 @@ A ponte de R para ArcGIS é instalada como uma biblioteca de R com o nome [arcgi
 Além do ML e exemplos com base na estrutura da VM de ciência de dados base de aprendizagem profunda, um conjunto de exemplos de geoespacial também é fornecido como parte da VM de ciência de dados de IA geográfica. Estes exemplos podem ajudar a promover seu desenvolvimento de aplicações de IA com dados Geoespaciais e o software de ArcGIS. 
 
 
-1. [Introdução declarado com análise Geoespacial com o Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Um exemplo introdutório que mostra como trabalhar com dados Geoespaciais através da interface de Python para o ArcGIS fornecida pelos [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) biblioteca. Ela também mostra como pode combinar a aprendizagem automática tradicional com dados geoespaciais e visualizar o resultado num mapa na ArcGIS. 
+1. [Introdução declarado com análise Geoespacial com o Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Um exemplo introdutório que mostra como trabalhar com dados Geoespaciais através da interface de Python para o ArcGIS fornecida pelos [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) biblioteca. Ela também mostra como pode combinar a aprendizagem automática tradicional com dados geoespaciais e visualizar o resultado num mapa na ArcGIS. 
 
 2. [Introdução declarado com análise Geoespacial com R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Um exemplo introdutório que mostra como trabalhar com dados Geoespaciais através da interface de R para ArcGIS fornecida pelos [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) biblioteca. 
 

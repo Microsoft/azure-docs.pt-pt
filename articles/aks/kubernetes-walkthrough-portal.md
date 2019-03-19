@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 39d267c1d113c2f1950650416c18bfd8ad8caa9c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9a7cbc22ce6034db0ab7d5229104c644ec3f0330
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653599"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087742"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: Implementar um cluster do Azure Kubernetes Service (AKS) no portal do Azure
 
@@ -36,20 +36,20 @@ No canto superior esquerdo do portal do Azure, selecione **+ criar um recurso** 
 Para criar um cluster do AKS, execute os passos seguintes:
 
 1. **Detalhes básicos** - configure as seguintes opções:
-    - *DETALHES DO PROJETO*: Selecione uma subscrição do Azure, em seguida, selecionar ou criar um grupo de recursos do Azure, tal como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
-    - *DETALHES DO CLUSTER*: Selecione uma região, a versão do Kubernetes e o prefixo de nome de DNS para o cluster do AKS.
-    - *DIMENSIONAMENTO*: Selecione um tamanho VM para os nós do AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
-        - Selecione o número de nós a implementar no cluster. Neste início rápido, defina **Contagem de nós** como *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
+   - *DETALHES DO PROJETO*: Selecione uma subscrição do Azure, em seguida, selecionar ou criar um grupo de recursos do Azure, tal como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
+   - *DETALHES DO CLUSTER*: Selecione uma região, a versão do Kubernetes e o prefixo de nome de DNS para o cluster do AKS.
+   - *DIMENSIONAMENTO*: Selecione um tamanho VM para os nós do AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
+       - Selecione o número de nós a implementar no cluster. Neste início rápido, defina **Contagem de nós** como *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
     
-    ![Criar cluster do AKS - indique informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+     ![Criar cluster do AKS - indique informações básicas](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Selecione **seguinte: Autenticação** quando terminar.
+     Selecione **seguinte: Autenticação** quando terminar.
 
 1. **Autenticação**: Configure as seguintes opções:
-    - Crie um principal de serviço novo ou *configure* para utilizar um existente. Quando utilizar um SPN existente, terá de fornecer o ID de cliente de SPN e o segredo.
-    - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Estes controlos proporcionam um controlo mais detalhado sobre o acesso aos recursos do Kubernetes implementados no cluster do AKS.
+   - Crie um principal de serviço novo ou *configure* para utilizar um existente. Quando utilizar um SPN existente, terá de fornecer o ID de cliente de SPN e o segredo.
+   - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Estes controlos proporcionam um controlo mais detalhado sobre o acesso aos recursos do Kubernetes implementados no cluster do AKS.
 
-    Por predefinição, *básica* à rede é utilizado e o Monitor do Azure para contentores está ativado. Quando estiver pronto, selecione **Rever + criar** e **Criar**.
+     Por predefinição, *básica* à rede é utilizado e o Monitor do Azure para contentores está ativado. Quando estiver pronto, selecione **Rever + criar** e **Criar**.
 
 O cluster do AKS demora alguns minutos a ser criado e a estar pronto para utilização. Quando concluída, navegue para o grupo de recursos de cluster do AKS, tal como *myResourceGroup*e selecione o recurso do AKS, tal como *myAKSCluster*. É apresentado o dashboard do cluster do AKS, como na captura de ecrã de exemplo abaixo:
 

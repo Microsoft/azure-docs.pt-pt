@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 77963377d322a1c70226ceb772273127bec380de
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2272414c185388df0ccbc9e21b7d166432fc7a52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110414"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Perguntas mais frequentes sobre a migração de armazenamento do Azure
 
@@ -282,7 +282,7 @@ Para dar acesso a outras pessoas para os recursos de armazenamento:
 
     - **SAS token**: Utilize um token SAS para aceder a dados a partir do ponto final. Para obter mais informações, consulte [assinaturas de acesso partilhado do Using](storage-dotnet-shared-access-signature-part-1.md).
 
-**Como posso utilizar um domínio personalizado HTTPS com a minha conta de armazenamento? Por exemplo, como me certifico de "https://mystorageaccountname.blob.core.windows.net/images/image.gif"aparecem como"https://www.contoso.com/images/image.gif"?**
+**Como posso utilizar um domínio personalizado HTTPS com a minha conta de armazenamento? Por exemplo, como me certifico de "<https://mystorageaccountname.blob.core.windows.net/images/image.gif>"aparecem como"<https://www.contoso.com/images/image.gif>"?**
 
 SSL não é atualmente suportado em contas de armazenamento com domínios personalizados.
 Mas pode usar domínios personalizados de não-HTTPS. Para obter mais informações, consulte [configurar um nome de domínio personalizado para o ponto final de armazenamento de BLOBs](../blobs/storage-custom-domain-name.md).

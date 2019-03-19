@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 144b3f8ae210d515695c2184c2c3193084755746
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185470"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841026"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorizar e diagnosticar serviços numa configuração de desenvolvimento do computador local
 
@@ -35,7 +35,7 @@ Monitoramento, detetar e diagnosticar e resolução de problemas permitem para o
 
 ## <a name="debugging-service-fabric-java-applications"></a>Depuração de aplicações Java do Service Fabric
 
-Para aplicações de Java [várias arquiteturas de registo](http://en.wikipedia.org/wiki/Java_logging_framework) estão disponíveis. Uma vez que `java.util.logging` é a opção predefinida com o JRE, também é utilizado para o [exemplos no GitHub de código](http://github.com/Azure-Samples/service-fabric-java-getting-started). A discussão seguinte explica como configurar o `java.util.logging` framework.
+Para aplicações de Java [várias arquiteturas de registo](https://en.wikipedia.org/wiki/Java_logging_framework) estão disponíveis. Uma vez que `java.util.logging` é a opção predefinida com o JRE, também é utilizado para o [exemplos no GitHub de código](https://github.com/Azure-Samples/service-fabric-java-getting-started). A discussão seguinte explica como configurar o `java.util.logging` framework.
 
 Usando Util pode redirecionar os registos da aplicação para a memória, fluxos de saída, arquivos de console ou sockets. Para cada uma destas opções, existem manipuladores padrão já é fornecidos no framework. Pode criar um `app.properties` arquivo para configurar o manipulador de arquivo para a sua aplicação redirecionar todos os registos para um ficheiro local.
 
@@ -64,7 +64,7 @@ Esta configuração resulta em registos a ser recolhidos de forma rotação em `
 
 Por predefinição se nenhum manipulador explicitamente estiver configurado, o processador de consola está registado. Um pode ver os registos de syslog em /var/log/syslog.
 
-Para obter mais informações, consulte a [exemplos no GitHub de código](http://github.com/Azure-Samples/service-fabric-java-getting-started).
+Para obter mais informações, consulte a [exemplos no GitHub de código](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 
 ## <a name="debugging-service-fabric-c-applications"></a>Depurando aplicativos do Service Fabric em C#

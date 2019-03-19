@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 33e24a8d8715dd6f2b37ed566a1479dffd93c466
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308096"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091839"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurar um gateway de aplicação com a terminação de SSL com o portal do Azure
 
@@ -78,12 +78,12 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
 4. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
 5. Clique em **escolher uma rede virtual**, clique em **criar nova**e, em seguida, introduza estes valores para a rede virtual:
 
-    - *myVNet* - para o nome da rede virtual.
-    - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
-    - *myAGSubnet* - para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* - para o nome da rede virtual.
+   - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
+   - *myAGSubnet* - para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar a rede virtual](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Criar a rede virtual](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **escolher um endereço IP público**, clique em **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público tem o nome *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
@@ -149,13 +149,13 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
 
 ### <a name="add-backend-servers"></a>Adicionar servidores back-end
 
-3. Clique em **todos os recursos**e, em seguida, clique em **myAppGateway**.
-4. Clique em **Conjuntos de back-end**. Um conjunto predefinido foi criado automaticamente com o gateway de aplicação. Clique em **appGatewayBackendPool**.
-5. Clique em **adicionar destino** para adicionar cada máquina virtual que criou para o conjunto de back-end.
+1. Clique em **todos os recursos**e, em seguida, clique em **myAppGateway**.
+1. Clique em **Conjuntos de back-end**. Um conjunto predefinido foi criado automaticamente com o gateway de aplicação. Clique em **appGatewayBackendPool**.
+1. Clique em **adicionar destino** para adicionar cada máquina virtual que criou para o conjunto de back-end.
 
     ![Adicionar servidores back-end](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. Clique em **Guardar**.
+1. Clique em **Guardar**.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 

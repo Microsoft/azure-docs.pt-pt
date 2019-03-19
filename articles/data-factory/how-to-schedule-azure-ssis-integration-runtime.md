@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: fe38ffd5e9e57c0357417144e733311f3b14ea83
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448344"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092451"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Como iniciar e parar o Runtime de integração Azure-SSIS com base numa agenda
 Este artigo descreve como agendar a iniciar e parar do Azure-SSIS Integration Runtime (IR) com o Azure Data Factory (ADF). Runtime de integração Azure-SSIS é dedicado para a execução de pacotes do SQL Server Integration Services (SSIS) de recurso de computação do ADF. Executar o IR Azure-SSIS tem um custo associado ele. Portanto, normalmente pretende executar o runtime de integração apenas quando tiver de executar pacotes do SSIS no Azure e parar o runtime de integração, quando não precisa mais. Pode usar a Interface de utilizador do ADF (IU) / aplicação ou o Azure PowerShell para [manualmente iniciar ou parar o runtime de integração](manage-azure-ssis-integration-runtime.md)).
@@ -72,11 +72,11 @@ Se cria um acionador de terceiro que esteja agendado para ser executada diariame
 9. Clique em **Criar**.
 10. No dashboard do Azure, verá o mosaico seguinte com o estado: **Implementar o Data Factory**. 
 
-   ![Mosaico “implementar a fábrica de dados”](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
+    ![Mosaico “implementar a fábrica de dados”](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
    
 11. Depois de concluída a criação, pode ver a página do ADF conforme mostrado abaixo.
    
-   ![Home page da fábrica de dados](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
+    ![Home page da fábrica de dados](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
    
 12. Clique em **criar e monitorizar** para iniciar a interface do Usuário do ADF/aplicação num separador à parte.
 
@@ -189,21 +189,21 @@ Utilize scripts como nos exemplos seguintes para monitorizar os pipelines e acio
 
 1. Obtenha o estado de uma execução de pipeline.
 
-  ```powershell
-  Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
-  ```
+   ```powershell
+   Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+   ```
 
 2. Obter informações sobre um acionador.
 
-  ```powershell
-  Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
-  ```
+   ```powershell
+   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+   ```
 
 3. Obtenha o estado de uma execução de Acionador.
 
-  ```powershell
-  Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
-  ```
+   ```powershell
+   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+   ```
 
 ## <a name="create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir"></a>Criar e agendar o runbook de automatização do Azure que é iniciada/interrompida IR Azure-SSIS
 

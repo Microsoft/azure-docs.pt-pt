@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: aschhab
-ms.openlocfilehash: c467c963a558f84a0a08887d3777dccf7cd8554d
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234072"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57843579"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Utilizar pontos finais de serviço de rede Virtual com o Azure Service Bus
 
@@ -48,7 +48,7 @@ O resultado é uma relação isolada e privada entre as cargas de trabalho ligad
 
 ## <a name="enable-service-endpoints-with-service-bus"></a>Ativar pontos finais de serviço com o Service Bus
 
-Uma consideração importante ao utilizar pontos finais de serviço de VNet com o Service Bus é que não devem ser habilitadas estes pontos finais em aplicações que misturam namespaces de barramento de serviço de escalão Standard e Premium. Uma vez que o escalão Standard não suporta a VNets, o ponto final está limitado a apenas o namespaces de escalão Premium. A VNet irá bloquear o tráfego para o espaço de nomes Standard.
+Uma consideração importante ao utilizar pontos finais de serviço de VNet com o Service Bus é que não devem ser habilitadas estes pontos finais em aplicações que misturam namespaces de barramento de serviço de escalão Standard e Premium. Uma vez que o escalão Standard não suporta a VNets, o ponto final está limitado a apenas o namespaces de escalão Premium.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários de segurança avançada ativados pela integração de VNet 
 

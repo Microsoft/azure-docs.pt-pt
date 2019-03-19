@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: c378043a9e10a0aed5344ac3182af6163d217c7b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4c948668e355b87026240588c6fac11d86e355b2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140473"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006578"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>Configurar o método de encaminhamento de tráfego de desempenho
 
@@ -24,7 +24,7 @@ O método de encaminhamento de tráfego de desempenho permite-lhe direcionar o t
 
 ##  <a name="to-configure-performance-routing-method"></a>Para configurar o método de encaminhamento de desempenho
 
-1. Num browser, inicie sessão no [portal do Azure](http://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/). 
+1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com). Se ainda não tiver uma conta, pode inscrever-se para obter uma [avaliação gratuita durante um mês](https://azure.microsoft.com/free/). 
 2. Na barra de pesquisa do portal, procure o **perfis do Gestor de tráfego** e, em seguida, clique no nome de perfil que pretende configurar o método de encaminhamento para.
 3. Na **perfil do Traffic Manager** painel, certifique-se de que os serviços cloud e de Web sites que pretende incluir na sua configuração estão presentes.
 4. Na **configurações** secção, clique em **configuração**e, no **configuração** painel, faça o seguinte:

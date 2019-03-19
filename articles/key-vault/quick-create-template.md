@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/04/2019
 ms.author: jgao
-ms.openlocfilehash: 2cb6e210aa0e232a4ebb60dc44777a55f2c4f7fc
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4b774e5b0a5c64a9af9a5a54ba264c6226558a24
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318549"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880045"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Início rápido: Definir e obter um segredo a partir do Azure Key Vault com o modelo do Resource Manager
 
@@ -67,7 +67,7 @@ O modelo utilizado neste início rápido é partir [modelos de início rápido d
     * **ID do inquilino**: a função de modelo obtém automaticamente o ID do inquilino.  Não altere o valor predefinido
     * **Id de utilizador do AD**: introduza o seu ID de objeto de utilizador do Azure AD obtidos a partir [pré-requisitos](#prerequisites).
     * **Nome do segredo**: introduza um nome para o segredo que armazenar no Cofre de chaves.  Por exemplo, **adminpassword**
-    * **Valor secreto**: introduza o valor secreto.  Se armazenar uma palavra-passe, é recomendável usar a palavra-passe gerada que criou no [pré-requisitos](#prerequisite).
+    * **Valor secreto**: introduza o valor secreto.  Se armazenar uma palavra-passe, recomenda-se para utilizar a palavra-passe gerada que criou em pré-requisitos.
     * **Eu concordo com o estado de termos e condições acima**: Selecione.
 3. Selecione **Comprar**.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: sideeksh
 ms.custom: mvc
-ms.openlocfilehash: 90ebea81c37c40dc5396d2e6378c7b9af52ad23d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: d8721f313907f0e0519dca52f5565853f1c44110
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57733113"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089712"
 ---
 # <a name="fail-back-azure-vms-between-azure-regions"></a>Efetuar a ativação de VMs de volta do Azure entre regiões do Azure
 
@@ -23,12 +23,12 @@ O [do Azure Site Recovery](site-recovery-overview.md) serviço contribui para a 
 Este tutorial descreve como efetuar a reativação pós-falha numa única VM do Azure. Depois de feita a ativação pós-falha, vai fazer a reativação pós-falha para a região primária quando estiver disponível. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-
+> 
 > * Realizar a reativação pós-falha da VM secundária
 > * Voltar a proteger a VM primária para a região secundária
-
+> 
 > [!NOTE]
->
+> 
 > Este tutorial destina-se para orientar o usuário através dos passos para ativação pós-falha para uma região de destino e com o mínimo personalização; caso deseje saber mais sobre os vários aspectos associados à ativação pós-falha, incluindo as considerações de rede, a automatização ou a resolução de problemas, consulte os documentos em "Como para" para VMs do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos

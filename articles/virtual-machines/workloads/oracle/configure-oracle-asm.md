@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 8cf977f9c5bbf10c6a4d862a29fda98d3ce71844
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755701"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998961"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configure o Oracle ASM numa máquina virtual do Linux para o Azure  
 
@@ -90,7 +90,7 @@ ssh <publicIpAddress>
 
 Para instalar o Oracle ASM, conclua os passos seguintes. 
 
-Para obter mais informações sobre como instalar o Oracle ASM, consulte [Oracle ASMLib Downloads para Oracle Linux 6](http://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
+Para obter mais informações sobre como instalar o Oracle ASM, consulte [Oracle ASMLib Downloads para Oracle Linux 6](https://www.oracle.com/technetwork/server-storage/linux/asmlib/ol6-1709075.html).  
 
 1. Tem de iniciar sessão como raiz para poder continuar com a instalação de ASM:
 
@@ -104,7 +104,7 @@ Para obter mais informações sobre como instalar o Oracle ASM, consulte [Oracle
     yum list | grep oracleasm 
     yum -y install kmod-oracleasm.x86_64 
     yum -y install oracleasm-support.x86_64 
-    wget http://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
+    wget https://download.oracle.com/otn_software/asmlib/oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     yum -y install oracleasmlib-2.0.12-1.el6.x86_64.rpm 
     rm -f oracleasmlib-2.0.12-1.el6.x86_64.rpm
    ```
@@ -336,24 +336,24 @@ Para este tutorial, o utilizador predefinido é *grade* e o grupo predefinido é
 
 10. Altere a permissão de pasta:
 
-   ```bash
-   chmod -R 775 /opt 
-   chown grid:oinstall /opt 
-   chown oracle:oinstall /dev/sdc1 
-   chown oracle:oinstall /dev/sdd1 
-   chown oracle:oinstall /dev/sde1 
-   chown oracle:oinstall /dev/sdf1 
-   chmod 600 /dev/sdc1 
-   chmod 600 /dev/sdd1 
-   chmod 600 /dev/sde1 
-   chmod 600 /dev/sdf1
-   ```
+    ```bash
+    chmod -R 775 /opt 
+    chown grid:oinstall /opt 
+    chown oracle:oinstall /dev/sdc1 
+    chown oracle:oinstall /dev/sdd1 
+    chown oracle:oinstall /dev/sde1 
+    chown oracle:oinstall /dev/sdf1 
+    chmod 600 /dev/sdc1 
+    chmod 600 /dev/sdd1 
+    chmod 600 /dev/sde1 
+    chmod 600 /dev/sdf1
+    ```
 
 ## <a name="download-and-prepare-oracle-grid-infrastructure"></a>Transferir e preparar a infraestrutura de grade do Oracle
 
 Para transferir e preparar o software de infraestrutura de grade do Oracle, conclua os seguintes passos:
 
-1. Transferir a infraestrutura de grade Oracle a partir da [página de download do Oracle ASM](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Transferir a infraestrutura de grade Oracle a partir da [página de download do Oracle ASM](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
 
    Sob o download intitulado **Oracle Database 12C versão 1 Grid infraestrutura (12.1.0.2.0) para Linux x86-64**, transferir os dois arquivos. zip.
 
@@ -402,7 +402,7 @@ Para transferir e preparar o software de infraestrutura de grade do Oracle, conc
 ## <a name="prepare-your-local-client-and-vm-to-run-x11"></a>Preparar o seu cliente local e a VM para executar de x11
 Configurar Oracle ASM requer uma interface gráfica para concluir a instalação e configuração. Estamos a utilizar o x11 protocolo para facilitar esta instalação. Se estiver a utilizar um sistema de cliente (Mac ou Linux) que já tenha X11 capacidades ativada e configurada - pode ignorar esta configuração exclusiva e às máquinas do Windows. 
 
-1. [Transfira o PuTTY](http://www.putty.org/) e [transferir Xming](https://xming.en.softonic.com/) para o seu computador Windows. Terá de concluir a instalação dos dois desses aplicativos com os valores predefinidos antes de continuar.
+1. [Transfira o PuTTY](https://www.putty.org/) e [transferir Xming](https://xming.en.softonic.com/) para o seu computador Windows. Terá de concluir a instalação dos dois desses aplicativos com os valores predefinidos antes de continuar.
 
 2. Depois de instalar PuTTY, abra uma linha de comandos, mude para a pasta PuTTY (por exemplo, C:\Program Files\PuTTY) e executar `puttygen.exe` para gerar uma chave.
 

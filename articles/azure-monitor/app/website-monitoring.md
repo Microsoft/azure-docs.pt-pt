@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 2f16a8fdb124cd2ee69fbdef74f3999800b55157
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a35f4d8c1d5bf5943ecba02ff262fbc7fc0730fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262001"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108233"
 ---
 # <a name="start-monitoring-your-website"></a>Começar a monitorizar o site
 
@@ -43,7 +43,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
-    | Definições        | Valor           | Descrição  |
+    | Definições        | Value           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Aplicação Geral | Tipo de aplicação que está a monitorizar |
@@ -87,7 +87,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
         });
         
         window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
-</script>
+   </script>
    ```
 
 3. Edite ``hello_world.html`` e adicione a chave de instrumentação.
@@ -127,7 +127,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 5. Se tivéssemos instrumentado um site mais complexo com múltiplas páginas, outra ferramenta útil seria os [**Fluxos de Utilizador**](../../azure-monitor/app/usage-flows.md). Com os **Fluxos de Utilizador**, pode controlar o caminho seguido pelos visitantes nas várias partes do seu site.
 
-  ![Visualização dos Fluxos de Utilizador](./media/website-monitoring/user-flows.png)
+   ![Visualização dos Fluxos de Utilizador](./media/website-monitoring/user-flows.png)
 
 Para obter configurações mais avançadas para monitorização de sites, veja a [referência da API do SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md).
 

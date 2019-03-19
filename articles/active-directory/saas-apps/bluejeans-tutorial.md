@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 889cf45a904b98bd4680108d185b3a2e108cd87e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b22a7a86862f02c3320b7c14cc1ed878a57bd23d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Integração do Active Directory do Azure com BlueJeans
 
@@ -182,7 +182,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -244,7 +244,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no BlueJe
 
     e. Na **empresa** texto, introduza a sua empresa.
 
-    f. Na **endereço de E-Mail** texto, introduza o e-mail do utilizador, como **brittasimon@contoso.com**.
+    f. Na **endereço de E-Mail** texto, introduza o e-mail do utilizador, como **brittasimon\@contoso.com**.
 
     g. Na **criar um I.D de reunião BlueJeans** texto, introduza o ID de reunião.
 

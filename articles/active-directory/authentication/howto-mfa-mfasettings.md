@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192647"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856265"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar as definições de multi-factor Authentication do Azure
 
@@ -64,7 +64,7 @@ Utilize o _bloquear e desbloquear utilizadores_ funcionalidade para impedir que 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) como administrador.
 2. Navegue até **do Azure Active Directory** > **MFA** > **bloquear/desbloquear utilizadores**.
 3. Selecione **adicionar** para impedir um utilizador.
-4. Selecione o **grupo de replicação**. Introduza o nome de utilizador para o utilizador bloqueado como **username@domain.com**. Introduza um comentário no **motivo** campo.
+4. Selecione o **grupo de replicação**. Introduza o nome de utilizador para o utilizador bloqueado como **nome de utilizador\@promovida**. Introduza um comentário no **motivo** campo.
 5. Selecione **adicionar** para concluir a bloquear o utilizador.
 
 ### <a name="unblock-a-user"></a>Desbloquear um utilizador
@@ -154,7 +154,7 @@ O _omissão de uso individual_ recurso permite que um utilizador autenticar uma 
 2. Navegue até **do Azure Active Directory** > **MFA** > **omissão de uso individual**.
 3. Selecione **Adicionar**.
 4. Se necessário, selecione o grupo de replicação para a omissão.
-5. Introduza o nome de utilizador como **username@domain.com**. Introduza o número de segundos que a omissão deve durar. Introduza a razão para a omissão.
+5. Introduza o nome de utilizador como **nome de utilizador\@promovida**. Introduza o número de segundos que a omissão deve durar. Introduza a razão para a omissão.
 6. Selecione **Adicionar**. O limite de tempo entra em vigor imediatamente. O utilizador tem de iniciar sessão antes de expira a omissão de uso individual.
 
 ### <a name="view-the-one-time-bypass-report"></a>Ver o relatório de omissão de uso individual
@@ -252,7 +252,7 @@ Por predefinição, os utilizadores não é possível criar palavras-passe de ap
 
 Os utilizadores podem criar palavras-passe de aplicação durante o seu registo inicial. O utilizador tem a opção de criar palavras-passe de aplicação no final do processo de registo.
 
-Os utilizadores também podem criar palavras-passe de aplicação após o registo. As palavras-passe de aplicação podem ser alteradas através das definições no portal do Azure ou no portal do Office 365. Para obter mais informações e passos detalhados para os seus utilizadores, consulte [quais são palavras-passe de aplicação no Azure multi-factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Os utilizadores também podem criar palavras-passe de aplicação após o registo. Para obter mais informações e passos detalhados para os seus utilizadores, consulte [quais são palavras-passe de aplicação no Azure multi-factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="trusted-ips"></a>IPs Fidedignos
 

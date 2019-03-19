@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4873c834a33ff5f401f38fdb810c65ca7ef20f5e
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191192"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108363"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ligar um Raspberry Pi a sua aplicação do Azure IoT Central (c#)
 
@@ -68,13 +68,13 @@ Para concluir os passos seguintes, pode utilizar o Visual Studio Code. Para obte
 
 1. Para inicializar o seu projeto do .NET e adicione os pacotes de NuGet necessários, execute os seguintes comandos:
 
-  ```cmd/sh
-  mkdir pisample
-  cd pisample
-  dotnet new console
-  dotnet add package Microsoft.Azure.Devices.Client
-  dotnet restore
-  ```
+   ```cmd/sh
+   mkdir pisample
+   cd pisample
+   dotnet new console
+   dotnet add package Microsoft.Azure.Devices.Client
+   dotnet restore
+   ```
 
 1. Abra o `pisample` pasta no Visual Studio Code. Em seguida, abra a **pisample.csproj** arquivo de projeto. Adicionar o `<RuntimeIdentifiers>` marca mostrada no seguinte fragmento:
 
@@ -281,10 +281,10 @@ Adicione a cadeia de ligação específicos do dispositivo para o código para o
 
 1. Execute o seguinte comando no seu ambiente de linha de comandos:
 
-  ```cmd/sh
-  dotnet restore
-  dotnet publish -r linux-arm
-  ```
+   ```cmd/sh
+   dotnet restore
+   dotnet publish -r linux-arm
+   ```
 
 1. Copiar o `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` pasta para o seu dispositivo Raspberry Pi. Pode utilizar o **scp** comandos para copiar os ficheiros, por exemplo:
 
@@ -313,13 +313,13 @@ Adicione a cadeia de ligação específicos do dispositivo para o código para o
 
 1. Na aplicação do Azure IoT Central, pode ver como o código que executa o Raspberry Pi interage com o aplicativo:
 
-    * Sobre o **medidas** página para o seu dispositivo real, pode ver a telemetria.
-    * Sobre o **propriedades** página, pode ver o valor do comunicado **morrem número** propriedade.
-    * Sobre o **definições** página, pode alterar várias definições no Raspberry Pi, por exemplo, a velocidade de tensão e fan.
+   * Sobre o **medidas** página para o seu dispositivo real, pode ver a telemetria.
+   * Sobre o **propriedades** página, pode ver o valor do comunicado **morrem número** propriedade.
+   * Sobre o **definições** página, pode alterar várias definições no Raspberry Pi, por exemplo, a velocidade de tensão e fan.
 
-    Captura de ecrã seguinte mostra o Raspberry Pi a receber a alteração da definição:
+     Captura de ecrã seguinte mostra o Raspberry Pi a receber a alteração da definição:
 
-    ![Raspberry Pi recebe a alteração da definição](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+     ![Raspberry Pi recebe a alteração da definição](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
 
 ## <a name="raspberry-pi-device-template-details"></a>Detalhes do modelo do raspberry PI dispositivo

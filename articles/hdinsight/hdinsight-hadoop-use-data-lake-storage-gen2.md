@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 02d72ed5fcfb84796dfd4b967819c331bb384610
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e8649096d4f7de49c9cf0d569422919f865bb3b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094097"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilize a geração 2 de armazenamento do Azure Data Lake com clusters do HDInsight do Azure
 
@@ -28,7 +28,7 @@ Geração 2 de armazenamento do Data Lake está disponível como uma opção de 
 
 ## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Criar um cluster do HDInsight com geração 2 de armazenamento do Data Lake
 
-## <a name="use-the-azure-portal"></a>Utilizar o Portal do Azure
+## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
 Para criar um cluster do HDInsight que utiliza a geração 2 de armazenamento do Data Lake para o armazenamento, siga estes passos para configurar uma conta de geração 2 de armazenamento do Data Lake.
 
@@ -125,7 +125,7 @@ Capacidade do seu cluster HDInsight para aceder aos ficheiros na geração 2 de 
 
 Serviços do Azure têm dois tipos de identidades geridas: atribuído de sistema e atribuído ao utilizador. HDInsight utiliza identidades geridas atribuído ao utilizador para acesso de geração 2 de armazenamento do Data Lake. Uma identidade gerida atribuído ao utilizador é criada como uma autónoma recursos do Azure. Através de um processo de criação, o Azure cria uma identidade no inquilino do Azure AD no qual a subscrição que está a ser utilizada confia. Depois de criada, a identidade pode ser atribuída a uma ou mais instâncias do serviço do Azure.
 
-O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadamente do ciclo de vida das instâncias do serviço do Azure ao qual estão atribuídas. Para obter mais informações sobre identidades geridas, consulte [como fazer as identidades geridas para o trabalho de recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka).
+O ciclo de vida das identidades atribuídas pelo utilizador é gerido separadamente do ciclo de vida das instâncias do serviço do Azure ao qual estão atribuídas. Para obter mais informações sobre identidades geridas, consulte [como fazer as identidades geridas para o trabalho de recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work).
 
 ### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services"></a>Como definir as permissões para utilizadores do Azure AD para consultar dados na geração 2 de armazenamento do Data Lake ao utilizar o Hive ou outros serviços?
 

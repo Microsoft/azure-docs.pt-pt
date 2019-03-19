@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445d9f220a215eb17436d52f637b57bd3492aaae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a509710b5d67aefc599b7e7250754aadd7ad9587
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864779"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113168"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um contentor do Cosmos do Azure
 
@@ -198,7 +198,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 ```
 
 > [!Note]
-Protocolo de MongoDB não unidades de pedido. Para criar uma nova coleção com débito, utilize o portal do Azure ou a API de SQL.
+> Protocolo de MongoDB não unidades de pedido. Para criar uma nova coleção com débito, utilize o portal do Azure ou a API de SQL.
 
 ### <a id="dotnet-cassandra"></a>API para Cassandra
 

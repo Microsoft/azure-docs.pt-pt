@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/23/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 93e1904862af7eaad395bf14b0d09555d9d1d2ab
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 9b205dea0d6de6469847e8008010a3a2c9d19956
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990140"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113143"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Documentação de orientação para uso tabelas replicadas no Azure SQL Data Warehouse
 Este artigo fornece recomendações para a criação de tabelas replicadas no seu esquema do SQL Data Warehouse. Utilize estas recomendações para melhorar o desempenho de consulta, reduzindo a complexidade de movimento e a consulta de dados.
@@ -32,22 +32,23 @@ Como parte do design da tabela, compreenda o máximo possível sobre os seus dad
 - Tenho de tabelas de fatos e dimensão num data warehouse?   
 
 ## <a name="what-is-a-replicated-table"></a>O que é uma tabela replicada?
-Tabelas replicadas tem uma cópia completa da tabela acessível em cada nó de computação. Replicar uma tabela remove a necessidade de transferir dados entre nós de computação antes de uma associação ou agregação. Uma vez que a tabela tem várias cópias, as tabelas replicadas funcionam melhor quando o tamanho da tabela é inferior a 2 GB comprimido.
+Tabelas replicadas tem uma cópia completa da tabela acessível em cada nó de computação. Replicar uma tabela remove a necessidade de transferir dados entre nós de computação antes de uma associação ou agregação. Uma vez que a tabela tem várias cópias, as tabelas replicadas funcionam melhor quando o tamanho da tabela é inferior a 2 GB comprimido.  2 GB não é um limite rígido.  Se os dados são estáticos e não se altera, pode replicar tabelas maiores.
 
 O diagrama seguinte mostra uma tabela replicada que seja acessível em cada nó de computação. No SQL Data Warehouse, a tabela replicada totalmente é copiada para uma base de dados de distribuição em cada nó de computação. 
 
 ![Tabela de replicado](media/guidance-for-using-replicated-tables/replicated-table.png "replicado tabela")  
 
-Replicados tabelas de trabalho bem para tabelas de pequenas dimensões num esquema em estrela. Tabelas de dimensões são, normalmente, um tamanho que o torna viável para armazenar e manter várias cópias. Dimensões armazenam descritivos dados alterados lentamente, por exemplo, o nome do cliente e o endereço e detalhes do produto. A natureza de mudança lenta dos dados acarreta menos recompilações da tabela replicada. 
+Replicados tabelas de trabalho bem para tabelas de dimensões de um esquema em estrela. Tabelas de dimensões geralmente estão associadas a tabelas de fatos que estão distribuídas de forma diferente do que a tabela de dimensão.  As dimensões são, normalmente, um tamanho que o torna viável para armazenar e manter várias cópias. Dimensões armazenam descritivos dados alterados lentamente, por exemplo, o nome do cliente e o endereço e detalhes do produto. A natureza de mudança lenta dos dados acarreta menos manutenção da tabela replicada. 
 
 Considere a utilização de um replicados de tabela quando:
 
 - O tamanho da tabela no disco é inferior a 2 GB, independentemente do número de linhas. Para descobrir o tamanho de uma tabela, pode utilizar o [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql) comando: `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - A tabela é usada em junções exigiriam, caso contrário, movimento de dados. Ao associar as tabelas que não são distribuídas na mesma coluna, como uma tabela distribuída por hash a uma tabela round robin, movimento de dados é necessário para concluir a consulta.  Se uma das tabelas for pequena, considere uma tabela replicada. Recomendamos que utilize as tabelas replicadas em vez de tabelas round robin, na maioria dos casos. Para ver as operações de movimento de dados em planos de consulta, utilize [pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  O BroadcastMoveOperation é a operação de movimento de dados típica que pode ser eliminada utilizando tabelas replicadas.  
-  Tabelas replicadas não poderão resultar em melhor desempenho de consulta quando:
+ 
+Tabelas replicadas não poderão resultar em melhor desempenho de consulta quando:
 
 - A tabela tem insert frequente, atualizar e eliminar operações. Estas operações de (DML linguagem) de manipulação de dados requerem uma reconstrução da tabela replicada. Reconstruir com frequência pode provocar um desempenho mais lento.
-- O armazém de dados é dimensionado com frequência. Dimensionar um armazém de dados é alterado o número de nós de computação, o que implica uma reconstrução.
+- O armazém de dados é dimensionado com frequência. Dimensionar um armazém de dados é alterado o número de nós de computação, o que implica reconstruir a tabela replicada.
 - A tabela tem um grande número de colunas, mas as operações de dados normalmente acederem apenas um pequeno número de colunas. Neste cenário, em vez de replicar a tabela inteira, poderá ser mais eficiente distribuir a tabela e, em seguida, criar um índice nas colunas acedidas com frequência. Quando uma consulta necessita de movimento de dados, o SQL Data Warehouse move apenas os dados para as colunas pedidas. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Utilizar tabelas replicadas com predicados de consulta simples
@@ -102,7 +103,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 Tabelas replicadas não requerem qualquer movimento de dados para associações de porque a tabela inteira já está presente em cada nó de computação. Se as tabelas de dimensões são distribuída round robin, uma associação copia a tabela de dimensão completa para cada nó de computação. Para mover os dados, o plano de consulta contém uma operação chamada BroadcastMoveOperation. Esse tipo de operação de movimento de dados abrandar o desempenho da consulta e é eliminado usando tabelas replicadas. Para visualizar as etapas do plano de consulta, utilize o [pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) vista de catálogo do sistema. 
 
 Por exemplo, na seguinte consulta no esquema de AdventureWorks, o ` FactInternetSales` tabela é distribuída por hash. O `DimDate` e `DimSalesTerritory` as tabelas são tabelas de dimensão mais pequenas. Esta consulta devolve o total de vendas na América do Norte para o ano fiscal de 2004:
- 
+ 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -138,7 +139,7 @@ A recompilação não ocorre imediatamente após os dados são modificados. Em v
 
 ### <a name="use-indexes-conservatively"></a>Utilize índices moderadamente
 Práticas padrão de indexação aplicam-se para as tabelas replicadas. O SQL Data Warehouse recria cada índice de tabela replicada como parte da reconstrução. Utilize índices apenas quando o ganho de desempenho prevalece sobre o custo de reconstruir os índices.  
- 
+ 
 ### <a name="batch-data-loads"></a>Cargas de dados do batch
 Ao carregar os dados em tabelas replicadas, tente minimizar recompilações pela criação de batches cargas em conjunto. Execute todos os carregamentos em lote antes de executar as instruções select.
 
@@ -170,20 +171,20 @@ Esta consulta utiliza a [sys.pdw_replicated_table_cache_state](/sql/relational-d
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
   FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id 
-  JOIN sys.pdw_table_distribution_properties p 
-    ON p.object_id = t.object_id 
+  JOIN sys.pdw_replicated_table_cache_state c  
+    ON c.object_id = t.object_id 
+  JOIN sys.pdw_table_distribution_properties p 
+    ON p.object_id = t.object_id 
   WHERE c.[state] = 'NotReady'
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
- 
+ 
 Para acionar uma reconstrução, execute a seguinte instrução em cada tabela na saída do anterior. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
- 
+ 
 ## <a name="next-steps"></a>Passos Seguintes 
 Para criar uma tabela replicada, utilize uma das afirmações a seguir:
 

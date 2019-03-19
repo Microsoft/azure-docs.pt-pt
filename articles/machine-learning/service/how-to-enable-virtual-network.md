@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 045a8fc3723c7bae176f0b99a83965bb2bef721d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242943"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840448"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Executar com segurança inferência dentro de uma rede virtual do Azure e de experimentações
 
@@ -60,15 +60,17 @@ Para utilizar a computação do Azure Machine Learning numa rede virtual, utiliz
 
     - Um balanceador de carga
 
-   Estes recursos estão limitados pelas [quotas de recursos](https://docs.microsoft.com/azure/azure-subscription-service-limits) da subscrição.
+  Estes recursos estão limitados pelas [quotas de recursos](https://docs.microsoft.com/azure/azure-subscription-service-limits) da subscrição.
 
 ### <a id="mlcports"></a> Portas necessárias
 
 Computação do Machine Learning utiliza atualmente o serviço Azure Batch para aprovisionar VMs na rede virtual especificada. A sub-rede tem de permitir comunicação de entrada do serviço Batch. Esta comunicação é utilizada para agendar é executado em nós de computação do Machine Learning e para comunicar com o armazenamento do Azure e outros recursos. O batch adiciona NSGs ao nível das interfaces de rede (NICs) que estão anexados a VMs. Estes NSGs configuram automaticamente regras de entrada e saída para permitir o tráfego seguinte:
 
-- Tráfego TCP de entrada nas portas 29876 e 29877 a partir de endereços IP de função do serviço Batch.
+- Entrada de tráfego TCP em portas 29876 e 29877 de um __etiqueta de serviço__ dos __BatchNodeManagement__.
+
+    ![Imagem do portal do Azure que mostra uma regra de entrada usando a marca de serviço BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
  
-- Tráfego TCP de entrada na porta 22 para permitir o acesso remoto.
+- (opcional) Tráfego TCP de entrada na porta 22 para permitir o acesso remoto. Isto só é necessário se pretender ligar através de SSH no IP público.
  
 - Tráfego de saída em qualquer porta para a rede virtual.
 

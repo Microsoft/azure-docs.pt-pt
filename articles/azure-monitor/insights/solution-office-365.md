@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 003d5da137c88097d9555a9884286251af92d6f0
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311005"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996711"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -71,7 +71,7 @@ A primeira etapa é criar uma aplicação no Azure Active Directory que a soluç
 1. Clique em **Novo registo de aplicação**.
 
     ![Adicionar registo de aplicações](media/solution-office-365/add-app-registration.png)
-1. Introduza um aplicativo **Name** e **URL de início de sessão**.  O nome deve ser clara.  Uso _http://localhost_ para o URL e continue _aplicação Web / API_ para o **tipo de aplicação**
+1. Introduza um aplicativo **Name** e **URL de início de sessão**.  O nome deve ser clara.  Uso `http://localhost` para o URL e continue _aplicação Web / API_ para o **tipo de aplicação**
     
     ![Criar aplicação](media/solution-office-365/create-application.png)
 1. Clique em **criar** e validar as informações da aplicação.
@@ -91,11 +91,11 @@ A primeira etapa é criar uma aplicação no Azure Active Directory que a soluç
     ![Selecionar API](media/solution-office-365/select-api.png)
 
 1. Sob **selecionar permissões** Selecione as seguintes opções para ambos **permissões de aplicação** e **permissões delegadas**:
-    - Ler informações do estado de funcionamento do serviço da sua organização
-    - Ler dados de atividade para a sua organização
-    - Ler relatórios de atividade da organização
+   - Ler informações do estado de funcionamento do serviço da sua organização
+   - Ler dados de atividade para a sua organização
+   - Ler relatórios de atividade da organização
 
-    ![Selecionar API](media/solution-office-365/select-permissions.png)
+     ![Selecionar API](media/solution-office-365/select-permissions.png)
 
 1. Clique em **selecionar** e, em seguida **feito**.
 1. Clique em **conceder permissões** e, em seguida, clique em **Sim** quando lhe for pedido para verificação.
@@ -705,7 +705,7 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 | Consulta | Descrição |
 | --- | --- |
 |Contagem de todas as operações na sua subscrição do Office 365 |OfficeActivity &#124; resumir contagem () por operação |
-|Utilização de sites do SharePoint|OfficeActivity &#124; onde OfficeWorkload = ~ "sharepoint" &#124; resumir count () by SiteUrl | Ordenar por contagem asc|
+|Utilização de sites do SharePoint|OfficeActivity &#124; onde OfficeWorkload = ~ "sharepoint" &#124; resumir count () by SiteUrl \| ordenar por contagem asc|
 |Operações de acesso de arquivo por tipo de utilizador|pesquisa em OfficeWorkload (OfficeActivity) = ~ "azureactivedirectory" e "MyTest"|
 |Pesquise com uma palavra-chave específica|Tipo = OfficeActivity OfficeWorkload = azureactivedirectory "MyTest"|
 |Monitorizar ações externas no Exchange|OfficeActivity &#124; onde OfficeWorkload = ~ "exchange" e ExternalAccess = = true|

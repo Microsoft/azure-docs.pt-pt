@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/14/2019
 ms.author: glenga
-ms.openlocfilehash: 78011e799fb4ddaf89fb1fd24c1f2a313ef49ba5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c07a42349fbd81a46b1b7cd9bcad1978f891a6b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338112"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136366"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durável de funções de publicação para o Azure Event Grid (pré-visualização)
 
@@ -35,16 +35,16 @@ Seguem-se alguns cenários em que esta funcionalidade é útil:
 * Instale [emulador de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
 * Instale [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou utilize [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
-## <a name="create-a-custom-event-grid-topic"></a>Criar um tópico personalizado do Event Grid
+## <a name="create-a-custom-event-grid-topic"></a>Criar um tópico do Event grid de evento personalizado
 
-Crie um tópico do Event Grid para enviar eventos de funções duráveis. As instruções seguintes mostram como criar um tópico com CLI do Azure. Para obter informações sobre como fazê-lo ao utilizar o PowerShell ou o portal do Azure, consulte os artigos seguintes:
+Crie um tópico do event grid para enviar eventos de funções duráveis. As instruções seguintes mostram como criar um tópico com CLI do Azure. Para obter informações sobre como fazê-lo ao utilizar o PowerShell ou o portal do Azure, consulte os artigos seguintes:
 
 * [Inícios rápidos de EventGrid: Criar evento personalizado - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
 * [Inícios rápidos de EventGrid: Criar evento personalizado - portal do Azure](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando `az group create`. Atualmente, o Event Grid não suporta todas as regiões. Para obter informações sobre as regiões suportadas, consulte a [descrição geral do Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+Crie um grupo de recursos com o comando `az group create`. Atualmente, o Azure Event Grid não suporta todas as regiões. Para obter informações sobre as regiões suportadas, consulte a [descrição geral do Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -52,7 +52,7 @@ az group create --name eventResourceGroup --location westus2
 
 ### <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico do Event Grid fornece um ponto de final definido pelo utilizador, publica o seu evento. Substitua `<topic_name>` por um nome exclusivo para o seu tópico. O nome do tópico deve ser exclusivo, porque torna-se uma entrada DNS.
+Um tópico do event grid fornece um ponto de final definido pelo utilizador, publica o seu evento. Substitua `<topic_name>` por um nome exclusivo para o seu tópico. O nome do tópico deve ser exclusivo, porque torna-se uma entrada DNS.
 
 ```bash
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
@@ -78,25 +78,18 @@ Agora pode enviar eventos para o tópico.
 
 No seu projeto de funções duráveis, encontre o `host.json` ficheiro.
 
-Adicione `EventGridTopicEndpoint` e `EventGridKeySettingName` num `durableTask` propriedade.
+Adicione `eventGridTopicEndpoint` e `eventGridKeySettingName` num `durableTask` propriedade.
 
 ```json
 {
     "durableTask": {
-        "EventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
-        "EventGridKeySettingName": "EventGridKey"
+        "eventGridTopicEndpoint": "https://<topic_name>.westus2-1.eventgrid.azure.net/api/events",
+        "eventGridKeySettingName": "EventGridKey"
     }
 }
 ```
 
-Seguem-se as propriedades de configuração do Azure Event Grid possíveis:
-
-* **EventGridTopicEndpoint** -o ponto final do tópico do Event Grid. O *% AppSettingName %* sintaxe pode ser utilizada para resolver este valor de definições da aplicação ou variáveis de ambiente.
-* **EventGridKeySettingName** -a chave da definição de aplicação na sua função do Azure. Funções duráveis irão obter a chave do tópico do Event Grid a partir do valor.
-* **EventGridPublishRetryCount** - [opcional] falha o número de vezes para repetir se publicar o tópico do Event Grid.
-* **EventGridPublishRetryInterval** -[opcional] o Event Grid publicar o intervalo de repetição no *hh: mm:* formato. Se não for especificado, o intervalo de repetição predefinida é de 5 minutos.
-
-Depois de configurar o `host.json` de ficheiros, funções duráveis seu projeto é iniciado para enviar eventos de ciclo de vida para o tópico do Event Grid. Isso funciona ao executar a aplicação de funções e ao executar localmente.
+As propriedades de configuração do Azure Event Grid possíveis podem ser encontradas na [documentação de Host. JSON](../functions-host-json.md#durabletask). Depois de configurar o `host.json` ficheiro, a sua aplicação function app envia eventos de ciclo de vida para o tópico do event grid. Isso funciona quando executar a aplicação de função tanto localmente como no Azure. ' '
 
 Definir a definição de aplicação para a chave de tópico na Function App e `local.setting.json`. O JSON seguinte é um exemplo do `local.settings.json` para depuração local. Substitua `<topic_key>` com a chave de tópico.  
 
@@ -115,9 +108,9 @@ Certifique-se de que [emulador de armazenamento](https://docs.microsoft.com/azur
 
 ## <a name="create-functions-that-listen-for-events"></a>Crie funções que escutam eventos
 
-Crie uma aplicação de funções. É melhor para localizá-la na mesma região que o tópico do Event Grid.
+Crie uma aplicação de funções. É melhor para localizá-la na mesma região que o tópico do event grid.
 
-### <a name="create-an-event-grid-trigger-function"></a>Criar uma função de Acionador do Event Grid
+### <a name="create-an-event-grid-trigger-function"></a>Criar uma função de Acionador do event grid
 
 Crie uma função para receber os eventos de ciclo de vida. Selecione **função personalizada**.
 
@@ -145,11 +138,11 @@ public static void Run(JObject eventGridEvent, ILogger log)
 }
 ```
 
-Selecione `Add Event Grid Subscription`. Esta operação adiciona uma subscrição do Event Grid para o tópico do Event Grid que criou. Para obter mais informações, consulte [conceitos no Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
+Selecione `Add Event Grid Subscription`. Esta operação adiciona uma subscrição do event grid para o tópico do event grid que criou. Para obter mais informações, consulte [conceitos no Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
 
 ![Selecione a ligação de Acionador do Event Grid.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
-Selecione `Event Grid Topics` para **tipo de tópico**. Selecione o grupo de recursos que criou para o tópico do Event Grid. Em seguida, selecione a instância do tópico do Event Grid. Prima `Create`.
+Selecione `Event Grid Topics` para **tipo de tópico**. Selecione o grupo de recursos que criou para o tópico do event grid. Em seguida, selecione a instância do tópico do event grid. Prima `Create`.
 
 ![Crie uma subscrição do Event Grid.](./media/durable-functions-event-publishing/eventsubscription.png)
 
@@ -171,7 +164,6 @@ using Microsoft.Extensions.Logging;
 namespace LifeCycleEventSpike
 {
     public static class Sample
-    {
     {
         [FunctionName("Sample")]
         public static async Task<List<string>> RunOrchestrator(
@@ -258,19 +250,19 @@ Consulte os registos da função que criou no portal do Azure.
 
 A lista a seguir explica o esquema de eventos do ciclo de vida:
 
-* **ID**: Identificador exclusivo para o evento do Event Grid.
-* **Assunto**: Caminho para o assunto de evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` será `Running`, `Completed`, `Failed`, e `Terminated`.  
-* **Dados**: Parâmetros específicos de funções duráveis.
-  * **hubName**: [TaskHub](durable-functions-task-hubs.md) nome.
-  * **functionName**: Nome da função de orquestrador.
-  * **InstanceId**: InstanceId de funções durável.
-  * **motivo**: Dados adicionais associados com o evento de controlo. Para obter mais informações, consulte [diagnósticos nas funções durável (funções do Azure)](durable-functions-diagnostics.md)
-  * **RuntimeStatus**: Estado do tempo de execução de orquestração. Em execução, concluída, falha, foi cancelada.
-* **eventType**: "orchestratorEvent"
-* **eventTime**: Hora do evento (UTC).
-* **dataVersion**: Versão do esquema de eventos de ciclo de vida.
-* **metadataVersion**:  Versão de metadados.
-* **tópico**: Recurso de EventGrid tópico.
+* **`id`**: Identificador exclusivo para o evento de grelha de eventos.
+* **`subject`**: Caminho para o assunto de evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` será `Running`, `Completed`, `Failed`, e `Terminated`.  
+* **`data`**: Parâmetros específicos de funções duráveis.
+  * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) nome.
+  * **`functionName`**: Nome da função de orquestrador.
+  * **`instanceId`**: InstanceId de funções durável.
+  * **`reason`**: Dados adicionais associados com o evento de controlo. Para obter mais informações, consulte [diagnósticos nas funções durável (funções do Azure)](durable-functions-diagnostics.md)
+  * **`runtimeStatus`**: Estado do tempo de execução de orquestração. Em execução, concluída, falha, foi cancelada.
+* **`eventType`**: "orchestratorEvent"
+* **`eventTime`**: Hora do evento (UTC).
+* **`dataVersion`**: Versão do esquema de eventos de ciclo de vida.
+* **`metadataVersion`**:  Versão de metadados.
+* **`topic`**: Recurso de tópico do Event grid.
 
 ## <a name="how-to-test-locally"></a>Como testar localmente
 

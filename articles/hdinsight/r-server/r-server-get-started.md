@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: dce345c39918e7471531710051797c848a3c7cde
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 474048bc9f31e4630110ea099f3e0b375ad74e51
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444077"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087589"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introdução aos Serviços ML no Azure HDInsight
 
@@ -79,16 +79,16 @@ Se optar por instalar o R Studio Server Community Edition como parte do cluster 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
 * **Opção 2** -utilizar o portal do Azure.
-No portal:
+  No portal:
   1. Selecione **todos os serviços** no menu à esquerda.
   2. Sob **ANALYTICS**, selecione **clusters do HDInsight**.
   3. Selecione o nome de cluster a partir da **clusters do HDInsight** página.
   4. Partir **dashboards de serviços de ML**, selecione **R Studio server**. 
 
-    ![Configurar as definições de conta de armazenamento do HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
+     ![Configurar as definições de conta de armazenamento do HDInsight](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]  
-   > Independentemente do método utilizado, vai ter de se autenticar duas vezes da primeira vez que iniciar sessão.  No primeiro aviso de autenticação, indique o *userID* e a *palavra-passe de administrador do cluster*. No segundo aviso de autenticação, indique o *userID* e a *palavra-passe de administrador do SSH*. Logons subseqüentes necessitam apenas das credenciais SSH.
+     > [!IMPORTANT]  
+     > Independentemente do método utilizado, vai ter de se autenticar duas vezes da primeira vez que iniciar sessão.  No primeiro aviso de autenticação, indique o *userID* e a *palavra-passe de administrador do cluster*. No segundo aviso de autenticação, indique o *userID* e a *palavra-passe de administrador do SSH*. Logons subseqüentes necessitam apenas das credenciais SSH.
 
 Assim que estiver ligado, o ecrã deve assemelhar-se à captura de ecrã seguinte:
 

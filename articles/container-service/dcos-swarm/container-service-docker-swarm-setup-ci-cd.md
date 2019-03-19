@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: f28ea3dd2837a241c538057bd118409d4f5b858a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331440"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096270"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(PRETERIDO) Pipeline de CI/CD completo para implementar uma aplicação de vários contentor no Azure Container Service com o Docker Swarm com os serviços do Azure DevOps
 
@@ -204,14 +204,14 @@ O fluxo de trabalho de versão é composto por duas tarefas que adicionar.
 
     O comando é executado no mestre, utilize a CLI do Docker e a CLI do Docker-Compose para efetuar as seguintes tarefas:
 
-    - Início de sessão para o Azure container registry (utiliza três variab'les de compilação que são definidos na **variáveis** separador)
-    - Definir o **DOCKER_HOST** variável para trabalhar com o ponto final do Swarm (: 2375)
-    - Navegue para o *implementar* pasta que foi criada pela tarefa de cópia de segurança anterior e que contém o ficheiro docker-Compose. 
-    - Executar `docker-compose` comandos que extraia as novas imagens, pare os serviços, remova os serviços e criar os contentores.
+   - Início de sessão para o Azure container registry (utiliza três variab'les de compilação que são definidos na **variáveis** separador)
+   - Definir o **DOCKER_HOST** variável para trabalhar com o ponto final do Swarm (: 2375)
+   - Navegue para o *implementar* pasta que foi criada pela tarefa de cópia de segurança anterior e que contém o ficheiro docker-Compose. 
+   - Executar `docker-compose` comandos que extraia as novas imagens, pare os serviços, remova os serviços e criar os contentores.
 
-    >[!IMPORTANT]
-    > Conforme mostrado no ecrã anterior, deixe a **falhar em STDERR** caixa de verificação desmarcada. Isso é uma definição importante, porque `docker-compose` imprime várias mensagens de diagnóstico, como contentores estão a parar ou a ser eliminado, a saída de erro padrão. Se selecionar a caixa de verificação, os serviços do Azure DevOps relatórios que ocorreram erros durante o lançamento, mesmo se tudo correr bem.
-    >
+     >[!IMPORTANT]
+     > Conforme mostrado no ecrã anterior, deixe a **falhar em STDERR** caixa de verificação desmarcada. Isso é uma definição importante, porque `docker-compose` imprime várias mensagens de diagnóstico, como contentores estão a parar ou a ser eliminado, a saída de erro padrão. Se selecionar a caixa de verificação, os serviços do Azure DevOps relatórios que ocorreram erros durante o lançamento, mesmo se tudo correr bem.
+     >
 1. Guarde este novo pipeline de lançamento.
 
 

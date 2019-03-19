@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9f82ed280d18be304129bf8b7807213a75110df2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660991"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082743"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicação com o redirecionamento interno com a CLI do Azure
 
-Pode utilizar a CLI do Azure para configurar [redirecionamento de tráfego da web](application-gateway-multi-site-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar um conjunto de back-end com um conjunto de dimensionamento de máquinas virtuais. Em seguida, configurar serviços de escuta e regras com base nos domínios que é proprietário para se certificar de que o tráfego de web chega ao conjunto adequado. Este tutorial parte do princípio de que seu vários exemplos de domínios e utilizações de *www.contoso.com* e *www.contoso.org*.
+Pode utilizar a CLI do Azure para configurar [redirecionamento de tráfego da web](application-gateway-multi-site-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar um conjunto de back-end com um conjunto de dimensionamento de máquinas virtuais. Em seguida, configurar serviços de escuta e regras com base nos domínios que é proprietário para se certificar de que o tráfego de web chega ao conjunto adequado. Este tutorial parte do princípio de que seu vários exemplos de domínios e utilizações de *www\.contoso.com* e *www\.contoso.org*.
 
 Neste artigo, vai aprender a:
 
@@ -101,7 +101,7 @@ A criação do gateway de aplicação pode demorar vários minutos. Depois de cr
 
 ## <a name="add-listeners-and-rules"></a>Adicionar serviços de escuta e regras 
 
-É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os serviços de escuta são criados para os domínios de *www.contoso.com* e *www.contoso.org*.
+É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os serviços de escuta são criados para os domínios de *www\.contoso.com* e *www\.contoso.org*.
 
 Adicione os serviços de escuta de back-end que são necessários para encaminhar o tráfego, com [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Adicionar a configuração de redirecionamento
 
-Adicionar a configuração de redirecionamento que envia o tráfego a partir *www.consoto.org* para o serviço de escuta para *www.contoso.com* no gateway de aplicação com [az network application-gateway Criar configuração de redirecionamento](/cli/azure/network/application-gateway/redirect-config).
+Adicionar a configuração de redirecionamento que envia o tráfego a partir *www\.consoto.org* para o serviço de escuta para *www\.contoso.com* no gateway de aplicação utilizando o [redirecionamento de gateway de aplicação de rede de az-config criar](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -213,7 +213,7 @@ Introduza o nome de domínio na barra de endereço do seu browser. Como, por exe
 
 ![Testar o site contoso no gateway de aplicação](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Por exemplo, altere o endereço para o seu domínio, http://www.contoso.org e deverá ver que o tráfego foi redirecionado para o serviço de escuta para www.contoso.com.
+Alterar o endereço para o seu domínio, por exemplo http://www.contoso.org e deverá ver que o tráfego foi redirecionado para o serviço de escuta para www\.contoso.com.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

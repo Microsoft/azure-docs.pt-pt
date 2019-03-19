@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193591"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850722"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Levar as instruções de gestão para a tabela do Azure
 
@@ -38,7 +38,7 @@ Este artigo descreve como configurar tabelas do Azure para armazenar oportunidad
     
     ![Chave de armazenamento do Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
-Pode usar [Explorador de armazenamento do Azure](http://azurestorageexplorer.codeplex.com/) ou qualquer outra ferramenta para ver os dados na sua tabela de armazenamento. Também pode exportar os dados na tabela do Azure.
+Pode usar [Explorador de armazenamento do Azure](https://azurestorageexplorer.codeplex.com/) ou qualquer outra ferramenta para ver os dados na sua tabela de armazenamento. Também pode exportar os dados na tabela do Azure.
 dados.
 
 ## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(Opcional)**  Utilize o Microsoft Flow com uma tabela do Azure

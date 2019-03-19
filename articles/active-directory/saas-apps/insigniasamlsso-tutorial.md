@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cb0822380fd375c111f8acb8b28132727a7c048
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8ee74c5caed04d2626fea27d3419d0b0d685d675
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188312"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutorial: Integração do Active Directory do Azure com Insignia SAML SSO
 
@@ -112,6 +112,7 @@ Nesta secção, pode ativar o Azure AD início de sessão único no portal do Az
     ![Insignia SAML SSO domínio e URLs únicas início de sessão em informações](./media/insigniasamlsso-tutorial/tutorial_insigniasamlsso_url.png)
 
     a. Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:
+    
     | |
     |--|
     | `https://<customername>.insigniails.com/ils` |

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 05af196d115376d744df1976c6a3d9fe9cab74e0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958905"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111009"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na base de dados do Azure para MySQL
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para MySQL fornece várias métricas que lhe dar informações sobre o comportamento do seu servidor.
@@ -23,7 +23,7 @@ Todas as métricas do Azure têm uma frequência de um minuto e cada métrica of
 Estas métricas estão disponíveis para a base de dados do Azure para MySQL:
 
 |Métrica|Nome a apresentar de métrica|Unidade|Descrição|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|Percentagem de CPU|Percentagem|A percentagem de CPU em utilização.|
 |memory_percent|Percentagem de memória|Percentagem|A percentagem de memória em utilização.|
 |io_consumption_percent|Percentagem de e/s|Percentagem|A percentagem de e/s em utilização.|
@@ -36,8 +36,8 @@ Estas métricas estão disponíveis para a base de dados do Azure para MySQL:
 |active_connections|Ligações ativas|Contagem|O número de ligações ativas para o servidor.|
 |connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas para o servidor.|
 |seconds_behind_master|Atraso de replicação em segundos|Contagem|O número de segundos que o servidor de réplica é lagging contra o servidor mestre.|
-|network_bytes_egress|Saída de Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
-|network_bytes_ingress|Entrada de Rede|Bytes|Rede no através de ligações de Active Directory.|
+|network_bytes_egress|Saída da Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
+|network_bytes_ingress|Entrada na Rede|Bytes|Rede no através de ligações de Active Directory.|
 |backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|A quantidade de armazenamento de cópia de segurança utilizado.|
 
 ## <a name="server-logs"></a>Registos do servidor

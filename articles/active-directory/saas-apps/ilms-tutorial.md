@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9b4b8fd4dfc53bc71975d85cecb32586b74349d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4ef88a2860603a9450db27b744413ac0a886e81e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773831"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863275"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>Tutorial: Integração do Active Directory do Azure com iLMS
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD início de sessão único com iLMS, execute os seguin
 
 6. Para ativar o aprovisionamento de JIT, o seu aplicativo iLMS espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir a caixa de diálogo de atributos do utilizador.
 
-    ![imagem](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
     > [!NOTE]
     > Tem de ativar **criar conta de utilizador de Un-recognized** no iLMS para mapear esses atributos. Siga as instruções [aqui](http://support.inspiredelearning.com/customer/portal/articles/2204526) para ter uma idéia sobre a configuração de atributos.
@@ -132,9 +132,9 @@ Para configurar o Azure AD início de sessão único com iLMS, execute os seguin
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
-    ![imagem](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![imagem](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
 
@@ -222,7 +222,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -288,7 +288,7 @@ Se precisar de criar manualmente um utilizador, em seguida, siga os passos abaix
     > [!NOTE]
     > Pode enviar email de Registro para o utilizador selecionando **enviar email de Registro** caixa de verificação.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

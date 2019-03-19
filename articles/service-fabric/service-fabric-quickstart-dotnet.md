@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099074"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início rápido: Implementar uma aplicação de reliable services .NET para o Service Fabric
 
@@ -47,9 +47,10 @@ Para concluir este guia de início rápido:
 2. [Instale o Git](https://git-scm.com/)
 3. [Instale o SDK do Microsoft Azure Service Fabric](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Execute o comando seguinte para permitir que o Visual Studio implemente no cluster do Service Fabric local:
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-    ```
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+   ```
     
 ## <a name="build-a-cluster"></a>Compilar um cluster
 
@@ -63,14 +64,14 @@ Depois de instalar o tempo de execução, SDKs, ferramentas do Visual Studio, Do
 1. Abra uma nova janela do PowerShell elevada como administrador.
 2. Execute o seguinte comando do PowerShell para criar um cluster de desenvolvimento:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+   ```
 3. Execute o seguinte comando para iniciar a ferramenta de Gestor de local cluster:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+   ```
 
 >[!NOTE]
 > O exemplo de aplicação neste guia de introdução utiliza funcionalidades que não estão disponíveis no Windows 7.
@@ -131,23 +132,23 @@ Para ver o que acontece no código, conclua os passos seguintes:
 2. Abra o ficheiro **/VotingData/Controllers/VoteDataController.cs** e defina um ponto de interrupção no método **Put** desta API Web (linha 54).
 
 3. Regresse ao browser e clique numa opção de votação ou adicione uma opção nova. Atingiu o primeiro ponto de interrupção no controlador de API do front-end da Web.
-    * É aqui que o JavaScript no browser envia um pedido para o controlador de API Web no serviço do front-end.
+   * É aqui que o JavaScript no browser envia um pedido para o controlador de API Web no serviço do front-end.
 
-    ![Adicionar Serviço de Front-End de Votação](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+     ![Adicionar Serviço de Front-End de Votação](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    * Primeiro, construa o URL para o ReverseProxy para o nosso serviço de back-end **(1)**.
-    * Em seguida, envie o Pedido HTTP PUT para ReverseProxy **(2)**.
-    * Por último, devolva a resposta do serviço de back-end para o cliente **(3)**.
+   * Primeiro, construa o URL para o ReverseProxy para o nosso serviço de back-end **(1)**.
+   * Em seguida, envie o Pedido HTTP PUT para ReverseProxy **(2)**.
+   * Por último, devolva a resposta do serviço de back-end para o cliente **(3)**.
 
 4. Prima **F5** para continuar
-    - Se lhe for pedido pelo browser, conceda permissões para o Modo de Depuração de leitura e execução ao grupo ServiceFabricAllowedUsers.
-    - Está agora no ponto de interrupção do serviço de back-end.
+   - Se lhe for pedido pelo browser, conceda permissões para o Modo de Depuração de leitura e execução ao grupo ServiceFabricAllowedUsers.
+   - Está agora no ponto de interrupção do serviço de back-end.
 
-    ![Adicionar Serviço de Back-End de Votação](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+     ![Adicionar Serviço de Back-End de Votação](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    * Na primeira linha no método **(1)**, `StateManager` obtém ou adiciona um dicionário fiável chamado `counts`.
-    * Todas as interações com os valores num dicionário fiável requer uma transação; a utilização da declaração **(2)** cria essa transação.
-    * Na transação, atualize o valor da chave relevante para a opção de votação e consolide a operação **(3)**. Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
+   - Na primeira linha no método **(1)**, `StateManager` obtém ou adiciona um dicionário fiável chamado `counts`.
+   - Todas as interações com os valores num dicionário fiável requer uma transação; a utilização da declaração **(2)** cria essa transação.
+   - Na transação, atualize o valor da chave relevante para a opção de votação e consolide a operação **(3)**. Quando é devolvido o método de consolidação, os dados são atualizados no dicionário e replicados para outros nós do cluster. Os dados estão agora armazenados em segurança no cluster e o serviço de back-end pode fazer a ativação pós-falha para outros nós, mantendo os dados disponíveis.
 5. Prima **F5** para continuar
 
 Para parar a sessão de depuração, prima **Shift + F5**.

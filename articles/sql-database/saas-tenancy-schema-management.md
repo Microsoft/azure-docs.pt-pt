@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 39c4884fcca2b041603305d73526e3310ab99a21
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441887"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081224"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerir esquema de uma aplicação SaaS com o padrão de base de dados por inquilino com a base de dados do Azure SQL
  
@@ -28,7 +28,7 @@ Este tutorial explora dois cenários – implementar atualizações de dados de 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-
+> 
 > * Criar um agente de tarefa
 > * Fazer com que as tarefas de T-SQL ser executado em todas as bases de dados do inquilino
 > * Atualizar os dados de referência de todas as bases de dados de inquilinos
@@ -122,7 +122,7 @@ Observe os elementos seguintes a _onlinereindex. SQL_ script:
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-
+> 
 > * Criar um agente de tarefa para serem executadas tarefas T-SQL várias bases de dados
 > * Atualizar os dados de referência de todas as bases de dados de inquilinos
 > * Criar um índice numa tabela em todas as bases de dados de inquilinos

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 197d7529a52b400cd078ead79bbb6db5f5849ee6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: cdffc339bee1f5456e4eeb619e566b1f9c34b143
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821375"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093182"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -62,12 +62,12 @@ Para criar uma conta de automatização do Azure no portal do Azure, conclua os 
 
 1. No ecrã seguinte, selecione **criar**.
 
-  ![Adicionar conta de automatização](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
+   ![Adicionar conta de automatização](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
-  > [!NOTE]
-  > Se vir a mensagem seguinte no **adicionar conta de automatização** painel, a sua conta não é um membro da função de administradores da subscrição e um coadministrador da subscrição.
-  >
-  > ![Adicionar aviso de conta de automatização](media/automation-create-standalone-account/create-account-without-perms.png)
+   > [!NOTE]
+   > Se vir a mensagem seguinte no **adicionar conta de automatização** painel, a sua conta não é um membro da função de administradores da subscrição e um coadministrador da subscrição.
+   >
+   > ![Adicionar aviso de conta de automatização](media/automation-create-standalone-account/create-account-without-perms.png)
 
 1. Na **adicionar conta de automatização** painel, na **nome** , introduza um nome para a sua nova conta de automatização. Este nome não pode ser alterado depois de este será escolhido. *Nomes de conta de automatização são exclusivos por grupo de recursos e região. Os nomes de contas de automatização que foram eliminados poderão não estar imediatamente disponíveis.*
 1. Se tiver mais de uma assinatura, além da **subscrição** caixa, especifique a subscrição que pretende utilizar para a nova conta.
@@ -75,13 +75,13 @@ Para criar uma conta de automatização do Azure no portal do Azure, conclua os 
 1. Para **localização**, selecione uma localização do datacenter do Azure.
 1. Para o **criar conta Run do Azure** opção, certifique-se de que **Sim** está selecionado e, em seguida, selecione **criar**.
 
-  > [!NOTE]
-  > Se optar por não criar a conta Run As, selecionando **não** para **criar do Azure conta Run As**, é apresentada uma mensagem no **adicionar conta de automatização** painel. Apesar da conta é criada no portal do Azure, a conta não tem uma identidade de autenticação correspondente na sua subscrição do modelo de implementação clássica ou no serviço de diretório de subscrição do Azure Resource Manager. Por conseguinte, a conta de automatização não tem acesso a recursos na sua subscrição. Isto impede que todos os runbooks que referenciam esta conta de conseguir autenticar e executar tarefas relativamente aos recursos nesses modelos de implementação.
-  >
-  > ![Adicionar aviso de conta de automatização](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
-  >
-  > Se o principal de serviço não for criado, a função Contribuidor não é atribuída.
-  >
+   > [!NOTE]
+   > Se optar por não criar a conta Run As, selecionando **não** para **criar do Azure conta Run As**, é apresentada uma mensagem no **adicionar conta de automatização** painel. Apesar da conta é criada no portal do Azure, a conta não tem uma identidade de autenticação correspondente na sua subscrição do modelo de implementação clássica ou no serviço de diretório de subscrição do Azure Resource Manager. Por conseguinte, a conta de automatização não tem acesso a recursos na sua subscrição. Isto impede que todos os runbooks que referenciam esta conta de conseguir autenticar e executar tarefas relativamente aos recursos nesses modelos de implementação.
+   >
+   > ![Adicionar aviso de conta de automatização](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   >
+   > Se o principal de serviço não for criado, a função Contribuidor não é atribuída.
+   >
 
 1. Para acompanhar o progresso da criação de conta de automatização, no menu, selecione **notificações**.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: acbd41b7203e458a5ed60382354c862748863053
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328032"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005809"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Rede de consórcio Hyperledger recursos de infraestrutura
 
@@ -78,11 +78,11 @@ Na **Noções básicas**, especifique os valores de parâmetros padrão para qua
 
 | Nome do Parâmetro | Descrição | Valores permitidos |
 |---|---|---|
-**Prefixo de recursos**| Prefixo do nome para os recursos aprovisionados como parte da implementação |6 carateres ou menos |
-**Nome de Utilizador**| O nome de utilizador do administrador para cada uma das máquinas virtuais implementadas para este membro |1 - 64 carateres |
-**Tipo de autenticação**| O método para autenticar para a máquina virtual |Chave pública de palavra-passe ou SSH|
-**Palavra-passe (tipo de autenticação = a palavra-passe)**|A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas. A palavra-passe tem de conter três dos seguintes tipos de carateres: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial<br /><br />Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento|12 - 72 carateres|
-**Chave SSH (tipo de autenticação = a chave pública SSH)**|A chave secure shell utilizada para início de sessão remoto ||
+**Prefixo de recursos** | Prefixo do nome para os recursos aprovisionados como parte da implementação |6 carateres ou menos |
+**Nome de Utilizador** | O nome de utilizador do administrador para cada uma das máquinas virtuais implementadas para este membro |1 - 64 carateres |
+**Tipo de autenticação** | O método para autenticar para a máquina virtual |Chave pública de palavra-passe ou SSH|
+**Palavra-passe (tipo de autenticação = a palavra-passe)** |A palavra-passe da conta de administrador para cada uma das máquinas virtuais implementadas. A palavra-passe tem de conter três dos seguintes tipos de carateres: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial<br /><br />Embora todas as VMs tenham inicialmente a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento|12 - 72 carateres|
+**Chave SSH (tipo de autenticação = a chave pública SSH)** |A chave secure shell utilizada para início de sessão remoto ||
 **Subscrição** |A subscrição para a implementação ||
 **Grupo de recursos** |O grupo de recursos ao qual pretende implementar a rede de consórcio ||
 **Localização** |A região do Azure ao qual pretende implementar o primeiro membro no ||
@@ -97,10 +97,10 @@ Na **as definições de rede**, especificar as entradas para criar ou associar u
 
 | Nome do Parâmetro | Descrição | Valores permitidos |
 |---|---|---|
-**Configuração da rede**|Pode optar por criar uma nova rede ou ingresse num existente. Se escolher *associar existente*, tem de fornecer valores adicionais. |Nova rede <br/> Associar existente |
-**Palavra-passe de AC HLF**|Uma palavra-passe utilizada para os certificados gerados pelas autoridades de certificação que são criadas como parte da implementação. A palavra-passe tem de conter três dos seguintes tipos de carateres: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial.<br /><br />Embora todas as máquinas virtuais tenha, inicialmente, a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|1 - 25 caracteres |
+**Configuração da rede** |Pode optar por criar uma nova rede ou ingresse num existente. Se escolher *associar existente*, tem de fornecer valores adicionais. |Nova rede <br/> Associar existente |
+**Palavra-passe de AC HLF** |Uma palavra-passe utilizada para os certificados gerados pelas autoridades de certificação que são criadas como parte da implementação. A palavra-passe tem de conter três dos seguintes tipos de carateres: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial.<br /><br />Embora todas as máquinas virtuais tenha, inicialmente, a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|1 - 25 caracteres |
 **Configuração da organização** |Pode personalizar o nome da sua organização e do certificado ou têm valores padrão a ser utilizado.|Predefinição <br/> Avançado |
-**Definições de rede VPN**| Aprovisionar um gateway de túnel VPN para acessar as VMs | Sim <br/> Não |
+**Definições de rede VPN** | Aprovisionar um gateway de túnel VPN para acessar as VMs | Sim <br/> Não |
 
 Selecione **OK**.
 
@@ -112,8 +112,8 @@ Na **configuração de recursos de infraestrutura**, configure o tamanho de rede
 
 | Nome do Parâmetro | Descrição | Valores permitidos |
 |---|---|---|
-**Tipo de dimensionamento**|O tipo de implementação de uma única máquina virtual com vários contentores ou várias máquinas virtuais num modelo de escalamento horizontal.|VM única ou várias VM |
-**Tipo de disco da VM**|O tipo de armazenamento de segurança cada um de nós implementados. <br/> Para saber mais sobre os tipos de disco disponível, visite [selecionar um tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
+**Tipo de dimensionamento** |O tipo de implementação de uma única máquina virtual com vários contentores ou várias máquinas virtuais num modelo de escalamento horizontal.|VM única ou várias VM |
+**Tipo de disco da VM** |O tipo de armazenamento de segurança cada um de nós implementados. <br/> Para saber mais sobre os tipos de disco disponível, visite [selecionar um tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Implementação de várias VMS (configurações adicionais)
 
@@ -123,8 +123,8 @@ Na **configuração de recursos de infraestrutura**, configure o tamanho de rede
 |---|---|---|
 **Número de nós de orderer** |O número de nós que solicite (organizar) transações num bloco. <br />Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1 a 4 |
 **Tamanho de máquina virtual do nó orderer** |O tamanho de máquina virtual utilizado para nós orderer na rede|Standard Bs,<br />Standard Ds,<br />Standard FS |
-**Número de nós de ponto a ponto**| Nós que pertencem os membros de consórcio que executar transações e mantêm o estado e uma cópia do razão.<br />Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1 a 4 |
-**Persistência de estado do nó** |O mecanismo de persistência usado por nós ponto a ponto. Pode configurar esse mecanismo por nó de mesmo nível. Ver detalhes abaixo para vários nós de ponto a ponto.|CouchDB </br>LevelDB |
+**Número de nós de ponto a ponto** | Nós que pertencem os membros de consórcio que executar transações e mantêm o estado e uma cópia do razão.<br />Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|1 a 4 |
+**Persistência de estado do nó** |O mecanismo de persistência usado por nós ponto a ponto. Pode configurar esse mecanismo por nó de mesmo nível. Ver detalhes abaixo para vários nós de ponto a ponto.|CouchDB <br />LevelDB |
 **Tamanho de máquina virtual do nó de mesmo nível** |O tamanho de máquina virtual utilizado para todos os nós na rede|Standard Bs,<br />Standard Ds,<br />Standard FS |
 
 ### <a name="multiple-peer-node-configuration"></a>Configuração do nó de mesmo nível vários

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: efd450edb87316e75fc240cac80eda93151a22b3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765089"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084315"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Utilizar dados de referência de uma base de dados SQL para uma tarefa do Azure Stream Analytics (pré-visualização)
 
@@ -173,9 +173,9 @@ Ao utilizar a consulta de delta [tabelas temporais na base de dados do Azure SQL
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```
  
-  Tenha em atenção que o tempo de execução do Stream Analytics pode executar periodicamente a consulta do instantâneo para além da consulta delta para armazenar os pontos de verificação.
+   Tenha em atenção que o tempo de execução do Stream Analytics pode executar periodicamente a consulta do instantâneo para além da consulta delta para armazenar os pontos de verificação.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>FAQs
 
 **Irá implicar custos adicionais ao utilizar a entrada de dados de referência do SQL no Azure Stream Analytics?**
 

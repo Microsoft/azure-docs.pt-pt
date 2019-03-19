@@ -14,12 +14,12 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb675778d899d6f4cec22de8a1c81fdae76ba17e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 804000b781ca1fc8d9f8834e3a8c0f0a78c52c11
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879769"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878487"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementar o Azure AD Privileged Identity Management (PIM)
 
@@ -177,15 +177,15 @@ Escolher quais funções para proteger com o PIM podem ser difícil e serão dif
 
 É importante priorizar a proteger as funções do Azure AD que têm o maior número de permissões. As funções do Azure AD de 10 principais geridas pelo PIM com base nos padrões de utilização entre todos os clientes do PIM, são:
 
-1. Administrador Global
-1. Administrador de Segurança
-1. Administrador de Conta de Utilizador
+1. Administrador global
+1. Administrador de segurança
+1. Administrador de utilizadores
 1. Administrador do Exchange
 1. Administrador do SharePoint
-1. Administrador de Serviços do Intune
-1. Leitor de Segurança
-1. Administrador de Serviços
-1. Administrador de Faturação
+1. Administrador do Intune
+1. Leitor de segurança
+1. Administrador de serviço
+1. Administrador de faturação
 1. Administrador do Skype para Empresas
 
 > [!TIP]
@@ -259,13 +259,13 @@ A tabela seguinte descreve cada uma das definições.
 | Definição | Descrição |
 | --- | --- |
 | Função | Nome da função que está a definir as definições para. |
-| Requerer MFA | Se o utilizador elegível tem de executar a MFA antes de ativar a função.<br/><br/>:heavy_check_mark: **A Microsoft recomenda** impor o MFA para todas as funções de administrador, especialmente se as funções têm utilizadores convidados. |
+| Requerer MFA | Se o utilizador elegível tem de executar a MFA antes de ativar a função.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** impor o MFA para todas as funções de administrador, especialmente se as funções têm utilizadores convidados. |
 | Notificação | Se definido como true, o Administrador Global, administrador com função privilegiada e o administrador de segurança da organização irão receber uma notificação por e-mail quando um utilizador elegível ativa a função.<br/><br/>**Nota:** Algumas organizações não tem um endereço de e-mail associado para suas contas de administrador, para receber estas notificações de e-mail, deve definir um endereço de e-mail alternativo, para que os administradores irão receber estes e-mails. |
-| Pedido de incidente | Se o utilizador elegível precisar gravar um número de pedido de incidente ao ativar a respetiva função. Esta definição ajuda uma organização, identificar cada ativação com um número de incidente interno para atenuar ativações indesejadas.<br/><br/>:heavy_check_mark: **A Microsoft recomenda** tirar partido de números de incidentes do pedido de suporte para associar o PIM com o seu sistema interno. Isso é particularmente útil para os aprovadores que precisam de contexto para a ativação. |
-| Exigir aprovação | Se o utilizador elegível tem de obter aprovação para ativar a função.<br/><br/>:heavy_check_mark: **A Microsoft recomenda** configurar a aprovação para funções com mais permissão. Com base nos padrões de utilização de todos os clientes do PIM, o Administrador Global, administrador de utilizadores, administrador do Exchange, administrador de segurança e palavra-passe de administrador são as funções mais comuns com a configuração de aprovação. |
-| Aprovador | Se é necessária para ativar a função elegível, listar as pessoas que devem aprovar o pedido de aprovação. Por predefinição, o PIM define o aprovador para ser todos os utilizadores que são um administrador com função privilegiada, quer sejam permanentes ou elegíveis.<br/><br/>**Nota:** Se um utilizador é elegível para uma função do Azure AD e um aprovador da função, não poderão aprovar propriamente ditas.<br/><br/>:heavy_check_mark: **A Microsoft recomenda** que escolha os aprovadores ser aqueles que são mais bem informadas sobre a função específica e seus usuários frequentes, em vez de um Administrador Global. |
+| Pedido de incidente | Se o utilizador elegível precisar gravar um número de pedido de incidente ao ativar a respetiva função. Esta definição ajuda uma organização, identificar cada ativação com um número de incidente interno para atenuar ativações indesejadas.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** tirar partido de números de incidentes do pedido de suporte para associar o PIM com o seu sistema interno. Isso é particularmente útil para os aprovadores que precisam de contexto para a ativação. |
+| Exigir aprovação | Se o utilizador elegível tem de obter aprovação para ativar a função.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** configurar a aprovação para funções com mais permissão. Com base nos padrões de utilização de todos os clientes do PIM, o Administrador Global, administrador de utilizadores, administrador do Exchange, administrador de segurança e palavra-passe de administrador são as funções mais comuns com a configuração de aprovação. |
+| Aprovador | Se é necessária para ativar a função elegível, listar as pessoas que devem aprovar o pedido de aprovação. Por predefinição, o PIM define o aprovador para ser todos os utilizadores que são um administrador com função privilegiada, quer sejam permanentes ou elegíveis.<br/><br/>**Nota:** Se um utilizador é elegível para uma função do Azure AD e um aprovador da função, não poderão aprovar propriamente ditas.<br/><br/> :heavy_check_mark: **A Microsoft recomenda** que escolha os aprovadores ser aqueles que são mais bem informadas sobre a função específica e seus usuários frequentes, em vez de um Administrador Global. |
 | Duração da ativação | O período de tempo que um utilizador será ativado na função antes que ele irá expirar. |
-| Administrador permanente | Lista de utilizadores que será um administrador permanente para a função (nunca terá de ativar).<br/><br/>:heavy_check_mark: **A Microsoft recomenda** tem zero administrador permanente para todas as funções, exceto para os administradores globais. Leia mais sobre isso no que deve ser feita elegível e que deve ser ativa permanentemente secção deste plano. |
+| Administrador permanente | Lista de utilizadores que será um administrador permanente para a função (nunca terá de ativar).<br/><br/> :heavy_check_mark: **A Microsoft recomenda** tem zero administrador permanente para todas as funções, exceto para os administradores globais. Leia mais sobre isso no que deve ser feita elegível e que deve ser ativa permanentemente secção deste plano. |
 | Administração do Active Directory | Para recursos do Azure, o administrador do Active Directory é a lista de utilizadores que nunca terá de ativar para utilizar a função. Isso não é referido como administrador permanente, como em funções do Azure AD porque pode definir um prazo de expiração para quando o utilizador vai perder esta função. |
 | Expiração do Active Directory | Uma atribuição de função ativa para funções de recursos do Azure expirar após este período de tempo. Pode escolher entre 15 dias, 1 mês, 3 meses, 6 meses, 1 ano ou ativa permanentemente. |
 | Expiração elegível | Uma atribuição de função elegível para funções de recursos do Azure expirar após este período de tempo. Pode escolher entre 15 dias, 1 mês, 3 meses, 6 meses, 1 ano ou permanentemente elegível. |

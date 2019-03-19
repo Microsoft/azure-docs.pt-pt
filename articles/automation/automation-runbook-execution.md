@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84cf7d485295ae1a102957ee1f94ab3e9b2ea954
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b6c61b4116983f36cef0632f7bbec4d36d203d0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548256"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842984"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -114,6 +114,33 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 }
 ```
 
+### <a name="working-with-multiple-subscriptions"></a>Trabalhar com várias subscrições
+
+Quando criar runbooks que lidam com várias subscrições, o runbook tem de utilizar o [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) cmdlet para garantir que seu contexto de autenticação não foi obtido a partir de outro runbook que poderá estar em execução na mesma área de segurança. Em seguida, tem de utilizar o `-AzureRmContext` parâmetro no seu `AzureRM` cmdlets e passá-lo seu contexto adequado.
+
+```powershell
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
+$Conn = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal `
+-Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID `
+-CertificateThumbprint $Conn.CertificateThumbprint
+
+$context = Get-AzureRmContext
+
+$ChildRunbookName = 'ChildRunbookDemo'
+$AutomationAccountName = 'myAutomationAccount'
+$ResourceGroupName = 'myResourceGroup'
+
+Start-AzureRmAutomationRunbook `
+    -ResourceGroupName $ResourceGroupName `
+    -AutomationAccountName $AutomationAccountName `
+    -Name $ChildRunbookName `
+    -DefaultProfile $context
+```
+
 ### <a name="using-executables-or-calling-processes"></a>Usando executáveis ou a chamada de processos
 
 Runbooks foi executado no Azure áreas de segurança não suportam processos de chamada (por exemplo, um .exe ou subprocess.call). Isto acontece porque as áreas de segurança do Azure são partilhadas processos foi executada em contentores, que podem não ter acesso a todas as APIs subjacentes. Para cenários em que requerem o software de terceiros 3º ou chamada de processos de sub, recomenda-se executar o runbook num [Runbook Worker híbrido](automation-hybrid-runbook-worker.md).
@@ -128,12 +155,12 @@ A tabela seguinte descreve os diferentes estados possíveis das tarefas. PowerSh
 | Com Falhas |Para [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook não conseguiu compilar. Para [runbooks de Script do PowerShell](automation-runbook-types.md), não foi possível iniciar o runbook ou a tarefa ter uma exceção. |
 | Falha ao aguardar que recursos |A tarefa falhou porque atingiu o [justa](#fair-share) limitar três vezes e iniciado a partir do ponto de verificação mesmo ou desde o início do runbook cada vez. |
 | Em Fila |A tarefa está a aguardar a disponibilização de recursos num trabalho de Automatização para que possa ser iniciada. |
-| A Iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciar. |
+| A iniciar |A tarefa foi atribuída a uma função de trabalho e o sistema está a iniciar. |
 | A retomar |O sistema está a retomar a tarefa depois de ter sido suspenso. |
-| Em Execução |A tarefa está a ser executada. |
+| A executar |A tarefa está a ser executada. |
 | Em execução, à espera de recursos |A tarefa foi descarregada porque atingiu o [justa](#fair-share) limite. Ele retoma em breve do último ponto de verificação. |
 | Parada |A tarefa foi parada pelo utilizador antes de ser concluída. |
-| A Parar |O sistema está a parar a tarefa. |
+| A parar |O sistema está a parar a tarefa. |
 | Suspenso |A tarefa foi suspensa pelo utilizador, pelo sistema ou por um comando no runbook. Se um runbook não tiver um ponto de verificação, ele começa desde o início do runbook. Se tiver um ponto de verificação, pode começar novamente e retomar a partir do último ponto de verificação. O runbook está suspenso apenas pelo sistema quando ocorre uma exceção. Por predefinição, ErrorActionPreference está definido como **continuar**, que significa que a tarefa em execução num erro. Se esta variável de preferência estiver definida como **parar**, em seguida, a tarefa suspende num erro. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 | A suspender |O sistema está a tentar suspender a tarefa a pedido do utilizador. O runbook tem de atingir o ponto de verificação seguinte antes de poder ser suspenso. Se já passado o último ponto de verificação, em seguida, ele é concluída antes de poder ser suspenso. Aplica-se ao [runbooks de gráfico e fluxo de trabalho do PowerShell](automation-runbook-types.md) apenas. |
 

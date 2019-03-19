@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: fa433f55839db66bcf8245fe058ac56702af3d6e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888561"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125308"
 ---
 #### <a name="to-create-a-volume"></a>Para criar um volume
 1. A partir da lista tabular de dispositivos no painel **Dispositivos**, selecione o seu dispositivo. Clique em **+ Adicionar volume**.
@@ -22,7 +22,7 @@ ms.locfileid: "55888561"
 
    2. Na lista pendente, selecione o contentor de volumes onde precisa de adicionar um volume. 
 
-   3.  Escreva um **Nome** para o volume. Não pode mudar o nome de um volume depois de o mesmo ter sido criado.
+   3. Escreva um **Nome** para o volume. Não pode mudar o nome de um volume depois de o mesmo ter sido criado.
 
    4. Na lista pendente, selecione o **Tipo** do volume. Para cargas de trabalho que necessitem de garantias locais, latências baixas e desempenho superior, selecione um volume **Afixado localmente**. Para todos os outros dados, selecione um volume **Em camadas**. Se estiver a utilizar este volume para os dados de arquivo, marque **Utilizar este volume para dados de arquivo acedidos com menos frequência**.
       
@@ -36,19 +36,19 @@ ms.locfileid: "55888561"
       
        Se aprovisionar um volume localmente afixado de 8,5 TB (tamanho máximo admissível) no dispositivo 8100, terá esgotado todo o espaço local disponível no dispositivo. Não pode criar nenhum volume escalonado a partir desse ponto, uma vez que não há espaço local no dispositivo para alojar o conjunto de trabalho do volume escalonado. Os volumes em camadas existentes também afetam o espaço disponível. Por exemplo, se tiver um dispositivo 8100 que já tem volumes em camadas de, aproximadamente, 106 TB, está disponível apenas um espaço de 4 TB para volumes afixados localmente.
 
-    6. No campo **Anfitriões ligados**, clique na seta. 
+      1. No campo **Anfitriões ligados**, clique na seta. 
 
-        ![Anfitriões ligados](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Anfitriões ligados](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
 
-    7. No painel **Anfitriões ligados**, escolha um ACR existente ou adicione um novo ACR efetuando os seguintes passos:
+      1. No painel **Anfitriões ligados**, escolha um ACR existente ou adicione um novo ACR efetuando os seguintes passos:
 
-       1. Forneça um **Nome** para o ACR.
-       2. Em **Nome do Iniciador iSCSI**, forneça o Nome Qualificado (IQN) do iSCSI do seu anfitrião do Windows. Se não tiver o IQN, veja [Get the IQN of a Windows Server host (Obter o IQN de um anfitrião do Windows Server)](#get-the-iqn-of-a-windows-server-host).
+         1. Forneça um **Nome** para o ACR.
+         2. Em **Nome do Iniciador iSCSI**, forneça o Nome Qualificado (IQN) do iSCSI do seu anfitrião do Windows. Se não tiver o IQN, veja [Get the IQN of a Windows Server host (Obter o IQN de um anfitrião do Windows Server)](#get-the-iqn-of-a-windows-server-host).
 
-    9. Clique em **Criar**. É criado um volume com as definições especificadas.
+      1. Clique em **Criar**. É criado um volume com as definições especificadas.
 
-        ![Clique em Criar](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Clique em Criar](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 
-        > [!NOTE]
-        > Tenha em atenção que o volume que criou aqui não está protegido. Terá de criar e associar políticas de cópia de segurança a este volume para efetuar cópias de segurança agendadas. 
+         > [!NOTE]
+         > Tenha em atenção que o volume que criou aqui não está protegido. Terá de criar e associar políticas de cópia de segurança a este volume para efetuar cópias de segurança agendadas. 
 

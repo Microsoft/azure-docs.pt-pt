@@ -3,20 +3,20 @@ title: 'Tutorial: Utilizar o serviço de migração de base de dados do Azure pa
 description: Aprenda a migrar do MongoDB local para a API do Azure Cosmos DB para o MongoDB online ao utilizar o serviço de migração de base de dados do Azure.
 services: dms
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 8bcd51a771b9f0389bb44f916e3ef900cc6aad71
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008643"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Tutorial: Migrar o MongoDB para API do Azure Cosmos DB para o MongoDB online com o DMS (pré-visualização)
 Pode utilizar o serviço de migração de base de dados do Azure para efetuar uma migração de online (período de indisponibilidade mínimo) de bases de dados a partir de um local ou na cloud a instância do MongoDB à API do Azure Cosmos DB para o MongoDB.
@@ -126,20 +126,20 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 1. Sobre o **detalhes de origem** ecrã, especifique os detalhes de ligação para o servidor do MongoDB de origem.
 
     Existem três modos para ligar a uma origem:
-       * **Modo padrão**, que aceita um nome de domínio completamente qualificado ou um endereço IP, número de porta e credenciais de ligação.
-       * **Modo de cadeia de ligação**, que aceita uma cadeia de ligação do MongoDB, conforme descrito no artigo [formato de URI de cadeia de ligação](https://docs.mongodb.com/manual/reference/connection-string/).
-       * **Dados do armazenamento do Azure**, que aceita um URL de SAS do contentor de Blobs. Selecione **Blob contém despejos BSON** se o contentor de BLOBs tem despejos BSON produzidos pelo MongoDB [ferramenta bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/)e desmarcá-la se o contentor contém ficheiros JSON.
+   * **Modo padrão**, que aceita um nome de domínio completamente qualificado ou um endereço IP, número de porta e credenciais de ligação.
+   * **Modo de cadeia de ligação**, que aceita uma cadeia de ligação do MongoDB, conforme descrito no artigo [formato de URI de cadeia de ligação](https://docs.mongodb.com/manual/reference/connection-string/).
+   * **Dados do armazenamento do Azure**, que aceita um URL de SAS do contentor de Blobs. Selecione **Blob contém despejos BSON** se o contentor de BLOBs tem despejos BSON produzidos pelo MongoDB [ferramenta bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/)e desmarcá-la se o contentor contém ficheiros JSON.
 
-      Se selecionar esta opção, certifique-se de que a cadeia de ligação de conta de armazenamento é apresentado no formato:
+     Se selecionar esta opção, certifique-se de que a cadeia de ligação de conta de armazenamento é apresentado no formato:
 
-    ```
-    https://blobnameurl/container?SASKEY
-    ```
-      Além disso, com base nas informações de informação de tipo no armazenamento do Azure, tenha os seguintes detalhes em mente.
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+     Além disso, com base nas informações de informação de tipo no armazenamento do Azure, tenha os seguintes detalhes em mente.
 
-      * Para informações de BSON, os dados dentro do contentor de blob tem de ser no formato de bsondump, de modo a que os arquivos de dados são colocados em pastas com o nome depois das bases de dados que contém o collection.bson de formato. Arquivos de metadados (se houver) devem ser nomeados usando o formato *coleção*. metadata.json.
+     * Para informações de BSON, os dados dentro do contentor de blob tem de ser no formato de bsondump, de modo a que os arquivos de dados são colocados em pastas com o nome depois das bases de dados que contém o collection.bson de formato. Arquivos de metadados (se houver) devem ser nomeados usando o formato *coleção*. metadata.json.
 
-      * Para informações de JSON, os ficheiros no contentor de BLOBs devem ser colocados em pastas com o nome depois das bases de dados que contêm. Em cada pasta de base de dados, ficheiros de dados tem de ser colocados numa subpasta chamada de "dados" e com o nome usando o formato *coleção*. JSON. Arquivos de metadados (se houver) devem ser colocados numa subpasta denominada "metadados" e com o mesmo formato, o nome *coleção*. JSON. Os arquivos de metadados tem de estar no mesmo formato que produzidos pela ferramenta bsondump MongoDB.
+     * Para informações de JSON, os ficheiros no contentor de BLOBs devem ser colocados em pastas com o nome depois das bases de dados que contêm. Em cada pasta de base de dados, ficheiros de dados tem de ser colocados numa subpasta chamada de "dados" e com o nome usando o formato *coleção*. JSON. Arquivos de metadados (se houver) devem ser colocados numa subpasta denominada "metadados" e com o mesmo formato, o nome *coleção*. JSON. Os arquivos de metadados tem de estar no mesmo formato que produzidos pela ferramenta bsondump MongoDB.
 
    Pode usar o endereço IP para situações em que DNS resolução de nomes não é possível.
 

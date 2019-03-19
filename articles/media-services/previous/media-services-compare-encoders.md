@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 3dac469c2932276a903a516b71caa860f8870fa6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: bb827b80f79a53f30074b9230efe3e2049471051
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989343"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880777"
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>Comparação do Azure no codificadores de multimédia a pedido  
 
@@ -33,7 +33,7 @@ A tabela seguinte compara as funcionalidades entre o Media Encoder Standard (MES
 |---|---|---|
 |Aplicar lógica condicional durante a codificação<br/>(por exemplo, se a entrada for HD, em seguida, codificar áudio 5.1)|Não|Sim|
 |Legendagem de áudio|Não|[Sim](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Correção de intensidade profissional Dolby®](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> com a caixa de diálogo Intelligence™|Não|Sim|
+|[Correção de intensidade profissional Dolby®](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> com a caixa de diálogo Intelligence™|Não|Sim|
 |Telecine inversa, remover a atribuição do entrelaçamento|Básica|Qualidade de difusão|
 |Detecção e remoção de bordas pretas <br/>(pillarboxes, letterboxes)|Não|Sim|
 |Geração de miniaturas|[Sim](media-services-dotnet-generate-thumbnail-with-mes.md)|[Sim](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -153,4 +153,4 @@ A tabela seguinte compara as funcionalidades entre o Media Encoder Standard (MES
 * [Quotas e limitações](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

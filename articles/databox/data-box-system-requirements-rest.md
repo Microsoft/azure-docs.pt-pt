@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 4ad607ad7ef1ee91ea9c886a76faabb0f304969d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5770cd9a4955013100b7e58698eed77da10c0583
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538073"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012252"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisitos de armazenamento de BLOBs de caixa de dados do Azure
 
@@ -96,7 +96,7 @@ Run: instalar o php composer.phar.
 
 ### <a name="endpoint-declaration"></a>Declaração de ponto final
 
-Um ponto de extremidade de armazenamento de BLOBs de caixa de dados do Azure inclui duas partes: o nome de uma região e o domínio do Data Box. No armazenamento de BLOBs de caixa de dados SDK, o ponto final predefinido é <serial no. of the device>. microsoftdatabox.com.  Para obter mais informações sobre o ponto final de serviço de BLOBs, aceda a [ligar através do armazenamento de BLOBs de caixa de dados](data-box-deploy-copy-data-via-rest.md).
+Um ponto de extremidade de armazenamento de BLOBs de caixa de dados do Azure inclui duas partes: o nome de uma região e o domínio do Data Box. No armazenamento de BLOBs de caixa de dados SDK, o ponto final predefinido é \<não serial. do dispositivo >. microsoftdatabox.com.  Para obter mais informações sobre o ponto final de serviço de BLOBs, aceda a [ligar através do armazenamento de BLOBs de caixa de dados](data-box-deploy-copy-data-via-rest.md).
  
 ## <a name="examples"></a>Exemplos
 

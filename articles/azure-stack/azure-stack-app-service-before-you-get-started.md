@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: e39904378edd9583cd7802d0a75f2f365a35d2b6
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791958"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088439"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicações no Azure Stack
 
@@ -304,10 +304,10 @@ Para fins de elevada disponibilidade e de produção, deve utilizar uma versão 
 
 Instância do SQL Server para o serviço de aplicações do Azure no Azure Stack tem de ser acessível a partir de todas as funções do serviço de aplicações. Pode implantar o SQL Server dentro da subscrição do fornecedor predefinido no Azure Stack. Pode ainda utilizar a infraestrutura existente na sua organização (desde que existe conectividade para o Azure Stack). Se estiver a utilizar uma imagem do Azure Marketplace, lembre-se configurar a firewall em conformidade.
 
->[!NOTE]
+> [!NOTE]
 > Um número de imagens de máquinas virtuais de IaaS do SQL está disponível através da funcionalidade de gestão do Marketplace. Certifique-se de que sempre transferir a versão mais recente da extensão de IaaS do SQL antes de implementar uma VM com um item do mercado. As imagens do SQL são as mesmas que as VMs de SQL que estão disponíveis no Azure. Para VMs de SQL criado a partir destas imagens, a extensão de IaaS e correspondente aprimoramentos portais oferecem funcionalidades como a aplicação de patches automática e capacidades de cópia de segurança.
->
-Para qualquer uma das funções do SQL Server, pode utilizar uma instância predefinida ou numa instância nomeada. Se utilizar uma instância nomeada, certifique-se de que iniciar o serviço do SQL Server Browser e abrir a porta 1434 manualmente.
+> 
+> Para qualquer uma das funções do SQL Server, pode utilizar uma instância predefinida ou numa instância nomeada. Se utilizar uma instância nomeada, certifique-se de que iniciar o serviço do SQL Server Browser e abrir a porta 1434 manualmente.
 
 O instalador do serviço de aplicações irá verificar para garantir que o SQL Server tem de contenção da base de dados ativada. Para ativar a contenção da base de dados no SQL Server que alojará as bases de dados do serviço de aplicações, execute estes comandos SQL:
 

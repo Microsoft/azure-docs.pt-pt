@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db8438bfa567c207e543ed716a2940bce991cc19
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78b069e6534d8394de1f9a9fcdf51b871441c386
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196047"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838039"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Active Directory do Azure com o Suite de BPM Questetra
 
@@ -210,9 +210,9 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Queste
    
     ![Criar utilizador de teste][300] 
    
-    a. Na **Name** caixa de texto, tipo **nome** do utilizador **britta.simon@contoso.com**.
+    a. Na **Name** caixa de texto, tipo **nome** do utilizador **britta.simon\@contoso.com**.
    
-    b. Na **E-Mail** caixa de texto, tipo **e-mail** do utilizador **britta.simon@contoso.com**
+    b. Na **E-Mail** caixa de texto, tipo **e-mail** do utilizador **britta.simon\@contoso.com**
    
     c. Na **palavra-passe** caixa de texto, escreva um **palavra-passe** do utilizador.
     

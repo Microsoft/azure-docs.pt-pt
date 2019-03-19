@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d208cab8b39b777fea7809be418613f17751b1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b35470daf8ef037a72516690c75980a6d07e8e29
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170291"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097171"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurar identidades geridas para recursos do Azure num conjunto de dimensionamento através de chamadas à REST API
 
@@ -72,7 +72,7 @@ Para criar um conjunto de dimensionamento com a identidade gerida atribuídos do
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Obter um token de acesso de portador, que irá utilizar no próximo passo no cabeçalho de autorização para criar o seu conjunto de dimensionamento com uma identidade gerida atribuído de sistema.
+3. Obter um token de acesso de portador, que irá utilizar no próximo passo no cabeçalho de autorização para criar o seu conjunto de dimensionamento com uma identidade gerida atribuído de sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -81,23 +81,23 @@ Para criar um conjunto de dimensionamento com a identidade gerida atribuídos do
 4. Crie um conjunto de dimensionamento com o CURL para chamar o ponto de extremidade REST do Azure Resource Manager. O exemplo seguinte cria um conjunto nomeado de dimensionamento de máquina virtual *myVMSS* no *myResourceGroup* com um atribuído de sistema de identidade gerida, conforme identificado no corpo do pedido pelo valor `"identity":{"type":"SystemAssigned"}`. Substitua `<ACCESS TOKEN>` com o valor que recebeu no passo anterior quando tiver solicitado um token de portador de acesso e o `<SUBSCRIPTION ID>` valor conforme apropriado para o seu ambiente.
 
    ```bash   
-  curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-  ```
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01 HTTP/1.1
    ```
 
-  **Cabeçalhos de pedido**
+   **Cabeçalhos de pedido**
 
-  |Cabeçalho do pedido  |Descrição  |
-  |---------|---------|
-  |*Content-Type*     | Necessário. Definido como `application/json`.        |
-  |*Autorização*     | Necessário. Definido como válido `Bearer` token de acesso. | 
+   |Cabeçalho do pedido  |Descrição  |
+   |---------|---------|
+   |*Content-Type*     | Necessário. Definido como `application/json`.        |
+   |*Autorização*     | Necessário. Definido como válido `Bearer` token de acesso. | 
 
-  **Corpo do pedido**
+   **Corpo do pedido**
 
-  ```JSON
+   ```JSON
     {
        "sku":{
           "tier":"Standard",
@@ -158,7 +158,7 @@ Para criar um conjunto de dimensionamento com a identidade gerida atribuídos do
           }
        }
     }  
-  ```  
+   ```  
 
 ### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>Ativar a identidade gerida atribuído de sistema num conjunto de dimensionamento de máquina virtual existente
 
@@ -313,7 +313,7 @@ Para desativar uma identidade atribuída de sistema num conjunto de dimensioname
 
    Para remover a identidade gerida atribuído de sistema de um conjunto de dimensionamento de máquina virtual que tenha atribuído ao utilizador identidades geridas, remova `SystemAssigned` do `{"identity":{"type:" "}}` valor ao manter o `UserAssigned` valor e o `userAssignedIdentities` dicionário de valores se está a utilizar **2018-01 06 de versão de API**. Se estiver a utilizar **API versão 2017-12-01** ou anterior, mantenha o `identityIds` matriz.
 
-## <a name="user-assigned-managed-identity"></a>Atribuído ao utilizador a identidade gerida
+## <a name="user-assigned-managed-identity"></a>Identidade gerida atribuída pelo utilizador
 
 Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao utilizador num conjunto de dimensionamento com o CURL para fazer chamadas para o ponto de extremidade REST do Azure Resource Manager.
 
@@ -331,7 +331,7 @@ Nesta secção, saiba como adicionar e remover a identidade gerida atribuído ao
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Obter um token de acesso de portador, que irá utilizar no próximo passo no cabeçalho de autorização para criar o seu conjunto de dimensionamento com uma identidade gerida atribuído de sistema.
+3. Obter um token de acesso de portador, que irá utilizar no próximo passo no cabeçalho de autorização para criar o seu conjunto de dimensionamento com uma identidade gerida atribuído de sistema.
 
    ```azurecli-interactive
    az account get-access-token

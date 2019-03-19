@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 7d0743c09adf1c50d888d2e279ba85a8369bf286
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991635"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855678"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Resolução de problemas de ativação ou ao visualizar o Application Insights Profiler
 
@@ -36,11 +36,11 @@ Profiler escreve as mensagens de rastreio e eventos personalizados para o recurs
     ```
     A imagem seguinte mostra dois exemplos de pesquisas de dois recursos de IA: 
     
-    * À esquerda, a aplicação não está a receber pedidos enquanto o Profiler está em execução. A mensagem explica que o carregamento foi cancelado devido a nenhuma atividade. 
+   * À esquerda, a aplicação não está a receber pedidos enquanto o Profiler está em execução. A mensagem explica que o carregamento foi cancelado devido a nenhuma atividade. 
 
-    * No lado direito, Profiler iniciado e enviados eventos personalizados quando este detetado pedidos que aconteceram enquanto o Profiler estava em execução. Se o evento personalizado ServiceProfilerSample for apresentado, significa que o Profiler anexados um rastreio a um pedido e pode ver o rastreio da **desempenho do Application Insights** painel.
+   * No lado direito, Profiler iniciado e enviados eventos personalizados quando este detetado pedidos que aconteceram enquanto o Profiler estava em execução. Se o evento personalizado ServiceProfilerSample for apresentado, significa que o Profiler anexados um rastreio a um pedido e pode ver o rastreio da **desempenho do Application Insights** painel.
 
-    Não se for apresentada nenhum telemetria, Profiler não está em execução. Para resolver problemas, consulte as secções de resolução de problemas para o seu tipo de aplicação específica neste artigo.  
+     Não se for apresentada nenhum telemetria, Profiler não está em execução. Para resolver problemas, consulte as secções de resolução de problemas para o seu tipo de aplicação específica neste artigo.  
 
      ![Pesquisar a telemetria do Profiler][profiler-search-telemetry]
 
@@ -90,7 +90,7 @@ Quando configura o Profiler, as atualizações são efetuadas às definições d
 
 1. Na **controlo de aplicação Web** painel, abra **definições**.
 
-1. Definir **.Net Framework versão** ao **v4.6**.
+1. Definir **versão do .NET Framework** ao **v4.6**.
 
 1. Definir **Always On** ao **no**.
 
@@ -124,7 +124,7 @@ Profiler é executado como um webjob contínuo na aplicação web. É possível 
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Resolver problemas relacionados com o Profiler e o diagnóstico do Azure
 
-  >**Há um bug no Criador de perfil que é fornecido na versão mais recente do WAD para serviços Cloud.** Para usar o criador de perfil com um serviço em nuvem, ela oferece suporte apenas SDK de ia para a versão 2.7.2. Se estiver a utilizar uma versão mais recente do SDK do IA, terá de voltar atrás e 2.7.2 para usar o criador de perfil.
+  >**Há um bug no Criador de perfil que é fornecido na versão mais recente do WAD para serviços Cloud.** Para usar o criador de perfil com um serviço em nuvem, ela oferece suporte apenas SDK de ia para a versão 2.7.2. Se estiver a utilizar uma versão mais recente do SDK do IA, terá de voltar atrás e 2.7.2 para usar o criador de perfil. Se utilizar o Visual Studio para mudar a versão do SDK de informações da aplicação, poderá receber um erro de redirecionamento de ligação em tempo de execução. Isto acontece porque o "newVersion" no ficheiro Web. config do applicationinsights deve ser definido para "2.7.2.0" depois de fazer downgrade o SDK de IA, mas não é atualizado automaticamente.
 
 Para ver se o Profiler está configurado corretamente ao diagnóstico do Azure, efetue as seguintes três coisas: 
 1. Em primeiro lugar, verifique se o conteúdo da configuração do diagnóstico do Azure que é implementado é os esperados. 

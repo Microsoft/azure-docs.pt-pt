@@ -1,21 +1,21 @@
 ---
-title: Criar vários modelos a partir de uma experimentação do Studio
+title: Criar vários pontos de extremidade para um modelo
 titleSuffix: Azure Machine Learning Studio
 description: Utilize o PowerShell para criar vários modelos de Machine Learning e web pontos finais de serviço com o mesmo algoritmo, mas treinamento diferentes conjuntos de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 442acb88a7a758517b8007b85dd6a58520a0caa4
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848930"
 ---
 # <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Utilize o PowerShell para criar modelos de Studio e pontos finais de serviço da web a partir de uma experiência
 
@@ -35,7 +35,7 @@ Felizmente, isso pode ser feito utilizando o [reparametrização API do Azure Ma
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurar a experimentação de preparação
-Utilize o exemplo [experimentação de preparação](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) que está no [galeria do Cortana Intelligence](http://gallery.azure.ai). Abrir esta experimentação na sua [Azure Machine Learning Studio](https://studio.azureml.net) área de trabalho.
+Utilize o exemplo [experimentação de preparação](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) que está no [galeria do Cortana Intelligence](https://gallery.azure.ai). Abrir esta experimentação na sua [Azure Machine Learning Studio](https://studio.azureml.net) área de trabalho.
 
 > [!NOTE]
 > Para acompanhar este exemplo, pode querer utilizar uma área de trabalho padrão, em vez de uma área de trabalho gratuita. Criar um ponto final de cada cliente - para um total de 10 pontos finais - e que requer uma área de trabalho padrão, uma vez que uma área de trabalho gratuita está limitada a 3 pontos de extremidade. Se tiver apenas uma área de trabalho gratuita, basta altere os scripts para permitir apenas as localizações de th.
@@ -44,7 +44,7 @@ Utilize o exemplo [experimentação de preparação](https://gallery.azure.ai/Ex
 
 A experimentação utiliza um **importar dados** módulo para importar o conjunto de dados de treinamento *customer001.csv* de uma conta de armazenamento do Azure. Vamos supor que ter recolhido conjuntos de dados de treinamento de todos os locais de aluguer de bicicletas e os armazenado na mesma localização de armazenamento de Blobs com nomes de ficheiro que vão desde *rentalloc001.csv* ao *rentalloc10.csv*.
 
-![image](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![Módulo leitor importa dados a partir de um blob do Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Tenha em atenção que uma **saída de serviço Web** módulo foi adicionado para o **Train Model** módulo.
 Quando esta experiência é implementada como um serviço web, o ponto final associado que saída retorna o modelo preparado no formato de um arquivo de .ilearner.
@@ -52,7 +52,7 @@ Quando esta experiência é implementada como um serviço web, o ponto final ass
 Observe também que defina um parâmetro de serviço web que define o URL que o **importar dados** módulo utiliza. Isto permite-lhe utilizar o parâmetro para especificar os conjuntos de dados de treinamento individual para preparar o modelo para cada localização.
 Há outras maneiras que pode fazer isso. Pode utilizar uma consulta SQL com um parâmetro de serviço da web para obter dados de uma base de dados do SQL Azure. Ou pode utilizar um **entrada de serviço Web** módulo para passar num conjunto de dados para o serviço web.
 
-![image](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![Um módulo do modelo treinado produz a um módulo de saída do serviço Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Agora, vamos executar esta experimentação de preparação com o valor predefinido *rental001.csv* como o conjunto de dados de treinamento. Se visualizar a saída do **Evaluate** módulo (clique em de saída e selecione **Visualize**), pode ver que obter um desempenho razoável de *AUC* = 0.91. Neste momento, está pronto para implementar um serviço web fora desta experiência de treinamento.
 
@@ -89,7 +89,7 @@ Em seguida, execute o seguinte comando do PowerShell:
 
 Agora que criou 10 pontos finais e todos eles contenham o mesmo preparado o modelo preparado na *customer001.csv*. Pode visualizá-las no portal do Azure.
 
-![image](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![Ver a lista de modelos de formação no portal](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Atualizar os pontos finais para utilizar conjuntos de dados de treinamento separados com o PowerShell
 O passo seguinte é atualizar os pontos finais com modelos de forma exclusiva com base nos dados de cada cliente individual. Mas primeiro tem de produzir esses modelos a partir da **treinamento de aluguer de bicicletas** serviço web. Vamos voltar para o **treinamento de aluguer de bicicletas** serviço web. Precisa chamar o seu ponto de extremidade BES 10 vezes com 10 treinamento diferentes conjuntos de dados para produzir 10 modelos diferentes. Utilize o **InovkeAmlWebServiceBESEndpoint** cmdlet do PowerShell para fazer isso.

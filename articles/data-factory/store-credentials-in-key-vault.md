@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: fcd3af6c000debb8da6200205a9aa2ae61feac58
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675420"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896216"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Credencial de Store no Azure Key Vault
 
@@ -84,6 +84,9 @@ As seguintes propriedades são suportadas quando configura um campo no serviço 
 **Usando a interface do Usuário de criação:**
 
 Selecione **do Azure Key Vault** para campos secretos ao criar a ligação ao seu arquivo de dados/computação. Selecione o aprovisionado chave de Cofre de serviço ligado do Azure e forneça o **nome do segredo**. Opcionalmente, pode fornecer uma versão do segredo também. 
+
+>[!TIP]
+>Para os conectores com a cadeia de ligação no serviço ligado como o SQL Server, armazenamento de BLOBs, etc., é possível armazenar apenas o campo secreto por exemplo, palavra-passe em AKV ou para armazenar a cadeia de ligação completo no AKV. Pode encontrar ambas as opções na interface do Usuário.
 
 ![Configurar o segredo AKV](media/store-credentials-in-key-vault/configure-akv-secret.png)
 

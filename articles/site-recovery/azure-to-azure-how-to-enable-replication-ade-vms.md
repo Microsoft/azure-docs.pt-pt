@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f9abc6d79bd821ef612e9e7648b1b5af98bb5cf6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456236"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117460"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicar máquinas de virtuais do Azure disk encryption (ADE) ativada para outra região do Azure
 
@@ -123,8 +123,8 @@ Pode modificar as predefinições de destino utilizadas pelo Site Recovery.
 
 
 2. Clique em **personalizar:** junto a "Definições de encriptação" para modificar o abaixo as predefinições:
-    - Na **Cofre de chaves de encriptação de disco de destino**, selecione o Cofre de chaves de encriptação de disco destino na lista de todos os cofres de chaves na localização de destino da subscrição.
-  - Na **Cofre de chaves de encriptação de chave de destino**, selecione o Cofre de chaves de encriptação de chave de destino na lista de todos os cofres de chaves na localização de destino da subscrição.
+   - Na **Cofre de chaves de encriptação de disco de destino**, selecione o Cofre de chaves de encriptação de disco destino na lista de todos os cofres de chaves na localização de destino da subscrição.
+     - Na **Cofre de chaves de encriptação de chave de destino**, selecione o Cofre de chaves de encriptação de chave de destino na lista de todos os cofres de chaves na localização de destino da subscrição.
 
 3. Clique em **criar o recurso de destino** > **ativar replicação**.
 4. Depois das VMs estiverem ativadas para replicação, pode verificar o estado do Estado de funcionamento da VM em **itens replicados**

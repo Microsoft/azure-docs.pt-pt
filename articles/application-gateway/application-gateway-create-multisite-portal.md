@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 53c816ee8fa670c8a4dde3212325524a17d25aab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314437"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079951"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Criar um gateway de aplicação com vários sites que aloja no portal do Azure
 
-Pode utilizar o portal do Azure para configurar [alojamento de vários web sites](application-gateway-multi-site-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end com conjuntos de dimensionamento de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este tutorial parte do princípio de que possui vários domínios e utiliza exemplos de *www.contoso.com* e *www.fabrikam.com*.
+Pode utilizar o portal do Azure para configurar [alojamento de vários web sites](application-gateway-multi-site-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, vai criar conjuntos de back-end com conjuntos de dimensionamento de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este tutorial parte do princípio de que seu vários exemplos de domínios e utilizações de *www\.contoso.com* e *www\.fabrikam.com*.
 
 Neste artigo, vai aprender a:
 
@@ -46,20 +46,20 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
 2. Selecione **Rede** e, em seguida, selecione **Gateway de Aplicação** na lista Destaques.
 3. Introduza estes valores para o gateway de aplicação:
 
-    - *myAppGateway* - para o nome do gateway de aplicação.
-    - *myResourceGroupAG* - para o novo grupo de recursos.
+   - *myAppGateway* - para o nome do gateway de aplicação.
+   - *myResourceGroupAG* - para o novo grupo de recursos.
 
-    ![Criar um novo gateway de aplicação](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
+     ![Criar um novo gateway de aplicação](./media/application-gateway-create-multisite-portal/application-gateway-create.png)
 
 4. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
 5. Clique em **escolher uma rede virtual**, clique em **criar nova**e, em seguida, introduza estes valores para a rede virtual:
 
-    - *myVNet* - para o nome da rede virtual.
-    - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
-    - *myAGSubnet* - para o nome da sub-rede.
-    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
+   - *myVNet* - para o nome da rede virtual.
+   - *10.0.0.0/16* - para o espaço de endereços de rede virtual.
+   - *myAGSubnet* - para o nome da sub-rede.
+   - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-    ![Criar a rede virtual](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
+     ![Criar a rede virtual](./media/application-gateway-create-multisite-portal/application-gateway-vnet.png)
 
 6. Clique em **OK** para criar a rede virtual e a sub-rede.
 7. Clique em **escolher um endereço IP público**, clique em **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público tem o nome *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, clique em **OK**.
@@ -136,11 +136,11 @@ Neste exemplo, vai criar duas máquinas virtuais para serem utilizadas como serv
 1. Clique em **serviços de escuta** e, em seguida, clique em **multilocal**.
 2. Introduza estes valores para o serviço de escuta:
     
-    - *contosoListener* - no nome do serviço de escuta.
-    - *www.contoso.com* -substitua este exemplo de nome de anfitrião com o seu nome de domínio.
+   - *contosoListener* - no nome do serviço de escuta.
+   - *www\.contoso.com* -substitua este exemplo de nome de anfitrião com o seu nome de domínio.
 
 3. Clique em **OK**.
-4. Criar um segundo ouvinte usando o nome da *fabrikamListener* e utilizar o seu nome de domínio de segundo. Neste exemplo, *www.fabrikam.com* é utilizado.
+4. Criar um segundo ouvinte usando o nome da *fabrikamListener* e utilizar o seu nome de domínio de segundo. Neste exemplo, *www\.fabrikam.com* é utilizado.
 
 As regras são processadas pela ordem em que são apresentadas, e o tráfego é direcionado com a primeira regra que corresponder, independentemente da especificidade. Por exemplo, se tiver uma regra com um serviço de escuta básico e uma regra com uma escuta de vários sites, ambas na mesma porta, a regra com o serviço de escuta de vários sites tem de estar listada antes da regra com o serviço de escuta básico, para que a regra de vários sites funcione conforme esperado. 
 

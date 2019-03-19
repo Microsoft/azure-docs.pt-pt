@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ae42d8c0bec8c812d18e927dd450e5b5fc419ba3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: bb43a75b6a221c15c8724302797d04c22e04c8d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774082"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113644"
 ---
 # <a name="create-a-netapp-account"></a>Criar uma conta NetApp
 Criar uma conta NetApp permite-lhe configurar um conjunto de capacidade e, em seguida, criar um volume. Pode utilizar o painel do Azure NetApp Files para criar uma nova conta NetApp.
@@ -33,29 +33,29 @@ Tem de ter registado a sua subscrição para utilizar o fornecedor de recursos d
 
 1. Inicie sessão no Portal do Azure. 
 2. Aceda ao painel do Azure NetApp Files através de um dos seguintes métodos:  
-  * Procure **Azure NetApp Files** na caixa de pesquisa do portal do Azure.  
-  * Clique em **Todos os serviços** na navegação e, em seguida, filtre para Azure NetApp Files.  
+   * Procure **Azure NetApp Files** na caixa de pesquisa do portal do Azure.  
+   * Clique em **Todos os serviços** na navegação e, em seguida, filtre para Azure NetApp Files.  
 
-  Pode adicionar o painel do Azure NetApp Files aos favoritos ao clicar no ícone de estrela junto ao mesmo. 
+   Pode adicionar o painel do Azure NetApp Files aos favoritos ao clicar no ícone de estrela junto ao mesmo. 
 
 3. Clique em **+ Adicionar** para criar uma nova conta NetApp.  
-  É apresentada a janela da nova conta NetApp.  
+   É apresentada a janela da nova conta NetApp.  
 
 4. Forneça as seguintes informações para a conta NetApp: 
-  * **Nome da conta**  
-    Especifique um nome exclusivo para a subscrição.
-  *  **Subscrição**  
-    Selecione uma subscrição a partir das subscrições existentes.
-  * **Grupo de recursos**   
-    Utilize um Grupo de Recursos existente ou crie um novo.
-  * **Localização**  
-    Selecione a região onde quer ter a conta e os respetivos recursos subordinados a localizar.  
+   * **Nome da conta**  
+     Especifique um nome exclusivo para a subscrição.
+   * **Subscrição**  
+     Selecione uma subscrição a partir das subscrições existentes.
+   * **Grupo de recursos**   
+     Utilize um Grupo de Recursos existente ou crie um novo.
+   * **Localização**  
+     Selecione a região onde quer ter a conta e os respetivos recursos subordinados a localizar.  
 
-    ![Nova conta NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
+     ![Nova conta NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
 5. Clique em **Criar**.     
-  A conta NetApp que criou aparece agora no painel do Azure NetApp Files. 
+   A conta NetApp que criou aparece agora no painel do Azure NetApp Files. 
 
 ## <a name="next-steps"></a>Passos Seguintes  
 

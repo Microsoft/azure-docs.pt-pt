@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 7bac115ab3215a7dde625f194bdf325f9e0af318
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118140"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe de SQLFilter
 
@@ -119,7 +119,7 @@ A `<regular_identifier>` não pode ser uma palavra-chave reservada.
   
 `<pattern>` tem de ser uma expressão que é avaliada como uma cadeia de caracteres. Ele é usado como um padrão para o operador LIKE.      Pode conter os seguintes carateres universais:  
   
--   `%`: Qualquer cadeia de caracteres de zero ou mais.  
+-   `%`:  Qualquer cadeia de caracteres de zero ou mais.  
   
 -   `_`: Um único caráter.  
   
@@ -223,29 +223,29 @@ Considere o seguinte [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlf
   
 ### <a name="property-evaluation-semantics"></a>Semântica de avaliação de propriedade  
   
--   Uma tentativa para avaliar uma propriedade inexistente sistema gera uma [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) exceção.  
+- Uma tentativa para avaliar uma propriedade inexistente sistema gera uma [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) exceção.  
   
--   Uma propriedade que não existe internamente é avaliada como **desconhecido**.  
+- Uma propriedade que não existe internamente é avaliada como **desconhecido**.  
   
- Avaliação desconhecido no operadores aritméticos:  
+  Avaliação desconhecido no operadores aritméticos:  
   
--   Para operadores binários, se é considerado de esquerda e direita do operandos **desconhecido**, em seguida, o resultado é **desconhecido**.  
+- Para operadores binários, se é considerado de esquerda e direita do operandos **desconhecido**, em seguida, o resultado é **desconhecido**.  
   
--   Para os operadores unários, se um operando é avaliado como **desconhecido**, em seguida, o resultado é **desconhecido**.  
+- Para os operadores unários, se um operando é avaliado como **desconhecido**, em seguida, o resultado é **desconhecido**.  
   
- Avaliação desconhecido no operadores de comparação binário:  
+  Avaliação desconhecido no operadores de comparação binário:  
   
--   Se é considerado de esquerda e direita do operandos **desconhecido**, em seguida, o resultado é **desconhecido**.  
+- Se é considerado de esquerda e direita do operandos **desconhecido**, em seguida, o resultado é **desconhecido**.  
   
- Avaliação desconhecido no `[NOT] LIKE`:  
+  Avaliação desconhecido no `[NOT] LIKE`:  
   
--   Se o operando qualquer é avaliado como **desconhecido**, em seguida, o resultado é **desconhecido**.  
+- Se o operando qualquer é avaliado como **desconhecido**, em seguida, o resultado é **desconhecido**.  
   
- Avaliação desconhecido no `[NOT] IN`:  
+  Avaliação desconhecido no `[NOT] IN`:  
   
--   Se o operando esquerdo é avaliado como **desconhecido**, em seguida, o resultado é **desconhecido**.  
+- Se o operando esquerdo é avaliado como **desconhecido**, em seguida, o resultado é **desconhecido**.  
   
- Avaliação desconhecido no **AND** operador:  
+  Avaliação desconhecido no **AND** operador:  
   
 ```  
 +---+---+---+---+  

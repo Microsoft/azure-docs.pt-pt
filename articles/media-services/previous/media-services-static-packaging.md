@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 80c9f1c7e2bec3e3f3fa696134a23f0760598a29
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b8f8c802eb2b353be6b7ee2fbf484bd9f4acf3e8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848206"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilizar o empacotador de multimédia do Azure para realizar tarefas de empacotamento estáticos  
 > [!NOTE]
@@ -61,7 +61,7 @@ Para validar os ficheiros MP4 com empacotador de serviços de multimédia, tem d
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-    <smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+    <smil xmlns="https://www.w3.org/2001/SMIL20/Language">
       <head>
     <!-- Tells the server that these input files are MP4s – specific to Dynamic Packaging -->
         <meta name="formats" content="mp4" /> 
@@ -612,7 +612,7 @@ O exemplo define o método UpdatePlayReadyConfigurationXMLFile que pode utilizar
                 // Note that the configuration defined in MediaEncryptor_PlayReadyProtection.xml
                 // is using keySeedValue. It is recommended that you do this only for testing 
                 // and not in production. For more information, see 
-                // http://msdn.microsoft.com/library/windowsazure/dn189154.aspx.
+                // https://msdn.microsoft.com/library/windowsazure/dn189154.aspx.
                 //
                 string configPlayReady = File.ReadAllText(Path.Combine(_configurationXMLFiles,
                                             @"MediaEncryptor_PlayReadyProtection.xml"));
@@ -774,7 +774,7 @@ O exemplo nesta secção codifica um ficheiro de mezanino (no caso MP4) para mul
                 IAsset HLSEncryptedWithAESAsset = CreateHLSEncryptedWithAES(clearSmoothStreamAsset);
 
                 // You can use the following player to test the HLS with AES stream.
-                // http://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614 
+                // https://apps.microsoft.com/windows/app/3ivx-hls-player/f79ce7d0-2993-4658-bc4e-83dc182a0614 
                 string hlsWithAESURL = HLSEncryptedWithAESAsset.GetHlsUri().ToString();
                 Console.WriteLine("HLS with AES URL:");
                 Console.WriteLine(hlsWithAESURL);
@@ -1372,7 +1372,7 @@ Certifique-se atualizar o código a seguir para apontar para a pasta onde está 
                 // Note that the configuration defined in MediaEncryptor_PlayReadyProtection.xml
                 // is using keySeedValue. It is recommended that you do this only for testing 
                 // and not in production. For more information, see 
-                // http://msdn.microsoft.com/library/windowsazure/dn189154.aspx.
+                // https://msdn.microsoft.com/library/windowsazure/dn189154.aspx.
                 //
                 string configPlayReady = File.ReadAllText(Path.Combine(_configurationXMLFiles,
                                             @"MediaEncryptor_PlayReadyProtection.xml"));

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 400cf53172fbd1ce5803cf3de298749afbf45cd4
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 49a28901e2ea471f97270c0407e2f6c0a4a533fd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58169158"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
@@ -140,6 +140,10 @@ Controlo de origem requer algumas permissões mínimas para tokens de acesso pes
 Para desligar a partir de um repositório de controle de origem, abra **(pré-visualização) de controle de fonte** sob **definições de conta** na conta de automatização.
 
 Selecione o controlo de origem que pretende remover. Sobre o **resumo de controlo de origem** página, clique em **eliminar**.
+
+## <a name="encoding"></a>Codificação
+
+Se várias pessoas estão a editar runbooks no seu repositório de controle de origem com diferentes editores há uma oportunidade de se depare com problemas de codificação. Isso pode inserir caracteres incorretos no runbook. Para obter mais informações, consulte o artigo [faz com que o comum de problemas de codificação](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

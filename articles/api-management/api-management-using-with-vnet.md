@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 6ace19339eb3f89c3b0cde6f5b9b0ecc783e2597
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a8566e41934b5d78d8be60b385ea4148e1cb60c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341617"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087045"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a API Management do Azure com as redes virtuais
 Redes virtuais do Azure (VNETs) permitem-lhe colocar qualquer um dos seus recursos do Azure numa rede de endereçáveis não internet que controlam o acesso a. Estas redes, em seguida, podem ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre o início de redes virtuais do Azure com as informações aqui: [Descrição geral da rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -53,26 +53,26 @@ Para efetuar os passos descritos neste artigo, tem de ter:
     ![Menu de rede virtual da gestão de API][api-management-using-vnet-menu]
 4. Selecione o tipo de acesso desejado:
 
-    * **Externo**: portal de gateway e desenvolvedor de gestão de API são acessíveis a partir da internet pública através de um balanceador de carga externo. O gateway pode aceder a recursos na rede virtual.
+   * **Externo**: portal de gateway e desenvolvedor de gestão de API são acessíveis a partir da internet pública através de um balanceador de carga externo. O gateway pode aceder a recursos na rede virtual.
 
-    ![Peering público][api-management-vnet-public]
+     ![Peering público][api-management-vnet-public]
 
-    * **Interno**: portal de gateway e desenvolvedor de gestão de API são acessíveis apenas a partir de dentro da rede virtual através de um balanceador de carga interno. O gateway pode aceder a recursos na rede virtual.
+   * **Interno**: portal de gateway e desenvolvedor de gestão de API são acessíveis apenas a partir de dentro da rede virtual através de um balanceador de carga interno. O gateway pode aceder a recursos na rede virtual.
 
-    ![Peering privado][api-management-vnet-private]`
+     ![Peering privado][api-management-vnet-private]`
 
-    Agora verá uma lista de todas as regiões onde o seu serviço de gestão de API está aprovisionado. Selecione uma VNET e sub-rede para cada região. A lista é preenchida com clássica e Resource Manager redes virtuais disponíveis nas suas subscrições do Azure que são configuradas na região que está a configurar.
+     Agora verá uma lista de todas as regiões onde o seu serviço de gestão de API está aprovisionado. Selecione uma VNET e sub-rede para cada região. A lista é preenchida com clássica e Resource Manager redes virtuais disponíveis nas suas subscrições do Azure que são configuradas na região que está a configurar.
 
-    > [!NOTE]
-    > **Ponto final de serviço** no diagrama acima inclui Gateway/Proxy, o portal do Azure, o portal do programador, GIT e o ponto de final de gestão direta.
-    > **Ponto final de gestão** no diagrama acima é o ponto final alojado no serviço para gerir a configuração através do portal do Azure e Powershell.
-    > Além disso, tenha em atenção que, mesmo que o diagrama mostra os endereços IP dos pontos de extremidade vários, serviço de gestão de API **apenas** responde em seus nomes de anfitriões configurados.
+     > [!NOTE]
+     > **Ponto final de serviço** no diagrama acima inclui Gateway/Proxy, o portal do Azure, o portal do programador, GIT e o ponto de final de gestão direta.
+     > **Ponto final de gestão** no diagrama acima é o ponto final alojado no serviço para gerir a configuração através do portal do Azure e Powershell.
+     > Além disso, tenha em atenção que, mesmo que o diagrama mostra os endereços IP dos pontos de extremidade vários, serviço de gestão de API **apenas** responde em seus nomes de anfitriões configurados.
 
-    > [!IMPORTANT]
-    > Ao implementar uma instância de gestão de API do Azure a uma VNET do Resource Manager, o serviço tem de ser numa sub-rede dedicada que não contém outros recursos, exceto para instâncias de API Management do Azure. Se for feita uma tentativa para implementar uma instância de gestão de API do Azure a uma sub-rede de VNET do Resource Manager que contém outros recursos, a implementação irá falhar.
-    >
+     > [!IMPORTANT]
+     > Ao implementar uma instância de gestão de API do Azure a uma VNET do Resource Manager, o serviço tem de ser numa sub-rede dedicada que não contém outros recursos, exceto para instâncias de API Management do Azure. Se for feita uma tentativa para implementar uma instância de gestão de API do Azure a uma sub-rede de VNET do Resource Manager que contém outros recursos, a implementação irá falhar.
+     >
 
-    ![Selecione a VPN][api-management-setup-vpn-select]
+     ![Selecione a VPN][api-management-setup-vpn-select]
 
 5. Clique em **guardar** na parte superior do ecrã.
 
@@ -148,17 +148,17 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
 
 + **Imposição de túnel do tráfego para a Firewall no local com a aplicação Virtual, Expressroute ou rede**: Uma configuração de cliente comum é definir sua própria rota predefinida (0.0.0.0/0) que força todo o tráfego da gestão de API delegada de sub-rede para o fluxo através de uma firewall no local ou para uma aplicação virtual de rede. Este fluxo de tráfego quebra Invariavelmente conectividade com a API Management do Azure, porque o tráfego de saída está bloqueado no local ou o NAT iria para um conjunto irreconhecível de endereços que já não funcionam com vários pontos de extremidade do Azure. A solução requer que faça duas coisas:
 
-    * Ative pontos finais de serviço na sub-rede na qual o serviço de gestão de API é implementado. [Pontos finais de serviço] [ ServiceEndpoints] têm de ser ativadas para o Sql do Azure, armazenamento do Azure, Azure EventHub e ServiceBus do Azure. Ativar os pontos finais diretamente a partir de sub-rede delegado para estes serviços permite-lhe utilizar a rede de backbone do Microsoft Azure fornece encaminhamento ideal para o tráfego de serviço de gestão de API. Se utilizar pontos finais de serviço com uma gestão de Api de túnel forçado, os serviços do Azure acima não é forçado o tráfego de túnel. A gestão de API é forçado o tráfego de dependência do serviço de túnel e não pode ser perdida ou o serviço de gestão de API não funcionará corretamente.
+  * Ative pontos finais de serviço na sub-rede na qual o serviço de gestão de API é implementado. [Pontos finais de serviço] [ ServiceEndpoints] têm de ser ativadas para o Sql do Azure, armazenamento do Azure, Azure EventHub e ServiceBus do Azure. Ativar os pontos finais diretamente a partir de sub-rede delegado para estes serviços permite-lhe utilizar a rede de backbone do Microsoft Azure fornece encaminhamento ideal para o tráfego de serviço de gestão de API. Se utilizar pontos finais de serviço com uma gestão de Api de túnel forçado, os serviços do Azure acima não é forçado o tráfego de túnel. A gestão de API é forçado o tráfego de dependência do serviço de túnel e não pode ser perdida ou o serviço de gestão de API não funcionará corretamente.
     
-    * Todo o controle plano o tráfego da Internet para o ponto final de gestão do seu serviço de gestão de API são encaminhados através de um conjunto específico de IPs de entrada hospedado pela gestão de API. Quando o tráfego é configurado com túnel forçado as respostas não simetricamente mapeará para estes IPs de origem entrada. Para superar a limitação, precisamos de adicionar as rotas definidas pelo utilizador seguintes ([UDRs][UDRs]) para conduzir o tráfego para o Azure ao definir o destino destas rotas de anfitrião para "Internet". O conjunto de IPs de entrada para o controle de tráfego de plano é o seguinte:
+  * Todo o controle plano o tráfego da Internet para o ponto final de gestão do seu serviço de gestão de API são encaminhados através de um conjunto específico de IPs de entrada hospedado pela gestão de API. Quando o tráfego é configurado com túnel forçado as respostas não simetricamente mapeará para estes IPs de origem entrada. Para superar a limitação, precisamos de adicionar as rotas definidas pelo utilizador seguintes ([UDRs][UDRs]) para conduzir o tráfego para o Azure ao definir o destino destas rotas de anfitrião para "Internet". O conjunto de IPs de entrada para o controle de tráfego de plano é o seguinte:
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-    * Para outros da gestão de API do serviço dependências que são forçado, seus deve ser a forma de resolver o nome de anfitrião e entrar em contacto com o ponto final. Estes incluem
-        - Métricas e monitorização de estado de funcionamento
-        - Portal do Azure Diagnostics
-        - Reencaminhamento de SMTP
-        - Portal do programador CAPTCHA
+  * Para outros da gestão de API do serviço dependências que são forçado, seus deve ser a forma de resolver o nome de anfitrião e entrar em contacto com o ponto final. Estes incluem
+      - Métricas e monitorização de estado de funcionamento
+      - Portal do Azure Diagnostics
+      - Reencaminhamento de SMTP
+      - Portal do programador CAPTCHA
 
 ## <a name="troubleshooting"> </a>Resolução de problemas
 * **Inicial configuração**: Quando a implementação inicial do serviço de gestão de API numa sub-rede não tiver êxito, recomenda-se primeiro implantem uma máquina virtual na mesma sub-rede. Seguinte ambiente de trabalho remoto à máquina virtual e confirme que existe conectividade a uma de cada recurso abaixo na sua subscrição do azure
@@ -166,8 +166,8 @@ Quando uma instância de serviço de gestão de API está alojada numa VNET, as 
     * Base de Dados SQL do Azure
     * Tabela de armazenamento do Azure
 
- > [!IMPORTANT]
- > Depois de validar a conectividade, certifique-se remover todos os recursos implementados na sub-rede, antes de implementar a gestão de API para a sub-rede.
+  > [!IMPORTANT]
+  > Depois de validar a conectividade, certifique-se remover todos os recursos implementados na sub-rede, antes de implementar a gestão de API para a sub-rede.
 
 * **As atualizações incrementais**: Ao fazer alterações à sua rede, consulte [NetworkStatus API](https://docs.microsoft.com/rest/api/apimanagement/networkstatus)para confirmar que o serviço de gestão de API não perdeu o acesso a qualquer um dos recursos críticos, o que ele depende. O estado de conectividade, deverão ser atualizado a cada 15 minutos.
 

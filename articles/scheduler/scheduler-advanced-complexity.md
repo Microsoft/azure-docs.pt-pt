@@ -10,12 +10,12 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a13ce85124dc84362ec1ee2aa39a16c2c3f09f88
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860623"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Criar agendas avançadas e recorrências para as tarefas no agendador do Azure
 
@@ -65,13 +65,13 @@ Esta tabela fornece uma visão geral para os principais elementos JSON que pode 
 
 | Elemento | Necessário | Descrição | 
 |---------|----------|-------------|
-| **startTime** | Não | Um valor de cadeia em DateTime [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica quando a tarefa é iniciada pela primeira vez numa programação básica. <p>Para agendamentos complexos, a tarefa não é iniciado antes que **startTime**. | 
+| **startTime** | Não | Um valor de cadeia em DateTime [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando a tarefa é iniciada pela primeira vez numa programação básica. <p>Para agendamentos complexos, a tarefa não é iniciado antes que **startTime**. | 
 | **recurrence** | Não | As regras de periodicidade para quando a tarefa é executada. O **periodicidade** objeto oferece suporte esses elementos: **frequência**, **intervalo**, **agenda**, **contagem**, e **endTime**. <p>Se utilizar o **periodicidade** elemento, também tem de utilizar o **frequência** elemento, enquanto outros **periodicidade** elementos são opcionais. |
 | **frequency** | Sim, quando utiliza **periodicidade** | A unidade de tempo entre ocorrências e suporta estes valores: "Minute", "Hour", "Day", "Week", "Mês" e "Ano" | 
 | **interval** | Não | Um número inteiro positivo que determina o número de unidades de tempo entre ocorrências com base na **frequência**. <p>Por exemplo, se **intervalo** é 10 e **frequência** for "Week", a tarefa de voltar a ocorrer a cada 10 semanas. <p>Este é o maior número de intervalos para a frequência de cada: <p>-18 meses <br>-semanas 78 <br>-dias 548 <br>-Para horas e minutos, o intervalo é 1 < = <*intervalo*>< = 1000. | 
 | **schedule** | Não | Define as alterações para a periodicidade com base no especificado minuto-marcas de, marcas de horas, dias da semana e dias do mês | 
 | **count** | Não | Um número inteiro positivo que especifica o número de vezes que a tarefa é executada antes de terminar. <p>Por exemplo, quando uma tarefa diária possui **contagem** defini para o 7 e a data de início é segunda-feira, a tarefa é concluída em execução no Domingo. Se já tiver passado a data de início, a primeira execução é calculada a partir da hora de criação. <p>Sem **endTime** ou **contagem**, o trabalho seja executado infinitamente. Não é possível utilizar ambos **contagem** e **endTime** na mesma tarefa, mas a regra em primeiro lugar é honrada de conclusão. | 
-| **endTime** | Não | Um valor de cadeia de caracteres data ou DateTime na [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) que especifica quando deixa da tarefa em execução. Pode definir um valor para **endTime** que está no passado. <p>Sem **endTime** ou **contagem**, o trabalho seja executado infinitamente. Não é possível utilizar ambos **contagem** e **endTime** na mesma tarefa, mas a regra em primeiro lugar é honrada de conclusão. |
+| **endTime** | Não | Um valor de cadeia de caracteres data ou DateTime na [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) que especifica quando deixa da tarefa em execução. Pode definir um valor para **endTime** que está no passado. <p>Sem **endTime** ou **contagem**, o trabalho seja executado infinitamente. Não é possível utilizar ambos **contagem** e **endTime** na mesma tarefa, mas a regra em primeiro lugar é honrada de conclusão. |
 |||| 
 
 Por exemplo, este esquema JSON descreve uma programação básica e a periodicidade para uma tarefa: 
@@ -94,9 +94,9 @@ Por exemplo, este esquema JSON descreve uma programação básica e a periodicid
 
 *As datas e valores de DateTime*
 
-* Incluir apenas a data de datas em tarefas do Scheduler e siga os [especificação ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
+* Incluir apenas a data de datas em tarefas do Scheduler e siga os [especificação ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
-* Datas-horas nas tarefas do Scheduler incluem a data e hora, siga os [especificação ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)e devem para ser UTC de quando não é especificada nenhuma diferença para UTC. 
+* Datas-horas nas tarefas do Scheduler incluem a data e hora, siga os [especificação ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)e devem para ser UTC de quando não é especificada nenhuma diferença para UTC. 
 
 Para obter mais informações, consulte [conceitos, terminologia e entidades](../scheduler/scheduler-concepts-terms.md).
 

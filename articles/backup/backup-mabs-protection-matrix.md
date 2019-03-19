@@ -9,12 +9,12 @@ ms.date: 11/13/2018
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: e7bcd5438738399d187bc158948364a44c46348c
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094648"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de proteção do Azure Backup Server
 
@@ -23,7 +23,7 @@ Este artigo lista os vários servidores e cargas de trabalho que pode proteger c
 ## <a name="protection-support-matrix"></a>Matriz de suporte de proteção
 
 |Carga de trabalho|Versão|Servidor do Backup do Azure</br> installation|Azure Backup</br> Server V3|Azure Backup</br> Servidor V2|Proteção e recuperação|
-|------------|-----------|---------------|--------------|---------------|-----------------|---------------------------|
+|------------|-----------|---------------|--------------|---------------|-----------------|
 |Computadores de cliente (64 bits e 32 bits)|Windows 10|Servidor físico<br /><br />Máquina virtual do Hyper-V<br /><br />Máquina virtual VMware|S|S|Volume, partilha, pasta, ficheiros, volumes com eliminação de duplicados<br /><br />Volumes protegidos têm de ser NTFS. FAT e FAT32 não são suportados.<br /><br />Volumes tem de ser, pelo menos, 1 GB. O DPM utiliza o serviço de cópia de sombra de volumes (VSS) para tirar o instantâneo de dados e o instantâneo só funciona se o volume é, pelo menos, 1 GB.|
 |Computadores de cliente (64 bits e 32 bits)|Windows 8.1|Servidor físico<br /><br />Máquina virtual do Hyper-V|S|S|Ficheiros<br /><br />Volumes protegidos têm de ser NTFS. FAT e FAT32 não são suportados.<br /><br />Volumes tem de ser, pelo menos, 1 GB. O DPM utiliza o serviço de cópia de sombra de volumes (VSS) para tirar o instantâneo de dados e o instantâneo só funciona se o volume é, pelo menos, 1 GB.|
 |Computadores de cliente (64 bits e 32 bits)|Windows 8.1|Máquina de virtual do Windows no VMWare (protege cargas de trabalho em execução na máquina de virtual do Windows no VMWare)|S|S|Volume, partilha, pasta, ficheiros, volumes com eliminação de duplicados<br /><br />Volumes protegidos têm de ser NTFS. FAT e FAT32 não são suportados.<br /><br />Volumes tem de ser, pelo menos, 1 GB. O DPM utiliza o serviço de cópia de sombra de volumes (VSS) para tirar o instantâneo de dados e o instantâneo só funciona se o volume é, pelo menos, 1 GB.|

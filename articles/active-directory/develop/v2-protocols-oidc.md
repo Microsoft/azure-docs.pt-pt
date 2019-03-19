@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d94e64af362ef9698350b8231718cc841731f7e5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6c20ae6acaf600cdde6e168c6db96deb7a28e9fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162837"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112709"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>O Azure Active Directory v 2.0 e o protocolo OpenID Connect
 
@@ -105,7 +105,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> Clique na ligação seguinte para executar este pedido. Depois de iniciar sessão, o navegador será redirecionado para https://localhost/myapp/, com um token de ID na barra de endereço. Tenha em atenção que esse pedido usa `response_mode=fragment` (para apenas a fins de demonstração). Recomendamos que utilize `response_mode=form_post`.
+> Clique na ligação seguinte para executar este pedido. Depois de iniciar sessão, o navegador será redirecionado para `https://localhost/myapp/`, com um token de ID na barra de endereço. Tenha em atenção que esse pedido usa `response_mode=fragment` (para apenas a fins de demonstração). Recomendamos que utilize `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Parâmetro | Condição | Descrição |
@@ -178,7 +178,7 @@ A tabela seguinte descreve os códigos de erro que podem ser devolvidos no `erro
 
 Não é suficiente para autenticar o usuário; apenas receber uma id_token tem de validar a assinatura o id_token e verifique se as afirmações no token de conformidade com os requisitos da sua aplicação. Utiliza o ponto final v2.0 [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar os tokens e certifique-se de que são válidas.
 
-Pode optar por validar a `id_token` num cliente de código, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação lá. Assim que validar a assinatura do id_token, existem algumas declarações, que será necessário para verificar. Consulte a [ `id_token` referência](id-tokens.md) para obter mais informações, incluindo [validar Tokens](id-tokens.md#validating-an-idtoken) e [importante informações sobre como assinar Rollover de chave](active-directory-signing-key-rollover.md). Recomendamos que fazendo uso de uma biblioteca para análise e a validar tokens – há, pelo menos, um disponível para a maioria das linguagens e plataformas.
+Pode optar por validar a `id_token` num cliente de código, mas uma prática comum é enviar o `id_token` para um servidor de back-end e executar a validação lá. Assim que validar a assinatura do id_token, existem algumas declarações, que será necessário para verificar. Consulte a [ `id_token` referência](id-tokens.md) para obter mais informações, incluindo [validar Tokens](id-tokens.md#validating-an-id_token) e [importante informações sobre como assinar Rollover de chave](active-directory-signing-key-rollover.md). Recomendamos que fazendo uso de uma biblioteca para análise e a validar tokens – há, pelo menos, um disponível para a maioria das linguagens e plataformas.
 <!--TODO: Improve the information on this-->
 
 Também pode pretender validar afirmações adicionais, dependendo do seu cenário. Algumas validações comuns incluem:
@@ -235,7 +235,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 ```
 
 > [!TIP]
-> Clique na ligação seguinte para executar este pedido. Depois de iniciar sessão, o seu navegador é redirecionado para https://localhost/myapp/, com um token de ID e um código na barra de endereço. Tenha em atenção que esse pedido usa `response_mode=fragment` fins apenas demonstrativos. Recomendamos que utilize `response_mode=form_post`.
+> Clique na ligação seguinte para executar este pedido. Depois de iniciar sessão, o seu navegador é redirecionado para `https://localhost/myapp/`, com um token de ID e um código na barra de endereço. Tenha em atenção que esse pedido usa `response_mode=fragment` fins apenas demonstrativos. Recomendamos que utilize `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
@@ -279,4 +279,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Para obter uma descrição de códigos de erro possíveis e respostas de cliente recomendado, consulte [códigos de erro para erros de autorização do ponto de extremidade](#error-codes-for-authorization-endpoint-errors).
 
-Quando tiver um código de autorização e um token de ID, pode iniciar sessão do utilizador e obter os tokens de acesso em nome deles. Iniciar a sessão do utilizador no, tem de validar o token de ID [exatamente como descrito](id-tokens.md#validating-an-idtoken). Para obter os tokens de acesso, siga os passos descritos em [documentação de fluxo de código do OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Quando tiver um código de autorização e um token de ID, pode iniciar sessão do utilizador e obter os tokens de acesso em nome deles. Iniciar a sessão do utilizador no, tem de validar o token de ID [exatamente como descrito](id-tokens.md#validating-an-id_token). Para obter os tokens de acesso, siga os passos descritos em [documentação de fluxo de código do OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).

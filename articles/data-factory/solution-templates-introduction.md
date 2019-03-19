@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: c684d275052e011d965210c132e09bab679cf166
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576260"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003544"
 ---
 # <a name="templates"></a>Modelos
 
@@ -40,11 +40,13 @@ Pode começar a criar um pipeline do Data Factory a partir de um modelo a seguir
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Sem os modelos de fábrica de dados de caixa
 
-O Data Factory utiliza modelos Azure Resource Manager para salvar os modelos de pipeline de fábrica de dados. Pode ver todos os modelos do Resource Manager, juntamente com o arquivo de manifesto utilizado para fora os modelos de fábrica de dados de caixa no [repositório do Github de fábrica de dados do Azure oficial](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Os modelos predefinidos, fornecidos pela Microsoft incluem, mas não estão limitados aos seguintes itens:
+O Data Factory utiliza modelos Azure Resource Manager para salvar os modelos de pipeline de fábrica de dados. Pode ver todos os modelos do Resource Manager, juntamente com o arquivo de manifesto utilizado para fora os modelos de fábrica de dados de caixa no [repositório do GitHub de fábrica de dados do Azure oficial](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Os modelos predefinidos, fornecidos pela Microsoft incluem, mas não estão limitados aos seguintes itens:
 
 -   Copie modelos:
 
     -   [Cópia em massa da base de dados](solution-template-bulk-copy-with-control-table.md)
+    
+    -   [Copiar novos ficheiros ao LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copiar vários contêineres de arquivos entre arquivos baseados em ficheiros](solution-template-copy-files-multiple-containers.md)
 

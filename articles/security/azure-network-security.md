@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 857672e8dee4dbe8d586db0cd80b206ec6ecb7df
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: f684a9d7bca77a8aa3aa60f5079dda0ce3b58a1c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244575"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121592"
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -90,7 +90,7 @@ Pode ligar VNets entre si, permitindo que os recursos ligados a das Vnets para c
 
 - **Peering:** Permite que os recursos ligados a VNets do Azure diferente na mesma localização do Azure para comunicar entre si. A largura de banda e a latência entre a VNet é o mesmo como se os recursos foram ligados à mesma VNet. Para saber mais sobre o peering, leia [peering de rede Virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
- ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
+  ![Peering](media/azure-network-security/azure-network-security-fig-3.png)
 
 - **Ligação de VNet a VNet:** Permite que os recursos ligados à VNet do Azure diferente dentro das mesmo ou em diferentes localizações do Azure. Ao contrário de peering, largura de banda é limitada entre VNets, porque o tráfego tem de fluir através de um Gateway de VPN do Azure.
 
@@ -318,19 +318,19 @@ O túnel forçado no Azure está configurado por meio de rotas definidas pelo ut
 
 A secção seguinte mostra a limitação atual da tabela de encaminhamento e rotas de uma rede Virtual do Azure:
 
--   Cada sub-rede da rede virtual tem uma tabela de roteamento interno, do sistema. A tabela de encaminhamento do sistema tem os seguintes três grupos de rotas:
+- Cada sub-rede da rede virtual tem uma tabela de roteamento interno, do sistema. A tabela de encaminhamento do sistema tem os seguintes três grupos de rotas:
 
- -  **Rotas de VNet locais:** Diretamente para o destino de VMs na mesma rede virtual
+  -  **Rotas de VNet locais:** Diretamente para o destino de VMs na mesma rede virtual
 
- - **Sobre rotas no local:** Para o gateway de VPN do Azure
+  - **Sobre rotas no local:** Para o gateway de VPN do Azure
 
- -  **Rota predefinida:** Diretamente à Internet. Pacotes destinados aos endereços IP privados, não abrangidos pelas anteriores duas rotas são ignorados.
+  -  **Rota predefinida:** Diretamente à Internet. Pacotes destinados aos endereços IP privados, não abrangidos pelas anteriores duas rotas são ignorados.
 
--   Com o lançamento das rotas definidas pelo utilizador, pode criar uma tabela de encaminhamento para adicionar uma rota predefinida e, em seguida, associar a tabela de encaminhamento para a sub-rede de VNet para ativar o protocolo de túnel forçado nessas sub-redes.
+- Com o lançamento das rotas definidas pelo utilizador, pode criar uma tabela de encaminhamento para adicionar uma rota predefinida e, em seguida, associar a tabela de encaminhamento para a sub-rede de VNet para ativar o protocolo de túnel forçado nessas sub-redes.
 
--   Tem de definir um "site predefinido" entre os sites locais em vários locais ligado à rede virtual.
+- Tem de definir um "site predefinido" entre os sites locais em vários locais ligado à rede virtual.
 
--   O túnel forçado tem de ser associado a uma VNet com um gateway de VPN encaminhamento dinâmico (não um gateway estático).
+- O túnel forçado tem de ser associado a uma VNet com um gateway de VPN encaminhamento dinâmico (não um gateway estático).
 
 - Túnel forçado do ExpressRoute não está configurado por intermédio deste mecanismo, mas em vez disso, está ativado por uma rota predefinida por meio de sessões de peering de BGP de ExpressRoute de publicidade.
 
@@ -507,7 +507,7 @@ O Azure oferece diversas ferramentas para monitorizar, prevenir, detetar e respo
 
 -   Monitorização ao nível da rede recursos
 
--   Registos de Monitor do Azure
+-   Registos do Azure Monitor
 
 ### <a name="network-watcher"></a>Observador de rede
 
@@ -603,7 +603,7 @@ Os registos de diagnóstico estão disponíveis para [Balanceador de carga](http
 
 Observador de rede fornece que um diagnóstico regista o modo de exibição. Esta vista contém todos os recursos de rede que suportam o registo de diagnósticos. A partir desta vista, pode ativar e desativar recursos de rede rápida e conveniente.
 
-### <a name="azure-monitor-logs"></a>Registos de Monitor do Azure
+### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 
 [Registos de Monitor do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) é um serviço no Azure que monitoriza a sua cloud e ambientes para manter a disponibilidade e desempenho no local. Recolhe dados gerados por recursos nos seus ambientes na cloud e no local e de outras ferramentas de monitorização, para disponibilizar análises relativas a várias origens.
 

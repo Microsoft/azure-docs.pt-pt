@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
 ms.date: 03/01/2019
-ms.openlocfilehash: 336903b6cd451e25f7c696e445be724989c39996
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 648369d89bd2b5b08171e1f6f5482c81bfba3c66
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761944"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010332"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>Tutorial: Criar um hub- and -spoke topologia de rede híbrida com o Terraform no Azure
 
@@ -81,7 +81,7 @@ Alguns dos usos de uma arquitetura hub- and -spoke incluem:
 
 Crie o diretório que contém os ficheiros de configuração do Terraform na demonstração.
 
-1. Navegue para o [portal do Azure](http://portal.azure.com).
+1. Navegue para o [portal do Azure](https://portal.azure.com).
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 
