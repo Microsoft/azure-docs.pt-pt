@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 8d6d2d83e24b5e42af5f4322021eebfe9bf09494
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2eb395b4f3d922aa116e01c5de080a54d81e10ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551300"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118651"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com o Service Fabric
 
@@ -111,15 +111,15 @@ Na vista do mesmo com todos os gráficos, verá alguns mosaicos para o desempenh
 
 3. Clique em dados > contadores de desempenho do Windows (dados > contadores de desempenho do Linux para máquinas do Linux) para iniciar a recolha de contadores específicos de seus nós por meio do agente do Log Analytics. Seguem-se exemplos de formato para contadores adicionar
 
-    * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
-    * `Processor(_Total)\\% Processor Time`
+   * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
+   * `Processor(_Total)\\% Processor Time`
 
-    Guia de introdução, VotingData e VotingWeb são os nomes de processo utilizados, para que estes contadores de controlo teria o seguinte aspeto
+     Guia de introdução, VotingData e VotingWeb são os nomes de processo utilizados, para que estes contadores de controlo teria o seguinte aspeto
 
-    * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
-    * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
+   * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![Contadores de desempenho do log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+     ![Contadores de desempenho do log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. Isto permite-lhe ver a forma como a sua infraestrutura é processar cargas de trabalho e definir os alertas relevantes com base na utilização de recursos. Por exemplo, pode querer definir um alerta se a utilização do processador total for superior a 90% ou inferior a 5%. O nome do contador que utilizaria para isso é "% de tempo do processador". Pode fazer isso criando uma regra de alerta para a seguinte consulta:
 

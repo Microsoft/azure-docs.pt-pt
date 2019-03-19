@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2d1818f42cb2bcb19f979f25962a6c9bdea10155
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 642f479aba62e5cc9dde63aed7c30de39b513a5e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728017"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093354"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Consumo de recursos de gerenciamento e a carga no Service Fabric com a métrica
 *Métricas* são os recursos que o cuidado de serviços sobre e que é fornecido por nós no cluster. Uma métrica é tudo o que pretende gerir para melhorar ou monitorizar o desempenho dos seus serviços. Por exemplo, poderá ver o consumo de memória para saber se o seu serviço está sobrecarregado. Outro uso é descobrir se o serviço foi possível mover a outro lugar em que a memória é que menos restrita para obter um melhor desempenho.
@@ -45,6 +45,7 @@ Para cargas de trabalho básicas, as métricas do padrão fornecem uma distribui
 Eis o que fazer:
 
 <center>
+
 ![Esquema de cluster com métricas predefinidas][Image1]
 </center>
 
@@ -215,6 +216,7 @@ Como lembrete, essa sintaxe é ("MetricName, MetricWeight, PrimaryDefaultLoad, S
 Vamos ver quais um layout de cluster possível pode ser parecida com:
 
 <center>
+
 ![Cluster equilibrado com métricas padrão e personalizados][Image2]
 </center>
 
@@ -239,6 +241,7 @@ O impacto real de pesos de métrica diferentes do cluster é que o Gestor de rec
 Vamos examinar um exemplo de alguns relatórios de carga e a métrica como diferente pesos resultados em alocações de diferentes no cluster. Neste exemplo, podemos ver que alternar o peso relativo das métricas faz com que o Gestor de recursos de Cluster para criar esquemas diferentes de serviços.
 
 <center>
+
 ![Exemplo de métrica de peso e seu impacto no balanceamento de soluções][Image3]
 </center>
 
@@ -256,6 +259,7 @@ Existem vários pesos que são controlados por cada medição. O peso primeiro �
 O que aconteceria se o Gestor de recursos de Cluster não se preocupa com saldo global e local? Bem, é fácil construir soluções que globalmente são balanceadas, mas o que resulta em equilíbrio de recursos fraco para serviços individuais. No exemplo a seguir, vamos examinar um serviço configurado com apenas as métricas padrão e ver o que acontece quando é considerado apenas balanceamento global:
 
 <center>
+
 ![O impacto de uma única solução Global][Image4]
 </center>
 

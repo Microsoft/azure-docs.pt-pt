@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dc3e654e741fd1a326c83e51c72284f41ad74798
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988056"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862729"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
@@ -23,7 +23,7 @@ ms.locfileid: "55988056"
 
 O Video Indexer combina várias tecnologias de inteligência artificial (IA) de áudio e vídeo disponibilizadas pela Microsoft num serviço integrado, o que facilita a programação. As APIs foram concebidas para permitir que os programadores se foquem no consumo de tecnologias de IA multimédia sem se preocuparem com a escala, o alcance global, a disponibilidade e a fiabilidade da plataforma na cloud. Pode utilizar a API para carregar ficheiros, obter informações de vídeo detalhadas, obter URLs de widgets de informações e de leitor para incorporá-los na sua aplicação, entre outras tarefas.
 
-Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer que está [ligada à sua subscrição do Azure e uma conta dos Serviços de Multimédia do Azure](connect-to-azure.md). Irá pagar pelos minutos de indexação e pelas cobranças relacionadas com a conta dos Serviços de Multimédia do Azure. 
+Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com uma opção paga, cria uma conta do Video Indexer que seja [ligado à sua subscrição do Azure e uma conta de Media Services do Azure](connect-to-azure.md). Irá pagar pelos minutos de indexação e pelas cobranças relacionadas com a conta dos Serviços de Multimédia do Azure. 
 
 Este artigo mostra como os programadores podem tirar partido da [API do Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -33,10 +33,10 @@ Este artigo mostra como os programadores podem tirar partido da [API do Video In
     
     ![Iniciar sessão](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * Tem de utilizar o mesmo fornecedor que utilizou quando se inscreveu no Video Indexer.
-    > * Só é possível utilizar contas Google e Microsoft (Outlook/Live) pessoais no caso das contas de avaliação. As contas ligadas ao Azure necessitam do Azure AD.
-    > * Só pode existir uma conta ativa por e-mail. Se um utilizador tentar iniciar sessão com o endereço de e-mail user@gmail.com no LinkedIn e, em seguida, com o mesmo endereço user@gmail.com no Google, será apresentada uma página de erro no Google a indicar que o utilizador já existe.
+   > [!Important]
+   > * Tem de utilizar o mesmo fornecedor que utilizou quando se inscreveu no Video Indexer.
+   > * Só é possível utilizar contas Google e Microsoft (Outlook/Live) pessoais no caso das contas de avaliação. As contas ligadas ao Azure necessitam do Azure AD.
+   > * Só pode existir uma conta ativa por e-mail. Se um utilizador tentar iniciar sessão com o endereço de e-mail user@gmail.com no LinkedIn e, em seguida, com o mesmo endereço user@gmail.com no Google, será apresentada uma página de erro no Google a indicar que o utilizador já existe.
 
 2. Subscreva.
 
@@ -72,7 +72,7 @@ Para facilitar o processo, pode aceder a APIS > **Authorization** (Autorização
 
 Os tokens de acesso expiram após uma hora. Certifique-se de que o seu token de acesso é válido antes de utilizar a API de Operações. Se o token expirar, chame novamente a API de Autorização para obter um token de acesso novo.
  
-Está pronto para começar a integrar com a API. Veja [a descrição detalhada de cada API REST do Video Indexer](http://api-portal.videoindexer.ai/).
+Está pronto para começar a integrar com a API. Veja [a descrição detalhada de cada API REST do Video Indexer](https://api-portal.videoindexer.ai/).
 
 ## <a name="location"></a>Localização
 

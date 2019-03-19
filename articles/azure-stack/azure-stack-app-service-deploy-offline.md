@@ -16,12 +16,12 @@ ms.date: 02/27/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: af3e7528e2312cef1832dc104e83384a91acf263
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: b6950e3445f2320f2e3a45f55726befd7077119a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991347"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835914"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um fornecedor de recursos do serviço de aplicações para um ambiente desligado do Azure Stack protegido pelo AD FS
 
@@ -82,28 +82,28 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
     ![Instalador do serviço de aplicações][3]
 
 7. Na página seguinte:
-    1. Clique nas **Connect** junto aos **subscrições do Azure Stack** caixa.
-        - Forneça a sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Introduza a palavra-passe e clique em **sessão**.
-    2. Na **subscrições do Azure Stack** caixa, selecione a **subscrição do fornecedor predefinido**.
+   1. Clique nas **Connect** junto aos **subscrições do Azure Stack** caixa.
+      - Forneça a sua conta de administrador. Por exemplo, cloudadmin@azurestack.local. Introduza a palavra-passe e clique em **sessão**.
+   2. Na **subscrições do Azure Stack** caixa, selecione a **subscrição do fornecedor predefinido**.
     
-    > [!NOTE]
-    > Serviço de aplicações só pode ser implementado para o **subscrição do fornecedor predefinido**.
-    >
+      > [!NOTE]
+      > Serviço de aplicações só pode ser implementado para o **subscrição do fornecedor predefinido**.
+      >
     
-    3. Na **localizações do Azure Stack** caixa, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
-    4. Clique em **Seguinte**.
+   3. Na **localizações do Azure Stack** caixa, selecione a localização que corresponde à região que está a implementar. Por exemplo, seleccione **local** se sua a implementar o Development Kit do Azure Stack.
+   4. Clique em **Seguinte**.
 
-    ![Instalador do serviço de aplicações][4]
+      ![Instalador do serviço de aplicações][4]
 
 8. Agora tem a opção de implementar numa rede Virtual existente, conforme configurado através dos passos [aqui](azure-stack-app-service-before-you-get-started.md#virtual-network), ou permitir que o instalador do serviço de aplicações criar uma rede Virtual e sub-redes associadas.
-    1. Selecione **criar VNet com configurações padrão**, aceite as predefinições e, em seguida, clique em **próxima**, ou;
-    2. Selecione **utilizar a VNet existente e sub-redes**.
-        1. Selecione o **grupo de recursos** que contém a sua rede Virtual;
-        2. Escolha o correto **rede Virtual** nome que pretende implementar numa;
-        3. Selecione o correto **sub-rede** valores para cada uma das sub-redes de função necessários;
-        4. Clique em **Seguinte**
+   1. Selecione **criar VNet com configurações padrão**, aceite as predefinições e, em seguida, clique em **próxima**, ou;
+   2. Selecione **utilizar a VNet existente e sub-redes**.
+       1. Selecione o **grupo de recursos** que contém a sua rede Virtual;
+       2. Escolha o correto **rede Virtual** nome que pretende implementar numa;
+       3. Selecione o correto **sub-rede** valores para cada uma das sub-redes de função necessários;
+       4. Clique em **Seguinte**
 
-    ![Instalador do serviço de aplicações][5]
+      ![Instalador do serviço de aplicações][5]
 
 9. Introduza as informações para a partilha de ficheiros e, em seguida, clique em **seguinte**. O endereço da partilha de ficheiros tem de utilizar o nome de domínio completamente qualificado ou endereço IP do seu servidor de ficheiros. Por exemplo, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, ou \\\10.0.0.1\websites.  Se estiver a utilizar um servidor de ficheiros que é associado a um domínio, tem de fornecer o nome de utilizador completo, incluindo o domínio, por exemplo, myfileserverdomain\FileShareOwner.
 
@@ -152,7 +152,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
     > ```
     > Consulte a [notas de versão do serviço de aplicações do Azure no Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) para obter mais detalhes.
    
-   ![Instalador do serviço de aplicações][12]
+    ![Instalador do serviço de aplicações][12]
 
 13. Reveja as opções de SKU e a instância de função. As predefinições são preenchidas com o número mínimo de instâncias e o SKU mínimo para cada função numa implantação ASDK. Para ajudar a planear a implementação, é fornecido um resumo dos requisitos de memória e vCPU. Depois de fazer as seleções, clique em **seguinte**.
 
@@ -172,7 +172,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
     ![Instalador do serviço de aplicações][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core não é uma imagem de plataforma suportada para utilização com o serviço de aplicações do Azure no Azure Stack.  Não utilize imagens de avaliação para implementações de produção.  Serviço de aplicações do Azure no Azure Stack requer que o Microsoft.Net 3.5.1 SP1 está ativado na imagem utilizada para a implementação.   Marketplace distribuídos imagens não tem esta funcionalidade ativada do Windows Server 2016, por conseguinte, tem de criar e utilizar uma imagem do Windows Server 2016 com esta opção ativada previamente.**
+    > **Windows Server 2016 Core não é uma imagem de plataforma suportada para utilização com o serviço de aplicações do Azure no Azure Stack.  Não utilize imagens de avaliação para implementações de produção.  Serviço de aplicações do Azure no Azure Stack requer que o Microsoft.NET 3.5.1 SP1 está ativado na imagem utilizada para a implementação.   Marketplace distribuídos imagens não tem esta funcionalidade ativada do Windows Server 2016, por conseguinte, tem de criar e utilizar uma imagem do Windows Server 2016 com esta opção ativada previamente.**
 
 14. Na **selecione a imagem de plataforma** caixa, escolha a sua imagem de máquina virtual de implantação do Windows Server 2016 daqueles disponíveis no fornecedor de recursos de computação para a cloud de serviço de aplicações. Clique em **Seguinte**.
 
@@ -210,7 +210,7 @@ Para implementar o serviço de aplicações num ambiente desligado, primeiro tem
     ![Gestão de serviço de aplicações](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> Se optar por implementar numa rede virtual existente e um endereço IP para ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
+> Se optar por implementar numa rede virtual existente e um endereço IP interno para se ligar ao seu servidor de ficheiros, tem de adicionar uma regra de segurança de saída, permitindo que o tráfego entre a sub-rede de trabalho e o servidor de ficheiros SMB.  Para fazer isso, vá para o WorkersNsg no Portal de administração e adicionar uma regra de segurança de saída com as seguintes propriedades:
 > * Origem: Qualquer
 > * Intervalo de portas de origem: *
 > * Destino: Endereços IP
@@ -253,7 +253,7 @@ Depois de implementar e registar o fornecedor de recursos do serviço de aplica�
 
 1. No portal de inquilino do Azure Stack, clique em **+**, vá para o Azure Marketplace, implemente um Web site Django e aguarde pela conclusão com êxito. A plataforma de web Django utiliza um ficheiro com base no sistema base de dados do. Ele não requer quaisquer fornecedores de recursos adicionais, tais como SQL ou MySQL.
 
-2. Se implementou também um provedor de recursos do MySQL, pode implementar um Web site WordPress no Marketplace. Quando lhe for pedido para os parâmetros de base de dados, introduza o nome de utilizador como *User1@Server1*, com o nome de utilizador e o nome do servidor da sua preferência.
+2. Se implementou também um provedor de recursos do MySQL, pode implementar um Web site WordPress no Marketplace. Quando lhe for pedido para os parâmetros de base de dados, introduza o nome de utilizador como *User1\@servidor1*, com o nome de utilizador e o nome do servidor da sua preferência.
 
 3. Se implementou também um provedor de recursos do SQL Server, pode implementar um Web site DNN do Marketplace. Quando lhe for pedido para os parâmetros de base de dados, escolha uma base de dados no computador que executa o SQL Server que está ligada ao seu fornecedor de recursos.
 

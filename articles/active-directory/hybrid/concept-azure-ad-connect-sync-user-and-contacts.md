@@ -15,12 +15,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7605a8cee265822f133b3f72ce5de90add5fc0d0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 661747754369c17ca98ae69d477e04124b6a2942
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993377"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Sincronização do Azure AD Connect: Entender utilizadores, grupos e contactos
 Existem vários motivos diferentes por que teria de várias florestas do Active Directory e existem várias topologias de implementação diferentes. Modelos comuns incluem uma implementação de recurso de conta e GAL sync'ed florestas depois de uma fusão e aquisição. Mas, mesmo se existirem modelos puros, modelos híbridos são comuns também. A configuração predefinida do Azure AD Connect não assume qualquer modelo específico, mas dependendo de como a correspondência de utilizador tiver sido selecionada no guia de instalação, podem ser observados comportamentos diferentes.
@@ -51,9 +51,9 @@ Pontos importantes a ter em consideração durante a sincronização de grupos d
     
       * Um grupo do Active Directory tem o valor cujo atributo proxyAddress *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* não serão habilitados para email no Azure AD. Não tem um endereço SMTP.
       
-      * Um grupo do Active Directory, cujo atributo proxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* será a capacidade de correio no Azure AD.
+      * Um grupo do Active Directory, cujo atributo proxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe\@contoso.com"}* será a capacidade de correio no Azure AD.
       
-      * Um grupo do Active Directory, cujo atributo proxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* também serão habilitados para email no Azure AD.
+      * Um grupo do Active Directory, cujo atributo proxyAddress tem valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe\@contoso.com"}* também serão habilitados para email no Azure AD.
 
 ## <a name="contacts"></a>Contactos
 Ter contactos que representa um utilizador numa floresta diferente é comum depois de uma fusão e aquisição em que uma solução de GALSync é a ponte duas ou mais florestas do Exchange. O objeto de contato estiver ingressando em sempre de espaço conector do metaverso usando o atributo de correio. Se já existir um objeto de contato ou objeto de utilizador com o mesmo endereço de correio, os objetos são Unidos. Este é configurado na regra **do AD – associar contacto**. Também existe uma regra com o nome **do AD – comuns de contato** com um fluxo de atributos para o atributo do metaverso **sourceObjectType** com a constante **contacto**. Esta regra tem precedência muito baixa por isso, se qualquer objeto de utilizador está associado ao mesmo objeto de metaverso, em seguida, a regra **do AD – utilizador comuns** contribui com o valor de utilizador para este atributo. Com esta regra, este atributo terá o valor contacto se nenhum utilizador tiver sido associado e o valor de utilizador se, pelo menos, um usuário foi encontrado.

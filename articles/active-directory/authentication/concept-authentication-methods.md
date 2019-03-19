@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d90407dab29f431f5a592e077c859aea997c4c
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 09f61f60a3885fbc58cddc4b46df11014057f54e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214100"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999485"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -148,6 +148,8 @@ A aplicação Microsoft Authenticator ou outras aplicações de terceiros podem 
 > [!WARNING]
 > Palavra-passe self-service de reposição quando apenas um método é necessário para a reposição do código de verificação é a única opção disponível para os usuários **para garantir o nível mais elevado de segurança**.
 >
+
+Os utilizadores podem ter uma combinação de até 5 tokens de hardware OATH ou aplicações de autenticação como a aplicação Microsoft Authenticator configurada para utilização em qualquer altura.
 
 ## <a name="oath-hardware-tokens-public-preview"></a>Tokens OATH de hardware (pré-visualização pública)
 

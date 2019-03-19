@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 14bd9a0bfbef15acdac5a2eddc88c72d3e142591
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b35fa32776fa449bf4f46479345a94e63fe28e68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537971"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109581"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Início rápido: Enviar um pedido de pesquisa para a API de REST do Search do Bing entidade com o Python
 
@@ -53,18 +53,18 @@ Embora esta aplicação esteja escrita em Python, a API é um serviço Web RESTf
 ## <a name="send-a-request-and-get-a-response"></a>Enviar um pedido e obter uma resposta
 
 1. Criar uma função chamada `get_suggestions()`. Em seguida, execute os seguintes passos.
-    1. Adicionar a chave de subscrição a um dicionário com `Ocp-Apim-Subscription-Key` como uma chave.
-    2. Utilize `http.client.HTTPSConnection()` para criar um objeto de cliente HTTPS. Enviar um `GET` solicite utilizando `request()` com as suas informações de cabeçalho e parâmetros e caminho.
-    3. Store a resposta com `getresponse()`e retornar `response.read()`.
+   1. Adicionar a chave de subscrição a um dicionário com `Ocp-Apim-Subscription-Key` como uma chave.
+   2. Utilize `http.client.HTTPSConnection()` para criar um objeto de cliente HTTPS. Enviar um `GET` solicite utilizando `request()` com as suas informações de cabeçalho e parâmetros e caminho.
+   3. Store a resposta com `getresponse()`e retornar `response.read()`.
 
-    ```python
-    def get_suggestions ():
-        headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-        conn = http.client.HTTPSConnection (host)
-        conn.request ("GET", path + params, None, headers)
-        response = conn.getresponse ()
-        return response.read()
-    ```
+      ```python
+      def get_suggestions ():
+       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+       conn = http.client.HTTPSConnection (host)
+       conn.request ("GET", path + params, None, headers)
+       response = conn.getresponse ()
+       return response.read()
+      ```
 
 2. Chamar `get_suggestions()`e a resposta json de impressão.
 

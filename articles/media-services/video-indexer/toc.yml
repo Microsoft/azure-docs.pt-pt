@@ -83,9 +83,11 @@ items:
     href: regions.md
   - name: FAQs
     href: faq.md
-ms.openlocfilehash: c805ae4149bab0d5ce72a1fd0d63cc74fbe4272d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+  - name: Conformidade
+    href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
+ms.openlocfilehash: 667aacd14c7bc3aada0acfa4968bd7155effc4d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984475"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837002"

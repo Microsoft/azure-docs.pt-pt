@@ -81,16 +81,16 @@ items:
   - name: Registo de modelos do Azure (Azure module registry)
     href: https://registry.terraform.io/modules/Azure
   - name: Referência do Terraform (Terraform reference)
-    href: http://aka.ms/terraform
+    href: https://aka.ms/terraform
 - name: Recursos
   items:
   - name: Azure e o Terraform
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Mapa do Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: f37cb15bccf0fe07ace24d3277015a69b9881091
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d83e1cbd4f3cd5d8a0a9ec167e197b53f20e0630
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999439"

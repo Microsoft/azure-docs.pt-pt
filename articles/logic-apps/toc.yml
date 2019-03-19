@@ -368,7 +368,7 @@ items:
   - name: Fórum do MSDN
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-logic-apps
+    href: https://stackoverflow.com/questions/tagged/azure-logic-apps
   - name: Twitter
     href: https://twitter.com/logicappsio
   - name: Preços
@@ -381,9 +381,9 @@ items:
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
-ms.openlocfilehash: 5332674f8e31a210c5d018c9b9747fe756c0b236
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: ecdde9ccf8f0558e0ed50b3bc94735def73a41af
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771366"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57887956"

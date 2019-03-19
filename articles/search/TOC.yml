@@ -17,7 +17,11 @@ items:
       href: search-get-started-portal.md
     - name: Enriquecer com IA (pesquisa cognitiva)
       href: cognitive-search-quickstart-blob.md
-  - name: .NET
+  - name: Postman
+    href: search-fiddler.md
+  - name: PowerShell
+    href: search-create-index-rest-api.md
+  - name: C#
     items:
     - name: Criar um índice
       href: search-create-index-dotnet.md
@@ -25,16 +29,6 @@ items:
       href: search-import-data-dotnet.md
     - name: Pesquisa
       href: search-query-dotnet.md
-  - name: REST
-    items:
-    - name: Criar um índice
-      href: search-create-index-rest-api.md
-    - name: Importar dados
-      href: search-import-data-rest-api.md
-    - name: Pesquisa
-      href: search-query-rest-api.md
-    - name: Explorar com o Postman ou Fiddler
-      href: search-fiddler.md
   expanded: true
 - name: Tutoriais
   items:
@@ -294,11 +288,11 @@ items:
   - name: Sites de demonstração
     items:
     - name: Demonstração com ficheiros financeiros
-      href: http://wolterskluwereap.azurewebsites.net/
+      href: https://wolterskluwereap.azurewebsites.net/
     - name: Demonstração com ficheiros JFK
-      href: http://aka.ms/jfkfiles
+      href: https://aka.ms/jfkfiles
     - name: Aplicação de listagem de trabalhos
-      href: http://aka.ms/azjobsdemo
+      href: https://aka.ms/azjobsdemo
     - name: Demonstração do Search Analyzer
       href: https://alice.unearth.ai/
     - name: Pesquisar casos de utilização
@@ -309,9 +303,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Vídeos
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 1d181caf4728f35d3cfcf68c968b4fbedd85a4e8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9127da44295defc522de45eb53ed7e6541287002
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764614"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57860432"

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08b1f3889136fadee68b3aa95d879b0495bddb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198421"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097598"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Tutorial: Integração do Active Directory do Azure com os guias de Yonyx interativa
 
@@ -174,8 +174,8 @@ O objetivo desta secção é criar um utilizador chamado Eduarda Almeida nos gui
 
 Não existe nenhum item de ação para nesta secção. Um novo utilizador é criado durante uma tentativa de aceder guias de interativo Yonyx se não existir ainda.
 
->[!NOTE]
->Se precisar de criar manualmente um utilizador, terá de contactar a equipa de suporte de guias de interativo Yonyx por <mailto:support@yonyx.com>. 
+> [!NOTE]
+> Se precisar de criar manualmente um utilizador, terá de contactar a equipa de suporte de guias de interativo Yonyx por <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 

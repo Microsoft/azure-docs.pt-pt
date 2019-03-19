@@ -16,12 +16,12 @@ ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 0e14e7eb20e87f5555fa6b494c0d09ccde08d2dd
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: ddcf3428f32698c9825f13975929bc4677139acf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731646"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081054"
 ---
 # <a name="azure-stack-1811-update"></a>Atualização de 1811 de pilha do Azure
 
@@ -122,13 +122,13 @@ Esta atualização inclui as seguintes novas funcionalidades e melhorias para o 
 - Essa versão apresenta o alerta **reparação** ações para o operador do Azure Stack. Alguns alertas no 1811 fornecem uma **reparação** botão no alerta que pode selecionar para resolver o problema. Para obter mais informações, consulte [monitorizar o estado de funcionamento e alertas no Azure Stack](azure-stack-monitor-health.md).
 
 - Atualizações para a experiência de atualização no Azure Stack. As atualização as melhorias incluem: 
-    - Guias que dividir as atualizações do histórico de atualização para um melhor controlo atualizações em curso e concluídas atualizações.
-    - Visualizações de estado melhorada na secção essentials com novos ícones e layout para as versões atual e do OEM, bem como a última atualizadas data.
-    - **Vista** ligar para a coluna de notas de versão leva o usuário diretamente para a documentação específica para essa atualização em vez da página atualizar genérico.
-    - O **atualizar o histórico de** separador utilizado para determinar os tempos de execução para cada uma das atualizações, bem como capacidades de filtragem melhoradas.  
-    - Unidades de escala de pilha do Azure que estão ligadas ainda automaticamente receberá **atualização disponível** à medida que ficam disponíveis.
-    - Unidades de escala de pilha do Azure que estão ligadas não podem importar as atualizações de tal como antes. 
-    - Não há nenhuma alteração no processo para transferir os registos JSON a partir do portal. Operadores do Azure Stack irão ver passos expressar progresso a expandir.
+  - Guias que dividir as atualizações do histórico de atualização para um melhor controlo atualizações em curso e concluídas atualizações.
+  - Visualizações de estado melhorada na secção essentials com novos ícones e layout para as versões atual e do OEM, bem como a última atualizadas data.
+  - **Vista** ligar para a coluna de notas de versão leva o usuário diretamente para a documentação específica para essa atualização em vez da página atualizar genérico.
+  - O **atualizar o histórico de** separador utilizado para determinar os tempos de execução para cada uma das atualizações, bem como capacidades de filtragem melhoradas.  
+  - Unidades de escala de pilha do Azure que estão ligadas ainda automaticamente receberá **atualização disponível** à medida que ficam disponíveis.
+  - Unidades de escala de pilha do Azure que estão ligadas não podem importar as atualizações de tal como antes. 
+  - Não há nenhuma alteração no processo para transferir os registos JSON a partir do portal. Operadores do Azure Stack irão ver passos expressar progresso a expandir.
 
     Para obter mais informações, consulte [aplicar atualizações no Azure Stack](azure-stack-apply-updates.md).
 
@@ -256,17 +256,17 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 <!-- 1264761 - IS ASDK -->  
 - Poderá ver alertas para o **controlador de estado de funcionamento** componente que tem os seguintes detalhes:  
 
-    - #1 do alerta:
-       - NOME:  Função de infraestrutura mau estado de funcionamento
-       - GRAVIDADE: Aviso
-       - COMPONENTE: Controlador de estado de funcionamento
-       - DESCRIÇÃO: O Scanner de Heartbeat do controlador de estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.  
+  - #1 do alerta:
+     - NOME:  Função de infraestrutura mau estado de funcionamento
+     - GRAVIDADE: Aviso
+     - COMPONENTE: Controlador de estado de funcionamento
+     - DESCRIÇÃO: O Scanner de Heartbeat do controlador de estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.  
 
-    - Alerta #2:
-       - NOME:  Função de infraestrutura mau estado de funcionamento
-       - GRAVIDADE: Aviso
-       - COMPONENTE: Controlador de estado de funcionamento
-       - DESCRIÇÃO: O Scanner de falhas de controlador do Estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.
+  - Alerta #2:
+     - NOME:  Função de infraestrutura mau estado de funcionamento
+     - GRAVIDADE: Aviso
+     - COMPONENTE: Controlador de estado de funcionamento
+     - DESCRIÇÃO: O Scanner de falhas de controlador do Estado de funcionamento não está disponível. Isto pode afetar as métricas e relatórios de estado de funcionamento.
 
     Ambos os alertas podem ser ignoradas com segurança. Será fechada automaticamente ao longo do tempo.  
 
@@ -346,7 +346,7 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 - Durante o Azure Stack *segredo rotação*, existe um período em que os endereços IP públicos estão inacessíveis para dois a cinco minutos.
 
 <!-- 2664148 - IS ASDK --> 
--   Em cenários em que o inquilino está a aceder a máquinas virtuais utilizando um túnel S2S VPN, poderão surgir um cenário em que as tentativas de ligação falharem se a sub-rede no local foi adicionada ao gateway de rede local já foi criado o gateway. 
+- Em cenários em que o inquilino está a aceder a máquinas virtuais utilizando um túnel S2S VPN, poderão surgir um cenário em que as tentativas de ligação falharem se a sub-rede no local foi adicionada ao gateway de rede local já foi criado o gateway. 
 
 - No portal do Azure Stack, quando altera um endereço IP estático para uma configuração de IP que está vinculado a um adaptador de rede anexado a uma instância VM, verá uma mensagem de aviso que indica 
 
@@ -358,9 +358,9 @@ Seguem-se após a instalação problemas conhecidos para esta versão de compila
 
 - No portal, se adicionar uma regra de segurança de entrada e selecione **etiquetas de serviço** como a origem, várias opções são apresentadas no **marca de origem** lista que não estão disponíveis para o Azure Stack. As únicas opções que são válidas no Azure Stack são os seguintes:
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     As outras opções não são suportadas como etiquetas de origem no Azure Stack. Da mesma forma, se adicionar uma regra de segurança de saída e selecione **etiquetas de serviço** como o destino, a mesma lista de opções para **marca de origem** é apresentado. As opções apenas válidas são os mesmos que para **marca de origem**, conforme descrito na lista anterior.
 

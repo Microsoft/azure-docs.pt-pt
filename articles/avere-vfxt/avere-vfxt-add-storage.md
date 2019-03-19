@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: f809644d4b94ea5facebba45b921485c739eb047
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774902"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078821"
 ---
 # <a name="configure-storage"></a>Configurar o armazenamento
 
@@ -149,7 +149,7 @@ Para adicionar armazenamento de BLOBs depois de criar o cluster, siga estes pass
    * Opcionalmente, defina **tipo de encriptação** ao **nenhum**.  O armazenamento do Azure é encriptado por predefinição.
    * Clique em **Adicionar filtro de**.
 
-  Para obter mais informações, leia [adicionando um novo filtro de núcleos na cloud](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) no guia de configuração de cluster Avere. 
+   Para obter mais informações, leia [adicionando um novo filtro de núcleos na cloud](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) no guia de configuração de cluster Avere. 
 
 A página irá atualizar ou, pode atualizar a página para apresentar o novo filtro de núcleos.
 

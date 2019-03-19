@@ -9,16 +9,19 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7eb841a0f4a34e708734cf433fac82ab35ef35b6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097291"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Reencaminhar a configuração de estado de automatização do Azure a comunicar dados aos registos do Azure Monitor
 
-A configuração de estado de automatização do Azure pode enviar dados de estado do nó Desired State Configuration (DSC) para a área de trabalho do Log Analytics. Estado de conformidade é visível no portal do Azure ou com o PowerShell, para nós e para recursos de DSC individuais em configurações de nó. Com os registos do Azure Monitor, pode:
+A configuração de estado de automatização do Azure mantém os dados de estado do nó durante 30 dias.
+Pode enviar dados de estado do nó para a área de trabalho do Log Analytics, se preferir reter estes dados para um período mais longo.
+Estado de conformidade é visível no portal do Azure ou com o PowerShell, para nós e para recursos de DSC individuais em configurações de nó.
+Com os registos do Azure Monitor, pode:
 
 - Obter as informações de conformidade para os nós geridos e recursos individuais
 - Acionar um e-mail ou o alerta com base no estado de conformidade
@@ -44,23 +47,23 @@ Para começar a importar dados do Azure Automation DSC sobre os registos do Azur
 1. Inicie sessão na sua conta do Azure no PowerShell. Consulte [iniciar sessão com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Obter o _ResourceId_ da sua conta de automatização ao executar o seguinte comando do PowerShell: (se tiver mais do que uma conta de automatização, escolha a _ResourceID_ para a conta que pretende configurar).
 
-  ```powershell
-  # Find the ResourceId for the Automation Account
-  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
-  ```
+   ```powershell
+   # Find the ResourceId for the Automation Account
+   Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+   ```
 
 1. Obter o _ResourceId_ da área de trabalho do Log Analytics, executando o seguinte comando do PowerShell: (se tiver mais do que uma área de trabalho, escolha a _ResourceID_ para a área de trabalho que pretende configurar).
 
-  ```powershell
-  # Find the ResourceId for the Log Analytics workspace
-  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
-  ```
+   ```powershell
+   # Find the ResourceId for the Log Analytics workspace
+   Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+   ```
 
 1. Execute o seguinte comando do PowerShell, substituindo `<AutomationResourceId>` e `<WorkspaceResourceId>` com o _ResourceId_ valores de cada um dos passos anteriores:
 
-  ```powershell
-  Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
-  ```
+   ```powershell
+   Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Categories 'DscNodeStatus'
+   ```
 
 Se pretender parar a importação de dados de configuração de estado de automatização do Azure sobre os registos do Azure Monitor, execute o seguinte comando do PowerShell:
 

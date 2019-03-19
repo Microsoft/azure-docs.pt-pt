@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7829627352815bc96a7a81bcbbc7e51240c858e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9cfff565dec0d6f9d2bbea8edf39f180d4b63fd9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870861"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993176"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ e problemas conhecidos com identidades geridas para recursos do Azure
 
@@ -55,17 +55,17 @@ O limite de segurança da identidade é o recurso ao qual está ligado a. Por ex
 Quando utiliza identidades geridas para recursos do Azure com VMs, recomendamos que utilize o ponto de extremidade IMDS. O serviço de metadados de instância do Azure é um ponto final REST acessíveis a todas as VMs de IaaS criadas através do Azure Resource Manager. 
 
 Algumas das vantagens da utilização de identidades geridas para recursos do Azure através de IMDS são:
-    - Todos os sistemas de operativos de IaaS do Azure suportada pode utilizar identidades geridas para recursos do Azure através de IMDS.
-    - Já não é necessário instalar uma extensão na sua VM para ativar identidades geridas para recursos do Azure. 
-    - Os certificados utilizados por identidades geridas para recursos do Azure já não estão presentes na VM.
-    - O ponto de extremidade IMDS é um endereço IP bem conhecido não encaminháveis internos, apenas disponível a partir da VM.
-    - 1000 atribuído ao utilizador identidades geridas podem ser atribuídas a uma única VM. 
+- Todos os sistemas de operativos de IaaS do Azure suportada pode utilizar identidades geridas para recursos do Azure através de IMDS.
+- Já não é necessário instalar uma extensão na sua VM para ativar identidades geridas para recursos do Azure. 
+- Os certificados utilizados por identidades geridas para recursos do Azure já não estão presentes na VM.
+- O ponto de extremidade IMDS é um endereço IP bem conhecido não encaminháveis internos, apenas disponível a partir da VM.
+- 1000 atribuído ao utilizador identidades geridas podem ser atribuídas a uma única VM. 
 
 As identidades geridas para a extensão VM de recursos do Azure está ainda disponível. No entanto, estamos já não está desenvolvendo nova funcionalidade no mesmo. É recomendável mudar para utilizar o ponto final IMDS. 
 
 Algumas das limitações da utilização do ponto de final de extensão da VM são:
-    - Suporte limitado para distribuições do Linux: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
-    - Apenas 32 atribuído ao utilizador identidades geridas podem ser atribuídas à VM.
+- Suporte limitado para distribuições do Linux: CoreOS Stable, CentOS 7.1, Red Hat 7.2, Ubuntu 15.04, Ubuntu 16.04
+- Apenas 32 atribuído ao utilizador identidades geridas podem ser atribuídas à VM.
 
 
 Nota: As identidades geridas para a extensão VM de recursos do Azure será o suporte termina dentro de Janeiro de 2019. 
@@ -75,8 +75,8 @@ Para obter mais informações sobre o serviço de metadados de instância do Azu
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Serão identidades geridas recriadas automaticamente se mover uma subscrição para outro diretório?
 
 Não. Se mover uma subscrição para outro diretório, terá de recriar manualmente-los e conceder novamente o atribuições de funções do RBAC do Azure.
-    - Para sistema atribuídos identidades geridas: desative e volte a ativar. 
-    - Para o utilizador atribuído identidades geridas: eliminar, voltar a criar e anexe-os novamente para os recursos necessários (por exemplo, as máquinas virtuais)
+- Para sistema atribuídos identidades geridas: desative e volte a ativar. 
+- Para o utilizador atribuído identidades geridas: eliminar, voltar a criar e anexe-os novamente para os recursos necessários (por exemplo, as máquinas virtuais)
 
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Pode utilizar uma identidade gerida para aceder a um recurso num diretório diferente/inquilino?
 

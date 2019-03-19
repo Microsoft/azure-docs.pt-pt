@@ -190,6 +190,12 @@ items:
     href: /python/api/overview/azure/servicebus?view=azure-python
   - name: Node.js
     href: /javascript/api/overview/azure/service-bus
+  - name: PHP
+    href: https://github.com/Azure/azure-sdk-for-php
+  - name: Ruby
+    href: https://github.com/Azure/azure-sdk-for-ruby
+  - name: Ir
+    href: https://github.com/Azure/azure-service-bus-go
   - name: Azure PowerShell
     href: /powershell/module/azurerm.servicebus
   - name: REST
@@ -227,12 +233,12 @@ items:
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=service-bus
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azureservicebus
+    href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 9c04ea06e20c1a4efe5dc677d09e4e1f6c896c79
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 42bd9bbc440afd35703cdc481582838e2eaced73
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870776"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862816"

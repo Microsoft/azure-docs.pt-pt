@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382688"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111536"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -94,8 +94,8 @@ O Balanceador de Carga proporciona as seguintes capacidades básicas para as apl
 
     Todos os fluxos de saída de endereços IP privados dentro da sua rede virtual para endereços IP públicos na Internet podem ser traduzidos para um endereço IP de front-end do Balanceador de Carga. Se um front-end público estiver associado a uma VM de back-end por meio de uma regra de balanceamento de carga, o Azure programa as ligações de saída para serem traduzidas automaticamente para o endereço IP do front-end público.
 
-    * Permite a atualização e a recuperação após desastre fácil dos serviços, porque o front-end pode ser mapeado dinamicamente para outra instância do serviço.
-    * Facilita a gestão das listas de controlo de acesso (ACL). As ACLs expressas em termos de IPs de front-end não se alteram quando os serviços são aumentados ou reduzidos verticalmente ou reimplementados.  A tradução das ligações de saída para um número mais pequeno de endereços IP do que de máquinas pode reduzir a tarefa de criação de listas de permissões.
+  * Permite a atualização e a recuperação após desastre fácil dos serviços, porque o front-end pode ser mapeado dinamicamente para outra instância do serviço.
+  * Facilita a gestão das listas de controlo de acesso (ACL). As ACLs expressas em termos de IPs de front-end não se alteram quando os serviços são aumentados ou reduzidos verticalmente ou reimplementados.  A tradução das ligações de saída para um número mais pequeno de endereços IP do que de máquinas pode reduzir a tarefa de criação de listas de permissões.
 
     Para obter mais informações, veja [Outbound Connections](load-balancer-outbound-connections.md) (Ligações de Saída).
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 6cd06778ad54fa698c5bc2fe4ccf02f4be2ee2ec
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807061"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120827"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gerir contas de laboratório no Azure Lab Services 
 No Azure Lab Services, uma conta de laboratório é um contentor para tipos de laboratório gerido, como laboratórios de sala de aula. Um administrador configura uma conta de laboratório com o Azure Lab Services e fornece acesso a proprietários de laboratório que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, ver todas as contas de laboratório ou eliminar uma conta de laboratório.
@@ -38,7 +38,9 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta
     2. Selecione a **Subscrição do Azure**, na qual pretende criar a conta de laboratório.
     3. Em **Grupo de recursos**: selecione **Criar novo** e introduza um nome para o grupo de recursos.
     4. Em **Localização**, selecione uma região/localização na qual pretende criar a conta de laboratório. 
-    5. Selecione **Criar**. 
+    5. Para **elemento da rede virtual**, selecione um elemento da rede virtual (VNet) para a rede de laboratório. Laboratórios criados nesta conta estão ligados à VNet selecionada e tem acesso aos recursos da VNet selecionada. 
+    7. Para o **criador do laboratório de permitir a escolher a localização de laboratório** campo, especifique se pretende que os criadores de laboratório para poder selecionar uma localização para o laboratório. Por predefinição, a opção está desativada. Quando estiver desativada, os criadores de laboratório não é possível especificar uma localização para o laboratório estiver a criar. Os laboratórios são criados na localização geográfica mais próxima à conta de laboratório. Quando estiver ativada, um criador de laboratório pode selecionar uma localização no momento da criação de um laboratório.      
+    8. Selecione **Criar**. 
 
         ![Janela Criar uma conta de laboratório](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Selecione o **ícone de sino** na barra de ferramentas (**notificações**), confirme que a implementação foi concluída com êxito e, em seguida, selecione **Ir para recurso**. 
@@ -86,6 +88,18 @@ Enquanto proprietário de uma conta de laboratório, pode especificar as imagens
     1. Selecione **... (reticências)** na última coluna e selecione **Ativar imagem**. 
     2. Selecione uma ou mais imagens a partir da lista ao selecionar as caixas de verificação antes dos nomes de imagem na lista e selecione **Ativar imagens selecionadas**. 
 
+## <a name="configure-the-lab-account"></a>Configurar a conta de laboratório
+1. Sobre o **conta de laboratório** página, selecione **configuração de laboratórios** no menu da esquerda.
+
+    ![Página de configuração de laboratórios](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
+1. Para **elemento da rede virtual**, selecione **ativado** ou **desativado**. O valor predefinido é **desativado**. Para ativar a rede virtual ponto a ponto, siga os passos abaixo: 
+    1. Selecione **ativada**.
+    2. Selecione o **VNet** na lista pendente. 
+    3. Selecione **Guardar** na barra de ferramentas. 
+    
+        Laboratórios criados nesta conta estão ligados à rede virtual selecionada. Podem aceder aos recursos na rede virtual selecionada. 
+3. Para o **criador do laboratório de permitir a escolher a localização de laboratório**, selecione **ativado** se pretender que o criador de laboratório para poder selecionar uma localização para o laboratório. Se estiver desativada, os laboratórios são criados automaticamente na mesma localização em que a conta de laboratório existe. 
+
 ## <a name="view-lab-accounts"></a>Contas de laboratório do Vista
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os recursos** no menu. 
@@ -93,19 +107,6 @@ Enquanto proprietário de uma conta de laboratório, pode especificar as imagens
     Também pode filtrar por subscrição, grupo de recursos, localizações e as etiquetas. 
 
     ![Todos os recursos -> contas de laboratório](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
-
-
-## <a name="delete-a-lab-account"></a>Eliminar uma conta de laboratório
-Siga as instruções da secção anterior, que apresenta as contas de laboratório numa lista. Utilize as instruções seguintes para eliminar uma conta de laboratório: 
-
-1. Selecione o **conta de laboratório** que pretende eliminar. 
-2. Selecione **eliminar** da barra de ferramentas. 
-
-    ![Contas de laboratório -> botão Delete](../media/how-to-manage-lab-accounts/delete-button.png)
-1. Tipo **Sim** confirmação.
-1. Selecione **Eliminar**. 
-
-    ![Eliminar conta de laboratório - confirmação](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 ## <a name="view-and-manage-labs-in-the-lab-account"></a>Ver e gerir laboratórios na conta de laboratório
 
@@ -119,6 +120,8 @@ Siga as instruções da secção anterior, que apresenta as contas de laboratór
     4. Número máximo de utilizadores com permissão para o laboratório. 
     5. Estado do laboratório. 
 
+
+
 ## <a name="delete-a-lab-in-the-lab-account"></a>Eliminar um laboratório na conta de laboratório
 Siga as instruções na secção anterior para ver uma lista dos laboratórios na conta de laboratório.
 
@@ -128,6 +131,20 @@ Siga as instruções na secção anterior para ver uma lista dos laboratórios n
 2. Selecione **Sim** na mensagem de aviso. 
 
     ![Confirmar a eliminação de laboratório](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+
+## <a name="delete-a-lab-account"></a>Eliminar uma conta de laboratório
+Siga as instruções da secção anterior, que apresenta as contas de laboratório numa lista. Utilize as instruções seguintes para eliminar uma conta de laboratório: 
+
+1. Selecione o **conta de laboratório** que pretende eliminar. 
+2. Selecione **eliminar** da barra de ferramentas. 
+
+    ![Contas de laboratório -> botão Delete](../media/how-to-manage-lab-accounts/delete-button.png)
+1. Tipo **Sim** confirmação.
+1. Selecione **Eliminar**. 
+
+    ![Eliminar conta de laboratório - confirmação](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
+
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 Consulte os seguintes artigos:

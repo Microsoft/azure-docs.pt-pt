@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 492afcdd5143aa5a6597ba8c296d15059f9c7d64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 82b95080a9c93d8c02d4129ef93b1a6c9deba7aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453274"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852769"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Serviços de partição fiáveis do Service Fabric
 Este artigo fornece uma introdução para os conceitos básicos da criação de partições do reliable services do Azure Service Fabric. O código-fonte usado no artigo também está disponível no [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -113,7 +113,7 @@ Uma parte importante de hash é selecionar o algoritmo de hash. Uma consideraç�
 
 As características de um algoritmo de hash da distribuição boa são o que é fácil de computação, ele tem poucos conflitos e distribui as chaves de forma uniforme. Um bom exemplo de um algoritmo de hash eficiente é a [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) algoritmo de hash.
 
-Um bom recurso para opções de algoritmo de código de hash geral é o [página do Wikipedia sobre funções de hash](http://en.wikipedia.org/wiki/Hash_function).
+Um bom recurso para opções de algoritmo de código de hash geral é o [página do Wikipedia sobre funções de hash](https://en.wikipedia.org/wiki/Hash_function).
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>Crie um serviço com monitorização de estado com várias partições
 Vamos criar seu primeiro serviço com estado fiável com várias partições. Neste exemplo, criará um aplicativo muito simples, onde pretende armazenar todos os nomes de última que começam com a mesma letra na mesma partição.

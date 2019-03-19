@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: d227b8d038dd686bde9b031ca2c58adc7dd6d76b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723931"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104459"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>Descrição geral do suporte de multi-inquilino para a recuperação de desastre do VMware para o Azure com o CSP
 
@@ -75,17 +75,17 @@ Configure o servidor de configuração com uma conta que tenha um papel especial
 1. Criar uma nova função através da clonagem predefinidos *só de leitura* função e, em seguida, atribua um nome conveniente (por exemplo, Azure_Site_Recovery, conforme mostrado neste exemplo).
 2. Atribua as seguintes permissões a esta função:
 
-    * **Arquivo de dados**: Alocar espaço, arquivo de dados de procura, as operações de arquivo de nível baixo, remova o ficheiro, ficheiros de atualização de máquina virtual
-    * **Rede**: Atribuir rede
-    * **Recurso**: Atribuir VM a agrupamento de recursos, migrar desligado da VM, com tecnologia na VM para migrar
-    * **Tarefas**: Criar tarefa, a tarefa de atualização
-    * **VM - configuração**: Todos
-    - **VM - interação** > responder a pergunta, ligação de dispositivos, suporte de dados de configurar o CD, configurar mídia de disquete, desligar, ligar, instalação de ferramentas do VMware
-    - **VM - inventário** > criar a partir de existente, crie um novo, registar, anular o registo
-    - **VM - aprovisionamento** > Permitir transferência de máquinas virtuais, o carregamento de ficheiros de máquina virtual de permitir
-    - **VM - gestão de instantâneos** > Remover instantâneos
+   * **Arquivo de dados**: Alocar espaço, arquivo de dados de procura, as operações de arquivo de nível baixo, remova o ficheiro, ficheiros de atualização de máquina virtual
+   * **Rede**: Atribuir rede
+   * **Recurso**: Atribuir VM a agrupamento de recursos, migrar desligado da VM, com tecnologia na VM para migrar
+   * **Tarefas**: Criar tarefa, a tarefa de atualização
+   * **VM - configuração**: Todos
+   * **VM - interação** > responder a pergunta, ligação de dispositivos, suporte de dados de configurar o CD, configurar mídia de disquete, desligar, ligar, instalação de ferramentas do VMware
+   * **VM - inventário** > criar a partir de existente, crie um novo, registar, anular o registo
+   * **VM - aprovisionamento** > Permitir transferência de máquinas virtuais, o carregamento de ficheiros de máquina virtual de permitir
+   * **VM - gestão de instantâneos** > Remover instantâneos
 
-        ![A caixa de diálogo Editar função](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
+       ![A caixa de diálogo Editar função](./media/vmware-azure-multi-tenant-overview/edit-role-permissions.png)
 
 3. Atribua níveis de acesso à conta do vCenter (utilizado no servidor de configuração de inquilinos) para vários objetos, da seguinte forma:
 

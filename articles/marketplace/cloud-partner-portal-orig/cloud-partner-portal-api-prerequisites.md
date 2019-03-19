@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e6e25424981118363070d42b2fb057b18fdb91a9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0d743d89c344ce9cb6eec116ed9c3e0cbe56f86e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48812091"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878652"
 ---
 <a name="api-prerequisites"></a>Pré-requisitos de API
 ================
@@ -55,7 +55,7 @@ Utilize os seguintes passos para adicionar o principal de serviço:
 
      ![Adicionar uma aplicação gerida no portal](./media/cloud-partner-portal-api-prerequisites/managedapp.png)
 
-4. Clique em **adicionar** para adicionar o principal de serviço à sua conta.
+1. Clique em **adicionar** para adicionar o principal de serviço à sua conta.
 
    ![Adicionar um principal de serviço](./media/cloud-partner-portal-api-prerequisites/add-service-principal.jpg)
 
@@ -66,7 +66,7 @@ Utilize os seguintes passos para adicionar o principal de serviço:
 As APIs do Cloud Partner Portal utilize os seguintes recursos e protocolos durante a autenticação:
 
 - Um token de portador do JSON Web Token (JWT) para pedir acesso aos recursos
-- O [OpenID Connect](http://openid.net/connect/) protocol (OIDC) para verificar a identidade
+- O [OpenID Connect](https://openid.net/connect/) protocol (OIDC) para verificar a identidade
 - [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) como a autoridade de identidade
 
 Existem duas abordagens de princípio para aquisição por meio de programação de um token JWT:

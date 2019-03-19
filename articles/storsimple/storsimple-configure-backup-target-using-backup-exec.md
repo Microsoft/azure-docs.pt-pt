@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
-ms.openlocfilehash: 8cde3402ef52747e61333c56903309259e07599a
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747599"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011140"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple como um destino de cópia de segurança com Exec de cópia de segurança
 
@@ -94,6 +94,7 @@ As tabelas seguintes mostram as orientações inicial da arquitetura do modelo d
 |------------------------|---------------|-----------------|
 | Capacidade de armazenamento local | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Capacidade de armazenamento na cloud | &gt; 200 TiB\* | &gt; 500 TiB\* |
+
 \* Tamanho de armazenamento parte do princípio de não eliminação de duplicados ou compressão.
 
 **Capacidades do StorSimple para cópias de segurança primárias e secundárias**
@@ -206,16 +207,16 @@ Configure a solução, de acordo com as diretrizes nas seções a seguir.
 
 ### <a name="operating-system-best-practices"></a>Práticas recomendadas do sistema operativo
 
--   Desative a encriptação do Windows Server e a eliminação de duplicados para o sistema de ficheiros NTFS.
--   Desative a desfragmentação do Windows Server nos volumes do StorSimple.
--   Desative a indexação do Windows Server nos volumes do StorSimple.
--   Execute uma verificação antivírus o anfitrião de origem (não em relação os volumes do StorSimple).
--   Desativar a predefinição [manutenção do Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) no Gerenciador de tarefas. Fazer isso em uma das seguintes formas:
-   - Desative o configurator de manutenção no agendador de tarefas do Windows.
-   - Baixe [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) do Windows Sysinternals. Depois de transferir o PsExec, execute o Azure PowerShell como um administrador e escreva:
-      ```powershell
-      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
-      ```
+- Desative a encriptação do Windows Server e a eliminação de duplicados para o sistema de ficheiros NTFS.
+- Desative a desfragmentação do Windows Server nos volumes do StorSimple.
+- Desative a indexação do Windows Server nos volumes do StorSimple.
+- Execute uma verificação antivírus o anfitrião de origem (não em relação os volumes do StorSimple).
+- Desativar a predefinição [manutenção do Windows Server](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) no Gerenciador de tarefas. Fazer isso em uma das seguintes formas:
+  - Desative o configurator de manutenção no agendador de tarefas do Windows.
+  - Baixe [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) do Windows Sysinternals. Depois de transferir o PsExec, execute o Azure PowerShell como um administrador e escreva:
+    ```powershell
+    psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+    ```
 
 ### <a name="storsimple-best-practices"></a>Práticas recomendadas do StorSimple
 
@@ -259,6 +260,7 @@ Com base nas suposições anteriores, crie um TiB de 26 volume para as cópias d
 | Total anual | 1  | 10 | 10 |
 | Requisito de GFS |   | 38 |   |
 | Quota adicional  | 4  |   | requisito de GFS 42 total  |
+
 \* O multiplicador GFS é o número de cópias que tem de proteger e manter-se para cumprir os requisitos de política de cópia de segurança.
 
 ## <a name="set-up-backup-exec-storage"></a>Configurar o armazenamento de Exec de cópia de segurança
@@ -311,8 +313,8 @@ Eis um exemplo de uma agenda de rotação GFS para quatro semanas, mensais e anu
 | Tipo de frequência/cópia de segurança | Completo | Incremental (1 a 5 de dias)  |   
 |---|---|---|
 | Semanal (1 a 4 de semanas) | Sábado | De segunda a sexta-feira |
-| Custo  | Sábado  |   |
-| Anualmente | Sábado  |   |   |
+| Mensalmente  | Sábado  |   |
+| Anualmente | Sábado  |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-backup-job"></a>Atribuir volumes do StorSimple para uma tarefa de cópia de segurança de Exec de cópia de segurança
@@ -373,6 +375,7 @@ A tabela seguinte mostra como configurar as cópias de segurança para executar 
 | Total mensal |Disco do StorSimple (longo prazo) | 1 | 12 | 12 |
 | Total anual |Disco do StorSimple (longo prazo) | 1 | 1 | 1 |
 |Requisito de tamanho de volumes GFS |  |  |  | 18*|
+
 \* Capacidade total inclui 17 TiB de StorSimple discos e de 1 TiB de volume RAID local.
 
 
@@ -384,8 +387,8 @@ A tabela seguinte mostra como configurar as cópias de segurança para executar 
 | Semana de 2 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
 | Semana de 3 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
 | Semana de 4 | 2 a 4 do StorSimple semanas |   |   |   |   |   |
-| Custo | StorSimple mensalmente |   |   |   |   |   |
-| Anualmente | StorSimple anuais  |   |   |   |   |   |   |
+| Mensalmente | StorSimple mensalmente |   |   |   |   |   |
+| Anualmente | StorSimple anuais  |   |   |   |   |   |
 
 
 ### <a name="assign-storsimple-volumes-to-a-backup-exec-archive-and-deduplication-job"></a>Atribuir volumes do StorSimple para um arquivo de Exec de cópia de segurança e a tarefa de eliminação de duplicados
@@ -445,15 +448,15 @@ A seguinte secção descreve como criar um script curto para iniciar e eliminar 
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Para iniciar ou eliminar um instantâneo de cloud
 
-1.  [Instalar o Azure PowerShell](/powershell/azure/overview).
+1. [Instalar o Azure PowerShell](/powershell/azure/overview).
 2. Transferir e configurar [gerir CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) script do PowerShell.
 3. No servidor que executa o script, execute o PowerShell como administrador. Certifique-se de que executa o script com `-WhatIf $true` ver quais alterações que o script fará. Depois de concluída a validação, passar `-WhatIf $false`. Execute o comando abaixo:
-```powershell
-.\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
-```
-4.  Adicione o script para a sua tarefa de cópia de segurança no Exec de cópia de segurança ao editar o processamento prévio de suas opções tarefa Exec de cópia de segurança e pós-processamento de comandos.
+   ```powershell
+   .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
+   ```
+4. Adicione o script para a sua tarefa de cópia de segurança no Exec de cópia de segurança ao editar o processamento prévio de suas opções tarefa Exec de cópia de segurança e pós-processamento de comandos.
 
-    ![Consola de Exec, opções de cópia de segurança, separador de comandos de pré e pós-processamento de cópia de segurança](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
+   ![Consola de Exec, opções de cópia de segurança, separador de comandos de pré e pós-processamento de cópia de segurança](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
 > [!NOTE]
 > Recomendamos que execute a sua política de cópia de segurança de instantâneos do StorSimple cloud como um script pós-processamento no final da sua tarefa de cópia de segurança diária. Para obter mais informações sobre como criar cópias de segurança e restaurar o ambiente de aplicativo de backup para o ajudar a cumprir o RPO e RTO, consulte com o arquiteto de cópia de segurança.

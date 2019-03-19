@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1347012971d53728d978f378e30684311c88828b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022285"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998391"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiar dados do Cassandra com o Azure Data Factory
-> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Versão atual](connector-cassandra.md)
 
@@ -132,7 +132,7 @@ Para copiar dados do Cassandra, defina o tipo de origem na atividade de cópia p
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **CassandraSource** | Sim |
-| consulta |Utilize a consulta personalizada para ler dados. |Consulta de SQL-92 ou consulta CQL. Ver [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao utilizar a consulta SQL, especifique **keyspace name.table nome** para representar a tabela que pretende consultar. |Não (se for "tableName" e "keyspace" no conjunto de dados são especificados). |
+| consulta |Utilize a consulta personalizada para ler dados. Consulta de SQL-92 ou consulta CQL. Ver [referência CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Ao utilizar a consulta SQL, especifique **keyspace name.table nome** para representar a tabela que pretende consultar. |Não (se for "tableName" e "keyspace" no conjunto de dados são especificados). |
 | consistencyLevel |O nível de consistência Especifica o número de réplicas devem responder a uma solicitação de leitura antes de retornar dados para a aplicação cliente. Cassandra verifica o número especificado de réplicas de dados satisfazer a solicitação de leitura. Ver [configurar a consistência dos dados](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) para obter detalhes.<br/><br/>Valores permitidos são: **UM**, **duas**, **três**, **QUÓRUM**, **todos os**, **LOCAL_QUORUM**, **EACH_QUORUM**, e **LOCAL_ONE**. |Não (a predefinição é `ONE`) |
 
 **Exemplo:**
@@ -173,20 +173,20 @@ Ao copiar dados do Cassandra, os seguintes mapeamentos são utilizados entre tip
 
 | Tipo de dados do Cassandra | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
-| ASCII |Cadeia |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | VALOR BOOLEANO |Booleano |
 | DECIMAL |Decimal |
-| VALOR DE DUPLO |Valor de duplo |
-| NÚMERO DE VÍRGULA FLUTUANTE |Único |
-| INET |Cadeia |
+| VALOR DE DUPLO |Double |
+| NÚMERO DE VÍRGULA FLUTUANTE |Single |
+| INET |String |
 | INT |Int32 |
-| TEXTO |Cadeia |
-| TIMESTAMP |DateTime |
-| TIMEUUID |GUID |
-| UUID |GUID |
-| VARCHAR |Cadeia |
+| TEXTO |String |
+| CARIMBO DE DATA/HORA |DateTime |
+| TIMEUUID |Guid |
+| UUID |Guid |
+| VARCHAR |String |
 | VARINT |Decimal |
 
 > [!NOTE]
@@ -210,7 +210,7 @@ Tabelas virtuais referem-se aos dados na tabela real, permitindo que o driver ac
 
 Por exemplo, "Seguinte ExampleTable" é uma tabela de base de dados do Cassandra que contém a coluna de chave primária de um número inteiro com o nome "pk_int", uma coluna de texto valor com nome, uma coluna de lista, uma coluna de mapa e uma coluna de conjunto (com o nome "StringSet").
 
-| pk_int | Valor | Lista | Mapa | StringSet |
+| pk_int | Value | Lista | Mapa | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"valor de exemplo 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"valor de exemplo 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -219,7 +219,7 @@ O controlador irá gerar várias tabelas virtuais para representar nesta única 
 
 A primeira tabela virtual é a tabela de base com o nome "ExampleTable" é mostrada na tabela a seguir: 
 
-| pk_int | Valor |
+| pk_int | Value |
 | --- | --- |
 | 1 |"valor de exemplo 1" |
 | 3 |"valor de exemplo 3" |
@@ -228,7 +228,7 @@ A tabela base contém os mesmos dados da tabela de base de dados original, excet
 
 As tabelas seguintes mostram as tabelas de virtual renormalizar dados das colunas de lista, o mapa e StringSet. As colunas com nomes que terminam com "_index" ou "c_have" indicam a posição dos dados dentro da lista original ou do mapa. As colunas com nomes que terminam com value"contêm os dados expandidos da coleção.
 
-**Tabela de "ExampleTable_vt_List":**
+**Table "ExampleTable_vt_List":**
 
 | pk_int | List_index | List_value |
 | --- | --- | --- |
@@ -240,7 +240,7 @@ As tabelas seguintes mostram as tabelas de virtual renormalizar dados das coluna
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-**Tabela de "ExampleTable_vt_Map":**
+**Table "ExampleTable_vt_Map":**
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |

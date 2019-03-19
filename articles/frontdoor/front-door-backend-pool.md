@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 14cc87e8691c859274495a13cc0b73fa29ad22df
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 228ed5c54a382db7b47d19adacf9e5db398c53ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726894"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123696"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Conjuntos de back-ends e back-end no serviço de porta de entrada do Azure
 Este artigo explica os conceitos diferentes em relação a como pode mapear a sua implementação de aplicações com a porta de entrada. Também Explicaremos o que os termos diferentes na frente configuração de porta de entrada em torno de back-end de aplicação significa.
@@ -26,7 +26,7 @@ No Front Door, os conjuntos de back-ends são back-ends equivalentes que podem r
 
 Conjunto back-end também define como os back-ends diferentes devem todos ser avaliados para a integridade dos mesmos através de sondas de estado de funcionamento e do mesmo modo como a balanceamento de carga entre os back-ends deve ocorrer.
 
-### <a name="health-probes"></a>Sondas de estado de funcionamento
+### <a name="health-probes"></a>Sondas do estado de funcionamento
 Porta de entrada envia pedidos periódicos de sonda HTTP/HTTPS para cada um dos seus back-ends configurado para determinar o estado de funcionamento de cada back-end para carregar e proximidade equilibrar os pedidos de utilizador final. Definições de sonda de estado de funcionamento para um conjunto de back-end definem como podemos consultar o estado de funcionamento para o seu back-ends de aplicação. As seguintes definições estão disponíveis para configuração de balanceamento de carga:
 
 1. **Caminho**: Caminho de URL em que os pedidos de pesquisa serão enviados para todos os o back-ends no conjunto de back-end. Por exemplo, se um dos seus back-ends for `contoso-westus.azurewebsites.net` e o caminho é definido como `/probe/test.aspx`, em seguida, ambientes de porta de entrada, partindo do princípio de protocolo está definido como HTTP, irão enviar os pedidos de sonda de estado de funcionamento para http://contoso-westus.azurewebsites.net/probe/test.aspx. 
@@ -62,7 +62,7 @@ Ao adicionar um back-end num conjunto de back-end da sua porta de entrada, terá
 Pedidos reencaminhados pela porta de entrada para um back-end tem um campo de cabeçalho de anfitrião que o back-end utiliza para recuperar o recurso de destino. O valor para este campo normalmente provém o URI de back-end e tem o anfitrião e a porta. Por exemplo, um pedido efetuado `www.contoso.com` terão o cabeçalho de anfitrião `www.contoso.com`. Se estiver a configurar o back-end através do portal do Azure e, em seguida, o valor predefinido, que fica preenchido para este campo é o nome de anfitrião do back-end. Por exemplo, se for do seu back-end `contoso-westus.azurewebsites.net`, no portal do Azure será o valor preenchidos automaticamente para o cabeçalho de anfitrião de back-end `contoso-westus.azurewebsites.net`. 
 </br>No entanto, se estiver a utilizar modelos do Resource Manager ou outro mecanismo e não define este campo explicitamente desde início envia o nome de anfitrião de entrada como o valor de cabeçalho de anfitrião. Por exemplo, se o pedido foi feito `www.contoso.com`, e é o back-end `contoso-westus.azurewebsites.net` com o back-end anfitrião campo de cabeçalho como vazio, em seguida, desde início irá definir o cabeçalho de anfitrião como `www.contoso.com`.
 
-A maioria de aplicação de back-ends (por exemplo, aplicações Web, armazenamento de BLOBs e serviços Cloud) requerem o cabeçalho de anfitrião coincida com o domínio de back-end. No entanto, o anfitrião de front-end que encaminha para o back-end, terá um nome de anfitrião diferente como www.contoso.azurefd.net. Se precisar do back-end que estiver a configurar o cabeçalho de anfitrião de acordo com o nome de anfitrião do back-end, deve garantir que o "cabeçalho de anfitrião de back-end" também tem o nome de anfitrião do back-end.
+A maioria de aplicação de back-ends (por exemplo, aplicações Web, armazenamento de BLOBs e serviços Cloud) requerem o cabeçalho de anfitrião coincida com o domínio de back-end. No entanto, o anfitrião de front-end que encaminha para o back-end irá ter um nome de anfitrião diferente como www\.contoso.azurefd.net. Se precisar do back-end que estiver a configurar o cabeçalho de anfitrião de acordo com o nome de anfitrião do back-end, deve garantir que o "cabeçalho de anfitrião de back-end" também tem o nome de anfitrião do back-end.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configurar o cabeçalho de anfitrião de back-end para o back-end
 O campo de "Cabeçalho de anfitrião de back-end" pode ser configurado para um back-end na secção de conjunto de back-end.

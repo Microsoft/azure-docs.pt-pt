@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2e281896d45ada8010f24a1f18265a8cdd523d31
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696998"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855416"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o recurso de bloqueio em esquemas do Azure
 
-A criação de ambientes de consistentes e à escala só é realmente importante se existe um mecanismo para manter a consistência. Este artigo explica como bloqueio de recurso funciona em esquemas do Azure.
+A criação de ambientes de consistentes e à escala só é realmente importante se existe um mecanismo para manter a consistência. Este artigo explica como bloqueio de recurso funciona em esquemas do Azure. Para ver um exemplo do bloqueio de recursos e a aplicação de _negar atribuições_, consulte a [proteger recursos novos](../tutorials/protect-new-resources.md) tutorial.
 
 ## <a name="locking-modes-and-states"></a>Modos de bloqueios e de Estados
 
@@ -32,7 +32,7 @@ Recursos criados por artefactos de uma atribuição do esquema têm quatro Estad
 |Não Bloquear|*|Não bloqueado|Recursos não estão protegidos por esquemas. Este estado também é utilizado para o recurso adicionado a um **só de leitura** ou **não elimine** artefacto de grupo de recursos de fora de uma atribuição do esquema.|
 |Só de Leitura|Grupo de recursos|Não é possível editar / eliminar|O grupo de recursos é só de leitura e as etiquetas no grupo de recursos não podem ser modificadas. **Não bloqueado** recursos podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
 |Só de Leitura|Grupo de recursos não|Só de Leitura|--Sem alterações e ele não não possível eliminar o recurso não pode ser alterado de forma alguma.|
-|Não elimine|*|Não é possível eliminar|Os recursos podem ser alterados, mas não podem ser eliminados. **Não bloqueado** recursos podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
+|Não Eliminar|*|Não é possível eliminar|Os recursos podem ser alterados, mas não podem ser eliminados. **Não bloqueado** recursos podem ser adicionados, movidos, alterados ou eliminados deste grupo de recursos.|
 
 ## <a name="overriding-locking-states"></a>Substituir os Estados de bloqueios
 
@@ -58,8 +58,9 @@ Um RBAC [negar atribuições](../../../role-based-access-control/deny-assignment
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saber mais sobre o [ciclo de vida do esquema](lifecycle.md)
-- Compreender como utilizar [parâmetros estáticos e dinâmicos](parameters.md)
-- Aprender a personalizar a [ordem de sequenciação do esquema](sequencing-order.md)
-- Saber como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um esquema com [resolução de problemas gerais](../troubleshoot/general.md)
+- Siga os [proteger os recursos novos](../tutorials/protect-new-resources.md) tutorial.
+- Saiba mais sobre o [ciclo de vida de esquema](lifecycle.md).
+- Compreender como usar [parâmetros estáticos e dinâmicos](parameters.md).
+- Aprenda a personalizar a [esquema de ordem de sequenciamento](sequencing-order.md).
+- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de um plano gráfico com [resolução de problemas gerais](../troubleshoot/general.md).

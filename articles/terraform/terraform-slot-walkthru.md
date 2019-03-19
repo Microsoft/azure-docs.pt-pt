@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: c1ff166431ed75ade1192cdefadb7928943ab2b2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771298"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992227"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utilizar o Terraform para aprovisionar infraestruturas com os blocos de implementação do Azure
 
@@ -26,11 +26,11 @@ Este artigo apresenta um exemplo de utilização de blocos de implementação ao
 
 - **Subscrição do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 
-- **Conta do GitHub**: É necessário um [GitHub](http://www.github.com) conta para bifurcar e utilizar o repositório do GitHub de teste.
+- **Conta do GitHub**: É necessário um [GitHub](https://www.github.com) conta para bifurcar e utilizar o repositório do GitHub de teste.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Criar e aplicar o plano do Terraform
 
-1. Navegue para o [portal do Azure](http://portal.azure.com).
+1. Navegue para o [portal do Azure](https://portal.azure.com).
 
 1. Abra o [Azure Cloud Shell](/azure/cloud-shell/overview). Se ainda não tiver selecionado um ambiente, selecione **Bash** como o seu ambiente.
 

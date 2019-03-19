@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 10f3f7d6b878e8f1d4efee360e0f8a9967ac07bc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: a325b976e657fbdc318a41b3b79b50e77a948e14
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886439"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079848"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar inventário com o portal do Azure e tópicos/subscrições
 
@@ -88,7 +88,7 @@ Para executar o código, faça o seguinte:
    - Execute 2: para adicionar os seus filtros.
    - Execute 3: para remover opcionalmente os seus filtros. Tenha em atenção que isto não volta a criar os filtros predefinidos.
 
-    ![Mostrar saída de 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
+     ![Mostrar saída de 2](./media/service-bus-tutorial-topics-subscriptions-portal/create-rules.png)
 
 8. Depois da criação do filtro, pode enviar mensagens. Prima 4 e observe o envio de 10 mensagens para o tópico:
 

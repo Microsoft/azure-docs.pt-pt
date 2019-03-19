@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: e71999e9c5b118fbf31d0d735d03cddb321b0065
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773423"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000937"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurar uma ligação de ponto a Site através da autenticação de certificado (clássico)
 
@@ -69,9 +69,9 @@ Utilize os seguintes valores para criar um ambiente de teste ou consultá-estes 
    - **Grupo de recursos**: Introduza *TestRG*. Selecione **criar novo**, se o grupo de recursos não existe.
    - **Localização**: Selecione **E.U.A. Leste** da lista.
 
- - **Definições de ligação de VPN**
-   - **Tipo de ligação**: Selecione **Point-to-site**.
-   - **Espaço de endereços de cliente**: Enter *172.16.201.0/24*. Os clientes VPN que se ligam à VNet através desta ligação ponto a Site recebem um endereço IP a partir do agrupamento especificado.
+  - **Definições de ligação de VPN**
+    - **Tipo de ligação**: Selecione **Point-to-site**.
+    - **Espaço de endereços de cliente**: Enter *172.16.201.0/24*. Os clientes VPN que se ligam à VNet através desta ligação ponto a Site recebem um endereço IP a partir do agrupamento especificado.
 
 - **Configurações de sub-rede do gateway**
    - **Nome**: Autofilled com *GatewaySubnet*.
@@ -85,11 +85,11 @@ Utilize os seguintes valores para criar um ambiente de teste ou consultá-estes 
 
 Antes de começar, certifique-se de que tem uma subscrição do Azure. Se ainda não tiver uma subscrição do Azure, pode ativar os [Benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
 
-### <a name="part-1-create-a-virtual-network"></a>Parte 1: Criar rede virtual
+### <a name="part-1-create-a-virtual-network"></a>Parte 1: Criar uma rede virtual
 
 Se ainda não tiver uma rede virtual (VNet), crie uma. As capturas de ecrã são disponibilizadas como exemplos. Não se esqueça de substituir os valores pelos seus. Para criar uma VNet com o portal do Azure, siga os passos abaixo:
 
-1. Inicie sessão para o [portal do Azure](http://portal.azure.com) e selecione **criar um recurso**. O **New** é aberta a página. 
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e selecione **criar um recurso**. O **New** é aberta a página. 
 
 2. Na **pesquisar no marketplace** , insira *rede virtual* e selecione **rede Virtual** da lista devolvida. O **rede Virtual** é aberta a página.
 
@@ -121,26 +121,26 @@ Neste passo, vai criar uma sub-rede de gateway e um gateway de encaminhamento di
 
 2. Na página da sua rede virtual, selecione **descrição geral**e, no **ligações VPN** secção, selecione **Gateway**.
 
-  ![Selecione para criar um gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
+   ![Selecione para criar um gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
 3. Na página **Nova Ligação VPN**, selecione **Ponto a site**.
 
-  ![Tipo de ligação Ponto a Site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
+   ![Tipo de ligação Ponto a Site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
 4. Para **espaço de endereços de cliente**, adicione o intervalo de endereços IP do qual os clientes VPN recebem um endereço IP ao ligar. Utilize um intervalo de endereços IP privados que não se sobreponha à localização no local onde estabelecer ligação, ou com a VNet a que se liga a. Pode substituir o intervalo de autofilled com o intervalo de endereços IP privados que pretende utilizar. Este exemplo mostra o intervalo de autofilled. 
 
-  ![Espaço de endereços do cliente](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
+   ![Espaço de endereços do cliente](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. Selecione **criar gateway de imediato**e, em seguida, selecione **configuração de gateway opcional** para abrir o **configuração do Gateway** página.
 
-  ![Selecione a configuração do gateway opcional](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
+   ![Selecione a configuração do gateway opcional](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
 
 6. Partir do **configuração do Gateway** página, selecione **sub-rede** para adicionar a sub-rede de gateway. É possível criar uma sub-rede de gateway tão pequena como/29. No entanto, recomendamos que crie uma sub-rede maior que inclua mais endereços selecionando pelo menos/28 ou/27. Isso permitirá que endereços suficientes acomodar possíveis configurações adicionais que talvez deseje no futuro. Ao trabalhar com sub-redes de gateway, evite associar um grupo de segurança de rede (NSG) às mesmas. Associar um grupo de segurança de rede para esta sub-rede pode fazer com que o gateway de VPN não funcione conforme esperado. Selecione **OK** para guardar esta definição.
 
-  ![Adicionar GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
+   ![Adicionar GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
 7. Selecione o **Tamanho** do gateway. O tamanho é o SKU de gateway para o gateway de rede virtual. SKU no portal do Azure, a predefinição é **predefinição**. Para obter mais informações sobre os SKUs de gateway, consulte [definições do gateway de VPN sobre](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-  ![Tamanho do gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
+   ![Tamanho do gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
 8. Selecione o **Tipo de Encaminhamento** do gateway. As configurações P2S requerem o tipo de encaminhamento **Dinâmico**. Selecione **OK** quando terminar a configuração desta página.
 
-  ![Configurar o tipo de encaminhamento](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
+   ![Configurar o tipo de encaminhamento](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 
 9. Sobre o **nova ligação VPN** página, selecione **OK** na parte inferior da página para começar a criar o gateway de rede virtual. Um gateway VPN pode demorar até 45 minutos a concluir, consoante o SKU de gateway que selecionar.
  
@@ -164,11 +164,11 @@ Depois do gateway tiver sido criado, carregue o ficheiro. cer (que contém as in
 
 1. Sobre o **ligações VPN** secção da página para a sua VNet, selecione o gráfico de clientes para abrir o **Point-to-site VPN ligação** página.
 
-  ![Clientes](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
+   ![Clientes](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
 
 2. Sobre o **Point-to-site VPN ligação** página, selecione **gerir certificado** para abrir o **certificados** página.
 
-  ![Página Certificados](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
+   ![Página Certificados](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
 
 1. Sobre o **certificados** página, selecione **carregar** para abrir o **carregar certificado** página.
 
@@ -176,7 +176,7 @@ Depois do gateway tiver sido criado, carregue o ficheiro. cer (que contém as in
 
 4. Selecione a imagem de pasta para procurar o ficheiro. cer. Selecione o ficheiro, em seguida, selecione **OK**. O certificado carregado aparece no **certificados** página.
 
-  ![Carregar certificado](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
+   ![Carregar certificado](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
 
 
 ## <a name="configure-the-client"></a>Configurar o cliente
@@ -191,10 +191,10 @@ Pode utilizar o mesmo pacote de configuração do cliente VPN em cada computador
 
 2. Partir do **Point-to-site VPN ligação** , selecione o pacote de transferência que corresponde ao sistema operativo cliente onde está instalado:
 
-  * Para clientes de 64 bits, selecione **Cliente VPN (64 bit)s**.
-  * Para clientes de 32 bits, selecione **Cliente VPN (32 bit)s**.
+   * Para clientes de 64 bits, selecione **Cliente VPN (64 bit)s**.
+   * Para clientes de 32 bits, selecione **Cliente VPN (32 bit)s**.
 
-  ![Transferir o pacote de configuração do cliente VPN](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
+   ![Transferir o pacote de configuração do cliente VPN](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
 
 3. Depois de gera o pacote, transferi-lo e, em seguida, instale-o no seu computador cliente. Se vir um pop-up SmartScreen, selecione **mais informações**, em seguida, selecione **executar mesmo assim**. Também pode guardar o pacote para instalar noutros computadores cliente.
 
@@ -226,7 +226,7 @@ Para criar uma ligação P2S a partir de um computador cliente diferente daquele
 1. Certifique-se de que a ligação VPN está ativa. Abra uma linha de comandos elevada no computador cliente e execute **ipconfig/all**.
 2. Veja os resultados. Repare que o endereço IP que recebeu é um dos endereços dentro do intervalo de endereços de conetividade Ponto a Site que especificou quando criou a VNet. Os resultados deverão ser semelhantes a este exemplo:
 
-  ```
+   ```
     PPP adapter VNet1:
         Connection-specific DNS Suffix .:
         Description.....................: VNet1
@@ -237,7 +237,7 @@ Para criar uma ligação P2S a partir de um computador cliente diferente daquele
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connect-to-a-virtual-machine"></a>Ligar a uma máquina virtual
 

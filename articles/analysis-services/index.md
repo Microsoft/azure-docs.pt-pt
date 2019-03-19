@@ -1,5 +1,5 @@
 ---
-title: Documentação do Azure Analysis Services - Tutoriais, Referência da API
+title: 'Documentação do Azure Analysis Services - Tutoriais, Referência da API'
 description: Saiba como configurar a modelação de dados com o Analysis Services na cloud de dados. A documentação mostra-lhe como criar uma solução de BI empresarial utilizando dados tabulares.
 services: analysis-services
 author: minewiskan
@@ -8,12 +8,6 @@ layout: LandingPage
 ms.service: azure-analysis-services
 ms.topic: landing-page
 ms.date: 02/14/2018
-ms.openlocfilehash: 8e99f0d61b826c79e1458750ae42cc18742ec42a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839615"
 ---
 # <a name="analysis-services-documentation"></a>Documentação do Analysis Services
 
@@ -82,40 +76,40 @@ Saiba como configurar e gerir a modelação de dados com o Analysis Services. Tu
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Linha de Comandos</h3>
-                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Linha de Comandos</h3>
+                        <p><a href="/azure/analysis-services/analysis-services-powershell">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p><a href="/rest/api/analysisservices/">Referência da API REST</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/analysisservices/">Referência da API REST</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
     <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Outros</h3>
-                        <p><a href="https://msdn.microsoft.com/library/gg413422.aspx">DAX</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/mt211003.aspx">Power Query M</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Outros</h3>
+                        <p><a href="https://msdn.microsoft.com/library/gg413422.aspx">DAX</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt211003.aspx">Power Query M</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 

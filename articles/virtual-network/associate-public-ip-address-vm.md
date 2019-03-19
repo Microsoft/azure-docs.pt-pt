@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: be3e9b8003bc6eb585177b285255658c44c7fc36
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: ce573ff8fe61f2e1d4c88963e0f21fc9402776e9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083220"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associar um endereço IP público a uma máquina virtual
 
@@ -74,20 +74,20 @@ Instalar o [CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-ne
      --public-ip-address myVMPublicIP
    ```
 
-  - Se não tiver um endereço IP público existente, utilize o [criar a rede de az public-ip](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) comando para criar um. Por exemplo, o comando seguinte cria um endereço IP público com o nome *myVMPublicIP* num grupo de recursos com o nome *myResourceGroup*.
+   - Se não tiver um endereço IP público existente, utilize o [criar a rede de az public-ip](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) comando para criar um. Por exemplo, o comando seguinte cria um endereço IP público com o nome *myVMPublicIP* num grupo de recursos com o nome *myResourceGroup*.
   
-    ```azurecli-interactive
-    az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
-    ```
+     ```azurecli-interactive
+     az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
+     ```
 
-    > [!NOTE]
-    > O comando anterior cria um endereço IP público com valores predefinidos para várias definições que pretende personalizar. Para saber mais sobre todas as definições de endereço IP públicas, veja [criar um endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address). O endereço é atribuído a partir de um conjunto de endereços IP públicos utilizados para cada região do Azure. Para ver uma lista de conjuntos de endereços utilizados em cada região, consulte [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
+     > [!NOTE]
+     > O comando anterior cria um endereço IP público com valores predefinidos para várias definições que pretende personalizar. Para saber mais sobre todas as definições de endereço IP públicas, veja [criar um endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address). O endereço é atribuído a partir de um conjunto de endereços IP públicos utilizados para cada região do Azure. Para ver uma lista de conjuntos de endereços utilizados em cada região, consulte [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
-  - Se não souber o nome de uma interface de rede ligado à sua VM, utilize o [lista do az vm nic](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) comando para visualizá-los. Por exemplo, o comando a seguir lista os nomes das interfaces de rede ligadas a uma VM com o nome *myVM* num grupo de recursos com o nome *myResourceGroup*:
+   - Se não souber o nome de uma interface de rede ligado à sua VM, utilize o [lista do az vm nic](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) comando para visualizá-los. Por exemplo, o comando a seguir lista os nomes das interfaces de rede ligadas a uma VM com o nome *myVM* num grupo de recursos com o nome *myResourceGroup*:
 
-    ```azurecli-interactive
-    az vm nic list --vm-name myVM --resource-group myResourceGroup
-    ```
+     ```azurecli-interactive
+     az vm nic list --vm-name myVM --resource-group myResourceGroup
+     ```
 
      A saída inclui uma ou mais linhas que são semelhantes ao seguinte exemplo:
   
@@ -97,11 +97,11 @@ Instalar o [CLI do Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-ne
 
      No exemplo anterior, *myVMVMNic* é o nome da interface de rede.
 
-  - Se não souber o nome de uma configuração de IP para uma interface de rede, utilize o [lista de configuração de ip de nic de redes de az](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) comando para recuperá-los. Por exemplo, o comando a seguir lista os nomes das configurações de IP para uma interface de rede com o nome *myVMVMNic* num grupo de recursos com o nome *myResourceGroup*:
+   - Se não souber o nome de uma configuração de IP para uma interface de rede, utilize o [lista de configuração de ip de nic de redes de az](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) comando para recuperá-los. Por exemplo, o comando a seguir lista os nomes das configurações de IP para uma interface de rede com o nome *myVMVMNic* num grupo de recursos com o nome *myResourceGroup*:
 
-    ```azurecli-interactive
-    az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
-    ```
+     ```azurecli-interactive
+     az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
+     ```
 
 3. Ver o endereço IP público atribuído à configuração de IP com o [az vm lista-ip-addresses](/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) comando. O exemplo seguinte mostra os endereços IP atribuídos a uma VM existente denominada *myVM* num grupo de recursos com o nome *myResourceGroup*.
 
@@ -132,35 +132,35 @@ Instale [PowerShell](/powershell/azure/install-az-ps), ou utilizar o Azure Cloud
    $nic | Set-AzNetworkInterface
    ```
 
-  - Se não tiver um endereço IP público existente, utilize o [New-AzPublicIpAddress](/powershell/module/Az.Network/New-AzPublicIpAddress) comando para criar um. Por exemplo, o comando seguinte cria um *dinâmica* com o nome de endereço IP público *myVMPublicIP* num grupo de recursos com o nome *myResourceGroup* no  *eastus* região.
+   - Se não tiver um endereço IP público existente, utilize o [New-AzPublicIpAddress](/powershell/module/Az.Network/New-AzPublicIpAddress) comando para criar um. Por exemplo, o comando seguinte cria um *dinâmica* com o nome de endereço IP público *myVMPublicIP* num grupo de recursos com o nome *myResourceGroup* no  *eastus* região.
   
-    ```azurepowershell-interactive
-    New-AzPublicIpAddress -Name myVMPublicIP -ResourceGroupName myResourceGroup -AllocationMethod Dynamic -Location eastus
-    ```
+     ```azurepowershell-interactive
+     New-AzPublicIpAddress -Name myVMPublicIP -ResourceGroupName myResourceGroup -AllocationMethod Dynamic -Location eastus
+     ```
 
-    > [!NOTE]
-    > O comando anterior cria um endereço IP público com valores predefinidos para várias definições que pretende personalizar. Para saber mais sobre todas as definições de endereço IP públicas, veja [criar um endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address). O endereço é atribuído a partir de um conjunto de endereços IP públicos utilizados para cada região do Azure. Para ver uma lista de conjuntos de endereços utilizados em cada região, consulte [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
+     > [!NOTE]
+     > O comando anterior cria um endereço IP público com valores predefinidos para várias definições que pretende personalizar. Para saber mais sobre todas as definições de endereço IP públicas, veja [criar um endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address). O endereço é atribuído a partir de um conjunto de endereços IP públicos utilizados para cada região do Azure. Para ver uma lista de conjuntos de endereços utilizados em cada região, consulte [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
-  - Se não souber o nome de uma interface de rede ligado à sua VM, utilize o [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) comando para visualizá-los. Por exemplo, o comando a seguir lista os nomes das interfaces de rede ligadas a uma VM com o nome *myVM* num grupo de recursos com o nome *myResourceGroup*:
+   - Se não souber o nome de uma interface de rede ligado à sua VM, utilize o [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) comando para visualizá-los. Por exemplo, o comando a seguir lista os nomes das interfaces de rede ligadas a uma VM com o nome *myVM* num grupo de recursos com o nome *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $vm = Get-AzVM -name myVM -ResourceGroupName myResourceGroup
-    $vm.NetworkProfile
-    ```
+     ```azurepowershell-interactive
+     $vm = Get-AzVM -name myVM -ResourceGroupName myResourceGroup
+     $vm.NetworkProfile
+     ```
 
-    A saída inclui uma ou mais linhas que são semelhantes ao exemplo a seguir. Na saída de exemplo, *myVMVMNic* é o nome da interface de rede.
+     A saída inclui uma ou mais linhas que são semelhantes ao exemplo a seguir. Na saída de exemplo, *myVMVMNic* é o nome da interface de rede.
   
-    ```
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
-    ```
+     ```
+     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic",
+     ```
 
-  - Se não souber o nome da rede virtual ou sub-rede que está a interface de rede, utilize o `Get-AzNetworkInterface` comando para ver as informações. Por exemplo, o comando seguinte obtém as informações de rede e sub-rede virtual para uma interface de rede com o nome *myVMVMNic* num grupo de recursos com o nome *myResourceGroup*:
+   - Se não souber o nome da rede virtual ou sub-rede que está a interface de rede, utilize o `Get-AzNetworkInterface` comando para ver as informações. Por exemplo, o comando seguinte obtém as informações de rede e sub-rede virtual para uma interface de rede com o nome *myVMVMNic* num grupo de recursos com o nome *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-    $ipConfigs = $nic.IpConfigurations
-    $ipConfigs.Subnet | Select Id
-    ```
+     ```azurepowershell-interactive
+     $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
+     $ipConfigs = $nic.IpConfigurations
+     $ipConfigs.Subnet | Select Id
+     ```
 
      A saída inclui uma ou mais linhas que são semelhantes ao exemplo a seguir. Na saída de exemplo, *myVMVNET* é o nome da rede virtual e *myVMSubnet* é o nome da sub-rede.
   
@@ -168,18 +168,18 @@ Instale [PowerShell](/powershell/azure/install-az-ps), ou utilizar o Azure Cloud
      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVMVNET/subnets/myVMSubnet",
      ```
 
-  - Se não souber o nome de uma configuração de IP para uma interface de rede, utilize o [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) comando para recuperá-los. Por exemplo, o comando a seguir lista os nomes das configurações de IP para uma interface de rede com o nome *myVMVMNic* num grupo de recursos com o nome *myResourceGroup*:
+   - Se não souber o nome de uma configuração de IP para uma interface de rede, utilize o [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) comando para recuperá-los. Por exemplo, o comando a seguir lista os nomes das configurações de IP para uma interface de rede com o nome *myVMVMNic* num grupo de recursos com o nome *myResourceGroup*:
 
-    ```azurepowershell-interactive
-    $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-    $nic.IPConfigurations
-    ```
+     ```azurepowershell-interactive
+     $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
+     $nic.IPConfigurations
+     ```
 
-    A saída inclui uma ou mais linhas que são semelhantes ao exemplo a seguir. Na saída de exemplo, *ipconfigmyVM* é o nome de uma configuração de IP.
+     A saída inclui uma ou mais linhas que são semelhantes ao exemplo a seguir. Na saída de exemplo, *ipconfigmyVM* é o nome de uma configuração de IP.
   
-    ```
-    Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
-    ```
+     ```
+     Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
+     ```
 
 3. Ver o endereço IP público atribuído à configuração de IP com o [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) comando. O exemplo seguinte mostra o endereço atribuído a um endereço IP público com o nome *myVMPublicIP* num grupo de recursos com o nome *myResourceGroup*.
 

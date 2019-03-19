@@ -122,8 +122,6 @@ items:
     - name: Gerir os dados da Automatização do Azure
       displayName: backup
       href: automation-managing-data.md
-    - name: Gerir pacotes do Python 2
-      href: python-packages.md
     - name: Conhecer o Fluxo de Trabalho do PowerShell
       href: automation-powershell-workflow.md
     - name: Runbooks subordinados
@@ -177,16 +175,18 @@ items:
       href: automation-dsc-diagnostics.md
   - name: Gerir recursos partilhados
     items:
-    - name: Certificados
-      href: automation-certificates.md
-    - name: Ligações
-      href: automation-connections.md
-    - name: Credenciais
-      href: automation-credentials.md
-    - name: Módulos de integração
-      href: automation-integration-modules.md
     - name: Agendas
       href: automation-schedules.md
+    - name: Módulos
+      href: shared-resources/modules.md
+    - name: Gerir pacotes do Python 2
+      href: python-packages.md
+    - name: Credenciais
+      href: automation-credentials.md
+    - name: Ligações
+      href: automation-connections.md
+    - name: Certificados
+      href: automation-certificates.md
     - name: Variáveis
       href: automation-variables.md
     - name: Atualizar módulos do Azure PowerShell
@@ -287,9 +287,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: b4499b2a09dc8ac330582e2f42f5d683a89790c5
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 68b40786eefb7cb1abfb32e5042c07f6a1b5314d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840533"

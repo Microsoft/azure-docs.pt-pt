@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: c4eeb73e3b0abfe2558fc387953023254952a515
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296873"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849980"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilizar a classe RecoveryManager para corrigir problemas do mapa de partições horizontais
 
-O [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) classe fornece os aplicativos ADO.Net a capacidade de facilmente detetar e corrigir quaisquer inconsistências entre o mapa de partições horizontais global (GSM) e o mapa de partições horizontais local (LSM) num ambiente de base de dados em partição horizontal.
+O [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) classe fornece os aplicativos ADO.NET a capacidade de facilmente detetar e corrigir quaisquer inconsistências entre o mapa de partições horizontais global (GSM) e o mapa de partições horizontais local (LSM) num ambiente de base de dados em partição horizontal.
 
 O GSM e LSM controlam o mapeamento de cada base de dados num ambiente em partição horizontal. Ocasionalmente, uma interrupção ocorre entre o GSM e o LSM. Nesse caso, utilize a classe RecoveryManager para detetar e reparar a garantia de reparação.
 

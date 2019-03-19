@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: fd64376f68a177f12b2105ae0974eeeeefa94f4b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996144"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferir dados com a biblioteca de movimento de dados de armazenamento do Microsoft Azure
 
@@ -193,7 +193,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 Este código pede-no caminho para um ficheiro local, o nome de um contentor novo ou existente e o nome de um blob de novo. O `TransferManager.UploadAsync` método executa o carregamento usando essas informações.
 
-Pressionar `F5` para executar a sua aplicação. Pode verificar que o carregamento ocorreu ao visualizar a sua conta de armazenamento com o [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com/).
+Pressionar `F5` para executar a sua aplicação. Pode verificar que o carregamento ocorreu ao visualizar a sua conta de armazenamento com o [Explorador de armazenamento do Microsoft Azure](https://storageexplorer.com/).
 
 ## <a name="set-number-of-parallel-operations"></a>Número de conjunto de operações simultâneas
 Um ótimo recurso oferecido pela biblioteca de movimento de dados é a capacidade de definir o número de operações simultâneas para aumentar o débito de transferência de dados. Por predefinição, a biblioteca de movimento de dados define o número de operações simultâneas para 8 * o número de núcleos na sua máquina.

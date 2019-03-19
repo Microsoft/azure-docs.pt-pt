@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bc2e41fd5da4737ea1efe329b70964535daff54a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157946"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105969"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como validação de entrada do usuário
 
@@ -249,10 +249,10 @@ Um fornecedor de afirmações pode ter vários perfis técnicos por vários moti
 O seguinte fragmento XML contém um nó de fornecedor de afirmações com dois perfis técnicos:
 
 * **TechnicalProfile Id="REST-API-SignUp"**: Define o seu serviço RESTful.
-   * `Proprietary` é descrita como o protocolo de um fornecedor com base na RESTful.
-   * `InputClaims` Define as afirmações que serão enviadas do Azure AD B2C para o serviço REST.
+  * `Proprietary` é descrita como o protocolo de um fornecedor com base na RESTful.
+  * `InputClaims` Define as afirmações que serão enviadas do Azure AD B2C para o serviço REST.
 
-   Neste exemplo, o conteúdo da declaração `givenName` envia para o serviço REST como `firstName`, o conteúdo da afirmação `surname` envia para o serviço REST como `lastName`, e `email` envia como está. O `OutputClaims` elemento define as afirmações que são obtidas a partir do serviço RESTful volta para o Azure AD B2C.
+    Neste exemplo, o conteúdo da declaração `givenName` envia para o serviço REST como `firstName`, o conteúdo da afirmação `surname` envia para o serviço REST como `lastName`, e `email` envia como está. O `OutputClaims` elemento define as afirmações que são obtidas a partir do serviço RESTful volta para o Azure AD B2C.
 
 * **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adiciona um perfil de técnicas de validação para um perfil técnico existente (definido na política base). Durante a viagem de inscrição, o perfil técnico de validação invoca o perfil técnico anterior. Se o serviço RESTful retornar um erro HTTP 409 (um erro de conflito), a mensagem de erro é apresentada ao utilizador.
 

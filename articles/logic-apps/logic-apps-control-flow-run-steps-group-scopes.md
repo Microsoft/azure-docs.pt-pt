@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 9e485797dcc40c426b208971c04acffa168e528a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57455909"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080459"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Executar ações com base no estado de grupo com âmbitos no Azure Logic Apps
 
@@ -89,7 +89,8 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
       | **Tipo de Data-Type de trânsito** | Nenhuma | Aplica-se ao modo de tráfego apenas. | 
       ||||  
 
-1. [Adicionar uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifica se o tempo de deslocação atual com tráfego excede um período de tempo especificado. Neste exemplo, siga estes passos:
+1. [Adicionar uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifica se o tempo de deslocação atual com tráfego excede um período de tempo especificado. 
+   Neste exemplo, siga estes passos:
 
    1. Mudar o nome da condição com a descrição: **Se o tempo de tráfego é mais do que o período de tempo especificado**
 
@@ -105,7 +106,8 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
 
       ![Condição concluída](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. Na **se for verdadeiro** ramo, adicionar uma ação "enviar e-mail" para o seu fornecedor de e-mail. Configure esta ação ao seguir os passos abaixo desta imagem:
+1. Na **se for verdadeiro** ramo, adicionar uma ação "enviar e-mail" para o seu fornecedor de e-mail. 
+   Configure esta ação ao seguir os passos abaixo desta imagem:
 
    ![Adicionar ação "Enviar e-mail" para "Se verdadeiro" ramo](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
@@ -124,7 +126,7 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
    1. Na lista de conteúdo dinâmico, escolha **Expressão**.
 
    1. Localize e selecione o **div()** função. 
-   Coloque o cursor no dentro de parênteses da função.
+      Coloque o cursor no dentro de parênteses da função.
 
    1. Embora seja o cursor dentro de parênteses da função, escolha **conteúdo dinâmico** para que a lista de conteúdo dinâmico apareça. 
    
@@ -144,11 +146,11 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
 
    1. Quando tiver terminado, escolha **OK**.
 
-  1. Depois da expressão é resolvido, adicione este texto com um espaço à esquerda: ``` minutes```
+   1. Depois da expressão é resolvido, adicione este texto com um espaço à esquerda: ``` minutes```
   
-     Sua **corpo** campo agora este aspeto:
+       Sua **corpo** campo agora este aspeto:
 
-     ![Campo de "Corpo" concluído](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Campo de "Corpo" concluído](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
 1. Guarde a aplicação lógica.
 

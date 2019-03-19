@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7f8c410f368c5c63bd24bed25b9807b8061180be
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: d7ba922d66bf97dbd8173b0d5466a7e55a41f6b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189801"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993179"
 ---
 # <a name="manage-database-roles-and-users"></a>Gerir funções de base de dados e utilizadores
 
@@ -71,6 +71,7 @@ Para adicionar funções e os utilizadores a uma base de dados do modelo impleme
 2. Na **criar função**, introduza um nome de função e uma descrição.
 
 3. Selecione uma permissão.
+
    |Permissão|Descrição|  
    |----------------|-----------------|  
    |**Controlo total (administrador)**|Os membros podem modificar o esquema do modelo, processar e pode consultar todos os dados.| 
@@ -139,9 +140,9 @@ Filtros de linha aplicam-se para as linhas especificadas e as linhas relacionada
   
 |Tabela|Expressão DAX|  
 |-----------|--------------------|  
-|Região|= Região [País] = "USA"|  
+|Região|=Region[Country]="USA"|  
 |ProductCategory|= ProductCategory [nome] = "Bicicletas"|  
-|Transações|= Transações [ano] = 2016|  
+|Transações|=Transactions[Year]=2016|  
   
  O efeito líquido é que os membros podem consultar linhas de dados em que o cliente estiver nos EUA, a categoria de produto é de bicicletas e é o ano 2016. Os utilizadores não podem consultar transações fora do EUA, transações que não são bicicletas ou transações não em 2016, a menos que um membro de outra função que concede essas permissões.
   

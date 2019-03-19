@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9fef5b608f810298078e4d7fa62884ab08e11938
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: e36f735e4443bba56dda2a93fadfa058bc957a87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339220"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015052"
 documentType: LandingData
 title: Gestor de Tráfego
 metadata:
@@ -92,6 +92,6 @@ sections:
     - title: Linha de Comandos
       html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/?view=azurermps-6.8.1#traffic_manager">PowerShell</a></p><p><a href="/cli/azure/network/traffic-manager">CLI do Azure</a></p>
     - title: Linguagens
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/virtual-network?view=azure-dotnet">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/traffic-manager">Python</a></p>
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/virtual-network?view=azure-dotnet">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.trafficmanager">Java</a></p><p><a href="https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/traffic-manager">Python</a></p>
     - title: REST
       html: <p><a href="/rest/api/trafficmanager/">Referência da API REST</a></p>

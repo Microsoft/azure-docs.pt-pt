@@ -1,6 +1,6 @@
 ---
-title: Referência do motor de regras do Azure CDN | Microsoft Docs
-description: Documentação de referência para a CDN do Azure regras de funcionalidades e as condições de correspondência do motor.
+title: Referência do motor de regras CDN do Azure | Documentos da Microsoft
+description: Funcionalidades e as condições de correspondência do motor de regras de documentação de referência para a CDN do Azure.
 services: cdn
 documentationcenter: ''
 author: Lichard
@@ -14,70 +14,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 602b4303dd1940791c11b8b71ac6a27f0474a6d5
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 3163b33f69f4cc2d6cd4127253c7b6fadfddd6b0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29733684"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994238"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Referência do motor de regras CDN do Azure
-Este artigo apresenta uma lista de descrições detalhadas das condições de correspondência disponíveis e funcionalidades de rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
+Este artigo apresenta uma lista de descrições detalhadas das condições de correspondência disponíveis e dos recursos de rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
 
-O motor de regras foi concebido para ser a autoridade final em específicos como tipos de pedidos processados pela CDN.
+O mecanismo de regras foi concebido para ser a autoridade final em tipos específicos de pedidos são processados pela CDN.
 
 **Utilizações comuns**:
 
-- Substituição ou definir uma política de cache personalizada.
+- Substituir ou definir uma política de cache personalizada.
 - Proteger ou negar pedidos para conteúdo confidencial.
 - Redirecionar pedidos.
-- Armazenar dados de registo personalizado.
+- Store dados de registo personalizado.
 
 ## <a name="terminology"></a>Terminologia
-Uma regra está definida através da utilização de [ **expressões condicionais**](cdn-rules-engine-reference-conditional-expressions.md), [ **corresponder condições**](cdn-rules-engine-reference-match-conditions.md), e [ **funcionalidades**](cdn-rules-engine-reference-features.md). Estes elementos são realçados na ilustração seguinte:
+Uma regra é definida através da utilização de [ **expressões condicionais**](cdn-rules-engine-reference-conditional-expressions.md), [ **coincidam com condições**](cdn-rules-engine-reference-match-conditions.md), e [ **funcionalidades**](cdn-rules-engine-reference-features.md). Esses elementos estão realçados na ilustração seguinte:
 
  ![Condição de correspondência CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-terminology.png)
 
 ## <a name="syntax"></a>Sintaxe
 
-Forma no qual os carateres especiais são tratados varia de acordo com a forma como uma condição de correspondência ou funcionalidade processa os valores de texto. Uma condição de correspondência ou a funcionalidade pode interpretar o texto de uma das seguintes formas:
+A maneira na qual os carateres especiais são tratados varia de acordo com a como uma condição de correspondência ou funcionalidade lida com valores de texto. Uma condição de correspondência ou funcionalidade pode interpretar o texto em uma das seguintes formas:
 
 1. [**Valores literais**](#literal-values) 
 2. [**Valores de caráter universal**](#wildcard-values)
 3. [**Expressões regulares**](#regular-expressions)
 
 ### <a name="literal-values"></a>Valores literais
-Texto que é interpretado como um valor literal trata todos os carateres especiais, à exceção do símbolo %, como parte do valor deve ser correspondido. Por outras palavras, um literal corresponde à condição definida como `\'*'\` for satisfeita apenas quando exacta que o valor (ou seja, `\'*'\`) foi encontrado.
+Texto que é interpretado como um valor literal trata todos os caracteres especiais, com exceção do símbolo %, como parte do valor que deve corresponder. Em outras palavras, um literal corresponde à condição definida como `\'*'\` for satisfeita apenas quando que exact valor (ou seja, `\'*'\`) foi encontrado.
  
 Um símbolo de percentagem é utilizado para indicar a codificação do URL (por exemplo, `%20`).
 
 ### <a name="wildcard-values"></a>Valores de caráter universal
-Texto que é interpretado como um valor de caráter universal atribui significado adicional para carateres especiais. A tabela seguinte descreve a forma como o seguinte conjunto de carateres é interpretado:
+Texto que é interpretado como um valor de caráter universal atribui o significado adicional para carateres especiais. A tabela seguinte descreve como o seguinte conjunto de caracteres é interpretado:
 
 Caráter | Descrição
 ----------|------------
-\ | Uma barra invertida é utilizada para o escape qualquer um dos carateres especificados nesta tabela. É necessário especificar uma barra invertida diretamente antes do caráter especial que deve ser caráter de escape correto.<br/>Por exemplo, a seguinte sintaxe escapes um asterisco: `\*`
+\ | Uma barra invertida é utilizada para escapar qualquer um dos carateres especificados nesta tabela. Tem de especificar uma barra invertida diretamente antes dos carateres especiais que devem ser escritos.<br/>Por exemplo, a seguinte sintaxe escapes um asterisco: `\*`
 % | Um símbolo de percentagem é utilizado para indicar a codificação do URL (por exemplo, `%20`).
-* | Um asterisco é um caráter universal que representa um ou mais carateres.
-Espaço | Um caráter de espaço indica que uma condição de correspondência pode ser satisfeita pelo qualquer um dos valores especificados ou padrões.
-'value' | Uma aspa simples não têm um significado especial. No entanto, um conjunto de plicas é utilizado para indicar que um valor deverá ser tratado como um valor literal. Podem ser utilizado das seguintes formas:<br><br/>-Permite que uma condição de correspondência ser satisfeito sempre que o valor especificado corresponde a qualquer parte do valor de comparação.  Por exemplo, `'ma'` corresponderia a qualquer uma das seguintes cadeias: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />-Permite que um caráter especial especificado como um caráter literal. Por exemplo, pode especificar um caráter de espaço literal por envolvente um caráter de espaço dentro de um conjunto de plicas (ou seja, `' '` ou `'sample value'`).<br/>-Permite que um valor em branco ser especificado. Especifique um valor em branco, especificando um conjunto de plicas (ou seja, ').<br /><br/>**Importante:**<br/>-Se o valor especificado não contém um caráter universal, em seguida, considera-se automaticamente um valor literal, o que significa que não é necessário especificar um conjunto de plicas.<br/>-Se uma barra invertida não outro como carácter de escape nesta tabela, é ignorada, se for especificado dentro de um conjunto de plicas.<br/>-Outra forma de especificar um caráter especial, como um caráter literal é para o escape-la utilizando uma barra invertida (ou seja, `\`).
+\* | Um asterisco é um caráter universal que representa um ou mais carateres.
+Espaço | Um caractere de espaço indica que uma condição de correspondência pode ser atendida por qualquer um dos valores especificados ou padrões.
+'Valor' | Uma aspa não tem um significado especial. No entanto, um conjunto de aspas simples é usado para indicar que um valor deve ser tratado como um valor literal. Ele pode ser usado das seguintes formas:<br><br/>-Permite que uma condição de correspondência de ser cumpridos sempre que o valor especificado corresponde a qualquer parte do valor de comparação.  Por exemplo, `'ma'` corresponderia a qualquer um dos seguintes cadeias de caracteres: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />-Permite que um caractere especial seja especificado como um caráter literal. Por exemplo, pode especificar um caractere de espaço literal colocando um caractere de espaço dentro de um conjunto de aspas simples (ou seja, `' '` ou `'sample value'`).<br/>-Permite que um valor em branco ser especificado. Especifique um valor em branco, especificando um conjunto de aspas simples (ou seja, ').<br /><br/>**Importante:**<br/>– Se o valor especificado não contém um caráter universal, em seguida, é automaticamente considerado um valor literal, o que significa que não é necessário especificar um conjunto de aspas simples.<br/>– Se uma barra invertida de escape não outro caráter nesta tabela, ela é ignorada se for especificado dentro de um conjunto de aspas simples.<br/>-Outra maneira de especificar um caráter especial, como um caráter literal é para o escape-lo com uma barra invertida (ou seja, `\`).
 
 ### <a name="regular-expressions"></a>Expressões regulares
 
-As expressões regulares definem um padrão que é procurado dentro de um valor de texto. A notação de expressão regular define significados específicos para uma variedade de símbolos. A tabela seguinte indica os carateres especiais como são tratadas pelo correspondência condições e funcionalidades que suportam expressões regulares.
+Expressões regulares definem um padrão que é procurado dentro de um valor de texto. A notação de expressão regular define significados específicos a uma variedade de símbolos. A tabela seguinte indica os carateres especiais como são tratadas pelo condições de correspondência e funcionalidades que oferecem suporte a expressões regulares.
 
 Caráter especial | Descrição
 ------------------|------------
-\ | Uma barra invertida escapes o caráter de forma departamento de TI que faz com que esse caráter deve ser tratado como um valor literal em vez de demorar no significado da expressão regular. Por exemplo, a seguinte sintaxe escapes um asterisco: `\*`
-% | O significado de um símbolo de percentagem depende da sua utilização.<br/><br/> `%{HTTPVariable}`: Este sintaxe identifica uma variável HTTP.<br/>`%{HTTPVariable%Pattern}`: Este sintaxe utiliza um símbolo de percentagem, para identificar um HTTP variável e como um delimitador.<br />`\%`: Escape um símbolo de percentagem permite a ser utilizado como um valor literal ou para indicar a codificação do URL (por exemplo, `\%20`).
-* | Um asterisco permite que o carácter anterior a ser correspondido zero ou mais vezes. 
-Espaço | Um caráter de espaço, normalmente, é tratado como um caráter literal. 
-'value' | Plicas são tratadas como literais carateres. Um conjunto de plicas não têm um significado especial.
+\ | Uma barra invertida escapes o caráter seguinte it, que faz com que esse caractere deve ser tratada como um valor literal em vez de adotar no seu significado de expressão regular. Por exemplo, a seguinte sintaxe escapes um asterisco: `\*`
+% | O significado de um símbolo de percentagem depende da sua utilização.<br/><br/> `%{HTTPVariable}`: Essa sintaxe identifica uma variável de HTTP.<br/>`%{HTTPVariable%Pattern}`: Essa sintaxe utiliza um símbolo de percentagem para identificar um HTTP variável e como delimitador.<br />`\%`: Um símbolo de percentagem de carateres de escape permite a ser utilizado como um valor literal ou para indicar a codificação do URL (por exemplo, `\%20`).
+\* | Um asterisco permite que o caractere anterior corresponder zero ou mais vezes. 
+Espaço | Normalmente, um caractere de espaço é tratado como um caráter literal. 
+'Valor' | Aspas são tratadas como caracteres literais. Um conjunto de aspas não tem um significado especial.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Condições de correspondência do motor de regras](cdn-rules-engine-reference-match-conditions.md)
-* [Motor de regras de expressões condicionais](cdn-rules-engine-reference-conditional-expressions.md)
+* [Expressões condicionais do motor de regras](cdn-rules-engine-reference-conditional-expressions.md)
 * [Funcionalidades do motor de regras](cdn-rules-engine-reference-features.md)
-* [Comportamento HTTP utilizando o motor de regras de substituição](cdn-rules-engine.md)
-* [Descrição geral CDN do Azure](cdn-overview.md)
+* [Substituir comportamento HTTP utilizando o mecanismo de regras](cdn-rules-engine.md)
+* [Descrição geral da CDN do Azure](cdn-overview.md)

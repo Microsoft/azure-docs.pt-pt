@@ -10,12 +10,12 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 0832fbcacd8b58ffaf36ce2e55e3add151a881db
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470200"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870935"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Utilize as funções de Azure para gerir recursos de computação no Azure SQL Data Warehouse
 
@@ -57,14 +57,14 @@ Depois de implementar o modelo, deverá ver três recursos novos: um plano gratu
 
 4. Na área “schedule”, adicione a hora na expressão CRON que pretende que reflita a frequência com que quer aumentar verticalmente o SQL Data Warehouse. 
 
-  ![Alterar agenda da função](media/manage-compute-with-azure-functions/change-schedule.png)
+   ![Alterar agenda da função](media/manage-compute-with-azure-functions/change-schedule.png)
 
-  O valor de `schedule` é uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui estes seis campos: 
-  ```json
-  {second} {minute} {hour} {day} {month} {day-of-week}
-  ```
+   O valor de `schedule` é uma [expressão CRON](https://en.wikipedia.org/wiki/Cron#CRON_expression) que inclui estes seis campos: 
+   ```json
+   {second} {minute} {hour} {day} {month} {day-of-week}
+   ```
 
-  Por exemplo, *"0 30 9 * * 1-5"* reflete um acionador todos os dias da semana às 9h30. Para obter mais informações, veja os [exemplos de agendas][schedule examples] do Azure Functions.
+   Por exemplo, *"0 30 9 * * 1-5"* reflete um acionador todos os dias da semana às 9h30. Para obter mais informações, veja os [exemplos de agendas][schedule examples] do Azure Functions.
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Alterar a hora da operação de dimensionamento

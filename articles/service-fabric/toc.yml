@@ -828,7 +828,7 @@ items:
   - name: Atributos de Segurança Comuns
     href: service-fabric-security-attributes.md
   - name: Código de exemplo
-    href: http://aka.ms/servicefabricsamples
+    href: https://aka.ms/servicefabricsamples
   - name: Opções de suporte
     href: service-fabric-support.md
   - name: Versões do Service Fabric
@@ -837,9 +837,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: bceb61a6c5d5105d09d1b2ec94b394fd25402ea6
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 41e92402762d0adc63f374e49ef86d3e7e060fa5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57873847"

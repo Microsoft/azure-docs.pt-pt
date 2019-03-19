@@ -52,7 +52,7 @@ items:
     - name: Diretrizes de segurança
       href: multi-factor-authentication-security-best-practices.md
     - name: MFA para o Office 365
-      href: https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba
+      href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: Perguntas Frequentes de MFA
       href: multi-factor-authentication-faq.md
   - name: Proteção de palavras-passe do Azure AD
@@ -231,9 +231,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 433e26c6375d2865936f52189a38213898255baa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c109feb0e75268027e0732efc8e922285c65e81e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870028"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58174295"

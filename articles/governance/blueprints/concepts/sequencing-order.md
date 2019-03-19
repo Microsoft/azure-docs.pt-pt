@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: bd12aabf0ca8f82261e6b3c677d7306ee46c4171
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b3adec799da582dc30ecd716a530ca6032f5c2e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308622"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990573"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Compreender a sequência de implementação no Azure esquemas
 
@@ -112,8 +112,8 @@ Se uma dependência de artefacto é declarada que não alterar a ordem padrão, 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saber mais sobre o [ciclo de vida do esquema](lifecycle.md)
-- Compreender como utilizar [parâmetros estáticos e dinâmicos](parameters.md)
-- Saber como utilizar o [bloqueio de recursos de esquema](resource-locking.md)
-- Saber como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md)
-- Resolver problemas durante a atribuição de um esquema com [resolução de problemas gerais](../troubleshoot/general.md)
+- Saiba mais sobre o [ciclo de vida de esquema](lifecycle.md).
+- Compreender como usar [parâmetros estáticos e dinâmicos](parameters.md).
+- Descubra como tornar a usar [esquema de bloqueio do recurso](resource-locking.md).
+- Saiba como [atualizar atribuições existentes](../how-to/update-existing-assignments.md).
+- Resolver problemas durante a atribuição de um plano gráfico com [resolução de problemas gerais](../troubleshoot/general.md).

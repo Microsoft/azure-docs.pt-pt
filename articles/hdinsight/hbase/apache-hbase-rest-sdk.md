@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 27a013bee98447de591d373917c2cbaae7ca08b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495402"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857662"
 ---
-# <a name="use-the-net-sdk-for-apache-hbase"></a>Utilizar o SDK do .net para o Apache HBase
+# <a name="use-the-net-sdk-for-apache-hbase"></a>Utilizar o SDK .NET para o Apache HBase
 
-[O Apache HBase](apache-hbase-overview.md) fornece duas opções principais para trabalhar com os seus dados: [consultas do Apache Hive e chamadas à API de RESTful do HBase](apache-hbase-tutorial-get-started-linux.md). Pode trabalhar diretamente com a REST API utilizando o `curl` comando ou um utilitário semelhante.
+[O Apache HBase](apache-hbase-overview.md) fornece duas opções principais para trabalhar com os seus dados: [Consultas do Apache Hive e chamadas à API de RESTful do HBase](apache-hbase-tutorial-get-started-linux.md). Pode trabalhar diretamente com a REST API utilizando o `curl` comando ou um utilitário semelhante.
 
 Para aplicativos de c# e .NET, o [biblioteca de cliente do Microsoft HBase REST para .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) fornece uma biblioteca de cliente com base na API de REST de HBase.
 

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774604"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852377"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Planeamento da capacidade para funções de servidor do App Service do Azure no Azure Stack
 
@@ -93,9 +93,17 @@ Ao decidir o número de funções de trabalho web partilhada a utilizar, consult
 
    Para obter informações sobre como adicionar mais instâncias de função de trabalho, consulte [adicionar mais funções de trabalho](azure-stack-app-service-add-worker-roles.md).
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Considerações adicionais para funções de trabalho dedicadas durante a atualização e manutenção
+
+Durante a atualização e manutenção de funções de trabalho, o serviço de aplicações do Azure no Azure Stack irá efetuar manutenção em 20% de cada escalão de worker num dado momento.  Por conseguinte, os administradores de nuvem tem sempre de manter um conjunto de 20% dos trabalhadores não alocados por escalão de worker para garantir que seus inquilinos não se deparam com qualquer perda de serviço durante a atualização e manutenção.  Por exemplo, se tiver 10 funções de trabalho num escalão de worker deve garantir que 2 são não alocado para permitir que a atualização e manutenção, se o total de 10 funções de trabalho se tornar alocadas deve aumentar o escalão de worker verticalmente para manter um conjunto de trabalhos não alocados. Durante a manutenção e atualização do App Service do Azure irá mover cargas de trabalho para trabalhadores não alocados para garantir que as cargas de trabalho irão continuar a funcionar no entanto se existirem não existem trabalhos não alocados disponíveis durante a atualizar, em seguida, lá vão ser o potencial para a carga de trabalho de inquilino tempo de inatividade.  Com respeito a funções de trabalho partilhadas, os clientes não precisa de aprovisionar trabalhos adicionais, como o serviço irá alocar aplicações de inquilino dentro de trabalhadores disponíveis automaticamente, para elevada disponibilidade, no entanto, é um requisito mínimo para os dois operadores desta escalão.
+
+Os administradores de nuvem podem monitorizar as suas alocações de escalão de worker na área de administração do serviço de aplicações no portal de administração do Azure Stack.  Navegue para o serviço de aplicações e, em seguida, selecione os escalões de Worker no painel esquerdo.  A tabela de escalões de Worker mostra o nome do escalão de worker, tamanho, imagem utilizada, o número de workers disponíveis (não alocado), número total de trabalhos em cada camada e o estado geral do escalão de worker.
+
+![Administração de serviço de aplicações - escalões de Worker][1]
+
 ## <a name="file-server-role"></a>Função de servidor de ficheiros
 
-Para a função de servidor de ficheiros, pode utilizar um servidor de ficheiros autónomo para desenvolvimento e teste; Por exemplo, quando implementar o serviço de aplicações do Azure no Azure Stack Development Kit (ASDK) pode utilizar este modelo: https://aka.ms/appsvconmasdkfstemplate. Para fins de produção, deve utilizar um servidor de ficheiros Windows pré-configurado ou um servidor de ficheiros de não-Windows previamente configurada.
+Para a função de servidor de ficheiros, pode utilizar um servidor de ficheiros autónomo para desenvolvimento e teste; Por exemplo, quando implementar o serviço de aplicações do Azure no Azure Stack Development Kit (ASDK) pode utilizar este [modelo](https://aka.ms/appsvconmasdkfstemplate).  Para fins de produção, deve utilizar um servidor de ficheiros Windows pré-configurado ou um servidor de ficheiros de não-Windows previamente configurada.
 
 Em ambientes de produção, a função de servidor de ficheiros experiências de e/s de disco intensiva. Uma vez que ele hospeda todos os ficheiros de conteúdo e de aplicações para os sites de utilizador, deve configurar previamente um dos seguintes recursos para esta função:
 
@@ -105,10 +113,13 @@ Em ambientes de produção, a função de servidor de ficheiros experiências de
 - Cluster de servidor de ficheiros de não-Windows
 - Dispositivo NAS (armazenamento de ligação de rede)
 
-Para obter mais informações, consulte [aprovisionar um servidor de ficheiros](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+Veja o seguinte artigo para obter mais informações, [aprovisionar um servidor de ficheiros](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Consulte o artigo seguinte para obter mais informações:
 
 [Antes de começar com o serviço de aplicações no Azure Stack](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

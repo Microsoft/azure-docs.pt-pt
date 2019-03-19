@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: a58b247732125574a067deff1d5b03859cd036fc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782297"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887056"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceitos, terminologia e entidades no Azure Scheduler
 
@@ -77,7 +77,7 @@ A tarefa também inclui os dados fornecidos pelo sistema, como o próximo tempo 
 
 | Elemento | Necessário | Descrição | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
+| [**startTime**](#start-time) | Não | A hora de início da tarefa com um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**action**](#action) | Sim | Os detalhes da ação principal, que pode incluir um objeto **errorAction** | 
 | [**errorAction**](#error-action) | Não | Os detalhes da ação secundária que será executada se a ação principal falhar |
 | [**recurrence**](#recurrence) | Não | Os detalhes, como a frequência e o intervalo de uma tarefa periódica | 
@@ -137,7 +137,7 @@ Veja a seguir um exemplo que mostra uma definição abrangente da tarefa para um
 
 ## <a name="starttime"></a>startTime
 
-No objeto **startTime**, pode especificar a hora de início e um desvio de fuso horário no [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
+No objeto **startTime**, pode especificar a hora de início e um desvio de fuso horário no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 <a name="action"></a>
 

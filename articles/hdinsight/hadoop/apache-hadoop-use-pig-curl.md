@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 52ad40a2521f21efee3b9f98b46c2e2e6343b656
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715431"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098309"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Executar tarefas do Apache Pig com o Apache Hadoop no HDInsight com REST
 
@@ -58,8 +58,8 @@ Saiba como executar tarefas do Apache Pig Latin fazendo pedidos REST para um clu
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-    * **-u**: O nome de utilizador e palavra-passe utilizada para autenticar o pedido
-    * **-G**: Indica que este pedido é uma solicitação GET
+   * **-u**: O nome de utilizador e palavra-passe utilizada para autenticar o pedido
+   * **-G**: Indica que este pedido é uma solicitação GET
 
      O início da URL; **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, é o mesmo para todos os pedidos. O caminho **/status**, indica que o pedido deve retornar o status de WebHCat (também conhecido como Templeton) para o servidor.
 
@@ -71,18 +71,18 @@ Saiba como executar tarefas do Apache Pig Latin fazendo pedidos REST para um clu
 
     Os parâmetros utilizados neste comando são os seguintes:
 
-    * **-d**: Uma vez que `-G` não for utilizado, o pedido é predefinido para o método POST. `-d` Especifica os valores de dados que são enviados com o pedido.
+   * **-d**: Uma vez que `-G` não for utilizado, o pedido é predefinido para o método POST. `-d` Especifica os valores de dados que são enviados com o pedido.
 
-    * **User.name**: O utilizador que está a executar o comando
-    * **executar**: As instruções em Pig Latin para executar
-    * **statusdir**: O diretório que o estado para esta tarefa é escrito
+   * **user.name**: O utilizador que está a executar o comando
+   * **executar**: As instruções em Pig Latin para executar
+   * **statusdir**: O diretório que o estado para esta tarefa é escrito
 
-    > [!NOTE]  
-    > Tenha em atenção que os espaços de instruções em Pig Latin são substituídos pelo `+` caráter quando utilizado com o Curl.
+     > [!NOTE]  
+     > Tenha em atenção que os espaços de instruções em Pig Latin são substituídos pelo `+` caráter quando utilizado com o Curl.
 
-    Este comando deverá devolver um ID da tarefa que pode ser utilizado para verificar o estado da tarefa, por exemplo:
+     Este comando deverá devolver um ID da tarefa que pode ser utilizado para verificar o estado da tarefa, por exemplo:
 
-        {"id":"job_1415651640909_0026"}
+       {"id":"job_1415651640909_0026"}
 
 3. Para verificar o estado da tarefa, utilize o seguinte comando
 

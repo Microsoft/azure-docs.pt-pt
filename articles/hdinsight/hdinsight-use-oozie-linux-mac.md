@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 7fc7f63539e65618f00d75d5392ad1e96b7aab3e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dfbf9a3a9b800fec5df4cf527ddd4ec8e3f55b37
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533459"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853244"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no HDInsight do Azure baseado em Linux
 
@@ -42,7 +42,7 @@ Também pode utilizar o Oozie para agendar tarefas que são específicas para um
 * **Possíveis alterações à configuração de armazenamento.**  Ver [configuração de armazenamento](#storage-configuration) se utilizar o tipo de conta de armazenamento `BlobStorage`.
 
 ## <a name="storage-configuration"></a>Configuração do armazenamento
-É necessária nenhuma ação se a conta de armazenamento utilizada é do tipo `Storage (general purpose v1)` ou `StorageV2 (general purpose v2)`.  O processo no artigo produzirá um resultado para, pelo menos, `/mapreducestaging`.  Irá conter uma configuração predefinida do hadoop `/mapreducestaging` no `fs.azure.page.blob.dir` variável de configuração na `core-site.xml` para o serviço `HDFS`.  Esta configuração fará com que a saída para o diretório para blobs de páginas, que não é suportado para tipo de conta de armazenamento `BlobStorage`.  Para utilizar `BlobStorage` neste artigo, remova `/mapreducestaging` partir o `fs.azure.page.blob.dir` variável de configuração.  A configuração pode ser acedida a partir da [IU do Ambari](/hdinsight-hadoop-manage-ambari.md).  Caso contrário, receberá a mensagem de erro: `Page blob is not supported for this account type.`
+É necessária nenhuma ação se a conta de armazenamento utilizada é do tipo `Storage (general purpose v1)` ou `StorageV2 (general purpose v2)`.  O processo no artigo produzirá um resultado para, pelo menos, `/mapreducestaging`.  Irá conter uma configuração predefinida do hadoop `/mapreducestaging` no `fs.azure.page.blob.dir` variável de configuração na `core-site.xml` para o serviço `HDFS`.  Esta configuração fará com que a saída para o diretório para blobs de páginas, que não é suportado para tipo de conta de armazenamento `BlobStorage`.  Para utilizar `BlobStorage` neste artigo, remova `/mapreducestaging` partir o `fs.azure.page.blob.dir` variável de configuração.  A configuração pode ser acedida a partir da [IU do Ambari](hdinsight-hadoop-manage-ambari.md).  Caso contrário, receberá a mensagem de erro: `Page blob is not supported for this account type.`
 
 > [!NOTE]  
 > A conta de armazenamento utilizada neste artigo possui [transferência segura](../storage/common/storage-require-secure-transfer.md) ativado e, portanto, `wasbs` vez `wasb` é usado em todo o artigo.
@@ -130,11 +130,11 @@ Utilize os seguintes passos para criar um script de idioma (HiveQL) de consulta 
 
     Existem duas variáveis no script:
 
-    * `${hiveTableName}`: Contém o nome da tabela a ser criada.
+   * `${hiveTableName}`: Contém o nome da tabela a ser criada.
 
-    * `${hiveDataFolder}`: Contém a localização para armazenar os ficheiros de dados para a tabela.
+   * `${hiveDataFolder}`: Contém a localização para armazenar os ficheiros de dados para a tabela.
 
-    O ficheiro de definição de fluxo de trabalho, workflow.xml neste tutorial, passa esses valores para este script de HiveQL no tempo de execução.
+     O ficheiro de definição de fluxo de trabalho, workflow.xml neste tutorial, passa esses valores para este script de HiveQL no tempo de execução.
 
 4. Para guardar o ficheiro, selecione Ctrl + X, introduza `Y`e, em seguida, selecione **Enter**.  
 
@@ -307,7 +307,7 @@ A definição de tarefa descreve onde encontrar o workflow.xml. Também descreve
 
     |Valor do marcador de posição| Valor substituído|
     |---|---|
-    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| Valor recebido do passo 1.|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Valor recebido do passo 1.|
     |admin| O nome de início de sessão para o cluster de HDInsight se não for administrador.|
     |ServerName| Nome de servidor do banco de dados SQL do Azure.|
     |sqlLogin| Logon de servidor do banco de dados SQL do Azure.|

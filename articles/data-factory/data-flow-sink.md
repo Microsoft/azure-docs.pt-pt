@@ -3,16 +3,15 @@ title: Mapeamento de transformação de Sink de fluxo de dados de fábrica de da
 description: Mapeamento de transformação de Sink de fluxo de dados de fábrica de dados do Azure
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: dba043721c2d81b7fe2c254f62328e54bb959cdc
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729377"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852445"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Transformação de Sink de fluxo de dados de mapeamento
 
@@ -35,27 +34,17 @@ Para tipos de sink do Blob de armazenamento do Azure ou o Data Lake, produzirá 
 
 ![Opções de sink](media/data-flow/opt001.png "opções de sink")
 
-### <a name="output-settings"></a>Definições de saída
-
-Substituir irá truncar a tabela se existir, em seguida, recriá-lo e carregar os dados. Acrescentar irá inserir novas linhas. Se a tabela a partir do nome de tabela do conjunto de dados não existe nenhuma no destino ADW, fluxo de dados irá criar a tabela, em seguida, carregue os dados.
-
-Se desmarcar "Mapear automática", pode mapear os campos à sua tabela de destino manualmente.
-
-![Opções de ADW de sink](media/data-flow/adw2.png "adw sink")
-
-#### <a name="field-mapping"></a>Mapeamento de campos
+## <a name="field-mapping"></a>Mapeamento de campos
 
 No separador de mapeamento da sua transformação de Sink, pode mapear as colunas de entrada (lado esquerdo) para o destino (lado direito). Quando fluxos de dados de sink para ficheiros, o ADF sempre escreve novos ficheiros para uma pasta. Quando mapear para um conjunto de dados do banco de dados, pode optar por gerar uma nova tabela com esse esquema (definido guardar a política de "substituir") ou inserir novas linhas para um existente uma tabela e mapeiam os campos para o esquema existente.
 
-Pode utilizar seleção múltipla na tabela de mapeamento para ligar a várias colunas com um só clique, Delink várias colunas ou mapear várias linhas para o mesmo nome de coluna.
+Pode utilizar seleção múltipla na tabela de mapeamento para ligar a várias colunas com um só clique, delink várias colunas ou mapear várias linhas para o mesmo nome de coluna.
+
+Quando desejar sempre usar o conjunto de entrada de campos e mapeá-los para um destino como-é, definir a definição "Permitir Descompassos de esquema".
 
 ![Mapeamento de campo](media/data-flow/multi1.png "várias opções")
 
 Se pretende repor os mapeamentos de colunas, prima o botão "Mapear novamente" para repor os mapeamentos.
-
-![Ligações](media/data-flow/maxcon.png "ligações")
-
-### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>Atualizações para o Sink de transformação para a versão de disponibilidade geral do ADF V2
 
 ![Opções de sink](media/data-flow/sink1.png "um Sink")
 
@@ -65,7 +54,7 @@ Se pretende repor os mapeamentos de colunas, prima o botão "Mapear novamente" p
 
 * Limpe a pasta. ADF irá truncar o conteúdo da pasta sink antes de gravar os ficheiros de destino nessa pasta de destino.
 
-* Opções de nome de ficheiro
+## <a name="file-name-options"></a>Opções de nome de ficheiro
 
    * Predefinição: Permitir que o Spark para nomear arquivos com base nas predefinições de parte
    * Pattern: Introduza um nome para os seus ficheiros de saída
@@ -75,14 +64,19 @@ Se pretende repor os mapeamentos de colunas, prima o botão "Mapear novamente" p
 > [!NOTE]
 > Operações de arquivo só serão executado quando estiver a executar a atividade executar fluxo de dados, não enquanto estiver no modo de dados de fluxo de depuração
 
-Com os tipos de sink do SQL, pode definir:
+## <a name="database-options"></a>Opções de base de dados
 
-* Truncar a tabela
-* Recrie a tabela (executa drop/criar)
-* Tamanho do lote para grandes cargas de dados. Introduza um número a escritas de bucket em segmentos.
+* Permita insert, update, delete, upserts. A predefinição é permitir que inserções. Se desejar de atualização, upsert ou inserir linhas, primeiro tem de adicionar uma transformação de linha de alter para linhas de etiqueta para essas ações específicas.
+* Truncar a tabela (remove todas as linhas da tabela de destino antes de concluir o fluxo de dados)
+* Recrie a tabela (executa a queda/criação da sua tabela de destino de antes de concluir o fluxo de dados)
+* Tamanho do lote para grandes cargas de dados. Introduza um número a escritas de bucket em segmentos
+* Ative o teste: Isso instruirá o ADF para utilizar o Polybase ao carregar o armazém de dados do Azure como o conjunto de dados de sink
 
-![Mapeamento de campos](media/data-flow/sql001.png "opções de SQL")
+![Opções de Sink do SQL](media/data-flow/alter-row2.png "opções de SQL")
+
+> [!NOTE]
+> Quando atualizar ou eliminar linhas na sua sink de base de dados, tem de definir a coluna chave. Dessa forma, a linha de Alter é capaz de determinar a linha exclusiva no DML.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que criou o fluxo de dados, adicione uma [atividade de executar o fluxo de dados para o seu pipeline](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
+Agora que criou o fluxo de dados, adicione uma [atividade de executar o fluxo de dados para o seu pipeline](concepts-data-flow-overview.md).

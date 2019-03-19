@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: fc94208ef01e52207b6efbf88223119cf58ddb7f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727167"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005848"
 ---
 # <a name="azure-log-integration-faq"></a>Integração de registos do Azure FAQ
 
@@ -99,7 +99,7 @@ O **azlog createazureid** tenta criar um principal de serviço em todos os inqui
 
 Erro:
 
-  *Aviso de criação da atribuição de função - AuthorizationFailed: O cliente janedo@microsoft.com' com o objeto o id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no âmbito '/ subscrições/70 1!d 95299-d689-4C 97-b971-0d8ff0000000'.*
+  *Aviso de criação da atribuição de função - AuthorizationFailed: O cliente janedo\@microsoft.com' com o objeto id 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' não tem autorização para executar a ação 'Microsoft.Authorization/roleAssignments/write' no âmbito "/subscriptions/ 70d 95299-d689-4C 97-b971-0d8ff0000000'.*
 
 O **azlog autorizar** comando atribui a função de leitor ao principal de serviço do Azure AD (criado com **azlog createazureid**) para as subscrições fornecidas. Se o início de sessão do Azure não é um coadministrador ou um proprietário da subscrição, ele falhará com uma mensagem de erro "Falha na autorização". Do Azure com base em função de controlo de acesso (RBAC) de coadministrador ou proprietário é necessário para concluir esta ação.
 

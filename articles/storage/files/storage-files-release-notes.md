@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: f2f109b6861e54cc613fd06f26983897f7c1a9bb
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727132"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118617"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão do agente do Azure File Sync
 O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organização nos Ficheiros do Azure sem abdicar da flexibilidade, do desempenho e da compatibilidade de um servidor de ficheiros no local. As suas instalações do Windows Server são transformadas numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente (incluindo SMB, NFS e FTPS). Pode ter o número de caches que precisar em todo o mundo.
@@ -23,7 +23,7 @@ Este artigo disponibiliza as notas de versão das versões suportadas do agente 
 ## <a name="supported-versions"></a>Versões suportadas
 São suportadas as seguintes versões para o agente do Azure File Sync:
 
-| Etapa | Número de versão do agente | Data de lançamento | Estado |
+| Etapa | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
 | Rollup de - de atualização de Março de 2019 [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 de Março de 2019 | Suportado (versão recomendada) |
 | V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de Fevereiro de 2019 | Suportadas |
@@ -55,7 +55,7 @@ As notas de versão seguintes destinam-se a versão 5.0.2.0 do agente do Azure F
 ### <a name="improvements-and-issues-that-are-fixed"></a>Aprimoramentos e os problemas que foram corrigidos
 
 - Suporte para a cloud do Azure Government
-    - Adicionámos o suporte de pré-visualização para a cloud do Azure Government. Isto requer uma subscrição listada em branco e uma transferência do agente especiais da Microsoft. Para obter acesso à pré-visualização, envie um e-mail diretamente para [ AzureFiles@microsoft.com ](mailto:AzureFiles@microsoft.com).
+  - Adicionámos o suporte de pré-visualização para a cloud do Azure Government. Isto requer uma subscrição listada em branco e uma transferência do agente especiais da Microsoft. Para obter acesso à pré-visualização, envie um e-mail diretamente para [ AzureFiles@microsoft.com ](mailto:AzureFiles@microsoft.com).
 - Suporte de dados duplicados
     - A eliminação de duplicados de dados agora é totalmente suportada com a cloud em camadas ativado no Windows Server 2016 e Windows Server 2019. Ativar a eliminação de duplicados num volume com camadas ativado da cloud permite-lhe colocar em cache mais ficheiros no local sem aprovisionar mais armazenamento.
 - Suporte para a transferência de dados offline (por exemplo, através do Data Box)

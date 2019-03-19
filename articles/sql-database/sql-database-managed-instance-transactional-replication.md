@@ -12,16 +12,23 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 08ec654ecdfe9764aefdde287c5a4c78022c108c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551699"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852779"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional com único, em pool e a instância de bases de dados na base de dados do Azure SQL
 
 Replicação transacional é uma funcionalidade de base de dados do Azure SQL e SQL Server que permite-lhe replicar dados de uma tabela numa base de dados do Azure SQL ou SQL Server para as tabelas colocadas em bancos de dados remotos. Esta funcionalidade permite-lhe sincronizar várias tabelas nas bases de dados diferentes.
+
+## <a name="when-to-use-transactional-replication"></a>Quando utilizar a replicação transacional
+
+Replicação transacional é útil nos seguintes cenários:
+- Publicar as alterações feitas numa ou mais tabelas numa base de dados e distribuí-los para as bases de dados uma ou mais o SQL Server ou o SQL do Azure que subscrito para que as alterações.
+- Tenha várias bases de dados distribuídas em estado sincronizadas.
+- Migre bases de dados de um SQL Server ou a instância gerida para outra base de dados publicando continuamente as alterações.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -54,7 +61,7 @@ O **assinante** é uma instância ou um servidor que está a receber as alteraç
   >[!NOTE]
   > Subscrição de solicitação não é suportada quando o distribuidor é uma base de dados de instância e o subscritor não é. 
 
-Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
+Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
 
 | Replicação | Bases de dados únicos e em pool | Bases de dados de instância|
@@ -70,7 +77,7 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
 
   >[!NOTE]
   > - A tentar configurar a replicação com uma versão mais antiga pode resultar em erro número MSSQL_REPL20084 (o processo não foi possível ligar ao subscritor.) e MSSQ_REPL40532 (não é possível abrir o servidor \<nome > pedido pelo início de sessão. O início de sessão falhou.)
-  > - Para utilizar todos os recursos do Azure SQL Database, tem de utilizar as versões mais recentes [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  > - Para utilizar todos os recursos do Azure SQL Database, tem de utilizar as versões mais recentes [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
   ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Matriz de Supportabilty para sistemas de bancos de dados de instância e no local
   A matriz de suporte de replicação por exemplo, bancos de dados é o mesmo que o SQL Server no local. 
@@ -93,14 +100,6 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
 
   >[!NOTE]
   > Pode encontrar o erro 53 ao ligar a um ficheiro de armazenamento do Azure, se a porta de grupo (NSG) de segurança de rede de saída 445 estiver bloqueada quando o distribuidor é uma base de dados de instância e o assinante está no local. [Atualizar a vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) para resolver este problema. 
-
-## <a name="when-to-use-transactional-replication"></a>Quando utilizar a replicação transacional
-
-Replicação transacional é útil nos seguintes cenários:
-
-- Publicar as alterações feitas numa ou mais tabelas numa base de dados e distribuí-los para as bases de dados uma ou mais o SQL Server ou o SQL do Azure que subscrito para que as alterações.
-- Tenha várias bases de dados distribuídas em estado sincronizadas.
-- Migre bases de dados de um SQL Server ou a instância gerida para outra base de dados publicando continuamente as alterações.
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Comparar a sincronização de dados com a replicação transacional
 

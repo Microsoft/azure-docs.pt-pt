@@ -11,12 +11,12 @@ ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
-ms.openlocfilehash: a1f89ca6e9dc2d05180df14ff0f4dc52729a7e03
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107842"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58083959"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Criar e executar tarefas recorrentes e fluxos de trabalho com o Azure Logic Apps
 
@@ -95,12 +95,12 @@ Para acionar a sua aplicação lógica e executar apenas uma vez no futuro, cons
 
 Pode configurar estas propriedades para o acionador de periodicidade.
 
-| Nome | Necessário | Nome da propriedade | Tipo | Descrição | 
+| Name | Necessário | Nome da propriedade | Type | Descrição | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequência** | Sim | frequência | Cadeia | A unidade de tempo para a periodicidade: **Segunda**, **minuto**, **hora**, **dia**, **semana**, ou **mês** | 
+| **Frequência** | Sim | frequência | String | A unidade de tempo para a periodicidade: **Segunda**, **minuto**, **hora**, **dia**, **semana**, ou **mês** | 
 | **Intervalo** | Sim | intervalo | Número inteiro | Um número inteiro que descreve a frequência com que o fluxo de trabalho é executada com base na frequência. <p>O intervalo predefinido é 1. Seguem-se os intervalos mínimos e máximo: <p>-Mês: 1-16 meses </br>-Dia: dias de 1 a 500 </br>-Hora: 1-12 000 horas </br>-Minuto: 1-72,000 minutos </br>-Segundo: 1-9,999,999 segundos<p>Por exemplo, se o intervalo é de 6 e a frequência é "Mês", em seguida, a periodicidade é a cada 6 meses. | 
-| **Time zone** (Fuso horário) | Não | timeZone | Cadeia | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. | 
-| **Start time** (Hora de início) | Não | startTime | Cadeia | Forneça uma hora de início no seguinte formato: <p>AAAA-MM-ddTHH se selecionar um fuso horário <p>-ou- <p>AAAA-MM-: ssZ se não selecionar um fuso horário <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, em seguida, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como a hora do Pacífico. Em alternativa, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** A hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) na [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não dispara qualquer mais cedo do que a hora de início. [*Quais são as formas que posso usar a data de início e hora?*](#start-time) | 
+| **Time zone** (Fuso horário) | Não | timeZone | String | Aplica-se apenas quando especificar uma hora de início porque este acionador não aceita [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que pretende aplicar. | 
+| **Start time** (Hora de início) | Não | startTime | String | Forneça uma hora de início no seguinte formato: <p>AAAA-MM-ddTHH se selecionar um fuso horário <p>-ou- <p>AAAA-MM-: ssZ se não selecionar um fuso horário <p>Por exemplo, se quiser 18 de Setembro de 2017, às 14:00, em seguida, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como a hora do Pacífico. Em alternativa, especificar "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Nota:** A hora de início tem de seguir a [especificação de tempo de data ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) na [formato de hora UTC data](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [posun UTC místního](https://en.wikipedia.org/wiki/UTC_offset). Se não selecionar um fuso horário, tem de adicionar a letra "Z" no final, sem quaisquer espaços. Este "Z" refere-se para o equivalente [tempo nautical](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto para agendas complexas, o acionador não dispara qualquer mais cedo do que a hora de início. [*Quais são as formas que posso usar a data de início e hora?*](#start-time) | 
 | **On these days** (Nestes dias) | Não | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se selecionar "Week", pode selecionar um ou mais dias, quando quiser executar o fluxo de trabalho: **Segunda-feira**, **Terça-feira**, **quarta-feira**, **Quinta-feira**, **sexta-feira**, **Sábado**, e **Domingo** | 
 | **At these hours** (A estas horas) | Não | hours | Número inteiro ou matriz de números inteiros | Se selecionar "Dia" ou "Week", pode selecionar números inteiros de um ou mais de 0 e 23 horas do dia que deseja executar o fluxo de trabalho. <p>Por exemplo, se especificar "10", "12" e "14", obter 10 AM e PM 2 como as marcas de hora 12 PM. | 
 | **At these minutes** (A estes minutos) | Não | minutes | Número inteiro ou matriz de números inteiros | Se selecionar "Dia" ou "Week", pode selecionar números inteiros de um ou mais de 0 e 59 minutos da hora quando quiser executar o fluxo de trabalho. <p>Por exemplo, pode especificar "30" como a marca de minuto e usando o exemplo anterior de horas do dia, obtém 10:30, 12 17:30 e 2 17:30. | 
@@ -202,7 +202,7 @@ Neste cenário, o Logic Apps motor calcula executar vezes com base na hora de in
 | Hora de início | Tempo de execução em primeiro lugar | Futuro tempos de execução | 
 | ---------- | ------------ | ---------- | 
 | 2017-09 -**07** às 14:00 | 2017-09 -**09** às 14:00 | 2017-09 -**11** às 14:00 </br>2017-09 -**13** às 14:00 </br>2017-09 -**15** às 14:00 </br>e assim por diante...
-||||| 
+||||
 
 Portanto, para este cenário, não questão até que ponto no passado, especificar o início de tempo, por exemplo, 2017-09 -**05** às 14:00 ou 2017-09 -**01** às 14:00, o primeiro tempo de execução é o mesmo.
 

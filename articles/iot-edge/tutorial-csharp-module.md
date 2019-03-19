@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 21f59ad03f2ff91b3c33675b0994b7f565bf5031
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f4afd83e31cf724e734b4e86045f8404e65753c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563206"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088031"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver um C# módulo do IoT Edge e implementar no seu dispositivo simulado
 
@@ -277,15 +277,15 @@ O ficheiro de ambiente armazena as credenciais do seu registo de contentor e par
 
 10. Adicione o módulo duplo **CSharpModule** ao manifesto de implementação. Insira o seguinte conteúdo JSON na parte inferior da secção **modulesContent**, após o módulo duplo **$edgeHub**: 
 
-   ```json
+    ```json
        "CSharpModule": {
            "properties.desired":{
                "TemperatureThreshold":25
            }
        }
-   ```
+    ```
 
-   ![Adicionar módulo duplo ao modelo de implementação](./media/tutorial-csharp-module/module-twin.png)
+    ![Adicionar módulo duplo ao modelo de implementação](./media/tutorial-csharp-module/module-twin.png)
 
 11. Guarde o ficheiro de deployment.template.json.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/21/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a2c4f68a35d5baa3d7933243737d02d720409289
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1b26f0833dec95d886a56dde4526d02f697926ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671595"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004410"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar e executar contentores de reconhecer texto
 
@@ -123,7 +123,7 @@ Obter mais [exemplos](./computer-vision-resource-container-config.md#example-doc
 
 O contêiner fornece o ponto final de predição de consulta baseado em REST APIs. 
 
-Usar o host, https://localhost:5000, para o contentor APIs.
+Usar o host, `https://localhost:5000`, para o contentor APIs.
 
 ### <a name="asynchronous-text-recognition"></a>Reconhecimento de texto assíncrona
 

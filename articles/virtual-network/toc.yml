@@ -355,7 +355,7 @@ items:
   - name: Roteiro do Azure
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blogue de Redes
-    href: http://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/topics/networking
   - name: Fórum de redes
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
   - name: Preços
@@ -363,12 +363,12 @@ items:
   - name: Calculadora de preços
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-virtual-network
+    href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: FAQ
     href: virtual-networks-faq.md
-ms.openlocfilehash: 1b795c794e40c8933e1f4e24ac0f52598e8206d7
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 028be4695de7d8e36bd76127523ef0f3155828ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998471"

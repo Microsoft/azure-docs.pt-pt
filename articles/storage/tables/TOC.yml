@@ -12,6 +12,7 @@ items:
 - name: Inícios rápidos
   items:
   - name: Criar uma conta de armazenamento
+    displayName: resource manager, resource manager template, template, ARM
     href: /azure/storage/common/storage-quickstart-create-account
     maintainContext: true
   - name: Criar uma tabela no portal do Azure
@@ -88,9 +89,9 @@ items:
   - name: APIs REST do armazenamento de tabelas
     href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
     maintainContext: true
-ms.openlocfilehash: a3eec16119b8689f9745e6d6f3002bf6b28a50e4
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: de554dc0e15e351eb7ba5b36e38fc32f01b700b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770542"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894109"

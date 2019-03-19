@@ -279,10 +279,10 @@ items:
   - name: Calculadora de preços
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
-ms.openlocfilehash: c6654aab588e7d6fe1d28f6ea7253c60c49cd09c
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set
+ms.openlocfilehash: 75b5a36505f56f71a7a5cbf3addb96085e823b2b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014626"

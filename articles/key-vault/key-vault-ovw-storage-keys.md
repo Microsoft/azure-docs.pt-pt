@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: pryerram
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: dc743f7e8ebaebf2b253a1c2c199133bc4266dd5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: c2107e501affd5e3dd22e0fbc83d078b51d414a5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841145"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>O Azure Key Vault geridos a conta de armazenamento - CLI
 
@@ -40,6 +40,7 @@ Quando utiliza a funcionalidade de chave de conta de armazenamento gerido:
 - **Permitir apenas o Key Vault para gerir as chaves de conta de armazenamento.** Não tente geri-los por conta própria, pois irá interferir com os processos de Key Vault.
 - **Não permitir que as chaves de conta de armazenamento ser gerido por mais de um objeto do Cofre de chaves**.
 - **Manualmente não voltar a gerar as chaves de conta de armazenamento**. Recomendamos que regenere-los através do Key Vault.
+- Pedir ao Key Vault para gerir a sua conta de armazenamento pode ser feito por um Principal de utilizador por agora e não um Principal de serviço
 
 O exemplo seguinte mostra como permitir que o Key Vault para gerir as chaves de conta de armazenamento.
 
@@ -124,7 +125,7 @@ Quando esta operação é executada com êxito, deve ver um resultado semelhante
    "se=2020-01-01&sp=***"
 ```
 
-2. Neste passo, irá utilizar a gera ($sasToken) acima para criar uma definição de SAS. Para obter mais documentação Leia [aqui](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+1. Neste passo, irá utilizar a gera ($sasToken) acima para criar uma definição de SAS. Para obter mais documentação Leia [aqui](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
 
 ```
 az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
@@ -134,12 +135,11 @@ az keyvault storage sas-definition create --vault-name <YourVaultName> --account
  > [!NOTE] 
  > No caso de que o utilizador não tem permissões para a conta de armazenamento, vamos primeiro, obtenha o Id de objeto do utilizador
 
-    ```
-    az ad user show --upn-or-object-id "developer@contoso.com"
+ ```
+ az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
-    
-    ```
+ az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+ ```
     
 ## <a name="fetch-sas-tokens-in-code"></a>Obter tokens SAS no código
 
@@ -147,8 +147,8 @@ Nesta seção, abordaremos como pode fazer operações na sua conta de armazenam
 
 No abaixo de secção, vamos demonstrar como obter tokens SAS, assim que uma definição de SAS é criada, conforme mostrado acima.
 
-> [!NOTE] 
-  Existem 3 formas de autenticar para o Key Vault, como pode ler no [conceitos básicos](key-vault-whatis.md#basic-concepts)
+> [!NOTE]
+>   Existem 3 formas de autenticar para o Key Vault, como pode ler no [conceitos básicos](key-vault-whatis.md#basic-concepts)
 > - Utilizar a identidade de serviço gerida (altamente recomendado)
 > - Com o Principal de serviço e certificado 
 > - Com o Principal de serviço e a palavra-passe (não recomendado)

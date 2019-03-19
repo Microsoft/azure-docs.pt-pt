@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ad97381d983446dfcc32dd1ba82af587a500b9da
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762148"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081768"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Configurar recursos para a validação como um serviço
 
@@ -56,13 +56,13 @@ Crie um inquilino que sua organização irá utilizar para aceder aos serviços 
 
     Para atribuir funções no **serviço de validação do Azure Stack** aplicação:
 
-    1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-    2. Selecione **todos os serviços** > **do Azure Active Directory** sob o **identidade** secção.
-    3. Selecione **aplicações empresariais** > **serviço de validação do Azure Stack** aplicação.
-    4. Selecionar **Utilizadores e grupos**. O **serviço do Azure Stack validação - os utilizadores e grupo** painel mostra os utilizadores com permissão para utilizar a aplicação.
-    5. Selecione **+ adicionar utilizador** para adicionar um utilizador do seu inquilino e atribuir uma função.
+   1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+   2. Selecione **todos os serviços** > **do Azure Active Directory** sob o **identidade** secção.
+   3. Selecione **aplicações empresariais** > **serviço de validação do Azure Stack** aplicação.
+   4. Selecionar **Utilizadores e grupos**. O **serviço do Azure Stack validação - os utilizadores e grupo** painel mostra os utilizadores com permissão para utilizar a aplicação.
+   5. Selecione **+ adicionar utilizador** para adicionar um utilizador do seu inquilino e atribuir uma função.
 
-    Se quiser isolar VaaS recursos e ações em diferentes grupos dentro de uma organização, pode criar vários diretórios de inquilino do Azure AD.
+      Se quiser isolar VaaS recursos e ações em diferentes grupos dentro de uma organização, pode criar vários diretórios de inquilino do Azure AD.
 
 ### <a name="register-your-tenant"></a>Registar o seu inquilino
 

@@ -16,12 +16,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bf55cef00c0600963f8363e617c24fdc9113eae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122982"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Sincronização do Azure AD Connect: Fazer uma alteração na configuração predefinida
 O objetivo deste artigo é para orientá-lo como fazer alterações à configuração padrão na sincronização do Azure Active Directory (Azure AD) Connect. Ele fornece passos para alguns cenários comuns. Com esse conhecimento, deve ser capaz de fazer alterações simples em sua própria configuração com base em suas próprias regras de negócio.
@@ -349,8 +349,8 @@ Pode utilizar os seguintes passos para verificar as alterações ao executar man
    3. Na caixa de diálogo pop-up, selecione **importação completa** e, em seguida, clique em **OK**.
    4. Aguarde a conclusão da operação.
 
-    > [!NOTE]
-    > Pode ignorar uma importação completa no local, conector AD Se o atributo de origem já está incluído na lista de importados de atributos. Em outras palavras, não era necessário que efetuar quaisquer alterações durante [passo 2: Adicione o atributo de origem com o local do esquema de conector AD](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+      > [!NOTE]
+      > Pode ignorar uma importação completa no local, conector AD Se o atributo de origem já está incluído na lista de importados de atributos. Em outras palavras, não era necessário que efetuar quaisquer alterações durante [passo 2: Adicione o atributo de origem com o local do esquema de conector AD](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
 2. Executar uma **importação completa** sobre o **conector do Azure AD**:
 

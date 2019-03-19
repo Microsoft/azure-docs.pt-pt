@@ -137,16 +137,16 @@ items:
   - name: Fórum do MSDN
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-notificationhub
+    href: https://stackoverflow.com/questions/tagged/azure-notificationhub
   - name: Pedir uma funcionalidade
     href: https://feedback.azure.com/forums/218849-notification-hubs
   - name: Disponibilidade de região
     href: https://azure.microsoft.com/regions/services/
   - name: Opções de suporte
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 9035ed7f81639770b1c962e4cf254e18fd3b46bd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 67ddd379992757c3fe6a0bc2e37c70ef3718559b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311005"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835151"

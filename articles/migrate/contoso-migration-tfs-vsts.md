@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 20c1e2a4394c249b410a1253356d0ef96c30e970
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818902"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100245"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migração de Contoso:  Refatorizar uma implementação do Team Foundation Server para os Azure DevOps Services
 
@@ -225,11 +225,11 @@ Com a validação concluída, os administradores da Contoso podem utilizar a fer
 
 6. Eles analisam o ficheiro de mapa de registo de identidade que mostra as contas que serão apresentadas para os serviços de DevOps do Azure durante a importação. 
 
-    - Identidades do Active Directory referem-se às identidades que irão tornar-se os utilizadores nos serviços de DevOps do Azure após a importação.
-    - Nos serviços de DevOps do Azure, estas identidades serão licenciadas e apresentado como um utilizador na organização após a migração.
-    - Estas identidades estão marcadas como **Active Directory** no **estado da importação esperado** coluna no ficheiro.
+   - Identidades do Active Directory referem-se às identidades que irão tornar-se os utilizadores nos serviços de DevOps do Azure após a importação.
+   - Nos serviços de DevOps do Azure, estas identidades serão licenciadas e apresentado como um utilizador na organização após a migração.
+   - Estas identidades estão marcadas como **Active Directory** no **estado da importação esperado** coluna no ficheiro.
 
-    ![Preparação](./media/contoso-migration-tfs-vsts/prep6.png)
+     ![Preparação](./media/contoso-migration-tfs-vsts/prep6.png)
 
 
 

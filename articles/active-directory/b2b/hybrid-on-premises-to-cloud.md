@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd684b992d46edbec30a12dc3b166d6193d2eabe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 66c5ec6a41b630ee20139575080d8874d819bb59
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442159"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871363"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Conceder acesso de contas de parceiros gerido localmente a recursos na cloud através da colaboração B2B do Azure AD
 
@@ -32,7 +32,7 @@ Antes de ativar a sincronização do atributo UserType, primeiro deve decidir co
 Duas abordagens comuns para isso são:
 
 - Designe um atributo de Active Directory não utilizado no local (por exemplo, extensionAttribute1) para utilizar como o atributo de origem. 
-- Em alternativa, derive o valor para o atributo UserType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como convidado se o atributo de UserPrincipalName do Active Directory no local, terminar com o domínio *@partners.contoso.com*.
+- Em alternativa, derive o valor para o atributo UserType de outras propriedades. Por exemplo, pretende sincronizar todos os utilizadores como convidado se o atributo de UserPrincipalName do Active Directory no local, terminar com o domínio  *\@partners.contoso.com*.
  
 Para requisitos de atributo detalhadas, consulte [ativar a sincronização de UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 

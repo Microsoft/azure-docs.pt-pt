@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b749a85295e85ecde8d283ca02066a31be33666
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673074"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838821"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logótipos de serviço do Azure nas imagens da câmara
 
@@ -101,7 +101,6 @@ Em seguida, abra a *Source\VisualProvision\AppSettings.cs* de ficheiros e preenc
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
 A aplicação requer uma conta do principal de serviço do Azure para implementar serviços à sua subscrição do Azure. Um principal de serviço permite-lhe delegar permissões específicas a uma aplicação com o controlo de acesso baseado em funções. Para obter mais informações, consulte a [guiam de principais de serviço](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
@@ -131,6 +130,7 @@ Após a conclusão com êxito, deverá ver o seguinte JSON de saída, incluindo 
   ...
 }
 ```
+
 Anote o `clientId` e `tenantId` valores. Adicioná-los para os campos adequados na *Source\VisualProvision\AppSettings.cs* ficheiro.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -138,9 +138,10 @@ Anote o `clientId` e `tenantId` valores. Adicioná-los para os campos adequados 
 ## <a name="run-the-app"></a>Executar a aplicação
 
 Neste momento, que forneceu o acesso de aplicação para:
-* um modelo de visão personalizada preparado
-* o serviço de visão do computador
-* uma conta do principal de serviço 
+
+- um modelo de visão personalizada preparado
+- o serviço de visão do computador
+- uma conta do principal de serviço
 
 Siga estes passos para executar a aplicação:
 
@@ -163,7 +164,6 @@ Siga estes passos para executar a aplicação:
 
     ![O ecrã da aplicação, que mostra um campo de lista pendente de subscrição do Azure de destino](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. A câmara no seu dispositivo será ativada. Tire uma fotografia de um dos logótipos de serviço do Azure que treinados. Uma janela de implantação deve pedir-lhe para selecionar um região e grupo de recursos para os novos serviços (como faria se estivesse implantando-las no portal do Azure). 
 
@@ -171,7 +171,7 @@ Siga estes passos para executar a aplicação:
 
     ![Um ecrã de aplicação que mostra os campos para o grupo de recursos e região de implementação](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se tiver seguido todos os passos deste cenário e utilizado a aplicação para implementar serviços do Azure à sua conta, vá para o [portal do Azure](https://ms.portal.azure.com/). Cancele lá, os serviços que não pretende utilizar.
 

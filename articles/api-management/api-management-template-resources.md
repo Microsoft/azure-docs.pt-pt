@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a7e3e9ff414c8f7ba1c49924f1d8659d72ae3e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897287"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de modelo de gestão de API do Azure
 Gestão de API do Azure fornece os seguintes tipos de recursos para utilização em que o desenvolvedor modelos de portais.  
@@ -89,28 +89,28 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |PageTitleApis|APIs|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Pré-visualização de aplicações|  
 |WebApplicationsRequirementsHeader|Requisitos|  
 |WebApplicationsScreenshotAlt|captura de ecrã|  
-|WebApplicationsScreenshotsHeader|Capturas de ecrã|  
+|WebApplicationsScreenshotsHeader|Capturas de Ecrã|  
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Quer mesmo remover a aplicação?|  
 |WebDevelopersAppNotPublished|Não publicado|  
 |WebDevelopersAppNotSubmitted|Não submetido|  
 |WebDevelopersAppTableCategoryHeader|Categoria|  
-|WebDevelopersAppTableNameHeader|Nome|  
+|WebDevelopersAppTableNameHeader|Name|  
 |WebDevelopersAppTableStateHeader|Estado|  
 |WebDevelopersEditLink|Editar|  
 |WebDevelopersRegisterAppLink|Registar aplicação|  
@@ -120,13 +120,13 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebApplicationsHeader|Aplicações|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |NoItemsToDisplay|Não foram encontrados resultados.|  
 |GeneralExceptionMessage|Algo não está correto. Pode ser uma falha temporária ou um bug. Tente novamente.|  
@@ -137,7 +137,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |ButtonLabelCancel|Cancelar|  
 |ButtonLabelSave|Guardar|  
@@ -161,13 +161,13 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="Documentation"></a> Documentação  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|Cabeçalho inválido '{0}'|  
 |WebDocumentationInvalidRequestErrorMessage|URL de Pedido Inválido|  
 |TextboxLabelAccessToken|Access token *|  
 |DropdownOptionPrimaryKeyFormat|Primário-{0}|  
-|DropdownOptionSecondaryKeyFormat|Secundário-{0}|  
+|DropdownOptionSecondaryKeyFormat|Secondary-{0}|  
 |WebDocumentationSubscriptionKeyText|Chave de subscrição|  
 |WebDocumentationTemplatesAddHeaders|Adicionar cabeçalhos HTTP necessários|  
 |WebDocumentationTemplatesBasicAuthSample|Exemplo de Basic Authorization|  
@@ -309,7 +309,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |LinkLabelBack|anterior|  
 |LinkLabelHomePage|home page|  
@@ -327,7 +327,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problemas|  
 |WebIssuesNoActiveSubscriptions|Tem que não existem subscrições ativas. Tem de subscrever um produto comunicar um problema.|  
@@ -338,7 +338,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |LinkLabelHomePage|home page|  
 |LinkLabelSendUsEmail|envie-nos um e-mail|  
@@ -353,7 +353,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebProductsAgreement|Ao subscrever {0} produto, eu Concordo com os `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Termos de Utilização|  
@@ -375,13 +375,13 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |PageTitleProducts|Produtos|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|De momento, o início de sessão está desativado pelos administradores.|  
 |TextboxExternalIdentitiesSigninInvitation|Em alternativa, inicie sessão com|  
@@ -389,7 +389,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |PrincipalNotFound|O principal não foi encontrado ou a assinatura é inválida|  
 |ErrorSsoAuthenticationFailed|Falha de autenticação SSO|  
@@ -459,7 +459,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
 |WebAuthenticationUserIsNotConfirm|Confirme o registo antes de tentar iniciar sessão.|  
 |WebAuthenticationInvalidEmailFormated|O e-mail é inválido: {0}|  
 |WebAuthenticationUserNotFound|Utilizador não encontrado|  
-|WebAuthenticationTenantNotRegistered|A sua conta pertence a um inquilino do Azure Active Directory que não tem autorização para aceder a este portal.|  
+|WebAuthenticationTenantNotRegistered|Sua conta pertencer a um inquilino do Azure Active Directory que não está autorizado a aceder a este portal.|  
 |WebAuthenticationAuthenticationFailed|A autenticação falhou.|  
 |WebAuthenticationGooglePlusNotEnabled|A autenticação falhou. Se autorizou a aplicação, em seguida,. Contacte o administrador para se certificar de que a autenticação do Google está configurado corretamente.|  
 |ValidationErrorAllowedTenantIsRequired|O Inquilino Permitido é obrigatório|  
@@ -485,7 +485,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Esqueceu-se da palavra-passe?|  
 |WebAuthenticationIfAdministrator|Se for um administrador tem de iniciar sessão `<a href="{0}"\>here</a\>`.|  
@@ -497,7 +497,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |PageTitleSignup|Inscrever-se|  
 |WebAuthenticationAlreadyAMember|Já é membro?|  
@@ -507,7 +507,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Quer mesmo cancelar esta subscrição?|  
 |SubscriptionRenewConfirmation|Quer mesmo renovar esta subscrição?|  
@@ -519,7 +519,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
 |ButtonLabelRenewSubscription|Renovar|  
 |WebDevelopersSubscriptionRequested|Pedido em {0}|  
 |WebDevelopersSubscriptionRequestedState|Pedido|  
-|WebDevelopersSubscriptionTableNameHeader|Nome|  
+|WebDevelopersSubscriptionTableNameHeader|Name|  
 |WebDevelopersSubscriptionTableStateHeader|Estado|  
 |WebDevelopersUsageStatisticsLink|Relatórios de análise|  
 |WebDevelopersYourSubscriptions|As suas subscrições|  
@@ -530,7 +530,7 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Quer fechar a sua conta?|  
 |PageTitleDeveloperProfile|Perfil|  
@@ -541,14 +541,14 @@ Gestão de API do Azure fornece os seguintes tipos de recursos para utilização
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Atualizar perfil|  
 |PageTitleUpdateProfile|Atualizar informações da conta|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Nome|Texto|  
+|Name|Texto|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Alterar informações da conta|  
 |ButtonLabelChangePassword|Alterar palavra-passe|  

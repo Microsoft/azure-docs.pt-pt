@@ -5,26 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31ca6deef6d81ca7beb08f6df1a15d52ef381a46
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 9f2eae4160dbef164ec70e8fa4d7b3a83706ae96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880131"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Nível de compatibilidade para modelos em tabela do Analysis Services
 
-*Nível de compatibilidade* refere-se a versão específica comportamentos no motor do Analysis Services. Normalmente, coincidir alterações para o nível de compatibilidade com versões principais do SQL Server. Essas alterações também são implementadas no Azure Analysis Services para manter a paridade entre as duas plataformas. Nível de compatibilidade também altera as funcionalidades de efeito disponíveis nos seus modelos em tabela. Por exemplo, DirectQuery e metadados do objeto em tabela têm implementações diferentes dependendo do nível de compatibilidade. Nível de compatibilidade é especificado no projeto de modelo em tabela no Visual Studio (SSDT). Modelos em tabela criado no e importados a partir do Power BI Desktop são no apenas o nível de compatibilidade 1400.
+*Nível de compatibilidade* refere-se a versão específica comportamentos no motor do Analysis Services. Normalmente, coincidir alterações para o nível de compatibilidade com versões principais do SQL Server. Essas alterações também são implementadas no Azure Analysis Services para manter a paridade entre as duas plataformas. Nível de compatibilidade também altera as funcionalidades de efeito disponíveis nos seus modelos em tabela. Por exemplo, DirectQuery e metadados do objeto em tabela têm implementações diferentes dependendo do nível de compatibilidade. Nível de compatibilidade é especificado no projeto de modelo em tabela no Visual Studio (SSDT).
 
-O Azure Analysis Services suporta modelos em tabela nos níveis de compatibilidade 1200 e 1400. 
-
-> [!NOTE]
-> Setembro de 2018 do Power BI Desktop e versões posteriores têm um nível de compatibilidade de 1465. pbix. Este nível de compatibilidade é suportado no Azure Analysis Services. No entanto, o importar um ficheiro do Power BI Desktop não é recomendado para ambientes de produção. Para obter mais informações, consulte [importar um ficheiro do Power BI Desktop](analysis-services-import-pbix.md).
-
-O nível de compatibilidade mais recente é 1400. Este nível coincide com o SQL Server 2017 Analysis Services. Principais recursos do nível de compatibilidade 1400 incluem:
+O Azure Analysis Services suporta modelos em tabela nos níveis de compatibilidade 1200 e 1400. O nível de compatibilidade mais recente é 1400. Este nível coincide com o SQL Server 2017 Analysis Services. Principais recursos do nível de compatibilidade 1400 incluem:
 
 *  Novos recursos para conectividade de dados e importação com suporte para as APIs de JOSÉ e scripts TMSL. 
 *  Transformação de dados e recursos de mashup de dados usando expressões de obter dados e M.
@@ -55,5 +50,4 @@ O nível de compatibilidade mais recente é 1400. Este nível coincide com o SQL
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-  [Criar um modelo no portal do Azure](analysis-services-create-model-portal.md)   
   [Gerir os serviços de análise](analysis-services-manage.md)  

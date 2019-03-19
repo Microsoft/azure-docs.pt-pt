@@ -325,6 +325,8 @@ items:
         href: sql-database-advisor.md
   - name: Funcionalidades de bases de dados
     items:
+    - name: Descrição geral
+      href: sql-database-features-index.yml
     - name: Comparação de funcionalidades do SQL
       href: sql-database-features.md
     - name: Capacidades de vários modelos
@@ -693,7 +695,7 @@ items:
   - name: Fórum do MSDN
     href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/sql-azure
+    href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Atualizações de serviço
@@ -701,7 +703,7 @@ items:
   - name: Centro de arquiteturas
     href: /azure/architecture/
   - name: Histórias dos clientes
-    href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
   - name: Tarefas elásticas (preteridas)
     items:
     - name: Tarefas elásticas (preteridas)
@@ -716,9 +718,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Desinstalar tarefa elástica (preterido)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: fabc468e22f1df077e9350873d084bc7e26252b6
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 8c0124072f26716a25cc2fc098c2da0a29a6b15f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835508"

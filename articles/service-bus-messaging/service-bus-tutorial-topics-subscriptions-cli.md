@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: a75f3f2b1cc6d352afdf366d17c78e95420184cd
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 60c4d1631717eea602e391387d57afe268efbace
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571240"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075889"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Atualizar inventário utilizando a CLI e tópicos/subscrições
 
@@ -50,7 +50,7 @@ Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execu�
 
 Cada [subscrição de um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos são totalmente compatíveis no que diz respeito a protocolo e semântica com as filas do Service Bus. Os tópicos do Service Bus suportam uma vasta gama de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam propriedades de mensagem. Sempre que uma regra tem correspondência, é criada uma mensagem. Para saber mais sobre regras, filtros e ações, clique nesta [hiperligação](topic-filters.md).
 
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Assim que a CLI estiver instalada, abra uma linha de comandos e indique os seguintes comandos para iniciar sessão no Azure. Estes passos não serão necessários se estiver a utilizar a Cloud Shell:
 
@@ -148,7 +148,7 @@ Depois do aprovisionamento do espaço de nomes e tópico/subscrições e de ter 
 4. Para executar o programa, indique o seguinte comando. Certifique-se de que substitui os marcadores de posição pela cadeia de ligação e nome do tópico obtido no passo anterior:
 
    ```shell
-  java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
+   java -jar .\target\tutorial-topics-subscriptions-filters-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -t "myTopicName"
    ```
 
    Observe o envio de 10 mensagens para o tópico e subsequentemente recebidas das subscrições individuais:

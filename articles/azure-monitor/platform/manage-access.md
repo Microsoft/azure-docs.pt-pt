@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 07e3552b58b702cb94c879dd34397010c07522db
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076314"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gerir dados de registo e áreas de trabalho no Azure Monitor
 Arquivos de Monitor do Azure registos de dados numa área de trabalho do Log Analytics, que é essencialmente um contentor que inclui informações de configuração e dados. Para gerir o acesso aos registos de dados, realizar diversas tarefas administrativas relacionadas com a áreas de trabalho. O utilizador ou outros membros da sua organização podem utilizar várias áreas de trabalho para gerir diferentes conjuntos de dados recolhidos da totalidade ou de partes da sua infraestrutura de TI.
@@ -104,7 +104,7 @@ O _modo de acesso_ se refere à forma como um utilizador acede a uma área de tr
 > - Contentores
 > - Registos personalizados criados pela API do recoletor de dados de HTTP
 >
-> Pode testar se os registos estão corretamente associados com seus recursos ao executar uma consulta e inspecionar os registos que está interessado. Se o ID de recurso correto está a [_ResourceId](log-standard-properties.md#resourceid) propriedade, em seguida, dados está disponível para consultas centrada no recurso.
+> Pode testar se os registos estão corretamente associados com seus recursos ao executar uma consulta e inspecionar os registos que está interessado. Se o ID de recurso correto está a [_ResourceId](log-standard-properties.md#_resourceid) propriedade, em seguida, dados está disponível para consultas centrada no recurso.
 
 ### <a name="comparing-access-modes"></a>Comparar os modos de acesso
 

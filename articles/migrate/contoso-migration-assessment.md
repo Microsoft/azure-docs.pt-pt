@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: df3ae6fbeceb85df6d6e5245a5bbad517179733c
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991364"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118464"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: Avaliar cargas de trabalho no local para migração no Azure
 
@@ -159,15 +159,15 @@ Agora, a Contoso pode executar uma avaliação para analisar a respetiva base de
 
     ![Assistente de migração de dados - selecionar origem](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      Atualmente, Assistente de migração de dados não suporta a avaliação para migrar para uma instância de gerida de base de dados do Azure SQL. Como solução, Contoso utiliza o SQL Server numa VM do Azure como suposto destino para a avaliação.
+   > [!NOTE]
+   >    Atualmente, Assistente de migração de dados não suporta a avaliação para migrar para uma instância de gerida de base de dados do Azure SQL. Como solução, Contoso utiliza o SQL Server numa VM do Azure como suposto destino para a avaliação.
 
 3. Na **versão de destino selecione**, Contoso seleciona o SQL Server 2017 como a versão de destino. A Contoso precisa de selecionar esta versão, pois é a versão utilizada pela instância gerida do SQL da base de dados.
 4. Contoso seleciona relatórios para ajudá-lo a detetar informações sobre a compatibilidade e as novas funcionalidades:
-    - **Problemas de compatibilidade** tenha em atenção as alterações que podem interromper a migração ou que exigem um pequeno Ajuste antes da migração. Este relatório mantém Contoso informado sobre quaisquer funcionalidades atualmente em utilização que foram preteridas. Os problemas estão organizados por nível de compatibilidade.
-    - **Recomendação de novas funcionalidades** notas de novos recursos na plataforma do SQL Server de destino que podem ser utilizados para a base de dados após a migração. Novas recomendações de funcionalidades são organizadas de acordo com os cabeçalhos **desempenho**, **Security**, e **armazenamento**.
+   - **Problemas de compatibilidade** tenha em atenção as alterações que podem interromper a migração ou que exigem um pequeno Ajuste antes da migração. Este relatório mantém Contoso informado sobre quaisquer funcionalidades atualmente em utilização que foram preteridas. Os problemas estão organizados por nível de compatibilidade.
+   - **Recomendação de novas funcionalidades** notas de novos recursos na plataforma do SQL Server de destino que podem ser utilizados para a base de dados após a migração. Novas recomendações de funcionalidades são organizadas de acordo com os cabeçalhos **desempenho**, **Security**, e **armazenamento**.
 
-    ![Assistente de migração de dados - problemas de compatibilidade e as novas funcionalidades](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Assistente de migração de dados - problemas de compatibilidade e as novas funcionalidades](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. Na **ligar a um servidor**, Contoso introduz o nome da VM que está a executar a base de dados e as credenciais para aceder ao mesmo. Contoso seleciona **certificado de servidor fidedigno** para se certificar de que a VM pode acessar o SQL Server. Em seguida, seleciona a Contoso **Connect**.
 
@@ -186,13 +186,13 @@ Os resultados são apresentados quando eles estão disponíveis. Se a Contoso co
 
 1. Na **problemas de compatibilidade** comunicar, Contoso verifica a existência de quaisquer problemas em cada nível de compatibilidade. Os níveis de compatibilidade são mapeados para as versões do SQL Server da seguinte forma:
 
-    - 100: Base de dados do SQL Server 2008/Azure SQL
-    - 110: Base de dados do SQL Server 2012/Azure SQL
-    - 120: Base de dados do SQL Server 2014/Azure SQL
-    - 130: Base de dados do SQL Server 2016/Azure SQL
-    - 140: Base de dados do SQL Server 2017/Azure SQL
+   - 100: Base de dados do SQL Server 2008/Azure SQL
+   - 110: Base de dados do SQL Server 2012/Azure SQL
+   - 120: Base de dados do SQL Server 2014/Azure SQL
+   - 130: Base de dados do SQL Server 2016/Azure SQL
+   - 140: Base de dados do SQL Server 2017/Azure SQL
 
-    ![O Assistente de migração de dados - relatório de problemas de compatibilidade](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![O Assistente de migração de dados - relatório de problemas de compatibilidade](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. Na **recomendações de funcionalidades** comunicar, a Contoso considera a funcionalidades de desempenho, segurança e armazenamento que a avaliação lhe recomenda após a migração. São recomendadas uma variedade de funcionalidades, incluindo OLTP na memória, os índices columnstore, Stretch Database, Always Encrypted, máscara de dados dinâmicos e encriptação de dados transparente.
 
@@ -403,14 +403,14 @@ Contoso executa a instalação em cada VM.
 
     `sudo -i`
 3. Contoso instala o MMA:
-    - Contoso aciona o ID de área de trabalho e a chave no comando.
-    - Os comandos estão para 64 bits.
-    - O ID de área de trabalho e a chave primária estão localizados na área de trabalho do Log Analytics no portal do Azure. Selecione **configurações**e, em seguida, selecione a **origens ligadas** separador.
-    - Execute os seguintes comandos para transferir o agente do Log Analytics, validar a soma de verificação e instalar e carregar o agente:
+   - Contoso aciona o ID de área de trabalho e a chave no comando.
+   - Os comandos estão para 64 bits.
+   - O ID de área de trabalho e a chave primária estão localizados na área de trabalho do Log Analytics no portal do Azure. Selecione **configurações**e, em seguida, selecione a **origens ligadas** separador.
+   - Execute os seguintes comandos para transferir o agente do Log Analytics, validar a soma de verificação e instalar e carregar o agente:
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Instalar o agente de dependência em VMs do Linux
 

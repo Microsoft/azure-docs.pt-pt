@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5cb3a029795dd69c80cfa580aa1bd135c67e609e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850048"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados de equipa em ação – usando um Cluster de Hadoop do HDInsight do Azure num conjunto de dados de 1 TB
 
-Estas instruções demonstram como utilizar o processo de ciência de dados de equipa num cenário ponto a ponto com uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, engenheiro de recursos e reduzir os dados de exemplo de um do publicamente disponíveis [ Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) conjuntos de dados. Ele utiliza o Azure Machine Learning para criar um modelo de classificação binária sobre estes dados. Ela também mostra como publicar um desses modelos como um serviço Web.
+Estas instruções demonstram como utilizar o processo de ciência de dados de equipa num cenário ponto a ponto com uma [cluster do Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, engenheiro de recursos e reduzir os dados de exemplo de um do publicamente disponíveis [ Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) conjuntos de dados. Ele utiliza o Azure Machine Learning para criar um modelo de classificação binária sobre estes dados. Ela também mostra como publicar um desses modelos como um serviço Web.
 
 Também é possível utilizar um IPython notebook para realizar as tarefas apresentadas nestas instruções. Os utilizadores que gostariam de tentar esta abordagem devem consultar a [Criteo passo a passo através de uma ligação de ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) tópico.
 
 ## <a name="dataset"></a>Descrição do conjunto de dados de Criteo
-Criteo dados são um conjunto de dados de predição de clique aproximadamente 370 GB de arquivos TSV comprimidos gzip (~1.3TB descomprimidos), que consiste em mais de mil milhões de 4.3 registos. Está a ser utilizado dos dias de 24 de clique em dados disponibilizados pelo [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Para a conveniência de cientistas de dados, os dados disponíveis para nós para experimentar foi descompactados.
+Criteo dados são um conjunto de dados de predição de clique aproximadamente 370 GB de arquivos TSV comprimidos gzip (~1.3TB descomprimidos), que consiste em mais de mil milhões de 4.3 registos. Está a ser utilizado dos dias de 24 de clique em dados disponibilizados pelo [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). Para a conveniência de cientistas de dados, os dados disponíveis para nós para experimentar foi descompactados.
 
 Cada registo este conjunto de dados contém 40 colunas:
 
@@ -68,7 +68,7 @@ Configure o ambiente de ciência de dados do Azure para a criação de soluçõe
 3. [Criar uma área de trabalho do Azure Machine Learning studio](../studio/create-workspace.md): Esta área de trabalho do Azure Machine Learning é utilizada para a criação de modelos de aprendizagem automática após uma exploração de dados inicial e para baixo de amostragem no cluster do HDInsight.
 
 ## <a name="getdata"></a>Obter e consumir dados de uma fonte público
-O [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) conjunto de dados pode ser acedido ao clicar no link, aceitar os termos de utilização e fornecer um nome. Um instantâneo da aparência é mostrado aqui:
+O [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) conjunto de dados pode ser acedido ao clicar no link, aceitar os termos de utilização e fornecer um nome. Um instantâneo da aparência é mostrado aqui:
 
 ![Aceite os termos de Criteo](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
@@ -306,7 +306,7 @@ Isso resulta em:
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Tenha em atenção que Col15 tem valores exclusivos de 19M! Usando técnicas de ingênua, como "acesso frequente uma codificação" codificar altamente dimensionais categóricos variáveis não é viável. Em especial, chamado de uma técnica avançada e robusta [Learning com contagens](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para lidar com esse problema com eficiência é explicado e demonstrada.
+Tenha em atenção que Col15 tem valores exclusivos de 19M! Usando técnicas de ingênua, como "acesso frequente uma codificação" codificar altamente dimensionais categóricos variáveis não é viável. Em especial, chamado de uma técnica avançada e robusta [Learning com contagens](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para lidar com esse problema com eficiência é explicado e demonstrada.
 
 Por fim ver o número de valores exclusivos para algumas outras colunas categóricas também. O conteúdo do [exemplo&#95;hive&#95;criteo&#95;exclusivo&#95;valores&#95;vários&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) são:
 
@@ -405,10 +405,10 @@ Com isso, está pronto para utilizar o nosso train amostragem baixo e testar os 
 Há um componente importante final antes de passar para o Azure Machine Learning, que diz respeito a tabela de contagem. Na próxima seção secundárias, a tabela contagem é abordada em detalhes.
 
 ## <a name="count"></a> Uma breve discussão sobre a tabela de contagem
-Como viu, várias variáveis categóricas têm uma dimensionalidade muito alta. No passo a passo, uma técnica avançada chamado [Learning com contagens](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para codificar estas variáveis numa eficiente, é apresentada a maneira robusta. Obter mais informações sobre essa técnica são a ligação indicada.
+Como viu, várias variáveis categóricas têm uma dimensionalidade muito alta. No passo a passo, uma técnica avançada chamado [Learning com contagens](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para codificar estas variáveis numa eficiente, é apresentada a maneira robusta. Obter mais informações sobre essa técnica são a ligação indicada.
 
 [!NOTE]
->Nestas instruções, o foco é sobre o uso tabelas de contagem para produzir compactas representações de recursos categóricos altamente dimensionais. Não é a única forma de codificar categóricas funcionalidades; Para obter mais informações sobre outras técnicas, podem consultar usuários interessados [um frequente-codificação](http://en.wikipedia.org/wiki/One-hot) e [hashing de funcionalidade](http://en.wikipedia.org/wiki/Feature_hashing).
+>Nestas instruções, o foco é sobre o uso tabelas de contagem para produzir compactas representações de recursos categóricos altamente dimensionais. Não é a única forma de codificar categóricas funcionalidades; Para obter mais informações sobre outras técnicas, podem consultar usuários interessados [um frequente-codificação](https://en.wikipedia.org/wiki/One-hot) e [hashing de funcionalidade](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
 Para criar tabelas de contagem dos dados de contagem, utilize os dados na pasta não processados/contagem de. Na secção de modelagem, os utilizadores são mostrados como criar estas tabelas de contagem de funcionalidades categóricas do zero, ou, em alternativa a utilizar uma tabela de contagem criados previamente para seus explorations. No que se segue, quando "previamente criados contagem tabelas" são chamados, queremos dizer usando as tabelas de contagem foram fornecidas. São fornecidas instruções detalhadas sobre como aceder essas tabelas na próxima seção.

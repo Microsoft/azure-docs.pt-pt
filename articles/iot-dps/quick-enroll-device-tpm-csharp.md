@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 48409fec8a9edd8a56f6e0664e1451e9677c4281
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: e3b0aeeacadc918d9b17e1cd873170c73eced510
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834766"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Inscrever o dispositivo TPM no Serviço de Aprovisionamento de Dispositivos no Hub IoT com o SDK do serviço C#
 
@@ -27,7 +27,7 @@ Estes passos explicam como criar através de programação uma inscrição indiv
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
 1. Certifique-se de que tem o [Visual Studio 2017](https://www.visualstudio.com/vs/) instalado no seu computador. 
-2. Certifique-se de que tem o [SDK .Net Core](https://www.microsoft.com/net/download/windows) instalado no computador. 
+2. Certifique-se de que tem o [.NET Core SDK](https://www.microsoft.com/net/download/windows) instalado no seu computador. 
 3. Antes de avançar, certifique-se de que executa os passos descritos em [Configurar o Serviço de Aprovisionamento de Dispositivos no Hub IoT com o portal do Azure](./quick-setup-auto-provision.md).
 4. (Opcional) Se pretender inscrever um dispositivo simulado no final deste Manual de Início Rápido, siga os passos em [Criar e aprovisionar um dispositivo TPM simulado com o SDK do dispositivo C#](quick-create-simulated-device-tpm-csharp.md) até ao passo onde pode obter uma chave de endossamento para o dispositivo. Anote a chave de endossamento, o ID de registo e, opcionalmente, o ID do dispositivo, terá de os utilizar mais tarde neste Início Rápido. **Não siga os passos para criar uma inscrição individual com o portal do Azure.**
 
@@ -147,7 +147,7 @@ Se quiser explorar o exemplo de serviço C#, não limpe os recursos criados nest
     1. Feche a janela do simulador TPM e a janela de saída de exemplo para o dispositivo simulado.
     2. No portal do Azure, navegue para o Hub IoT onde o seu dispositivo foi aprovisionado. No menu da esquerda em **Exploradores**, clique em **Dispositivos IoT**, selecione a caixa de verificação junto ao seu dispositivo e, em seguida, clique em **Eliminar** na parte superior da janela.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 Neste Manual de Início Rápido, criou através de programação uma entrada de inscrição individual para um dispositivo TPM e, opcionalmente, criou um dispositivo simulado TPM no seu computador e aprovisionou-o no seu hub IoT com o Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
  
 > [!div class="nextstepaction"]

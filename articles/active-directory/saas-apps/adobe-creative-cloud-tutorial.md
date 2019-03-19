@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6b2c2345612727ca2b71adcf1a5e505abe3efe
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 35bd52904ab081e41cb43a346288234c18a7f43b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731403"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Active Directory do Azure com o Adobe Creative Cloud
 
@@ -205,7 +205,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -249,9 +249,9 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Adobe Creative Clo
 2. Adicionar o utilizador da consola da Adobe como ID Federado e atribuí-las a um perfil de produto. Para obter informações detalhadas sobre como adicionar utilizadores, consulte [adiciona os utilizadores da consola de administração do Adobe](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. Neste momento, digite seu endereço de e-mail/upn no formulário de início de sessão do Adobe, prima tab, e deve ser federado para o Azure AD:
-    * Acesso Web: www.adobe.com > início de sessão
-    * Dentro do utilitário de aplicativo de desktop > início de sessão
-    * Dentro da aplicação > Ajuda > início de sessão
+   * Acesso Web: www\.adobe.com > início de sessão
+   * Dentro do utilitário de aplicativo de desktop > início de sessão
+   * Dentro da aplicação > Ajuda > início de sessão
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único
 

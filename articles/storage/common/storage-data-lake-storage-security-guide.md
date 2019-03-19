@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895521"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008206"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Guia de segurança de geração 2 de armazenamento do Data Lake do Azure
 
@@ -88,7 +88,7 @@ Aqui estão os pontos principais que precisa saber sobre como utilizar o RBAC pa
 
 Chaves de conta de armazenamento são cadeias de caracteres de 512 bits criadas pelo Azure que, juntamente com o nome da conta de armazenamento, pode ser usado para acessar os objetos de dados armazenados na conta de armazenamento, por exemplo, blob, a entidades dentro de uma tabela, fila de mensagens e ficheiros numa partilha de ficheiros do Azure. Controlar o acesso para o armazenamento conta chaves controla o acesso ao plano de dados para essa conta de armazenamento.
 
-Cada conta de armazenamento tem duas chaves referidas como "Chave 1" e "Chave 2" no [portal do Azure](http://portal.azure.com/) e nos cmdlets do PowerShell. Estes podem ser regeneradas manualmente usando um dos vários métodos, incluindo, mas não limitado a utilizar o [portal do Azure](https://portal.azure.com/), PowerShell, CLI do Azure, ou programaticamente usando a biblioteca de cliente de armazenamento do .NET ou os serviços de armazenamento do Azure API DE REST.
+Cada conta de armazenamento tem duas chaves referidas como "Chave 1" e "Chave 2" no [portal do Azure](https://portal.azure.com/) e nos cmdlets do PowerShell. Estes podem ser regeneradas manualmente usando um dos vários métodos, incluindo, mas não limitado a utilizar o [portal do Azure](https://portal.azure.com/), PowerShell, CLI do Azure, ou programaticamente usando a biblioteca de cliente de armazenamento do .NET ou os serviços de armazenamento do Azure API DE REST.
 
 Há inúmeras razões para regenerar as chaves de conta de armazenamento.
 
@@ -167,7 +167,7 @@ Além disso, pode especificar que os pedidos efetuados com uma SAS estão limita
 
 Uma assinatura de acesso partilhado é um conjunto de parâmetros de consulta anexado ao URL apontando para o recurso
 
-que fornece informações sobre o acesso permitido e o período de tempo para o qual o acesso é permitido. Eis um exemplo; Este URI fornece acesso de leitura para um blob para cinco minutos. Parâmetros de consulta SAS tem de ser codificados de URL, como % 3A para dois pontos (:) ou % 20 para um espaço.
+que fornece informações sobre o acesso permitido e o período de tempo para o qual o acesso é permitido. Eis um exemplo; Este URI fornece acesso de leitura para um blob para cinco minutos. Parâmetros de consulta SAS tem de ser codificados de URL, por exemplo, % 3A para dois pontos (:) ou % 20 para um espaço.
 
 ```
 http://mystorage.dfs.core.windows.net/myfilesystem/myfile.txt (URL to the file)

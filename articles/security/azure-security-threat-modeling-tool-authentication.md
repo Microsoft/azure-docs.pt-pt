@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fa07ebf3dbf3e5d3e5f4e96cdf4b77a3710c1d1e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888592"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Quadro de segurança: Autenticação | Atenuações 
+
 | Produtos/serviços | Artigo |
 | --------------- | ------- |
 | **Aplicação Web**    | <ul><li>[Considere a utilização de um mecanismo de autenticação padrão para autenticar a aplicação Web](#standard-authn-web-app)</li><li>[Aplicativos devem suportar cenários de falha de autenticação de forma segura](#handle-failed-authn)</li><li>[Passo de enable backup ou a autenticação adaptável](#step-up-adaptive-authn)</li><li>[Certifique-se de que as interfaces administrativas estejam adequadamente bloqueados para baixo](#admin-interface-lockdown)</li><li>[Implementar Esqueceu-se as funcionalidades de palavra-passe com segurança](#forgot-pword-fxn)</li><li>[Certifique-se de que a política de palavra-passe e conta são implementados](#pword-account-policy)</li><li>[Implemente controlos para impedir a enumeração de nome de utilizador](#controls-username-enum)</li></ul> |
@@ -338,7 +339,7 @@ O `<netMsmqBinding/>` elemento do ficheiro de configuração de WCF abaixo Instr
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
-| **Referências**              | [Autenticação e autorização na ASP.NET Web API](http://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [serviços de autenticação externo com a API Web ASP.NET (c#)](http://www.asp.net/web-api/overview/security/external-authentication-services) |
+| **Referências**              | [Autenticação e autorização na ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [serviços de autenticação externo com a API Web ASP.NET (c#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
 | **Passos** | <p>A autenticação é o processo em que uma entidade prova a sua identidade, normalmente através de credenciais, tal como um nome de utilizador e palavra-passe. Existem vários protocolos de autenticação disponíveis que podem ser considerados. Algumas delas estão listadas abaixo:</p><ul><li>Certificados de cliente</li><li>Plataforma Windows</li><li>Baseada em formulários</li><li>Federação - ADFS</li><li>Federação - Azure AD</li><li>Federação - servidor de identidades</li></ul><p>Links na seção referências fornecem detalhes de baixo nível sobre como cada um dos esquemas de autenticação pode ser implementada para proteger uma API Web.</p>|
 
 ## <a id="authn-aad"></a>Utilizar cenários de autenticação padrão suportados pelo Azure Active Directory
@@ -489,7 +490,7 @@ await deviceClient.SendEventAsync(message);
     var connectionString = 'HostName=<HostName>DeviceId=<DeviceId>SharedAccessKey=<SharedAccessKey>';
     var client = clientFromConnectionString(connectionString);
     ```
-#### <a name="sas-token"></a>Token de SAS
+  #### <a name="sas-token"></a>Token de SAS
 * Obtém geradas internamente ao utilizar a chave simétrica, mas pode gerar e utilizá-lo explicitamente também
 * Defina um protocolo: `var Http = require('azure-iot-device-http').Http;`
 * Crie um token sas:
@@ -506,7 +507,7 @@ await deviceClient.SendEventAsync(message);
     var base64UriEncoded = encodeURIComponent(base64signature);
     // construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "%2fdevices%2f"+deviceName+"&sig="
-    + base64UriEncoded + "&se=" + expires;
+  + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
@@ -514,7 +515,7 @@ await deviceClient.SendEventAsync(message);
     ```javascript
     Client.fromSharedAccessSignature(sas, Http); 
     ```
-#### <a name="certificates"></a>Certificados
+  #### <a name="certificates"></a>Certificados
 * Gerar uma X509 assinado automática de certificado usando uma ferramenta como o OpenSSL para gerar um .cert e .key os ficheiros para armazenar o certificado e a chave, respetivamente
 * Aprovisione um dispositivo que aceita a ligação segura através de certificados.
     ```javascript

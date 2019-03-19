@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.subservice: files
-ms.openlocfilehash: 92c77ce8124727d658cc596864f88037f6c34ac0
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: a0937de97d858084433f969f1f6d4bdb2ae9e3fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569285"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893565"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Programar para os ficheiros do Azure com C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -39,7 +39,7 @@ Para criar os exemplos, terá de instalar a biblioteca de cliente de armazenamen
 Para instalar o cliente de armazenamento do Azure 2.4.0 para C++, pode usar um dos seguintes métodos:
 
 * **Linux:** Siga as instruções na [biblioteca de cliente de armazenamento do Azure para C++ Leiame](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) página.
-* **Windows:** No Visual Studio, clique em **ferramentas &gt; Gestor de pacotes NuGet &gt; Package Manager Console**. Escreva o seguinte comando para o [consola de Gestor de pacotes NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) e prima **ENTER**.
+* **Windows:** No Visual Studio, clique em **ferramentas &gt; Gestor de pacotes NuGet &gt; Package Manager Console**. Escreva o seguinte comando para o [consola de Gestor de pacotes NuGet](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) e prima **ENTER**.
   
 ```
 Install-Package wastorage
@@ -72,7 +72,7 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
-Todos os ficheiros e diretórios numa partilha de ficheiros do Azure residem num contêiner chamado um **partilhar**. Sua conta de armazenamento pode ter quantas partilhas como permite que a sua capacidade de conta. Para obter acesso a uma partilha e o respetivo conteúdo, tem de utilizar um cliente de ficheiros do Azure.
+Todos os ficheiros e diretórios numa partilha de ficheiros do Azure residem num contêiner chamado um **partilhar**. Sua conta de armazenamento pode ter quantas partilhas como permite que a sua capacidade de conta. Para obter acesso a uma partilha e o respetivo conteúdo, terá de utilizar um cliente de ficheiros do Azure.
 
 ```cpp
 // Create the Azure Files client.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: ergreenl
-ms.openlocfilehash: 758183efd6a6a2c2b8d172c52ad3bd5c5e12d969
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169149"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119909"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar o Azure Active Directory Domain Services com o PowerShell
 Este artigo mostra como ativar os serviços de domínio do Azure Active Directory (AD) com o PowerShell.
@@ -141,8 +141,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Não se esqueça os passos de configuração adicionais depois de aprovisionar o seu domínio gerido.**
 > Depois de seu domínio gerido está aprovisionado, ainda tem de concluir as seguintes tarefas:
 > * **[Atualizar definições de DNS](active-directory-ds-getting-started-dns.md)**  para a rede virtual para que as máquinas virtuais pode encontrar o domínio gerido para associação a um domínio ou de autenticação.
-* **[Ativar a sincronização de palavra-passe para o Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, pelo que os utilizadores finais podem iniciar sessão no domínio gerido utilizando as credenciais da empresa.
->
+> * **[Ativar a sincronização de palavra-passe para o Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, pelo que os utilizadores finais podem iniciar sessão no domínio gerido utilizando as credenciais da empresa.
 
 
 ## <a name="powershell-script"></a>Script do PowerShell
@@ -226,8 +225,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Não se esqueça os passos de configuração adicionais depois de aprovisionar o seu domínio gerido.**
 > Depois de seu domínio gerido está aprovisionado, ainda tem de concluir as seguintes tarefas:
 > * Atualize definições de DNS para a rede virtual para que as máquinas virtuais pode encontrar o domínio gerido para associação a um domínio ou de autenticação.
-* Ative a sincronização de palavra-passe para o Azure AD Domain Services para que os utilizadores finais podem iniciar sessão no domínio gerido utilizando as credenciais da empresa.
->
+> * Ative a sincronização de palavra-passe para o Azure AD Domain Services para que os utilizadores finais podem iniciar sessão no domínio gerido utilizando as credenciais da empresa.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Depois de criado o seu domínio gerido, execute as seguintes tarefas de configuração, pelo que pode utilizar o domínio gerido:

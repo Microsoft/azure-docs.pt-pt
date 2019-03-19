@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 84eb458c68c7accf1b638b8e21907516328cb892
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 26b560434e6305689781b8c39c7cf814af9bf8aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112301"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Tutorial: Ligar, configurar, ativar o Gateway de caixa de dados do Azure (pré-visualização) 
 
@@ -46,7 +46,7 @@ Antes de configurar e configurar o Gateway de caixa de dados, certifique-se de q
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Ligue-se para a configuração de interface do Usuário da local web 
 
-1. Abra uma janela do browser e ligue à IU da web local. Tipo:
+1. Abra uma janela do browser e ligue à IU da web local. Escreva:
    
    [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
    
@@ -80,12 +80,12 @@ Está agora a **Dashboard** do seu dispositivo.
    
     Quando configurar as definições de rede, tenha em atenção o seguinte:
 
-    - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Por conseguinte, um endereço IP, sub-rede, gateway e DNS são automaticamente atribuído.
-    - Se DHCP não estiver ativado, pode atribuir IPs estáticos, se necessário.
-    - Pode configurar a sua interface de rede como IPv4.
+   - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. Por conseguinte, um endereço IP, sub-rede, gateway e DNS são automaticamente atribuído.
+   - Se DHCP não estiver ativado, pode atribuir IPs estáticos, se necessário.
+   - Pode configurar a sua interface de rede como IPv4.
 
-    >[!NOTE] 
-    > Recomendamos que não muda o endereço IP local da interface de rede de estático para DHCP, a menos que tenha outro endereço IP para ligar ao dispositivo. Se utilizar uma interface de rede e mude para DHCP, não haveria nenhuma forma de determinar o endereço DHCP. Se pretender alterar para um endereço DHCP, esperar até depois do dispositivo foi registado com o serviço e, em seguida, altere. Em seguida, pode ver os IPs de todos os adaptadores na **propriedades do dispositivo** no portal do Azure para o seu serviço.
+     >[!NOTE] 
+     > Recomendamos que não muda o endereço IP local da interface de rede de estático para DHCP, a menos que tenha outro endereço IP para ligar ao dispositivo. Se utilizar uma interface de rede e mude para DHCP, não haveria nenhuma forma de determinar o endereço DHCP. Se pretender alterar para um endereço DHCP, esperar até depois do dispositivo foi registado com o serviço e, em seguida, altere. Em seguida, pode ver os IPs de todos os adaptadores na **propriedades do dispositivo** no portal do Azure para o seu serviço.
 
 4. (Opcionalmente)-configure o servidor de proxy da web. Apesar de configuração do proxy web é opcional, lembre-se de que se utilizar um proxy da web, pode apenas configurá-lo aqui.
    

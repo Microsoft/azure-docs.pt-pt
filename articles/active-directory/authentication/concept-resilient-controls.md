@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b006a4fbb8d1059f5096f5c1585853953b69042f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339554"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082148"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gestão de controlo de acesso resilientes no Azure Active Directory
 
@@ -94,18 +94,18 @@ Em alternativa, a sua organização também pode criar políticas de contingênc
 Compreender a sua exposição durante uma interrupção ajuda a reduzir o risco e é uma parte crucial do seu processo de planejamento. Para criar o seu plano de contingência, determine primeiro os seguintes requisitos comerciais da sua organização:
 
 1. Determine as suas aplicações fundamentais antecipadamente: Quais são as aplicações que tem de dar acesso, mesmo com uma postura de segurança de risco/inferior? Crie uma lista destas aplicações e certificar-se de que os outros interessados (empresas, liderança legais, de segurança,) todos os concordam que se o controlo de acesso de todos os desaparecer, esses aplicativos ainda devem continuar a executar. Provavelmente vai final com as categorias de:
-  * **Categoria 1 aplicações fundamentais** que não pode estar indisponível por mais de alguns minutos, por exemplo, as aplicações que afetam diretamente a receita da organização.
-  * **Aplicações importantes de categoria 2** que a empresa precisa estar acessível em algumas horas.
-  * **Aplicações de baixa prioridade de categoria 3** que possa suportar uma interrupção de alguns dias.
+   * **Categoria 1 aplicações fundamentais** que não pode estar indisponível por mais de alguns minutos, por exemplo, as aplicações que afetam diretamente a receita da organização.
+   * **Aplicações importantes de categoria 2** que a empresa precisa estar acessível em algumas horas.
+   * **Aplicações de baixa prioridade de categoria 3** que possa suportar uma interrupção de alguns dias.
 2. Para aplicações de categoria 1 e 2, a Microsoft recomenda a que planear previamente o tipo de nível de acesso que pretende permitir:
-  * Pretende permitir o acesso total ou sessão restrita, como limitar downloads?
-  * Pretende permitir o acesso para a parte da aplicação, mas não a aplicação toda?
-  * Pretende permitir o acesso às informações da função de trabalho e bloquear o acesso de administrador até que seja restaurado o controlo de acesso?
+   * Pretende permitir o acesso total ou sessão restrita, como limitar downloads?
+   * Pretende permitir o acesso para a parte da aplicação, mas não a aplicação toda?
+   * Pretende permitir o acesso às informações da função de trabalho e bloquear o acesso de administrador até que seja restaurado o controlo de acesso?
 3. Para essas aplicações, a Microsoft recomenda também que planear as avenidas de acesso deliberadamente vai abrir e quais as que será fechada:
-  * Deseja permitir browser apenas acesso e bloquear clientes avançados que podem guardar os dados offline?
-  * Pretende permitir o acesso apenas para os utilizadores dentro da rede empresarial e manter fora utilizadores bloqueados?
-  * Pretende permitir o acesso de determinados países ou regiões apenas durante a interrupção?
-  * Deseja que as políticas para as políticas de contingência, especialmente para aplicações fundamentais, uma falha ou êxito se um controlo de acesso alternativo não está disponível?
+   * Deseja permitir browser apenas acesso e bloquear clientes avançados que podem guardar os dados offline?
+   * Pretende permitir o acesso apenas para os utilizadores dentro da rede empresarial e manter fora utilizadores bloqueados?
+   * Pretende permitir o acesso de determinados países ou regiões apenas durante a interrupção?
+   * Deseja que as políticas para as políticas de contingência, especialmente para aplicações fundamentais, uma falha ou êxito se um controlo de acesso alternativo não está disponível?
 
 #### <a name="microsoft-recommendations"></a>Recomendações da Microsoft
 
@@ -251,7 +251,7 @@ Anule as alterações efetuadas como parte do plano de contingência ativado ass
 Se a sua organização utilizar políticas de legado de MFA por utilizador, em seguida, pode considerar a alternativa seguintes:
 
 1. Se tiver o endereço IP de saída de rede empresarial, pode adicioná-los como IPs fidedignos para ativar a autenticação apenas à rede empresarial.
- 2. Se não tiver o inventário de endereços IP de saída ou -lhe pedido para ativar o acesso dentro e fora da rede empresarial, pode adicionar todo o espaço de endereços de IPv4 como IPs fidedignos, especificando 0.0.0.0/1 e 128.0.0.0/1.
+   1. Se não tiver o inventário de endereços IP de saída ou -lhe pedido para ativar o acesso dentro e fora da rede empresarial, pode adicionar todo o espaço de endereços de IPv4 como IPs fidedignos, especificando 0.0.0.0/1 e 128.0.0.0/1.
 
 >[!IMPORTANT]
  > Se ampliar os endereços IP fidedignos para desbloquear o acesso ao, eventos de risco associados com endereços IP (por exemplo, deslocação impossível ou localizações desconhecidas) não serão gerados.
@@ -264,9 +264,9 @@ Se a sua organização utilizar políticas de legado de MFA por utilizador, em s
 * [Documentação de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Gerir o acesso de emergência de contas administrativas no Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Configurar localizações com nome no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Como configurar híbrida do Azure Active Directory associados a um dispositivos](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Guia de Implementação do Windows Hello para Empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
- * [Documentação de orientação de palavra-passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+  * [Documentação de orientação de palavra-passe - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Quais são condições no acesso condicional do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Quais são os controles de acesso no acesso condicional do Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

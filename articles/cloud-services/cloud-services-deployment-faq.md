@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c961238d1fbce1ff590e0b0843ae1390aa7f1cd9
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: adaed4c7af1d325f85d6fc349ac9a4faf73c1169
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078824"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implementação de serviços Cloud do Azure: Perguntas mais frequentes (FAQ)
 
@@ -67,10 +67,11 @@ Para obter mais informações, consulte [como atualizar um serviço em nuvem](cl
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Por que motivo não consigo implementar serviços Cloud através de APIs de gestão de serviço ou o PowerShell, ao utilizar a conta de armazenamento do Azure Resource Manager? 
 
 Uma vez que o serviço em nuvem é um recurso de clássico que não é diretamente compatível com o modelo Azure Resource Manager, não pode associá-la com as contas de armazenamento do Azure Resource Manager. Aqui estão algumas opções: 
- 
+ 
 - Implementar através da REST API.
 
-    Ao implementar através da API de REST de gestão de serviço, poderia contornar a limitação ao especificar um URL de SAS para o armazenamento de BLOBs, que irá funcionar com a conta clássica e o armazenamento do Azure Resource Manager. Saiba mais sobre a propriedade 'PackageUrl' [aqui](https://msdn.microsoft.com/library/azure/ee460813.aspx).  
+    Ao implementar através da API de REST de gestão de serviço, poderia contornar a limitação ao especificar um URL de SAS para o armazenamento de BLOBs, que irá funcionar com a conta clássica e o armazenamento do Azure Resource Manager. Saiba mais sobre a propriedade 'PackageUrl' [aqui](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
 - Implementar através de [portal do Azure](https://portal.azure.com).
 
     Isso vai funcionar a partir da [portal do Azure](https://portal.azure.com) como a chamada passa por um proxy/shim que permite a comunicação entre os recursos do Azure Resource Manager e clássica. 

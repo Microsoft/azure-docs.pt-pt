@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
-ms.openlocfilehash: 2780215e409886be82ac70642dabe05c9257945e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568452"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076365"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc em várias bases de dados SQL do Azure
 
@@ -27,7 +27,7 @@ Neste tutorial, executa consultas distribuídas em todo o conjunto de inquilino 
 Neste tutorial, ficará a saber:
 
 > [!div class="checklist"]
-
+> 
 > * Como implementar uma base de dados de relatórios ad hoc
 > * Como executar consultas distribuídas em todas as bases de dados de inquilinos
 
@@ -147,7 +147,7 @@ Quando inspecionar o plano de execução, Paire o rato sobre os ícones de plano
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-
+> 
 > * Executar consultas distribuídas em todas as bases de dados do inquilino
 > * Implementar uma base de dados de relatórios ad hoc e adicione-o para executar consultas distribuídas esquema.
 

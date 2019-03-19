@@ -4,17 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: aa58890f74c7c667189fa10c009769de043227c4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f00da12519f21410f773afb96a5e9a83c56166d9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457827"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58052037"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Erros comuns durante a migração da implementação Clássica para a implementação Azure Resource Manager
 Este artigo cataloga os erros e mitigações mais comuns durante a migração de recursos de IaaS do modelo de implementação clássica do Azure para a pilha do Azure Resource Manager.
 
 ## <a name="list-of-errors"></a>Lista de erros
+
 | Cadeia do erro | Mitigação |
 | --- | --- |
 | Erro de servidor interno |Em alguns casos, este é um erro transitório que desaparece com uma nova tentativa. Se persistir, [contacte o suporte do Azure](../articles/azure-supportability/how-to-create-azure-support-request.md), pois requer que sejam investigados os registos da plataforma. <br><br> **NOTA:** Assim que o incidente é controlado pela equipe de suporte, não tente qualquer atenuação automática pois pode originar consequências indesejadas no seu ambiente. |

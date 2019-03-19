@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0fd865a6890721d3889fc5cef39d9888fe1fb689
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191820"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856138"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP utilizando o portal do Azure
 
@@ -62,7 +62,7 @@ Conclua os seguintes passos para alcançar o cenário descrito neste artigo.
 
 Para cada VM na sua rede virtual, adicione a configuração de IP para o NIC secundário:  
 
-1. Navegue para o portal do Azure: http://portal.azure.com. Inicie sessão com a sua conta do Azure.
+1. Navegue para o portal do Azure: https://portal.azure.com. Inicie sessão com a sua conta do Azure.
 
 2. No canto superior esquerdo do ecrã, selecione o **grupo de recursos** ícone. Em seguida, selecione o grupo de recursos onde estão localizadas as VMs (por exemplo, **contosofabrikam**). O **grupos de recursos** painel apresenta todos os recursos e NICs para as VMs.
 
@@ -86,7 +86,7 @@ Após a segunda configuração de IP para o NIC secundário é concluído, será
 
 Crie o seu Balanceador de carga para a configuração:
 
-1. Navegue para o portal do Azure: http://portal.azure.com. Inicie sessão com a sua conta do Azure.
+1. Navegue para o portal do Azure: https://portal.azure.com. Inicie sessão com a sua conta do Azure.
 
 2. No canto superior esquerdo do ecrã, selecione **criar um recurso** > **rede** > **Balanceador de carga**. Em seguida, selecione **criar**.
 
@@ -106,15 +106,15 @@ Para cada Web site (contoso.com e fabrikam.com), configure o conjunto IP Front-e
 
 2. Configurar dois endereços IP públicos (**PublicIP1** e **PublicIP2**) para ambos os Web sites (contoso.com e fabrikam.com):
 
-    1. Escreva um nome para o seu endereço IP Front-end.
+   1. Escreva um nome para o seu endereço IP Front-end.
 
-    2. Para **grupo de recursos**, selecione o grupo de recursos existente para as suas VMs (por exemplo, **contosofabrikam**).
+   2. Para **grupo de recursos**, selecione o grupo de recursos existente para as suas VMs (por exemplo, **contosofabrikam**).
 
-    3. Para **localização**, selecione a mesma localização que as VMs.
+   3. Para **localização**, selecione a mesma localização que as VMs.
 
-    4. Selecione **OK**.
+   4. Selecione **OK**.
 
-    Depois dos endereços IP públicos são criados, estes são apresentados sob a **IP público** endereços.
+      Depois dos endereços IP públicos são criados, estes são apresentados sob a **IP público** endereços.
 
 3. <a name="step3-3"></a>No portal, selecione **mais serviços**. Na caixa de filtro, escreva **Balanceador de carga** e, em seguida, selecione **Balanceador de carga**. 
 

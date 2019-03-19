@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191066"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109142"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia do administrador do Atlassian Jira e confluência para o Azure Active Directory
 
@@ -110,33 +110,33 @@ A imagem seguinte mostra a tela de configuração no Jira e confluência:
 
 ![Ecrã de configuração de plug-in](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **URL de metadados**: O URL para obter metadados de Federação do Azure AD.
+* **URL de metadados**: O URL para obter metadados de Federação do Azure AD.
 
-*   **Identificadores**: O URL que o Azure AD utiliza para validar a origem do pedido. Mapeia para o **identificador** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/.
+* **Identificadores**: O URL que o Azure AD utiliza para validar a origem do pedido. Mapeia para o **identificador** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/.
 
-*   **URL de resposta**: O URL de resposta no seu fornecedor de identidade (IdP), que inicia o início de sessão no SAML. Mapeia para o **URL de resposta** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/plugins/servlet/saml/auth.
+* **URL de resposta**: O URL de resposta no seu fornecedor de identidade (IdP), que inicia o início de sessão no SAML. Mapeia para o **URL de resposta** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/plugins/servlet/saml/auth.
 
-*   **Inicie sessão no URL**: O URL início de sessão na sua IdP que inicia o início de sessão no SAML. Mapeia para o **sessão** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/plugins/servlet/saml/auth.
+* **Inicie sessão no URL**: O URL início de sessão na sua IdP que inicia o início de sessão no SAML. Mapeia para o **sessão** elemento no Azure AD. O plug-in automaticamente deriva este URL como https://*< domínio: porta >*/plugins/servlet/saml/auth.
 
-*   **ID de entidade de IdP**: O ID de entidade que o IdP utiliza. Esta caixa é preenchida quando o URL de metadados é resolvido.
+* **ID de entidade de IdP**: O ID de entidade que o IdP utiliza. Esta caixa é preenchida quando o URL de metadados é resolvido.
 
-*   **URL de início de sessão**: O URL de início de sessão do seu IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
+* **URL de início de sessão**: O URL de início de sessão do seu IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
 
-*   **URL de fim de sessão**: O URL de fim de sessão do seu IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
+* **URL de fim de sessão**: O URL de fim de sessão do seu IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
 
-*   **Certificado X.509**: Certificado X.509 do IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
+* **Certificado X.509**: Certificado X.509 do IdP. Esta caixa é preenchida a partir do Azure AD quando o URL de metadados é resolvido.
 
-*   **Nome do botão de início de sessão**: O nome do botão início de sessão que a organização quer que os utilizadores vejam na página de início de sessão.
+* **Nome do botão de início de sessão**: O nome do botão início de sessão que a organização quer que os utilizadores vejam na página de início de sessão.
 
-*   **Localizações de ID de utilizador SAML**: A localização onde o ID de utilizador no Jira ou confluência é esperado na resposta SAML. Pode ter **NameID** ou um nome de atributo personalizado.
+* **Localizações de ID de utilizador SAML**: A localização onde o ID de utilizador no Jira ou confluência é esperado na resposta SAML. Pode ter **NameID** ou um nome de atributo personalizado.
 
-*   **Nome de atributo**: O nome do atributo onde é esperado o ID de utilizador.
+* **Nome de atributo**: O nome do atributo onde é esperado o ID de utilizador.
 
-*   **Deteção de Realm inicial de Enable**: A seleção fazer se a empresa estiver a utilizar os serviços de Federação do Active Directory (AD FS) - com base em sessão - na.
+* **Deteção de Realm inicial de Enable**: A seleção fazer se a empresa estiver a utilizar os serviços de Federação do Active Directory (AD FS) - com base em sessão - na.
 
-*   **Nome de domínio**: O nome de domínio se início de sessão é do AD FS com base.
+* **Nome de domínio**: O nome de domínio se início de sessão é do AD FS com base.
 
-*   **Ativar a fim de sessão único**: A seleção para que se pretende terminar a sessão do Azure AD quando um utilizador termina sessão Jira ou confluência.
+* **Ativar a fim de sessão único**: A seleção para que se pretende terminar a sessão do Azure AD quando um utilizador termina sessão Jira ou confluência.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

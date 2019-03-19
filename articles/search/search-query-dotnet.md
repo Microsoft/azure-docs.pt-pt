@@ -10,19 +10,19 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/19/2017
 ms.custom: seodec2018
-ms.openlocfilehash: 5c89902da5e773c60c8e2694159ddeed874ecab2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ecd4c7e862db43dc01685af313d618a38a688d5b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317003"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58138258"
 ---
 # <a name="query-your-azure-search-index-using-the-net-sdk"></a>Consultar o índice de Pesquisa do Azure utilizando o SDK .NET
 > [!div class="op_single_selector"]
 > * [Descrição geral](search-query-overview.md)
 > * [Portal](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
+> * [REST](search-create-index-rest-api.md)
 > 
 > 
 

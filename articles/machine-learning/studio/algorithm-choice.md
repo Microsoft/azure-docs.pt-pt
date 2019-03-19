@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: d75048cb53dd1a5ebaba6322228af6137d0f3b96
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3bb88f2f9546ec25433061a0704bd144730bd34c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456181"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894636"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Como escolher algoritmos para o Azure Machine Learning Studio
 
@@ -45,7 +45,7 @@ Leia as etiquetas de caminho e o algoritmo no gráfico, como "para  *&lt;etiquet
 Por vezes, nenhuma delas é um ajuste perfeito. Se se destinam a ser recomendações de regra de geral, para que não se preocupe a ser exata.
 Cientistas de dados de vários que nós falamos com disse que a forma-se de que apenas para encontrar o melhor algoritmo é tentar todas elas.
 
-Eis um exemplo do [Galeria de IA do Azure](http://gallery.azure.ai/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [Compare classificadores de Roc: Reconhecimento de letra](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
+Eis um exemplo do [Galeria de IA do Azure](https://gallery.azure.ai/) de uma experimentação que tenta vários algoritmos contra os mesmos dados e compara os resultados: [Compare classificadores de Roc: Reconhecimento de letra](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > Para transferir uma visão geral de fácil de compreender o infográfico de noções básicas do machine learning para saber mais sobre os algoritmos populares utilizados para responder a perguntas comuns de machine learning, consulte [de Machine learning Noções básicas com exemplos de algoritmos](basics-infographic-with-algorithm-examples.md).
@@ -180,7 +180,7 @@ Florestas de decisão ([regressão](/azure/machine-learning/studio-module-refere
 
 Uma vez que um espaço de recurso pode ser subdividido em arbitrariamente em pequenas regiões, é fácil imaginar dividindo-escalados suficiente para ter um ponto de dados por região. Este é um exemplo extremo de overfitting. Para evitar isso, um grande conjunto de árvores são construídos com cuidado matemático especial tomado para garantir que as árvores não são correlacionadas. A média desta "floresta de decisão" é uma árvore que evita overfitting. Florestas de decisão podem utilizar muita memória. Grupo de decisões é uma variante que consome menos memória às custas de um pouco mais tempo de treinamento.
 
-Árvores de decisões elevada evitar overfitting ao limitar o número de vezes que podem subdividir e como pontos de dados são permitidos em cada região. O algoritmo constrói uma seqüência de árvores, cada um dos quais aprende a compensar o erro à esquerda por uma árvore de antes. O resultado é um aprendiz muito preciso que tende a utilizar muita memória. Para a descrição do técnica completo, confira [documento original de Friedman](http://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
+Árvores de decisões elevada evitar overfitting ao limitar o número de vezes que podem subdividir e como pontos de dados são permitidos em cada região. O algoritmo constrói uma seqüência de árvores, cada um dos quais aprende a compensar o erro à esquerda por uma árvore de antes. O resultado é um aprendiz muito preciso que tende a utilizar muita memória. Para a descrição do técnica completo, confira [documento original de Friedman](https://www-stat.stanford.edu/~jhf/ftp/trebst.pdf).
 
 [Rápida de regressão de quantile floresta](/azure/machine-learning/studio-module-reference/fast-forest-quantile-regression) é uma variação de árvores de decisão para o caso especial em que deseja saber não apenas o valor típico (mediano) dos dados dentro de uma região, mas também sua distribuição sob a forma de quantiles.
 
@@ -215,7 +215,7 @@ Utilizar uma extensão inteligente do SVMs não lineares, o [SVM de uma classe](
 Métodos de Bayesianos possuem uma qualidade altamente desejável: eles evitar overfitting. Eles fazem isso fazendo algumas suposições com antecedência sobre a distribuição de probabilidade da resposta. Outro subproduto dessa abordagem é que eles têm muito poucos parâmetros. O Azure Machine Learning Studio tem Bayesianos algoritmos para ambos os classificação ([máquina do ponto dos Bayes de duas classes](/azure/machine-learning/studio-module-reference/two-class-bayes-point-machine)) e regressão ([regressão linear de Bayesianos](/azure/machine-learning/studio-module-reference/bayesian-linear-regression)).
 Tenha em atenção que estes partem do princípio de que os dados podem ser divididos ou ajustar com uma linha reta.
 
-Numa nota histórica, máquinas de ponto dos Ingênua foram desenvolvidas junto da Microsoft Research. Eles têm algum trabalho teórico excepcionalmente belo por trás delas. Os estudantes interessados é direcionado para o [artigo original no JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e uma [blog esclarecedores, de Chris Bishop](http://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
+Numa nota histórica, máquinas de ponto dos Ingênua foram desenvolvidas junto da Microsoft Research. Eles têm algum trabalho teórico excepcionalmente belo por trás delas. Os estudantes interessados é direcionado para o [artigo original no JMLR](http://jmlr.org/papers/volume1/herbrich01a/herbrich01a.pdf) e uma [blog esclarecedores, de Chris Bishop](https://blogs.technet.com/b/machinelearning/archive/2014/10/30/embracing-uncertainty-probabilistic-inference.aspx).
 
 ### <a name="specialized-algorithms"></a>Algoritmos especializados
 Se tiver um objetivo muito específico pode ser com sorte. Dentro da coleção do Azure Machine Learning Studio, há algoritmos especializam em:

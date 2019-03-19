@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5ff0a70d8b370655df1eef55dac68804a1db406b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: f83ee40c97e49add539a44a6ba764024a8e47bfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082151"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081496"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Criar e gerir VMs reclamáveis no Azure DevTest Labs
 Adicionar uma VM reclamável a um laboratório de forma semelhante a como [adicionar uma VM padrão](devtest-lab-add-vm.md) – num *base* ou seja, seja um [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md) , ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica-lhe utilizar o portal do Azure para adicionar uma VM reclamável a um laboratório no DevTest Labs e mostra os processos de um utilizador que se segue para reclamar e removerá os a VM.
@@ -64,12 +64,12 @@ Um utilizador pode reivindicar qualquer VM na lista de "Máquinas de virtuais Re
 
 * Na lista de "Máquinas de virtuais Reclamáveis" na parte inferior do painel de "Descrição geral" do laboratório, faça duplo clique das VMs na lista e escolha **máquina de afirmação**.
 
- ![Pedir uma VM reclamável específica.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
+  ![Pedir uma VM reclamável específica.](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
 * Na parte superior do painel "Descrição geral", escolha **afirmação qualquer**. Uma máquina virtual aleatória é atribuída a partir da lista de VMs reclamáveis.
 
- ![Qualquer VM reclamável do pedido.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
+  ![Qualquer VM reclamável do pedido.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
 Depois de uma VM de afirmações de um utilizador, é atrasado em sua lista de "Minhas máquinas virtuais" e não se encontra reclamáveis por qualquer outro utilizador.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4f6dbb52778893de0468dbab82351b9020af2927
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: cae657736d78958259c04dee48034f97ac9d3d1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53412814"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871233"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicação do Azure
 
@@ -27,7 +27,7 @@ Este artigo descreve como criar e publicar uma entrada de oferta de aplicação 
 
 ## <a name="new-offer-form"></a>Novo formulário de oferta
 
-Inicie sessão para o [Cloud Partner Portal](http://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menu à esquerda. No novo oferecem menu, selecione **aplicações do Azure** para apresentar o **nova oferta** formam e iniciar o processo de definição de ativos para uma nova oferta.
+Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menu à esquerda. No novo oferecem menu, selecione **aplicações do Azure** para apresentar o **nova oferta** formam e iniciar o processo de definição de ativos para uma nova oferta.
 
 ![Novo formulário de oferta](./media/azure-new-managedapp-offer.png)
 

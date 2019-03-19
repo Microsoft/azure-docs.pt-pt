@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0f700b9e24399768977a1fa221322fa4c1c6708d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976369"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095148"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Resolução de problemas de ativação de máquina virtual do Windows Azure
 
@@ -29,7 +29,7 @@ Se tiver problemas ao ativar a máquina de virtual de Windows Azure (VM) que é 
 O Azure utiliza diferentes pontos de extremidade para ativação do KMS consoante a região de cloud em que a VM reside. Ao utilizar este guia de resolução de problemas, utilize o ponto de final adequado do KMS aplica-se a sua região.
 
 * Regiões de cloud pública do Azure: kms.core.windows.net:1688
-* Regiões em nuvem nacionais do Azure China 21Vianet: kms.core.chinacloudapi.cn:1688
+* Azure China 21Vianet national cloud regions: kms.core.chinacloudapi.cn:1688
 * Regiões de cloud nacional do Azure Alemanha: kms.core.cloudapi.de:1688
 * Regiões de cloud nacional do Azure gov (US): kms.core.usgovcloudapi.net:1688
 
@@ -61,7 +61,7 @@ Este passo não é aplicável ao Windows 2012 ou Windows 2008 R2. Ele usa a func
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
 
-2. Se **Slmgr. vbs /dlv** mostra o canal de varejo, execute os seguintes comandos para definir o [chave de configuração de cliente KMS](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) a ser utilizado para a versão do Windows Server e forçá-lo novamente a ativação: 
+2. Se **slmgr.vbs /dlv** mostrar o canal RETAIL, execute os comandos seguintes para definir a [chave de configuração do cliente KMS](https://technet.microsoft.com/library/jj612867%28v=ws.11%29.aspx?f=255&MSPPError=-2147217396) relativa à versão do Windows Server que está a ser utilizada e force a repetição da ativação: 
 
     ```
     cscript c:\windows\system32\slmgr.vbs /ipk <KMS client setup key>
@@ -81,34 +81,34 @@ Este passo não é aplicável ao Windows 2012 ou Windows 2008 R2. Ele usa a func
 
 2. Volte a iniciar, procure no Windows PowerShell, Windows PowerShell com o botão direito e, em seguida, selecionar executar como administrador.
 
-3. Certifique-se de que a VM está configurada para utilizar o servidor correto do KMS do Azure. Para tal, execute o seguinte comando:
-  
+3. Confirme que a VM está configurada para utilizar o servidor correto do KMS do Azure. Para tal, execute o seguinte comando:
+  
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    O comando deve retornar: Nome da máquina do serviço de gestão de chaves definida para kms.core.windows.net:1688 com êxito.
+    O comando deve devolver: Nome da máquina do serviço de gestão de chaves definida para kms.core.windows.net:1688 com êxito.
 
-4. Certifique-se ao utilizar o Psping que tem conetividade ao servidor do KMS. Mude para a pasta onde extraiu o download de Pstools.zip e, em seguida, execute o seguinte:
-  
+4. Certifique-se ao utilizar o Psping que tem conetividade ao servidor do KMS. Mude para a pasta para a qual extraiu a transferência de Pstools.zip e execute o seguinte:
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
-  Na linha segundo ao último da saída, certifique-se de que consegue ver: Enviado = 4, recebidos = 4, perdida = 0 (perda de 0%).
+  
+   Na penúltima linha da saída, verifique se vê: Enviado = 4, recebidos = 4, perdida = 0 (perda de 0%).
 
-  Se perdida for superior a 0 (zero), a VM tem conetividade ao servidor do KMS. Nesta situação, é capaz de resolver kms.core.windows.net se a VM estiver numa rede virtual e tiver um servidor DNS personalizado especificado, deve certificar-se de que o servidor DNS. Em alternativa, altere o servidor DNS de forma que resolver kms.core.windows.net.
+   Se perdida for superior a 0 (zero), a VM tem conetividade ao servidor do KMS. Nesta situação, é capaz de resolver kms.core.windows.net se a VM estiver numa rede virtual e tiver um servidor DNS personalizado especificado, deve certificar-se de que o servidor DNS. Em alternativa, altere o servidor DNS de forma que resolver kms.core.windows.net.
 
-  Observe que, se remover todos os servidores DNS de uma rede virtual, as VMs usam o serviço DNS interno do Azure. Este serviço pode resolver kms.core.windows.net.
+   Observe que, se remover todos os servidores DNS de uma rede virtual, as VMs usam o serviço DNS interno do Azure. Este serviço pode resolver kms.core.windows.net.
   
 Certifique-se também de que a firewall de convidado não foi configurada de forma que faria a bloquear tentativas de ativação.
 
-5. Depois de verificar a conectividade com êxito kms.core.windows.net, execute o seguinte comando essa linha de comandos elevada do Windows PowerShell. Este comando tenta a ativação várias vezes.
+1. Depois de verificar a conectividade com êxito kms.core.windows.net, execute o seguinte comando essa linha de comandos elevada do Windows PowerShell. Este comando repete a ativação várias vezes.
 
     ```
     1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
     ```
 
-Uma ativação com êxito retorna informações que é semelhante ao seguinte:
+Uma ativação com êxito devolve informações semelhantes ao seguinte:
 
 **Ativar o Windows (r), edição de ServerDatacenter (12345678-1234-1234-1234-12345678)... Produto ativado com êxito.**
 

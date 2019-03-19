@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 0b7c6a356812e4acd39b5164cce279b5a18eb3d5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a512bb4adc4e410ef2300811ffa4142348d5ee33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871823"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuração dos Reliable Actors – KVSActorStateProvider
 Pode modificar a configuração predefinida de KVSActorStateProvider alterando o arquivo Settings XML que é gerado na raiz do pacote do Microsoft Visual Studio sob a pasta de configuração para o ator especificado.
@@ -75,7 +75,7 @@ A configuração predefinida é gerada pelo modelo do Visual Studio e deve ser s
 ## <a name="sample-configuration-file"></a>Ficheiro de configuração de exemplo
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Section Name="MyActorServiceReplicatorConfig">
       <Parameter Name="ReplicatorEndpoint" Value="MyActorServiceReplicatorEndpoint" />
       <Parameter Name="BatchAcknowledgementInterval" Value="0.05"/>

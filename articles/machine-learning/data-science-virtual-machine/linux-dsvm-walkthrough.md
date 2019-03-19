@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245838"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891091"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Data Science Máquina Virtual do Linux no Azure
 Estas instruções mostram como realizar várias tarefas de ciência de dados comuns com a VM de ciência de dados do Linux. A Máquina Virtual de ciência de dados de Linux (DSVM) é uma imagem de máquina virtual disponível no Azure que está pré-instalado com uma coleção de ferramentas utilizadas para análise de dados e machine learning. Os componentes de software importantes estão descritos a [aprovisionar a máquina de Virtual de ciência de dados do Linux](linux-dsvm-intro.md) tópico. A imagem de VM torna mais fácil começar a fazer ciência de dados em minutos, sem ter de instalar e configurar cada uma das ferramentas individualmente. Pode facilmente aumentar verticalmente a VM, se necessário e pará-la quando não está em utilização. Portanto, este recurso é económico e flexível.
@@ -36,7 +36,7 @@ Antes de poder utilizar uma máquina de Virtual de ciência de dados do Linux, t
 
 * Uma **subscrição do Azure**. Se ainda não tiver uma, veja [crie hoje a sua conta gratuita do Azure](https://azure.microsoft.com/free/).
 * R [ **VM de ciência de dados do Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre esta VM de aprovisionamento, consulte [aprovisionar a máquina de Virtual de ciência de dados do Linux](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) instalado no seu computador e abrir uma sessão XFCE. Para obter informações sobre como instalar e configurar uma **cliente X2Go**, consulte [instalar e configurar o cliente de X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* [X2Go](https://wiki.x2go.org/doku.php) instalado no seu computador e abrir uma sessão XFCE. Para obter informações sobre como instalar e configurar uma **cliente X2Go**, consulte [instalar e configurar o cliente de X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 * Para uma experiência de rolagem mais suave, alterne o sinalizador de gfx.xrender.enabled no sobre: configuração no navegador FireFox de VMs. [Veja mais aqui. ](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também a alternar *mousewheel.enable_pixel_scrolling* como False. [Instruções aqui.](https://support.mozilla.org/en-US/questions/981140)
 * Uma **AzureML conta**. Se ainda não tiver uma, inscreva-se um novo aos [home page do AzureML](https://studio.azureml.net/). Existe um escalão de utilização gratuita para o ajudar a começar a utilizar.
 
@@ -52,7 +52,7 @@ Se precisar de mais espaço de armazenamento, pode criar discos adicionais e ane
 
 Para transferir os dados, abra uma janela de terminal e execute este comando:
 
-    wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 O ficheiro transferido não tem uma linha de cabeçalho, então, vamos criar outro ficheiro que tenha um cabeçalho. Execute este comando para criar um ficheiro com os cabeçalhos apropriados:
 
@@ -263,7 +263,7 @@ XGBoost também pode chamar a partir de python ou uma linha de comando.
 Para o desenvolvimento com o Python, foram instaladas as distribuições de Anaconda Python 2.7 e 3.5 DSVM.
 
 > [!NOTE]
-> Inclui a distribuição de Anaconda [Conda](http://conda.pydata.org/docs/index.html), que podem ser utilizadas para criar ambientes personalizados para o Python que têm versões diferentes e/ou os pacotes instalados nos mesmos.
+> Inclui a distribuição de Anaconda [Conda](https://conda.pydata.org/docs/index.html), que podem ser utilizadas para criar ambientes personalizados para o Python que têm versões diferentes e/ou os pacotes instalados nos mesmos.
 >
 >
 
@@ -318,21 +318,19 @@ A distribuição de Anaconda na DSVM vem com um bloco de notas do Jupyter, um am
 
 > [!NOTE]
 > Utilizar o Gestor de pacotes do Python (através do `pip` comando) de um bloco de notas do Jupyter no kernel do atual, o comando seguinte pode ser utilizado na célula de código, por exemplo:
-  ```python
-   import sys
-   ! {sys.executable} -m pip install numpy -y
-  ```
->
->
-
+>   ```python
+>    import sys
+>    ! {sys.executable} -m pip install numpy -y
+>   ```
+> 
+> 
+> 
 > [!NOTE]
 > Para utilizar o instalador de Conda (via o `conda` comando) de um bloco de notas do Jupyter no kernel do atual, o comando seguinte pode ser utilizado na célula de código, por exemplo:
-  ```python
-   import sys
-   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-  ```
->
->
+>   ```python
+>    import sys
+>    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+>   ```
 
 Vários blocos de notas de exemplo já estão instalados na VM:
 
@@ -515,7 +513,7 @@ Ou quais são as características de e-mail que contêm frequentemente *3d*?
 
 A maioria das mensagens de e-mail que têm uma elevada ocorrência de *3d* são aparentemente de spam, poderia ser um recurso útil para a criação de um modelo preditivo para classificar os e-mails.
 
-Se quiser fazer o machine learning com dados armazenados num banco de dados do PostgreSQL, considere utilizar [MADlib](http://madlib.incubator.apache.org/).
+Se quiser fazer o machine learning com dados armazenados num banco de dados do PostgreSQL, considere utilizar [MADlib](https://madlib.incubator.apache.org/).
 
 ## <a name="sql-server-data-warehouse"></a>Armazém de dados do SQL Server
 O Azure SQL Data Warehouse é uma base de dados de escalabilidade horizontal, baseada na nuvem, capaz de processar grandes volumes de dados, tanto relacionais como não relacionais. Para obter mais informações, consulte [o que é o Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

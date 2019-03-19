@@ -15,12 +15,12 @@ ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 1ccbe8b268725cf3d0747486a20e0597d023662e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8080355bebf00c9f37c28ae8ed54bba092f8dc17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099938"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Implementar os serviços cognitivos do Azure para o Azure Stack
 
@@ -67,12 +67,12 @@ Antes de começar, precisará para:
 
 Crie um recurso de serviço cognitivo no Azure para pré-visualizar os contentores de rostos, LUIS ou reconhecer texto, respectivamente. Terá de utilizar o URL de ponto final e a chave de subscrição do recurso para instanciar os contentores do serviço cognitivo.
 
-1.  Crie um recurso do Azure no portal do Azure. Se quiser pré-visualizar os contentores de rostos, primeiro tem de criar um recurso de Face correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: Criar uma conta dos serviços cognitivos no portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+1. Crie um recurso do Azure no portal do Azure. Se quiser pré-visualizar os contentores de rostos, primeiro tem de criar um recurso de Face correspondente no portal do Azure. Para obter mais informações, consulte [início rápido: Criar uma conta dos serviços cognitivos no portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
-    >  [!Note]  
-    >  O recurso Face ou de imagem digitalizada tem de utilizar o escalão de preço F0.
+   > [!Note]
+   >  O recurso Face ou de imagem digitalizada tem de utilizar o escalão de preço F0.
 
-2.  Obtenha a chave de subscrição e o URL de ponto final para o recurso do Azure. Depois de criar o recurso do Azure, tem de utilizar o URL de ponto final e a chave de subscrição desse recurso para instanciar o contentor de rostos, LUIS ou reconhecer texto correspondente para a pré-visualização.
+2. Obtenha a chave de subscrição e o URL de ponto final para o recurso do Azure. Depois de criar o recurso do Azure, tem de utilizar o URL de ponto final e a chave de subscrição desse recurso para instanciar o contentor de rostos, LUIS ou reconhecer texto correspondente para a pré-visualização.
 
 ## <a name="create-a-kubernetes-secret"></a>Crie um Kubernetes secreta 
 

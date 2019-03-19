@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e79fdf2d7d680b3a229385c0fd96d844b3425b18
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 1d886e146e9e18eb735e6f88d2cb2c1a4a472924
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996873"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Restaurar dados a partir de uma cópia de segurança no Azure Cosmos DB 
 
-Se eliminar acidentalmente a base de dados ou um contentor, pode [enviar um pedido de suporte]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [contactar o suporte do Azure]( https://azure.microsoft.com/support/options/) para restaurar os dados a partir de cópias de segurança online automáticas. Suporte do Azure só está disponível para planos selecionados como **padrão**, * * para desenvolvedores e os planos superiores-los. Suporte do Azure não está disponível com **básica** plano. Para saber mais sobre os planos de suporte a diferentes, veja a [planos de suporte do Azure](https://azure.microsoft.com/support/plans/) página. 
+Se eliminar acidentalmente a base de dados ou um contentor, pode [enviar um pedido de suporte]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ou [contactar o suporte do Azure]( https://azure.microsoft.com/support/options/) para restaurar os dados a partir de cópias de segurança online automáticas. Suporte do Azure só está disponível para planos selecionados como **padrão**, **programador**e planos superiores-los. Suporte do Azure não está disponível com **básica** plano. Para saber mais sobre os planos de suporte a diferentes, veja a [planos de suporte do Azure](https://azure.microsoft.com/support/plans/) página. 
 
 Para restaurar um instantâneo específico da cópia de segurança, o Azure Cosmos DB requer que os dados estão disponíveis durante o ciclo de cópia de segurança para que o instantâneo.
 

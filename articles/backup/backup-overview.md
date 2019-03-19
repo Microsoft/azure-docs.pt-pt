@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864307"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122017"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -55,10 +55,10 @@ Ambos os serviços fornecem funcionalidades diferentes mas complementares.
 Utilize os pontos de tabela para ajudar a descobrir as suas necessidades BCDR. 
 
 **Objetivo** | **Detalhes** | **Comparação**
---- | --- | --- | --- |
+--- | --- | --- 
 **Cópia de segurança/retenção de dados** | Dados de cópia de segurança podem ser mantidos e armazenados durante dias, meses ou até anos a fio se for necessário numa perspetiva de conformidade. | Soluções de cópia de segurança, como a cópia de segurança do Azure permitem-lhe escolher os dados que pretende criar cópias de segurança e fazer um ajuste as políticas de cópia de segurança e retenção.<br/><br/> Recuperação de sites não permite a mesma ajuste fino.
 **Objetivo de ponto de recuperação (RPO)** | A quantidade de perda de dados aceitável se uma recuperação tiver de ser efetuada. | As cópias de segurança têm mais variável RPO.<br/><br/> Cópias de segurança VM normalmente têm um RPO de um dia, enquanto as cópias de segurança da base de dados têm RPOs tão baixos como 15 minutos.<br/><br/> Recuperação de sites fornece um RPO baixo, uma vez que a replicação é contínua ou com frequência, para que o delta entre a cópia de origem e de réplica é pequeno.
-**Objetivo de tempo de recuperação (RTO)** |A quantidade de tempo que demora a concluir uma recuperação ou um restauro. | Devido ao RPO maior, a quantidade de dados que uma solução de cópia de segurança necessita para processar é, normalmente, muito mais elevada, o que resulta em RTOs maiores. Por exemplo, pode demorar dias para restaurar dados de bandas, consoante o tempo que demora a transportar a banda a partir de uma localização fora das instalações. | Soluções de recuperação após desastre, como a recuperação de Site têm um RPO baixo, uma vez que a replicação contínua/frequentes, geralmente, significa que o destino é mais elevada sincronizado com a origem. |
+**Objetivo de tempo de recuperação (RTO)** |A quantidade de tempo que demora a concluir uma recuperação ou um restauro. | Devido ao RPO maior, a quantidade de dados que uma solução de cópia de segurança necessita para processar é, normalmente, muito mais elevada, o que resulta em RTOs maiores. Por exemplo, pode demorar dias para restaurar dados de bandas, consoante o tempo que demora a transportar a banda a partir de uma localização fora das instalações. 
 
 ## <a name="what-backup-scenarios-are-supported"></a>Quais cenários de cópia de segurança são suportados?
 

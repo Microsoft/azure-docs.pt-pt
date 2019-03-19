@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 8b0973007a78b492cff1c5ffc2ce1e43116a0847
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478054"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835089"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de funcionalidades em ciência de dados
 Este artigo explica os fins de engenharia de funcionalidades e fornece exemplos de seu papel no processo de aprimoramento de dados do machine learning. Os exemplos usados para ilustrar esse processo são obtidos a partir do Azure Machine Learning Studio. 
@@ -46,7 +46,7 @@ Que tipo de recursos deve ser criado para melhorar o conjunto de dados quando pr
 
 Quando a partir do Azure Machine Learning, é mais fácil entender esse processo concretamente usando exemplos fornecidos no Studio. Dois exemplos são apresentados aqui:
 
-* Um exemplo de regressão [previsão do número de bicicletas alugadas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) numa experimentação supervisionada onde os valores de destino são conhecidos
+* Um exemplo de regressão [previsão do número de bicicletas alugadas](https://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) numa experimentação supervisionada onde os valores de destino são conhecidos
 * Um através do exemplo de classificação do extração de texto [Hashing de funcionalidade](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
 ## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exemplo 1: Adicionar funcionalidades temporais para um modelo de regressão

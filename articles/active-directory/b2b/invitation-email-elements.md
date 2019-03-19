@@ -9,15 +9,15 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f701642c76446049ad2868ae59a03370e798b6a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 43fa8148fff1389982d967b2e69f4a9425841c91
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453699"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014911"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Os elementos da mensagem de e-mail de convite de colaboração B2B - Azure Active Directory
 
@@ -32,7 +32,7 @@ Vamos examinar alguns elementos da mensagem de e-mail para que saiba a melhor ma
 O assunto do e-mail segue o padrão seguinte: Está convidado para o &lt;tenantname&gt; organização
 
 ### <a name="from-address"></a>Do endereço
-Utilizamos um padrão como o LinkedIn para o endereço.  Deve ser clara de quem é o autor do convite e de que o da empresa e também esclarecer que o e-mail é proveniente de um Microsoft endereço de e-mail. O formato é: &lt;Nome a apresentar do autor do convite&gt; partir &lt;tenantname&gt; (através da Microsoft) <invites@microsoft.com>
+Utilizamos um padrão como o LinkedIn para o endereço.  Deve ser clara de quem é o autor do convite e de que o da empresa e também esclarecer que o e-mail é proveniente de um Microsoft endereço de e-mail. O formato é: Microsoft Invitations <invites@microsoft.com> ou &lt;nome a apresentar do autor do convite&gt; partir &lt;tenantname&gt; (através da Microsoft) <invites@microsoft.com>.
 
 ### <a name="reply-to"></a>Responder A
 O e-mail de resposta está definido para o e-mail na máquina, quando disponível, para que a responder à mensagem de e-mail envia um e-mail para o autor do convite.
@@ -56,8 +56,12 @@ Se ainda não configurou a sua imagem do perfil, é apresentado um ícone com in
 ### <a name="body"></a>Corpo
 O corpo contém a mensagem que o autor do convite compõe quando [convidar um utilizador convidado ao diretório, grupo ou aplicação](add-users-administrator.md) ou [ao utilizar o API de convite](customize-invitation-api.md). É uma área de texto, para que ele não processa tags de HTML por motivos de segurança.
 
+  ![imagem do corpo do e-mail](media/invitation-email-elements/invitation-email-body.png)
+
 ### <a name="footer-section"></a>Secção de rodapé
-O rodapé contém a marca da empresa do Microsoft e permite ao destinatário saber se o e-mail foi enviado a partir de um alias não monitorizado. Casos especiais:
+O rodapé contém a marca da empresa do Microsoft e permite ao destinatário saber se o e-mail foi enviado a partir de um alias não monitorizado. 
+
+Casos especiais:
 
 - O autor do convite não tiver um endereço de e-mail no inquilino de convite
 

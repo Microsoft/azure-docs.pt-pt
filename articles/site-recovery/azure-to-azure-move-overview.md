@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 07fee8e5d051f0d2c04d3b5e34b66299734ca29c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549155"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078011"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -24,7 +24,7 @@ Este tutorial descreve os diferentes cenários em que gostaria de mover as suas 
 Neste tutorial, irá aprender:
 
 > [!div class="checklist"]
-
+> 
 > * Motivos para mover as VMs
 > * Arquiteturas típicas
 > * Mover VMs como está para uma região de destino
@@ -99,8 +99,8 @@ Com base na [arquiteturas](#typical-architectures-for-a-multi-tier-deployment) m
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-
+> 
 > * [Mover as VMs do Azure para outra região](azure-to-azure-tutorial-migrate.md)
-
+> 
 > * [Mover VMs do Azure para zonas de disponibilidade](move-azure-vms-avset-azone.md)
 

@@ -124,6 +124,8 @@ items:
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+  - name: Melhores práticas
+    href: key-vault-best-practices.md
   - name: Modelo do Resource Manager
     href: /azure/templates/microsoft.keyvault/allversions
   - name: Autenticação, Pedidos e Respostas
@@ -174,9 +176,9 @@ items:
     href: https://blogs.technet.com/b/kv/
   - name: Comentários sobre o Produto
     href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: ae2d61cbe152491825c4f8a075088ba9f523a579
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e54a60608423e8589dfa79dc70ffd4539bfb8a97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542450"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57834647"
