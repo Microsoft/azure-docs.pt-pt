@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092196"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de gestão de dados - elevada disponibilidade e escalabilidade (pré-visualização)
 > [!NOTE]
@@ -29,8 +29,8 @@ Este artigo ajuda-o a configurar a solução de elevada disponibilidade e escala
 
 > [!NOTE]
 > Este artigo pressupõe que já esteja familiarizado com noções básicas do Integration Runtime (Data Management Gateway anterior). Se não for, veja [Data Management Gateway](data-factory-data-management-gateway.md).
-
->**Esta funcionalidade de pré-visualização é oficialmente suportada no 2.12.xxxx.x de versão do Gateway de gestão de dados e superior**. Certifique-se de que está a utilizar versão 2.12.xxxx.x ou superior. Baixe a versão mais recente do Data Management Gateway [aqui](https://www.microsoft.com/download/details.aspx?id=39717).
+> 
+> **Esta funcionalidade de pré-visualização é oficialmente suportada no 2.12.xxxx.x de versão do Gateway de gestão de dados e superior**. Certifique-se de que está a utilizar versão 2.12.xxxx.x ou superior. Baixe a versão mais recente do Data Management Gateway [aqui](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Descrição geral
 Pode associar os gateways de gestão de dados que são instalados em várias máquinas no local com um único gateway lógico no portal. Estas máquinas são chamadas **nós**. Pode ter até **quatro nós** associados a um gateway lógico. Os benefícios de ter vários nós (máquinas no local com o gateway instalado) para um gateway lógico são:  
@@ -163,8 +163,8 @@ Eis os requisitos para o certificado TLS/SSL que é utilizado para proteger as c
 
 - O certificado tem de ser um publicamente fidedigno X509 v3 certificado. Recomendamos que utilize certificados emitidos por uma autoridade de certificação de (de terceiros) pública (AC).
 - Cada nó do integration runtime têm de confiar este certificado, bem como a máquina de cliente que está a executar a aplicação do Gestor de credenciais. 
-> [!NOTE]
-> Aplicação do Gestor de credencial é utilizada ao definir com segurança credencial a partir do Assistente de cópia / Portal do Azure. E isso pode ser acionada a partir de qualquer máquina dentro da mesma rede como no local / privada arquivo de dados.
+  > [!NOTE]
+  > Aplicação do Gestor de credencial é utilizada ao definir com segurança credencial a partir do Assistente de cópia / Portal do Azure. E isso pode ser acionada a partir de qualquer máquina dentro da mesma rede como no local / privada arquivo de dados.
 - Os certificados de caráter universal são suportados. Se o nome FQDN for **node1.domain.contoso.com**, pode utilizar ***. domain.contoso.com** como nome do requerente do certificado.
 - Certificados SAN não são recomendados uma vez que será utilizado apenas o último item dos nomes alternativos do requerente e todos os outros serão ignorados devido a limitação atual. Por exemplo, tem um certificado SAN é cujo SAN **node1.domain.contoso.com** e **node2.domain.contoso.com**, só pode utilizar este certificado no computador cujo FQDN for **node2.domain.contoso.com**.
 - Suporta qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados SSL.
@@ -186,7 +186,7 @@ Pode habilitar **definições avançadas** no **Gateway** página para ver métr
 
 Propriedade de monitorização | Descrição
 :------------------ | :---------- 
-Nome | Nome do gateway lógico e nós associado ao gateway.  
+Name | Nome do gateway lógico e nós associado ao gateway.  
 Estado | Estado do gateway lógico e os nós de gateway. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte [estado do Gateway](#gateway-status) secção. 
 Versão | Mostra a versão do gateway lógico e cada nó de gateway. A versão do gateway lógico é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração de gateway lógico, apenas os nós com o mesmo número de versão e a função de gateway lógico corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática). 
 Memória disponível | Memória disponível num nó de gateway. Este valor é um instantâneo de quase em tempo real. 

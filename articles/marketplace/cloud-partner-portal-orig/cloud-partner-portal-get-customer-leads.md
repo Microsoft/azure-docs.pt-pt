@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2ebc0c90d62d1299c076f8d91ba9fed1998a20e5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118583"
 ---
 <a name="get-customer-leads"></a>Obter oportunidades potenciais
 ==================
@@ -39,13 +39,13 @@ Oportunidades potenciais são os clientes que estejam interessados em ou estiver
 
 <!-- -->
 
-2.  Cliente dá consentimento a partilhar as suas informações depois de selecionar "Obter agora". É isso gerou um **inicial interesse** líder, onde podemos partilhar informações sobre o cliente que tenha a expressou interesse em obter o seu produto. O líder é a parte superior do funil aquisição.
+1. Cliente dá consentimento a partilhar as suas informações depois de selecionar "Obter agora". É isso gerou um **inicial interesse** líder, onde podemos partilhar informações sobre o cliente que tenha a expressou interesse em obter o seu produto. O líder é a parte superior do funil aquisição.
 
-    ![Obtenha-a opção de agora](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![Obtenha-a opção de agora](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  Cliente seleciona "Adquirir" a [Portal do Azure](https://portal.azure.com/) para ter seu produto. É isso gerou um **Active Directory** líder, onde podemos compartilhar informações sobre um cliente que foi iniciado para implementar o seu produto.
+1. Cliente seleciona "Adquirir" a [Portal do Azure](https://portal.azure.com/) para ter seu produto. É isso gerou um **Active Directory** líder, onde podemos compartilhar informações sobre um cliente que foi iniciado para implementar o seu produto.
 
-    ![Opção de compra](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![Opção de compra](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource

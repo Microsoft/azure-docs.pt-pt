@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: ff202c85f20adce173a375987a5f2250fda565b2
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d259523d3f7fe7165d0ef4c8a5aac12bd7cd823
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123781"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor com o Azure Cosmos DB e as funções do Azure
 
@@ -97,11 +97,11 @@ Em implementações de varejo, quando um utilizador adiciona um item para seus c
 
 1. Pode criar várias funções do Azure ao adicionar acionadores do Azure Cosmos DB a cada - todos os quais escutam ao mesmo alterar feed de dados do carrinho de compras. Tenha em atenção que, quando várias funções de ouvem o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função. Para obter mais informações sobre as coleções de concessão, consulte [Noções básicas sobre a biblioteca processador do Feed de alterações](change-feed-processor.md).
 2. Sempre que um novo item é adicionado a um carrinho de compras de utilizadores, cada função de forma independente é invocada pela mudança de feed o contêiner de carrinho de compras.
-    * Uma função pode utilizar o conteúdo do cesto atual para alterar a apresentação de outros itens que o utilizador poderá ter interesse em.
-    * Outra função pode atualizar os totais de inventário.
-    * Outra função pode enviar informações de clientes para determinados produtos para o departamento de marketing, que envia um mailer promocional. 
+   * Uma função pode utilizar o conteúdo do cesto atual para alterar a apresentação de outros itens que o utilizador poderá ter interesse em.
+   * Outra função pode atualizar os totais de inventário.
+   * Outra função pode enviar informações de clientes para determinados produtos para o departamento de marketing, que envia um mailer promocional. 
 
-    Qualquer departamento pode criar um acionador do Azure Cosmos DB através da escuta para o feed de alterações e certifique-se de que eles não atrasar eventos de processamento de ordem crítica no processo.
+     Qualquer departamento pode criar um acionador do Azure Cosmos DB através da escuta para o feed de alterações e certifique-se de que eles não atrasar eventos de processamento de ordem crítica no processo.
 
 Em todos esses casos de utilização, porque a função tem desacoplados aplicação em si, não precisa acelerar novas instâncias de aplicação, o tempo todo. Em vez disso, as funções do Azure acelera funções individuais para concluir processos distintos, conforme necessário.
 

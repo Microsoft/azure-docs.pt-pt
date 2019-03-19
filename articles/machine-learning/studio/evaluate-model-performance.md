@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: f5e7a923ed5eb692f5fb05082c73b969081c739b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891591"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Como avaliar o desempenho de modelo no Azure Machine Learning Studio
 
@@ -83,7 +83,7 @@ Depois de executar a experimentação, pode inspecionar os resultados da avalia�
 Figura 4. Resultados da validação cruzada de um modelo de regressão.
 
 ## <a name="evaluating-a-binary-classification-model"></a>Avaliar um modelo de classificação binária
-Num cenário de classificação binária, a variável de destino tem apenas dois resultados possíveis, por exemplo: {0, 1} ou {FALSO, VERDADEIRO}, {negativo, positivo}. Suponha que tem um conjunto de dados de funcionários para adultos com algumas demográficos e variáveis de emprego, e que é-lhe perguntado para prever o nível de receitas, uma variável binário com os valores {"< = 50 mil", "> 50k"}. Em outras palavras, a classe negativa representa os funcionários que efetuam inferior ou igual a 50 mil por ano e a classe positiva representa todos os outros funcionários. Como no cenário de regressão, vamos preparar um modelo, pontuação alguns dados e, avaliar os resultados. A principal diferença aqui é a escolha de métricas que do Azure Machine Learning Studio computa e saídas. Para ilustrar o cenário de predição de nível de rendimento, iremos utilizar o [adulto](http://archive.ics.uci.edu/ml/datasets/Adult) conjunto de dados para criar uma experimentação do Studio e avaliar o desempenho de um modelo de regressão logística de classe dois, um classificador binário comumente utilizado.
+Num cenário de classificação binária, a variável de destino tem apenas dois resultados possíveis, por exemplo: {0, 1} ou {FALSO, VERDADEIRO}, {negativo, positivo}. Suponha que tem um conjunto de dados de funcionários para adultos com algumas demográficos e variáveis de emprego, e que é-lhe perguntado para prever o nível de receitas, uma variável binário com os valores {"< = 50 mil", "> 50k"}. Em outras palavras, a classe negativa representa os funcionários que efetuam inferior ou igual a 50 mil por ano e a classe positiva representa todos os outros funcionários. Como no cenário de regressão, vamos preparar um modelo, pontuação alguns dados e, avaliar os resultados. A principal diferença aqui é a escolha de métricas que do Azure Machine Learning Studio computa e saídas. Para ilustrar o cenário de predição de nível de rendimento, iremos utilizar o [adulto](https://archive.ics.uci.edu/ml/datasets/Adult) conjunto de dados para criar uma experimentação do Studio e avaliar o desempenho de um modelo de regressão logística de classe dois, um classificador binário comumente utilizado.
 
 ### <a name="creating-the-experiment"></a>Criar a experimentação
 Adicione os seguintes módulos à sua área de trabalho no Azure Machine Learning Studio:
@@ -133,7 +133,7 @@ Figura 8. Validação cruzada um modelo de classificação binária.
 Figura 9. Resultados da validação cruzada de um classificador binário.
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>Avaliar um modelo de classificação Multiclasses
-Nesse experimento, irá utilizar o popular [Iris](http://archive.ics.uci.edu/ml/datasets/Iris "íris") conjunto de dados que contém instâncias de 3 tipos diferentes (classes) da planta íris. Existem 4 funcionalidade valores (comprimento/largura de sépala e Pétala. o comprimento/largura) para cada instância. As experimentações anteriores foi treinado e testado os modelos usando os mesmos conjuntos de dados. Aqui, vamos utilizar o [Split Data] [ split] módulo para criar 2 subconjuntos de dados, a dar formação no primeiro e a pontuação e a avaliar no segundo. O conjunto de dados de Iris está disponível publicamente no [repositório de Aprendizado de máquina de UCI](http://archive.ics.uci.edu/ml/index.html)e podem ser baixados com um [importar dados] [ import-data] módulo.
+Nesse experimento, irá utilizar o popular [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "íris") conjunto de dados que contém instâncias de 3 tipos diferentes (classes) da planta íris. Existem 4 funcionalidade valores (comprimento/largura de sépala e Pétala. o comprimento/largura) para cada instância. As experimentações anteriores foi treinado e testado os modelos usando os mesmos conjuntos de dados. Aqui, vamos utilizar o [Split Data] [ split] módulo para criar 2 subconjuntos de dados, a dar formação no primeiro e a pontuação e a avaliar no segundo. O conjunto de dados de Iris está disponível publicamente no [repositório de Aprendizado de máquina de UCI](https://archive.ics.uci.edu/ml/index.html)e podem ser baixados com um [importar dados] [ import-data] módulo.
 
 ### <a name="creating-the-experiment"></a>Criar a experimentação
 Adicione os seguintes módulos à sua área de trabalho no Azure Machine Learning Studio:

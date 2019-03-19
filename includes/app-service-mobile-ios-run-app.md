@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 8146489a913ce863cee7534331231a248a3ea7ac
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56891009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125160"
 ---
 1. No Mac, visite o [Portal do Azure]. Clique em **Todos os Serviços** > **Serviço de Aplicações** > o back-end que acabou de criar. Nas definições da aplicação móvel, selecione o idioma que prefere:
 
-    - Objective-C &ndash; **Início Rápido** > **iOS (Objective-C)**
-    - SWIFT &ndash; **Início Rápido** > **iOS (Swift)**
+   - Objective-C &ndash; **Início Rápido** > **iOS (Objective-C)**
+   - SWIFT &ndash; **Início Rápido** > **iOS (Swift)**
 
-    Em **3. Configurar a aplicação cliente**, clique em **Transferir**. Esta ação transfere um projeto Xcode concluído pré-configurado para ligar ao back-end. Abra o projeto com o Xcode.
+     Em **3. Configurar a aplicação cliente**, clique em **Transferir**. Esta ação transfere um projeto Xcode concluído pré-configurado para ligar ao back-end. Abra o projeto com o Xcode.
 
 1. Prima o botão **Executar** para criar o projeto e iniciar a aplicação no simulador do iOS.
 

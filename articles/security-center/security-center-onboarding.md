@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: ab99116cabc14c70698a962c803adb87394e1796
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651109"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100075"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
 Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuita. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
@@ -65,11 +65,11 @@ O Centro de Segurança pode monitorizar a postura de segurança dos seus computa
 1. Volte ao **introdução ao**.   
 2. Selecione o separador **Introdução**.
 
-  ![Não Pertencente ao Azure](./media/security-center-onboarding/non-azure.png)
+   ![Não Pertencente ao Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Clique em **Configurar** em **Adicionar novos computadores não Azure**. É apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que queira utilizar.
 
-  ![Adicionar computador não pertencente ao Azure][7]
+   ![Adicionar computador não pertencente ao Azure][7]
 
 Se tiver áreas de trabalho existentes, estão listados na **adicionar novos computadores não pertencentes ao Azure**. Pode adicionar computadores a uma área de trabalho existente ou criar uma nova área de trabalho. Para criar uma nova área de trabalho, selecione a ligação **adicionar uma nova área de trabalho**.
 
@@ -82,8 +82,8 @@ Se tiver áreas de trabalho existentes, estão listados na **adicionar novos com
    ![Adicionar uma nova área de trabalho][4]
 
 2. Sob **segurança e auditoria**, selecione **área de trabalho OMS** para criar uma nova área de trabalho.
-> [!NOTE]
-> As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
+   > [!NOTE]
+   > As áreas de trabalho do OMS são agora referidas como áreas de trabalho do Log Analytics.
 3. Sob **área de trabalho OMS**, insira as informações da sua área de trabalho.
 4. Sob **área de trabalho do OMS**, selecione **OK**.  Depois de selecionar ' OK ', irá obter uma ligação para transferir um agente do Windows ou Linux e as chaves para o seu ID de área de trabalho utilizar na configuração do agente.
 5. Sob **segurança e auditoria**, selecione **OK**.
@@ -105,7 +105,7 @@ Pode adicionar um computador, seguindo o fluxo de trabalho do **inclusão**, con
 
    ![Adicionar computadores][7]
 
- O **agente direto** painel fornece um link para baixar um agente do Windows ou Linux, bem como o ID de área de trabalho e as chaves a utilizar na configuração do agente.   
+   O **agente direto** painel fornece um link para baixar um agente do Windows ou Linux, bem como o ID de área de trabalho e as chaves a utilizar na configuração do agente.   
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste artigo, aprendeu a carregar Azure e de recursos não Azure para se beneficiar das segurança avançada do Centro de segurança.  Para fazer mais com os recursos de integração, consulte

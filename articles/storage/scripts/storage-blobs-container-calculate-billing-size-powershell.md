@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245410"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080901"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcular o tamanho total de faturação de um contentor de BLOBs
 
@@ -101,17 +101,17 @@ Segue-se a análise detalhada:
 * Para cada bloco de metadados armazenados, adicione o comprimento do nome (armazenado como ASCII), além do comprimento do valor de cadeia.
 
 * Para os blobs de bloco:
-    * 8 bytes para a lista de bloqueios.
-    * Número de blocos vezes o tamanho do ID de bloco em bytes.
-    * O tamanho dos dados em todos os blocos consolidados e não consolidados.
+  * 8 bytes para a lista de bloqueios.
+  * Número de blocos vezes o tamanho do ID de bloco em bytes.
+  * O tamanho dos dados em todos os blocos consolidados e não consolidados.
 
     >[!NOTE]
     >Quando os instantâneos são usados, este tamanho inclui apenas os dados exclusivos para este blob base ou de instantâneo. Se os blocos não consolidados não forem utilizados após uma semana, são coletado pelo lixo. Depois disso, eles não contam para faturação.
 
 * Para blobs de página:
-    * O número de intervalos de página não consecutivos com dados vezes 12 bytes. Este é o número de intervalos de página exclusiva vir ao chamar o **GetPageRanges** API.
+  * O número de intervalos de página não consecutivos com dados vezes 12 bytes. Este é o número de intervalos de página exclusiva vir ao chamar o **GetPageRanges** API.
 
-    * O tamanho dos dados em bytes de todas as páginas armazenadas.
+  * O tamanho dos dados em bytes de todas as páginas armazenadas.
 
     >[!NOTE]
     >Quando os instantâneos são usados, este tamanho inclui somente as páginas exclusivas para o blob de base ou o blob de instantâneo que está a ser contabilizado.

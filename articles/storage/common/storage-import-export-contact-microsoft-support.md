@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: 1494ccea1580d7415c6c86f14682ca59ad7124d5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459905"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120368"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um pedido de suporte para uma tarefa de importação/exportação
 
@@ -57,14 +57,14 @@ Execute os seguintes passos para criar um pedido de suporte:
 
 4. Na **novo pedido de suporte**, clique em **informações de contacto do passo 3**. Na **informações de contacto**, siga os passos abaixo:
 
-    1. Na **opções de contacto**, forneça o seu método preferencial de contacto (telefone ou e-mail) e o idioma. O tempo de resposta é selecionado automaticamente com base no seu plano de subscrição.
-    2. As informações de contacto, fornece seu nome, e-mail, contato opcional, país. Selecione o **guardar alterações de contactos para futuros pedidos de suporte** caixa de verificação.
-    3. Clique em **Criar**.
+   1. Na **opções de contacto**, forneça o seu método preferencial de contacto (telefone ou e-mail) e o idioma. O tempo de resposta é selecionado automaticamente com base no seu plano de subscrição.
+   2. As informações de contacto, fornece seu nome, e-mail, contato opcional, país. Selecione o **guardar alterações de contactos para futuros pedidos de suporte** caixa de verificação.
+   3. Clique em **Criar**.
    
-        ![Informações de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![Informações de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
-    Support da Microsoft irá utilizar estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
-Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.
+      Support da Microsoft irá utilizar estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
+      Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.
 
 ## <a name="manage-a-support-request"></a>Gerir pedidos de suporte
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: a6607fa91d9c8556881a5532527a63b6f21ad4d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: f6f4858740288facb1e206eed3a8cd4ee1854daa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977461"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111451"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Implementar um cluster do Service Fabric que utiliza o nome comum do certificado em vez de thumbprint
 Não existem dois certificados podem ter o mesmo thumbprint, o que torna difícil rollover de certificado de cluster ou de gestão. No entanto, vários certificados, podem ter o mesmo nome comum ou assunto.  Um cluster com o nome comum do certificado de faz a gestão de certificados muito mais simples. Este artigo descreve como implementar um cluster do Service Fabric para utilizar o nome comum do certificado em vez do thumbprint do certificado.
@@ -158,36 +158,36 @@ Em seguida, abra a *azuredeploy. JSON* ficheiro num editor de texto e fazer trê
           },
     ```
 
-4.  Na **Microsoft.ServiceFabric/clusters** recurso, a API de atualização de versão "2018-02-01".  Também adicionar uma **certificateCommonNames** definição com um **commonNames** propriedade e remove o **certificado** definição (com a propriedade thumbprint) como a seguir exemplo:
-    ```json
-    {
-        "apiVersion": "2018-02-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
-            }
-            ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
-        ...
-    ```
-> [!NOTE]
-> O campo 'certificateIssuerThumbprint' permite especificar os esperado emissores de certificados com um nome comum de determinado assunto. Este campo aceita uma enumeração separados por vírgulas de thumbprints de SHA1. Tenha em atenção de que este é um fortalecimento da validação do certificado - o caso quando o emissor não for especificado ou vazio, o certificado serão aceites para a autenticação se a sua cadeia pode ser criada e termina numa raiz considerado fidedigno pelo validador. Se o emissor for especificado, será aceite o certificado se o thumbprint do seu emissor direto corresponde a qualquer um dos valores especificados nesse campo - independentemente se a raiz seja confiável ou não. Tenha em atenção que uma PKI pode utilizar autoridades de certificação diferentes para emitir certificados para o mesmo assunto e, portanto, é importante especificar todos os thumbprints do emissor esperado para um determinado assunto.
->
-> Especificar o emissor é considerada uma prática recomendada; ao omitir-continuarão a funcionar – para certificados de encadeamento de cópia de segurança para uma raiz confiável - esse comportamento tem limitações e pode ser descontinuado em breve. Tenha também em atenção que os clusters implementados no Azure e protegidos com X509 certificados emitidos por uma PKI privada e declarada pelo requerente talvez não consiga ser validadas pelo serviço do Azure Service Fabric (para comunicação de serviço de cluster), se política de certificados do PKI Não é visível, disponível e acessível. 
+4. Na **Microsoft.ServiceFabric/clusters** recurso, a API de atualização de versão "2018-02-01".  Também adicionar uma **certificateCommonNames** definição com um **commonNames** propriedade e remove o **certificado** definição (com a propriedade thumbprint) como a seguir exemplo:
+   ```json
+   {
+       "apiVersion": "2018-02-01",
+       "type": "Microsoft.ServiceFabric/clusters",
+       "name": "[parameters('clusterName')]",
+       "location": "[parameters('clusterLocation')]",
+       "dependsOn": [
+       "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+       ],
+       "properties": {
+       "addonFeatures": [
+           "DnsService",
+           "RepairManager"
+       ],        
+       "certificateCommonNames": {
+           "commonNames": [
+           {
+               "certificateCommonName": "[parameters('certificateCommonName')]",
+               "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
+           }
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+       },
+       ...
+   ```
+   > [!NOTE]
+   > O campo 'certificateIssuerThumbprint' permite especificar os esperado emissores de certificados com um nome comum de determinado assunto. Este campo aceita uma enumeração separados por vírgulas de thumbprints de SHA1. Tenha em atenção de que este é um fortalecimento da validação do certificado - o caso quando o emissor não for especificado ou vazio, o certificado serão aceites para a autenticação se a sua cadeia pode ser criada e termina numa raiz considerado fidedigno pelo validador. Se o emissor for especificado, será aceite o certificado se o thumbprint do seu emissor direto corresponde a qualquer um dos valores especificados nesse campo - independentemente se a raiz seja confiável ou não. Tenha em atenção que uma PKI pode utilizar autoridades de certificação diferentes para emitir certificados para o mesmo assunto e, portanto, é importante especificar todos os thumbprints do emissor esperado para um determinado assunto.
+   >
+   > Especificar o emissor é considerada uma prática recomendada; ao omitir-continuarão a funcionar – para certificados de encadeamento de cópia de segurança para uma raiz confiável - esse comportamento tem limitações e pode ser descontinuado em breve. Tenha também em atenção que os clusters implementados no Azure e protegidos com X509 certificados emitidos por uma PKI privada e declarada pelo requerente talvez não consiga ser validadas pelo serviço do Azure Service Fabric (para comunicação de serviço de cluster), se política de certificados do PKI Não é visível, disponível e acessível. 
 
 ## <a name="deploy-the-updated-template"></a>Implementar o modelo atualizado
 Reimplemente o modelo atualizado depois de efetuar as alterações.

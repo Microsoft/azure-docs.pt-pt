@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135020"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080002"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Tutorial: Enviar notificações por e-mail sobre eventos do Hub IoT do Azure com o Logic Apps
 
@@ -162,14 +162,14 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
    ![Criar nova subscrição de evento](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Crie a subscrição de evento com os seguintes valores: 
-    * **Tipo de evento**: Desmarque a opção inscrever-se a todos os tipos de eventos e selecione **dispositivo criado** no menu.
-    * **Detalhes do ponto final**: Selecione o tipo de ponto final como **Hook de Web** e clique no ponto de extremidade selecione e cole o URL que copiou da sua aplicação lógica e confirme a seleção.
+   * **Tipo de evento**: Desmarque a opção inscrever-se a todos os tipos de eventos e selecione **dispositivo criado** no menu.
+   * **Detalhes do ponto final**: Selecione o tipo de ponto final como **Hook de Web** e clique no ponto de extremidade selecione e cole o URL que copiou da sua aplicação lógica e confirme a seleção.
 
-    ![selecione o url do ponto final](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+     ![selecione o url do ponto final](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Detalhes da subscrição de evento**: Forneça um nome descritivo e selecione **esquema de grelha de eventos**
+   * **Detalhes da subscrição de evento**: Forneça um nome descritivo e selecione **esquema de grelha de eventos**
 
-  Quando tiver terminado, o aspeto do formulário deverá ser semelhante ao do exemplo seguinte: 
+   Quando tiver terminado, o aspeto do formulário deverá ser semelhante ao do exemplo seguinte: 
 
     ![Formulário de exemplo de subscrição de evento](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -177,8 +177,8 @@ Nesta secção, vai configurar o Hub IoT para publicar eventos à medida que est
 
 6. Crie os seguintes filtros:
 
-  * **Assunto começa com**: Introduza `devices/Building1_` para filtrar eventos de dispositivo no módulo 1.
-  * **Assunto termina com**: Introduza `_Temperature` filtrar eventos relacionados com a temperatura do dispositivo.
+   * **Assunto começa com**: Introduza `devices/Building1_` para filtrar eventos de dispositivo no módulo 1.
+   * **Assunto termina com**: Introduza `_Temperature` filtrar eventos relacionados com a temperatura do dispositivo.
 
 5. Selecione **Criar** para guardar a subscrição de evento.
 

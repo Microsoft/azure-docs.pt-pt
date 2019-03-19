@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302474"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001253"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
 
@@ -48,7 +48,7 @@ A Microsoft fornece suporte de melhor esforço para sistemas operacionais CF atr
 
 Cloud Foundry da Pivotal inclui a plataforma principal do mesmo como a distribuição de sistemas operacionais, juntamente com um conjunto de ferramentas de proprietário de gestão e suporte empresarial. Para executar o PCF no Azure, tem de adquirir uma licença da Pivotal. A oferta PCF no Azure marketplace inclui uma licença de avaliação de 90 dias.
 
-As ferramentas incluem [Pivotal do Operations Manager](http://docs.pivotal.io/pivotalcf/customizing/), uma aplicação web que simplifica a implementação e gestão de uma base de Cloud Foundry, e [Gestor de aplicações Pivotal](https://docs.pivotal.io/pivotalcf/console/), uma aplicação web para gerir os utilizadores e aplicações.
+As ferramentas incluem [Pivotal do Operations Manager](https://docs.pivotal.io/pivotalcf/customizing/), uma aplicação web que simplifica a implementação e gestão de uma base de Cloud Foundry, e [Gestor de aplicações Pivotal](https://docs.pivotal.io/pivotalcf/console/), uma aplicação web para gerir os utilizadores e aplicações.
 
 Além dos canais de suporte listados para sistemas operacionais CF acima, uma licença do PCF dá direito a contacte Pivotal para obter suporte. Microsoft e a Pivotal também tem ativado o suporte a fluxos de trabalho que permitem que entre em contato com qualquer uma das partes para obter assistência e tenha sua pergunta devidamente encaminhada dependendo de onde está o problema.
 

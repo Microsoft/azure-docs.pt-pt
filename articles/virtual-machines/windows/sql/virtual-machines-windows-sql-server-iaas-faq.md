@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: f308b814da06598b95337708f7a8c84d506eed78
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113270"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas mais frequentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -111,17 +111,17 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre a exe
  
    Sim. Todos os clientes conseguem registar com o novo fornecedor de recursos de VM do SQL Server. No entanto, apenas os clientes com o benefício do Software Assurance podem ativar a [Azure híbrido benefício (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (ou de BYOL) numa VM do SQL Server. 
 
-1. **O que acontece com o _* Microsoft.SqlVirtualMachine_* recurso se o recurso da VM é movido ou removido?** 
+1. **O que acontece com o _Microsoft.SqlVirtualMachine_ recurso se o recurso da VM é movido ou removido?** 
 
    Quando o recurso de Microsoft.Compute/VirtualMachine é removido ou movido, em seguida, o recurso de Microsoft.SqlVirtualMachine associado é notificado para replicar a operação de forma assíncrona.
 
-1. **O que acontece com a VM se a _* Microsoft.SqlVirtualMachine_* recurso é ignorado?**
+1. **O que acontece com a VM se a _Microsoft.SqlVirtualMachine_ é arrastado para recursos?**
 
-   O recurso de Microsoft.Compute/VirtualMachine não é afetado quando é arrastado para o recurso de Microsoft.SqlVirtualMachine. No entanto, as alterações de licenciamento serão predefinido para a origem da imagem original. 
+    O recurso de Microsoft.Compute/VirtualMachine não é afetado quando é arrastado para o recurso de Microsoft.SqlVirtualMachine. No entanto, as alterações de licenciamento serão predefinido para a origem da imagem original. 
 
 1. **É possível registar Self-implementado VMs do SQL Server com o fornecedor de recursos de VM do SQL?**
 
-   Sim. Se implementada do SQL Server a partir do seu próprio suporte de dados e instalou a extensão SQL IaaS pode registar a sua VM do SQL Server com o fornecedor de recursos para obter os benefícios de capacidade de gerenciamento fornecidos pela extensão SQL IaaS. No entanto, é possível converter uma VM de SQL personalizada implementada para pay as you go.
+    Sim. Se implementada do SQL Server a partir do seu próprio suporte de dados e instalou a extensão SQL IaaS pode registar a sua VM do SQL Server com o fornecedor de recursos para obter os benefícios de capacidade de gerenciamento fornecidos pela extensão SQL IaaS. No entanto, é possível converter uma VM de SQL personalizada implementada para pay as you go.
 
 ## <a name="administration"></a>Administração
 

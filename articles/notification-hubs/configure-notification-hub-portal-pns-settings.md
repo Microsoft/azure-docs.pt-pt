@@ -10,12 +10,12 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 6d0076f2ddaee0a1a0daa4c1bf6b0c8bec2ff3e8
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 8d2b54e65c1409c01a4c38ca8fcdfeca5f031277
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010179"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113338"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Configure as notificações push num hub de notificação no portal do Azure
 
@@ -34,18 +34,18 @@ Para definir a Apple Push Notification Service (APNS):
 1. Para **modo de autenticação**, selecione **certificado** ou **Token**.
 
    a. Se selecionou **certificado**:
-      * Selecione o ícone de ficheiro e, em seguida, selecione o *. p12* ficheiro que pretende carregar.
-      * Introduza uma palavra-passe.
-      * Selecione o modo **Sandbox**. Ou, para enviar notificações push para utilizadores que adquirido a aplicação da loja, selecione **produção** modo.
+   * Selecione o ícone de ficheiro e, em seguida, selecione o *. p12* ficheiro que pretende carregar.
+   * Introduza uma palavra-passe.
+   * Selecione o modo **Sandbox**. Ou, para enviar notificações push para utilizadores que adquirido a aplicação da loja, selecione **produção** modo.
 
-      ![Captura de ecrã de um APNS certificado configuração no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+     ![Captura de ecrã de um APNS certificado configuração no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
    b. Se selecionou **Token**:
 
-      * Introduza os valores para **Id de chave**, **Id do pacote**, **Id da equipa**, e **Token**.
-      * Selecione o modo **Sandbox**. Ou, para enviar notificações push para utilizadores que adquirido a aplicação da loja, selecione **produção** modo.
+   * Introduza os valores para **Id de chave**, **Id do pacote**, **Id da equipa**, e **Token**.
+   * Selecione o modo **Sandbox**. Ou, para enviar notificações push para utilizadores que adquirido a aplicação da loja, selecione **produção** modo.
 
-      ![Captura de ecrã de um APNS token configuração no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Captura de ecrã de um APNS token configuração no portal do Azure](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
 Para obter mais informações, consulte [notificações Push para iOS ao utilizar os Hubs de notificação do Azure](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 

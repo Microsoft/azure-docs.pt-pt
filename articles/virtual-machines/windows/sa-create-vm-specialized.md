@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62d8236abb2b5f21bdb4111480d95376faa2e379
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 90d1d752481ada33c038ab563f6bd0d3bf5fad08
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432605"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086807"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD especializado numa conta de armazenamento
 
@@ -212,10 +212,10 @@ Criar a vNet e sub-rede do [rede virtual](../../virtual-network/virtual-networks
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Criar o grupo de segurança de rede e uma regra RDP
-Para conseguir iniciar sessão na sua VM através de RDP, tem de ter uma regra de segurança que permite o acesso RDP na porta 3389. Uma vez criado o VHD para a nova VM a partir de um existente VM especializada, quando a VM estiver criada, pode utilizar uma conta existente da máquina de virtual de origem que tinha permissão para iniciar sessão através de RDP.
-Esta ação seja concluída antes de criar a interface de rede que será associado.  
-Este exemplo define o nome do NSG **myNsg** e o nome da regra RDP para **myRdpRule**.
+   ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>Criar o grupo de segurança de rede e uma regra RDP
+   Para conseguir iniciar sessão na sua VM através de RDP, tem de ter uma regra de segurança que permite o acesso RDP na porta 3389. Uma vez criado o VHD para a nova VM a partir de um existente VM especializada, quando a VM estiver criada, pode utilizar uma conta existente da máquina de virtual de origem que tinha permissão para iniciar sessão através de RDP.
+   Esta ação seja concluída antes de criar a interface de rede que será associado.  
+   Este exemplo define o nome do NSG **myNsg** e o nome da regra RDP para **myRdpRule**.
 
 ```powershell
 $nsgName = "myNsg"

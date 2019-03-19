@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 1066a4f602fb3af1f10fc82026870a5b0497896b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 43df80e060ff698537f7fd65075006e6dfffe6c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764792"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117154"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Criar registos DNS num domínio personalizado para uma aplicação web 
 
-Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. Por exemplo, pode criar uma aplicação Web do Azure e fazer com que os seus utilizadores acedam à mesma com www.contoso.com ou contoso.com como um nome de domínio completamente qualificado (FQDN).
+Pode configurar o DNS do Azure para alojar um domínio personalizado para as suas aplicações Web. Por exemplo, pode criar uma aplicação web do Azure e ter o acesso de utilizadores com qualquer um dos www\.contoso.com ou contoso.com como um nome de domínio completamente qualificado (FQDN).
 
 > [!NOTE]
 > Contoso.com é utilizado como um exemplo neste tutorial. Substitua o seu nome de domínio por contoso.com.

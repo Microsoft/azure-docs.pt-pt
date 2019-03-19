@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024574"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112607"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure (clássicos)
 Pode atribuir endereços IP a recursos do Azure para comunicar com outros recursos do Azure, a rede no local e a Internet. Existem dois tipos de endereços IP, pode utilizar no Azure: públicas e privadas.
@@ -165,13 +165,13 @@ Segue-se uma comparação de recursos de endereçamento de IP no modelo de imple
 |  | Recurso | Clássica | Resource Manager |
 | --- | --- | --- | --- |
 | **Endereço IP público** |***VM*** |Conhecido como um ILPIP (apenas dinâmico) |Conhecido como um IP público (dinâmico ou estático) |
-|  ||Atribuído a uma VM de IaaS ou uma instância de função de PaaS |Associado à NIC da VM | |
-|  |***Balanceador de carga com acesso à Internet*** |Chamado de VIP (dinâmico) ou o IP reservado (estático) |Conhecido como um IP público (dinâmico ou estático) | |
-|  ||Atribuído a um serviço em nuvem |Associados à configuração de front-end do Balanceador de carga | |
+|  ||Atribuído a uma VM de IaaS ou uma instância de função de PaaS |Associado à NIC da VM |
+|  |***Balanceador de carga com acesso à Internet*** |Chamado de VIP (dinâmico) ou o IP reservado (estático) |Conhecido como um IP público (dinâmico ou estático) |
+|  ||Atribuído a um serviço em nuvem |Associados à configuração de front-end do Balanceador de carga |
 |  | | | |
 | **Endereço IP privado** |***VM*** |Conhecido como um DIP |Conhecido como um endereço IP privado |
-|  ||Atribuído a uma VM de IaaS ou uma instância de função de PaaS |Atribuído a NIC da VM | |
-|  |***Balanceador de carga interno (ILB)*** |Atribuído para o ILB (dinâmico ou estático) |Atribuído a configuração de front-end do ILB (dinâmica ou estática) | |
+|  ||Atribuído a uma VM de IaaS ou uma instância de função de PaaS |Atribuído a NIC da VM |
+|  |***Balanceador de carga interno (ILB)*** |Atribuído para o ILB (dinâmico ou estático) |Atribuído a configuração de front-end do ILB (dinâmica ou estática) |
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Implementar uma VM com um endereço IP privado estático](virtual-networks-static-private-ip-classic-pportal.md) no portal do Azure.

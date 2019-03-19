@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec55a33874973bf9aeaaa34ab07b162a46db44eb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1dc7930649a4e90c3b1c69a4f109f545f74a79f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081122"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para MariaDB com o portal do Azure
 
@@ -64,10 +64,10 @@ Os passos seguintes restauram o servidor de exemplo para um ponto anterior no te
 3. Preencha o formulário de restauro com as informações necessárias:
 
    ![Base de dados do Azure para MariaDB - informações de restauro](./media/howto-restore-server-portal/3-restore.png)
-  - **Ponto de restauro**: Selecione o ponto anterior no tempo que pretende restaurar para.
-  - **Servidor de destino**: Forneça um nome para o novo servidor.
-  - **Localização**: Não é possível selecionar a região. Por predefinição é igual ao servidor de origem.
-  - **Escalão de preço**: Não é possível alterar estes parâmetros ao efetuar um restauro de ponto no tempo. É igual ao servidor de origem. 
+   - **Ponto de restauro**: Selecione o ponto anterior no tempo que pretende restaurar para.
+   - **Servidor de destino**: Forneça um nome para o novo servidor.
+   - **Localização**: Não é possível selecionar a região. Por predefinição é igual ao servidor de origem.
+   - **Escalão de preço**: Não é possível alterar estes parâmetros ao efetuar um restauro de ponto no tempo. É igual ao servidor de origem. 
 
 4. Clique em **OK** para restaurar o servidor para restaurar para um ponto anterior no tempo. 
 

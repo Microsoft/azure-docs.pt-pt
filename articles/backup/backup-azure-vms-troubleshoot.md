@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: srinathv
-ms.openlocfilehash: f79a9048e50901424330224066cb84929d9126dc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 906c0ef3db530ecb4aeade449e41a866a4b09a74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530931"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005722"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
 Pode resolver erros encontrados ao utilizando o Azure Backup com as informações listadas na tabela a seguir:
@@ -41,12 +41,13 @@ Pode resolver erros encontrados ao utilizando o Azure Backup com as informaçõe
 | O serviço de cópia de segurança do Azure não tem permissões suficientes para o Azure Key Vault para cópia de segurança de máquinas virtuais encriptadas. |Fornecer o serviço de cópia de segurança estas permissões no PowerShell, utilizando os passos em [criar uma VM a partir de discos restaurados](backup-azure-vms-automation.md). |
 |Instalação da extensão de instantâneo falhou com o erro **COM+ não conseguiu comunicar com o coordenador de transações distribuídas da Microsoft**. | A partir da linha de comandos elevada, inicie o serviço do Windows **aplicação de sistema COM+**. Um exemplo é **net iniciar COMSysApp**. Se o serviço não iniciar, em seguida, siga os passos seguintes:<ol><li> Certifique-se a conta de início de sessão do serviço **coordenador de transações distribuídas** é **serviço de rede**. Se não for, altere a conta de início de sessão para **serviço de rede** e reinicie o serviço. Em seguida, tente iniciar **aplicação de sistema COM+**.<li>Se **aplicação de sistema COM+** não iniciar, siga os passos seguintes para desinstalar e instalar o serviço **coordenador de transações distribuídas**: <ol><li>Pare o serviço MSDTC. <li>Abra uma linha de comandos **cmd**. <li>Execute o comando ```msdtc -uninstall```. <li>Execute o comando ```msdtc -install```. <li>Inicie o serviço MSDTC. </ol> <li>Iniciar o serviço do Windows **aplicação de sistema COM+**. Depois do **aplicação de sistema COM+** é iniciado, acionar uma tarefa de cópia de segurança do portal do Azure.</ol> |
 |  A operação de instantâneo falhou devido a um erro COM+. | Recomendamos que reiniciar o serviço do Windows **aplicação de sistema COM+** da linha de comandos elevada, **net iniciar COMSysApp**. Se o problema persistir, reinicie a VM. Se reiniciar a VM não ajudar, tente [removendo a extensão de VMSnapshot](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout) e acionar a cópia de segurança manualmente. |
-| Cópia de segurança falhou ao fixar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de ficheiros. | Execute os seguintes passos: <ul><li>Verificar o estado do sistema de ficheiros de todos os dispositivos montados com o **'tune2fs'** comando. Um exemplo é **tune2fs -l/desenvolvimento/sdb1 \** .| GREP **estado do sistema de ficheiros**. <li>Desmonte os dispositivos para o qual o estado do sistema de ficheiros não é limpo, utilizando o **'umount'** comando. <li> Execute uma verificação de consistência do sistema de ficheiros nestes dispositivos com o **'fsck'** comando. <li> Os dispositivos de montagem novamente e repita a cópia de segurança.</ol> |
+| Cópia de segurança falhou ao fixar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de ficheiros. | Execute os seguintes passos: <ul><li>Verificar o estado do sistema de ficheiros de todos os dispositivos montados com o **'tune2fs'** comando. Um exemplo é **tune2fs -l/desenvolvimento/sdb1 \\** .\| grep **estado do sistema de ficheiros**. <li>Desmonte os dispositivos para o qual o estado do sistema de ficheiros não é limpo, utilizando o **'umount'** comando. <li> Execute uma verificação de consistência do sistema de ficheiros nestes dispositivos com o **'fsck'** comando. <li> Os dispositivos de montagem novamente e repita a cópia de segurança.</ol> |
 | A operação de instantâneo falhou devido a falha para criar um canal de comunicação de rede segura. | <ol><li> Abra o Editor de registo, executando **regedit.exe** num modo elevado. <li> Identifique todas as versões do .NET Framework presentes no seu sistema. Eles estão presentes na hierarquia de chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Para cada .NET Framework presentes na chave do registo, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | A operação de instantâneo falhou devido a falha para instalar o Visual C++ Redistributable para Visual Studio 2012. | Navegue para C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion e instalar vcredist2012_x64. Certifique-se de que o valor de chave de registo que permite que esta instalação do serviço está definido para o valor correto. Ou seja, o valor da chave do registo **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** está definida como **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação, executando **MSIEXEC /UNREGISTER** seguido **MSIEXEC /REGISTER** num prompt de comando elevado.  |
 
 
 ## <a name="jobs"></a>Tarefas
+
 | Detalhes do erro | Solução |
 | --- | --- |
 | O cancelamento não é suportado para este tipo de tarefa: <br>Aguarde até que a tarefa é concluída. |Nenhuma |
@@ -123,7 +124,7 @@ Cópia de segurança VM depende de emissão de comandos de instantâneo para o a
 - **Se o compartilhamento de mais de quatro VMs o mesmo serviço cloud, distribuir as VMs por várias políticas de cópia de segurança**. Escalonar as horas cópia de segurança, por isso, não existem que cópias de segurança VM mais de quatro iniciar ao mesmo tempo. Tente separar as horas de início nas políticas por, pelo menos, uma hora.
 - **A VM é executada às elevada da CPU ou memória**. Se a máquina virtual for executada na memória elevada ou a utilização da CPU, com mais de 90 por cento, a tarefa de instantâneo é colocado em fila e atrasada. Eventualmente, atingir o tempo limite. Se este problema acontecer, experimente uma cópia de segurança a pedido.
 
-## <a name="networking"></a>Funcionamento em Rede
+## <a name="networking"></a>Redes
 Como todas as extensões, extensões de cópia de segurança precisam de acesso à internet pública para trabalhar. Sem acesso à Internet pública pode se manifestar de várias formas:
 
 * A instalação da extensão pode falhar.

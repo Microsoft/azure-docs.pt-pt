@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5d6a7d77b442383817179fadc5878f02dfe86628
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650908"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089527"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure
 
@@ -145,7 +145,7 @@ Selecione **Validar**.
 
 A página **Adicionar nome do anfitrião** é apresentada. 
 
-Confirme que o **tipo de registo de nome de anfitrião** está definido como **CNAME (www.example.com ou qualquer subdomínio)**.
+Certifique-se de que **tipo de registo de nome de anfitrião** está definida como **CNAME (www\.example.com ou qualquer subdomínio)**.
 
 Selecione **Adicionar nome de anfitrião**.
 
@@ -282,7 +282,7 @@ Escreva um nome de domínio completamente qualificado que corresponda ao domíni
 
 O botão **Adicionar nome de anfitrião** é ativado. 
 
-Confirme que o **Tipo de registo de nome de anfitrião** está definido como **Registo CNAME (www.example.com ou qualquer subdomínio)**.
+Certifique-se de que **tipo de registo de nome de anfitrião** está definida como **registo CNAME (www\.example.com ou qualquer subdomínio)**.
 
 Selecione **Adicionar nome de anfitrião**.
 

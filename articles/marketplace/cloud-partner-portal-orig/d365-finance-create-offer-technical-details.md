@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cb8e5074d0cd99f5c7cb2130e6f9181eb5382015
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5aa118815146287d00a3bb8ee7d5fce57a6ad9ca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810411"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120300"
 ---
 <a name="how-to-fill-out-the-technical-info-form"></a>Como preencher o formulário de informações técnicas
 ===========================================
@@ -36,9 +36,9 @@ ms.locfileid: "48810411"
 
 -   **Automação de teste do aplicativo** - necessária - o pacote de teste codificado do VS que tem de criar para testes de extensões automatizados.
 
-2.  Na **informações adicionais para a extensão** secção, carregar informações adicionais para sua extensão. Estas informações são utilizadas durante a validação.
+1. Na **informações adicionais para a extensão** secção, carregar informações adicionais para sua extensão. Estas informações são utilizadas durante a validação.
 
-    ![Informações adicionais para o formulário de extensão de aplicação](./media/d365-financials/image016.png)
+   ![Informações adicionais para o formulário de extensão de aplicação](./media/d365-financials/image016.png)
 
 
 -   **URL para a documentação do produto** - necessária - URL para a documentação para a extensão.

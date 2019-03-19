@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: 93504de6384be530ba037f662f7b043729aa3f99
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bd8fa10ca0a9809891efc67ff930ab01d502eda9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536926"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117086"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Implementar as funções do Azure com o plug-in das funções do Azure do Jenkins
 
@@ -24,8 +24,8 @@ ms.locfileid: "57536926"
 - **Subscrição do Azure**: Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 - **Servidor Jenkins**: Se não tiver instalado um servidor do Jenkins, veja o artigo [criar um servidor Jenkins no Azure](./install-jenkins-solution-template.md).
 
- > [!TIP]
- > O código-fonte usado para este tutorial está localizado na [repositório do GitHub de China do Visual Studio](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
+  > [!TIP]
+  > O código-fonte usado para este tutorial está localizado na [repositório do GitHub de China do Visual Studio](https://github.com/VSChina/odd-or-even-function/blob/master/src/main/java/com/microsoft/azure/Function.java).
 
 ## <a name="create-a-java-function"></a>Criar uma função de Java
 

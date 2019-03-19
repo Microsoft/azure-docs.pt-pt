@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: d2f3eb25c2193ad94098acd714d934795d007e98
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136517"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Como compor uma consulta no Azure Search
 
@@ -118,7 +118,7 @@ O Azure Search oferece suporte a uma ampla variedade de tipos de consulta.
 
 | Tipo de consulta | Utilização | Exemplos e obter mais informações |
 |------------|--------|-------------------------------|
-| Pesquisa de texto de forma livre | Parâmetro de pesquisa e de qualquer analisador| Pesquisa em texto completo verifica a existência de um ou mais termos em todos os *pesquisável* campos no seu índice e funciona da forma que seria de esperar um motor de busca como o Google ou o Bing. O exemplo na introdução é a pesquisa em texto completo.<br/><br/>Pesquisa em texto completo remanescentes passam pela análise de texto usando o analisador de Lucene padrão (por predefinição) para minúsculas todos os termos, palavras de paragem de remover, como "a". Pode substituir a predefinição com [analisadores de inglês](index-add-language-analyzers.md#language-analyzer-list) ou [especializada analisadores de idioma agnóstico](index-add-custom-analyzers.md#AnalyzerTable) que modificar a análise de texto. Um exemplo é [palavra-chave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que processa todo o conteúdo de um campo como um único token. Isto é útil para dados, como códigos postais, ids e alguns nomes de produtos. | 
+| Pesquisa de texto de forma livre | Parâmetro de pesquisa e de qualquer analisador| Pesquisa em texto completo verifica a existência de um ou mais termos em todos os *pesquisável* campos no seu índice e funciona da forma que seria de esperar um motor de busca como o Google ou o Bing. O exemplo na introdução é a pesquisa em texto completo.<br/><br/>Pesquisa em texto completo remanescentes passam pela análise de texto usando o analisador de Lucene padrão (por predefinição) para minúsculas todos os termos, palavras de paragem de remover, como "a". Pode substituir a predefinição com [analisadores de inglês](index-add-language-analyzers.md#language-analyzer-list) ou [especializada analisadores de idioma agnóstico](index-add-custom-analyzers.md#AnalyzerTable) que modificar a análise de texto. Um exemplo é [palavra-chave](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que processa todo o conteúdo de um campo como um único token. Isto é útil para dados, como códigos postais, IDs e alguns nomes de produtos. | 
 | Pesquisa filtrada | [Expressão de filtro de OData](query-odata-filter-orderby-syntax.md) e de qualquer analisador | Consultas de filtro avalie uma expressão booleana todos os *filtráveis* campos num índice. Ao contrário de pesquisa, uma consulta de filtro corresponde aos conteúdos exatos de um campo, incluindo sensibilidade em campos de cadeia de caracteres. Outra diferença é que as consultas de filtro são expressas em sintaxe OData. <br/>[Exemplo de expressão de filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Pesquisa geográfica | [Tipo de geographypoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) no campo expressão de filtro e de qualquer analisador | Coordenadas armazenadas num campo de ter um geographypoint são usados para "encontrar perto de mim" ou baseada em mapa procurar controlos. <br/>[Exemplo de pesquisa geográfica](search-query-simple-examples.md#example-5-geo-search)|
 | Pesquisa de intervalo | expressão de filtro e analisador simple | No Azure Search, as consultas de intervalo são criadas utilizando o parâmetro de filtro. <br/>[Exemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 
@@ -146,7 +146,7 @@ Ocasionalmente, a substância e não a estrutura de resultados são inesperados.
 
 + Alteração **`searchMode=any`** (predefinida) para **`searchMode=all`** para exigir correspondências em todos os critérios em vez de um dos critérios. Isso é especialmente verdadeiro quando operadores booleanos são incluídos a consulta.
 
-+ Se o texto ou análise lexical, é necessário, mas o tipo de consulta o processamento linguístico impede, altere a técnica de consulta. Na pesquisa em texto completo, texto ou análise lexical corrige automaticamente para erros ortográficos, formas de palavras de singular plural e até mesmo irregulares verbos ou substantivos. Para algumas consultas, tais como difusa ou pesquisa com carateres universais, a análise de texto não é parte da consulta pipeline de análise. Em alguns cenários, as expressões regulares foram utilizadas como uma solução alternativa. 
++ Se o texto ou análise lexical, é necessário, mas o tipo de consulta o processamento linguístico impede, altere a técnica de consulta. Na pesquisa em texto completo, texto ou análise lexical autocorrects para erros ortográficos, formas de palavras de singular plural e até mesmo irregulares verbos ou substantivos. Para algumas consultas, tais como difusa ou pesquisa com carateres universais, a análise de texto não é parte da consulta pipeline de análise. Em alguns cenários, as expressões regulares foram utilizadas como uma solução alternativa. 
 
 ### <a name="paging-results"></a>Resultados de paginação
 A Azure Search facilita a implementação da paginação dos resultados da pesquisa. Ao utilizar o **`top`** e **`skip`** parâmetros, sem problemas pode emitir pedidos de pesquisa que permitem receber o conjunto total de resultados da pesquisa no gerenciável, ordenados subconjuntos que Ative facilmente as práticas de interface do Usuário de pesquisa de bom. Ao receber esses subconjuntos de resultados mais pequenos, pode também receber a contagem de documentos no conjunto total de resultados da pesquisa.
@@ -162,9 +162,9 @@ Se pretender que o Azure Search devolva os resultados ordenados por um valor dif
 ### <a name="hit-highlighting"></a>Detetor de ocorrências
 No Azure Search, realce da parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitado através da **`highlight`**, **`highlightPreTag`**, e **`highlightPostTag`** parâmetros. Pode especificar os campos *pesquisáveis* que devem ter o respetivo texto com correspondência realçado, bem como especificar as etiquetas de cadeias exatas a adicionar no início e no fim do texto com correspondência devolvido pela Azure Search.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Completa como funciona a pesquisa de texto no Azure Search (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Explorador de pesquisa](search-explorer.md)
 + [Como consultar no .NET](search-query-dotnet.md)
-+ [Como consultar no REST](search-query-rest-api.md)
++ [Como consultar no REST](search-create-index-rest-api.md)

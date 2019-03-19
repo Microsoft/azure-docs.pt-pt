@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: cd15e139b2bcd0046d2cfbd7603809936adf1cfc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548137"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123186"
 ---
 # <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Resolver problemas do Gateway de Aplicação com o Serviço de Aplicações – redirecionamento de URL do Serviço de Aplicações
 
@@ -42,7 +42,7 @@ Um serviço de aplicações só podem ser acedido com os nomes de anfitriões co
 
 Para fazê-lo com o Gateway de aplicação, vamos utilizar a opção "Selecionar nome de anfitrião de back-end endereço" nas definições de HTTP e para a sonda, para trabalhar, usamos "Escolher nome de anfitrião de back-end HTTP definições" na configuração da pesquisa.
 
-![appservice-1](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-1.png)
+![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
 Por isso, quando o serviço de aplicação faz um redirecionamento, utiliza o nome de anfitrião "example.azurewebsites.net" no cabeçalho Location, em vez do nome de anfitrião original, a menos que configurado em contrário. Pode verificar os exemplo resposta cabeçalhos de solicitação e abaixo.
 ```
@@ -78,7 +78,7 @@ Para conseguir isso, tem de possuir um domínio personalizado e siga o processo 
 
 - Registre-se o domínio para a lista de domínio personalizado do serviço de aplicações. Para isso, tem de ter um CNAME no seu domínio personalizado que aponta para o FQDN de serviço de aplicações. Para obter mais informações, consulte [mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
 
-![appservice-2](.\media\troubleshoot-app-service-redirection-app-service-url\appservice-2.png)
+![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
 - Depois disso, o serviço de aplicações está pronto para aceitar o nome de anfitrião "www.contoso.com". Agora, altere a entrada CNAME no DNS para apontá-lo novamente para o FQDN do Gateway de aplicação. Por exemplo, "appgw.eastus.cloudapp.azure.com".
 
@@ -94,7 +94,7 @@ Para conseguir isso, tem de possuir um domínio personalizado e siga o processo 
 - Associar a sonda personalizada para as definições de HTTP de back-end e verifique se o estado de funcionamento do back-end, se ele está em bom estado.
 
 - Depois de o fazer, o Gateway de aplicação encaminhe o mesmo nome de anfitrião "www.contoso.com" para o serviço de aplicações e o redirecionamento terá lugar ao mesmo nome de anfitrião. Pode verificar os exemplo resposta cabeçalhos de solicitação e abaixo.
-```
+  ```
   ## Request headers to Application Gateway:
 
   Request URL: http://www.contoso.com/path
@@ -114,7 +114,7 @@ Para conseguir isso, tem de possuir um domínio personalizado e siga o processo 
   Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=www.contoso.com
 
   X-Powered-By: ASP.NET
-```
-## <a name="next-steps"></a>Passos Seguintes
+  ```
+  ## <a name="next-steps"></a>Passos Seguintes
 
 Se os passos anteriores não resolverem o problema, abra um [pedido de suporte](https://azure.microsoft.com/support/options/).

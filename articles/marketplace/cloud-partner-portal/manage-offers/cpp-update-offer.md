@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 690ce08aa15a9677b04931ed1965ef819614ee84
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102150"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Atualizar as ofertas do Azure Marketplace e AppSource
 
@@ -68,19 +68,19 @@ Para implementar essas alterações, siga os passos seguintes.
 
 Para ofertas do Azure Marketplace:
 
-2. Selecione o **SKUs** separador.  Selecione o SKU para modificar.
-3. Clique no **selecionar países** botão sob os **disponibilidade de país/região** campo.
-4. Na caixa de diálogo de disponibilidade de região, adicionar ou remover as regiões para este SKU.
+1. Selecione o **SKUs** separador.  Selecione o SKU para modificar.
+1. Clique no **selecionar países** botão sob os **disponibilidade de país/região** campo.
+1. Na caixa de diálogo de disponibilidade de região, adicionar ou remover as regiões para este SKU.
 
 Para ofertas de AppSource:
 
-2. Selecione o **detalhes de loja** separador.
-3. Junto a **países/regiões suportadas** da etiqueta, clique em **países/regiões suportadas**. 
-4. Na caixa de diálogo países/regiões suportados, adicionar ou remover regiões para esta oferta.
+1. Selecione o **detalhes de loja** separador.
+1. Junto a **países/regiões suportadas** da etiqueta, clique em **países/regiões suportadas**. 
+1. Na caixa de diálogo países/regiões suportados, adicionar ou remover regiões para esta oferta.
 
 Para mercados:
 
-5. Clique em **publicar** para iniciar o processo de publicação. 
+1. Clique em **publicar** para iniciar o processo de publicação. 
 
 Se um SKU está a ser disponibilizado numa nova região, tem a capacidade de especificar os preços para essa região específica através da **exportar dados de preços** funcionalidade. Se estiver a adicionar novamente uma região que estava anteriormente disponível, não é possível atualizar o seu preço porque não são permitidas alterações aos preços.
 

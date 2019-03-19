@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 243fb01a5c8112afaf310f616b93c2667ac6f19d
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: d6428fe17dabd4eb6c0d68a56e3b44cdf3b3f8b1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085308"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Aceder ao Dashboard do Kubernetes no Azure Stack 
 
@@ -114,11 +114,11 @@ Pode obter o URL para o dashboard a partir do nó principal no seu cluster.
 
 ## <a name="open-the-kubernetes-dashboard"></a>Abra o dashboard do Kubernetes 
 
-1.  Desative o Bloqueador de pop-up no seu navegador da Web.
+1. Desative o Bloqueador de pop-up no seu navegador da Web.
 
-2.  Ponto de seu navegador para o URL indicado quando executou o comando `kubectl cluster-info`. Por exemplo: https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
-3.  Selecione o certificado de cliente.
-4.  Introduza o token. 
+2. Ponto de seu navegador para o URL indicado quando executou o comando `kubectl cluster-info`. Por exemplo: https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
+3. Selecione o certificado de cliente.
+4. Introduza o token. 
 5. Voltar a ligar para a linha de comandos de bash no nó principal e conceder permissões para `kubernetes-dashboard`. Execute o seguinte comando:
 
     ```Bash  

@@ -10,22 +10,22 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8544d63f38f88a0e623dff343bf8b5133931b70b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 07550ed9c78aa584e55403d225eef4bcff33b057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228309"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167427"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Como utilizar entidades com múltiplos valores com um modelo de aprendiz de conversação
 Este tutorial mostra a propriedade de valor múltiplos de entidades.
 
 ## <a name="video"></a>Vídeo
 
-[![Pré-visualização de Tutorial do valor de várias entidades](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
+[![Pré-visualização de Tutorial do entidades de valores múltiplos](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot tutorial geral está em execução
+Este tutorial requer que o tutorial geral Bot está em execução
 
     npm run tutorial-general
 
@@ -36,65 +36,65 @@ Entidades marcadas como valores múltiplos terão cada instância reconhecida da
 
 ## <a name="steps"></a>Passos
 
+Comece na home page na IU da Web.
+
 ### <a name="create-the-model"></a>Criar o modelo
 
-1. Na IU da Web, clique em "Novo modelo."
-2. No campo "Nome", escreva "MultiValueEntities" e prima enter.
-3. Clique no botão "Criar".
+1. Selecione **novo modelo**.
+2. Introduza **MultiValueEntities** para **nome**.
+3. Selecione **Criar**.
 
 ### <a name="entity-creation"></a>Criação de entidade
 
-1. No painel esquerdo, clique em "Entidades", em seguida, no botão "Nova entidade".
-2. Selecione "Treinados personalizada" para o "tipo de entidade".
-3. Escreva "sabores" para o "nome da entidade".
-4. Selecione a caixa de verificação "Com múltiplos valor".
-    - Entidades de valores múltiplos acumular-se um ou mais valores na entidade.
-5. Verifique a caixa de verificação "Negatable".
-    - A propriedade de "Negatable" foi coberta na outro tutorial.
-6. Clique no botão "Criar".
+1. Selecione **entidades** no painel esquerdo, em seguida, **nova entidade**.
+2. Selecione **personalizado treinado** para **tipo de entidade**.
+3. Introduza **sabores** para **nome da entidade**.
+4. Verifique **com múltiplos valores** para permitir que a entidade acumular-se um ou mais valores.
+5. Verifique **Negatable**.
+6. Selecione **Criar**.
 
-![](../media/tutorial6_entities.PNG)
+![](../media/T07_entity_create.png)
 
 ### <a name="create-the-first-action"></a>Criar a primeira ação
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. No "do Bot de resposta...", digite "aqui estão os sabores: $toppings"
-    - O símbolo de dólar norte-americano à esquerda indica uma referência de entidade
-3. Clique no botão "Criar".
+1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
+2. Introduza **seguem-se sua sabores: $toppings** para **de resposta do Bot...** . O símbolo de dólar norte-americano à esquerda indica uma referência de entidade.
+3. Selecione **Criar**.
+
+![](../media/T07_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Criar a segunda ação
 
-1. No painel esquerdo, clique em "Ações", em seguida, no botão "Nova ação".
-2. No "do Bot de resposta...", digite "quais sabores deseja?"
-3. No campo "Dá direito Disqualifying", escreva "sabores."
-4. Clique no botão "Criar".
+1. Selecione **ações** no painel esquerdo, em seguida, **nova ação**.
+2. Introduza **quais sabores deseja?** para **de resposta do Bot...** .
+3. Introduza **sabores** para **Disqualifying dá direito**.
+4. Selecione **Criar**.
 
 Agora tem duas ações.
 
-![](../media/tutorial6_actions.PNG)
+![](../media/T07_action_create_2.png)
 
 ### <a name="train-the-model"></a>Preparar o modelo
 
-1. No painel esquerdo, clique em "Caixas de diálogo Train", em seguida, no botão "Train caixa de diálogo Novo".
-2. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Olá."
-3. Clique no botão "Pontuação ações".
-4. Selecione a resposta, "quais sabores faria isso como?"
-    - O percentil é 100%, como a ação só é válida com base nas restrições.
-5. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "queijo e cresce"
-6. Clique em "queijo" e selecione a etiqueta "+ sabores"
-7. Clique em "cresce" e selecione a etiqueta "+ sabores"
-8. Clique no botão "Pontuação ações".
-9. Selecione a resposta, "aqui estão os sabores: $toppings"
-10. No painel de bate-papo, em que se lê "... sua mensagem de tipo", escreva "Adicionar pepper"
-11. Clique em "pepper" e selecione a etiqueta "+ sabores"
-12. Clique no botão "Pontuação ações".
-13. Selecione a resposta, "aqui estão os sabores: $toppings"
-14. No painel de bate-papo, em que se lê "Escreva a mensagem...", escreva "Remover queijo"
-15. Clique em "queijo" e selecione a etiqueta "-sabores"
-16. Clique no botão "Pontuação ações".
-17. Selecione a resposta, "aqui estão os sabores: $toppings"
+1. Selecione **caixas de diálogo Train** no painel esquerdo, em seguida, **caixa de diálogo do novo Train**.
+2. Introduza **Olá** para expressão do usuário no painel à esquerda de bate-papo.
+3. Selecione **pontuação ações**.
+4. Selecione **quais sabores deseja?** na lista de ações. O percentil é 100%, como a ação só é válida com base nas restrições.
+5. Introduza **queijo e cresce** para expressão do usuário no painel à esquerda de bate-papo.
+6. Realçar **queijo** , em seguida, selecione **+ sabores**.
+7. Realçar **cresce** , em seguida, selecione **+ sabores**.
+8. Selecione **pontuação ações**.
+9. Selecione **seguem-se sua sabores: $toppings** na lista de ações.
+10. Introduza **adicionar pepper** para a expressão seguinte do utilizador no painel à esquerda de bate-papo.
+11. Realçar **pepper** , em seguida, selecione **+ sabores**.
+12. Selecione **pontuação ações**.
+13. Selecione **seguem-se sua sabores: $toppings** na lista de ações.
+14. Introduza **remover queijo** para expressão de terceiro do usuário no painel à esquerda de bate-papo.
+15. Realçar **queijo** , em seguida, selecione **-sabores**.
+16. Selecione **pontuação ações**.
+17. Selecione **seguem-se sua sabores: $toppings** na lista de ações.
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T07_training.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

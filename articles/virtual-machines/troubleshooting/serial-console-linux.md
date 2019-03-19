@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 4fd96aedc658833493d6fddb704104a70c01df44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098464"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010987"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Consola de série de máquina virtual para Linux
 
@@ -82,6 +82,7 @@ Imagens do Linux personalizadas     | Para ativar a consola de série para a sua
 > Se não vir nenhuma ação na consola de série, certifique-se de que o diagnóstico de arranque está ativado na sua VM.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Cenários comuns para aceder à consola de série
+
 Cenário          | Ações na consola de série
 :------------------|:-----------------------------------------
 Dividido *FSTAB* ficheiro | Prima a **Enter** tecla para continuar e utilize um editor de texto para corrigir o *FSTAB* ficheiro. Poderá ter de estar no modo de utilizador único para fazer isso. Para obter mais informações, consulte [como corrigir problemas de fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) e [consola de série de utilização para aceder a GRUB e modo de utilizador único](serial-console-grub-single-user-mode.md).
@@ -143,14 +144,14 @@ Todos os dados que são enviados e volta são encriptados na conexão.
 ### <a name="audit-logs"></a>Registos de auditoria
 Todo o acesso à consola de série é iniciado a [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) registos da máquina virtual. Acesso a estes registos são propriedade e controlado pelo administrador de máquina virtual do Azure.
 
->[!CAUTION]
-Sem palavras-passe de acesso para a consola são registadas. No entanto, se os comandos são executados dentro da consola contém ou palavras-passe, segredos, os nomes de utilizador ou qualquer outra forma de informações de identificação pessoal (PII) de saída, aqueles serão escritos nos registos de diagnóstico de arranque VM. Eles serão escritos, juntamente com todos os outro texto visível, como parte da implementação de volta a rolagem da consola de série função. Estes registos são circulares e apenas indivíduos com permissões de leitura à conta de armazenamento de diagnóstico tem acesso aos mesmos. No entanto, recomendamos que siga a prática recomendada de usar o ambiente de trabalho remoto para tudo o que pode envolver segredos e/ou PII.
+> [!CAUTION]
+> Sem palavras-passe de acesso para a consola são registadas. No entanto, se os comandos são executados dentro da consola contém ou palavras-passe, segredos, os nomes de utilizador ou qualquer outra forma de informações de identificação pessoal (PII) de saída, aqueles serão escritos nos registos de diagnóstico de arranque VM. Eles serão escritos, juntamente com todos os outro texto visível, como parte da implementação de volta a rolagem da consola de série função. Estes registos são circulares e apenas indivíduos com permissões de leitura à conta de armazenamento de diagnóstico tem acesso aos mesmos. No entanto, recomendamos que siga a prática recomendada de usar o ambiente de trabalho remoto para tudo o que pode envolver segredos e/ou PII.
 
 ### <a name="concurrent-usage"></a>Utilização em simultâneo
 Se um usuário estiver conectado à consola de série e outro utilizador com êxito pedidos de acesso a essa mesma máquina virtual, o primeiro utilizador será desligado e o segundo utilizador ligado à mesma sessão.
 
->[!CAUTION]
-Isso significa que um utilizador que está desligado não terminar a sessão. A capacidade de impor um fim de sessão após a desconexão (ao utilizar SIGHUP ou mecanismo similar) ainda está no plano. Para Windows é um tempo limite automático ativado em especial administrativas consola (SAC); No entanto, para Linux pode configurar a definição de tempo limite de terminal. Para tal, adicione `export TMOUT=600` no seu *. bash_profile* ou *.profile* ficheiro para o utilizador que utiliza para iniciar sessão na consola. Esta definição será o tempo limite da sessão após 10 minutos.
+> [!CAUTION]
+> Isso significa que um utilizador que está desligado não terminar a sessão. A capacidade de impor um fim de sessão após a desconexão (ao utilizar SIGHUP ou mecanismo similar) ainda está no plano. Para Windows é um tempo limite automático ativado em especial administrativas consola (SAC); No entanto, para Linux pode configurar a definição de tempo limite de terminal. Para tal, adicione `export TMOUT=600` no seu *. bash_profile* ou *.profile* ficheiro para o utilizador que utiliza para iniciar sessão na consola. Esta definição será o tempo limite da sessão após 10 minutos.
 
 ## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é um foco principal para a consola de série do Azure. Para esse fim, garantimos que a consola de série é totalmente acessível.
@@ -188,7 +189,7 @@ Consola de série não funciona com um firewall de conta de armazenamento. | Con
 
 **P. Como posso enviar comentários?**
 
-R. Fornecer comentários através da criação de um problema do GitHub https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria de máquina virtual de http://feedback.azure.com.
+R. Fornecer comentários através da criação de um problema do GitHub https://aka.ms/serialconsolefeedback. Como alternativa (menos preferencial), pode enviar comentários por meio azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com.
 
 **P. A consola de série suporta copiar/colar?**
 

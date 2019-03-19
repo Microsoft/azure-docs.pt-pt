@@ -9,14 +9,14 @@ ms.assetid: BBF87972-B6C3-4910-BB52-DE90893F6C71
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: c2e6a553d29f71b0b7ca8d267e8d396ddb2a2922
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1f731f8c68137b92637c3d7e1a8117a7a738bbeb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875183"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170688"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Como utilizar a classificação de mensagens em fila para apresentar os resultados da API de pesquisa Web Bing  
 

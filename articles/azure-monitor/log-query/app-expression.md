@@ -1,6 +1,6 @@
 ---
 title: expressão de App() nas consultas de registo do Azure Monitor | Documentos da Microsoft
-description: A expressão de aplicação é utilizada numa consulta de registo do Azure Monitor para recuperar dados de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição.
+description: A expressão de aplicação é utilizada uma consulta de registo do Azure Monitor para recuperar dados de uma aplicação específica do Application Insights no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 0abe2c869a05d359f692db105eb647f9e6a69df8
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889459"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>expressão de App() na consulta do Azure Monitor
 

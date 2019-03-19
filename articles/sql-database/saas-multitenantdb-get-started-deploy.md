@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567388"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994911"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação em partição horizontal do multi-inquilino
 
@@ -66,9 +66,9 @@ Escolha os nomes de agora e anotá-las.
 ### <a name="steps"></a>Passos
 
 1. Clique a seguinte azul **implementar no Azure** botão.
-    - Ele é aberto o portal do Azure com o modelo de implementação de Wingtip Tickets SaaS.
+   - Ele é aberto o portal do Azure com o modelo de implementação de Wingtip Tickets SaaS.
 
-    [![Botão para implementar no Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Botão para implementar no Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Introduza os valores de parâmetro necessário para a implementação.
 
@@ -125,9 +125,9 @@ Cada local obtém uma aplicação web personalizada para listar os seus eventos 
 Uma central **Hub de eventos** página da Web fornece uma lista de links para os inquilinos na sua implementação específica. Utilize os seguintes passos para experimentar os **Hub de eventos** página da Web e uma aplicação individual web:
 
 1. Abra o **Hub de eventos** no seu browser:
-    - http://events.wingtip-mt.&lt; usuário&gt;. trafficmanager.net &nbsp; *(substitua &lt;utilizador&gt; com valor de utilizador da sua implementação.)*
+   - http://events.wingtip-mt.&lt; usuário&gt;. trafficmanager.net &nbsp; *(substitua &lt;utilizador&gt; com valor de utilizador da sua implementação.)*
 
-    ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Clique em **Fabrikam Jazz Club** no **Hub de Eventos**.
 
@@ -208,7 +208,7 @@ Em seguida, vamos provisionar outro inquilino, desta vez na sua própria base de
 
 Agora vamos examinar alguns dos recursos que foram implementados:
 
-1. Na [portal do Azure](http://portal.azure.com), navegue para a lista de grupos de recursos. Abra o grupo de recursos que criou quando implementou a aplicação.
+1. Na [portal do Azure](https://portal.azure.com), navegue para a lista de grupos de recursos. Abra o grupo de recursos que criou quando implementou a aplicação.
 
    ![grupo de recursos](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Botão para implementar no Azure."

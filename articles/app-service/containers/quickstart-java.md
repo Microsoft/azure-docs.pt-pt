@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 541d431c9387d512374047c4cc004e1a237e1ef1
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406529"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999115"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Início rápido: Criar uma aplicação Java no serviço de aplicações no Linux
 
@@ -111,3 +111,5 @@ Neste início rápido, utilizou Maven para criar uma aplicação de Java, config
 - [Configurar uma origem de dados do Tomcat](app-service-linux-java.md#tomcat)
 - [CI/CD com Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Configurar as ferramentas de monitorização de desempenho de aplicações](how-to-java-apm-monitoring.md)
+- [Guia de programação Java para o serviço de aplicações no Linux](app-service-linux-java.md)
+

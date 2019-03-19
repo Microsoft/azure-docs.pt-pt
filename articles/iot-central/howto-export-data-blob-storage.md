@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: ae1e71170952a2f05e371de68b519eba522e3298
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 43fda73b1bd410c3e754316bb8bf8c7e1c744e58
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318725"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005340"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportar os dados para o armazenamento de Blobs do Azure
 
@@ -32,9 +32,9 @@ Este artigo se aprofunda-se em como usar a funcionalidade de exportação contí
 ## <a name="export-to-azure-blob-storage"></a>Exportar para o armazenamento de Blobs do Azure
 
 Medidas, dispositivos e dados de modelos de dispositivos são exportados para a sua conta de armazenamento, uma vez por minuto, com cada ficheiro que contém o lote de alterações, uma vez que o último exportou o ficheiro. Os dados exportados estão sendo [Apache Avro](https://avro.apache.org/docs/current/index.html) formate e serão exportados para três pastas. Os caminhos padrão na sua conta de armazenamento são:
-    - Mensagens de: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Dispositivos: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - Modelos de dispositivos: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Mensagens de: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Dispositivos: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+- Modelos de dispositivos: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ### <a name="measurements"></a>Medições
 

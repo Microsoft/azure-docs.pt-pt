@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091312"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Utilize a vista do Apache Ambari Hive com o Apache Hadoop no HDInsight
 
@@ -73,7 +73,7 @@ Saiba como executar consultas do Hive com o Apache Ambari Hive View. A vista do 
    * `DROP TABLE`: Elimina a tabela e o arquivo de dados, no caso da tabela já existe.
 
    * `CREATE EXTERNAL TABLE`: Cria uma nova tabela de "externa" no Hive.
-   Tabelas externas armazenam apenas a definição de tabela no Hive. Os dados são deixados na localização original.
+     Tabelas externas armazenam apenas a definição de tabela no Hive. Os dados são deixados na localização original.
 
    * `ROW FORMAT`: Mostra como os dados estiverem formatados. Neste caso, os campos em cada registo são separados por um espaço.
 
@@ -81,8 +81,8 @@ Saiba como executar consultas do Hive com o Apache Ambari Hive View. A vista do 
 
    * `SELECT`: Seleciona uma contagem de todas as linhas em que a coluna t4 contém o valor [erro].
 
-    > [!IMPORTANT]  
-    > Deixe o __base de dados__ seleção na __padrão__. Os exemplos neste documento utilizam a base de dados padrão incluído com o HDInsight.
+     > [!IMPORTANT]  
+     > Deixe o __base de dados__ seleção na __padrão__. Os exemplos neste documento utilizam a base de dados padrão incluído com o HDInsight.
 
 5. Para iniciar a consulta, utilize o **Execute** botão abaixo da folha de cálculo. O botão fica laranja e o texto muda para **parar**.
 
@@ -150,7 +150,7 @@ Por exemplo, se as tiver definido uma UDF com as seguintes propriedades:
 
 * Caminho do recurso: /myudfs.jar
 
-* Nome UDF: myawesomeudf
+* UDF name: myawesomeudf
 
 * Nome da classe UDF: com.myudfs.Awesome
 

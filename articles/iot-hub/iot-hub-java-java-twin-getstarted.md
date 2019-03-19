@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.openlocfilehash: 53eed3148483285bbcbc1e66edea5f2b189624c8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: bfb111b07db105190fc59f21b3255c2ea2b1471c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530557"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081020"
 ---
 # <a name="get-started-with-device-twins-java"></a>Introdução aos dispositivos duplos (Java)
 
@@ -294,18 +294,18 @@ Nesta secção, vai criar uma aplicação de consola do Java que define um valor
     * Crie um cliente de dispositivo para comunicar com IoT Hub.
     * Criar uma **dispositivo** objeto para armazenar propriedades de twin do dispositivo.
 
-    ```java
-    DeviceClient client = new DeviceClient(connString, protocol);
+      ```java
+      DeviceClient client = new DeviceClient(connString, protocol);
 
-    // Create a Device object to store the device twin properties
-    Device dataCollector = new Device() {
+      // Create a Device object to store the device twin properties
+      Device dataCollector = new Device() {
       // Print details when a property value changes
       @Override
       public void PropertyCall(String propertyKey, Object propertyValue, Object context) {
         System.out.println(propertyKey + " changed to " + propertyValue);
       }
-    };
-    ```
+      };
+      ```
 
 10. Adicione o seguinte código para o **principal** método para criar um **connectivityType** comunicado propriedade e enviá-lo para o IoT Hub:
 
@@ -341,9 +341,9 @@ Nesta secção, vai criar uma aplicação de consola do Java que define um valor
 
 1. Modifique a assinatura do método **principal** para incluir as exceções da seguinte forma:
 
-    ```java
-    public static void main(String[] args) throws URISyntaxException, IOException
-    ```
+     ```java
+     public static void main(String[] args) throws URISyntaxException, IOException
+     ```
 
 1. Guarde e feche o `simulated-device\src\main\java\com\mycompany\app\App.java` ficheiro.
 

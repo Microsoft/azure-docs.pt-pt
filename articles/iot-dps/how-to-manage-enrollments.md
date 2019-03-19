@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0970131c4b674fd864ad574b0f749cd6d7f6f2a2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060722"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089391"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerir inscrições de dispositivos com o Portal do Azure
 
@@ -28,15 +28,15 @@ Existem duas formas, pode inscrever os seus dispositivos com o serviço de aprov
 
     Pode criar um grupo de inscrição no portal para um grupo de dispositivos através dos seguintes passos:
 
-    1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu esquerdo.  
-    1. Clique no serviço de aprovisionamento de dispositivos de mensagens em fila que pretende inscrever o seu dispositivo a partir da lista de recursos.  
-    1. No seu serviço de aprovisionamento:  
-       a. Clique em **gerir inscrições**, em seguida, selecione a **grupos de inscrição** separador.  
-       b. Clique no botão **+ Adicionar**, na parte superior.  
-       c. Quando for apresentado o painel "Adicionar grupo de inscrição", introduza as informações para a entrada da lista de inscrição.  **Nome do grupo** é necessária. Também selecionar "AC ou intermediário" para **tipo de certificado**e carregar a raiz **certificado primário** para o grupo de dispositivos.  
-       d. Clique em **Guardar**. A criação do seu grupo de inscrição com êxito, deverá ver o nome do grupo aparecer sob o **grupos de inscrição** separador.  
+  1. Inicie sessão no portal do Azure e clique em **todos os recursos** no menu esquerdo.  
+  1. Clique no serviço de aprovisionamento de dispositivos de mensagens em fila que pretende inscrever o seu dispositivo a partir da lista de recursos.  
+  1. No seu serviço de aprovisionamento:  
+     a. Clique em **gerir inscrições**, em seguida, selecione a **grupos de inscrição** separador.  
+     b. Clique no botão **+ Adicionar**, na parte superior.  
+     c. Quando for apresentado o painel "Adicionar grupo de inscrição", introduza as informações para a entrada da lista de inscrição.  **Nome do grupo** é necessária. Também selecionar "AC ou intermediário" para **tipo de certificado**e carregar a raiz **certificado primário** para o grupo de dispositivos.  
+     d. Clique em **Guardar**. A criação do seu grupo de inscrição com êxito, deverá ver o nome do grupo aparecer sob o **grupos de inscrição** separador.  
 
-       [![Grupo de inscrição no portal](./media/how-to-manage-enrollments/group-enrollment.png)] (. / media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [![Grupo de inscrição no portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
 * Uma **inscrição Individual** é uma entrada para um único dispositivo que pode ser registado. Inscrições individuais podem utilizar x509 certificados ou tokens SAS (a partir de um TPM físico ou virtual) como mecanismos de atestação. Recomendamos a utilização das inscrições individuais para dispositivos que precisam de configurações iniciais exclusivas ou para dispositivos que só podem utilizar tokens SAS através de TPM ou de virtual TPM como o mecanismo de atestação. As inscrições individuais podem ter o ID de dispositivo do hub IoT pretendido especificado.

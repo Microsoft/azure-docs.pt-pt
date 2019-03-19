@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.subservice: blobs
-ms.openlocfilehash: 65ecaaea09c28c31d76f31dc447108273b379f9e
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 1ab799ef7eb9d7c591e76ab9180d4e3f4ba6ba59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811669"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007272"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como utilizar o armazenamento de Blobs do iOS
 
@@ -124,7 +124,7 @@ Todos os BLOBs no armazenamento do Azure têm de residir num contentor. O exempl
 }
 ```
 
-Pode confirmar que isto funciona, observando a [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com) e verificar se *newcontainer* está na lista de contentores para a sua conta de armazenamento.
+Pode confirmar que isto funciona, observando a [Explorador de armazenamento do Microsoft Azure](https://storageexplorer.com) e verificar se *newcontainer* está na lista de contentores para a sua conta de armazenamento.
 
 ## <a name="set-container-permissions"></a>Definir permissões de contentor
 Permissões de um contentor estão configuradas para **privada** acesso por predefinição. No entanto, os contentores fornecem algumas opções diferentes para acesso ao contentor:
@@ -203,7 +203,7 @@ O exemplo seguinte mostra como carregar um blob de blocos de um NSString. Se já
 }
 ```
 
-Pode confirmar que isto funciona, observando a [Explorador de armazenamento do Microsoft Azure](http://storageexplorer.com) e verificar se o contentor *containerpublic*, contém o blob, *sampleblob*. Neste exemplo, usamos um contentor público para que também pode verificar que esta aplicação trabalhou ao aceder os blobs do URI:
+Pode confirmar que isto funciona, observando a [Explorador de armazenamento do Microsoft Azure](https://storageexplorer.com) e verificar se o contentor *containerpublic*, contém o blob, *sampleblob*. Neste exemplo, usamos um contentor público para que também pode verificar que esta aplicação trabalhou ao aceder os blobs do URI:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -378,10 +378,10 @@ O exemplo seguinte mostra como eliminar um contentor.
 Agora que aprendeu como utilizar o armazenamento de Blobs do iOS, siga estas ligações para saber mais sobre a biblioteca do iOS e o serviço de armazenamento.
 
 * [Biblioteca de clientes de armazenamento do Azure para iOS](https://github.com/azure/azure-storage-ios)
-* [IOS de armazenamento do Azure documentação de referência](http://azure.github.io/azure-storage-ios/)
+* [IOS de armazenamento do Azure documentação de referência](https://azure.github.io/azure-storage-ios/)
 * [API REST dos Serviços do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blogue da Equipa de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage)
 
-Se tiver dúvidas sobre esta biblioteca, fique à vontade postar nosso [fórum de MSDN do Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+Se tiver dúvidas sobre esta biblioteca, fique à vontade postar nosso [fórum de MSDN do Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 Se tiver sugestões de funcionalidades do armazenamento do Azure, poste [comentários de armazenamento do Azure](https://feedback.azure.com/forums/217298-storage/).
 

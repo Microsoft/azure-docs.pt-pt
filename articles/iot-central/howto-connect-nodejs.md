@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c04358734923654366eb679505910e14d0e0059b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4d2701f078a26c22f52aebd0ef562dd60eaca923
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767537"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097979"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ligar uma aplicação de cliente genérico à sua aplicação do Azure IoT Central (node. js)
 
@@ -41,7 +41,7 @@ Adicione a seguinte telemetria no **medidas** página:
 | Pressão     | pressure    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  O tipo de dados da medição de telemetria é uma vírgula flutuante ponto número.
+>   O tipo de dados da medição de telemetria é uma vírgula flutuante ponto número.
 
 Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, a telemetria não é possível apresentar na aplicação.
 
@@ -54,7 +54,7 @@ Adicione o seguinte estado no **medidas** página:
 | Modo da Ventoinha     | fanmode     | 1       | A executar      | 0       | Parada      |
 
 > [!NOTE]
-  O tipo de dados da medição de estado é a cadeia de caracteres.
+>   O tipo de dados da medição de estado é a cadeia de caracteres.
 
 Introduza os nomes de campos exatamente como mostrados na tabela no modelo de dispositivo. Se os nomes de campos não coincidem com os nomes de propriedade no código de dispositivo correspondente, o estado não é possível apresentar na aplicação.
 
@@ -67,7 +67,7 @@ Adicione o seguinte evento no **medidas** página:
 | Sobreaquecimento  | superaquecimento    | Erro    |
 
 > [!NOTE]
-  O tipo de dados da medição de eventos é a cadeia de caracteres.
+>   O tipo de dados da medição de eventos é a cadeia de caracteres.
 
 ### <a name="device-properties"></a>Propriedades do dispositivo
 
@@ -279,5 +279,5 @@ Como um operador na sua aplicação do Azure IoT Central, para o seu dispositivo
 ## <a name="next-steps"></a>Passos Seguintes
 
 Agora que sabe como ligar um cliente genérico do node. js à sua aplicação do Azure IoT Central, aqui estão os passos sugeridos seguintes:
-* [Preparar e ligue-se um Raspberry Pi](howto-connect-raspberry-pi-python.md)
+* [Preparar e ligar um Raspberry Pi](howto-connect-raspberry-pi-python.md)
 <!-- Next how-tos in the sequence -->

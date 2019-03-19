@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 94baa1235388ce99d013f8267f8410dcc206a51d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 336552c142e504ae7296314512f00688e30d032e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998353"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894364"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com o controlo de acesso através dos serviços de multimédia do Azure 
 
@@ -28,7 +28,7 @@ Conceber e criar um subsistema de direitos digitais (DRM) de gestão para um ove
 
 Os leitores de destinados para este documento são engenheiros que trabalham em subsistemas DRM do OTT ou soluções de transmissão em fluxo/multiscreen online ou leitores que estejam interessados em subsistemas DRM. A pressuposição é de que os leitores estejam familiarizados com pelo menos uma das tecnologias de DRM no mercado, como o PlayReady, Widevine, FairPlay ou acesso Adobe.
 
-Nesta discussão de DRM, incluímos também a encriptação comum (CENC) com múltipla DRM. Uma tendência principais na transmissão em fluxo online e o setor OTT é usar CENC com múltipla nativo DRM em várias plataformas de cliente. Essa tendência é uma mudança do anterior que é utilizado um único DRM e o SDK de cliente para várias plataformas de cliente. Ao utilizar CENC com nativo com múltiplos DRM tanto PlayReady como Widevine são encriptados de acordo com o [encriptação comum (ISO/IEC 23001 7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) especificação.
+Nesta discussão de DRM, incluímos também a encriptação comum (CENC) com múltipla DRM. Uma tendência principais na transmissão em fluxo online e o setor OTT é usar CENC com múltipla nativo DRM em várias plataformas de cliente. Essa tendência é uma mudança do anterior que é utilizado um único DRM e o SDK de cliente para várias plataformas de cliente. Ao utilizar CENC com nativo com múltiplos DRM tanto PlayReady como Widevine são encriptados de acordo com o [encriptação comum (ISO/IEC 23001 7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) especificação.
 
 Os benefícios da CENC com múltipla DRM são:
 
@@ -156,7 +156,7 @@ A tabela seguinte mostra o mapeamento.
 | **Gestão de chaves** |Não é necessária para a implementação de referência |
 | **Gestão de conteúdos** |Uma aplicação de consola c# |
 
-Em outras palavras, o IDP e o STS são utilizados com o Azure AD. O [API de leitor de multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/) é utilizado para o jogador. Serviços de multimédia e o leitor de multimédia suportam DASH e CENC com múltipla DRM.
+Em outras palavras, o IDP e o STS são utilizados com o Azure AD. O [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/) é utilizado para o jogador. Serviços de multimédia e o leitor de multimédia suportam DASH e CENC com múltipla DRM.
 
 O diagrama seguinte mostra a estrutura geral e o fluxo com o mapeamento de tecnologia anterior:
 
@@ -208,7 +208,7 @@ Implementação inclui os seguintes passos:
    * Microsoft.Owin.Host.SystemWeb Install-Package
    * Install-Package ActiveDirectory
 
-8. Criar um player com o [API de leitor de multimédia do Azure](http://amp.azure.net/libs/amp/latest/docs/). Utilizar o [API do Azure Media Player ProtectionInfo](http://amp.azure.net/libs/amp/latest/docs/) para especificar a tecnologia DRM a ser utilizada em diferentes plataformas DRM.
+8. Criar um player com o [API de leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/). Utilizar o [API do Azure Media Player ProtectionInfo](https://amp.azure.net/libs/amp/latest/docs/) para especificar a tecnologia DRM a ser utilizada em diferentes plataformas DRM.
 
 9. A tabela seguinte mostra a matriz de teste.
 

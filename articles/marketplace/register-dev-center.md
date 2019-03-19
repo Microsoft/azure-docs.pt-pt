@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 549f37c1287373fe8bf4c10dc64e6e778b37be02
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730142"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889748"
 ---
 # <a name="register-in-dev-center"></a>Registe-se no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
 1.  Registe-se como um vendedor no Dev Center.  
-    *   Para iniciar sessão e registe-se como um vendedor, visite o Centro de desenvolvimento do Azure, página localizada em [dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure).  
+    *   Para iniciar sessão e registe-se como um vendedor, visite o Centro de desenvolvimento do Azure, página localizada em [dev.windows.com/registration?accountprogram=azure](https://dev.windows.com/registration?accountprogram=azure).  
 2.  Concluir o `Help us protect your account` wizard, que verifica se a sua identidade com o seu endereço de e-mail ou número de telefone.  
 
     ![Caixas de informações de telefone na ajuda-na proteger o seu assistente de conta](./media/marketplace-publishers-guide/registerdevcenteremail.png)  
@@ -142,55 +142,55 @@ As informações do banco e o imposto são necessárias para todas as ofertas co
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes sobre: 
 
-*   **Qual os editores requer um registo de conta do Dev Center?** 
-> Publicador que está a publicar no Transact listagem Tipo: VM, as aplicações do Azure: modelos de soluções e aplicações geridas.  
+* **Qual os editores requer um registo de conta do Dev Center?** 
+  > Publicador que está a publicar no Transact listagem Tipo: VM, as aplicações do Azure: modelos de soluções e aplicações geridas.  
 
-*   **Por que é necessária uma conta Dev Center?**
-> Conta do Dev Center é necessário que permitam à Microsoft para o cliente em nome do publicador são faturadas Transact listagem tipo. Conta do Dev Center registo permite que a Microsoft validar o uso legal, fiscais e informações bancárias para a sua empresa. Para saber mais clique [aqui.](https://docs.microsoft.com/azure/marketplace/become-publisher)
+* **Por que é necessária uma conta Dev Center?**
+  > Conta do Dev Center é necessário que permitam à Microsoft para o cliente em nome do publicador são faturadas Transact listagem tipo. Conta do Dev Center registo permite que a Microsoft validar o uso legal, fiscais e informações bancárias para a sua empresa. Para saber mais clique [aqui.](https://docs.microsoft.com/azure/marketplace/become-publisher)
 
-*   **Como posso começar a utilizar com o registo de centro de desenvolvimento?**
-> Para evitar a duplicação, certifique-se de que sua empresa ainda não tiver uma conta do Dev Center registrada. Precisa estar conectado com a conta Microsoft que pretende associar à sua conta de desenvolvedor. Se ainda não tiver uma conta Microsoft, pode criar uma nova conta [aqui.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exemplo: contoso_marketplace@live.com) para iniciar sessão e registar, aceda a https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Para obter mais informações sobre o processo de registo clique [aqui.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
+* **Como posso começar a utilizar com o registo de centro de desenvolvimento?**
+  > Para evitar a duplicação, certifique-se de que sua empresa ainda não tiver uma conta do Dev Center registrada. Precisa estar conectado com a conta Microsoft que pretende associar à sua conta de desenvolvedor. Se ainda não tiver uma conta Microsoft, pode criar uma nova conta [aqui.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (exemplo: contoso_marketplace@live.com) para iniciar sessão e registar, aceda a https://dev.windows.com/en-us/registration?accountProgram=Azure
+  > <br>Para obter mais informações sobre o processo de registo clique [aqui.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
-*   **Devo escolher 'Indivíduo' ou "Da empresa" tipo de conta?**
-> Para publicar uma oferta de transact no Marketplace, tem de selecionar a conta de empresa quando efetuar o registo para a sua conta do Dev Center.
+* **Devo escolher 'Indivíduo' ou "Da empresa" tipo de conta?**
+  > Para publicar uma oferta de transact no Marketplace, tem de selecionar a conta de empresa quando efetuar o registo para a sua conta do Dev Center.
 
-*   **Posso alterar meu tipo de conta de "Pessoa" à conta "Empresa" após a criação da conta?**
-> Não, o tipo de conta não pode ser atualizado assim que a conta é criada.
+* **Posso alterar meu tipo de conta de "Pessoa" à conta "Empresa" após a criação da conta?**
+  > Não, o tipo de conta não pode ser atualizado assim que a conta é criada.
 
-*   **Por que motivo recebo uma mensagem de erro 'A cidade é obrigatória' embora eu tenha introduzido corretamente a cidade?**
-> Verifique para se certificar de que o CEP foi introduzido corretamente também. Há uma cidade, a validação do CEP.
+* **Por que motivo recebo uma mensagem de erro 'A cidade é obrigatória' embora eu tenha introduzido corretamente a cidade?**
+  > Verifique para se certificar de que o CEP foi introduzido corretamente também. Há uma cidade, a validação do CEP.
 
-*   **Como posso obter um código promocional?**
-> Concluir o [registo de Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) formulário para receber um código promocional do Centro de desenvolvimento.
+* **Como posso obter um código promocional?**
+  > Concluir o [registo de Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup) formulário para receber um código promocional do Centro de desenvolvimento.
  
-*   **O que devo esperar após concluir o registo?**
-> Procure uma mensagem de e-mail de verify@microsoft.com com linha de assunto "ação necessária: Verificar a sua conta de e-mail com a Microsoft". Clique no link de verificação confidenciais de tempo para concluir o registo. *Se não tenha recebido um e-mail dentro de 24 horas, verifique a pasta de spam.*
+* **O que devo esperar após concluir o registo?**
+  > Procure uma mensagem de e-mail de verify@microsoft.com com linha de assunto "ação necessária: Verificar a sua conta de e-mail com a Microsoft". Clique no link de verificação confidenciais de tempo para concluir o registo. *Se não tenha recebido um e-mail dentro de 24 horas, verifique a pasta de spam.*
 
-*   **Quais são os passos seguintes após a verificação de centro de desenvolvimento?**
-> Aceda a "Seus programas" (https://developer.microsoft.com/dashboard/Account/Programs) e inicie sessão na conta do Dev Center. Se não vir o Azure como um programa registado, procure em "Programas recomendado para" e, em seguida, procure do Azure para selecionar "Iniciar."
+* **Quais são os passos seguintes após a verificação de centro de desenvolvimento?**
+  > Aceda a "Seus programas" (https://developer.microsoft.com/dashboard/Account/Programs) e inicie sessão na conta do Dev Center. Se não vir o Azure como um programa registado, procure em "Programas recomendado para" e, em seguida, procure do Azure para selecionar "Iniciar."
 
-*   **Como vinculo minha conta do Dev Center para o meu perfil de publicador do Cloud Partner Portal?**
-> A etapa final antes da publicação é vincular sua conta do Dev Center para o seu Portal de parceiros da Cloud [perfil](https://cloudpartner.azure.com/#profile). Se a sua conta do Dev Center é diferente da sua conta em [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), adicione a sua conta do Dev Center como um novo [utilizador](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) no Portal de parceiros de nuvem. Início de sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/#alloffers) com sua conta do Dev Center. Selecione o perfil do publicador no menu localizado no canto superior direito do seu navegador da web. Conta do Centro de desenvolvimento de ligação de SELECT.
+* **Como vinculo minha conta do Dev Center para o meu perfil de publicador do Cloud Partner Portal?**
+  > A etapa final antes da publicação é vincular sua conta do Dev Center para o seu Portal de parceiros da Cloud [perfil](https://cloudpartner.azure.com/#profile). Se a sua conta do Dev Center é diferente da sua conta em [Cloud Partner Portal](https://cloudpartner.azure.com/#alloffers), adicione a sua conta do Dev Center como um novo [utilizador](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) no Portal de parceiros de nuvem. Início de sessão para o [Portal de parceiros da Cloud](https://cloudpartner.azure.com/#alloffers) com sua conta do Dev Center. Selecione o perfil do publicador no menu localizado no canto superior direito do seu navegador da web. Conta do Centro de desenvolvimento de ligação de SELECT.
 
-*   **Por que motivo é que o meu aplicativo de centro de desenvolvimento é rejeitado?**
-> A empresa de aprovação de terceiros (Duns & Bradstreet) não foi possível entrar em contacto consigo através do número de telefone que forneceu. Contacte o suporte no momento [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) para voltar a iniciar o processo de aprovação
+* **Por que motivo é que o meu aplicativo de centro de desenvolvimento é rejeitado?**
+  > A empresa de aprovação de terceiros (Duns & Bradstreet) não foi possível entrar em contacto consigo através do número de telefone que forneceu. Contacte o suporte no momento [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) para voltar a iniciar o processo de aprovação
 
 > ou
-
+> 
 > Conta de registo são rejeitados baseia-se a problemas de geografia. As empresas com subsidiárias com base em localizações diferentes da sede da precisará apenas uma conta do Dev Center.
  
-*   **O que devo fazer se o nome da empresa que eu quero usar já existe no Dev Center?**
-> Atribuir um nome de empresa temporário, contacte o suporte no momento [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e os documentos de registo de negócios de fornecê-los.
+* **O que devo fazer se o nome da empresa que eu quero usar já existe no Dev Center?**
+  > Atribuir um nome de empresa temporário, contacte o suporte no momento [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) e os documentos de registo de negócios de fornecê-los.
 
-*   **Como posso adicionar as minhas informações fiscais e dividendos?**
-> Não será capaz de publicar transact ofertas sem concluir as informações fiscais e bancárias na sua conta do Dev Center.  Para obter mais informações sobre como adicionar informações de conta, visite [como informações bancárias de adicionar e impostos.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
+* **Como posso adicionar as minhas informações fiscais e dividendos?**
+  > Não será capaz de publicar transact ofertas sem concluir as informações fiscais e bancárias na sua conta do Dev Center.  Para obter mais informações sobre como adicionar informações de conta, visite [como informações bancárias de adicionar e impostos.](https://docs.microsoft.com/azure/marketplace/register-dev-center)
 
-*   **Pode alterar a conta de início de sessão da Microsoft do Centro de desenvolvimento?**
-> Não. Depois de criar um centro de desenvolvimento, não é possível alterar a conta do proprietário. Tinha que começar tudo de novo com uma conta do Dev Center totalmente nova com a conta Microsoft pretendida.
+* **Pode alterar a conta de início de sessão da Microsoft do Centro de desenvolvimento?**
+  > Não. Depois de criar um centro de desenvolvimento, não é possível alterar a conta do proprietário. Tinha que começar tudo de novo com uma conta do Dev Center totalmente nova com a conta Microsoft pretendida.
 
-*   **Onde posso contactar o suporte com problemas com relação ao Registro do Centro de desenvolvimento?**
-Para acesso a suporte, visite o Windows a página de suporte programador, localizada em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
+* **Onde posso contactar o suporte com problemas com relação ao Registro do Centro de desenvolvimento?**
+  Para acesso a suporte, visite o Windows a página de suporte programador, localizada em [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 *   Visite o [Azure Marketplace e guia de publicador do AppSource](./marketplace-publishers-guide.md) página.  

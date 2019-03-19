@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 44062670283a15f678da45e13a831e73a7738c39
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e6afa7eb91daec95c44d76007ea793fca90b61bb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075493"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58009110"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Gira orçamentos do Azure no Cloudyn
 

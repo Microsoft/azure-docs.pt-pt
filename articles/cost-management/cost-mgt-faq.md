@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6ebd25dc65f86e5e028c1c56943756b46d0db9a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011810"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Perguntas mais frequentes sobre Cloudyn
 
@@ -75,7 +75,7 @@ Depois de concluir os passos anteriores, pode ver recomendações de otimizador 
 Em primeiro lugar, vamos dar uma olhada cenário mais comum que faz com que as contas de utilizador obter *initiallySuspended*.
 
 > Admin1 poderá ser utilizador do fornecedor de soluções do Microsoft Cloud ou do Enterprise Agreement. Sua organização está pronta para começar a utilizar o Cloudyn.  Ele registra através do portal do Azure e iniciar sessão no Cloudyn portal. Como a pessoa que regista o serviço de Cloudyn e inicia sessão no portal do Cloudyn, ele se torna a *administrador principal*. Admin1 não cria as contas de utilizador. No entanto, com o portal do Cloudyn, ele cria as contas do Azure e configura uma hierarquia de entidades. Admin1 informa Admin2, um administrador de inquilino, o que ele precisa para se registrar no Cloudyn e iniciar sessão portal do Cloudyn.
-
+> 
 > Registra Admin2 através do portal do Azure. No entanto quando ele tenta iniciar sessão portal do Cloudyn, ele recebe um erro dizendo que é a conta dele **suspenso**. O administrador principal, Admin1, é notificado sobre a suspensão de conta. Admin1 tem de ativar a conta do Admin2 e conceder *acesso de entidade de administrador* para as entidades adequadas e permite o acesso de gestão de utilizador e o Active Directory a conta de utilizador.
 
 
@@ -126,9 +126,9 @@ Cloudyn automaticamente detecta a moeda de subscrição do Enterprise Agreement 
 
 Cloudyn tem as linhas cronológicas atualização de dados seguintes:
 
-- **Inicial**: depois de configurar, pode demorar até 24 horas para ver os dados de custo no Cloudyn. Também pode demorar até 10 dias para o Cloudyn a recolher dados suficientes para exibir as recomendações de dimensionamento.
-- **Diária**: do dia décimo no final de cada mês, Cloudyn deve mostrar os seus dados atualizados do dia anterior depois de sobre UTC + 3 no dia seguinte.
-- **Mensal**: primeiro dia para o décimo dia de cada mês, Cloudyn pode mostrar os seus dados apenas até ao fim do mês anterior.
+- **Inicial**: Depois de configurar, pode demorar até 24 horas para ver os dados de custo no Cloudyn. Também pode demorar até 10 dias para o Cloudyn a recolher dados suficientes para exibir as recomendações de dimensionamento.
+- **Diária**: Ao dia décimo no final de cada mês, o Cloudyn deve mostrar os dados atualizados do dia anterior depois de sobre UTC + 3 no dia seguinte.
+- **Mensal**: O primeiro dia para o décimo dia de cada mês, Cloudyn pode mostrar os seus dados apenas até ao fim do mês anterior.
 
 Cloudyn processa os dados para o dia anterior, quando os dados completos do dia anterior estão disponíveis. Dados do dia anterior estão geralmente disponíveis no Cloudyn por sobre UTC + 3 por dia. Alguns dados, como etiquetas, podem demorar um adicional de 24 horas para processar.
 

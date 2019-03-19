@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3a6fa631fdf3436dc3a76817d2c0043b0407b2ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733704"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121558"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Conceder acesso de aplicações para recursos do Azure Stack através da criação de principais de serviço
 
@@ -56,8 +56,8 @@ Os passos para atribuir um principal de serviço a uma função o mesmo para o A
 
 Se a sua pilha do Azure utiliza o Azure AD como o repositório de identidades, pode criar um serviço principal com os mesmos passos como no Azure, através do portal do Azure.
 
->[!NOTE]
-Verifique que tem o [do Azure AD permissões obrigatórias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar a criar um principal de serviço.
+> [!NOTE]
+> Verifique que tem o [do Azure AD permissões obrigatórias](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) antes de começar a criar um principal de serviço.
 
 ### <a name="create-service-principal"></a>Criar um principal de serviço
 
@@ -80,8 +80,8 @@ Quando iniciar sessão programaticamente, utilize o ID da sua aplicação e uma 
 
 4. Indique uma descrição e uma duração para a chave. Quando terminar, selecione **Guardar**.
 
->[!IMPORTANT]
-Depois de guardar a chave, a chave **valor** é apresentado. Anote este valor, porque não é possível obter a chave mais tarde. Armazene o valor da chave num local onde a aplicação o possa obter.
+> [!IMPORTANT]
+> Depois de guardar a chave, a chave **valor** é apresentado. Anote este valor, porque não é possível obter a chave mais tarde. Armazene o valor da chave num local onde a aplicação o possa obter.
 
 ![Aviso de chave-valor para a chave guardada.](./media/azure-stack-create-service-principals/image15.png)
 
@@ -101,8 +101,8 @@ Para obter detalhes sobre como criar o principal de serviço, consulte [criar pr
 
 Para acessar recursos na sua subscrição, tem de atribuir a aplicação a uma função. Decida que função representa as permissões corretas para a aplicação. Para saber mais sobre as funções disponíveis, consulte o artigo [RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md).
 
->[!NOTE]
-Pode definir o âmbito de uma função no nível de uma subscrição, um grupo de recursos ou um recurso. As permissões são herdadas para níveis inferiores de âmbito. Por exemplo, uma aplicação com a função de leitor para um grupo de recursos significa que a aplicação pode ler qualquer um dos recursos no grupo de recursos.
+> [!NOTE]
+> Pode definir o âmbito de uma função no nível de uma subscrição, um grupo de recursos ou um recurso. As permissões são herdadas para níveis inferiores de âmbito. Por exemplo, uma aplicação com a função de leitor para um grupo de recursos significa que a aplicação pode ler qualquer um dos recursos no grupo de recursos.
 
 Utilize os passos seguintes como guia para atribuir uma função a um principal de serviço.
 

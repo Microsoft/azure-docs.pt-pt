@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 91cabd6601ca8d0c0eabfdb5726d4bd6b37492a6
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216144"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118379"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utilizar o Azure Data Box para enviar dados para a camada de blob de armazenamento do Azure adequada
 
@@ -109,8 +109,8 @@ Passos seguintes descrevem como pode definir a camada de blob de arquivo com um 
     >> }
     PS C:\WINDOWS\system32>
     ```
-> [!TIP]
-> Se pretender que os dados para arquivar na ingestão, definir a camada predefinida para acesso frequente. Se a camada predefinida é útil, em seguida, há uma penalidade de eliminação antecipada de 30 dias se os dados são movidos para o arquivo imediatamente.
+   > [!TIP]
+   > Se pretender que os dados para arquivar na ingestão, definir a camada predefinida para acesso frequente. Se a camada predefinida é útil, em seguida, há uma penalidade de eliminação antecipada de 30 dias se os dados são movidos para o arquivo imediatamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

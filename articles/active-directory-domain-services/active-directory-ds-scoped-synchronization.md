@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3d13082e3c076061b8d343827266ec04ae80646
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ac11244b87c87285722b4922da69530fab98c299
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180692"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117613"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Configurar a sincronização de âmbito do Azure AD para o seu domínio gerido
 Este artigo mostra-lhe como configurar contas de usuários específicos a serem sincronizados do diretório do Azure AD ao seu domínio gerido do Azure AD Domain Services.
@@ -39,12 +39,10 @@ A tabela seguinte ajuda-o a determinar como utilizar o âmbito de sincronizaçã
 
 > [!WARNING]
 > **A alteração do âmbito de sincronização faz com que o seu domínio gerido ir até a ressincronização.**
->
- * Quando altera o escopo de sincronização para um domínio gerido, ocorre uma ressincronização completa.
- * Objetos que já não são necessárias no domínio gerido são eliminados. Novos objetos são criados no domínio gerido.
- * A ressincronização pode demorar muito tempo a concluir, consoante o número de objetos (utilizadores, grupos e associações de grupo) no seu domínio gerido e de diretório do Azure AD. Para grandes diretórios com várias centenas de milhares de objetos, a ressincronização pode demorar alguns dias.
->
->
+> 
+>  * Quando altera o escopo de sincronização para um domínio gerido, ocorre uma ressincronização completa.
+>  * Objetos que já não são necessárias no domínio gerido são eliminados. Novos objetos são criados no domínio gerido.
+>  * A ressincronização pode demorar muito tempo a concluir, consoante o número de objetos (utilizadores, grupos e associações de grupo) no seu domínio gerido e de diretório do Azure AD. Para grandes diretórios com várias centenas de milhares de objetos, a ressincronização pode demorar alguns dias.
 
 
 ## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>Criar um novo domínio gerido e ativar a sincronização âmbito com base em grupo através do portal do Azure
@@ -58,46 +56,46 @@ Utilize o PowerShell para concluir este conjunto de passos. Consulte as instruç
 Conclua os seguintes passos para configurar a sincronização de âmbito com base em grupo ao seu domínio gerido:
 
 1. Conclua as seguintes tarefas:
-  * [Tarefa 1: Instalar os módulos do PowerShell necessários](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
-  * [Tarefa 2: Criar o principal de serviço necessário no diretório do Azure AD](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
-  * [Tarefa 3: Criar e configurar o grupo "Administradores do AAD DC"](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
-  * [Tarefa 4: Registar o fornecedor de recursos do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
-  * [Tarefa 5: Criar um grupo de recursos](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
-  * [Tarefa 6: Criar e configurar a rede virtual](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
+   * [Tarefa 1: Instalar os módulos do PowerShell necessários](active-directory-ds-enable-using-powershell.md#task-1-install-the-required-powershell-modules).
+   * [Tarefa 2: Criar o principal de serviço necessário no diretório do Azure AD](active-directory-ds-enable-using-powershell.md#task-2-create-the-required-service-principal-in-your-azure-ad-directory).
+   * [Tarefa 3: Criar e configurar o grupo "Administradores do AAD DC"](active-directory-ds-enable-using-powershell.md#task-3-create-and-configure-the-aad-dc-administrators-group).
+   * [Tarefa 4: Registar o fornecedor de recursos do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-4-register-the-azure-ad-domain-services-resource-provider).
+   * [Tarefa 5: Criar um grupo de recursos](active-directory-ds-enable-using-powershell.md#task-5-create-a-resource-group).
+   * [Tarefa 6: Criar e configurar a rede virtual](active-directory-ds-enable-using-powershell.md#task-6-create-and-configure-the-virtual-network).
 
 2. Selecione os grupos que pretende sincronizar e forneça o nome a apresentar dos grupos que pretende sincronizar o domínio gerido.
 
 3. Guardar a [script na seção a seguir](active-directory-ds-scoped-synchronization.md#script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1) para um arquivo chamado ```Select-GroupsToSync.ps1```. Execute o script, conforme mostrado abaixo:
 
-  ```powershell
-  .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
-  ```
+   ```powershell
+   .\Select-GroupsToSync.ps1 -groupsToAdd @("AAD DC Administrators", "GroupName1", "GroupName2")
+   ```
 
-  > [!WARNING]
-  > **Não se esqueça de incluir o grupo "Administradores do AAD DC".**
-  >
-  > Tem de incluir o grupo "Administradores do AAD DC" na lista de grupos configurados para a sincronização de âmbito. Se não incluir este grupo, o domínio gerido ficará inutilizável.
-  >
+   > [!WARNING]
+   > **Não se esqueça de incluir o grupo "Administradores do AAD DC".**
+   >
+   > Tem de incluir o grupo "Administradores do AAD DC" na lista de grupos configurados para a sincronização de âmbito. Se não incluir este grupo, o domínio gerido ficará inutilizável.
+   >
 
 4. Agora, crie o domínio gerido e ativar a sincronização de âmbito com base em grupo para o domínio gerido. Incluir a propriedade ```"filteredSync" = "Enabled"``` no ```Properties``` parâmetro. Por exemplo, consulte o seguinte fragmento de script, copiado do [Tarefa 7: Aprovisionar o domínio gerido do Azure AD Domain Services](active-directory-ds-enable-using-powershell.md#task-7-provision-the-azure-ad-domain-services-managed-domain).
 
-  ```powershell
-  $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-  $ManagedDomainName = "contoso100.com"
-  $ResourceGroupName = "ContosoAaddsRg"
-  $VnetName = "DomainServicesVNet_WUS"
-  $AzureLocation = "westus"
+   ```powershell
+   $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
+   $ManagedDomainName = "contoso100.com"
+   $ResourceGroupName = "ContosoAaddsRg"
+   $VnetName = "DomainServicesVNet_WUS"
+   $AzureLocation = "westus"
 
-  # Enable Azure AD Domain Services for the directory.
-  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
-  -Location $AzureLocation `
-  -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
+   # Enable Azure AD Domain Services for the directory.
+   New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+   -Location $AzureLocation `
+   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
-  -ApiVersion 2017-06-01 -Force -Verbose
-  ```
+   -ApiVersion 2017-06-01 -Force -Verbose
+   ```
 
-  > [!TIP]
-  > Não se esqueça de incluir ```"filteredSync" = "Enabled"``` no ```-Properties``` parâmetro, para que o âmbito de sincronização está ativada para o domínio gerido.
+   > [!TIP]
+   > Não se esqueça de incluir ```"filteredSync" = "Enabled"``` no ```-Properties``` parâmetro, para que o âmbito de sincronização está ativada para o domínio gerido.
 
 
 ## <a name="script-to-select-groups-to-synchronize-to-the-managed-domain-select-groupstosyncps1"></a>Script para selecionar grupos para sincronizar com o domínio gerido (Select-GroupsToSync.ps1)

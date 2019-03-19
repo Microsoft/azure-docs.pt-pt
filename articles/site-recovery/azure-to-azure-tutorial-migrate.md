@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0ea0c00924c41216232522cf62d8f33dd38cec9e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7619b8831d75ce639c6f6c773c7c7d491abc93e7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122034"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -24,13 +24,13 @@ Pode utilizar o [do Azure Site Recovery](site-recovery-overview.md) serviço par
 Neste tutorial, irá:
 
 > [!div class="checklist"]
-
+> 
 > * Certifique-se de pré-requisitos para a migração
 > * Preparar as VMs de origem e a região de destino
 > * Copie os dados e ativar a replicação
 > * Testar a configuração e efetuar a mudança
 > * Eliminar os recursos na região de origem
-
+> 
 > [!NOTE]
 > Este tutorial mostra como mover VMs do Azure de uma região para outro como está. Se precisar de melhorar a disponibilidade ao mover as VMs no conjunto de disponibilidade para a zona afixado VMs numa região diferente, consulte a [mover as VMs do Azure para o tutorial de zonas de disponibilidade](move-azure-vms-avset-azone.md).
 
@@ -72,9 +72,9 @@ Neste tutorial, irá:
 
      Para criar mais comumente usado os recursos de rede que são relevantes para si com base na configuração da VM de origem, consulte a seguinte documentação:
 
-    - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [IP público](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+   - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [IP público](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
      Para outros componentes de rede, consulte a [documentação de rede](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
@@ -106,7 +106,7 @@ O site Recovery obtém uma lista de VMs que estão associadas a subscrição e g
 1. Para este tutorial, aceite as outras predefinições.
 1. Selecione **ativar a replicação**. Este passo inicia uma tarefa para ativar a replicação para a VM.
 
-    ![Ativar replicação](media/tutorial-migrate-azure-to-azure/settings.png)
+    ![Ativar a replicação](media/tutorial-migrate-azure-to-azure/settings.png)
 
 ## <a name="test-the-configuration"></a>Testar a configuração
 
