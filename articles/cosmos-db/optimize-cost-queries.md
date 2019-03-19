@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e6814224827aac0da9c6faf5108ecf585bae7c35
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 80c9cd91efd14e3d4b4214bde089f73692568f76
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445386"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57840193"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo de consulta no Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Consultas de leitura de dados de um ou mais partições incorrem latência super
 
 Depois de ter armazenados alguns dados em seus contentores do Cosmos do Azure, pode utilizar o Data Explorer no portal do Azure para construir e execute as suas consultas. Também pode obter o custo das consultas ao utilizar o data explorer. Este método irá dar-lhe uma noção dos custos reais envolvidos com consultas típicas e operações que suporta o seu sistema.
 
-Também pode obter o custo de consultas através de programação através de SDKs. Para medir a sobrecarga de qualquer operação, tais como criar, atualizar ou eliminar inspecionar o `x-ms-request-charge` cabeçalho ao utilizar a REST API. Se estiver a utilizar o .net ou o SDK de Java, o `RequestCharge` propriedade é a propriedade equivalente para obter os encargos de pedidos e esta propriedade está presente na ResourceResponse ou FeedResponse.
+Também pode obter o custo de consultas através de programação através de SDKs. Para medir a sobrecarga de qualquer operação, tais como criar, atualizar ou eliminar inspecionar o `x-ms-request-charge` cabeçalho ao utilizar a REST API. Se estiver a utilizar o .NET ou o SDK de Java, o `RequestCharge` propriedade é a propriedade equivalente para obter os encargos de pedidos e esta propriedade está presente na ResourceResponse ou FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -59,7 +59,7 @@ Em alguns casos, pode ver uma seqüência de 200 429 respostas e unidades de ped
 
 ## <a name="metrics-for-troubleshooting"></a>Métricas para resolução de problemas
 
-O desempenho e o débito consumido por consultas, funções definidas pelo utilizador (UDFs) principalmente depende para o corpo da função. É a maneira mais fácil para descobrir de quanto tempo é gasto a execução da consulta a UDF e o número de RUs consumidos, ao ativar as métricas de consulta. Se utilizar o SDK do .net, aqui estão as métricas de consulta de exemplo retornadas pelo SDK:
+O desempenho e o débito consumido por consultas, funções definidas pelo utilizador (UDFs) principalmente depende para o corpo da função. É a maneira mais fácil para descobrir de quanto tempo é gasto a execução da consulta a UDF e o número de RUs consumidos, ao ativar as métricas de consulta. Se utilizar o SDK de .NET, aqui estão as métricas de consulta de exemplo retornadas pelo SDK:
 
 ```bash
 Retrieved Document Count                 :               1              

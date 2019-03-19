@@ -12,7 +12,7 @@ ms.service: cost-management
 manager: benshy
 ms.openlocfilehash: 22000d92ff46d8ccb7b85e75b415b9d05784c16f
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58095947"

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: bec1632199e59994831efe4af583617b01374c53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7e422825c6aa66b14f07f1e52bdd828971ad5eb8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012367"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como utilizar o Armazenamento de filas do Java
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -397,9 +397,9 @@ Agora que aprendeu as noções básicas do armazenamento de filas, siga estas li
 * [REST API dos serviços do armazenamento do Azure][Azure Storage Services REST API]
 * [Azure Storage Team Blog][Azure Storage Team Blog] (Blogue da Equipa do Armazenamento do Azure)
 
-[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Azure Storage Client SDK Reference]: http://dl.windowsazure.com/storage/javadoc/ (Referência do SDK do Cliente do Armazenamento do Azure)
 [Azure Storage Services REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
